@@ -4,7 +4,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { AppError, seed, validateState } from './state.mjs';
 import { createCatalog } from './catalog.mjs';
-import { migrateEntities, readEntities, writeEntities, joinState } from './entities.mjs';
+import { migrateEntities, readEntities, writeEntities, joinState, contextIds, createGame, selectGame, listGames } from './entities.mjs';
 
 export function openStore(filename) {
   if (filename !== ':memory:') mkdirSync(path.dirname(filename), { recursive: true });
@@ -26,40 +26,73 @@ export function openStore(filename) {
     db.close(); throw new Error('Версия базы не поддерживается. Нужна миграция; база не изменена.');
   }
   try { migrateEntities(db); } catch (error) { db.close(); throw error; }
+  db.exec(`CREATE TABLE IF NOT EXISTS context_changes (
+    mutation_id TEXT PRIMARY KEY REFERENCES changes(mutation_id),
+    operation TEXT NOT NULL, before_json TEXT NOT NULL, after_json TEXT NOT NULL
+  )`);
   function read() {
     const context = readEntities(db);
-    return { schemaVersion: 1, revision: context.revision, updatedAt: context.updatedAt,
+    return { schemaVersion: 1, revision: context.revision, updatedAt: context.updatedAt, context: contextIds(context),
       state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
   }
   function update(request) {
-    const { mutationId, expectedRevision, label } = request;
+    const next = validateState(request.state);
+    const { expectedRevision, label } = request;
+    const hash = createHash('sha256').update(JSON.stringify({ expectedRevision, label, state: next })).digest('hex');
+    return mutate(request, hash, label, () => { writeEntities(db, next); return next; });
+  }
+  function mutate(request, hash, label, apply, operation) {
+    const { mutationId, expectedRevision } = request;
     if (typeof mutationId !== 'string' || !/^[a-zA-Z0-9-]{8,80}$/.test(mutationId)) throw new AppError(400, 'Нужен идентификатор изменения');
     if (!Number.isSafeInteger(expectedRevision) || expectedRevision < 0) throw new AppError(400, 'Нужна версия состояния');
     if (typeof label !== 'string' || !label.trim() || label.length > 200) throw new AppError(400, 'Нужно описание изменения');
-    const next = validateState(request.state);
-    const hash = createHash('sha256').update(JSON.stringify({ expectedRevision, label, state: next })).digest('hex');
     db.exec('BEGIN IMMEDIATE');
     try {
       const previous = db.prepare('SELECT request_hash FROM changes WHERE mutation_id=?').get(mutationId);
       if (previous) {
         if (previous.request_hash !== hash) throw new AppError(409, 'Идентификатор уже использован для другого изменения');
+        const receipt = db.prepare('SELECT after_json FROM context_changes WHERE mutation_id=?').get(mutationId);
+        const response = { ...read(), replayed: true, ...(receipt ? { affectedContext: JSON.parse(receipt.after_json) } : {}) };
         db.exec('COMMIT');
-        return { ...read(), replayed: true };
+        return response;
       }
       const current = read();
       if (current.revision !== expectedRevision) throw new AppError(409, 'Данные изменились в другой вкладке. Загрузи актуальную версию.');
       const now = new Date().toISOString();
       const revision = current.revision + 1;
+      const next = apply();
       db.prepare('INSERT INTO changes VALUES (?, ?, ?, ?, ?, ?, ?)').run(mutationId, revision, hash, label, JSON.stringify(current.state), JSON.stringify(next), now);
       db.prepare('UPDATE workspace SET revision=?, state_json=?, updated_at=? WHERE id=1').run(revision, JSON.stringify(next), now);
-      writeEntities(db, next);
+      const affectedContext = contextIds(readEntities(db));
+      if (operation) db.prepare('INSERT INTO context_changes VALUES (?, ?, ?, ?)').run(mutationId, operation, JSON.stringify(current.context), JSON.stringify(affectedContext));
+      const response = { ...read(), ...(operation ? { affectedContext } : {}) };
       db.exec('COMMIT');
-      return read();
+      return response;
     } catch (error) { db.exec('ROLLBACK'); throw error; }
+  }
+  function gameCommand(operation, request) {
+    const allowed = operation === 'create' ? ['mutationId', 'expectedRevision', 'state'] : ['mutationId', 'expectedRevision', 'context'];
+    if (!request || typeof request !== 'object' || Array.isArray(request) || Object.keys(request).some(key => !allowed.includes(key))) throw new AppError(400, 'Неверные поля команды');
+    let payload;
+    if (operation === 'create') payload = validateState(request.state);
+    else {
+      const ids = request.context;
+      const keys = ['campaignId', 'characterId', 'sessionId'];
+      if (!ids || typeof ids !== 'object' || Array.isArray(ids) || Object.keys(ids).length !== 3 || keys.some(key => typeof ids[key] !== 'string' || !/^[a-zA-Z0-9-]{1,80}$/.test(ids[key]))) throw new AppError(400, 'Нужны ID кампании, персонажа и сессии');
+      payload = Object.fromEntries(keys.map(key => [key, ids[key]]));
+    }
+    const hash = createHash('sha256').update(JSON.stringify({ operation, expectedRevision: request.expectedRevision, payload })).digest('hex');
+    return mutate(request, hash, operation === 'create' ? 'Создание кампании' : 'Переключение игры', () => {
+      if (operation === 'create') createGame(db, payload); else selectGame(db, payload);
+      return read().state;
+    }, operation);
   }
   return {
     catalog: createCatalog(db),
     context: () => readEntities(db),
+    campaigns: () => listGames(db),
+    createCampaign: request => gameCommand('create', request),
+    selectContext: request => gameCommand('select', request),
     read, update,
     history: () => db.prepare('SELECT revision, label, created_at AS createdAt FROM changes ORDER BY revision DESC LIMIT 50').all(),
     backup: destination => backup(db, destination),

@@ -98,3 +98,30 @@ test('entity write failure rolls back all progress and unrelated campaigns remai
     assert.equal(store.context().character.data.hp, 3);
   } finally { db.close(); store.close(); }
 });
+
+test('campaign command rolls back partial creation and persists receipts across reopen', async t => {
+  const filename = await fixture(t);
+  let store = openStore(filename);
+  const db = new DatabaseSync(filename);
+  try {
+    const first = store.read();
+    const request = { mutationId: randomUUID(), expectedRevision: 0, state: { ...seed, gold: 12 } };
+    db.exec("CREATE TRIGGER reject_new_session BEFORE INSERT ON sessions BEGIN SELECT RAISE(ABORT, 'test create fault'); END");
+    assert.throws(() => store.createCampaign(request), /test create fault/);
+    assert.equal(store.campaigns().length, 1);
+    assert.equal(db.prepare('SELECT count(*) AS n FROM characters').get().n, 1);
+    assert.deepEqual(store.read(), first);
+    assert.equal(store.history().length, 0);
+    db.exec('DROP TRIGGER reject_new_session');
+    const created = store.createCampaign(request);
+    store.close(); store = openStore(filename);
+    const { affectedContext, ...workspace } = created;
+    assert.deepEqual(store.read(), workspace);
+    assert.deepEqual(affectedContext, created.context);
+    const replay = store.createCampaign(request);
+    assert.equal(replay.replayed, true);
+    assert.deepEqual(replay.affectedContext, created.context);
+    store.selectContext({ mutationId: randomUUID(), expectedRevision: 1, context: first.context });
+    assert.deepEqual(store.read().state, first.state);
+  } finally { db.close(); store.close(); }
+});

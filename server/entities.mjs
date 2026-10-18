@@ -1,5 +1,39 @@
 import { randomUUID } from 'node:crypto';
-import { validateState } from './state.mjs';
+import { AppError, validateState } from './state.mjs';
+
+export function contextIds(context) {
+  return { campaignId: context.campaign.id, characterId: context.character.id, sessionId: context.session.id };
+}
+
+// The caller owns the transaction. Creation deliberately requires an explicit
+// validated state, rather than silently cloning the currently active adventure.
+export function createGame(db, state) {
+  const parts = splitState(state);
+  const ids = { campaignId: randomUUID(), characterId: randomUUID(), sessionId: randomUUID() };
+  db.prepare('INSERT INTO campaigns VALUES (?, ?, ?)').run(ids.campaignId, '5e-2014', JSON.stringify(parts.campaign));
+  db.prepare('INSERT INTO characters VALUES (?, ?, ?)').run(ids.characterId, ids.campaignId, JSON.stringify(parts.character));
+  db.prepare('INSERT INTO sessions VALUES (?, ?, ?)').run(ids.sessionId, ids.campaignId, JSON.stringify(parts.session));
+  selectGame(db, ids);
+  return ids;
+}
+
+export function selectGame(db, ids) {
+  const found = db.prepare(`SELECT c.id FROM campaigns c
+    JOIN characters h ON h.campaign_id=c.id AND h.id=?
+    JOIN sessions s ON s.campaign_id=c.id AND s.id=? WHERE c.id=?`).get(ids.characterId, ids.sessionId, ids.campaignId);
+  if (!found) throw new AppError(404, 'Кампания, персонаж или сессия не найдены в одной игре');
+  db.prepare('UPDATE active_context SET campaign_id=?, character_id=?, session_id=? WHERE id=1').run(ids.campaignId, ids.characterId, ids.sessionId);
+}
+
+export function listGames(db) {
+  return db.prepare(`SELECT c.id, c.ruleset, c.data_json,
+    (SELECT json_group_array(json_object('id', h.id, 'name', json_extract(h.data_json, '$.name'))) FROM characters h WHERE h.campaign_id=c.id) AS characters,
+    (SELECT json_group_array(json_object('id', s.id)) FROM sessions s WHERE s.campaign_id=c.id) AS sessions
+    FROM campaigns c ORDER BY c.rowid`).all().map(row => ({
+      id: row.id, name: JSON.parse(row.data_json).name, ruleset: row.ruleset,
+      characters: JSON.parse(row.characters), sessions: JSON.parse(row.sessions),
+    }));
+}
 
 // Format of the existing HTTP workspace remains v1; database layout is now v2.
 export function splitState(input) {

@@ -40,14 +40,16 @@ export function createApp(store) {
           if (pathname === '/api/catalog/coverage') return json(response, 200, store.catalog.coverage());
           if (pathname === '/api/workspace') return json(response, 200, store.read());
           if (pathname === '/api/context') return json(response, 200, store.context());
+          if (pathname === '/api/campaigns') return json(response, 200, { campaigns: store.campaigns() });
           if (pathname === '/api/history') return json(response, 200, { changes: store.history() });
           if (pathname === '/api/export') return json(response, 200, { app: 'skaz', ...store.read() }, { 'Content-Disposition': 'attachment; filename="skaz-backup.json"' });
         }
-        if (pathname === '/api/workspace' && request.method === 'PUT') {
+        if ((pathname === '/api/workspace' && request.method === 'PUT') || (['/api/campaigns', '/api/context/select'].includes(pathname) && request.method === 'POST')) {
           if (request.headers['x-skaz-client'] !== 'local-v1') throw new AppError(403, 'Запрос должен исходить из приложения');
           const data = await body(request);
           if (!data || typeof data !== 'object' || Array.isArray(data)) throw new AppError(400, 'Неверный запрос');
-          return json(response, 200, store.update(data));
+          const result = pathname === '/api/campaigns' ? store.createCampaign(data) : pathname === '/api/context/select' ? store.selectContext(data) : store.update(data);
+          return json(response, 200, result);
         }
         return json(response, 404, { error: 'Неизвестный метод API' });
       }
