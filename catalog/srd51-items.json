@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:item:potion-of-healing",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Зелье лечения",
+        "en": "Potion of Healing"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=234",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 234, таблица Potions of Healing.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗелье; редкость: обычная; настройка не требуется. Выпивший восстанавливает 2d4 + 2 хитов. Красная жидкость мерцает при встряхивании.\nЭто конкретный вариант из таблицы зелий лечения; другие варианты имеют отдельные записи.",
+      "links": [],
+      "item": {
+        "type": "potion",
+        "rarity": "common",
+        "attunement": false,
+        "healing": {
+          "diceCount": 2,
+          "diceSides": 4,
+          "bonus": 2
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:potion-of-greater-healing",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Зелье большого лечения",
+        "en": "Potion of Greater Healing"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=234",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 234, таблица Potions of Healing.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗелье; редкость: необычная; настройка не требуется. Выпивший восстанавливает 4d4 + 4 хитов. Красная жидкость мерцает при встряхивании.\nЭто конкретный вариант из таблицы зелий лечения; другие варианты имеют отдельные записи.",
+      "links": [],
+      "item": {
+        "type": "potion",
+        "rarity": "uncommon",
+        "attunement": false,
+        "healing": {
+          "diceCount": 4,
+          "diceSides": 4,
+          "bonus": 4
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:potion-of-superior-healing",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Зелье отличного лечения",
+        "en": "Potion of Superior Healing"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=234",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 234, таблица Potions of Healing.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗелье; редкость: редкая; настройка не требуется. Выпивший восстанавливает 8d4 + 8 хитов. Красная жидкость мерцает при встряхивании.\nЭто конкретный вариант из таблицы зелий лечения; другие варианты имеют отдельные записи.",
+      "links": [],
+      "item": {
+        "type": "potion",
+        "rarity": "rare",
+        "attunement": false,
+        "healing": {
+          "diceCount": 8,
+          "diceSides": 4,
+          "bonus": 8
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:potion-of-supreme-healing",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Зелье превосходного лечения",
+        "en": "Potion of Supreme Healing"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=234",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 234, таблица Potions of Healing.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗелье; редкость: очень редкая; настройка не требуется. Выпивший восстанавливает 10d4 + 20 хитов. Красная жидкость мерцает при встряхивании.\nЭто конкретный вариант из таблицы зелий лечения; другие варианты имеют отдельные записи.",
+      "links": [],
+      "item": {
+        "type": "potion",
+        "rarity": "very-rare",
+        "attunement": false,
+        "healing": {
+          "diceCount": 10,
+          "diceSides": 4,
+          "bonus": 20
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-protection",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Плащ защиты",
+        "en": "Cloak of Protection"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=214",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 214.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЧудесный предмет, необычный; требуется настройка. При ношении даёт +1 к КД и спасброскам. Бонусы пока не применяются к листу автоматически.",
+      "links": [],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": true
+      }
+    }
+  ]
+}
