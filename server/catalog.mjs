@@ -21,28 +21,43 @@ function url(value) {
   if (parsed.hostname === 'next.dnd.su') fail('Источник относится к редакции 2024');
   return parsed.href;
 }
+function spell(value) {
+  object(value, ['level', 'school', 'castingTime', 'range', 'components', 'duration', 'concentration', 'ritual']);
+  if (!Number.isInteger(value.level) || value.level < 0 || value.level > 9) fail('Уровень заклинания: целое 0–9');
+  if (!['abjuration', 'conjuration', 'divination', 'enchantment', 'evocation', 'illusion', 'necromancy', 'transmutation'].includes(value.school)) fail('Неизвестная школа');
+  object(value.range, ['type', 'feet']);
+  if (!['self', 'touch', 'feet', 'sight', 'unlimited', 'special'].includes(value.range.type)) fail('Неизвестная дистанция');
+  if (value.range.type === 'feet' ? (!Number.isSafeInteger(value.range.feet) || value.range.feet <= 0 || value.range.feet > 10000000) : value.range.feet !== undefined) fail('Неверная дистанция в футах');
+  if (!Array.isArray(value.components) || !value.components.length || value.components.some(c => !['V', 'S', 'M'].includes(c)) || new Set(value.components).size !== value.components.length) fail('Неверные компоненты');
+  if (typeof value.concentration !== 'boolean' || typeof value.ritual !== 'boolean') fail('Нужны логические признаки концентрации и ритуала');
+  return { level: value.level, school: value.school, castingTime: text(value.castingTime), range: { type: value.range.type, ...(value.range.type === 'feet' ? { feet: value.range.feet } : {}) }, components: [...value.components].sort(), duration: text(value.duration), concentration: value.concentration, ritual: value.ritual };
+}
 export function validateCatalog(bundle) {
   object(bundle, ['schemaVersion', 'entries']);
   if (bundle.schemaVersion !== 1 || !Array.isArray(bundle.entries) || bundle.entries.length > 1000 || !bundle.entries.length) fail('Ожидается пакет версии 1: от 1 до 1000 записей');
   const ids = new Set();
   return bundle.entries.map(entry => {
-    object(entry, ['id', 'ruleset', 'kind', 'name', 'source', 'text', 'links']);
+    object(entry, ['id', 'ruleset', 'kind', 'name', 'source', 'text', 'links', 'spell']);
     const entryId = id(entry.id);
     if (ids.has(entryId)) fail(`Повтор ID: ${entryId}`);
     ids.add(entryId);
     if (entry.ruleset !== '5e-2014' || !kinds.includes(entry.kind)) fail('Нужны категория и редакция 5e-2014');
     object(entry.name, ['ru', 'en']);
-    object(entry.source, ['url', 'title', 'version', 'usage', 'terms']);
-    if (!['reference-only', 'personal'].includes(entry.source.usage)) fail('Неизвестный режим использования');
-    if (entry.source.usage === 'reference-only' && entry.text !== undefined) fail('Справочная ссылка не должна содержать копию текста');
+    object(entry.source, ['url', 'title', 'version', 'usage', 'terms', 'attribution', 'changes']);
+    if (!['reference-only', 'personal', 'cc-by-4.0'].includes(entry.source.usage)) fail('Неизвестный режим использования');
+    if (entry.source.usage === 'reference-only' && (entry.text !== undefined || entry.spell !== undefined)) fail('Справочная ссылка не должна содержать копию текста или характеристики');
+    if (entry.spell !== undefined && entry.kind !== 'spell') fail('Характеристики заклинания допустимы только для spell');
+    const license = entry.source.usage === 'cc-by-4.0' ? { attribution: text(entry.source.attribution, 2000), changes: text(entry.source.changes, 2000) } : {};
+    if (entry.source.usage !== 'cc-by-4.0' && (entry.source.attribution !== undefined || entry.source.changes !== undefined)) fail('Атрибуция CC допускается только для cc-by-4.0');
     if (!Array.isArray(entry.links) || entry.links.length > 100) fail('Неверный список связей');
     const links = entry.links.map(id).sort();
     if (new Set(links).size !== links.length || links.includes(entryId)) fail('Повторная связь или ссылка на себя');
     return {
       id: entryId, ruleset: '5e-2014', kind: entry.kind,
       name: { ru: text(entry.name.ru), en: text(entry.name.en) },
-      source: { url: url(entry.source.url), title: text(entry.source.title), version: text(entry.source.version), usage: entry.source.usage, terms: text(entry.source.terms, 2000) },
+      source: { url: url(entry.source.url), title: text(entry.source.title), version: text(entry.source.version), usage: entry.source.usage, terms: text(entry.source.terms, 2000), ...license },
       ...(entry.text === undefined ? {} : { text: text(entry.text, 20000) }), links,
+      ...(entry.spell === undefined ? {} : { spell: spell(entry.spell) }),
     };
   });
 }
@@ -91,7 +106,9 @@ export function createCatalog(db) {
       categories: Object.fromEntries(kinds.map(kind => [kind, entries.filter(entry => entry.kind === kind).length])),
       referenceOnly: entries.filter(entry => entry.source.usage === 'reference-only').length,
       personal: entries.filter(entry => entry.source.usage === 'personal').length,
-      gaps: ['Полная база не загружена; общее количество материалов не установлено.', 'Структурированные характеристики и связь с листом пока не реализованы.'] };
+      openlyLicensed: entries.filter(entry => entry.source.usage === 'cc-by-4.0').length,
+      structuredSpells: entries.filter(entry => entry.spell !== undefined).length,
+      gaps: ['Полная база не загружена; общее количество материалов не установлено.', 'Структура заклинаний содержит только основные поля; эффекты, классы и материальные компоненты остаются в тексте. Схемы остальных категорий и связь с листом пока не реализованы.'] };
   }
   return { importEntries, search, coverage };
 }

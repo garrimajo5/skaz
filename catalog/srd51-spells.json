@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:cure-wounds",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Лечение ран",
+        "en": "Cure Wounds"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=132",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 132–133.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1 · Воплощение. 1 действие. Дистанция: касание. Компоненты: V, S. Длительность: мгновенная.\nПрикосновение восстанавливает существу 1d8 + модификатор заклинательной характеристики хитов. Нежить и конструкты не затрагиваются. Ячейка выше 1-го уровня добавляет 1d8 лечения за каждый дополнительный уровень.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенная",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:healing-word",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Лечащее слово",
+        "en": "Healing Word"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=153",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 153.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1 · Воплощение. 1 бонусное действие. Дистанция: 60 футов. Компоненты: V. Длительность: мгновенная.\nВыбранное видимое существо в пределах дистанции восстанавливает 1d4 + модификатор заклинательной характеристики хитов. Нежить и конструкты не затрагиваются. Ячейка выше 1-го уровня добавляет 1d4 лечения за каждый дополнительный уровень.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "evocation",
+        "castingTime": "1 бонусное действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "V"
+        ],
+        "duration": "Мгновенная",
+        "concentration": false,
+        "ritual": false
+      }
+    }
+  ]
+}

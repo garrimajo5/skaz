@@ -27,6 +27,18 @@ function respond(request, payload) { request.resolve({ ok: true, json: async () 
 const entry = { kind: 'mechanic', name: { ru: '<img src=x onerror=alert(1)>', en: 'Test' }, source: { title: 'Fixture', usage: 'personal', url: 'javascript:alert(1)', version: '1', terms: '<script>unsafe</script>' }, text: '<b>plain text</b>' };
 const coverage = { total: 1, referenceOnly: 0, personal: 1 };
 
+test('CC material shows license, escaped attribution and translation changes', async () => {
+  const h = harness(); h.submit('');
+  const licensed = { ...entry, source: { ...entry.source, usage: 'cc-by-4.0', attribution: '<b>Author</b>', changes: '<script>Translation</script>' } };
+  respond(h.requests[0], { entries: [licensed], total: 1 }); respond(h.requests[1], { ...coverage, personal: 0, openlyLicensed: 1 });
+  await settle(); h.detail();
+  assert.match(h.region.innerHTML, /Открытый материал · CC BY 4.0/);
+  assert.match(h.view(), /CC BY 4.0: 1/);
+  assert.match(h.dialog(), /&lt;b&gt;Author/);
+  assert.match(h.dialog(), /&lt;script&gt;Translation/);
+  assert.doesNotMatch(h.dialog(), /<script>|Личный импорт|Только ссылка/);
+});
+
 test('late catalog responses cannot replace newer search results', async () => {
   const h = harness(); h.submit('old'); h.submit('new');
   respond(h.requests[2], { entries: [entry], total: 1 }); respond(h.requests[3], coverage);

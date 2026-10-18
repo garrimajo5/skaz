@@ -2,8 +2,52 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { openStore } from '../server/store.mjs';
 import { createApp } from '../server/app.mjs';
+import { readFileSync } from 'node:fs';
+const srd = JSON.parse(readFileSync(new URL('../catalog/srd51-spells.json', import.meta.url), 'utf8'));
 const entry = (id = 'personal:test') => ({ id, ruleset: '5e-2014', kind: 'mechanic', name: { ru: 'Тестовая механика', en: 'Test mechanic' }, source: { url: 'https://example.com/rules', title: 'Test fixture', version: '1', usage: 'personal', terms: 'Synthetic test data' }, text: 'Synthetic fixture only', links: [] });
 const bundle = (...entries) => ({ schemaVersion: 1, entries });
+
+test('checked SRD subset imports repeatedly without touching progress and preserves provenance', () => {
+  const store = openStore(':memory:');
+  try {
+    const before = store.read();
+    assert.equal(store.catalog.importEntries(srd).added, 2);
+    assert.equal(store.catalog.coverage().total, 0);
+    assert.equal(store.catalog.importEntries(srd, { apply: true }).added, 2);
+    const reordered = structuredClone(srd);
+    reordered.entries.reverse();
+    reordered.entries.forEach(e => e.spell.components.reverse());
+    assert.equal(store.catalog.importEntries(reordered, { apply: true }).unchanged, 2);
+    assert.deepEqual(store.read(), before);
+    const found = store.catalog.search(new URLSearchParams({ q: 'Healing Word' })).entries[0];
+    assert.equal(found.spell.range.feet, 60);
+    assert.match(found.source.attribution, /Wizards of the Coast LLC/);
+    assert.match(found.source.changes, /не официальный перевод/);
+    assert.equal(store.catalog.coverage().openlyLicensed, 2);
+    assert.equal(store.catalog.coverage().structuredSpells, 2);
+    assert.equal(store.catalog.coverage().complete, false);
+  } finally { store.close(); }
+});
+
+test('invalid spell numbers, enums, licensing and cross-kind fields reject the whole batch', () => {
+  const store = openStore(':memory:');
+  try {
+    const mutations = [
+      e => e.spell.level = '1', e => e.spell.level = -1, e => e.spell.level = 10,
+      e => e.spell.level = 1.5, e => e.spell.range = { type: 'feet', feet: 0 },
+      e => e.spell.range = { type: 'feet', feet: Infinity }, e => e.spell.range = { type: 'touch', feet: 5 },
+      e => e.spell.components = ['V', 'V'], e => e.spell.school = 'unknown',
+      e => e.spell.ritual = 'false', e => e.spell.damage = 4,
+      e => e.kind = 'monster', e => delete e.source.attribution, e => delete e.source.changes,
+      e => e.source.usage = 'reference-only',
+    ];
+    for (const mutate of mutations) {
+      const bad = structuredClone(srd.entries[0]); mutate(bad);
+      assert.throws(() => store.catalog.importEntries(bundle(srd.entries[1], bad), { apply: true }), { status: 422 });
+      assert.equal(store.catalog.coverage().total, 0);
+    }
+  } finally { store.close(); }
+});
 
 test('catalog preview, replay, conflict and broken links are atomic', () => {
   const store = openStore(':memory:');
