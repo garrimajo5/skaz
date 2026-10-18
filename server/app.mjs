@@ -36,6 +36,8 @@ export function createApp(store) {
       if (pathname.startsWith('/api/')) {
         if (request.method === 'GET') {
           if (pathname === '/api/health') return json(response, 200, { status: 'ok', mode: 'local', storage: 'sqlite' });
+          if (pathname === '/api/catalog') return json(response, 200, store.catalog.search(new URL(request.url, `http://${host}`).searchParams));
+          if (pathname === '/api/catalog/coverage') return json(response, 200, store.catalog.coverage());
           if (pathname === '/api/workspace') return json(response, 200, store.read());
           if (pathname === '/api/history') return json(response, 200, { changes: store.history() });
           if (pathname === '/api/export') return json(response, 200, { app: 'skaz', ...store.read() }, { 'Content-Disposition': 'attachment; filename="skaz-backup.json"' });

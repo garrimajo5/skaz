@@ -23,7 +23,10 @@ test('progress survives closing and reopening the database', async () => {
     state.notes.push({ title: 'Запись', text: 'Маяк на севере', at: 100, time: '00:01' });
     state.mapNotes.push({ place: 'lighthouse', text: 'Следы на лестнице' });
     store.update(mutation(state));
+    store.catalog.importEntries({ schemaVersion: 1, entries: [{ id: 'test:reference', ruleset: '5e-2014', kind: 'mechanic', name: { ru: 'Тест', en: 'Test' }, source: { url: 'https://example.com/', title: 'Fixture', version: '1', usage: 'reference-only', terms: 'Synthetic fixture' }, links: [] }] }, { apply: true });
     store.close(); store = openStore(filename);
+    assert.equal(store.catalog.coverage().total, 1);
+    assert.equal(store.catalog.search().entries[0].id, 'test:reference');
     assert.deepEqual(store.read().state, state);
     assert.equal(store.read().revision, 1);
     assert.equal(store.history().length, 1);

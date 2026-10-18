@@ -3,6 +3,7 @@ import { mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { AppError, seed, validateState } from './state.mjs';
+import { createCatalog } from './catalog.mjs';
 
 export function openStore(filename) {
   if (filename !== ':memory:') mkdirSync(path.dirname(filename), { recursive: true });
@@ -53,6 +54,7 @@ export function openStore(filename) {
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
   return {
+    catalog: createCatalog(db),
     read, update,
     history: () => db.prepare('SELECT revision, label, created_at AS createdAt FROM changes ORDER BY revision DESC LIMIT 50').all(),
     backup: destination => backup(db, destination),
