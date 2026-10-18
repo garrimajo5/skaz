@@ -34,7 +34,9 @@ export function openStore(filename) {
   )`);
   function read() {
     const context = readEntities(db);
+    const session = readSession(db, context.session.id);
     return { schemaVersion: 1, revision: context.revision, updatedAt: context.updatedAt, context: contextIds(context),
+      session: { name: session.name, playedOn: session.playedOn },
       state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
   }
   function update(request) {

@@ -10,6 +10,7 @@ const SkazStorage = (() => {
   let status = demo ? 'demo' : 'loading';
   let revision = 0;
   let activeContext = null;
+  let sessionInfo = null;
   let pending = null;
   let message = '';
   let draftStored = true;
@@ -36,9 +37,10 @@ const SkazStorage = (() => {
       conflict: 'Другая вкладка уже изменила данные',
     };
     box.dataset.status = status;
-    box.innerHTML = `<span><span class="sync-dot"></span>${labels[status]}${message ? `<small>${esc(message)}</small>` : ''}</span><div>${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="campaign-settings">Кампании</button><button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
+    box.innerHTML = `<span><span class="sync-dot"></span>${labels[status]}${message ? `<small>${esc(message)}</small>` : ''}</span><div>${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button><button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
   }
   function apply(payload) {
+    sessionInfo = payload.session || null;
     adoptContext(payload.context);
     revision = payload.revision;
     state = { ...payload.state, theme: state.theme };
@@ -50,6 +52,7 @@ const SkazStorage = (() => {
       const payload = await request('/api/workspace');
       if (payload.schemaVersion !== 1 || !payload.state) throw new Error('Неподдерживаемая версия сервера');
       revision = payload.revision;
+      sessionInfo = payload.session || null;
       adoptContext(payload.context);
       state = { ...payload.state, theme: state.theme };
       try { pending = JSON.parse(localStorage.getItem(pendingKey) || 'null'); } catch { pending = null; }
@@ -61,7 +64,7 @@ const SkazStorage = (() => {
     status = 'saving'; message = ''; paint();
     try {
       const { operation, ...body } = pending;
-      const url = operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
+      const url = operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
       const payload = await request(url, { method: operation ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body: JSON.stringify(body) });
       apply(payload);
       return payload;
@@ -103,7 +106,7 @@ const SkazStorage = (() => {
     rememberDraft();
     closeModal();
     const payload = await sendPending();
-    toast('Активна кампания: ' + payload.state.profile.campaign);
+    toast(operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
     return payload;
   }
   async function campaigns() {
@@ -130,6 +133,33 @@ const SkazStorage = (() => {
       };
     } catch { modal('<h2>Не удалось загрузить кампании</h2><p>Проверь соединение и открой список снова.</p>'); }
   }
+  function sessionTitle() { return sessionInfo?.name || (demo ? 'Демонстрационная сессия' : 'Сессия без названия'); }
+  async function sessions() {
+    if (demo || status !== 'ready' || !activeContext) return toast('Сессии доступны после подключения и сохранения черновика');
+    const key = JSON.stringify(activeContext);
+    modal('<h2>Сессии кампании</h2><p>Загружаем журнал…</p>');
+    try {
+      const { sessions: list } = await request('/api/campaigns/' + activeContext.campaignId + '/sessions');
+      if (key !== JSON.stringify(activeContext)) return;
+      modal(`<div class="overline">${esc(state.profile.campaign)}</div><h2>Сессии кампании</h2><div class="settings-actions">${list.slice().reverse().map((item, i) => `<section class="panel"><h3>${esc(item.name || 'Сессия без названия')}</h3><p>${esc(item.playedOn || 'Дата не указана')} · ${item.archived ? 'Архив' : 'Текущая'}</p><button data-session-view="${list.length - 1 - i}">Читать журнал</button></section>`).join('')}<button id="new-session" class="primary">Начать следующую сессию</button></div>`);
+      $$('[data-session-view]').forEach(button => button.onclick = async () => {
+        try {
+          const item = await request('/api/sessions/' + list[Number(button.dataset.sessionView)].id);
+          modal(`<div class="overline">${item.archived ? 'АРХИВ' : 'ПРОСМОТР'} · ТОЛЬКО ЧТЕНИЕ</div><h2>${esc(item.name || 'Сессия без названия')}</h2><p>${esc(item.playedOn || 'Дата не указана')}. Просмотр не меняет активную игру и ресурсы персонажа. Личные заметки персонажа сюда не входят.</p>${item.data.journal.map(entry => `<article class="panel"><small>${esc(entry.time)}</small><h3>${esc(entry.title)}</h3><p class="session-text">${esc(entry.text)}</p></article>`).join('') || '<p>В этой сессии нет сохранённых записей.</p>'}<button id="back-sessions">К списку сессий</button>`);
+          $('#back-sessions').onclick = sessions;
+        } catch { toast('Не удалось открыть журнал'); }
+      });
+      $('#new-session').onclick = () => {
+        modal('<h2>Следующая сессия</h2><p>Текущий журнал станет архивом только для чтения. Ресурсы персонажа, карта, задания и личные заметки сохранятся. Это не отдых. Новый журнал будет пустым.</p><form id="new-session-form"><label for="session-name">Название</label><input id="session-name" maxlength="120" required><label for="session-date">Дата игры</label><input id="session-date" type="date" required><div class="dialog-actions"><button type="submit" class="primary">Завершить текущую и начать</button></div></form>');
+        $('#new-session-form').onsubmit = async event => {
+          event.preventDefault();
+          const name = $('#session-name').value.trim(), playedOn = $('#session-date').value;
+          if (!name || !playedOn) return toast('Укажи название и дату');
+          try { await campaignCommand('session', { session: { name, playedOn } }); } catch (error) { toast(error.message); }
+        };
+      };
+    } catch { modal('<h2>Сессии недоступны</h2><p>Проверь соединение и открой список снова.</p>'); }
+  }
   function settings() {
     modal(`<div class="overline">СКАЗ · ЛОКАЛЬНАЯ ВЕРСИЯ 0.2</div><h2>Данные приключения</h2><p>${demo ? 'Этот HTML-файл работает в демонстрационном режиме. Для сохранения в базе открой локальное приложение.' : 'Прогресс хранится в SQLite на этом компьютере. Тема выбирается отдельно для каждого браузера.'}</p><div class="settings-actions"><button id="export-state">Скачать прогресс</button><label class="file-label">Восстановить из файла<input id="import-state" type="file" accept=".json,application/json"></label><button id="import-old">Перенести данные раннего прототипа</button>${!demo ? '<button id="change-history">История сохранений</button><button id="saved-drafts">Несохранённые черновики</button>' : ''}</div><p>Каждая кампания использует шаблон барда 5 уровня. В магии доступны 8 демонстрационных заклинаний. Распознавание речи пока демонстрационное.</p><button class="text-button" id="reset-workspace">Начать демо заново</button>`);
     $('#export-state').onclick = exportState;
@@ -143,7 +173,7 @@ const SkazStorage = (() => {
           }
         }
       } catch { toast('Хранилище браузера недоступно'); return; }
-      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
+      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
       $$('[data-draft-index]').forEach(button => button.onclick = () => downloadDraft(drafts[Number(button.dataset.draftIndex)]));
     };
     $('#import-state').onchange = async event => {
@@ -183,6 +213,7 @@ const SkazStorage = (() => {
   }
   document.addEventListener('click', async event => {
     const id = event.target.closest('button')?.id;
+    if (id === 'session-settings') sessions();
     if (id === 'campaign-settings') campaigns();
     if (id === 'data-settings') settings();
     if (id === 'sync-retry') { try { pending ? await sendPending() : await load(); } catch {} }
@@ -194,5 +225,5 @@ const SkazStorage = (() => {
     }
   });
   window.addEventListener('beforeunload', event => { if (status === 'saving') { event.preventDefault(); event.returnValue = ''; } });
-  return { commit, paint, settings, preference, setTheme, contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
+  return { commit, paint, settings, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
 })();
