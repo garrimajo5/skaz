@@ -110,6 +110,7 @@ test('HTTP API: save, conflict, export, origin protection and private files', as
   const headers = { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1', Origin: base };
   const request = mutation({ ...seed, hp: 19 });
   assert.equal((await fetch(base + '/')).status, 200);
+  for (const asset of ['catalog.js', 'catalog.css']) assert.equal((await fetch(base + '/' + asset)).status, 200);
   assert.equal((await fetch(base + '/api/health').then(r => r.json())).storage, 'sqlite');
   assert.equal((await fetch(base + '/api/workspace', { method: 'PUT', headers, body: JSON.stringify(request) })).status, 200);
   assert.equal((await fetch(base + '/api/workspace', { method: 'PUT', headers, body: JSON.stringify(mutation(seed)) })).status, 409);
