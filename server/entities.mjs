@@ -18,6 +18,7 @@ export function createGame(db, state) {
 }
 
 export function selectGame(db, ids) {
+  if (db.prepare('SELECT archived FROM session_details WHERE session_id=?').get(ids.sessionId)?.archived) throw new AppError(409, 'Архивная сессия доступна только для чтения');
   const found = db.prepare(`SELECT c.id FROM campaigns c
     JOIN characters h ON h.campaign_id=c.id AND h.id=?
     JOIN sessions s ON s.campaign_id=c.id AND s.id=? WHERE c.id=?`).get(ids.characterId, ids.sessionId, ids.campaignId);
@@ -28,7 +29,7 @@ export function selectGame(db, ids) {
 export function listGames(db) {
   return db.prepare(`SELECT c.id, c.ruleset, c.data_json,
     (SELECT json_group_array(json_object('id', h.id, 'name', json_extract(h.data_json, '$.name'))) FROM characters h WHERE h.campaign_id=c.id) AS characters,
-    (SELECT json_group_array(json_object('id', s.id)) FROM sessions s WHERE s.campaign_id=c.id) AS sessions
+    (SELECT json_group_array(json_object('id', s.id)) FROM sessions s WHERE s.campaign_id=c.id AND NOT EXISTS(SELECT 1 FROM session_details d WHERE d.session_id=s.id AND d.archived=1)) AS sessions
     FROM campaigns c ORDER BY c.rowid`).all().map(row => ({
       id: row.id, name: JSON.parse(row.data_json).name, ruleset: row.ruleset,
       characters: JSON.parse(row.characters), sessions: JSON.parse(row.sessions),

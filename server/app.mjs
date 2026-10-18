@@ -41,14 +41,18 @@ export function createApp(store) {
           if (pathname === '/api/workspace') return json(response, 200, store.read());
           if (pathname === '/api/context') return json(response, 200, store.context());
           if (pathname === '/api/campaigns') return json(response, 200, { campaigns: store.campaigns() });
+          const sessionList = pathname.match(/^\/api\/campaigns\/([a-zA-Z0-9-]{1,80})\/sessions$/);
+          if (sessionList) return json(response, 200, { sessions: store.sessions(sessionList[1]) });
+          const sessionDetail = pathname.match(/^\/api\/sessions\/([a-zA-Z0-9-]{1,80})$/);
+          if (sessionDetail) return json(response, 200, store.session(sessionDetail[1]));
           if (pathname === '/api/history') return json(response, 200, { changes: store.history() });
           if (pathname === '/api/export') return json(response, 200, { app: 'skaz', ...store.read() }, { 'Content-Disposition': 'attachment; filename="skaz-backup.json"' });
         }
-        if ((pathname === '/api/workspace' && request.method === 'PUT') || (['/api/campaigns', '/api/context/select'].includes(pathname) && request.method === 'POST')) {
+        if ((pathname === '/api/workspace' && request.method === 'PUT') || (['/api/campaigns', '/api/context/select', '/api/sessions'].includes(pathname) && request.method === 'POST')) {
           if (request.headers['x-skaz-client'] !== 'local-v1') throw new AppError(403, 'Запрос должен исходить из приложения');
           const data = await body(request);
           if (!data || typeof data !== 'object' || Array.isArray(data)) throw new AppError(400, 'Неверный запрос');
-          const result = pathname === '/api/campaigns' ? store.createCampaign(data) : pathname === '/api/context/select' ? store.selectContext(data) : store.update(data);
+          const result = pathname === '/api/sessions' ? store.startSession(data) : pathname === '/api/campaigns' ? store.createCampaign(data) : pathname === '/api/context/select' ? store.selectContext(data) : store.update(data);
           return json(response, 200, result);
         }
         return json(response, 404, { error: 'Неизвестный метод API' });

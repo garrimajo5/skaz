@@ -4,6 +4,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { AppError, seed, validateState } from './state.mjs';
 import { createCatalog } from './catalog.mjs';
+import { setupSessions, validateSession, startSession, listSessions, readSession } from './sessions.mjs';
 import { migrateEntities, readEntities, writeEntities, joinState, contextIds, createGame, selectGame, listGames } from './entities.mjs';
 
 export function openStore(filename) {
@@ -26,6 +27,7 @@ export function openStore(filename) {
     db.close(); throw new Error('Версия базы не поддерживается. Нужна миграция; база не изменена.');
   }
   try { migrateEntities(db); } catch (error) { db.close(); throw error; }
+  setupSessions(db);
   db.exec(`CREATE TABLE IF NOT EXISTS context_changes (
     mutation_id TEXT PRIMARY KEY REFERENCES changes(mutation_id),
     operation TEXT NOT NULL, before_json TEXT NOT NULL, after_json TEXT NOT NULL
@@ -71,10 +73,11 @@ export function openStore(filename) {
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
   function gameCommand(operation, request) {
-    const allowed = operation === 'create' ? ['mutationId', 'expectedRevision', 'state'] : ['mutationId', 'expectedRevision', 'context'];
+    const allowed = operation === 'session' ? ['mutationId', 'expectedRevision', 'session'] : operation === 'create' ? ['mutationId', 'expectedRevision', 'state'] : ['mutationId', 'expectedRevision', 'context'];
     if (!request || typeof request !== 'object' || Array.isArray(request) || Object.keys(request).some(key => !allowed.includes(key))) throw new AppError(400, 'Неверные поля команды');
     let payload;
-    if (operation === 'create') payload = validateState(request.state);
+    if (operation === 'session') payload = validateSession(request.session);
+    else if (operation === 'create') payload = validateState(request.state);
     else {
       const ids = request.context;
       const keys = ['campaignId', 'characterId', 'sessionId'];
@@ -82,8 +85,9 @@ export function openStore(filename) {
       payload = Object.fromEntries(keys.map(key => [key, ids[key]]));
     }
     const hash = createHash('sha256').update(JSON.stringify({ operation, expectedRevision: request.expectedRevision, payload })).digest('hex');
-    return mutate(request, hash, operation === 'create' ? 'Создание кампании' : 'Переключение игры', () => {
-      if (operation === 'create') createGame(db, payload); else selectGame(db, payload);
+    return mutate(request, hash, operation === 'session' ? 'Начало сессии' : operation === 'create' ? 'Создание кампании' : 'Переключение игры', () => {
+      if (operation === 'session') startSession(db, payload);
+      else if (operation === 'create') createGame(db, payload); else selectGame(db, payload);
       return read().state;
     }, operation);
   }
@@ -93,6 +97,9 @@ export function openStore(filename) {
     campaigns: () => listGames(db),
     createCampaign: request => gameCommand('create', request),
     selectContext: request => gameCommand('select', request),
+    startSession: request => gameCommand('session', request),
+    sessions: campaignId => listSessions(db, campaignId),
+    session: id => readSession(db, id),
     read, update,
     history: () => db.prepare('SELECT revision, label, created_at AS createdAt FROM changes ORDER BY revision DESC LIMIT 50').all(),
     backup: destination => backup(db, destination),
