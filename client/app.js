@@ -39,6 +39,7 @@ let toastTimer;function toast(text,undo){clearTimeout(toastTimer);$('#toast').in
 async function change(label,fn){
   if(!SkazStorage.editable()){toast('Сначала заверши сохранение или восстанови соединение');render();return}
   const before=structuredClone(state);
+  const contextBefore=SkazStorage.contextKey();
   try{
     fn();
     const next=structuredClone(state);
@@ -46,7 +47,8 @@ async function change(label,fn){
     const result=await SkazStorage.commit(next,label);
     state={...(result?.state||next),theme:state.theme};
     render();
-    toast(label,()=>change('Отмена: '+label,()=>{state={...structuredClone(before),theme:state.theme}}));
+    const undo=contextBefore===SkazStorage.contextKey()?()=>{if(contextBefore!==SkazStorage.contextKey())return toast('Эта отмена относится к другой игре');change('Отмена: '+label,()=>{state={...structuredClone(before),theme:state.theme}})}:undefined;
+    toast(label,undo);
   }catch(error){state=before;render();toast('Не сохранено: '+error.message)}
 }
 function log(title,text='',kind='Изменение'){state.journal.push({title,text,kind,at:Date.now(),time:new Date().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'})})}
