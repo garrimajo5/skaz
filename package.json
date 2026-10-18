@@ -1,12 +1,15 @@
 {
   "name": "skaz",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Планшетный компаньон для D&D 5e 2014",
-  "engines": { "node": ">=22" },
+  "engines": { "node": ">=24" },
   "scripts": {
     "dev": "node scripts/dev.mjs",
-    "check": "node --check client/app.js && node --check scripts/dev.mjs && node --check scripts/build.mjs",
-    "build": "node scripts/build.mjs"
+    "start": "node server/index.mjs",
+    "test": "node --test --test-isolation=none tests/*.test.mjs",
+    "check": "node --check client/app.js && node --check client/storage.js && node --check server/app.mjs && node --check server/store.mjs && node --check server/state.mjs && node --check server/index.mjs",
+    "build": "node scripts/build.mjs",
+    "backup": "node scripts/backup.mjs"
   }
 }

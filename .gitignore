@@ -8,3 +8,8 @@ dist/
 Thumbs.db
 .openai/
 .sites-runtime/
+data/
+backups/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
