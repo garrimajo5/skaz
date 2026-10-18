@@ -4,6 +4,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { AppError, seed, validateState } from './state.mjs';
 import { createCatalog } from './catalog.mjs';
+import { migrateEntities, readEntities, writeEntities, joinState } from './entities.mjs';
 
 export function openStore(filename) {
   if (filename !== ':memory:') mkdirSync(path.dirname(filename), { recursive: true });
@@ -21,12 +22,14 @@ export function openStore(filename) {
     );
   `);
   db.prepare('INSERT OR IGNORE INTO workspace VALUES (1, 1, 0, ?, ?)').run(JSON.stringify(seed), new Date().toISOString());
-  if (db.prepare('SELECT schema_version FROM workspace').get().schema_version !== 1) {
+  if (![1, 2].includes(db.prepare('SELECT schema_version FROM workspace').get().schema_version)) {
     db.close(); throw new Error('Версия базы не поддерживается. Нужна миграция; база не изменена.');
   }
+  try { migrateEntities(db); } catch (error) { db.close(); throw error; }
   function read() {
-    const row = db.prepare('SELECT * FROM workspace WHERE id=1').get();
-    return { schemaVersion: row.schema_version, revision: row.revision, updatedAt: row.updated_at, state: JSON.parse(row.state_json) };
+    const context = readEntities(db);
+    return { schemaVersion: 1, revision: context.revision, updatedAt: context.updatedAt,
+      state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
   }
   function update(request) {
     const { mutationId, expectedRevision, label } = request;
@@ -49,12 +52,14 @@ export function openStore(filename) {
       const revision = current.revision + 1;
       db.prepare('INSERT INTO changes VALUES (?, ?, ?, ?, ?, ?, ?)').run(mutationId, revision, hash, label, JSON.stringify(current.state), JSON.stringify(next), now);
       db.prepare('UPDATE workspace SET revision=?, state_json=?, updated_at=? WHERE id=1').run(revision, JSON.stringify(next), now);
+      writeEntities(db, next);
       db.exec('COMMIT');
       return read();
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
   return {
     catalog: createCatalog(db),
+    context: () => readEntities(db),
     read, update,
     history: () => db.prepare('SELECT revision, label, created_at AS createdAt FROM changes ORDER BY revision DESC LIMIT 50').all(),
     backup: destination => backup(db, destination),

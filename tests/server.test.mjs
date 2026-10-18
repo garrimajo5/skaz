@@ -115,6 +115,10 @@ test('HTTP API: save, conflict, export, origin protection and private files', as
   assert.equal((await fetch(base + '/api/workspace', { method: 'PUT', headers, body: JSON.stringify(request) })).status, 200);
   assert.equal((await fetch(base + '/api/workspace', { method: 'PUT', headers, body: JSON.stringify(mutation(seed)) })).status, 409);
   assert.equal((await fetch(base + '/api/export').then(r => r.json())).state.hp, 19);
+  const context = await fetch(base + '/api/context').then(r => r.json());
+  assert.equal(context.character.data.hp, 19);
+  assert.equal(context.campaign.id, context.session.campaignId);
+  assert.equal(context.revision, 1);
   assert.equal((await fetch(base + '/api/workspace', { method: 'PUT', headers: { ...headers, Origin: 'https://other.example' }, body: JSON.stringify(request) })).status, 403);
   assert.equal((await fetch(base + '/api/workspace', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(request) })).status, 403);
   assert.equal((await fetch(base + '/api/workspace', { method: 'PUT', headers, body: '{broken' })).status, 400);
