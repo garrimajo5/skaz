@@ -1,3 +1,4 @@
+import { activeSelection } from './views.mjs';
 import { randomUUID } from 'node:crypto';
 import { AppError } from './state.mjs';
 
@@ -20,8 +21,8 @@ export function validateSession(input) {
 }
 
 // Caller owns the workspace transaction and revision check.
-export function startSession(db, details) {
-  const current = db.prepare('SELECT * FROM active_context WHERE id=1').get();
+export function startSession(db, details, viewId) {
+  const current = activeSelection(db, viewId);
   if (!current) throw new AppError(409, 'Нет активной игры');
   db.prepare('INSERT OR IGNORE INTO session_details(session_id) VALUES (?)').run(current.session_id);
   db.prepare('UPDATE session_details SET archived=1 WHERE session_id=?').run(current.session_id);
@@ -30,7 +31,9 @@ export function startSession(db, details) {
   const data = { journal: [], accepted: [], dismissed: ['quest', 'gold', 'damage'], eventEdits: {} };
   db.prepare('INSERT INTO sessions VALUES (?, ?, ?)').run(id, current.campaign_id, JSON.stringify(data));
   db.prepare('INSERT INTO session_details VALUES (?, ?, ?, 0)').run(id, details.name, details.playedOn);
-  db.prepare('UPDATE active_context SET session_id=? WHERE id=1').run(id);
+  // Starting a session is a campaign event: all its views leave the archived session.
+  db.prepare('UPDATE active_context SET session_id=? WHERE campaign_id=? AND session_id=?').run(id, current.campaign_id, current.session_id);
+  db.prepare('UPDATE browser_contexts SET session_id=? WHERE campaign_id=? AND session_id=?').run(id, current.campaign_id, current.session_id);
 }
 
 export function listSessions(db, campaignId) {

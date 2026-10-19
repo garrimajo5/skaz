@@ -1,3 +1,4 @@
+import { activeSelection, setSelection } from './views.mjs';
 import { randomUUID } from 'node:crypto';
 import { AppError, validateState } from './state.mjs';
 
@@ -7,23 +8,23 @@ export function contextIds(context) {
 
 // The caller owns the transaction. Creation deliberately requires an explicit
 // validated state, rather than silently cloning the currently active adventure.
-export function createGame(db, state) {
+export function createGame(db, state, viewId) {
   const parts = splitState(state);
   const ids = { campaignId: randomUUID(), characterId: randomUUID(), sessionId: randomUUID() };
   db.prepare('INSERT INTO campaigns VALUES (?, ?, ?)').run(ids.campaignId, '5e-2014', JSON.stringify(parts.campaign));
   db.prepare('INSERT INTO characters VALUES (?, ?, ?)').run(ids.characterId, ids.campaignId, JSON.stringify(parts.character));
   db.prepare('INSERT INTO sessions VALUES (?, ?, ?)').run(ids.sessionId, ids.campaignId, JSON.stringify(parts.session));
-  selectGame(db, ids);
+  selectGame(db, ids, viewId);
   return ids;
 }
 
-export function selectGame(db, ids) {
+export function selectGame(db, ids, viewId) {
   if (db.prepare('SELECT archived FROM session_details WHERE session_id=?').get(ids.sessionId)?.archived) throw new AppError(409, 'Архивная сессия доступна только для чтения');
   const found = db.prepare(`SELECT c.id FROM campaigns c
     JOIN characters h ON h.campaign_id=c.id AND h.id=?
     JOIN sessions s ON s.campaign_id=c.id AND s.id=? WHERE c.id=?`).get(ids.characterId, ids.sessionId, ids.campaignId);
   if (!found) throw new AppError(404, 'Кампания, персонаж или сессия не найдены в одной игре');
-  db.prepare('UPDATE active_context SET campaign_id=?, character_id=?, session_id=? WHERE id=1').run(ids.campaignId, ids.characterId, ids.sessionId);
+  setSelection(db, ids, viewId);
 }
 
 export function listGames(db) {
@@ -87,16 +88,16 @@ export function migrateEntities(db) {
   } catch (error) { db.exec('ROLLBACK'); throw error; }
 }
 
-export function readEntities(db) {
+export function readEntities(db, viewId) {
   // One SQL snapshot avoids mixing entities from different committed revisions.
   const row = db.prepare(`SELECT a.campaign_id, a.character_id, a.session_id,
     c.ruleset, c.data_json AS campaign, h.data_json AS character, s.data_json AS session,
     w.revision, w.updated_at
-    FROM active_context a
+    FROM ${viewId === undefined ? 'active_context' : 'browser_contexts'} a
     JOIN campaigns c ON c.id=a.campaign_id
     JOIN characters h ON h.id=a.character_id AND h.campaign_id=a.campaign_id
     JOIN sessions s ON s.id=a.session_id AND s.campaign_id=a.campaign_id
-    JOIN workspace w ON w.id=a.id WHERE a.id=1`).get();
+    JOIN workspace w ON w.id=1 WHERE ${viewId === undefined ? 'a.id=1' : 'a.view_id=?'}`).get(...(viewId === undefined ? [] : [viewId]));
   if (!row) throw new Error('Не найдены связанные данные активной игры');
   return {
     revision: row.revision, updatedAt: row.updated_at, ruleset: row.ruleset,
@@ -107,9 +108,9 @@ export function readEntities(db) {
 }
 
 // Called inside the same transaction as the workspace revision and audit entry.
-export function writeEntities(db, state) {
+export function writeEntities(db, state, viewId) {
   const parts = splitState(state);
-  const active = db.prepare('SELECT * FROM active_context WHERE id=1').get();
+  const active = activeSelection(db, viewId);
   if (!active) throw new Error('Активная игра не найдена');
   for (const [table, key, data] of [['campaigns', 'campaign_id', parts.campaign], ['characters', 'character_id', parts.character], ['sessions', 'session_id', parts.session]]) {
     const result = db.prepare(`UPDATE ${table} SET data_json=? WHERE id=?`).run(JSON.stringify(data), active[key]);

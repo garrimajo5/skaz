@@ -1,3 +1,4 @@
+import { setupViews, ensureView } from './views.mjs';
 import { validateCharacterCreate, createCharacter } from './characters.mjs';
 import { setupProposals, readProposals, validateProposalCreate, validateProposalDecision, createProposal, decideProposal } from './proposals.mjs';
 import { setupPlaces, readPlaces, validatePlaceCommand, savePlace } from './places.mjs';
@@ -35,6 +36,7 @@ export function openStore(filename) {
   }
   try { migrateEntities(db); } catch (error) { db.close(); throw error; }
   setupSessions(db);
+  setupViews(db);
   const catalog = createCatalog(db);
   setupInventory(db);
   setupSpellbook(db);
@@ -45,8 +47,9 @@ export function openStore(filename) {
     mutation_id TEXT PRIMARY KEY REFERENCES changes(mutation_id),
     operation TEXT NOT NULL, before_json TEXT NOT NULL, after_json TEXT NOT NULL
   )`);
+  function createView(viewId) {
   function read() {
-    const context = readEntities(db);
+    const context = readEntities(db, viewId);
     const session = readSession(db, context.session.id);
     return { schemaVersion: 1, revision: context.revision, updatedAt: context.updatedAt, context: contextIds(context),
       session: { name: session.name, playedOn: session.playedOn },
@@ -102,10 +105,12 @@ export function openStore(filename) {
     const next = validateState(request.state);
     const { expectedRevision, label } = request;
     const hash = createHash('sha256').update(JSON.stringify({ expectedRevision, label, state: next })).digest('hex');
-    return mutate(request, hash, label, () => { writeEntities(db, next); return next; });
+    return mutate(request, hash, label, () => { writeEntities(db, next, viewId); return next; });
   }
   function mutate(request, hash, label, apply, operation) {
     const { mutationId, expectedRevision } = request;
+    // Receipts belong to the originating window; another window cannot replay them.
+    if (viewId !== undefined) hash = createHash('sha256').update(JSON.stringify({ viewId, hash })).digest('hex');
     if (typeof mutationId !== 'string' || !/^[a-zA-Z0-9-]{8,80}$/.test(mutationId)) throw new AppError(400, 'Нужен идентификатор изменения');
     if (!Number.isSafeInteger(expectedRevision) || expectedRevision < 0) throw new AppError(400, 'Нужна версия состояния');
     if (typeof label !== 'string' || !label.trim() || label.length > 200) throw new AppError(400, 'Нужно описание изменения');
@@ -125,8 +130,10 @@ export function openStore(filename) {
       const revision = current.revision + 1;
       const next = apply();
       db.prepare('INSERT INTO changes VALUES (?, ?, ?, ?, ?, ?, ?)').run(mutationId, revision, hash, label, JSON.stringify(current.state), JSON.stringify(next), now);
-      db.prepare('UPDATE workspace SET revision=?, state_json=?, updated_at=? WHERE id=1').run(revision, JSON.stringify(next), now);
-      const affectedContext = contextIds(readEntities(db));
+      const defaultContext = readEntities(db);
+      const defaultState = joinState({ campaign: defaultContext.campaign.data, character: defaultContext.character.data, session: defaultContext.session.data });
+      db.prepare('UPDATE workspace SET revision=?, state_json=?, updated_at=? WHERE id=1').run(revision, JSON.stringify(defaultState), now);
+      const affectedContext = contextIds(readEntities(db, viewId));
       if (operation) db.prepare('INSERT INTO context_changes VALUES (?, ?, ?, ?)').run(mutationId, operation, JSON.stringify(current.context), JSON.stringify(affectedContext));
       const response = { ...read(), ...(operation ? { affectedContext } : {}) };
       db.exec('COMMIT');
@@ -147,8 +154,8 @@ export function openStore(filename) {
     }
     const hash = createHash('sha256').update(JSON.stringify({ operation, expectedRevision: request.expectedRevision, payload })).digest('hex');
     return mutate(request, hash, operation === 'session' ? 'Начало сессии' : operation === 'create' ? 'Создание кампании' : 'Переключение игры', () => {
-      if (operation === 'session') startSession(db, payload);
-      else if (operation === 'create') createGame(db, payload); else selectGame(db, payload);
+      if (operation === 'session') startSession(db, payload, viewId);
+      else if (operation === 'create') createGame(db, payload, viewId); else selectGame(db, payload, viewId);
       return read().state;
     }, operation);
   }
@@ -157,7 +164,7 @@ export function openStore(filename) {
     createCharacter: request => {
       const payload = validateCharacterCreate(request);
       const hash = createHash('sha256').update(JSON.stringify({operation:'character-create',expectedRevision:request.expectedRevision,payload})).digest('hex');
-      return mutate(request,hash,'Создание персонажа',()=>{createCharacter(db,payload,read().context);return read().state;},'character-create');
+      return mutate(request,hash,'Создание персонажа',()=>{createCharacter(db,payload,read().context,viewId);return read().state;},'character-create');
     },
     proposals: () => { const current = read(); return { revision: current.revision, context: current.context, proposals: readProposals(db,current.context) }; },
     createProposal: request => {
@@ -169,7 +176,7 @@ export function openStore(filename) {
       const payload = validateProposalDecision(request);
       const hash = createHash('sha256').update(JSON.stringify({ operation: 'proposal-decide', expectedRevision: request.expectedRevision, payload })).digest('hex');
       return mutate(request, hash, payload.decision === 'accept' ? 'Подтверждение события' : 'Пропуск события', () => {
-        const current = read(); const next = decideProposal(db,payload,request.mutationId,current.context,current.state); writeEntities(db,next); return next;
+        const current = read(); const next = decideProposal(db,payload,request.mutationId,current.context,current.state); writeEntities(db,next,viewId); return next;
       }, 'proposal-decide');
     },
     places: () => { const current = read(); return { revision: current.revision, context: current.context, places: readPlaces(db, current.context.campaignId) }; },
@@ -239,7 +246,7 @@ export function openStore(filename) {
         return read().state;
       }, 'inventory-undo');
     },
-    context: () => readEntities(db),
+    context: () => readEntities(db, viewId),
     campaigns: () => listGames(db),
     createCampaign: request => gameCommand('create', request),
     selectContext: request => gameCommand('select', request),
@@ -261,7 +268,7 @@ export function openStore(filename) {
       const payload = validateTransfer(request.file);
       const hash = createHash('sha256').update(JSON.stringify({ operation: 'import-active', expectedRevision: request.expectedRevision, payload })).digest('hex');
       return mutate(request, hash, 'Импорт игры с инвентарём', () => {
-        importTransfer(db, payload, request.mutationId);
+        importTransfer(db, payload, request.mutationId, viewId);
         return read().state;
       }, 'import-active');
     },
@@ -270,4 +277,7 @@ export function openStore(filename) {
     backup: destination => backup(db, destination),
     close: () => db.close(),
   };
+  }
+  const root = createView();
+  return { ...root, forView: viewId => { ensureView(db, viewId); return createView(viewId); } };
 }

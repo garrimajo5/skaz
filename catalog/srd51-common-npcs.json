@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:bandit",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Разбойник",
+        "en": "Bandit"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=396",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz common NPCs v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 396, 397.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое незаконопослушное мировоззрение. Кожаный доспех, хиты 11 (2d8+2). Пассивное Восприятие 10; один любой язык, обычно Общий.\nСкимитар: рукопашная атака оружием +3, досягаемость 5 футов, одна цель; 4 (1d6+1) рубящего урона. Лёгкий арбалет: дальнобойная атака оружием +3, дистанция 80/320 футов, одна цель; 5 (1d8+1) колющего. Мультиатаки нет.\nАтаки, преимущества и экипировка не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 12,
+        "hitPoints": 11,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 11,
+          "dex": 12,
+          "con": 12,
+          "int": 10,
+          "wis": 10,
+          "cha": 10
+        },
+        "challenge": "1/8",
+        "xp": 25
+      }
+    },
+    {
+      "id": "srd51:2014:monster:cultist",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Культист",
+        "en": "Cultist"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=398",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz common NPCs v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 398.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое недоброе мировоззрение. Кожаный доспех, хиты 9 (2d8). Обман +2, Религия +2. Пассивное Восприятие 10; один любой язык, обычно Общий.\nТёмная преданность: преимущество на спасброски против очарования и испуга; это не иммунитет к этим состояниям.\nСкимитар: рукопашная атака оружием +3, досягаемость 5 футов, одно существо; 4 (1d6+1) рубящего урона. Мультиатаки и заклинаний в этом блоке нет; это Cultist, а не Cult Fanatic.\nАтаки, преимущества и экипировка не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:frightened"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 12,
+        "hitPoints": 9,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 11,
+          "dex": 12,
+          "con": 10,
+          "int": 10,
+          "wis": 11,
+          "cha": 10
+        },
+        "challenge": "1/8",
+        "xp": 25
+      }
+    },
+    {
+      "id": "srd51:2014:monster:guard",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Стражник",
+        "en": "Guard"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=399",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz common NPCs v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 399, 400.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы и мировоззрения. Кольчужная рубаха и щит, хиты 11 (2d8+2). Восприятие +2, пассивное Восприятие 12; один любой язык, обычно Общий.\nКопьё: рукопашная или дальнобойная атака оружием +3, досягаемость 5 футов или дистанция 20/60 футов, одна цель; 4 (1d6+1) колющего урона. При рукопашной атаке двумя руками — 5 (1d8+1). Мультиатаки нет. КД 16 указана со щитом; изменение экипировки не пересчитывается автоматически.\nАтаки, преимущества и экипировка не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 16,
+        "hitPoints": 11,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 13,
+          "dex": 12,
+          "con": 12,
+          "int": 10,
+          "wis": 11,
+          "cha": 10
+        },
+        "challenge": "1/8",
+        "xp": 25
+      }
+    },
+    {
+      "id": "srd51:2014:monster:scout",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Разведчик",
+        "en": "Scout"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=401",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz common NPCs v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 401, 402.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы и мировоззрения. Кожаный доспех, хиты 16 (3d8+3). Природа +4, Восприятие +5, Скрытность +6, Выживание +5; пассивное Восприятие 15. Один любой язык, обычно Общий.\nОстрый слух и зрение: преимущество на проверки Мудрости (Восприятие), основанные на слухе или зрении.\nМультиатака: две рукопашные либо две дальнобойные атаки. Короткий меч: рукопашная атака оружием +4, досягаемость 5 футов, одна цель; 5 (1d6+2) колющего урона. Длинный лук: дальнобойная атака оружием +4, дистанция 150/600 футов, одна цель; 6 (1d8+2) колющего.\nАтаки, преимущества и экипировка не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 13,
+        "hitPoints": 16,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 11,
+          "dex": 14,
+          "con": 12,
+          "int": 11,
+          "wis": 13,
+          "cha": 11
+        },
+        "challenge": "1/2",
+        "xp": 100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:thug",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Головорез",
+        "en": "Thug"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=402",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz common NPCs v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 402.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое недоброе мировоззрение. Кожаный доспех, хиты 32 (5d8+10). Запугивание +2, пассивное Восприятие 10; один любой язык, обычно Общий.\nТактика стаи: преимущество на бросок атаки против существа, если хотя бы один союзник головореза находится в пределах 5 футов от цели и не недееспособен.\nМультиатака: две рукопашные атаки; она не даёт двух выстрелов арбалетом. Булава: рукопашная атака оружием +4, досягаемость 5 футов, одно существо; 5 (1d6+2) дробящего урона. Тяжёлый арбалет: дальнобойная атака оружием +2, дистанция 100/400 футов, одна цель; 5 (1d10) колющего.\nАтаки, преимущества и экипировка не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:incapacitated"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 11,
+        "hitPoints": 32,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 15,
+          "dex": 11,
+          "con": 14,
+          "int": 10,
+          "wis": 10,
+          "cha": 11
+        },
+        "challenge": "1/2",
+        "xp": 100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:veteran",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Ветеран",
+        "en": "Veteran"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=403",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz common NPCs v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 403.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы и мировоззрения. Наборный доспех, хиты 58 (9d8+18). Атлетика +5, Восприятие +2, пассивное Восприятие 12; один любой язык, обычно Общий.\nМультиатака: две атаки длинным мечом; если обнажён короткий меч, можно дополнительно атаковать им. Это не три произвольные атаки и не несколько выстрелов арбалетом.\nДлинный меч: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 7 (1d8+3) рубящего урона или 8 (1d10+3) двумя руками. Короткий меч: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 6 (1d6+3) колющего. Тяжёлый арбалет: дальнобойная атака оружием +3, дистанция 100/400 футов, одна цель; 6 (1d10+1) колющего.\nАтаки, преимущества и экипировка не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 17,
+        "hitPoints": 58,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 13,
+          "con": 14,
+          "int": 10,
+          "wis": 11,
+          "cha": 10
+        },
+        "challenge": "3",
+        "xp": 700
+      }
+    }
+  ]
+}

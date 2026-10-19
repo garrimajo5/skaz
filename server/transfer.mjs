@@ -92,13 +92,13 @@ export function validateTransfer(file) {
   return { state, session, inventory, ...(proposals ? { proposals } : {}), ...(places ? { places } : {}), ...(quests ? { quests } : {}), ...(spellbook ? { spellbook } : {}), entries: entries.sort((a,b) => a.id.localeCompare(b.id, 'en')) };
 }
 // Caller owns one transaction for catalog, new game, inventory and mutation receipt.
-export function importTransfer(db, data, mutationId) {
+export function importTransfer(db, data, mutationId, viewId) {
   for (const entry of data.entries) {
     const existing = db.prepare('SELECT entry_json FROM catalog_entries WHERE id=?').get(entry.id);
     if (existing && existing.entry_json !== JSON.stringify(entry) && !isKnownBundledUpgrade(entry,JSON.parse(existing.entry_json))) throw new AppError(409, 'Конфликт источника каталога: ' + entry.id);
   }
   for (const entry of data.entries) db.prepare('INSERT OR IGNORE INTO catalog_entries VALUES (?, ?)').run(entry.id, JSON.stringify(entry));
-  const ids = createGame(db, data.state);
+  const ids = createGame(db, data.state, viewId);
   db.prepare('INSERT INTO session_details VALUES (?, ?, ?, 0)').run(ids.sessionId, data.session.name, data.session.playedOn);
   for (const item of data.quests || []) {
     const questId = randomUUID();

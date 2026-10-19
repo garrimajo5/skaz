@@ -11,12 +11,12 @@ export function validateCharacterCreate(input) {
   return {campaignId:input.campaignId,characterId:input.characterId,template:input.template,profile:{name:p.name.trim(),tagline:p.tagline.trim()}};
 }
 // Caller owns the revision, receipt and transaction. Never copy another character's possessions.
-export function createCharacter(db,data,context) {
+export function createCharacter(db,data,context,viewId) {
   if (data.campaignId!==context.campaignId) throw new AppError(409,'Активная кампания изменилась');
   if (db.prepare('SELECT id FROM characters WHERE id=?').get(data.characterId)) throw new AppError(409,'ID персонажа уже используется');
   if (db.prepare('SELECT count(*) AS n FROM characters WHERE campaign_id=?').get(data.campaignId).n>=100) throw new AppError(422,'Не более 100 персонажей в кампании');
   const character=splitState(seed).character;
   character.name=data.profile.name;character.tagline=data.profile.tagline;
   db.prepare('INSERT INTO characters VALUES (?, ?, ?)').run(data.characterId,data.campaignId,JSON.stringify(character));
-  selectGame(db,{...context,characterId:data.characterId});
+  selectGame(db,{...context,characterId:data.characterId},viewId);
 }

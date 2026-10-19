@@ -5,11 +5,11 @@ import { readFile } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
 import { seed } from '../server/state.mjs';
 const source = await readFile(new URL('../client/storage.js', import.meta.url), 'utf8');
-const memory = () => { const values = new Map(); return { getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
-function harness(localStorage, sessionStorage, fetch) {
+const memory = () => { const values = new Map(); return { get length() { return values.size; }, key: index => [...values.keys()][index], getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
+function harness(localStorage, sessionStorage, fetch, navigator) {
   const handlers = {}, elements = new Map(), messages = [], archiveCalls = [], references = []; let dialog='';
   const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '', style: {}, focus() {} }); return elements.get(id); };
-  const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch,
+  const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch, navigator,
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
     document: { getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
@@ -25,6 +25,53 @@ function harness(localStorage, sessionStorage, fetch) {
 const tick = () => new Promise(resolve => setImmediate(resolve));
 const payload = (revision, campaignId = 'first') => ({ schemaVersion: 1, revision, state: seed, context: { campaignId, characterId: campaignId + '-hero', sessionId: campaignId + '-session' } });
 const response = data => ({ ok: true, json: async () => data });
+
+test('window header survives reload and failed-command retry without changing another window identity', async () => {
+  const local = memory(), session = memory(), calls = [];
+  let offline = false;
+  const transport = async (url, options) => {
+    calls.push({ url, options });
+    if (offline && options.method) throw new Error('offline');
+    return response(payload(options.method ? 1 : 0));
+  };
+  const first = harness(local, session, transport); await first.api.boot();
+  const id = calls[0].options.headers['X-Skaz-View'];
+  assert.match(id, /^[a-zA-Z0-9-]{8,80}$/);
+  offline = true;
+  await assert.rejects(first.api.commit(seed, 'Save'));
+  const original = calls.at(-1).options;
+  assert.equal(original.headers['X-Skaz-Client'], 'local-v1');
+  const reloaded = harness(local, session, transport); await reloaded.api.boot();
+  offline = false; await reloaded.click('sync-retry');
+  assert.equal(calls.at(-1).options.headers['X-Skaz-View'], id);
+  assert.equal(calls.at(-1).options.body, original.body);
+  const other = harness(local, memory(), transport); await other.api.boot();
+  assert.notEqual(calls.at(-1).options.headers['X-Skaz-View'], id);
+});
+
+test('duplicated session storage gets a new live-window identity and cannot consume the original pending command', async () => {
+  const held = new Set(), local = memory(), originalSession = memory(), calls = [];
+  const navigator = { locks: { request: async (name, options, callback) => {
+    assert.equal(options.ifAvailable, true);
+    if (held.has(name)) return callback(null);
+    held.add(name); return callback({ name });
+  } } };
+  const transport = async (url, options) => { calls.push(options); return response(payload(0)); };
+  const original = harness(local, originalSession, transport, navigator); await original.api.boot();
+  const id = originalSession.getItem('skaz-tab-id');
+  local.setItem('skaz-pending-v1:' + id, JSON.stringify({ mutationId: randomUUID(), expectedRevision: 0, state: seed, label: 'Original draft' }));
+  const duplicateSession = memory(); duplicateSession.setItem('skaz-tab-id', id);
+  const duplicate = harness(local, duplicateSession, transport, navigator); await duplicate.api.boot();
+  assert.notEqual(duplicateSession.getItem('skaz-tab-id'), id);
+  assert.notEqual(calls[0].headers['X-Skaz-View'], calls[1].headers['X-Skaz-View']);
+  assert.equal(duplicate.api.editable(), true);
+  assert.ok(local.getItem('skaz-pending-v1:' + id));
+  // Once the original document unloads, reload retains its identity and queue.
+  held.delete('skaz-window:' + id);
+  const reloaded = harness(local, originalSession, transport, navigator); await reloaded.api.boot();
+  assert.equal(calls.at(-1).headers['X-Skaz-View'], id);
+  assert.equal(reloaded.api.editable(), false);
+});
 
 test('returning to an old tab warns without replacing state or an open form, then refreshes explicitly',async()=>{
  let current=payload(0),calls=0;
@@ -637,4 +684,47 @@ test('private server responses label storage honestly without changing local def
  const h=harness(memory(),memory(),async()=>({...response(payload(0)),headers:{get:()=> 'private-server'}}));
  await h.api.boot();h.api.paint();assert.match(h.get('sync-status').innerHTML,/Сохранено на сервере/);assert.match(h.get('app-mode').textContent,/Закрытый сервер/);
  h.api.settings();assert.match(h.dialog(),/Прогресс хранится на сервере/);assert.match(h.dialog(),/Вход общий/);
+});
+
+
+test('event form draft restores raw text after reload, remains local and is isolated by session and window', async () => {
+  const local = memory(), session = memory(); let current = payload(0), writes = 0;
+  const transport = async (url, options) => { if (options.method) writes++; return response(current); };
+  const first = harness(local, session, transport); await first.api.boot(); first.api.newProposal();
+  for (const [field,value] of Object.entries({ source: '<script>private story</script>', speaker: 'Мастер', minute: '36', title: 'Мост', target: 'journal' })) first.get('#proposal-'+field).value = value;
+  first.get('#proposal-form').oninput();
+  assert.equal(writes,0); assert.match(first.get('#proposal-draft-status').textContent,/сохранён в этом браузере/);
+  const reloaded = harness(local, session, transport); await reloaded.api.boot(); reloaded.api.newProposal();
+  assert.equal(reloaded.get('#proposal-source').value,'<script>private story</script>');
+  assert.equal(reloaded.get('#proposal-minute').value,'36'); assert.match(reloaded.get('#proposal-draft-status').textContent,/Восстановлен/);
+  assert.doesNotMatch(reloaded.dialog(),/<script>private story/);
+  const other = harness(local, memory(), transport); await other.api.boot(); other.api.newProposal(); assert.equal(other.get('#proposal-source').value,'');
+  current = { ...payload(1), context: { ...payload(1).context, sessionId: 'new-session' } };
+  const nextSession = harness(local, session, transport); await nextSession.api.boot(); nextSession.api.newProposal(); assert.equal(nextSession.get('#proposal-source').value,'');
+  nextSession.api.settings(); nextSession.get('#saved-drafts').onclick(); assert.match(nextSession.dialog(),/Текст события/);
+  assert.equal(writes,0);
+});
+
+test('event draft survives failed submission and clears only after a confirmed retry without sending local metadata', async () => {
+  const local = memory(), session = memory(), calls = []; let failed = true;
+  const transport = async (url, options) => {
+    if (!options.method) return response(payload(0));
+    calls.push(JSON.parse(options.body)); if (failed) throw new Error('lost response');
+    return response(payload(1));
+  };
+  const h = harness(local,session,transport); await h.api.boot(); h.api.newProposal();
+  for (const [field,value] of Object.entries({ source: 'Мастер рассказал о мосте.', speaker: '', minute: '1', title: 'Мост', target: 'journal' })) h.get('#proposal-'+field).value=value;
+  h.get('#proposal-form').oninput(); const draftKey=[...local.values.keys()].find(key=>key.startsWith('skaz-proposal-form-v1:'));
+  await h.get('#proposal-form').onsubmit({preventDefault(){}});
+  assert.ok(local.getItem(draftKey)); assert.equal(calls[0].formDraftKey,undefined);
+  const restored=harness(local,session,transport); await restored.api.boot(); failed=false; await restored.click('sync-retry');
+  assert.deepEqual(calls[1],calls[0]); assert.equal(local.getItem(draftKey),null);
+});
+
+test('event draft storage failure is visible and never reports a server save', async () => {
+  const local=memory();local.setItem=()=>{throw new Error('quota');};
+  const h=harness(local,memory(),async()=>response(payload(0)));await h.api.boot();h.api.newProposal();
+  h.get('#proposal-source').value='Не потерять';h.get('#proposal-form').oninput();
+  assert.match(h.get('#proposal-draft-status').textContent,/Черновик не сохранён/);
+  assert.equal(h.get('#proposal-source').value,'Не потерять'); assert.equal(h.api.editable(),true);
 });

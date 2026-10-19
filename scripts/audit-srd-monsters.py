@@ -64,11 +64,11 @@ def main():
     pages, failures = {}, []
     for card in cards:
         page = int(card['source']['url'].rsplit('#page=', 1)[1])
-        for n in (page, page+1):
+        for n in range(page, min(page + 1, len(reader.pages)) + 1):
             if n not in pages:
                 pages[n] = reader.pages[n-1].extract_text()
         try:
-            expected = statistics(pages[page] + pages[page+1], card['name']['en'])
+            expected = statistics(pages[page] + pages.get(page+1, ''), card['name']['en'])
             errors = [key for key in expected if expected[key] != card['monster'][key]]
             if errors:
                 failures.append({'id': card['id'], 'fields': errors, 'source': expected})

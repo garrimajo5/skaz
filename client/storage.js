@@ -6,7 +6,28 @@ const SkazStorage = (() => {
     tabId = sessionStorage.getItem('skaz-tab-id') || crypto.randomUUID();
     sessionStorage.setItem('skaz-tab-id', tabId);
   } catch { tabId = crypto.randomUUID(); }
-  const pendingKey = 'skaz-pending-v1:' + tabId;
+  let pendingKey = 'skaz-pending-v1:' + tabId;
+  let tabClaim;
+  function claimTab() {
+    if (tabClaim) return tabClaim;
+    if (typeof navigator === 'undefined' || !navigator.locks?.request) return Promise.resolve();
+    // Duplicating a browser tab copies sessionStorage. Keep its queue with the
+    // original tab and assign the duplicate a fresh identity before any request.
+    tabClaim = new Promise(resolve => {
+      const claim = () => navigator.locks.request('skaz-window:' + tabId, { ifAvailable: true }, lock => {
+        if (!lock) {
+          tabId = crypto.randomUUID(); pendingKey = 'skaz-pending-v1:' + tabId;
+          try { sessionStorage.setItem('skaz-tab-id', tabId); } catch {}
+          claim(); return;
+        }
+        resolve();
+        // The browser releases this lock when the document is destroyed.
+        return new Promise(() => {});
+      }).catch(() => resolve());
+      claim();
+    });
+    return tabClaim;
+  }
   let status = demo ? 'demo' : 'loading';
   let revision = 0;
   let privateServer = false;
@@ -24,7 +45,7 @@ const SkazStorage = (() => {
     catch { draftStored = false; message = 'Черновик остался только в этой вкладке. Скачай его перед закрытием.'; }
   }
   async function request(url, options = {}) {
-    const response = await fetch(url, { cache: 'no-store', ...options, signal: AbortSignal.timeout(10000) });
+    const response = await fetch(url, { cache: 'no-store', ...options, headers: { ...options.headers, 'X-Skaz-View': tabId }, signal: AbortSignal.timeout(10000) });
     if(response.headers?.get('x-skaz-mode') === 'private-server')privateServer=true;
     const payload = await response.json();
     if (!response.ok) { const error = new Error(payload.error || 'Сервер не ответил'); error.status = response.status; throw error; }
@@ -67,6 +88,7 @@ const SkazStorage = (() => {
     pending = null; message = ''; status = 'ready'; rememberDraft(); render();
   }
   async function load() {
+    await claimTab();
     ++remoteCheckSerial;checkingRemote=false;
     status = 'loading'; message = ''; paint();
     try {
@@ -84,12 +106,13 @@ const SkazStorage = (() => {
   async function sendPending() {
     status = 'saving'; message = ''; paint();
     try {
-      const { operation, ...body } = pending;
+      const { operation, formDraftKey, ...body } = pending;
       if(operation === 'inventory-charges'){body.operation=body.chargeAction;delete body.chargeAction;}
       if (operation === 'place-create' || operation === 'place-update') body.operation = operation === 'place-create' ? 'create' : 'update';
       if (operation === 'quest-create' || operation === 'quest-update') body.operation = operation === 'quest-create' ? 'create' : 'update';
       const url = operation === 'character-create' ? '/api/characters' : operation === 'proposal-create' ? '/api/proposals' : operation === 'proposal-decide' ? '/api/proposals/decide' : operation?.startsWith('place-') ? '/api/places' : operation?.startsWith('quest-') ? '/api/quests' : operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-charges' ? '/api/inventory/charges' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
       const payload = await request(url, { method: operation ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body: JSON.stringify(body) });
+      if (typeof formDraftKey === 'string' && formDraftKey.startsWith('skaz-proposal-form-v1:')) { try { localStorage.removeItem(formDraftKey); } catch {} }
       apply(payload);
       return payload;
     } catch (error) {
@@ -116,7 +139,8 @@ const SkazStorage = (() => {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   function downloadDraft(draft) {
-    if (draft.operation) download({ app: 'skaz-command', command: draft, note: 'Копия команды для сохранности. Повтор выполняется кнопкой в исходной вкладке; это не файл импорта прогресса.' }, 'skaz-pending-command.json');
+    if (draft.kind === 'proposal-form') download({ app: 'skaz-form-draft', ...draft, note: 'Локальный текст формы. Это не запись сервера и не файл импорта игры.' }, 'skaz-event-draft.json');
+    else if (draft.operation) download({ app: 'skaz-command', command: draft, note: 'Копия команды для сохранности. Повтор выполняется кнопкой в исходной вкладке; это не файл импорта прогресса.' }, 'skaz-pending-command.json');
     else download({ app: 'skaz', schemaVersion: 1, state: draft.state }, 'skaz-unsaved-draft.json');
   }
   function exportState() { download({ app: 'skaz', schemaVersion: 1, exportedAt: new Date().toISOString(), state: clean(state) }, 'skaz-backup.json'); }
@@ -148,11 +172,11 @@ const SkazStorage = (() => {
     if (activeContext && JSON.stringify(activeContext) !== JSON.stringify(context)) toast('Активная игра изменена');
     activeContext = context || null;
   }
-  async function campaignCommand(operation, data) {
+  async function campaignCommand(operation, data, formDraftKey) {
     if (demo || status !== 'ready') throw new Error('Сначала сохрани черновик или загрузи актуальные данные');
     const command = { mutationId: crypto.randomUUID(), expectedRevision: revision, ...data };
     if (new Blob([JSON.stringify(command)]).size > 512 * 1024) throw new Error('Команда больше 512 КиБ. Для переноса используй резервную копию SQLite.');
-    pending = { ...command, operation };
+    pending = { ...command, operation, ...(formDraftKey ? { formDraftKey } : {}) };
     rememberDraft();
     closeModal();
     const payload = await sendPending();
@@ -177,7 +201,7 @@ const SkazStorage = (() => {
     try {
       const data = await request('/api/campaigns');
       if(key!==snapshotKey())return;
-      modal(`<div class="overline">D&D 2014 · ЛОКАЛЬНЫЕ ИГРЫ</div><h2>Кампании и персонажи</h2><p>Выбран: ${esc(state.profile.name)}. Активная игра общая для всех вкладок. Ресурсы и личные записи у каждого персонажа свои, журнал сессии, задания и карта — общие.</p><div class="settings-actions">${data.campaigns.map((game,index)=>`<section class="panel"><h3>${esc(game.name)}</h3><div class="character-choices">${game.characters.map((character,ci)=>`<button data-select-character="${index}:${ci}" ${character.id===activeContext?.characterId?'disabled':''}>${esc(character.name)}${character.id===activeContext?.characterId?' · Выбран':' →'}</button>`).join('')}</div>${game.id===activeContext?.campaignId?'<button id="new-character">＋ Персонаж из демо-шаблона</button>':''}</section>`).join('')}<button id="new-campaign" class="primary">Новая кампания из демо-шаблона</button></div>`);
+      modal(`<div class="overline">D&D 2014 · КАМПАНИИ</div><h2>Кампании и персонажи</h2><p>Выбран: ${esc(state.profile.name)}. Выбор героя сохраняется в этой вкладке и не переключает другие окна. Ресурсы и личные записи у каждого персонажа свои, журнал сессии, задания и карта — общие.</p><div class="settings-actions">${data.campaigns.map((game,index)=>`<section class="panel"><h3>${esc(game.name)}</h3><div class="character-choices">${game.characters.map((character,ci)=>`<button data-select-character="${index}:${ci}" ${character.id===activeContext?.characterId?'disabled':''}>${esc(character.name)}${character.id===activeContext?.characterId?' · Выбран':' →'}</button>`).join('')}</div>${game.id===activeContext?.campaignId?'<button id="new-character">＋ Персонаж из демо-шаблона</button>':''}</section>`).join('')}<button id="new-campaign" class="primary">Новая кампания из демо-шаблона</button></div>`);
       $$('[data-select-character]').forEach(button=>button.onclick=async()=>{
         if(key!==snapshotKey())return toast('Игра изменилась. Открой список заново.');
         const [gi,ci]=button.dataset.selectCharacter.split(':').map(Number),game=data.campaigns[gi],character=game.characters[ci];
@@ -396,12 +420,33 @@ const SkazStorage = (() => {
   function newProposal() {
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key = snapshotKey(), target = { ...activeContext }, proposalId = crypto.randomUUID();
-    modal(`<h2>Событие из текста</h2><p>Подготовка распознавания: пока фрагмент и краткую запись вводишь ты. Микрофон и AI не используются. Сначала создаётся предложение, затем ты подтверждаешь запись.</p><form id="proposal-form"><label for="proposal-source">Фрагмент разговора</label><textarea id="proposal-source" required maxlength="4000" rows="4" placeholder="Что рассказал мастер или игрок?"></textarea><label for="proposal-speaker">Кто сказал (необязательно)</label><input id="proposal-speaker" maxlength="120" placeholder="Например, мастер"><label for="proposal-minute">Минута с начала сессии</label><input id="proposal-minute" type="number" min="0" max="1440" step="1" required value="0"><label for="proposal-title">Краткий заголовок события</label><input id="proposal-title" required maxlength="2000"><label for="proposal-target">Куда записать после подтверждения</label><select id="proposal-target"><option value="journal">В журнал текущей сессии</option><option value="personal-note">В личные заметки персонажа</option></select><div class="dialog-actions"><button type="submit" class="primary">Создать предложение</button></div></form>`);
+    const draftKey = 'skaz-proposal-form-v1:' + tabId + ':' + encodeURIComponent(JSON.stringify(target));
+    modal(`<h2>Событие из текста</h2><p>Подготовка распознавания: пока фрагмент и краткую запись вводишь ты. Микрофон и AI не используются. Сначала создаётся предложение, затем ты подтверждаешь запись.</p><p id="proposal-draft-status" class="small" role="status">Текст формы сохраняется только в этом браузере.</p><form id="proposal-form"><div class="proposal-fields"><label for="proposal-source">Фрагмент разговора</label><textarea id="proposal-source" required maxlength="4000" rows="4" placeholder="Что рассказал мастер или игрок?"></textarea><label for="proposal-speaker">Кто сказал (необязательно)</label><input id="proposal-speaker" maxlength="120" placeholder="Например, мастер"><label for="proposal-minute">Минута с начала сессии</label><input id="proposal-minute" type="number" min="0" max="1440" step="1" required value="0"><label for="proposal-title">Краткий заголовок события</label><input id="proposal-title" required maxlength="2000"><label for="proposal-target">Куда записать после подтверждения</label><select id="proposal-target"><option value="journal">В журнал текущей сессии</option><option value="personal-note">В личные заметки персонажа</option></select></div><div class="dialog-actions"><button type="submit" class="primary">Создать предложение</button></div></form>`);
+    const fields = ['source', 'speaker', 'minute', 'title', 'target'];
+    const showDraftStatus = text => { if ($('#proposal-draft-status').textContent !== text) $('#proposal-draft-status').textContent = text; };
+    try {
+      const draft = JSON.parse(localStorage.getItem(draftKey) || 'null');
+      const limits = { source: 4000, speaker: 120, minute: 12, title: 2000, target: 20 };
+      if (draft?.kind === 'proposal-form' && draft.schemaVersion === 1 && fields.every(field => typeof draft.values?.[field] === 'string' && draft.values[field].length <= limits[field]) && ['journal', 'personal-note'].includes(draft.values.target)) {
+        for (const field of fields) $('#proposal-' + field).value = draft.values[field];
+        showDraftStatus('Восстановлен черновик этой вкладки. На сервер он ещё не отправлен.');
+      }
+    } catch { showDraftStatus('Хранилище черновика недоступно. Скопируй текст перед закрытием.'); }
+    const rememberForm = () => {
+      const values = Object.fromEntries(fields.map(field => [field, $('#proposal-' + field).value]));
+      try {
+        if (!values.source && !values.title && !values.speaker) localStorage.removeItem(draftKey);
+        else localStorage.setItem(draftKey, JSON.stringify({ schemaVersion: 1, kind: 'proposal-form', context: target, characterName: state.profile.name, sessionName: sessionTitle(), savedAt: new Date().toISOString(), values }));
+        showDraftStatus('Черновик сохранён в этом браузере. На сервер он ещё не отправлен.');
+      } catch { showDraftStatus('Черновик не сохранён. Скопируй текст перед закрытием или перезагрузкой.'); }
+    };
+    $('#proposal-form').oninput = rememberForm;
+    $('#proposal-form').onchange = rememberForm;
     $('#proposal-form').onsubmit = async event => {
       event.preventDefault(); if (key !== snapshotKey()) return toast('Игра изменилась. Открой форму заново.');
       const text = $('#proposal-source').value.trim(), title = $('#proposal-title').value.trim(), minutes = Number($('#proposal-minute').value);
       if (!text || !title || !Number.isSafeInteger(minutes) || minutes < 0 || minutes > 1440) return toast('Заполни текст, заголовок и минуту 0–1440');
-      try { await campaignCommand('proposal-create', { ...target, proposalId, source: { kind: 'manual-text', speaker: $('#proposal-speaker').value, text, offsetMs: minutes*60000 }, suggestion: { kind: $('#proposal-target').value, title, text } }); }
+      try { await campaignCommand('proposal-create', { ...target, proposalId, source: { kind: 'manual-text', speaker: $('#proposal-speaker').value, text, offsetMs: minutes*60000 }, suggestion: { kind: $('#proposal-target').value, title, text } }, draftKey); }
       catch (error) { toast(error.message); }
     };
   }
@@ -478,7 +523,7 @@ const SkazStorage = (() => {
       modal(`<div class="overline">${esc(state.profile.campaign)}</div><h2>Сессии кампании</h2><div class="settings-actions">${list.slice().reverse().map((item, i) => `<section class="panel"><h3>${esc(item.name || 'Сессия без названия')}</h3><p>${esc(item.playedOn || 'Дата не указана')} · ${item.archived ? 'Архив' : 'Текущая'}</p><button data-session-view="${list.length - 1 - i}">Журнал и события</button></section>`).join('')}<button id="new-session" class="primary">Начать следующую сессию</button></div>`);
       $$('[data-session-view]').forEach(button => button.onclick = () => SkazArchive.open(list[Number(button.dataset.sessionView)].id, sessions));
       $('#new-session').onclick = () => {
-        modal('<h2>Следующая сессия</h2><p>Текущий журнал станет архивом только для чтения. Ресурсы персонажа, карта, задания и личные заметки сохранятся. Это не отдых. Новый журнал будет пустым. Сначала проверь ожидающие события в журнале: после перехода их нельзя подтвердить. Исходные предложения и решения останутся доступны в архиве только для чтения.</p><form id="new-session-form"><label for="session-name">Название</label><input id="session-name" maxlength="120" required><label for="session-date">Дата игры</label><input id="session-date" type="date" required><div class="dialog-actions"><button type="submit" class="primary">Завершить текущую и начать</button></div></form>');
+        modal('<h2>Следующая сессия</h2><p>Переход затронет всю кампанию: в других окнах тоже откроется новая сессия, выбранные герои сохранятся. Текущий журнал станет архивом только для чтения. Ресурсы персонажа, карта, задания и личные заметки сохранятся. Это не отдых. Новый журнал будет пустым. Сначала проверь ожидающие события в журнале: после перехода их нельзя подтвердить. Исходные предложения и решения останутся доступны в архиве только для чтения.</p><form id="new-session-form"><label for="session-name">Название</label><input id="session-name" maxlength="120" required><label for="session-date">Дата игры</label><input id="session-date" type="date" required><div class="dialog-actions"><button type="submit" class="primary">Завершить текущую и начать</button></div></form>');
         $('#new-session-form').onsubmit = async event => {
           event.preventDefault();
           const name = $('#session-name').value.trim(), playedOn = $('#session-date').value;
@@ -497,12 +542,15 @@ const SkazStorage = (() => {
       try {
         for (let i = 0; i < localStorage.length; i++) {
           const key = localStorage.key(i);
+          if (key.startsWith('skaz-proposal-form-v1:')) {
+            try { const value = JSON.parse(localStorage.getItem(key)); if (value?.kind === 'proposal-form' && typeof value.values?.source === 'string') drafts.push(value); } catch {}
+          }
           if (key.startsWith('skaz-pending-v1:')) {
             try { const value = JSON.parse(localStorage.getItem(key)); if (value?.state || value?.operation) drafts.push(value); } catch {}
           }
         }
       } catch { toast('Хранилище браузера недоступно'); return; }
-      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation?.startsWith('proposal-') ? 'Решение по событию' : draft.operation?.startsWith('place-') ? 'Сохранение места' : draft.operation?.startsWith('quest-') ? 'Сохранение задания' : draft.operation === 'spell-set' ? 'Изменение списка заклинаний' : draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-charges' ? 'Изменение зарядов' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
+      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Текст события из формы можно скачать для чтения и копирования; это ещё не запись сервера и не файл импорта игры. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc((draft.kind === 'proposal-form' ? 'Текст события · ' + (draft.characterName || '') + ' · ' + (draft.sessionName || '') : draft.label) || (draft.operation?.startsWith('proposal-') ? 'Решение по событию' : draft.operation?.startsWith('place-') ? 'Сохранение места' : draft.operation?.startsWith('quest-') ? 'Сохранение задания' : draft.operation === 'spell-set' ? 'Изменение списка заклинаний' : draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-charges' ? 'Изменение зарядов' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
       $$('[data-draft-index]').forEach(button => button.onclick = () => downloadDraft(drafts[Number(button.dataset.draftIndex)]));
     };
     $('#import-state').onchange = async event => {

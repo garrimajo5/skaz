@@ -41,41 +41,43 @@ export function createApp(store, { publicOrigin } = {}) {
       if (request.headers.origin && request.headers.origin !== `http://${host}` && request.headers.origin !== publicOrigin) throw new AppError(403, 'Запрос с другого сайта запрещён');
       const pathname = new URL(request.url, `http://${host}`).pathname;
       if (pathname.startsWith('/api/')) {
+        const viewId = request.headers['x-skaz-view'];
+        const view = viewId === undefined ? store : store.forView(viewId);
         if (request.method === 'GET') {
           if (pathname === '/api/health') return json(response, 200, { status: 'ok', mode: publicOrigin ? 'private-server' : 'local', storage: 'sqlite' });
-          if (pathname === '/api/proposals') return json(response, 200, store.proposals());
-          if (pathname === '/api/places') return json(response, 200, store.places());
-          if (pathname === '/api/quests') return json(response, 200, store.quests());
-          if (pathname === '/api/spellbook') return json(response, 200, store.spellbook());
-          if (pathname === '/api/inventory') return json(response, 200, store.inventory());
-          if (pathname === '/api/catalog/bundled') return json(response, 200, store.catalog.previewBundled());
-          if (pathname === '/api/catalog/entry') return json(response, 200, store.catalog.lookup(new URL(request.url, `http://${host}`).searchParams));
-          if (pathname === '/api/catalog') return json(response, 200, store.catalog.search(new URL(request.url, `http://${host}`).searchParams));
-          if (pathname === '/api/catalog/spell-inventory') return json(response, 200, store.catalog.spellInventory());
-          if (pathname === '/api/catalog/coverage') return json(response, 200, store.catalog.coverage());
-          if (pathname === '/api/workspace') return json(response, 200, store.read());
-          if (pathname === '/api/context') return json(response, 200, store.context());
-          if (pathname === '/api/campaigns') return json(response, 200, { campaigns: store.campaigns() });
+          if (pathname === '/api/proposals') return json(response, 200, view.proposals());
+          if (pathname === '/api/places') return json(response, 200, view.places());
+          if (pathname === '/api/quests') return json(response, 200, view.quests());
+          if (pathname === '/api/spellbook') return json(response, 200, view.spellbook());
+          if (pathname === '/api/inventory') return json(response, 200, view.inventory());
+          if (pathname === '/api/catalog/bundled') return json(response, 200, view.catalog.previewBundled());
+          if (pathname === '/api/catalog/entry') return json(response, 200, view.catalog.lookup(new URL(request.url, `http://${host}`).searchParams));
+          if (pathname === '/api/catalog') return json(response, 200, view.catalog.search(new URL(request.url, `http://${host}`).searchParams));
+          if (pathname === '/api/catalog/spell-inventory') return json(response, 200, view.catalog.spellInventory());
+          if (pathname === '/api/catalog/coverage') return json(response, 200, view.catalog.coverage());
+          if (pathname === '/api/workspace') return json(response, 200, view.read());
+          if (pathname === '/api/context') return json(response, 200, view.context());
+          if (pathname === '/api/campaigns') return json(response, 200, { campaigns: view.campaigns() });
           const sessionList = pathname.match(/^\/api\/campaigns\/([a-zA-Z0-9-]{1,80})\/sessions$/);
-          if (sessionList) return json(response, 200, { sessions: store.sessions(sessionList[1]) });
+          if (sessionList) return json(response, 200, { sessions: view.sessions(sessionList[1]) });
           const review = pathname.match(/^\/api\/sessions\/([a-zA-Z0-9-]{1,80})\/review$/);
-          if (review) return json(response, 200, store.sessionReview(review[1]));
+          if (review) return json(response, 200, view.sessionReview(review[1]));
           const sessionDetail = pathname.match(/^\/api\/sessions\/([a-zA-Z0-9-]{1,80})$/);
-          if (sessionDetail) return json(response, 200, store.session(sessionDetail[1]));
-          if (pathname === '/api/history') return json(response, 200, { changes: store.history() });
-          if (pathname === '/api/export/active-v7') return json(response, 200, store.exportActive(7), { 'Content-Disposition': 'attachment; filename="skaz-active-v7.json"' });
-          if (pathname === '/api/export/active-v6') return json(response, 200, store.exportActive(6), { 'Content-Disposition': 'attachment; filename="skaz-active-v6.json"' });
-          if (pathname === '/api/export/active-v5') return json(response, 200, store.exportActive(5), { 'Content-Disposition': 'attachment; filename="skaz-active-v5.json"' });
-          if (pathname === '/api/export/active-v4') return json(response, 200, store.exportActive(4), { 'Content-Disposition': 'attachment; filename="skaz-active-v4.json"' });
-          if (pathname === '/api/export/active-v3') return json(response, 200, store.exportActive(3), { 'Content-Disposition': 'attachment; filename="skaz-active-v3.json"' });
-          if (pathname === '/api/export/active') return json(response, 200, store.exportActive(), { 'Content-Disposition': 'attachment; filename="skaz-active-v2.json"' });
-          if (pathname === '/api/export') return json(response, 200, { app: 'skaz', ...store.read() }, { 'Content-Disposition': 'attachment; filename="skaz-backup.json"' });
+          if (sessionDetail) return json(response, 200, view.session(sessionDetail[1]));
+          if (pathname === '/api/history') return json(response, 200, { changes: view.history() });
+          if (pathname === '/api/export/active-v7') return json(response, 200, view.exportActive(7), { 'Content-Disposition': 'attachment; filename="skaz-active-v7.json"' });
+          if (pathname === '/api/export/active-v6') return json(response, 200, view.exportActive(6), { 'Content-Disposition': 'attachment; filename="skaz-active-v6.json"' });
+          if (pathname === '/api/export/active-v5') return json(response, 200, view.exportActive(5), { 'Content-Disposition': 'attachment; filename="skaz-active-v5.json"' });
+          if (pathname === '/api/export/active-v4') return json(response, 200, view.exportActive(4), { 'Content-Disposition': 'attachment; filename="skaz-active-v4.json"' });
+          if (pathname === '/api/export/active-v3') return json(response, 200, view.exportActive(3), { 'Content-Disposition': 'attachment; filename="skaz-active-v3.json"' });
+          if (pathname === '/api/export/active') return json(response, 200, view.exportActive(), { 'Content-Disposition': 'attachment; filename="skaz-active-v2.json"' });
+          if (pathname === '/api/export') return json(response, 200, { app: 'skaz', ...view.read() }, { 'Content-Disposition': 'attachment; filename="skaz-backup.json"' });
         }
         if ((pathname === '/api/workspace' && request.method === 'PUT') || (['/api/catalog/import/preview', '/api/catalog/import', '/api/catalog/bundled', '/api/characters', '/api/campaigns', '/api/context/select', '/api/sessions', '/api/inventory', '/api/inventory/remove', '/api/inventory/charges', '/api/inventory/undo', '/api/import/active', '/api/spellbook', '/api/quests', '/api/places', '/api/proposals', '/api/proposals/decide'].includes(pathname) && request.method === 'POST')) {
           if (request.headers['x-skaz-client'] !== 'local-v1') throw new AppError(403, 'Запрос должен исходить из приложения');
           const data = await body(request);
           if (!data || typeof data !== 'object' || Array.isArray(data)) throw new AppError(400, 'Неверный запрос');
-          const result = pathname === '/api/catalog/import/preview' ? store.catalog.reviewedImport(data) : pathname === '/api/catalog/import' ? store.catalog.reviewedImport(data,true) : pathname === '/api/catalog/bundled' ? store.catalog.installBundled(data) : pathname === '/api/characters' ? store.createCharacter(data) : pathname === '/api/proposals' ? store.createProposal(data) : pathname === '/api/proposals/decide' ? store.decideProposal(data) : pathname === '/api/places' ? store.savePlace(data) : pathname === '/api/quests' ? store.saveQuest(data) : pathname === '/api/spellbook' ? store.setSpell(data) : pathname === '/api/import/active' ? store.importActive(data) : pathname === '/api/inventory/charges' ? store.changeCharges(data) : pathname === '/api/inventory/undo' ? store.undoInventory(data) : pathname === '/api/inventory/remove' ? store.removeInventory(data) : pathname === '/api/inventory' ? store.addInventory(data) : pathname === '/api/sessions' ? store.startSession(data) : pathname === '/api/campaigns' ? store.createCampaign(data) : pathname === '/api/context/select' ? store.selectContext(data) : store.update(data);
+          const result = pathname === '/api/catalog/import/preview' ? view.catalog.reviewedImport(data) : pathname === '/api/catalog/import' ? view.catalog.reviewedImport(data,true) : pathname === '/api/catalog/bundled' ? view.catalog.installBundled(data) : pathname === '/api/characters' ? view.createCharacter(data) : pathname === '/api/proposals' ? view.createProposal(data) : pathname === '/api/proposals/decide' ? view.decideProposal(data) : pathname === '/api/places' ? view.savePlace(data) : pathname === '/api/quests' ? view.saveQuest(data) : pathname === '/api/spellbook' ? view.setSpell(data) : pathname === '/api/import/active' ? view.importActive(data) : pathname === '/api/inventory/charges' ? view.changeCharges(data) : pathname === '/api/inventory/undo' ? view.undoInventory(data) : pathname === '/api/inventory/remove' ? view.removeInventory(data) : pathname === '/api/inventory' ? view.addInventory(data) : pathname === '/api/sessions' ? view.startSession(data) : pathname === '/api/campaigns' ? view.createCampaign(data) : pathname === '/api/context/select' ? view.selectContext(data) : view.update(data);
           return json(response, 200, result);
         }
         return json(response, 404, { error: 'Неизвестный метод API' });

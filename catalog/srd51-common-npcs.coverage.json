@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Six common non-spellcasting NPC statblocks from pinned SRD 5.1",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 6,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:bandit",
+      "nameEn": "Bandit",
+      "pages": [
+        396,
+        397
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:cultist",
+      "nameEn": "Cultist",
+      "pages": [
+        398
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:guard",
+      "nameEn": "Guard",
+      "pages": [
+        399,
+        400
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:scout",
+      "nameEn": "Scout",
+      "pages": [
+        401,
+        402
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:thug",
+      "nameEn": "Thug",
+      "pages": [
+        402
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:veteran",
+      "nameEn": "Veteran",
+      "pages": [
+        403
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not official translation or a complete NPC catalog.",
+    "Base statistics are structured; attacks, skills, senses and traits remain text.",
+    "Guard armor class includes a shield; two-handed attack equipment changes are manual.",
+    "Spellcasting NPCs, Bandit Captain, Berserker, Commoner, Gladiator, Knight, Noble, Spy and Tribal Warrior remain outside this subset.",
+    "No combat, equipment, advantage or multiattack automation."
+  ]
+}

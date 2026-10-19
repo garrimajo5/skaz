@@ -34,3 +34,14 @@ dialog:has(#charges-form){height:min(760px,90dvh);max-height:90dvh;overflow:hidd
 .charges-fields{overflow:auto;min-height:0;padding:4px;scrollbar-gutter:stable}
 #charges-form .dialog-actions{flex-shrink:0;margin-top:12px;padding-top:8px;border-top:1px solid var(--line)}
 #charges-form input,#charges-form select{min-height:44px;width:100%;min-width:0}
+
+/* Keep a long source fragment and its explicit send action usable on a tablet. */
+dialog:has(#proposal-form){height:min(850px,90dvh);max-height:90dvh;overflow:hidden}
+#dialog-content:has(#proposal-form){height:100%;display:flex;flex-direction:column;min-height:0}
+#dialog-content:has(#proposal-form)>h2{font-size:26px;margin-block:8px;flex-shrink:0}
+#dialog-content:has(#proposal-form)>p{font-size:12px;margin-block:6px;flex-shrink:0}
+#proposal-form{display:flex;flex-direction:column;flex:1;min-height:0;margin-top:8px}
+.proposal-fields{overflow:auto;min-height:0;padding:4px;scrollbar-gutter:stable}
+#proposal-form .dialog-actions{flex-shrink:0;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+#proposal-form input,#proposal-form select,#proposal-form button{min-height:44px}
+#proposal-form input,#proposal-form select,#proposal-form textarea{width:100%;min-width:0}
