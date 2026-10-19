@@ -12,9 +12,10 @@ const SkazCatalog = (() => {
     if (status === 'idle') queueMicrotask(() => load());
     return `<section class="catalog" aria-label="Каталог D&D 2014">
       <div class="notice"><b>D&D 2014 · Каталог пополняется</b><p>${coverage ? `В базе: ${coverage.total}. Справочных ссылок: ${coverage.referenceOnly}, личных записей: ${coverage.personal}, CC BY 4.0: ${coverage.openlyLicensed || 0}.` : 'Полнота базы пока не подтверждена.'} Предметы и артефакты можно добавить в инвентарь из карточки.</p></div>
+      <div class="catalog-tools" aria-label="Наполнение каталога"><button id="catalog-bundled">Проверенная подборка 2014</button><button id="catalog-help">Личный импорт</button></div>
       <form id="catalog-search" class="catalog-search"><label>Название на русском или английском<input name="q" type="search" maxlength="200" placeholder="Например, Spellcasting" value="${escape(query)}"></label><label>Категория<select name="kind"><option value="">Все категории</option>${Object.entries(names).map(([key, name]) => `<option value="${key}" ${kind === key ? 'selected' : ''}>${name}</option>`).join('')}</select></label><button type="submit" class="primary">Найти</button></form>
       <div id="catalog-results" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div>
-      <div class="catalog-footer"><p>Магия на листе пока использует отдельные демонстрационные данные.</p><button data-page="spells">8 демо-заклинаний →</button><button id="catalog-bundled">Проверенная подборка 2014</button><button id="catalog-help">Личный импорт</button></div>
+      <div class="catalog-footer"><p>В разделе магии доступны личный список из каталога и отдельные демонстрационные заклинания.</p><button data-page="spells">К моей магии →</button></div>
     </section>`;
   }
   function results() {
@@ -131,7 +132,7 @@ const SkazCatalog = (() => {
     if (button.id === 'catalog-reset') { query = ''; kind = ''; offset = 0; render(); load(); }
     if(button.id==='catalog-bundled')previewBundled();
     if(button.id==='bundled-done')closeModal();
-    if (button.id === 'catalog-help') modal('<div class="overline">ЛИЧНАЯ БИБЛИОТЕКА</div><h2>Добавление материалов</h2><p>Сейчас материалы добавляются из JSON-файла на компьютере, где запущен сервер. Формат и команды описаны в docs/catalog.md проекта.</p><p>Можно сохранить ссылку или импортировать собственный и разрешённый тебе текст. У каждой записи должны быть источник, версия и редакция 2014.</p><p>Загрузка файла прямо из интерфейса появится в следующем этапе работы с импортом.</p>');
+    if (button.id === 'catalog-help') SkazCatalogImport.open();
   });
-  return { view };
+  return { view, reload: load };
 })();

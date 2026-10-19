@@ -1,3 +1,4 @@
+import {createHash} from 'node:crypto';
 import { bundledCatalog, validateBundledInstall } from './bundled-catalog.mjs';
 import { AppError } from './state.mjs';
 
@@ -160,6 +161,16 @@ export function createCatalog(db) {
     const matches = all().filter(entry => (!kind || entry.kind === kind) && `${entry.name.ru} ${entry.name.en}`.toLocaleLowerCase('ru').includes(q));
     return { entries: matches.slice(offset, offset + limit), total: matches.length, limit, offset };
   }
+  function reviewedImport(request,apply=false) {
+    const keys=apply?['bundle','version']:['bundle'];
+    if(!request || typeof request!=='object' || Array.isArray(request) || Object.keys(request).length!==keys.length || keys.some(key=>!Object.hasOwn(request,key)))throw new AppError(422,'Неверные поля импорта');
+    const entries=validateCatalog(request.bundle).sort((a,b)=>a.id.localeCompare(b.id,'en'));
+    const bundle={schemaVersion:1,entries};
+    const version=createHash('sha256').update(JSON.stringify(bundle)).digest('hex');
+    if(apply&&request.version!==version)throw new AppError(409,'Состав файла отличается от предпросмотра');
+    const report=importEntries(bundle,{apply});
+    return {...report,version,records:entries.length,categories:Object.fromEntries(kinds.map(kind=>[kind,entries.filter(e=>e.kind===kind).length])),usage:Object.fromEntries(['reference-only','personal','cc-by-4.0'].map(usage=>[usage,entries.filter(e=>e.source.usage===usage).length])),sample:entries.slice(0,10).map(e=>({id:e.id,name:e.name,source:e.source}))};
+  }
   function previewBundled() {
     const {bundle,version,categories}=bundledCatalog();
     const report=importEntries(bundle);
@@ -196,5 +207,5 @@ export function createCatalog(db) {
       structuredArtifacts: entries.filter(entry => entry.artifact !== undefined).length,
       gaps: ['Полная база не загружена; общее количество материалов не установлено.', 'Структуры заклинаний, предметов и существ частичные; действия и особенности остаются в тексте. Структура артефактов содержит только основные поля. Инвентарь и личный список заклинаний подключены; автоматические эффекты и применение состояний не реализованы.'] };
   }
-  return { importEntries, search, coverage, lookup, previewBundled, installBundled };
+  return { importEntries, search, coverage, lookup, previewBundled, installBundled, reviewedImport };
 }

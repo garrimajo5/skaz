@@ -23,6 +23,7 @@ const SkazArchive = (() => {
     region.innerHTML = results();
   }
   function draw() {
+    if (!data || key !== SkazStorage.snapshotKey()) { refresh(); return; }
     modal(`<div class="overline">${data.session.archived?'АРХИВ':'ПРОСМОТР'} · ТОЛЬКО ЧТЕНИЕ</div><h2>${escape(data.session.name||'Сессия без названия')}</h2><p>${escape(data.session.playedOn||'Дата не указана')} · ${escape(data.characterName)}</p><p>Журнал общий для сессии. Исходные события показаны только для выбранного персонажа. Просмотр не меняет игру и не применяет события повторно.</p><div class="archive-controls"><label>Раздел<select id="archive-section"><option value="journal" ${section==='journal'?'selected':''}>Журнал (${data.session.data.journal.length})</option><option value="events" ${section==='events'?'selected':''}>Исходные события (${data.proposals.length})</option></select></label><label>Поиск<input type="search" id="archive-search" maxlength="200" value="${escape(query)}" placeholder="Текст, имя или зацепка"></label>${section==='events'?`<label>Решение<select id="archive-status"><option value="all">Все</option><option value="pending">Не разобрано</option><option value="accepted">Записано</option><option value="dismissed">Пропущено</option></select></label>`:''}</div><div id="archive-results" class="settings-actions" aria-live="polite">${results()}</div><button id="back-sessions">К списку сессий</button>`);
   }
   async function open(id, returnToSessions) {

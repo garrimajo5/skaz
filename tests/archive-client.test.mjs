@@ -27,3 +27,7 @@ test('archive pages and errors remain read-only',async()=>{
  h.setKey('changed');h.click('archive-prev');assert.match(h.region.innerHTML,/Игра изменилась/);
  const failed=h.open();h.requests[1].reject(new Error('<failed>'));await failed;assert.match(h.html(),/&lt;failed&gt;/);
 });
+
+test('changing archive section after context change cannot redraw stale character sources',async()=>{
+ const h=harness(),p=h.open();h.requests[0].resolve(data);await p;const before=h.html();h.setKey('another-character');h.change('archive-section','events');assert.equal(h.html(),before);assert.match(h.region.innerHTML,/Игра изменилась/);
+});
