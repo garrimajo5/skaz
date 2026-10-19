@@ -259,3 +259,24 @@ test('client requests v3 export and refuses a response from another revision', a
   assert.equal(calls.at(-1), '/api/export/active-v3');
   assert.match(h.messages.at(-1), /Игра изменилась/);
 });
+
+
+test('spell selection persists exact command across lost response and reload', async () => {
+  const local = memory(), session = memory(), calls = [];
+  const h = harness(local, session, async (url, options) => {
+    if (url === '/api/workspace') return response(payload(0));
+    calls.push({ url, body: options.body }); throw new Error('lost response');
+  });
+  await h.api.boot();
+  h.api.editSpell({ id: 'test:spell', kind: 'spell', name: { ru: 'Test' }, source: { title: 'Test', version: '1', terms: 'Personal' } });
+  h.get('#spellbook-status').value = 'prepared';
+  await h.get('#spellbook-form').onsubmit({ preventDefault() {} });
+  assert.equal(calls[0].url, '/api/spellbook'); assert.equal(JSON.parse(calls[0].body).status, 'prepared');
+  assert.equal(h.api.editable(), false);
+  const restored = harness(local, session, async (url, options) => {
+    if (url !== '/api/workspace') calls.push({ url, body: options.body });
+    return response(payload(1));
+  });
+  await restored.api.boot(); await restored.click('sync-retry');
+  assert.deepEqual(calls[1], calls[0]); assert.equal(restored.api.editable(), true);
+});

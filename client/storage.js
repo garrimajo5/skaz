@@ -64,7 +64,7 @@ const SkazStorage = (() => {
     status = 'saving'; message = ''; paint();
     try {
       const { operation, ...body } = pending;
-      const url = operation === 'import-active' ? '/api/import/active' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
+      const url = operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
       const payload = await request(url, { method: operation ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body: JSON.stringify(body) });
       apply(payload);
       return payload;
@@ -129,7 +129,7 @@ const SkazStorage = (() => {
     rememberDraft();
     closeModal();
     const payload = await sendPending();
-    toast(operation === 'import-active' ? 'Игра импортирована в новую кампанию' : operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
+    toast(operation === 'spell-set' ? 'Список заклинаний сохранён' : operation === 'import-active' ? 'Игра импортирована в новую кампанию' : operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
     return payload;
   }
   async function campaigns() {
@@ -208,6 +208,34 @@ const SkazStorage = (() => {
       catch (error) { toast(error.message); }
     };
   }
+  async function spellbook() {
+    if (demo || status !== 'ready' || !activeContext) return toast('Список доступен после подключения и сохранения черновика');
+    const key = JSON.stringify(activeContext), version = revision;
+    modal('<h2>Мои заклинания из каталога</h2><p>Загружаем…</p>');
+    try {
+      const data = await request('/api/spellbook');
+      if (key !== JSON.stringify(activeContext) || version !== revision) return;
+      if (JSON.stringify(data.context) !== key || data.revision !== version) return modal('<h2>Игра изменилась</h2><p>Обнови страницу и открой список снова.</p>');
+      modal(`<div class="overline">${esc(state.profile.name)} · D&D 2014</div><h2 tabindex="-1" autofocus>Мои заклинания из каталога</h2><p>Ручные отметки. Доступность по классу и уровень проверяет игрок. Эти записи не расходуют ячейки и не применяют эффекты.</p><div class="settings-actions">${data.entries.map((item,index) => `<article class="panel"><h3>${esc(item.entry.name.ru)}</h3><p>${item.status === 'prepared' ? 'Подготовлено' : 'Изучено'} · ${esc(item.entry.name.en)}</p><button data-spell-edit="${index}">Читать и изменить</button></article>`).join('') || '<p>Список пуст. Добавь заклинание из справочника.</p>'}</div><button id="spellbook-catalog">Открыть справочник</button>`);
+      $$('[data-spell-edit]').forEach(button => button.onclick = () => {
+        if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой список заново.');
+        const item = data.entries[Number(button.dataset.spellEdit)]; editSpell(item.entry, item.status);
+      });
+      $('#spellbook-catalog').onclick = () => { closeModal(); location.hash = 'library'; };
+    } catch { modal('<h2>Список недоступен</h2><p>Проверь соединение и открой список снова.</p>'); }
+  }
+  function editSpell(entry, selected = null) {
+    if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
+    if (entry.kind !== 'spell') return;
+    const key = JSON.stringify(activeContext), version = revision, characterId = activeContext.characterId;
+    modal(`<div class="overline">${esc(state.profile.name)}</div><h2 tabindex="-1" autofocus>${esc(entry.name.ru)}</h2><p>Ручная отметка; ячейки и эффекты не меняются. Удаление убирает запись только из списка персонажа.</p><form id="spellbook-form"><label for="spellbook-status">Отметка</label><select id="spellbook-status"><option value="known" ${selected === 'known' ? 'selected' : ''}>Изучено</option><option value="prepared" ${selected === 'prepared' ? 'selected' : ''}>Подготовлено</option>${selected ? '<option value="remove">Убрать из моего списка</option>' : ''}</select><button type="submit" class="primary">Сохранить отметку</button></form><p class="session-text">${esc(entry.text || 'Сохранена только справочная ссылка; текста нет.')}</p><p>${esc(entry.source.title)} · ${esc(entry.source.version)}</p><p>${esc(entry.source.terms)}</p>${entry.source.attribution ? `<p>${esc(entry.source.attribution)}</p><p>${esc(entry.source.changes)}</p>` : ''}`);
+    $('#spellbook-form').onsubmit = async event => {
+      event.preventDefault();
+      if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой список заново.');
+      try { await campaignCommand('spell-set', { characterId, catalogId: entry.id, status: $('#spellbook-status').value }); await spellbook(); }
+      catch (error) { toast(error.message); }
+    };
+  }
   function sessionTitle() { return sessionInfo?.name || (demo ? 'Демонстрационная сессия' : 'Сессия без названия'); }
   async function sessions() {
     if (demo || status !== 'ready' || !activeContext) return toast('Сессии доступны после подключения и сохранения черновика');
@@ -249,7 +277,7 @@ const SkazStorage = (() => {
           }
         }
       } catch { toast('Хранилище браузера недоступно'); return; }
-      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
+      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation === 'spell-set' ? 'Изменение списка заклинаний' : draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
       $$('[data-draft-index]').forEach(button => button.onclick = () => downloadDraft(drafts[Number(button.dataset.draftIndex)]));
     };
     $('#import-state').onchange = async event => {
@@ -290,6 +318,7 @@ const SkazStorage = (() => {
   }
   document.addEventListener('click', async event => {
     const id = event.target.closest('button')?.id;
+    if (id === 'open-spellbook') spellbook();
     if (id === 'open-inventory') inventory();
     if (id === 'session-settings') sessions();
     if (id === 'campaign-settings') campaigns();
@@ -303,5 +332,5 @@ const SkazStorage = (() => {
     }
   });
   window.addEventListener('beforeunload', event => { if (status === 'saving') { event.preventDefault(); event.returnValue = ''; } });
-  return { commit, paint, settings, inventory, addInventory, removeInventory, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
+  return { commit, paint, settings, inventory, addInventory, removeInventory, spellbook, editSpell, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
 })();

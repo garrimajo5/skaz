@@ -13,7 +13,7 @@ function harness(protocol = 'http:') {
     fetch: url => new Promise((resolve, reject) => requests.push({ url, resolve, reject })),
     document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: () => region, querySelector: () => null },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
-    modal: html => dialog = html, SkazStorage: { addInventory: entry => additions.push(entry) },
+    modal: html => dialog = html, SkazStorage: { addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
@@ -76,4 +76,13 @@ test('item and artifact cards pass the selected entry to the inventory form', as
     h.region.onclick();
     assert.equal(h.additions[0].id, item.id);
   }
+});
+
+
+test('spell card opens selection without directly applying effects', async () => {
+  const h = harness(); h.submit('');
+  const spell = { ...entry, kind: 'spell', id: 'test:spell' };
+  respond(h.requests[0], { entries: [spell], total: 1 }); respond(h.requests[1], coverage);
+  await settle(); h.detail(); assert.match(h.dialog(), /catalog-add-spell/);
+  h.region.onclick(); assert.equal(h.additions[0].id, spell.id);
 });
