@@ -5,7 +5,9 @@ export function setupQuests(db) {
     created_session_id TEXT NOT NULL REFERENCES sessions(id), data_json TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS quest_changes (
     mutation_id TEXT PRIMARY KEY REFERENCES changes(mutation_id) DEFERRABLE INITIALLY DEFERRED,
-    quest_id TEXT NOT NULL REFERENCES quests(id), before_json TEXT, after_json TEXT NOT NULL)`);
+    quest_id TEXT NOT NULL REFERENCES quests(id), before_json TEXT, after_json TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS quest_origins (
+    quest_id TEXT PRIMARY KEY REFERENCES quests(id), origin_json TEXT NOT NULL)`);
 }
 const id = value => typeof value === 'string' && /^[a-zA-Z0-9-]{8,80}$/.test(value);
 const fail = message => { throw new AppError(422, message); };
@@ -29,8 +31,8 @@ export function validateQuestCommand(input) {
   return { campaignId: input.campaignId, questId: input.questId, operation: input.operation, quest: { title: title.trim(), description, status, steps: normalized } };
 }
 export function readQuests(db, campaignId) {
-  return db.prepare('SELECT * FROM quests WHERE campaign_id=? ORDER BY rowid').all(campaignId)
-    .map(row => ({ id: row.id, campaignId: row.campaign_id, createdSessionId: row.created_session_id, ...JSON.parse(row.data_json) }));
+  return db.prepare('SELECT q.*, o.origin_json FROM quests q LEFT JOIN quest_origins o ON o.quest_id=q.id WHERE q.campaign_id=? ORDER BY q.rowid').all(campaignId)
+    .map(row => ({ id: row.id, campaignId: row.campaign_id, createdSessionId: row.created_session_id, ...JSON.parse(row.data_json), ...(row.origin_json ? { importedFrom: JSON.parse(row.origin_json) } : {}) }));
 }
 export function saveQuest(db, payload, mutationId, context) {
   if (payload.campaignId !== context.campaignId) throw new AppError(409, 'Активная кампания изменилась');

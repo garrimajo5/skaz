@@ -49,6 +49,7 @@ export function createApp(store) {
           const sessionDetail = pathname.match(/^\/api\/sessions\/([a-zA-Z0-9-]{1,80})$/);
           if (sessionDetail) return json(response, 200, store.session(sessionDetail[1]));
           if (pathname === '/api/history') return json(response, 200, { changes: store.history() });
+          if (pathname === '/api/export/active-v4') return json(response, 200, store.exportActive(4), { 'Content-Disposition': 'attachment; filename="skaz-active-v4.json"' });
           if (pathname === '/api/export/active-v3') return json(response, 200, store.exportActive(3), { 'Content-Disposition': 'attachment; filename="skaz-active-v3.json"' });
           if (pathname === '/api/export/active') return json(response, 200, store.exportActive(), { 'Content-Disposition': 'attachment; filename="skaz-active-v2.json"' });
           if (pathname === '/api/export') return json(response, 200, { app: 'skaz', ...store.read() }, { 'Content-Disposition': 'attachment; filename="skaz-backup.json"' });

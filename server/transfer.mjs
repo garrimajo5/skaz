@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto';
+import { validateQuestCommand } from './quests.mjs';
 import { AppError, validateState } from './state.mjs';
 import { validateCatalog } from './catalog.mjs';
 import { validateSession } from './sessions.mjs';
@@ -8,8 +10,8 @@ function exact(value, keys) {
   if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).length !== keys.length || keys.some(key => !Object.hasOwn(value, key))) fail('Неверные поля файла переноса');
 }
 export function validateTransfer(file) {
-  exact(file, ['app','schemaVersion','ruleset','scope','exportedAt','source','state','session','inventory','catalog', ...(file?.schemaVersion === 3 ? ['spellbook'] : [])]);
-  if (file.app !== 'skaz-active' || ![2,3].includes(file.schemaVersion) || file.ruleset !== '5e-2014' || file.scope !== 'active-game') fail('Нужен экспорт активной игры СКАЗ v2/v3, D&D 2014');
+  exact(file, ['app','schemaVersion','ruleset','scope','exportedAt','source','state','session','inventory','catalog', ...([3,4].includes(file?.schemaVersion) ? ['spellbook'] : []), ...(file?.schemaVersion === 4 ? ['quests'] : [])]);
+  if (file.app !== 'skaz-active' || ![2,3,4].includes(file.schemaVersion) || file.ruleset !== '5e-2014' || file.scope !== 'active-game') fail('Нужен экспорт активной игры СКАЗ v2/v3/v4, D&D 2014');
   if (typeof file.exportedAt !== 'string' || file.exportedAt.length > 40 || !Number.isFinite(Date.parse(file.exportedAt))) fail('Неверная дата экспорта');
   exact(file.source, ['revision','context']); exact(file.source.context, ['campaignId','characterId','sessionId']);
   if (!Number.isSafeInteger(file.source.revision) || file.source.revision < 0 || Object.values(file.source.context).some(id => typeof id !== 'string' || !/^[a-zA-Z0-9-]{1,80}$/.test(id))) fail('Неверные сведения об исходной игре');
@@ -33,7 +35,7 @@ export function validateTransfer(file) {
     seen.add(item.catalogId); return { catalogId: item.catalogId, quantity: item.quantity };
   }).sort((a,b) => a.catalogId.localeCompare(b.catalogId, 'en'));
   let spellbook;
-  if (file.schemaVersion === 3) {
+  if (file.schemaVersion >= 3) {
     if (!Array.isArray(file.spellbook) || file.spellbook.length > 1000) fail('Не более 1000 заклинаний');
     const selected = new Set();
     spellbook = file.spellbook.map(item => {
@@ -42,8 +44,23 @@ export function validateTransfer(file) {
       selected.add(item.catalogId); return { catalogId: item.catalogId, status: item.status };
     }).sort((a,b) => a.catalogId.localeCompare(b.catalogId, 'en'));
   }
+  let quests;
+  if (file.schemaVersion === 4) {
+    if (!Array.isArray(file.quests) || file.quests.length > 1000) fail('Не более 1000 заданий');
+    const origins = new Set();
+    quests = file.quests.map(item => {
+      exact(item, ['origin','quest']); exact(item.origin, ['campaignId','questId','sessionId']);
+      if (Object.values(item.origin).some(value => typeof value !== 'string' || !/^[a-zA-Z0-9-]{8,80}$/.test(value))) fail('Неверное происхождение задания');
+      const origin = { campaignId: item.origin.campaignId, questId: item.origin.questId, sessionId: item.origin.sessionId };
+      const key = JSON.stringify([origin.campaignId, origin.questId]);
+      if (origins.has(key)) fail('Повторное задание');
+      origins.add(key);
+      const { quest } = validateQuestCommand({ mutationId: 'transfer', expectedRevision: 0, campaignId: origin.campaignId, questId: origin.questId, operation: 'create', quest: item.quest });
+      return { origin, quest };
+    });
+  }
   // Preserve the normalized v2 payload and its existing mutation hashes.
-  return { state, session, inventory, ...(spellbook ? { spellbook } : {}), entries: entries.sort((a,b) => a.id.localeCompare(b.id, 'en')) };
+  return { state, session, inventory, ...(quests ? { quests } : {}), ...(spellbook ? { spellbook } : {}), entries: entries.sort((a,b) => a.id.localeCompare(b.id, 'en')) };
 }
 // Caller owns one transaction for catalog, new game, inventory and mutation receipt.
 export function importTransfer(db, data, mutationId) {
@@ -54,6 +71,11 @@ export function importTransfer(db, data, mutationId) {
   for (const entry of data.entries) db.prepare('INSERT OR IGNORE INTO catalog_entries VALUES (?, ?)').run(entry.id, JSON.stringify(entry));
   const ids = createGame(db, data.state);
   db.prepare('INSERT INTO session_details VALUES (?, ?, ?, 0)').run(ids.sessionId, data.session.name, data.session.playedOn);
+  for (const item of data.quests || []) {
+    const questId = randomUUID();
+    db.prepare('INSERT INTO quests VALUES (?, ?, ?, ?)').run(questId, ids.campaignId, ids.sessionId, JSON.stringify(item.quest));
+    db.prepare('INSERT INTO quest_origins VALUES (?, ?)').run(questId, JSON.stringify(item.origin));
+  }
   const entries = new Map(data.entries.map(entry => [entry.id, entry]));
   const snapshot = data.inventory.map(item => ({ ...item, entry: entries.get(item.catalogId) }));
   for (const item of snapshot) db.prepare('INSERT INTO inventory VALUES (?, ?, ?, ?)').run(ids.characterId, item.catalogId, item.quantity, JSON.stringify(item.entry));

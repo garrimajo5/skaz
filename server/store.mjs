@@ -53,7 +53,9 @@ export function openStore(filename) {
       const current = read();
       const inventory = readInventory(db, current.context.characterId);
       const spellbook = readSpellbook(db, current.context.characterId);
-      if (![2,3].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      const quests = readQuests(db, current.context.campaignId);
+      if (![2,3,4].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if (version < 4 && quests.length) throw new AppError(409, 'Задания требуют экспорт v4 или SQLite backup');
       if (version === 2 && spellbook.length) throw new AppError(409, 'Список заклинаний требует экспорт v3 или SQLite backup');
       const entries = new Map();
       const pending = [...inventory, ...spellbook].map(item => item.catalogId);
@@ -75,7 +77,8 @@ export function openStore(filename) {
         exportedAt: new Date().toISOString(), source: { revision: current.revision, context: current.context },
         state: current.state, session: current.session,
         inventory: inventory.map(({ catalogId, quantity }) => ({ catalogId, quantity })),
-        ...(version === 3 ? { spellbook: spellbook.map(({ catalogId, status }) => ({ catalogId, status })) } : {}),
+        ...(version >= 3 ? { spellbook: spellbook.map(({ catalogId, status }) => ({ catalogId, status })) } : {}),
+        ...(version === 4 ? { quests: quests.map(({ id, campaignId, createdSessionId, importedFrom, title, description, status, steps }) => ({ origin: importedFrom || { campaignId, questId: id, sessionId: createdSessionId }, quest: { title, description, status, steps } })) } : {}),
         catalog: { schemaVersion: 1, entries: [...entries.values()].sort((a, b) => a.id.localeCompare(b.id, 'en')) },
       };
       db.exec('COMMIT');
