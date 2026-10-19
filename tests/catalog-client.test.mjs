@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import { readFile } from 'node:fs/promises';
 const source = await readFile(new URL('../client/catalog.js', import.meta.url), 'utf8');
 function harness(protocol = 'http:') {
-  const handlers = {}, requests = [], tasks = [];
+  const handlers = {}, requests = [], tasks = [], additions = [];
   const region = { innerHTML: '', setAttribute() {} };
   let dialog = '';
   const context = vm.createContext({
@@ -13,11 +13,11 @@ function harness(protocol = 'http:') {
     fetch: url => new Promise((resolve, reject) => requests.push({ url, resolve, reject })),
     document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: () => region, querySelector: () => null },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
-    modal: html => dialog = html,
+    modal: html => dialog = html, SkazStorage: { addInventory: entry => additions.push(entry) },
   });
   vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { view, requests, tasks, region, dialog: () => dialog,
+  return { view, requests, tasks, region, additions, dialog: () => dialog,
     submit: q => handlers.submit({ target: { id: 'catalog-search', q }, preventDefault() {} }),
     detail: () => handlers.click({ target: { closest: () => ({ hasAttribute: () => true, dataset: { catalogEntry: '0' } }) } }),
   };
@@ -64,4 +64,16 @@ test('catalog failure offers retry; empty search differs from empty database; fi
   await settle(); assert.match(h.region.innerHTML, /Каталог пока пуст/);
   const demo = harness('file:'); assert.match(demo.view(), /автономная демонстрация/);
   assert.equal(demo.requests.length, 0); assert.equal(demo.tasks.length, 0);
+});
+
+test('item and artifact cards pass the selected entry to the inventory form', async () => {
+  for (const kind of ['item', 'artifact']) {
+    const h = harness(); h.submit('');
+    const item = { ...entry, kind, id: 'personal:' + kind };
+    respond(h.requests[0], { entries: [item], total: 1 }); respond(h.requests[1], coverage);
+    await settle(); h.detail();
+    assert.match(h.dialog(), /catalog-add-inventory/);
+    h.region.onclick();
+    assert.equal(h.additions[0].id, item.id);
+  }
 });

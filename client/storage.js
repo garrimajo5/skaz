@@ -64,7 +64,7 @@ const SkazStorage = (() => {
     status = 'saving'; message = ''; paint();
     try {
       const { operation, ...body } = pending;
-      const url = operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
+      const url = operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
       const payload = await request(url, { method: operation ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body: JSON.stringify(body) });
       apply(payload);
       return payload;
@@ -106,7 +106,7 @@ const SkazStorage = (() => {
     rememberDraft();
     closeModal();
     const payload = await sendPending();
-    toast(operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
+    toast(operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
     return payload;
   }
   async function campaigns() {
@@ -132,6 +132,36 @@ const SkazStorage = (() => {
         };
       };
     } catch { modal('<h2>Не удалось загрузить кампании</h2><p>Проверь соединение и открой список снова.</p>'); }
+  }
+  async function inventory() {
+    if (demo || status !== 'ready' || !activeContext) return toast('Инвентарь доступен после подключения и сохранения черновика');
+    const key = JSON.stringify(activeContext), version = revision;
+    modal('<h2>Инвентарь</h2><p>Загружаем предметы…</p>');
+    try {
+      const data = await request('/api/inventory');
+      if (key !== JSON.stringify(activeContext) || version !== revision) return;
+      if (JSON.stringify(data.context) !== key || data.revision !== revision) {
+        modal('<h2>Игра изменилась в другой вкладке</h2><p>Обнови данные перед просмотром инвентаря.</p><button id="inventory-reload">Обновить данные</button>');
+        $('#inventory-reload').onclick = async () => { closeModal(); await load(); };
+        return;
+      }
+      modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 tabindex="-1" autofocus>Инвентарь</h2><p>${state.gold} зм · видов предметов: ${data.entries.length}</p><div class="settings-actions">${data.entries.map(item => `<article class="panel"><div class="panel-title"><h3>${esc(item.entry.name.ru)}</h3><strong>× ${item.quantity}</strong></div><p>${esc(item.entry.name.en)}</p><small>${esc(item.entry.source.title)} · ${esc(item.entry.source.version)}</small></article>`).join('') || '<p>Пока пусто. Найди предмет в справочнике и добавь его в инвентарь.</p>'}</div><p>Здесь только сохранённые предметы. Снаряжение демо-барда не перенесено. Использование, удаление и отмена добавления пока недоступны; бонусы не применяются автоматически.</p><button id="inventory-catalog" class="primary">Найти предмет в справочнике</button>`);
+      $('#inventory-catalog').onclick = () => { closeModal(); location.hash = 'library'; };
+    } catch { modal('<h2>Не удалось открыть инвентарь</h2><p>Проверь соединение.</p><button id="inventory-retry">Повторить</button>'); $('#inventory-retry').onclick = inventory; }
+  }
+  function addInventory(entry) {
+    if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
+    if (!['item', 'artifact'].includes(entry.kind)) return;
+    const key = JSON.stringify(activeContext), version = revision, characterId = activeContext.characterId;
+    modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 tabindex="-1" autofocus>${esc(entry.name.ru)}</h2><p>Добавление имущества. Золото не списывается, бонусы и лечение не применяются. Отмены добавления пока нет.</p><form id="inventory-add-form"><label for="inventory-quantity">Сколько добавить</label><input id="inventory-quantity" type="number" min="1" max="999" step="1" value="1" required inputmode="numeric"><div class="dialog-actions"><button type="submit" class="primary">Добавить в инвентарь</button></div></form>`);
+    $('#inventory-add-form').onsubmit = async event => {
+      event.preventDefault();
+      if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой карточку заново.');
+      const quantity = Number($('#inventory-quantity').value);
+      if (!Number.isSafeInteger(quantity) || quantity < 1 || quantity > 999) return toast('Количество: целое от 1 до 999');
+      try { await campaignCommand('inventory-add', { characterId, catalogId: entry.id, quantity }); await inventory(); }
+      catch (error) { toast(error.message); }
+    };
   }
   function sessionTitle() { return sessionInfo?.name || (demo ? 'Демонстрационная сессия' : 'Сессия без названия'); }
   async function sessions() {
@@ -161,7 +191,7 @@ const SkazStorage = (() => {
     } catch { modal('<h2>Сессии недоступны</h2><p>Проверь соединение и открой список снова.</p>'); }
   }
   function settings() {
-    modal(`<div class="overline">СКАЗ · ЛОКАЛЬНАЯ ВЕРСИЯ 0.2</div><h2>Данные приключения</h2><p>${demo ? 'Этот HTML-файл работает в демонстрационном режиме. Для сохранения в базе открой локальное приложение.' : 'Прогресс хранится в SQLite на этом компьютере. Тема выбирается отдельно для каждого браузера.'}</p><div class="settings-actions"><button id="export-state">Скачать прогресс</button><label class="file-label">Восстановить из файла<input id="import-state" type="file" accept=".json,application/json"></label><button id="import-old">Перенести данные раннего прототипа</button>${!demo ? '<button id="change-history">История сохранений</button><button id="saved-drafts">Несохранённые черновики</button>' : ''}</div><p>Каждая кампания использует шаблон барда 5 уровня. В магии доступны 8 демонстрационных заклинаний. Распознавание речи пока демонстрационное.</p><button class="text-button" id="reset-workspace">Начать демо заново</button>`);
+    modal(`<div class="overline">СКАЗ · ЛОКАЛЬНАЯ ВЕРСИЯ 0.2</div><h2>Данные приключения</h2><p>${demo ? 'Этот HTML-файл работает в демонстрационном режиме. Для сохранения в базе открой локальное приложение.' : 'Прогресс хранится в SQLite на этом компьютере. Тема выбирается отдельно для каждого браузера.'}</p><div class="settings-actions"><button id="export-state">Скачать прогресс</button><label class="file-label">Восстановить из файла<input id="import-state" type="file" accept=".json,application/json"></label><button id="import-old">Перенести данные раннего прототипа</button>${!demo ? '<button id="change-history">История сохранений</button><button id="saved-drafts">Несохранённые черновики</button>' : ''}</div><p>JSON сохраняет только прогресс активной игры: инвентарь в него не входит и при восстановлении не меняется. Для полной копии нужна резервная копия SQLite.</p><p>Каждая кампания использует шаблон барда 5 уровня. В магии доступны 8 демонстрационных заклинаний. Распознавание речи пока демонстрационное.</p><button class="text-button" id="reset-workspace">Начать демо заново</button>`);
     $('#export-state').onclick = exportState;
     if ($('#saved-drafts')) $('#saved-drafts').onclick = () => {
       const drafts = [];
@@ -173,7 +203,7 @@ const SkazStorage = (() => {
           }
         }
       } catch { toast('Хранилище браузера недоступно'); return; }
-      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
+      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
       $$('[data-draft-index]').forEach(button => button.onclick = () => downloadDraft(drafts[Number(button.dataset.draftIndex)]));
     };
     $('#import-state').onchange = async event => {
@@ -213,6 +243,7 @@ const SkazStorage = (() => {
   }
   document.addEventListener('click', async event => {
     const id = event.target.closest('button')?.id;
+    if (id === 'open-inventory') inventory();
     if (id === 'session-settings') sessions();
     if (id === 'campaign-settings') campaigns();
     if (id === 'data-settings') settings();
@@ -225,5 +256,5 @@ const SkazStorage = (() => {
     }
   });
   window.addEventListener('beforeunload', event => { if (status === 'saving') { event.preventDefault(); event.returnValue = ''; } });
-  return { commit, paint, settings, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
+  return { commit, paint, settings, inventory, addInventory, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
 })();

@@ -106,3 +106,63 @@ test('archive view uses GET only and does not change the active context', async 
   assert.equal(calls.at(-1).url, '/api/sessions/old-session');
   assert.equal(h.api.editable(), true);
 });
+
+const inventoryEntry = { id: 'srd51:2014:item:potion-of-healing', kind: 'item', name: { ru: 'Зелье лечения' } };
+test('inventory UI retries the identical command after lost response, reload and context change', async () => {
+  const local = memory(), session = memory(), calls = [];
+  const h = harness(local, session, async (url, options) => {
+    if (url === '/api/workspace') return response(payload(0));
+    calls.push({ url, body: options.body }); throw new Error('lost response');
+  });
+  await h.api.boot(); h.api.addInventory(inventoryEntry);
+  h.get('#inventory-quantity').value = '2';
+  await h.get('#inventory-add-form').onsubmit({ preventDefault() {} });
+  assert.equal(h.api.editable(), false);
+  await assert.rejects(h.api.commit(seed, 'blocked'));
+  const command = JSON.parse(calls[0].body);
+  assert.equal(calls[0].url, '/api/inventory');
+  assert.equal(command.characterId, 'first-hero'); assert.equal(command.quantity, 2);
+  assert.equal(command.expectedRevision, 0); assert.equal(command.operation, undefined);
+  const restored = harness(local, session, async (url, options) => {
+    if (url !== '/api/workspace') calls.push({ url, body: options.body });
+    return response(payload(2, 'other'));
+  });
+  await restored.api.boot(); await restored.click('sync-retry');
+  assert.deepEqual(calls[1], calls[0]); assert.equal(restored.api.editable(), true);
+  assert.match(restored.api.contextKey(), /other-hero/);
+});
+
+test('inventory form rejects invalid quantity and a changed context without sending a command', async () => {
+  let current = payload(0); const calls = [];
+  const h = harness(memory(), memory(), async url => { calls.push(url); return response(current); });
+  await h.api.boot(); h.api.addInventory(inventoryEntry);
+  for (const value of ['', '0', '-1', '1.5', '1000', 'two']) {
+    h.get('#inventory-quantity').value = value;
+    await h.get('#inventory-add-form').onsubmit({ preventDefault() {} });
+  }
+  current = payload(1, 'other'); await h.api.boot();
+  h.get('#inventory-quantity').value = '2';
+  await h.get('#inventory-add-form').onsubmit({ preventDefault() {} });
+  assert.ok(calls.every(url => url === '/api/workspace'));
+  assert.equal(h.api.editable(), true);
+});
+
+test('inventory read from a newer revision requires refresh and never silently adopts it', async () => {
+  const commands = [];
+  const h = harness(memory(), memory(), async (url, options) => {
+    if (options.method === 'POST') {
+      commands.push(JSON.parse(options.body));
+      return { ok: false, status: 409, json: async () => ({ error: 'Игра изменилась' }) };
+    }
+    return response(url === '/api/workspace' ? payload(0) : { revision: 1, context: payload(0).context, entries: [] });
+  });
+  await h.api.boot(); await h.api.inventory();
+  assert.equal(typeof h.get('#inventory-reload').onclick, 'function');
+  h.api.addInventory(inventoryEntry); h.get('#inventory-quantity').value = '1';
+  await h.get('#inventory-add-form').onsubmit({ preventDefault() {} });
+  assert.equal(commands[0].expectedRevision, 0);
+  assert.equal(h.api.editable(), false);
+  assert.equal(h.get('sync-status').dataset.status, 'conflict');
+  await h.click('sync-retry');
+  assert.deepEqual(commands[1], commands[0]);
+});
