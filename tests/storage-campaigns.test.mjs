@@ -7,16 +7,16 @@ import { seed } from '../server/state.mjs';
 const source = await readFile(new URL('../client/storage.js', import.meta.url), 'utf8');
 const memory = () => { const values = new Map(); return { getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
 function harness(localStorage, sessionStorage, fetch) {
-  const handlers = {}, elements = new Map(), messages = [], archiveCalls = [];
+  const handlers = {}, elements = new Map(), messages = [], archiveCalls = []; let dialog='';
   const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '', style: {}, focus() {} }); return elements.get(id); };
   const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch,
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
     document: { getElementById: get, addEventListener: (key, handler) => handlers[key] = handler },
-    SkazArchive: { open: id => archiveCalls.push(id) }, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : [], esc: String, render() {}, modal() {}, closeModal() {}, toast: value => messages.push(value),
+    SkazArchive: { open: id => archiveCalls.push(id) }, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : [], esc: String, render() {}, modal:html=>dialog=html, closeModal() {}, toast: value => messages.push(value),
   });
   vm.runInContext(source, context);
-  return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls,
+  return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, dialog:()=>dialog,
     click: id => handlers.click({ target: { closest: () => ({ id }) } }),
   };
 }
@@ -476,4 +476,26 @@ test('character picker selects the requested hero in the current session and sta
  const h=harness(memory(),memory(),async(url,options)=>{if(url==='/api/workspace')return response(current);if(url==='/api/campaigns')return response({campaigns:[{id:'first',name:'Campaign',characters:[{id:'first-hero',name:'First'},{id:'second-hero',name:'Second'}],sessions:[{id:'first-session'}]}]});calls.push(JSON.parse(options.body));return response(payload(1));});
  await h.api.boot();await h.click('campaign-settings');await tick();h.get('character-choice').dataset.selectCharacter='0:1';await h.get('character-choice').onclick();assert.equal(calls[0].context.characterId,'second-hero');assert.equal(calls[0].context.sessionId,'first-session');
  h.api.newCharacter();current=payload(2,'other');await h.api.boot();await h.get('#character-form').onsubmit({preventDefault(){}});assert.equal(calls.length,1);assert.match(h.messages.at(-1),/Игра изменилась/);
+});
+
+test('personal spellbook transport checks response revision and character context',async()=>{
+ let current=payload(0),pending;
+ const h=harness(memory(),memory(),async url=>url==='/api/workspace'?response(current):new Promise(resolve=>pending=resolve));await h.api.boot();
+ let request=h.api.spellbookData();pending(response({revision:1,context:current.context,entries:[]}));await assert.rejects(request,/Игра изменилась/);
+ request=h.api.spellbookData();current=payload(2,'another');await h.api.boot();pending(response({revision:0,context:payload(0).context,entries:[]}));await assert.rejects(request,/Игра изменилась/);
+ request=h.api.spellbookData();pending(response({revision:2,context:current.context,entries:[]}));assert.deepEqual((await request).entries,[]);
+});
+test('inline spell edit returns to caller only after a confirmed save and rejects stale form',async()=>{
+ let current=payload(0),completed=0;const calls=[];
+ const h=harness(memory(),memory(),async(url,options)=>{if(url==='/api/workspace')return response(current);calls.push({url,body:options.body});current=payload(1);return response(current);});await h.api.boot();
+ const entry={id:'test:spell',kind:'spell',name:{ru:'Test'},source:{title:'Own',version:'1',terms:'Own'}};
+ h.api.editSpell(entry,'known',()=>completed++);h.get('#spellbook-status').value='prepared';await h.get('#spellbook-form').onsubmit({preventDefault(){}});assert.equal(completed,1);assert.equal(calls.length,1);
+ h.api.editSpell(entry,'prepared',()=>completed++);current=payload(2,'new');await h.api.boot();await h.get('#spellbook-form').onsubmit({preventDefault(){}});assert.equal(completed,1);assert.equal(calls.length,1);
+});
+
+test('personal spell reading links the original source and rejects active or credential URLs',async()=>{
+ const h=harness(memory(),memory(),async()=>response(payload(0)));await h.api.boot();
+ const entry={id:'personal:spell',kind:'spell',name:{ru:'Пример'},source:{url:'https://example.com/source#page=1',title:'Source',version:'1',terms:'Personal'}};
+ h.api.editSpell(entry,'known');assert.match(h.dialog(),/href="https:\/\/example.com\/source#page=1"/);assert.match(h.dialog(),/noopener noreferrer/);
+ for(const url of ['javascript:alert(1)','data:text/html,test','https://user:password@example.com']){h.api.editSpell({...entry,source:{...entry.source,url}},'known');assert.doesNotMatch(h.dialog(),/href=/);}
 });

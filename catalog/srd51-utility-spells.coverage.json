@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Ten selected utility spells and cantrips from SRD 5.1; not the complete spell list",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 10,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:dancing-lights",
+      "nameEn": "Dancing Lights",
+      "pages": [
+        133
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:detect-magic",
+      "nameEn": "Detect Magic",
+      "pages": [
+        134
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:feather-fall",
+      "nameEn": "Feather Fall",
+      "pages": [
+        142
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:light",
+      "nameEn": "Light",
+      "pages": [
+        159
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:mage-hand",
+      "nameEn": "Mage Hand",
+      "pages": [
+        160
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:mending",
+      "nameEn": "Mending",
+      "pages": [
+        164
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:message",
+      "nameEn": "Message",
+      "pages": [
+        164
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:minor-illusion",
+      "nameEn": "Minor Illusion",
+      "pages": [
+        164,
+        165
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:prestidigitation",
+      "nameEn": "Prestidigitation",
+      "pages": [
+        170
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:vicious-mockery",
+      "nameEn": "Vicious Mockery",
+      "pages": [
+        189,
+        190
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "omissions": [
+    "No complete SRD spell inventory yet",
+    "Class lists and material components are not structured",
+    "Effects and resource usage are not automated",
+    "Russian summaries are not an official translation"
+  ]
+}

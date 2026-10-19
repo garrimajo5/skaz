@@ -219,3 +219,14 @@ POST `/api/characters` с обычными защитными заголовка
 
 
 Каталог также поддерживает GET/POST `/api/catalog/bundled`, GET `/api/catalog/entry?id=...`, POST `/api/catalog/import/preview` и POST `/api/catalog/import`. Форматы и ограничения описаны в [catalog.md](catalog.md). Эти операции не меняют игровой прогресс и не используют его общую ревизию. POST защищены теми же локальными заголовками.
+
+
+## Фильтры и охват каталога — 19.10
+
+`GET /api/catalog`: дополнительные необязательные параметры `level=0..9` только с `kind=spell`; `challenge=0|1/8|1/4|1/2|1..30` только с `kind=monster`; `rarity=common|uncommon|rare|very-rare|legendary|varies` только с `kind=item`. Сочетаются с `q`, `limit`, `offset`. Записи без соответствующей структуры исключаются выбранным фильтром. Неизвестные, повторные, неканонические и несовместимые параметры дают 400, а не игнорируются.
+
+`GET /api/catalog/coverage` дополняется `scopes.srd51Spells`: `expected=319`, `prepared=12`, `installed` — число точных установленных версий, `sourceUrl`. Это охват SRD, не всех книг игры.
+
+`GET /api/catalog/spell-inventory` возвращает только перечень источника: `ruleset`, `scope`, `sourceUrl`, `entries[{id,nameEn,page,nameRu,status}]`. `nameRu=null`, если карточка не подготовлена. `status`: `missing`, `prepared`, `installed`, `conflict`. Изменённый личный материал под занятым ID имеет `conflict`; запрос ничего не заменяет и не меняет ревизию игры. Применяется общая защита Host/Origin. Это не список заклинаний персонажа.
+
+Личная книга читает существующий `GET /api/spellbook`, проверяет контекст и ревизию и фильтрует сохранённые записи на клиенте. Ручная отметка по-прежнему отправляется командой `spell-set`; поздний ответ старого персонажа отбрасывается. Магические эффекты и ограничения класса не вычисляются.

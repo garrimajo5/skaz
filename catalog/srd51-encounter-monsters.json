@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:kobold",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Кобольд",
+        "en": "Kobold"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=324",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz encounters subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 324.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Базовые характеристики приведены отдельно; особенности и действия пока не исполняются автоматически.\nМаленький гуманоид (кобольд), законно-злой. Хиты 5 (2d6 − 2). Тёмное зрение 60 футов, пассивное Восприятие 8. Языки: Общий, Драконий.\nНа солнечном свету помеха на атаки и проверки Мудрости (Восприятие), использующие зрение. Тактика стаи: преимущество на атаку существа, если в пределах 5 футов от цели есть союзник кобольда, не являющийся недееспособным.\nКинжал: рукопашная атака +4, досягаемость 5 футов, одна цель; 4 (1d4 + 2) колющего урона. Праща: дальнобойная атака +4, дистанция 30/120 футов, одна цель; 4 (1d4 + 2) дробящего урона.",
+      "links": [],
+      "monster": {
+        "size": "small",
+        "type": "humanoid",
+        "armorClass": 12,
+        "hitPoints": 5,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 7,
+          "dex": 15,
+          "con": 9,
+          "int": 8,
+          "wis": 7,
+          "cha": 8
+        },
+        "challenge": "1/8",
+        "xp": 25
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ogre",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Огр",
+        "en": "Ogre"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=336",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz encounters subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 336.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Базовые характеристики приведены отдельно; особенности и действия пока не исполняются автоматически.\nБольшой великан, хаотично-злой. КД 11 (шкурный доспех), хиты 59 (7d10 + 21). Тёмное зрение 60 футов, пассивное Восприятие 8. Языки: Общий, Великаний.\nПалица: рукопашная атака +6, досягаемость 5 футов, одна цель; 13 (2d8 + 4) дробящего урона. Метательное копьё: рукопашная или дальнобойная атака +6, досягаемость 5 футов или дистанция 30/120 футов, одна цель; 11 (2d6 + 4) колющего урона.",
+      "links": [],
+      "monster": {
+        "size": "large",
+        "type": "giant",
+        "armorClass": 11,
+        "hitPoints": 59,
+        "speed": {
+          "walk": 40
+        },
+        "abilities": {
+          "str": 19,
+          "dex": 8,
+          "con": 16,
+          "int": 5,
+          "wis": 7,
+          "cha": 7
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    },
+    {
+      "id": "srd51:2014:monster:orc",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Орк",
+        "en": "Orc"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=339",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz encounters subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 339.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Базовые характеристики приведены отдельно; особенности и действия пока не исполняются автоматически.\nСредний гуманоид (орк), хаотично-злой. КД 13 (шкурный доспех), хиты 15 (2d8 + 6). Запугивание +2. Тёмное зрение 60 футов, пассивное Восприятие 10. Языки: Общий, Орочий.\nАгрессивность: бонусным действием может переместиться на расстояние до своей скорости к видимому враждебному существу.\nСекира: рукопашная атака +5, досягаемость 5 футов, одна цель; 9 (1d12 + 3) рубящего урона. Метательное копьё: рукопашная или дальнобойная атака +5, досягаемость 5 футов или дистанция 30/120 футов, одна цель; 6 (1d6 + 3) колющего урона.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 13,
+        "hitPoints": 15,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 12,
+          "con": 16,
+          "int": 7,
+          "wis": 11,
+          "cha": 10
+        },
+        "challenge": "1/2",
+        "xp": 100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:zombie",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Зомби",
+        "en": "Zombie"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=356",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz encounters subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 356, 357.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Базовые характеристики приведены отдельно; особенности и действия пока не исполняются автоматически.\nСредняя нежить, нейтрально-злая. Хиты 22 (3d8 + 9). Спасбросок Мудрости +0. Иммунитет к урону ядом и состоянию отравления. Тёмное зрение 60 футов, пассивное Восприятие 8. Понимает известные при жизни языки, но не говорит.\nСтойкость нежити: если урон снижает хиты до 0, совершает спасбросок Телосложения со Сл 5 + полученный урон; при успехе остаётся 1 хит. Не работает против урона излучением и критического попадания.\nУдар: рукопашная атака +3, досягаемость 5 футов, одна цель; 4 (1d6 + 1) дробящего урона.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "undead",
+        "armorClass": 8,
+        "hitPoints": 22,
+        "speed": {
+          "walk": 20
+        },
+        "abilities": {
+          "str": 13,
+          "dex": 6,
+          "con": 16,
+          "int": 3,
+          "wis": 6,
+          "cha": 5
+        },
+        "challenge": "1/4",
+        "xp": 50
+      }
+    },
+    {
+      "id": "srd51:2014:monster:brown-bear",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Бурый медведь",
+        "en": "Brown Bear"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=369",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz encounters subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 369.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Базовые характеристики приведены отдельно; особенности и действия пока не исполняются автоматически.\nБольшой зверь, без мировоззрения. КД 11 (природный доспех), хиты 34 (4d10 + 12). Восприятие +3, пассивное Восприятие 13; языков нет. Преимущество на проверки Мудрости (Восприятие), использующие обоняние.\nМультиатака: один укус и одна атака когтями. Укус: рукопашная атака +5, досягаемость 5 футов, одна цель; 8 (1d8 + 4) колющего урона. Когти: рукопашная атака +5, досягаемость 5 футов, одна цель; 11 (2d6 + 4) рубящего урона.",
+      "links": [],
+      "monster": {
+        "size": "large",
+        "type": "beast",
+        "armorClass": 11,
+        "hitPoints": 34,
+        "speed": {
+          "walk": 40,
+          "climb": 30
+        },
+        "abilities": {
+          "str": 19,
+          "dex": 10,
+          "con": 16,
+          "int": 2,
+          "wis": 13,
+          "cha": 7
+        },
+        "challenge": "1",
+        "xp": 200
+      }
+    },
+    {
+      "id": "srd51:2014:monster:dire-wolf",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Лютый волк",
+        "en": "Dire Wolf"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=371",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz encounters subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 371.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Базовые характеристики приведены отдельно; особенности и действия пока не исполняются автоматически.\nБольшой зверь, без мировоззрения. КД 14 (природный доспех), хиты 37 (5d10 + 10). Восприятие +3, Скрытность +4, пассивное Восприятие 13; языков нет. Преимущество на проверки Мудрости (Восприятие), использующие слух или обоняние. Тактика стаи: преимущество на атаку существа, если в пределах 5 футов от цели есть союзник волка, не являющийся недееспособным.\nУкус: рукопашная атака +5, досягаемость 5 футов, одна цель; 10 (2d6 + 3) колющего урона. Если цель — существо, провал спасброска Силы Сл 13 сбивает её с ног.",
+      "links": [],
+      "monster": {
+        "size": "large",
+        "type": "beast",
+        "armorClass": 14,
+        "hitPoints": 37,
+        "speed": {
+          "walk": 50
+        },
+        "abilities": {
+          "str": 17,
+          "dex": 15,
+          "con": 15,
+          "int": 3,
+          "wis": 12,
+          "cha": 7
+        },
+        "challenge": "1",
+        "xp": 200
+      }
+    },
+    {
+      "id": "srd51:2014:monster:giant-spider",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Гигантский паук",
+        "en": "Giant Spider"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=379",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz encounters subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 379.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Базовые характеристики приведены отдельно; особенности и действия пока не исполняются автоматически.\nБольшой зверь, без мировоззрения. КД 14 (природный доспех), хиты 26 (4d10 + 4). Скрытность +7, слепое зрение 10 футов, тёмное зрение 60 футов, пассивное Восприятие 10; языков нет. Лазает по сложным поверхностям и потолкам без проверки. Касаясь паутины, знает точное положение других касающихся её существ. Игнорирует ограничения перемещения от паутины.\nУкус: рукопашная атака +5, досягаемость 5 футов, одно существо; 7 (1d8 + 3) колющего урона. Спасбросок Телосложения Сл 11: 9 (2d8) урона ядом при провале, половина при успехе. Если именно яд снижает хиты до 0, цель стабильна, но отравлена 1 час даже после восстановления хитов; пока отравлена таким образом, парализована.\nПаутина (перезарядка 5–6): дальнобойная атака +5, дистанция 30/60 футов, одно существо. Попадание опутывает цель. Действием цель может разорвать паутину проверкой Силы Сл 12. Паутину можно уничтожить: КД 10, 5 хитов, уязвимость к огню, иммунитет к дробящему, психическому урону и яду.",
+      "links": [],
+      "monster": {
+        "size": "large",
+        "type": "beast",
+        "armorClass": 14,
+        "hitPoints": 26,
+        "speed": {
+          "walk": 30,
+          "climb": 30
+        },
+        "abilities": {
+          "str": 14,
+          "dex": 16,
+          "con": 12,
+          "int": 2,
+          "wis": 11,
+          "cha": 4
+        },
+        "challenge": "1",
+        "xp": 200
+      }
+    },
+    {
+      "id": "srd51:2014:monster:wolf",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Волк",
+        "en": "Wolf"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=393",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz encounters subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 393.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Базовые характеристики приведены отдельно; особенности и действия пока не исполняются автоматически.\nСредний зверь, без мировоззрения. КД 13 (природный доспех), хиты 11 (2d8 + 2). Восприятие +3, Скрытность +4, пассивное Восприятие 13; языков нет. Преимущество на проверки Мудрости (Восприятие), использующие слух или обоняние. Тактика стаи: преимущество на атаки существа, если в пределах 5 футов от цели есть союзник волка, не являющийся недееспособным.\nУкус: рукопашная атака +4, досягаемость 5 футов, одна цель; 7 (2d4 + 2) колющего урона. Если цель — существо, провал спасброска Силы Сл 11 сбивает её с ног.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "beast",
+        "armorClass": 13,
+        "hitPoints": 11,
+        "speed": {
+          "walk": 40
+        },
+        "abilities": {
+          "str": 12,
+          "dex": 15,
+          "con": 12,
+          "int": 3,
+          "wis": 12,
+          "cha": 6
+        },
+        "challenge": "1/4",
+        "xp": 50
+      }
+    }
+  ]
+}

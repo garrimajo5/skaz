@@ -1,7 +1,9 @@
 import {createHash} from 'node:crypto';
+import {readFileSync} from 'node:fs';
 import { bundledCatalog, validateBundledInstall } from './bundled-catalog.mjs';
 import { AppError } from './state.mjs';
 
+const spellIndex=JSON.parse(readFileSync(new URL('../catalog/srd51-spells.index.json',import.meta.url),'utf8'));
 const kinds = ['mechanic', 'spell', 'monster', 'item', 'artifact'];
 const fail = message => { throw new AppError(422, message); };
 function object(value, keys) {
@@ -146,10 +148,14 @@ export function createCatalog(db) {
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
   function search(params = new URLSearchParams()) {
-    for (const key of params.keys()) if (!['q', 'kind', 'limit', 'offset'].includes(key) || params.getAll(key).length !== 1) throw new AppError(400, 'Неизвестный или повторный фильтр');
+    for (const key of params.keys()) if (!['q', 'kind', 'level', 'challenge', 'rarity', 'limit', 'offset'].includes(key) || params.getAll(key).length !== 1) throw new AppError(400, 'Неизвестный или повторный фильтр');
     const q = (params.get('q') || '').trim().toLocaleLowerCase('ru');
     const kind = params.get('kind');
     if (q.length > 200 || (kind !== null && !kinds.includes(kind))) throw new AppError(400, 'Неверный поиск');
+    const level=params.get('level'), challenge=params.get('challenge'), rarity=params.get('rarity');
+    if (level!==null && (kind!=='spell' || !/^[0-9]$/.test(level))) throw new AppError(400,'Уровень 0–9 допустим только для заклинаний');
+    if (challenge!==null && (kind!=='monster' || !['0','1/8','1/4','1/2',...Array.from({length:30},(_,i)=>String(i+1))].includes(challenge))) throw new AppError(400,'Неверный показатель опасности или категория');
+    if (rarity!==null && (kind!=='item' || !['common','uncommon','rare','very-rare','legendary','varies'].includes(rarity))) throw new AppError(400,'Неверная редкость или категория');
     const number = (key, fallback, max) => {
       const value = params.get(key);
       if (value === null) return fallback;
@@ -158,7 +164,7 @@ export function createCatalog(db) {
     };
     const limit = number('limit', 50, 100), offset = number('offset', 0, Number.MAX_SAFE_INTEGER);
     if (!limit) throw new AppError(400, 'Лимит должен быть больше нуля');
-    const matches = all().filter(entry => (!kind || entry.kind === kind) && `${entry.name.ru} ${entry.name.en}`.toLocaleLowerCase('ru').includes(q));
+    const matches = all().filter(entry => (!kind || entry.kind === kind) && (level===null || entry.spell?.level===Number(level)) && (challenge===null || entry.monster?.challenge===challenge) && (rarity===null || entry.item?.rarity===rarity) && `${entry.name.ru} ${entry.name.en}`.toLocaleLowerCase('ru').includes(q));
     return { entries: matches.slice(offset, offset + limit), total: matches.length, limit, offset };
   }
   function reviewedImport(request,apply=false) {
@@ -193,9 +199,21 @@ export function createCatalog(db) {
     });
     return {entry,related};
   }
+  function spellInventory() {
+    const prepared=new Map(validateCatalog(bundledCatalog().bundle).filter(e=>e.kind==='spell').map(e=>[e.id,e]));
+    const installed=new Map(all().map(e=>[e.id,e]));
+    return {ruleset:'5e-2014',scope:'SRD 5.1',sourceUrl:spellIndex.sourceUrl,entries:spellIndex.entries.map(e=>{
+      const card=prepared.get(e.id), local=installed.get(e.id);
+      return {...e,nameRu:card?.name.ru||null,status:!card?'missing':!local?'prepared':JSON.stringify(card)===JSON.stringify(local)?'installed':'conflict'};
+    })};
+  }
   function coverage() {
     const entries = all();
-    return { ruleset: '5e-2014', complete: false, expectedTotal: null, total: entries.length,
+    const indexed=new Set(spellIndex.entries.map(e=>e.id));
+    const prepared=validateCatalog(bundledCatalog().bundle).filter(e=>e.kind==='spell' && indexed.has(e.id));
+    const installed=new Map(entries.map(e=>[e.id,e]));
+    const srd51Spells={expected:spellIndex.count,prepared:prepared.length,installed:prepared.filter(e=>JSON.stringify(installed.get(e.id))===JSON.stringify(e)).length,sourceUrl:spellIndex.sourceUrl};
+    return { ruleset: '5e-2014', complete: false, expectedTotal: null, total: entries.length, scopes:{srd51Spells},
       categories: Object.fromEntries(kinds.map(kind => [kind, entries.filter(entry => entry.kind === kind).length])),
       referenceOnly: entries.filter(entry => entry.source.usage === 'reference-only').length,
       personal: entries.filter(entry => entry.source.usage === 'personal').length,
@@ -207,5 +225,5 @@ export function createCatalog(db) {
       structuredArtifacts: entries.filter(entry => entry.artifact !== undefined).length,
       gaps: ['Полная база не загружена; общее количество материалов не установлено.', 'Структуры заклинаний, предметов и существ частичные; действия и особенности остаются в тексте. Структура артефактов содержит только основные поля. Инвентарь и личный список заклинаний подключены; автоматические эффекты и применение состояний не реализованы.'] };
   }
-  return { importEntries, search, coverage, lookup, previewBundled, installBundled, reviewedImport };
+  return { importEntries, search, coverage, spellInventory, lookup, previewBundled, installBundled, reviewedImport };
 }

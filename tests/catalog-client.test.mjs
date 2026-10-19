@@ -11,15 +11,17 @@ function harness(protocol = 'http:') {
     location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
     queueMicrotask: task => tasks.push(task),
     fetch: url => new Promise((resolve, reject) => requests.push({ url, resolve, reject })),
-    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='dialog'?{open:isOpen}:id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region, querySelector: () => null },
+    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='dialog'?{open:isOpen}:id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region, querySelector: () => null },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
-    modal: html => dialog = html, SkazStorage: { addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
+    render:()=>{}, modal: html => dialog = html, SkazStorage: { addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
   return { view, requests, tasks, region, additions, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>isOpen=false, otherModal:()=>dialog='<h2>Other</h2>',
-    submit: q => handlers.submit({ target: { id: 'catalog-search', q }, preventDefault() {} }),
+    submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
+    inventorySubmit:(q,status)=>handlers.submit({target:{id:'spell-inventory-search',q,status},preventDefault(){}}),
+    changeKind:value=>handlers.change({target:{name:'kind',value,form:{id:'catalog-search'}}}),
     detail: () => handlers.click({ target: { closest: () => ({ hasAttribute: () => true, dataset: { catalogEntry: '0' } }) } }),
   };
 }
@@ -116,4 +118,30 @@ test('bundled preview does not install; failed delivery retries the reviewed ver
 
 test('bundled preview arriving after another form cannot replace it',async()=>{
  const h=harness();h.click('catalog-bundled');h.otherModal();respond(h.requests[0],{version:'version',total:26,added:26,unchanged:0,categories:{}});await settle();assert.equal(h.dialog(),'<h2>Other</h2>');
+});
+
+test('structured search preserves filters across cards and paging, resets page on new search',async()=>{
+ const h=harness();h.submit('test',{kind:'spell',level:'0'});assert.match(h.requests[0].url,/level=0/);
+ respond(h.requests[0],{entries:[{...entry,kind:'spell',id:'test:zero'}],total:25});respond(h.requests[1],coverage);await settle();
+ h.detail();assert.match(h.view(),/value="0" selected/);h.click('catalog-next');assert.match(h.requests[2].url,/offset=20/);assert.match(h.requests[2].url,/level=0/);
+ h.submit('',{kind:'monster',challenge:'1/4',level:'0'});assert.match(h.requests[4].url,/offset=0/);assert.match(h.requests[4].url,/challenge=1%2F4/);assert.doesNotMatch(h.requests[4].url,/level=/);
+ h.click('catalog-reset');assert.doesNotMatch(h.requests[6].url,/kind=|level=|challenge=|rarity=/);assert.match(h.requests[6].url,/offset=0/);
+});
+test('category change exposes only applicable control without applying or losing draft search',()=>{
+ const h=harness();h.changeKind('spell');assert.match(h.region.innerHTML,/name="level"/);assert.match(h.region.innerHTML,/Заговор/);h.changeKind('monster');assert.match(h.region.innerHTML,/1\/8/);assert.doesNotMatch(h.region.innerHTML,/name="level"/);h.changeKind('item');assert.match(h.region.innerHTML,/name="rarity"/);h.changeKind('artifact');assert.equal(h.region.innerHTML,'');assert.equal(h.requests.length,0);
+});
+
+test('structured cards show useful values, negative modifiers and escape imported fields',async()=>{
+ const cases=[{kind:'spell',spell:{level:0,school:'illusion',castingTime:'<cast>',range:{type:'feet',feet:30},components:['S','M'],duration:'1 минута',concentration:false,ritual:false}}, {kind:'monster',monster:{size:'small',type:'humanoid',armorClass:12,hitPoints:5,challenge:'1/8',xp:25,speed:{walk:30},abilities:{str:7,dex:15,con:9,int:8,wis:7,cha:8}}},{kind:'item',item:{type:'potion',rarity:'common',attunement:false,healing:{diceCount:2,diceSides:4,bonus:2}}},{kind:'artifact',artifact:{type:'wondrous',attunement:true,charges:{max:7,recharge:'<recharge>'}}}];
+ for(const fields of cases){const h=harness();h.submit('');respond(h.requests[0],{entries:[{...entry,...fields}],total:1});respond(h.requests[1],coverage);await settle();h.detail();assert.match(h.dialog(),/Характеристики/);assert.doesNotMatch(h.dialog(),/<cast>|<recharge>/);if(fields.monster){assert.match(h.dialog(),/7 \(-2\)/);assert.match(h.dialog(),/1\/8/);}if(fields.spell){assert.match(h.dialog(),/Заговор/);assert.match(h.dialog(),/&lt;cast&gt;/);}if(fields.item)assert.match(h.dialog(),/2d4 \+ 2/);}
+});
+
+test('source inventory searches prepared RU names, filters missing records and guards closed or replaced dialog',async()=>{
+ const data={entries:[{id:'a',nameEn:'Detect Magic',nameRu:'Обнаружение магии',page:134,status:'installed'},...Array.from({length:21},(_,i)=>({id:'m'+i,nameEn:'Missing '+i,nameRu:null,page:114,status:'missing'}))]};
+ const h=harness();h.click('catalog-inventory');respond(h.requests[0],data);await settle();assert.match(h.dialog(),/1–20 из 22/);assert.match(h.dialog(),/#page=134/);
+ h.inventorySubmit('обнаружение','installed');assert.match(h.dialog(),/1–1 из 1/);assert.doesNotMatch(h.dialog(),/Missing 0/);
+ h.inventorySubmit('','missing');assert.match(h.dialog(),/1–20 из 21/);h.click('inventory-next');assert.match(h.dialog(),/21–21 из 21/);
+ h.inventorySubmit('<script>','all');assert.match(h.dialog(),/&lt;script&gt;/);assert.match(h.dialog(),/Совпадений нет/);
+ const closed=harness();closed.click('catalog-inventory');closed.close();respond(closed.requests[0],data);await settle();assert.doesNotMatch(closed.dialog(),/Detect Magic/);
+ const replaced=harness();replaced.click('catalog-inventory');replaced.otherModal();respond(replaced.requests[0],data);await settle();assert.equal(replaced.dialog(),'<h2>Other</h2>');
 });

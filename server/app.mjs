@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { AppError } from './state.mjs';
 
 const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
-const files = new Set(['index.html', 'style.css', 'quick.css', 'app.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js']);
+const files = new Set(['index.html', 'style.css', 'quick.css', 'app.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
 const contentTypes = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
 const MAX_BODY = 512 * 1024;
 function json(response, status, value, extra = {}) {
@@ -44,6 +44,7 @@ export function createApp(store) {
           if (pathname === '/api/catalog/bundled') return json(response, 200, store.catalog.previewBundled());
           if (pathname === '/api/catalog/entry') return json(response, 200, store.catalog.lookup(new URL(request.url, `http://${host}`).searchParams));
           if (pathname === '/api/catalog') return json(response, 200, store.catalog.search(new URL(request.url, `http://${host}`).searchParams));
+          if (pathname === '/api/catalog/spell-inventory') return json(response, 200, store.catalog.spellInventory());
           if (pathname === '/api/catalog/coverage') return json(response, 200, store.catalog.coverage());
           if (pathname === '/api/workspace') return json(response, 200, store.read());
           if (pathname === '/api/context') return json(response, 200, store.context());

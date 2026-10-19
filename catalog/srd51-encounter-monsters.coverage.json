@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Eight selected common encounter creatures; not the complete SRD bestiary",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 8,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:kobold",
+      "nameEn": "Kobold",
+      "pages": [
+        324
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:ogre",
+      "nameEn": "Ogre",
+      "pages": [
+        336
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:orc",
+      "nameEn": "Orc",
+      "pages": [
+        339
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:zombie",
+      "nameEn": "Zombie",
+      "pages": [
+        356,
+        357
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:brown-bear",
+      "nameEn": "Brown Bear",
+      "pages": [
+        369
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:dire-wolf",
+      "nameEn": "Dire Wolf",
+      "pages": [
+        371
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:giant-spider",
+      "nameEn": "Giant Spider",
+      "pages": [
+        379
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:wolf",
+      "nameEn": "Wolf",
+      "pages": [
+        393
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "omissions": [
+    "Full SRD creature inventory not audited",
+    "Actions, senses and traits are summarized in text, not executed",
+    "Hit dice, alignment, skills and immunities are not structured",
+    "Russian summaries are not an official translation"
+  ]
+}

@@ -227,31 +227,27 @@ const SkazStorage = (() => {
       catch (error) { toast(error.message); }
     };
   }
-  async function spellbook() {
-    if (demo || status !== 'ready' || !activeContext) return toast('Список доступен после подключения и сохранения черновика');
-    const key = JSON.stringify(activeContext), version = revision;
-    modal('<h2>Мои заклинания из каталога</h2><p>Загружаем…</p>');
-    try {
-      const data = await request('/api/spellbook');
-      if (key !== JSON.stringify(activeContext) || version !== revision) return;
-      if (JSON.stringify(data.context) !== key || data.revision !== version) return modal('<h2>Игра изменилась</h2><p>Обнови страницу и открой список снова.</p>');
-      modal(`<div class="overline">${esc(state.profile.name)} · D&D 2014</div><h2 tabindex="-1" autofocus>Мои заклинания из каталога</h2><p>Ручные отметки. Доступность по классу и уровень проверяет игрок. Эти записи не расходуют ячейки и не применяют эффекты.</p><div class="settings-actions">${data.entries.map((item,index) => `<article class="panel"><h3>${esc(item.entry.name.ru)}</h3><p>${item.status === 'prepared' ? 'Подготовлено' : 'Изучено'} · ${esc(item.entry.name.en)}</p><button data-spell-edit="${index}">Читать и изменить</button></article>`).join('') || '<p>Список пуст. Добавь заклинание из справочника.</p>'}</div><button id="spellbook-catalog">Открыть справочник</button>`);
-      $$('[data-spell-edit]').forEach(button => button.onclick = () => {
-        if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой список заново.');
-        const item = data.entries[Number(button.dataset.spellEdit)]; editSpell(item.entry, item.status);
-      });
-      $('#spellbook-catalog').onclick = () => { closeModal(); location.hash = 'library'; };
-    } catch { modal('<h2>Список недоступен</h2><p>Проверь соединение и открой список снова.</p>'); }
+  async function spellbookData() {
+    if(demo || status!=='ready')throw new Error('Сначала сохрани черновик или подключись к серверу');
+    const key=snapshotKey(),data=await request('/api/spellbook');
+    if(key!==snapshotKey() || JSON.stringify(data.context)!==JSON.stringify(activeContext) || data.revision!==revision)throw new Error('Игра изменилась. Обнови страницу и открой книгу снова.');
+    return data;
   }
-  function editSpell(entry, selected = null) {
+  async function spellbook() {
+    if(demo || status!=='ready' || !activeContext)return toast('Список доступен после подключения и сохранения черновика');
+    closeModal();location.hash='spells';
+  }
+  function editSpell(entry, selected = null, afterSave = null) {
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
     if (entry.kind !== 'spell') return;
     const key = JSON.stringify(activeContext), version = revision, characterId = activeContext.characterId;
-    modal(`<div class="overline">${esc(state.profile.name)}</div><h2 tabindex="-1" autofocus>${esc(entry.name.ru)}</h2><p>Ручная отметка; ячейки и эффекты не меняются. Удаление убирает запись только из списка персонажа.</p><form id="spellbook-form"><label for="spellbook-status">Отметка</label><select id="spellbook-status"><option value="known" ${selected === 'known' ? 'selected' : ''}>Изучено</option><option value="prepared" ${selected === 'prepared' ? 'selected' : ''}>Подготовлено</option>${selected ? '<option value="remove">Убрать из моего списка</option>' : ''}</select><button type="submit" class="primary">Сохранить отметку</button></form><p class="session-text">${esc(entry.text || 'Сохранена только справочная ссылка; текста нет.')}</p><p>${esc(entry.source.title)} · ${esc(entry.source.version)}</p><p>${esc(entry.source.terms)}</p>${entry.source.attribution ? `<p>${esc(entry.source.attribution)}</p><p>${esc(entry.source.changes)}</p>` : ''}`);
+    let sourceLink='';
+    try{const source=new URL(entry.source.url);if(['https:','http:'].includes(source.protocol)&&!source.username&&!source.password)sourceLink=`<p><a href="${esc(source.href)}" target="_blank" rel="noopener noreferrer">Открыть первоисточник ↗</a></p>`;}catch{}
+    modal(`<div class="overline">${esc(state.profile.name)}</div><h2 tabindex="-1" autofocus>${esc(entry.name.ru)}</h2><p>Ручная отметка; ячейки и эффекты не меняются. Удаление убирает запись только из списка персонажа.</p><form id="spellbook-form"><label for="spellbook-status">Отметка</label><select id="spellbook-status"><option value="known" ${selected === 'known' ? 'selected' : ''}>Изучено</option><option value="prepared" ${selected === 'prepared' ? 'selected' : ''}>Подготовлено</option>${selected ? '<option value="remove">Убрать из моего списка</option>' : ''}</select><button type="submit" class="primary">Сохранить отметку</button></form><p class="session-text">${esc(entry.text || 'Сохранена только справочная ссылка; текста нет.')}</p><p>${esc(entry.source.title)} · ${esc(entry.source.version)}</p><p>${esc(entry.source.terms)}</p>${sourceLink}${entry.source.attribution ? `<p>${esc(entry.source.attribution)}</p><p>${esc(entry.source.changes)}</p>` : ''}`);
     $('#spellbook-form').onsubmit = async event => {
       event.preventDefault();
       if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой список заново.');
-      try { await campaignCommand('spell-set', { characterId, catalogId: entry.id, status: $('#spellbook-status').value }); await spellbook(); }
+      try { await campaignCommand('spell-set', { characterId, catalogId: entry.id, status: $('#spellbook-status').value }); if(afterSave)afterSave();else await spellbook(); }
       catch (error) { toast(error.message); }
     };
   }
@@ -466,5 +462,5 @@ const SkazStorage = (() => {
     }
   });
   window.addEventListener('beforeunload', event => { if (status === 'saving') { event.preventDefault(); event.returnValue = ''; } });
-  return { commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, editSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
+  return { commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
 })();
