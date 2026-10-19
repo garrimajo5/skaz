@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Fifteen selected first-level combat and protection spells; not the complete first-level list",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 15,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:burning-hands",
+      "nameEn": "Burning Hands",
+      "pages": [
+        123
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:color-spray",
+      "nameEn": "Color Spray",
+      "pages": [
+        125
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:divine-favor",
+      "nameEn": "Divine Favor",
+      "pages": [
+        136,
+        137
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:entangle",
+      "nameEn": "Entangle",
+      "pages": [
+        140
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:faerie-fire",
+      "nameEn": "Faerie Fire",
+      "pages": [
+        141
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:false-life",
+      "nameEn": "False Life",
+      "pages": [
+        142
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:guiding-bolt",
+      "nameEn": "Guiding Bolt",
+      "pages": [
+        151,
+        152
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:hellish-rebuke",
+      "nameEn": "Hellish Rebuke",
+      "pages": [
+        154
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:heroism",
+      "nameEn": "Heroism",
+      "pages": [
+        154
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:inflict-wounds",
+      "nameEn": "Inflict Wounds",
+      "pages": [
+        157
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:magic-missile",
+      "nameEn": "Magic Missile",
+      "pages": [
+        161
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:shield",
+      "nameEn": "Shield",
+      "pages": [
+        179
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:shield-of-faith",
+      "nameEn": "Shield of Faith",
+      "pages": [
+        179
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:sleep",
+      "nameEn": "Sleep",
+      "pages": [
+        180
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:thunderwave",
+      "nameEn": "Thunderwave",
+      "pages": [
+        187
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Areas, damage, saves, temporary HP and scaling remain textual; no automatic effects.",
+    "Classes and material requirements are not structured.",
+    "Condition links require the conditions bundle; Shield references Magic Missile from this bundle."
+  ]
+}

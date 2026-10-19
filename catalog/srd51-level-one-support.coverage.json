@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Twelve selected first-level support and exploration spells; not the complete first-level list",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 12,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:alarm",
+      "nameEn": "Alarm",
+      "pages": [
+        114
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:animal-friendship",
+      "nameEn": "Animal Friendship",
+      "pages": [
+        115
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:bane",
+      "nameEn": "Bane",
+      "pages": [
+        120
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:bless",
+      "nameEn": "Bless",
+      "pages": [
+        122
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:charm-person",
+      "nameEn": "Charm Person",
+      "pages": [
+        124
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:command",
+      "nameEn": "Command",
+      "pages": [
+        125,
+        126
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:comprehend-languages",
+      "nameEn": "Comprehend Languages",
+      "pages": [
+        126
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:create-or-destroy-water",
+      "nameEn": "Create or Destroy Water",
+      "pages": [
+        132
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:detect-evil-and-good",
+      "nameEn": "Detect Evil and Good",
+      "pages": [
+        134
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:detect-poison-and-disease",
+      "nameEn": "Detect Poison and Disease",
+      "pages": [
+        134
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:disguise-self",
+      "nameEn": "Disguise Self",
+      "pages": [
+        135
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:expeditious-retreat",
+      "nameEn": "Expeditious Retreat",
+      "pages": [
+        141
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Animal Friendship upcasting clause has a malformed line in the source PDF; explicitly omitted pending independent verification.",
+    "Classes, material components, scaling and saves are described in text, not structured.",
+    "Effects and class availability are not applied automatically.",
+    "Condition links require the conditions bundle."
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Eighteen first-level exploration and protection spells; together with existing bundles covers all 49 first-level SRD headings, not all D&D publications",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 18,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:find-familiar",
+      "nameEn": "Find Familiar",
+      "pages": [
+        143
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:floating-disk",
+      "nameEn": "Floating Disk",
+      "pages": [
+        146
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:fog-cloud",
+      "nameEn": "Fog Cloud",
+      "pages": [
+        146
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:goodberry",
+      "nameEn": "Goodberry",
+      "pages": [
+        150
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:grease",
+      "nameEn": "Grease",
+      "pages": [
+        150
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:hideous-laughter",
+      "nameEn": "Hideous Laughter",
+      "pages": [
+        154
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:hunters-mark",
+      "nameEn": "Hunter’s Mark",
+      "pages": [
+        155
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:identify",
+      "nameEn": "Identify",
+      "pages": [
+        155,
+        156
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:illusory-script",
+      "nameEn": "Illusory Script",
+      "pages": [
+        156
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:jump",
+      "nameEn": "Jump",
+      "pages": [
+        158
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:longstrider",
+      "nameEn": "Longstrider",
+      "pages": [
+        160
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:mage-armor",
+      "nameEn": "Mage Armor",
+      "pages": [
+        160
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:protection-from-evil-and-good",
+      "nameEn": "Protection from Evil and Good",
+      "pages": [
+        173
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:purify-food-and-drink",
+      "nameEn": "Purify Food and Drink",
+      "pages": [
+        173
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:sanctuary",
+      "nameEn": "Sanctuary",
+      "pages": [
+        176
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:silent-image",
+      "nameEn": "Silent Image",
+      "pages": [
+        179,
+        180
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:speak-with-animals",
+      "nameEn": "Speak with Animals",
+      "pages": [
+        181
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:unseen-servant",
+      "nameEn": "Unseen Servant",
+      "pages": [
+        189
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Russian summaries are not an official translation. Full rules remain in the pinned source.",
+    "Find Familiar creature stat blocks are not all prepared. No automated summons or effects.",
+    "Material costs, consumed components, scaling and areas remain textual.",
+    "Sanctuary follows the pinned SRD PDF wording; other printings or errata are not silently merged.",
+    "Condition links require the conditions bundle."
+  ]
+}

@@ -1,0 +1,668 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:find-familiar",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Поиск фамильяра",
+        "en": "Find Familiar"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=143",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 143.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 час. Дистанция: 10 футов. Компоненты: V, S, M. Длительность: Мгновенно.\nПризывает духа в свободном месте в пределах дистанции. Форма: летучая мышь, кошка, краб, лягушка (жаба), ястреб, ящерица, осьминог, сова, ядовитая змея, рыба (пиранья), крыса, ворон, морской конёк, паук или ласка. Используются характеристики выбранной формы, но тип — небожитель, фея или исчадие по твоему выбору. Фамильяр действует самостоятельно, подчиняется приказам, имеет свою инициативу и ход, не атакует, но может выполнять другие действия. При 0 хитов исчезает и возвращается после повторного накладывания.\nВ пределах 100 футов доступна телепатия. Действием можно видеть и слышать его чувствами, включая особые, до начала своего следующего хода; собственными чувствами в это время ты ослеплён и оглох. Действием можно временно убрать его в карманное измерение или отпустить навсегда; действием вернуть временно убранного в свободное место в пределах 30 футов. Одновременно возможен только один фамильяр; повторное накладывание может сменить его форму.\nПри накладывании заклинания с дистанцией «касание» фамильяр в пределах 100 футов может доставить его своей реакцией; для требуемого броска атаки используется твой модификатор. Характеристики всех форм пока не включены в каталог.\nМатериалы: уголь, благовония и травы стоимостью 10 зм, сгорающие в огне в латунной жаровне. Материалы расходуются.",
+      "links": [
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:deafened"
+      ],
+      "spell": {
+        "level": 1,
+        "school": "conjuration",
+        "castingTime": "1 час",
+        "range": {
+          "type": "feet",
+          "feet": 10
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": true
+      }
+    },
+    {
+      "id": "srd51:2014:spell:floating-disk",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Парящий диск",
+        "en": "Floating Disk"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=146",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 146.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: 30 футов. Компоненты: V, S, M. Длительность: 1 час.\nСоздаёт горизонтальный круг силы диаметром 3 фута и толщиной 1 дюйм, парящий в 3 футах над землёй в видимом свободном месте. Выдерживает до 500 фунтов; перегрузка завершает заклинание, и груз падает. В пределах 20 футов от тебя неподвижен; если отойти дальше, следует, оставаясь в пределах 20 футов. Проходит неровности, ступени и склоны, но не перепады высоты 10 футов и более. Если ты оказываешься дальше 100 футов от диска, заклинание заканчивается.\nМатериальный компонент: капля ртути.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "conjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 30
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "1 час",
+        "concentration": false,
+        "ritual": true
+      }
+    },
+    {
+      "id": "srd51:2014:spell:fog-cloud",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Туманное облако",
+        "en": "Fog Cloud"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=146",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 146.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: 120 футов. Компоненты: V, S. Длительность: Концентрация, до 1 часа.\nСоздаёт сферу тумана радиусом 20 футов вокруг выбранной точки. Туман огибает углы, область сильно заслонена. Сохраняется до конца длительности или пока ветер со скоростью не менее 10 миль в час не рассеет его.\nЯчейка 2 уровня и выше: радиус увеличивается на 20 футов за каждый уровень ячейки выше первого.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "conjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 120
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Концентрация, до 1 часа",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:goodberry",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Чудо-ягоды",
+        "en": "Goodberry"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=150",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 150.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: касание. Компоненты: V, S, M. Длительность: Мгновенно.\nВ руке появляются до десяти ягод. Существо может действием съесть одну: она восстанавливает 1 хит и питает существо в течение суток. Несъеденные ягоды теряют силу через 24 часа после накладывания.\nМатериальный компонент: веточка омелы.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "transmutation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:grease",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Скольжение",
+        "en": "Grease"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=150",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 150.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: 60 футов. Компоненты: V, S, M. Длительность: 1 минута.\nПокрывает землю в квадрате 10 на 10 футов с центром в выбранной точке скользким жиром, превращая её в труднопроходимую местность. Стоящие в области при появлении жира должны преуспеть в спасброске Ловкости, иначе падают ничком. Такой же спасбросок требуется при входе в область или завершении в ней хода.\nМатериальный компонент: немного свиной шкуры или сливочного масла.",
+      "links": [
+        "srd51:2014:mechanic:prone"
+      ],
+      "spell": {
+        "level": 1,
+        "school": "conjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "1 минута",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:hideous-laughter",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Жуткий смех",
+        "en": "Hideous Laughter"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=154",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 154.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: 30 футов. Компоненты: V, S, M. Длительность: Концентрация, до 1 минуты.\nВидимое существо воспринимает всё смешным. При провале спасброска Мудрости оно падает ничком, становится недееспособным и не может встать до конца заклинания. Интеллект 4 или ниже исключает действие. В конце каждого своего хода и при получении урона цель повторяет спасбросок; спасбросок от урона совершается с преимуществом. Успех завершает эффект.\nМатериалы: крошечные пирожные и перо, которым машут в воздухе.",
+      "links": [
+        "srd51:2014:mechanic:prone",
+        "srd51:2014:mechanic:incapacitated"
+      ],
+      "spell": {
+        "level": 1,
+        "school": "enchantment",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 30
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "Концентрация, до 1 минуты",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:hunters-mark",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Метка охотника",
+        "en": "Hunter’s Mark"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=155",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 155.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 бонусное действие. Дистанция: 90 футов. Компоненты: V. Длительность: Концентрация, до 1 часа.\nОтмечает видимое существо как добычу. Каждое попадание по нему атакой оружием наносит дополнительно 1d6 урона; проверки Мудрости (Восприятие) и Мудрости (Выживание) для его поиска совершаются с преимуществом. Если до окончания эффекта хиты цели падают до 0, на одном из последующих ходов можно бонусным действием отметить новое существо.\nЯчейка 3 или 4 уровня: концентрация до 8 часов; ячейка 5 уровня или выше: до 24 часов.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "divination",
+        "castingTime": "1 бонусное действие",
+        "range": {
+          "type": "feet",
+          "feet": 90
+        },
+        "components": [
+          "V"
+        ],
+        "duration": "Концентрация, до 1 часа",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:identify",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Опознание",
+        "en": "Identify"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=155",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 155, 156.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 минута. Дистанция: касание. Компоненты: V, S, M. Длительность: Мгновенно.\nНужно касаться предмета всё время накладывания. Для магического предмета или иного наделённого магией объекта узнаёшь свойства, способ использования, необходимость настройки и число зарядов; также действующие на него заклинания и заклинание, которым он создан, если применимо. Если вместо предмета касаться существа всё время накладывания, узнаёшь действующие на него заклинания.\nМатериалы: жемчужина стоимостью не менее 100 зм и перо совы. Источник не указывает расход этих компонентов.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "divination",
+        "castingTime": "1 минута",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": true
+      }
+    },
+    {
+      "id": "srd51:2014:spell:illusory-script",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Иллюзорное письмо",
+        "en": "Illusory Script"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=156",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 156.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 минута. Дистанция: касание. Компоненты: S, M. Длительность: 10 дней.\nПисьмо на подходящем материале выглядит обычным и передаёт задуманный смысл тебе и назначенным при накладывании существам. Другим кажется непонятной письменностью или магическими знаками; вместо этого можно показать другое сообщение и почерк на известном тебе языке. Рассеивание уничтожает и исходный текст, и иллюзию. Истинное зрение позволяет прочесть скрытое сообщение.\nМатериальный компонент: чернила на свинцовой основе стоимостью не менее 10 зм, расходуются.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "illusion",
+        "castingTime": "1 минута",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "S",
+          "M"
+        ],
+        "duration": "10 дней",
+        "concentration": false,
+        "ritual": true
+      }
+    },
+    {
+      "id": "srd51:2014:spell:jump",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Прыжок",
+        "en": "Jump"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=158",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 158.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: касание. Компоненты: V, S, M. Длительность: 1 минута.\nПосле касания существа дальность его прыжков утраивается до конца заклинания.\nМатериальный компонент: задняя лапка кузнечика.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "transmutation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "1 минута",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:longstrider",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Скороход",
+        "en": "Longstrider"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=160",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 160.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: касание. Компоненты: V, S, M. Длительность: 1 час.\nПосле касания скорость существа увеличивается на 10 футов до конца заклинания.\nЯчейка 2 уровня и выше: одна дополнительная цель за каждый уровень ячейки выше первого.\nМатериальный компонент: щепотка земли.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "transmutation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "1 час",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:mage-armor",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Доспехи мага",
+        "en": "Mage Armor"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=160",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 160.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: касание. Компоненты: V, S, M. Длительность: 8 часов.\nКоснись согласного существа, не носящего доспех. Его базовый КД становится равным 13 + модификатор Ловкости. Заклинание заканчивается, если цель надевает доспех или ты прекращаешь эффект действием.\nМатериальный компонент: кусочек выделанной кожи.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "abjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "8 часов",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:protection-from-evil-and-good",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Защита от добра и зла",
+        "en": "Protection from Evil and Good"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=173",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 173.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: касание. Компоненты: V, S, M. Длительность: Концентрация, до 10 минут.\nСогласное существо, которого касаешься, защищено от аберраций, небожителей, элементалей, фей, исчадий и нежити: их атаки по нему совершаются с помехой; они не могут очаровать, испугать его или вселиться в него. Если такой эффект уже есть, цель получает преимущество на новые спасброски от него, а не автоматическое освобождение.\nМатериальный компонент: святая вода либо порошок серебра и железа; расходуется.",
+      "links": [
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:frightened"
+      ],
+      "spell": {
+        "level": 1,
+        "school": "abjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "Концентрация, до 10 минут",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:purify-food-and-drink",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Очищение пищи и питья",
+        "en": "Purify Food and Drink"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=173",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 173.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: 10 футов. Компоненты: V, S. Длительность: Мгновенно.\nОчищает всю немагическую пищу и питьё в сфере радиусом 5 футов с центром в выбранной точке, удаляя яды и болезни.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "transmutation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 10
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": true
+      }
+    },
+    {
+      "id": "srd51:2014:spell:sanctuary",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Убежище",
+        "en": "Sanctuary"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=176",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 176.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 бонусное действие. Дистанция: 30 футов. Компоненты: V, S, M. Длительность: 1 минута.\nЗащищает существо: перед атакой по нему или вредоносным заклинанием с ним в качестве цели нападающий совершает спасбросок Мудрости. При провале он должен выбрать другую цель или потерять атаку либо заклинание. Эффекты по области не блокируются. Если защищённое существо атакует или накладывает заклинание, воздействующее на врага, защита заканчивается. Формулировка соответствует закреплённому PDF SRD 5.1.\nМатериальный компонент: маленькое серебряное зеркало.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "abjuration",
+        "castingTime": "1 бонусное действие",
+        "range": {
+          "type": "feet",
+          "feet": 30
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "1 минута",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:silent-image",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Безмолвный образ",
+        "en": "Silent Image"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=179",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 179, 180.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: 60 футов. Компоненты: V, S, M. Длительность: Концентрация, до 10 минут.\nСоздаёт видимый образ предмета, существа или иного явления в пределах куба с ребром 15 футов. Звук, запах и другие ощущения отсутствуют. Действием можно переместить образ в пределах дистанции и изменить его вид для естественного движения. Физическое взаимодействие выявляет иллюзию: предметы проходят сквозь неё. Действием существо может распознать её проверкой Интеллекта (Расследование) против Сл твоих заклинаний; распознавший видит сквозь образ.\nМатериальный компонент: немного овечьей шерсти.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "illusion",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "Концентрация, до 10 минут",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:speak-with-animals",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Разговор с животными",
+        "en": "Speak with Animals"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=181",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 181.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: на себя. Компоненты: V, S. Длительность: 10 минут.\nПозволяет понимать зверей и устно общаться с ними. Их знания ограничены интеллектом, но они как минимум могут сообщить о ближайших местах, чудовищах и том, что воспринимали за последний день. Можно попытаться убедить зверя оказать небольшую услугу; решение принимает мастер.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "divination",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "self"
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "10 минут",
+        "concentration": false,
+        "ritual": true
+      }
+    },
+    {
+      "id": "srd51:2014:spell:unseen-servant",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Невидимый слуга",
+        "en": "Unseen Servant"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=189",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one exploration subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 189.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: 60 футов. Компоненты: V, S, M. Длительность: 1 час.\nСоздаёт невидимую, лишённую разума и формы силу в свободном месте на земле: КД 10, 1 хит, Сила 2, атаковать не может. При 0 хитов заклинание заканчивается. Один раз в каждый свой ход бонусным действием можно мысленно приказать ей переместиться до 15 футов и взаимодействовать с предметом. Выполняет простые человеческие задачи: принести вещь, убрать, починить или сложить одежду, разжечь огонь, подать еду, налить вино. Завершив поручение, ждёт следующего. Если приказ требует уйти дальше 60 футов от тебя, заклинание заканчивается.\nМатериалы: кусок верёвки и немного дерева.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "conjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "1 час",
+        "concentration": false,
+        "ritual": true
+      }
+    }
+  ]
+}

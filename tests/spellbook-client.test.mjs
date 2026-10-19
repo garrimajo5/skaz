@@ -5,7 +5,7 @@ import {readFile} from 'node:fs/promises';
 const source=await readFile(new URL('../client/spellbook.js',import.meta.url),'utf8');
 function harness(){let key='hero:0';const tasks=[],requests=[],edits=[],handlers={},region={innerHTML:'',setAttribute(){}};
  const context=vm.createContext({queueMicrotask:fn=>tasks.push(fn),document:{addEventListener:(n,f)=>handlers[n]=f,getElementById:()=>region},render:()=>{},SkazStorage:{snapshotKey:()=>key,contextKey:()=>key.split(':')[0],spellbookData:()=>new Promise((resolve,reject)=>requests.push({resolve,reject})),editSpell:(...args)=>edits.push(args)}});vm.runInContext(source,context);
- return{tasks,requests,edits,region,view:()=>vm.runInContext('SkazSpellbook.view()',context),setKey:v=>key=v,draft:(q,scope='all',level='')=>handlers.change({target:{form:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level}}}}}),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}}),search:(q,scope='all',level='')=>handlers.submit({target:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level}}},preventDefault(){}})};
+ return{tasks,requests,edits,region,view:()=>vm.runInContext('SkazSpellbook.view()',context),setKey:v=>key=v,draft:(q,scope='all',level='',flags={})=>handlers.change({target:{form:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}}}}),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}}),search:(q,scope='all',level='',flags={})=>handlers.submit({target:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}},preventDefault(){}})};
 }
 const settle=()=>new Promise(r=>setImmediate(r));
 const item=(i=0)=>({catalogId:'spell:'+i,status:i%2?'prepared':'known',entry:{id:'spell:'+i,kind:'spell',name:{ru:'Заклинание '+i,en:'Magic '+i},spell:{level:i%3,castingTime:'<action>',duration:'1 минута',concentration:false,ritual:true}}});
@@ -31,4 +31,13 @@ test('unfinished search survives rerenders and same-character updates but resets
  const h=harness();h.view();h.tasks.shift()();h.requests[0].resolve({entries:[item()]});await settle();h.draft('Магия <draft>','prepared','0');
  assert.match(h.view(),/value="Магия &lt;draft&gt;"/);assert.match(h.view(),/value="prepared" selected/);assert.match(h.view(),/value="0" selected/);assert.match(h.region.innerHTML,/Заклинание 0/);
  h.setKey('hero:1');assert.match(h.view(),/Магия &lt;draft&gt;/);h.setKey('other:0');assert.doesNotMatch(h.view(),/draft|value="prepared" selected/);
+});
+
+test('personal ritual and concentration filters intersect and do not treat unknown metadata as false',async()=>{
+ const h=harness();h.view();h.tasks.shift()();const a=item(0),b=item(1),unknown=item(2);b.entry.spell.concentration=true;delete unknown.entry.spell;
+ h.requests[0].resolve({entries:[a,b,unknown]});await settle();h.search('','all','',{ritual:'true',concentration:'false'});assert.match(h.region.innerHTML,/1–1 из 1/);assert.match(h.region.innerHTML,/Заклинание 0/);assert.doesNotMatch(h.region.innerHTML,/Заклинание 1|Заклинание 2/);
+ h.draft('','all','',{ritual:'false',concentration:'true'});assert.match(h.view(),/value="false" selected/);h.setKey('hero:1');assert.match(h.view(),/value="true" selected/);
+ h.tasks.shift()();h.requests[1].resolve({entries:[a,b,unknown]});await settle();assert.match(h.region.innerHTML,/Заклинание 0/);
+ h.search('','all','',{ritual:'false'});assert.match(h.region.innerHTML,/Заклинания не найдены/);h.click('personal-spell-reset');assert.doesNotMatch(h.view(),/value="false" selected|value="true" selected/);
+ h.setKey('other:0');h.search('stale','prepared','0',{concentration:'true'});assert.doesNotMatch(h.view(),/stale|value="true" selected/);
 });

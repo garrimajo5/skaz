@@ -4,1604 +4,2242 @@
   "scope": "SRD 5.1 spell headings, pages 114–193 (final description continues on page 194); not all D&D publications",
   "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
   "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
-  "extractionVersion": 1,
+  "extractionVersion": 2,
   "count": 319,
   "crossCheck": "All 319 unique headings also occur in class spell lists on pages 105–113; apostrophes normalized.",
   "entries": [
     {
       "id": "srd51:2014:spell:acid-arrow",
       "nameEn": "Acid Arrow",
-      "page": 114
+      "page": 114,
+      "level": 2,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:acid-splash",
       "nameEn": "Acid Splash",
-      "page": 114
+      "page": 114,
+      "level": 0,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:aid",
       "nameEn": "Aid",
-      "page": 114
+      "page": 114,
+      "level": 2,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:alarm",
       "nameEn": "Alarm",
-      "page": 114
+      "page": 114,
+      "level": 1,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:alter-self",
       "nameEn": "Alter Self",
-      "page": 114
+      "page": 114,
+      "level": 2,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:animal-friendship",
       "nameEn": "Animal Friendship",
-      "page": 115
+      "page": 115,
+      "level": 1,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:animal-messenger",
       "nameEn": "Animal Messenger",
-      "page": 115
+      "page": 115,
+      "level": 2,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:animal-shapes",
       "nameEn": "Animal Shapes",
-      "page": 115
+      "page": 115,
+      "level": 8,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:animate-dead",
       "nameEn": "Animate Dead",
-      "page": 115
+      "page": 115,
+      "level": 3,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:animate-objects",
       "nameEn": "Animate Objects",
-      "page": 116
+      "page": 116,
+      "level": 5,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:antilife-shell",
       "nameEn": "Antilife Shell",
-      "page": 116
+      "page": 116,
+      "level": 5,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:antimagic-field",
       "nameEn": "Antimagic Field",
-      "page": 117
+      "page": 117,
+      "level": 8,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:antipathy-sympathy",
       "nameEn": "Antipathy/Sympathy",
-      "page": 117
+      "page": 117,
+      "level": 8,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:arcane-eye",
       "nameEn": "Arcane Eye",
-      "page": 118
+      "page": 118,
+      "level": 4,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:arcane-hand",
       "nameEn": "Arcane Hand",
-      "page": 118
+      "page": 118,
+      "level": 5,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:arcane-lock",
       "nameEn": "Arcane Lock",
-      "page": 118
+      "page": 118,
+      "level": 2,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:arcane-sword",
       "nameEn": "Arcane Sword",
-      "page": 119
+      "page": 119,
+      "level": 7,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:arcanists-magic-aura",
       "nameEn": "Arcanist’s Magic Aura",
-      "page": 119
+      "page": 119,
+      "level": 2,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:astral-projection",
       "nameEn": "Astral Projection",
-      "page": 119
+      "page": 119,
+      "level": 9,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:augury",
       "nameEn": "Augury",
-      "page": 120
+      "page": 120,
+      "level": 2,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:awaken",
       "nameEn": "Awaken",
-      "page": 120
+      "page": 120,
+      "level": 5,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:bane",
       "nameEn": "Bane",
-      "page": 120
+      "page": 120,
+      "level": 1,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:banishment",
       "nameEn": "Banishment",
-      "page": 120
+      "page": 120,
+      "level": 4,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:barkskin",
       "nameEn": "Barkskin",
-      "page": 121
+      "page": 121,
+      "level": 2,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:beacon-of-hope",
       "nameEn": "Beacon of Hope",
-      "page": 121
+      "page": 121,
+      "level": 3,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:bestow-curse",
       "nameEn": "Bestow Curse",
-      "page": 121
+      "page": 121,
+      "level": 3,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:black-tentacles",
       "nameEn": "Black Tentacles",
-      "page": 121
+      "page": 121,
+      "level": 4,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:blade-barrier",
       "nameEn": "Blade Barrier",
-      "page": 122
+      "page": 122,
+      "level": 6,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:bless",
       "nameEn": "Bless",
-      "page": 122
+      "page": 122,
+      "level": 1,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:blight",
       "nameEn": "Blight",
-      "page": 122
+      "page": 122,
+      "level": 4,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:blindness-deafness",
       "nameEn": "Blindness/Deafness",
-      "page": 122
+      "page": 122,
+      "level": 2,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:blink",
       "nameEn": "Blink",
-      "page": 122
+      "page": 122,
+      "level": 3,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:blur",
       "nameEn": "Blur",
-      "page": 123
+      "page": 123,
+      "level": 2,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:branding-smite",
       "nameEn": "Branding Smite",
-      "page": 123
+      "page": 123,
+      "level": 2,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:burning-hands",
       "nameEn": "Burning Hands",
-      "page": 123
+      "page": 123,
+      "level": 1,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:call-lightning",
       "nameEn": "Call Lightning",
-      "page": 123
+      "page": 123,
+      "level": 3,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:calm-emotions",
       "nameEn": "Calm Emotions",
-      "page": 123
+      "page": 123,
+      "level": 2,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:chain-lightning",
       "nameEn": "Chain Lightning",
-      "page": 124
+      "page": 124,
+      "level": 6,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:charm-person",
       "nameEn": "Charm Person",
-      "page": 124
+      "page": 124,
+      "level": 1,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:chill-touch",
       "nameEn": "Chill Touch",
-      "page": 124
+      "page": 124,
+      "level": 0,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:circle-of-death",
       "nameEn": "Circle of Death",
-      "page": 124
+      "page": 124,
+      "level": 6,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:clairvoyance",
       "nameEn": "Clairvoyance",
-      "page": 124
+      "page": 124,
+      "level": 3,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:clone",
       "nameEn": "Clone",
-      "page": 125
+      "page": 125,
+      "level": 8,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:cloudkill",
       "nameEn": "Cloudkill",
-      "page": 125
+      "page": 125,
+      "level": 5,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:color-spray",
       "nameEn": "Color Spray",
-      "page": 125
+      "page": 125,
+      "level": 1,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:command",
       "nameEn": "Command",
-      "page": 125
+      "page": 125,
+      "level": 1,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:commune",
       "nameEn": "Commune",
-      "page": 126
+      "page": 126,
+      "level": 5,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:commune-with-nature",
       "nameEn": "Commune with Nature",
-      "page": 126
+      "page": 126,
+      "level": 5,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:comprehend-languages",
       "nameEn": "Comprehend Languages",
-      "page": 126
+      "page": 126,
+      "level": 1,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:compulsion",
       "nameEn": "Compulsion",
-      "page": 126
+      "page": 126,
+      "level": 4,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:cone-of-cold",
       "nameEn": "Cone of Cold",
-      "page": 127
+      "page": 127,
+      "level": 5,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:confusion",
       "nameEn": "Confusion",
-      "page": 127
+      "page": 127,
+      "level": 4,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:conjure-animals",
       "nameEn": "Conjure Animals",
-      "page": 127
+      "page": 127,
+      "level": 3,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:conjure-celestial",
       "nameEn": "Conjure Celestial",
-      "page": 127
+      "page": 127,
+      "level": 7,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:conjure-elemental",
       "nameEn": "Conjure Elemental",
-      "page": 128
+      "page": 128,
+      "level": 5,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:conjure-fey",
       "nameEn": "Conjure Fey",
-      "page": 128
+      "page": 128,
+      "level": 6,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:conjure-minor-elementals",
       "nameEn": "Conjure Minor Elementals",
-      "page": 128
+      "page": 128,
+      "level": 4,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:conjure-woodland-beings",
       "nameEn": "Conjure Woodland Beings",
-      "page": 129
+      "page": 129,
+      "level": 4,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:contact-other-plane",
       "nameEn": "Contact Other Plane",
-      "page": 129
+      "page": 129,
+      "level": 5,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:contagion",
       "nameEn": "Contagion",
-      "page": 129
+      "page": 129,
+      "level": 5,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:contingency",
       "nameEn": "Contingency",
-      "page": 130
+      "page": 130,
+      "level": 6,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:continual-flame",
       "nameEn": "Continual Flame",
-      "page": 130
+      "page": 130,
+      "level": 2,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:control-water",
       "nameEn": "Control Water",
-      "page": 130
+      "page": 130,
+      "level": 4,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:control-weather",
       "nameEn": "Control Weather",
-      "page": 131
+      "page": 131,
+      "level": 8,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:counterspell",
       "nameEn": "Counterspell",
-      "page": 131
+      "page": 131,
+      "level": 3,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:create-food-and-water",
       "nameEn": "Create Food and Water",
-      "page": 131
+      "page": 131,
+      "level": 3,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:create-or-destroy-water",
       "nameEn": "Create or Destroy Water",
-      "page": 132
+      "page": 132,
+      "level": 1,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:create-undead",
       "nameEn": "Create Undead",
-      "page": 132
+      "page": 132,
+      "level": 6,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:creation",
       "nameEn": "Creation",
-      "page": 132
+      "page": 132,
+      "level": 5,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:cure-wounds",
       "nameEn": "Cure Wounds",
-      "page": 132
+      "page": 132,
+      "level": 1,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:dancing-lights",
       "nameEn": "Dancing Lights",
-      "page": 133
+      "page": 133,
+      "level": 0,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:darkness",
       "nameEn": "Darkness",
-      "page": 133
+      "page": 133,
+      "level": 2,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:darkvision",
       "nameEn": "Darkvision",
-      "page": 133
+      "page": 133,
+      "level": 2,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:daylight",
       "nameEn": "Daylight",
-      "page": 133
+      "page": 133,
+      "level": 3,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:death-ward",
       "nameEn": "Death Ward",
-      "page": 133
+      "page": 133,
+      "level": 4,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:delayed-blast-fireball",
       "nameEn": "Delayed Blast Fireball",
-      "page": 133
+      "page": 133,
+      "level": 7,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:demiplane",
       "nameEn": "Demiplane",
-      "page": 134
+      "page": 134,
+      "level": 8,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:detect-evil-and-good",
       "nameEn": "Detect Evil and Good",
-      "page": 134
+      "page": 134,
+      "level": 1,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:detect-magic",
       "nameEn": "Detect Magic",
-      "page": 134
+      "page": 134,
+      "level": 1,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:detect-poison-and-disease",
       "nameEn": "Detect Poison and Disease",
-      "page": 134
+      "page": 134,
+      "level": 1,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:detect-thoughts",
       "nameEn": "Detect Thoughts",
-      "page": 135
+      "page": 135,
+      "level": 2,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:dimension-door",
       "nameEn": "Dimension Door",
-      "page": 135
+      "page": 135,
+      "level": 4,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:disguise-self",
       "nameEn": "Disguise Self",
-      "page": 135
+      "page": 135,
+      "level": 1,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:disintegrate",
       "nameEn": "Disintegrate",
-      "page": 135
+      "page": 135,
+      "level": 6,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:dispel-evil-and-good",
       "nameEn": "Dispel Evil and Good",
-      "page": 136
+      "page": 136,
+      "level": 5,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:dispel-magic",
       "nameEn": "Dispel Magic",
-      "page": 136
+      "page": 136,
+      "level": 3,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:divination",
       "nameEn": "Divination",
-      "page": 136
+      "page": 136,
+      "level": 4,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:divine-favor",
       "nameEn": "Divine Favor",
-      "page": 136
+      "page": 136,
+      "level": 1,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:divine-word",
       "nameEn": "Divine Word",
-      "page": 137
+      "page": 137,
+      "level": 7,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:dominate-beast",
       "nameEn": "Dominate Beast",
-      "page": 137
+      "page": 137,
+      "level": 4,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:dominate-monster",
       "nameEn": "Dominate Monster",
-      "page": 137
+      "page": 137,
+      "level": 8,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:dominate-person",
       "nameEn": "Dominate Person",
-      "page": 138
+      "page": 138,
+      "level": 5,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:dream",
       "nameEn": "Dream",
-      "page": 138
+      "page": 138,
+      "level": 5,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:druidcraft",
       "nameEn": "Druidcraft",
-      "page": 138
+      "page": 138,
+      "level": 0,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:earthquake",
       "nameEn": "Earthquake",
-      "page": 139
+      "page": 139,
+      "level": 8,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:eldritch-blast",
       "nameEn": "Eldritch Blast",
-      "page": 139
+      "page": 139,
+      "level": 0,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:enhance-ability",
       "nameEn": "Enhance Ability",
-      "page": 139
+      "page": 139,
+      "level": 2,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:enlarge-reduce",
       "nameEn": "Enlarge/Reduce",
-      "page": 140
+      "page": 140,
+      "level": 2,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:entangle",
       "nameEn": "Entangle",
-      "page": 140
+      "page": 140,
+      "level": 1,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:enthrall",
       "nameEn": "Enthrall",
-      "page": 140
+      "page": 140,
+      "level": 2,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:etherealness",
       "nameEn": "Etherealness",
-      "page": 140
+      "page": 140,
+      "level": 7,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:expeditious-retreat",
       "nameEn": "Expeditious Retreat",
-      "page": 141
+      "page": 141,
+      "level": 1,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:eyebite",
       "nameEn": "Eyebite",
-      "page": 141
+      "page": 141,
+      "level": 6,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:fabricate",
       "nameEn": "Fabricate",
-      "page": 141
+      "page": 141,
+      "level": 4,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:faerie-fire",
       "nameEn": "Faerie Fire",
-      "page": 141
+      "page": 141,
+      "level": 1,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:faithful-hound",
       "nameEn": "Faithful Hound",
-      "page": 142
+      "page": 142,
+      "level": 4,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:false-life",
       "nameEn": "False Life",
-      "page": 142
+      "page": 142,
+      "level": 1,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:fear",
       "nameEn": "Fear",
-      "page": 142
+      "page": 142,
+      "level": 3,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:feather-fall",
       "nameEn": "Feather Fall",
-      "page": 142
+      "page": 142,
+      "level": 1,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:feeblemind",
       "nameEn": "Feeblemind",
-      "page": 142
+      "page": 142,
+      "level": 8,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:find-familiar",
       "nameEn": "Find Familiar",
-      "page": 143
+      "page": 143,
+      "level": 1,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:find-steed",
       "nameEn": "Find Steed",
-      "page": 143
+      "page": 143,
+      "level": 2,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:find-the-path",
       "nameEn": "Find the Path",
-      "page": 143
+      "page": 143,
+      "level": 6,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:find-traps",
       "nameEn": "Find Traps",
-      "page": 144
+      "page": 144,
+      "level": 2,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:finger-of-death",
       "nameEn": "Finger of Death",
-      "page": 144
+      "page": 144,
+      "level": 7,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:fireball",
       "nameEn": "Fireball",
-      "page": 144
+      "page": 144,
+      "level": 3,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:fire-bolt",
       "nameEn": "Fire Bolt",
-      "page": 144
+      "page": 144,
+      "level": 0,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:fire-shield",
       "nameEn": "Fire Shield",
-      "page": 144
+      "page": 144,
+      "level": 4,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:fire-storm",
       "nameEn": "Fire Storm",
-      "page": 145
+      "page": 145,
+      "level": 7,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:flame-blade",
       "nameEn": "Flame Blade",
-      "page": 145
+      "page": 145,
+      "level": 2,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:flame-strike",
       "nameEn": "Flame Strike",
-      "page": 145
+      "page": 145,
+      "level": 5,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:flaming-sphere",
       "nameEn": "Flaming Sphere",
-      "page": 145
+      "page": 145,
+      "level": 2,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:flesh-to-stone",
       "nameEn": "Flesh to Stone",
-      "page": 145
+      "page": 145,
+      "level": 6,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:floating-disk",
       "nameEn": "Floating Disk",
-      "page": 146
+      "page": 146,
+      "level": 1,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:fly",
       "nameEn": "Fly",
-      "page": 146
+      "page": 146,
+      "level": 3,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:fog-cloud",
       "nameEn": "Fog Cloud",
-      "page": 146
+      "page": 146,
+      "level": 1,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:forbiddance",
       "nameEn": "Forbiddance",
-      "page": 146
+      "page": 146,
+      "level": 6,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:forcecage",
       "nameEn": "Forcecage",
-      "page": 147
+      "page": 147,
+      "level": 7,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:foresight",
       "nameEn": "Foresight",
-      "page": 147
+      "page": 147,
+      "level": 9,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:freedom-of-movement",
       "nameEn": "Freedom of Movement",
-      "page": 147
+      "page": 147,
+      "level": 4,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:freezing-sphere",
       "nameEn": "Freezing Sphere",
-      "page": 147
+      "page": 147,
+      "level": 6,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:gaseous-form",
       "nameEn": "Gaseous Form",
-      "page": 148
+      "page": 148,
+      "level": 3,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:gate",
       "nameEn": "Gate",
-      "page": 148
+      "page": 148,
+      "level": 9,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:geas",
       "nameEn": "Geas",
-      "page": 148
+      "page": 148,
+      "level": 5,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:gentle-repose",
       "nameEn": "Gentle Repose",
-      "page": 148
+      "page": 148,
+      "level": 2,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:giant-insect",
       "nameEn": "Giant Insect",
-      "page": 149
+      "page": 149,
+      "level": 4,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:glibness",
       "nameEn": "Glibness",
-      "page": 149
+      "page": 149,
+      "level": 8,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:globe-of-invulnerability",
       "nameEn": "Globe of Invulnerability",
-      "page": 149
+      "page": 149,
+      "level": 6,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:glyph-of-warding",
       "nameEn": "Glyph of Warding",
-      "page": 149
+      "page": 149,
+      "level": 3,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:goodberry",
       "nameEn": "Goodberry",
-      "page": 150
+      "page": 150,
+      "level": 1,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:grease",
       "nameEn": "Grease",
-      "page": 150
+      "page": 150,
+      "level": 1,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:greater-invisibility",
       "nameEn": "Greater Invisibility",
-      "page": 150
+      "page": 150,
+      "level": 4,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:greater-restoration",
       "nameEn": "Greater Restoration",
-      "page": 150
+      "page": 150,
+      "level": 5,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:guardian-of-faith",
       "nameEn": "Guardian of Faith",
-      "page": 150
+      "page": 150,
+      "level": 4,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:guards-and-wards",
       "nameEn": "Guards and Wards",
-      "page": 151
+      "page": 151,
+      "level": 6,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:guidance",
       "nameEn": "Guidance",
-      "page": 151
+      "page": 151,
+      "level": 0,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:guiding-bolt",
       "nameEn": "Guiding Bolt",
-      "page": 151
+      "page": 151,
+      "level": 1,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:gust-of-wind",
       "nameEn": "Gust of Wind",
-      "page": 152
+      "page": 152,
+      "level": 2,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:hallow",
       "nameEn": "Hallow",
-      "page": 152
+      "page": 152,
+      "level": 5,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:hallucinatory-terrain",
       "nameEn": "Hallucinatory Terrain",
-      "page": 152
+      "page": 152,
+      "level": 4,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:harm",
       "nameEn": "Harm",
-      "page": 153
+      "page": 153,
+      "level": 6,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:haste",
       "nameEn": "Haste",
-      "page": 153
+      "page": 153,
+      "level": 3,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:heal",
       "nameEn": "Heal",
-      "page": 153
+      "page": 153,
+      "level": 6,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:healing-word",
       "nameEn": "Healing Word",
-      "page": 153
+      "page": 153,
+      "level": 1,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:heat-metal",
       "nameEn": "Heat Metal",
-      "page": 153
+      "page": 153,
+      "level": 2,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:hellish-rebuke",
       "nameEn": "Hellish Rebuke",
-      "page": 154
+      "page": 154,
+      "level": 1,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:heroes-feast",
       "nameEn": "Heroes’ Feast",
-      "page": 154
+      "page": 154,
+      "level": 6,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:heroism",
       "nameEn": "Heroism",
-      "page": 154
+      "page": 154,
+      "level": 1,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:hideous-laughter",
       "nameEn": "Hideous Laughter",
-      "page": 154
+      "page": 154,
+      "level": 1,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:hold-monster",
       "nameEn": "Hold Monster",
-      "page": 154
+      "page": 154,
+      "level": 5,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:hold-person",
       "nameEn": "Hold Person",
-      "page": 154
+      "page": 154,
+      "level": 2,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:holy-aura",
       "nameEn": "Holy Aura",
-      "page": 155
+      "page": 155,
+      "level": 8,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:hunters-mark",
       "nameEn": "Hunter’s Mark",
-      "page": 155
+      "page": 155,
+      "level": 1,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:hypnotic-pattern",
       "nameEn": "Hypnotic Pattern",
-      "page": 155
+      "page": 155,
+      "level": 3,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:ice-storm",
       "nameEn": "Ice Storm",
-      "page": 155
+      "page": 155,
+      "level": 4,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:identify",
       "nameEn": "Identify",
-      "page": 155
+      "page": 155,
+      "level": 1,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:illusory-script",
       "nameEn": "Illusory Script",
-      "page": 156
+      "page": 156,
+      "level": 1,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:imprisonment",
       "nameEn": "Imprisonment",
-      "page": 156
+      "page": 156,
+      "level": 9,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:incendiary-cloud",
       "nameEn": "Incendiary Cloud",
-      "page": 157
+      "page": 157,
+      "level": 8,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:inflict-wounds",
       "nameEn": "Inflict Wounds",
-      "page": 157
+      "page": 157,
+      "level": 1,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:insect-plague",
       "nameEn": "Insect Plague",
-      "page": 157
+      "page": 157,
+      "level": 5,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:instant-summons",
       "nameEn": "Instant Summons",
-      "page": 157
+      "page": 157,
+      "level": 6,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:invisibility",
       "nameEn": "Invisibility",
-      "page": 157
+      "page": 157,
+      "level": 2,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:irresistible-dance",
       "nameEn": "Irresistible Dance",
-      "page": 158
+      "page": 158,
+      "level": 6,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:jump",
       "nameEn": "Jump",
-      "page": 158
+      "page": 158,
+      "level": 1,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:knock",
       "nameEn": "Knock",
-      "page": 158
+      "page": 158,
+      "level": 2,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:legend-lore",
       "nameEn": "Legend Lore",
-      "page": 158
+      "page": 158,
+      "level": 5,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:lesser-restoration",
       "nameEn": "Lesser Restoration",
-      "page": 158
+      "page": 158,
+      "level": 2,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:levitate",
       "nameEn": "Levitate",
-      "page": 158
+      "page": 158,
+      "level": 2,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:light",
       "nameEn": "Light",
-      "page": 159
+      "page": 159,
+      "level": 0,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:lightning-bolt",
       "nameEn": "Lightning Bolt",
-      "page": 159
+      "page": 159,
+      "level": 3,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:locate-animals-or-plants",
       "nameEn": "Locate Animals or Plants",
-      "page": 159
+      "page": 159,
+      "level": 2,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:locate-creature",
       "nameEn": "Locate Creature",
-      "page": 159
+      "page": 159,
+      "level": 4,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:locate-object",
       "nameEn": "Locate Object",
-      "page": 159
+      "page": 159,
+      "level": 2,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:longstrider",
       "nameEn": "Longstrider",
-      "page": 160
+      "page": 160,
+      "level": 1,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:mage-armor",
       "nameEn": "Mage Armor",
-      "page": 160
+      "page": 160,
+      "level": 1,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:mage-hand",
       "nameEn": "Mage Hand",
-      "page": 160
+      "page": 160,
+      "level": 0,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:magic-circle",
       "nameEn": "Magic Circle",
-      "page": 160
+      "page": 160,
+      "level": 3,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:magic-jar",
       "nameEn": "Magic Jar",
-      "page": 160
+      "page": 160,
+      "level": 6,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:magic-missile",
       "nameEn": "Magic Missile",
-      "page": 161
+      "page": 161,
+      "level": 1,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:magic-mouth",
       "nameEn": "Magic Mouth",
-      "page": 161
+      "page": 161,
+      "level": 2,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:magic-weapon",
       "nameEn": "Magic Weapon",
-      "page": 161
+      "page": 161,
+      "level": 2,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:magnificent-mansion",
       "nameEn": "Magnificent Mansion",
-      "page": 162
+      "page": 162,
+      "level": 7,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:major-image",
       "nameEn": "Major Image",
-      "page": 162
+      "page": 162,
+      "level": 3,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:mass-cure-wounds",
       "nameEn": "Mass Cure Wounds",
-      "page": 162
+      "page": 162,
+      "level": 5,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:mass-heal",
       "nameEn": "Mass Heal",
-      "page": 163
+      "page": 163,
+      "level": 9,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:mass-healing-word",
       "nameEn": "Mass Healing Word",
-      "page": 163
+      "page": 163,
+      "level": 3,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:mass-suggestion",
       "nameEn": "Mass Suggestion",
-      "page": 163
+      "page": 163,
+      "level": 6,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:maze",
       "nameEn": "Maze",
-      "page": 163
+      "page": 163,
+      "level": 8,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:meld-into-stone",
       "nameEn": "Meld into Stone",
-      "page": 163
+      "page": 163,
+      "level": 3,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:mending",
       "nameEn": "Mending",
-      "page": 164
+      "page": 164,
+      "level": 0,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:message",
       "nameEn": "Message",
-      "page": 164
+      "page": 164,
+      "level": 0,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:meteor-swarm",
       "nameEn": "Meteor Swarm",
-      "page": 164
+      "page": 164,
+      "level": 9,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:mind-blank",
       "nameEn": "Mind Blank",
-      "page": 164
+      "page": 164,
+      "level": 8,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:minor-illusion",
       "nameEn": "Minor Illusion",
-      "page": 164
+      "page": 164,
+      "level": 0,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:mirage-arcane",
       "nameEn": "Mirage Arcane",
-      "page": 165
+      "page": 165,
+      "level": 7,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:mirror-image",
       "nameEn": "Mirror Image",
-      "page": 165
+      "page": 165,
+      "level": 2,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:mislead",
       "nameEn": "Mislead",
-      "page": 165
+      "page": 165,
+      "level": 5,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:misty-step",
       "nameEn": "Misty Step",
-      "page": 165
+      "page": 165,
+      "level": 2,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:modify-memory",
       "nameEn": "Modify Memory",
-      "page": 166
+      "page": 166,
+      "level": 5,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:moonbeam",
       "nameEn": "Moonbeam",
-      "page": 166
+      "page": 166,
+      "level": 2,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:move-earth",
       "nameEn": "Move Earth",
-      "page": 166
+      "page": 166,
+      "level": 6,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:nondetection",
       "nameEn": "Nondetection",
-      "page": 167
+      "page": 167,
+      "level": 3,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:pass-without-trace",
       "nameEn": "Pass without Trace",
-      "page": 167
+      "page": 167,
+      "level": 2,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:passwall",
       "nameEn": "Passwall",
-      "page": 167
+      "page": 167,
+      "level": 5,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:phantasmal-killer",
       "nameEn": "Phantasmal Killer",
-      "page": 167
+      "page": 167,
+      "level": 4,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:phantom-steed",
       "nameEn": "Phantom Steed",
-      "page": 167
+      "page": 167,
+      "level": 3,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:planar-ally",
       "nameEn": "Planar Ally",
-      "page": 168
+      "page": 168,
+      "level": 6,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:planar-binding",
       "nameEn": "Planar Binding",
-      "page": 168
+      "page": 168,
+      "level": 5,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:plane-shift",
       "nameEn": "Plane Shift",
-      "page": 168
+      "page": 168,
+      "level": 7,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:plant-growth",
       "nameEn": "Plant Growth",
-      "page": 169
+      "page": 169,
+      "level": 3,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:poison-spray",
       "nameEn": "Poison Spray",
-      "page": 169
+      "page": 169,
+      "level": 0,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:polymorph",
       "nameEn": "Polymorph",
-      "page": 169
+      "page": 169,
+      "level": 4,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:power-word-kill",
       "nameEn": "Power Word Kill",
-      "page": 170
+      "page": 170,
+      "level": 9,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:power-word-stun",
       "nameEn": "Power Word Stun",
-      "page": 170
+      "page": 170,
+      "level": 8,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:prayer-of-healing",
       "nameEn": "Prayer of Healing",
-      "page": 170
+      "page": 170,
+      "level": 2,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:prestidigitation",
       "nameEn": "Prestidigitation",
-      "page": 170
+      "page": 170,
+      "level": 0,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:prismatic-spray",
       "nameEn": "Prismatic Spray",
-      "page": 170
+      "page": 170,
+      "level": 7,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:prismatic-wall",
       "nameEn": "Prismatic Wall",
-      "page": 171
+      "page": 171,
+      "level": 9,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:private-sanctum",
       "nameEn": "Private Sanctum",
-      "page": 171
+      "page": 171,
+      "level": 4,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:produce-flame",
       "nameEn": "Produce Flame",
-      "page": 172
+      "page": 172,
+      "level": 0,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:programmed-illusion",
       "nameEn": "Programmed Illusion",
-      "page": 172
+      "page": 172,
+      "level": 6,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:project-image",
       "nameEn": "Project Image",
-      "page": 172
+      "page": 172,
+      "level": 7,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:protection-from-energy",
       "nameEn": "Protection from Energy",
-      "page": 173
+      "page": 173,
+      "level": 3,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:protection-from-evil-and-good",
       "nameEn": "Protection from Evil and Good",
-      "page": 173
+      "page": 173,
+      "level": 1,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:protection-from-poison",
       "nameEn": "Protection from Poison",
-      "page": 173
+      "page": 173,
+      "level": 2,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:purify-food-and-drink",
       "nameEn": "Purify Food and Drink",
-      "page": 173
+      "page": 173,
+      "level": 1,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:raise-dead",
       "nameEn": "Raise Dead",
-      "page": 173
+      "page": 173,
+      "level": 5,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:ray-of-enfeeblement",
       "nameEn": "Ray of Enfeeblement",
-      "page": 174
+      "page": 174,
+      "level": 2,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:ray-of-frost",
       "nameEn": "Ray of Frost",
-      "page": 174
+      "page": 174,
+      "level": 0,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:regenerate",
       "nameEn": "Regenerate",
-      "page": 174
+      "page": 174,
+      "level": 7,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:reincarnate",
       "nameEn": "Reincarnate",
-      "page": 174
+      "page": 174,
+      "level": 5,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:remove-curse",
       "nameEn": "Remove Curse",
-      "page": 174
+      "page": 174,
+      "level": 3,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:resilient-sphere",
       "nameEn": "Resilient Sphere",
-      "page": 175
+      "page": 175,
+      "level": 4,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:resistance",
       "nameEn": "Resistance",
-      "page": 175
+      "page": 175,
+      "level": 0,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:resurrection",
       "nameEn": "Resurrection",
-      "page": 175
+      "page": 175,
+      "level": 7,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:reverse-gravity",
       "nameEn": "Reverse Gravity",
-      "page": 175
+      "page": 175,
+      "level": 7,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:revivify",
       "nameEn": "Revivify",
-      "page": 175
+      "page": 175,
+      "level": 3,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:rope-trick",
       "nameEn": "Rope Trick",
-      "page": 176
+      "page": 176,
+      "level": 2,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:sacred-flame",
       "nameEn": "Sacred Flame",
-      "page": 176
+      "page": 176,
+      "level": 0,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:sanctuary",
       "nameEn": "Sanctuary",
-      "page": 176
+      "page": 176,
+      "level": 1,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:scorching-ray",
       "nameEn": "Scorching Ray",
-      "page": 176
+      "page": 176,
+      "level": 2,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:scrying",
       "nameEn": "Scrying",
-      "page": 176
+      "page": 176,
+      "level": 5,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:secret-chest",
       "nameEn": "Secret Chest",
-      "page": 177
+      "page": 177,
+      "level": 4,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:see-invisibility",
       "nameEn": "See Invisibility",
-      "page": 177
+      "page": 177,
+      "level": 2,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:seeming",
       "nameEn": "Seeming",
-      "page": 177
+      "page": 177,
+      "level": 5,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:sending",
       "nameEn": "Sending",
-      "page": 177
+      "page": 177,
+      "level": 3,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:sequester",
       "nameEn": "Sequester",
-      "page": 178
+      "page": 178,
+      "level": 7,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:shapechange",
       "nameEn": "Shapechange",
-      "page": 178
+      "page": 178,
+      "level": 9,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:shatter",
       "nameEn": "Shatter",
-      "page": 178
+      "page": 178,
+      "level": 2,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:shield",
       "nameEn": "Shield",
-      "page": 179
+      "page": 179,
+      "level": 1,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:shield-of-faith",
       "nameEn": "Shield of Faith",
-      "page": 179
+      "page": 179,
+      "level": 1,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:shillelagh",
       "nameEn": "Shillelagh",
-      "page": 179
+      "page": 179,
+      "level": 0,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:shocking-grasp",
       "nameEn": "Shocking Grasp",
-      "page": 179
+      "page": 179,
+      "level": 0,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:silence",
       "nameEn": "Silence",
-      "page": 179
+      "page": 179,
+      "level": 2,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:silent-image",
       "nameEn": "Silent Image",
-      "page": 179
+      "page": 179,
+      "level": 1,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:simulacrum",
       "nameEn": "Simulacrum",
-      "page": 180
+      "page": 180,
+      "level": 7,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:sleep",
       "nameEn": "Sleep",
-      "page": 180
+      "page": 180,
+      "level": 1,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:sleet-storm",
       "nameEn": "Sleet Storm",
-      "page": 180
+      "page": 180,
+      "level": 3,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:slow",
       "nameEn": "Slow",
-      "page": 180
+      "page": 180,
+      "level": 3,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:spare-the-dying",
       "nameEn": "Spare the Dying",
-      "page": 181
+      "page": 181,
+      "level": 0,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:speak-with-animals",
       "nameEn": "Speak with Animals",
-      "page": 181
+      "page": 181,
+      "level": 1,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:speak-with-dead",
       "nameEn": "Speak with Dead",
-      "page": 181
+      "page": 181,
+      "level": 3,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:speak-with-plants",
       "nameEn": "Speak with Plants",
-      "page": 181
+      "page": 181,
+      "level": 3,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:spider-climb",
       "nameEn": "Spider Climb",
-      "page": 182
+      "page": 182,
+      "level": 2,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:spike-growth",
       "nameEn": "Spike Growth",
-      "page": 182
+      "page": 182,
+      "level": 2,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:spirit-guardians",
       "nameEn": "Spirit Guardians",
-      "page": 182
+      "page": 182,
+      "level": 3,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:spiritual-weapon",
       "nameEn": "Spiritual Weapon",
-      "page": 182
+      "page": 182,
+      "level": 2,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:stinking-cloud",
       "nameEn": "Stinking Cloud",
-      "page": 182
+      "page": 182,
+      "level": 3,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:stone-shape",
       "nameEn": "Stone Shape",
-      "page": 183
+      "page": 183,
+      "level": 4,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:stoneskin",
       "nameEn": "Stoneskin",
-      "page": 183
+      "page": 183,
+      "level": 4,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:storm-of-vengeance",
       "nameEn": "Storm of Vengeance",
-      "page": 183
+      "page": 183,
+      "level": 9,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:suggestion",
       "nameEn": "Suggestion",
-      "page": 183
+      "page": 183,
+      "level": 2,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:sunbeam",
       "nameEn": "Sunbeam",
-      "page": 184
+      "page": 184,
+      "level": 6,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:sunburst",
       "nameEn": "Sunburst",
-      "page": 184
+      "page": 184,
+      "level": 8,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:symbol",
       "nameEn": "Symbol",
-      "page": 184
+      "page": 184,
+      "level": 7,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:telekinesis",
       "nameEn": "Telekinesis",
-      "page": 185
+      "page": 185,
+      "level": 5,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:telepathic-bond",
       "nameEn": "Telepathic Bond",
-      "page": 185
+      "page": 185,
+      "level": 5,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:teleport",
       "nameEn": "Teleport",
-      "page": 185
+      "page": 185,
+      "level": 7,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:teleportation-circle",
       "nameEn": "Teleportation Circle",
-      "page": 186
+      "page": 186,
+      "level": 5,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:thaumaturgy",
       "nameEn": "Thaumaturgy",
-      "page": 187
+      "page": 187,
+      "level": 0,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:thunderwave",
       "nameEn": "Thunderwave",
-      "page": 187
+      "page": 187,
+      "level": 1,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:time-stop",
       "nameEn": "Time Stop",
-      "page": 187
+      "page": 187,
+      "level": 9,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:tiny-hut",
       "nameEn": "Tiny Hut",
-      "page": 187
+      "page": 187,
+      "level": 3,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:tongues",
       "nameEn": "Tongues",
-      "page": 187
+      "page": 187,
+      "level": 3,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:transport-via-plants",
       "nameEn": "Transport via Plants",
-      "page": 188
+      "page": 188,
+      "level": 6,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:tree-stride",
       "nameEn": "Tree Stride",
-      "page": 188
+      "page": 188,
+      "level": 5,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:true-polymorph",
       "nameEn": "True Polymorph",
-      "page": 188
+      "page": 188,
+      "level": 9,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:true-resurrection",
       "nameEn": "True Resurrection",
-      "page": 189
+      "page": 189,
+      "level": 9,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:true-seeing",
       "nameEn": "True Seeing",
-      "page": 189
+      "page": 189,
+      "level": 6,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:true-strike",
       "nameEn": "True Strike",
-      "page": 189
+      "page": 189,
+      "level": 0,
+      "school": "divination"
     },
     {
       "id": "srd51:2014:spell:unseen-servant",
       "nameEn": "Unseen Servant",
-      "page": 189
+      "page": 189,
+      "level": 1,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:vampiric-touch",
       "nameEn": "Vampiric Touch",
-      "page": 189
+      "page": 189,
+      "level": 3,
+      "school": "necromancy"
     },
     {
       "id": "srd51:2014:spell:vicious-mockery",
       "nameEn": "Vicious Mockery",
-      "page": 189
+      "page": 189,
+      "level": 0,
+      "school": "enchantment"
     },
     {
       "id": "srd51:2014:spell:wall-of-fire",
       "nameEn": "Wall of Fire",
-      "page": 190
+      "page": 190,
+      "level": 4,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:wall-of-force",
       "nameEn": "Wall of Force",
-      "page": 190
+      "page": 190,
+      "level": 5,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:wall-of-ice",
       "nameEn": "Wall of Ice",
-      "page": 190
+      "page": 190,
+      "level": 6,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:wall-of-stone",
       "nameEn": "Wall of Stone",
-      "page": 190
+      "page": 190,
+      "level": 5,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:wall-of-thorns",
       "nameEn": "Wall of Thorns",
-      "page": 191
+      "page": 191,
+      "level": 6,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:warding-bond",
       "nameEn": "Warding Bond",
-      "page": 191
+      "page": 191,
+      "level": 2,
+      "school": "abjuration"
     },
     {
       "id": "srd51:2014:spell:water-breathing",
       "nameEn": "Water Breathing",
-      "page": 191
+      "page": 191,
+      "level": 3,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:water-walk",
       "nameEn": "Water Walk",
-      "page": 191
+      "page": 191,
+      "level": 3,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:web",
       "nameEn": "Web",
-      "page": 192
+      "page": 192,
+      "level": 2,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:weird",
       "nameEn": "Weird",
-      "page": 192
+      "page": 192,
+      "level": 9,
+      "school": "illusion"
     },
     {
       "id": "srd51:2014:spell:wind-walk",
       "nameEn": "Wind Walk",
-      "page": 192
+      "page": 192,
+      "level": 6,
+      "school": "transmutation"
     },
     {
       "id": "srd51:2014:spell:wind-wall",
       "nameEn": "Wind Wall",
-      "page": 192
+      "page": 192,
+      "level": 3,
+      "school": "evocation"
     },
     {
       "id": "srd51:2014:spell:wish",
       "nameEn": "Wish",
-      "page": 193
+      "page": 193,
+      "level": 9,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:word-of-recall",
       "nameEn": "Word of Recall",
-      "page": 193
+      "page": 193,
+      "level": 6,
+      "school": "conjuration"
     },
     {
       "id": "srd51:2014:spell:zone-of-truth",
       "nameEn": "Zone of Truth",
-      "page": 193
+      "page": 193,
+      "level": 2,
+      "school": "enchantment"
     }
   ]
 }

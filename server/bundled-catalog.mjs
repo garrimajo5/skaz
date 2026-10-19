@@ -3,7 +3,7 @@ import {createHash} from 'node:crypto';
 import {AppError} from './state.mjs';
 
 // Explicit allowlist: personal files and coverage manifests are never imported.
-const files=['references.json','srd51-spells.json','srd51-utility-spells.json','srd51-items.json','srd51-monsters.json','srd51-encounter-monsters.json','srd51-conditions.json','srd51-artifacts.json'];
+const files=['references.json','srd51-spells.json','srd51-utility-spells.json','srd51-cantrips.json','srd51-level-one-support.json','srd51-level-one-combat.json','srd51-level-one-exploration.json','srd51-items.json','srd51-monsters.json','srd51-encounter-monsters.json','srd51-conditions.json','srd51-artifacts.json'];
 export function bundledCatalog() {
   const bundle={schemaVersion:1,entries:files.flatMap(file=>JSON.parse(readFileSync(new URL('../catalog/'+file,import.meta.url),'utf8')).entries)};
   const version=createHash('sha256').update(JSON.stringify(bundle)).digest('hex');

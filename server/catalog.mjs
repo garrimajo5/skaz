@@ -148,12 +148,15 @@ export function createCatalog(db) {
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
   function search(params = new URLSearchParams()) {
-    for (const key of params.keys()) if (!['q', 'kind', 'level', 'challenge', 'rarity', 'limit', 'offset'].includes(key) || params.getAll(key).length !== 1) throw new AppError(400, 'Неизвестный или повторный фильтр');
+    for (const key of params.keys()) if (!['q', 'kind', 'level', 'school', 'ritual', 'concentration', 'challenge', 'rarity', 'limit', 'offset'].includes(key) || params.getAll(key).length !== 1) throw new AppError(400, 'Неизвестный или повторный фильтр');
     const q = (params.get('q') || '').trim().toLocaleLowerCase('ru');
     const kind = params.get('kind');
     if (q.length > 200 || (kind !== null && !kinds.includes(kind))) throw new AppError(400, 'Неверный поиск');
     const level=params.get('level'), challenge=params.get('challenge'), rarity=params.get('rarity');
     if (level!==null && (kind!=='spell' || !/^[0-9]$/.test(level))) throw new AppError(400,'Уровень 0–9 допустим только для заклинаний');
+    const school=params.get('school'), ritual=params.get('ritual'), concentration=params.get('concentration');
+    if(school!==null && (kind!=='spell' || !['abjuration','conjuration','divination','enchantment','evocation','illusion','necromancy','transmutation'].includes(school)))throw new AppError(400,'Неверная школа или категория');
+    for(const flag of [ritual,concentration])if(flag!==null && (kind!=='spell' || !['true','false'].includes(flag)))throw new AppError(400,'Признаки заклинаний принимают true или false');
     if (challenge!==null && (kind!=='monster' || !['0','1/8','1/4','1/2',...Array.from({length:30},(_,i)=>String(i+1))].includes(challenge))) throw new AppError(400,'Неверный показатель опасности или категория');
     if (rarity!==null && (kind!=='item' || !['common','uncommon','rare','very-rare','legendary','varies'].includes(rarity))) throw new AppError(400,'Неверная редкость или категория');
     const number = (key, fallback, max) => {
@@ -164,7 +167,7 @@ export function createCatalog(db) {
     };
     const limit = number('limit', 50, 100), offset = number('offset', 0, Number.MAX_SAFE_INTEGER);
     if (!limit) throw new AppError(400, 'Лимит должен быть больше нуля');
-    const matches = all().filter(entry => (!kind || entry.kind === kind) && (level===null || entry.spell?.level===Number(level)) && (challenge===null || entry.monster?.challenge===challenge) && (rarity===null || entry.item?.rarity===rarity) && `${entry.name.ru} ${entry.name.en}`.toLocaleLowerCase('ru').includes(q));
+    const matches = all().filter(entry => (!kind || entry.kind === kind) && (level===null || entry.spell?.level===Number(level)) && (school===null || entry.spell?.school===school) && (ritual===null || entry.spell?.ritual===(ritual==='true')) && (concentration===null || entry.spell?.concentration===(concentration==='true')) && (challenge===null || entry.monster?.challenge===challenge) && (rarity===null || entry.item?.rarity===rarity) && `${entry.name.ru} ${entry.name.en}`.toLocaleLowerCase('ru').includes(q));
     return { entries: matches.slice(offset, offset + limit), total: matches.length, limit, offset };
   }
   function reviewedImport(request,apply=false) {
@@ -212,7 +215,9 @@ export function createCatalog(db) {
     const indexed=new Set(spellIndex.entries.map(e=>e.id));
     const prepared=validateCatalog(bundledCatalog().bundle).filter(e=>e.kind==='spell' && indexed.has(e.id));
     const installed=new Map(entries.map(e=>[e.id,e]));
-    const srd51Spells={expected:spellIndex.count,prepared:prepared.length,installed:prepared.filter(e=>JSON.stringify(installed.get(e.id))===JSON.stringify(e)).length,sourceUrl:spellIndex.sourceUrl};
+    const exact=prepared.filter(e=>JSON.stringify(installed.get(e.id))===JSON.stringify(e));
+    const byLevel=Array.from({length:10},(_,level)=>({level,expected:spellIndex.entries.filter(e=>e.level===level).length,prepared:prepared.filter(e=>e.spell.level===level).length,installed:exact.filter(e=>e.spell.level===level).length}));
+    const srd51Spells={expected:spellIndex.count,prepared:prepared.length,installed:exact.length,sourceUrl:spellIndex.sourceUrl,byLevel};
     return { ruleset: '5e-2014', complete: false, expectedTotal: null, total: entries.length, scopes:{srd51Spells},
       categories: Object.fromEntries(kinds.map(kind => [kind, entries.filter(entry => entry.kind === kind).length])),
       referenceOnly: entries.filter(entry => entry.source.usage === 'reference-only').length,

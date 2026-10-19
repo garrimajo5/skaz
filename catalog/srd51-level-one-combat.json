@@ -1,0 +1,552 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:burning-hands",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Огненные ладони",
+        "en": "Burning Hands"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=123",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 123.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: на себя. Компоненты: V, S. Длительность: Мгновенно.\nКаждое существо в исходящем от тебя конусе 15 футов совершает спасбросок Ловкости: 3d6 урона огнём при провале, половина при успехе. Воспламеняет горючие предметы в области, которые никто не носит и не несёт.\nЯчейка 2 уровня и выше: +1d6 урона за каждый уровень ячейки выше первого.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "self"
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:color-spray",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Сверкающие брызги",
+        "en": "Color Spray"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=125",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 125.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: на себя. Компоненты: V, S, M. Длительность: 1 раунд.\nБрось 6d10: сумма — запас хитов, на который действует заклинание. Существа в исходящем от тебя конусе 15 футов обрабатываются по возрастанию текущих хитов; бессознательные и не способные видеть игнорируются. Если хиты очередного существа не превышают остаток запаса, оно ослеплено до окончания заклинания, а его хиты вычитаются из запаса.\nЯчейка 2 уровня и выше: дополнительно 2d10 к запасу за каждый уровень ячейки выше первого.\nМатериальный компонент: щепотка порошка или песка красного, жёлтого и синего цветов.",
+      "links": [
+        "srd51:2014:mechanic:blinded"
+      ],
+      "spell": {
+        "level": 1,
+        "school": "illusion",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "self"
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "1 раунд",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:divine-favor",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Божественное благоволение",
+        "en": "Divine Favor"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=136",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 136, 137.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 бонусное действие. Дистанция: на себя. Компоненты: V, S. Длительность: До 1 минуты. Требует концентрации.\nДо окончания заклинания твои атаки оружием при попадании наносят дополнительно 1d4 урона излучением.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "evocation",
+        "castingTime": "1 бонусное действие",
+        "range": {
+          "type": "self"
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "До 1 минуты",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:entangle",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Опутывание",
+        "en": "Entangle"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=140",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 140.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: 90 футов. Компоненты: V, S. Длительность: До 1 минуты. Требует концентрации.\nРастения покрывают квадрат земли 20 футов, начинающийся в точке в пределах дистанции, превращая его в труднопроходимую местность. Находившиеся в области при накладывании существа делают спасбросок Силы; при провале опутаны растениями до окончания заклинания. Опутанная цель может действием совершить проверку Силы против Сл твоих заклинаний и при успехе освободиться. По окончании созданные растения увядают.",
+      "links": [
+        "srd51:2014:mechanic:restrained"
+      ],
+      "spell": {
+        "level": 1,
+        "school": "conjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 90
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "До 1 минуты",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:faerie-fire",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Огонь фей",
+        "en": "Faerie Fire"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=141",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 141.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: 60 футов. Компоненты: V. Длительность: До 1 минуты. Требует концентрации.\nПредметы в кубе 20 футов в пределах дистанции очерчиваются выбранным синим, зелёным или фиолетовым светом. Существа, бывшие в области при накладывании, подсвечиваются при провале спасброска Ловкости. Подсвеченные цели испускают тусклый свет на 10 футов. Атаки по ним совершаются с преимуществом, если атакующий их видит; невидимость не приносит подсвеченной цели преимуществ.",
+      "links": [
+        "srd51:2014:mechanic:invisible"
+      ],
+      "spell": {
+        "level": 1,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "V"
+        ],
+        "duration": "До 1 минуты",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:false-life",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Псевдожизнь",
+        "en": "False Life"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=142",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 142.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: на себя. Компоненты: V, S, M. Длительность: 1 час.\nПолучаешь 1d4 + 4 временных хита на время действия.\nЯчейка 2 уровня и выше: ещё 5 временных хитов за каждый уровень ячейки выше первого.\nМатериальный компонент: немного алкоголя или крепкого спиртного.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "necromancy",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "self"
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "1 час",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:guiding-bolt",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Направляющий снаряд",
+        "en": "Guiding Bolt"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=151",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 151, 152.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: 120 футов. Компоненты: V, S. Длительность: 1 раунд.\nСоверши дальнобойную атаку заклинанием по существу. Попадание наносит 4d6 урона излучением; следующий бросок атаки по этой цели до конца твоего следующего хода совершается с преимуществом благодаря мерцающему на ней тусклому свету.\nЯчейка 2 уровня и выше: +1d6 урона за каждый уровень ячейки выше первого.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 120
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "1 раунд",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:hellish-rebuke",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Адское возмездие",
+        "en": "Hellish Rebuke"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=154",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 154.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 реакция, когда видимое существо в пределах 60 футов причиняет тебе урон. Дистанция: 60 футов. Компоненты: V, S. Длительность: Мгновенно.\nПричинившее тебе урон существо окружает пламя. Оно совершает спасбросок Ловкости: 2d10 урона огнём при провале, половина при успехе.\nЯчейка 2 уровня и выше: +1d10 урона за каждый уровень ячейки выше первого.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "evocation",
+        "castingTime": "1 реакция, когда видимое существо в пределах 60 футов причиняет тебе урон",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:heroism",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Героизм",
+        "en": "Heroism"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=154",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 154.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: касание. Компоненты: V, S. Длительность: До 1 минуты. Требует концентрации.\nКоснись согласного существа. До окончания заклинания оно невосприимчиво к испугу и в начале каждого своего хода получает временные хиты, равные модификатору твоей заклинательной характеристики. По окончании оставшиеся временные хиты от этого заклинания теряются.\nЯчейка 2 уровня и выше: одна дополнительная цель за каждый уровень ячейки выше первого.",
+      "links": [
+        "srd51:2014:mechanic:frightened"
+      ],
+      "spell": {
+        "level": 1,
+        "school": "enchantment",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "До 1 минуты",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:inflict-wounds",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Нанесение ран",
+        "en": "Inflict Wounds"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=157",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 157.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: касание. Компоненты: V, S. Длительность: Мгновенно.\nСоверши рукопашную атаку заклинанием по существу в пределах досягаемости. При попадании цель получает 3d10 урона некротической энергией.\nЯчейка 2 уровня и выше: +1d10 урона за каждый уровень ячейки выше первого.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "necromancy",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:magic-missile",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Волшебная стрела",
+        "en": "Magic Missile"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=161",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 161.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: 120 футов. Компоненты: V, S. Длительность: Мгновенно.\nСоздаёт три светящихся дротика. Каждый поражает выбранное видимое существо в пределах дистанции и наносит 1d4 + 1 урона силовым полем. Они попадают одновременно; можно направить их в одну или разные цели.\nЯчейка 2 уровня и выше: ещё один дротик за каждый уровень ячейки выше первого.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 120
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:shield",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Щит",
+        "en": "Shield"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=179",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 179.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 реакция, когда по тебе попадает атака или ты становишься целью Волшебной стрелы. Дистанция: на себя. Компоненты: V, S. Длительность: 1 раунд.\nДо начала твоего следующего хода получаешь +5 к КД, в том числе против вызвавшей реакцию атаки, и не получаешь урон от Волшебной стрелы.",
+      "links": [
+        "srd51:2014:spell:magic-missile"
+      ],
+      "spell": {
+        "level": 1,
+        "school": "abjuration",
+        "castingTime": "1 реакция, когда по тебе попадает атака или ты становишься целью Волшебной стрелы",
+        "range": {
+          "type": "self"
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "1 раунд",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:shield-of-faith",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Щит веры",
+        "en": "Shield of Faith"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=179",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 179.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 бонусное действие. Дистанция: 60 футов. Компоненты: V, S, M. Длительность: До 10 минут. Требует концентрации.\nВыбранное существо в пределах дистанции получает +2 к КД на время действия.\nМатериальный компонент: небольшой пергамент с отрывком священного текста.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "abjuration",
+        "castingTime": "1 бонусное действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "До 10 минут",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:sleep",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Усыпление",
+        "en": "Sleep"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=180",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 180.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: 90 футов. Компоненты: V, S, M. Длительность: 1 минута.\nБрось 5d8: сумма — запас хитов, на который действует заклинание. Существа в пределах 20 футов от выбранной точки в пределах дистанции обрабатываются по возрастанию текущих хитов; уже бессознательные игнорируются. Если хиты очередной цели не превышают остаток запаса, цель теряет сознание, а её хиты вычитаются из запаса. Сон заканчивается с окончанием заклинания, при получении урона или когда кто-то действием трясёт или шлёпает спящего. Нежить и невосприимчивые к очарованию существа не затрагиваются.\nЯчейка 2 уровня и выше: дополнительно 2d8 к запасу за каждый уровень ячейки выше первого.\nМатериальный компонент: щепотка мелкого песка, лепестки роз или сверчок.",
+      "links": [
+        "srd51:2014:mechanic:unconscious"
+      ],
+      "spell": {
+        "level": 1,
+        "school": "enchantment",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 90
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "1 минута",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:thunderwave",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Волна грома",
+        "en": "Thunderwave"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=187",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 187.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 действие. Дистанция: на себя. Компоненты: V, S. Длительность: Мгновенно.\nСущества в исходящем от тебя кубе 15 футов совершают спасбросок Телосложения. Провал: 2d8 урона звуком и отталкивание на 10 футов от тебя; успех: половина урона без отталкивания. Незакреплённые предметы, целиком находящиеся в области, автоматически отталкиваются на 10 футов. Грохот слышен в пределах 300 футов.\nЯчейка 2 уровня и выше: +1d8 урона за каждый уровень ячейки выше первого.",
+      "links": [],
+      "spell": {
+        "level": 1,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "self"
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    }
+  ]
+}

@@ -20,7 +20,8 @@ function harness(protocol = 'http:') {
   return { view, requests, tasks, region, additions, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>isOpen=false, otherModal:()=>dialog='<h2>Other</h2>',
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
-    inventorySubmit:(q,status)=>handlers.submit({target:{id:'spell-inventory-search',q,status},preventDefault(){}}),
+    inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
+    draft:(name,value)=>handlers.input({target:{name,value,form:{id:'catalog-search'}}}),
     changeKind:value=>handlers.change({target:{name:'kind',value,form:{id:'catalog-search'}}}),
     detail: () => handlers.click({ target: { closest: () => ({ hasAttribute: () => true, dataset: { catalogEntry: '0' } }) } }),
   };
@@ -131,17 +132,50 @@ test('category change exposes only applicable control without applying or losing
  const h=harness();h.changeKind('spell');assert.match(h.region.innerHTML,/name="level"/);assert.match(h.region.innerHTML,/Заговор/);h.changeKind('monster');assert.match(h.region.innerHTML,/1\/8/);assert.doesNotMatch(h.region.innerHTML,/name="level"/);h.changeKind('item');assert.match(h.region.innerHTML,/name="rarity"/);h.changeKind('artifact');assert.equal(h.region.innerHTML,'');assert.equal(h.requests.length,0);
 });
 
+test('spell-specific filters preserve false through paging and rerender, then clear on category change and reset',async()=>{
+ const h=harness();h.submit('',{kind:'spell',level:'1',school:'divination',ritual:'true',concentration:'false'});
+ const params=new URL(h.requests[0].url,'http://localhost').searchParams;assert.equal(params.get('school'),'divination');assert.equal(params.get('concentration'),'false');assert.equal(params.get('ritual'),'true');
+ respond(h.requests[0],{entries:[entry],total:21});respond(h.requests[1],coverage);await settle();assert.match(h.view(),/value="divination" selected/);assert.match(h.view(),/value="false" selected/);
+ h.click('catalog-next');assert.match(h.requests[2].url,/concentration=false/);assert.match(h.requests[2].url,/offset=20/);
+ h.submit('',{kind:'monster',school:'divination',ritual:'true',concentration:'false'});assert.doesNotMatch(h.requests[4].url,/school=|ritual=|concentration=/);
+ h.click('catalog-reset');assert.doesNotMatch(h.requests[6].url,/school=|ritual=|concentration=/);
+ h.changeKind('spell');assert.match(h.region.innerHTML,/name="school"/);assert.match(h.region.innerHTML,/name="ritual"/);assert.match(h.region.innerHTML,/name="concentration"/);assert.doesNotMatch(h.region.innerHTML,/selected/);
+});
+
+test('unfinished catalog filters survive a theme rerender without searching or leaking across categories',async()=>{
+ const h=harness();h.submit('saved',{kind:'spell',level:'1'});respond(h.requests[0],{entries:[entry],total:1});respond(h.requests[1],coverage);await settle();
+ h.draft('q','<draft>');h.draft('school','illusion');h.draft('concentration','false');assert.match(h.view(),/value="&lt;draft&gt;"/);assert.match(h.view(),/value="illusion" selected/);assert.match(h.view(),/value="false" selected/);assert.equal(h.requests.length,2);
+ h.changeKind('monster');assert.match(h.view(),/value="monster" selected/);assert.match(h.view(),/value="&lt;draft&gt;"/);assert.doesNotMatch(h.view(),/name="school"|name="concentration"/);
+ h.draft('challenge','1/4');assert.match(h.view(),/value="1\/4" selected/);h.click('catalog-reset');assert.doesNotMatch(h.view(),/draft|value="monster" selected|name="challenge"/);
+});
+
 test('structured cards show useful values, negative modifiers and escape imported fields',async()=>{
  const cases=[{kind:'spell',spell:{level:0,school:'illusion',castingTime:'<cast>',range:{type:'feet',feet:30},components:['S','M'],duration:'1 минута',concentration:false,ritual:false}}, {kind:'monster',monster:{size:'small',type:'humanoid',armorClass:12,hitPoints:5,challenge:'1/8',xp:25,speed:{walk:30},abilities:{str:7,dex:15,con:9,int:8,wis:7,cha:8}}},{kind:'item',item:{type:'potion',rarity:'common',attunement:false,healing:{diceCount:2,diceSides:4,bonus:2}}},{kind:'artifact',artifact:{type:'wondrous',attunement:true,charges:{max:7,recharge:'<recharge>'}}}];
  for(const fields of cases){const h=harness();h.submit('');respond(h.requests[0],{entries:[{...entry,...fields}],total:1});respond(h.requests[1],coverage);await settle();h.detail();assert.match(h.dialog(),/Характеристики/);assert.doesNotMatch(h.dialog(),/<cast>|<recharge>/);if(fields.monster){assert.match(h.dialog(),/7 \(-2\)/);assert.match(h.dialog(),/1\/8/);}if(fields.spell){assert.match(h.dialog(),/Заговор/);assert.match(h.dialog(),/&lt;cast&gt;/);}if(fields.item)assert.match(h.dialog(),/2d4 \+ 2/);}
 });
 
 test('source inventory searches prepared RU names, filters missing records and guards closed or replaced dialog',async()=>{
- const data={entries:[{id:'a',nameEn:'Detect Magic',nameRu:'Обнаружение магии',page:134,status:'installed'},...Array.from({length:21},(_,i)=>({id:'m'+i,nameEn:'Missing '+i,nameRu:null,page:114,status:'missing'}))]};
+ const data={entries:[{id:'a',nameEn:'Detect Magic',nameRu:'Обнаружение магии',page:134,level:1,status:'installed'},...Array.from({length:21},(_,i)=>({id:'m'+i,nameEn:'Missing '+i,nameRu:null,page:114,level:i===0?0:2,status:'missing'}))]};
  const h=harness();h.click('catalog-inventory');respond(h.requests[0],data);await settle();assert.match(h.dialog(),/1–20 из 22/);assert.match(h.dialog(),/#page=134/);
  h.inventorySubmit('обнаружение','installed');assert.match(h.dialog(),/1–1 из 1/);assert.doesNotMatch(h.dialog(),/Missing 0/);
  h.inventorySubmit('','missing');assert.match(h.dialog(),/1–20 из 21/);h.click('inventory-next');assert.match(h.dialog(),/21–21 из 21/);
+ h.inventorySubmit('','all','0');assert.match(h.dialog(),/1–1 из 1/);assert.match(h.dialog(),/подготовлено 0 из 1/);assert.doesNotMatch(h.dialog(),/Detect Magic/);
  h.inventorySubmit('<script>','all');assert.match(h.dialog(),/&lt;script&gt;/);assert.match(h.dialog(),/Совпадений нет/);
  const closed=harness();closed.click('catalog-inventory');closed.close();respond(closed.requests[0],data);await settle();assert.doesNotMatch(closed.dialog(),/Detect Magic/);
  const replaced=harness();replaced.click('catalog-inventory');replaced.otherModal();respond(replaced.requests[0],data);await settle();assert.equal(replaced.dialog(),'<h2>Other</h2>');
+});
+
+test('installed inventory cards open by ID and return to the same filters; missing or late cards cannot open',async()=>{
+ const data={entries:[{id:'test:one',nameEn:'One',nameRu:'Один',page:114,level:1,status:'installed'},{id:'test:missing',nameEn:'Missing',nameRu:null,page:115,level:2,status:'missing'}]};
+ const h=harness();h.click('catalog-inventory');respond(h.requests[0],data);await settle();assert.match(h.dialog(),/data-inventory-read="test:one"/);assert.doesNotMatch(h.dialog(),/data-inventory-read="test:missing"/);
+ h.inventorySubmit('Один','installed','1');h.click('',{inventoryRead:'test:one'});assert.match(h.requests[1].url,/id=test%3Aone/);respond(h.requests[1],{entry:{...entry,id:'test:one',kind:'spell',links:[]},related:[]});await settle();assert.match(h.dialog(),/inventory-return/);assert.match(h.dialog(),/catalog-add-spell/);
+ h.click('inventory-return');assert.match(h.dialog(),/value="Один"/);assert.match(h.dialog(),/value="1" selected/);assert.match(h.dialog(),/1–1 из 1/);h.click('',{inventoryRead:'test:missing'});assert.equal(h.requests.length,2);
+ h.click('',{inventoryRead:'test:one'});h.otherModal();respond(h.requests[2],{entry,related:[]});await settle();assert.equal(h.dialog(),'<h2>Other</h2>');
+});
+
+test('inventory card failure is retryable and returning preserves its page',async()=>{
+ const h=harness(),entries=Array.from({length:21},(_,n)=>({id:'test:'+n,nameEn:'Spell '+n,nameRu:null,page:114,level:1,status:'installed'}));
+ h.click('catalog-inventory');respond(h.requests[0],{entries});await settle();h.click('inventory-next');assert.match(h.dialog(),/21–21 из 21/);
+ h.click('',{inventoryRead:'test:20'});h.requests[1].reject(new Error('offline'));await settle();assert.match(h.region.textContent,/повторить/);assert.match(h.dialog(),/21–21 из 21/);
+ h.click('',{inventoryRead:'test:20'});respond(h.requests[2],{entry:{...entry,id:'test:20',links:[]},related:[]});await settle();h.click('inventory-return');assert.match(h.dialog(),/21–21 из 21/);assert.match(h.dialog(),/Spell 20/);assert.doesNotMatch(h.dialog(),/>Spell 0</);
 });

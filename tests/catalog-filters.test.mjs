@@ -26,3 +26,16 @@ test('HTTP catalog exposes structured filters and preserves progress',async t=>{
  const url=`http://127.0.0.1:${app.address().port}/api/catalog`;
  const value=await fetch(url+'?kind=monster&challenge=1%2F4').then(r=>r.json());assert.equal(value.total,2);assert.equal((await fetch(url+'?kind=spell&level=9')).status,200);assert.equal((await fetch(url+'?kind=spell&level=99')).status,400);const inventory=await fetch(url+'/spell-inventory').then(r=>r.json());assert.equal(inventory.entries.length,319);assert.equal(inventory.entries.filter(e=>e.status==='installed').length,2);assert.equal((await fetch(url+'/spell-inventory',{headers:{Origin:'https://foreign.example'}})).status,403);assert.deepEqual(s.read(),before);
 });
+
+test('spell school and explicit false flags intersect, exclude unknown fields and retain stable paging',()=>{
+ const s=openStore(':memory:');try{const p=s.catalog.previewBundled();s.catalog.installBundled({version:p.version});
+ const raw=structuredClone(read('srd51-spells').entries[0]);raw.id='test:unknown:spell';delete raw.spell;s.catalog.importEntries({schemaVersion:1,entries:[raw]},{apply:true});const before=s.read();
+ const search=q=>s.catalog.search(new URLSearchParams(q));
+ const ritual=search('kind=spell&level=1&school=divination&ritual=true&concentration=false');assert.deepEqual(ritual.entries.map(e=>e.name.en).sort(),['Comprehend Languages','Identify','Speak with Animals']);
+ const noConc=search('kind=spell&concentration=false&limit=100');assert.ok(noConc.total>0);assert.ok(noConc.entries.every(e=>e.spell?.concentration===false));assert.ok(!noConc.entries.some(e=>e.id===raw.id));
+ const first=search('kind=spell&ritual=true&limit=1'),second=search('kind=spell&ritual=true&limit=1&offset=1');assert.equal(first.total,second.total);assert.notEqual(first.entries[0].id,second.entries[0].id);
+ assert.equal(search('kind=spell&level=0&ritual=true').total,0);assert.equal(search('kind=spell&school=abjuration&ritual=false&q=shield').total,2);
+ for(const q of ['school=illusion','kind=item&ritual=true','kind=spell&school=unknown','kind=spell&school=','kind=spell&ritual=0','kind=spell&ritual=False','kind=spell&concentration=','kind=spell&concentration=true&concentration=false','kind=spell&school=illusion&school=evocation'])assert.throws(()=>search(q),{status:400},q);
+ assert.deepEqual(s.read(),before);
+ }finally{s.close();}
+});

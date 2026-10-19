@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Sixteen remaining SRD cantrips; together with utility subset covers all 24 cantrip headings, not all D&D publications",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 16,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:acid-splash",
+      "nameEn": "Acid Splash",
+      "pages": [
+        114
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:chill-touch",
+      "nameEn": "Chill Touch",
+      "pages": [
+        124
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:druidcraft",
+      "nameEn": "Druidcraft",
+      "pages": [
+        138,
+        139
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:eldritch-blast",
+      "nameEn": "Eldritch Blast",
+      "pages": [
+        139
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:fire-bolt",
+      "nameEn": "Fire Bolt",
+      "pages": [
+        144
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:guidance",
+      "nameEn": "Guidance",
+      "pages": [
+        151
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:poison-spray",
+      "nameEn": "Poison Spray",
+      "pages": [
+        169
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:produce-flame",
+      "nameEn": "Produce Flame",
+      "pages": [
+        172
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:ray-of-frost",
+      "nameEn": "Ray of Frost",
+      "pages": [
+        174
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:resistance",
+      "nameEn": "Resistance",
+      "pages": [
+        175
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:sacred-flame",
+      "nameEn": "Sacred Flame",
+      "pages": [
+        176
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:shillelagh",
+      "nameEn": "Shillelagh",
+      "pages": [
+        179
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:shocking-grasp",
+      "nameEn": "Shocking Grasp",
+      "pages": [
+        179
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:spare-the-dying",
+      "nameEn": "Spare the Dying",
+      "pages": [
+        181
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:thaumaturgy",
+      "nameEn": "Thaumaturgy",
+      "pages": [
+        187
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:true-strike",
+      "nameEn": "True Strike",
+      "pages": [
+        189
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Russian summaries are not an official translation.",
+    "2014 wording retained: Chill Touch is ranged; Poison Spray uses Constitution; True Strike grants advantage on the next turn.",
+    "Damage, saves, scaling, objects and ongoing effects remain textual; no automatic game changes."
+  ]
+}

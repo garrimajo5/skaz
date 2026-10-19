@@ -1,0 +1,575 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:acid-splash",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Брызги кислоты",
+        "en": "Acid Splash"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=114",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 114.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: 60 футов. Компоненты: V, S. Длительность: Мгновенно.\nВыбери одно существо либо два существа в пределах дистанции, находящихся не дальше 5 футов друг от друга. Каждая цель совершает спасбросок Ловкости; при провале получает 1d6 урона кислотой. Урон растёт с уровнем персонажа: 5-й — 2d6, 11-й — 3d6, 17-й — 4d6.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "conjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:chill-touch",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Леденящее прикосновение",
+        "en": "Chill Touch"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=124",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 124.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: 120 футов. Компоненты: V, S. Длительность: 1 раунд.\nДальнобойная атака заклинанием по существу. Попадание наносит 1d8 некротического урона и запрещает цели восстанавливать хиты до начала твоего следующего хода; до этого момента к ней цепляется призрачная костяная рука. Если цель — нежить, её атаки по тебе также совершаются с помехой до конца твоего следующего хода. Урон растёт с уровнем персонажа: 5-й — 2d8, 11-й — 3d8, 17-й — 4d8.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "necromancy",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 120
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "1 раунд",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:druidcraft",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Искусство друидов",
+        "en": "Druidcraft"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=138",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 138, 139.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: 30 футов. Компоненты: V, S. Длительность: Мгновенно.\nСоздаёт один эффект в пределах дистанции: крошечный безвредный чувственный знак погоды в твоём месте на следующие 24 часа (сам знак длится 1 раунд); немедленное распускание цветка, семенной коробочки или листовой почки; мгновенный безвредный чувственный эффект в кубе 5 футов (листья, ветерок, звук небольшого животного или слабый запах); немедленно зажигает либо гасит свечу, факел или маленький костёр.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "transmutation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 30
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:eldritch-blast",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Мистический заряд",
+        "en": "Eldritch Blast"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=139",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 139.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: 120 футов. Компоненты: V, S. Длительность: Мгновенно.\nДальнобойная атака заклинанием по существу; при попадании луч наносит 1d10 силового урона. С 5 уровня персонажа создаются 2 луча, с 11 — 3, с 17 — 4. Их можно направить в одну или разные цели; для каждого луча совершается отдельный бросок атаки.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 120
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:fire-bolt",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Огненный снаряд",
+        "en": "Fire Bolt"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=144",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 144.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: 120 футов. Компоненты: V, S. Длительность: Мгновенно.\nДальнобойная атака заклинанием по существу или предмету. При попадании — 1d10 урона огнём. Поражённый горючий предмет воспламеняется, если его никто не носит и не несёт. Урон растёт с уровнем персонажа: 5-й — 2d10, 11-й — 3d10, 17-й — 4d10.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 120
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:guidance",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Указание",
+        "en": "Guidance"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=151",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 151.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: касание. Компоненты: V, S. Длительность: Концентрация, до 1 минуты.\nКоснись согласного существа. Один раз до окончания эффекта оно может добавить d4 к одной проверке характеристики по выбору. Кубик можно бросить до или после проверки; затем заклинание заканчивается.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "divination",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Концентрация, до 1 минуты",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:poison-spray",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Ядовитые брызги",
+        "en": "Poison Spray"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=169",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 169.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: 10 футов. Компоненты: V, S. Длительность: Мгновенно.\nВидимое существо в пределах дистанции должно преуспеть в спасброске Телосложения, иначе получает 1d12 урона ядом. Урон растёт с уровнем персонажа: 5-й — 2d12, 11-й — 3d12, 17-й — 4d12.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "conjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 10
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:produce-flame",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Сотворение пламени",
+        "en": "Produce Flame"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=172",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 172.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: на себя. Компоненты: V, S. Длительность: 10 минут.\nВ руке появляется пламя, безопасное для тебя и снаряжения: яркий свет в радиусе 10 футов и тусклый ещё на 10 футов. Можно погасить действием; повторное накладывание также завершает прежний эффект. При накладывании или действием на последующем ходу можно метнуть пламя в существо в пределах 30 футов, что завершает заклинание. Дальнобойная атака заклинанием, при попадании 1d8 урона огнём. Урон растёт с уровнем персонажа: 5-й — 2d8, 11-й — 3d8, 17-й — 4d8.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "conjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "self"
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "10 минут",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:ray-of-frost",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Луч холода",
+        "en": "Ray of Frost"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=174",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 174.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: 60 футов. Компоненты: V, S. Длительность: Мгновенно.\nДальнобойная атака заклинанием по существу. Попадание наносит 1d8 урона холодом и уменьшает скорость цели на 10 футов до начала твоего следующего хода. Урон растёт с уровнем персонажа: 5-й — 2d8, 11-й — 3d8, 17-й — 4d8.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:resistance",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Сопротивление",
+        "en": "Resistance"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=175",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 175.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: касание. Компоненты: V, S, M. Длительность: Концентрация, до 1 минуты.\nКоснись согласного существа. Один раз до окончания эффекта оно может добавить d4 к одному спасброску по выбору, бросив кубик до или после спасброска. После этого заклинание заканчивается.\nМатериальный компонент: миниатюрный плащ.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "abjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "Концентрация, до 1 минуты",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:sacred-flame",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Священное пламя",
+        "en": "Sacred Flame"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=176",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 176.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: 60 футов. Компоненты: V, S. Длительность: Мгновенно.\nВидимое существо в пределах дистанции совершает спасбросок Ловкости; при провале получает 1d8 урона излучением. Укрытие не даёт преимуществ для этого спасброска. Урон растёт с уровнем персонажа: 5-й — 2d8, 11-й — 3d8, 17-й — 4d8.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:shillelagh",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Дубинка",
+        "en": "Shillelagh"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=179",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 179.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 бонусное действие. Дистанция: касание. Компоненты: V, S, M. Длительность: 1 минута.\nДеревянная дубинка или боевой посох, который ты держишь, наполняется силой природы. В рукопашных атаках этим оружием можно использовать заклинательную характеристику вместо Силы для бросков атаки и урона; кость урона становится d8. Оружие становится магическим, если ещё не было таким. Повторное накладывание или выпускание оружия из рук завершает эффект.\nМатериалы: омела, лист трилистника и дубинка либо боевой посох.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "transmutation",
+        "castingTime": "1 бонусное действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S",
+          "M"
+        ],
+        "duration": "1 минута",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:shocking-grasp",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Электрошок",
+        "en": "Shocking Grasp"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=179",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 179.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: касание. Компоненты: V, S. Длительность: Мгновенно.\nРукопашная атака заклинанием по существу. Если на цели металлический доспех, бросок совершается с преимуществом. Попадание наносит 1d8 урона электричеством; цель не может совершать реакции до начала своего следующего хода. Урон растёт с уровнем персонажа: 5-й — 2d8, 11-й — 3d8, 17-й — 4d8.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:spare-the-dying",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Уход за умирающим",
+        "en": "Spare the Dying"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=181",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 181.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: касание. Компоненты: V, S. Длительность: Мгновенно.\nЖивое существо с 0 хитов, которого касаешься, становится стабильным. На нежить и конструктов не действует.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "necromancy",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "V",
+          "S"
+        ],
+        "duration": "Мгновенно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:thaumaturgy",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Чудотворство",
+        "en": "Thaumaturgy"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=187",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 187.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: 30 футов. Компоненты: V. Длительность: До 1 минуты.\nСоздаёт один эффект в пределах дистанции: голос до трёх раз громче обычного на 1 минуту; мерцание, изменение яркости или цвета огня на 1 минуту; безвредная дрожь земли на 1 минуту; мгновенный звук из выбранной точки; мгновенное открытие или захлопывание незапертой двери либо окна; изменение вида глаз на 1 минуту. Повторными накладываниями можно одновременно поддерживать до трёх минутных эффектов и прекращать такой эффект действием.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "transmutation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 30
+        },
+        "components": [
+          "V"
+        ],
+        "duration": "До 1 минуты",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:true-strike",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Меткий удар",
+        "en": "True Strike"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=189",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz remaining cantrips subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 189.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗаговор. Накладывание: 1 действие. Дистанция: 30 футов. Компоненты: S. Длительность: Концентрация, до 1 раунда.\nУкажи пальцем на цель в пределах дистанции. На своём следующем ходу получаешь преимущество на первый бросок атаки по этой цели, если заклинание к тому моменту не закончилось.",
+      "links": [],
+      "spell": {
+        "level": 0,
+        "school": "divination",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 30
+        },
+        "components": [
+          "S"
+        ],
+        "duration": "Концентрация, до 1 раунда",
+        "concentration": true,
+        "ritual": false
+      }
+    }
+  ]
+}

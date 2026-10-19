@@ -29,7 +29,7 @@ test('SRD inventory counts prepared and exact installed records without claiming
  assert.equal(index.entries[0].nameEn,'Acid Arrow');assert.equal(index.entries.at(-1).nameEn,'Zone of Truth');
  for(const e of index.entries)assert.ok(e.page>=114&&e.page<=193);
  const s=openStore(':memory:');try{
- assert.deepEqual([s.catalog.coverage().scopes.srd51Spells.expected,s.catalog.coverage().scopes.srd51Spells.prepared,s.catalog.coverage().scopes.srd51Spells.installed],[319,12,0]);
+ assert.deepEqual([s.catalog.coverage().scopes.srd51Spells.expected,s.catalog.coverage().scopes.srd51Spells.prepared,s.catalog.coverage().scopes.srd51Spells.installed],[319,73,0]);
  const altered=structuredClone(bundle.entries[0]);altered.text='Locally changed';s.catalog.importEntries({schemaVersion:1,entries:[altered]},{apply:true});assert.equal(s.catalog.coverage().scopes.srd51Spells.installed,0);
  s.catalog.importEntries({schemaVersion:1,entries:bundle.entries.slice(1)},{apply:true});assert.equal(s.catalog.coverage().scopes.srd51Spells.installed,9);assert.equal(s.catalog.coverage().expectedTotal,null);assert.equal(s.catalog.coverage().complete,false);
  }finally{s.close();}
@@ -37,8 +37,8 @@ test('SRD inventory counts prepared and exact installed records without claiming
 
 test('spell inventory distinguishes missing, installable, installed and conflicting records without modifying progress',()=>{
  const s=openStore(':memory:');try{
- const before=s.read(), index=s.catalog.spellInventory();assert.equal(index.entries.length,319);assert.equal(index.entries.filter(e=>e.status==='prepared').length,12);assert.equal(index.entries.filter(e=>e.status==='missing').length,307);
+ const before=s.read(), index=s.catalog.spellInventory();assert.equal(index.entries.length,319);assert.equal(index.entries.filter(e=>e.status==='prepared').length,73);assert.equal(index.entries.filter(e=>e.status==='missing').length,246);
  const changed=structuredClone(bundle.entries[0]);changed.text='Personal revision';s.catalog.importEntries({schemaVersion:1,entries:[changed]},{apply:true});s.catalog.importEntries({schemaVersion:1,entries:bundle.entries.slice(1)},{apply:true});
- const result=s.catalog.spellInventory();assert.equal(result.entries.filter(e=>e.status==='installed').length,9);assert.equal(result.entries.find(e=>e.id===changed.id).status,'conflict');assert.equal(result.entries.filter(e=>e.status==='prepared').length,2);assert.ok(result.entries.find(e=>e.status==='missing').nameRu===null);assert.deepEqual(s.read(),before);
+ const result=s.catalog.spellInventory();assert.equal(result.entries.filter(e=>e.status==='installed').length,9);assert.equal(result.entries.find(e=>e.id===changed.id).status,'conflict');assert.equal(result.entries.filter(e=>e.status==='prepared').length,63);assert.ok(result.entries.find(e=>e.status==='missing').nameRu===null);assert.deepEqual(s.read(),before);
  }finally{s.close();}
 });
