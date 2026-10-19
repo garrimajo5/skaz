@@ -14,6 +14,7 @@ const SkazStorage = (() => {
   let pending = null;
   let message = '';
   let draftStored = true;
+  let checkingRemote = false, remoteCheckSerial = 0;
   const clean = value => { const copy = JSON.parse(JSON.stringify(value)); delete copy.theme; return copy; };
   const preference = () => { try { return localStorage.getItem('skaz-theme') || 'polar'; } catch { return 'polar'; } };
   function setTheme(theme) { try { localStorage.setItem('skaz-theme', theme); } catch {} }
@@ -35,11 +36,27 @@ const SkazStorage = (() => {
       ready: 'Сохранено на этом компьютере', saving: 'Сохраняем…',
       error: 'Нет связи с локальным сервером', pending: 'Изменение ещё не подтверждено сервером',
       conflict: 'Другая вкладка уже изменила данные',
+      stale: 'В другом окне есть изменения',
     };
     box.dataset.status = status;
-    box.innerHTML = `<span><span class="sync-dot"></span>${labels[status]}${message ? `<small>${esc(message)}</small>` : ''}</span><div>${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button><button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
+    box.innerHTML = `<span><span class="sync-dot"></span>${labels[status]}${message ? `<small>${esc(message)}</small>` : ''}</span><div>${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления">↻</button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button><button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
+  }
+  async function checkRemote() {
+    if(demo||status!=='ready'||pending||checkingRemote)return;
+    const key=snapshotKey(),token=++remoteCheckSerial;checkingRemote=true;
+    try{
+      const remote=await request('/api/workspace');
+      if(token!==remoteCheckSerial||status!=='ready'||pending||key!==snapshotKey())return;
+      if(remote.schemaVersion!==1||!Number.isSafeInteger(remote.revision)||remote.revision<0||!remote.context)throw new Error('Неверная версия');
+      if(remote.revision!==revision||JSON.stringify(remote.context)!==JSON.stringify(activeContext)){
+        status='stale';message='Экран и открытая форма остались без изменений. Скопируй нужный текст из формы, закрой её и обнови игру.';paint();
+      }else if(message==='Не удалось проверить обновления. При сохранении сервер снова проверит версию.'){message='';paint();}
+    }catch{
+      if(token===remoteCheckSerial&&status==='ready'&&key===snapshotKey()){message='Не удалось проверить обновления. При сохранении сервер снова проверит версию.';paint();}
+    }finally{if(token===remoteCheckSerial)checkingRemote=false;}
   }
   function apply(payload) {
+    ++remoteCheckSerial;checkingRemote=false;
     sessionInfo = payload.session || null;
     adoptContext(payload.context);
     revision = payload.revision;
@@ -47,6 +64,7 @@ const SkazStorage = (() => {
     pending = null; message = ''; status = 'ready'; rememberDraft(); render();
   }
   async function load() {
+    ++remoteCheckSerial;checkingRemote=false;
     status = 'loading'; message = ''; paint();
     try {
       const payload = await request('/api/workspace');
@@ -498,6 +516,11 @@ const SkazStorage = (() => {
     if (id === 'campaign-settings') campaigns();
     if (id === 'data-settings') settings();
     if (id === 'sync-retry') { try { pending ? await sendPending() : await load(); } catch {} }
+    if(id==='sync-check')await checkRemote();
+    if(id==='sync-refresh'&&status==='stale'){
+      if(document.getElementById('dialog')?.open)return toast('Открытая форма не сохранена. Скопируй нужный текст и закрой её перед обновлением игры.');
+      await load();
+    }
     if (id === 'sync-draft' && pending) downloadDraft(pending);
     if (id === 'sync-current' && pending) {
       modal('<h2>Загрузить актуальные данные?</h2><p>Неотправленный черновик будет убран из очереди. Сначала скачай его, если хочешь сохранить изменения отдельно.</p><div class="dialog-actions"><button id="keep-draft">Скачать черновик</button><button id="discard-draft">Загрузить актуальное</button></div>');
@@ -506,5 +529,6 @@ const SkazStorage = (() => {
     }
   });
   window.addEventListener('beforeunload', event => { if (status === 'saving') { event.preventDefault(); event.returnValue = ''; } });
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')void checkRemote();});
   return { commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
 })();

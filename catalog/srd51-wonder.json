@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:item:wand-of-the-war-mage-1",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Палочка боевого мага +1",
+        "en": "Wand of the War Mage, +1"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=249",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz wonder subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 249.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПока держишь палочку, получаешь +1 к броскам атаки заклинаниями и игнорируешь укрытие наполовину при таких атаках. Бонус не добавляется к Сл спасброска или урону. Заряды не предусмотрены. Требуется настройка заклинателем. Эффект не применяется к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:attunement",
+        "srd51:2014:mechanic:cover"
+      ],
+      "item": {
+        "type": "wand",
+        "rarity": "uncommon",
+        "attunement": true,
+        "attunementRequirement": "Заклинатель"
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-the-war-mage-2",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Палочка боевого мага +2",
+        "en": "Wand of the War Mage, +2"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=249",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz wonder subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 249.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПока держишь палочку, получаешь +2 к броскам атаки заклинаниями и игнорируешь укрытие наполовину при таких атаках. Бонус не добавляется к Сл спасброска или урону. Заряды не предусмотрены. Требуется настройка заклинателем. Эффект не применяется к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:attunement",
+        "srd51:2014:mechanic:cover"
+      ],
+      "item": {
+        "type": "wand",
+        "rarity": "rare",
+        "attunement": true,
+        "attunementRequirement": "Заклинатель"
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-the-war-mage-3",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Палочка боевого мага +3",
+        "en": "Wand of the War Mage, +3"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=249",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz wonder subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 249.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПока держишь палочку, получаешь +3 к броскам атаки заклинаниями и игнорируешь укрытие наполовину при таких атаках. Бонус не добавляется к Сл спасброска или урону. Заряды не предусмотрены. Требуется настройка заклинателем. Эффект не применяется к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:attunement",
+        "srd51:2014:mechanic:cover"
+      ],
+      "item": {
+        "type": "wand",
+        "rarity": "very-rare",
+        "attunement": true,
+        "attunementRequirement": "Заклинатель"
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-wonder",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Палочка чудес",
+        "en": "Wand of Wonder"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=249",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz wonder subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 249, 250.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nТребуется настройка заклинателем. Держа палочку, действием потрать 1 из 7 зарядов и выбери существо, предмет или точку в пределах 120 футов. Брось d100 и примени строку таблицы (00 означает 100).\nЕсли эффект накладывает заклинание, его Сл спасброска 15. Дистанция, указанная в футах, становится 120 футов. Область нужно центрировать на цели и включить её; если возможны несколько затрагиваемых целей, их случайно определяет мастер.\nВосстанавливает 1d6 + 1 израсходованных зарядов на рассвете. После последнего заряда брось d20: на 1 палочка рассыпается в пыль и уничтожается.\n\nТаблица d100:\n01–05: Накладываешь «Замедление».\n06–10: Накладываешь «Огонь фей».\n11–15: Ты ошеломлён до начала своего следующего хода, полагая, что произошло нечто потрясающее.\n16–20: Накладываешь «Порыв ветра».\n21–25: Накладываешь «Обнаружение мыслей» на выбранную цель. Если целью было не существо, вместо этого получаешь 1d6 психического урона.\n26–30: Накладываешь «Зловонное облако».\n31–33: В радиусе 60 футов вокруг цели идёт сильный дождь; область слабо заслонена до начала твоего следующего хода.\n34–36: В ближайшем к цели свободном пространстве появляется неподконтрольный тебе зверь и ведёт себя обычно. Отдельный d100 определяет вид: 01–25 носорог, 26–50 слон, 51–100 крыса.\n37–46: Накладываешь «Молнию».\n47–49: Облако из 600 огромных бабочек заполняет радиус 30 футов вокруг цели; область сильно заслонена на 10 минут.\n50–53: Увеличиваешь цель, как заклинанием «Увеличение/уменьшение». Если цель не может быть затронута этим заклинанием или не является существом, целью становишься ты.\n54–58: Накладываешь «Тьму».\n59–62: На земле в радиусе 60 футов вокруг цели вырастает трава. Уже существующая трава увеличивается в десять раз и остаётся такой 1 минуту.\n63–65: Выбранный мастером предмет исчезает на Эфирном плане. Он не должен быть надет или переносим, должен находиться в пределах 120 футов от цели и не превышать 10 футов ни в одном измерении.\n66–69: Уменьшаешь себя, как заклинанием «Увеличение/уменьшение».\n70–79: Накладываешь «Огненный шар».\n80–84: Накладываешь «Невидимость» на себя.\n85–87: На цели растут листья. Если выбрана точка пространства, листья растут на ближайшем к ней существе. Если их не сорвать, через 24 часа они буреют и опадают.\n88–90: Из палочки вылетают 1d4 × 10 самоцветов стоимостью 1 зм каждый, линией длиной 30 и шириной 5 футов. Каждый камень наносит 1 дробящего урона; суммарный урон делится поровну между всеми существами в линии.\n91–95: В радиусе 30 футов от тебя вспыхивает цветной свет. Ты и каждое способное видеть существо в области делаете спасбросок Телосложения Сл 15; провал ослепляет на 1 минуту. Повтор в конце каждого своего хода, успех снимает эффект.\n96–97: Кожа цели становится ярко-синей на 1d10 дней. Если выбрана точка пространства, затронуто ближайшее существо.\n98–100: Цель-существо делает спасбросок Телосложения Сл 15; если целью было не существо, целью становишься ты. Провал на 5 или больше немедленно окаменяет. Иной провал опутывает и начинает превращение в камень: повторный спасбросок в конце следующего хода цели; провал окаменяет, успех прекращает эффект. Окаменение длится до «Высшего восстановления» или аналогичной магии.\n\nСправка: броски, выбор цели, заряды, создание существ и эффекты не применяются автоматически.",
+      "links": [
+        "srd51:2014:spell:slow",
+        "srd51:2014:spell:faerie-fire",
+        "srd51:2014:spell:gust-of-wind",
+        "srd51:2014:spell:detect-thoughts",
+        "srd51:2014:spell:stinking-cloud",
+        "srd51:2014:spell:lightning-bolt",
+        "srd51:2014:spell:enlarge-reduce",
+        "srd51:2014:spell:darkness",
+        "srd51:2014:spell:fireball",
+        "srd51:2014:spell:invisibility",
+        "srd51:2014:spell:greater-restoration",
+        "srd51:2014:monster:rhinoceros",
+        "srd51:2014:monster:elephant",
+        "srd51:2014:monster:rat",
+        "srd51:2014:mechanic:attunement",
+        "srd51:2014:mechanic:magic-item-charges",
+        "srd51:2014:mechanic:spells-from-items",
+        "srd51:2014:mechanic:stunned",
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:restrained",
+        "srd51:2014:mechanic:petrified",
+        "srd51:2014:mechanic:vision-light"
+      ],
+      "item": {
+        "type": "wand",
+        "rarity": "rare",
+        "attunement": true,
+        "attunementRequirement": "Заклинатель",
+        "charges": {
+          "max": 7,
+          "recharge": "1d6 + 1 израсходованных зарядов ежедневно на рассвете"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:elephant",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Слон",
+        "en": "Elephant"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=371",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz wonder subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 371, 372.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nОбычный зверь без мировоззрения, языков нет. Хиты 76 (8d12 + 24), естественный доспех. Пассивное Восприятие 10. Растаптывающий натиск: после движения не менее 20 футов прямо к существу и попадания бивнями в тот же ход цель делает спасбросок Силы Сл 12; провал сбивает с ног. Если цель лежит, слон может бонусным действием атаковать её топотом. Бивни: рукопашная атака оружием +8, досягаемость 5 футов, одна цель; 19 (3d8 + 6) колющего урона. Топот: +8, досягаемость 5 футов, одно лежащее существо; 22 (3d10 + 6) дробящего урона. Появление от палочки чудес не даёт контроля над зверем. Атаки и особенности не исполняются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:prone"
+      ],
+      "monster": {
+        "size": "huge",
+        "type": "beast",
+        "armorClass": 12,
+        "hitPoints": 76,
+        "speed": {
+          "walk": 40
+        },
+        "abilities": {
+          "str": 22,
+          "dex": 9,
+          "con": 17,
+          "int": 3,
+          "wis": 11,
+          "cha": 6
+        },
+        "challenge": "4",
+        "xp": 1100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:rhinoceros",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Носорог",
+        "en": "Rhinoceros"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=388",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz wonder subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 388.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nОбычный зверь без мировоззрения, языков нет. Хиты 45 (6d10 + 12), естественный доспех. Пассивное Восприятие 11. Натиск: после движения не менее 20 футов прямо к цели и попадания рогом в тот же ход — дополнительно 9 (2d8) дробящего урона. Если цель — существо, спасбросок Силы Сл 15 или сбита с ног. Рог: рукопашная атака оружием +7, досягаемость 5 футов, одна цель; 14 (2d8 + 5) дробящего урона. Появление от палочки чудес не даёт контроля над зверем. Атаки и особенности не исполняются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:prone"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "beast",
+        "armorClass": 11,
+        "hitPoints": 45,
+        "speed": {
+          "walk": 40
+        },
+        "abilities": {
+          "str": 21,
+          "dex": 8,
+          "con": 15,
+          "int": 2,
+          "wis": 12,
+          "cha": 6
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    },
+    {
+      "id": "srd51:2014:monster:rat",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Крыса",
+        "en": "Rat"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=387",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz wonder subset v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 387.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nОбычный зверь без мировоззрения, языков нет. Хиты 1 (1d4 − 1). Тёмное зрение 30 футов, пассивное Восприятие 10. Острый нюх: преимущество на проверки Мудрости (Восприятие), полагающиеся на запах. Укус: рукопашная атака оружием +0, досягаемость 5 футов, одна цель; 1 колющего урона. Появление от палочки чудес не даёт контроля над зверем. Атаки и особенности не исполняются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:darkvision"
+      ],
+      "monster": {
+        "size": "tiny",
+        "type": "beast",
+        "armorClass": 10,
+        "hitPoints": 1,
+        "speed": {
+          "walk": 20
+        },
+        "abilities": {
+          "str": 2,
+          "dex": 11,
+          "con": 9,
+          "int": 2,
+          "wis": 10,
+          "cha": 4
+        },
+        "challenge": "0",
+        "xp": 10
+      }
+    }
+  ]
+}

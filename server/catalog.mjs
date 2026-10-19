@@ -7,7 +7,7 @@ const spellIndex=JSON.parse(readFileSync(new URL('../catalog/srd51-spells.index.
 const monsterTypes = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'undead'];
 const monsterSizes = ['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan'];
 const itemTypes = ['armor', 'potion', 'ring', 'rod', 'scroll', 'staff', 'wand', 'weapon', 'wondrous'];
-const mechanicCategories = ['condition', 'spellcasting', 'combat', 'rest', 'equipment'];
+const mechanicCategories = ['condition', 'spellcasting', 'combat', 'rest', 'equipment', 'exploration'];
 const kinds = ['mechanic', 'spell', 'monster', 'item', 'artifact'];
 const fingerprint=entry=>createHash('sha256').update(JSON.stringify(entry)).digest('hex');
 export function isKnownBundledUpgrade(previous,next,upgrades=bundledCatalog().upgrades) {
@@ -177,9 +177,11 @@ export function createCatalog(db) {
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
   function search(params = new URLSearchParams()) {
-    for (const key of params.keys()) if (!['q', 'kind', 'level', 'school', 'ritual', 'concentration', 'challenge', 'monsterType', 'size', 'rarity', 'itemType', 'attunement', 'mechanicCategory', 'limit', 'offset'].includes(key) || params.getAll(key).length !== 1) throw new AppError(400, 'Неизвестный или повторный фильтр');
+    for (const key of params.keys()) if (!['q', 'scope', 'kind', 'level', 'school', 'ritual', 'concentration', 'challenge', 'monsterType', 'size', 'rarity', 'itemType', 'attunement', 'mechanicCategory', 'limit', 'offset'].includes(key) || params.getAll(key).length !== 1) throw new AppError(400, 'Неизвестный или повторный фильтр');
     const q = (params.get('q') || '').trim().toLocaleLowerCase('ru');
     const kind = params.get('kind');
+    const scope=params.get('scope')??'name';
+    if(!['name','text'].includes(scope))throw new AppError(400,'Неверная область поиска');
     if (q.length > 200 || (kind !== null && !kinds.includes(kind))) throw new AppError(400, 'Неверный поиск');
     const level=params.get('level'), challenge=params.get('challenge'), rarity=params.get('rarity');
     if (level!==null && (kind!=='spell' || !/^[0-9]$/.test(level))) throw new AppError(400,'Уровень 0–9 допустим только для заклинаний');
@@ -204,7 +206,7 @@ export function createCatalog(db) {
     };
     const limit = number('limit', 50, 100), offset = number('offset', 0, Number.MAX_SAFE_INTEGER);
     if (!limit) throw new AppError(400, 'Лимит должен быть больше нуля');
-    const matches = all().filter(entry => (!kind || entry.kind === kind) && (level===null || entry.spell?.level===Number(level)) && (school===null || entry.spell?.school===school) && (ritual===null || entry.spell?.ritual===(ritual==='true')) && (concentration===null || entry.spell?.concentration===(concentration==='true')) && (challenge===null || entry.monster?.challenge===challenge) && (monsterType===null || entry.monster?.type===monsterType) && (size===null || entry.monster?.size===size) && (rarity===null || entry.item?.rarity===rarity) && (itemType===null || entry.item?.type===itemType) && (attunement===null || entry.item?.attunement===(attunement==='true')) && (mechanicCategory===null || entry.mechanic?.category===mechanicCategory) && `${entry.name.ru} ${entry.name.en}`.toLocaleLowerCase('ru').includes(q));
+    const matches = all().filter(entry => (!kind || entry.kind === kind) && (level===null || entry.spell?.level===Number(level)) && (school===null || entry.spell?.school===school) && (ritual===null || entry.spell?.ritual===(ritual==='true')) && (concentration===null || entry.spell?.concentration===(concentration==='true')) && (challenge===null || entry.monster?.challenge===challenge) && (monsterType===null || entry.monster?.type===monsterType) && (size===null || entry.monster?.size===size) && (rarity===null || entry.item?.rarity===rarity) && (itemType===null || entry.item?.type===itemType) && (attunement===null || entry.item?.attunement===(attunement==='true')) && (mechanicCategory===null || entry.mechanic?.category===mechanicCategory) && `${entry.name.ru} ${entry.name.en}${scope==='text'?' '+(entry.text||''):''}`.toLocaleLowerCase('ru').includes(q));
     return { entries: matches.slice(offset, offset + limit), total: matches.length, limit, offset };
   }
   function reviewedImport(request,apply=false) {

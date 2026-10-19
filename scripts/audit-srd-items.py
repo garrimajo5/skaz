@@ -21,6 +21,16 @@ TYPES = {'Wondrous item': 'wondrous', 'Armor': 'armor', 'Weapon': 'weapon',
 
 def header(text, name):
     text, name = normalize(text), normalize(name)
+    war_mage = re.fullmatch(r'Wand of the War Mage, \+([123])', name)
+    if war_mage:
+        heading = re.search(r'Wand of the War Mage, \+1, \+2, or \+3 Wand, (.*?) \(requires attunement by a spellcaster\) While holding this wand,', text)
+        if not heading:
+            raise ValueError('Missing bounded War Mage header')
+        rows = re.fullmatch(r'uncommon \(\+1\), rare \(\+2\), or very rare \(\+3\)', heading[1])
+        if not rows:
+            raise ValueError('Unsupported War Mage rarities')
+        return {'type': 'wand', 'rarity': ['uncommon', 'rare', 'very-rare'][int(war_mage[1])-1],
+                'attunement': True, 'requirementEn': 'by a spellcaster'}
     # Four cards share one named heading and a table, not four separate headings.
     healing = re.fullmatch(r'Potion of (Healing|Greater Healing|Superior Healing|Supreme Healing)', name)
     if healing:
@@ -71,6 +81,24 @@ def differences(card, expected):
     return errors
 
 
+def wonder_ranges(text):
+    """Read only table row starts; nested animal rolls must not become main rows."""
+    rows = []
+    for line in text.splitlines():
+        match = re.match(r'^(\d{2})[–-](100|\d{2})(?=\s|:|$)', normalize(line))
+        if match:
+            low, high = map(int, match.groups())
+            rows.append([low, high or 100])
+    cursor = 1
+    for low, high in rows:
+        if low != cursor or high < low or high > 100:
+            raise ValueError('Noncontiguous Wonder table')
+        cursor = high + 1
+    if cursor != 101:
+        raise ValueError('Incomplete Wonder table')
+    return rows
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('pdf', type=Path)
@@ -89,12 +117,16 @@ def main():
         try:
             expected = header(pages[page], card['name']['en'])
             errors = differences(card, expected)
+            if card['name']['en'] == 'Wand of Wonder':
+                source_table = reader.pages[249].extract_text().split('d100', 1)[1].split('Weapon, +1', 1)[0]
+                if wonder_ranges(card['text']) != wonder_ranges(source_table):
+                    errors.append('wonder table ranges')
             if errors:
                 failures.append({'id': card['id'], 'fields': errors, 'source': expected})
         except ValueError as error:
             failures.append({'id': card['id'], 'error': str(error)})
     print(json.dumps({'checked': len(cards), 'failures': failures,
-                      'scope': 'Type, rarity, attunement, healing formulas and wand charge maximum only; effects and recharge need manual review.'}, ensure_ascii=False, indent=2))
+                      'scope': 'Type, rarity, attunement, healing formulas, wand charge maximum and Wonder table ranges only; effects and recharge need manual review.'}, ensure_ascii=False, indent=2))
     if failures:
         raise SystemExit(1)
 

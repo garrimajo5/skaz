@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Thirteen environment, travel and movement rules from SRD 5.1 pages 84–87",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 13,
+  "entries": [
+    {
+      "id": "srd51:2014:mechanic:difficult-terrain",
+      "nameEn": "Difficult Terrain",
+      "pages": [
+        85
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:climbing-swimming",
+      "nameEn": "Climbing, Swimming, and Crawling",
+      "pages": [
+        85
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:jumping",
+      "nameEn": "Jumping",
+      "pages": [
+        85
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:falling",
+      "nameEn": "Falling",
+      "pages": [
+        86
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:suffocating",
+      "nameEn": "Suffocating",
+      "pages": [
+        86
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:vision-light",
+      "nameEn": "Vision and Light",
+      "pages": [
+        86
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:blindsight",
+      "nameEn": "Blindsight",
+      "pages": [
+        86
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:darkvision",
+      "nameEn": "Darkvision",
+      "pages": [
+        86
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:truesight",
+      "nameEn": "Truesight",
+      "pages": [
+        86
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:food-water",
+      "nameEn": "Food and Water",
+      "pages": [
+        86,
+        87
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:travel-pace",
+      "nameEn": "Travel Pace",
+      "pages": [
+        84
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:forced-march",
+      "nameEn": "Forced March",
+      "pages": [
+        84
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:mounts-vehicles",
+      "nameEn": "Mounts and Vehicles",
+      "pages": [
+        84
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not official translation.",
+    "Marching order, detailed activities while traveling and combat crawling are outside this subset.",
+    "No automatic movement, damage, vision or exhaustion changes.",
+    "No conversion to 2024 rest, exhaustion or movement rules."
+  ]
+}

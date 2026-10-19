@@ -282,3 +282,29 @@ test('reference fetch failure keeps a return action and ordinary catalog cards r
  assert.match(h.dialog(),/Материал недоступен/);h.click('catalog-reference-back');assert.equal(returned,1);
  h.submit('');respond(h.requests[1],{entries:[{...entry,id:'test:item',kind:'item'}],total:1});respond(h.requests[2],coverage);await settle();h.detail();assert.match(h.dialog(),/catalog-add-inventory/);
 });
+
+test('reader section navigation stays in the visible card and never fetches or applies changes',async()=>{
+ const h=harness();h.submit('');respond(h.requests[0],{entries:[entry],total:1});respond(h.requests[1],coverage);await settle();h.detail();
+ assert.match(h.dialog(),/Разделы карточки/);assert.match(h.dialog(),/catalog-reader-name[^>]*&lt;img/);assert.doesNotMatch(h.dialog(),/data-catalog-section="catalog-links-title"/);
+ h.click('',{catalogSection:'catalog-source-title'});assert.equal(h.movement.length,2);assert.equal(h.requests.length,2);assert.equal(h.additions.length,0);
+ h.click('',{catalogSection:'session-settings'});assert.equal(h.movement.length,2);
+ h.otherModal();h.click('',{catalogSection:'catalog-body-title'});assert.equal(h.movement.length,2);
+ h.close();h.click('',{catalogSection:'catalog-detail-title'});assert.equal(h.movement.length,2);
+});
+
+test('exploration category is available and stays separate from equipment',async()=>{
+ const h=harness();h.changeKind('mechanic');assert.match(h.region.innerHTML,/value="exploration"/);
+ h.submit('',{kind:'mechanic',mechanicCategory:'exploration'});assert.match(h.requests[0].url,/mechanicCategory=exploration/);
+ respond(h.requests[0],{entries:[{...entry,mechanic:{category:'exploration',effects:['Rule']}}],total:1});respond(h.requests[1],coverage);await settle();assert.match(h.region.innerHTML,/Исследование и среда/);
+});
+
+test('description search preserves scope and safely highlights only the matching body fragment',async()=>{
+ const h=harness();h.draft('scope','text');assert.match(h.view(),/value="text" selected/);
+ h.changeKind('item');assert.match(h.view(),/value="text" selected/);
+ h.submit('<tag>',{scope:'text'});assert.match(h.requests[0].url,/scope=text/);
+ respond(h.requests[0],{entries:[{...entry,text:'Prefix <tag> <img src=x> suffix'}],total:21});respond(h.requests[1],coverage);await settle();
+ assert.match(h.region.innerHTML,/<mark>&lt;tag&gt;<\/mark>/);assert.match(h.region.innerHTML,/&lt;img src=x&gt;/);assert.doesNotMatch(h.region.innerHTML,/<img|<tag>/);
+ h.click('catalog-next');assert.match(h.requests[2].url,/scope=text/);assert.match(h.requests[2].url,/offset=20/);
+ respond(h.requests[2],{entries:[entry],total:21});respond(h.requests[3],coverage);await settle();
+ h.click('catalog-reset');assert.doesNotMatch(h.requests[4].url,/scope=text/);assert.match(h.view(),/value="name" selected/);
+});

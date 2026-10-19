@@ -7,6 +7,22 @@ header, differences = audit['header'], audit['differences']
 
 
 class ItemAuditTests(unittest.TestCase):
+    def test_war_mage_variants_do_not_borrow_web_charges(self):
+        text = 'Wand of the War Mage, +1, +2, or +3 Wand, uncommon (+1), rare (+2), or very rare (+3) (requires attunement by a spellcaster) While holding this wand, bonus. Wand of Web Wand, uncommon This wand has 7 charges.'
+        for bonus, rarity in [(1, 'uncommon'), (2, 'rare'), (3, 'very-rare')]:
+            value = header(text, 'Wand of the War Mage, +' + str(bonus))
+            self.assertEqual(value['rarity'], rarity)
+            self.assertNotIn('chargeMaximum', value)
+        with self.assertRaises(ValueError):
+            header(text.replace('rare (+2)', 'common (+2)'), 'Wand of the War Mage, +2')
+
+    def test_wonder_ranges_ignore_nested_rolls_but_reject_gaps_and_overlap(self):
+        ranges = audit['wonder_ranges']
+        self.assertEqual(ranges('01–50: first\n01–25,\n26–50,\n51–100,\n51–00: second'), [[1, 50], [51, 100]])
+        for text in ['01–49\n51–00', '01–50\n50–00', '01–99', '00–00', '01–50\n51–99']:
+            with self.assertRaises(ValueError):
+                ranges(text)
+
     def test_armor_subtype_is_not_attunement(self):
         self.assertEqual(header('Adamantine Armor Armor (medium or heavy, but not hide), uncommon Body.', 'Adamantine Armor'),
                          {'type': 'armor', 'rarity': 'uncommon', 'attunement': False})

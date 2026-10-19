@@ -1,0 +1,388 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:mechanic:difficult-terrain",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Труднопроходимая местность",
+        "en": "Difficult Terrain"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=85",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz exploration v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 85.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nКаждый фут перемещения в труднопроходимой местности стоит 2 фута скорости. За минуту, час или день удаётся пройти половину обычного расстояния. Примеры: густой лес, болото, завалы, крутые горы, обледенелая поверхность.\nСправка: перемещение, урон, чувства и истощение не применяются к листу автоматически.",
+      "links": [],
+      "mechanic": {
+        "category": "exploration",
+        "effects": [
+          "Каждый фут перемещения в труднопроходимой местности стоит 2 фута скорости. За минуту, час или день удаётся пройти половину обычного расстояния. Примеры: густой лес, болото, завалы, крутые горы, обледенелая поверхность."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:climbing-swimming",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Лазание и плавание",
+        "en": "Climbing, Swimming, and Crawling"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=85",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz exploration v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 85.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри лазании или плавании каждый фут перемещения стоит ещё 1 фут скорости (ещё 2 фута в труднопроходимой местности), если у существа нет соответствующей скорости лазания или плавания.\nПо решению мастера скользкая вертикальная поверхность, нехватка опор или бурная вода требуют проверки Силы (Атлетика). Сл определяется ситуацией, здесь она не задана.\nЗаголовок источника также упоминает ползание; отдельное правило цены ползания находится в боевом разделе и в этой карточке не изложено.\nСправка: перемещение, урон, чувства и истощение не применяются к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:difficult-terrain"
+      ],
+      "mechanic": {
+        "category": "exploration",
+        "effects": [
+          "При лазании или плавании каждый фут перемещения стоит ещё 1 фут скорости (ещё 2 фута в труднопроходимой местности), если у существа нет соответствующей скорости лазания или плавания.",
+          "По решению мастера скользкая вертикальная поверхность, нехватка опор или бурная вода требуют проверки Силы (Атлетика). Сл определяется ситуацией, здесь она не задана.",
+          "Заголовок источника также упоминает ползание; отдельное правило цены ползания находится в боевом разделе и в этой карточке не изложено."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:jumping",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Прыжки",
+        "en": "Jumping"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=85",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz exploration v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 85.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПрыжок в длину с разбега не менее 10 футов пешком — до значения Силы в футах; с места — половина. Каждый фут прыжка расходует фут перемещения.\nПо решению мастера низкое препятствие высотой до четверти дальности прыжка требует Силы (Атлетика) Сл 10; провал — столкновение. При приземлении в труднопроходимую местность нужна Ловкость (Акробатика) Сл 10, иначе падаешь ничком.\nПрыжок в высоту с разбега не менее 10 футов пешком — 3 + модификатор Силы футов; с места — половина. Каждый фут расходует фут перемещения; мастер может разрешить проверку Атлетики для большей высоты. Поднятые руки дают досягаемость над землёй, равную высоте прыжка плюс 1,5 роста.\nСправка: перемещение, урон, чувства и истощение не применяются к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:prone",
+        "srd51:2014:mechanic:difficult-terrain"
+      ],
+      "mechanic": {
+        "category": "exploration",
+        "effects": [
+          "Прыжок в длину с разбега не менее 10 футов пешком — до значения Силы в футах; с места — половина. Каждый фут прыжка расходует фут перемещения.",
+          "По решению мастера низкое препятствие высотой до четверти дальности прыжка требует Силы (Атлетика) Сл 10; провал — столкновение. При приземлении в труднопроходимую местность нужна Ловкость (Акробатика) Сл 10, иначе падаешь ничком.",
+          "Прыжок в высоту с разбега не менее 10 футов пешком — 3 + модификатор Силы футов; с места — половина. Каждый фут расходует фут перемещения; мастер может разрешить проверку Атлетики для большей высоты. Поднятые руки дают досягаемость над землёй, равную высоте прыжка плюс 1,5 роста."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:falling",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Падение",
+        "en": "Falling"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=86",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz exploration v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 86.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nВ конце падения существо получает 1d6 дробящего урона за каждые 10 футов высоты, максимум 20d6. Оно приземляется ничком, если только не избежало урона от падения.\nСправка: перемещение, урон, чувства и истощение не применяются к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:prone"
+      ],
+      "mechanic": {
+        "category": "exploration",
+        "effects": [
+          "В конце падения существо получает 1d6 дробящего урона за каждые 10 футов высоты, максимум 20d6. Оно приземляется ничком, если только не избежало урона от падения."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:suffocating",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Удушье",
+        "en": "Suffocating"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=86",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz exploration v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 86.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЗадержать дыхание можно на 1 + модификатор Телосложения минут, минимум 30 секунд.\nКогда воздух кончился или существо задыхается, оно выдерживает число раундов, равное модификатору Телосложения, минимум 1 раунд. В начале следующего своего хода хиты падают до 0, существо умирает и не может восстановить хиты или стабилизироваться, пока снова не сможет дышать. Это состояние умирания, а не мгновенная смерть.\nСправка: перемещение, урон, чувства и истощение не применяются к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:death-saving-throws"
+      ],
+      "mechanic": {
+        "category": "exploration",
+        "effects": [
+          "Задержать дыхание можно на 1 + модификатор Телосложения минут, минимум 30 секунд.",
+          "Когда воздух кончился или существо задыхается, оно выдерживает число раундов, равное модификатору Телосложения, минимум 1 раунд. В начале следующего своего хода хиты падают до 0, существо умирает и не может восстановить хиты или стабилизироваться, пока снова не сможет дышать. Это состояние умирания, а не мгновенная смерть."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:vision-light",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Зрение и освещение",
+        "en": "Vision and Light"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=86",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz exploration v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 86.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСлабо заслонённая область (тусклый свет, негустой туман, умеренная листва) даёт помеху проверкам Мудрости (Восприятие), зависящим от зрения.\nСильно заслонённая область (темнота, непрозрачный туман, густая листва) полностью блокирует зрение. При попытке увидеть что-то в ней существо фактически считается ослеплённым.\nЯркий свет позволяет большинству существ видеть обычно. Тусклый свет создаёт слабо заслонённую область, темнота — сильно заслонённую. Особые чувства и конкретные эффекты могут менять применимость этих правил.\nСправка: перемещение, урон, чувства и истощение не применяются к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:blinded"
+      ],
+      "mechanic": {
+        "category": "exploration",
+        "effects": [
+          "Слабо заслонённая область (тусклый свет, негустой туман, умеренная листва) даёт помеху проверкам Мудрости (Восприятие), зависящим от зрения.",
+          "Сильно заслонённая область (темнота, непрозрачный туман, густая листва) полностью блокирует зрение. При попытке увидеть что-то в ней существо фактически считается ослеплённым.",
+          "Яркий свет позволяет большинству существ видеть обычно. Тусклый свет создаёт слабо заслонённую область, темнота — сильно заслонённую. Особые чувства и конкретные эффекты могут менять применимость этих правил."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:blindsight",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Слепое зрение",
+        "en": "Blindsight"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=86",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz exploration v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 86.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСущество воспринимает окружение без опоры на зрение в пределах указанного радиуса. Радиус берётся из его карточки: общего значения для всех существ нет.\nСправка: перемещение, урон, чувства и истощение не применяются к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:vision-light"
+      ],
+      "mechanic": {
+        "category": "exploration",
+        "effects": [
+          "Существо воспринимает окружение без опоры на зрение в пределах указанного радиуса. Радиус берётся из его карточки: общего значения для всех существ нет."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:darkvision",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Тёмное зрение",
+        "en": "Darkvision"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=86",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz exploration v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 86.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nВ пределах указанной дальности существо видит темноту как тусклый свет: для него такая область лишь слабо заслонена. В темноте различаются только оттенки серого, не цвета.\nЭта общая справка не задаёт радиус и не заменяет описание конкретного чувства или эффекта. Тёмное зрение не превращает темноту в яркий свет и не отменяет помеху зрительному Восприятию в слабо заслонённой области.\nСправка: перемещение, урон, чувства и истощение не применяются к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:vision-light"
+      ],
+      "mechanic": {
+        "category": "exploration",
+        "effects": [
+          "В пределах указанной дальности существо видит темноту как тусклый свет: для него такая область лишь слабо заслонена. В темноте различаются только оттенки серого, не цвета.",
+          "Эта общая справка не задаёт радиус и не заменяет описание конкретного чувства или эффекта. Тёмное зрение не превращает темноту в яркий свет и не отменяет помеху зрительному Восприятию в слабо заслонённой области."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:truesight",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Истинное зрение",
+        "en": "Truesight"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=86",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz exploration v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 86.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nВ пределах указанной дальности существо видит в обычной и магической темноте, видит невидимых существ и предметы, автоматически распознаёт зрительные иллюзии и успешно проходит спасброски против них. Оно воспринимает исходную форму перевёртыша или магически превращённого существа и видит Эфирный план. Радиус определяется конкретной способностью.\nСправка: перемещение, урон, чувства и истощение не применяются к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:vision-light",
+        "srd51:2014:mechanic:invisible"
+      ],
+      "mechanic": {
+        "category": "exploration",
+        "effects": [
+          "В пределах указанной дальности существо видит в обычной и магической темноте, видит невидимых существ и предметы, автоматически распознаёт зрительные иллюзии и успешно проходит спасброски против них. Оно воспринимает исходную форму перевёртыша или магически превращённого существа и видит Эфирный план. Радиус определяется конкретной способностью."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:food-water",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Еда и вода",
+        "en": "Food and Water"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=86",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz exploration v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 86, 87.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nНужно 1 фунт еды в день. Полфунта за день считается половиной дня без еды. Без еды можно прожить 3 + модификатор Телосложения дней (минимум 1); в конце каждого следующего дня автоматически получаешь уровень истощения. День нормального питания обнуляет счёт дней без еды.\nНужен 1 галлон воды в день, в жару — 2. При половине нормы делается спасбросок Телосложения Сл 15: провал даёт уровень истощения в конце дня. При меньшем количестве уровень даётся автоматически. Если истощение уже есть, в обоих случаях вместо одного добавляются два уровня.\nИстощение от недостатка еды или воды нельзя снять, пока не съешь и не выпьешь полную необходимую норму. Еда и питьё сами по себе не означают автоматическое снятие всех уровней.\nСправка: перемещение, урон, чувства и истощение не применяются к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:exhaustion"
+      ],
+      "mechanic": {
+        "category": "exploration",
+        "effects": [
+          "Нужно 1 фунт еды в день. Полфунта за день считается половиной дня без еды. Без еды можно прожить 3 + модификатор Телосложения дней (минимум 1); в конце каждого следующего дня автоматически получаешь уровень истощения. День нормального питания обнуляет счёт дней без еды.",
+          "Нужен 1 галлон воды в день, в жару — 2. При половине нормы делается спасбросок Телосложения Сл 15: провал даёт уровень истощения в конце дня. При меньшем количестве уровень даётся автоматически. Если истощение уже есть, в обоих случаях вместо одного добавляются два уровня.",
+          "Истощение от недостатка еды или воды нельзя снять, пока не съешь и не выпьешь полную необходимую норму. Еда и питьё сами по себе не означают автоматическое снятие всех уровней."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:travel-pace",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Темп путешествия",
+        "en": "Travel Pace"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=84",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz exploration v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 84.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nТаблица предполагает 8 часов путешествия за день по сравнительно простой местности. Выбирается быстрый, обычный или медленный темп.\nБыстрый: 400 футов в минуту, 4 мили в час, 30 миль в день; штраф −5 к пассивной Мудрости (Восприятие).\nОбычный: 300 футов в минуту, 3 мили в час, 24 мили в день; дополнительных эффектов таблица не задаёт.\nМедленный: 200 футов в минуту, 2 мили в час, 18 миль в день; позволяет использовать скрытность.\nДневные значения 30/24/18 взяты непосредственно из таблицы, а не пересчитаны умножением часовых на 8. Труднопроходимая местность уменьшает пройденное расстояние вдвое.\nСправка: перемещение, урон, чувства и истощение не применяются к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:difficult-terrain",
+        "srd51:2014:mechanic:forced-march"
+      ],
+      "mechanic": {
+        "category": "exploration",
+        "effects": [
+          "Таблица предполагает 8 часов путешествия за день по сравнительно простой местности. Выбирается быстрый, обычный или медленный темп.",
+          "Быстрый: 400 футов в минуту, 4 мили в час, 30 миль в день; штраф −5 к пассивной Мудрости (Восприятие).",
+          "Обычный: 300 футов в минуту, 3 мили в час, 24 мили в день; дополнительных эффектов таблица не задаёт.",
+          "Медленный: 200 футов в минуту, 2 мили в час, 18 миль в день; позволяет использовать скрытность.",
+          "Дневные значения 30/24/18 взяты непосредственно из таблицы, а не пересчитаны умножением часовых на 8. Труднопроходимая местность уменьшает пройденное расстояние вдвое."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:forced-march",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Форсированный марш",
+        "en": "Forced March"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=84",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz exploration v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 84.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПосле 8 часов путешествия можно продолжать движение с риском истощения. За каждый дополнительный час группа проходит расстояние из часовой колонки своего темпа.\nВ конце каждого часа сверх восьмого каждый персонаж делает спасбросок Телосложения: Сл 10 + число часов сверх 8. На девятом часу Сл 11, на десятом — 12. Каждый провал добавляет один уровень истощения.\nСправка: перемещение, урон, чувства и истощение не применяются к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:travel-pace",
+        "srd51:2014:mechanic:exhaustion"
+      ],
+      "mechanic": {
+        "category": "exploration",
+        "effects": [
+          "После 8 часов путешествия можно продолжать движение с риском истощения. За каждый дополнительный час группа проходит расстояние из часовой колонки своего темпа.",
+          "В конце каждого часа сверх восьмого каждый персонаж делает спасбросок Телосложения: Сл 10 + число часов сверх 8. На девятом часу Сл 11, на десятом — 12. Каждый провал добавляет один уровень истощения."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:mounts-vehicles",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Верховые животные и транспорт",
+        "en": "Mounts and Vehicles"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=84",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz exploration v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 84.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nВсадник может скакать галопом около часа, проходя удвоенное расстояние быстрого темпа. Свежие животные через каждые 8–10 миль позволяют дольше поддерживать этот темп, но такая возможность редка вне густонаселённых мест.\nПовозки, кареты и другой наземный транспорт выбирают темп обычным образом. На воде движение ограничено скоростью судна: штраф быстрого и преимущество медленного темпа не применяются.\nВ зависимости от судна и численности команды оно может двигаться до 24 часов в сутки. Особые скакуны и средства передвижения могут быть быстрее; их скорость определяется отдельными правилами.\nСправка: перемещение, урон, чувства и истощение не применяются к листу автоматически.",
+      "links": [
+        "srd51:2014:mechanic:travel-pace"
+      ],
+      "mechanic": {
+        "category": "exploration",
+        "effects": [
+          "Всадник может скакать галопом около часа, проходя удвоенное расстояние быстрого темпа. Свежие животные через каждые 8–10 миль позволяют дольше поддерживать этот темп, но такая возможность редка вне густонаселённых мест.",
+          "Повозки, кареты и другой наземный транспорт выбирают темп обычным образом. На воде движение ограничено скоростью судна: штраф быстрого и преимущество медленного темпа не применяются.",
+          "В зависимости от судна и численности команды оно может двигаться до 24 часов в сутки. Особые скакуны и средства передвижения могут быть быстрее; их скорость определяется отдельными правилами."
+        ]
+      }
+    }
+  ]
+}

@@ -18,11 +18,54 @@ function harness(localStorage, sessionStorage, fetch) {
   vm.runInContext(source, context);
   return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, references, dialog:()=>dialog,
     click: id => handlers.click({ target: { closest: () => ({ id }) } }),
+    visible: value => {context.document.visibilityState=value;return handlers.visibilitychange();},
+    state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),
   };
 }
 const tick = () => new Promise(resolve => setImmediate(resolve));
 const payload = (revision, campaignId = 'first') => ({ schemaVersion: 1, revision, state: seed, context: { campaignId, characterId: campaignId + '-hero', sessionId: campaignId + '-session' } });
 const response = data => ({ ok: true, json: async () => data });
+
+test('returning to an old tab warns without replacing state or an open form, then refreshes explicitly',async()=>{
+ let current=payload(0),calls=0;
+ const h=harness(memory(),memory(),async()=>{calls++;return response(current);});await h.api.boot();
+ const original=h.state();h.get('dialog').open=true;h.get('#note-text').value='Несохранённый рассказ мастера';
+ current={...payload(1,'other'),state:{...seed,hp:12}};
+ h.visible('visible');await tick();assert.equal(h.api.editable(),false);assert.deepEqual(h.state(),original);assert.equal(h.get('#note-text').value,'Несохранённый рассказ мастера');
+ h.api.paint();assert.match(h.get('sync-status').innerHTML,/В другом окне есть изменения/);
+ await assert.rejects(h.api.commit(seed,'Must not write'));assert.equal(calls,2);
+ await h.click('sync-refresh');assert.equal(calls,2);assert.match(h.messages.at(-1),/Скопируй/);
+ h.get('dialog').open=false;await h.click('sync-refresh');assert.equal(calls,3);assert.equal(h.api.editable(),true);assert.equal(h.state().hp,12);assert.match(h.api.contextKey(),/other/);
+});
+
+test('remote checks ignore late snapshots after a successful write and coalesce concurrent checks',async()=>{
+ let resolveCheck,calls=0;
+ const h=harness(memory(),memory(),async(url,options)=>{
+  calls++;if(calls===1)return response(payload(0));
+  if(options.method)return response({...payload(1),state:{...seed,hp:20}});
+  return new Promise(resolve=>resolveCheck=resolve);
+ });await h.api.boot();
+ const checking=h.click('sync-check');await h.click('sync-check');assert.equal(calls,2);
+ await h.api.commit({...seed,hp:20},'Change');resolveCheck(response(payload(0)));await checking;
+ assert.equal(h.api.editable(),true);assert.equal(h.state().hp,20);assert.equal(calls,3);
+});
+
+test('hidden or pending tabs do not check; a failed check preserves usability and clears on recovery',async()=>{
+ let mode='ok',calls=0;
+ const h=harness(memory(),memory(),async()=>{calls++;if(mode==='fail')throw new Error('offline');return response(payload(0));});await h.api.boot();
+ h.visible('hidden');await tick();assert.equal(calls,1);
+ mode='fail';await h.click('sync-check');assert.equal(h.api.editable(),true);h.api.paint();assert.match(h.get('sync-status').innerHTML,/Не удалось проверить/);
+ mode='ok';await h.click('sync-check');h.api.paint();assert.doesNotMatch(h.get('sync-status').innerHTML,/Не удалось проверить/);
+ mode='fail';await assert.rejects(h.api.commit(seed,'offline write'));const count=calls;
+ h.visible('visible');await h.click('sync-check');await tick();assert.equal(calls,count);assert.equal(h.api.editable(),false);
+});
+
+test('same revision with a different context or a restored older revision is also stale',async()=>{
+ for(const remote of [payload(4,'different'),payload(3)]){
+  let first=true;const h=harness(memory(),memory(),async()=>response(first?(first=false,payload(4)):remote));
+  await h.api.boot();await h.click('sync-check');assert.equal(h.api.editable(),false);assert.match(h.api.contextKey(),/first/);
+ }
+});
 
 test('failed creation survives reload and retries the original POST key; pending blocks writes and switching', async () => {
   const local = memory(), session = memory(), calls = [];

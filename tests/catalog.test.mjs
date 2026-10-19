@@ -7,6 +7,23 @@ const srd = JSON.parse(readFileSync(new URL('../catalog/srd51-spells.json', impo
 const entry = (id = 'personal:test') => ({ id, ruleset: '5e-2014', kind: 'mechanic', name: { ru: 'Тестовая механика', en: 'Test mechanic' }, source: { url: 'https://example.com/rules', title: 'Test fixture', version: '1', usage: 'personal', terms: 'Synthetic test data' }, text: 'Synthetic fixture only', links: [] });
 const bundle = (...entries) => ({ schemaVersion: 1, entries });
 
+test('description search is opt-in, literal, case-insensitive and combines with paging and kind',()=>{
+ const s=openStore(':memory:');try{
+  const a=entry('personal:a'),b=entry('personal:b'),c=entry('personal:c');
+  a.text='Редкое СЛОВО и 50%_ [x]';b.text='Ещё редкое слово';c.source.terms='редкое слово';
+  s.catalog.importEntries(bundle(a,b,c),{apply:true});const before=s.read();
+  assert.equal(s.catalog.search(new URLSearchParams({q:'редкое слово'})).total,0);
+  const result=s.catalog.search(new URLSearchParams({q:'редкое слово',scope:'text',kind:'mechanic',limit:'1',offset:'1'}));
+  assert.equal(result.total,2);assert.equal(result.entries[0].id,'personal:b');
+  for(const q of ['50%_', '[x]'])assert.equal(s.catalog.search(new URLSearchParams({q,scope:'text'})).total,1);
+  assert.equal(s.catalog.search(new URLSearchParams({q:'Test mechanic',scope:'text'})).total,3);
+  assert.equal(s.catalog.search(new URLSearchParams({scope:'text'})).total,3);
+  for(const scope of ['', 'all','TEXT'])assert.throws(()=>s.catalog.search(new URLSearchParams({scope})),{status:400});
+  assert.throws(()=>s.catalog.search(new URLSearchParams('scope=name&scope=text')),{status:400});
+  assert.deepEqual(s.read(),before);assert.deepEqual(s.history(),[]);
+ }finally{s.close();}
+});
+
 test('checked SRD subset imports repeatedly without touching progress and preserves provenance', () => {
   const store = openStore(':memory:');
   try {
