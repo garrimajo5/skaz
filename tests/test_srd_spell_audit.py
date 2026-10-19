@@ -49,5 +49,27 @@ class HeaderAuditTests(unittest.TestCase):
         self.assertEqual(diff(card, h), ['range', 'concentration', 'components'])
 
 
+class RareHeaders(unittest.TestCase):
+    def test_spelled_out_one_duration_and_twelve_hour_casting(self):
+        h = parse('Ward 9th-level illusion Casting Time: 12 hours Range: Self Components: V, S Duration: Concentration, up to one minute Body.', 'Ward')
+        card = {'spell': {'ritual': False, 'concentration': True, 'range': {'type': 'self'}, 'components': ['V', 'S'], 'duration': 'До 1 минуты', 'castingTime': '12 часов'}}
+        self.assertEqual(diff(card, h), [])
+        with self.assertRaises(ValueError):
+            parse('Ward 9th-level illusion Casting Time: 1 action Range: Self Components: V Duration: many minutes', 'Ward')
+
+    def test_singular_day_duration_is_not_confused_with_plural(self):
+        h = parse('Ward 6th-level abjuration Casting Time: 10 minutes Range: Touch Components: V Duration: 1 day', 'Ward')
+        card = {'spell': {'ritual': False, 'concentration': False, 'range': {'type': 'touch'}, 'components': ['V'], 'duration': '1 день', 'castingTime': '10 минут'}}
+        self.assertEqual(diff(card, h), [])
+        card['spell']['duration'] = '2 дня'
+        self.assertEqual(diff(card, h), ['duration'])
+
+    def test_singular_component_and_long_casting_times(self):
+        for en, ru in [('8 hours', '8 часов'), ('24 hours', '24 часа')]:
+            h = parse('Ward 5th-level illusion Casting Time: '+en+' Range: Touch Component: V, S Duration: Special', 'Ward')
+            card = {'spell': {'ritual': False, 'concentration': False, 'range': {'type': 'touch'}, 'components': ['V', 'S'], 'duration': 'Особая', 'castingTime': ru}}
+            self.assertEqual(diff(card, h), [])
+
+
 if __name__ == '__main__':
     unittest.main()

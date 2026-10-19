@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:air-elemental",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Воздушный элементаль",
+        "en": "Air Elemental"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=305",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz elemental and awakened forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 305.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшой элементаль, нейтральный. Хиты 90 (12d10+24). Полёт 90 футов с парением, ходьба 0. Сопротивление электричеству, звуку и дробящему/колющему/рубящему от немагических атак; иммунитет к яду. Иммунитет к истощению, захвату, параличу, окаменению, отравлению, сбиванию с ног, опутыванию и бессознательности. Тёмное зрение 60 футов, пассивное Восприятие 10, язык Ауран.\nВоздушная форма: входит в пространство врага и остаётся там, проходит щель 1 дюйм без протискивания. Мультиатака — два удара. Удар: +8, досягаемость 5 футов, одна цель, 14 (2d8+5) дробящего. Вихрь (перезарядка 4–6): каждое существо в его пространстве делает спасбросок Силы Сл 13; провал — 15 (3d8+2) дробящего, бросок до 20 футов в случайном направлении и сбивание с ног; успех — половина урона без броска и падения. Удар о предмет добавляет 3 (1d6) дробящего за каждые 10 футов броска; при броске в другое существо оно делает спасбросок Ловкости Сл 13 или получает тот же урон и падает.\nОсобенности, атаки и призыв не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:prone"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "elemental",
+        "armorClass": 15,
+        "hitPoints": 90,
+        "speed": {
+          "walk": 0,
+          "fly": 90
+        },
+        "abilities": {
+          "str": 14,
+          "dex": 20,
+          "con": 14,
+          "int": 6,
+          "wis": 10,
+          "cha": 6
+        },
+        "challenge": "5",
+        "xp": 1800
+      }
+    },
+    {
+      "id": "srd51:2014:monster:earth-elemental",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Земляной элементаль",
+        "en": "Earth Elemental"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=306",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz elemental and awakened forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 306.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшой элементаль, нейтральный. Хиты 126 (12d10+60), природный доспех. Уязвимость к звуку; сопротивление дробящему/колющему/рубящему от немагических атак; иммунитет к яду. Иммунитет к истощению, параличу, окаменению, отравлению и бессознательности. Тёмное зрение и чувство вибрации 60 футов, пассивное Восприятие 10, язык Терран. Скользит сквозь немагические необработанные землю и камень, не разрушая их. Наносит двойной урон предметам и сооружениям. Мультиатака — два удара: +8, досягаемость 10 футов, одна цель, 14 (2d8+5) дробящего.\nОсобенности, атаки и призыв не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "large",
+        "type": "elemental",
+        "armorClass": 17,
+        "hitPoints": 126,
+        "speed": {
+          "walk": 30,
+          "burrow": 30
+        },
+        "abilities": {
+          "str": 20,
+          "dex": 8,
+          "con": 20,
+          "int": 5,
+          "wis": 10,
+          "cha": 5
+        },
+        "challenge": "5",
+        "xp": 1800
+      }
+    },
+    {
+      "id": "srd51:2014:monster:fire-elemental",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Огненный элементаль",
+        "en": "Fire Elemental"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=306",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz elemental and awakened forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 306, 307.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшой элементаль, нейтральный. Хиты 102 (12d10+36). Сопротивление дробящему/колющему/рубящему от немагических атак; иммунитет к огню и яду. Иммунитет к истощению, захвату, параличу, окаменению, отравлению, сбиванию с ног, опутыванию и бессознательности. Тёмное зрение 60 футов, пассивное Восприятие 10, язык Игнан. Яркий свет 30 футов и тусклый ещё 30.\nОгненная форма: проходит щель 1 дюйм без протискивания, входит в пространство врага и остаётся. Коснувшееся его или попавшее по нему рукопашной атакой в 5 футах существо получает 5 (1d10) огнём. Первый вход элементаля за ход в пространство существа наносит 5 (1d10) и поджигает; в начале каждого хода горящей цели ещё 5 (1d10), пока кто-либо не потратит действие на тушение. За каждые 5 футов движения в воде или галлон вылитой на него воды получает 1 урона холодом. Мультиатака — два касания. Касание: +6, досягаемость 5 футов, одна цель, 10 (2d6+3) огнём; существо или горючий предмет загорается с тем же периодическим уроном и тушением действием.\nОсобенности, атаки и призыв не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "large",
+        "type": "elemental",
+        "armorClass": 13,
+        "hitPoints": 102,
+        "speed": {
+          "walk": 50
+        },
+        "abilities": {
+          "str": 10,
+          "dex": 17,
+          "con": 16,
+          "int": 6,
+          "wis": 10,
+          "cha": 7
+        },
+        "challenge": "5",
+        "xp": 1800
+      }
+    },
+    {
+      "id": "srd51:2014:monster:water-elemental",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Водяной элементаль",
+        "en": "Water Elemental"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=307",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz elemental and awakened forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 307.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшой элементаль, нейтральный. Хиты 114 (12d10+48), природный доспех. Сопротивление кислоте и дробящему/колющему/рубящему от немагических атак; иммунитет к яду. Иммунитет к истощению, захвату, параличу, окаменению, отравлению, сбиванию с ног, опутыванию и бессознательности. Тёмное зрение 60 футов, пассивное Восприятие 10, язык Акван. Водная форма: входит в пространство врага и остаётся, проходит щель 1 дюйм без протискивания. Урон холодом снижает скорость на 20 футов до конца его следующего хода.\nМультиатака — два удара: +7, досягаемость 5 футов, одна цель, 13 (2d8+4) дробящего. Поглощение (перезарядка 4–6): каждое существо в его пространстве делает спасбросок Силы Сл 15; провал — 13 (2d8+4) дробящего, Большая или меньшая цель захвачена (освобождение Сл 14), опутана и не дышит, если не умеет дышать водой. Успех выталкивает из пространства элементаля. Вместимость — одна Большая либо до двух Средних или меньших целей. В начале каждого хода элементаля захваченные им получают 13 (2d8+4) дробящего. Существо в 5 футах может действием и успешной проверкой Силы Сл 14 вытащить существо или предмет.\nОсобенности, атаки и призыв не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:grappled",
+        "srd51:2014:mechanic:restrained"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "elemental",
+        "armorClass": 14,
+        "hitPoints": 114,
+        "speed": {
+          "walk": 30,
+          "swim": 90
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 14,
+          "con": 18,
+          "int": 5,
+          "wis": 10,
+          "cha": 8
+        },
+        "challenge": "5",
+        "xp": 1800
+      }
+    },
+    {
+      "id": "srd51:2014:monster:awakened-shrub",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Пробуждённый куст",
+        "en": "Awakened Shrub"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=366",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz elemental and awakened forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 366.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nМаленькое растение без мировоззрения. Хиты 10 (3d6). Уязвимость к огню, сопротивление колющему. Пассивное Восприятие 10; один язык, известный создателю. Неподвижен — неотличим от обычного куста. Царапанье: рукопашная атака оружием +1, досягаемость 5 футов, одна цель, 1 (1d4−1) рубящего. Пример растения для Пробуждения разума; окончательные характеристики выбирает мастер.\nОсобенности, атаки и призыв не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "small",
+        "type": "plant",
+        "armorClass": 9,
+        "hitPoints": 10,
+        "speed": {
+          "walk": 20
+        },
+        "abilities": {
+          "str": 3,
+          "dex": 8,
+          "con": 11,
+          "int": 10,
+          "wis": 10,
+          "cha": 6
+        },
+        "challenge": "0",
+        "xp": 10
+      }
+    },
+    {
+      "id": "srd51:2014:monster:awakened-tree",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Пробуждённое дерево",
+        "en": "Awakened Tree"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=366",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz elemental and awakened forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 366.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nОгромное растение без мировоззрения. Хиты 59 (7d12+14), природный доспех. Уязвимость к огню, сопротивление дробящему и колющему. Пассивное Восприятие 10; один язык, известный создателю. Неподвижно — неотличимо от обычного дерева. Удар: рукопашная атака оружием +6, досягаемость 10 футов, одна цель, 14 (3d6+4) дробящего. Пример растения для Пробуждения разума; окончательные характеристики выбирает мастер.\nОсобенности, атаки и призыв не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "huge",
+        "type": "plant",
+        "armorClass": 13,
+        "hitPoints": 59,
+        "speed": {
+          "walk": 20
+        },
+        "abilities": {
+          "str": 19,
+          "dex": 6,
+          "con": 15,
+          "int": 10,
+          "wis": 10,
+          "cha": 7
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    }
+  ]
+}

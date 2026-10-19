@@ -5,7 +5,8 @@ import { readFile } from 'node:fs/promises';
 const source = await readFile(new URL('../client/catalog.js', import.meta.url), 'utf8');
 function harness(protocol = 'http:') {
   const handlers = {}, requests = [], tasks = [], additions = [];
-  const region = { innerHTML: '', setAttribute() {} };
+  const movement=[];
+  const region = { innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
   let dialog = '', isOpen=true;
   const context = vm.createContext({
     location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
@@ -17,7 +18,7 @@ function harness(protocol = 'http:') {
   });
   vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { view, requests, tasks, region, additions, dialog: () => dialog,
+  return { view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>isOpen=false, otherModal:()=>dialog='<h2>Other</h2>',
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
@@ -30,6 +31,34 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
 function respond(request, payload) { request.resolve({ ok: true, json: async () => payload }); }
 const entry = { kind: 'mechanic', name: { ru: '<img src=x onerror=alert(1)>', en: 'Test' }, source: { title: 'Fixture', usage: 'personal', url: 'javascript:alert(1)', version: '1', terms: '<script>unsafe</script>' }, text: '<b>plain text</b>' };
 const coverage = { total: 1, referenceOnly: 0, personal: 1 };
+
+test('catalog cards expose useful safe summaries without opening a dialog or applying effects',async()=>{
+ const h=harness();h.submit('');
+ const cards=[{...entry,kind:'spell',spell:{level:5,school:'evocation',castingTime:'1 действие',ritual:true,concentration:true}},
+ {...entry,kind:'monster',monster:{type:'elemental',challenge:'5',armorClass:15,hitPoints:90}},
+ {...entry,kind:'item',item:{type:'ring',rarity:'rare',attunement:false}},
+ {...entry,mechanic:{category:'<img onerror=bad>',effects:[]}}];
+ respond(h.requests[0],{entries:cards,total:4});respond(h.requests[1],coverage);await settle();
+ for(const value of ['5 уровень','Воплощение','Ритуал','Концентрация','КД 15','Хиты 90','Без настройки','Редкий'])assert.ok(h.region.innerHTML.includes(value));
+ assert.match(h.region.innerHTML,/&lt;img onerror=bad&gt;/);assert.doesNotMatch(h.region.innerHTML,/<img/);assert.equal(h.dialog(),'');assert.equal(h.additions.length,0);
+});
+
+test('bottom pagination preserves search, guards boundaries and duplicate clicks, then focuses new results',async()=>{
+ const h=harness();h.close();h.submit('flame',{kind:'spell',level:'5'});respond(h.requests[0],{entries:[entry],total:21});respond(h.requests[1],coverage);await settle();
+ assert.match(h.region.innerHTML,/catalog-next-bottom/);assert.match(h.region.innerHTML,/1 \/ 2/);
+ h.click('catalog-prev-bottom');assert.equal(h.requests.length,2);
+ h.click('catalog-next-bottom');h.click('catalog-next-bottom');assert.equal(h.requests.length,4);assert.match(h.requests[2].url,/q=flame/);assert.match(h.requests[2].url,/level=5/);assert.match(h.requests[2].url,/offset=20/);
+ respond(h.requests[2],{entries:[entry],total:21});respond(h.requests[3],coverage);await settle();assert.match(h.region.innerHTML,/2 \/ 2/);assert.equal(h.movement.length,2);assert.equal(h.movement[0][0],'focus');assert.equal(h.movement[1][0],'scroll');
+ h.click('catalog-next-bottom');assert.equal(h.requests.length,4);h.click('catalog-prev-bottom');assert.match(h.requests[4].url,/offset=0/);
+});
+
+test('paging cannot steal focus from an open dialog or from a superseding search',async()=>{
+ for(const mode of ['dialog','new-search']){
+ const h=harness();h.submit('');respond(h.requests[0],{entries:[entry],total:21});respond(h.requests[1],coverage);await settle();h.click('catalog-next-bottom');
+ if(mode==='new-search'){h.close();h.submit('new');respond(h.requests[4],{entries:[entry],total:1});respond(h.requests[5],coverage);await settle();}
+ respond(h.requests[2],{entries:[entry],total:21});respond(h.requests[3],coverage);await settle();assert.equal(h.movement.length,0);
+ }
+});
 
 test('mechanic section filters retain drafts, page requests and display safe section labels',async()=>{
  const h=harness();h.changeKind('mechanic');assert.match(h.region.innerHTML,/name="mechanicCategory"/);assert.match(h.region.innerHTML,/Накладывание заклинаний/);
@@ -184,10 +213,10 @@ test('structured cards show useful values, negative modifiers and escape importe
 
 test('source inventory searches prepared RU names, filters missing records and guards closed or replaced dialog',async()=>{
  const data={entries:[{id:'a',nameEn:'Detect Magic',nameRu:'Обнаружение магии',page:134,level:1,status:'installed'},...Array.from({length:21},(_,i)=>({id:'m'+i,nameEn:'Missing '+i,nameRu:null,page:114,level:i===0?0:2,status:'missing'}))]};
- const h=harness();h.click('catalog-inventory');respond(h.requests[0],data);await settle();assert.match(h.dialog(),/1–20 из 22/);assert.match(h.dialog(),/#page=134/);
+ const h=harness();h.click('catalog-inventory');respond(h.requests[0],data);await settle();assert.match(h.dialog(),/1–20 из 22/);assert.match(h.dialog(),/#page=134/);assert.match(h.dialog(),/Подготовлено кратких изложений: 1 из 319/);assert.match(h.dialog(),/не всех книг D&D/);
  h.inventorySubmit('обнаружение','installed');assert.match(h.dialog(),/1–1 из 1/);assert.doesNotMatch(h.dialog(),/Missing 0/);
  h.inventorySubmit('','missing');assert.match(h.dialog(),/1–20 из 21/);h.click('inventory-next');assert.match(h.dialog(),/21–21 из 21/);
- h.inventorySubmit('','all','0');assert.match(h.dialog(),/1–1 из 1/);assert.match(h.dialog(),/подготовлено 0 из 1/);assert.doesNotMatch(h.dialog(),/Detect Magic/);
+ h.inventorySubmit('','all','0');assert.match(h.dialog(),/1–1 из 1/);assert.match(h.dialog(),/подготовлено 0 из 1/);assert.match(h.dialog(),/Подготовлено кратких изложений: 1 из 319/);assert.doesNotMatch(h.dialog(),/Detect Magic/);
  h.inventorySubmit('<script>','all');assert.match(h.dialog(),/&lt;script&gt;/);assert.match(h.dialog(),/Совпадений нет/);
  const closed=harness();closed.click('catalog-inventory');closed.close();respond(closed.requests[0],data);await settle();assert.doesNotMatch(closed.dialog(),/Detect Magic/);
  const replaced=harness();replaced.click('catalog-inventory');replaced.otherModal();respond(replaced.requests[0],data);await settle();assert.equal(replaced.dialog(),'<h2>Other</h2>');

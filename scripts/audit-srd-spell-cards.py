@@ -22,7 +22,7 @@ def normalize(text):
 def source_header(text, name):
     # Match a heading followed by edition metadata, not a mention in another spell.
     title = re.escape(normalize(name))
-    match = re.search(title + r'\s+(?:(?:[1-9](?:st|nd|rd|th)\W*level\s+\w+)|(?:\w+\s+cantrip))\s*(\(ritual\))?\s*Casting Time:\s*([^:]*?)\s*Range:\s*([^:]*?)\s*Components:\s*([VSM](?:\s*,\s*[VSM])*)(?:\s*\([^()]*\))?\s*Duration:\s*(Concentration,?\s*)?(Instantaneous|Until dispelled(?: or triggered)?|Special|(?:up to\s+)?\d+\s+(?:round|minute|hour|day)s?)', normalize(text), re.I)
+    match = re.search(title + r'\s+(?:(?:[1-9](?:st|nd|rd|th)\W*level\s+\w+)|(?:\w+\s+cantrip))\s*(\(ritual\))?\s*Casting Time:\s*([^:]*?)\s*Range:\s*([^:]*?)\s*Components?:\s*([VSM](?:\s*,\s*[VSM])*)(?:\s*\([^()]*\))?\s*Duration:\s*(Concentration,?\s*)?(Instantaneous|Until dispelled(?: or triggered)?|Special|(?:up to\s+)?(?:\d+|one)\s+(?:round|minute|hour|day)s?)', normalize(text), re.I)
     if not match:
         raise ValueError('Unrecognized spell header: ' + name)
     ritual, casting, distance, components, concentration, duration = match.groups()
@@ -38,18 +38,20 @@ def source_header(text, name):
         raise ValueError('Unrecognized range for ' + name + ': ' + distance)
     return {'ritual': bool(ritual), 'casting': casting, 'range': distance,
             'components': sorted(re.findall('[VSM]', components)),
-            'concentration': bool(concentration), 'duration': duration.lower()}
+            'concentration': bool(concentration), 'duration': re.sub(r'\bone\b', '1', duration.lower())}
 
 
 def duration_key(text):
     text = text.lower().replace('концентрация, ', '').replace('до ', 'up to ')
     if text in ('мгновенная', 'мгновенно'):
         return 'instantaneous'
+    if text == 'особая':
+        return 'special'
     if text == 'пока не рассеяно':
         return 'until dispelled'
     if text == 'пока не рассеяно или не сработает':
         return 'until dispelled or triggered'
-    for ru, en in [('раунд', 'round'), ('минут', 'minute'), ('час', 'hour'), ('дн', 'day')]:
+    for ru, en in [('раунд', 'round'), ('минут', 'minute'), ('час', 'hour'), ('день', 'day'), ('дн', 'day')]:
         if ru in text:
             match = re.fullmatch(r'(up to )?(\d+)\s+\S+', text)
             if match:
@@ -71,7 +73,7 @@ def differences(card, header):
     # Reaction trigger wording is reviewed manually; check action type here.
     translated = {'1 действие': '1 action', '1 бонусное действие': '1 bonus action',
                   '1 минута': '1 minute', '1 час': '1 hour', '10 минут': '10 minutes',
-                  '1 действие или 8 часов': '1 action or 8 hours'}
+                  '1 действие или 8 часов': '1 action or 8 hours', '8 часов': '8 hours', '24 часа': '24 hours', '12 часов': '12 hours'}
     if casting.startswith('1 реакция,'):
         if not header['casting'].startswith('1 reaction,'):
             errors.append('castingTime')

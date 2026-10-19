@@ -35,6 +35,8 @@ def statistics(text, name):
     ac = int(field(r'Armor Class (\d+)', 'AC')[1])
     hp = int(field(r'Hit Points (\d+)', 'HP')[1])
     speed_text = field(r'Speed (.*?) STR DEX CON INT WIS CHA', 'speed')[1]
+    # Hover is retained in the authored trait text; the numeric schema stores speed only.
+    speed_text = re.sub(r'\bfly (\d+) ft\. \(hover\)', r'fly \1 ft.', speed_text)
     speeds = {}
     for mode, number in re.findall(r'(?:(walk|climb|swim|fly|burrow) )?(\d+) ft\.', speed_text):
         speeds[mode or 'walk'] = int(number)

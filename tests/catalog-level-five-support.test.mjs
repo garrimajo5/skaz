@@ -18,7 +18,7 @@ test('fifth-level support subset has six source-matched entries without claiming
 test('fifth-level subset installation is repeatable and leaves missing spells visible without changing play',()=>{
  const s=openStore(':memory:');try{const before=s.read();assert.throws(()=>s.catalog.importEntries(pack,{apply:true}),{status:422});assert.equal(s.catalog.coverage().total,0);
  const p=s.catalog.previewBundled();s.catalog.installBundled({version:p.version});assert.equal(s.catalog.importEntries(pack,{apply:true}).unchanged,6);
- assert.deepEqual(s.catalog.coverage().scopes.srd51Spells.byLevel[5],{level:5,expected:37,prepared:6,installed:6});
- assert.equal(s.catalog.spellInventory().entries.filter(e=>e.level===5&&e.status==='missing').length,31);assert.deepEqual(s.read(),before);assert.deepEqual(s.history(),[]);
+ assert.deepEqual(s.catalog.coverage().scopes.srd51Spells.byLevel[5],{level:5,expected:37,prepared:37,installed:37});
+ assert.equal(s.catalog.spellInventory().entries.filter(e=>e.level===5&&e.status==='missing').length,0);assert.deepEqual(s.read(),before);assert.deepEqual(s.history(),[]);
  }finally{s.close();}
 });

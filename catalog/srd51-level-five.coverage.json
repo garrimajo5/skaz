@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Remaining 31 fifth-level spells of pinned SRD 5.1; together with six support cards covers 37/37 fifth-level SRD headings",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 31,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:animate-objects",
+      "nameEn": "Animate Objects",
+      "pages": [
+        116
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:antilife-shell",
+      "nameEn": "Antilife Shell",
+      "pages": [
+        116,
+        117
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:arcane-hand",
+      "nameEn": "Arcane Hand",
+      "pages": [
+        118
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:awaken",
+      "nameEn": "Awaken",
+      "pages": [
+        120
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:cloudkill",
+      "nameEn": "Cloudkill",
+      "pages": [
+        125
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:commune-with-nature",
+      "nameEn": "Commune with Nature",
+      "pages": [
+        126
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:cone-of-cold",
+      "nameEn": "Cone of Cold",
+      "pages": [
+        127
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:conjure-elemental",
+      "nameEn": "Conjure Elemental",
+      "pages": [
+        128
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:contact-other-plane",
+      "nameEn": "Contact Other Plane",
+      "pages": [
+        129
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:contagion",
+      "nameEn": "Contagion",
+      "pages": [
+        129,
+        130
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:creation",
+      "nameEn": "Creation",
+      "pages": [
+        132
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:dispel-evil-and-good",
+      "nameEn": "Dispel Evil and Good",
+      "pages": [
+        136
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:dominate-person",
+      "nameEn": "Dominate Person",
+      "pages": [
+        138
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:dream",
+      "nameEn": "Dream",
+      "pages": [
+        138
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:flame-strike",
+      "nameEn": "Flame Strike",
+      "pages": [
+        145
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:geas",
+      "nameEn": "Geas",
+      "pages": [
+        148
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:hallow",
+      "nameEn": "Hallow",
+      "pages": [
+        152
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:hold-monster",
+      "nameEn": "Hold Monster",
+      "pages": [
+        154
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:insect-plague",
+      "nameEn": "Insect Plague",
+      "pages": [
+        157
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:legend-lore",
+      "nameEn": "Legend Lore",
+      "pages": [
+        158
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:mislead",
+      "nameEn": "Mislead",
+      "pages": [
+        165
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:modify-memory",
+      "nameEn": "Modify Memory",
+      "pages": [
+        166
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:passwall",
+      "nameEn": "Passwall",
+      "pages": [
+        167
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:planar-binding",
+      "nameEn": "Planar Binding",
+      "pages": [
+        168
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:reincarnate",
+      "nameEn": "Reincarnate",
+      "pages": [
+        174
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:scrying",
+      "nameEn": "Scrying",
+      "pages": [
+        176,
+        177
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:seeming",
+      "nameEn": "Seeming",
+      "pages": [
+        177
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:telekinesis",
+      "nameEn": "Telekinesis",
+      "pages": [
+        185
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:tree-stride",
+      "nameEn": "Tree Stride",
+      "pages": [
+        188
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-force",
+      "nameEn": "Wall of Force",
+      "pages": [
+        190
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-stone",
+      "nameEn": "Wall of Stone",
+      "pages": [
+        190,
+        191
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not official translation or full rules text.",
+    "Contagion follows the exact pinned PDF wording (disease on hit); do not silently mix revisions.",
+    "Four CR 5 elementals and two example awakened plants have linked stat blocks; higher-slot summon options are incomplete.",
+    "Class access, commands, effects, material stock, permanent walls and summoned creatures are not automatically applied."
+  ]
+}

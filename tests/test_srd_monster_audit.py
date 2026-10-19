@@ -27,9 +27,13 @@ class MonsterAuditTests(unittest.TestCase):
             parse(missing + BASE.replace('Beast Large', 'Neighbor Small'), 'Beast')
 
     def test_unsupported_speed_and_missing_ability_are_not_silently_accepted(self):
-        for text in [BASE.replace('swim 30 ft.', 'fly 30 ft. (hover)'), BASE.replace('3 (−4)', '')]:
+        for text in [BASE.replace('swim 30 ft.', 'fly 30 ft. (unknown)'), BASE.replace('swim 30 ft.', 'swim 30 ft. (hover)'), BASE.replace('3 (−4)', '')]:
             with self.assertRaises(ValueError):
                 parse(text, 'Beast')
+
+    def test_hover_preserves_zero_ground_speed_and_flying_speed(self):
+        text = BASE.replace('30 ft., swim 30 ft.', '0 ft., fly 90 ft. (hover)')
+        self.assertEqual(parse(text, 'Beast')['speed'], {'walk': 0, 'fly': 90})
 
 
 if __name__ == '__main__':

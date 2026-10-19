@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Four CR 5 elementals and two awakened plants from pinned SRD 5.1",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 6,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:air-elemental",
+      "nameEn": "Air Elemental",
+      "pages": [
+        305
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:earth-elemental",
+      "nameEn": "Earth Elemental",
+      "pages": [
+        306
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:fire-elemental",
+      "nameEn": "Fire Elemental",
+      "pages": [
+        306,
+        307
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:water-elemental",
+      "nameEn": "Water Elemental",
+      "pages": [
+        307
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:awakened-shrub",
+      "nameEn": "Awakened Shrub",
+      "pages": [
+        366
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:awakened-tree",
+      "nameEn": "Awakened Tree",
+      "pages": [
+        366
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not official translation.",
+    "Hover, immunities, resistances and actions are text only; only basic stats are structured.",
+    "Conjure Elemental allows additional forms with higher slots; this package is not a complete summon catalog.",
+    "The GM chooses awakened plant stats; these are examples, not automatic transformation."
+  ]
+}

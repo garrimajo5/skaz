@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "All 15 ninth-level spells listed in pinned SRD 5.1",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 15,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:astral-projection",
+      "nameEn": "Astral Projection",
+      "pages": [
+        119,
+        120
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:foresight",
+      "nameEn": "Foresight",
+      "pages": [
+        147
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:gate",
+      "nameEn": "Gate",
+      "pages": [
+        148
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:imprisonment",
+      "nameEn": "Imprisonment",
+      "pages": [
+        156,
+        157
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:mass-heal",
+      "nameEn": "Mass Heal",
+      "pages": [
+        163
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:meteor-swarm",
+      "nameEn": "Meteor Swarm",
+      "pages": [
+        164
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:power-word-kill",
+      "nameEn": "Power Word Kill",
+      "pages": [
+        170
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:prismatic-wall",
+      "nameEn": "Prismatic Wall",
+      "pages": [
+        171
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:shapechange",
+      "nameEn": "Shapechange",
+      "pages": [
+        178
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:storm-of-vengeance",
+      "nameEn": "Storm of Vengeance",
+      "pages": [
+        183
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:time-stop",
+      "nameEn": "Time Stop",
+      "pages": [
+        187
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:true-polymorph",
+      "nameEn": "True Polymorph",
+      "pages": [
+        188
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:true-resurrection",
+      "nameEn": "True Resurrection",
+      "pages": [
+        189
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:weird",
+      "nameEn": "Weird",
+      "pages": [
+        192
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:wish",
+      "nameEn": "Wish",
+      "pages": [
+        193
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not official translation or full rules text.",
+    "All effects follow the exact pinned PDF wording; do not silently mix revisions.",
+    "Not all summoned creature forms have linked stat blocks.",
+    "Class access, commands, effects, material stock, permanent walls and summoned creatures are not automatically applied."
+  ]
+}

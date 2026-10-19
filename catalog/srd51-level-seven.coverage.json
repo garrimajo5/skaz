@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "All 20 seventh-level spells listed in pinned SRD 5.1",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 20,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:arcane-sword",
+      "nameEn": "Arcane Sword",
+      "pages": [
+        119
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:conjure-celestial",
+      "nameEn": "Conjure Celestial",
+      "pages": [
+        127,
+        128
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:delayed-blast-fireball",
+      "nameEn": "Delayed Blast Fireball",
+      "pages": [
+        133,
+        134
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:divine-word",
+      "nameEn": "Divine Word",
+      "pages": [
+        137
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:etherealness",
+      "nameEn": "Etherealness",
+      "pages": [
+        140,
+        141
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:finger-of-death",
+      "nameEn": "Finger of Death",
+      "pages": [
+        144
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:fire-storm",
+      "nameEn": "Fire Storm",
+      "pages": [
+        145
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:forcecage",
+      "nameEn": "Forcecage",
+      "pages": [
+        147
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:magnificent-mansion",
+      "nameEn": "Magnificent Mansion",
+      "pages": [
+        162
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:mirage-arcane",
+      "nameEn": "Mirage Arcane",
+      "pages": [
+        165
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:plane-shift",
+      "nameEn": "Plane Shift",
+      "pages": [
+        168,
+        169
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:prismatic-spray",
+      "nameEn": "Prismatic Spray",
+      "pages": [
+        170,
+        171
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:project-image",
+      "nameEn": "Project Image",
+      "pages": [
+        172,
+        173
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:regenerate",
+      "nameEn": "Regenerate",
+      "pages": [
+        174
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:resurrection",
+      "nameEn": "Resurrection",
+      "pages": [
+        175
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:reverse-gravity",
+      "nameEn": "Reverse Gravity",
+      "pages": [
+        175
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:sequester",
+      "nameEn": "Sequester",
+      "pages": [
+        178
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:simulacrum",
+      "nameEn": "Simulacrum",
+      "pages": [
+        180
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:symbol",
+      "nameEn": "Symbol",
+      "pages": [
+        184,
+        185
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:teleport",
+      "nameEn": "Teleport",
+      "pages": [
+        185,
+        186
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not official translation or full rules text.",
+    "Teleport outcome table and all effects follow the exact pinned PDF wording; do not silently mix revisions.",
+    "Not all summoned creature forms have linked stat blocks.",
+    "Class access, commands, effects, material stock, permanent walls and summoned creatures are not automatically applied."
+  ]
+}

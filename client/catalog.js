@@ -45,9 +45,19 @@ const SkazCatalog = (() => {
     if (status === 'loading' || status === 'idle') return '<p class="empty">Загружаем каталог…</p>';
     if (status === 'error') return '<div class="empty"><h2>Каталог недоступен</h2><p>Проверь, что локальный сервер запущен. Поиск сохранён — можно повторить запрос.</p><button id="catalog-retry">Повторить</button></div>';
     if (!result?.entries.length) return `<div class="empty"><h2>${query || kind ? 'Ничего не найдено' : 'Каталог пока пуст'}</h2><p>${query || kind ? 'Попробуй другое название или выбери все категории.' : 'Добавь справочные ссылки или личные материалы. Демо-заклинания доступны отдельно.'}</p></div>`;
-    return `<p class="catalog-count">Найдено: ${result.total} · ${offset + 1}–${offset + result.entries.length}</p><nav class="catalog-pages" aria-label="Страницы каталога"><button id="catalog-prev" ${offset === 0 ? 'disabled' : ''}>← Назад</button><button id="catalog-next" ${offset + limit >= result.total ? 'disabled' : ''}>Далее →</button></nav><div class="catalog-grid">${result.entries.map((entry, index) => `<article class="panel catalog-card"><div class="overline">${names[entry.kind]} · 2014</div><h2>${escape(entry.name.ru)}</h2><p>${escape(entry.name.en)}</p><span>${usageLabel(entry.source.usage)}</span><p class="catalog-source">${escape(entry.source.title)}</p><button data-catalog-entry="${index}">Подробнее →</button></article>`).join('')}</div>`;
+    const pages=bottom=>`<nav class="catalog-pages" aria-label="${bottom?'Страницы каталога внизу':'Страницы каталога'}"><button id="catalog-prev${bottom?'-bottom':''}" ${offset === 0 ? 'disabled' : ''}>← Назад</button><span>${Math.floor(offset/limit)+1} / ${Math.ceil(result.total/limit)}</span><button id="catalog-next${bottom?'-bottom':''}" ${offset + limit >= result.total ? 'disabled' : ''}>Далее →</button></nav>`;
+    return `<p class="catalog-count" id="catalog-result-heading" tabindex="-1">Найдено: ${result.total} · ${offset + 1}–${offset + result.entries.length}</p>${pages(false)}<div class="catalog-grid">${result.entries.map((entry, index) => `<article class="panel catalog-card"><div class="overline">${names[entry.kind]} · 2014</div><h2>${escape(entry.name.ru)}</h2><p>${escape(entry.name.en)}</p>${cardSummary(entry)}<span>${usageLabel(entry.source.usage)}</span><p class="catalog-source">${escape(entry.source.title)}</p><button data-catalog-entry="${index}">Подробнее →</button></article>`).join('')}</div>${result.total>limit?pages(true):''}`;
   }
-  async function load() {
+  function cardSummary(entry) {
+    const parts=[];
+    if(entry.spell){const s=entry.spell;parts.push(s.level===0?'Заговор':`${s.level} уровень`,schools[s.school]||s.school,s.castingTime);if(s.ritual)parts.push('Ритуал');if(s.concentration)parts.push('Концентрация');}
+    if(entry.monster){const m=entry.monster;parts.push(monsterTypes[m.type]||m.type,`Опасность ${m.challenge}`,`КД ${m.armorClass}`,`Хиты ${m.hitPoints}`);}
+    const item=entry.item||entry.artifact;
+    if(item){parts.push(itemTypes[item.type]||item.type);if(item.rarity)parts.push(rarityLabels[item.rarity]||item.rarity);parts.push(item.attunement?'Требует настройки':'Без настройки');}
+    if(entry.mechanic)parts.push(mechanicCategories[entry.mechanic.category]||entry.mechanic.category);
+    return parts.length?`<ul class="catalog-card-summary" aria-label="Краткие характеристики">${parts.map(value=>`<li>${escape(value)}</li>`).join('')}</ul>`:'';
+  }
+  async function load({focusResults=false}={}) {
     const requestId = ++serial;
     status = 'loading'; refresh();
     const params = new URLSearchParams({ q: query, limit: String(limit), offset: String(offset) });
@@ -65,6 +75,10 @@ const SkazCatalog = (() => {
       status = 'ready';
     } catch { if (requestId !== serial) return; status = 'error'; }
     refresh();
+    if(focusResults && typeof page!=='undefined' && page==='library' && !document.getElementById('dialog')?.open){
+      const heading=document.getElementById('catalog-result-heading');
+      if(heading){heading.focus({preventScroll:true});heading.scrollIntoView({block:'start',behavior:'auto'});}
+    }
   }
   function refresh() {
     if (typeof page !== 'undefined' && page === 'library') {
@@ -166,7 +180,7 @@ const SkazCatalog = (() => {
     const ready=levelEntries.filter(e=>e.status!=='missing').length,installed=levelEntries.filter(e=>e.status==='installed').length;
     const matches=levelEntries.filter(e=>(inventoryStatus==='all'||e.status===inventoryStatus)&&`${e.nameEn} ${e.nameRu||''}`.toLocaleLowerCase('ru').includes(inventoryQuery.toLocaleLowerCase('ru')));
     inventoryOffset=Math.min(inventoryOffset,Math.floor(Math.max(0,matches.length-1)/20)*20);
-    modal(`<div id="spell-inventory"><h2>Охват заклинаний SRD 5.1</h2><p>319 названий из открытого SRD 2014. Это перечень для проверки охвата, не 319 готовых карточек и не все книги D&D. Русские названия есть только у подготовленных материалов.</p><form id="spell-inventory-search" class="personal-spell-search"><label>Название RU / EN<input name="q" type="search" maxlength="200" value="${escape(inventoryQuery)}"></label><label>Уровень<select name="level"><option value="">Все уровни</option>${Array.from({length:10},(_,n)=>`<option value="${n}" ${inventoryLevel===String(n)?'selected':''}>${n===0?'Заговор':n+' уровень'}</option>`).join('')}</select></label><label>Готовность<select name="status"><option value="all">Все</option>${Object.entries(inventoryLabels).map(([k,v])=>`<option value="${k}" ${inventoryStatus===k?'selected':''}>${v}</option>`).join('')}</select></label><button type="submit">Показать</button></form><p>В выбранном уровне: подготовлено ${ready} из ${levelEntries.length}, установлено ${installed}.</p><p>Найдено: ${matches.length}</p><div class="map-pagination"><button id="inventory-prev" ${inventoryOffset===0?'disabled':''}>Назад</button><span>${matches.length?inventoryOffset+1:0}–${Math.min(inventoryOffset+20,matches.length)} из ${matches.length}</span><button id="inventory-next" ${inventoryOffset+20>=matches.length?'disabled':''}>Дальше</button></div><p id="inventory-open-message" role="status"></p><div class="inventory-index">${matches.slice(inventoryOffset,inventoryOffset+20).map(e=>`<article><h3>${escape(e.nameRu||e.nameEn)}</h3>${e.nameRu?`<p>${escape(e.nameEn)}</p>`:''}<p>${e.level===0?'Заговор':Number(e.level)+' уровень'} · ${inventoryLabels[e.status]}</p><a href="https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=${Number(e.page)}" target="_blank" rel="noopener noreferrer">Источник · стр. ${Number(e.page)}</a>${e.status==='installed'?`<button data-inventory-read="${escape(e.id)}">Открыть карточку →</button>`:''}</article>`).join('')||'<p>Совпадений нет.</p>'}</div></div>`);
+    modal(`<div id="spell-inventory"><h2>Охват заклинаний SRD 5.1</h2><p>319 названий из открытого SRD 2014. Подготовлено кратких изложений: ${inventoryData.entries.filter(e=>e.status!=='missing').length} из 319. Это охват открытого SRD, не всех книг D&D. Установка в твою базу учитывается отдельно.</p><form id="spell-inventory-search" class="personal-spell-search"><label>Название RU / EN<input name="q" type="search" maxlength="200" value="${escape(inventoryQuery)}"></label><label>Уровень<select name="level"><option value="">Все уровни</option>${Array.from({length:10},(_,n)=>`<option value="${n}" ${inventoryLevel===String(n)?'selected':''}>${n===0?'Заговор':n+' уровень'}</option>`).join('')}</select></label><label>Готовность<select name="status"><option value="all">Все</option>${Object.entries(inventoryLabels).map(([k,v])=>`<option value="${k}" ${inventoryStatus===k?'selected':''}>${v}</option>`).join('')}</select></label><button type="submit">Показать</button></form><p>В выбранном уровне: подготовлено ${ready} из ${levelEntries.length}, установлено ${installed}.</p><p>Найдено: ${matches.length}</p><div class="map-pagination"><button id="inventory-prev" ${inventoryOffset===0?'disabled':''}>Назад</button><span>${matches.length?inventoryOffset+1:0}–${Math.min(inventoryOffset+20,matches.length)} из ${matches.length}</span><button id="inventory-next" ${inventoryOffset+20>=matches.length?'disabled':''}>Дальше</button></div><p id="inventory-open-message" role="status"></p><div class="inventory-index">${matches.slice(inventoryOffset,inventoryOffset+20).map(e=>`<article><h3>${escape(e.nameRu||e.nameEn)}</h3>${e.nameRu?`<p>${escape(e.nameEn)}</p>`:''}<p>${e.level===0?'Заговор':Number(e.level)+' уровень'} · ${inventoryLabels[e.status]}</p><a href="https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=${Number(e.page)}" target="_blank" rel="noopener noreferrer">Источник · стр. ${Number(e.page)}</a>${e.status==='installed'?`<button data-inventory-read="${escape(e.id)}">Открыть карточку →</button>`:''}</article>`).join('')||'<p>Совпадений нет.</p>'}</div></div>`);
   }
   async function readInventoryEntry(id){
     if(!inventoryVisible(inventorySerial)||!inventoryData.entries.some(e=>e.id===id&&e.status==='installed'))return;
@@ -199,7 +213,12 @@ const SkazCatalog = (() => {
     if(button.id==='catalog-related-retry'&&currentEntry)loadRelated(currentEntry,detailSerial);
     if(button.id==='catalog-detail-back'&&trail.length)showDetails(trail.pop());
     if (button.id === 'catalog-retry') load();
-    if (button.id === 'catalog-prev' || button.id === 'catalog-next') { offset = Math.max(0, offset + (button.id === 'catalog-prev' ? -limit : limit)); load(); }
+    if (['catalog-prev','catalog-next','catalog-prev-bottom','catalog-next-bottom'].includes(button.id)) {
+      if(status!=='ready'||!result)return;
+      const next=button.id.startsWith('catalog-next');
+      if((next&&offset+limit>=result.total)||(!next&&offset===0))return;
+      offset=Math.max(0,offset+(next?limit:-limit));load({focusResults:true});
+    }
     if (button.id === 'catalog-reset') { query = ''; kind = ''; detailFilter=''; extraFilters={}; searchDraft=null; offset = 0; render(); load(); }
     if(button.id==='catalog-inventory')openInventory();
     if(button.dataset.inventoryRead)readInventoryEntry(button.dataset.inventoryRead);

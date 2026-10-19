@@ -1,0 +1,574 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:astral-projection",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Астральная проекция",
+        "en": "Astral Projection"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=119",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 119, 120.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nТы и до восьми согласных существ отправляете астральные тела в Астральный план; уже на нём наложение тратится впустую. Физические тела бессознательны, не едят, не дышат, не стареют. Проекция повторяет характеристики и имущество, соединена серебряной нитью; её можно разорвать только прямо разрешающим это эффектом, что немедленно убивает. Переход через портал на другой план переносит физическое тело и вещи вдоль нити и воссоединяет с душой.\nУрон и эффекты астральной формы не затрагивают физическую и не сохраняются после возврата. Своим действием можешь закончить эффект для группы. Успешное Рассеивание магии на любом из тел или 0 хитов любого тела прекращают эффект для соответствующего существа, целая нить возвращает его. Если тебя вернули досрочно, спутники остаются в Астрале и ищут собственный путь назад.\nМатериальный компонент: для каждого затронутого существа гиацинт не менее 1000 зм и украшенный серебряный брусок не менее 100 зм; всё расходуется.",
+      "links": [
+        "srd51:2014:mechanic:unconscious"
+      ],
+      "spell": {
+        "level": 9,
+        "school": "necromancy",
+        "castingTime": "1 час",
+        "range": {
+          "type": "feet",
+          "feet": 10
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "Особая",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:foresight",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Предвидение",
+        "en": "Foresight"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=147",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 147.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСогласная цель под касанием не может быть застигнута врасплох, получает преимущество на атаки, проверки характеристик и спасброски; атаки других по ней с помехой. Твоё повторное наложение немедленно прекращает прежнее. Концентрация не требуется.\nМатериальный компонент: перо колибри.",
+      "links": [],
+      "spell": {
+        "level": 9,
+        "school": "divination",
+        "castingTime": "1 минута",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "8 часов",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:gate",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Врата",
+        "en": "Gate"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=148",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 148.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nВ видимом свободном месте открывается портал диаметром 5–20 футов любой ориентации к точному месту другого плана. Переход только с лицевой стороны; выход в ближайшее свободное место. Божества и правители планов могут запретить появление врат у себя. Можно назвать истинное имя конкретного существа (не прозвище/титул): если оно на другом плане, портал открывается рядом и втягивает его на твою сторону. Контроля над существом это не даёт; оно действует по решению мастера.\nМатериальный компонент: алмаз стоимостью не менее 5000 зм; не расходуется.",
+      "links": [
+        "srd51:2014:mechanic:concentration"
+      ],
+      "spell": {
+        "level": 9,
+        "school": "conjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "До 1 минуты",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:imprisonment",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Заточение",
+        "en": "Imprisonment"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=156",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 156, 157.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nВидимая цель делает спасбросок Мудрости; успех делает её невосприимчивой к твоим повторным наложениям этого заклинания. Провал заточает, не требует дыхания, еды и питья, не старит, скрывает от поиска/восприятия прорицанием.\nВыбери форму: Погребение — сфера силы глубоко под землёй, непроходимая даже телепортацией/планами (мифриловый шарик). Цепи — опутывание, нельзя двигаться и быть перемещённым (цепочка из драгоценного металла). Тюрьма — небольшой полуплан с защитой от телепортации/планового перехода (нефритовая модель тюрьмы). Миниатюрное заточение — рост 1 дюйм, внутри прозрачного самоцвета, проходит лишь свет; самоцвет не разбить/разрезать (крупный прозрачный камень). Сон — сон без возможности разбудить (редкие снотворные травы).\nПри наложении можно задать разумное осуществимое условие освобождения с одобрения мастера; имя/личность/божество допустимы, прочие условия — наблюдаемые действия/качества, не уровни, классы или хиты. Рассеивание магии снимает только ячейкой 9-го уровня по тюрьме или особому компоненту. Один особый компонент держит одну тюрьму: повторное использование освобождает прежнюю цель.\nМатериальный компонент: изображение цели на пергаменте или её статуэтка и выбранный особый компонент стоимостью не менее 500 зм за каждую Кость Хитов цели; расход не указан.",
+      "links": [
+        "srd51:2014:mechanic:restrained",
+        "srd51:2014:spell:dispel-magic"
+      ],
+      "spell": {
+        "level": 9,
+        "school": "abjuration",
+        "castingTime": "1 минута",
+        "range": {
+          "type": "feet",
+          "feet": 30
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "Пока не рассеяно",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:mass-heal",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Массовое полное исцеление",
+        "en": "Mass Heal"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=163",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 163.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nРаспредели до 700 восстанавливаемых хитов между любым числом видимых существ в пределах дистанции. Исцелённые также освобождаются от болезней и эффектов слепоты/глухоты. Нежить и конструкты не затрагиваются.",
+      "links": [
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:deafened"
+      ],
+      "spell": {
+        "level": 9,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "S",
+          "V"
+        ],
+        "duration": "Мгновенная",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:meteor-swarm",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Метеоритный дождь",
+        "en": "Meteor Swarm"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=164",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 164.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nЧетыре видимые точки в пределах 1 мили, вокруг каждой сфера радиусом 40 футов, огибающая углы. Спасбросок Ловкости: 20d6 огнём и 20d6 дробящего при провале, половина при успехе. Перекрытие сфер не наносит урон повторно одному существу. Повреждает предметы, зажигает ничьи горючие.",
+      "links": [],
+      "spell": {
+        "level": 9,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 5280
+        },
+        "components": [
+          "S",
+          "V"
+        ],
+        "duration": "Мгновенная",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:power-word-kill",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Слово силы: смерть",
+        "en": "Power Word Kill"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=170",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 170.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nВидимое существо с текущими хитами 100 или меньше немедленно умирает без спасброска; при большем числе хитов эффекта нет.",
+      "links": [],
+      "spell": {
+        "level": 9,
+        "school": "enchantment",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "V"
+        ],
+        "duration": "Мгновенная",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:prismatic-wall",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Радужная стена",
+        "en": "Prismatic Wall"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=171",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 171.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nНеподвижная непрозрачная стена до 90×30 футов толщиной 1 дюйм либо сфера диаметром до 30 футов. Если пересекает занятое существом пространство при появлении, действие и ячейка тратятся без эффекта. Яркий свет 100 футов, тусклый ещё 100. Ты и назначенные при наложении существа безопасно проходите и стоите рядом. Прочие видящие стену при приближении на 20 футов или начале хода там спасаются Телосложением; провал ослепляет 1 минуту.\nПроход или протягивание через стену затрагивает последовательно все семь слоёв, каждый требует спасброска Ловкости. Снимать слои нужно по порядку от красного к фиолетовому. 1 красный: 10d6 огнём/половина, блокирует немагические дистанционные атаки, снимается 25+ холодом. 2 оранжевый: 10d6 кислотой/половина, блокирует магические дистанционные атаки, снимается сильным ветром. 3 жёлтый: 10d6 электричеством/половина, снимается 60+ силового урона. 4 зелёный: 10d6 ядом/половина, снимается Проходом сквозь стену или равным/более высоким заклинанием портала в твёрдой поверхности. 5 синий: 10d6 холодом/половина, снимается 25+ огнём.\n6 индиго: провал опутывает; в конце ходов спасброски ТЕЛ, три успеха снимают воздействие, три провала окаменяют навсегда, подряд не требуется. Блокирует накладывание заклинаний сквозь стену, снимается ярким светом Дневного света или похожим заклинанием равного/большего уровня. 7 фиолетовый: провал ослепляет, в начале твоего следующего хода спасбросок МДР; успех снимает слепоту, провал переносит на план мастера и снимает слепоту. Снимается Рассеиванием магии или похожим эффектом равного/большего уровня. Преграда магии на стену не влияет; источник отдельно называет rod of cancellation как средство уничтожения.",
+      "links": [
+        "srd51:2014:spell:passwall",
+        "srd51:2014:spell:daylight",
+        "srd51:2014:spell:dispel-magic",
+        "srd51:2014:spell:antimagic-field",
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:restrained",
+        "srd51:2014:mechanic:petrified"
+      ],
+      "spell": {
+        "level": 9,
+        "school": "abjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "S",
+          "V"
+        ],
+        "duration": "10 минут",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:shapechange",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Изменение формы",
+        "en": "Shapechange"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=178",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 178.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПринимаешь вид ранее виденного существа опасности не выше твоего уровня, кроме нежити и конструктов: обычный представитель без классовых уровней и особенности Spellcasting. Характеристики заменяются, но сохраняются мировоззрение, ИНТ/МДР/ХАР, собственные владения навыками и спасбросками плюс владения формы; при совпадении берётся больший бонус. Легендарные действия и действия логова недоступны.\nПолучаешь хиты и Кости Хитов формы, при возврате прежние хиты. При возврате от 0 избыток урона переходит на обычную форму; если она не достигла 0, бессознательности нет. Свои классовые/расовые и прочие особенности сохраняешь, если тело способно ими пользоваться; особые чувства доступны лишь если есть у формы, речь — если форма умеет. Снаряжение по выбору падает, сливается без эффекта или надевается, если мастер считает возможным; размер не меняется. Действием можно сменить форму с теми же ограничениями, но если у новой больше хитов, твои текущие хиты не увеличиваются.\nМатериальный компонент: нефритовый обруч стоимостью не менее 1500 зм, надеть до наложения; не расходуется.",
+      "links": [
+        "srd51:2014:mechanic:concentration"
+      ],
+      "spell": {
+        "level": 9,
+        "school": "transmutation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "self"
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "До 1 часа",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:storm-of-vengeance",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Буря возмездия",
+        "en": "Storm of Vengeance"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=183",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 183.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nОблако радиусом 360 футов вокруг видимой точки. При появлении существа под ним не дальше 5000 футов вниз делают спасбросок Телосложения: провал — 2d6 звуком и глухота 5 минут. Дополнительные эффекты происходят в твой ход при поддержании концентрации. Раунд 2: кислотный дождь, каждому существу и предмету снизу 1d6 кислотой. Раунд 3: шесть молний по шести разным существам/предметам; существо делает спасбросок Ловкости, 10d6 электричеством при провале, половина при успехе. Раунд 4: каждому существу 2d6 дробящего градом. Раунды 5–10: труднопроходимость, сильная заслонённость, каждому существу 1d6 холодом; дистанционные атаки оружием невозможны, ветер/дождь сильно мешают концентрации, ветер 20–50 миль/час рассеивает обычные и магические туманы.",
+      "links": [
+        "srd51:2014:mechanic:deafened",
+        "srd51:2014:mechanic:concentration"
+      ],
+      "spell": {
+        "level": 9,
+        "school": "conjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "sight"
+        },
+        "components": [
+          "S",
+          "V"
+        ],
+        "duration": "До 1 минуты",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:time-stop",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Остановка времени",
+        "en": "Time Stop"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=187",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 187.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПолучаешь подряд 1d4+1 ходов с обычными действиями и движением, для остальных время не проходит. Заклинание заканчивается, если твоё действие или созданный эффект затрагивает другое существо либо предмет, который другой носит/несёт. Также заканчивается, если удалишься более чем на 1000 футов от места наложения.",
+      "links": [],
+      "spell": {
+        "level": 9,
+        "school": "transmutation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "self"
+        },
+        "components": [
+          "V"
+        ],
+        "duration": "Мгновенная",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:true-polymorph",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Истинное превращение",
+        "en": "True Polymorph"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=188",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 188.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nВидимое существо или немагический предмет превращается: существо в существо/предмет, предмет в существо. Предмет не должен быть носим/несом другим. Не действует на перевёртыша и существо с 0 хитов. Несогласное существо спасается Мудростью. Превращение действует до конца длительности, 0 хитов или смерти; полная часовая концентрация сохраняет его до рассеивания.\nСущество → существо: опасность новой формы не выше исходной опасности или уровня при отсутствии опасности. Меняются все характеристики, включая умственные; сохраняются личность и мировоззрение. Получает хиты формы, при возврате прежние, избыток урона от 0 переносится, не лишая сознания, если обычная форма не достигла 0. Действия, речь и заклинания допустимы лишь если форма способна; снаряжение сливается и не используется.\nПредмет → существо: размер не больше предмета, опасность до 9, дружелюбно к тебе/спутникам, действует в твои ходы по твоим указаниям, мастер разрешает действия. Когда эффект становится постоянным, контроль прекращается, отношение зависит от обращения. Существо → предмет: превращается вместе со снаряжением, получает параметры предмета, после возврата не помнит время в этой форме.\nМатериальный компонент: капля ртути, немного гуммиарабика и дым.",
+      "links": [
+        "srd51:2014:mechanic:concentration"
+      ],
+      "spell": {
+        "level": 9,
+        "school": "transmutation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 30
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "До 1 часа",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:true-resurrection",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Истинное воскрешение",
+        "en": "True Resurrection"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=189",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 189.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nКасанием возвращает умершего не более 200 лет назад не от старости, если душа свободна и согласна, со всеми хитами. Закрывает раны, нейтрализует яд, лечит все болезни, снимает действовавшие при смерти проклятия, восстанавливает повреждённые/утраченные органы и конечности. Если тела нет, произнеси имя — новое появляется в выбранном свободном месте в 10 футах.\nМатериальный компонент: святая вода и алмазы стоимостью не менее 25 000 зм, расходуются.",
+      "links": [],
+      "spell": {
+        "level": 9,
+        "school": "necromancy",
+        "castingTime": "1 час",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "Мгновенная",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:weird",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Жуткие видения",
+        "en": "Weird"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=192",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 192.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСущества в сфере радиусом 30 футов вокруг выбранной точки видят только им доступные образы своих страхов. Спасбросок Мудрости: провал пугает. В конце каждого хода испуганная цель повторяет спасбросок Мудрости: провал наносит 4d10 психического урона, успех прекращает эффект на ней. При начальном провале урон не наносится.",
+      "links": [
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:concentration"
+      ],
+      "spell": {
+        "level": 9,
+        "school": "illusion",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 120
+        },
+        "components": [
+          "S",
+          "V"
+        ],
+        "duration": "До 1 минуты",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:wish",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Желание",
+        "en": "Wish"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=193",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-nine v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 193.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБазовое применение — повторить любое другое заклинание до 8-го уровня без его требований, включая дорогие компоненты; эффект просто наступает. Другие перечисленные варианты: немагический предмет стоимостью до 25 000 зм и до 300 футов в каждом измерении в видимом свободном месте на земле; до 20 видимых существ полностью восстанавливают хиты и получают эффекты Высшего восстановления; до 10 видимых существ получают сопротивление выбранному типу урона; до 10 видимых существ получают иммунитет к одному заклинанию/магическому эффекту на 8 часов; переброс одного броска за последний раунд (включая твой прошлый ход), можно назначить преимущество/помеху и выбрать старый или новый результат.\nИное желание формулируется мастеру, который решает результат: возможно частичное исполнение, отказ или непредвиденные последствия. Любое применение кроме повторения другого заклинания вызывает стресс: до продолжительного отдыха каждое твоё заклинание наносит тебе 1d10 некротического урона за его уровень, который нельзя уменьшить/предотвратить. Сила становится 3, если не была ниже, на 2d4 дня; каждый день отдыха с максимум лёгкой активностью сокращает оставшийся срок на 2 дня. Есть 33% шанс навсегда утратить возможность накладывать Желание.",
+      "links": [
+        "srd51:2014:spell:greater-restoration",
+        "srd51:2014:mechanic:long-rest"
+      ],
+      "spell": {
+        "level": 9,
+        "school": "conjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "self"
+        },
+        "components": [
+          "V"
+        ],
+        "duration": "Мгновенная",
+        "concentration": false,
+        "ritual": false
+      }
+    }
+  ]
+}

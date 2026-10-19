@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "All 31 sixth-level spells listed in pinned SRD 5.1",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 31,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:blade-barrier",
+      "nameEn": "Blade Barrier",
+      "pages": [
+        122
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:chain-lightning",
+      "nameEn": "Chain Lightning",
+      "pages": [
+        124
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:circle-of-death",
+      "nameEn": "Circle of Death",
+      "pages": [
+        124
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:conjure-fey",
+      "nameEn": "Conjure Fey",
+      "pages": [
+        128
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:contingency",
+      "nameEn": "Contingency",
+      "pages": [
+        130
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:create-undead",
+      "nameEn": "Create Undead",
+      "pages": [
+        132
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:disintegrate",
+      "nameEn": "Disintegrate",
+      "pages": [
+        135,
+        136
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:eyebite",
+      "nameEn": "Eyebite",
+      "pages": [
+        141
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:find-the-path",
+      "nameEn": "Find the Path",
+      "pages": [
+        143,
+        144
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:flesh-to-stone",
+      "nameEn": "Flesh to Stone",
+      "pages": [
+        145,
+        146
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:forbiddance",
+      "nameEn": "Forbiddance",
+      "pages": [
+        146
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:freezing-sphere",
+      "nameEn": "Freezing Sphere",
+      "pages": [
+        147,
+        148
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:globe-of-invulnerability",
+      "nameEn": "Globe of Invulnerability",
+      "pages": [
+        149
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:guards-and-wards",
+      "nameEn": "Guards and Wards",
+      "pages": [
+        151
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:harm",
+      "nameEn": "Harm",
+      "pages": [
+        153
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:heal",
+      "nameEn": "Heal",
+      "pages": [
+        153
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:heroes-feast",
+      "nameEn": "Heroes’ Feast",
+      "pages": [
+        154
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:instant-summons",
+      "nameEn": "Instant Summons",
+      "pages": [
+        157
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:irresistible-dance",
+      "nameEn": "Irresistible Dance",
+      "pages": [
+        158
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:magic-jar",
+      "nameEn": "Magic Jar",
+      "pages": [
+        160,
+        161
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:mass-suggestion",
+      "nameEn": "Mass Suggestion",
+      "pages": [
+        163
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:move-earth",
+      "nameEn": "Move Earth",
+      "pages": [
+        166,
+        167
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:planar-ally",
+      "nameEn": "Planar Ally",
+      "pages": [
+        168
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:programmed-illusion",
+      "nameEn": "Programmed Illusion",
+      "pages": [
+        172
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:sunbeam",
+      "nameEn": "Sunbeam",
+      "pages": [
+        184
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:transport-via-plants",
+      "nameEn": "Transport via Plants",
+      "pages": [
+        188
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:true-seeing",
+      "nameEn": "True Seeing",
+      "pages": [
+        189
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-ice",
+      "nameEn": "Wall of Ice",
+      "pages": [
+        190
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-thorns",
+      "nameEn": "Wall of Thorns",
+      "pages": [
+        191
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:wind-walk",
+      "nameEn": "Wind Walk",
+      "pages": [
+        192
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:word-of-recall",
+      "nameEn": "Word of Recall",
+      "pages": [
+        193
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not official translation or full rules text.",
+    "Disintegrate and other effects follow the exact pinned PDF wording; do not silently mix revisions.",
+    "Not all summoned creature forms have linked stat blocks.",
+    "Class access, commands, effects, material stock, permanent walls and summoned creatures are not automatically applied."
+  ]
+}
