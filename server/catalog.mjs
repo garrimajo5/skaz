@@ -71,12 +71,24 @@ function mechanic(value) {
   if (new Set(effects).size !== effects.length) fail('Повтор эффекта состояния');
   return { category: value.category, effects };
 }
+function artifact(value) {
+  object(value, ['type', 'attunement', 'charges']);
+  if (!['armor', 'ring', 'rod', 'staff', 'wand', 'weapon', 'wondrous', 'other'].includes(value.type)) fail('Неизвестный тип артефакта');
+  if (typeof value.attunement !== 'boolean') fail('Настройка артефакта должна быть boolean');
+  let charges;
+  if (value.charges !== undefined) {
+    object(value.charges, ['max', 'recharge']);
+    if (!Number.isSafeInteger(value.charges.max) || value.charges.max < 1 || value.charges.max > 10000) fail('Неверный максимум зарядов');
+    charges = { max: value.charges.max, recharge: text(value.charges.recharge, 2000) };
+  }
+  return { type: value.type, attunement: value.attunement, ...(charges === undefined ? {} : { charges }) };
+}
 export function validateCatalog(bundle) {
   object(bundle, ['schemaVersion', 'entries']);
   if (bundle.schemaVersion !== 1 || !Array.isArray(bundle.entries) || bundle.entries.length > 1000 || !bundle.entries.length) fail('Ожидается пакет версии 1: от 1 до 1000 записей');
   const ids = new Set();
   return bundle.entries.map(entry => {
-    object(entry, ['id', 'ruleset', 'kind', 'name', 'source', 'text', 'links', 'spell', 'item', 'monster', 'mechanic']);
+    object(entry, ['id', 'ruleset', 'kind', 'name', 'source', 'text', 'links', 'spell', 'item', 'monster', 'mechanic', 'artifact']);
     const entryId = id(entry.id);
     if (ids.has(entryId)) fail(`Повтор ID: ${entryId}`);
     ids.add(entryId);
@@ -84,11 +96,12 @@ export function validateCatalog(bundle) {
     object(entry.name, ['ru', 'en']);
     object(entry.source, ['url', 'title', 'version', 'usage', 'terms', 'attribution', 'changes']);
     if (!['reference-only', 'personal', 'cc-by-4.0'].includes(entry.source.usage)) fail('Неизвестный режим использования');
-    if (entry.source.usage === 'reference-only' && (entry.text !== undefined || entry.spell !== undefined || entry.item !== undefined || entry.monster !== undefined || entry.mechanic !== undefined)) fail('Справочная ссылка не должна содержать копию текста или характеристики');
+    if (entry.source.usage === 'reference-only' && (entry.text !== undefined || entry.spell !== undefined || entry.item !== undefined || entry.monster !== undefined || entry.mechanic !== undefined || entry.artifact !== undefined)) fail('Справочная ссылка не должна содержать копию текста или характеристики');
     if (entry.spell !== undefined && entry.kind !== 'spell') fail('Характеристики заклинания допустимы только для spell');
     if (entry.item !== undefined && entry.kind !== 'item') fail('Характеристики предмета допустимы только для item');
     if (entry.monster !== undefined && entry.kind !== 'monster') fail('Характеристики существа допустимы только для monster');
     if (entry.mechanic !== undefined && entry.kind !== 'mechanic') fail('Структура механики допустима только для mechanic');
+    if (entry.artifact !== undefined && entry.kind !== 'artifact') fail('Структура артефакта допустима только для artifact');
     const license = entry.source.usage === 'cc-by-4.0' ? { attribution: text(entry.source.attribution, 2000), changes: text(entry.source.changes, 2000) } : {};
     if (entry.source.usage !== 'cc-by-4.0' && (entry.source.attribution !== undefined || entry.source.changes !== undefined)) fail('Атрибуция CC допускается только для cc-by-4.0');
     if (!Array.isArray(entry.links) || entry.links.length > 100) fail('Неверный список связей');
@@ -103,6 +116,7 @@ export function validateCatalog(bundle) {
       ...(entry.item === undefined ? {} : { item: item(entry.item) }),
       ...(entry.monster === undefined ? {} : { monster: monster(entry.monster) }),
       ...(entry.mechanic === undefined ? {} : { mechanic: mechanic(entry.mechanic) }),
+      ...(entry.artifact === undefined ? {} : { artifact: artifact(entry.artifact) }),
     };
   });
 }
@@ -156,7 +170,8 @@ export function createCatalog(db) {
       structuredItems: entries.filter(entry => entry.item !== undefined).length,
       structuredMonsters: entries.filter(entry => entry.monster !== undefined).length,
       structuredMechanics: entries.filter(entry => entry.mechanic !== undefined).length,
-      gaps: ['Полная база не загружена; общее количество материалов не установлено.', 'Структуры заклинаний, предметов и существ частичные; действия и особенности остаются в тексте. Схемы артефактов, связь с листом и инвентарём пока не реализованы.'] };
+      structuredArtifacts: entries.filter(entry => entry.artifact !== undefined).length,
+      gaps: ['Полная база не загружена; общее количество материалов не установлено.', 'Структуры заклинаний, предметов и существ частичные; действия и особенности остаются в тексте. Структура артефактов содержит только основные поля; связь с листом и инвентарём пока не реализована.'] };
   }
   return { importEntries, search, coverage };
 }

@@ -59,3 +59,5 @@ PUT требует `Content-Type: application/json` и `X-Skaz-Client: local-v1`
 Для kind=monster доступна необязательная структура `monster` с основными характеристиками; `/api/catalog/coverage` дополнен `structuredMonsters`. Дробная опасность хранится строкой (например, `1/4`). Контракт: [catalog.md](catalog.md).
 
 Для kind=mechanic поддерживается необязательное `mechanic: { category: "condition", effects: [...] }`. Coverage дополнен `structuredMechanics`. Ссылки `links` проверяются на наличие целей; применение состояний к персонажу не реализовано.
+
+Для kind=artifact поддерживается необязательное `artifact` с типом, настройкой и максимумом/описанием восстановления зарядов. Coverage дополнен `structuredArtifacts`. Текущий запас зарядов экземпляра в каталоге не хранится.
