@@ -12,3 +12,5 @@
 .events-filter{display:grid;gap:6px;max-width:320px;margin:18px 0}.events-filter select{width:100%}.session-events .panel h3{overflow-wrap:anywhere}.session-events .panel details{margin:16px 0}.session-events summary{cursor:pointer;min-height:44px;padding:12px 0;color:var(--muted)}.session-events .session-text{max-height:240px;overflow:auto}.confirmed-journal{margin-top:28px}.confirmed-journal>p{color:var(--muted)}#proposal-review .source{max-height:180px;overflow:auto}
 
 .archive-controls{display:grid;gap:12px;margin:20px 0}.archive-controls label{display:grid;gap:6px}.archive-controls select,.archive-controls input{width:100%;min-height:44px}#archive-results .panel{overflow-wrap:anywhere}#archive-results details{margin-top:14px}
+
+.character-choices{display:grid;gap:10px;margin:14px 0}.character-choices button{min-height:44px;text-align:left;overflow-wrap:anywhere;white-space:normal}

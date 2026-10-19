@@ -1,3 +1,4 @@
+import { validateCharacterCreate, createCharacter } from './characters.mjs';
 import { setupProposals, readProposals, validateProposalCreate, validateProposalDecision, createProposal, decideProposal } from './proposals.mjs';
 import { setupPlaces, readPlaces, validatePlaceCommand, savePlace } from './places.mjs';
 import { setupQuests, readQuests, validateQuestCommand, saveQuest } from './quests.mjs';
@@ -151,6 +152,11 @@ export function openStore(filename) {
   }
   return {
     catalog,
+    createCharacter: request => {
+      const payload = validateCharacterCreate(request);
+      const hash = createHash('sha256').update(JSON.stringify({operation:'character-create',expectedRevision:request.expectedRevision,payload})).digest('hex');
+      return mutate(request,hash,'Создание персонажа',()=>{createCharacter(db,payload,read().context);return read().state;},'character-create');
+    },
     proposals: () => { const current = read(); return { revision: current.revision, context: current.context, proposals: readProposals(db,current.context) }; },
     createProposal: request => {
       const payload = validateProposalCreate(request);

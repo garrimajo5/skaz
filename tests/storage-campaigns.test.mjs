@@ -13,7 +13,7 @@ function harness(localStorage, sessionStorage, fetch) {
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
     document: { getElementById: get, addEventListener: (key, handler) => handlers[key] = handler },
-    SkazArchive: { open: id => archiveCalls.push(id) }, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-session-view]' ? [get('session-view-button')] : [], esc: String, render() {}, modal() {}, closeModal() {}, toast: value => messages.push(value),
+    SkazArchive: { open: id => archiveCalls.push(id) }, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : [], esc: String, render() {}, modal() {}, closeModal() {}, toast: value => messages.push(value),
   });
   vm.runInContext(source, context);
   return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls,
@@ -460,4 +460,20 @@ test('archive transport rejects an older snapshot and context switched during lo
  const h=harness(memory(),memory(),async url=>url==='/api/workspace'?response(current):new Promise(resolve=>pending=resolve));
  await h.api.boot();const load=h.api.sessionReviewData('old-session');pending(response({revision:1,context:current.context}));await assert.rejects(load,/Игра изменилась/);
  const switched=h.api.sessionReviewData('old-session');current=payload(2,'another');await h.api.boot();pending(response({revision:0,context:payload(0).context}));await assert.rejects(switched,/Игра изменилась/);
+});
+
+
+test('new character persists explicit template and original ID after response loss',async()=>{
+ const local=memory(),session=memory(),calls=[];
+ const h=harness(local,session,async(url,options)=>{if(url==='/api/workspace')return response(payload(0));calls.push({url,body:options.body});throw new Error('lost');});
+ await h.api.boot();h.api.newCharacter();h.get('#character-name').value='Лира';h.get('#character-tagline').value='Проводник';await h.get('#character-form').onsubmit({preventDefault(){}});
+ assert.equal(calls[0].url,'/api/characters');const command=JSON.parse(calls[0].body);assert.equal(command.template,'bard5-demo');assert.equal(command.profile.name,'Лира');assert.equal(command.campaignId,'first');assert.equal(command.state,undefined);
+ const restored=harness(local,session,async(url,options)=>{if(url!=='/api/workspace')calls.push({url,body:options.body});return response(payload(1));});await restored.api.boot();await restored.click('sync-retry');assert.deepEqual(calls[1],calls[0]);
+});
+
+test('character picker selects the requested hero in the current session and stale forms do not write',async()=>{
+ const calls=[];let current=payload(0);
+ const h=harness(memory(),memory(),async(url,options)=>{if(url==='/api/workspace')return response(current);if(url==='/api/campaigns')return response({campaigns:[{id:'first',name:'Campaign',characters:[{id:'first-hero',name:'First'},{id:'second-hero',name:'Second'}],sessions:[{id:'first-session'}]}]});calls.push(JSON.parse(options.body));return response(payload(1));});
+ await h.api.boot();await h.click('campaign-settings');await tick();h.get('character-choice').dataset.selectCharacter='0:1';await h.get('character-choice').onclick();assert.equal(calls[0].context.characterId,'second-hero');assert.equal(calls[0].context.sessionId,'first-session');
+ h.api.newCharacter();current=payload(2,'other');await h.api.boot();await h.get('#character-form').onsubmit({preventDefault(){}});assert.equal(calls.length,1);assert.match(h.messages.at(-1),/Игра изменилась/);
 });
