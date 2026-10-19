@@ -57,3 +57,5 @@ PUT требует `Content-Type: application/json` и `X-Skaz-Client: local-v1`
 Для kind=item поддерживается необязательная структура `item`: тип, редкость, настройка и формула лечения зелья. `/api/catalog/coverage` дополнен `structuredItems`. Импорт не меняет ресурсы персонажа.
 
 Для kind=monster доступна необязательная структура `monster` с основными характеристиками; `/api/catalog/coverage` дополнен `structuredMonsters`. Дробная опасность хранится строкой (например, `1/4`). Контракт: [catalog.md](catalog.md).
+
+Для kind=mechanic поддерживается необязательное `mechanic: { category: "condition", effects: [...] }`. Coverage дополнен `structuredMechanics`. Ссылки `links` проверяются на наличие целей; применение состояний к персонажу не реализовано.
