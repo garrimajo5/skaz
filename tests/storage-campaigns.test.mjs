@@ -249,14 +249,14 @@ test('v3 preview includes spell list in the durable import and rejects a missing
   assert.deepEqual(calls[0].body.file.spellbook, file.spellbook);
 });
 
-test('client requests v3 export and refuses a response from another revision', async () => {
+test('client requests v4 export and refuses a response from another revision', async () => {
   const calls = [];
   const h = harness(memory(), memory(), async url => {
     calls.push(url);
     return response(url === '/api/workspace' ? payload(0) : { source: { context: payload(0).context, revision: 1 } });
   });
   await h.api.boot(); h.api.settings(); await h.get('#export-active').onclick();
-  assert.equal(calls.at(-1), '/api/export/active-v3');
+  assert.equal(calls.at(-1), '/api/export/active-v4');
   assert.match(h.messages.at(-1), /Игра изменилась/);
 });
 
@@ -276,6 +276,30 @@ test('spell selection persists exact command across lost response and reload', a
   const restored = harness(local, session, async (url, options) => {
     if (url !== '/api/workspace') calls.push({ url, body: options.body });
     return response(payload(1));
+  });
+  await restored.api.boot(); await restored.click('sync-retry');
+  assert.deepEqual(calls[1], calls[0]); assert.equal(restored.api.editable(), true);
+});
+
+
+test('v4 requires quests before preview and preserves provenance through a lost-response retry', async () => {
+  const local = memory(), session = memory(), calls = [];
+  const h = harness(local, session, async (url, options) => {
+    if (url === '/api/workspace') return response(payload(0));
+    calls.push({ url, body: options.body }); throw new Error('lost response');
+  });
+  const file = { app: 'skaz-active', schemaVersion: 4, ruleset: '5e-2014', scope: 'active-game', state: seed, inventory: [], catalog: { entries: [] }, spellbook: [], quests: [{ origin: { campaignId: 'campaign-old', questId: 'quest-old', sessionId: 'session-old' }, quest: { title: 'Find map', description: '', status: 'active', steps: [] } }] };
+  await h.api.boot(); h.api.settings();
+  const invalid = { ...file }; delete invalid.quests;
+  await h.get('#import-state').onchange({ target: { files: [{ size: 200, text: async () => JSON.stringify(invalid) }] } });
+  assert.match(h.messages.at(-1), /отсутствует список заданий/); assert.equal(calls.length, 0);
+  await h.get('#import-state').onchange({ target: { files: [{ size: 1000, text: async () => JSON.stringify(file) }] } });
+  assert.equal(calls.length, 0);
+  await h.get('#confirm-active-import').onclick();
+  assert.deepEqual(JSON.parse(calls[0].body).file, file);
+  const restored = harness(local, session, async (url, options) => {
+    if (url !== '/api/workspace') calls.push({ url, body: options.body });
+    return response(payload(1, 'imported'));
   });
   await restored.api.boot(); await restored.click('sync-retry');
   assert.deepEqual(calls[1], calls[0]); assert.equal(restored.api.editable(), true);

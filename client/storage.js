@@ -100,17 +100,18 @@ const SkazStorage = (() => {
     if (demo || status !== 'ready') return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key = JSON.stringify(activeContext), version = revision;
     try {
-      const file = await request('/api/export/active-v3');
+      const file = await request('/api/export/active-v4');
       if (key !== JSON.stringify(activeContext) || version !== revision || JSON.stringify(file.source?.context) !== key || file.source?.revision !== version) return toast('Игра изменилась. Обнови страницу перед экспортом.');
-      download(file, 'skaz-active-v3.json');
+      download(file, 'skaz-active-v4.json');
     } catch (error) { toast(error.message || 'Не удалось скачать игру'); }
   }
   function previewActive(file) {
     if (demo || status !== 'ready') return toast('Импорт доступен после подключения и сохранения черновика');
-    if (file.ruleset !== '5e-2014' || file.scope !== 'active-game' || typeof file.state?.profile?.name !== 'string' || typeof file.state?.profile?.campaign !== 'string' || !Array.isArray(file.inventory) || !Array.isArray(file.catalog?.entries)) throw new Error('Неверный файл игры v2/v3');
-    if (file.schemaVersion === 3 && !Array.isArray(file.spellbook)) throw new Error('В файле v3 отсутствует список заклинаний');
+    if (file.ruleset !== '5e-2014' || file.scope !== 'active-game' || typeof file.state?.profile?.name !== 'string' || typeof file.state?.profile?.campaign !== 'string' || !Array.isArray(file.inventory) || !Array.isArray(file.catalog?.entries)) throw new Error('Неверный файл игры v2/v3/v4');
+    if (file.schemaVersion >= 3 && !Array.isArray(file.spellbook)) throw new Error('В файле отсутствует список заклинаний');
+    if (file.schemaVersion === 4 && !Array.isArray(file.quests)) throw new Error('В файле v4 отсутствует список заданий');
     const key = JSON.stringify(activeContext), version = revision;
-    modal(`<div class="overline">ПЕРЕНОС D&D 2014 · НОВАЯ КАМПАНИЯ</div><h2>${esc(file.state.profile.campaign)}</h2><p>Персонаж: ${esc(file.state.profile.name)}. Видов предметов: ${file.inventory.length}. Материалов каталога: ${file.catalog.entries.length}. Заклинаний: ${file.schemaVersion === 3 ? file.spellbook.length : 'не включены в v2'}.</p><p>Будет создана и открыта новая кампания. Существующие игры сохранятся. В файле только текущая сессия: архивы и история не переносятся. Сервер проверит данные и источники; конфликт отменит весь импорт.</p><div class="dialog-actions"><button id="confirm-active-import" class="primary">Создать новую кампанию из файла</button></div>`);
+    modal(`<div class="overline">ПЕРЕНОС D&D 2014 · НОВАЯ КАМПАНИЯ</div><h2>${esc(file.state.profile.campaign)}</h2><p>Персонаж: ${esc(file.state.profile.name)}. Видов предметов: ${file.inventory.length}. Материалов каталога: ${file.catalog.entries.length}. Заклинаний: ${file.schemaVersion >= 3 ? file.spellbook.length : 'не включены в v2'}. Заданий: ${file.schemaVersion === 4 ? file.quests.length : 'не включены в v' + file.schemaVersion}.</p>${file.schemaVersion === 4 ? '<p>Задания появятся в новой кампании. Сведения об исходной сессии сохранятся, даже если её архив отсутствует в файле.</p>' : ''}<p>Будет создана и открыта новая кампания. Существующие игры сохранятся. В файле только текущая сессия: архивы и история не переносятся. Сервер проверит данные и источники; конфликт отменит весь импорт.</p><div class="dialog-actions"><button id="confirm-active-import" class="primary">Создать новую кампанию из файла</button></div>`);
     $('#confirm-active-import').onclick = async () => {
       if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Выбери файл заново.');
       try { await campaignCommand('import-active', { destination: 'new-campaign', file }); }
@@ -264,7 +265,7 @@ const SkazStorage = (() => {
     } catch { modal('<h2>Сессии недоступны</h2><p>Проверь соединение и открой список снова.</p>'); }
   }
   function settings() {
-    modal(`<div class="overline">СКАЗ · ЛОКАЛЬНАЯ ВЕРСИЯ 0.2</div><h2>Данные приключения</h2><p>${demo ? 'Этот HTML-файл работает в демонстрационном режиме. Для сохранения в базе открой локальное приложение.' : 'Прогресс хранится в SQLite на этом компьютере. Тема выбирается отдельно для каждого браузера.'}</p><div class="settings-actions"><button id="export-state">Скачать прогресс без инвентаря (v1)</button>${!demo ? '<button id="export-active" class="primary">Скачать игру с предметами и заклинаниями (v3)</button>' : ''}<label class="file-label">Импортировать JSON v1, v2 или v3<input id="import-state" type="file" accept=".json,application/json"></label><button id="import-old">Перенести данные раннего прототипа</button>${!demo ? '<button id="change-history">История сохранений</button><button id="saved-drafts">Несохранённые черновики</button>' : ''}</div><p>v3 переносит активного персонажа, текущую сессию, инвентарь и заклинания с источниками в новую кампанию. Архивы сессий и история не входят. v2 не содержит списка заклинаний. v1 заменяет текущий прогресс без инвентаря и списка заклинаний. Лимит импорта — 512 КиБ. Для полной копии нужна резервная копия SQLite.</p><p>Каждая кампания использует шаблон барда 5 уровня. В магии доступны 8 демонстрационных заклинаний. Распознавание речи пока демонстрационное.</p><button class="text-button" id="reset-workspace">Начать демо заново</button>`);
+    modal(`<div class="overline">СКАЗ · ЛОКАЛЬНАЯ ВЕРСИЯ 0.2</div><h2>Данные приключения</h2><p>${demo ? 'Этот HTML-файл работает в демонстрационном режиме. Для сохранения в базе открой локальное приложение.' : 'Прогресс хранится в SQLite на этом компьютере. Тема выбирается отдельно для каждого браузера.'}</p><div class="settings-actions"><button id="export-state">Скачать прогресс без инвентаря (v1)</button>${!demo ? '<button id="export-active" class="primary">Скачать игру с предметами, заклинаниями и заданиями (v4)</button>' : ''}<label class="file-label">Импортировать JSON v1–v4<input id="import-state" type="file" accept=".json,application/json"></label><button id="import-old">Перенести данные раннего прототипа</button>${!demo ? '<button id="change-history">История сохранений</button><button id="saved-drafts">Несохранённые черновики</button>' : ''}</div><p>v4 переносит активного персонажа, текущую сессию, задания, инвентарь и заклинания с источниками в новую кампанию. Архивы сессий и история не входят. v2/v3 не содержат сохранённых заданий; в v2 также нет списка заклинаний. v1 заменяет текущий прогресс без инвентаря, списка заклинаний и сохранённых заданий. Лимит импорта — 512 КиБ. Для полной копии нужна резервная копия SQLite.</p><p>Каждая кампания использует шаблон барда 5 уровня. В магии доступны 8 демонстрационных заклинаний. Распознавание речи пока демонстрационное.</p><button class="text-button" id="reset-workspace">Начать демо заново</button>`);
     $('#export-state').onclick = exportState;
     if (!demo) $('#export-active').onclick = exportActive;
     if ($('#saved-drafts')) $('#saved-drafts').onclick = () => {
@@ -307,7 +308,7 @@ const SkazStorage = (() => {
     };
   }
   function previewImport(data) {
-    if (data?.app === 'skaz-active' && [2,3].includes(data.schemaVersion)) return previewActive(data);
+    if (data?.app === 'skaz-active' && [2,3,4].includes(data.schemaVersion)) return previewActive(data);
     if (data?.app !== 'skaz' || data.schemaVersion !== 1 || !data.state?.profile || typeof data.state.profile.name !== 'string') throw new Error('Это не файл сохранения СКАЗ версии 1');
     modal(`<div class="overline">ВОССТАНОВЛЕНИЕ ПРОГРЕССА</div><h2>${esc(data.state.profile.name)}</h2><p>Файл заменит данные активной кампании «${esc(state.profile.campaign)}»: персонажа, журнал, этапы заданий и заметки карты. Тема останется прежней. Сервер проверит данные перед записью.</p><div class="dialog-actions"><button id="import-backup-first">Скачать текущие</button><button class="primary" id="confirm-import">Восстановить</button></div>`);
     $('#import-backup-first').onclick = exportState;
