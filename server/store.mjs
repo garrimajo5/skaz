@@ -42,6 +42,37 @@ export function openStore(filename) {
       session: { name: session.name, playedOn: session.playedOn },
       state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
   }
+  function exportActive() {
+    db.exec('BEGIN');
+    try {
+      const current = read();
+      const inventory = readInventory(db, current.context.characterId);
+      const entries = new Map();
+      const pending = inventory.map(item => item.catalogId);
+      const lookup = db.prepare('SELECT entry_json FROM catalog_entries WHERE id=?');
+      while (pending.length) {
+        const id = pending.pop();
+        if (entries.has(id)) continue;
+        const row = lookup.get(id);
+        if (!row) throw new AppError(409, 'В каталоге отсутствует связанная запись: ' + id);
+        const entry = JSON.parse(row.entry_json);
+        entries.set(id, entry);
+        pending.push(...(entry.links || []));
+      }
+      for (const item of inventory) {
+        if (JSON.stringify(entries.get(item.catalogId)) !== JSON.stringify(item.entry)) throw new AppError(409, 'Снимок предмета отличается от каталога: ' + item.catalogId);
+      }
+      const result = {
+        app: 'skaz-active', schemaVersion: 2, ruleset: '5e-2014', scope: 'active-game',
+        exportedAt: new Date().toISOString(), source: { revision: current.revision, context: current.context },
+        state: current.state, session: current.session,
+        inventory: inventory.map(({ catalogId, quantity }) => ({ catalogId, quantity })),
+        catalog: { schemaVersion: 1, entries: [...entries.values()].sort((a, b) => a.id.localeCompare(b.id, 'en')) },
+      };
+      db.exec('COMMIT');
+      return result;
+    } catch (error) { db.exec('ROLLBACK'); throw error; }
+  }
   function update(request) {
     const next = validateState(request.state);
     const { expectedRevision, label } = request;
@@ -137,7 +168,7 @@ export function openStore(filename) {
     startSession: request => gameCommand('session', request),
     sessions: campaignId => listSessions(db, campaignId),
     session: id => readSession(db, id),
-    read, update,
+    read, update, exportActive,
     history: () => db.prepare('SELECT revision, label, created_at AS createdAt FROM changes ORDER BY revision DESC LIMIT 50').all(),
     backup: destination => backup(db, destination),
     close: () => db.close(),

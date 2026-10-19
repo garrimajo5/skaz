@@ -274,3 +274,61 @@ test('inventory advertises undo only for the latest eligible operation', () => {
     assert.equal(store.inventory().undo, null);
   } finally { store.close(); }
 });
+
+
+test('active export includes inventory source and transitive cyclic links without unrelated games or catalog rows', () => {
+  const store = openStore(':memory:');
+  try {
+    const a = { ...items.entries[0], id: 'test:item-a', links: ['test:item-b'] };
+    const b = { ...items.entries[0], id: 'test:item-b', links: ['test:item-a'] };
+    store.catalog.importEntries({ schemaVersion: 1, entries: [a, b, ...items.entries] }, { apply: true });
+    store.addInventory(add(store, { catalogId: a.id, quantity: 3 }));
+    const before = store.read();
+    const exported = store.exportActive();
+    assert.equal(exported.schemaVersion, 2); assert.equal(exported.app, 'skaz-active');
+    assert.deepEqual(exported.state, before.state);
+    assert.deepEqual(exported.session, before.session);
+    assert.deepEqual(exported.source, { revision: before.revision, context: before.context });
+    assert.deepEqual(exported.inventory, [{ catalogId: a.id, quantity: 3 }]);
+    assert.deepEqual(exported.catalog.entries.map(e => e.id), [a.id, b.id]);
+    assert.deepEqual(exported.catalog.entries[0].source, a.source);
+    assert.deepEqual(store.read(), before); assert.equal(store.history().length, 1);
+    store.createCampaign(cmd(store, { state: seed }));
+    const empty = store.exportActive();
+    assert.deepEqual(empty.inventory, []); assert.deepEqual(empty.catalog.entries, []);
+    assert.notEqual(empty.source.context.characterId, before.context.characterId);
+  } finally { store.close(); }
+});
+
+test('export rejects broken provenance and leaves the transaction usable', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'skaz-export-')), file = join(dir, 'game.sqlite');
+  const store = openStore(file), raw = new DatabaseSync(file);
+  try {
+    store.catalog.importEntries(items, { apply: true }); store.addInventory(add(store));
+    const id = items.entries[0].id;
+    const original = raw.prepare('SELECT entry_json FROM catalog_entries WHERE id=?').get(id).entry_json;
+    const changed = JSON.parse(original); changed.links = ['missing:dependency'];
+    raw.prepare('UPDATE catalog_entries SET entry_json=? WHERE id=?').run(JSON.stringify(changed), id);
+    assert.throws(() => store.exportActive(), { status: 409 });
+    changed.links = []; changed.name.ru = 'Different';
+    raw.prepare('UPDATE catalog_entries SET entry_json=? WHERE id=?').run(JSON.stringify(changed), id);
+    assert.throws(() => store.exportActive(), { status: 409 });
+    raw.prepare('UPDATE catalog_entries SET entry_json=? WHERE id=?').run(original, id);
+    assert.equal(store.exportActive().inventory[0].quantity, 2);
+    assert.equal(store.read().revision, 1);
+  } finally { raw.close(); store.close(); }
+});
+
+test('HTTP active export is downloadable v2 while legacy export remains v1', async t => {
+  const store = openStore(':memory:'); store.catalog.importEntries(items, { apply: true }); store.addInventory(add(store));
+  const app = createApp(store); await new Promise(resolve => app.listen(0, '127.0.0.1', resolve));
+  t.after(async () => { await new Promise(resolve => app.close(resolve)); store.close(); });
+  const url = `http://127.0.0.1:${app.address().port}/api/export`;
+  const response = await fetch(url + '/active');
+  assert.equal(response.status, 200); assert.match(response.headers.get('content-disposition'), /skaz-active-v2.json/);
+  assert.equal(response.headers.get('cache-control'), 'no-store');
+  const data = await response.json(); assert.equal(data.inventory[0].quantity, 2);
+  assert.equal(data.catalog.entries.length, 1); assert.equal(data.schemaVersion, 2);
+  assert.equal((await fetch(url).then(r => r.json())).schemaVersion, 1);
+  assert.equal((await fetch(url + '/active', { headers: { Origin: 'https://other.example' } })).status, 403);
+});
