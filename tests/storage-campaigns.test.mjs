@@ -7,16 +7,16 @@ import { seed } from '../server/state.mjs';
 const source = await readFile(new URL('../client/storage.js', import.meta.url), 'utf8');
 const memory = () => { const values = new Map(); return { getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
 function harness(localStorage, sessionStorage, fetch) {
-  const handlers = {}, elements = new Map(), messages = [];
+  const handlers = {}, elements = new Map(), messages = [], archiveCalls = [];
   const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '', style: {}, focus() {} }); return elements.get(id); };
   const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch,
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
     document: { getElementById: get, addEventListener: (key, handler) => handlers[key] = handler },
-    window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-session-view]' ? [get('session-view-button')] : [], esc: String, render() {}, modal() {}, closeModal() {}, toast: value => messages.push(value),
+    SkazArchive: { open: id => archiveCalls.push(id) }, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-session-view]' ? [get('session-view-button')] : [], esc: String, render() {}, modal() {}, closeModal() {}, toast: value => messages.push(value),
   });
   vm.runInContext(source, context);
-  return { api: vm.runInContext('SkazStorage', context), get, messages,
+  return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls,
     click: id => handlers.click({ target: { closest: () => ({ id }) } }),
   };
 }
@@ -95,15 +95,16 @@ test('archive view uses GET only and does not change the active context', async 
     calls.push({ url, method: options.method || 'GET' });
     if (url === '/api/workspace') return response(payload(4));
     if (url.endsWith('/sessions')) return response({ sessions: [{ id: 'old-session', archived: true, name: 'Старая', playedOn: null }] });
-    return response({ id: 'old-session', archived: true, data: { journal: [{ title: 'Запись', text: 'Текст', time: '01:00' }] } });
+    return response({ revision: 4, context: payload(4).context, id: 'old-session', archived: true, data: { journal: [{ title: 'Запись', text: 'Текст', time: '01:00' }] } });
   });
   await h.api.boot(); const active = h.api.contextKey();
   await h.click('session-settings'); await tick();
   h.get('session-view-button').dataset.sessionView = '0';
   await h.get('session-view-button').onclick();
+  assert.deepEqual(h.archiveCalls,['old-session']); await h.api.sessionReviewData('old-session');
   assert.equal(h.api.contextKey(), active);
   assert.ok(calls.every(call => call.method === 'GET'));
-  assert.equal(calls.at(-1).url, '/api/sessions/old-session');
+  assert.equal(calls.at(-1).url, '/api/sessions/old-session/review');
   assert.equal(h.api.editable(), true);
 });
 
@@ -451,4 +452,12 @@ test('accepted proposal delivery retries the identical decision after response l
   const restored=harness(local,session,async(url,options)=>{if(url!=='/api/workspace')calls.push({url,body:options.body});return response(payload(1));});
   await restored.api.boot();assert.equal(restored.api.editable(),false);await restored.click('sync-retry');
   assert.deepEqual(calls[1],calls[0]);assert.equal(restored.api.editable(),true);
+});
+
+
+test('archive transport rejects an older snapshot and context switched during loading',async()=>{
+ let current=payload(0),pending;
+ const h=harness(memory(),memory(),async url=>url==='/api/workspace'?response(current):new Promise(resolve=>pending=resolve));
+ await h.api.boot();const load=h.api.sessionReviewData('old-session');pending(response({revision:1,context:current.context}));await assert.rejects(load,/Игра изменилась/);
+ const switched=h.api.sessionReviewData('old-session');current=payload(2,'another');await h.api.boot();pending(response({revision:0,context:payload(0).context}));await assert.rejects(switched,/Игра изменилась/);
 });

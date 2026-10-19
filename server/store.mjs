@@ -230,6 +230,16 @@ export function openStore(filename) {
     startSession: request => gameCommand('session', request),
     sessions: campaignId => listSessions(db, campaignId),
     session: id => readSession(db, id),
+    sessionReview: id => {
+      db.exec('BEGIN');
+      try {
+        const current = read(), session = readSession(db,id);
+        if (session.campaignId !== current.context.campaignId) throw new AppError(404, 'Сессия не найдена в активной кампании');
+        const proposals = readProposals(db,{ ...current.context,sessionId:id });
+        const result = { revision: current.revision, context: current.context, characterName: current.state.profile.name, session, proposals };
+        db.exec('COMMIT'); return result;
+      } catch(error) { db.exec('ROLLBACK'); throw error; }
+    },
     importActive: request => {
       if (!request || typeof request !== 'object' || Array.isArray(request) || Object.keys(request).some(key => !['mutationId','expectedRevision','destination','file'].includes(key)) || request.destination !== 'new-campaign') throw new AppError(400, 'Импорт требует новую кампанию');
       const payload = validateTransfer(request.file);

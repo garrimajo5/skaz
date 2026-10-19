@@ -355,6 +355,12 @@ const SkazStorage = (() => {
       catch (error) { toast(error.message); }
     };
   }
+  async function sessionReviewData(id) {
+    if (demo || status !== 'ready' || !activeContext) throw new Error('Сначала сохрани черновик или подключись к серверу');
+    const key = snapshotKey(), data = await request('/api/sessions/' + encodeURIComponent(id) + '/review');
+    if (key !== snapshotKey() || data.revision !== revision || JSON.stringify(data.context) !== JSON.stringify(activeContext)) throw new Error('Игра изменилась. Открой архив заново.');
+    return data;
+  }
   function sessionTitle() { return sessionInfo?.name || (demo ? 'Демонстрационная сессия' : 'Сессия без названия'); }
   async function sessions() {
     if (demo || status !== 'ready' || !activeContext) return toast('Сессии доступны после подключения и сохранения черновика');
@@ -363,16 +369,10 @@ const SkazStorage = (() => {
     try {
       const { sessions: list } = await request('/api/campaigns/' + activeContext.campaignId + '/sessions');
       if (key !== JSON.stringify(activeContext)) return;
-      modal(`<div class="overline">${esc(state.profile.campaign)}</div><h2>Сессии кампании</h2><div class="settings-actions">${list.slice().reverse().map((item, i) => `<section class="panel"><h3>${esc(item.name || 'Сессия без названия')}</h3><p>${esc(item.playedOn || 'Дата не указана')} · ${item.archived ? 'Архив' : 'Текущая'}</p><button data-session-view="${list.length - 1 - i}">Читать журнал</button></section>`).join('')}<button id="new-session" class="primary">Начать следующую сессию</button></div>`);
-      $$('[data-session-view]').forEach(button => button.onclick = async () => {
-        try {
-          const item = await request('/api/sessions/' + list[Number(button.dataset.sessionView)].id);
-          modal(`<div class="overline">${item.archived ? 'АРХИВ' : 'ПРОСМОТР'} · ТОЛЬКО ЧТЕНИЕ</div><h2>${esc(item.name || 'Сессия без названия')}</h2><p>${esc(item.playedOn || 'Дата не указана')}. Просмотр не меняет активную игру и ресурсы персонажа. Личные заметки персонажа сюда не входят.</p>${item.data.journal.map(entry => `<article class="panel"><small>${esc(entry.time)}</small><h3>${esc(entry.title)}</h3><p class="session-text">${esc(entry.text)}</p></article>`).join('') || '<p>В этой сессии нет сохранённых записей.</p>'}<button id="back-sessions">К списку сессий</button>`);
-          $('#back-sessions').onclick = sessions;
-        } catch { toast('Не удалось открыть журнал'); }
-      });
+      modal(`<div class="overline">${esc(state.profile.campaign)}</div><h2>Сессии кампании</h2><div class="settings-actions">${list.slice().reverse().map((item, i) => `<section class="panel"><h3>${esc(item.name || 'Сессия без названия')}</h3><p>${esc(item.playedOn || 'Дата не указана')} · ${item.archived ? 'Архив' : 'Текущая'}</p><button data-session-view="${list.length - 1 - i}">Журнал и события</button></section>`).join('')}<button id="new-session" class="primary">Начать следующую сессию</button></div>`);
+      $$('[data-session-view]').forEach(button => button.onclick = () => SkazArchive.open(list[Number(button.dataset.sessionView)].id, sessions));
       $('#new-session').onclick = () => {
-        modal('<h2>Следующая сессия</h2><p>Текущий журнал станет архивом только для чтения. Ресурсы персонажа, карта, задания и личные заметки сохранятся. Это не отдых. Новый журнал будет пустым. Сначала проверь ожидающие события в журнале: после перехода их нельзя подтвердить. Исходные предложения останутся в базе, но просмотр предложений архивной сессии пока не подключён.</p><form id="new-session-form"><label for="session-name">Название</label><input id="session-name" maxlength="120" required><label for="session-date">Дата игры</label><input id="session-date" type="date" required><div class="dialog-actions"><button type="submit" class="primary">Завершить текущую и начать</button></div></form>');
+        modal('<h2>Следующая сессия</h2><p>Текущий журнал станет архивом только для чтения. Ресурсы персонажа, карта, задания и личные заметки сохранятся. Это не отдых. Новый журнал будет пустым. Сначала проверь ожидающие события в журнале: после перехода их нельзя подтвердить. Исходные предложения и решения останутся доступны в архиве только для чтения.</p><form id="new-session-form"><label for="session-name">Название</label><input id="session-name" maxlength="120" required><label for="session-date">Дата игры</label><input id="session-date" type="date" required><div class="dialog-actions"><button type="submit" class="primary">Завершить текущую и начать</button></div></form>');
         $('#new-session-form').onsubmit = async event => {
           event.preventDefault();
           const name = $('#session-name').value.trim(), playedOn = $('#session-date').value;
@@ -452,5 +452,5 @@ const SkazStorage = (() => {
     }
   });
   window.addEventListener('beforeunload', event => { if (status === 'saving') { event.preventDefault(); event.returnValue = ''; } });
-  return { commit, paint, settings, inventory, addInventory, removeInventory, spellbook, editSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
+  return { commit, paint, settings, sessionReviewData, inventory, addInventory, removeInventory, spellbook, editSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
 })();

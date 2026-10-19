@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { AppError } from './state.mjs';
 
 const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
-const files = new Set(['index.html', 'style.css', 'quick.css', 'app.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js']);
+const files = new Set(['index.html', 'style.css', 'quick.css', 'app.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js']);
 const contentTypes = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
 const MAX_BODY = 512 * 1024;
 function json(response, status, value, extra = {}) {
@@ -48,6 +48,8 @@ export function createApp(store) {
           if (pathname === '/api/campaigns') return json(response, 200, { campaigns: store.campaigns() });
           const sessionList = pathname.match(/^\/api\/campaigns\/([a-zA-Z0-9-]{1,80})\/sessions$/);
           if (sessionList) return json(response, 200, { sessions: store.sessions(sessionList[1]) });
+          const review = pathname.match(/^\/api\/sessions\/([a-zA-Z0-9-]{1,80})\/review$/);
+          if (review) return json(response, 200, store.sessionReview(review[1]));
           const sessionDetail = pathname.match(/^\/api\/sessions\/([a-zA-Z0-9-]{1,80})$/);
           if (sessionDetail) return json(response, 200, store.session(sessionDetail[1]));
           if (pathname === '/api/history') return json(response, 200, { changes: store.history() });
