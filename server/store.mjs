@@ -1,3 +1,4 @@
+import { setupSpellbook, readSpellbook, validateSpellCommand, setSpell } from './spellbook.mjs';
 import { validateTransfer, importTransfer } from './transfer.mjs';
 import { DatabaseSync, backup } from 'node:sqlite';
 import { mkdirSync } from 'node:fs';
@@ -32,6 +33,7 @@ export function openStore(filename) {
   setupSessions(db);
   const catalog = createCatalog(db);
   setupInventory(db);
+  setupSpellbook(db);
   db.exec(`CREATE TABLE IF NOT EXISTS context_changes (
     mutation_id TEXT PRIMARY KEY REFERENCES changes(mutation_id),
     operation TEXT NOT NULL, before_json TEXT NOT NULL, after_json TEXT NOT NULL
@@ -130,6 +132,15 @@ export function openStore(filename) {
   }
   return {
     catalog,
+    spellbook: () => { const current = read(); return { revision: current.revision, context: current.context, entries: readSpellbook(db, current.context.characterId) }; },
+    setSpell: request => {
+      const payload = validateSpellCommand(request);
+      const hash = createHash('sha256').update(JSON.stringify({ operation: 'spell-set', expectedRevision: request.expectedRevision, payload })).digest('hex');
+      return mutate(request, hash, 'Изменение списка заклинаний', () => {
+        setSpell(db, payload, request.mutationId, read().context.characterId);
+        return read().state;
+      }, 'spell-set');
+    },
     inventory: () => {
       const current = read();
       const last = db.prepare(`SELECT c.mutation_id AS mutationId, c.label FROM changes c

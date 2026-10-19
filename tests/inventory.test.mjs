@@ -410,3 +410,60 @@ test('HTTP import requires explicit destination and local protection and rejects
   assert.equal((await fetch(url, { method: 'POST', headers, body }).then(r => r.json())).replayed, true);
   assert.equal((await fetch(url, { method: 'POST', headers, body: JSON.stringify({ ...request, mutationId: randomUUID() }) })).status, 409);
 });
+
+
+const spells = JSON.parse(readFileSync(new URL('../catalog/srd51-spells.json', import.meta.url), 'utf8'));
+const spellCommand = (store, fields = {}) => cmd(store, { characterId: store.read().context.characterId, catalogId: spells.entries[0].id, status: 'known', ...fields });
+test('spellbook persists selection independently, supports preparation/removal and isolates campaigns', () => {
+  const store = openStore(':memory:');
+  try {
+    store.catalog.importEntries(spells, { apply: true });
+    const initial = store.read(), request = spellCommand(store); store.setSpell(request);
+    assert.equal(store.setSpell(request).replayed, true); assert.equal(store.spellbook().entries.length, 1);
+    assert.throws(() => store.setSpell({ ...request, status: 'prepared' }), { status: 409 });
+    assert.throws(() => store.setSpell({ ...request, mutationId: randomUUID() }), { status: 409 });
+    store.setSpell(spellCommand(store, { status: 'prepared' }));
+    assert.equal(store.spellbook().entries[0].status, 'prepared');
+    assert.deepEqual(store.read().state, initial.state);
+    store.update(cmd(store, { label: 'Save', state: seed }));
+    store.startSession(cmd(store, { session: { name: 'Next', playedOn: '2026-10-19' } }));
+    const first = store.read().context; assert.equal(store.spellbook().entries.length, 1);
+    store.createCampaign(cmd(store, { state: seed }));
+    assert.equal(store.spellbook().entries.length, 0);
+    assert.equal(store.setSpell(request).replayed, true); assert.equal(store.spellbook().entries.length, 0);
+    store.selectContext(cmd(store, { context: first }));
+    store.setSpell(spellCommand(store, { status: 'remove' })); assert.deepEqual(store.spellbook().entries, []);
+  } finally { store.close(); }
+});
+
+test('spellbook validates kind, status and active character; rollback and reopen preserve receipt', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'skaz-spells-')), file = join(dir, 'game.sqlite');
+  let store = openStore(file); const raw = new DatabaseSync(file);
+  try {
+    store.catalog.importEntries(spells, { apply: true }); store.catalog.importEntries(items, { apply: true });
+    for (const fields of [{ status: 'invalid' }, { catalogId: items.entries[0].id }]) assert.throws(() => store.setSpell(spellCommand(store, fields)), { status: 422 });
+    assert.throws(() => store.setSpell(spellCommand(store, { characterId: 'other' })), { status: 409 });
+    assert.throws(() => store.setSpell(spellCommand(store, { status: 'remove' })), { status: 404 });
+    assert.equal(store.read().revision, 0);
+    const request = spellCommand(store);
+    raw.exec("CREATE TRIGGER reject_spell BEFORE INSERT ON changes BEGIN SELECT RAISE(ABORT, 'spell failure'); END");
+    assert.throws(() => store.setSpell(request), /spell failure/);
+    assert.deepEqual(store.spellbook().entries, []);
+    assert.equal(raw.prepare('SELECT count(*) AS n FROM spell_changes').get().n, 0);
+    raw.exec('DROP TRIGGER reject_spell'); store.setSpell(request);
+    store.close(); store = openStore(file);
+    assert.equal(store.setSpell(request).replayed, true); assert.equal(store.spellbook().entries.length, 1);
+  } finally { raw.close(); store.close(); }
+});
+
+test('spellbook HTTP requires protected writes and returns saved source', async t => {
+  const store = openStore(':memory:'); store.catalog.importEntries(spells, { apply: true });
+  const app = createApp(store); await new Promise(resolve => app.listen(0, '127.0.0.1', resolve));
+  t.after(async () => { await new Promise(resolve => app.close(resolve)); store.close(); });
+  const url = `http://127.0.0.1:${app.address().port}/api/spellbook`;
+  const headers = { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body = JSON.stringify(spellCommand(store));
+  assert.equal((await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body })).status, 403);
+  assert.equal((await fetch(url, { method: 'POST', headers: { ...headers, Origin: 'https://other.example' }, body })).status, 403);
+  assert.equal((await fetch(url, { method: 'POST', headers, body })).status, 200);
+  assert.equal((await fetch(url).then(r => r.json())).entries[0].entry.source.version, spells.entries[0].source.version);
+});
