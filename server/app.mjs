@@ -36,6 +36,7 @@ export function createApp(store) {
       if (pathname.startsWith('/api/')) {
         if (request.method === 'GET') {
           if (pathname === '/api/health') return json(response, 200, { status: 'ok', mode: 'local', storage: 'sqlite' });
+          if (pathname === '/api/inventory') return json(response, 200, store.inventory());
           if (pathname === '/api/catalog') return json(response, 200, store.catalog.search(new URL(request.url, `http://${host}`).searchParams));
           if (pathname === '/api/catalog/coverage') return json(response, 200, store.catalog.coverage());
           if (pathname === '/api/workspace') return json(response, 200, store.read());
@@ -48,11 +49,11 @@ export function createApp(store) {
           if (pathname === '/api/history') return json(response, 200, { changes: store.history() });
           if (pathname === '/api/export') return json(response, 200, { app: 'skaz', ...store.read() }, { 'Content-Disposition': 'attachment; filename="skaz-backup.json"' });
         }
-        if ((pathname === '/api/workspace' && request.method === 'PUT') || (['/api/campaigns', '/api/context/select', '/api/sessions'].includes(pathname) && request.method === 'POST')) {
+        if ((pathname === '/api/workspace' && request.method === 'PUT') || (['/api/campaigns', '/api/context/select', '/api/sessions', '/api/inventory'].includes(pathname) && request.method === 'POST')) {
           if (request.headers['x-skaz-client'] !== 'local-v1') throw new AppError(403, 'Запрос должен исходить из приложения');
           const data = await body(request);
           if (!data || typeof data !== 'object' || Array.isArray(data)) throw new AppError(400, 'Неверный запрос');
-          const result = pathname === '/api/sessions' ? store.startSession(data) : pathname === '/api/campaigns' ? store.createCampaign(data) : pathname === '/api/context/select' ? store.selectContext(data) : store.update(data);
+          const result = pathname === '/api/inventory' ? store.addInventory(data) : pathname === '/api/sessions' ? store.startSession(data) : pathname === '/api/campaigns' ? store.createCampaign(data) : pathname === '/api/context/select' ? store.selectContext(data) : store.update(data);
           return json(response, 200, result);
         }
         return json(response, 404, { error: 'Неизвестный метод API' });
