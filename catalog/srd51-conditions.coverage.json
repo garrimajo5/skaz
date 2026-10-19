@@ -1,0 +1,37 @@
+{
+  "scope": "SRD 5.1 Appendix PH-A: Conditions",
+  "ruleset": "5e-2014",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "pages": [
+    358,
+    359
+  ],
+  "checkedOn": "2026-10-19",
+  "bundle": "srd51-conditions.json",
+  "expectedRecords": 15,
+  "expectedIds": [
+    "srd51:2014:mechanic:blinded",
+    "srd51:2014:mechanic:charmed",
+    "srd51:2014:mechanic:deafened",
+    "srd51:2014:mechanic:exhaustion",
+    "srd51:2014:mechanic:frightened",
+    "srd51:2014:mechanic:grappled",
+    "srd51:2014:mechanic:incapacitated",
+    "srd51:2014:mechanic:invisible",
+    "srd51:2014:mechanic:paralyzed",
+    "srd51:2014:mechanic:petrified",
+    "srd51:2014:mechanic:poisoned",
+    "srd51:2014:mechanic:prone",
+    "srd51:2014:mechanic:restrained",
+    "srd51:2014:mechanic:stunned",
+    "srd51:2014:mechanic:unconscious"
+  ],
+  "coverageMeaning": "Все 15 именованных состояний приложения представлены краткими изложениями. Не полнота правил D&D, не официальный перевод, не исполняемая механика.",
+  "limitations": [
+    "Нет автоматического применения и снятия состояний.",
+    "Длительности и причины состояний задаются вызывающими эффектами; они не моделируются.",
+    "Уровни истощения перечислены текстом, числовой счётчик персонажа пока не реализован.",
+    "Оригинальный английский текст и примеры целиком не воспроизведены."
+  ]
+}

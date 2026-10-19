@@ -2,6 +2,8 @@ const SkazCatalog = (() => {
   const names = { mechanic: 'Механики', spell: 'Заклинания', monster: 'Бестиарий', item: 'Предметы', artifact: 'Артефакты' };
   let query = '', kind = '', offset = 0, result = null, coverage = null, status = 'idle', serial = 0;
   const limit = 20;
+  let detailSerial=0, currentEntry=null, trail=[];
+  const relatedCache=new Map();
   const usageLabel = usage => ({ 'reference-only': 'Справочная ссылка · без текста', personal: 'Личный импорт', 'cc-by-4.0': 'Открытый материал · CC BY 4.0' }[usage] || 'Неизвестные условия');
   const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   function view() {
@@ -48,12 +50,44 @@ const SkazCatalog = (() => {
   function details(index) {
     const entry = result?.entries[index];
     if (!entry) return;
+    trail=[]; showDetails(entry);
+  }
+  function showDetails(entry, related) {
+    const token=++detailSerial; currentEntry=entry;
+    if(related)relatedCache.set(entry.id,related);
     // Restrict links again at the rendering boundary, even for previously imported data.
     let source = '';
     try { const url = new URL(entry.source.url); if (['http:', 'https:'].includes(url.protocol)) source = `<a href="${escape(url.href)}" target="_blank" rel="noopener noreferrer">Открыть источник ↗</a>`; } catch {}
-    modal(`<div class="overline">${names[entry.kind]} · D&D 2014</div><h2 tabindex="-1" autofocus>${escape(entry.name.ru)}</h2><p>${escape(entry.name.en)}</p>${["item", "artifact"].includes(entry.kind) ? '<button id="catalog-add-inventory" class="primary">В инвентарь →</button>' : ''}${entry.kind === "spell" ? '<button id="catalog-add-spell" class="primary">В мой список заклинаний →</button>' : ''}${entry.text ? `<div class="catalog-text">${escape(entry.text)}</div>` : '<p>Здесь сохранена справочная ссылка. Текст материала не импортирован.</p>'}<dl class="catalog-meta"><dt>Источник</dt><dd>${escape(entry.source.title)}</dd><dt>Версия</dt><dd>${escape(entry.source.version)}</dd><dt>Использование</dt><dd>${usageLabel(entry.source.usage)}</dd><dt>Условия, указанные при импорте</dt><dd>${escape(entry.source.terms)}</dd>${entry.source.attribution ? `<dt>Атрибуция</dt><dd>${escape(entry.source.attribution)}</dd><dt>Изменения</dt><dd>${escape(entry.source.changes)}</dd>` : ''}</dl>${source}`);
+    modal(`${trail.length?'<button id="catalog-detail-back">← К предыдущему материалу</button>':''}<div class="overline">${names[entry.kind]} · D&D 2014</div><h2 id="catalog-detail-title" tabindex="-1" autofocus>${escape(entry.name.ru)}</h2><p>${escape(entry.name.en)}</p>${["item", "artifact"].includes(entry.kind) ? '<button id="catalog-add-inventory" class="primary">В инвентарь →</button>' : ''}${entry.kind === "spell" ? '<button id="catalog-add-spell" class="primary">В мой список заклинаний →</button>' : ''}${entry.text ? `<div class="catalog-text">${escape(entry.text)}</div>` : '<p>Здесь сохранена справочная ссылка. Текст материала не импортирован.</p>'}${entry.links?.length?'<section class="catalog-related"><h3>Связанные материалы</h3><div id="catalog-related" aria-live="polite">Загружаем связи…</div></section>':''}<dl class="catalog-meta"><dt>Источник</dt><dd>${escape(entry.source.title)}</dd><dt>Версия</dt><dd>${escape(entry.source.version)}</dd><dt>Использование</dt><dd>${usageLabel(entry.source.usage)}</dd><dt>Условия, указанные при импорте</dt><dd>${escape(entry.source.terms)}</dd>${entry.source.attribution ? `<dt>Атрибуция</dt><dd>${escape(entry.source.attribution)}</dd><dt>Изменения</dt><dd>${escape(entry.source.changes)}</dd>` : ''}</dl>${source}`);
+    if(entry.links?.length)loadRelated(entry,token);
     if (entry.kind === 'spell') document.getElementById('catalog-add-spell').onclick = () => SkazStorage.editSpell(entry);
     if (['item', 'artifact'].includes(entry.kind)) document.getElementById('catalog-add-inventory').onclick = () => SkazStorage.addInventory(entry);
+  }
+  const detailVisible = token => token===detailSerial && document.getElementById('dialog')?.open && document.getElementById('catalog-detail-title');
+  async function getEntry(id) {
+    const response=await fetch('/api/catalog/entry?'+new URLSearchParams({id}),{cache:'no-store',signal:AbortSignal.timeout(10000)});
+    if(!response.ok)throw new Error('Материал недоступен');
+    return response.json();
+  }
+  async function loadRelated(entry,token) {
+    try {
+      let related=relatedCache.get(entry.id);
+      if(!related){const value=await getEntry(entry.id);related=value.related;relatedCache.set(entry.id,related);}
+      if(!detailVisible(token))return;
+      const region=document.getElementById('catalog-related');
+      if(region)region.innerHTML=related.map(item=>`<button data-catalog-related="${escape(item.id)}">${escape(item.name.ru)} · ${escape(item.name.en)} →</button>`).join('');
+    }catch{
+      if(detailVisible(token)){const region=document.getElementById('catalog-related');if(region)region.innerHTML='<p>Не удалось открыть связи.</p><button id="catalog-related-retry">Повторить</button>';}
+    }
+  }
+  async function openRelated(id) {
+    if(!currentEntry?.links?.includes(id))return;
+    const previous=currentEntry,token=++detailSerial;
+    const region=document.getElementById('catalog-related');if(region)region.innerHTML='<p>Открываем материал…</p>';
+    try{
+      const value=await getEntry(id);if(!detailVisible(token))return;
+      trail.push(previous);if(trail.length>20)trail.shift();showDetails(value.entry,value.related);
+    }catch{if(detailVisible(token)&&region)region.innerHTML='<p>Материал недоступен. Проверь соединение.</p><button id="catalog-related-retry">Повторить</button>';}
   }
   document.addEventListener('submit', event => {
     if (event.target.id !== 'catalog-search') return;
@@ -63,6 +97,9 @@ const SkazCatalog = (() => {
   document.addEventListener('click', event => {
     const button = event.target.closest('button'); if (!button) return;
     if (button.hasAttribute('data-catalog-entry')) details(Number(button.dataset.catalogEntry));
+    if(button.dataset.catalogRelated)openRelated(button.dataset.catalogRelated);
+    if(button.id==='catalog-related-retry'&&currentEntry)loadRelated(currentEntry,detailSerial);
+    if(button.id==='catalog-detail-back'&&trail.length)showDetails(trail.pop());
     if (button.id === 'catalog-retry') load();
     if (button.id === 'catalog-prev' || button.id === 'catalog-next') { offset = Math.max(0, offset + (button.id === 'catalog-prev' ? -limit : limit)); load(); }
     if (button.id === 'catalog-reset') { query = ''; kind = ''; offset = 0; render(); load(); }

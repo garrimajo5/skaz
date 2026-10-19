@@ -41,6 +41,7 @@ export function createApp(store) {
           if (pathname === '/api/quests') return json(response, 200, store.quests());
           if (pathname === '/api/spellbook') return json(response, 200, store.spellbook());
           if (pathname === '/api/inventory') return json(response, 200, store.inventory());
+          if (pathname === '/api/catalog/entry') return json(response, 200, store.catalog.lookup(new URL(request.url, `http://${host}`).searchParams));
           if (pathname === '/api/catalog') return json(response, 200, store.catalog.search(new URL(request.url, `http://${host}`).searchParams));
           if (pathname === '/api/catalog/coverage') return json(response, 200, store.catalog.coverage());
           if (pathname === '/api/workspace') return json(response, 200, store.read());

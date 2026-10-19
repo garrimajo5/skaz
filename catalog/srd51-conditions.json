@@ -109,6 +109,330 @@
           "Состояние также заканчивается, если эффект перемещает захваченное существо за пределы досягаемости захватившего существа или эффекта захвата."
         ]
       }
+    },
+    {
+      "id": "srd51:2014:mechanic:charmed",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Очарование",
+        "en": "Charmed"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=358",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz conditions v2",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 358, Appendix PH-A: Conditions.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСущество не может атаковать очаровавшего его или выбирать его целью вредоносных способностей и магических эффектов.\nОчаровавший совершает с преимуществом проверки характеристик для социального взаимодействия с этим существом.\nОбщее правило: длительность задаётся вызвавшим эффектом или способом прекращения состояния. При нескольких источниках одного состояния длительности учитываются отдельно, эффекты не усиливаются.\nСправочная запись: применение состояния к листу пока не реализовано.",
+      "links": [],
+      "mechanic": {
+        "category": "condition",
+        "effects": [
+          "Существо не может атаковать очаровавшего его или выбирать его целью вредоносных способностей и магических эффектов.",
+          "Очаровавший совершает с преимуществом проверки характеристик для социального взаимодействия с этим существом."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:exhaustion",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Истощение",
+        "en": "Exhaustion"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=358",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz conditions v2",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 358, Appendix PH-A: Conditions.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nИстощение измеряется шестью уровнями. Новый источник увеличивает текущий уровень на указанную в нём величину. Действуют эффекты текущего и всех более низких уровней.\nУровень 1: помеха проверкам характеристик.\nУровень 2: скорость уменьшена вдвое.\nУровень 3: помеха броскам атак и спасброскам.\nУровень 4: максимум хитов уменьшен вдвое.\nУровень 5: скорость равна 0.\nУровень 6: смерть.\nЭффект снятия истощения уменьшает его уровень на указанную в эффекте величину. При снижении уровня ниже 1 все эффекты истощения прекращаются.\nЗавершение долгого отдыха уменьшает истощение на 1 уровень, если существо также получило пищу и питьё.\nЭто особое состояние с накапливающимися уровнями по правилам 2014; правило отсутствия усиления одинаковых состояний не заменяет его таблицу.\nСправочная запись: применение состояния к листу пока не реализовано.",
+      "links": [],
+      "mechanic": {
+        "category": "condition",
+        "effects": [
+          "Истощение измеряется шестью уровнями. Новый источник увеличивает текущий уровень на указанную в нём величину. Действуют эффекты текущего и всех более низких уровней.",
+          "Уровень 1: помеха проверкам характеристик.",
+          "Уровень 2: скорость уменьшена вдвое.",
+          "Уровень 3: помеха броскам атак и спасброскам.",
+          "Уровень 4: максимум хитов уменьшен вдвое.",
+          "Уровень 5: скорость равна 0.",
+          "Уровень 6: смерть.",
+          "Эффект снятия истощения уменьшает его уровень на указанную в эффекте величину. При снижении уровня ниже 1 все эффекты истощения прекращаются.",
+          "Завершение долгого отдыха уменьшает истощение на 1 уровень, если существо также получило пищу и питьё."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:frightened",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Испуг",
+        "en": "Frightened"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=358",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz conditions v2",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 358, Appendix PH-A: Conditions.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПока источник страха находится в пределах видимости, существо совершает с помехой проверки характеристик и броски атак.\nСущество не может добровольно приближаться к источнику страха.\nОбщее правило: длительность задаётся вызвавшим эффектом или способом прекращения состояния. При нескольких источниках одного состояния длительности учитываются отдельно, эффекты не усиливаются.\nСправочная запись: применение состояния к листу пока не реализовано.",
+      "links": [],
+      "mechanic": {
+        "category": "condition",
+        "effects": [
+          "Пока источник страха находится в пределах видимости, существо совершает с помехой проверки характеристик и броски атак.",
+          "Существо не может добровольно приближаться к источнику страха."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:invisible",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Невидимость",
+        "en": "Invisible"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=358",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz conditions v2",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 358, Appendix PH-A: Conditions.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСущество невозможно увидеть без магии или особого чувства. Для попыток спрятаться оно считается сильно заслонённым; его местоположение могут выдать шум и следы.\nБроски атак по существу совершаются с помехой, а его собственные броски атак — с преимуществом.\nОбщее правило: длительность задаётся вызвавшим эффектом или способом прекращения состояния. При нескольких источниках одного состояния длительности учитываются отдельно, эффекты не усиливаются.\nСправочная запись: применение состояния к листу пока не реализовано.",
+      "links": [],
+      "mechanic": {
+        "category": "condition",
+        "effects": [
+          "Существо невозможно увидеть без магии или особого чувства. Для попыток спрятаться оно считается сильно заслонённым; его местоположение могут выдать шум и следы.",
+          "Броски атак по существу совершаются с помехой, а его собственные броски атак — с преимуществом."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:paralyzed",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Паралич",
+        "en": "Paralyzed"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=358",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz conditions v2",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 358–359, Appendix PH-A: Conditions.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСущество недееспособно, не может двигаться и говорить.\nСущество автоматически проваливает спасброски Силы и Ловкости.\nБроски атак по существу совершаются с преимуществом.\nЛюбая попавшая по существу атака становится критическим попаданием, если атакующий находится в пределах 5 футов от него.\nОбщее правило: длительность задаётся вызвавшим эффектом или способом прекращения состояния. При нескольких источниках одного состояния длительности учитываются отдельно, эффекты не усиливаются.\nСправочная запись: применение состояния к листу пока не реализовано.",
+      "links": [
+        "srd51:2014:mechanic:incapacitated"
+      ],
+      "mechanic": {
+        "category": "condition",
+        "effects": [
+          "Существо недееспособно, не может двигаться и говорить.",
+          "Существо автоматически проваливает спасброски Силы и Ловкости.",
+          "Броски атак по существу совершаются с преимуществом.",
+          "Любая попавшая по существу атака становится критическим попаданием, если атакующий находится в пределах 5 футов от него."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:petrified",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Окаменение",
+        "en": "Petrified"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=359",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz conditions v2",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 359, Appendix PH-A: Conditions.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСущество вместе с носимыми и переносимыми немагическими предметами превращается в твёрдое неодушевлённое вещество, обычно камень. Вес увеличивается в десять раз, старение прекращается.\nСущество недееспособно, не может двигаться и говорить и не осознаёт окружающее.\nБроски атак по существу совершаются с преимуществом.\nСущество автоматически проваливает спасброски Силы и Ловкости.\nСущество обладает сопротивлением всему урону.\nСущество невосприимчиво к ядам и болезням; уже присутствующие яд или болезнь приостанавливаются, но не устраняются.\nОбщее правило: длительность задаётся вызвавшим эффектом или способом прекращения состояния. При нескольких источниках одного состояния длительности учитываются отдельно, эффекты не усиливаются.\nСправочная запись: применение состояния к листу пока не реализовано.",
+      "links": [
+        "srd51:2014:mechanic:incapacitated"
+      ],
+      "mechanic": {
+        "category": "condition",
+        "effects": [
+          "Существо вместе с носимыми и переносимыми немагическими предметами превращается в твёрдое неодушевлённое вещество, обычно камень. Вес увеличивается в десять раз, старение прекращается.",
+          "Существо недееспособно, не может двигаться и говорить и не осознаёт окружающее.",
+          "Броски атак по существу совершаются с преимуществом.",
+          "Существо автоматически проваливает спасброски Силы и Ловкости.",
+          "Существо обладает сопротивлением всему урону.",
+          "Существо невосприимчиво к ядам и болезням; уже присутствующие яд или болезнь приостанавливаются, но не устраняются."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:poisoned",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Отравление",
+        "en": "Poisoned"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=359",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz conditions v2",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 359, Appendix PH-A: Conditions.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСущество совершает с помехой броски атак и проверки характеристик.\nОбщее правило: длительность задаётся вызвавшим эффектом или способом прекращения состояния. При нескольких источниках одного состояния длительности учитываются отдельно, эффекты не усиливаются.\nСправочная запись: применение состояния к листу пока не реализовано.",
+      "links": [],
+      "mechanic": {
+        "category": "condition",
+        "effects": [
+          "Существо совершает с помехой броски атак и проверки характеристик."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:prone",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Ничком",
+        "en": "Prone"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=359",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz conditions v2",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 359, Appendix PH-A: Conditions.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСущество может перемещаться только ползком, пока не встанет и тем самым не завершит состояние.\nСущество совершает броски атак с помехой.\nБросок атаки по существу совершается с преимуществом, если атакующий находится в пределах 5 футов; в остальных случаях — с помехой.\nОбщее правило: длительность задаётся вызвавшим эффектом или способом прекращения состояния. При нескольких источниках одного состояния длительности учитываются отдельно, эффекты не усиливаются.\nСправочная запись: применение состояния к листу пока не реализовано.",
+      "links": [],
+      "mechanic": {
+        "category": "condition",
+        "effects": [
+          "Существо может перемещаться только ползком, пока не встанет и тем самым не завершит состояние.",
+          "Существо совершает броски атак с помехой.",
+          "Бросок атаки по существу совершается с преимуществом, если атакующий находится в пределах 5 футов; в остальных случаях — с помехой."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:restrained",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Опутывание",
+        "en": "Restrained"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=359",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz conditions v2",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 359, Appendix PH-A: Conditions.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСкорость существа равна 0, бонусы к скорости не действуют.\nБроски атак по существу совершаются с преимуществом, а его собственные броски атак — с помехой.\nСущество совершает спасброски Ловкости с помехой.\nОбщее правило: длительность задаётся вызвавшим эффектом или способом прекращения состояния. При нескольких источниках одного состояния длительности учитываются отдельно, эффекты не усиливаются.\nСправочная запись: применение состояния к листу пока не реализовано.",
+      "links": [],
+      "mechanic": {
+        "category": "condition",
+        "effects": [
+          "Скорость существа равна 0, бонусы к скорости не действуют.",
+          "Броски атак по существу совершаются с преимуществом, а его собственные броски атак — с помехой.",
+          "Существо совершает спасброски Ловкости с помехой."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:stunned",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Ошеломление",
+        "en": "Stunned"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=359",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz conditions v2",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 359, Appendix PH-A: Conditions.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСущество недееспособно, не может двигаться и говорит лишь невнятно.\nСущество автоматически проваливает спасброски Силы и Ловкости.\nБроски атак по существу совершаются с преимуществом.\nОбщее правило: длительность задаётся вызвавшим эффектом или способом прекращения состояния. При нескольких источниках одного состояния длительности учитываются отдельно, эффекты не усиливаются.\nСправочная запись: применение состояния к листу пока не реализовано.",
+      "links": [
+        "srd51:2014:mechanic:incapacitated"
+      ],
+      "mechanic": {
+        "category": "condition",
+        "effects": [
+          "Существо недееспособно, не может двигаться и говорит лишь невнятно.",
+          "Существо автоматически проваливает спасброски Силы и Ловкости.",
+          "Броски атак по существу совершаются с преимуществом."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:unconscious",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Бессознательность",
+        "en": "Unconscious"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=359",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz conditions v2",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 359, Appendix PH-A: Conditions.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСущество недееспособно, не может двигаться и говорить и не осознаёт окружающее.\nСущество роняет всё, что держит, и падает ничком.\nСущество автоматически проваливает спасброски Силы и Ловкости.\nБроски атак по существу совершаются с преимуществом.\nЛюбая попавшая по существу атака становится критическим попаданием, если атакующий находится в пределах 5 футов от него.\nОбщее правило: длительность задаётся вызвавшим эффектом или способом прекращения состояния. При нескольких источниках одного состояния длительности учитываются отдельно, эффекты не усиливаются.\nСправочная запись: применение состояния к листу пока не реализовано.",
+      "links": [
+        "srd51:2014:mechanic:incapacitated",
+        "srd51:2014:mechanic:prone"
+      ],
+      "mechanic": {
+        "category": "condition",
+        "effects": [
+          "Существо недееспособно, не может двигаться и говорить и не осознаёт окружающее.",
+          "Существо роняет всё, что держит, и падает ничком.",
+          "Существо автоматически проваливает спасброски Силы и Ловкости.",
+          "Броски атак по существу совершаются с преимуществом.",
+          "Любая попавшая по существу атака становится критическим попаданием, если атакующий находится в пределах 5 футов от него."
+        ]
+      }
     }
   ]
 }

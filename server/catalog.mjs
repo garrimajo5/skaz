@@ -159,6 +159,19 @@ export function createCatalog(db) {
     const matches = all().filter(entry => (!kind || entry.kind === kind) && `${entry.name.ru} ${entry.name.en}`.toLocaleLowerCase('ru').includes(q));
     return { entries: matches.slice(offset, offset + limit), total: matches.length, limit, offset };
   }
+  function lookup(params) {
+    if ([...params.keys()].some(key=>key!=='id') || params.getAll('id').length!==1) throw new AppError(400,'Нужен один ID материала');
+    const entryId=id(params.get('id'));
+    const row=db.prepare('SELECT entry_json FROM catalog_entries WHERE id=?').get(entryId);
+    if(!row)throw new AppError(404,'Материал не найден');
+    const entry=JSON.parse(row.entry_json);
+    const related=entry.links.map(link=>{
+      const linked=db.prepare('SELECT entry_json FROM catalog_entries WHERE id=?').get(link);
+      if(!linked)throw new AppError(409,'В каталоге отсутствует связанный материал');
+      const item=JSON.parse(linked.entry_json);return {id:item.id,kind:item.kind,name:item.name};
+    });
+    return {entry,related};
+  }
   function coverage() {
     const entries = all();
     return { ruleset: '5e-2014', complete: false, expectedTotal: null, total: entries.length,
@@ -171,7 +184,7 @@ export function createCatalog(db) {
       structuredMonsters: entries.filter(entry => entry.monster !== undefined).length,
       structuredMechanics: entries.filter(entry => entry.mechanic !== undefined).length,
       structuredArtifacts: entries.filter(entry => entry.artifact !== undefined).length,
-      gaps: ['Полная база не загружена; общее количество материалов не установлено.', 'Структуры заклинаний, предметов и существ частичные; действия и особенности остаются в тексте. Структура артефактов содержит только основные поля; связь с листом и инвентарём пока не реализована.'] };
+      gaps: ['Полная база не загружена; общее количество материалов не установлено.', 'Структуры заклинаний, предметов и существ частичные; действия и особенности остаются в тексте. Структура артефактов содержит только основные поля. Инвентарь и личный список заклинаний подключены; автоматические эффекты и применение состояний не реализованы.'] };
   }
-  return { importEntries, search, coverage };
+  return { importEntries, search, coverage, lookup };
 }

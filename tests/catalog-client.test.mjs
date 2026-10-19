@@ -6,18 +6,19 @@ const source = await readFile(new URL('../client/catalog.js', import.meta.url), 
 function harness(protocol = 'http:') {
   const handlers = {}, requests = [], tasks = [], additions = [];
   const region = { innerHTML: '', setAttribute() {} };
-  let dialog = '';
+  let dialog = '', isOpen=true;
   const context = vm.createContext({
     location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
     queueMicrotask: task => tasks.push(task),
     fetch: url => new Promise((resolve, reject) => requests.push({ url, resolve, reject })),
-    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: () => region, querySelector: () => null },
+    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='dialog'?{open:isOpen}:id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):region, querySelector: () => null },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
     modal: html => dialog = html, SkazStorage: { addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
   return { view, requests, tasks, region, additions, dialog: () => dialog,
+    click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>isOpen=false, otherModal:()=>dialog='<h2>Other</h2>',
     submit: q => handlers.submit({ target: { id: 'catalog-search', q }, preventDefault() {} }),
     detail: () => handlers.click({ target: { closest: () => ({ hasAttribute: () => true, dataset: { catalogEntry: '0' } }) } }),
   };
@@ -85,4 +86,21 @@ test('spell card opens selection without directly applying effects', async () =>
   respond(h.requests[0], { entries: [spell], total: 1 }); respond(h.requests[1], coverage);
   await settle(); h.detail(); assert.match(h.dialog(), /catalog-add-spell/);
   h.region.onclick(); assert.equal(h.additions[0].id, spell.id);
+});
+
+
+test('linked catalog cards use stable IDs, preserve search and return to the parent card',async()=>{
+ const h=harness(),parent={...entry,id:'test:parent',links:['test:child']},child={...entry,id:'test:child',links:[],name:{ru:'Child',en:'Child'}};
+ h.submit('parent');respond(h.requests[0],{entries:[parent],total:1});respond(h.requests[1],coverage);await settle();h.detail();
+ assert.match(h.requests[2].url,/id=test%3Aparent/);respond(h.requests[2],{entry:parent,related:[{id:child.id,name:{ru:'<b>Child',en:'Child'}}]});await settle();assert.match(h.region.innerHTML,/&lt;b&gt;Child/);
+ h.click('',{catalogRelated:child.id});respond(h.requests[3],{entry:child,related:[]});await settle();assert.match(h.dialog(),/Child/);assert.match(h.dialog(),/catalog-detail-back/);assert.match(h.view(),/value="parent"/);
+ h.click('catalog-detail-back');assert.match(h.dialog(),/&lt;img/);assert.doesNotMatch(h.dialog(),/catalog-detail-back/);
+});
+
+test('late linked material cannot reopen closed dialog or replace another form',async()=>{
+ const parent={...entry,id:'test:parent',links:['test:child']};
+ for(const leave of ['close','otherModal']){
+  const h=harness();h.submit('');respond(h.requests[0],{entries:[parent],total:1});respond(h.requests[1],coverage);await settle();h.detail();respond(h.requests[2],{entry:parent,related:[{id:'test:child',name:{ru:'Child',en:'Child'}}]});await settle();
+  h.click('',{catalogRelated:'test:child'});h[leave]();const before=h.dialog();respond(h.requests[3],{entry:{...entry,id:'test:child',links:[],name:{ru:'New card',en:'New'}},related:[]});await settle();assert.equal(h.dialog(),before);
+ }
 });
