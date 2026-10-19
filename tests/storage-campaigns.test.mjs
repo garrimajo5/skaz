@@ -230,3 +230,32 @@ test('v2 import refuses oversized command before storing a pending draft', async
   assert.equal([...local.values.keys()].some(key => key.startsWith('skaz-pending')), false);
   assert.match(h.messages.at(-1), /512/);
 });
+
+
+test('v3 preview includes spell list in the durable import and rejects a missing list', async () => {
+  const calls = [];
+  const h = harness(memory(), memory(), async (url, options) => {
+    if (url === '/api/workspace') return response(payload(0));
+    calls.push({ url, body: JSON.parse(options.body) }); return response(payload(1, 'imported'));
+  });
+  const file = { app: 'skaz-active', schemaVersion: 3, ruleset: '5e-2014', scope: 'active-game', state: seed, inventory: [], catalog: { entries: [] }, spellbook: [{ catalogId: 'test:spell', status: 'prepared' }] };
+  await h.api.boot(); h.api.settings();
+  const invalid = { ...file }; delete invalid.spellbook;
+  await h.get('#import-state').onchange({ target: { files: [{ size: 200, text: async () => JSON.stringify(invalid) }] } });
+  assert.match(h.messages.at(-1), /отсутствует список/); assert.equal(calls.length, 0);
+  await h.get('#import-state').onchange({ target: { files: [{ size: 200, text: async () => JSON.stringify(file) }] } });
+  assert.equal(calls.length, 0); await h.get('#confirm-active-import').onclick();
+  assert.equal(calls[0].url, '/api/import/active');
+  assert.deepEqual(calls[0].body.file.spellbook, file.spellbook);
+});
+
+test('client requests v3 export and refuses a response from another revision', async () => {
+  const calls = [];
+  const h = harness(memory(), memory(), async url => {
+    calls.push(url);
+    return response(url === '/api/workspace' ? payload(0) : { source: { context: payload(0).context, revision: 1 } });
+  });
+  await h.api.boot(); h.api.settings(); await h.get('#export-active').onclick();
+  assert.equal(calls.at(-1), '/api/export/active-v3');
+  assert.match(h.messages.at(-1), /Игра изменилась/);
+});
