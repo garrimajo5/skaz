@@ -64,7 +64,8 @@ const SkazStorage = (() => {
     status = 'saving'; message = ''; paint();
     try {
       const { operation, ...body } = pending;
-      const url = operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
+      if (operation === 'quest-create' || operation === 'quest-update') body.operation = operation === 'quest-create' ? 'create' : 'update';
+      const url = operation?.startsWith('quest-') ? '/api/quests' : operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
       const payload = await request(url, { method: operation ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body: JSON.stringify(body) });
       apply(payload);
       return payload;
@@ -130,7 +131,7 @@ const SkazStorage = (() => {
     rememberDraft();
     closeModal();
     const payload = await sendPending();
-    toast(operation === 'spell-set' ? 'Список заклинаний сохранён' : operation === 'import-active' ? 'Игра импортирована в новую кампанию' : operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
+    toast(operation.startsWith('quest-') ? 'Задание сохранено' : operation === 'spell-set' ? 'Список заклинаний сохранён' : operation === 'import-active' ? 'Игра импортирована в новую кампанию' : operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
     return payload;
   }
   async function campaigns() {
@@ -237,6 +238,45 @@ const SkazStorage = (() => {
       catch (error) { toast(error.message); }
     };
   }
+  const questStatus = { active: 'В процессе', completed: 'Завершено', failed: 'Не выполнено' };
+  async function questList() {
+    if (demo || status !== 'ready') return toast('Задания доступны в локальном приложении после сохранения черновика');
+    const key = JSON.stringify(activeContext), version = revision;
+    try {
+      const data = await request('/api/quests');
+      if (key !== JSON.stringify(activeContext) || version !== revision || JSON.stringify(data.context) !== key || data.revision !== version) return toast('Игра изменилась. Обнови страницу и открой задания снова.');
+      modal(`<div class="overline">${esc(state.profile.campaign)}</div><h2>Задания кампании</h2><button id="new-quest" class="primary">Новое задание</button><div class="settings-actions">${data.quests.map((q,i) => `<article class="panel"><h3>${esc(q.title)}</h3><p>${questStatus[q.status]} · Этапы: ${q.steps.filter(s => s.done).length}/${q.steps.length}</p><p class="session-text">${esc(q.description)}</p>${q.importedFrom ? '<p>Перенесено из другой игры; исходная сессия сохранена в файле переноса.</p>' : ''}<button data-quest-edit="${i}">Изменить задание</button></article>`).join('') || '<p>Заданий пока нет. Запиши первую зацепку или обещание.</p>'}</div><p>Награды и ресурсы меняются отдельно. Демо-сюжет не включён в этот список.</p>`);
+      const open = q => {
+        if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой задания заново.');
+        editQuest(q);
+      };
+      $('#new-quest').onclick = () => open(null);
+      $$('[data-quest-edit]').forEach(button => button.onclick = () => open(data.quests[Number(button.dataset.questEdit)]));
+    } catch (error) { toast(error.message || 'Не удалось загрузить задания'); }
+  }
+  function editQuest(selected = null) {
+    if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
+    const key = JSON.stringify(activeContext), version = revision, campaignId = activeContext.campaignId;
+    const questId = selected?.id || crypto.randomUUID();
+    let steps = structuredClone(selected?.steps || []);
+    modal(`<h2>${selected ? 'Изменить задание' : 'Новое задание'}</h2><form id="quest-form"><label for="quest-title">Название</label><input id="quest-title" maxlength="200" required value="${esc(selected?.title || '')}"><label for="quest-description">Что известно</label><textarea id="quest-description" maxlength="12000" rows="3">${esc(selected?.description || '')}</textarea><label for="quest-status">Статус</label><select id="quest-status">${Object.entries(questStatus).map(([value,label]) => `<option value="${value}" ${value === (selected?.status || 'active') ? 'selected' : ''}>${label}</option>`).join('')}</select><h3>Этапы</h3><div id="quest-steps"></div><button type="button" id="add-quest-step">Добавить этап</button><p>Статус выбираешь ты; отметки этапов не начисляют награды.</p><div class="dialog-actions"><button type="submit" class="primary">Сохранить задание</button></div></form>`);
+    const readSteps = () => steps.map((step,i) => ({ id: step.id, title: $('#quest-step-' + i).value.trim(), done: $('#quest-done-' + i).checked }));
+    const drawSteps = () => {
+      $('#quest-steps').innerHTML = steps.map((step,i) => `<fieldset class="quest-step-editor"><legend>Этап ${i+1}</legend><label for="quest-step-${i}">Описание этапа</label><input id="quest-step-${i}" maxlength="500" required value="${esc(step.title)}"><label class="quest-check"><input id="quest-done-${i}" type="checkbox" ${step.done ? 'checked' : ''}>Выполнен</label><button type="button" data-remove-step="${i}">Убрать этап ${i+1}</button></fieldset>`).join('');
+      $('#add-quest-step').disabled = steps.length >= 50;
+      $$('[data-remove-step]').forEach(button => button.onclick = () => { steps = readSteps(); steps.splice(Number(button.dataset.removeStep),1); drawSteps(); });
+    };
+    drawSteps();
+    $('#add-quest-step').onclick = () => { if (steps.length >= 50) return; steps = readSteps(); steps.push({ id: crypto.randomUUID(), title: '', done: false }); drawSteps(); $('#quest-step-' + (steps.length-1)).focus(); };
+    $('#quest-form').onsubmit = async event => {
+      event.preventDefault();
+      if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой задания заново.');
+      const quest = { title: $('#quest-title').value.trim(), description: $('#quest-description').value, status: $('#quest-status').value, steps: readSteps() };
+      if (!quest.title || quest.steps.some(step => !step.title)) return toast('Заполни название задания и каждого этапа');
+      try { await campaignCommand(selected ? 'quest-update' : 'quest-create', { campaignId, questId, quest }); await questList(); }
+      catch (error) { toast(error.message); }
+    };
+  }
   function sessionTitle() { return sessionInfo?.name || (demo ? 'Демонстрационная сессия' : 'Сессия без названия'); }
   async function sessions() {
     if (demo || status !== 'ready' || !activeContext) return toast('Сессии доступны после подключения и сохранения черновика');
@@ -278,7 +318,7 @@ const SkazStorage = (() => {
           }
         }
       } catch { toast('Хранилище браузера недоступно'); return; }
-      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation === 'spell-set' ? 'Изменение списка заклинаний' : draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
+      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation?.startsWith('quest-') ? 'Сохранение задания' : draft.operation === 'spell-set' ? 'Изменение списка заклинаний' : draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
       $$('[data-draft-index]').forEach(button => button.onclick = () => downloadDraft(drafts[Number(button.dataset.draftIndex)]));
     };
     $('#import-state').onchange = async event => {
@@ -319,6 +359,7 @@ const SkazStorage = (() => {
   }
   document.addEventListener('click', async event => {
     const id = event.target.closest('button')?.id;
+    if (id === 'open-quests') questList();
     if (id === 'open-spellbook') spellbook();
     if (id === 'open-inventory') inventory();
     if (id === 'session-settings') sessions();
@@ -333,5 +374,5 @@ const SkazStorage = (() => {
     }
   });
   window.addEventListener('beforeunload', event => { if (status === 'saving') { event.preventDefault(); event.returnValue = ''; } });
-  return { commit, paint, settings, inventory, addInventory, removeInventory, spellbook, editSpell, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
+  return { commit, paint, settings, inventory, addInventory, removeInventory, spellbook, editSpell, questList, editQuest, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
 })();

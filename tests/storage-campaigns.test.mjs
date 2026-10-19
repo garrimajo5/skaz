@@ -304,3 +304,41 @@ test('v4 requires quests before preview and preserves provenance through a lost-
   await restored.api.boot(); await restored.click('sync-retry');
   assert.deepEqual(calls[1], calls[0]); assert.equal(restored.api.editable(), true);
 });
+
+
+test('quest creation retries exact POST operation and IDs after lost response', async () => {
+  const local = memory(), session = memory(), calls = [];
+  const h = harness(local, session, async (url, options) => {
+    if (url === '/api/workspace') return response(payload(0));
+    calls.push({ url, body: options.body }); throw new Error('lost');
+  });
+  await h.api.boot(); h.api.editQuest();
+  h.get('#quest-title').value = 'Find map'; h.get('#quest-description').value = 'Ask keeper'; h.get('#quest-status').value = 'active';
+  await h.get('#quest-form').onsubmit({ preventDefault() {} });
+  assert.equal(calls[0].url, '/api/quests');
+  const body = JSON.parse(calls[0].body); assert.equal(body.operation, 'create'); assert.ok(body.questId);
+  const restored = harness(local, session, async (url, options) => {
+    if (url !== '/api/workspace') calls.push({ url, body: options.body });
+    return response(payload(1));
+  });
+  await restored.api.boot(); await restored.click('sync-retry');
+  assert.deepEqual(calls[1], calls[0]); assert.equal(restored.api.editable(), true);
+});
+
+test('quest edit preserves step IDs and refuses a form opened in another revision', async () => {
+  let current = payload(0); const calls = [];
+  const h = harness(memory(), memory(), async (url, options) => {
+    if (url === '/api/workspace') return response(current);
+    if (url === '/api/quests' && !options.method) return response({ revision: 1, context: payload(1).context, quests: [] });
+    calls.push(JSON.parse(options.body)); return response(payload(1));
+  });
+  const quest = { id: 'quest-existing', title: 'Map', description: '', status: 'active', steps: [{ id: 'step-existing', title: 'Keeper', done: false }] };
+  await h.api.boot(); h.api.editQuest(quest);
+  h.get('#quest-title').value = 'Map'; h.get('#quest-description').value = 'Done'; h.get('#quest-status').value = 'completed'; h.get('#quest-step-0').value = 'Keeper'; h.get('#quest-done-0').checked = true;
+  await h.get('#quest-form').onsubmit({ preventDefault() {} });
+  assert.equal(calls[0].operation, 'update'); assert.equal(calls[0].questId, quest.id);
+  assert.deepEqual(calls[0].quest.steps, [{ id: 'step-existing', title: 'Keeper', done: true }]);
+  h.api.editQuest(quest); current = payload(2, 'other'); await h.api.boot();
+  await h.get('#quest-form').onsubmit({ preventDefault() {} });
+  assert.equal(calls.length, 1); assert.match(h.messages.at(-1), /Игра изменилась/);
+});
