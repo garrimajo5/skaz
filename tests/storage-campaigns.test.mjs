@@ -195,3 +195,38 @@ test('removal and undo UI keep exact commands through failure and reload', async
     assert.deepEqual(calls[1], calls[0]); assert.equal(restored.api.editable(), true);
   }
 });
+
+
+test('v2 import preview does not write before confirmation and retries identical command after reload', async () => {
+  const local = memory(), session = memory(), calls = [];
+  const file = { app: 'skaz-active', schemaVersion: 2, ruleset: '5e-2014', scope: 'active-game', state: seed, inventory: [], catalog: { entries: [] } };
+  const h = harness(local, session, async (url, options) => {
+    if (url === '/api/workspace') return response(payload(0));
+    calls.push({ url, body: options.body }); throw new Error('lost response');
+  });
+  await h.api.boot(); h.api.settings();
+  await h.get('#import-state').onchange({ target: { files: [{ size: 200, text: async () => JSON.stringify(file) }] } });
+  assert.equal(calls.length, 0);
+  await h.get('#confirm-active-import').onclick();
+  assert.equal(calls[0].url, '/api/import/active');
+  assert.equal(JSON.parse(calls[0].body).destination, 'new-campaign');
+  assert.equal(h.api.editable(), false);
+  const restored = harness(local, session, async (url, options) => {
+    if (url !== '/api/workspace') calls.push({ url, body: options.body });
+    return response(payload(1, 'imported'));
+  });
+  await restored.api.boot(); await restored.click('sync-retry');
+  assert.deepEqual(calls[1], calls[0]); assert.equal(restored.api.editable(), true);
+});
+
+test('v2 import refuses oversized command before storing a pending draft', async () => {
+  const local = memory(); const calls = [];
+  const h = harness(local, memory(), async url => { calls.push(url); return response(payload(0)); });
+  await h.api.boot(); h.api.settings();
+  const file = { app: 'skaz-active', schemaVersion: 2, ruleset: '5e-2014', scope: 'active-game', state: seed, inventory: [], catalog: { entries: [] }, padding: 'я'.repeat(300000) };
+  await h.get('#import-state').onchange({ target: { files: [{ size: 200, text: async () => JSON.stringify(file) }] } });
+  await h.get('#confirm-active-import').onclick();
+  assert.equal(h.api.editable(), true); assert.equal(calls.length, 1);
+  assert.equal([...local.values.keys()].some(key => key.startsWith('skaz-pending')), false);
+  assert.match(h.messages.at(-1), /512/);
+});
