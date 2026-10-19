@@ -1,3 +1,4 @@
+import { setupQuests, readQuests, validateQuestCommand, saveQuest } from './quests.mjs';
 import { setupSpellbook, readSpellbook, validateSpellCommand, setSpell } from './spellbook.mjs';
 import { validateTransfer, importTransfer } from './transfer.mjs';
 import { DatabaseSync, backup } from 'node:sqlite';
@@ -34,6 +35,7 @@ export function openStore(filename) {
   const catalog = createCatalog(db);
   setupInventory(db);
   setupSpellbook(db);
+  setupQuests(db);
   db.exec(`CREATE TABLE IF NOT EXISTS context_changes (
     mutation_id TEXT PRIMARY KEY REFERENCES changes(mutation_id),
     operation TEXT NOT NULL, before_json TEXT NOT NULL, after_json TEXT NOT NULL
@@ -136,6 +138,15 @@ export function openStore(filename) {
   }
   return {
     catalog,
+    quests: () => { const current = read(); return { revision: current.revision, context: current.context, quests: readQuests(db, current.context.campaignId) }; },
+    saveQuest: request => {
+      const payload = validateQuestCommand(request);
+      const hash = createHash('sha256').update(JSON.stringify({ operation: 'quest-save', expectedRevision: request.expectedRevision, payload })).digest('hex');
+      return mutate(request, hash, payload.operation === 'create' ? 'Создание задания' : 'Изменение задания', () => {
+        saveQuest(db, payload, request.mutationId, read().context);
+        return read().state;
+      }, 'quest-save');
+    },
     spellbook: () => { const current = read(); return { revision: current.revision, context: current.context, entries: readSpellbook(db, current.context.characterId) }; },
     setSpell: request => {
       const payload = validateSpellCommand(request);
