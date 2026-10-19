@@ -60,3 +60,28 @@ export function removeInventory(db, payload, mutationId, activeCharacterId) {
   }
   db.prepare('INSERT INTO inventory_changes VALUES (?, ?, ?, ?)').run(mutationId, payload.characterId, JSON.stringify(before), JSON.stringify(readInventory(db, payload.characterId)));
 }
+
+export function validateInventoryUndo(request) {
+  if (!request || typeof request !== 'object' || Array.isArray(request) || Object.keys(request).some(key => !['mutationId', 'expectedRevision', 'characterId', 'targetMutationId'].includes(key))) throw new AppError(400, 'Неверные поля отмены');
+  const { characterId, targetMutationId } = request;
+  if (typeof characterId !== 'string' || !/^[a-zA-Z0-9-]{1,80}$/.test(characterId)) throw new AppError(422, 'Нужен ID персонажа');
+  if (typeof targetMutationId !== 'string' || !/^[a-zA-Z0-9-]{8,80}$/.test(targetMutationId)) throw new AppError(422, 'Нужен ID отменяемой операции');
+  return { characterId, targetMutationId };
+}
+
+// Only the latest global mutation may be undone; never replace later progress.
+export function undoInventory(db, payload, mutationId, current) {
+  if (payload.characterId !== current.context.characterId) throw new AppError(409, 'Активный персонаж изменился');
+  const receipt = db.prepare(`SELECT i.*, c.revision, x.operation FROM inventory_changes i
+    JOIN changes c ON c.mutation_id=i.mutation_id
+    JOIN context_changes x ON x.mutation_id=i.mutation_id WHERE i.mutation_id=?`).get(payload.targetMutationId);
+  if (!receipt) throw new AppError(404, 'Операция инвентаря не найдена');
+  if (receipt.character_id !== payload.characterId || receipt.revision !== current.revision || !['inventory-add', 'inventory-remove'].includes(receipt.operation)) throw new AppError(409, 'Можно отменить только последнее добавление или списание без последующих изменений игры');
+  const before = readInventory(db, payload.characterId);
+  if (JSON.stringify(before) !== receipt.after_json) throw new AppError(409, 'Инвентарь изменился после операции');
+  const restored = JSON.parse(receipt.before_json);
+  db.prepare('DELETE FROM inventory WHERE character_id=?').run(payload.characterId);
+  const insert = db.prepare('INSERT INTO inventory VALUES (?, ?, ?, ?)');
+  for (const item of restored) insert.run(payload.characterId, item.catalogId, item.quantity, JSON.stringify(item.entry));
+  db.prepare('INSERT INTO inventory_changes VALUES (?, ?, ?, ?)').run(mutationId, payload.characterId, JSON.stringify(before), JSON.stringify(restored));
+}

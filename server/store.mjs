@@ -4,7 +4,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { AppError, seed, validateState } from './state.mjs';
 import { createCatalog } from './catalog.mjs';
-import { setupInventory, validateInventoryQuantity, readInventory, addInventory, removeInventory } from './inventory.mjs';
+import { setupInventory, validateInventoryQuantity, readInventory, addInventory, removeInventory, validateInventoryUndo, undoInventory } from './inventory.mjs';
 import { setupSessions, validateSession, startSession, listSessions, readSession } from './sessions.mjs';
 import { migrateEntities, readEntities, writeEntities, joinState, contextIds, createGame, selectGame, listGames } from './entities.mjs';
 
@@ -114,6 +114,14 @@ export function openStore(filename) {
         removeInventory(db, payload, request.mutationId, read().context.characterId);
         return read().state;
       }, 'inventory-remove');
+    },
+    undoInventory: request => {
+      const payload = validateInventoryUndo(request);
+      const hash = createHash('sha256').update(JSON.stringify({ operation: 'inventory-undo', expectedRevision: request.expectedRevision, payload })).digest('hex');
+      return mutate(request, hash, 'Отмена операции инвентаря', () => {
+        undoInventory(db, payload, request.mutationId, read());
+        return read().state;
+      }, 'inventory-undo');
     },
     context: () => readEntities(db),
     campaigns: () => listGames(db),

@@ -171,3 +171,88 @@ test('inventory removal HTTP endpoint protects writes and returns revision confl
   assert.equal((await fetch(url, { method: 'POST', headers, body: JSON.stringify({ ...request, mutationId: randomUUID() }) })).status, 409);
   assert.equal(store.inventory().entries[0].quantity, 1);
 });
+
+
+const undo = (store, targetMutationId, fields = {}) => cmd(store, { characterId: store.read().context.characterId, targetMutationId, ...fields });
+test('inventory undo reverses add and full removal, preserves sources and rejects double undo', () => {
+  const store = openStore(':memory:');
+  try {
+    store.catalog.importEntries(items, { apply: true });
+    const addition = add(store); store.addInventory(addition);
+    const inventory = store.inventory().entries, state = store.read().state;
+    const removal = add(store); store.removeInventory(removal);
+    const reversal = undo(store, removal.mutationId); store.undoInventory(reversal);
+    assert.deepEqual(store.inventory().entries, inventory);
+    assert.deepEqual(store.read().state, state);
+    assert.equal(store.undoInventory(reversal).replayed, true);
+    assert.throws(() => store.undoInventory(undo(store, removal.mutationId)), { status: 409 });
+    assert.throws(() => store.undoInventory(undo(store, reversal.mutationId)), { status: 409 });
+    const more = add(store, { quantity: 1 }); store.addInventory(more);
+    store.undoInventory(undo(store, more.mutationId));
+    assert.deepEqual(store.inventory().entries, inventory);
+    store.createCampaign(cmd(store, { state: seed }));
+    const first = add(store); store.addInventory(first);
+    store.undoInventory(undo(store, first.mutationId));
+    assert.deepEqual(store.inventory().entries, []);
+    const replay = store.undoInventory(reversal);
+    assert.notEqual(replay.context.characterId, replay.affectedContext.characterId);
+    assert.deepEqual(store.inventory().entries, []);
+  } finally { store.close(); }
+});
+
+test('undo refuses later progress, invalid targets and foreign characters without changing state', () => {
+  const store = openStore(':memory:');
+  try {
+    store.catalog.importEntries(items, { apply: true });
+    const addition = add(store); store.addInventory(addition);
+    const before = store.inventory();
+    assert.throws(() => store.undoInventory(undo(store, addition.mutationId, { characterId: 'other' })), { status: 409 });
+    assert.throws(() => store.undoInventory(undo(store, 'missing-operation')), { status: 404 });
+    assert.throws(() => store.undoInventory(undo(store, addition.mutationId, { extra: true })), { status: 400 });
+    for (const target of [null, '', 5, 'short']) assert.throws(() => store.undoInventory(undo(store, target)), { status: 422 });
+    assert.deepEqual(store.inventory(), before);
+    const old = undo(store, addition.mutationId);
+    store.update(cmd(store, { label: 'HP change', state: { ...seed, hp: 20 } }));
+    assert.throws(() => store.undoInventory(old), { status: 409 });
+    assert.throws(() => store.undoInventory(undo(store, addition.mutationId)), { status: 409 });
+    assert.equal(store.read().state.hp, 20);
+    assert.deepEqual(store.inventory().entries, before.entries);
+  } finally { store.close(); }
+});
+
+test('undo failure rolls back inventory and audit, successful receipt survives reopen', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'skaz-undo-')), file = join(dir, 'game.sqlite');
+  let store = openStore(file); const raw = new DatabaseSync(file);
+  try {
+    store.catalog.importEntries(items, { apply: true });
+    const addition = add(store); store.addInventory(addition);
+    const before = store.inventory(), reversal = undo(store, addition.mutationId);
+    raw.exec("CREATE TRIGGER reject_undo BEFORE INSERT ON changes BEGIN SELECT RAISE(ABORT, 'undo failure'); END");
+    assert.throws(() => store.undoInventory(reversal), /undo failure/);
+    assert.deepEqual(store.inventory(), before);
+    assert.equal(raw.prepare('SELECT count(*) AS n FROM inventory_changes').get().n, 1);
+    raw.exec('DROP TRIGGER reject_undo');
+    store.undoInventory(reversal);
+    const audit = raw.prepare('SELECT * FROM inventory_changes WHERE mutation_id=?').get(reversal.mutationId);
+    assert.deepEqual(JSON.parse(audit.before_json), before.entries);
+    assert.deepEqual(JSON.parse(audit.after_json), []);
+    store.close(); store = openStore(file);
+    assert.equal(store.undoInventory(reversal).replayed, true);
+    assert.deepEqual(store.inventory().entries, []);
+    assert.equal(store.history().length, 2);
+  } finally { raw.close(); store.close(); }
+});
+
+test('HTTP undo enforces local headers, origin and identical replay', async t => {
+  const store = openStore(':memory:'); store.catalog.importEntries(items, { apply: true });
+  const addition = add(store); store.addInventory(addition);
+  const app = createApp(store); await new Promise(resolve => app.listen(0, '127.0.0.1', resolve));
+  t.after(async () => { await new Promise(resolve => app.close(resolve)); store.close(); });
+  const url = `http://127.0.0.1:${app.address().port}/api/inventory/undo`;
+  const headers = { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body = JSON.stringify(undo(store, addition.mutationId));
+  assert.equal((await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body })).status, 403);
+  assert.equal((await fetch(url, { method: 'POST', headers: { ...headers, Origin: 'https://other.example' }, body })).status, 403);
+  assert.equal((await fetch(url, { method: 'POST', headers, body })).status, 200);
+  assert.equal((await fetch(url, { method: 'POST', headers, body }).then(r => r.json())).replayed, true);
+  assert.deepEqual(store.inventory().entries, []);
+});
