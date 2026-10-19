@@ -55,3 +55,5 @@ PUT требует `Content-Type: application/json` и `X-Skaz-Client: local-v1`
 Каталог поддерживает необязательную структуру `spell` и режим источника `cc-by-4.0` с обязательными `attribution`/`changes`. Отчёт `/api/catalog/coverage` дополнен `openlyLicensed` и `structuredSpells`. Контракт и ограничения: [catalog.md](catalog.md).
 
 Для kind=item поддерживается необязательная структура `item`: тип, редкость, настройка и формула лечения зелья. `/api/catalog/coverage` дополнен `structuredItems`. Импорт не меняет ресурсы персонажа.
+
+Для kind=monster доступна необязательная структура `monster` с основными характеристиками; `/api/catalog/coverage` дополнен `structuredMonsters`. Дробная опасность хранится строкой (например, `1/4`). Контракт: [catalog.md](catalog.md).

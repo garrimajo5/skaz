@@ -50,12 +50,25 @@ function item(value) {
     ...(value.attunementRequirement === undefined ? {} : { attunementRequirement: text(value.attunementRequirement) }),
     ...(healing === undefined ? {} : { healing }) };
 }
+function monster(value) {
+  object(value, ['size', 'type', 'armorClass', 'hitPoints', 'speed', 'abilities', 'challenge', 'xp']);
+  const integer = (n, min, max) => { if (!Number.isSafeInteger(n) || n < min || n > max) fail('Неверное числовое поле существа'); return n; };
+  if (!['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan'].includes(value.size)) fail('Неизвестный размер существа');
+  if (!['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'undead'].includes(value.type)) fail('Неизвестный тип существа');
+  if (!['0', '1/8', '1/4', '1/2', ...Array.from({ length: 30 }, (_, i) => String(i + 1))].includes(value.challenge)) fail('Неверный показатель опасности');
+  object(value.speed, ['walk', 'burrow', 'climb', 'fly', 'swim']);
+  if (!Object.keys(value.speed).length) fail('Нужна скорость существа');
+  const speed = Object.fromEntries(['walk', 'burrow', 'climb', 'fly', 'swim'].filter(key => value.speed[key] !== undefined).map(key => [key, integer(value.speed[key], 0, 10000)]));
+  object(value.abilities, ['str', 'dex', 'con', 'int', 'wis', 'cha']);
+  const abilities = Object.fromEntries(['str', 'dex', 'con', 'int', 'wis', 'cha'].map(key => [key, integer(value.abilities[key], 1, 30)]));
+  return { size: value.size, type: value.type, armorClass: integer(value.armorClass, 0, 100), hitPoints: integer(value.hitPoints, 1, 1000000), speed, abilities, challenge: value.challenge, xp: integer(value.xp, 0, 10000000) };
+}
 export function validateCatalog(bundle) {
   object(bundle, ['schemaVersion', 'entries']);
   if (bundle.schemaVersion !== 1 || !Array.isArray(bundle.entries) || bundle.entries.length > 1000 || !bundle.entries.length) fail('Ожидается пакет версии 1: от 1 до 1000 записей');
   const ids = new Set();
   return bundle.entries.map(entry => {
-    object(entry, ['id', 'ruleset', 'kind', 'name', 'source', 'text', 'links', 'spell', 'item']);
+    object(entry, ['id', 'ruleset', 'kind', 'name', 'source', 'text', 'links', 'spell', 'item', 'monster']);
     const entryId = id(entry.id);
     if (ids.has(entryId)) fail(`Повтор ID: ${entryId}`);
     ids.add(entryId);
@@ -63,9 +76,10 @@ export function validateCatalog(bundle) {
     object(entry.name, ['ru', 'en']);
     object(entry.source, ['url', 'title', 'version', 'usage', 'terms', 'attribution', 'changes']);
     if (!['reference-only', 'personal', 'cc-by-4.0'].includes(entry.source.usage)) fail('Неизвестный режим использования');
-    if (entry.source.usage === 'reference-only' && (entry.text !== undefined || entry.spell !== undefined || entry.item !== undefined)) fail('Справочная ссылка не должна содержать копию текста или характеристики');
+    if (entry.source.usage === 'reference-only' && (entry.text !== undefined || entry.spell !== undefined || entry.item !== undefined || entry.monster !== undefined)) fail('Справочная ссылка не должна содержать копию текста или характеристики');
     if (entry.spell !== undefined && entry.kind !== 'spell') fail('Характеристики заклинания допустимы только для spell');
     if (entry.item !== undefined && entry.kind !== 'item') fail('Характеристики предмета допустимы только для item');
+    if (entry.monster !== undefined && entry.kind !== 'monster') fail('Характеристики существа допустимы только для monster');
     const license = entry.source.usage === 'cc-by-4.0' ? { attribution: text(entry.source.attribution, 2000), changes: text(entry.source.changes, 2000) } : {};
     if (entry.source.usage !== 'cc-by-4.0' && (entry.source.attribution !== undefined || entry.source.changes !== undefined)) fail('Атрибуция CC допускается только для cc-by-4.0');
     if (!Array.isArray(entry.links) || entry.links.length > 100) fail('Неверный список связей');
@@ -78,6 +92,7 @@ export function validateCatalog(bundle) {
       ...(entry.text === undefined ? {} : { text: text(entry.text, 20000) }), links,
       ...(entry.spell === undefined ? {} : { spell: spell(entry.spell) }),
       ...(entry.item === undefined ? {} : { item: item(entry.item) }),
+      ...(entry.monster === undefined ? {} : { monster: monster(entry.monster) }),
     };
   });
 }
@@ -129,7 +144,8 @@ export function createCatalog(db) {
       openlyLicensed: entries.filter(entry => entry.source.usage === 'cc-by-4.0').length,
       structuredSpells: entries.filter(entry => entry.spell !== undefined).length,
       structuredItems: entries.filter(entry => entry.item !== undefined).length,
-      gaps: ['Полная база не загружена; общее количество материалов не установлено.', 'Структуры заклинаний и предметов частичные; полные эффекты остаются в тексте. Схемы монстров и артефактов, связь с листом и инвентарём пока не реализованы.'] };
+      structuredMonsters: entries.filter(entry => entry.monster !== undefined).length,
+      gaps: ['Полная база не загружена; общее количество материалов не установлено.', 'Структуры заклинаний, предметов и существ частичные; действия и особенности остаются в тексте. Схемы артефактов, связь с листом и инвентарём пока не реализованы.'] };
   }
   return { importEntries, search, coverage };
 }
