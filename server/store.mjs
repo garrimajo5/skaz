@@ -4,7 +4,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { AppError, seed, validateState } from './state.mjs';
 import { createCatalog } from './catalog.mjs';
-import { setupInventory, validateInventoryAdd, readInventory, addInventory } from './inventory.mjs';
+import { setupInventory, validateInventoryQuantity, readInventory, addInventory, removeInventory } from './inventory.mjs';
 import { setupSessions, validateSession, startSession, listSessions, readSession } from './sessions.mjs';
 import { migrateEntities, readEntities, writeEntities, joinState, contextIds, createGame, selectGame, listGames } from './entities.mjs';
 
@@ -100,12 +100,20 @@ export function openStore(filename) {
     catalog,
     inventory: () => { const current = read(); return { revision: current.revision, context: current.context, entries: readInventory(db, current.context.characterId) }; },
     addInventory: request => {
-      const payload = validateInventoryAdd(request);
+      const payload = validateInventoryQuantity(request);
       const hash = createHash('sha256').update(JSON.stringify({ operation: 'inventory-add', expectedRevision: request.expectedRevision, payload })).digest('hex');
       return mutate(request, hash, 'Добавление предмета', () => {
         addInventory(db, payload, request.mutationId, read().context.characterId);
         return read().state;
       }, 'inventory-add');
+    },
+    removeInventory: request => {
+      const payload = validateInventoryQuantity(request);
+      const hash = createHash('sha256').update(JSON.stringify({ operation: 'inventory-remove', expectedRevision: request.expectedRevision, payload })).digest('hex');
+      return mutate(request, hash, 'Списание предмета', () => {
+        removeInventory(db, payload, request.mutationId, read().context.characterId);
+        return read().state;
+      }, 'inventory-remove');
     },
     context: () => readEntities(db),
     campaigns: () => listGames(db),

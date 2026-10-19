@@ -98,3 +98,76 @@ test('inventory HTTP commands require local write protection and report current 
   assert.equal(result.entries[0].quantity, 2); assert.equal(result.revision, 1);
   assert.equal(result.context.characterId, store.read().context.characterId);
 });
+
+
+test('inventory removal is bounded, replayable and isolated, including full depletion', () => {
+  const store = openStore(':memory:');
+  try {
+    store.catalog.importEntries(items, { apply: true });
+    store.addInventory(add(store, { quantity: 3 }));
+    const original = store.read();
+    for (const quantity of [0, -1, 1.5, '1', 1000, 4]) assert.throws(() => store.removeInventory(add(store, { quantity })), { status: 422 });
+    assert.throws(() => store.removeInventory(add(store, { extra: 1 })), { status: 400 });
+    assert.throws(() => store.removeInventory(add(store, { characterId: 'another' })), { status: 409 });
+    assert.throws(() => store.removeInventory(add(store, { catalogId: items.entries[1].id })), { status: 404 });
+    assert.deepEqual(store.read(), original);
+    const request = add(store, { quantity: 2 });
+    store.removeInventory(request);
+    assert.equal(store.inventory().entries[0].quantity, 1);
+    assert.deepEqual(store.inventory().entries[0].entry, items.entries[0]);
+    assert.equal(store.removeInventory(request).replayed, true);
+    assert.throws(() => store.addInventory(request), { status: 409 });
+    assert.throws(() => store.removeInventory({ ...request, mutationId: randomUUID() }), { status: 409 });
+    assert.deepEqual(store.read().state, original.state);
+    store.removeInventory(add(store, { quantity: 1 }));
+    assert.equal(store.inventory().entries.length, 0);
+    assert.equal(store.removeInventory(request).replayed, true);
+    assert.equal(store.inventory().entries.length, 0);
+    store.createCampaign(cmd(store, { state: seed }));
+    const replay = store.removeInventory(request);
+    assert.deepEqual(replay.affectedContext, original.context);
+    assert.notEqual(replay.context.characterId, original.context.characterId);
+    assert.equal(store.inventory().entries.length, 0);
+  } finally { store.close(); }
+});
+
+test('removal rollback restores a depleted row and its source; receipt survives reopen', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'skaz-remove-'));
+  const file = join(dir, 'game.sqlite');
+  let store = openStore(file); const raw = new DatabaseSync(file);
+  try {
+    store.catalog.importEntries(items, { apply: true });
+    store.addInventory(add(store));
+    const before = store.inventory(), request = add(store);
+    raw.exec("CREATE TRIGGER reject_remove BEFORE INSERT ON changes BEGIN SELECT RAISE(ABORT, 'remove failure'); END");
+    assert.throws(() => store.removeInventory(request), /remove failure/);
+    assert.deepEqual(store.inventory(), before);
+    assert.equal(raw.prepare('SELECT count(*) AS n FROM inventory_changes').get().n, 1);
+    raw.exec('DROP TRIGGER reject_remove');
+    store.removeInventory(request);
+    const audit = raw.prepare('SELECT * FROM inventory_changes WHERE mutation_id=?').get(request.mutationId);
+    assert.deepEqual(JSON.parse(audit.before_json), before.entries);
+    assert.deepEqual(JSON.parse(audit.after_json), []);
+    store.close(); store = openStore(file);
+    assert.equal(store.removeInventory(request).replayed, true);
+    assert.equal(store.inventory().entries.length, 0);
+    assert.equal(store.history().length, 2);
+  } finally { raw.close(); store.close(); }
+});
+
+test('inventory removal HTTP endpoint protects writes and returns revision conflicts', async t => {
+  const store = openStore(':memory:'); store.catalog.importEntries(items, { apply: true });
+  store.addInventory(add(store));
+  const app = createApp(store); await new Promise(resolve => app.listen(0, '127.0.0.1', resolve));
+  t.after(async () => { await new Promise(resolve => app.close(resolve)); store.close(); });
+  const url = `http://127.0.0.1:${app.address().port}/api/inventory/remove`;
+  const headers = { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' };
+  const request = add(store, { quantity: 1 }), body = JSON.stringify(request);
+  assert.equal((await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body })).status, 403);
+  assert.equal((await fetch(url, { method: 'POST', headers: { ...headers, Origin: 'https://other.example' }, body })).status, 403);
+  assert.equal(store.inventory().entries[0].quantity, 2);
+  assert.equal((await fetch(url, { method: 'POST', headers, body })).status, 200);
+  assert.equal((await fetch(url, { method: 'POST', headers, body }).then(r => r.json())).replayed, true);
+  assert.equal((await fetch(url, { method: 'POST', headers, body: JSON.stringify({ ...request, mutationId: randomUUID() }) })).status, 409);
+  assert.equal(store.inventory().entries[0].quantity, 1);
+});

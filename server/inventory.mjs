@@ -15,8 +15,8 @@ export function setupInventory(db) {
   )`);
 }
 
-export function validateInventoryAdd(request) {
-  if (!request || typeof request !== 'object' || Array.isArray(request) || Object.keys(request).some(key => !['mutationId', 'expectedRevision', 'characterId', 'catalogId', 'quantity'].includes(key))) throw new AppError(400, 'Неверные поля добавления предмета');
+export function validateInventoryQuantity(request) {
+  if (!request || typeof request !== 'object' || Array.isArray(request) || Object.keys(request).some(key => !['mutationId', 'expectedRevision', 'characterId', 'catalogId', 'quantity'].includes(key))) throw new AppError(400, 'Неверные поля команды инвентаря');
   const { characterId, catalogId, quantity } = request;
   if (typeof characterId !== 'string' || !/^[a-zA-Z0-9-]{1,80}$/.test(characterId)) throw new AppError(422, 'Нужен ID персонажа');
   if (typeof catalogId !== 'string' || !/^[a-z0-9][a-z0-9:._-]{2,119}$/.test(catalogId)) throw new AppError(422, 'Нужен ID каталога');
@@ -43,5 +43,20 @@ export function addInventory(db, payload, mutationId, activeCharacterId) {
   db.prepare(`INSERT INTO inventory VALUES (?, ?, ?, ?)
     ON CONFLICT(character_id, catalog_id) DO UPDATE SET quantity=quantity+excluded.quantity`)
     .run(payload.characterId, payload.catalogId, payload.quantity, row.entry_json);
+  db.prepare('INSERT INTO inventory_changes VALUES (?, ?, ?, ?)').run(mutationId, payload.characterId, JSON.stringify(before), JSON.stringify(readInventory(db, payload.characterId)));
+}
+
+// Removal records loss, transfer or consumption; it does not apply item effects.
+export function removeInventory(db, payload, mutationId, activeCharacterId) {
+  if (payload.characterId !== activeCharacterId) throw new AppError(409, 'Активный персонаж изменился');
+  const before = readInventory(db, payload.characterId);
+  const existing = before.find(item => item.catalogId === payload.catalogId);
+  if (!existing) throw new AppError(404, 'Предмета нет в инвентаре');
+  if (payload.quantity > existing.quantity) throw new AppError(422, 'В инвентаре недостаточно предметов');
+  if (payload.quantity === existing.quantity) {
+    db.prepare('DELETE FROM inventory WHERE character_id=? AND catalog_id=?').run(payload.characterId, payload.catalogId);
+  } else {
+    db.prepare('UPDATE inventory SET quantity=quantity-? WHERE character_id=? AND catalog_id=?').run(payload.quantity, payload.characterId, payload.catalogId);
+  }
   db.prepare('INSERT INTO inventory_changes VALUES (?, ?, ?, ?)').run(mutationId, payload.characterId, JSON.stringify(before), JSON.stringify(readInventory(db, payload.characterId)));
 }
