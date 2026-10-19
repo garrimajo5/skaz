@@ -98,7 +98,14 @@ export function openStore(filename) {
   }
   return {
     catalog,
-    inventory: () => { const current = read(); return { revision: current.revision, context: current.context, entries: readInventory(db, current.context.characterId) }; },
+    inventory: () => {
+      const current = read();
+      const last = db.prepare(`SELECT c.mutation_id AS mutationId, c.label FROM changes c
+        JOIN inventory_changes i ON i.mutation_id=c.mutation_id
+        JOIN context_changes x ON x.mutation_id=c.mutation_id
+        WHERE c.revision=? AND i.character_id=? AND x.operation IN ('inventory-add','inventory-remove')`).get(current.revision, current.context.characterId);
+      return { revision: current.revision, context: current.context, entries: readInventory(db, current.context.characterId), undo: last ? { ...last } : null };
+    },
     addInventory: request => {
       const payload = validateInventoryQuantity(request);
       const hash = createHash('sha256').update(JSON.stringify({ operation: 'inventory-add', expectedRevision: request.expectedRevision, payload })).digest('hex');

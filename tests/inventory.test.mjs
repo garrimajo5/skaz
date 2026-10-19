@@ -256,3 +256,21 @@ test('HTTP undo enforces local headers, origin and identical replay', async t =>
   assert.equal((await fetch(url, { method: 'POST', headers, body }).then(r => r.json())).replayed, true);
   assert.deepEqual(store.inventory().entries, []);
 });
+
+
+test('inventory advertises undo only for the latest eligible operation', () => {
+  const store = openStore(':memory:');
+  try {
+    store.catalog.importEntries(items, { apply: true });
+    assert.equal(store.inventory().undo, null);
+    const addition = add(store); store.addInventory(addition);
+    assert.equal(store.inventory().undo.mutationId, addition.mutationId);
+    const removal = add(store); store.removeInventory(removal);
+    assert.equal(store.inventory().undo.mutationId, removal.mutationId);
+    store.undoInventory(undo(store, removal.mutationId));
+    assert.equal(store.inventory().undo, null);
+    store.addInventory(add(store));
+    store.update(cmd(store, { label: 'Save', state: seed }));
+    assert.equal(store.inventory().undo, null);
+  } finally { store.close(); }
+});

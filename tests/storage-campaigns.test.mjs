@@ -166,3 +166,32 @@ test('inventory read from a newer revision requires refresh and never silently a
   await h.click('sync-retry');
   assert.deepEqual(commands[1], commands[0]);
 });
+
+
+test('removal and undo UI keep exact commands through failure and reload', async () => {
+  for (const operation of ['remove', 'undo']) {
+    const local = memory(), session = memory(), calls = [];
+    const h = harness(local, session, async (url, options) => {
+      if (url === '/api/workspace') return response(payload(0));
+      if (url === '/api/inventory') return response({ revision: 0, context: payload(0).context, entries: [], undo: { mutationId: 'target-operation', label: 'Списание' } });
+      calls.push({ url, body: options.body }); throw new Error('lost response');
+    });
+    await h.api.boot();
+    if (operation === 'remove') {
+      h.api.removeInventory({ catalogId: inventoryEntry.id, quantity: 2, entry: inventoryEntry });
+      h.get('#inventory-remove-quantity').value = '3';
+      await h.get('#inventory-remove-form').onsubmit({ preventDefault() {} });
+      assert.equal(calls.length, 0);
+      h.get('#inventory-remove-quantity').value = '2';
+      await h.get('#inventory-remove-form').onsubmit({ preventDefault() {} });
+    } else { await h.api.inventory(); await h.get('#inventory-undo').onclick(); }
+    assert.equal(calls[0].url, '/api/inventory/' + operation);
+    assert.equal(h.api.editable(), false);
+    const restored = harness(local, session, async (url, options) => {
+      if (url !== '/api/workspace') calls.push({ url, body: options.body });
+      return response(payload(1));
+    });
+    await restored.api.boot(); await restored.click('sync-retry');
+    assert.deepEqual(calls[1], calls[0]); assert.equal(restored.api.editable(), true);
+  }
+});

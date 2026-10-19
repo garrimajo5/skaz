@@ -64,7 +64,7 @@ const SkazStorage = (() => {
     status = 'saving'; message = ''; paint();
     try {
       const { operation, ...body } = pending;
-      const url = operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
+      const url = operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
       const payload = await request(url, { method: operation ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body: JSON.stringify(body) });
       apply(payload);
       return payload;
@@ -106,7 +106,7 @@ const SkazStorage = (() => {
     rememberDraft();
     closeModal();
     const payload = await sendPending();
-    toast(operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
+    toast(operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
     return payload;
   }
   async function campaigns() {
@@ -145,7 +145,16 @@ const SkazStorage = (() => {
         $('#inventory-reload').onclick = async () => { closeModal(); await load(); };
         return;
       }
-      modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 tabindex="-1" autofocus>Инвентарь</h2><p>${state.gold} зм · видов предметов: ${data.entries.length}</p><div class="settings-actions">${data.entries.map(item => `<article class="panel"><div class="panel-title"><h3>${esc(item.entry.name.ru)}</h3><strong>× ${item.quantity}</strong></div><p>${esc(item.entry.name.en)}</p><small>${esc(item.entry.source.title)} · ${esc(item.entry.source.version)}</small></article>`).join('') || '<p>Пока пусто. Найди предмет в справочнике и добавь его в инвентарь.</p>'}</div><p>Здесь только сохранённые предметы. Снаряжение демо-барда не перенесено. Использование, удаление и отмена добавления пока недоступны; бонусы не применяются автоматически.</p><button id="inventory-catalog" class="primary">Найти предмет в справочнике</button>`);
+      modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 tabindex="-1" autofocus>Инвентарь</h2><p>${state.gold} зм · видов предметов: ${data.entries.length}</p><div class="settings-actions">${data.entries.map((item, index) => `<article class="panel"><div class="panel-title"><h3>${esc(item.entry.name.ru)}</h3><strong>× ${item.quantity}</strong></div><p>${esc(item.entry.name.en)}</p><small>${esc(item.entry.source.title)} · ${esc(item.entry.source.version)}</small><button data-inventory-remove="${index}">Списать</button></article>`).join('') || '<p>Пока пусто. Найди предмет в справочнике и добавь его в инвентарь.</p>'}</div><p>Здесь только сохранённые предметы. Снаряжение демо-барда не перенесено. Списание меняет только количество. Лечение и бонусы не применяются автоматически. Отменить можно последнюю операцию, пока не было других изменений игры.</p>${data.undo ? `<button id="inventory-undo">Отменить: ${esc(data.undo.label)}</button>` : ''}<button id="inventory-catalog" class="primary">Найти предмет в справочнике</button>`);
+      $$('[data-inventory-remove]').forEach(button => button.onclick = () => {
+        if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой инвентарь заново.');
+        removeInventory(data.entries[Number(button.dataset.inventoryRemove)]);
+      });
+      if (data.undo) $('#inventory-undo').onclick = async () => {
+        if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой инвентарь заново.');
+        try { await campaignCommand('inventory-undo', { characterId: activeContext.characterId, targetMutationId: data.undo.mutationId }); await inventory(); }
+        catch (error) { toast(error.message); }
+      };
       $('#inventory-catalog').onclick = () => { closeModal(); location.hash = 'library'; };
     } catch { modal('<h2>Не удалось открыть инвентарь</h2><p>Проверь соединение.</p><button id="inventory-retry">Повторить</button>'); $('#inventory-retry').onclick = inventory; }
   }
@@ -153,13 +162,26 @@ const SkazStorage = (() => {
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
     if (!['item', 'artifact'].includes(entry.kind)) return;
     const key = JSON.stringify(activeContext), version = revision, characterId = activeContext.characterId;
-    modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 tabindex="-1" autofocus>${esc(entry.name.ru)}</h2><p>Добавление имущества. Золото не списывается, бонусы и лечение не применяются. Отмены добавления пока нет.</p><form id="inventory-add-form"><label for="inventory-quantity">Сколько добавить</label><input id="inventory-quantity" type="number" min="1" max="999" step="1" value="1" required inputmode="numeric"><div class="dialog-actions"><button type="submit" class="primary">Добавить в инвентарь</button></div></form>`);
+    modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 tabindex="-1" autofocus>${esc(entry.name.ru)}</h2><p>Добавление имущества. Золото не списывается, бонусы и лечение не применяются. Отмена доступна в инвентаре до следующего изменения игры.</p><form id="inventory-add-form"><label for="inventory-quantity">Сколько добавить</label><input id="inventory-quantity" type="number" min="1" max="999" step="1" value="1" required inputmode="numeric"><div class="dialog-actions"><button type="submit" class="primary">Добавить в инвентарь</button></div></form>`);
     $('#inventory-add-form').onsubmit = async event => {
       event.preventDefault();
       if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой карточку заново.');
       const quantity = Number($('#inventory-quantity').value);
       if (!Number.isSafeInteger(quantity) || quantity < 1 || quantity > 999) return toast('Количество: целое от 1 до 999');
       try { await campaignCommand('inventory-add', { characterId, catalogId: entry.id, quantity }); await inventory(); }
+      catch (error) { toast(error.message); }
+    };
+  }
+  function removeInventory(item) {
+    if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
+    const key = JSON.stringify(activeContext), version = revision, characterId = activeContext.characterId;
+    modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 tabindex="-1" autofocus>Списать: ${esc(item.entry.name.ru)}</h2><p>В наличии: ${item.quantity}. Это учёт расхода, потери или передачи. Лечение и другие эффекты не применяются.</p><form id="inventory-remove-form"><label for="inventory-remove-quantity">Сколько списать</label><input id="inventory-remove-quantity" type="number" min="1" max="${item.quantity}" step="1" value="1" required inputmode="numeric"><div class="dialog-actions"><button type="submit" class="primary">Списать количество</button></div></form>`);
+    $('#inventory-remove-form').onsubmit = async event => {
+      event.preventDefault();
+      if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой инвентарь заново.');
+      const quantity = Number($('#inventory-remove-quantity').value);
+      if (!Number.isSafeInteger(quantity) || quantity < 1 || quantity > item.quantity) return toast('Укажи целое количество в пределах остатка');
+      try { await campaignCommand('inventory-remove', { characterId, catalogId: item.catalogId, quantity }); await inventory(); }
       catch (error) { toast(error.message); }
     };
   }
@@ -203,7 +225,7 @@ const SkazStorage = (() => {
           }
         }
       } catch { toast('Хранилище браузера недоступно'); return; }
-      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
+      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
       $$('[data-draft-index]').forEach(button => button.onclick = () => downloadDraft(drafts[Number(button.dataset.draftIndex)]));
     };
     $('#import-state').onchange = async event => {
@@ -256,5 +278,5 @@ const SkazStorage = (() => {
     }
   });
   window.addEventListener('beforeunload', event => { if (status === 'saving') { event.preventDefault(); event.returnValue = ''; } });
-  return { commit, paint, settings, inventory, addInventory, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
+  return { commit, paint, settings, inventory, addInventory, removeInventory, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
 })();
