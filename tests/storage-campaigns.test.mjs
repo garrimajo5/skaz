@@ -7,16 +7,16 @@ import { seed } from '../server/state.mjs';
 const source = await readFile(new URL('../client/storage.js', import.meta.url), 'utf8');
 const memory = () => { const values = new Map(); return { getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
 function harness(localStorage, sessionStorage, fetch) {
-  const handlers = {}, elements = new Map(), messages = [], archiveCalls = []; let dialog='';
+  const handlers = {}, elements = new Map(), messages = [], archiveCalls = [], references = []; let dialog='';
   const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '', style: {}, focus() {} }); return elements.get(id); };
   const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch,
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
     document: { getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
-    SkazArchive: { open: id => archiveCalls.push(id) }, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : [], esc: String, render() {}, modal:html=>dialog=html, closeModal() {}, toast: value => messages.push(value),
+    SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>dialog=html, closeModal() {}, toast: value => messages.push(value),
   });
   vm.runInContext(source, context);
-  return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, dialog:()=>dialog,
+  return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, references, dialog:()=>dialog,
     click: id => handlers.click({ target: { closest: () => ({ id }) } }),
   };
 }
@@ -518,4 +518,40 @@ test('late inventory responses cannot reopen a closed dialog or replace another 
   const current=h.dialog();if(mode==='error')reject(new Error('offline'));else resolve(response({revision:0,context:payload(0).context,entries:[]}));
   await pending;assert.equal(h.dialog(),current);
  }
+});
+
+
+test('inventory search filters saved snapshots without writes and retains original indexes for reading and removal',async()=>{
+ const items=Array.from({length:23},(_,i)=>({catalogId:'saved:'+i,quantity:i+1,entry:{kind:i===12?'artifact':'item',name:{ru:'Предмет '+i,en:i===12?'Unique Pearl':'Item '+i},text:'Description '+i,source:{title:'Fixture',version:'1',terms:'Personal'},...(i===22?{}:i===12?{artifact:{attunement:true}}:{item:{attunement:i%2===0}})}}));
+ const calls=[];const h=harness(memory(),memory(),async(url,options)=>{calls.push([url,options.method]);return response(url==='/api/workspace'?payload(0):{...payload(0),entries:items});});
+ await h.api.boot();await h.api.inventory();assert.match(h.dialog(),/1–10 из 23/);assert.doesNotMatch(h.dialog(),/data-inventory-read="10"/);
+ h.get('#inventory-next').onclick();assert.match(h.dialog(),/11–20 из 23/);h.get('inventory-read-button').dataset.inventoryRead='12';h.get('inventory-read-button').onclick();assert.match(h.dialog(),/Description 12/);assert.match(h.dialog(),/В наличии: 13/);
+ await h.get('#inventory-read-back').onclick();assert.match(h.dialog(),/11–20 из 23/);
+ h.get('#inventory-query').value='  pEaRl ';h.get('#inventory-attunement').value='required';h.get('#inventory-search').onsubmit({preventDefault(){}});
+ assert.match(h.dialog(),/1–1 из 1/);assert.match(h.dialog(),/data-inventory-read="12"/);assert.doesNotMatch(h.dialog(),/data-inventory-read="0"/);
+ h.get('inventory-remove-button').dataset.inventoryRemove='12';h.get('inventory-remove-button').onclick();assert.match(h.dialog(),/Списать: Предмет 12/);assert.match(h.dialog(),/В наличии: 13/);
+ await h.api.inventory();assert.match(h.dialog(),/1–1 из 1/);h.get('#inventory-reset').onclick();assert.match(h.dialog(),/1–10 из 23/);
+ h.get('#inventory-query').value='';h.get('#inventory-attunement').value='none';h.get('#inventory-search').onsubmit({preventDefault(){}});assert.match(h.dialog(),/1–10 из 11/);assert.doesNotMatch(h.dialog(),/data-inventory-read="22"/);
+ assert.equal(calls.some(([,method])=>method==='POST'),false);
+});
+
+test('inventory filters reset for a new hero, clamp shortened pages, and stale handlers cannot reopen another dialog',async()=>{
+ let current=payload(0),count=21;
+ const make=i=>({catalogId:'item:'+i,quantity:1,entry:{name:{ru:'Кольцо '+i,en:'Ring '+i},source:{title:'Source',version:'1'},item:{attunement:false}}});
+ const h=harness(memory(),memory(),async url=>response(url==='/api/workspace'?current:{...current,entries:Array.from({length:count},(_,i)=>make(i))}));
+ await h.api.boot();await h.api.inventory();h.get('#inventory-next').onclick();h.get('#inventory-next').onclick();assert.match(h.dialog(),/21–21 из 21/);
+ count=2;await h.api.inventory();assert.match(h.dialog(),/1–2 из 2/);
+ h.get('#inventory-query').value='no match';h.get('#inventory-attunement').value='';h.get('#inventory-search').onsubmit({preventDefault(){}});assert.match(h.dialog(),/По этим условиям ничего не найдено/);assert.match(h.dialog(),/0–0 из 0/);
+ const stale=h.get('#inventory-reset').onclick;h.api.addInventory(inventoryEntry);const form=h.dialog();stale();assert.equal(h.dialog(),form);
+ current=payload(1,'second');await h.api.boot();await h.api.inventory();assert.match(h.dialog(),/1–2 из 2/);assert.doesNotMatch(h.dialog(),/value="no match"/);
+ const old=h.get('#inventory-search').onsubmit;current=payload(2,'third');await h.api.boot();const before=h.dialog();old({preventDefault(){}});assert.equal(h.dialog(),before);assert.match(h.messages.at(-1),/Игра изменилась/);
+});
+
+
+test('saved inventory charge facts and reference return keep the snapshot and reject changed context',async()=>{
+ let current=payload(0);const entry={id:'test:wand',kind:'item',name:{ru:'Старая палочка',en:'Old Wand'},text:'Saved old text',source:{title:'Original',version:'old',terms:'Personal'},item:{attunement:true,charges:{max:7,recharge:'На рассвете'}}};
+ const h=harness(memory(),memory(),async url=>response(url==='/api/workspace'?current:{...current,entries:[{catalogId:entry.id,quantity:1,entry}]}));
+ await h.api.boot();await h.api.inventory();h.get('inventory-read-button').dataset.inventoryRead='0';h.get('inventory-read-button').onclick();assert.match(h.dialog(),/Максимум зарядов: 7/);assert.match(h.dialog(),/не текущий остаток/);
+ const open=h.get('#inventory-reference').onclick;open();assert.equal(h.references[0][0],entry.id);assert.equal(h.references[0][2](),true);
+ h.references[0][1]();assert.match(h.dialog(),/Saved old text/);current=payload(1,'new');await h.api.boot();assert.equal(h.references[0][2](),false);open();assert.equal(h.references.length,1);
 });

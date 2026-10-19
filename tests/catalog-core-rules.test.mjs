@@ -34,7 +34,7 @@ test('mechanic sections reject invalid structure atomically while preserving con
 test('mechanic section HTTP filter excludes unstructured references and rejects cross-category or duplicate values',async t=>{
  const s=openStore(':memory:');const p=s.catalog.previewBundled();s.catalog.installBundled({version:p.version});const app=createApp(s);await new Promise(r=>app.listen(0,'127.0.0.1',r));t.after(async()=>{await new Promise(r=>app.close(r));s.close();});
  const base=`http://127.0.0.1:${app.address().port}/api/catalog?`;
- for(const [section,count] of [['condition',15],['spellcasting',5],['combat',11],['rest',2]]){
+ for(const [section,count] of [['condition',15],['spellcasting',5],['combat',11],['rest',2],['equipment',6]]){
  const response=await fetch(base+new URLSearchParams({kind:'mechanic',mechanicCategory:section}));assert.equal(response.status,200);const data=await response.json();assert.equal(data.total,count);assert.ok(data.entries.every(e=>e.mechanic.category===section));
  }
  const search=await fetch(base+new URLSearchParams({kind:'mechanic',mechanicCategory:'rest',q:'короткий'})).then(r=>r.json());assert.equal(search.total,1);assert.equal(search.entries[0].name.en,'Short Rest');

@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Seventeen selected protective and utility magic items, not all SRD magic items",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 17,
+  "entries": [
+    {
+      "id": "srd51:2014:item:adamantine-armor",
+      "nameEn": "Adamantine Armor",
+      "pages": [
+        207
+      ]
+    },
+    {
+      "id": "srd51:2014:item:amulet-of-health",
+      "nameEn": "Amulet of Health",
+      "pages": [
+        207
+      ]
+    },
+    {
+      "id": "srd51:2014:item:amulet-of-proof-against-detection-and-location",
+      "nameEn": "Amulet of Proof against Detection and Location",
+      "pages": [
+        207
+      ]
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-elvenkind",
+      "nameEn": "Cloak of Elvenkind",
+      "pages": [
+        214
+      ]
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-the-manta-ray",
+      "nameEn": "Cloak of the Manta Ray",
+      "pages": [
+        214
+      ]
+    },
+    {
+      "id": "srd51:2014:item:gauntlets-of-ogre-power",
+      "nameEn": "Gauntlets of Ogre Power",
+      "pages": [
+        223
+      ]
+    },
+    {
+      "id": "srd51:2014:item:headband-of-intellect",
+      "nameEn": "Headband of Intellect",
+      "pages": [
+        225
+      ]
+    },
+    {
+      "id": "srd51:2014:item:necklace-of-adaptation",
+      "nameEn": "Necklace of Adaptation",
+      "pages": [
+        231
+      ]
+    },
+    {
+      "id": "srd51:2014:item:pearl-of-power",
+      "nameEn": "Pearl of Power",
+      "pages": [
+        232
+      ]
+    },
+    {
+      "id": "srd51:2014:item:ring-of-protection",
+      "nameEn": "Ring of Protection",
+      "pages": [
+        237
+      ]
+    },
+    {
+      "id": "srd51:2014:item:ring-of-swimming",
+      "nameEn": "Ring of Swimming",
+      "pages": [
+        238
+      ]
+    },
+    {
+      "id": "srd51:2014:item:ring-of-warmth",
+      "nameEn": "Ring of Warmth",
+      "pages": [
+        238
+      ]
+    },
+    {
+      "id": "srd51:2014:item:mithral-armor",
+      "nameEn": "Mithral Armor",
+      "pages": [
+        231
+      ]
+    },
+    {
+      "id": "srd51:2014:item:hat-of-disguise",
+      "nameEn": "Hat of Disguise",
+      "pages": [
+        225
+      ]
+    },
+    {
+      "id": "srd51:2014:item:helm-of-comprehending-languages",
+      "nameEn": "Helm of Comprehending Languages",
+      "pages": [
+        225
+      ]
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-displacement",
+      "nameEn": "Cloak of Displacement",
+      "pages": [
+        214
+      ]
+    },
+    {
+      "id": "srd51:2014:item:circlet-of-blasting",
+      "nameEn": "Circlet of Blasting",
+      "pages": [
+        214
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries; not official translation.",
+    "Attunement, ability scores, AC, saving throws and recovered spell slots remain manual.",
+    "Armor subtype is not selected automatically.",
+    "No claim of complete SRD or all D&D item coverage."
+  ]
+}

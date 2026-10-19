@@ -14,3 +14,12 @@
 .archive-controls{display:grid;gap:12px;margin:20px 0}.archive-controls label{display:grid;gap:6px}.archive-controls select,.archive-controls input{width:100%;min-height:44px}#archive-results .panel{overflow-wrap:anywhere}#archive-results details{margin-top:14px}
 
 .character-choices{display:grid;gap:10px;margin:14px 0}.character-choices button{min-height:44px;text-align:left;overflow-wrap:anywhere;white-space:normal}
+
+.inventory-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.inventory-tools button{flex:1;min-width:160px}
+.inventory-search{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px}.inventory-search label{display:grid;gap:6px;min-width:0;margin:0}.inventory-search input,.inventory-search select{width:100%;min-width:0;margin:0}.inventory-search .dialog-actions{grid-column:1/-1;margin:0}
+.inventory-pages{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:16px 0}.inventory-pages span{font-size:12px;color:var(--muted);text-align:center}.inventory-pages button{flex-shrink:0}
+@media(max-width:500px){.inventory-search{grid-template-columns:1fr}.inventory-tools{display:grid}.inventory-pages button{padding-inline:10px}}
+
+dialog:has(#inventory-view){max-width:860px}.inventory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.inventory-grid .panel{padding:16px;display:flex;flex-direction:column;overflow-wrap:anywhere}.inventory-grid .panel-title{margin-bottom:6px;align-items:flex-start}.inventory-grid h3{margin:0}.inventory-grid .panel-title strong{white-space:nowrap}.inventory-grid p{margin:0 0 8px}.inventory-grid small{color:var(--muted);font-size:11px}.inventory-grid .dialog-actions{margin-top:auto;padding-top:12px}.inventory-tools button{min-height:44px;font-size:12px}.inventory-search .dialog-actions{gap:8px}.inventory-search button{font-size:12px}.inventory-search label{font-size:12px}
+@media(min-width:740px){.inventory-search{grid-template-columns:minmax(180px,1fr) minmax(160px,.8fr) auto;align-items:end}.inventory-search .dialog-actions{grid-column:auto}.inventory-search .dialog-actions button{padding-inline:12px}}
+@media(max-width:650px){.inventory-grid{grid-template-columns:1fr}}

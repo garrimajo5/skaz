@@ -11,26 +11,27 @@ import {DatabaseSync} from 'node:sqlite';
 const previous=JSON.parse(readFileSync(new URL('./fixtures/create-undead-v1.json',import.meta.url),'utf8'));
 const old=validateCatalog(previous)[0],id=old.id;
 const oldCelestial=validateCatalog(JSON.parse(readFileSync(new URL('./fixtures/conjure-celestial-v1.json',import.meta.url),'utf8')))[0];
+const total=bundledCatalog().bundle.entries.length,legacyCount=total-7;
 const read=s=>s.catalog.lookup(new URLSearchParams({id})).entry;
 const legacy=()=>({schemaVersion:1,entries:bundledCatalog().bundle.entries.filter(e=>!['ghoul','ghast','wight','mummy','couatl','pegasus','unicorn'].some(slug=>e.id==='srd51:2014:monster:'+slug)).map(e=>e.id===id?old:e.id===oldCelestial.id?oldCelestial:e)});
 
 test('known bundled revision upgrades only after review, preserves saved spell snapshots and survives reopen',()=>{
  const dir=mkdtempSync(join(tmpdir(),'skaz-upgrades-')),file=join(dir,'test.sqlite');let s=openStore(file);
  try{
-  s.catalog.importEntries(legacy(),{apply:true});assert.equal(s.catalog.coverage().total,393);
+  s.catalog.importEntries(legacy(),{apply:true});assert.equal(s.catalog.coverage().total,legacyCount);
   s.setSpell({mutationId:randomUUID(),expectedRevision:s.read().revision,characterId:s.read().context.characterId,catalogId:id,status:'known'});
   const before=s.read(),book=s.spellbook(),history=s.history(),exported=s.exportActive(6);
-  const preview=s.catalog.previewBundled();assert.deepEqual([preview.added,preview.updated,preview.unchanged],[7,2,391]);
+  const preview=s.catalog.previewBundled();assert.deepEqual([preview.added,preview.updated,preview.unchanged],[7,2,legacyCount-2]);
   assert.equal(s.catalog.coverage().scopes.srd51Spells.upgradable,2);assert.equal(preview.updates[0].id,id);assert.equal(preview.updates[0].fromVersion,old.source.version);assert.ok(preview.updates[0].reason);
   assert.deepEqual(read(s),old);assert.equal(s.catalog.spellInventory().entries.find(e=>e.id===id).status,'update-available');
   assert.throws(()=>s.catalog.installBundled({version:'old'}),{status:409});assert.deepEqual(read(s),old);
-  const report=s.catalog.installBundled({version:preview.version});assert.deepEqual([report.added,report.updated,report.unchanged],[7,2,391]);
+  const report=s.catalog.installBundled({version:preview.version});assert.deepEqual([report.added,report.updated,report.unchanged],[7,2,legacyCount-2]);
   assert.equal(read(s).links.filter(x=>x.includes(':monster:')).length,4);assert.doesNotMatch(read(s).text,/не все эти формы/);
   assert.deepEqual(s.read(),before);assert.deepEqual(s.spellbook(),book);assert.deepEqual(s.history(),history);
   assert.deepEqual(s.exportActive(6).catalog,exported.catalog);
   assert.equal(s.catalog.coverage().scopes.srd51Spells.upgradable,0);
-  const again=s.catalog.installBundled({version:preview.version});assert.deepEqual([again.added,again.updated,again.unchanged],[0,0,400]);
-  s.close();s=openStore(file);assert.equal(s.catalog.coverage().total,400);assert.deepEqual(s.spellbook(),book);assert.equal(s.catalog.spellInventory().entries.find(e=>e.id===id).status,'installed');
+  const again=s.catalog.installBundled({version:preview.version});assert.deepEqual([again.added,again.updated,again.unchanged],[0,0,total]);
+  s.close();s=openStore(file);assert.equal(s.catalog.coverage().total,total);assert.deepEqual(s.spellbook(),book);assert.equal(s.catalog.spellInventory().entries.find(e=>e.id===id).status,'installed');
  }finally{s.close();rmSync(dir,{recursive:true,force:true});}
 });
 
@@ -50,14 +51,14 @@ test('a different conflict rolls back the known upgrade; personal import cannot 
  const s=openStore(':memory:');try{
   const pack=legacy(),other=pack.entries.find(e=>e.id==='srd51:2014:monster:zombie');other.text+=' Private';s.catalog.importEntries(pack,{apply:true});
   const before=s.catalog.search(new URLSearchParams({limit:'100'}));const {bundle,version,upgrades}=bundledCatalog();
-  assert.throws(()=>s.catalog.installBundled({version}),{status:409});assert.deepEqual(read(s),old);assert.equal(s.catalog.coverage().total,393);assert.deepEqual(s.catalog.search(new URLSearchParams({limit:'100'})),before);
+  assert.throws(()=>s.catalog.installBundled({version}),{status:409});assert.deepEqual(read(s),old);assert.equal(s.catalog.coverage().total,legacyCount);assert.deepEqual(s.catalog.search(new URLSearchParams({limit:'100'})),before);
   assert.throws(()=>s.catalog.importEntries(bundle,{apply:true,upgrades}),{status:409});assert.deepEqual(read(s),old);
   assert.throws(()=>s.catalog.reviewedImport({bundle,upgrades}),{status:422});
  }finally{s.close();}
 });
 
 test('fresh catalogs do not count absent historical cards as updates',()=>{
- const s=openStore(':memory:');try{const p=s.catalog.previewBundled();assert.deepEqual([p.added,p.updated,p.unchanged],[400,0,0]);assert.deepEqual(p.updates,[]);s.catalog.installBundled({version:p.version});assert.equal(s.catalog.coverage().scopes.srd51Spells.installed,319);}finally{s.close();}
+ const s=openStore(':memory:');try{const p=s.catalog.previewBundled();assert.deepEqual([p.added,p.updated,p.unchanged],[total,0,0]);assert.deepEqual(p.updates,[]);s.catalog.installBundled({version:p.version});assert.equal(s.catalog.coverage().scopes.srd51Spells.installed,319);}finally{s.close();}
 });
 
 test('old saved versions transfer into a current catalog without downgrading it or losing the snapshot',()=>{
@@ -76,7 +77,7 @@ test('conflict introduced after preview is checked again before applying a known
  const s=openStore(':memory:');try{
   s.catalog.importEntries(legacy(),{apply:true});const preview=s.catalog.previewBundled();
   const ghoul=structuredClone(bundledCatalog().bundle.entries.find(e=>e.id.endsWith(':monster:ghoul')));ghoul.text+=' Private';s.catalog.importEntries({schemaVersion:1,entries:[ghoul]},{apply:true});
-  assert.throws(()=>s.catalog.installBundled({version:preview.version}),{status:409});assert.deepEqual(read(s),old);assert.equal(s.catalog.coverage().total,394);
+  assert.throws(()=>s.catalog.installBundled({version:preview.version}),{status:409});assert.deepEqual(read(s),old);assert.equal(s.catalog.coverage().total,legacyCount+1);
  }finally{s.close();}
 });
 

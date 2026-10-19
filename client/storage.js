@@ -176,6 +176,7 @@ const SkazStorage = (() => {
     } catch { modal('<h2>Не удалось загрузить кампании</h2><p>Проверь соединение и открой список снова.</p>'); }
   }
   let inventorySerial=0;
+  let inventoryFilter={owner:null,q:"",attunement:"",offset:0};
   async function inventory() {
     if (demo || status !== 'ready' || !activeContext) return toast('Инвентарь доступен после подключения и сохранения черновика');
     const key = JSON.stringify(activeContext), version = revision;
@@ -190,30 +191,58 @@ const SkazStorage = (() => {
         $('#inventory-reload').onclick = async () => { closeModal(); await load(); };
         return;
       }
-      modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 id="inventory-view" tabindex="-1" autofocus>Инвентарь</h2><p>${state.gold} зм · видов предметов: ${data.entries.length}</p><div class="settings-actions">${data.entries.map((item, index) => `<article class="panel"><div class="panel-title"><h3>${esc(item.entry.name.ru)}</h3><strong>× ${item.quantity}</strong></div><p>${esc(item.entry.name.en)}</p><small>${esc(item.entry.source.title)} · ${esc(item.entry.source.version)}</small><div class="dialog-actions"><button data-inventory-read="${index}">Читать</button><button data-inventory-remove="${index}">Списать</button></div></article>`).join('') || '<p>Пока пусто. Найди предмет в справочнике и добавь его в инвентарь.</p>'}</div><p>Здесь только сохранённые предметы. Снаряжение демо-барда не перенесено. Списание меняет только количество. Лечение и бонусы не применяются автоматически. Отменить можно последнюю операцию, пока не было других изменений игры.</p>${data.undo ? `<button id="inventory-undo">Отменить: ${esc(data.undo.label)}</button>` : ''}<button id="inventory-catalog" class="primary">Найти предмет в справочнике</button>`);
-      $$('[data-inventory-read]').forEach(button => button.onclick = () => {
-        if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой инвентарь заново.');
-        readInventoryItem(data.entries[Number(button.dataset.inventoryRead)]);
-      });
-      $$('[data-inventory-remove]').forEach(button => button.onclick = () => {
-        if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой инвентарь заново.');
-        removeInventory(data.entries[Number(button.dataset.inventoryRemove)]);
-      });
-      if (data.undo) $('#inventory-undo').onclick = async () => {
-        if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой инвентарь заново.');
-        try { await campaignCommand('inventory-undo', { characterId: activeContext.characterId, targetMutationId: data.undo.mutationId }); await inventory(); }
-        catch (error) { toast(error.message); }
-      };
-      $('#inventory-catalog').onclick = () => { closeModal(); location.hash = 'library'; };
+      const owner=JSON.stringify([activeContext.campaignId,activeContext.characterId]);
+      if(inventoryFilter.owner!==owner)inventoryFilter={owner,q:'',attunement:'',offset:0};
+      const pageSize=10;
+      function drawInventory() {
+        if(!visible())return;
+        const query=inventoryFilter.q.trim().toLocaleLowerCase('ru');
+        const matching=data.entries.map((item,index)=>({item,index})).filter(({item})=>{
+          const info=item.entry.item||item.entry.artifact;
+          return `${item.entry.name.ru} ${item.entry.name.en||''}`.toLocaleLowerCase('ru').includes(query) &&
+            (!inventoryFilter.attunement || info?.attunement===(inventoryFilter.attunement==='required'));
+        });
+        const last=Math.max(0,Math.floor((matching.length-1)/pageSize)*pageSize);
+        inventoryFilter.offset=Math.min(inventoryFilter.offset,last);
+        const start=inventoryFilter.offset,shown=matching.slice(start,start+pageSize);
+        const pages=suffix=>`<nav class="inventory-pages" aria-label="Страницы инвентаря${suffix?' внизу':''}"><button id="inventory-prev${suffix}" ${start===0?'disabled':''}>← Назад</button><span>${matching.length?start+1:0}–${Math.min(start+pageSize,matching.length)} из ${matching.length}</span><button id="inventory-next${suffix}" ${start+pageSize>=matching.length?'disabled':''}>Далее →</button></nav>`;
+        modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 id="inventory-view" tabindex="-1" autofocus>Инвентарь</h2><p>${state.gold} зм · видов предметов: ${data.entries.length}</p><div class="inventory-tools"><button id="inventory-catalog" class="primary">Найти предмет в справочнике</button>${data.undo?`<button id="inventory-undo">Отменить: ${esc(data.undo.label)}</button>`:''}</div><form id="inventory-search" class="inventory-search"><label for="inventory-query">Название RU / EN<input id="inventory-query" type="search" maxlength="200" value="${esc(inventoryFilter.q)}" placeholder="Например, кольцо или ring"></label><label for="inventory-attunement">Требование настройки<select id="inventory-attunement"><option value="">Все предметы</option value="required" ${inventoryFilter.attunement==='required'?'selected':''}>Требует настройки</option><option value="none" ${inventoryFilter.attunement==='none'?'selected':''}>Без настройки</option></select></label><div class="dialog-actions"><button type="submit">Найти в инвентаре</button><button type="button" id="inventory-reset">Сбросить</button></div></form><p class="small">Фильтр показывает требование предмета, а не выполненную настройку персонажа.</p>${pages('')}<div class="inventory-grid">${shown.map(({item,index})=>`<article class="panel"><div class="panel-title"><h3>${esc(item.entry.name.ru)}</h3><strong>× ${item.quantity}</strong></div><p>${esc(item.entry.name.en||'')}</p><small>${(item.entry.item||item.entry.artifact)?.attunement===true?'Требует настройки':(item.entry.item||item.entry.artifact)?.attunement===false?'Без настройки':'Требование настройки не указано'}</small><div class="dialog-actions"><button data-inventory-read="${index}">Читать</button><button data-inventory-remove="${index}">Списать</button></div></article>`).join('') || `<p role="status">${data.entries.length?'По этим условиям ничего не найдено. Сбрось фильтры или измени название.':'Пока пусто. Найди предмет в справочнике и добавь его в инвентарь.'}</p>`}</div>${matching.length>pageSize?pages('-bottom'):''}<p>Здесь только сохранённые предметы. Списание меняет только количество. Настройка, лечение и бонусы не применяются автоматически. Отменить можно последнюю операцию, пока не было других изменений игры.</p>`);
+        const current=()=>{
+          if(!visible()){toast('Игра изменилась. Открой инвентарь заново.');return false;}
+          return true;
+        };
+        $('#inventory-search').onsubmit=event=>{
+          event.preventDefault();if(!current())return;
+          const attunement=$('#inventory-attunement').value;
+          if(!['','required','none'].includes(attunement))return;
+          inventoryFilter={owner,q:$('#inventory-query').value.slice(0,200),attunement,offset:0};drawInventory();
+        };
+        $('#inventory-reset').onclick=()=>{if(!current())return;inventoryFilter={owner,q:'',attunement:'',offset:0};drawInventory();};
+        for(const suffix of ['',...(matching.length>pageSize?['-bottom']:[])]){
+          $('#inventory-prev'+suffix).onclick=()=>{if(!current()||inventoryFilter.offset===0)return;inventoryFilter.offset=Math.max(0,inventoryFilter.offset-pageSize);drawInventory();};
+          $('#inventory-next'+suffix).onclick=()=>{if(!current()||inventoryFilter.offset+pageSize>=matching.length)return;inventoryFilter.offset+=pageSize;drawInventory();};
+        }
+        $$('[data-inventory-read]').forEach(button=>button.onclick=()=>{if(current())readInventoryItem(data.entries[Number(button.dataset.inventoryRead)]);});
+        $$('[data-inventory-remove]').forEach(button=>button.onclick=()=>{if(current())removeInventory(data.entries[Number(button.dataset.inventoryRemove)]);});
+        if(data.undo)$('#inventory-undo').onclick=async()=>{
+          if(!current())return;
+          try{await campaignCommand('inventory-undo',{characterId:activeContext.characterId,targetMutationId:data.undo.mutationId});await inventory();}
+          catch(error){toast(error.message);}
+        };
+        $('#inventory-catalog').onclick=()=>{if(!current())return;closeModal();location.hash='library';};
+      }
+      drawInventory();
     } catch { if(!visible())return; modal('<h2>Не удалось открыть инвентарь</h2><p>Проверь соединение.</p><button id="inventory-retry">Повторить</button>'); $('#inventory-retry').onclick = inventory; }
   }
   function readInventoryItem(item) {
     if(!item?.entry)return;
     const entry=item.entry,info=entry.item||entry.artifact;
+    const key=snapshotKey();
     let sourceLink='';
     try{const source=new URL(entry.source.url);if(['https:','http:'].includes(source.protocol)&&!source.username&&!source.password)sourceLink=`<p><a href="${esc(source.href)}" target="_blank" rel="noopener noreferrer">Открыть первоисточник ↗</a></p>`;}catch{}
-    modal(`<button id="inventory-read-back">← К инвентарю</button><div class="overline">${esc(state.profile.name)} · В наличии: ${item.quantity}</div><h2>${esc(entry.name.ru)}</h2><p>${esc(entry.name.en)}</p>${info?`<p>Настройка: ${info.attunement?'требуется':'не требуется'}${info.attunementRequirement?' · '+esc(info.attunementRequirement):''}.</p>`:''}<p>Сохранённая карточка предмета. Чтение не меняет количество и не применяет эффекты.</p><div class="catalog-text">${esc(entry.text||'Текст не импортирован; используй ссылку на источник.')}</div><p>${esc(entry.source.title)} · ${esc(entry.source.version)}</p><p>${esc(entry.source.terms)}</p>${sourceLink}${entry.source.attribution?`<p>${esc(entry.source.attribution)}</p>`:''}${entry.source.changes?`<p>${esc(entry.source.changes)}</p>`:''}`);
+    modal(`<button id="inventory-read-back">← К инвентарю</button><div class="overline">${esc(state.profile.name)} · В наличии: ${item.quantity}</div><h2>${esc(entry.name.ru)}</h2><p>${esc(entry.name.en)}</p>${info?`<p>Настройка: ${info.attunement?'требуется':'не требуется'}${info.attunementRequirement?' · '+esc(info.attunementRequirement):''}.</p>`:''}<p>Сохранённая карточка предмета. Чтение не меняет количество и не применяет эффекты.</p>${info?.charges?`<p>Максимум зарядов: ${esc(info.charges.max)}. Восстановление: ${esc(info.charges.recharge)} Это справочные значения, не текущий остаток.</p>`:''}${entry.id&&typeof SkazCatalog!=='undefined'?'<button id="inventory-reference">Правила и связи в справочнике →</button>':''}<div class="catalog-text">${esc(entry.text||'Текст не импортирован; используй ссылку на источник.')}</div><p>${esc(entry.source.title)} · ${esc(entry.source.version)}</p><p>${esc(entry.source.terms)}</p>${sourceLink}${entry.source.attribution?`<p>${esc(entry.source.attribution)}</p>`:''}${entry.source.changes?`<p>${esc(entry.source.changes)}</p>`:''}`);
     $('#inventory-read-back').onclick=inventory;
+    if(entry.id&&typeof SkazCatalog!=='undefined')$('#inventory-reference').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.');SkazCatalog.openReference(entry.id,()=>readInventoryItem(item),()=>key===snapshotKey());};
   }
   function addInventory(entry) {
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');

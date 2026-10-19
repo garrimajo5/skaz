@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Eleven selected SRD wands; excludes Wand of Wonder and War Mage variants",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 11,
+  "entries": [
+    {
+      "id": "srd51:2014:item:wand-of-binding",
+      "nameEn": "Wand of Binding",
+      "pages": [
+        248
+      ]
+    },
+    {
+      "id": "srd51:2014:item:wand-of-enemy-detection",
+      "nameEn": "Wand of Enemy Detection",
+      "pages": [
+        248
+      ]
+    },
+    {
+      "id": "srd51:2014:item:wand-of-fear",
+      "nameEn": "Wand of Fear",
+      "pages": [
+        248
+      ]
+    },
+    {
+      "id": "srd51:2014:item:wand-of-fireballs",
+      "nameEn": "Wand of Fireballs",
+      "pages": [
+        248,
+        249
+      ]
+    },
+    {
+      "id": "srd51:2014:item:wand-of-lightning-bolts",
+      "nameEn": "Wand of Lightning Bolts",
+      "pages": [
+        249
+      ]
+    },
+    {
+      "id": "srd51:2014:item:wand-of-magic-detection",
+      "nameEn": "Wand of Magic Detection",
+      "pages": [
+        249
+      ]
+    },
+    {
+      "id": "srd51:2014:item:wand-of-magic-missiles",
+      "nameEn": "Wand of Magic Missiles",
+      "pages": [
+        249
+      ]
+    },
+    {
+      "id": "srd51:2014:item:wand-of-paralysis",
+      "nameEn": "Wand of Paralysis",
+      "pages": [
+        249
+      ]
+    },
+    {
+      "id": "srd51:2014:item:wand-of-polymorph",
+      "nameEn": "Wand of Polymorph",
+      "pages": [
+        249
+      ]
+    },
+    {
+      "id": "srd51:2014:item:wand-of-secrets",
+      "nameEn": "Wand of Secrets",
+      "pages": [
+        249
+      ]
+    },
+    {
+      "id": "srd51:2014:item:wand-of-web",
+      "nameEn": "Wand of Web",
+      "pages": [
+        249
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Not all SRD magic items or all D&D materials.",
+    "Authored Russian summaries, not official translation.",
+    "Charge max and recharge are reference fields, not live inventory charge tracking.",
+    "Wand of Wonder random table and Wand of the War Mage variants not prepared in this pack."
+  ]
+}

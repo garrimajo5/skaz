@@ -1,0 +1,487 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:item:adamantine-armor",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Адамантиновый доспех",
+        "en": "Adamantine Armor"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=207",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 207.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний или тяжёлый доспех, кроме шкурного. Пока надет, любое критическое попадание по тебе становится обычным. Базовый вид доспеха выбирается отдельно; КД и владение автоматически не меняются.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items"
+      ],
+      "item": {
+        "type": "armor",
+        "rarity": "uncommon",
+        "attunement": false
+      }
+    },
+    {
+      "id": "srd51:2014:item:amulet-of-health",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Амулет здоровья",
+        "en": "Amulet of Health"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=207",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 207.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении значение Телосложения равно 19. Не действует, если оно уже 19 или выше.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:mechanic:attunement"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "rare",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:amulet-of-proof-against-detection-and-location",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Амулет защиты от обнаружения и поиска",
+        "en": "Amulet of Proof against Detection and Location"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=207",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 207.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении скрывает от магии прорицания: нельзя стать её целью или быть воспринятым через магические сенсоры наблюдения.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:mechanic:attunement"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-elvenkind",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Плащ эльфов",
+        "en": "Cloak of Elvenkind"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=214",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 214.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении с поднятым капюшоном проверки Мудрости (Восприятие), чтобы увидеть тебя, совершаются с помехой; твои проверки Ловкости (Скрытность), чтобы спрятаться, — с преимуществом. Поднять или опустить капюшон — действие.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:mechanic:attunement"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-the-manta-ray",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Плащ ската",
+        "en": "Cloak of the Manta Ray"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=214",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 214.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении с поднятым капюшоном можно дышать под водой; скорость плавания 60 футов. Поднять или опустить капюшон — действие.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": false
+      }
+    },
+    {
+      "id": "srd51:2014:item:gauntlets-of-ogre-power",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Рукавицы силы огра",
+        "en": "Gauntlets of Ogre Power"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=223",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 223.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении значение Силы равно 19. Не действуют, если оно уже 19 или выше. Нужно носить обе рукавицы.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:mechanic:attunement"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:headband-of-intellect",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Повязка интеллекта",
+        "en": "Headband of Intellect"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=225",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 225.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении значение Интеллекта равно 19. Не действует, если оно уже 19 или выше.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:mechanic:attunement"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:necklace-of-adaptation",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Ожерелье адаптации",
+        "en": "Necklace of Adaptation"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=231",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 231.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении можно нормально дышать в любой среде. Преимущество на спасброски против вредных газов и паров, например «Облака смерти», «Зловонного облака», вдыхаемых ядов и дыхания некоторых драконов. Это не общее преимущество против любого яда.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:mechanic:attunement",
+        "srd51:2014:spell:cloudkill",
+        "srd51:2014:spell:stinking-cloud"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:pearl-of-power",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Жемчужина силы",
+        "en": "Pearl of Power"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=232",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 232.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nИмея жемчужину при себе, действием произнеси командное слово и восстанови одну израсходованную ячейку заклинаний. Если израсходованная ячейка была 4-го уровня или выше, новая ячейка имеет 3-й уровень. Повторное использование возможно после следующего рассвета. Ячейки в листе меняются вручную.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:mechanic:attunement",
+        "srd51:2014:mechanic:magic-item-command-word"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": true,
+        "attunementRequirement": "Заклинатель"
+      }
+    },
+    {
+      "id": "srd51:2014:item:ring-of-protection",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Кольцо защиты",
+        "en": "Ring of Protection"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=237",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 237.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении даёт +1 к КД и спасброскам.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:mechanic:attunement"
+      ],
+      "item": {
+        "type": "ring",
+        "rarity": "rare",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:ring-of-swimming",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Кольцо плавания",
+        "en": "Ring of Swimming"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=238",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 238.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении скорость плавания 40 футов. Дыхание под водой предмет не предоставляет.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items"
+      ],
+      "item": {
+        "type": "ring",
+        "rarity": "uncommon",
+        "attunement": false
+      }
+    },
+    {
+      "id": "srd51:2014:item:ring-of-warmth",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Кольцо тепла",
+        "en": "Ring of Warmth"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=238",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 238.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении даёт сопротивление урону холодом. Ты и всё надетое и переносимое не страдаете от температуры вплоть до −50 °F (около −45,6 °C). Это не иммунитет к урону холодом.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:mechanic:attunement"
+      ],
+      "item": {
+        "type": "ring",
+        "rarity": "uncommon",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:mithral-armor",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Мифрильный доспех",
+        "en": "Mithral Armor"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=231",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 231.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний или тяжёлый доспех, кроме шкурного. Мифрильную кольчужную рубаху или кирасу можно носить под обычной одеждой. Если обычный доспех даёт помеху проверкам Ловкости (Скрытность) или требует определённой Силы, у мифрильной версии этих ограничений нет.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items"
+      ],
+      "item": {
+        "type": "armor",
+        "rarity": "uncommon",
+        "attunement": false
+      }
+    },
+    {
+      "id": "srd51:2014:item:hat-of-disguise",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Шляпа маскировки",
+        "en": "Hat of Disguise"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=225",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 225.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении можно действием накладывать «Маскировку» неограниченное число раз. Заклинание заканчивается, если снять шляпу. Остальные правила — в связанной карточке.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:mechanic:attunement",
+        "srd51:2014:spell:disguise-self",
+        "srd51:2014:mechanic:spells-from-items"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:helm-of-comprehending-languages",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Шлем понимания языков",
+        "en": "Helm of Comprehending Languages"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=225",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 225.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении можно действием накладывать «Понимание языков» неограниченное число раз. Остальные правила — в связанной карточке.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:spell:comprehend-languages",
+        "srd51:2014:mechanic:spells-from-items"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": false
+      }
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-displacement",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Плащ смещения",
+        "en": "Cloak of Displacement"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=214",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 214.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении создаёт иллюзию твоего положения: броски атаки любых существ по тебе совершаются с помехой. После полученного урона свойство не работает до начала твоего следующего хода. Оно подавляется при недееспособности, опутывании или иной невозможности двигаться.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:mechanic:attunement",
+        "srd51:2014:mechanic:incapacitated",
+        "srd51:2014:mechanic:restrained"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "rare",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:circlet-of-blasting",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Обруч взрыва",
+        "en": "Circlet of Blasting"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=214",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz protective items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 214.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении можно действием наложить «Палящий луч»; бонус атак этого заклинания +5. После использования свойство недоступно до следующего рассвета.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:wearing-magic-items",
+        "srd51:2014:spell:scorching-ray",
+        "srd51:2014:mechanic:spells-from-items"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": false
+      }
+    }
+  ]
+}

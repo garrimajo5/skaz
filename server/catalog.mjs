@@ -7,7 +7,7 @@ const spellIndex=JSON.parse(readFileSync(new URL('../catalog/srd51-spells.index.
 const monsterTypes = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'undead'];
 const monsterSizes = ['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan'];
 const itemTypes = ['armor', 'potion', 'ring', 'rod', 'scroll', 'staff', 'wand', 'weapon', 'wondrous'];
-const mechanicCategories = ['condition', 'spellcasting', 'combat', 'rest'];
+const mechanicCategories = ['condition', 'spellcasting', 'combat', 'rest', 'equipment'];
 const kinds = ['mechanic', 'spell', 'monster', 'item', 'artifact'];
 const fingerprint=entry=>createHash('sha256').update(JSON.stringify(entry)).digest('hex');
 export function isKnownBundledUpgrade(previous,next,upgrades=bundledCatalog().upgrades) {
@@ -45,7 +45,7 @@ function spell(value) {
   return { level: value.level, school: value.school, castingTime: text(value.castingTime), range: { type: value.range.type, ...(value.range.type === 'feet' ? { feet: value.range.feet } : {}) }, components: [...value.components].sort(), duration: text(value.duration), concentration: value.concentration, ritual: value.ritual };
 }
 function item(value) {
-  object(value, ['type', 'rarity', 'attunement', 'attunementRequirement', 'healing']);
+  object(value, ['type', 'rarity', 'attunement', 'attunementRequirement', 'healing', 'charges']);
   if (!itemTypes.includes(value.type)) fail('Неизвестный тип магического предмета');
   if (!['common', 'uncommon', 'rare', 'very-rare', 'legendary', 'varies'].includes(value.rarity)) fail('Неизвестная редкость предмета');
   if (typeof value.attunement !== 'boolean') fail('Настройка предмета должна быть boolean');
@@ -60,7 +60,8 @@ function item(value) {
   }
   return { type: value.type, rarity: value.rarity, attunement: value.attunement,
     ...(value.attunementRequirement === undefined ? {} : { attunementRequirement: text(value.attunementRequirement) }),
-    ...(healing === undefined ? {} : { healing }) };
+    ...(healing === undefined ? {} : { healing }),
+    ...(value.charges === undefined ? {} : { charges: chargeDefinition(value.charges) }) };
 }
 function monster(value) {
   object(value, ['size', 'type', 'armorClass', 'hitPoints', 'speed', 'abilities', 'challenge', 'xp']);
@@ -83,15 +84,18 @@ function mechanic(value) {
   if (new Set(effects).size !== effects.length) fail('Повтор пункта механики');
   return { category: value.category, effects };
 }
+function chargeDefinition(value) {
+  object(value, ['max', 'recharge']);
+  if (!Number.isSafeInteger(value.max) || value.max < 1 || value.max > 10000) fail('Неверный максимум зарядов');
+  return { max: value.max, recharge: text(value.recharge, 2000) };
+}
 function artifact(value) {
   object(value, ['type', 'attunement', 'charges']);
   if (!['armor', 'ring', 'rod', 'staff', 'wand', 'weapon', 'wondrous', 'other'].includes(value.type)) fail('Неизвестный тип артефакта');
   if (typeof value.attunement !== 'boolean') fail('Настройка артефакта должна быть boolean');
   let charges;
   if (value.charges !== undefined) {
-    object(value.charges, ['max', 'recharge']);
-    if (!Number.isSafeInteger(value.charges.max) || value.charges.max < 1 || value.charges.max > 10000) fail('Неверный максимум зарядов');
-    charges = { max: value.charges.max, recharge: text(value.charges.recharge, 2000) };
+    charges = chargeDefinition(value.charges);
   }
   return { type: value.type, attunement: value.attunement, ...(charges === undefined ? {} : { charges }) };
 }

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Six selected rules for using magic items, SRD 5.1 pp. 206–207",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 6,
+  "entries": [
+    {
+      "id": "srd51:2014:mechanic:attunement",
+      "nameEn": "Attunement",
+      "pages": [
+        206
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:wearing-magic-items",
+      "nameEn": "Wearing and Wielding Items",
+      "pages": [
+        206
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:activating-magic-items",
+      "nameEn": "Activating an Item",
+      "pages": [
+        207
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:magic-item-command-word",
+      "nameEn": "Command Word",
+      "pages": [
+        207
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:spells-from-items",
+      "nameEn": "Spells from Magic Items",
+      "pages": [
+        207
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:magic-item-charges",
+      "nameEn": "Charges",
+      "pages": [
+        207
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries; not official translation or complete rules compendium.",
+    "No automatic attunement slots, charge tracking or item effects.",
+    "Attunement prerequisites and exceptions remain text."
+  ]
+}

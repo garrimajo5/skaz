@@ -12,13 +12,13 @@ function harness(protocol = 'http:') {
     location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
     queueMicrotask: task => tasks.push(task),
     fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
-    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='dialog'?{open:isOpen}:id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region, querySelector: () => null },
+    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='dialog'?{open:isOpen}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region, querySelector: () => null },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
     render:()=>{}, modal: html => dialog = html, SkazStorage: { addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { view, requests, tasks, region, additions, movement, dialog: () => dialog,
+  return { openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>isOpen=false, otherModal:()=>dialog='<h2>Other</h2>',
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
@@ -249,4 +249,36 @@ test('source inventory distinguishes an available update from personal conflicts
  const h=harness();h.click('catalog-inventory');respond(h.requests[0],{entries:[{id:'test:old',nameEn:'Old',nameRu:'Старая',page:130,level:6,status:'update-available'},{id:'test:private',nameEn:'Private',nameRu:'Личная',page:131,level:6,status:'conflict'}]});await settle();
  h.inventorySubmit('','update-available');assert.match(h.dialog(),/Доступно обновление/);assert.match(h.dialog(),/data-inventory-read="test:old"/);assert.doesNotMatch(h.dialog(),/data-inventory-read="test:private"/);
  h.click('',{inventoryRead:'test:old'});assert.match(h.requests[1].url,/test%3Aold/);respond(h.requests[1],{entry:{...entry,id:'test:old',kind:'spell',links:[]},related:[]});await settle();assert.match(h.dialog(),/inventory-return/);
+});
+
+
+test('equipment mechanics filter is transmitted and labeled without changing item filters',async()=>{
+ const h=harness();h.changeKind('mechanic');assert.match(h.region.innerHTML,/value="equipment"/);
+ h.submit('',{kind:'mechanic',mechanicCategory:'equipment'});assert.match(h.requests[0].url,/mechanicCategory=equipment/);
+ respond(h.requests[0],{entries:[{...entry,mechanic:{category:'equipment',effects:['Rule']}}],total:1});respond(h.requests[1],coverage);await settle();
+ assert.match(h.region.innerHTML,/Магические предметы/);h.detail();assert.match(h.dialog(),/Магические предметы/);
+});
+
+
+test('inventory reference browsing stays read-only across linked spells and returns to saved snapshot',async()=>{
+ const h=harness();let returned=0;const item={...entry,id:'test:item',kind:'item',links:['test:spell']};
+ const opening=h.openReference('test:item',()=>returned++,()=>true);respond(h.requests[0],{entry:item,related:[{id:'test:spell',name:{ru:'Spell',en:'Spell'}}]});await opening;
+ assert.match(h.dialog(),/Актуальная справка/);assert.doesNotMatch(h.dialog(),/catalog-add-inventory/);
+ h.click('',{catalogRelated:'test:spell'});respond(h.requests[1],{entry:{...entry,id:'test:spell',kind:'spell',links:[]},related:[]});await settle();
+ assert.doesNotMatch(h.dialog(),/catalog-add-spell/);assert.match(h.dialog(),/catalog-reference-back/);h.click('catalog-reference-back');assert.equal(returned,1);assert.equal(h.additions.length,0);
+});
+
+test('reference responses cannot replace a closed dialog, another form or another hero',async()=>{
+ for(const mode of ['closed','replaced','context','back']){
+  const h=harness();let valid=true,returned=0;
+  const pending=h.openReference('test:item',()=>{returned++;h.otherModal();},()=>valid);
+  if(mode==='closed')h.close();if(mode==='replaced')h.otherModal();if(mode==='context')valid=false;if(mode==='back')h.click('catalog-reference-back');
+  const before=h.dialog();respond(h.requests[0],{entry:{...entry,id:'test:item',links:[]},related:[]});await pending;assert.equal(h.dialog(),before);assert.equal(returned,mode==='back'?1:0);
+ }
+});
+
+test('reference fetch failure keeps a return action and ordinary catalog cards regain add actions',async()=>{
+ const h=harness();let returned=0;const pending=h.openReference('test:item',()=>returned++,()=>true);h.requests[0].reject(new Error('offline'));await pending;
+ assert.match(h.dialog(),/Материал недоступен/);h.click('catalog-reference-back');assert.equal(returned,1);
+ h.submit('');respond(h.requests[1],{entries:[{...entry,id:'test:item',kind:'item'}],total:1});respond(h.requests[2],coverage);await settle();h.detail();assert.match(h.dialog(),/catalog-add-inventory/);
 });

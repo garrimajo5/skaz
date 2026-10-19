@@ -58,7 +58,7 @@ test('item type and attunement false are exact, combinable with rarity, and excl
  const s=openStore(':memory:');try{const p=s.catalog.previewBundled();s.catalog.installBundled({version:p.version});const before=s.read();
  const unknown=structuredClone(read('srd51-items').entries[0]);unknown.id='test:unknown:item';delete unknown.item;s.catalog.importEntries({schemaVersion:1,entries:[unknown]},{apply:true});
  const search=q=>s.catalog.search(new URLSearchParams(q));
- assert.deepEqual(search('kind=item&itemType=ring&attunement=false&rarity=uncommon').entries.map(e=>e.name.en),['Ring of Water Walking']);
+ assert.deepEqual(search('kind=item&itemType=ring&attunement=false&rarity=uncommon').entries.map(e=>e.name.en),['Ring of Swimming','Ring of Water Walking']);
  assert.equal(search('kind=item&itemType=potion&attunement=false').total,4);assert.equal(search('kind=item&itemType=potion&attunement=true').total,0);
  const a=search('kind=item&attunement=false&limit=1'),b=search('kind=item&attunement=false&limit=1&offset=1');assert.equal(a.total,b.total);assert.notEqual(a.entries[0].id,b.entries[0].id);
  assert.ok(search('kind=item&attunement=false&limit=100').entries.every(e=>e.item?.attunement===false));
