@@ -7,6 +7,7 @@ const spellIndex=JSON.parse(readFileSync(new URL('../catalog/srd51-spells.index.
 const monsterTypes = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'undead'];
 const monsterSizes = ['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan'];
 const itemTypes = ['armor', 'potion', 'ring', 'rod', 'scroll', 'staff', 'wand', 'weapon', 'wondrous'];
+const mechanicCategories = ['condition', 'spellcasting', 'combat', 'rest'];
 const kinds = ['mechanic', 'spell', 'monster', 'item', 'artifact'];
 const fail = message => { throw new AppError(422, message); };
 function object(value, keys) {
@@ -72,10 +73,10 @@ function monster(value) {
 }
 function mechanic(value) {
   object(value, ['category', 'effects']);
-  if (value.category !== 'condition') fail('Структура механик пока поддерживает только состояния');
-  if (!Array.isArray(value.effects) || value.effects.length < 1 || value.effects.length > 30) fail('Нужно от 1 до 30 эффектов состояния');
+  if (!mechanicCategories.includes(value.category)) fail('Неизвестный раздел механик');
+  if (!Array.isArray(value.effects) || value.effects.length < 1 || value.effects.length > 30) fail('Нужно от 1 до 30 пунктов механики');
   const effects = value.effects.map(effect => text(effect, 2000));
-  if (new Set(effects).size !== effects.length) fail('Повтор эффекта состояния');
+  if (new Set(effects).size !== effects.length) fail('Повтор пункта механики');
   return { category: value.category, effects };
 }
 function artifact(value) {
@@ -151,7 +152,7 @@ export function createCatalog(db) {
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
   function search(params = new URLSearchParams()) {
-    for (const key of params.keys()) if (!['q', 'kind', 'level', 'school', 'ritual', 'concentration', 'challenge', 'monsterType', 'size', 'rarity', 'itemType', 'attunement', 'limit', 'offset'].includes(key) || params.getAll(key).length !== 1) throw new AppError(400, 'Неизвестный или повторный фильтр');
+    for (const key of params.keys()) if (!['q', 'kind', 'level', 'school', 'ritual', 'concentration', 'challenge', 'monsterType', 'size', 'rarity', 'itemType', 'attunement', 'mechanicCategory', 'limit', 'offset'].includes(key) || params.getAll(key).length !== 1) throw new AppError(400, 'Неизвестный или повторный фильтр');
     const q = (params.get('q') || '').trim().toLocaleLowerCase('ru');
     const kind = params.get('kind');
     if (q.length > 200 || (kind !== null && !kinds.includes(kind))) throw new AppError(400, 'Неверный поиск');
@@ -168,6 +169,8 @@ export function createCatalog(db) {
     const itemType=params.get('itemType'),attunement=params.get('attunement');
     if(itemType!==null && (kind!=='item' || !itemTypes.includes(itemType)))throw new AppError(400,'Неверный тип предмета или категория');
     if(attunement!==null && (kind!=='item' || !['true','false'].includes(attunement)))throw new AppError(400,'Настройка предметов принимает true или false');
+    const mechanicCategory=params.get('mechanicCategory');
+    if(mechanicCategory!==null && (kind!=='mechanic' || !mechanicCategories.includes(mechanicCategory)))throw new AppError(400,'Неверный раздел механик или категория');
     const number = (key, fallback, max) => {
       const value = params.get(key);
       if (value === null) return fallback;
@@ -176,7 +179,7 @@ export function createCatalog(db) {
     };
     const limit = number('limit', 50, 100), offset = number('offset', 0, Number.MAX_SAFE_INTEGER);
     if (!limit) throw new AppError(400, 'Лимит должен быть больше нуля');
-    const matches = all().filter(entry => (!kind || entry.kind === kind) && (level===null || entry.spell?.level===Number(level)) && (school===null || entry.spell?.school===school) && (ritual===null || entry.spell?.ritual===(ritual==='true')) && (concentration===null || entry.spell?.concentration===(concentration==='true')) && (challenge===null || entry.monster?.challenge===challenge) && (monsterType===null || entry.monster?.type===monsterType) && (size===null || entry.monster?.size===size) && (rarity===null || entry.item?.rarity===rarity) && (itemType===null || entry.item?.type===itemType) && (attunement===null || entry.item?.attunement===(attunement==='true')) && `${entry.name.ru} ${entry.name.en}`.toLocaleLowerCase('ru').includes(q));
+    const matches = all().filter(entry => (!kind || entry.kind === kind) && (level===null || entry.spell?.level===Number(level)) && (school===null || entry.spell?.school===school) && (ritual===null || entry.spell?.ritual===(ritual==='true')) && (concentration===null || entry.spell?.concentration===(concentration==='true')) && (challenge===null || entry.monster?.challenge===challenge) && (monsterType===null || entry.monster?.type===monsterType) && (size===null || entry.monster?.size===size) && (rarity===null || entry.item?.rarity===rarity) && (itemType===null || entry.item?.type===itemType) && (attunement===null || entry.item?.attunement===(attunement==='true')) && (mechanicCategory===null || entry.mechanic?.category===mechanicCategory) && `${entry.name.ru} ${entry.name.en}`.toLocaleLowerCase('ru').includes(q));
     return { entries: matches.slice(offset, offset + limit), total: matches.length, limit, offset };
   }
   function reviewedImport(request,apply=false) {

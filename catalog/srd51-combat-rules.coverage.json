@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Ten selected combat rule summaries from pinned SRD 5.1",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 10,
+  "entries": [
+    {
+      "id": "srd51:2014:mechanic:reactions",
+      "nameEn": "Reactions",
+      "pages": [
+        91
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:dash",
+      "nameEn": "Dash",
+      "pages": [
+        93
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:disengage",
+      "nameEn": "Disengage",
+      "pages": [
+        93
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:dodge",
+      "nameEn": "Dodge",
+      "pages": [
+        93
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:help",
+      "nameEn": "Help",
+      "pages": [
+        93
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:ready",
+      "nameEn": "Ready",
+      "pages": [
+        93,
+        94
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:opportunity-attacks",
+      "nameEn": "Opportunity Attacks",
+      "pages": [
+        95
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:grappling",
+      "nameEn": "Grappling",
+      "pages": [
+        95,
+        96
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:shoving",
+      "nameEn": "Shoving a Creature",
+      "pages": [
+        96
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:cover",
+      "nameEn": "Cover",
+      "pages": [
+        96
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Selected base rules, not all combat options, class features or exceptions.",
+    "Grappling and shoving use contested checks from 2014, not 2024 saving throws.",
+    "Reference summaries only; initiative, reactions, attacks and resource spending are not automated."
+  ]
+}

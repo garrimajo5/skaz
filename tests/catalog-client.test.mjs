@@ -31,6 +31,15 @@ function respond(request, payload) { request.resolve({ ok: true, json: async () 
 const entry = { kind: 'mechanic', name: { ru: '<img src=x onerror=alert(1)>', en: 'Test' }, source: { title: 'Fixture', usage: 'personal', url: 'javascript:alert(1)', version: '1', terms: '<script>unsafe</script>' }, text: '<b>plain text</b>' };
 const coverage = { total: 1, referenceOnly: 0, personal: 1 };
 
+test('mechanic section filters retain drafts, page requests and display safe section labels',async()=>{
+ const h=harness();h.changeKind('mechanic');assert.match(h.region.innerHTML,/name="mechanicCategory"/);assert.match(h.region.innerHTML,/Накладывание заклинаний/);
+ h.draft('mechanicCategory','spellcasting');assert.match(h.view(),/value="spellcasting" selected/);
+ h.submit('',{kind:'mechanic',mechanicCategory:'spellcasting'});assert.match(h.requests[0].url,/mechanicCategory=spellcasting/);
+ respond(h.requests[0],{entries:[{...entry,mechanic:{category:'spellcasting',effects:['Rule']}}],total:25});respond(h.requests[1],coverage);await settle();
+ h.detail();assert.match(h.dialog(),/Накладывание заклинаний/);h.click('catalog-next');assert.match(h.requests[2].url,/offset=20/);assert.match(h.requests[2].url,/mechanicCategory=spellcasting/);
+ h.changeKind('item');assert.doesNotMatch(h.view(),/name="mechanicCategory"/);h.submit('',{kind:'item',itemType:'ring'});assert.doesNotMatch(h.requests[4].url,/mechanicCategory/);
+});
+
 test('CC material shows license, escaped attribution and translation changes', async () => {
   const h = harness(); h.submit('');
   const licensed = { ...entry, source: { ...entry.source, usage: 'cc-by-4.0', attribution: '<b>Author</b>', changes: '<script>Translation</script>' } };

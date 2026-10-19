@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Eight selected spellcasting, rest and combat rule summaries from pinned SRD 5.1",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 8,
+  "entries": [
+    {
+      "id": "srd51:2014:mechanic:concentration",
+      "nameEn": "Concentration",
+      "pages": [
+        102
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:ritual-casting",
+      "nameEn": "Ritual Casting",
+      "pages": [
+        101
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:bonus-action-spell",
+      "nameEn": "Bonus Action Spell",
+      "pages": [
+        101
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:longer-casting",
+      "nameEn": "Longer Casting Times",
+      "pages": [
+        101
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:spell-components",
+      "nameEn": "Spell Components",
+      "pages": [
+        101,
+        102
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:death-saving-throws",
+      "nameEn": "Death Saving Throws",
+      "pages": [
+        98
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:short-rest",
+      "nameEn": "Short Rest",
+      "pages": [
+        87
+      ]
+    },
+    {
+      "id": "srd51:2014:mechanic:long-rest",
+      "nameEn": "Long Rest",
+      "pages": [
+        87
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Selected summaries, not all mechanics; no automatic application to character resources.",
+    "Class features and exceptions are not comprehensively covered.",
+    "Rest text follows the pinned PDF; other errata or 2024 wording are not silently substituted.",
+    "Death saving throws summary is not a complete guide to damage, instant death or unconsciousness."
+  ]
+}

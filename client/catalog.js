@@ -8,13 +8,14 @@ const SkazCatalog = (() => {
   const monsterTypes={aberration:'Аберрация',beast:'Зверь',celestial:'Небожитель',construct:'Конструкт',dragon:'Дракон',elemental:'Элементаль',fey:'Фея',fiend:'Исчадие',giant:'Великан',humanoid:'Гуманоид',monstrosity:'Монстр',ooze:'Слизь',plant:'Растение',undead:'Нежить'};
   const monsterSizes={tiny:'Крошечный',small:'Маленький',medium:'Средний',large:'Большой',huge:'Огромный',gargantuan:'Громадный'};
   const itemTypes={armor:'Доспех',potion:'Зелье',ring:'Кольцо',rod:'Жезл',scroll:'Свиток',staff:'Посох',wand:'Волшебная палочка',weapon:'Оружие',wondrous:'Чудесный предмет'};
+  const mechanicCategories={condition:'Состояния',spellcasting:'Накладывание заклинаний',combat:'Бой',rest:'Отдых'};
   const extraKeys={spell:['school','ritual','concentration'],monster:['monsterType','size'],item:['itemType','attunement']};
-  const filterKeys={spell:'level',monster:'challenge',item:'rarity'};
+  const filterKeys={spell:'level',monster:'challenge',item:'rarity',mechanic:'mechanicCategory'};
   const rarityLabels={common:'Обычный',uncommon:'Необычный',rare:'Редкий','very-rare':'Очень редкий',legendary:'Легендарный',varies:'Разная редкость'};
   function filterControl(category,value='',extra={}) {
     const key=filterKeys[category];if(!key)return '';
-    const label={spell:'Уровень заклинания',monster:'Опасность существа',item:'Редкость предмета'}[category];
-    const options=category==='spell'?Array.from({length:10},(_,i)=>[String(i),i===0?'Заговор':i+' уровень']):category==='monster'?['0','1/8','1/4','1/2',...Array.from({length:30},(_,i)=>String(i+1))].map(v=>[v,v]):Object.entries(rarityLabels);
+    const label={spell:'Уровень заклинания',monster:'Опасность существа',item:'Редкость предмета',mechanic:'Раздел механик'}[category];
+    const options=category==='spell'?Array.from({length:10},(_,i)=>[String(i),i===0?'Заговор':i+' уровень']):category==='monster'?['0','1/8','1/4','1/2',...Array.from({length:30},(_,i)=>String(i+1))].map(v=>[v,v]):category==='mechanic'?Object.entries(mechanicCategories):Object.entries(rarityLabels);
     const select=(name,label,choices,current)=>`<label>${label}<select name="${name}"><option value="">Все</option>${choices.map(([v,text])=>`<option value="${v}" ${current===v?'selected':''}>${text}</option>`).join('')}</select></label>`;
     const spells=category==='spell'?select('school','Школа',Object.entries(schools),extra.school)+select('ritual','Ритуальное накладывание',[['true','Есть'],['false','Нет']],extra.ritual)+select('concentration','Концентрация',[['true','Нужна'],['false','Не нужна']],extra.concentration):'';
     const monsters=category==='monster'?select('monsterType','Тип существа',Object.entries(monsterTypes),extra.monsterType)+select('size','Размер',Object.entries(monsterSizes),extra.size):'';
@@ -77,6 +78,7 @@ const SkazCatalog = (() => {
     const rows=[];
     const add=(label,value)=>rows.push(`<div><dt>${escape(label)}</dt><dd>${escape(value)}</dd></div>`);
     const school=schools;
+    if(entry.mechanic)add('Раздел',mechanicCategories[entry.mechanic.category]||entry.mechanic.category);
     if(entry.spell){const x=entry.spell;add('Уровень',x.level===0?'Заговор':x.level);add('Школа',school[x.school]||x.school);add('Накладывание',x.castingTime);add('Дистанция',x.range.type==='feet'?x.range.feet+' футов':({self:'На себя',touch:'Касание',sight:'В пределах видимости',unlimited:'Не ограничена',special:'Особая'}[x.range.type]||x.range.type));add('Компоненты',x.components.join(', '));add('Длительность',x.duration);add('Концентрация',x.concentration?'Нужна':'Не нужна');add('Ритуал',x.ritual?'Да':'Нет');}
     if(entry.monster){const x=entry.monster;add('Размер',monsterSizes[x.size]||x.size);add('Тип',monsterTypes[x.type]||x.type);add('Класс доспеха',x.armorClass);add('Хиты (базовые)',x.hitPoints);add('Опасность',x.challenge);add('Опыт',x.xp);for(const [key,n] of Object.entries(x.speed))add({walk:'Скорость',climb:'Лазание',swim:'Плавание',fly:'Полёт',burrow:'Копание'}[key]||key,n+' футов');for(const [key,n] of Object.entries(x.abilities)){const mod=Math.floor((n-10)/2);add({str:'СИЛ',dex:'ЛОВ',con:'ТЕЛ',int:'ИНТ',wis:'МДР',cha:'ХАР'}[key]||key,`${n} (${mod>=0?'+':''}${mod})`);}}
     const x=entry.item||entry.artifact;
@@ -181,10 +183,10 @@ const SkazCatalog = (() => {
   });
   function rememberSearch(event){
     const field=event.target;
-    if(field.form?.id!=='catalog-search'||!['q','kind','level','school','ritual','concentration','challenge','monsterType','size','rarity','itemType','attunement'].includes(field.name))return;
+    if(field.form?.id!=='catalog-search'||!['q','kind','level','school','ritual','concentration','challenge','monsterType','size','rarity','itemType','attunement','mechanicCategory'].includes(field.name))return;
     searchDraft={...(searchDraft||{q:query,kind,[filterKeys[kind]]:detailFilter,...extraFilters}),[field.name]:field.value};
     if(field.name==='kind'){
-      for(const key of ['level','school','ritual','concentration','challenge','monsterType','size','rarity','itemType','attunement'])delete searchDraft[key];
+      for(const key of ['level','school','ritual','concentration','challenge','monsterType','size','rarity','itemType','attunement','mechanicCategory'])delete searchDraft[key];
       const region=document.getElementById('catalog-specific');if(region)region.innerHTML=filterControl(field.value);
     }
   }

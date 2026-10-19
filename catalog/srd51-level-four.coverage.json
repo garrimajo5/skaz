@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "All 31 fourth-level spells listed in the pinned SRD 5.1, summarized; not all D&D spells",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 31,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:arcane-eye",
+      "nameEn": "Arcane Eye",
+      "pages": [
+        118
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:banishment",
+      "nameEn": "Banishment",
+      "pages": [
+        120,
+        121
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:black-tentacles",
+      "nameEn": "Black Tentacles",
+      "pages": [
+        121
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:blight",
+      "nameEn": "Blight",
+      "pages": [
+        122
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:compulsion",
+      "nameEn": "Compulsion",
+      "pages": [
+        126,
+        127
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:confusion",
+      "nameEn": "Confusion",
+      "pages": [
+        127
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:conjure-minor-elementals",
+      "nameEn": "Conjure Minor Elementals",
+      "pages": [
+        128,
+        129
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:conjure-woodland-beings",
+      "nameEn": "Conjure Woodland Beings",
+      "pages": [
+        129
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:control-water",
+      "nameEn": "Control Water",
+      "pages": [
+        130,
+        131
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:death-ward",
+      "nameEn": "Death Ward",
+      "pages": [
+        133
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:dimension-door",
+      "nameEn": "Dimension Door",
+      "pages": [
+        135
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:divination",
+      "nameEn": "Divination",
+      "pages": [
+        136
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:dominate-beast",
+      "nameEn": "Dominate Beast",
+      "pages": [
+        137
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:fabricate",
+      "nameEn": "Fabricate",
+      "pages": [
+        141
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:faithful-hound",
+      "nameEn": "Faithful Hound",
+      "pages": [
+        142
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:fire-shield",
+      "nameEn": "Fire Shield",
+      "pages": [
+        144
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:freedom-of-movement",
+      "nameEn": "Freedom of Movement",
+      "pages": [
+        147
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:giant-insect",
+      "nameEn": "Giant Insect",
+      "pages": [
+        149
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:greater-invisibility",
+      "nameEn": "Greater Invisibility",
+      "pages": [
+        150
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:guardian-of-faith",
+      "nameEn": "Guardian of Faith",
+      "pages": [
+        150,
+        151
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:hallucinatory-terrain",
+      "nameEn": "Hallucinatory Terrain",
+      "pages": [
+        152,
+        153
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:ice-storm",
+      "nameEn": "Ice Storm",
+      "pages": [
+        155
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:locate-creature",
+      "nameEn": "Locate Creature",
+      "pages": [
+        159
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:phantasmal-killer",
+      "nameEn": "Phantasmal Killer",
+      "pages": [
+        167
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:polymorph",
+      "nameEn": "Polymorph",
+      "pages": [
+        169
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:private-sanctum",
+      "nameEn": "Private Sanctum",
+      "pages": [
+        171,
+        172
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:resilient-sphere",
+      "nameEn": "Resilient Sphere",
+      "pages": [
+        175
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:secret-chest",
+      "nameEn": "Secret Chest",
+      "pages": [
+        177
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:stone-shape",
+      "nameEn": "Stone Shape",
+      "pages": [
+        183
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:stoneskin",
+      "nameEn": "Stoneskin",
+      "pages": [
+        183
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-fire",
+      "nameEn": "Wall of Fire",
+      "pages": [
+        190
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not official translation or full rules text.",
+    "No class checks, slot spending, automatic transformations or effects.",
+    "Eligible summoned and polymorphed creature forms are incomplete; Disintegrate is not yet prepared.",
+    "Control Water summarizes four modes; consult source for full wave and object timing."
+  ]
+}

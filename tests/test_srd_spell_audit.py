@@ -8,6 +8,16 @@ parse, diff = audit['source_header'], audit['differences']
 
 
 class HeaderAuditTests(unittest.TestCase):
+    def test_miles_and_alternative_casting_time_are_not_silently_truncated(self):
+        h = parse('Ward 3rd-level divination Casting Time: 1 action or 8 hours Range: 1 mile Components: V Duration: Until dispelled or triggered', 'Ward')
+        self.assertEqual(h['range'], {'type': 'feet', 'feet': 5280})
+        card = {'spell': {'ritual': False, 'concentration': False, 'range': h['range'],
+                         'components': ['V'], 'duration': 'Пока не рассеяно или не сработает',
+                         'castingTime': '1 действие или 8 часов'}}
+        self.assertEqual(diff(card, h), [])
+        card['spell']['castingTime'] = '1 действие'
+        self.assertEqual(diff(card, h), ['castingTime'])
+
     def test_cross_page_header_and_optional_comma(self):
         h = parse('Ward 1st-level abjuration Casting Time: 1 action Range: Touch '
                   'System Reference Document 5.1 119 Components: V, S, M (water) '

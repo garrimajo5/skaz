@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:mechanic:reactions",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Реакции",
+        "en": "Reactions"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=91",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz combat rules v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 91.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nРеакция — ответ на определённый триггер в свой или чужой ход, если правило даёт такую возможность.\nПосле использования реакция вновь доступна только в начале твоего следующего хода. Прерванное существо затем продолжает свой ход.\nСправка: действия, броски и ресурсы не применяются автоматически.",
+      "links": [],
+      "mechanic": {
+        "category": "combat",
+        "effects": [
+          "Реакция — ответ на определённый триггер в свой или чужой ход, если правило даёт такую возможность.",
+          "После использования реакция вновь доступна только в начале твоего следующего хода. Прерванное существо затем продолжает свой ход."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:dash",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Рывок",
+        "en": "Dash"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=93",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz combat rules v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 93.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nДействие Рывок даёт дополнительное перемещение в текущем ходу, равное твоей скорости с учётом всех модификаторов.\nПри скорости 30 футов можно пройти за ход до 60; при уменьшении скорости до 15 — до 30. Рывок добавляет перемещение, а не удваивает сам показатель скорости.\nСправка: действия, броски и ресурсы не применяются автоматически.",
+      "links": [],
+      "mechanic": {
+        "category": "combat",
+        "effects": [
+          "Действие Рывок даёт дополнительное перемещение в текущем ходу, равное твоей скорости с учётом всех модификаторов.",
+          "При скорости 30 футов можно пройти за ход до 60; при уменьшении скорости до 15 — до 30. Рывок добавляет перемещение, а не удваивает сам показатель скорости."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:disengage",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Отход",
+        "en": "Disengage"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=93",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz combat rules v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 93.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПосле действия Отход твоё перемещение не провоцирует атаки до конца текущего хода. Это не общее запрещение противнику атаковать.\nСправка: действия, броски и ресурсы не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:opportunity-attacks"
+      ],
+      "mechanic": {
+        "category": "combat",
+        "effects": [
+          "После действия Отход твоё перемещение не провоцирует атаки до конца текущего хода. Это не общее запрещение противнику атаковать."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:dodge",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Уклонение",
+        "en": "Dodge"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=93",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz combat rules v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 93.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nДействие Уклонение: до начала следующего твоего хода атаки по тебе совершаются с помехой, если ты видишь атакующего, а твои спасброски Ловкости — с преимуществом.\nЭффект Уклонения теряется при недееспособности или падении скорости до 0.\nСправка: действия, броски и ресурсы не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:incapacitated"
+      ],
+      "mechanic": {
+        "category": "combat",
+        "effects": [
+          "Действие Уклонение: до начала следующего твоего хода атаки по тебе совершаются с помехой, если ты видишь атакующего, а твои спасброски Ловкости — с преимуществом.",
+          "Эффект Уклонения теряется при недееспособности или падении скорости до 0."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:help",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Помощь действием",
+        "en": "Help"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=93",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz combat rules v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 93.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПомоги существу выполнить задачу: его следующая проверка характеристики для этой задачи до начала твоего следующего хода получает преимущество.\nДругой вариант — помочь союзнику атаковать существо в пределах 5 футов от тебя. Если союзник атакует эту цель до твоего следующего хода, его первый бросок атаки получает преимущество.\nСправка: действия, броски и ресурсы не применяются автоматически.",
+      "links": [],
+      "mechanic": {
+        "category": "combat",
+        "effects": [
+          "Помоги существу выполнить задачу: его следующая проверка характеристики для этой задачи до начала твоего следующего хода получает преимущество.",
+          "Другой вариант — помочь союзнику атаковать существо в пределах 5 футов от тебя. Если союзник атакует эту цель до твоего следующего хода, его первый бросок атаки получает преимущество."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:ready",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Подготовленное действие",
+        "en": "Ready"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=93",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz combat rules v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 93, 94.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nДействием в свой ход выбери воспринимаемый триггер и ответное действие либо перемещение до своей скорости. Возможность действует до начала твоего следующего хода.\nКогда триггер завершится, можешь потратить реакцию на ответ или проигнорировать его. Реакция должна быть доступна.\nДля подготовки заклинания его накладывают обычным образом, удерживая энергию до выпуска реакцией. Допустимо только время накладывания 1 действие; удержание требует концентрации, даже если сам эффект её не требует.\nПотеря концентрации рассеивает подготовленное заклинание без эффекта. Подготовка другого заклинания прекращает прежнюю концентрацию.\nСправка: действия, броски и ресурсы не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:reactions",
+        "srd51:2014:mechanic:concentration"
+      ],
+      "mechanic": {
+        "category": "combat",
+        "effects": [
+          "Действием в свой ход выбери воспринимаемый триггер и ответное действие либо перемещение до своей скорости. Возможность действует до начала твоего следующего хода.",
+          "Когда триггер завершится, можешь потратить реакцию на ответ или проигнорировать его. Реакция должна быть доступна.",
+          "Для подготовки заклинания его накладывают обычным образом, удерживая энергию до выпуска реакцией. Допустимо только время накладывания 1 действие; удержание требует концентрации, даже если сам эффект её не требует.",
+          "Потеря концентрации рассеивает подготовленное заклинание без эффекта. Подготовка другого заклинания прекращает прежнюю концентрацию."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:opportunity-attacks",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Провоцированная атака",
+        "en": "Opportunity Attacks"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=95",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz combat rules v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 95.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nКогда видимое враждебное существо выходит из твоей досягаемости, можно реакцией совершить одну ближнюю атаку по нему непосредственно перед выходом.\nОтход предотвращает провоцирование. Телепортация и перемещение внешней силой без использования собственного перемещения, действия или реакции цели также не провоцируют атаку.\nПравило не означает, что любое вынужденное движение безопасно: важно, использует ли цель своё перемещение, действие или реакцию.\nСправка: действия, броски и ресурсы не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:reactions",
+        "srd51:2014:mechanic:disengage"
+      ],
+      "mechanic": {
+        "category": "combat",
+        "effects": [
+          "Когда видимое враждебное существо выходит из твоей досягаемости, можно реакцией совершить одну ближнюю атаку по нему непосредственно перед выходом.",
+          "Отход предотвращает провоцирование. Телепортация и перемещение внешней силой без использования собственного перемещения, действия или реакции цели также не провоцируют атаку.",
+          "Правило не означает, что любое вынужденное движение безопасно: важно, использует ли цель своё перемещение, действие или реакцию."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:grappling",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Захват: действие и освобождение",
+        "en": "Grappling"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=95",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz combat rules v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 95, 96.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nВ действии Атака замени одну атаку захватом: нужна свободная рука, цель в досягаемости и не более чем на один размер больше тебя.\nВместо броска атаки — состязание твоей Силы (Атлетика) против Силы (Атлетика) или Ловкости (Акробатика) цели, по её выбору. Победа накладывает состояние захвата.\nОтпустить можно в любой момент без действия. Для освобождения цель тратит действие и состязается выбранным из этих двух навыков против твоей Силы (Атлетика).\nПри переноске или перетаскивании захваченного твоя скорость вдвое, кроме случая, когда он меньше тебя минимум на два размера. Это правила 2014, не спасбросок из редакции 2024.\nСправка: действия, броски и ресурсы не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:grappled"
+      ],
+      "mechanic": {
+        "category": "combat",
+        "effects": [
+          "В действии Атака замени одну атаку захватом: нужна свободная рука, цель в досягаемости и не более чем на один размер больше тебя.",
+          "Вместо броска атаки — состязание твоей Силы (Атлетика) против Силы (Атлетика) или Ловкости (Акробатика) цели, по её выбору. Победа накладывает состояние захвата.",
+          "Отпустить можно в любой момент без действия. Для освобождения цель тратит действие и состязается выбранным из этих двух навыков против твоей Силы (Атлетика).",
+          "При переноске или перетаскивании захваченного твоя скорость вдвое, кроме случая, когда он меньше тебя минимум на два размера. Это правила 2014, не спасбросок из редакции 2024."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:shoving",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Толчок",
+        "en": "Shoving a Creature"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=96",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz combat rules v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 96.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nВ действии Атака замени одну атаку толчком. Цель в досягаемости и не более чем на один размер больше тебя.\nСостязание твоей Силы (Атлетика) против Силы (Атлетика) или Ловкости (Акробатика) цели, по её выбору. При победе либо сбей её с ног, либо оттолкни от себя на 5 футов.\nСправка: действия, броски и ресурсы не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:prone"
+      ],
+      "mechanic": {
+        "category": "combat",
+        "effects": [
+          "В действии Атака замени одну атаку толчком. Цель в досягаемости и не более чем на один размер больше тебя.",
+          "Состязание твоей Силы (Атлетика) против Силы (Атлетика) или Ловкости (Акробатика) цели, по её выбору. При победе либо сбей её с ног, либо оттолкни от себя на 5 футов."
+        ]
+      }
+    },
+    {
+      "id": "srd51:2014:mechanic:cover",
+      "ruleset": "5e-2014",
+      "kind": "mechanic",
+      "name": {
+        "ru": "Укрытие",
+        "en": "Cover"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=96",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz combat rules v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 96.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУкрытие помогает только от атаки или эффекта с противоположной стороны препятствия. Несколько укрытий не суммируются — действует наилучшее.\nПоловина укрытия: +2 КД и спасброскам Ловкости; препятствие закрывает хотя бы половину тела. Другие существа тоже могут служить укрытием.\nУкрытие на три четверти: +5 КД и спасброскам Ловкости.\nПолное укрытие: нельзя напрямую выбрать цель атакой или заклинанием, хотя некоторые эффекты по области могут её достать.\nСправка: действия, броски и ресурсы не применяются автоматически.",
+      "links": [],
+      "mechanic": {
+        "category": "combat",
+        "effects": [
+          "Укрытие помогает только от атаки или эффекта с противоположной стороны препятствия. Несколько укрытий не суммируются — действует наилучшее.",
+          "Половина укрытия: +2 КД и спасброскам Ловкости; препятствие закрывает хотя бы половину тела. Другие существа тоже могут служить укрытием.",
+          "Укрытие на три четверти: +5 КД и спасброскам Ловкости.",
+          "Полное укрытие: нельзя напрямую выбрать цель атакой или заклинанием, хотя некоторые эффекты по области могут её достать."
+        ]
+      }
+    }
+  ]
+}

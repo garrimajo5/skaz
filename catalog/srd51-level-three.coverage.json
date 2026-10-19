@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "All 42 third-level spells listed in the pinned SRD 5.1, summarized; not all D&D spells",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 42,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:animate-dead",
+      "nameEn": "Animate Dead",
+      "pages": [
+        115,
+        116
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:beacon-of-hope",
+      "nameEn": "Beacon of Hope",
+      "pages": [
+        121
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:bestow-curse",
+      "nameEn": "Bestow Curse",
+      "pages": [
+        121
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:blink",
+      "nameEn": "Blink",
+      "pages": [
+        122,
+        123
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:call-lightning",
+      "nameEn": "Call Lightning",
+      "pages": [
+        123
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:clairvoyance",
+      "nameEn": "Clairvoyance",
+      "pages": [
+        124,
+        125
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:conjure-animals",
+      "nameEn": "Conjure Animals",
+      "pages": [
+        127
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:counterspell",
+      "nameEn": "Counterspell",
+      "pages": [
+        131
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:create-food-and-water",
+      "nameEn": "Create Food and Water",
+      "pages": [
+        131
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:daylight",
+      "nameEn": "Daylight",
+      "pages": [
+        133
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:dispel-magic",
+      "nameEn": "Dispel Magic",
+      "pages": [
+        136
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:fear",
+      "nameEn": "Fear",
+      "pages": [
+        142
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:fireball",
+      "nameEn": "Fireball",
+      "pages": [
+        144
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:fly",
+      "nameEn": "Fly",
+      "pages": [
+        146
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:gaseous-form",
+      "nameEn": "Gaseous Form",
+      "pages": [
+        148
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:glyph-of-warding",
+      "nameEn": "Glyph of Warding",
+      "pages": [
+        149,
+        150
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:haste",
+      "nameEn": "Haste",
+      "pages": [
+        153
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:hypnotic-pattern",
+      "nameEn": "Hypnotic Pattern",
+      "pages": [
+        155
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:lightning-bolt",
+      "nameEn": "Lightning Bolt",
+      "pages": [
+        159
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:magic-circle",
+      "nameEn": "Magic Circle",
+      "pages": [
+        160
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:major-image",
+      "nameEn": "Major Image",
+      "pages": [
+        162
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:mass-healing-word",
+      "nameEn": "Mass Healing Word",
+      "pages": [
+        163
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:meld-into-stone",
+      "nameEn": "Meld into Stone",
+      "pages": [
+        163,
+        164
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:nondetection",
+      "nameEn": "Nondetection",
+      "pages": [
+        167
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:phantom-steed",
+      "nameEn": "Phantom Steed",
+      "pages": [
+        167,
+        168
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:plant-growth",
+      "nameEn": "Plant Growth",
+      "pages": [
+        169
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:protection-from-energy",
+      "nameEn": "Protection from Energy",
+      "pages": [
+        173
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:remove-curse",
+      "nameEn": "Remove Curse",
+      "pages": [
+        174,
+        175
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:revivify",
+      "nameEn": "Revivify",
+      "pages": [
+        175,
+        176
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:sending",
+      "nameEn": "Sending",
+      "pages": [
+        177,
+        178
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:sleet-storm",
+      "nameEn": "Sleet Storm",
+      "pages": [
+        180
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:slow",
+      "nameEn": "Slow",
+      "pages": [
+        180,
+        181
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:speak-with-dead",
+      "nameEn": "Speak with Dead",
+      "pages": [
+        181
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:speak-with-plants",
+      "nameEn": "Speak with Plants",
+      "pages": [
+        181
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:spirit-guardians",
+      "nameEn": "Spirit Guardians",
+      "pages": [
+        182
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:stinking-cloud",
+      "nameEn": "Stinking Cloud",
+      "pages": [
+        182,
+        183
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:tiny-hut",
+      "nameEn": "Tiny Hut",
+      "pages": [
+        187
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:tongues",
+      "nameEn": "Tongues",
+      "pages": [
+        187,
+        188
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:vampiric-touch",
+      "nameEn": "Vampiric Touch",
+      "pages": [
+        189
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:water-breathing",
+      "nameEn": "Water Breathing",
+      "pages": [
+        191
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:water-walk",
+      "nameEn": "Water Walk",
+      "pages": [
+        191,
+        192
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:wind-wall",
+      "nameEn": "Wind Wall",
+      "pages": [
+        192,
+        193
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not an official translation or full rules text.",
+    "SRD 5.1 (2014) only; class access, slot costs and automatic effects are not implemented.",
+    "Tiny Hut source has ambiguous creature-count wording; preserved as a GM question, not silently resolved.",
+    "Phantom Steed links the base Riding Horse; its speed change is not automated. Conjure Animals does not provide every eligible beast.",
+    "Glyph of Warding summarizes the main variants; consult source for trigger refinements and summoned effects.",
+    "Clairvoyance source range of one mile is stored as 5280 feet."
+  ]
+}

@@ -28,6 +28,8 @@ def source_header(text, name):
     ritual, casting, distance, components, concentration, duration = match.groups()
     if re.fullmatch(r'\d+ feet', distance):
         distance = {'type': 'feet', 'feet': int(distance.split()[0])}
+    elif re.fullmatch(r'\d+ miles?', distance):
+        distance = {'type': 'feet', 'feet': int(distance.split()[0]) * 5280}
     elif distance.lower().startswith('self'):
         distance = {'type': 'self'}
     elif distance.lower() in ('touch', 'sight', 'unlimited', 'special'):
@@ -45,6 +47,8 @@ def duration_key(text):
         return 'instantaneous'
     if text == 'пока не рассеяно':
         return 'until dispelled'
+    if text == 'пока не рассеяно или не сработает':
+        return 'until dispelled or triggered'
     for ru, en in [('раунд', 'round'), ('минут', 'minute'), ('час', 'hour'), ('дн', 'day')]:
         if ru in text:
             match = re.fullmatch(r'(up to )?(\d+)\s+\S+', text)
@@ -66,7 +70,8 @@ def differences(card, header):
     casting = spell['castingTime']
     # Reaction trigger wording is reviewed manually; check action type here.
     translated = {'1 действие': '1 action', '1 бонусное действие': '1 bonus action',
-                  '1 минута': '1 minute', '1 час': '1 hour', '10 минут': '10 minutes'}
+                  '1 минута': '1 minute', '1 час': '1 hour', '10 минут': '10 minutes',
+                  '1 действие или 8 часов': '1 action or 8 hours'}
     if casting.startswith('1 реакция,'):
         if not header['casting'].startswith('1 reaction,'):
             errors.append('castingTime')

@@ -32,7 +32,7 @@ test('invalid condition effects and categories reject the entire package', () =>
       e => e.mechanic.effects = [123], e => e.mechanic.effects = ['x', ' x '],
       e => e.mechanic.effects = ['x'.repeat(2001)],
       e => e.mechanic.effects = Array.from({ length: 31 }, (_, i) => String(i)),
-      e => e.mechanic.category = 'rest', e => e.mechanic.level = 1,
+      e => e.mechanic.category = 'unknown-section', e => e.mechanic.level = 1,
       e => e.kind = 'spell', e => e.source.usage = 'reference-only',
     ]) {
       const bad = structuredClone(bundle.entries[0]); mutate(bad);

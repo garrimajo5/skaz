@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:commune",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Общение",
+        "en": "Commune"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=126",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-five support v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 126.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 5. Накладывание: 1 минута. Дистанция: На себя. Компоненты: M, S, V. Длительность: 1 минута.\nДо трёх вопросов божеству или его представителю с ответами «да»/«нет» до конца заклинания. Ответы верные, но существо не всеведуще и может ответить «неясно»; мастер может дать короткую фразу, если одно слово вводит в заблуждение или противоречит интересам божества. Каждое повторное наложение до следующего продолжительного отдыха добавляет накопительный шанс 25% отсутствия ответа, бросок мастера скрыт.\nМатериальный компонент: благовония и сосуд со святой или нечестивой водой; расход не указан.",
+      "links": [
+        "srd51:2014:mechanic:long-rest",
+        "srd51:2014:mechanic:ritual-casting"
+      ],
+      "spell": {
+        "level": 5,
+        "school": "divination",
+        "castingTime": "1 минута",
+        "range": {
+          "type": "self"
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "1 минута",
+        "concentration": false,
+        "ritual": true
+      }
+    },
+    {
+      "id": "srd51:2014:spell:greater-restoration",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Высшее восстановление",
+        "en": "Greater Restoration"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=150",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-five support v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 150.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 5. Накладывание: 1 действие. Дистанция: Касание. Компоненты: M, S, V. Длительность: Мгновенная.\nКасанием уменьши истощение цели на один уровень либо прекрати один из эффектов: очарование или окаменение; одно проклятие, включая настройку на проклятый магический предмет; уменьшение одной характеристики; один эффект уменьшения максимума хитов. Это выбор одного варианта, а не одновременное снятие всех перечисленных эффектов.\nМатериальный компонент: алмазная пыль стоимостью не менее 100 зм, расходуется.",
+      "links": [
+        "srd51:2014:mechanic:exhaustion",
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:petrified"
+      ],
+      "spell": {
+        "level": 5,
+        "school": "abjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "Мгновенная",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:mass-cure-wounds",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Множественное лечение ран",
+        "en": "Mass Cure Wounds"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=162",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-five support v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 162.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 5. Накладывание: 1 действие. Дистанция: 60 футов. Компоненты: S, V. Длительность: Мгновенная.\nВыбери до шести существ в сфере радиусом 30 футов вокруг точки в пределах дистанции. Каждое восстанавливает 3d8 + модификатор базовой характеристики заклинаний хитов. Не действует на нежить и конструктов. Ячейка выше 5-го: +1d8 лечения за уровень.",
+      "links": [],
+      "spell": {
+        "level": 5,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 60
+        },
+        "components": [
+          "S",
+          "V"
+        ],
+        "duration": "Мгновенная",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:raise-dead",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Оживление",
+        "en": "Raise Dead"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=173",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-five support v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 173.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 5. Накладывание: 1 час. Дистанция: Касание. Компоненты: M, S, V. Длительность: Мгновенная.\nКасанием возвращает существо, умершее не более 10 дней назад, с 1 хитом, если душа свободна и согласна. Нейтрализует яды и немагические болезни; магические болезни, проклятия и подобные эффекты остаются и возобновляются после возвращения. Нежить не оживляет. Закрывает смертельные раны, но не восстанавливает части тела; отсутствие жизненно важной части, например головы, срывает заклинание. Цель получает −4 к атакам, спасброскам и проверкам характеристик; каждый завершённый продолжительный отдых уменьшает штраф на 1.\nМатериальный компонент: алмаз стоимостью не менее 500 зм, расходуется.",
+      "links": [
+        "srd51:2014:mechanic:long-rest"
+      ],
+      "spell": {
+        "level": 5,
+        "school": "necromancy",
+        "castingTime": "1 час",
+        "range": {
+          "type": "touch"
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "Мгновенная",
+        "concentration": false,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:telepathic-bond",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Телепатическая связь",
+        "en": "Telepathic Bond"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=185",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-five support v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 185.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 5. Накладывание: 1 действие. Дистанция: 30 футов. Компоненты: M, S, V. Длительность: 1 час.\nДо восьми согласных существ в пределах дистанции связываются друг с другом мысленно. Интеллект 2 и ниже не затрагивается. Общий язык не нужен; после наложения расстояние не ограничено, но связь не проходит между планами.\nМатериальный компонент: кусочки скорлупы яиц двух разных видов существ.",
+      "links": [
+        "srd51:2014:mechanic:ritual-casting"
+      ],
+      "spell": {
+        "level": 5,
+        "school": "divination",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 30
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "1 час",
+        "concentration": false,
+        "ritual": true
+      }
+    },
+    {
+      "id": "srd51:2014:spell:teleportation-circle",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Круг телепортации",
+        "en": "Teleportation Circle"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=186",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-five support v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 186, 187.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nУровень 5. Накладывание: 1 минута. Дистанция: 10 футов. Компоненты: M, V. Длительность: 1 раунд.\nЗа время наложения нарисуй круг диаметром 10 футов, связанный с постоянным кругом на том же плане с известной тебе последовательностью знаков. Портал открыт до конца следующего твоего хода; вошедшее существо оказывается в 5 футах от круга назначения или в ближайшем свободном месте. При получении способности накладывать заклинание изучаются знаки двух кругов Материального плана, выбранных мастером. Новую последовательность можно запомнить за 1 минуту изучения. Ежедневное наложение год в одном месте создаёт постоянный круг; пользоваться им для перемещения при этом не обязательно.\nМатериальный компонент: редкие мелки и чернила с драгоценными камнями, стоимость 50 зм, расходуются.",
+      "links": [],
+      "spell": {
+        "level": 5,
+        "school": "conjuration",
+        "castingTime": "1 минута",
+        "range": {
+          "type": "feet",
+          "feet": 10
+        },
+        "components": [
+          "M",
+          "V"
+        ],
+        "duration": "1 раунд",
+        "concentration": false,
+        "ritual": false
+      }
+    }
+  ]
+}

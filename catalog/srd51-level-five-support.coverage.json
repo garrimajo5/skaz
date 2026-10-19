@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Six selected fifth-level support and communication spells from pinned SRD 5.1",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 6,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:commune",
+      "nameEn": "Commune",
+      "pages": [
+        126
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:greater-restoration",
+      "nameEn": "Greater Restoration",
+      "pages": [
+        150
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:mass-cure-wounds",
+      "nameEn": "Mass Cure Wounds",
+      "pages": [
+        162
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:raise-dead",
+      "nameEn": "Raise Dead",
+      "pages": [
+        173
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:telepathic-bond",
+      "nameEn": "Telepathic Bond",
+      "pages": [
+        185
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:teleportation-circle",
+      "nameEn": "Teleportation Circle",
+      "pages": [
+        186,
+        187
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Only 6 of 37 fifth-level SRD spells prepared in this package.",
+    "Authored Russian summaries, not official translation or full rules text; no automatic effects.",
+    "Class access, material stock and permanent teleportation circles are not modeled."
+  ]
+}

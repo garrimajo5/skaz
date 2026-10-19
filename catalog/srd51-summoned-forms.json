@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:riding-horse",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Ездовая лошадь",
+        "en": "Riding Horse"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=388",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz summoned forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 388.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Обычный Большой зверь без мировоззрения. Хиты 13 (2d10 + 2), пассивное Восприятие 10, языков нет. Копыта: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 8 (2d4 + 3) дробящего урона. Базовая скорость 60 футов; Phantom Steed заменяет её на 100 футов по правилам заклинания, не меняя эту карточку. Особенности и атаки не исполняются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "large",
+        "type": "beast",
+        "armorClass": 10,
+        "hitPoints": 13,
+        "speed": {
+          "walk": 60
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 10,
+          "con": 12,
+          "int": 2,
+          "wis": 11,
+          "cha": 7
+        },
+        "challenge": "1/4",
+        "xp": 50
+      }
+    }
+  ]
+}
