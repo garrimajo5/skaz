@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Five named Find Steed base forms from SRD 5.1; not a complete bestiary",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 5,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:warhorse",
+      "nameEn": "Warhorse",
+      "pages": [
+        392
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:pony",
+      "nameEn": "Pony",
+      "pages": [
+        386
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:camel",
+      "nameEn": "Camel",
+      "pages": [
+        369
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:elk",
+      "nameEn": "Elk",
+      "pages": [
+        372
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:mastiff",
+      "nameEn": "Mastiff",
+      "pages": [
+        384
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Base beasts only; Find Steed transformations are described by the spell, not applied to these catalog records.",
+    "Authored Russian summaries, not an official translation.",
+    "Mounted combat, creature creation and attacks are not automated."
+  ]
+}

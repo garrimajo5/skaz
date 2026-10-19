@@ -3,8 +3,12 @@ const SkazCatalog = (() => {
   let query = '', kind = '', offset = 0, result = null, coverage = null, status = 'idle', serial = 0;
   const limit = 20;
   let detailFilter='';
-  let spellFilters={}, searchDraft=null;
+  let extraFilters={}, searchDraft=null;
   const schools={abjuration:'Ограждение',conjuration:'Вызов',divination:'Прорицание',enchantment:'Очарование',evocation:'Воплощение',illusion:'Иллюзия',necromancy:'Некромантия',transmutation:'Преобразование'};
+  const monsterTypes={aberration:'Аберрация',beast:'Зверь',celestial:'Небожитель',construct:'Конструкт',dragon:'Дракон',elemental:'Элементаль',fey:'Фея',fiend:'Исчадие',giant:'Великан',humanoid:'Гуманоид',monstrosity:'Монстр',ooze:'Слизь',plant:'Растение',undead:'Нежить'};
+  const monsterSizes={tiny:'Крошечный',small:'Маленький',medium:'Средний',large:'Большой',huge:'Огромный',gargantuan:'Громадный'};
+  const itemTypes={armor:'Доспех',potion:'Зелье',ring:'Кольцо',rod:'Жезл',scroll:'Свиток',staff:'Посох',wand:'Волшебная палочка',weapon:'Оружие',wondrous:'Чудесный предмет'};
+  const extraKeys={spell:['school','ritual','concentration'],monster:['monsterType','size'],item:['itemType','attunement']};
   const filterKeys={spell:'level',monster:'challenge',item:'rarity'};
   const rarityLabels={common:'Обычный',uncommon:'Необычный',rare:'Редкий','very-rare':'Очень редкий',legendary:'Легендарный',varies:'Разная редкость'};
   function filterControl(category,value='',extra={}) {
@@ -13,7 +17,9 @@ const SkazCatalog = (() => {
     const options=category==='spell'?Array.from({length:10},(_,i)=>[String(i),i===0?'Заговор':i+' уровень']):category==='monster'?['0','1/8','1/4','1/2',...Array.from({length:30},(_,i)=>String(i+1))].map(v=>[v,v]):Object.entries(rarityLabels);
     const select=(name,label,choices,current)=>`<label>${label}<select name="${name}"><option value="">Все</option>${choices.map(([v,text])=>`<option value="${v}" ${current===v?'selected':''}>${text}</option>`).join('')}</select></label>`;
     const spells=category==='spell'?select('school','Школа',Object.entries(schools),extra.school)+select('ritual','Ритуальное накладывание',[['true','Есть'],['false','Нет']],extra.ritual)+select('concentration','Концентрация',[['true','Нужна'],['false','Не нужна']],extra.concentration):'';
-    return select(key,label,options,value)+spells+'<p>При выборе характеристики записи без неё не показываются.</p>';
+    const monsters=category==='monster'?select('monsterType','Тип существа',Object.entries(monsterTypes),extra.monsterType)+select('size','Размер',Object.entries(monsterSizes),extra.size):'';
+    const items=category==='item'?select('itemType','Тип предмета',Object.entries(itemTypes),extra.itemType)+select('attunement','Настройка',[['true','Требуется'],['false','Не требуется']],extra.attunement):'';
+    return select(key,label,options,value)+spells+monsters+items+'<p>При выборе характеристики записи без неё не показываются.</p>';
   }
 
   let detailSerial=0, currentEntry=null, trail=[], returnToInventory=false;
@@ -25,7 +31,7 @@ const SkazCatalog = (() => {
   function view() {
     if (location.protocol === 'file:') return `<section class="panel"><h2>Каталог доступен с сервером</h2><p>Этот HTML-файл — автономная демонстрация. Открой локальное приложение, чтобы искать импортированные материалы.</p><button data-page="spells">8 демо-заклинаний →</button></section>`;
     if (status === 'idle') queueMicrotask(() => load());
-    const draft=searchDraft||{q:query,kind,[filterKeys[kind]]:detailFilter,...spellFilters};
+    const draft=searchDraft||{q:query,kind,[filterKeys[kind]]:detailFilter,...extraFilters};
     return `<section class="catalog" aria-label="Каталог D&D 2014">
       <div class="notice"><b>D&D 2014 · Каталог пополняется</b><p>${coverage ? `В базе: ${coverage.total}. Справочных ссылок: ${coverage.referenceOnly}, личных записей: ${coverage.personal}, CC BY 4.0: ${coverage.openlyLicensed || 0}.` : 'Полнота базы пока не подтверждена.'} Предметы и артефакты можно добавить в инвентарь из карточки.${scopeText()}</p></div>
       <div class="catalog-tools" aria-label="Наполнение каталога"><button id="catalog-bundled">Проверенная подборка 2014</button><button id="catalog-help">Личный импорт</button><button id="catalog-inventory">Охват заклинаний SRD</button></div>
@@ -46,7 +52,7 @@ const SkazCatalog = (() => {
     const params = new URLSearchParams({ q: query, limit: String(limit), offset: String(offset) });
     if (kind) params.set('kind', kind);
     if(detailFilter && filterKeys[kind])params.set(filterKeys[kind],detailFilter);
-    if(kind==='spell')for(const [key,value] of Object.entries(spellFilters))if(value)params.set(key,value);
+    for(const key of extraKeys[kind]||[])if(extraFilters[key])params.set(key,extraFilters[key]);
     try {
       const values = await Promise.all(['/api/catalog?' + params, '/api/catalog/coverage'].map(async url => {
         const response = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
@@ -72,9 +78,9 @@ const SkazCatalog = (() => {
     const add=(label,value)=>rows.push(`<div><dt>${escape(label)}</dt><dd>${escape(value)}</dd></div>`);
     const school=schools;
     if(entry.spell){const x=entry.spell;add('Уровень',x.level===0?'Заговор':x.level);add('Школа',school[x.school]||x.school);add('Накладывание',x.castingTime);add('Дистанция',x.range.type==='feet'?x.range.feet+' футов':({self:'На себя',touch:'Касание',sight:'В пределах видимости',unlimited:'Не ограничена',special:'Особая'}[x.range.type]||x.range.type));add('Компоненты',x.components.join(', '));add('Длительность',x.duration);add('Концентрация',x.concentration?'Нужна':'Не нужна');add('Ритуал',x.ritual?'Да':'Нет');}
-    if(entry.monster){const x=entry.monster;add('Размер',{tiny:'Крошечный',small:'Маленький',medium:'Средний',large:'Большой',huge:'Огромный',gargantuan:'Громадный'}[x.size]||x.size);add('Тип',{aberration:'Аберрация',beast:'Зверь',celestial:'Небожитель',construct:'Конструкт',dragon:'Дракон',elemental:'Элементаль',fey:'Фея',fiend:'Исчадие',giant:'Великан',humanoid:'Гуманоид',monstrosity:'Монстр',ooze:'Слизь',plant:'Растение',undead:'Нежить'}[x.type]||x.type);add('Класс доспеха',x.armorClass);add('Хиты (базовые)',x.hitPoints);add('Опасность',x.challenge);add('Опыт',x.xp);for(const [key,n] of Object.entries(x.speed))add({walk:'Скорость',climb:'Лазание',swim:'Плавание',fly:'Полёт',burrow:'Копание'}[key]||key,n+' футов');for(const [key,n] of Object.entries(x.abilities)){const mod=Math.floor((n-10)/2);add({str:'СИЛ',dex:'ЛОВ',con:'ТЕЛ',int:'ИНТ',wis:'МДР',cha:'ХАР'}[key]||key,`${n} (${mod>=0?'+':''}${mod})`);}}
+    if(entry.monster){const x=entry.monster;add('Размер',monsterSizes[x.size]||x.size);add('Тип',monsterTypes[x.type]||x.type);add('Класс доспеха',x.armorClass);add('Хиты (базовые)',x.hitPoints);add('Опасность',x.challenge);add('Опыт',x.xp);for(const [key,n] of Object.entries(x.speed))add({walk:'Скорость',climb:'Лазание',swim:'Плавание',fly:'Полёт',burrow:'Копание'}[key]||key,n+' футов');for(const [key,n] of Object.entries(x.abilities)){const mod=Math.floor((n-10)/2);add({str:'СИЛ',dex:'ЛОВ',con:'ТЕЛ',int:'ИНТ',wis:'МДР',cha:'ХАР'}[key]||key,`${n} (${mod>=0?'+':''}${mod})`);}}
     const x=entry.item||entry.artifact;
-    if(x){add('Тип предмета',{armor:'Доспех',potion:'Зелье',ring:'Кольцо',rod:'Жезл',scroll:'Свиток',staff:'Посох',wand:'Волшебная палочка',weapon:'Оружие',wondrous:'Чудесный предмет',other:'Другой'}[x.type]||x.type);if(x.rarity)add('Редкость',rarityLabels[x.rarity]||x.rarity);add('Настройка',x.attunement?(x.attunementRequirement||'Требуется'):'Не требуется');if(x.healing)add('Лечение',`${x.healing.diceCount}d${x.healing.diceSides}${x.healing.bonus?' + '+x.healing.bonus:''}`);if(x.charges){add('Максимум зарядов',x.charges.max);add('Восстановление',x.charges.recharge);}}
+    if(x){add('Тип предмета',({...itemTypes,other:'Другой'})[x.type]||x.type);if(x.rarity)add('Редкость',rarityLabels[x.rarity]||x.rarity);add('Настройка',x.attunement?(x.attunementRequirement||'Требуется'):'Не требуется');if(x.healing)add('Лечение',`${x.healing.diceCount}d${x.healing.diceSides}${x.healing.bonus?' + '+x.healing.bonus:''}`);if(x.charges){add('Максимум зарядов',x.charges.max);add('Восстановление',x.charges.recharge);}}
     return rows.length?`<section class="catalog-facts"><h3>Характеристики</h3><dl>${rows.join('')}</dl><p>Справочные данные. Эффекты автоматически не применяются.</p></section>`:'';
   }
   function details(index) {
@@ -171,14 +177,14 @@ const SkazCatalog = (() => {
     if (event.target.id !== 'catalog-search') return;
     event.preventDefault();
     searchDraft=null;
-    const data = new FormData(event.target); query = String(data.get('q')).trim(); kind = String(data.get('kind')); detailFilter=filterKeys[kind]?String(data.get(filterKeys[kind])||''):''; spellFilters=kind==='spell'?Object.fromEntries(['school','ritual','concentration'].map(key=>[key,String(data.get(key)||'')])):{}; offset = 0; load();
+    const data = new FormData(event.target); query = String(data.get('q')).trim(); kind = String(data.get('kind')); detailFilter=filterKeys[kind]?String(data.get(filterKeys[kind])||''):''; extraFilters=Object.fromEntries((extraKeys[kind]||[]).map(key=>[key,String(data.get(key)||'')])); offset = 0; load();
   });
   function rememberSearch(event){
     const field=event.target;
-    if(field.form?.id!=='catalog-search'||!['q','kind','level','school','ritual','concentration','challenge','rarity'].includes(field.name))return;
-    searchDraft={...(searchDraft||{q:query,kind,[filterKeys[kind]]:detailFilter,...spellFilters}),[field.name]:field.value};
+    if(field.form?.id!=='catalog-search'||!['q','kind','level','school','ritual','concentration','challenge','monsterType','size','rarity','itemType','attunement'].includes(field.name))return;
+    searchDraft={...(searchDraft||{q:query,kind,[filterKeys[kind]]:detailFilter,...extraFilters}),[field.name]:field.value};
     if(field.name==='kind'){
-      for(const key of ['level','school','ritual','concentration','challenge','rarity'])delete searchDraft[key];
+      for(const key of ['level','school','ritual','concentration','challenge','monsterType','size','rarity','itemType','attunement'])delete searchDraft[key];
       const region=document.getElementById('catalog-specific');if(region)region.innerHTML=filterControl(field.value);
     }
   }
@@ -192,7 +198,7 @@ const SkazCatalog = (() => {
     if(button.id==='catalog-detail-back'&&trail.length)showDetails(trail.pop());
     if (button.id === 'catalog-retry') load();
     if (button.id === 'catalog-prev' || button.id === 'catalog-next') { offset = Math.max(0, offset + (button.id === 'catalog-prev' ? -limit : limit)); load(); }
-    if (button.id === 'catalog-reset') { query = ''; kind = ''; detailFilter=''; spellFilters={}; searchDraft=null; offset = 0; render(); load(); }
+    if (button.id === 'catalog-reset') { query = ''; kind = ''; detailFilter=''; extraFilters={}; searchDraft=null; offset = 0; render(); load(); }
     if(button.id==='catalog-inventory')openInventory();
     if(button.dataset.inventoryRead)readInventoryEntry(button.dataset.inventoryRead);
     if(button.id==='inventory-return'&&returnToInventory&&inventoryData){++detailSerial;returnToInventory=false;paintInventory();}

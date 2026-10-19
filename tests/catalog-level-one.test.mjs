@@ -33,7 +33,7 @@ test('combat subset preserves edition-specific dice, reactions, concentration an
 test('source levels and schools agree with every prepared spell and coverage totals are additive',()=>{
  const index=read('srd51-spells.index.json');assert.equal(index.extractionVersion,2);assert.deepEqual(Array.from({length:10},(_,n)=>index.entries.filter(e=>e.level===n).length),[24,49,54,42,31,37,31,20,16,15]);
  const s=openStore(':memory:');try{const preview=s.catalog.previewBundled();s.catalog.installBundled({version:preview.version});
- const spells=s.catalog.search(new URLSearchParams('kind=spell&limit=100')).entries;for(const e of spells){const ref=index.entries.find(x=>x.id===e.id);assert.equal(ref.level,e.spell.level);assert.equal(ref.school,e.spell.school);}
+ const spells=[];for(let offset=0;;offset+=100){const page=s.catalog.search(new URLSearchParams('kind=spell&limit=100&offset='+offset));spells.push(...page.entries);if(spells.length>=page.total)break;}assert.equal(spells.length,s.catalog.coverage().scopes.srd51Spells.installed);for(const e of spells){const ref=index.entries.find(x=>x.id===e.id);assert.equal(ref.level,e.spell.level);assert.equal(ref.school,e.spell.school);}
  const scope=s.catalog.coverage().scopes.srd51Spells;assert.equal(scope.byLevel.reduce((n,x)=>n+x.expected,0),319);assert.equal(scope.byLevel.reduce((n,x)=>n+x.prepared,0),scope.prepared);assert.equal(scope.byLevel.reduce((n,x)=>n+x.installed,0),scope.installed);assert.equal(scope.byLevel[1].expected,49);assert.equal(scope.byLevel[1].installed,49);
  }finally{s.close();}
 });

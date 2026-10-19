@@ -4,6 +4,9 @@ import { bundledCatalog, validateBundledInstall } from './bundled-catalog.mjs';
 import { AppError } from './state.mjs';
 
 const spellIndex=JSON.parse(readFileSync(new URL('../catalog/srd51-spells.index.json',import.meta.url),'utf8'));
+const monsterTypes = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'undead'];
+const monsterSizes = ['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan'];
+const itemTypes = ['armor', 'potion', 'ring', 'rod', 'scroll', 'staff', 'wand', 'weapon', 'wondrous'];
 const kinds = ['mechanic', 'spell', 'monster', 'item', 'artifact'];
 const fail = message => { throw new AppError(422, message); };
 function object(value, keys) {
@@ -38,7 +41,7 @@ function spell(value) {
 }
 function item(value) {
   object(value, ['type', 'rarity', 'attunement', 'attunementRequirement', 'healing']);
-  if (!['armor', 'potion', 'ring', 'rod', 'scroll', 'staff', 'wand', 'weapon', 'wondrous'].includes(value.type)) fail('Неизвестный тип магического предмета');
+  if (!itemTypes.includes(value.type)) fail('Неизвестный тип магического предмета');
   if (!['common', 'uncommon', 'rare', 'very-rare', 'legendary', 'varies'].includes(value.rarity)) fail('Неизвестная редкость предмета');
   if (typeof value.attunement !== 'boolean') fail('Настройка предмета должна быть boolean');
   if (value.attunementRequirement !== undefined && !value.attunement) fail('Условие настройки требует attunement=true');
@@ -57,8 +60,8 @@ function item(value) {
 function monster(value) {
   object(value, ['size', 'type', 'armorClass', 'hitPoints', 'speed', 'abilities', 'challenge', 'xp']);
   const integer = (n, min, max) => { if (!Number.isSafeInteger(n) || n < min || n > max) fail('Неверное числовое поле существа'); return n; };
-  if (!['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan'].includes(value.size)) fail('Неизвестный размер существа');
-  if (!['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'undead'].includes(value.type)) fail('Неизвестный тип существа');
+  if (!monsterSizes.includes(value.size)) fail('Неизвестный размер существа');
+  if (!monsterTypes.includes(value.type)) fail('Неизвестный тип существа');
   if (!['0', '1/8', '1/4', '1/2', ...Array.from({ length: 30 }, (_, i) => String(i + 1))].includes(value.challenge)) fail('Неверный показатель опасности');
   object(value.speed, ['walk', 'burrow', 'climb', 'fly', 'swim']);
   if (!Object.keys(value.speed).length) fail('Нужна скорость существа');
@@ -148,7 +151,7 @@ export function createCatalog(db) {
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
   function search(params = new URLSearchParams()) {
-    for (const key of params.keys()) if (!['q', 'kind', 'level', 'school', 'ritual', 'concentration', 'challenge', 'rarity', 'limit', 'offset'].includes(key) || params.getAll(key).length !== 1) throw new AppError(400, 'Неизвестный или повторный фильтр');
+    for (const key of params.keys()) if (!['q', 'kind', 'level', 'school', 'ritual', 'concentration', 'challenge', 'monsterType', 'size', 'rarity', 'itemType', 'attunement', 'limit', 'offset'].includes(key) || params.getAll(key).length !== 1) throw new AppError(400, 'Неизвестный или повторный фильтр');
     const q = (params.get('q') || '').trim().toLocaleLowerCase('ru');
     const kind = params.get('kind');
     if (q.length > 200 || (kind !== null && !kinds.includes(kind))) throw new AppError(400, 'Неверный поиск');
@@ -158,7 +161,13 @@ export function createCatalog(db) {
     if(school!==null && (kind!=='spell' || !['abjuration','conjuration','divination','enchantment','evocation','illusion','necromancy','transmutation'].includes(school)))throw new AppError(400,'Неверная школа или категория');
     for(const flag of [ritual,concentration])if(flag!==null && (kind!=='spell' || !['true','false'].includes(flag)))throw new AppError(400,'Признаки заклинаний принимают true или false');
     if (challenge!==null && (kind!=='monster' || !['0','1/8','1/4','1/2',...Array.from({length:30},(_,i)=>String(i+1))].includes(challenge))) throw new AppError(400,'Неверный показатель опасности или категория');
+    const monsterType=params.get('monsterType'),size=params.get('size');
+    if(monsterType!==null && (kind!=='monster' || !monsterTypes.includes(monsterType)))throw new AppError(400,'Неверный тип существа или категория');
+    if(size!==null && (kind!=='monster' || !monsterSizes.includes(size)))throw new AppError(400,'Неверный размер существа или категория');
     if (rarity!==null && (kind!=='item' || !['common','uncommon','rare','very-rare','legendary','varies'].includes(rarity))) throw new AppError(400,'Неверная редкость или категория');
+    const itemType=params.get('itemType'),attunement=params.get('attunement');
+    if(itemType!==null && (kind!=='item' || !itemTypes.includes(itemType)))throw new AppError(400,'Неверный тип предмета или категория');
+    if(attunement!==null && (kind!=='item' || !['true','false'].includes(attunement)))throw new AppError(400,'Настройка предметов принимает true или false');
     const number = (key, fallback, max) => {
       const value = params.get(key);
       if (value === null) return fallback;
@@ -167,7 +176,7 @@ export function createCatalog(db) {
     };
     const limit = number('limit', 50, 100), offset = number('offset', 0, Number.MAX_SAFE_INTEGER);
     if (!limit) throw new AppError(400, 'Лимит должен быть больше нуля');
-    const matches = all().filter(entry => (!kind || entry.kind === kind) && (level===null || entry.spell?.level===Number(level)) && (school===null || entry.spell?.school===school) && (ritual===null || entry.spell?.ritual===(ritual==='true')) && (concentration===null || entry.spell?.concentration===(concentration==='true')) && (challenge===null || entry.monster?.challenge===challenge) && (rarity===null || entry.item?.rarity===rarity) && `${entry.name.ru} ${entry.name.en}`.toLocaleLowerCase('ru').includes(q));
+    const matches = all().filter(entry => (!kind || entry.kind === kind) && (level===null || entry.spell?.level===Number(level)) && (school===null || entry.spell?.school===school) && (ritual===null || entry.spell?.ritual===(ritual==='true')) && (concentration===null || entry.spell?.concentration===(concentration==='true')) && (challenge===null || entry.monster?.challenge===challenge) && (monsterType===null || entry.monster?.type===monsterType) && (size===null || entry.monster?.size===size) && (rarity===null || entry.item?.rarity===rarity) && (itemType===null || entry.item?.type===itemType) && (attunement===null || entry.item?.attunement===(attunement==='true')) && `${entry.name.ru} ${entry.name.en}`.toLocaleLowerCase('ru').includes(q));
     return { entries: matches.slice(offset, offset + limit), total: matches.length, limit, offset };
   }
   function reviewedImport(request,apply=false) {

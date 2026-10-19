@@ -1,0 +1,307 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:item:bag-of-holding",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Сумка хранения",
+        "en": "Bag of Holding"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=210",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz travel items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 210.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nОтверстие около 2 футов в диаметре, глубина 4 фута; внутри до 500 фунтов, не более 64 кубических футов. Сумка весит 15 фунтов независимо от содержимого. Достать предмет — действие. Перегрузка, прокол или разрыв уничтожают сумку и рассеивают содержимое на Астральном плане. Выворачивание высыпает содержимое без вреда; перед использованием нужно вернуть сумку в обычное состояние. Дышащие существа внутри могут прожить 10 минут, делённых на их число (минимум 1 минута), затем задыхаются. Помещение сумки во внепространственное пространство Handy Haversack, Portable Hole или подобного предмета уничтожает оба предмета и открывает односторонние врата на Астральный план: все существа в пределах 10 футов затягиваются в случайное место, после чего врата закрываются.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": false
+      }
+    },
+    {
+      "id": "srd51:2014:item:boots-of-elvenkind",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Сапоги эльфов",
+        "en": "Boots of Elvenkind"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=212",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz travel items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 212.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении шаги бесшумны независимо от поверхности. Преимущество на проверки Ловкости (Скрытность), связанные с бесшумным движением.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": false
+      }
+    },
+    {
+      "id": "srd51:2014:item:boots-of-levitation",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Сапоги левитации",
+        "en": "Boots of Levitation"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=212",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz travel items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 212.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении можно действием накладывать на себя Levitate неограниченное число раз. Остальные правила заклинания смотри в связанной карточке.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:spell:levitate"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "rare",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:boots-of-speed",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Сапоги скорости",
+        "en": "Boots of Speed"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=212",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz travel items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 212.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении бонусным действием щёлкни каблуками: скорость ходьбы удваивается, провоцированные атаки против тебя совершаются с помехой. Повторный щелчок заканчивает эффект. После суммарных 10 минут использования магия недоступна до завершения продолжительного отдыха.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [],
+      "item": {
+        "type": "wondrous",
+        "rarity": "rare",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:boots-of-striding-and-springing",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Сапоги ходьбы и прыжков",
+        "en": "Boots of Striding and Springing"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=212",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz travel items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 212.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСкорость ходьбы становится 30 футов, если она не выше, и не снижается от нагрузки или тяжёлого доспеха. Дистанция прыжков утраивается, но не может превышать оставшееся перемещение.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:bracers-of-archery",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Наручи стрельбы",
+        "en": "Bracers of Archery"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=212",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz travel items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 212.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении дают владение длинным и коротким луком и +2 к броскам урона дальнобойных атак этим оружием. Бонус не добавляется к броскам атаки.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:bracers-of-defense",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Наручи защиты",
+        "en": "Bracers of Defense"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=212",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz travel items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 212.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении дают +2 к КД, только если на тебе нет доспеха и ты не используешь щит.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [],
+      "item": {
+        "type": "wondrous",
+        "rarity": "rare",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:broom-of-flying",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Летающая метла",
+        "en": "Broom of Flying"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=213",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz travel items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 213.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nВес 3 фунта. Если сесть верхом и произнести командное слово, можно летать со скоростью 50 футов. Вместимость до 400 фунтов; при нагрузке более 200 фунтов скорость 30 футов. При посадке парение прекращается. Командным словом можно отправить метлу без седока в знакомое названное место в пределах 1 мили. Другим словом она возвращается, если всё ещё в пределах 1 мили.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": false
+      }
+    },
+    {
+      "id": "srd51:2014:item:goggles-of-night",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Очки ночного зрения",
+        "en": "Goggles of Night"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=224",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz travel items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 224.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении дают тёмное зрение на 60 футов. Если оно уже есть, увеличивают его дистанцию на 60 футов.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": false
+      }
+    },
+    {
+      "id": "srd51:2014:item:periapt-of-wound-closure",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Амулет затягивания ран",
+        "en": "Periapt of Wound Closure"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=232",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz travel items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 232.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении стабилизируешься, если умираешь в начале своего хода. Когда бросаешь Кость Хитов для восстановления здоровья, удваиваешь число восстановленных ею хитов. Предмет сам по себе не восстанавливает хиты при стабилизации.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": true
+      }
+    },
+    {
+      "id": "srd51:2014:item:ring-of-water-walking",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Кольцо хождения по воде",
+        "en": "Ring of Water Walking"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=238",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz travel items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 238.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении можешь стоять и перемещаться по поверхности любой жидкости как по твёрдой земле.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [],
+      "item": {
+        "type": "ring",
+        "rarity": "uncommon",
+        "attunement": false
+      }
+    },
+    {
+      "id": "srd51:2014:item:slippers-of-spider-climbing",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Туфли паука",
+        "en": "Slippers of Spider Climbing"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=242",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz travel items v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 242.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nПри ношении можешь двигаться по вертикальным поверхностям и потолку вниз головой со свободными руками; скорость лазания равна ходьбе. Не работает на скользкой поверхности, например покрытой льдом или маслом.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": true
+      }
+    }
+  ]
+}

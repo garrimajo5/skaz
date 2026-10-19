@@ -37,7 +37,14 @@ function placeDetails(){let p=places[place];return `<div class="overline">${p.ty
 function library(){return heading('ЗНАНИЯ О МИРЕ','Справочник под рукой','Правила, существа и предметы твоей библиотеки.')+SkazCatalog.view()}
 function render(){SkazStorage.paint();document.getElementById('session-name-label').textContent=[state.profile.name,SkazStorage.sessionTitle(),SkazStorage.sessionDate()].filter(Boolean).join(' · ');$('#campaign-name').textContent=state.profile.campaign;$("#quick-state").innerHTML=`<strong>${state.hp}/${state.maxHp} <span>ХИТЫ</span></strong><span>${state.gold} зм</span><button data-health="damage" class="red">− Урон</button><button data-health="heal" class="green">+ Лечение</button>`;document.body.dataset.theme=state.theme;$('#main').innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library}[page]||hero)();$$('[data-page]').forEach(b=>{b.classList.toggle('active',b.dataset.page===page);if(b.closest('nav')) b.setAttribute('aria-current',b.dataset.page===page?'page':'false')});$$('[data-theme-choice]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.themeChoice===state.theme)));$('#pending-count').textContent=location.protocol==='file:'?pending().length:(SkazEvents.pendingCount() ?? '—');}
 function go(p){if(!['hero','spells','journal','quests','map','library'].includes(p))p='hero';page=p;history.replaceState(null,'','#'+p);render();window.scrollTo({top:0,behavior:'instant'})}
-function modal(html){$('#dialog-content').innerHTML=html;if(!$('#dialog').open)$('#dialog').showModal()}
+function modal(html){
+ const dialog=$('#dialog'),content=$('#dialog-content');
+ content.innerHTML=html;
+ if(!dialog.open)dialog.showModal();
+ content.scrollTop=0;
+ content.scrollLeft=0;
+ content.focus({preventScroll:true});
+}
 function closeModal(){$('#dialog').close()}
 let toastTimer;function toast(text,undo){clearTimeout(toastTimer);$('#toast').innerHTML=`<span>${esc(text)}</span>${undo?'<button id="undo">Отменить</button>':''}`;$('#toast').classList.add('show');if(undo)$('#undo').onclick=()=>{undo();$('#toast').classList.remove('show')};toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),undo?12000:5000)}
 async function change(label,fn){

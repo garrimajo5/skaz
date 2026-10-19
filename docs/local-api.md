@@ -225,8 +225,13 @@ POST `/api/characters` с обычными защитными заголовка
 
 `GET /api/catalog`: дополнительные необязательные параметры `level=0..9` только с `kind=spell`; `school` (одна из восьми школ), `ritual=true|false`, `concentration=true|false` также только с `kind=spell`; `challenge=0|1/8|1/4|1/2|1..30` только с `kind=monster`; `rarity=common|uncommon|rare|very-rare|legendary|varies` только с `kind=item`. Сочетаются с `q`, `limit`, `offset`. Записи без соответствующей структуры исключаются выбранным фильтром. Неизвестные, повторные, неканонические и несовместимые параметры дают 400, а не игнорируются.
 
-`GET /api/catalog/coverage` дополняется `scopes.srd51Spells`: `expected=319`, `prepared=73`, `installed` — число точных установленных версий, `sourceUrl`, `byLevel:[{level,expected,prepared,installed}]` для уровней 0–9. Ожидаемые размеры: 24/49/54/42/31/37/31/20/16/15; подготовлено 24 заговора и 49 первого уровня. Это охват SRD, не всех книг игры.
+`GET /api/catalog/coverage` дополняется `scopes.srd51Spells`: `expected=319`, `prepared=127`, `installed` — число точных установленных версий, `sourceUrl`, `byLevel:[{level,expected,prepared,installed}]` для уровней 0–9. Ожидаемые размеры: 24/49/54/42/31/37/31/20/16/15; подготовлено 24 заговора, 49 первого и 54 второго уровня. Это охват SRD, не всех книг игры.
 
 `GET /api/catalog/spell-inventory` возвращает только перечень источника: `ruleset`, `scope`, `sourceUrl`, `entries[{id,nameEn,page,level,school,nameRu,status}]`. `nameRu=null`, если карточка не подготовлена. `status`: `missing`, `prepared`, `installed`, `conflict`. Изменённый личный материал под занятым ID имеет `conflict`; запрос ничего не заменяет и не меняет ревизию игры. Применяется общая защита Host/Origin. Это не список заклинаний персонажа.
 
 Личная книга читает существующий `GET /api/spellbook`, проверяет контекст и ревизию и фильтрует сохранённые записи на клиенте по RU/EN, отметке, уровню, ритуалу и концентрации. Неизвестные поля не равны false. Черновик фильтров переживает смену темы/ревизии своего героя, но сбрасывается при смене персонажа. Ручная отметка по-прежнему отправляется командой `spell-set`; поздний ответ старого персонажа отбрасывается. Магические эффекты и ограничения класса не вычисляются.
+
+
+### Дополнительные фильтры бестиария и предметов
+
+GET `/api/catalog` принимает `monsterType` (14 типов из схемы) и `size` (tiny/small/medium/large/huge/gargantuan) только при `kind=monster`; они сочетаются с `challenge`. `itemType` (armor/potion/ring/rod/scroll/staff/wand/weapon/wondrous) и `attunement=true|false` доступны только при `kind=item`, вместе с `rarity`. Неизвестные/пустые значения, повторные параметры и неверная категория возвращают 400. Запись без структурированных полей не совпадает с фильтром, в том числе с false. Пример: `?kind=monster&monsterType=beast&size=medium&challenge=1%2F8`; `?kind=item&itemType=ring&attunement=false`.

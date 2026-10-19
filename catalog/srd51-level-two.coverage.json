@@ -1,0 +1,410 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "All 54 second-level spells listed in the pinned SRD 5.1, summarized; not all D&D spells",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 54,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:acid-arrow",
+      "nameEn": "Acid Arrow",
+      "pages": [
+        114
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:aid",
+      "nameEn": "Aid",
+      "pages": [
+        114
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:alter-self",
+      "nameEn": "Alter Self",
+      "pages": [
+        114,
+        115
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:animal-messenger",
+      "nameEn": "Animal Messenger",
+      "pages": [
+        115
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:arcane-lock",
+      "nameEn": "Arcane Lock",
+      "pages": [
+        118,
+        119
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:arcanists-magic-aura",
+      "nameEn": "Arcanist’s Magic Aura",
+      "pages": [
+        119
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:augury",
+      "nameEn": "Augury",
+      "pages": [
+        120
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:barkskin",
+      "nameEn": "Barkskin",
+      "pages": [
+        121
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:blindness-deafness",
+      "nameEn": "Blindness/Deafness",
+      "pages": [
+        122
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:blur",
+      "nameEn": "Blur",
+      "pages": [
+        123
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:branding-smite",
+      "nameEn": "Branding Smite",
+      "pages": [
+        123
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:calm-emotions",
+      "nameEn": "Calm Emotions",
+      "pages": [
+        123,
+        124
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:continual-flame",
+      "nameEn": "Continual Flame",
+      "pages": [
+        130
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:darkness",
+      "nameEn": "Darkness",
+      "pages": [
+        133
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:darkvision",
+      "nameEn": "Darkvision",
+      "pages": [
+        133
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:detect-thoughts",
+      "nameEn": "Detect Thoughts",
+      "pages": [
+        135
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:enhance-ability",
+      "nameEn": "Enhance Ability",
+      "pages": [
+        139
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:enlarge-reduce",
+      "nameEn": "Enlarge/Reduce",
+      "pages": [
+        140
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:enthrall",
+      "nameEn": "Enthrall",
+      "pages": [
+        140
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:find-steed",
+      "nameEn": "Find Steed",
+      "pages": [
+        143
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:find-traps",
+      "nameEn": "Find Traps",
+      "pages": [
+        144
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:flame-blade",
+      "nameEn": "Flame Blade",
+      "pages": [
+        145
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:flaming-sphere",
+      "nameEn": "Flaming Sphere",
+      "pages": [
+        145
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:gentle-repose",
+      "nameEn": "Gentle Repose",
+      "pages": [
+        148,
+        149
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:gust-of-wind",
+      "nameEn": "Gust of Wind",
+      "pages": [
+        152
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:heat-metal",
+      "nameEn": "Heat Metal",
+      "pages": [
+        153,
+        154
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:hold-person",
+      "nameEn": "Hold Person",
+      "pages": [
+        154,
+        155
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:invisibility",
+      "nameEn": "Invisibility",
+      "pages": [
+        157,
+        158
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:knock",
+      "nameEn": "Knock",
+      "pages": [
+        158
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:lesser-restoration",
+      "nameEn": "Lesser Restoration",
+      "pages": [
+        158
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:levitate",
+      "nameEn": "Levitate",
+      "pages": [
+        158,
+        159
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:locate-animals-or-plants",
+      "nameEn": "Locate Animals or Plants",
+      "pages": [
+        159
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:locate-object",
+      "nameEn": "Locate Object",
+      "pages": [
+        159,
+        160
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:magic-mouth",
+      "nameEn": "Magic Mouth",
+      "pages": [
+        161
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:magic-weapon",
+      "nameEn": "Magic Weapon",
+      "pages": [
+        161,
+        162
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:mirror-image",
+      "nameEn": "Mirror Image",
+      "pages": [
+        165
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:misty-step",
+      "nameEn": "Misty Step",
+      "pages": [
+        165,
+        166
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:moonbeam",
+      "nameEn": "Moonbeam",
+      "pages": [
+        166
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:pass-without-trace",
+      "nameEn": "Pass without Trace",
+      "pages": [
+        167
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:prayer-of-healing",
+      "nameEn": "Prayer of Healing",
+      "pages": [
+        170
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:protection-from-poison",
+      "nameEn": "Protection from Poison",
+      "pages": [
+        173
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:ray-of-enfeeblement",
+      "nameEn": "Ray of Enfeeblement",
+      "pages": [
+        174
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:rope-trick",
+      "nameEn": "Rope Trick",
+      "pages": [
+        176
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:scorching-ray",
+      "nameEn": "Scorching Ray",
+      "pages": [
+        176
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:see-invisibility",
+      "nameEn": "See Invisibility",
+      "pages": [
+        177
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:shatter",
+      "nameEn": "Shatter",
+      "pages": [
+        178,
+        179
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:silence",
+      "nameEn": "Silence",
+      "pages": [
+        179
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:spider-climb",
+      "nameEn": "Spider Climb",
+      "pages": [
+        182
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:spike-growth",
+      "nameEn": "Spike Growth",
+      "pages": [
+        182
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:spiritual-weapon",
+      "nameEn": "Spiritual Weapon",
+      "pages": [
+        182
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:suggestion",
+      "nameEn": "Suggestion",
+      "pages": [
+        183,
+        184
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:warding-bond",
+      "nameEn": "Warding Bond",
+      "pages": [
+        191
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:web",
+      "nameEn": "Web",
+      "pages": [
+        192
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:zone-of-truth",
+      "nameEn": "Zone of Truth",
+      "pages": [
+        193,
+        194
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not an official translation or the full rules text.",
+    "Only SRD 5.1 (2014), not all published D&D spells or the 2024 rules.",
+    "Find Steed links five prepared base forms; spell transformations are not applied automatically.",
+    "Class access, slot expenditure, material inventory and automatic effects are not implemented by these cards."
+  ]
+}

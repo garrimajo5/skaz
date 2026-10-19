@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Twelve selected travel and utility magic items from SRD 5.1; not all magic items",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-19",
+  "expectedSubsetCount": 12,
+  "entries": [
+    {
+      "id": "srd51:2014:item:bag-of-holding",
+      "nameEn": "Bag of Holding",
+      "pages": [
+        210
+      ]
+    },
+    {
+      "id": "srd51:2014:item:boots-of-elvenkind",
+      "nameEn": "Boots of Elvenkind",
+      "pages": [
+        212
+      ]
+    },
+    {
+      "id": "srd51:2014:item:boots-of-levitation",
+      "nameEn": "Boots of Levitation",
+      "pages": [
+        212
+      ]
+    },
+    {
+      "id": "srd51:2014:item:boots-of-speed",
+      "nameEn": "Boots of Speed",
+      "pages": [
+        212
+      ]
+    },
+    {
+      "id": "srd51:2014:item:boots-of-striding-and-springing",
+      "nameEn": "Boots of Striding and Springing",
+      "pages": [
+        212
+      ]
+    },
+    {
+      "id": "srd51:2014:item:bracers-of-archery",
+      "nameEn": "Bracers of Archery",
+      "pages": [
+        212
+      ]
+    },
+    {
+      "id": "srd51:2014:item:bracers-of-defense",
+      "nameEn": "Bracers of Defense",
+      "pages": [
+        212
+      ]
+    },
+    {
+      "id": "srd51:2014:item:broom-of-flying",
+      "nameEn": "Broom of Flying",
+      "pages": [
+        213
+      ]
+    },
+    {
+      "id": "srd51:2014:item:goggles-of-night",
+      "nameEn": "Goggles of Night",
+      "pages": [
+        224
+      ]
+    },
+    {
+      "id": "srd51:2014:item:periapt-of-wound-closure",
+      "nameEn": "Periapt of Wound Closure",
+      "pages": [
+        232
+      ]
+    },
+    {
+      "id": "srd51:2014:item:ring-of-water-walking",
+      "nameEn": "Ring of Water Walking",
+      "pages": [
+        238
+      ]
+    },
+    {
+      "id": "srd51:2014:item:slippers-of-spider-climbing",
+      "nameEn": "Slippers of Spider Climbing",
+      "pages": [
+        242
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not an official translation.",
+    "Attunement, carry capacity, equipment bonuses and item actions are not applied automatically.",
+    "Bag of Holding refers to additional extradimensional items whose cards are not yet prepared."
+  ]
+}

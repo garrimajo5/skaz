@@ -175,19 +175,26 @@ const SkazStorage = (() => {
       };
     } catch { modal('<h2>Не удалось загрузить кампании</h2><p>Проверь соединение и открой список снова.</p>'); }
   }
+  let inventorySerial=0;
   async function inventory() {
     if (demo || status !== 'ready' || !activeContext) return toast('Инвентарь доступен после подключения и сохранения черновика');
     const key = JSON.stringify(activeContext), version = revision;
-    modal('<h2>Инвентарь</h2><p>Загружаем предметы…</p>');
+    const token=++inventorySerial;
+    const visible=()=>token===inventorySerial && document.getElementById('dialog')?.open!==false && document.getElementById('inventory-view') && key===JSON.stringify(activeContext) && version===revision;
+    modal('<h2 id="inventory-view">Инвентарь</h2><p>Загружаем предметы…</p>');
     try {
       const data = await request('/api/inventory');
-      if (key !== JSON.stringify(activeContext) || version !== revision) return;
+      if (!visible()) return;
       if (JSON.stringify(data.context) !== key || data.revision !== revision) {
         modal('<h2>Игра изменилась в другой вкладке</h2><p>Обнови данные перед просмотром инвентаря.</p><button id="inventory-reload">Обновить данные</button>');
         $('#inventory-reload').onclick = async () => { closeModal(); await load(); };
         return;
       }
-      modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 tabindex="-1" autofocus>Инвентарь</h2><p>${state.gold} зм · видов предметов: ${data.entries.length}</p><div class="settings-actions">${data.entries.map((item, index) => `<article class="panel"><div class="panel-title"><h3>${esc(item.entry.name.ru)}</h3><strong>× ${item.quantity}</strong></div><p>${esc(item.entry.name.en)}</p><small>${esc(item.entry.source.title)} · ${esc(item.entry.source.version)}</small><button data-inventory-remove="${index}">Списать</button></article>`).join('') || '<p>Пока пусто. Найди предмет в справочнике и добавь его в инвентарь.</p>'}</div><p>Здесь только сохранённые предметы. Снаряжение демо-барда не перенесено. Списание меняет только количество. Лечение и бонусы не применяются автоматически. Отменить можно последнюю операцию, пока не было других изменений игры.</p>${data.undo ? `<button id="inventory-undo">Отменить: ${esc(data.undo.label)}</button>` : ''}<button id="inventory-catalog" class="primary">Найти предмет в справочнике</button>`);
+      modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 id="inventory-view" tabindex="-1" autofocus>Инвентарь</h2><p>${state.gold} зм · видов предметов: ${data.entries.length}</p><div class="settings-actions">${data.entries.map((item, index) => `<article class="panel"><div class="panel-title"><h3>${esc(item.entry.name.ru)}</h3><strong>× ${item.quantity}</strong></div><p>${esc(item.entry.name.en)}</p><small>${esc(item.entry.source.title)} · ${esc(item.entry.source.version)}</small><div class="dialog-actions"><button data-inventory-read="${index}">Читать</button><button data-inventory-remove="${index}">Списать</button></div></article>`).join('') || '<p>Пока пусто. Найди предмет в справочнике и добавь его в инвентарь.</p>'}</div><p>Здесь только сохранённые предметы. Снаряжение демо-барда не перенесено. Списание меняет только количество. Лечение и бонусы не применяются автоматически. Отменить можно последнюю операцию, пока не было других изменений игры.</p>${data.undo ? `<button id="inventory-undo">Отменить: ${esc(data.undo.label)}</button>` : ''}<button id="inventory-catalog" class="primary">Найти предмет в справочнике</button>`);
+      $$('[data-inventory-read]').forEach(button => button.onclick = () => {
+        if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой инвентарь заново.');
+        readInventoryItem(data.entries[Number(button.dataset.inventoryRead)]);
+      });
       $$('[data-inventory-remove]').forEach(button => button.onclick = () => {
         if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой инвентарь заново.');
         removeInventory(data.entries[Number(button.dataset.inventoryRemove)]);
@@ -198,7 +205,15 @@ const SkazStorage = (() => {
         catch (error) { toast(error.message); }
       };
       $('#inventory-catalog').onclick = () => { closeModal(); location.hash = 'library'; };
-    } catch { modal('<h2>Не удалось открыть инвентарь</h2><p>Проверь соединение.</p><button id="inventory-retry">Повторить</button>'); $('#inventory-retry').onclick = inventory; }
+    } catch { if(!visible())return; modal('<h2>Не удалось открыть инвентарь</h2><p>Проверь соединение.</p><button id="inventory-retry">Повторить</button>'); $('#inventory-retry').onclick = inventory; }
+  }
+  function readInventoryItem(item) {
+    if(!item?.entry)return;
+    const entry=item.entry,info=entry.item||entry.artifact;
+    let sourceLink='';
+    try{const source=new URL(entry.source.url);if(['https:','http:'].includes(source.protocol)&&!source.username&&!source.password)sourceLink=`<p><a href="${esc(source.href)}" target="_blank" rel="noopener noreferrer">Открыть первоисточник ↗</a></p>`;}catch{}
+    modal(`<button id="inventory-read-back">← К инвентарю</button><div class="overline">${esc(state.profile.name)} · В наличии: ${item.quantity}</div><h2>${esc(entry.name.ru)}</h2><p>${esc(entry.name.en)}</p>${info?`<p>Настройка: ${info.attunement?'требуется':'не требуется'}${info.attunementRequirement?' · '+esc(info.attunementRequirement):''}.</p>`:''}<p>Сохранённая карточка предмета. Чтение не меняет количество и не применяет эффекты.</p><div class="catalog-text">${esc(entry.text||'Текст не импортирован; используй ссылку на источник.')}</div><p>${esc(entry.source.title)} · ${esc(entry.source.version)}</p><p>${esc(entry.source.terms)}</p>${sourceLink}${entry.source.attribution?`<p>${esc(entry.source.attribution)}</p>`:''}${entry.source.changes?`<p>${esc(entry.source.changes)}</p>`:''}`);
+    $('#inventory-read-back').onclick=inventory;
   }
   function addInventory(entry) {
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');

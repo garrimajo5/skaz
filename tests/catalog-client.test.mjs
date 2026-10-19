@@ -132,6 +132,25 @@ test('category change exposes only applicable control without applying or losing
  const h=harness();h.changeKind('spell');assert.match(h.region.innerHTML,/name="level"/);assert.match(h.region.innerHTML,/Заговор/);h.changeKind('monster');assert.match(h.region.innerHTML,/1\/8/);assert.doesNotMatch(h.region.innerHTML,/name="level"/);h.changeKind('item');assert.match(h.region.innerHTML,/name="rarity"/);h.changeKind('artifact');assert.equal(h.region.innerHTML,'');assert.equal(h.requests.length,0);
 });
 
+test('monster type and size drafts survive rerender, apply together and clear when leaving bestiary',async()=>{
+ const h=harness();h.changeKind('monster');h.draft('monsterType','beast');h.draft('size','medium');h.draft('challenge','1/8');
+ assert.match(h.view(),/value="beast" selected/);assert.match(h.view(),/value="medium" selected/);assert.equal(h.requests.length,0);
+ h.submit('',{kind:'monster',monsterType:'beast',size:'medium',challenge:'1/8',school:'illusion'});
+ const query=new URL(h.requests[0].url,'http://localhost').searchParams;assert.equal(query.get('monsterType'),'beast');assert.equal(query.get('size'),'medium');assert.equal(query.get('challenge'),'1/8');assert.equal(query.has('school'),false);
+ respond(h.requests[0],{entries:[entry],total:21});respond(h.requests[1],coverage);await settle();h.click('catalog-next');assert.match(h.requests[2].url,/monsterType=beast/);assert.match(h.requests[2].url,/size=medium/);assert.match(h.requests[2].url,/offset=20/);
+ h.changeKind('spell');assert.doesNotMatch(h.view(),/name="monsterType"|name="size"/);h.submit('',{kind:'spell',monsterType:'beast',size:'medium'});assert.doesNotMatch(h.requests[4].url,/monsterType=|size=/);
+ h.click('catalog-reset');h.changeKind('monster');assert.doesNotMatch(h.view(),/value="beast" selected|value="medium" selected/);
+});
+
+test('item filters retain explicit no-attunement through drafts, submit and pagination',async()=>{
+ const h=harness();h.changeKind('item');h.draft('itemType','ring');h.draft('attunement','false');assert.match(h.view(),/value="ring" selected/);assert.match(h.view(),/value="false" selected/);
+ h.submit('',{kind:'item',itemType:'ring',attunement:'false',rarity:'uncommon',size:'medium'});
+ assert.match(h.requests[0].url,/itemType=ring/);assert.match(h.requests[0].url,/attunement=false/);assert.doesNotMatch(h.requests[0].url,/size=/);
+ respond(h.requests[0],{entries:[entry],total:21});respond(h.requests[1],coverage);await settle();h.click('catalog-next');assert.match(h.requests[2].url,/attunement=false/);
+ h.submit('',{kind:'artifact',itemType:'ring',attunement:'false'});assert.doesNotMatch(h.requests[4].url,/itemType=|attunement=/);
+ h.click('catalog-reset');assert.doesNotMatch(h.view(),/name="itemType"|name="attunement"/);
+});
+
 test('spell-specific filters preserve false through paging and rerender, then clear on category change and reset',async()=>{
  const h=harness();h.submit('',{kind:'spell',level:'1',school:'divination',ritual:'true',concentration:'false'});
  const params=new URL(h.requests[0].url,'http://localhost').searchParams;assert.equal(params.get('school'),'divination');assert.equal(params.get('concentration'),'false');assert.equal(params.get('ritual'),'true');

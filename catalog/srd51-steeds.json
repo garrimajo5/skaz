@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:warhorse",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Боевой конь",
+        "en": "Warhorse"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=392",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz steed forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 392.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Обычный зверь без мировоззрения, языков нет. Для Find Steed тип, Интеллект и понимание языка меняются по правилам заклинания; эта карточка сохраняет исходную форму. Особенности и атаки не исполняются автоматически.\nХиты 19 (3d10 + 3). Пассивное Восприятие 11. Растаптывающий натиск: после движения не менее 20 футов прямо к существу и попадания копытами в тот же ход цель делает спасбросок Силы Сл 14, при провале сбита с ног. По лежащей цели конь может совершить ещё одну атаку копытами бонусным действием. Копыта: рукопашная атака оружием +6, досягаемость 5 футов, одна цель; 11 (2d6 + 4) дробящего урона.",
+      "links": [
+        "srd51:2014:mechanic:prone"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "beast",
+        "armorClass": 11,
+        "hitPoints": 19,
+        "speed": {
+          "walk": 60
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 12,
+          "con": 13,
+          "int": 2,
+          "wis": 12,
+          "cha": 7
+        },
+        "challenge": "1/2",
+        "xp": 100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:pony",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Пони",
+        "en": "Pony"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=386",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz steed forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 386.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Обычный зверь без мировоззрения, языков нет. Для Find Steed тип, Интеллект и понимание языка меняются по правилам заклинания; эта карточка сохраняет исходную форму. Особенности и атаки не исполняются автоматически.\nХиты 11 (2d8 + 2). Пассивное Восприятие 10. Копыта: рукопашная атака оружием +4, досягаемость 5 футов, одна цель; 7 (2d4 + 2) дробящего урона.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "beast",
+        "armorClass": 10,
+        "hitPoints": 11,
+        "speed": {
+          "walk": 40
+        },
+        "abilities": {
+          "str": 15,
+          "dex": 10,
+          "con": 13,
+          "int": 2,
+          "wis": 11,
+          "cha": 7
+        },
+        "challenge": "1/8",
+        "xp": 25
+      }
+    },
+    {
+      "id": "srd51:2014:monster:camel",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Верблюд",
+        "en": "Camel"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=369",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz steed forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 369.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Обычный зверь без мировоззрения, языков нет. Для Find Steed тип, Интеллект и понимание языка меняются по правилам заклинания; эта карточка сохраняет исходную форму. Особенности и атаки не исполняются автоматически.\nХиты 15 (2d10 + 4). Пассивное Восприятие 9. Укус: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 2 (1d4) дробящего урона.",
+      "links": [],
+      "monster": {
+        "size": "large",
+        "type": "beast",
+        "armorClass": 9,
+        "hitPoints": 15,
+        "speed": {
+          "walk": 50
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 8,
+          "con": 14,
+          "int": 2,
+          "wis": 8,
+          "cha": 5
+        },
+        "challenge": "1/8",
+        "xp": 25
+      }
+    },
+    {
+      "id": "srd51:2014:monster:elk",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Лось",
+        "en": "Elk"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=372",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz steed forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 372.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Обычный зверь без мировоззрения, языков нет. Для Find Steed тип, Интеллект и понимание языка меняются по правилам заклинания; эта карточка сохраняет исходную форму. Особенности и атаки не исполняются автоматически.\nХиты 13 (2d10 + 2). Пассивное Восприятие 10. Натиск: после движения не менее 20 футов прямо к цели и попадания тараном в тот же ход — дополнительно 7 (2d6) урона; существо делает спасбросок Силы Сл 13, провал сбивает с ног. Таран: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 6 (1d6 + 3) дробящего урона. Копыта: рукопашная атака оружием +5, досягаемость 5 футов, одно лежащее существо; 8 (2d4 + 3) дробящего урона.",
+      "links": [
+        "srd51:2014:mechanic:prone"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "beast",
+        "armorClass": 10,
+        "hitPoints": 13,
+        "speed": {
+          "walk": 50
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 10,
+          "con": 12,
+          "int": 2,
+          "wis": 10,
+          "cha": 6
+        },
+        "challenge": "1/4",
+        "xp": 50
+      }
+    },
+    {
+      "id": "srd51:2014:monster:mastiff",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Мастиф",
+        "en": "Mastiff"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=384",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz steed forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 384.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Обычный зверь без мировоззрения, языков нет. Для Find Steed тип, Интеллект и понимание языка меняются по правилам заклинания; эта карточка сохраняет исходную форму. Особенности и атаки не исполняются автоматически.\nХиты 5 (1d8 + 1). Восприятие +3, пассивное Восприятие 13. Острые слух и нюх: преимущество на проверки Мудрости (Восприятие), использующие слух или обоняние. Укус: рукопашная атака оружием +3, досягаемость 5 футов, одна цель; 4 (1d6 + 1) колющего урона. Если цель — существо, спасбросок Силы Сл 11, при провале сбита с ног.",
+      "links": [
+        "srd51:2014:mechanic:prone"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "beast",
+        "armorClass": 12,
+        "hitPoints": 5,
+        "speed": {
+          "walk": 40
+        },
+        "abilities": {
+          "str": 13,
+          "dex": 14,
+          "con": 12,
+          "int": 3,
+          "wis": 12,
+          "cha": 7
+        },
+        "challenge": "1/8",
+        "xp": 25
+      }
+    }
+  ]
+}

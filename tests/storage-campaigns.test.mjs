@@ -12,8 +12,8 @@ function harness(localStorage, sessionStorage, fetch) {
   const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch,
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
-    document: { getElementById: get, addEventListener: (key, handler) => handlers[key] = handler },
-    SkazArchive: { open: id => archiveCalls.push(id) }, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : [], esc: String, render() {}, modal:html=>dialog=html, closeModal() {}, toast: value => messages.push(value),
+    document: { getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
+    SkazArchive: { open: id => archiveCalls.push(id) }, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : [], esc: String, render() {}, modal:html=>dialog=html, closeModal() {}, toast: value => messages.push(value),
   });
   vm.runInContext(source, context);
   return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, dialog:()=>dialog,
@@ -498,4 +498,24 @@ test('personal spell reading links the original source and rejects active or cre
  const entry={id:'personal:spell',kind:'spell',name:{ru:'Пример'},source:{url:'https://example.com/source#page=1',title:'Source',version:'1',terms:'Personal'}};
  h.api.editSpell(entry,'known');assert.match(h.dialog(),/href="https:\/\/example.com\/source#page=1"/);assert.match(h.dialog(),/noopener noreferrer/);
  for(const url of ['javascript:alert(1)','data:text/html,test','https://user:password@example.com']){h.api.editSpell({...entry,source:{...entry.source,url}},'known');assert.doesNotMatch(h.dialog(),/href=/);}
+});
+
+
+test('inventory read button opens saved item without commands and rejects a stale character revision',async()=>{
+ let version=0;const writes=[];
+ const saved={catalogId:'test:saved',quantity:2,entry:{kind:'item',name:{ru:'Saved ring',en:'Ring'},text:'Saved description',source:{title:'Source',version:'1',url:'https://example.com',terms:'Personal'},item:{attunement:false}}};
+ const h=harness(memory(),memory(),async(url,options)=>{if(options.method==='POST')writes.push(url);return response(url==='/api/workspace'?payload(version):{revision:version,context:payload(version).context,entries:[saved]});});
+ await h.api.boot();await h.api.inventory();h.get('inventory-read-button').dataset.inventoryRead='0';const oldRead=h.get('inventory-read-button').onclick;oldRead();assert.match(h.dialog(),/Saved description/);assert.match(h.dialog(),/В наличии: 2/);assert.equal(writes.length,0);
+ await h.get('#inventory-read-back').onclick();assert.match(h.dialog(),/data-inventory-read="0"/);version=1;await h.api.boot();oldRead();assert.match(h.messages.at(-1),/Игра изменилась/);assert.equal(writes.length,0);
+});
+
+
+test('late inventory responses cannot reopen a closed dialog or replace another form, including errors',async()=>{
+ for(const mode of ['closed','replaced','error']){let resolve,reject;
+  const h=harness(memory(),memory(),async url=>url==='/api/workspace'?response(payload(0)):new Promise((yes,no)=>{resolve=yes;reject=no;}));
+  await h.api.boot();const pending=h.api.inventory();await tick();
+  if(mode==='closed')h.get('dialog').open=false;else h.api.addInventory(inventoryEntry);
+  const current=h.dialog();if(mode==='error')reject(new Error('offline'));else resolve(response({revision:0,context:payload(0).context,entries:[]}));
+  await pending;assert.equal(h.dialog(),current);
+ }
 });
