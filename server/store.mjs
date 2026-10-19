@@ -45,13 +45,16 @@ export function openStore(filename) {
       session: { name: session.name, playedOn: session.playedOn },
       state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
   }
-  function exportActive() {
+  function exportActive(version = 2) {
     db.exec('BEGIN');
     try {
       const current = read();
       const inventory = readInventory(db, current.context.characterId);
+      const spellbook = readSpellbook(db, current.context.characterId);
+      if (![2,3].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if (version === 2 && spellbook.length) throw new AppError(409, 'Список заклинаний требует экспорт v3 или SQLite backup');
       const entries = new Map();
-      const pending = inventory.map(item => item.catalogId);
+      const pending = [...inventory, ...spellbook].map(item => item.catalogId);
       const lookup = db.prepare('SELECT entry_json FROM catalog_entries WHERE id=?');
       while (pending.length) {
         const id = pending.pop();
@@ -62,14 +65,15 @@ export function openStore(filename) {
         entries.set(id, entry);
         pending.push(...(entry.links || []));
       }
-      for (const item of inventory) {
+      for (const item of [...inventory, ...spellbook]) {
         if (JSON.stringify(entries.get(item.catalogId)) !== JSON.stringify(item.entry)) throw new AppError(409, 'Снимок предмета отличается от каталога: ' + item.catalogId);
       }
       const result = {
-        app: 'skaz-active', schemaVersion: 2, ruleset: '5e-2014', scope: 'active-game',
+        app: 'skaz-active', schemaVersion: version, ruleset: '5e-2014', scope: 'active-game',
         exportedAt: new Date().toISOString(), source: { revision: current.revision, context: current.context },
         state: current.state, session: current.session,
         inventory: inventory.map(({ catalogId, quantity }) => ({ catalogId, quantity })),
+        ...(version === 3 ? { spellbook: spellbook.map(({ catalogId, status }) => ({ catalogId, status })) } : {}),
         catalog: { schemaVersion: 1, entries: [...entries.values()].sort((a, b) => a.id.localeCompare(b.id, 'en')) },
       };
       db.exec('COMMIT');

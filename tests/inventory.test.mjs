@@ -467,3 +467,46 @@ test('spellbook HTTP requires protected writes and returns saved source', async 
   assert.equal((await fetch(url, { method: 'POST', headers, body })).status, 200);
   assert.equal((await fetch(url).then(r => r.json())).entries[0].entry.source.version, spells.entries[0].source.version);
 });
+
+
+test('v3 transfers prepared spells with sources while v2 refuses silent omission', () => {
+  const source = openStore(':memory:'), target = openStore(':memory:');
+  try {
+    source.catalog.importEntries(spells, { apply: true });
+    source.setSpell(spellCommand(source, { status: 'prepared' }));
+    assert.throws(() => source.exportActive(), { status: 409 });
+    const file = source.exportActive(3);
+    assert.equal(file.schemaVersion, 3);
+    assert.equal(file.catalog.entries.length, 1);
+    assert.deepEqual(file.spellbook, [{ catalogId: spells.entries[0].id, status: 'prepared' }]);
+    const request = cmd(target, { destination: 'new-campaign', file });
+    target.importActive(request); assert.equal(target.importActive(request).replayed, true);
+    assert.deepEqual(target.spellbook().entries, source.spellbook().entries);
+    assert.deepEqual(target.exportActive(3).spellbook, file.spellbook);
+    const initialCount = target.campaigns().length;
+    for (const edit of [f => f.spellbook[0].status = 'remove', f => f.spellbook.push(f.spellbook[0]), f => f.spellbook[0].catalogId = 'missing:spell', f => delete f.spellbook]) {
+      const invalid = structuredClone(file); edit(invalid);
+      assert.throws(() => target.importActive(cmd(target, { destination: 'new-campaign', file: invalid })), { status: 422 });
+      assert.equal(target.campaigns().length, initialCount);
+    }
+  } finally { source.close(); target.close(); }
+});
+
+test('v3 import rolls back spell rows on history failure and v3 endpoint works', async t => {
+  const dir = await mkdtemp(join(tmpdir(), 'skaz-transfer-spells-')), file = join(dir, 'game.sqlite');
+  const source = openStore(':memory:'), target = openStore(file), raw = new DatabaseSync(file);
+  source.catalog.importEntries(spells, { apply: true }); source.setSpell(spellCommand(source));
+  const request = cmd(target, { destination: 'new-campaign', file: source.exportActive(3) });
+  raw.exec("CREATE TRIGGER reject_transfer_spell BEFORE INSERT ON changes BEGIN SELECT RAISE(ABORT, 'spell transfer failure'); END");
+  assert.throws(() => target.importActive(request), /spell transfer failure/);
+  assert.equal(raw.prepare('SELECT count(*) AS n FROM character_spells').get().n, 0);
+  assert.equal(raw.prepare('SELECT count(*) AS n FROM spell_changes').get().n, 0);
+  assert.equal(target.catalog.coverage().total, 0);
+  raw.exec('DROP TRIGGER reject_transfer_spell'); target.importActive(request);
+  const app = createApp(target); await new Promise(resolve => app.listen(0, '127.0.0.1', resolve));
+  t.after(async () => { await new Promise(resolve => app.close(resolve)); raw.close(); target.close(); source.close(); });
+  const url = `http://127.0.0.1:${app.address().port}/api/export/active-v3`;
+  const result = await fetch(url); assert.equal(result.status, 200);
+  assert.match(result.headers.get('content-disposition'), /v3.json/);
+  assert.equal((await result.json()).spellbook[0].status, 'known');
+});

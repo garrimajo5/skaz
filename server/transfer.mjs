@@ -8,8 +8,8 @@ function exact(value, keys) {
   if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).length !== keys.length || keys.some(key => !Object.hasOwn(value, key))) fail('Неверные поля файла переноса');
 }
 export function validateTransfer(file) {
-  exact(file, ['app','schemaVersion','ruleset','scope','exportedAt','source','state','session','inventory','catalog']);
-  if (file.app !== 'skaz-active' || file.schemaVersion !== 2 || file.ruleset !== '5e-2014' || file.scope !== 'active-game') fail('Нужен экспорт активной игры СКАЗ v2, D&D 2014');
+  exact(file, ['app','schemaVersion','ruleset','scope','exportedAt','source','state','session','inventory','catalog', ...(file?.schemaVersion === 3 ? ['spellbook'] : [])]);
+  if (file.app !== 'skaz-active' || ![2,3].includes(file.schemaVersion) || file.ruleset !== '5e-2014' || file.scope !== 'active-game') fail('Нужен экспорт активной игры СКАЗ v2/v3, D&D 2014');
   if (typeof file.exportedAt !== 'string' || file.exportedAt.length > 40 || !Number.isFinite(Date.parse(file.exportedAt))) fail('Неверная дата экспорта');
   exact(file.source, ['revision','context']); exact(file.source.context, ['campaignId','characterId','sessionId']);
   if (!Number.isSafeInteger(file.source.revision) || file.source.revision < 0 || Object.values(file.source.context).some(id => typeof id !== 'string' || !/^[a-zA-Z0-9-]{1,80}$/.test(id))) fail('Неверные сведения об исходной игре');
@@ -32,7 +32,18 @@ export function validateTransfer(file) {
     if (!Number.isSafeInteger(item.quantity) || item.quantity < 1 || item.quantity > 999) fail('Количество: целое 1–999');
     seen.add(item.catalogId); return { catalogId: item.catalogId, quantity: item.quantity };
   }).sort((a,b) => a.catalogId.localeCompare(b.catalogId, 'en'));
-  return { state, session, inventory, entries: entries.sort((a,b) => a.id.localeCompare(b.id, 'en')) };
+  let spellbook;
+  if (file.schemaVersion === 3) {
+    if (!Array.isArray(file.spellbook) || file.spellbook.length > 1000) fail('Не более 1000 заклинаний');
+    const selected = new Set();
+    spellbook = file.spellbook.map(item => {
+      exact(item, ['catalogId','status']);
+      if (byId.get(item.catalogId)?.kind !== 'spell' || selected.has(item.catalogId) || !['known','prepared'].includes(item.status)) fail('Неверное или повторное заклинание');
+      selected.add(item.catalogId); return { catalogId: item.catalogId, status: item.status };
+    }).sort((a,b) => a.catalogId.localeCompare(b.catalogId, 'en'));
+  }
+  // Preserve the normalized v2 payload and its existing mutation hashes.
+  return { state, session, inventory, ...(spellbook ? { spellbook } : {}), entries: entries.sort((a,b) => a.id.localeCompare(b.id, 'en')) };
 }
 // Caller owns one transaction for catalog, new game, inventory and mutation receipt.
 export function importTransfer(db, data, mutationId) {
@@ -47,4 +58,9 @@ export function importTransfer(db, data, mutationId) {
   const snapshot = data.inventory.map(item => ({ ...item, entry: entries.get(item.catalogId) }));
   for (const item of snapshot) db.prepare('INSERT INTO inventory VALUES (?, ?, ?, ?)').run(ids.characterId, item.catalogId, item.quantity, JSON.stringify(item.entry));
   db.prepare('INSERT INTO inventory_changes VALUES (?, ?, ?, ?)').run(mutationId, ids.characterId, '[]', JSON.stringify(snapshot));
+  if (data.spellbook) {
+    const spells = data.spellbook.map(item => ({ ...item, entry: entries.get(item.catalogId) }));
+    for (const item of spells) db.prepare('INSERT INTO character_spells VALUES (?, ?, ?, ?)').run(ids.characterId, item.catalogId, item.status, JSON.stringify(item.entry));
+    db.prepare('INSERT INTO spell_changes VALUES (?, ?, ?, ?)').run(mutationId, ids.characterId, '[]', JSON.stringify(spells));
+  }
 }
