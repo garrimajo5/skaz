@@ -249,14 +249,14 @@ test('v3 preview includes spell list in the durable import and rejects a missing
   assert.deepEqual(calls[0].body.file.spellbook, file.spellbook);
 });
 
-test('client requests v5 export and refuses a response from another revision', async () => {
+test('client requests v6 export and refuses a response from another revision', async () => {
   const calls = [];
   const h = harness(memory(), memory(), async url => {
     calls.push(url);
     return response(url === '/api/workspace' ? payload(0) : { source: { context: payload(0).context, revision: 1 } });
   });
   await h.api.boot(); h.api.settings(); await h.get('#export-active').onclick();
-  assert.equal(calls.at(-1), '/api/export/active-v5');
+  assert.equal(calls.at(-1), '/api/export/active-v6');
   assert.match(h.messages.at(-1), /Игра изменилась/);
 });
 
@@ -407,4 +407,48 @@ test('quick quest step preserves status and other steps, and rejects a stale sna
   assert.deepEqual(selected.steps.map(s => s.done), [false,true]);
   await assert.rejects(h.api.setQuestStep(selected, 'step-two', false, key), /Игра изменилась/);
   assert.equal(calls.length, 1);
+});
+
+
+test('manual proposal persists source, target and exact key across failed delivery', async () => {
+  const local=memory(),session=memory(),calls=[];
+  const h=harness(local,session,async(url,options)=>{if(url==='/api/workspace')return response(payload(0));calls.push({url,body:options.body});throw new Error('lost');});
+  await h.api.boot();h.api.newProposal();
+  h.get('#proposal-source').value='На перевале костёр.';h.get('#proposal-title').value='Костёр';h.get('#proposal-speaker').value='Мастер';h.get('#proposal-minute').value='102';h.get('#proposal-target').value='journal';
+  await h.get('#proposal-form').onsubmit({preventDefault(){}});
+  const command=JSON.parse(calls[0].body);assert.equal(calls[0].url,'/api/proposals');assert.equal(command.source.offsetMs,6120000);assert.equal(command.characterId,payload(0).context.characterId);assert.equal(command.suggestion.kind,'journal');
+  const restored=harness(local,session,async(url,options)=>{if(url!=='/api/workspace')calls.push({url,body:options.body});return response(payload(1));});
+  await restored.api.boot();await restored.click('sync-retry');assert.deepEqual(calls[1],calls[0]);
+});
+
+test('proposal review sends corrected text only on confirmation and blocks stale forms', async () => {
+  let current=payload(0);const calls=[];
+  const h=harness(memory(),memory(),async(url,options)=>{if(url==='/api/workspace')return response(current);calls.push(JSON.parse(options.body));return response(payload(1));});
+  const item={id:'proposal-one',status:'pending',source:{text:'Original',speaker:'Master',offsetMs:0},suggestion:{kind:'journal',title:'Old',text:'Old'}};
+  await h.api.boot();h.api.reviewProposal(item);assert.equal(calls.length,0);
+  h.get('#review-title').value='Corrected';h.get('#review-text').value='Corrected text';
+  await h.get('#proposal-review').onsubmit({preventDefault(){}});assert.equal(calls[0].decision,'accept');assert.deepEqual(calls[0].content,{title:'Corrected',text:'Corrected text'});assert.equal(item.source.text,'Original');
+  h.api.reviewProposal(item);current=payload(2,'other');await h.api.boot();await h.get('#dismiss-proposal').onclick();assert.equal(calls.length,1);assert.match(h.messages.at(-1),/Игра изменилась/);
+});
+
+test('v6 preview requires proposals and passes decision state unchanged', async () => {
+  const calls=[],h=harness(memory(),memory(),async(url,options)=>{if(url==='/api/workspace')return response(payload(0));calls.push(JSON.parse(options.body));return response(payload(1));});
+  const file={app:'skaz-active',schemaVersion:6,ruleset:'5e-2014',scope:'active-game',state:seed,inventory:[],catalog:{entries:[]},spellbook:[],quests:[],places:[],proposals:[]};
+  await h.api.boot();h.api.settings();const invalid={...file};delete invalid.proposals;
+  await h.get('#import-state').onchange({target:{files:[{size:1000,text:async()=>JSON.stringify(invalid)}]}});assert.match(h.messages.at(-1),/отсутствует список предложений/);assert.equal(calls.length,0);
+  await h.get('#import-state').onchange({target:{files:[{size:1000,text:async()=>JSON.stringify(file)}]}});await h.get('#confirm-active-import').onclick();assert.deepEqual(calls[0].file,file);
+});
+
+
+test('accepted proposal delivery retries the identical decision after response loss and reload', async () => {
+  const local=memory(),session=memory(),calls=[];
+  const h=harness(local,session,async(url,options)=>{if(url==='/api/workspace')return response(payload(0));calls.push({url,body:options.body});throw new Error('response lost after commit');});
+  const item={id:'proposal-pending',status:'pending',source:{text:'Original',speaker:'Master',offsetMs:60000},suggestion:{kind:'personal-note',title:'Promise',text:'Original'}};
+  await h.api.boot();h.api.reviewProposal(item);h.get('#review-title').value='Promise';h.get('#review-text').value='Return the compass';
+  await h.get('#proposal-review').onsubmit({preventDefault(){}});
+  assert.equal(h.api.editable(),false);assert.equal(calls[0].url,'/api/proposals/decide');
+  const decision=JSON.parse(calls[0].body);assert.equal(decision.decision,'accept');assert.deepEqual(decision.content,{title:'Promise',text:'Return the compass'});
+  const restored=harness(local,session,async(url,options)=>{if(url!=='/api/workspace')calls.push({url,body:options.body});return response(payload(1));});
+  await restored.api.boot();assert.equal(restored.api.editable(),false);await restored.click('sync-retry');
+  assert.deepEqual(calls[1],calls[0]);assert.equal(restored.api.editable(),true);
 });

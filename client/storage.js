@@ -66,7 +66,7 @@ const SkazStorage = (() => {
       const { operation, ...body } = pending;
       if (operation === 'place-create' || operation === 'place-update') body.operation = operation === 'place-create' ? 'create' : 'update';
       if (operation === 'quest-create' || operation === 'quest-update') body.operation = operation === 'quest-create' ? 'create' : 'update';
-      const url = operation?.startsWith('place-') ? '/api/places' : operation?.startsWith('quest-') ? '/api/quests' : operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
+      const url = operation === 'proposal-create' ? '/api/proposals' : operation === 'proposal-decide' ? '/api/proposals/decide' : operation?.startsWith('place-') ? '/api/places' : operation?.startsWith('quest-') ? '/api/quests' : operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
       const payload = await request(url, { method: operation ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body: JSON.stringify(body) });
       apply(payload);
       return payload;
@@ -102,19 +102,20 @@ const SkazStorage = (() => {
     if (demo || status !== 'ready') return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key = JSON.stringify(activeContext), version = revision;
     try {
-      const file = await request('/api/export/active-v5');
+      const file = await request('/api/export/active-v6');
       if (key !== JSON.stringify(activeContext) || version !== revision || JSON.stringify(file.source?.context) !== key || file.source?.revision !== version) return toast('Игра изменилась. Обнови страницу перед экспортом.');
-      download(file, 'skaz-active-v5.json');
+      download(file, 'skaz-active-v6.json');
     } catch (error) { toast(error.message || 'Не удалось скачать игру'); }
   }
   function previewActive(file) {
     if (demo || status !== 'ready') return toast('Импорт доступен после подключения и сохранения черновика');
-    if (file.ruleset !== '5e-2014' || file.scope !== 'active-game' || typeof file.state?.profile?.name !== 'string' || typeof file.state?.profile?.campaign !== 'string' || !Array.isArray(file.inventory) || !Array.isArray(file.catalog?.entries)) throw new Error('Неверный файл игры v2–v5');
+    if (file.ruleset !== '5e-2014' || file.scope !== 'active-game' || typeof file.state?.profile?.name !== 'string' || typeof file.state?.profile?.campaign !== 'string' || !Array.isArray(file.inventory) || !Array.isArray(file.catalog?.entries)) throw new Error('Неверный файл игры v2–v6');
     if (file.schemaVersion >= 3 && !Array.isArray(file.spellbook)) throw new Error('В файле отсутствует список заклинаний');
     if (file.schemaVersion >= 4 && !Array.isArray(file.quests)) throw new Error('В файле отсутствует список заданий');
-    if (file.schemaVersion === 5 && !Array.isArray(file.places)) throw new Error('В файле v5 отсутствует список мест');
+    if (file.schemaVersion >= 5 && !Array.isArray(file.places)) throw new Error('В файле отсутствует список мест');
+    if (file.schemaVersion === 6 && !Array.isArray(file.proposals)) throw new Error('В файле v6 отсутствует список предложений событий');
     const key = JSON.stringify(activeContext), version = revision;
-    modal(`<div class="overline">ПЕРЕНОС D&D 2014 · НОВАЯ КАМПАНИЯ</div><h2>${esc(file.state.profile.campaign)}</h2><p>Персонаж: ${esc(file.state.profile.name)}. Видов предметов: ${file.inventory.length}. Материалов каталога: ${file.catalog.entries.length}. Заклинаний: ${file.schemaVersion >= 3 ? file.spellbook.length : 'не включены в v2'}. Заданий: ${file.schemaVersion >= 4 ? file.quests.length : 'не включены в v' + file.schemaVersion}. Мест на карте: ${file.schemaVersion === 5 ? file.places.length : 'не включены в этот формат'}.</p>${file.schemaVersion >= 4 ? '<p>Задания и места появятся в новой кампании. Сведения об исходной сессии сохранятся, даже если её архив отсутствует в файле.</p>' : ''}<p>Будет создана и открыта новая кампания. Существующие игры сохранятся. В файле только текущая сессия: архивы и история не переносятся. Сервер проверит данные и источники; конфликт отменит весь импорт.</p><div class="dialog-actions"><button id="confirm-active-import" class="primary">Создать новую кампанию из файла</button></div>`);
+    modal(`<div class="overline">ПЕРЕНОС D&D 2014 · НОВАЯ КАМПАНИЯ</div><h2>${esc(file.state.profile.campaign)}</h2><p>Персонаж: ${esc(file.state.profile.name)}. Видов предметов: ${file.inventory.length}. Материалов каталога: ${file.catalog.entries.length}. Заклинаний: ${file.schemaVersion >= 3 ? file.spellbook.length : 'не включены в v2'}. Заданий: ${file.schemaVersion >= 4 ? file.quests.length : 'не включены в v' + file.schemaVersion}. Мест на карте: ${file.schemaVersion >= 5 ? file.places.length : 'не включены в этот формат'}. Предложений событий: ${file.schemaVersion === 6 ? file.proposals.length : 'не включены в этот формат'}.</p>${file.schemaVersion >= 4 ? '<p>Задания и места появятся в новой кампании. Сведения об исходной сессии сохранятся, даже если её архив отсутствует в файле.</p>' : ''}<p>Будет создана и открыта новая кампания. Существующие игры сохранятся. В файле только текущая сессия: архивы и история не переносятся. Сервер проверит данные и источники; конфликт отменит весь импорт.</p><div class="dialog-actions"><button id="confirm-active-import" class="primary">Создать новую кампанию из файла</button></div>`);
     $('#confirm-active-import').onclick = async () => {
       if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Выбери файл заново.');
       try { await campaignCommand('import-active', { destination: 'new-campaign', file }); }
@@ -133,7 +134,7 @@ const SkazStorage = (() => {
     rememberDraft();
     closeModal();
     const payload = await sendPending();
-    toast(operation.startsWith('place-') ? 'Место сохранено' : operation.startsWith('quest-') ? 'Задание сохранено' : operation === 'spell-set' ? 'Список заклинаний сохранён' : operation === 'import-active' ? 'Игра импортирована в новую кампанию' : operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
+    toast(operation === 'proposal-create' ? 'Предложение ждёт подтверждения' : operation === 'proposal-decide' ? 'Решение по событию сохранено' : operation.startsWith('place-') ? 'Место сохранено' : operation.startsWith('quest-') ? 'Задание сохранено' : operation === 'spell-set' ? 'Список заклинаний сохранён' : operation === 'import-active' ? 'Игра импортирована в новую кампанию' : operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
     return payload;
   }
   async function campaigns() {
@@ -280,6 +281,38 @@ const SkazStorage = (() => {
     };
   }
   const snapshotKey = () => JSON.stringify({ context: activeContext, revision });
+  async function proposalsData() {
+    if (demo || status !== 'ready') throw new Error('Сначала сохрани черновик или подключись к серверу');
+    const key = snapshotKey(), data = await request('/api/proposals');
+    if (key !== snapshotKey() || JSON.stringify(data.context) !== JSON.stringify(activeContext) || data.revision !== revision) throw new Error('Игра изменилась. Обнови страницу и открой события снова.');
+    return data;
+  }
+  function newProposal() {
+    if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
+    const key = snapshotKey(), target = { ...activeContext }, proposalId = crypto.randomUUID();
+    modal(`<h2>Событие из текста</h2><p>Подготовка распознавания: пока фрагмент и краткую запись вводишь ты. Микрофон и AI не используются. Сначала создаётся предложение, затем ты подтверждаешь запись.</p><form id="proposal-form"><label for="proposal-source">Фрагмент разговора</label><textarea id="proposal-source" required maxlength="4000" rows="4" placeholder="Что рассказал мастер или игрок?"></textarea><label for="proposal-speaker">Кто сказал (необязательно)</label><input id="proposal-speaker" maxlength="120" placeholder="Например, мастер"><label for="proposal-minute">Минута с начала сессии</label><input id="proposal-minute" type="number" min="0" max="1440" step="1" required value="0"><label for="proposal-title">Краткий заголовок события</label><input id="proposal-title" required maxlength="2000"><label for="proposal-target">Куда записать после подтверждения</label><select id="proposal-target"><option value="journal">В журнал текущей сессии</option><option value="personal-note">В личные заметки персонажа</option></select><div class="dialog-actions"><button type="submit" class="primary">Создать предложение</button></div></form>`);
+    $('#proposal-form').onsubmit = async event => {
+      event.preventDefault(); if (key !== snapshotKey()) return toast('Игра изменилась. Открой форму заново.');
+      const text = $('#proposal-source').value.trim(), title = $('#proposal-title').value.trim(), minutes = Number($('#proposal-minute').value);
+      if (!text || !title || !Number.isSafeInteger(minutes) || minutes < 0 || minutes > 1440) return toast('Заполни текст, заголовок и минуту 0–1440');
+      try { await campaignCommand('proposal-create', { ...target, proposalId, source: { kind: 'manual-text', speaker: $('#proposal-speaker').value, text, offsetMs: minutes*60000 }, suggestion: { kind: $('#proposal-target').value, title, text } }); }
+      catch (error) { toast(error.message); }
+    };
+  }
+  function reviewProposal(item) {
+    if (demo || status !== 'ready' || !activeContext || item.status !== 'pending') return toast('Это событие сейчас нельзя изменить');
+    const key = snapshotKey();
+    modal(`<h2>Проверить событие</h2><p>Будет добавлена одна запись ${item.suggestion.kind === 'journal' ? 'в журнал текущей сессии' : 'в личные заметки персонажа'}. Хиты, золото и другие ресурсы не изменятся.</p><blockquote class="source session-text">${esc(item.source.text)}</blockquote><p>${esc(item.source.speaker || 'Говорящий не указан')} · ${Math.floor(item.source.offsetMs/60000)} мин. с начала сессии</p><form id="proposal-review"><label for="review-title">Заголовок</label><input id="review-title" required maxlength="2000" value="${esc(item.suggestion.title)}"><label for="review-text">Текст записи — можно исправить</label><textarea id="review-text" required maxlength="4000" rows="4">${esc(item.suggestion.text)}</textarea><div class="dialog-actions"><button type="submit" class="primary">Подтвердить запись</button><button type="button" id="dismiss-proposal">Пропустить событие</button></div></form>`);
+    const decide = async decision => {
+      if (key !== snapshotKey()) return toast('Игра изменилась. Открой событие заново.');
+      const content = decision === 'accept' ? { title: $('#review-title').value.trim(), text: $('#review-text').value.trim() } : null;
+      if (content && (!content.title || !content.text)) return toast('Заполни заголовок и текст');
+      try { await campaignCommand('proposal-decide', { proposalId: item.id, decision, content }); }
+      catch (error) { toast(error.message); }
+    };
+    $('#proposal-review').onsubmit = event => { event.preventDefault(); return decide('accept'); };
+    $('#dismiss-proposal').onclick = () => decide('dismiss');
+  }
   async function questsData() {
     if (demo || status !== 'ready') throw new Error('Сначала сохрани черновик или подключись к серверу');
     const key = snapshotKey();
@@ -339,7 +372,7 @@ const SkazStorage = (() => {
         } catch { toast('Не удалось открыть журнал'); }
       });
       $('#new-session').onclick = () => {
-        modal('<h2>Следующая сессия</h2><p>Текущий журнал станет архивом только для чтения. Ресурсы персонажа, карта, задания и личные заметки сохранятся. Это не отдых. Новый журнал будет пустым.</p><form id="new-session-form"><label for="session-name">Название</label><input id="session-name" maxlength="120" required><label for="session-date">Дата игры</label><input id="session-date" type="date" required><div class="dialog-actions"><button type="submit" class="primary">Завершить текущую и начать</button></div></form>');
+        modal('<h2>Следующая сессия</h2><p>Текущий журнал станет архивом только для чтения. Ресурсы персонажа, карта, задания и личные заметки сохранятся. Это не отдых. Новый журнал будет пустым. Сначала проверь ожидающие события в журнале: после перехода их нельзя подтвердить. Исходные предложения останутся в базе, но просмотр предложений архивной сессии пока не подключён.</p><form id="new-session-form"><label for="session-name">Название</label><input id="session-name" maxlength="120" required><label for="session-date">Дата игры</label><input id="session-date" type="date" required><div class="dialog-actions"><button type="submit" class="primary">Завершить текущую и начать</button></div></form>');
         $('#new-session-form').onsubmit = async event => {
           event.preventDefault();
           const name = $('#session-name').value.trim(), playedOn = $('#session-date').value;
@@ -350,7 +383,7 @@ const SkazStorage = (() => {
     } catch { modal('<h2>Сессии недоступны</h2><p>Проверь соединение и открой список снова.</p>'); }
   }
   function settings() {
-    modal(`<div class="overline">СКАЗ · ЛОКАЛЬНАЯ ВЕРСИЯ 0.2</div><h2>Данные приключения</h2><p>${demo ? 'Этот HTML-файл работает в демонстрационном режиме. Для сохранения в базе открой локальное приложение.' : 'Прогресс хранится в SQLite на этом компьютере. Тема выбирается отдельно для каждого браузера.'}</p><div class="settings-actions"><button id="export-state">Скачать прогресс без инвентаря (v1)</button>${!demo ? '<button id="export-active" class="primary">Скачать игру с заданиями и картой (v5)</button>' : ''}<label class="file-label">Импортировать JSON v1–v5<input id="import-state" type="file" accept=".json,application/json"></label><button id="import-old">Перенести данные раннего прототипа</button>${!demo ? '<button id="change-history">История сохранений</button><button id="saved-drafts">Несохранённые черновики</button>' : ''}</div><p>v5 переносит активного персонажа, текущую сессию, задания, места кампании, инвентарь и заклинания с источниками в новую кампанию. Архивы сессий и история не входят. v2–v4 не содержат собственных мест кампании. v2/v3 не содержат сохранённых заданий; в v2 также нет списка заклинаний. v1 заменяет текущий прогресс без инвентаря, списка заклинаний и сохранённых заданий. Лимит импорта — 512 КиБ. Для полной копии нужна резервная копия SQLite.</p><p>Каждая кампания использует шаблон барда 5 уровня. В магии доступны 8 демонстрационных заклинаний. Распознавание речи пока демонстрационное.</p><button class="text-button" id="reset-workspace">Начать демо заново</button>`);
+    modal(`<div class="overline">СКАЗ · ЛОКАЛЬНАЯ ВЕРСИЯ 0.2</div><h2>Данные приключения</h2><p>${demo ? 'Этот HTML-файл работает в демонстрационном режиме. Для сохранения в базе открой локальное приложение.' : 'Прогресс хранится в SQLite на этом компьютере. Тема выбирается отдельно для каждого браузера.'}</p><div class="settings-actions"><button id="export-state">Скачать прогресс без инвентаря (v1)</button>${!demo ? '<button id="export-active" class="primary">Скачать активную игру (v6)</button>' : ''}<label class="file-label">Импортировать JSON v1–v6<input id="import-state" type="file" accept=".json,application/json"></label><button id="import-old">Перенести данные раннего прототипа</button>${!demo ? '<button id="change-history">История сохранений</button><button id="saved-drafts">Несохранённые черновики</button>' : ''}</div><p>v6 переносит предложения событий, активного персонажа, текущую сессию, задания, места кампании, инвентарь и заклинания с источниками в новую кампанию. Архивы сессий и история не входят. v2–v5 не содержат предложений событий. v2–v4 не содержат собственных мест кампании. v2/v3 не содержат сохранённых заданий; в v2 также нет списка заклинаний. v1 заменяет текущий прогресс без инвентаря, списка заклинаний и сохранённых заданий. Лимит импорта — 512 КиБ. Для полной копии нужна резервная копия SQLite.</p><p>Каждая кампания использует шаблон барда 5 уровня. В магии доступны 8 демонстрационных заклинаний. События из текста вводятся и подтверждаются вручную. Распознавание речи не подключено.</p><button class="text-button" id="reset-workspace">Начать демо заново</button>`);
     $('#export-state').onclick = exportState;
     if (!demo) $('#export-active').onclick = exportActive;
     if ($('#saved-drafts')) $('#saved-drafts').onclick = () => {
@@ -363,7 +396,7 @@ const SkazStorage = (() => {
           }
         }
       } catch { toast('Хранилище браузера недоступно'); return; }
-      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation?.startsWith('place-') ? 'Сохранение места' : draft.operation?.startsWith('quest-') ? 'Сохранение задания' : draft.operation === 'spell-set' ? 'Изменение списка заклинаний' : draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
+      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation?.startsWith('proposal-') ? 'Решение по событию' : draft.operation?.startsWith('place-') ? 'Сохранение места' : draft.operation?.startsWith('quest-') ? 'Сохранение задания' : draft.operation === 'spell-set' ? 'Изменение списка заклинаний' : draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
       $$('[data-draft-index]').forEach(button => button.onclick = () => downloadDraft(drafts[Number(button.dataset.draftIndex)]));
     };
     $('#import-state').onchange = async event => {
@@ -393,7 +426,7 @@ const SkazStorage = (() => {
     };
   }
   function previewImport(data) {
-    if (data?.app === 'skaz-active' && [2,3,4,5].includes(data.schemaVersion)) return previewActive(data);
+    if (data?.app === 'skaz-active' && [2,3,4,5,6].includes(data.schemaVersion)) return previewActive(data);
     if (data?.app !== 'skaz' || data.schemaVersion !== 1 || !data.state?.profile || typeof data.state.profile.name !== 'string') throw new Error('Это не файл сохранения СКАЗ версии 1');
     modal(`<div class="overline">ВОССТАНОВЛЕНИЕ ПРОГРЕССА</div><h2>${esc(data.state.profile.name)}</h2><p>Файл заменит данные активной кампании «${esc(state.profile.campaign)}»: персонажа, журнал, этапы заданий и заметки карты. Тема останется прежней. Сервер проверит данные перед записью.</p><div class="dialog-actions"><button id="import-backup-first">Скачать текущие</button><button class="primary" id="confirm-import">Восстановить</button></div>`);
     $('#import-backup-first').onclick = exportState;
@@ -419,5 +452,5 @@ const SkazStorage = (() => {
     }
   });
   window.addEventListener('beforeunload', event => { if (status === 'saving') { event.preventDefault(); event.returnValue = ''; } });
-  return { commit, paint, settings, inventory, addInventory, removeInventory, spellbook, editSpell, questList, editQuest, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
+  return { commit, paint, settings, inventory, addInventory, removeInventory, spellbook, editSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
 })();

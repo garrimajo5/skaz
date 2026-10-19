@@ -1,3 +1,4 @@
+import { validateTransferredProposal } from './proposals.mjs';
 import { validatePlace } from './places.mjs';
 import { randomUUID } from 'node:crypto';
 import { validateQuestCommand } from './quests.mjs';
@@ -11,8 +12,8 @@ function exact(value, keys) {
   if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).length !== keys.length || keys.some(key => !Object.hasOwn(value, key))) fail('Неверные поля файла переноса');
 }
 export function validateTransfer(file) {
-  exact(file, ['app','schemaVersion','ruleset','scope','exportedAt','source','state','session','inventory','catalog', ...([3,4,5].includes(file?.schemaVersion) ? ['spellbook'] : []), ...([4,5].includes(file?.schemaVersion) ? ['quests'] : []), ...(file?.schemaVersion === 5 ? ['places'] : [])]);
-  if (file.app !== 'skaz-active' || ![2,3,4,5].includes(file.schemaVersion) || file.ruleset !== '5e-2014' || file.scope !== 'active-game') fail('Нужен экспорт активной игры СКАЗ v2–v5, D&D 2014');
+  exact(file, ['app','schemaVersion','ruleset','scope','exportedAt','source','state','session','inventory','catalog', ...([3,4,5,6].includes(file?.schemaVersion) ? ['spellbook'] : []), ...([4,5,6].includes(file?.schemaVersion) ? ['quests'] : []), ...([5,6].includes(file?.schemaVersion) ? ['places'] : []), ...(file?.schemaVersion === 6 ? ['proposals'] : [])]);
+  if (file.app !== 'skaz-active' || ![2,3,4,5,6].includes(file.schemaVersion) || file.ruleset !== '5e-2014' || file.scope !== 'active-game') fail('Нужен экспорт активной игры СКАЗ v2–v6, D&D 2014');
   if (typeof file.exportedAt !== 'string' || file.exportedAt.length > 40 || !Number.isFinite(Date.parse(file.exportedAt))) fail('Неверная дата экспорта');
   exact(file.source, ['revision','context']); exact(file.source.context, ['campaignId','characterId','sessionId']);
   if (!Number.isSafeInteger(file.source.revision) || file.source.revision < 0 || Object.values(file.source.context).some(id => typeof id !== 'string' || !/^[a-zA-Z0-9-]{1,80}$/.test(id))) fail('Неверные сведения об исходной игре');
@@ -61,7 +62,7 @@ export function validateTransfer(file) {
     });
   }
   let places;
-  if (file.schemaVersion === 5) {
+  if (file.schemaVersion >= 5) {
     if (!Array.isArray(file.places) || file.places.length > 1000) fail('Не более 1000 мест');
     const origins = new Set();
     places = file.places.map(item => {
@@ -74,8 +75,19 @@ export function validateTransfer(file) {
       return { origin, place: validatePlace(item.place) };
     });
   }
+  let proposals;
+  if (file.schemaVersion === 6) {
+    if (!Array.isArray(file.proposals) || file.proposals.length > 1000) fail('Не более 1000 предложений');
+    const origins = new Set();
+    proposals = file.proposals.map(item => {
+      const normalized = validateTransferredProposal(item);
+      const key = JSON.stringify([normalized.origin.campaignId,normalized.origin.proposalId]);
+      if (origins.has(key)) fail('Повторное предложение');
+      origins.add(key); return normalized;
+    });
+  }
   // Preserve the normalized v2 payload and its existing mutation hashes.
-  return { state, session, inventory, ...(places ? { places } : {}), ...(quests ? { quests } : {}), ...(spellbook ? { spellbook } : {}), entries: entries.sort((a,b) => a.id.localeCompare(b.id, 'en')) };
+  return { state, session, inventory, ...(proposals ? { proposals } : {}), ...(places ? { places } : {}), ...(quests ? { quests } : {}), ...(spellbook ? { spellbook } : {}), entries: entries.sort((a,b) => a.id.localeCompare(b.id, 'en')) };
 }
 // Caller owns one transaction for catalog, new game, inventory and mutation receipt.
 export function importTransfer(db, data, mutationId) {
@@ -95,6 +107,11 @@ export function importTransfer(db, data, mutationId) {
     const placeId = randomUUID();
     db.prepare('INSERT INTO campaign_places VALUES (?, ?, ?, ?)').run(placeId, ids.campaignId, ids.sessionId, JSON.stringify(item.place));
     db.prepare('INSERT INTO place_origins VALUES (?, ?)').run(placeId, JSON.stringify(item.origin));
+  }
+  for (const item of data.proposals || []) {
+    const proposalId = randomUUID();
+    db.prepare('INSERT INTO event_proposals VALUES (?, ?, ?, ?, ?, ?, ?, ?)').run(proposalId,ids.campaignId,ids.sessionId,ids.characterId,JSON.stringify(item.source),JSON.stringify(item.suggestion),item.status,item.appliedEntry ? JSON.stringify(item.appliedEntry) : null);
+    db.prepare('INSERT INTO proposal_origins VALUES (?, ?)').run(proposalId,JSON.stringify(item.origin));
   }
   const entries = new Map(data.entries.map(entry => [entry.id, entry]));
   const snapshot = data.inventory.map(item => ({ ...item, entry: entries.get(item.catalogId) }));

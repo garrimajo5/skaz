@@ -1,3 +1,4 @@
+import { setupProposals, readProposals, validateProposalCreate, validateProposalDecision, createProposal, decideProposal } from './proposals.mjs';
 import { setupPlaces, readPlaces, validatePlaceCommand, savePlace } from './places.mjs';
 import { setupQuests, readQuests, validateQuestCommand, saveQuest } from './quests.mjs';
 import { setupSpellbook, readSpellbook, validateSpellCommand, setSpell } from './spellbook.mjs';
@@ -38,6 +39,7 @@ export function openStore(filename) {
   setupSpellbook(db);
   setupQuests(db);
   setupPlaces(db);
+  setupProposals(db);
   db.exec(`CREATE TABLE IF NOT EXISTS context_changes (
     mutation_id TEXT PRIMARY KEY REFERENCES changes(mutation_id),
     operation TEXT NOT NULL, before_json TEXT NOT NULL, after_json TEXT NOT NULL
@@ -57,7 +59,9 @@ export function openStore(filename) {
       const spellbook = readSpellbook(db, current.context.characterId);
       const quests = readQuests(db, current.context.campaignId);
       const places = readPlaces(db, current.context.campaignId);
-      if (![2,3,4,5].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      const proposals = readProposals(db, current.context);
+      if (![2,3,4,5,6].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if (version < 6 && proposals.length) throw new AppError(409, 'Предложения событий требуют экспорт v6 или SQLite backup');
       if (version < 5 && places.length) throw new AppError(409, 'Места кампании требуют экспорт v5 или SQLite backup');
       if (version < 4 && quests.length) throw new AppError(409, 'Задания требуют экспорт v4 или SQLite backup');
       if (version === 2 && spellbook.length) throw new AppError(409, 'Список заклинаний требует экспорт v3 или SQLite backup');
@@ -83,7 +87,8 @@ export function openStore(filename) {
         inventory: inventory.map(({ catalogId, quantity }) => ({ catalogId, quantity })),
         ...(version >= 3 ? { spellbook: spellbook.map(({ catalogId, status }) => ({ catalogId, status })) } : {}),
         ...(version >= 4 ? { quests: quests.map(({ id, campaignId, createdSessionId, importedFrom, title, description, status, steps }) => ({ origin: importedFrom || { campaignId, questId: id, sessionId: createdSessionId }, quest: { title, description, status, steps } })) } : {}),
-        ...(version === 5 ? { places: places.map(({ id, campaignId, createdSessionId, importedFrom, title, description, x, y, visited }) => ({ origin: importedFrom || { campaignId, placeId: id, sessionId: createdSessionId }, place: { title, description, x, y, visited } })) } : {}),
+        ...(version >= 5 ? { places: places.map(({ id, campaignId, createdSessionId, importedFrom, title, description, x, y, visited }) => ({ origin: importedFrom || { campaignId, placeId: id, sessionId: createdSessionId }, place: { title, description, x, y, visited } })) } : {}),
+        ...(version === 6 ? { proposals: proposals.map(({ id, campaignId, sessionId, characterId, importedFrom, source, suggestion, status, appliedEntry }) => ({ origin: importedFrom || { campaignId, sessionId, characterId, proposalId: id }, source, suggestion, status, appliedEntry })) } : {}),
         catalog: { schemaVersion: 1, entries: [...entries.values()].sort((a, b) => a.id.localeCompare(b.id, 'en')) },
       };
       db.exec('COMMIT');
@@ -146,6 +151,19 @@ export function openStore(filename) {
   }
   return {
     catalog,
+    proposals: () => { const current = read(); return { revision: current.revision, context: current.context, proposals: readProposals(db,current.context) }; },
+    createProposal: request => {
+      const payload = validateProposalCreate(request);
+      const hash = createHash('sha256').update(JSON.stringify({ operation: 'proposal-create', expectedRevision: request.expectedRevision, payload })).digest('hex');
+      return mutate(request, hash, 'Предложение события', () => { createProposal(db,payload,request.mutationId,read().context); return read().state; }, 'proposal-create');
+    },
+    decideProposal: request => {
+      const payload = validateProposalDecision(request);
+      const hash = createHash('sha256').update(JSON.stringify({ operation: 'proposal-decide', expectedRevision: request.expectedRevision, payload })).digest('hex');
+      return mutate(request, hash, payload.decision === 'accept' ? 'Подтверждение события' : 'Пропуск события', () => {
+        const current = read(); const next = decideProposal(db,payload,request.mutationId,current.context,current.state); writeEntities(db,next); return next;
+      }, 'proposal-decide');
+    },
     places: () => { const current = read(); return { revision: current.revision, context: current.context, places: readPlaces(db, current.context.campaignId) }; },
     savePlace: request => {
       const payload = validatePlaceCommand(request);
