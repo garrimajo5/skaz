@@ -1,3 +1,4 @@
+import { validateTransfer, importTransfer } from './transfer.mjs';
 import { DatabaseSync, backup } from 'node:sqlite';
 import { mkdirSync } from 'node:fs';
 import path from 'node:path';
@@ -168,6 +169,15 @@ export function openStore(filename) {
     startSession: request => gameCommand('session', request),
     sessions: campaignId => listSessions(db, campaignId),
     session: id => readSession(db, id),
+    importActive: request => {
+      if (!request || typeof request !== 'object' || Array.isArray(request) || Object.keys(request).some(key => !['mutationId','expectedRevision','destination','file'].includes(key)) || request.destination !== 'new-campaign') throw new AppError(400, 'Импорт требует новую кампанию');
+      const payload = validateTransfer(request.file);
+      const hash = createHash('sha256').update(JSON.stringify({ operation: 'import-active', expectedRevision: request.expectedRevision, payload })).digest('hex');
+      return mutate(request, hash, 'Импорт игры с инвентарём', () => {
+        importTransfer(db, payload, request.mutationId);
+        return read().state;
+      }, 'import-active');
+    },
     read, update, exportActive,
     history: () => db.prepare('SELECT revision, label, created_at AS createdAt FROM changes ORDER BY revision DESC LIMIT 50').all(),
     backup: destination => backup(db, destination),

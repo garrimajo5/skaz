@@ -50,11 +50,11 @@ export function createApp(store) {
           if (pathname === '/api/export/active') return json(response, 200, store.exportActive(), { 'Content-Disposition': 'attachment; filename="skaz-active-v2.json"' });
           if (pathname === '/api/export') return json(response, 200, { app: 'skaz', ...store.read() }, { 'Content-Disposition': 'attachment; filename="skaz-backup.json"' });
         }
-        if ((pathname === '/api/workspace' && request.method === 'PUT') || (['/api/campaigns', '/api/context/select', '/api/sessions', '/api/inventory', '/api/inventory/remove', '/api/inventory/undo'].includes(pathname) && request.method === 'POST')) {
+        if ((pathname === '/api/workspace' && request.method === 'PUT') || (['/api/campaigns', '/api/context/select', '/api/sessions', '/api/inventory', '/api/inventory/remove', '/api/inventory/undo', '/api/import/active'].includes(pathname) && request.method === 'POST')) {
           if (request.headers['x-skaz-client'] !== 'local-v1') throw new AppError(403, 'Запрос должен исходить из приложения');
           const data = await body(request);
           if (!data || typeof data !== 'object' || Array.isArray(data)) throw new AppError(400, 'Неверный запрос');
-          const result = pathname === '/api/inventory/undo' ? store.undoInventory(data) : pathname === '/api/inventory/remove' ? store.removeInventory(data) : pathname === '/api/inventory' ? store.addInventory(data) : pathname === '/api/sessions' ? store.startSession(data) : pathname === '/api/campaigns' ? store.createCampaign(data) : pathname === '/api/context/select' ? store.selectContext(data) : store.update(data);
+          const result = pathname === '/api/import/active' ? store.importActive(data) : pathname === '/api/inventory/undo' ? store.undoInventory(data) : pathname === '/api/inventory/remove' ? store.removeInventory(data) : pathname === '/api/inventory' ? store.addInventory(data) : pathname === '/api/sessions' ? store.startSession(data) : pathname === '/api/campaigns' ? store.createCampaign(data) : pathname === '/api/context/select' ? store.selectContext(data) : store.update(data);
           return json(response, 200, result);
         }
         return json(response, 404, { error: 'Неизвестный метод API' });

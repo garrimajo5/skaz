@@ -332,3 +332,81 @@ test('HTTP active export is downloadable v2 while legacy export remains v1', asy
   assert.equal((await fetch(url).then(r => r.json())).schemaVersion, 1);
   assert.equal((await fetch(url + '/active', { headers: { Origin: 'https://other.example' } })).status, 403);
 });
+
+
+test('active transfer round trip creates isolated IDs, preserves inventory and replays once', () => {
+  const source = openStore(':memory:'), target = openStore(':memory:');
+  try {
+    source.catalog.importEntries(items, { apply: true }); source.addInventory(add(source));
+    const file = source.exportActive(), original = target.read();
+    const request = cmd(target, { destination: 'new-campaign', file });
+    const result = target.importActive(request);
+    assert.notEqual(result.context.characterId, file.source.context.characterId);
+    assert.notEqual(result.context.campaignId, original.context.campaignId);
+    assert.deepEqual(result.state, file.state); assert.deepEqual(result.session, file.session);
+    assert.deepEqual(target.inventory().entries, source.inventory().entries);
+    assert.equal(target.inventory().undo, null);
+    assert.equal(target.importActive(request).replayed, true);
+    assert.equal(target.campaigns().length, 2);
+    target.selectContext(cmd(target, { context: original.context }));
+    const replay = target.importActive(request);
+    assert.deepEqual(replay.context, original.context); assert.deepEqual(replay.affectedContext, result.context);
+    assert.deepEqual(target.inventory().entries, []);
+    assert.deepEqual(target.read().state, original.state);
+  } finally { source.close(); target.close(); }
+});
+
+test('transfer rejects wrong edition, counts, links and conflicting sources without partial creation', () => {
+  const source = openStore(':memory:'), target = openStore(':memory:');
+  try {
+    source.catalog.importEntries(items, { apply: true }); source.addInventory(add(source));
+    const file = source.exportActive();
+    for (const edit of [f => f.ruleset = '5e-2024', f => f.inventory[0].quantity = -1,
+      f => f.inventory.push(f.inventory[0]), f => f.catalog.entries[0].links = ['missing:link'],
+      f => f.session.playedOn = '2026-02-30', f => f.extra = true]) {
+      const invalid = structuredClone(file); edit(invalid);
+      assert.throws(() => target.importActive(cmd(target, { destination: 'new-campaign', file: invalid })), { status: 422 });
+      assert.equal(target.read().revision, 0); assert.equal(target.campaigns().length, 1);
+      assert.equal(target.catalog.coverage().total, 0);
+    }
+    assert.throws(() => target.importActive(cmd(target, { destination: 'replace', file })), { status: 400 });
+    const conflict = structuredClone(items); conflict.entries[0].name.ru = 'Конфликт';
+    target.catalog.importEntries(conflict, { apply: true });
+    assert.throws(() => target.importActive(cmd(target, { destination: 'new-campaign', file })), { status: 409 });
+    assert.equal(target.campaigns().length, 1); assert.equal(target.read().revision, 0);
+    const empty = target.exportActive();
+    target.importActive(cmd(target, { destination: 'new-campaign', file: empty }));
+    assert.deepEqual(target.inventory().entries, []);
+  } finally { source.close(); target.close(); }
+});
+
+test('transfer rolls back catalog, game and inventory on audit failure, then persists on retry', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'skaz-transfer-')), file = join(dir, 'game.sqlite');
+  const source = openStore(':memory:'); let target = openStore(file); const raw = new DatabaseSync(file);
+  try {
+    source.catalog.importEntries(items, { apply: true }); source.addInventory(add(source));
+    const request = cmd(target, { destination: 'new-campaign', file: source.exportActive() });
+    raw.exec("CREATE TRIGGER reject_transfer BEFORE INSERT ON changes BEGIN SELECT RAISE(ABORT, 'transfer failure'); END");
+    assert.throws(() => target.importActive(request), /transfer failure/);
+    assert.equal(target.catalog.coverage().total, 0); assert.equal(target.campaigns().length, 1);
+    assert.equal(raw.prepare('SELECT count(*) AS n FROM inventory_changes').get().n, 0);
+    raw.exec('DROP TRIGGER reject_transfer'); target.importActive(request);
+    target.close(); target = openStore(file);
+    assert.equal(target.importActive(request).replayed, true);
+    assert.equal(target.inventory().entries[0].quantity, 2);
+  } finally { raw.close(); target.close(); source.close(); }
+});
+
+test('HTTP import requires explicit destination and local protection and rejects stale revision', async t => {
+  const store = openStore(':memory:'); const file = store.exportActive();
+  const app = createApp(store); await new Promise(resolve => app.listen(0, '127.0.0.1', resolve));
+  t.after(async () => { await new Promise(resolve => app.close(resolve)); store.close(); });
+  const url = `http://127.0.0.1:${app.address().port}/api/import/active`;
+  const headers = { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' };
+  const request = cmd(store, { destination: 'new-campaign', file }), body = JSON.stringify(request);
+  assert.equal((await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body })).status, 403);
+  assert.equal((await fetch(url, { method: 'POST', headers: { ...headers, Origin: 'https://other.example' }, body })).status, 403);
+  assert.equal((await fetch(url, { method: 'POST', headers, body })).status, 200);
+  assert.equal((await fetch(url, { method: 'POST', headers, body }).then(r => r.json())).replayed, true);
+  assert.equal((await fetch(url, { method: 'POST', headers, body: JSON.stringify({ ...request, mutationId: randomUUID() }) })).status, 409);
+});

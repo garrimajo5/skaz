@@ -10,7 +10,7 @@
     "dev": "node scripts/dev.mjs",
     "start": "node server/index.mjs",
     "test": "node --test --test-isolation=none tests/*.test.mjs",
-    "check": "node --check client/app.js && node --check client/storage.js && node --check client/catalog.js && node --check server/app.mjs && node --check server/store.mjs && node --check server/state.mjs && node --check server/entities.mjs && node --check server/sessions.mjs && node --check server/index.mjs && node --check server/catalog.mjs && node --check scripts/import-catalog.mjs && node --check server/inventory.mjs",
+    "check": "node --check client/app.js && node --check client/storage.js && node --check client/catalog.js && node --check server/app.mjs && node --check server/store.mjs && node --check server/state.mjs && node --check server/entities.mjs && node --check server/sessions.mjs && node --check server/index.mjs && node --check server/catalog.mjs && node --check scripts/import-catalog.mjs && node --check server/inventory.mjs && node --check server/transfer.mjs",
     "build": "node scripts/build.mjs",
     "backup": "node scripts/backup.mjs"
   }
