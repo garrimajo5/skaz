@@ -8,7 +8,7 @@ const source = await readFile(new URL('../client/storage.js', import.meta.url), 
 const memory = () => { const values = new Map(); return { getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
 function harness(localStorage, sessionStorage, fetch) {
   const handlers = {}, elements = new Map(), messages = [];
-  const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '' }); return elements.get(id); };
+  const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '', style: {}, focus() {} }); return elements.get(id); };
   const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch,
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
@@ -249,14 +249,14 @@ test('v3 preview includes spell list in the durable import and rejects a missing
   assert.deepEqual(calls[0].body.file.spellbook, file.spellbook);
 });
 
-test('client requests v4 export and refuses a response from another revision', async () => {
+test('client requests v5 export and refuses a response from another revision', async () => {
   const calls = [];
   const h = harness(memory(), memory(), async url => {
     calls.push(url);
     return response(url === '/api/workspace' ? payload(0) : { source: { context: payload(0).context, revision: 1 } });
   });
   await h.api.boot(); h.api.settings(); await h.get('#export-active').onclick();
-  assert.equal(calls.at(-1), '/api/export/active-v4');
+  assert.equal(calls.at(-1), '/api/export/active-v5');
   assert.match(h.messages.at(-1), /Игра изменилась/);
 });
 
@@ -341,4 +341,54 @@ test('quest edit preserves step IDs and refuses a form opened in another revisio
   h.api.editQuest(quest); current = payload(2, 'other'); await h.api.boot();
   await h.get('#quest-form').onsubmit({ preventDefault() {} });
   assert.equal(calls.length, 1); assert.match(h.messages.at(-1), /Игра изменилась/);
+});
+
+
+test('place form persists create command and position through response loss', async () => {
+  const local = memory(), session = memory(), calls = [];
+  const h = harness(local, session, async (url, options) => {
+    if (url === '/api/workspace') return response(payload(0));
+    calls.push({ url, body: options.body }); throw new Error('lost');
+  });
+  await h.api.boot(); h.api.editPlace();
+  h.get('#place-title').value = 'North pass'; h.get('#place-description').value = 'Snow'; h.get('#place-x').value = '25.5'; h.get('#place-y').value = '60'; h.get('#place-visited').checked = true;
+  await h.get('#place-form').onsubmit({ preventDefault() {} });
+  assert.equal(calls[0].url, '/api/places'); const command = JSON.parse(calls[0].body);
+  assert.equal(command.operation, 'create'); assert.equal(command.place.x, 25.5); assert.equal(command.place.visited, true);
+  const restored = harness(local, session, async (url, options) => {
+    if (url !== '/api/workspace') calls.push({ url, body: options.body }); return response(payload(1));
+  });
+  await restored.api.boot(); await restored.click('sync-retry');
+  assert.deepEqual(calls[1], calls[0]); assert.equal(restored.api.editable(), true);
+});
+
+test('place read and edit cannot cross revisions or active campaigns', async () => {
+  let current = payload(0), mapPayload = { revision: 1, context: payload(0).context, places: [] };
+  const calls = [];
+  const h = harness(memory(), memory(), async (url, options) => {
+    if (url === '/api/workspace') return response(current);
+    if (!options.method) return response(mapPayload);
+    calls.push(options.body); return response(payload(2));
+  });
+  await h.api.boot(); await assert.rejects(h.api.placesData(), /Игра изменилась/);
+  mapPayload.revision = 0; assert.equal((await h.api.placesData()).places.length, 0);
+  h.api.editPlace({ id: 'existing-place', title: 'Town', description: '', x: 50, y: 50, visited: false });
+  current = payload(1, 'different'); await h.api.boot();
+  await h.get('#place-form').onsubmit({ preventDefault() {} });
+  assert.equal(calls.length, 0); assert.match(h.messages.at(-1), /Игра изменилась/);
+});
+
+test('v5 preview requires places and preserves full place payload on import', async () => {
+  const calls = [], h = harness(memory(), memory(), async (url, options) => {
+    if (url === '/api/workspace') return response(payload(0));
+    calls.push(JSON.parse(options.body)); return response(payload(1));
+  });
+  const file = { app: 'skaz-active', schemaVersion: 5, ruleset: '5e-2014', scope: 'active-game', state: seed, inventory: [], catalog: { entries: [] }, spellbook: [], quests: [], places: [{ origin: { campaignId: 'campaign-old', placeId: 'place-old', sessionId: 'session-old' }, place: { title: 'Town', description: '', x: 0, y: 100, visited: false } }] };
+  await h.api.boot(); h.api.settings();
+  const invalid = { ...file }; delete invalid.places;
+  await h.get('#import-state').onchange({ target: { files: [{ size: 1000, text: async () => JSON.stringify(invalid) }] } });
+  assert.match(h.messages.at(-1), /отсутствует список мест/); assert.equal(calls.length, 0);
+  await h.get('#import-state').onchange({ target: { files: [{ size: 1000, text: async () => JSON.stringify(file) }] } });
+  assert.equal(calls.length, 0); await h.get('#confirm-active-import').onclick();
+  assert.deepEqual(calls[0].file.places, file.places);
 });

@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { AppError } from './state.mjs';
 
 const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
-const files = new Set(['index.html', 'style.css', 'quick.css', 'app.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css']);
+const files = new Set(['index.html', 'style.css', 'quick.css', 'app.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js']);
 const contentTypes = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
 const MAX_BODY = 512 * 1024;
 function json(response, status, value, extra = {}) {
@@ -36,6 +36,7 @@ export function createApp(store) {
       if (pathname.startsWith('/api/')) {
         if (request.method === 'GET') {
           if (pathname === '/api/health') return json(response, 200, { status: 'ok', mode: 'local', storage: 'sqlite' });
+          if (pathname === '/api/places') return json(response, 200, store.places());
           if (pathname === '/api/quests') return json(response, 200, store.quests());
           if (pathname === '/api/spellbook') return json(response, 200, store.spellbook());
           if (pathname === '/api/inventory') return json(response, 200, store.inventory());
@@ -49,16 +50,17 @@ export function createApp(store) {
           const sessionDetail = pathname.match(/^\/api\/sessions\/([a-zA-Z0-9-]{1,80})$/);
           if (sessionDetail) return json(response, 200, store.session(sessionDetail[1]));
           if (pathname === '/api/history') return json(response, 200, { changes: store.history() });
+          if (pathname === '/api/export/active-v5') return json(response, 200, store.exportActive(5), { 'Content-Disposition': 'attachment; filename="skaz-active-v5.json"' });
           if (pathname === '/api/export/active-v4') return json(response, 200, store.exportActive(4), { 'Content-Disposition': 'attachment; filename="skaz-active-v4.json"' });
           if (pathname === '/api/export/active-v3') return json(response, 200, store.exportActive(3), { 'Content-Disposition': 'attachment; filename="skaz-active-v3.json"' });
           if (pathname === '/api/export/active') return json(response, 200, store.exportActive(), { 'Content-Disposition': 'attachment; filename="skaz-active-v2.json"' });
           if (pathname === '/api/export') return json(response, 200, { app: 'skaz', ...store.read() }, { 'Content-Disposition': 'attachment; filename="skaz-backup.json"' });
         }
-        if ((pathname === '/api/workspace' && request.method === 'PUT') || (['/api/campaigns', '/api/context/select', '/api/sessions', '/api/inventory', '/api/inventory/remove', '/api/inventory/undo', '/api/import/active', '/api/spellbook', '/api/quests'].includes(pathname) && request.method === 'POST')) {
+        if ((pathname === '/api/workspace' && request.method === 'PUT') || (['/api/campaigns', '/api/context/select', '/api/sessions', '/api/inventory', '/api/inventory/remove', '/api/inventory/undo', '/api/import/active', '/api/spellbook', '/api/quests', '/api/places'].includes(pathname) && request.method === 'POST')) {
           if (request.headers['x-skaz-client'] !== 'local-v1') throw new AppError(403, 'Запрос должен исходить из приложения');
           const data = await body(request);
           if (!data || typeof data !== 'object' || Array.isArray(data)) throw new AppError(400, 'Неверный запрос');
-          const result = pathname === '/api/quests' ? store.saveQuest(data) : pathname === '/api/spellbook' ? store.setSpell(data) : pathname === '/api/import/active' ? store.importActive(data) : pathname === '/api/inventory/undo' ? store.undoInventory(data) : pathname === '/api/inventory/remove' ? store.removeInventory(data) : pathname === '/api/inventory' ? store.addInventory(data) : pathname === '/api/sessions' ? store.startSession(data) : pathname === '/api/campaigns' ? store.createCampaign(data) : pathname === '/api/context/select' ? store.selectContext(data) : store.update(data);
+          const result = pathname === '/api/places' ? store.savePlace(data) : pathname === '/api/quests' ? store.saveQuest(data) : pathname === '/api/spellbook' ? store.setSpell(data) : pathname === '/api/import/active' ? store.importActive(data) : pathname === '/api/inventory/undo' ? store.undoInventory(data) : pathname === '/api/inventory/remove' ? store.removeInventory(data) : pathname === '/api/inventory' ? store.addInventory(data) : pathname === '/api/sessions' ? store.startSession(data) : pathname === '/api/campaigns' ? store.createCampaign(data) : pathname === '/api/context/select' ? store.selectContext(data) : store.update(data);
           return json(response, 200, result);
         }
         return json(response, 404, { error: 'Неизвестный метод API' });

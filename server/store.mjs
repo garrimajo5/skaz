@@ -1,3 +1,4 @@
+import { setupPlaces, readPlaces, validatePlaceCommand, savePlace } from './places.mjs';
 import { setupQuests, readQuests, validateQuestCommand, saveQuest } from './quests.mjs';
 import { setupSpellbook, readSpellbook, validateSpellCommand, setSpell } from './spellbook.mjs';
 import { validateTransfer, importTransfer } from './transfer.mjs';
@@ -36,6 +37,7 @@ export function openStore(filename) {
   setupInventory(db);
   setupSpellbook(db);
   setupQuests(db);
+  setupPlaces(db);
   db.exec(`CREATE TABLE IF NOT EXISTS context_changes (
     mutation_id TEXT PRIMARY KEY REFERENCES changes(mutation_id),
     operation TEXT NOT NULL, before_json TEXT NOT NULL, after_json TEXT NOT NULL
@@ -54,7 +56,9 @@ export function openStore(filename) {
       const inventory = readInventory(db, current.context.characterId);
       const spellbook = readSpellbook(db, current.context.characterId);
       const quests = readQuests(db, current.context.campaignId);
-      if (![2,3,4].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      const places = readPlaces(db, current.context.campaignId);
+      if (![2,3,4,5].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if (version < 5 && places.length) throw new AppError(409, 'Места кампании требуют экспорт v5 или SQLite backup');
       if (version < 4 && quests.length) throw new AppError(409, 'Задания требуют экспорт v4 или SQLite backup');
       if (version === 2 && spellbook.length) throw new AppError(409, 'Список заклинаний требует экспорт v3 или SQLite backup');
       const entries = new Map();
@@ -78,7 +82,8 @@ export function openStore(filename) {
         state: current.state, session: current.session,
         inventory: inventory.map(({ catalogId, quantity }) => ({ catalogId, quantity })),
         ...(version >= 3 ? { spellbook: spellbook.map(({ catalogId, status }) => ({ catalogId, status })) } : {}),
-        ...(version === 4 ? { quests: quests.map(({ id, campaignId, createdSessionId, importedFrom, title, description, status, steps }) => ({ origin: importedFrom || { campaignId, questId: id, sessionId: createdSessionId }, quest: { title, description, status, steps } })) } : {}),
+        ...(version >= 4 ? { quests: quests.map(({ id, campaignId, createdSessionId, importedFrom, title, description, status, steps }) => ({ origin: importedFrom || { campaignId, questId: id, sessionId: createdSessionId }, quest: { title, description, status, steps } })) } : {}),
+        ...(version === 5 ? { places: places.map(({ id, campaignId, createdSessionId, importedFrom, title, description, x, y, visited }) => ({ origin: importedFrom || { campaignId, placeId: id, sessionId: createdSessionId }, place: { title, description, x, y, visited } })) } : {}),
         catalog: { schemaVersion: 1, entries: [...entries.values()].sort((a, b) => a.id.localeCompare(b.id, 'en')) },
       };
       db.exec('COMMIT');
@@ -141,6 +146,15 @@ export function openStore(filename) {
   }
   return {
     catalog,
+    places: () => { const current = read(); return { revision: current.revision, context: current.context, places: readPlaces(db, current.context.campaignId) }; },
+    savePlace: request => {
+      const payload = validatePlaceCommand(request);
+      const hash = createHash('sha256').update(JSON.stringify({ operation: 'place-save', expectedRevision: request.expectedRevision, payload })).digest('hex');
+      return mutate(request, hash, payload.operation === 'create' ? 'Новое место на карте' : 'Изменение места', () => {
+        savePlace(db, payload, request.mutationId, read().context);
+        return read().state;
+      }, 'place-save');
+    },
     quests: () => { const current = read(); return { revision: current.revision, context: current.context, quests: readQuests(db, current.context.campaignId) }; },
     saveQuest: request => {
       const payload = validateQuestCommand(request);
