@@ -5,8 +5,8 @@ import { readFile } from 'node:fs/promises';
 const source = await readFile(new URL('../client/map.js', import.meta.url), 'utf8');
 function harness() {
   let key = 'first'; const handlers = {}, tasks = [], requests = [], edits = [];
-  const region = { innerHTML: '', setAttribute() {}, focus() {}, scrollIntoView() {} };
-  const context = vm.createContext({ queueMicrotask: fn => tasks.push(fn), document: { addEventListener: (name,fn) => handlers[name] = fn, getElementById: () => region, querySelector: () => region }, SkazStorage: { snapshotKey: () => key, placesData: () => new Promise((resolve,reject) => requests.push({ resolve,reject })), editPlace: p => edits.push(p) } });
+  const region = { innerHTML: '', setAttribute() {}, focus() {}, focus() {}, scrollIntoView() {} };
+  const context = vm.createContext({ queueMicrotask: fn => tasks.push(fn), document: { addEventListener: (name,fn) => handlers[name] = fn, getElementById: () => region, querySelector: () => region }, SkazStorage: { snapshotKey: () => key, contextKey: () => key.split(':')[0], placesData: () => new Promise((resolve,reject) => requests.push({ resolve,reject })), editPlace: p => edits.push(p) } });
   vm.runInContext(source, context);
   return { region, tasks, requests, edits, view: () => vm.runInContext('SkazMap.view()',context), setKey: value => key = value,
     click: (id, dataset = {}) => handlers.click({ target: { closest: () => ({ id, dataset }) } }),

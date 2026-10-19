@@ -275,11 +275,25 @@ const SkazStorage = (() => {
       if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой задания заново.');
       const quest = { title: $('#quest-title').value.trim(), description: $('#quest-description').value, status: $('#quest-status').value, steps: readSteps() };
       if (!quest.title || quest.steps.some(step => !step.title)) return toast('Заполни название задания и каждого этапа');
-      try { await campaignCommand(selected ? 'quest-update' : 'quest-create', { campaignId, questId, quest }); await questList(); }
+      try { await campaignCommand(selected ? 'quest-update' : 'quest-create', { campaignId, questId, quest }); if (typeof SkazQuests === 'undefined' || typeof page === 'undefined' || page !== 'quests') await questList(); }
       catch (error) { toast(error.message); }
     };
   }
   const snapshotKey = () => JSON.stringify({ context: activeContext, revision });
+  async function questsData() {
+    if (demo || status !== 'ready') throw new Error('Сначала сохрани черновик или подключись к серверу');
+    const key = snapshotKey();
+    const data = await request('/api/quests');
+    if (key !== snapshotKey() || JSON.stringify(data.context) !== JSON.stringify(activeContext) || data.revision !== revision) throw new Error('Игра изменилась. Обнови страницу и открой задания снова.');
+    return data;
+  }
+  async function setQuestStep(selected, stepId, done, expectedKey) {
+    if (expectedKey !== snapshotKey()) throw new Error('Игра изменилась. Открой задания заново.');
+    if (!selected.steps.some(step => step.id === stepId) || typeof done !== 'boolean') throw new Error('Этап не найден');
+    const { title, description, status, steps } = selected;
+    return campaignCommand('quest-update', { campaignId: activeContext.campaignId, questId: selected.id,
+      quest: { title, description, status, steps: steps.map(step => ({ ...step, done: step.id === stepId ? done : step.done })) } });
+  }
   async function placesData() {
     if (demo || status !== 'ready') throw new Error('Сначала сохрани черновик или подключись к серверу');
     const key = snapshotKey();
@@ -405,5 +419,5 @@ const SkazStorage = (() => {
     }
   });
   window.addEventListener('beforeunload', event => { if (status === 'saving') { event.preventDefault(); event.returnValue = ''; } });
-  return { commit, paint, settings, inventory, addInventory, removeInventory, spellbook, editSpell, questList, editQuest, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
+  return { commit, paint, settings, inventory, addInventory, removeInventory, spellbook, editSpell, questList, editQuest, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
 })();

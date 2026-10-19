@@ -1,11 +1,12 @@
 const SkazMap = (() => {
+  let contextKey = '';
   let key = '', serial = 0, status = 'idle', data = [], error = '', selected = null;
   let query = '', visited = 'all', offset = 0;
   const limit = 20;
   const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   function view() {
     const current = SkazStorage.snapshotKey();
-    if (current !== key) { key = current; status = 'idle'; data = []; selected = null; offset = 0; ++serial; }
+    if (current !== key) { const nextContext = SkazStorage.contextKey(); if (contextKey !== nextContext) { selected = null; offset = 0; } contextKey = nextContext; key = current; status = 'idle'; data = []; ++serial; }
     if (status === 'idle') { status = 'loading'; queueMicrotask(load); }
     return `<section id="campaign-map" aria-label="Места кампании"><div class="map-toolbar"><div><h2>Места кампании</h2><p>Твоя схема известных мест. Масштаб и расстояния условные.</p></div><button id="new-place" class="primary">Новое место</button></div><form id="map-search" class="map-search"><label>Найти место<input name="q" type="search" maxlength="200" value="${escape(query)}" placeholder="Название или заметка"></label><label>Посещение<select name="visited"><option value="all">Все места</option><option value="yes" ${visited === 'yes' ? 'selected' : ''}>Посещённые</option><option value="no" ${visited === 'no' ? 'selected' : ''}>Ещё не посещённые</option></select></label><button type="submit">Найти</button></form><div id="map-results" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div></section>`;
   }
@@ -28,7 +29,7 @@ const SkazMap = (() => {
     try {
       const result = await SkazStorage.placesData();
       if (requestId !== serial || requestedKey !== SkazStorage.snapshotKey()) return;
-      data = result.places; status = 'ready';
+      data = result.places; status = 'ready'; offset = Math.min(offset, Math.floor(Math.max(0,filtered().length-1)/limit)*limit);
     } catch (e) { if (requestId !== serial || requestedKey !== SkazStorage.snapshotKey()) return; status = 'error'; error = e.message || 'Проверь соединение'; }
     refresh();
   }

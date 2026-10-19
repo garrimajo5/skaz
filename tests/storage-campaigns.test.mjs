@@ -392,3 +392,19 @@ test('v5 preview requires places and preserves full place payload on import', as
   assert.equal(calls.length, 0); await h.get('#confirm-active-import').onclick();
   assert.deepEqual(calls[0].file.places, file.places);
 });
+
+
+test('quick quest step preserves status and other steps, and rejects a stale snapshot', async () => {
+  const calls = [], h = harness(memory(), memory(), async (url, options) => {
+    if (url === '/api/workspace') return response(payload(0));
+    calls.push(JSON.parse(options.body)); return response(payload(1));
+  });
+  await h.api.boot(); const key = h.api.snapshotKey();
+  const selected = { id: 'quest-existing', title: 'Map', description: 'Ask', status: 'active', steps: [{ id: 'step-one', title: 'First', done: false }, { id: 'step-two', title: 'Second', done: true }] };
+  await h.api.setQuestStep(selected, 'step-one', true, key);
+  assert.equal(calls[0].operation, 'update'); assert.equal(calls[0].quest.status, 'active');
+  assert.deepEqual(calls[0].quest.steps.map(s => s.done), [true,true]);
+  assert.deepEqual(selected.steps.map(s => s.done), [false,true]);
+  await assert.rejects(h.api.setQuestStep(selected, 'step-two', false, key), /Игра изменилась/);
+  assert.equal(calls.length, 1);
+});
