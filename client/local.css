@@ -23,3 +23,14 @@
 dialog:has(#inventory-view){max-width:860px}.inventory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.inventory-grid .panel{padding:16px;display:flex;flex-direction:column;overflow-wrap:anywhere}.inventory-grid .panel-title{margin-bottom:6px;align-items:flex-start}.inventory-grid h3{margin:0}.inventory-grid .panel-title strong{white-space:nowrap}.inventory-grid p{margin:0 0 8px}.inventory-grid small{color:var(--muted);font-size:11px}.inventory-grid .dialog-actions{margin-top:auto;padding-top:12px}.inventory-tools button{min-height:44px;font-size:12px}.inventory-search .dialog-actions{gap:8px}.inventory-search button{font-size:12px}.inventory-search label{font-size:12px}
 @media(min-width:740px){.inventory-search{grid-template-columns:minmax(180px,1fr) minmax(160px,.8fr) auto;align-items:end}.inventory-search .dialog-actions{grid-column:auto}.inventory-search .dialog-actions button{padding-inline:12px}}
 @media(max-width:650px){.inventory-grid{grid-template-columns:1fr}}
+
+/* Keep charge confirmation reachable while the fields scroll on a tablet or phone. */
+dialog:has(#charges-form){height:min(760px,90dvh);max-height:90dvh;overflow:hidden}
+#dialog-content:has(#charges-form){height:100%;display:flex;flex-direction:column;min-height:0}
+#dialog-content:has(#charges-form)>button{align-self:flex-start;flex-shrink:0}
+#dialog-content:has(#charges-form)>h2{font-size:26px;margin-block:12px;overflow-wrap:anywhere}
+#dialog-content:has(#charges-form)>p{font-size:12px;margin-block:8px}
+#charges-form{display:flex;flex-direction:column;flex:1;min-height:0;margin-top:8px}
+.charges-fields{overflow:auto;min-height:0;padding:4px;scrollbar-gutter:stable}
+#charges-form .dialog-actions{flex-shrink:0;margin-top:12px;padding-top:8px;border-top:1px solid var(--line)}
+#charges-form input,#charges-form select{min-height:44px;width:100%;min-width:0}

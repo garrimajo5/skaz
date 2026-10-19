@@ -25,17 +25,24 @@ async function body(request) {
   try { return JSON.parse(Buffer.concat(chunks).toString('utf8')); }
   catch { throw new AppError(400, 'Не удалось прочитать JSON'); }
 }
-export function createApp(store) {
+export function createApp(store, { publicOrigin } = {}) {
+  // TLS and authentication terminate at a loopback reverse proxy. Never trust forwarded headers.
+  if (publicOrigin !== undefined) {
+    let parsed;
+    try { parsed = new URL(publicOrigin); } catch { throw new Error('SKAZ_PUBLIC_ORIGIN должен быть HTTPS origin'); }
+    if (parsed.protocol !== 'https:' || parsed.origin !== publicOrigin || parsed.username || parsed.password) throw new Error('SKAZ_PUBLIC_ORIGIN должен быть HTTPS origin без пути');
+  }
   return http.createServer(async (request, response) => {
     try {
+      response.setHeader('X-Skaz-Mode', publicOrigin ? 'private-server' : 'local');
       const host = request.headers.host;
       const port = request.socket.localPort;
       if (![ `localhost:${port}`, `127.0.0.1:${port}` ].includes(host)) throw new AppError(403, 'Доступ только с локального адреса');
-      if (request.headers.origin && request.headers.origin !== `http://${host}`) throw new AppError(403, 'Запрос с другого сайта запрещён');
+      if (request.headers.origin && request.headers.origin !== `http://${host}` && request.headers.origin !== publicOrigin) throw new AppError(403, 'Запрос с другого сайта запрещён');
       const pathname = new URL(request.url, `http://${host}`).pathname;
       if (pathname.startsWith('/api/')) {
         if (request.method === 'GET') {
-          if (pathname === '/api/health') return json(response, 200, { status: 'ok', mode: 'local', storage: 'sqlite' });
+          if (pathname === '/api/health') return json(response, 200, { status: 'ok', mode: publicOrigin ? 'private-server' : 'local', storage: 'sqlite' });
           if (pathname === '/api/proposals') return json(response, 200, store.proposals());
           if (pathname === '/api/places') return json(response, 200, store.places());
           if (pathname === '/api/quests') return json(response, 200, store.quests());
@@ -56,6 +63,7 @@ export function createApp(store) {
           const sessionDetail = pathname.match(/^\/api\/sessions\/([a-zA-Z0-9-]{1,80})$/);
           if (sessionDetail) return json(response, 200, store.session(sessionDetail[1]));
           if (pathname === '/api/history') return json(response, 200, { changes: store.history() });
+          if (pathname === '/api/export/active-v7') return json(response, 200, store.exportActive(7), { 'Content-Disposition': 'attachment; filename="skaz-active-v7.json"' });
           if (pathname === '/api/export/active-v6') return json(response, 200, store.exportActive(6), { 'Content-Disposition': 'attachment; filename="skaz-active-v6.json"' });
           if (pathname === '/api/export/active-v5') return json(response, 200, store.exportActive(5), { 'Content-Disposition': 'attachment; filename="skaz-active-v5.json"' });
           if (pathname === '/api/export/active-v4') return json(response, 200, store.exportActive(4), { 'Content-Disposition': 'attachment; filename="skaz-active-v4.json"' });
@@ -63,11 +71,11 @@ export function createApp(store) {
           if (pathname === '/api/export/active') return json(response, 200, store.exportActive(), { 'Content-Disposition': 'attachment; filename="skaz-active-v2.json"' });
           if (pathname === '/api/export') return json(response, 200, { app: 'skaz', ...store.read() }, { 'Content-Disposition': 'attachment; filename="skaz-backup.json"' });
         }
-        if ((pathname === '/api/workspace' && request.method === 'PUT') || (['/api/catalog/import/preview', '/api/catalog/import', '/api/catalog/bundled', '/api/characters', '/api/campaigns', '/api/context/select', '/api/sessions', '/api/inventory', '/api/inventory/remove', '/api/inventory/undo', '/api/import/active', '/api/spellbook', '/api/quests', '/api/places', '/api/proposals', '/api/proposals/decide'].includes(pathname) && request.method === 'POST')) {
+        if ((pathname === '/api/workspace' && request.method === 'PUT') || (['/api/catalog/import/preview', '/api/catalog/import', '/api/catalog/bundled', '/api/characters', '/api/campaigns', '/api/context/select', '/api/sessions', '/api/inventory', '/api/inventory/remove', '/api/inventory/charges', '/api/inventory/undo', '/api/import/active', '/api/spellbook', '/api/quests', '/api/places', '/api/proposals', '/api/proposals/decide'].includes(pathname) && request.method === 'POST')) {
           if (request.headers['x-skaz-client'] !== 'local-v1') throw new AppError(403, 'Запрос должен исходить из приложения');
           const data = await body(request);
           if (!data || typeof data !== 'object' || Array.isArray(data)) throw new AppError(400, 'Неверный запрос');
-          const result = pathname === '/api/catalog/import/preview' ? store.catalog.reviewedImport(data) : pathname === '/api/catalog/import' ? store.catalog.reviewedImport(data,true) : pathname === '/api/catalog/bundled' ? store.catalog.installBundled(data) : pathname === '/api/characters' ? store.createCharacter(data) : pathname === '/api/proposals' ? store.createProposal(data) : pathname === '/api/proposals/decide' ? store.decideProposal(data) : pathname === '/api/places' ? store.savePlace(data) : pathname === '/api/quests' ? store.saveQuest(data) : pathname === '/api/spellbook' ? store.setSpell(data) : pathname === '/api/import/active' ? store.importActive(data) : pathname === '/api/inventory/undo' ? store.undoInventory(data) : pathname === '/api/inventory/remove' ? store.removeInventory(data) : pathname === '/api/inventory' ? store.addInventory(data) : pathname === '/api/sessions' ? store.startSession(data) : pathname === '/api/campaigns' ? store.createCampaign(data) : pathname === '/api/context/select' ? store.selectContext(data) : store.update(data);
+          const result = pathname === '/api/catalog/import/preview' ? store.catalog.reviewedImport(data) : pathname === '/api/catalog/import' ? store.catalog.reviewedImport(data,true) : pathname === '/api/catalog/bundled' ? store.catalog.installBundled(data) : pathname === '/api/characters' ? store.createCharacter(data) : pathname === '/api/proposals' ? store.createProposal(data) : pathname === '/api/proposals/decide' ? store.decideProposal(data) : pathname === '/api/places' ? store.savePlace(data) : pathname === '/api/quests' ? store.saveQuest(data) : pathname === '/api/spellbook' ? store.setSpell(data) : pathname === '/api/import/active' ? store.importActive(data) : pathname === '/api/inventory/charges' ? store.changeCharges(data) : pathname === '/api/inventory/undo' ? store.undoInventory(data) : pathname === '/api/inventory/remove' ? store.removeInventory(data) : pathname === '/api/inventory' ? store.addInventory(data) : pathname === '/api/sessions' ? store.startSession(data) : pathname === '/api/campaigns' ? store.createCampaign(data) : pathname === '/api/context/select' ? store.selectContext(data) : store.update(data);
           return json(response, 200, result);
         }
         return json(response, 404, { error: 'Неизвестный метод API' });

@@ -9,6 +9,7 @@ const SkazStorage = (() => {
   const pendingKey = 'skaz-pending-v1:' + tabId;
   let status = demo ? 'demo' : 'loading';
   let revision = 0;
+  let privateServer = false;
   let activeContext = null;
   let sessionInfo = null;
   let pending = null;
@@ -24,6 +25,7 @@ const SkazStorage = (() => {
   }
   async function request(url, options = {}) {
     const response = await fetch(url, { cache: 'no-store', ...options, signal: AbortSignal.timeout(10000) });
+    if(response.headers?.get('x-skaz-mode') === 'private-server')privateServer=true;
     const payload = await response.json();
     if (!response.ok) { const error = new Error(payload.error || 'Сервер не ответил'); error.status = response.status; throw error; }
     return payload;
@@ -31,10 +33,11 @@ const SkazStorage = (() => {
   function paint() {
     const box = document.getElementById('sync-status');
     if (!box) return;
+    const modeLabel=document.getElementById('app-mode');if(modeLabel)modeLabel.textContent=privateServer?'0.2 / Закрытый сервер':'0.2 / Локальная версия';
     const labels = {
-      demo: 'Автономное демо · данные в этом браузере', loading: 'Открываем локальную базу…',
-      ready: 'Сохранено на этом компьютере', saving: 'Сохраняем…',
-      error: 'Нет связи с локальным сервером', pending: 'Изменение ещё не подтверждено сервером',
+      demo: 'Автономное демо · данные в этом браузере', loading: 'Подключаемся…',
+      ready: privateServer?'Сохранено на сервере':'Сохранено на этом компьютере', saving: 'Сохраняем…',
+      error: 'Нет связи с сервером', pending: 'Изменение ещё не подтверждено сервером',
       conflict: 'Другая вкладка уже изменила данные',
       stale: 'В другом окне есть изменения',
     };
@@ -76,22 +79,23 @@ const SkazStorage = (() => {
       try { pending = JSON.parse(localStorage.getItem(pendingKey) || 'null'); } catch { pending = null; }
       status = pending ? 'pending' : 'ready';
       render();
-    } catch { status = 'error'; message = 'Запусти приложение командой node scripts/dev.mjs и повтори подключение.'; paint(); }
+    } catch { status = 'error'; message = location.protocol==='https:'?'Не удалось подключиться. Проверь соединение и повтори попытку.':'Запусти приложение командой node scripts/dev.mjs и повтори подключение.'; paint(); }
   }
   async function sendPending() {
     status = 'saving'; message = ''; paint();
     try {
       const { operation, ...body } = pending;
+      if(operation === 'inventory-charges'){body.operation=body.chargeAction;delete body.chargeAction;}
       if (operation === 'place-create' || operation === 'place-update') body.operation = operation === 'place-create' ? 'create' : 'update';
       if (operation === 'quest-create' || operation === 'quest-update') body.operation = operation === 'quest-create' ? 'create' : 'update';
-      const url = operation === 'character-create' ? '/api/characters' : operation === 'proposal-create' ? '/api/proposals' : operation === 'proposal-decide' ? '/api/proposals/decide' : operation?.startsWith('place-') ? '/api/places' : operation?.startsWith('quest-') ? '/api/quests' : operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
+      const url = operation === 'character-create' ? '/api/characters' : operation === 'proposal-create' ? '/api/proposals' : operation === 'proposal-decide' ? '/api/proposals/decide' : operation?.startsWith('place-') ? '/api/places' : operation?.startsWith('quest-') ? '/api/quests' : operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-charges' ? '/api/inventory/charges' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
       const payload = await request(url, { method: operation ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body: JSON.stringify(body) });
       apply(payload);
       return payload;
     } catch (error) {
       status = error.status === 409 ? 'conflict' : 'pending';
       message = !draftStored ? 'Черновик только в памяти вкладки. Скачай его перед закрытием.' : error.status ? error.message : 'Черновик сохранён в браузере. Повторный запрос не применит изменение дважды.';
-      if (!error.status) error.message = 'Нет связи с локальным сервером. Черновик можно отправить повторно.';
+      if (!error.status) error.message = 'Нет связи с сервером. Черновик можно отправить повторно.';
       paint();
       throw error;
     }
@@ -120,20 +124,20 @@ const SkazStorage = (() => {
     if (demo || status !== 'ready') return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key = JSON.stringify(activeContext), version = revision;
     try {
-      const file = await request('/api/export/active-v6');
+      const file = await request('/api/export/active-v7');
       if (key !== JSON.stringify(activeContext) || version !== revision || JSON.stringify(file.source?.context) !== key || file.source?.revision !== version) return toast('Игра изменилась. Обнови страницу перед экспортом.');
-      download(file, 'skaz-active-v6.json');
+      download(file, 'skaz-active-v7.json');
     } catch (error) { toast(error.message || 'Не удалось скачать игру'); }
   }
   function previewActive(file) {
     if (demo || status !== 'ready') return toast('Импорт доступен после подключения и сохранения черновика');
-    if (file.ruleset !== '5e-2014' || file.scope !== 'active-game' || typeof file.state?.profile?.name !== 'string' || typeof file.state?.profile?.campaign !== 'string' || !Array.isArray(file.inventory) || !Array.isArray(file.catalog?.entries)) throw new Error('Неверный файл игры v2–v6');
+    if (file.ruleset !== '5e-2014' || file.scope !== 'active-game' || typeof file.state?.profile?.name !== 'string' || typeof file.state?.profile?.campaign !== 'string' || !Array.isArray(file.inventory) || !Array.isArray(file.catalog?.entries)) throw new Error('Неверный файл игры v2–v7');
     if (file.schemaVersion >= 3 && !Array.isArray(file.spellbook)) throw new Error('В файле отсутствует список заклинаний');
     if (file.schemaVersion >= 4 && !Array.isArray(file.quests)) throw new Error('В файле отсутствует список заданий');
     if (file.schemaVersion >= 5 && !Array.isArray(file.places)) throw new Error('В файле отсутствует список мест');
-    if (file.schemaVersion === 6 && !Array.isArray(file.proposals)) throw new Error('В файле v6 отсутствует список предложений событий');
+    if (file.schemaVersion >= 6 && !Array.isArray(file.proposals)) throw new Error('В файле отсутствует список предложений событий');
     const key = JSON.stringify(activeContext), version = revision;
-    modal(`<div class="overline">ПЕРЕНОС D&D 2014 · НОВАЯ КАМПАНИЯ</div><h2>${esc(file.state.profile.campaign)}</h2><p>Персонаж: ${esc(file.state.profile.name)}. Видов предметов: ${file.inventory.length}. Материалов каталога: ${file.catalog.entries.length}. Заклинаний: ${file.schemaVersion >= 3 ? file.spellbook.length : 'не включены в v2'}. Заданий: ${file.schemaVersion >= 4 ? file.quests.length : 'не включены в v' + file.schemaVersion}. Мест на карте: ${file.schemaVersion >= 5 ? file.places.length : 'не включены в этот формат'}. Предложений событий: ${file.schemaVersion === 6 ? file.proposals.length : 'не включены в этот формат'}.</p>${file.schemaVersion >= 4 ? '<p>Задания и места появятся в новой кампании. Сведения об исходной сессии сохранятся, даже если её архив отсутствует в файле.</p>' : ''}<p>Будет создана и открыта новая кампания. Существующие игры сохранятся. В файле только выбранный персонаж и текущая сессия: другие персонажи, архивы и история не переносятся. Сервер проверит данные и источники; конфликт отменит весь импорт.</p><div class="dialog-actions"><button id="confirm-active-import" class="primary">Создать новую кампанию из файла</button></div>`);
+    modal(`<div class="overline">ПЕРЕНОС D&D 2014 · НОВАЯ КАМПАНИЯ</div><h2>${esc(file.state.profile.campaign)}</h2><p>Персонаж: ${esc(file.state.profile.name)}. Видов предметов: ${file.inventory.length}. Материалов каталога: ${file.catalog.entries.length}. Заклинаний: ${file.schemaVersion >= 3 ? file.spellbook.length : 'не включены в v2'}. Заданий: ${file.schemaVersion >= 4 ? file.quests.length : 'не включены в v' + file.schemaVersion}. Мест на карте: ${file.schemaVersion >= 5 ? file.places.length : 'не включены в этот формат'}. Предложений событий: ${file.schemaVersion >= 6 ? file.proposals.length : 'не включены в этот формат'}.</p>${file.schemaVersion >= 4 ? '<p>Задания и места появятся в новой кампании. Сведения об исходной сессии сохранятся, даже если её архив отсутствует в файле.</p>' : ''}<p>Будет создана и открыта новая кампания. Существующие игры сохранятся. В файле только выбранный персонаж и текущая сессия: другие персонажи, архивы и история не переносятся. Сервер проверит данные и источники; конфликт отменит весь импорт.</p><div class="dialog-actions"><button id="confirm-active-import" class="primary">Создать новую кампанию из файла</button></div>`);
     $('#confirm-active-import').onclick = async () => {
       if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Выбери файл заново.');
       try { await campaignCommand('import-active', { destination: 'new-campaign', file }); }
@@ -152,7 +156,7 @@ const SkazStorage = (() => {
     rememberDraft();
     closeModal();
     const payload = await sendPending();
-    toast(operation === 'character-create' ? 'Создан персонаж: ' + payload.state.profile.name : operation === 'select' ? 'Выбран персонаж: ' + payload.state.profile.name : operation === 'proposal-create' ? 'Предложение ждёт подтверждения' : operation === 'proposal-decide' ? 'Решение по событию сохранено' : operation.startsWith('place-') ? 'Место сохранено' : operation.startsWith('quest-') ? 'Задание сохранено' : operation === 'spell-set' ? 'Список заклинаний сохранён' : operation === 'import-active' ? 'Игра импортирована в новую кампанию' : operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
+    toast(operation === 'character-create' ? 'Создан персонаж: ' + payload.state.profile.name : operation === 'select' ? 'Выбран персонаж: ' + payload.state.profile.name : operation === 'proposal-create' ? 'Предложение ждёт подтверждения' : operation === 'proposal-decide' ? 'Решение по событию сохранено' : operation.startsWith('place-') ? 'Место сохранено' : operation.startsWith('quest-') ? 'Задание сохранено' : operation === 'spell-set' ? 'Список заклинаний сохранён' : operation === 'import-active' ? 'Игра импортирована в новую кампанию' : operation === 'inventory-charges' ? 'Остаток зарядов сохранён' : operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
     return payload;
   }
   function newCharacter() {
@@ -224,7 +228,7 @@ const SkazStorage = (() => {
         inventoryFilter.offset=Math.min(inventoryFilter.offset,last);
         const start=inventoryFilter.offset,shown=matching.slice(start,start+pageSize);
         const pages=suffix=>`<nav class="inventory-pages" aria-label="Страницы инвентаря${suffix?' внизу':''}"><button id="inventory-prev${suffix}" ${start===0?'disabled':''}>← Назад</button><span>${matching.length?start+1:0}–${Math.min(start+pageSize,matching.length)} из ${matching.length}</span><button id="inventory-next${suffix}" ${start+pageSize>=matching.length?'disabled':''}>Далее →</button></nav>`;
-        modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 id="inventory-view" tabindex="-1" autofocus>Инвентарь</h2><p>${state.gold} зм · видов предметов: ${data.entries.length}</p><div class="inventory-tools"><button id="inventory-catalog" class="primary">Найти предмет в справочнике</button>${data.undo?`<button id="inventory-undo">Отменить: ${esc(data.undo.label)}</button>`:''}</div><form id="inventory-search" class="inventory-search"><label for="inventory-query">Название RU / EN<input id="inventory-query" type="search" maxlength="200" value="${esc(inventoryFilter.q)}" placeholder="Например, кольцо или ring"></label><label for="inventory-attunement">Требование настройки<select id="inventory-attunement"><option value="">Все предметы</option value="required" ${inventoryFilter.attunement==='required'?'selected':''}>Требует настройки</option><option value="none" ${inventoryFilter.attunement==='none'?'selected':''}>Без настройки</option></select></label><div class="dialog-actions"><button type="submit">Найти в инвентаре</button><button type="button" id="inventory-reset">Сбросить</button></div></form><p class="small">Фильтр показывает требование предмета, а не выполненную настройку персонажа.</p>${pages('')}<div class="inventory-grid">${shown.map(({item,index})=>`<article class="panel"><div class="panel-title"><h3>${esc(item.entry.name.ru)}</h3><strong>× ${item.quantity}</strong></div><p>${esc(item.entry.name.en||'')}</p><small>${(item.entry.item||item.entry.artifact)?.attunement===true?'Требует настройки':(item.entry.item||item.entry.artifact)?.attunement===false?'Без настройки':'Требование настройки не указано'}</small><div class="dialog-actions"><button data-inventory-read="${index}">Читать</button><button data-inventory-remove="${index}">Списать</button></div></article>`).join('') || `<p role="status">${data.entries.length?'По этим условиям ничего не найдено. Сбрось фильтры или измени название.':'Пока пусто. Найди предмет в справочнике и добавь его в инвентарь.'}</p>`}</div>${matching.length>pageSize?pages('-bottom'):''}<p>Здесь только сохранённые предметы. Списание меняет только количество. Настройка, лечение и бонусы не применяются автоматически. Отменить можно последнюю операцию, пока не было других изменений игры.</p>`);
+        modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 id="inventory-view" tabindex="-1" autofocus>Инвентарь</h2><p>${state.gold} зм · видов предметов: ${data.entries.length}</p><div class="inventory-tools"><button id="inventory-catalog" class="primary">Найти предмет в справочнике</button>${data.undo?`<button id="inventory-undo">Отменить: ${esc(data.undo.label)}</button>`:''}</div><form id="inventory-search" class="inventory-search"><label for="inventory-query">Название RU / EN<input id="inventory-query" type="search" maxlength="200" value="${esc(inventoryFilter.q)}" placeholder="Например, кольцо или ring"></label><label for="inventory-attunement">Требование настройки<select id="inventory-attunement"><option value="">Все предметы</option value="required" ${inventoryFilter.attunement==='required'?'selected':''}>Требует настройки</option><option value="none" ${inventoryFilter.attunement==='none'?'selected':''}>Без настройки</option></select></label><div class="dialog-actions"><button type="submit">Найти в инвентаре</button><button type="button" id="inventory-reset">Сбросить</button></div></form><p class="small">Фильтр показывает требование предмета, а не выполненную настройку персонажа.</p>${pages('')}<div class="inventory-grid">${shown.map(({item,index})=>`<article class="panel"><div class="panel-title"><h3>${esc(item.entry.name.ru)}</h3><strong>× ${item.quantity}</strong></div><p>${esc(item.entry.name.en||'')}</p>${(item.entry.item||item.entry.artifact)?.charges?`<p class="small">Заряды: ${Array.from({length:Math.min(item.quantity,3)},(_,i)=>`№ ${i+1}: ${item.chargeCounts?.[i]??'?'}/${(item.entry.item||item.entry.artifact).charges.max}`).join(' · ')}${item.quantity>3?' · ещё '+(item.quantity-3):''}. ? — остаток неизвестен.</p>`:''}<small>${(item.entry.item||item.entry.artifact)?.attunement===true?'Требует настройки':(item.entry.item||item.entry.artifact)?.attunement===false?'Без настройки':'Требование настройки не указано'}</small><div class="dialog-actions">${(item.entry.item||item.entry.artifact)?.charges?`<button data-inventory-charges="${index}">Заряды</button>`:''}<button data-inventory-read="${index}">Читать</button><button data-inventory-remove="${index}">Списать</button></div></article>`).join('') || `<p role="status">${data.entries.length?'По этим условиям ничего не найдено. Сбрось фильтры или измени название.':'Пока пусто. Найди предмет в справочнике и добавь его в инвентарь.'}</p>`}</div>${matching.length>pageSize?pages('-bottom'):''}<p>Здесь только сохранённые предметы. Списание меняет только количество. Настройка, лечение и бонусы не применяются автоматически. Отменить можно последнюю операцию, пока не было других изменений игры.</p>`);
         const current=()=>{
           if(!visible()){toast('Игра изменилась. Открой инвентарь заново.');return false;}
           return true;
@@ -240,6 +244,7 @@ const SkazStorage = (() => {
           $('#inventory-prev'+suffix).onclick=()=>{if(!current()||inventoryFilter.offset===0)return;inventoryFilter.offset=Math.max(0,inventoryFilter.offset-pageSize);drawInventory();};
           $('#inventory-next'+suffix).onclick=()=>{if(!current()||inventoryFilter.offset+pageSize>=matching.length)return;inventoryFilter.offset+=pageSize;drawInventory();};
         }
+        $$('[data-inventory-charges]').forEach(button=>button.onclick=()=>{if(current())editCharges(data.entries[Number(button.dataset.inventoryCharges)]);});
         $$('[data-inventory-read]').forEach(button=>button.onclick=()=>{if(current())readInventoryItem(data.entries[Number(button.dataset.inventoryRead)]);});
         $$('[data-inventory-remove]').forEach(button=>button.onclick=()=>{if(current())removeInventory(data.entries[Number(button.dataset.inventoryRemove)]);});
         if(data.undo)$('#inventory-undo').onclick=async()=>{
@@ -258,9 +263,38 @@ const SkazStorage = (() => {
     const key=snapshotKey();
     let sourceLink='';
     try{const source=new URL(entry.source.url);if(['https:','http:'].includes(source.protocol)&&!source.username&&!source.password)sourceLink=`<p><a href="${esc(source.href)}" target="_blank" rel="noopener noreferrer">Открыть первоисточник ↗</a></p>`;}catch{}
-    modal(`<button id="inventory-read-back">← К инвентарю</button><div class="overline">${esc(state.profile.name)} · В наличии: ${item.quantity}</div><h2>${esc(entry.name.ru)}</h2><p>${esc(entry.name.en)}</p>${info?`<p>Настройка: ${info.attunement?'требуется':'не требуется'}${info.attunementRequirement?' · '+esc(info.attunementRequirement):''}.</p>`:''}<p>Сохранённая карточка предмета. Чтение не меняет количество и не применяет эффекты.</p>${info?.charges?`<p>Максимум зарядов: ${esc(info.charges.max)}. Восстановление: ${esc(info.charges.recharge)} Это справочные значения, не текущий остаток.</p>`:''}${entry.id&&typeof SkazCatalog!=='undefined'?'<button id="inventory-reference">Правила и связи в справочнике →</button>':''}<div class="catalog-text">${esc(entry.text||'Текст не импортирован; используй ссылку на источник.')}</div><p>${esc(entry.source.title)} · ${esc(entry.source.version)}</p><p>${esc(entry.source.terms)}</p>${sourceLink}${entry.source.attribution?`<p>${esc(entry.source.attribution)}</p>`:''}${entry.source.changes?`<p>${esc(entry.source.changes)}</p>`:''}`);
+    modal(`<button id="inventory-read-back">← К инвентарю</button><div class="overline">${esc(state.profile.name)} · В наличии: ${item.quantity}</div><h2>${esc(entry.name.ru)}</h2><p>${esc(entry.name.en)}</p>${info?`<p>Настройка: ${info.attunement?'требуется':'не требуется'}${info.attunementRequirement?' · '+esc(info.attunementRequirement):''}.</p>`:''}<p>Сохранённая карточка предмета. Чтение не меняет количество и не применяет эффекты.</p>${info?.charges?`<p>Максимум зарядов: ${esc(info.charges.max)}. Восстановление: ${esc(info.charges.recharge)} Это справочные значения, не текущий остаток.</p><button id="inventory-charges" class="primary">Учёт зарядов · ${item.chargeCounts?.filter(n=>n!==null).length||0} из ${item.quantity} указано</button>`:''}${entry.id&&typeof SkazCatalog!=='undefined'?'<button id="inventory-reference">Правила и связи в справочнике →</button>':''}<div class="catalog-text">${esc(entry.text||'Текст не импортирован; используй ссылку на источник.')}</div><p>${esc(entry.source.title)} · ${esc(entry.source.version)}</p><p>${esc(entry.source.terms)}</p>${sourceLink}${entry.source.attribution?`<p>${esc(entry.source.attribution)}</p>`:''}${entry.source.changes?`<p>${esc(entry.source.changes)}</p>`:''}`);
     $('#inventory-read-back').onclick=inventory;
+    if(info?.charges)$('#inventory-charges').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.');editCharges(item);};
     if(entry.id&&typeof SkazCatalog!=='undefined')$('#inventory-reference').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.');SkazCatalog.openReference(entry.id,()=>readInventoryItem(item),()=>key===snapshotKey());};
+  }
+  function editCharges(item) {
+    if(demo||status!=='ready'||!activeContext)return toast('Сначала сохрани черновик или загрузи актуальные данные');
+    const key=snapshotKey(),characterId=activeContext.characterId,info=item.entry.item||item.entry.artifact,maximum=info.charges.max;
+    const counts=item.chargeCounts||Array(item.quantity).fill(null);
+    modal(`<button id="charges-back">← К предмету</button><div class="overline">${esc(state.profile.name)} · ИНВЕНТАРЬ</div><h2 tabindex="-1" autofocus>Заряды: ${esc(item.entry.name.ru)}</h2><p>Максимум: ${maximum}. Восстановление: ${esc(info.charges.recharge)}</p><form id="charges-form"><div class="charges-fields"><label for="charges-unit">Экземпляр<select id="charges-unit">${counts.map((n,i)=>`<option value="${i}">№ ${i+1} · ${n===null?'остаток неизвестен':n+' / '+maximum}</option>`).join('')}</select></label><label for="charges-operation">Что произошло<select id="charges-operation"><option value="set">Указать текущий остаток</option><option value="spend">Потратить заряды</option><option value="recover">Восстановить заряды</option><option value="unknown">Остаток неизвестен</option></select></label><label for="charges-amount">Количество<input id="charges-amount" type="number" min="0" max="${maximum}" step="1" inputmode="numeric" required placeholder="Введи число"></label><p id="charges-preview" role="status" aria-live="polite"></p><p class="small">Броски и восстановление подтверждаешь ты. Ноль зарядов не уничтожает предмет автоматически. Номера различают одинаковые предметы внутри этого списка.</p></div><div class="dialog-actions"><button type="submit" class="primary">Сохранить заряды</button></div></form>`);
+    $('#charges-back').onclick=()=>{if(key===snapshotKey())readInventoryItem(item);else inventory();};
+    function value(){
+      const unit=Number($('#charges-unit').value),operation=$('#charges-operation').value,raw=$('#charges-amount').value;
+      if(!Number.isInteger(unit)||unit<0||unit>=counts.length)throw new Error('Выбери экземпляр');
+      if(!['set','spend','recover','unknown'].includes(operation))throw new Error('Выбери действие');
+      const amount=operation==='unknown'?null:Number(raw);
+      if(operation!=='unknown'&&(raw.trim()===''||!Number.isSafeInteger(amount)||amount<(operation==='set'?0:1)||amount>maximum))throw new Error('Укажи целое количество в пределах максимума');
+      if(['spend','recover'].includes(operation)&&counts[unit]===null)throw new Error('Сначала укажи текущий остаток этого экземпляра');
+      const next=operation==='unknown'?null:operation==='set'?amount:counts[unit]+(operation==='spend'?-amount:amount);
+      if(next!==null&&(next<0||next>maximum))throw new Error('Результат должен быть от 0 до '+maximum);
+      if(next===counts[unit])throw new Error('Остаток не изменился');
+      return {unit,operation,amount,next};
+    }
+    function preview(){
+      const unknown=$('#charges-operation').value==='unknown';$('#charges-amount').disabled=unknown;$('#charges-amount').required=!unknown;$('#charges-amount').min=$('#charges-operation').value==='set'?'0':'1';
+      try{const v=value();$('#charges-preview').textContent=`После сохранения: № ${v.unit+1} · ${v.next===null?'остаток неизвестен':v.next+' / '+maximum}`;}catch(error){$('#charges-preview').textContent=error.message;}
+    }
+    $('#charges-unit').onchange=preview;$('#charges-operation').onchange=preview;$('#charges-amount').oninput=preview;preview();
+    $('#charges-form').onsubmit=async event=>{
+      event.preventDefault();if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.');
+      try{const {next,operation:chargeAction,...fields}=value();await campaignCommand('inventory-charges',{characterId,catalogId:item.catalogId,chargeAction,...fields});await inventory();}catch(error){toast(error.message);}
+    };
   }
   function addInventory(entry) {
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
@@ -279,7 +313,7 @@ const SkazStorage = (() => {
   function removeInventory(item) {
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key = JSON.stringify(activeContext), version = revision, characterId = activeContext.characterId;
-    modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 tabindex="-1" autofocus>Списать: ${esc(item.entry.name.ru)}</h2><p>В наличии: ${item.quantity}. Это учёт расхода, потери или передачи. Лечение и другие эффекты не применяются.</p><form id="inventory-remove-form"><label for="inventory-remove-quantity">Сколько списать</label><input id="inventory-remove-quantity" type="number" min="1" max="${item.quantity}" step="1" value="1" required inputmode="numeric"><div class="dialog-actions"><button type="submit" class="primary">Списать количество</button></div></form>`);
+    modal(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 tabindex="-1" autofocus>Списать: ${esc(item.entry.name.ru)}</h2><p>В наличии: ${item.quantity}. ${item.quantity>1&&(item.entry.item||item.entry.artifact)?.charges?'Будут списаны последние экземпляры в списке вместе с их остатками зарядов. ' : ''}Это учёт расхода, потери или передачи. Лечение и другие эффекты не применяются.</p><form id="inventory-remove-form"><label for="inventory-remove-quantity">Сколько списать</label><input id="inventory-remove-quantity" type="number" min="1" max="${item.quantity}" step="1" value="1" required inputmode="numeric"><div class="dialog-actions"><button type="submit" class="primary">Списать количество</button></div></form>`);
     $('#inventory-remove-form').onsubmit = async event => {
       event.preventDefault();
       if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой инвентарь заново.');
@@ -455,7 +489,7 @@ const SkazStorage = (() => {
     } catch { modal('<h2>Сессии недоступны</h2><p>Проверь соединение и открой список снова.</p>'); }
   }
   function settings() {
-    modal(`<div class="overline">СКАЗ · ЛОКАЛЬНАЯ ВЕРСИЯ 0.2</div><h2>Данные приключения</h2><p>${demo ? 'Этот HTML-файл работает в демонстрационном режиме. Для сохранения в базе открой локальное приложение.' : 'Прогресс хранится в SQLite на этом компьютере. Тема выбирается отдельно для каждого браузера.'}</p><div class="settings-actions"><button id="export-state">Скачать прогресс без инвентаря (v1)</button>${!demo ? '<button id="export-active" class="primary">Скачать активную игру (v6)</button>' : ''}<label class="file-label">Импортировать JSON v1–v6<input id="import-state" type="file" accept=".json,application/json"></label><button id="import-old">Перенести данные раннего прототипа</button>${!demo ? '<button id="change-history">История сохранений</button><button id="saved-drafts">Несохранённые черновики</button>' : ''}</div><p>v6 переносит предложения событий, активного персонажа, текущую сессию, задания, места кампании, инвентарь и заклинания с источниками в новую кампанию. Другие персонажи, архивы сессий и история не входят. v2–v5 не содержат предложений событий. v2–v4 не содержат собственных мест кампании. v2/v3 не содержат сохранённых заданий; в v2 также нет списка заклинаний. v1 заменяет текущий прогресс без инвентаря, списка заклинаний и сохранённых заданий. Лимит импорта — 512 КиБ. Для полной копии нужна резервная копия SQLite.</p><p>Каждая кампания использует шаблон барда 5 уровня. В магии доступны 8 демонстрационных заклинаний. События из текста вводятся и подтверждаются вручную. Распознавание речи не подключено.</p><button class="text-button" id="reset-workspace">Начать демо заново</button>`);
+    modal(`<div class="overline">СКАЗ · ${privateServer?'ЗАКРЫТЫЙ СЕРВЕР':'ЛОКАЛЬНАЯ ВЕРСИЯ'} 0.2</div><h2>Данные приключения</h2><p>${demo ? 'Этот HTML-файл работает в демонстрационном режиме. Для сохранения в базе открой локальное приложение.' : privateServer?'Прогресс хранится на сервере. Вход общий для приглашённых: выбранная игра и изменения общие для подключённых устройств. Тема выбирается отдельно в браузере.':'Прогресс хранится в SQLite на этом компьютере. Тема выбирается отдельно для каждого браузера.'}</p><div class="settings-actions"><button id="export-state">Скачать прогресс без инвентаря (v1)</button>${!demo ? '<button id="export-active" class="primary">Скачать активную игру (v7)</button>' : ''}<label class="file-label">Импортировать JSON v1–v7<input id="import-state" type="file" accept=".json,application/json"></label><button id="import-old">Перенести данные раннего прототипа</button>${!demo ? '<button id="change-history">История сохранений</button><button id="saved-drafts">Несохранённые черновики</button>' : ''}</div><p>v7 переносит остатки зарядов, предложения событий, активного персонажа, текущую сессию, задания, места кампании, инвентарь и заклинания с источниками в новую кампанию. Другие персонажи, архивы сессий и история не входят. v2–v6 не содержат текущих зарядов. v2–v5 не содержат предложений событий. v2–v4 не содержат собственных мест кампании. v2/v3 не содержат сохранённых заданий; в v2 также нет списка заклинаний. v1 заменяет текущий прогресс без инвентаря, списка заклинаний и сохранённых заданий. Лимит импорта — 512 КиБ. Для полной копии нужна резервная копия SQLite.</p><p>Каждая кампания использует шаблон барда 5 уровня. В магии доступны 8 демонстрационных заклинаний. События из текста вводятся и подтверждаются вручную. Распознавание речи не подключено.</p><button class="text-button" id="reset-workspace">Начать демо заново</button>`);
     $('#export-state').onclick = exportState;
     if (!demo) $('#export-active').onclick = exportActive;
     if ($('#saved-drafts')) $('#saved-drafts').onclick = () => {
@@ -468,7 +502,7 @@ const SkazStorage = (() => {
           }
         }
       } catch { toast('Хранилище браузера недоступно'); return; }
-      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation?.startsWith('proposal-') ? 'Решение по событию' : draft.operation?.startsWith('place-') ? 'Сохранение места' : draft.operation?.startsWith('quest-') ? 'Сохранение задания' : draft.operation === 'spell-set' ? 'Изменение списка заклинаний' : draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
+      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc(draft.label || (draft.operation?.startsWith('proposal-') ? 'Решение по событию' : draft.operation?.startsWith('place-') ? 'Сохранение места' : draft.operation?.startsWith('quest-') ? 'Сохранение задания' : draft.operation === 'spell-set' ? 'Изменение списка заклинаний' : draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-charges' ? 'Изменение зарядов' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
       $$('[data-draft-index]').forEach(button => button.onclick = () => downloadDraft(drafts[Number(button.dataset.draftIndex)]));
     };
     $('#import-state').onchange = async event => {
@@ -498,7 +532,7 @@ const SkazStorage = (() => {
     };
   }
   function previewImport(data) {
-    if (data?.app === 'skaz-active' && [2,3,4,5,6].includes(data.schemaVersion)) return previewActive(data);
+    if (data?.app === 'skaz-active' && [2,3,4,5,6,7].includes(data.schemaVersion)) return previewActive(data);
     if (data?.app !== 'skaz' || data.schemaVersion !== 1 || !data.state?.profile || typeof data.state.profile.name !== 'string') throw new Error('Это не файл сохранения СКАЗ версии 1');
     modal(`<div class="overline">ВОССТАНОВЛЕНИЕ ПРОГРЕССА</div><h2>${esc(data.state.profile.name)}</h2><p>Файл заменит данные активной кампании «${esc(state.profile.campaign)}»: персонажа, журнал, этапы заданий и заметки карты. Тема останется прежней. Сервер проверит данные перед записью.</p><div class="dialog-actions"><button id="import-backup-first">Скачать текущие</button><button class="primary" id="confirm-import">Восстановить</button></div>`);
     $('#import-backup-first').onclick = exportState;

@@ -1,0 +1,6 @@
+[Unit]
+Description=Renew SKAZ IP certificate
+After=network-online.target
+[Service]
+Type=oneshot
+ExecStart=/opt/skaz-certbot/bin/certbot renew --quiet --deploy-hook "systemctl reload nginx"

@@ -1,0 +1,9 @@
+[Unit]
+Description=Check short-lived SKAZ IP certificate renewal
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=6h
+RandomizedDelaySec=30m
+Persistent=true
+[Install]
+WantedBy=timers.target

@@ -1,3 +1,4 @@
+import { validateChargeCounts, writeChargeCounts } from './inventory.mjs';
 import { validateTransferredProposal } from './proposals.mjs';
 import { validatePlace } from './places.mjs';
 import { randomUUID } from 'node:crypto';
@@ -12,8 +13,8 @@ function exact(value, keys) {
   if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).length !== keys.length || keys.some(key => !Object.hasOwn(value, key))) fail('Неверные поля файла переноса');
 }
 export function validateTransfer(file) {
-  exact(file, ['app','schemaVersion','ruleset','scope','exportedAt','source','state','session','inventory','catalog', ...([3,4,5,6].includes(file?.schemaVersion) ? ['spellbook'] : []), ...([4,5,6].includes(file?.schemaVersion) ? ['quests'] : []), ...([5,6].includes(file?.schemaVersion) ? ['places'] : []), ...(file?.schemaVersion === 6 ? ['proposals'] : [])]);
-  if (file.app !== 'skaz-active' || ![2,3,4,5,6].includes(file.schemaVersion) || file.ruleset !== '5e-2014' || file.scope !== 'active-game') fail('Нужен экспорт активной игры СКАЗ v2–v6, D&D 2014');
+  exact(file, ['app','schemaVersion','ruleset','scope','exportedAt','source','state','session','inventory','catalog', ...([3,4,5,6,7].includes(file?.schemaVersion) ? ['spellbook'] : []), ...([4,5,6,7].includes(file?.schemaVersion) ? ['quests'] : []), ...([5,6,7].includes(file?.schemaVersion) ? ['places'] : []), ...(file?.schemaVersion >= 6 ? ['proposals'] : [])]);
+  if (file.app !== 'skaz-active' || ![2,3,4,5,6,7].includes(file.schemaVersion) || file.ruleset !== '5e-2014' || file.scope !== 'active-game') fail('Нужен экспорт активной игры СКАЗ v2–v7, D&D 2014');
   if (typeof file.exportedAt !== 'string' || file.exportedAt.length > 40 || !Number.isFinite(Date.parse(file.exportedAt))) fail('Неверная дата экспорта');
   exact(file.source, ['revision','context']); exact(file.source.context, ['campaignId','characterId','sessionId']);
   if (!Number.isSafeInteger(file.source.revision) || file.source.revision < 0 || Object.values(file.source.context).some(id => typeof id !== 'string' || !/^[a-zA-Z0-9-]{1,80}$/.test(id))) fail('Неверные сведения об исходной игре');
@@ -30,11 +31,12 @@ export function validateTransfer(file) {
   if (!Array.isArray(file.inventory) || file.inventory.length > 1000) fail('Не более 1000 видов предметов');
   const seen = new Set();
   const inventory = file.inventory.map(item => {
-    exact(item, ['catalogId','quantity']);
+    exact(item, ['catalogId','quantity', ...(file.schemaVersion >= 7 && Object.hasOwn(item || {}, 'chargeCounts') ? ['chargeCounts'] : [])]);
     const entry = byId.get(item.catalogId);
     if (!entry || !['item','artifact'].includes(entry.kind) || seen.has(item.catalogId)) fail('Неверный или повторный предмет');
     if (!Number.isSafeInteger(item.quantity) || item.quantity < 1 || item.quantity > 999) fail('Количество: целое 1–999');
-    seen.add(item.catalogId); return { catalogId: item.catalogId, quantity: item.quantity };
+    const chargeCounts = Object.hasOwn(item, 'chargeCounts') ? validateChargeCounts(item.chargeCounts, item.quantity, entry) : undefined;
+    seen.add(item.catalogId); return { catalogId: item.catalogId, quantity: item.quantity, ...(chargeCounts?.some(n => n !== null) ? { chargeCounts } : {}) };
   }).sort((a,b) => a.catalogId.localeCompare(b.catalogId, 'en'));
   let spellbook;
   if (file.schemaVersion >= 3) {
@@ -76,7 +78,7 @@ export function validateTransfer(file) {
     });
   }
   let proposals;
-  if (file.schemaVersion === 6) {
+  if (file.schemaVersion >= 6) {
     if (!Array.isArray(file.proposals) || file.proposals.length > 1000) fail('Не более 1000 предложений');
     const origins = new Set();
     proposals = file.proposals.map(item => {
@@ -116,6 +118,7 @@ export function importTransfer(db, data, mutationId) {
   const entries = new Map(data.entries.map(entry => [entry.id, entry]));
   const snapshot = data.inventory.map(item => ({ ...item, entry: entries.get(item.catalogId) }));
   for (const item of snapshot) db.prepare('INSERT INTO inventory VALUES (?, ?, ?, ?)').run(ids.characterId, item.catalogId, item.quantity, JSON.stringify(item.entry));
+  for (const item of snapshot) writeChargeCounts(db, ids.characterId, item.catalogId, item.chargeCounts);
   db.prepare('INSERT INTO inventory_changes VALUES (?, ?, ?, ?)').run(mutationId, ids.characterId, '[]', JSON.stringify(snapshot));
   if (data.spellbook) {
     const spells = data.spellbook.map(item => ({ ...item, entry: entries.get(item.catalogId) }));

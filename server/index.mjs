@@ -6,7 +6,7 @@ const filename = path.resolve(process.env.SKAZ_DB || fileURLToPath(new URL('../d
 const port = Number(process.env.PORT || 4173);
 if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('PORT должен быть от 1 до 65535');
 const store = openStore(filename);
-const server = createApp(store);
+const server = createApp(store, { publicOrigin: process.env.SKAZ_PUBLIC_ORIGIN || undefined });
 server.listen(port, '127.0.0.1', () => {
   console.log(`СКАЗ: http://127.0.0.1:${port}`);
   console.log(`База данных: ${filename}`);

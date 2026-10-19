@@ -10,7 +10,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { AppError, seed, validateState } from './state.mjs';
 import { createCatalog, isKnownBundledUpgrade } from './catalog.mjs';
-import { setupInventory, validateInventoryQuantity, readInventory, addInventory, removeInventory, validateInventoryUndo, undoInventory } from './inventory.mjs';
+import { validateChargeCommand, changeCharges, setupInventory, validateInventoryQuantity, readInventory, addInventory, removeInventory, validateInventoryUndo, undoInventory } from './inventory.mjs';
 import { setupSessions, validateSession, startSession, listSessions, readSession } from './sessions.mjs';
 import { migrateEntities, readEntities, writeEntities, joinState, contextIds, createGame, selectGame, listGames } from './entities.mjs';
 
@@ -61,7 +61,8 @@ export function openStore(filename) {
       const quests = readQuests(db, current.context.campaignId);
       const places = readPlaces(db, current.context.campaignId);
       const proposals = readProposals(db, current.context);
-      if (![2,3,4,5,6].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if (![2,3,4,5,6,7].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if (version < 7 && inventory.some(item => item.chargeCounts)) throw new AppError(409, 'Остатки зарядов требуют экспорт v7 или SQLite backup');
       if (version < 6 && proposals.length) throw new AppError(409, 'Предложения событий требуют экспорт v6 или SQLite backup');
       if (version < 5 && places.length) throw new AppError(409, 'Места кампании требуют экспорт v5 или SQLite backup');
       if (version < 4 && quests.length) throw new AppError(409, 'Задания требуют экспорт v4 или SQLite backup');
@@ -86,11 +87,11 @@ export function openStore(filename) {
         app: 'skaz-active', schemaVersion: version, ruleset: '5e-2014', scope: 'active-game',
         exportedAt: new Date().toISOString(), source: { revision: current.revision, context: current.context },
         state: current.state, session: current.session,
-        inventory: inventory.map(({ catalogId, quantity }) => ({ catalogId, quantity })),
+        inventory: inventory.map(({ catalogId, quantity, chargeCounts }) => ({ catalogId, quantity, ...(version >= 7 && chargeCounts ? { chargeCounts } : {}) })),
         ...(version >= 3 ? { spellbook: spellbook.map(({ catalogId, status }) => ({ catalogId, status })) } : {}),
         ...(version >= 4 ? { quests: quests.map(({ id, campaignId, createdSessionId, importedFrom, title, description, status, steps }) => ({ origin: importedFrom || { campaignId, questId: id, sessionId: createdSessionId }, quest: { title, description, status, steps } })) } : {}),
         ...(version >= 5 ? { places: places.map(({ id, campaignId, createdSessionId, importedFrom, title, description, x, y, visited }) => ({ origin: importedFrom || { campaignId, placeId: id, sessionId: createdSessionId }, place: { title, description, x, y, visited } })) } : {}),
-        ...(version === 6 ? { proposals: proposals.map(({ id, campaignId, sessionId, characterId, importedFrom, source, suggestion, status, appliedEntry }) => ({ origin: importedFrom || { campaignId, sessionId, characterId, proposalId: id }, source, suggestion, status, appliedEntry })) } : {}),
+        ...(version >= 6 ? { proposals: proposals.map(({ id, campaignId, sessionId, characterId, importedFrom, source, suggestion, status, appliedEntry }) => ({ origin: importedFrom || { campaignId, sessionId, characterId, proposalId: id }, source, suggestion, status, appliedEntry })) } : {}),
         catalog: { schemaVersion: 1, entries: [...entries.values()].sort((a, b) => a.id.localeCompare(b.id, 'en')) },
       };
       db.exec('COMMIT');
@@ -203,8 +204,16 @@ export function openStore(filename) {
       const last = db.prepare(`SELECT c.mutation_id AS mutationId, c.label FROM changes c
         JOIN inventory_changes i ON i.mutation_id=c.mutation_id
         JOIN context_changes x ON x.mutation_id=c.mutation_id
-        WHERE c.revision=? AND i.character_id=? AND x.operation IN ('inventory-add','inventory-remove')`).get(current.revision, current.context.characterId);
+        WHERE c.revision=? AND i.character_id=? AND x.operation IN ('inventory-add','inventory-remove','inventory-charges')`).get(current.revision, current.context.characterId);
       return { revision: current.revision, context: current.context, entries: readInventory(db, current.context.characterId), undo: last ? { ...last } : null };
+    },
+    changeCharges: request => {
+      const payload = validateChargeCommand(request);
+      const hash = createHash('sha256').update(JSON.stringify({ operation: 'inventory-charges', expectedRevision: request.expectedRevision, payload })).digest('hex');
+      return mutate(request, hash, 'Изменение зарядов предмета', () => {
+        changeCharges(db, payload, request.mutationId, read().context.characterId);
+        return read().state;
+      }, 'inventory-charges');
     },
     addInventory: request => {
       const payload = validateInventoryQuantity(request);

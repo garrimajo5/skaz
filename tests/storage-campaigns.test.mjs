@@ -293,14 +293,14 @@ test('v3 preview includes spell list in the durable import and rejects a missing
   assert.deepEqual(calls[0].body.file.spellbook, file.spellbook);
 });
 
-test('client requests v6 export and refuses a response from another revision', async () => {
+test('client requests v7 export and refuses a response from another revision', async () => {
   const calls = [];
   const h = harness(memory(), memory(), async url => {
     calls.push(url);
     return response(url === '/api/workspace' ? payload(0) : { source: { context: payload(0).context, revision: 1 } });
   });
   await h.api.boot(); h.api.settings(); await h.get('#export-active').onclick();
-  assert.equal(calls.at(-1), '/api/export/active-v6');
+  assert.equal(calls.at(-1), '/api/export/active-v7');
   assert.match(h.messages.at(-1), /Игра изменилась/);
 });
 
@@ -597,4 +597,44 @@ test('saved inventory charge facts and reference return keep the snapshot and re
  await h.api.boot();await h.api.inventory();h.get('inventory-read-button').dataset.inventoryRead='0';h.get('inventory-read-button').onclick();assert.match(h.dialog(),/Максимум зарядов: 7/);assert.match(h.dialog(),/не текущий остаток/);
  const open=h.get('#inventory-reference').onclick;open();assert.equal(h.references[0][0],entry.id);assert.equal(h.references[0][2](),true);
  h.references[0][1]();assert.match(h.dialog(),/Saved old text/);current=payload(1,'new');await h.api.boot();assert.equal(h.references[0][2](),false);open();assert.equal(h.references.length,1);
+});
+
+
+test('charge form validates unknown balances and retries the exact manual operation after response loss',async()=>{
+ const local=memory(),session=memory(),calls=[];
+ const item={catalogId:'test:wand',quantity:2,chargeCounts:[5,null],entry:{id:'test:wand',name:{ru:'Палочка',en:'Wand'},item:{charges:{max:7,recharge:'Вручную'}},source:{url:'https://example.org',title:'Test',version:'1',terms:'Test'}}};
+ const h=harness(local,session,async(url,options)=>{
+  if(url==='/api/workspace')return response(payload(0));
+  if(url==='/api/inventory'&&!options.method)return response({revision:0,context:payload(0).context,entries:[item]});
+  calls.push({url,body:options.body});throw new Error('response lost');
+ });
+ await h.api.boot();await h.api.inventory();h.get('inventory-read-button').dataset.inventoryRead='0';h.get('inventory-read-button').onclick();h.get('#inventory-charges').onclick();
+ h.get('#charges-unit').value='1';h.get('#charges-operation').value='spend';h.get('#charges-amount').value='1';
+ await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls.length,0);assert.match(h.messages.at(-1),/Сначала укажи/);
+ h.get('#charges-unit').value='0';h.get('#charges-amount').value='6';await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls.length,0);
+ h.get('#charges-amount').value='2';h.get('#charges-amount').oninput();assert.match(h.get('#charges-preview').textContent,/3 \/ 7/);
+ await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls[0].url,'/api/inventory/charges');assert.equal(JSON.parse(calls[0].body).operation,'spend');assert.equal(JSON.parse(calls[0].body).unit,0);
+ const restored=harness(local,session,async(url,options)=>{if(url!=='/api/workspace')calls.push({url,body:options.body});return response(payload(1));});
+ await restored.api.boot();await restored.click('sync-retry');assert.deepEqual(calls[1],calls[0]);assert.equal(restored.api.editable(),true);
+});
+
+test('charge form keeps zero, accepts explicit unknown and rejects stale context before submission',async()=>{
+ let current=payload(0);const calls=[];
+ const item={catalogId:'test:wand',quantity:1,chargeCounts:[3],entry:{name:{ru:'Палочка',en:'Wand'},item:{charges:{max:7,recharge:'Вручную'}},source:{url:'https://example.org',title:'Test',version:'1',terms:'Test'}}};
+ const h=harness(memory(),memory(),async(url,options)=>{
+  if(url==='/api/workspace')return response(current);
+  if(url==='/api/inventory'&&!options.method)return response({revision:current.revision,context:current.context,entries:[item]});
+  calls.push(JSON.parse(options.body));current=payload(current.revision+1);return response(current);
+ });
+ async function open(){await h.api.inventory();h.get('inventory-read-button').dataset.inventoryRead='0';h.get('inventory-read-button').onclick();h.get('#inventory-charges').onclick();h.get('#charges-unit').value='0';}
+ await h.api.boot();await open();h.get('#charges-operation').value='set';h.get('#charges-amount').value='';await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls.length,0);
+ h.get('#charges-amount').value='0';await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls[0].amount,0);
+ await open();h.get('#charges-operation').value='unknown';h.get('#charges-operation').onchange();assert.equal(h.get('#charges-amount').disabled,true);await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls[1].amount,null);
+ await open();current=payload(3,'other');await h.api.boot();await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls.length,2);assert.match(h.messages.at(-1),/Игра изменилась/);
+});
+
+test('private server responses label storage honestly without changing local defaults',async()=>{
+ const h=harness(memory(),memory(),async()=>({...response(payload(0)),headers:{get:()=> 'private-server'}}));
+ await h.api.boot();h.api.paint();assert.match(h.get('sync-status').innerHTML,/Сохранено на сервере/);assert.match(h.get('app-mode').textContent,/Закрытый сервер/);
+ h.api.settings();assert.match(h.dialog(),/Прогресс хранится на сервере/);assert.match(h.dialog(),/Вход общий/);
 });
