@@ -1,3 +1,4 @@
+import { bundledCatalog, validateBundledInstall } from './bundled-catalog.mjs';
 import { AppError } from './state.mjs';
 
 const kinds = ['mechanic', 'spell', 'monster', 'item', 'artifact'];
@@ -159,6 +160,15 @@ export function createCatalog(db) {
     const matches = all().filter(entry => (!kind || entry.kind === kind) && `${entry.name.ru} ${entry.name.en}`.toLocaleLowerCase('ru').includes(q));
     return { entries: matches.slice(offset, offset + limit), total: matches.length, limit, offset };
   }
+  function previewBundled() {
+    const {bundle,version,categories}=bundledCatalog();
+    const report=importEntries(bundle);
+    return {version,categories,total:bundle.entries.length,added:report.added,unchanged:report.unchanged,ruleset:'5e-2014',complete:false};
+  }
+  function installBundled(request) {
+    const {bundle,version}=bundledCatalog();validateBundledInstall(request,version);
+    return {...importEntries(bundle,{apply:true}),version};
+  }
   function lookup(params) {
     if ([...params.keys()].some(key=>key!=='id') || params.getAll('id').length!==1) throw new AppError(400,'Нужен один ID материала');
     const entryId=id(params.get('id'));
@@ -186,5 +196,5 @@ export function createCatalog(db) {
       structuredArtifacts: entries.filter(entry => entry.artifact !== undefined).length,
       gaps: ['Полная база не загружена; общее количество материалов не установлено.', 'Структуры заклинаний, предметов и существ частичные; действия и особенности остаются в тексте. Структура артефактов содержит только основные поля. Инвентарь и личный список заклинаний подключены; автоматические эффекты и применение состояний не реализованы.'] };
   }
-  return { importEntries, search, coverage, lookup };
+  return { importEntries, search, coverage, lookup, previewBundled, installBundled };
 }

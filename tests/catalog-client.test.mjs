@@ -11,7 +11,7 @@ function harness(protocol = 'http:') {
     location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
     queueMicrotask: task => tasks.push(task),
     fetch: url => new Promise((resolve, reject) => requests.push({ url, resolve, reject })),
-    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='dialog'?{open:isOpen}:id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):region, querySelector: () => null },
+    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='dialog'?{open:isOpen}:id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region, querySelector: () => null },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
     modal: html => dialog = html, SkazStorage: { addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
@@ -103,4 +103,17 @@ test('late linked material cannot reopen closed dialog or replace another form',
   const h=harness();h.submit('');respond(h.requests[0],{entries:[parent],total:1});respond(h.requests[1],coverage);await settle();h.detail();respond(h.requests[2],{entry:parent,related:[{id:'test:child',name:{ru:'Child',en:'Child'}}]});await settle();
   h.click('',{catalogRelated:'test:child'});h[leave]();const before=h.dialog();respond(h.requests[3],{entry:{...entry,id:'test:child',links:[],name:{ru:'New card',en:'New'}},related:[]});await settle();assert.equal(h.dialog(),before);
  }
+});
+
+
+test('bundled preview does not install; failed delivery retries the reviewed version and refreshes catalog',async()=>{
+ const h=harness();h.click('catalog-bundled');assert.equal(h.requests.length,1);assert.equal(h.requests[0].url,'/api/catalog/bundled');
+ respond(h.requests[0],{version:'reviewed-version',total:26,added:11,unchanged:15,categories:{mechanic:16,spell:2,monster:2,item:5,artifact:1}});await settle();assert.match(h.dialog(),/Добавится: 11/);assert.equal(h.requests.length,1);
+ const first=h.region.onclick();h.region.onclick();assert.equal(h.requests.length,2);h.requests[1].reject(new Error('lost response'));await first;assert.match(h.region.textContent,/Повтор безопасен/);assert.equal(h.region.disabled,false);
+ const retry=h.region.onclick();respond(h.requests[2],{added:0,unchanged:26});await settle();assert.match(h.dialog(),/Подборка установлена/);
+ respond(h.requests[3],{entries:[],total:26});respond(h.requests[4],{total:26,openlyLicensed:25,referenceOnly:1,personal:0});await retry;assert.match(h.view(),/В базе: 26/);
+});
+
+test('bundled preview arriving after another form cannot replace it',async()=>{
+ const h=harness();h.click('catalog-bundled');h.otherModal();respond(h.requests[0],{version:'version',total:26,added:26,unchanged:0,categories:{}});await settle();assert.equal(h.dialog(),'<h2>Other</h2>');
 });

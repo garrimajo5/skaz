@@ -4,6 +4,7 @@ const SkazCatalog = (() => {
   const limit = 20;
   let detailSerial=0, currentEntry=null, trail=[];
   const relatedCache=new Map();
+  let bundleSerial=0, installing=false;
   const usageLabel = usage => ({ 'reference-only': 'Справочная ссылка · без текста', personal: 'Личный импорт', 'cc-by-4.0': 'Открытый материал · CC BY 4.0' }[usage] || 'Неизвестные условия');
   const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   function view() {
@@ -13,7 +14,7 @@ const SkazCatalog = (() => {
       <div class="notice"><b>D&D 2014 · Каталог пополняется</b><p>${coverage ? `В базе: ${coverage.total}. Справочных ссылок: ${coverage.referenceOnly}, личных записей: ${coverage.personal}, CC BY 4.0: ${coverage.openlyLicensed || 0}.` : 'Полнота базы пока не подтверждена.'} Предметы и артефакты можно добавить в инвентарь из карточки.</p></div>
       <form id="catalog-search" class="catalog-search"><label>Название на русском или английском<input name="q" type="search" maxlength="200" placeholder="Например, Spellcasting" value="${escape(query)}"></label><label>Категория<select name="kind"><option value="">Все категории</option>${Object.entries(names).map(([key, name]) => `<option value="${key}" ${kind === key ? 'selected' : ''}>${name}</option>`).join('')}</select></label><button type="submit" class="primary">Найти</button></form>
       <div id="catalog-results" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div>
-      <div class="catalog-footer"><p>Магия на листе пока использует отдельные демонстрационные данные.</p><button data-page="spells">8 демо-заклинаний →</button><button id="catalog-help">Как добавить материалы</button></div>
+      <div class="catalog-footer"><p>Магия на листе пока использует отдельные демонстрационные данные.</p><button data-page="spells">8 демо-заклинаний →</button><button id="catalog-bundled">Проверенная подборка 2014</button><button id="catalog-help">Личный импорт</button></div>
     </section>`;
   }
   function results() {
@@ -89,6 +90,31 @@ const SkazCatalog = (() => {
       trail.push(previous);if(trail.length>20)trail.shift();showDetails(value.entry,value.related);
     }catch{if(detailVisible(token)&&region)region.innerHTML='<p>Материал недоступен. Проверь соединение.</p><button id="catalog-related-retry">Повторить</button>';}
   }
+  const bundleVisible = token => token===bundleSerial && document.getElementById('dialog')?.open && document.getElementById('bundled-catalog');
+  async function previewBundled() {
+    if(installing)return;
+    const token=++bundleSerial;
+    modal('<div id="bundled-catalog"><h2>Проверенная подборка</h2><p role="status">Сверяем состав с твоим справочником…</p></div>');
+    try{
+      const response=await fetch('/api/catalog/bundled',{cache:'no-store',signal:AbortSignal.timeout(10000)}),value=await response.json();
+      if(!response.ok)throw new Error(value.error||'Не удалось проверить подборку');
+      if(!bundleVisible(token))return;
+      modal(`<div id="bundled-catalog"><div class="overline">ПРОВЕРЕННЫЕ ИСТОЧНИКИ · D&D 2014</div><h2>Добавить в справочник</h2><p>Это ограниченная подборка, а не полная база D&D. Русские краткие изложения SRD 5.1 с атрибуцией CC BY 4.0 и справочные ссылки без копирования текста.</p><ul>${Object.entries(value.categories).map(([kind,count])=>`<li>${names[kind]||escape(kind)}: ${Number(count)}</li>`).join('')}</ul><p>Всего в подборке: ${Number(value.total)}. Добавится: ${Number(value.added)}. Уже совпадает: ${Number(value.unchanged)}.</p><p>Игра и ресурсы персонажей не меняются. Личные материалы сохраняются; конфликт занятого ID остановит всю установку.</p><button id="install-bundled" class="primary" ${value.added===0?'disabled':''}>${value.added===0?'Подборка уже установлена':'Добавить подборку'}</button><p id="bundled-message" role="status"></p></div>`);
+      document.getElementById('install-bundled').onclick=()=>installBundled(value.version,token);
+    }catch(error){if(bundleVisible(token))modal(`<div id="bundled-catalog"><h2>Подборка недоступна</h2><p>${escape(error.message)}</p><button id="catalog-bundled">Проверить снова</button></div>`);}
+  }
+  async function installBundled(version,token) {
+    if(installing||!bundleVisible(token))return;
+    installing=true;const button=document.getElementById('install-bundled');button.disabled=true;
+    document.getElementById('bundled-message').textContent='Добавляем материалы…';
+    try{
+      const response=await fetch('/api/catalog/bundled',{method:'POST',headers:{'Content-Type':'application/json','X-Skaz-Client':'local-v1'},body:JSON.stringify({version}),signal:AbortSignal.timeout(10000)}),value=await response.json();
+      if(!response.ok)throw new Error(value.error||'Не удалось установить подборку');
+      if(bundleVisible(token))modal(`<div id="bundled-catalog"><h2>Подборка установлена</h2><p>Добавлено: ${Number(value.added)}. Уже совпадало: ${Number(value.unchanged)}. Прогресс игры не изменён.</p><button id="bundled-done" class="primary">Вернуться к справочнику</button></div>`);
+      await load();
+    }catch(error){if(bundleVisible(token)){button.disabled=false;document.getElementById('bundled-message').textContent=error.message+'. Повтор безопасен: совпавшие записи не дублируются.';}}
+    finally{installing=false;}
+  }
   document.addEventListener('submit', event => {
     if (event.target.id !== 'catalog-search') return;
     event.preventDefault();
@@ -103,6 +129,8 @@ const SkazCatalog = (() => {
     if (button.id === 'catalog-retry') load();
     if (button.id === 'catalog-prev' || button.id === 'catalog-next') { offset = Math.max(0, offset + (button.id === 'catalog-prev' ? -limit : limit)); load(); }
     if (button.id === 'catalog-reset') { query = ''; kind = ''; offset = 0; render(); load(); }
+    if(button.id==='catalog-bundled')previewBundled();
+    if(button.id==='bundled-done')closeModal();
     if (button.id === 'catalog-help') modal('<div class="overline">ЛИЧНАЯ БИБЛИОТЕКА</div><h2>Добавление материалов</h2><p>Сейчас материалы добавляются из JSON-файла на компьютере, где запущен сервер. Формат и команды описаны в docs/catalog.md проекта.</p><p>Можно сохранить ссылку или импортировать собственный и разрешённый тебе текст. У каждой записи должны быть источник, версия и редакция 2014.</p><p>Загрузка файла прямо из интерфейса появится в следующем этапе работы с импортом.</p>');
   });
   return { view };
