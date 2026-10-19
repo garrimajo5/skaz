@@ -11,7 +11,7 @@ function harness(protocol = 'http:') {
   const context = vm.createContext({
     location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
     queueMicrotask: task => tasks.push(task),
-    fetch: url => new Promise((resolve, reject) => requests.push({ url, resolve, reject })),
+    fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
     document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='dialog'?{open:isOpen}:id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region, querySelector: () => null },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
     render:()=>{}, modal: html => dialog = html, SkazStorage: { addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
@@ -235,4 +235,18 @@ test('inventory card failure is retryable and returning preserves its page',asyn
  h.click('catalog-inventory');respond(h.requests[0],{entries});await settle();h.click('inventory-next');assert.match(h.dialog(),/21–21 из 21/);
  h.click('',{inventoryRead:'test:20'});h.requests[1].reject(new Error('offline'));await settle();assert.match(h.region.textContent,/повторить/);assert.match(h.dialog(),/21–21 из 21/);
  h.click('',{inventoryRead:'test:20'});respond(h.requests[2],{entry:{...entry,id:'test:20',links:[]},related:[]});await settle();h.click('inventory-return');assert.match(h.dialog(),/21–21 из 21/);assert.match(h.dialog(),/Spell 20/);assert.doesNotMatch(h.dialog(),/>Spell 0</);
+});
+
+
+test('update-only bundle preview stays actionable, escapes its review and sends only the reviewed version',async()=>{
+ const h=harness();h.click('catalog-bundled');respond(h.requests[0],{version:'reviewed-update',total:1,added:0,unchanged:0,updated:1,categories:{spell:1},updates:[{id:'test:one',name:{ru:'<card>'},reason:'<reason>',fromVersion:'<old>',toVersion:'<new>'}]});await settle();
+ assert.match(h.dialog(),/Обновится: 1/);assert.match(h.dialog(),/Применить изменения/);assert.doesNotMatch(h.dialog(),/id="install-bundled"[^>]*disabled/);assert.match(h.dialog(),/&lt;reason&gt;/);assert.match(h.dialog(),/&lt;old&gt;/);assert.doesNotMatch(h.dialog(),/<card>|<reason>|<old>|<new>/);assert.equal(h.requests.length,1);
+ const saving=h.region.onclick();assert.equal(h.requests[1].options.method,'POST');assert.deepEqual(JSON.parse(h.requests[1].options.body),{version:'reviewed-update'});
+ respond(h.requests[1],{added:0,updated:1,unchanged:0});await settle();assert.match(h.dialog(),/Обновлено: 1/);respond(h.requests[2],{entries:[],total:1});respond(h.requests[3],coverage);await saving;
+});
+
+test('source inventory distinguishes an available update from personal conflicts and can read the installed older card',async()=>{
+ const h=harness();h.click('catalog-inventory');respond(h.requests[0],{entries:[{id:'test:old',nameEn:'Old',nameRu:'Старая',page:130,level:6,status:'update-available'},{id:'test:private',nameEn:'Private',nameRu:'Личная',page:131,level:6,status:'conflict'}]});await settle();
+ h.inventorySubmit('','update-available');assert.match(h.dialog(),/Доступно обновление/);assert.match(h.dialog(),/data-inventory-read="test:old"/);assert.doesNotMatch(h.dialog(),/data-inventory-read="test:private"/);
+ h.click('',{inventoryRead:'test:old'});assert.match(h.requests[1].url,/test%3Aold/);respond(h.requests[1],{entry:{...entry,id:'test:old',kind:'spell',links:[]},related:[]});await settle();assert.match(h.dialog(),/inventory-return/);
 });

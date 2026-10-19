@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:ghoul",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Упырь",
+        "en": "Ghoul"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=312",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz created undead v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 312.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредняя нежить, хаотично-злая. Хиты 22 (5d8). Иммунитет к яду; иммунитет к очарованию, истощению и отравлению. Тёмное зрение 60 футов, пассивное Восприятие 10, Общий язык.\nУкус: рукопашная атака оружием +2, досягаемость 5 футов, одно существо; 9 (2d6+2) колющего урона. Когти: рукопашная атака оружием +4, досягаемость 5 футов, одна цель; 7 (2d4+2) рубящего. Существо, кроме эльфа или нежити, делает спасбросок Телосложения Сл 10; провал парализует на 1 минуту. В конце каждого своего хода цель повторяет спасбросок, успех прекращает эффект. Мультиатаки нет.\nОсобенности, атаки, проклятия и контроль существ не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:paralyzed"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "undead",
+        "armorClass": 12,
+        "hitPoints": 22,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 13,
+          "dex": 15,
+          "con": 10,
+          "int": 7,
+          "wis": 10,
+          "cha": 6
+        },
+        "challenge": "1",
+        "xp": 200
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ghast",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Вурдалак",
+        "en": "Ghast"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=311",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz created undead v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 311, 312.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредняя нежить, хаотично-злая. Хиты 36 (8d8). Сопротивление некротическому урону; иммунитет к яду. Иммунитет к очарованию, истощению и отравлению. Тёмное зрение 60 футов, пассивное Восприятие 10, Общий язык.\nЗловоние: любое существо, начинающее ход в 5 футах, делает спасбросок Телосложения Сл 10; провал отравляет до начала его следующего хода, успех даёт иммунитет к зловонию этого вурдалака на 24 часа. Сопротивление изгнанию: вурдалак и упыри в пределах 30 футов имеют преимущество на спасброски против изгнания нежити.\nУкус: рукопашная атака оружием +3, досягаемость 5 футов, одно существо; 12 (2d8+3) колющего. Когти: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 10 (2d6+3) рубящего. Любое существо, кроме нежити, делает спасбросок Телосложения Сл 10; провал парализует на 1 минуту, повтор в конце каждого своего хода прекращает эффект при успехе. Эльфы не исключены из этого паралича. Мультиатаки нет.\nОсобенности, атаки, проклятия и контроль существ не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:poisoned",
+        "srd51:2014:mechanic:paralyzed"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "undead",
+        "armorClass": 13,
+        "hitPoints": 36,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 17,
+          "con": 10,
+          "int": 11,
+          "wis": 10,
+          "cha": 8
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    },
+    {
+      "id": "srd51:2014:monster:wight",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Умертвие",
+        "en": "Wight"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=354",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz created undead v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 354, 355.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредняя нежить, нейтрально-злая. Кожаный доспех с заклёпками, хиты 45 (6d8+18). Восприятие +3, Скрытность +4. Сопротивление некротическому урону и дробящему/колющему/рубящему от немагических непосеребрённых атак; иммунитет к яду, истощению и отравлению. Тёмное зрение 60 футов, пассивное Восприятие 13; языки, известные при жизни. На солнечном свету помеха атакам и проверкам Мудрости (Восприятие), зависящим от зрения.\nМультиатака: два удара длинным мечом либо два выстрела длинным луком; один удар мечом можно заменить Вытягиванием жизни. Вытягивание жизни: рукопашная атака оружием +4, досягаемость 5 футов, одно существо; 5 (1d6+2) некротического. Спасбросок Телосложения Сл 13; при провале максимум хитов уменьшается на полученный урон до продолжительного отдыха. При максимуме 0 цель умирает. Убитый этой атакой гуманоид через 24 часа становится подконтрольным зомби, если его не оживили и тело не уничтожено; одновременно не более 12 зомби.\nДлинный меч: +4, досягаемость 5 футов, одна цель; 6 (1d8+2) рубящего или 7 (1d10+2) двумя руками. Длинный лук: +4, дистанция 150/600 футов, одна цель; 6 (1d8+2) колющего.\nОсобенности, атаки, проклятия и контроль существ не применяются автоматически.",
+      "links": [
+        "srd51:2014:monster:zombie",
+        "srd51:2014:mechanic:long-rest"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "undead",
+        "armorClass": 14,
+        "hitPoints": 45,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 15,
+          "dex": 14,
+          "con": 16,
+          "int": 10,
+          "wis": 13,
+          "cha": 15
+        },
+        "challenge": "3",
+        "xp": 700
+      }
+    },
+    {
+      "id": "srd51:2014:monster:mummy",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Мумия",
+        "en": "Mummy"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=333",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz created undead v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 333, 334.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредняя нежить, законно-злая. Природный доспех; хиты 58 (9d8+18), спасброски Мудрости +2. Уязвимость к огню; сопротивление дробящему/колющему/рубящему от немагических атак. Иммунитет к некротическому урону и яду; иммунитет к очарованию, истощению, испугу, параличу и отравлению. Тёмное зрение 60 футов, пассивное Восприятие 10; языки, известные при жизни.\nМультиатака: может использовать Ужасающий взгляд и совершает одну атаку Гниющим кулаком. Кулак: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 10 (2d6+3) дробящего плюс 10 (3d6) некротического. Существо делает спасбросок Телосложения Сл 12; провал накладывает гниение мумии. Проклятая цель не восстанавливает хиты, её максимум хитов уменьшается на 10 (3d6) каждые 24 часа; при максимуме 0 она умирает и рассыпается в прах. Снятие проклятия или другая магия прекращает проклятие.\nУжасающий взгляд: одно видимое существо в 60 футах, которое видит мумию, делает спасбросок Мудрости Сл 11 против магии. Провал — испуг до конца следующего хода мумии; провал на 5 или больше также парализует на тот же срок. Успех даёт иммунитет к взгляду всех мумий, кроме лордов мумий, на 24 часа.\nОсобенности, атаки, проклятия и контроль существ не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:paralyzed",
+        "srd51:2014:spell:remove-curse"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "undead",
+        "armorClass": 11,
+        "hitPoints": 58,
+        "speed": {
+          "walk": 20
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 8,
+          "con": 15,
+          "int": 6,
+          "wis": 10,
+          "cha": 12
+        },
+        "challenge": "3",
+        "xp": 700
+      }
+    }
+  ]
+}

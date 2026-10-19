@@ -3,7 +3,7 @@ import { validatePlace } from './places.mjs';
 import { randomUUID } from 'node:crypto';
 import { validateQuestCommand } from './quests.mjs';
 import { AppError, validateState } from './state.mjs';
-import { validateCatalog } from './catalog.mjs';
+import { validateCatalog, isKnownBundledUpgrade } from './catalog.mjs';
 import { validateSession } from './sessions.mjs';
 import { createGame } from './entities.mjs';
 
@@ -93,7 +93,7 @@ export function validateTransfer(file) {
 export function importTransfer(db, data, mutationId) {
   for (const entry of data.entries) {
     const existing = db.prepare('SELECT entry_json FROM catalog_entries WHERE id=?').get(entry.id);
-    if (existing && existing.entry_json !== JSON.stringify(entry)) throw new AppError(409, 'Конфликт источника каталога: ' + entry.id);
+    if (existing && existing.entry_json !== JSON.stringify(entry) && !isKnownBundledUpgrade(entry,JSON.parse(existing.entry_json))) throw new AppError(409, 'Конфликт источника каталога: ' + entry.id);
   }
   for (const entry of data.entries) db.prepare('INSERT OR IGNORE INTO catalog_entries VALUES (?, ?)').run(entry.id, JSON.stringify(entry));
   const ids = createGame(db, data.state);

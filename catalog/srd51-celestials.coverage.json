@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Three verified celestial forms for Conjure Celestial, not every celestial in D&D",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 3,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:couatl",
+      "nameEn": "Couatl",
+      "pages": [
+        269
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:pegasus",
+      "nameEn": "Pegasus",
+      "pages": [
+        340
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:unicorn",
+      "nameEn": "Unicorn",
+      "pages": [
+        351,
+        352
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not official translation or full bestiary.",
+    "Innate spells and legendary actions remain text; spell lists link to SRD cards.",
+    "Conjure Celestial selects a celestial up to CR 4, or CR 5 only with a ninth-level slot.",
+    "GM supplies statistics and resolves summons; no automatic spell use, transformation or legendary action tracking."
+  ]
+}

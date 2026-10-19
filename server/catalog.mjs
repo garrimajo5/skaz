@@ -9,6 +9,10 @@ const monsterSizes = ['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan'];
 const itemTypes = ['armor', 'potion', 'ring', 'rod', 'scroll', 'staff', 'wand', 'weapon', 'wondrous'];
 const mechanicCategories = ['condition', 'spellcasting', 'combat', 'rest'];
 const kinds = ['mechanic', 'spell', 'monster', 'item', 'artifact'];
+const fingerprint=entry=>createHash('sha256').update(JSON.stringify(entry)).digest('hex');
+export function isKnownBundledUpgrade(previous,next,upgrades=bundledCatalog().upgrades) {
+  return previous?.id===next?.id && upgrades.some(rule=>rule.id===next.id&&rule.fromSha256===fingerprint(previous)&&rule.toSha256===fingerprint(next));
+}
 const fail = message => { throw new AppError(422, message); };
 function object(value, keys) {
   if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).some(key => !keys.includes(key))) fail('Неверная структура каталога');
@@ -133,22 +137,39 @@ export function createCatalog(db) {
   db.exec('CREATE TABLE IF NOT EXISTS catalog_entries (id TEXT PRIMARY KEY, entry_json TEXT NOT NULL)');
   const all = () => db.prepare('SELECT entry_json FROM catalog_entries ORDER BY id').all().map(row => JSON.parse(row.entry_json));
   function importEntries(bundle, { apply = false } = {}) {
+    // Personal imports never receive permission to replace an existing ID.
+    return importRecords(bundle,{apply});
+  }
+  function importRecords(bundle, { apply = false, upgrades = [] } = {}) {
     const entries = validateCatalog(bundle);
+    const targets=new Map(entries.map(entry=>[entry.id,entry]));
+    for(const rule of upgrades)if(!targets.has(rule.id)||fingerprint(targets.get(rule.id))!==rule.toSha256)throw new AppError(500,'Обновление не соответствует проверенной карточке');
     db.exec('BEGIN IMMEDIATE');
     try {
       const existing = new Map(all().map(entry => [entry.id, entry]));
       const available = new Set([...existing.keys(), ...entries.map(entry => entry.id)]);
       let added = 0, unchanged = 0;
+      const updates=[];
       for (const entry of entries) {
         for (const link of entry.links) if (!available.has(link)) fail(`Не найдена связь ${entry.id} → ${link}`);
         if (existing.has(entry.id)) {
-          if (JSON.stringify(existing.get(entry.id)) !== JSON.stringify(entry)) throw new AppError(409, `ID ${entry.id} уже занят другим содержимым; замена не выполнена`);
-          unchanged++;
+          const previous=existing.get(entry.id);
+          if (JSON.stringify(previous) !== JSON.stringify(entry)) {
+            const rule=upgrades.find(rule=>rule.id===entry.id&&rule.fromSha256===fingerprint(previous));
+            if(!rule)throw new AppError(409, `ID ${entry.id} уже занят другим содержимым; замена не выполнена`);
+            updates.push({id:entry.id,name:entry.name,fromVersion:previous.source.version,toVersion:entry.source.version,reason:rule.reason});
+          } else unchanged++;
         } else added++;
       }
-      if (apply) for (const entry of entries) db.prepare('INSERT OR IGNORE INTO catalog_entries VALUES (?, ?)').run(entry.id, JSON.stringify(entry));
+      if (apply) {
+        const updatedIds=new Set(updates.map(update=>update.id));
+        for (const entry of entries) {
+          if(updatedIds.has(entry.id))db.prepare('UPDATE catalog_entries SET entry_json=? WHERE id=?').run(JSON.stringify(entry),entry.id);
+          else db.prepare('INSERT OR IGNORE INTO catalog_entries VALUES (?, ?)').run(entry.id, JSON.stringify(entry));
+        }
+      }
       db.exec('COMMIT');
-      return { applied: apply, added, unchanged, total: existing.size + (apply ? added : 0) };
+      return { applied: apply, added, unchanged, total: existing.size + (apply ? added : 0), ...(upgrades.length?{updated:updates.length,updates}:{}) };
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
   function search(params = new URLSearchParams()) {
@@ -193,13 +214,13 @@ export function createCatalog(db) {
     return {...report,version,records:entries.length,categories:Object.fromEntries(kinds.map(kind=>[kind,entries.filter(e=>e.kind===kind).length])),usage:Object.fromEntries(['reference-only','personal','cc-by-4.0'].map(usage=>[usage,entries.filter(e=>e.source.usage===usage).length])),sample:entries.slice(0,10).map(e=>({id:e.id,name:e.name,source:e.source}))};
   }
   function previewBundled() {
-    const {bundle,version,categories}=bundledCatalog();
-    const report=importEntries(bundle);
-    return {version,categories,total:bundle.entries.length,added:report.added,unchanged:report.unchanged,ruleset:'5e-2014',complete:false};
+    const {bundle,version,categories,upgrades}=bundledCatalog();
+    const report=importRecords(bundle,{upgrades});
+    return {version,categories,total:bundle.entries.length,added:report.added,unchanged:report.unchanged,updated:report.updated||0,updates:report.updates||[],ruleset:'5e-2014',complete:false};
   }
   function installBundled(request) {
-    const {bundle,version}=bundledCatalog();validateBundledInstall(request,version);
-    return {...importEntries(bundle,{apply:true}),version};
+    const {bundle,version,upgrades}=bundledCatalog();validateBundledInstall(request,version);
+    return {...importRecords(bundle,{apply:true,upgrades}),version};
   }
   function lookup(params) {
     if ([...params.keys()].some(key=>key!=='id') || params.getAll('id').length!==1) throw new AppError(400,'Нужен один ID материала');
@@ -215,21 +236,24 @@ export function createCatalog(db) {
     return {entry,related};
   }
   function spellInventory() {
-    const prepared=new Map(validateCatalog(bundledCatalog().bundle).filter(e=>e.kind==='spell').map(e=>[e.id,e]));
+    const {bundle,upgrades}=bundledCatalog();
+    const prepared=new Map(validateCatalog(bundle).filter(e=>e.kind==='spell').map(e=>[e.id,e]));
     const installed=new Map(all().map(e=>[e.id,e]));
     return {ruleset:'5e-2014',scope:'SRD 5.1',sourceUrl:spellIndex.sourceUrl,entries:spellIndex.entries.map(e=>{
       const card=prepared.get(e.id), local=installed.get(e.id);
-      return {...e,nameRu:card?.name.ru||null,status:!card?'missing':!local?'prepared':JSON.stringify(card)===JSON.stringify(local)?'installed':'conflict'};
+      return {...e,nameRu:card?.name.ru||null,status:!card?'missing':!local?'prepared':JSON.stringify(card)===JSON.stringify(local)?'installed':isKnownBundledUpgrade(local,card,upgrades)?'update-available':'conflict'};
     })};
   }
   function coverage() {
     const entries = all();
     const indexed=new Set(spellIndex.entries.map(e=>e.id));
-    const prepared=validateCatalog(bundledCatalog().bundle).filter(e=>e.kind==='spell' && indexed.has(e.id));
+    const {bundle,upgrades}=bundledCatalog();
+    const prepared=validateCatalog(bundle).filter(e=>e.kind==='spell' && indexed.has(e.id));
     const installed=new Map(entries.map(e=>[e.id,e]));
     const exact=prepared.filter(e=>JSON.stringify(installed.get(e.id))===JSON.stringify(e));
     const byLevel=Array.from({length:10},(_,level)=>({level,expected:spellIndex.entries.filter(e=>e.level===level).length,prepared:prepared.filter(e=>e.spell.level===level).length,installed:exact.filter(e=>e.spell.level===level).length}));
-    const srd51Spells={expected:spellIndex.count,prepared:prepared.length,installed:exact.length,sourceUrl:spellIndex.sourceUrl,byLevel};
+    const upgradable=prepared.filter(e=>installed.has(e.id)&&isKnownBundledUpgrade(installed.get(e.id),e,upgrades)).length;
+    const srd51Spells={expected:spellIndex.count,prepared:prepared.length,installed:exact.length,upgradable,sourceUrl:spellIndex.sourceUrl,byLevel};
     return { ruleset: '5e-2014', complete: false, expectedTotal: null, total: entries.length, scopes:{srd51Spells},
       categories: Object.fromEntries(kinds.map(kind => [kind, entries.filter(entry => entry.kind === kind).length])),
       referenceOnly: entries.filter(entry => entry.source.usage === 'reference-only').length,

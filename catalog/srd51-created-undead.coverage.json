@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Four named forms of Create Undead in pinned SRD 5.1",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 4,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:ghoul",
+      "nameEn": "Ghoul",
+      "pages": [
+        312
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:ghast",
+      "nameEn": "Ghast",
+      "pages": [
+        311,
+        312
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:wight",
+      "nameEn": "Wight",
+      "pages": [
+        354,
+        355
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:mummy",
+      "nameEn": "Mummy",
+      "pages": [
+        333,
+        334
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not official translation or all undead.",
+    "Base statistics are structured; attacks, immunities and traits remain text.",
+    "Create Undead control, hit point maximum reduction, curses and zombies are not applied automatically.",
+    "Ghoul exempts elves from claw paralysis; Ghast does not. Mummy is not Mummy Lord."
+  ]
+}

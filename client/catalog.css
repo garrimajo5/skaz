@@ -21,3 +21,13 @@
 .inventory-index article>button{display:block;min-height:44px;margin:6px 0}#inventory-return{margin-bottom:14px}
 
 .catalog-card-summary{list-style:none;padding:0;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:6px;line-height:1.5}.catalog-card-summary li{font-size:11px;border:1px solid var(--line);border-radius:6px;padding:4px 7px;color:var(--text)}.catalog-pages{align-items:center}.catalog-pages>span{font-size:12px;color:var(--muted);white-space:nowrap}#catalog-result-heading{scroll-margin-top:20px}#catalog-result-heading:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+
+/* Keep the reviewed action reachable while long change notes scroll separately. */
+#dialog-content:has(>.catalog-review){padding:0;overflow:hidden;scrollbar-gutter:auto}
+.catalog-review{display:flex;flex-direction:column;height:calc(85dvh - 2px);min-height:0}
+.catalog-review-body{min-height:0;overflow:auto;overscroll-behavior:contain;padding:48px 28px 16px;scrollbar-gutter:stable}
+.catalog-review-counts{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;font-size:12px}
+.catalog-review-counts li{padding:8px;background:var(--raised);border-radius:8px}
+.catalog-updates ul{list-style:none;padding:0}.catalog-updates li{padding:12px 0;border-top:1px solid var(--line)}.catalog-updates p{margin:6px 0}.catalog-updates summary{cursor:pointer;color:var(--muted);font-size:12px;min-height:44px;display:flex;align-items:center;gap:8px}.catalog-updates summary:before{content:'+'}.catalog-updates details[open]>summary:before{content:'−'}.catalog-updates small{display:block;color:var(--muted);line-height:1.6;overflow-wrap:anywhere}
+.catalog-review-actions{flex:none;padding:12px 24px 18px;border-top:1px solid var(--line);background:var(--panel)}.catalog-review-actions>button{width:100%;min-height:46px}.catalog-review-actions>p{margin:0 0 8px;font-size:12px}.catalog-review-actions #bundled-message:empty{display:none}.catalog-review-actions #bundled-message:not(:empty){margin:8px 0 0;max-height:72px;overflow:auto}
+@media(max-width:650px){.catalog-review-body{padding:48px 18px 12px}.catalog-review-actions{padding:10px 18px 14px}.catalog-review-counts{grid-template-columns:repeat(2,minmax(0,1fr))}}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:create-undead",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Создание нежити",
+        "en": "Create Undead"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=132",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-six v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 132.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nНакладывается только ночью: до трёх трупов Маленьких или Средних гуманоидов становятся упырями (ghouls). Бонусным действием даёшь мысленный приказ созданным существам в пределах 120 футов; нескольким — одинаковый. Без приказа только защищаются, общий приказ выполняют до завершения. Контроль длится 24 часа; повторное наложение до его конца продлевает контроль над тремя существами вместо создания новых. Ячейка 7: четыре упыря; 8: пять упырей либо два ghast или wight; 9: шесть упырей, три ghast или wight либо две мумии. Характеристики у мастера; не все эти формы подготовлены в каталоге.\nМатериальный компонент: горшок могильной земли, горшок солоноватой воды и чёрный оникс стоимостью 150 зм на каждый труп; расход не указан.",
+      "links": [],
+      "spell": {
+        "level": 6,
+        "school": "necromancy",
+        "castingTime": "1 минута",
+        "range": {
+          "type": "feet",
+          "feet": 10
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "Мгновенная",
+        "concentration": false,
+        "ritual": false
+      }
+    }
+  ]
+}

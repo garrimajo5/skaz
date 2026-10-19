@@ -9,7 +9,7 @@ import { mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { AppError, seed, validateState } from './state.mjs';
-import { createCatalog } from './catalog.mjs';
+import { createCatalog, isKnownBundledUpgrade } from './catalog.mjs';
 import { setupInventory, validateInventoryQuantity, readInventory, addInventory, removeInventory, validateInventoryUndo, undoInventory } from './inventory.mjs';
 import { setupSessions, validateSession, startSession, listSessions, readSession } from './sessions.mjs';
 import { migrateEntities, readEntities, writeEntities, joinState, contextIds, createGame, selectGame, listGames } from './entities.mjs';
@@ -67,19 +67,20 @@ export function openStore(filename) {
       if (version < 4 && quests.length) throw new AppError(409, 'Задания требуют экспорт v4 или SQLite backup');
       if (version === 2 && spellbook.length) throw new AppError(409, 'Список заклинаний требует экспорт v3 или SQLite backup');
       const entries = new Map();
-      const pending = [...inventory, ...spellbook].map(item => item.catalogId);
+      const snapshots=new Map([...inventory,...spellbook].map(item=>[item.catalogId,item.entry]));
+      const pending = [...snapshots.keys()];
       const lookup = db.prepare('SELECT entry_json FROM catalog_entries WHERE id=?');
       while (pending.length) {
         const id = pending.pop();
         if (entries.has(id)) continue;
         const row = lookup.get(id);
         if (!row) throw new AppError(409, 'В каталоге отсутствует связанная запись: ' + id);
-        const entry = JSON.parse(row.entry_json);
+        const installed = JSON.parse(row.entry_json),snapshot=snapshots.get(id);
+        if(snapshot&&JSON.stringify(installed)!==JSON.stringify(snapshot)&&!isKnownBundledUpgrade(snapshot,installed))throw new AppError(409,'Сохранённая карточка отличается от каталога: '+id);
+        // Export the saved edition, including its original dependency closure.
+        const entry=snapshot||installed;
         entries.set(id, entry);
         pending.push(...(entry.links || []));
-      }
-      for (const item of [...inventory, ...spellbook]) {
-        if (JSON.stringify(entries.get(item.catalogId)) !== JSON.stringify(item.entry)) throw new AppError(409, 'Снимок предмета отличается от каталога: ' + item.catalogId);
       }
       const result = {
         app: 'skaz-active', schemaVersion: version, ruleset: '5e-2014', scope: 'active-game',

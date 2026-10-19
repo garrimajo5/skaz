@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:couatl",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Куатль",
+        "en": "Couatl"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=269",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz celestial forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 269.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний небожитель, законно-добрый. Природный доспех; хиты 97 (13d8+39). Спасброски ТЕЛ +5, МДР +7, ХАР +6. Сопротивление излучению; иммунитет к психическому урону и дробящему/колющему/рубящему от немагических атак. Истинное зрение 120 футов, пассивное Восприятие 15; все языки, телепатия 120 футов.\nВрождённые заклинания: Харизма, Сл 14, нужны только вербальные компоненты. Неограниченно: Обнаружение зла и добра, Обнаружение магии, Обнаружение мыслей. Каждое 3/день: Благословение, Сотворение пищи и воды, Лечение ран, Малое восстановление, Защита от яда, Убежище, Щит. Каждое 1/день: Сновидение (Dream), Высшее восстановление, Наблюдение (Scrying). Атаки оружием магические. Защищённый разум: иммунитет к Наблюдению и эффектам, чувствующим эмоции, читающим мысли или определяющим местоположение.\nУкус: рукопашная атака оружием +8, досягаемость 5 футов, одно существо; 8 (1d6+5) колющего. Спасбросок ТЕЛ Сл 13: провал отравляет на 24 часа; пока яд действует, цель без сознания. Другое существо может действием растолкать её и разбудить. Сдавливание: рукопашная атака оружием +6, досягаемость 10 футов, одно Среднее или меньшее существо; 10 (2d6+3) дробящего, захват с освобождением Сл 15. Пока захват действует, цель опутана и куатль не может сдавливать другую цель.\nСмена облика действием: гуманоид или зверь опасности не выше 4 либо собственная форма; смерть возвращает исходную. Снаряжение по выбору сливается или носится новой формой. Сохраняются характеристики и речь, но КД, виды перемещения, СИЛ, ЛОВ и прочие действия заменяются новыми. Получает отсутствующие у него параметры и возможности формы, кроме классовых особенностей, легендарных действий и действий логова. Если новая форма умеет кусать, куатль может использовать свой укус.\nПризыв, атаки, заклинания и ресурсы существа не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:poisoned",
+        "srd51:2014:mechanic:unconscious",
+        "srd51:2014:mechanic:grappled",
+        "srd51:2014:mechanic:restrained",
+        "srd51:2014:spell:detect-evil-and-good",
+        "srd51:2014:spell:detect-magic",
+        "srd51:2014:spell:detect-thoughts",
+        "srd51:2014:spell:bless",
+        "srd51:2014:spell:create-food-and-water",
+        "srd51:2014:spell:cure-wounds",
+        "srd51:2014:spell:lesser-restoration",
+        "srd51:2014:spell:protection-from-poison",
+        "srd51:2014:spell:sanctuary",
+        "srd51:2014:spell:shield",
+        "srd51:2014:spell:dream",
+        "srd51:2014:spell:greater-restoration",
+        "srd51:2014:spell:scrying"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "celestial",
+        "armorClass": 19,
+        "hitPoints": 97,
+        "speed": {
+          "walk": 30,
+          "fly": 90
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 20,
+          "con": 17,
+          "int": 18,
+          "wis": 20,
+          "cha": 18
+        },
+        "challenge": "4",
+        "xp": 1100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:pegasus",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Пегас",
+        "en": "Pegasus"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=340",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz celestial forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 340.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшой небожитель, хаотично-добрый. Хиты 59 (7d10+21). Спасброски ЛОВ +4, МДР +4, ХАР +3; Восприятие +6, пассивное Восприятие 16. Понимает Небесный, Общий, Эльфийский и Сильван, но не говорит. Скорость 60 футов, полёт 90 футов.\nКопыта: рукопашная атака оружием +6, досягаемость 5 футов, одна цель; 11 (2d6+4) дробящего урона. В исходном блоке нет мультиатаки, врождённых заклинаний и легендарных действий.\nПризыв, атаки, заклинания и ресурсы существа не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "large",
+        "type": "celestial",
+        "armorClass": 12,
+        "hitPoints": 59,
+        "speed": {
+          "walk": 60,
+          "fly": 90
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 15,
+          "con": 16,
+          "int": 10,
+          "wis": 15,
+          "cha": 13
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    },
+    {
+      "id": "srd51:2014:monster:unicorn",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Единорог",
+        "en": "Unicorn"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=351",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz celestial forms v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 351, 352.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшой небожитель, законно-добрый. Хиты 67 (9d10+18). Иммунитет к яду, очарованию, параличу и отравлению. Тёмное зрение 60 футов, пассивное Восприятие 13; Небесный, Эльфийский, Сильван, телепатия 60 футов.\nРазгон: после движения минимум на 20 футов прямо к цели попадание рогом в тот же ход наносит дополнительно 9 (2d8) колющего. Существо делает спасбросок СИЛ Сл 15 или падает ничком. Преимущество на спасброски против заклинаний и других магических эффектов; атаки оружием магические.\nВрождённые заклинания: Харизма, Сл 14, без компонентов. Неограниченно: Обнаружение зла и добра, Искусство друидов, Бесследное передвижение. Каждое 1/день: Умиротворение, Рассеивание зла и добра, Опутывание.\nМультиатака: копыта и рог. Копыта: рукопашная атака оружием +7, досягаемость 5 футов, одна цель; 11 (2d6+4) дробящего. Рог: +7, досягаемость 5 футов, одна цель; 8 (1d8+4) колющего. Исцеляющее касание (3/день): касание рогом другого существа восстанавливает 11 (2d8+2) хитов, снимает все болезни и нейтрализует все яды цели. Телепортация (1/день): переносит себя и до трёх видимых согласных существ в 5 футах вместе с носимым снаряжением в знакомое место в пределах 1 мили.\nТри легендарных действия, по одному варианту в конце чужого хода; восстанавливаются в начале своего хода. Копыта — одна атака копытами, цена 1. Мерцающий щит — себе или видимому существу в 60 футах +2 КД до конца следующего хода единорога, цена 2. Самоисцеление — 11 (2d8+2) хитов себе, цена 3. Для Призыва небожителя единорог опасности 5 требует ячейку 9-го уровня; ячейка 8-го предел не повышает.\nПризыв, атаки, заклинания и ресурсы существа не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:prone",
+        "srd51:2014:spell:detect-evil-and-good",
+        "srd51:2014:spell:druidcraft",
+        "srd51:2014:spell:pass-without-trace",
+        "srd51:2014:spell:calm-emotions",
+        "srd51:2014:spell:dispel-evil-and-good",
+        "srd51:2014:spell:entangle"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "celestial",
+        "armorClass": 12,
+        "hitPoints": 67,
+        "speed": {
+          "walk": 50
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 14,
+          "con": 15,
+          "int": 11,
+          "wis": 17,
+          "cha": 16
+        },
+        "challenge": "5",
+        "xp": 1800
+      }
+    }
+  ]
+}
