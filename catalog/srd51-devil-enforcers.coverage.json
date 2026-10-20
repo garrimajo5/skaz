@@ -48,7 +48,14 @@
           "reach": 10,
           "averageDamage": 13,
           "damageDice": "2d8 + 4",
-          "damageType": "piercing"
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 17,
+              "damageDice": "5d6",
+              "damageType": "poison"
+            }
+          ]
         }
       ]
     },

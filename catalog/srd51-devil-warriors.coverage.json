@@ -82,7 +82,14 @@
           "reach": 5,
           "averageDamage": 12,
           "damageDice": "2d6 + 5",
-          "damageType": "piercing"
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 10,
+              "damageDice": "3d6",
+              "damageType": "cold"
+            }
+          ]
         },
         {
           "nameEn": "Claws",
@@ -90,7 +97,14 @@
           "reach": 5,
           "averageDamage": 10,
           "damageDice": "2d4 + 5",
-          "damageType": "slashing"
+          "damageType": "slashing",
+          "additionalDamage": [
+            {
+              "averageDamage": 10,
+              "damageDice": "3d6",
+              "damageType": "cold"
+            }
+          ]
         },
         {
           "nameEn": "Tail",
@@ -98,7 +112,14 @@
           "reach": 10,
           "averageDamage": 12,
           "damageDice": "2d6 + 5",
-          "damageType": "bludgeoning"
+          "damageType": "bludgeoning",
+          "additionalDamage": [
+            {
+              "averageDamage": 10,
+              "damageDice": "3d6",
+              "damageType": "cold"
+            }
+          ]
         }
       ]
     }

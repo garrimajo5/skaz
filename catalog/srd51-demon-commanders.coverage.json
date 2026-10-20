@@ -61,7 +61,14 @@
           "reach": 10,
           "averageDamage": 21,
           "damageDice": "3d8 + 8",
-          "damageType": "slashing"
+          "damageType": "slashing",
+          "additionalDamage": [
+            {
+              "averageDamage": 13,
+              "damageDice": "3d8",
+              "damageType": "lightning"
+            }
+          ]
         },
         {
           "nameEn": "Whip",
@@ -69,7 +76,14 @@
           "reach": 30,
           "averageDamage": 15,
           "damageDice": "2d6 + 8",
-          "damageType": "slashing"
+          "damageType": "slashing",
+          "additionalDamage": [
+            {
+              "averageDamage": 10,
+              "damageDice": "3d6",
+              "damageType": "fire"
+            }
+          ]
         }
       ]
     }

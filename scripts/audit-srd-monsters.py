@@ -367,6 +367,27 @@ def melee_weapon_attack(text,creature,name):
     return {'nameEn':name,'attackBonus':int(match[1]),'reach':int(match[2]),'averageDamage':int(match[3]),'damageDice':match[4],'damageType':match[5]}
 
 
+def melee_additional_damage(text,creature,name):
+    text=normalize(text)
+    heading=re.search(re.escape(creature)+r'\s+(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',text)
+    if not heading:raise ValueError('Missing additional-damage creature')
+    body=text[heading.end():]
+    next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b[^.]*? Armor Class \d+',body)
+    if next_block:body=body[:next_block.start()]
+    pattern=(r'(?<![a-zA-Z])'+re.escape(name)+r'\. Melee Weapon Attack: \+\d+ to hit, reach \d+ ft\., one (?:target|creature)\. '
+             r'Hit: \d+ \(\d+d\d+(?: [+-] \d+)?\) [a-z]+ damage([^.]*?)\.')
+    hits=list(re.finditer(pattern,body))
+    if len(hits)!=1:raise ValueError('Missing or duplicate additional-damage attack')
+    tail=hits[0][1]
+    damage_pattern=r' plus (\d+) \((\d+d\d+(?: [+-] \d+)?)\) ([a-z]+) damage'
+    found=re.match('(?:'+damage_pattern+')+',tail)
+    if not found:raise ValueError('Unsupported additional-damage notation: '+creature+'/'+name)
+    suffix=tail[found.end():]
+    if suffix and not re.fullmatch(r', and the target must (?:succeed on|make) a DC \d+ (?:Strength|Constitution) saving throw.*',suffix):
+        raise ValueError('Unsupported trailing damage clause: '+creature+'/'+name)
+    return [{'averageDamage':int(a),'damageDice':dice,'damageType':kind} for a,dice,kind in re.findall(damage_pattern,found[0])]
+
+
 def check_melee_weapon_inventory(pages,manifest,cards):
     if manifest['sourceSha256']!=SHA256:raise ValueError('Wrong melee source')
     count=0
@@ -378,9 +399,58 @@ def check_melee_weapon_inventory(pages,manifest,cards):
         if not attacks or len({a['nameEn'] for a in attacks})!=len(attacks):raise ValueError('Duplicate melee declaration')
         for attack in attacks:
             source=melee_weapon_attack(' '.join(pages[n] for n in row['pages']),declared['nameEn'],attack['nameEn'])
-            if source!=attack:raise ValueError('Melee source statistics differ')
+            if source!={k:v for k,v in attack.items() if k!='additionalDamage'}:raise ValueError('Melee source statistics differ')
+            if 'additionalDamage' in attack:
+                additional=melee_additional_damage(' '.join(pages[n] for n in row['pages']),declared['nameEn'],attack['nameEn'])
+                if additional!=attack['additionalDamage']:raise ValueError('Additional melee damage differs')
+                for damage in additional:
+                    ru_type={'acid':'кислотного','lightning':'электрического','poison':'урона ядом','fire':'огненного','cold':'холодного'}.get(damage['damageType'])
+                    fragment=str(damage['averageDamage'])+' ('+damage['damageDice']+') '+str(ru_type)
+                    if ru_type is None or fragment not in normalize(card['text']):raise ValueError('Authored additional melee damage differs')
             if str(source['averageDamage'])+' ('+source['damageDice']+')' not in normalize(card['text']):raise ValueError('Melee damage missing in authored text')
             count+=1
+    return count
+
+
+def dragon_breath(text,creature,name):
+    text=re.sub(r'[-\u00ad\u2010\u2011]+','-',normalize(text))
+    heading=re.search(re.escape(creature)+r'\s+(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',text)
+    if not heading:raise ValueError('Missing breath creature')
+    body=text[heading.end():]
+    next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b[^.]*? Armor Class \d+',body)
+    if next_block:body=body[:next_block.start()]
+    pattern=(re.escape(name)+r' \(Recharge ([1-6])[–-]([1-6])\)\. The (?:dragon turtle|dragon) exhales [^.]*? in an? '
+             r'(\d+)-foot (line|cone)(?: that is (\d+) feet wide)?\. Each creature in that (?:line|area) must make a DC (\d+) '
+             r'(Dexterity|Constitution) saving throw, taking (\d+) \((\d+d\d+(?: [+-] \d+)?)\) ([a-z]+) damage on a failed save, '
+             r'or half as much damage on a successful one\.')
+    found=list(re.finditer(pattern,body))
+    if len(found)!=1:raise ValueError('Missing, duplicate or unsupported breath weapon: '+creature+'/'+name)
+    match=found[0]
+    if (match[4]=='line')!=(match[5] is not None):raise ValueError('Unsupported breath geometry')
+    return {'nameEn':name,'recharge':[int(match[1]),int(match[2])],'shape':match[4],'length':int(match[3]),'width':int(match[5]) if match[5] else None,
+            'saveAbility':{'Dexterity':'dex','Constitution':'con'}[match[7]],'saveDC':int(match[6]),'averageDamage':int(match[8]),'damageDice':match[9],'damageType':match[10]}
+
+
+def check_dragon_breath_inventory(pages,manifest,cards):
+    if manifest['sourceSha256']!=SHA256:raise ValueError('Wrong breath source')
+    count=0;seen=set()
+    for row in manifest.get('breathChecks',[]):
+        key=(row['monsterId'],row['breath']['nameEn'])
+        if key in seen:raise ValueError('Duplicate breath declaration')
+        seen.add(key)
+        source_row=next((r for r in manifest['entries'] if r['id']==row['monsterId']),None)
+        card=next((c for c in cards if c['id']==row['monsterId']),None)
+        if source_row is None or card is None or source_row['nameEn']!=row['nameEn']:raise ValueError('Missing breath card')
+        text=' '.join(pages[n] for n in source_row['pages']);declared=row['breath']
+        expected=dragon_breath(text,row['nameEn'],declared['nameEn'])
+        if expected!={k:v for k,v in declared.items() if k!='underwaterResistance'}:raise ValueError('Breath geometry, save or damage differs')
+        ru=normalize(card['text']);geometry=('линия '+str(expected['length'])+' футов шириной '+str(expected['width'])+' футов') if expected['shape']=='line' else ('конус '+str(expected['length'])+' футов')
+        fragments=[geometry,{'dex':'Ловкость','con':'Телосложение'}[expected['saveAbility']]+' Сл '+str(expected['saveDC']),str(expected['averageDamage'])+' ('+expected['damageDice']+')','перезарядка '+str(expected['recharge'][0])+'–'+str(expected['recharge'][1]),'половина при успехе']
+        if any(fragment not in ru for fragment in fragments):raise ValueError('Authored breath geometry, save, recharge or damage differs')
+        if 'underwaterResistance' in declared:
+            if declared['underwaterResistance'] is not False or "Being underwater doesn't grant resistance against this damage." not in normalize(text) or 'Нахождение под водой не даёт сопротивления этому урону' not in ru:
+                raise ValueError('Underwater breath exception differs')
+        count+=1
     return count
 
 
@@ -412,6 +482,7 @@ def main():
         raise SystemExit('Source hash differs; only the pinned SRD 5.1 is supported.')
     from pypdf import PdfReader
     reader = PdfReader(args.pdf)
+    monster_pages={p:reader.pages[p-1].extract_text() for p in range(254,395)}
     appendix = npc_headings({p: reader.pages[p-1].extract_text() for p in range(395, 404)})
     inventory = json.loads((ROOT / 'catalog/srd51-npc-inventory.json').read_text(encoding='utf-8-sig'))
     if inventory['sourceSha256'] != SHA256 or inventory['expectedCount'] != len(appendix) or inventory['entries'] != appendix:
@@ -421,21 +492,21 @@ def main():
     ooze_manifest = json.loads((ROOT / 'catalog/srd51-oozes.coverage.json').read_text(encoding='utf-8-sig'))
     ooze_count = check_ooze_coverage({p: reader.pages[p-1].extract_text() for p in range(337, 340)}, ooze_manifest, cards)
     type_inventory = json.loads((ROOT / 'catalog/srd51-fey-plant-inventory.json').read_text(encoding='utf-8-sig'))
-    type_counts = check_type_inventory({p: reader.pages[p-1].extract_text() for p in range(254, 395)}, type_inventory, cards)
+    type_counts = check_type_inventory(monster_pages, type_inventory, cards)
     construct_inventory = json.loads((ROOT / 'catalog/srd51-constructs-inventory.json').read_text(encoding='utf-8-sig'))
-    type_counts.update(check_type_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)}, construct_inventory, cards, ('construct',)))
+    type_counts.update(check_type_inventory(monster_pages, construct_inventory, cards, ('construct',)))
     undead_inventory=json.loads((ROOT/'catalog/srd51-undead-inventory.json').read_text(encoding='utf-8-sig'))
-    undead_count=check_undead_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)},undead_inventory,cards)
+    undead_count=check_undead_inventory(monster_pages,undead_inventory,cards)
     celestial_inventory=json.loads((ROOT/'catalog/srd51-celestial-inventory.json').read_text(encoding='utf-8-sig'))
-    type_counts.update(check_type_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)},celestial_inventory,cards,('celestial',)))
+    type_counts.update(check_type_inventory(monster_pages,celestial_inventory,cards,('celestial',)))
     giant_inventory=json.loads((ROOT/'catalog/srd51-giant-inventory.json').read_text(encoding='utf-8-sig'))
-    type_counts.update(check_type_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)},giant_inventory,cards,('giant',)))
+    type_counts.update(check_type_inventory(monster_pages,giant_inventory,cards,('giant',)))
     aberration_inventory=json.loads((ROOT/'catalog/srd51-aberration-inventory.json').read_text(encoding='utf-8-sig'))
-    type_counts.update(check_type_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)},aberration_inventory,cards,('aberration',)))
+    type_counts.update(check_type_inventory(monster_pages,aberration_inventory,cards,('aberration',)))
     fiend_inventory=json.loads((ROOT/'catalog/srd51-fiend-inventory.json').read_text(encoding='utf-8-sig'))
-    type_counts.update(check_type_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)},fiend_inventory,cards,('fiend',),allow_missing=True))
+    type_counts.update(check_type_inventory(monster_pages,fiend_inventory,cards,('fiend',),allow_missing=True))
     dragon_inventory=json.loads((ROOT/'catalog/srd51-dragon-inventory.json').read_text(encoding='utf-8-sig'))
-    type_counts.update(check_type_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)},dragon_inventory,cards,('dragon',),allow_missing=True))
+    type_counts.update(check_type_inventory(monster_pages,dragon_inventory,cards,('dragon',),allow_missing=True))
     animated_manifest = json.loads((ROOT / 'catalog/srd51-animated-objects.coverage.json').read_text(encoding='utf-8-sig'))
     animated_count = check_animated_coverage({p:reader.pages[p-1].extract_text() for p in [263,264]}, animated_manifest, cards)
     familiar = json.loads((ROOT / 'catalog/srd51-familiar-forms.coverage.json').read_text(encoding='utf-8-sig'))
@@ -467,16 +538,27 @@ def main():
     innate_counts.update(check_innate_spellcasting_inventory(night_pages,night_manifest,cards,spells))
     for package in ['srd51-demon-casters','srd51-pit-fiend','srd51-fiend-intrigues']:
         manifest=json.loads((ROOT/('catalog/'+package+'.coverage.json')).read_text(encoding='utf-8-sig'))
-        source_pages={n:reader.pages[n-1].extract_text() for row in manifest['entries'] for n in row['pages']}
+        source_pages={n:monster_pages[n] for row in manifest['entries'] for n in row['pages']}
         innate_counts.update(check_innate_spellcasting_inventory(source_pages,manifest,cards,spells))
     selected_fiends=0
     melee_checked=0
+    additional_melee_checked=0
     for package in ['srd51-night-fiends','srd51-lesser-fiends','srd51-devil-guards','srd51-demon-casters','srd51-demon-horrors','srd51-demon-commanders','srd51-devil-enforcers','srd51-devil-warriors','srd51-pit-fiend','srd51-fiend-intrigues']:
         manifest=json.loads((ROOT/('catalog/'+package+'.coverage.json')).read_text(encoding='utf-8-sig'))
-        source_pages={n:reader.pages[n-1].extract_text() for row in manifest['entries'] for n in row['pages']}
+        source_pages={n:monster_pages[n] for row in manifest['entries'] for n in row['pages']}
         selected_fiends+=check_selected_monster_manifest(source_pages,manifest,cards)
         melee_checked+=check_melee_weapon_inventory(source_pages,manifest,cards)
-    pages, failures = {}, []
+        additional_melee_checked+=sum(len(a.get('additionalDamage',[])) for row in manifest.get('weaponAttackChecks',[]) for a in row['attacks'])
+    selected_dragons=0
+    breath_checked=0
+    for package in ['srd51-dragon-kin','srd51-chromatic-young']:
+        manifest=json.loads((ROOT/('catalog/'+package+'.coverage.json')).read_text(encoding='utf-8-sig'))
+        source_pages={n:monster_pages[n] for row in manifest['entries'] for n in row['pages']}
+        selected_dragons+=check_selected_monster_manifest(source_pages,manifest,cards)
+        breath_checked+=check_dragon_breath_inventory(source_pages,manifest,cards)
+        melee_checked+=check_melee_weapon_inventory(source_pages,manifest,cards)
+        additional_melee_checked+=sum(len(a.get('additionalDamage',[])) for row in manifest.get('weaponAttackChecks',[]) for a in row['attacks'])
+    pages, failures = dict(monster_pages), []
     for card in cards:
         page = int(card['source']['url'].rsplit('#page=', 1)[1])
         for n in range(page, min(page + 1, len(reader.pages)) + 1):
@@ -489,7 +571,7 @@ def main():
                 failures.append({'id': card['id'], 'fields': errors, 'source': expected})
         except ValueError as error:
             failures.append({'id': card['id'], 'error': str(error)})
-    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'typedHeadingsChecked': type_counts, 'animatedHeadingsChecked': animated_count, 'undeadHeadingsChecked':undead_count, 'preparedCasterSpellsChecked':caster_counts,'innateCasterSpellsChecked':innate_counts, 'selectedFiendCardsChecked':selected_fiends, 'meleeAttacksChecked':melee_checked, 'failures': failures,
+    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'typedHeadingsChecked': type_counts, 'animatedHeadingsChecked': animated_count, 'undeadHeadingsChecked':undead_count, 'preparedCasterSpellsChecked':caster_counts,'innateCasterSpellsChecked':innate_counts, 'selectedFiendCardsChecked':selected_fiends, 'selectedDragonCardsChecked':selected_dragons, 'breathWeaponsChecked':breath_checked, 'meleeAttacksChecked':melee_checked, 'additionalMeleeDamageGroupsChecked':additional_melee_checked, 'failures': failures,
                       'scope': 'Base statistics, declared prepared/innate spell lists and selected primary melee attack fields; other effects need manual source review.'}, ensure_ascii=False, indent=2))
     if failures:
         raise SystemExit(1)

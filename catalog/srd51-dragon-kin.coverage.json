@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Selected Pseudodragon, Wyvern and Dragon Turtle statblocks; not complete dragon type",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 3,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:pseudodragon",
+      "nameEn": "Pseudodragon",
+      "pages": [
+        340
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:wyvern",
+      "nameEn": "Wyvern",
+      "pages": [
+        356
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:dragon-turtle",
+      "nameEn": "Dragon Turtle",
+      "pages": [
+        303,
+        304
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Pseudodragon unconsciousness needs a save failed by at least five and waking does not itself remove poisoned.",
+    "Wyvern airborne claws replace one attack; poison damage save does not add poisoned condition.",
+    "Dragon Turtle tail replaces both claws; underwater does not resist its fire steam."
+  ],
+  "weaponAttackChecks": [
+    {
+      "monsterId": "srd51:2014:monster:pseudodragon",
+      "nameEn": "Pseudodragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 4,
+          "reach": 5,
+          "averageDamage": 4,
+          "damageDice": "1d4 + 2",
+          "damageType": "piercing"
+        },
+        {
+          "nameEn": "Sting",
+          "attackBonus": 4,
+          "reach": 5,
+          "averageDamage": 4,
+          "damageDice": "1d4 + 2",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:wyvern",
+      "nameEn": "Wyvern",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 7,
+          "reach": 10,
+          "averageDamage": 11,
+          "damageDice": "2d6 + 4",
+          "damageType": "piercing"
+        },
+        {
+          "nameEn": "Claws",
+          "attackBonus": 7,
+          "reach": 5,
+          "averageDamage": 13,
+          "damageDice": "2d8 + 4",
+          "damageType": "slashing"
+        },
+        {
+          "nameEn": "Stinger",
+          "attackBonus": 7,
+          "reach": 10,
+          "averageDamage": 11,
+          "damageDice": "2d6 + 4",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:dragon-turtle",
+      "nameEn": "Dragon Turtle",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 13,
+          "reach": 15,
+          "averageDamage": 26,
+          "damageDice": "3d12 + 7",
+          "damageType": "piercing"
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 13,
+          "reach": 10,
+          "averageDamage": 16,
+          "damageDice": "2d8 + 7",
+          "damageType": "slashing"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 13,
+          "reach": 15,
+          "averageDamage": 26,
+          "damageDice": "3d12 + 7",
+          "damageType": "bludgeoning"
+        }
+      ]
+    }
+  ],
+  "breathChecks": [
+    {
+      "monsterId": "srd51:2014:monster:dragon-turtle",
+      "nameEn": "Dragon Turtle",
+      "breath": {
+        "nameEn": "Steam Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 60,
+        "width": null,
+        "saveAbility": "con",
+        "saveDC": 18,
+        "averageDamage": 52,
+        "damageDice": "15d6",
+        "damageType": "fire",
+        "underwaterResistance": false
+      }
+    }
+  ]
+}

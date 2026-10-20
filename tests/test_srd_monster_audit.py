@@ -10,6 +10,58 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_additional_melee_damage_keeps_dice_type_and_primary_damage_separate(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        action=' Bite. Melee Weapon Attack: +7 to hit, reach 10 ft., one target. Hit: 15 (2d10 + 4) piercing damage plus 4 (1d8) acid damage.'
+        text=BASE+' Actions'+action;extra=m['melee_additional_damage'](text,'Beast','Bite')
+        self.assertEqual(extra,[{'averageDamage':4,'damageDice':'1d8','damageType':'acid'}])
+        with_save=text.replace('acid damage.','acid damage, and the target must succeed on a DC 14 Constitution saving throw or become poisoned for 1 minute.')
+        self.assertEqual(m['melee_additional_damage'](with_save,'Beast','Bite'),extra)
+        attack={**m['melee_weapon_attack'](text,'Beast','Bite'),'additionalDamage':extra}
+        manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:beast','nameEn':'Beast','pages':[282]}],'weaponAttackChecks':[{'monsterId':'source:beast','nameEn':'Beast','attacks':[attack]}]}
+        card={'id':'source:beast','text':'Укус: 15 (2d10 + 4) колющего плюс 4 (1d8) кислотного урона.'}
+        self.assertEqual(m['check_melee_weapon_inventory']({282:text},manifest,[card]),1)
+        for key,value in [('averageDamage',5),('damageDice','1d10'),('damageType','fire')]:
+            wrong=copy.deepcopy(manifest);wrong['weaponAttackChecks'][0]['attacks'][0]['additionalDamage'][0][key]=value
+            with self.assertRaises(ValueError):m['check_melee_weapon_inventory']({282:text},wrong,[card])
+        for changed in [card['text'].replace('кислотного','огненного'),card['text'].replace('4 (1d8)','5 (1d10)')]:
+            with self.assertRaises(ValueError):m['check_melee_weapon_inventory']({282:text},manifest,[{**card,'text':changed}])
+        for changed in [text.replace(' plus 4 (1d8) acid damage',''),BASE+BASE.replace('Beast Large','Neighbor Large')+action,text+action]:
+            with self.assertRaises(ValueError):m['melee_additional_damage'](changed,'Beast','Bite')
+        with self.assertRaises(ValueError):m['melee_additional_damage'](text.replace(' plus 4 (1d8) acid damage',', or 20 (3d10) piercing damage if held in two hands'),'Beast','Bite')
+
+    def test_dragon_breath_preserves_geometry_save_recharge_and_damage_with_pdf_hyphens(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        action=' Acid Breath (Recharge 5–6). The dragon exhales acid in a 30-\u00ad\u2010foot line that is 5 feet wide. Each creature in that line must make a DC 14 Dexterity saving throw, taking 49 (11d8) acid damage on a failed save, or half as much damage on a successful one.'
+        text=BASE+' Actions'+action;value=m['dragon_breath'](text,'Beast','Acid Breath')
+        self.assertEqual(value,{'nameEn':'Acid Breath','recharge':[5,6],'shape':'line','length':30,'width':5,'saveAbility':'dex','saveDC':14,'averageDamage':49,'damageDice':'11d8','damageType':'acid'})
+        manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:beast','nameEn':'Beast','pages':[282]}],'breathChecks':[{'monsterId':'source:beast','nameEn':'Beast','breath':value}]}
+        card={'id':'source:beast','text':'Кислотное дыхание (перезарядка 5–6): линия 30 футов шириной 5 футов, Ловкость Сл 14; 49 (11d8) кислотного урона при провале, половина при успехе.'}
+        self.assertEqual(m['check_dragon_breath_inventory']({282:text},manifest,[card]),1)
+        for key,val in [('recharge',[6,6]),('shape','cone'),('length',60),('width',10),('saveAbility','con'),('saveDC',15),('averageDamage',50),('damageDice','12d8'),('damageType','fire')]:
+            wrong=copy.deepcopy(manifest);wrong['breathChecks'][0]['breath'][key]=val
+            with self.assertRaises(ValueError):m['check_dragon_breath_inventory']({282:text},wrong,[card])
+        for changed in [card['text'].replace('линия','конус'),card['text'].replace('Ловкость','Телосложение'),card['text'].replace('Сл 14','Сл 15')]:
+            with self.assertRaises(ValueError):m['check_dragon_breath_inventory']({282:text},manifest,[{**card,'text':changed}])
+        wrong=copy.deepcopy(manifest);wrong['breathChecks']*=2
+        with self.assertRaises(ValueError):m['check_dragon_breath_inventory']({282:text},wrong,[card])
+        for bad in [BASE+BASE.replace('Beast Large','Neighbor Large')+action,text+action,text.replace('line that is 5 feet wide','line')]:
+            with self.assertRaises(ValueError):m['dragon_breath'](bad,'Beast','Acid Breath')
+
+    def test_dragon_turtle_steam_keeps_constitution_and_explicit_underwater_fire_exception(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        text=BASE+' Actions Steam Breath (Recharge 5–6). The dragon turtle exhales scalding steam in a 60-foot cone. Each creature in that area must make a DC 18 Constitution saving throw, taking 52 (15d6) fire damage on a failed save, or half as much damage on a successful one. Being underwater doesn’t grant resistance against this damage.'
+        value=m['dragon_breath'](text,'Beast','Steam Breath');self.assertEqual(value['saveAbility'],'con');self.assertIsNone(value['width']);self.assertEqual(value['damageType'],'fire')
+        manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:beast','nameEn':'Beast','pages':[304]}],'breathChecks':[{'monsterId':'source:beast','nameEn':'Beast','breath':{**value,'underwaterResistance':False}}]}
+        card={'id':'source:beast','text':'Паровое дыхание (перезарядка 5–6): конус 60 футов, Телосложение Сл 18; 52 (15d6) огненного урона при провале, половина при успехе. Нахождение под водой не даёт сопротивления этому урону.'}
+        self.assertEqual(m['check_dragon_breath_inventory']({304:text},manifest,[card]),1)
+        for changed in [text.replace('Being underwater doesn’t grant resistance against this damage.',''),text.replace('Constitution','Dexterity')]:
+            with self.assertRaises(ValueError):m['check_dragon_breath_inventory']({304:changed},manifest,[card])
+        with self.assertRaises(ValueError):m['check_dragon_breath_inventory']({304:text},manifest,[{**card,'text':card['text'].replace('не даёт','даёт')}])
+
     def test_shapechanger_medium_humanoid_prose_is_not_a_new_statblock_before_melee_actions(self):
         m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
         action=' Claw (Fiend Form Only). Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage.'

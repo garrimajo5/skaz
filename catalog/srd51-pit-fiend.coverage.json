@@ -85,7 +85,14 @@
           "reach": 10,
           "averageDamage": 15,
           "damageDice": "2d6 + 8",
-          "damageType": "bludgeoning"
+          "damageType": "bludgeoning",
+          "additionalDamage": [
+            {
+              "averageDamage": 21,
+              "damageDice": "6d6",
+              "damageType": "fire"
+            }
+          ]
         },
         {
           "nameEn": "Tail",

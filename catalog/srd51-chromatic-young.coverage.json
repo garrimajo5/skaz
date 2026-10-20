@@ -1,0 +1,535 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Ten selected chromatic young and wyrmling dragon statblocks; not complete dragon type",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 10,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:young-black-dragon",
+      "nameEn": "Young Black Dragon",
+      "pages": [
+        281,
+        282
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:black-dragon-wyrmling",
+      "nameEn": "Black Dragon Wyrmling",
+      "pages": [
+        282
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:young-blue-dragon",
+      "nameEn": "Young Blue Dragon",
+      "pages": [
+        283,
+        284
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:blue-dragon-wyrmling",
+      "nameEn": "Blue Dragon Wyrmling",
+      "pages": [
+        284
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:young-green-dragon",
+      "nameEn": "Young Green Dragon",
+      "pages": [
+        285,
+        286
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:green-dragon-wyrmling",
+      "nameEn": "Green Dragon Wyrmling",
+      "pages": [
+        286
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:young-red-dragon",
+      "nameEn": "Young Red Dragon",
+      "pages": [
+        288
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:red-dragon-wyrmling",
+      "nameEn": "Red Dragon Wyrmling",
+      "pages": [
+        288
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:young-white-dragon",
+      "nameEn": "Young White Dragon",
+      "pages": [
+        290
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:white-dragon-wyrmling",
+      "nameEn": "White Dragon Wyrmling",
+      "pages": [
+        290
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Only young and wyrmling forms of five chromatic colours; no adult or ancient statistics.",
+    "Young dragons have bite and two claws; wyrmlings have no multiattack here.",
+    "Breath shape, size, saving ability and DC are per source, not inferred from colour.",
+    "White wyrmling does not receive Young White Ice Walk; green poison damage does not itself impose poisoned."
+  ],
+  "weaponAttackChecks": [
+    {
+      "monsterId": "srd51:2014:monster:young-black-dragon",
+      "nameEn": "Young Black Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 7,
+          "reach": 10,
+          "averageDamage": 15,
+          "damageDice": "2d10 + 4",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 4,
+              "damageDice": "1d8",
+              "damageType": "acid"
+            }
+          ]
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 7,
+          "reach": 5,
+          "averageDamage": 11,
+          "damageDice": "2d6 + 4",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:black-dragon-wyrmling",
+      "nameEn": "Black Dragon Wyrmling",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 4,
+          "reach": 5,
+          "averageDamage": 7,
+          "damageDice": "1d10 + 2",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 2,
+              "damageDice": "1d4",
+              "damageType": "acid"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:young-blue-dragon",
+      "nameEn": "Young Blue Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 9,
+          "reach": 10,
+          "averageDamage": 16,
+          "damageDice": "2d10 + 5",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 5,
+              "damageDice": "1d10",
+              "damageType": "lightning"
+            }
+          ]
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 9,
+          "reach": 5,
+          "averageDamage": 12,
+          "damageDice": "2d6 + 5",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:blue-dragon-wyrmling",
+      "nameEn": "Blue Dragon Wyrmling",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 5,
+          "reach": 5,
+          "averageDamage": 8,
+          "damageDice": "1d10 + 3",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 3,
+              "damageDice": "1d6",
+              "damageType": "lightning"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:young-green-dragon",
+      "nameEn": "Young Green Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 7,
+          "reach": 10,
+          "averageDamage": 15,
+          "damageDice": "2d10 + 4",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 7,
+              "damageDice": "2d6",
+              "damageType": "poison"
+            }
+          ]
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 7,
+          "reach": 5,
+          "averageDamage": 11,
+          "damageDice": "2d6 + 4",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:green-dragon-wyrmling",
+      "nameEn": "Green Dragon Wyrmling",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 4,
+          "reach": 5,
+          "averageDamage": 7,
+          "damageDice": "1d10 + 2",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 3,
+              "damageDice": "1d6",
+              "damageType": "poison"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:young-red-dragon",
+      "nameEn": "Young Red Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 10,
+          "reach": 10,
+          "averageDamage": 17,
+          "damageDice": "2d10 + 6",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 3,
+              "damageDice": "1d6",
+              "damageType": "fire"
+            }
+          ]
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 10,
+          "reach": 5,
+          "averageDamage": 13,
+          "damageDice": "2d6 + 6",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:red-dragon-wyrmling",
+      "nameEn": "Red Dragon Wyrmling",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 6,
+          "reach": 5,
+          "averageDamage": 9,
+          "damageDice": "1d10 + 4",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 3,
+              "damageDice": "1d6",
+              "damageType": "fire"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:young-white-dragon",
+      "nameEn": "Young White Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 7,
+          "reach": 10,
+          "averageDamage": 15,
+          "damageDice": "2d10 + 4",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 4,
+              "damageDice": "1d8",
+              "damageType": "cold"
+            }
+          ]
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 7,
+          "reach": 5,
+          "averageDamage": 11,
+          "damageDice": "2d6 + 4",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:white-dragon-wyrmling",
+      "nameEn": "White Dragon Wyrmling",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 4,
+          "reach": 5,
+          "averageDamage": 7,
+          "damageDice": "1d10 + 2",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 2,
+              "damageDice": "1d4",
+              "damageType": "cold"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "breathChecks": [
+    {
+      "monsterId": "srd51:2014:monster:young-black-dragon",
+      "nameEn": "Young Black Dragon",
+      "breath": {
+        "nameEn": "Acid Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "line",
+        "length": 30,
+        "width": 5,
+        "saveAbility": "dex",
+        "saveDC": 14,
+        "averageDamage": 49,
+        "damageDice": "11d8",
+        "damageType": "acid"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:black-dragon-wyrmling",
+      "nameEn": "Black Dragon Wyrmling",
+      "breath": {
+        "nameEn": "Acid Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "line",
+        "length": 15,
+        "width": 5,
+        "saveAbility": "dex",
+        "saveDC": 11,
+        "averageDamage": 22,
+        "damageDice": "5d8",
+        "damageType": "acid"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:young-blue-dragon",
+      "nameEn": "Young Blue Dragon",
+      "breath": {
+        "nameEn": "Lightning Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "line",
+        "length": 60,
+        "width": 5,
+        "saveAbility": "dex",
+        "saveDC": 16,
+        "averageDamage": 55,
+        "damageDice": "10d10",
+        "damageType": "lightning"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:blue-dragon-wyrmling",
+      "nameEn": "Blue Dragon Wyrmling",
+      "breath": {
+        "nameEn": "Lightning Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "line",
+        "length": 30,
+        "width": 5,
+        "saveAbility": "dex",
+        "saveDC": 12,
+        "averageDamage": 22,
+        "damageDice": "4d10",
+        "damageType": "lightning"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:young-green-dragon",
+      "nameEn": "Young Green Dragon",
+      "breath": {
+        "nameEn": "Poison Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 30,
+        "width": null,
+        "saveAbility": "con",
+        "saveDC": 14,
+        "averageDamage": 42,
+        "damageDice": "12d6",
+        "damageType": "poison"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:green-dragon-wyrmling",
+      "nameEn": "Green Dragon Wyrmling",
+      "breath": {
+        "nameEn": "Poison Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 15,
+        "width": null,
+        "saveAbility": "con",
+        "saveDC": 11,
+        "averageDamage": 21,
+        "damageDice": "6d6",
+        "damageType": "poison"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:young-red-dragon",
+      "nameEn": "Young Red Dragon",
+      "breath": {
+        "nameEn": "Fire Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 30,
+        "width": null,
+        "saveAbility": "dex",
+        "saveDC": 17,
+        "averageDamage": 56,
+        "damageDice": "16d6",
+        "damageType": "fire"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:red-dragon-wyrmling",
+      "nameEn": "Red Dragon Wyrmling",
+      "breath": {
+        "nameEn": "Fire Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 15,
+        "width": null,
+        "saveAbility": "dex",
+        "saveDC": 13,
+        "averageDamage": 24,
+        "damageDice": "7d6",
+        "damageType": "fire"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:young-white-dragon",
+      "nameEn": "Young White Dragon",
+      "breath": {
+        "nameEn": "Cold Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 30,
+        "width": null,
+        "saveAbility": "con",
+        "saveDC": 15,
+        "averageDamage": 45,
+        "damageDice": "10d8",
+        "damageType": "cold"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:white-dragon-wyrmling",
+      "nameEn": "White Dragon Wyrmling",
+      "breath": {
+        "nameEn": "Cold Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 15,
+        "width": null,
+        "saveAbility": "con",
+        "saveDC": 12,
+        "averageDamage": 22,
+        "damageDice": "5d8",
+        "damageType": "cold"
+      }
+    }
+  ]
+}
