@@ -165,11 +165,11 @@ test('catalog sharing is exact bundled content, not a license flag; private impo
   // Deliberately retains CC BY license metadata: license is not visibility.
   store.catalog.importEntries({schemaVersion:1,entries:[privateCard]},{apply:true});
   const reader=store.forUser(userA,'window-one');
-  assert.equal(store.catalog.coverage().total,559);assert.equal(reader.catalog.coverage().total,558);
+  assert.equal(store.catalog.coverage().total,567);assert.equal(reader.catalog.coverage().total,566);
   assert.equal(reader.catalog.search(new URLSearchParams({q:'SECRET_ITEM'})).total,0);
   assert.throws(()=>reader.catalog.lookup(new URLSearchParams({id:privateCard.id})),{status:404});
-  assert.equal(reader.catalog.search(new URLSearchParams({kind:'monster'})).total,136);
-  assert.deepEqual(Object.values(reader.catalog.coverage().scopes.srd51CreatureTypes).map(s=>[s.expected,s.prepared,s.installed]),[[6,6,6],[6,6,6],[9,9,9],[18,18,18],[6,6,6],[10,10,10],[5,5,5]]);
+  assert.equal(reader.catalog.search(new URLSearchParams({kind:'monster'})).total,144);
+  assert.deepEqual(Object.values(reader.catalog.coverage().scopes.srd51CreatureTypes).map(s=>[s.expected,s.prepared,s.installed]),[[6,6,6],[6,6,6],[9,9,9],[18,18,18],[6,6,6],[10,10,10],[5,5,5],[23,9,9]]);
   a.addInventory(command(a,{characterId:a.read().context.characterId,catalogId:privateCard.id,quantity:1}));
   assert.equal(reader.inventory().entries[0].entry.text,'PRIVATE_ITEM_DESCRIPTION');
   assert.throws(()=>reader.exportActive(),{status:403});
@@ -177,7 +177,7 @@ test('catalog sharing is exact bundled content, not a license flag; private impo
 
 test('challenge ranges never count or return a private monster retained under an open license',t=>{
  const {store}=setup(t),p=store.catalog.previewBundled();store.catalog.installBundled({version:p.version});const base=JSON.parse(readFileSync(new URL('../catalog/srd51-forest.json',import.meta.url),'utf8')).entries.find(e=>e.name.en==='Sprite'),privateCard={...structuredClone(base),id:'personal:hidden-range-monster',name:{ru:'Личный монстр диапазона',en:'HIDDEN_RANGE_MONSTER'},links:[]};store.catalog.importEntries({schemaVersion:1,entries:[privateCard]},{apply:true});const reader=store.forUser(userB,'private-range-window'),params=new URLSearchParams({kind:'monster',challengeMin:'0',challengeMax:'30',limit:'100'}),raw=store.catalog.search(params),scoped=reader.catalog.search(params);
- assert.deepEqual(Object.values(reader.catalog.coverage().scopes.srd51CreatureTypes).map(s=>s.installed),[6,6,9,18,6,10,5]);assert.equal(raw.total,137);assert.equal(scoped.total,136);assert.equal(scoped.entries.some(e=>e.id===privateCard.id),false);assert.equal(reader.catalog.search(new URLSearchParams({kind:'monster',challengeMin:'1/8',challengeMax:'1/2',q:'HIDDEN_RANGE_MONSTER'})).total,0);assert.equal(store.catalog.search(new URLSearchParams({kind:'monster',challengeMin:'1/8',challengeMax:'1/2',q:'HIDDEN_RANGE_MONSTER'})).total,1);
+ assert.deepEqual(Object.values(reader.catalog.coverage().scopes.srd51CreatureTypes).map(s=>s.installed),[6,6,9,18,6,10,5,9]);assert.equal(raw.total,145);assert.equal(scoped.total,144);assert.equal(scoped.entries.some(e=>e.id===privateCard.id),false);assert.equal(reader.catalog.search(new URLSearchParams({kind:'monster',challengeMin:'1/8',challengeMax:'1/2',q:'HIDDEN_RANGE_MONSTER'})).total,0);assert.equal(store.catalog.search(new URLSearchParams({kind:'monster',challengeMin:'1/8',challengeMax:'1/2',q:'HIDDEN_RANGE_MONSTER'})).total,1);
 });
 
 test('membership migration persists, remains in full backup and leaves existing game state intact',async t=>{

@@ -105,7 +105,7 @@ def innate_spellcasting(text,name):
     body=text[start.end():]
     next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',body)
     if next_block:body=body[:next_block.start()]
-    caster=re.search(r"spellcasting ability is Charisma(?: \(spell save DC (\d+)\))?\..*?following spells, requiring (only verbal|no material) components: (.*?)(?: Magic Resistance\.| Magic Weapons\.| Regeneration\.| Actions)",body)
+    caster=re.search(r"spellcasting ability is Charisma(?: \(spell save DC (\d+)(?:, \+\d+ to hit with spell attacks)?\))?\..*?following spells, requiring (only verbal|no material) components: (.*?)(?: Magic Resistance\.| Magic Weapons\.| Regeneration\.| Actions)",body)
     if not caster:raise ValueError('Unsupported innate spellcasting block for '+name)
     marks=list(re.finditer(r'At will:|([1-9])/day each:',caster[3]))
     if not marks or marks[0].start()!=0:raise ValueError('Unsupported innate frequency')
@@ -121,6 +121,17 @@ def innate_spellcasting(text,name):
         groups.append({'usesPerDay':int(mark[1]) if mark[1] else None,'spells':spells})
     if len({g['usesPerDay'] for g in groups})!=len(groups):raise ValueError('Duplicate innate frequency')
     return {'ability':'cha','saveDC':int(caster[1]) if caster[1] else None,'components':'verbal-only' if caster[2]=='only verbal' else 'no-material','groups':groups}
+
+
+def innate_spell_attack_bonus(text,name):
+    text=normalize(text)
+    heading=re.search(re.escape(name)+r'\s+(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',text)
+    if not heading:raise ValueError('Missing innate attack caster')
+    body=text[heading.end():]
+    next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',body)
+    if next_block:body=body[:next_block.start()]
+    found=re.search(r'spellcasting ability is Charisma \(spell save DC \d+, \+(\d+) to hit with spell attacks\)',body)
+    return int(found[1]) if found else None
 
 
 def authored_innate_spellcasting(text):
@@ -155,6 +166,10 @@ def check_innate_spellcasting_inventory(pages,manifest,cards,spells):
         expected=innate_spellcasting(' '.join(pages[n] for n in row['pages']),declared['nameEn'])
         if expected!={k:declared[k] for k in ['ability','saveDC','components','groups']}:raise ValueError('Innate source, frequency or self restriction differs')
         if authored_innate_spellcasting(card['text'])!=expected:raise ValueError('Authored innate DC/components/frequency/spells differ from source')
+        if 'spellAttackBonus' in declared:
+            source_bonus=innate_spell_attack_bonus(' '.join(pages[n] for n in row['pages']),declared['nameEn'])
+            authored_bonus=re.search(r'атака заклинанием \+(\d+)',card['text'])
+            if source_bonus is None or not authored_bonus or source_bonus!=declared['spellAttackBonus'] or int(authored_bonus[1])!=declared['spellAttackBonus']:raise ValueError('Innate spell attack bonus differs')
         checked=[]
         for group in expected['groups']:
             for ref in group['spells']:
@@ -245,7 +260,18 @@ def check_animated_coverage(pages, manifest, cards):
     return len(rows)
 
 
+def fiend_headings(pages):
+    rows=[]
+    for page,text in sorted(pages.items()):
+        text=normalize(text).replace('Demons ','').replace('Devils ','')
+        for match in re.finditer(r'([A-Z][a-z]+(?:/[A-Z][a-z]+)?(?: [A-Z][a-z]+){0,2}) (?:'+SIZES+r') fiend\b',text):
+            name=match[1]
+            rows.append({'id':'srd51:2014:monster:'+name.lower().replace('/','-').replace(' ','-'),'nameEn':name,'page':page})
+    return rows
+
+
 def type_headings(pages, kind):
+    if kind == 'fiend':return fiend_headings(pages)
     if kind == 'construct':
         return animated_headings(pages)
     if kind not in ('fey', 'plant','celestial','giant','aberration'):
@@ -287,7 +313,7 @@ def check_undead_inventory(pages,manifest,cards):
     return {'expected':len(rows),'prepared':prepared}
 
 
-def check_type_inventory(pages, manifest, cards, expected_types=('fey', 'plant')):
+def check_type_inventory(pages, manifest, cards, expected_types=('fey', 'plant'), allow_missing=False):
     if (manifest['sourceSha256'] != SHA256 or manifest['ruleset'] != '5e-2014' or
             manifest['sourcePageRange'] != [254, 394] or
             [section['monsterType'] for section in manifest['sections']] != list(expected_types)):
@@ -298,14 +324,37 @@ def check_type_inventory(pages, manifest, cards, expected_types=('fey', 'plant')
         rows = type_headings(pages, kind)
         if not rows or section['expectedCount'] != len(rows) or section['entries'] != rows:
             raise ValueError('Typed headings/pages differ from source: ' + kind)
+        prepared=0
         for row in rows:
             found = [card for card in cards if card['id'] == row['id']]
+            if not found and allow_missing:continue
             if (len(found) != 1 or found[0]['name']['en'] != row['nameEn'] or
                     found[0]['monster']['type'] != kind or
                     not found[0]['source']['url'].endswith('#page=' + str(row['page']))):
                 raise ValueError('Missing or mismatched typed card: ' + row['nameEn'])
-        result[kind] = len(rows)
+            prepared+=1
+        result[kind] = {'expected':len(rows),'prepared':prepared} if allow_missing else len(rows)
     return result
+
+
+def check_selected_monster_manifest(pages,manifest,cards):
+    """Audit a bounded source pack without treating its size as full type coverage."""
+    rows=manifest['entries']
+    if (manifest['schemaVersion']!=1 or manifest['ruleset']!='5e-2014' or manifest['sourceSha256']!=SHA256 or
+        manifest['completeGameCatalog'] is not False or manifest['expectedSubsetCount']!=len(rows) or not rows or
+        len({r['id'] for r in rows})!=len(rows) or len({r['nameEn'] for r in rows})!=len(rows)):
+        raise ValueError('Invalid selected creature source manifest')
+    for row in rows:
+        numbers=row['pages']
+        if not numbers or numbers!=sorted(set(numbers)) or any(type(n)!=int or n<254 or n>394 for n in numbers):
+            raise ValueError('Invalid selected creature source pages')
+        found=[c for c in cards if c['id']==row['id']]
+        if (len(found)!=1 or found[0]['ruleset']!='5e-2014' or found[0]['source']['usage']!='cc-by-4.0' or
+            found[0]['name']['en']!=row['nameEn'] or found[0]['source']['url']!=manifest['sourceUrl']+'#page='+str(numbers[0])):
+            raise ValueError('Selected source card identity differs')
+        expected=statistics(' '.join(pages[n] for n in numbers),row['nameEn'])
+        if expected!=found[0]['monster']:raise ValueError('Selected source card statistics differ')
+    return len(rows)
 
 
 def main():
@@ -336,6 +385,8 @@ def main():
     type_counts.update(check_type_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)},giant_inventory,cards,('giant',)))
     aberration_inventory=json.loads((ROOT/'catalog/srd51-aberration-inventory.json').read_text(encoding='utf-8-sig'))
     type_counts.update(check_type_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)},aberration_inventory,cards,('aberration',)))
+    fiend_inventory=json.loads((ROOT/'catalog/srd51-fiend-inventory.json').read_text(encoding='utf-8-sig'))
+    type_counts.update(check_type_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)},fiend_inventory,cards,('fiend',),allow_missing=True))
     animated_manifest = json.loads((ROOT / 'catalog/srd51-animated-objects.coverage.json').read_text(encoding='utf-8-sig'))
     animated_count = check_animated_coverage({p:reader.pages[p-1].extract_text() for p in [263,264]}, animated_manifest, cards)
     familiar = json.loads((ROOT / 'catalog/srd51-familiar-forms.coverage.json').read_text(encoding='utf-8-sig'))
@@ -362,6 +413,14 @@ def main():
     kin_manifest=json.loads((ROOT/'catalog/srd51-giant-kin.coverage.json').read_text(encoding='utf-8-sig'))
     kin_pages={n:reader.pages[n-1].extract_text() for row in kin_manifest['entries'] for n in row['pages']}
     innate_counts.update(check_innate_spellcasting_inventory(kin_pages,kin_manifest,cards,spells))
+    night_manifest=json.loads((ROOT/'catalog/srd51-night-fiends.coverage.json').read_text(encoding='utf-8-sig'))
+    night_pages={n:reader.pages[n-1].extract_text() for row in night_manifest['entries'] for n in row['pages']}
+    innate_counts.update(check_innate_spellcasting_inventory(night_pages,night_manifest,cards,spells))
+    selected_fiends=0
+    for package in ['srd51-night-fiends','srd51-lesser-fiends','srd51-devil-guards']:
+        manifest=json.loads((ROOT/('catalog/'+package+'.coverage.json')).read_text(encoding='utf-8-sig'))
+        source_pages={n:reader.pages[n-1].extract_text() for row in manifest['entries'] for n in row['pages']}
+        selected_fiends+=check_selected_monster_manifest(source_pages,manifest,cards)
     pages, failures = {}, []
     for card in cards:
         page = int(card['source']['url'].rsplit('#page=', 1)[1])
@@ -375,7 +434,7 @@ def main():
                 failures.append({'id': card['id'], 'fields': errors, 'source': expected})
         except ValueError as error:
             failures.append({'id': card['id'], 'error': str(error)})
-    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'typedHeadingsChecked': type_counts, 'animatedHeadingsChecked': animated_count, 'undeadHeadingsChecked':undead_count, 'preparedCasterSpellsChecked':caster_counts,'innateCasterSpellsChecked':innate_counts, 'failures': failures,
+    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'typedHeadingsChecked': type_counts, 'animatedHeadingsChecked': animated_count, 'undeadHeadingsChecked':undead_count, 'preparedCasterSpellsChecked':caster_counts,'innateCasterSpellsChecked':innate_counts, 'selectedFiendCardsChecked':selected_fiends, 'failures': failures,
                       'scope': 'Base statistics and declared prepared/innate spell lists; other actions/traits need manual source review.'}, ensure_ascii=False, indent=2))
     if failures:
         raise SystemExit(1)

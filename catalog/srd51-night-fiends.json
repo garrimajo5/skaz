@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:night-hag",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Ночная карга",
+        "en": "Night Hag"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=319",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz night fiends v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 319, 320.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСреднее исчадие, нейтрально-злое. Природный доспех; хиты 112 (15d8 + 45). Обман +7, Проницательность +6, Восприятие +6, Скрытность +6. Сопротивление холодному и огненному урону, а также дробящему, колющему и рубящему от немагических атак, не совершённых посеребрённым оружием. Иммунитет к очарованию. Тёмное зрение 120 футов, пассивное Восприятие 16; Бездны, Общий, Инфернальный, Первичный.\nВрождённая магия: Харизма, Сл 14, атака заклинанием +6, без материальных компонентов. Без ограничений — detect magic, magic missile; 2 раза в день каждое — plane shift только на себя, ray of enfeeblement, sleep. Сопротивление магии: преимущество на спасброски от заклинаний и других магических эффектов.\nКогти только в форме карги: рукопашная атака оружием +7, досягаемость 5 футов, одна цель; 13 (2d8 + 4) рубящего урона. Смена облика действием: маленький или средний гуманоид женского пола либо истинная форма; параметры одинаковы, снаряжение не превращается, при смерти возвращается истинный облик.\nЭфирность: переход между Материальным и Эфирным планами требует имеющегося у карги сердечного камня (heartstone). Это отдельное действие, не её ограниченное plane shift.\nКошмарное преследование (1 раз в день): с Эфирного плана касается спящего гуманоида на Материальном. Protection from evil and good или magic circle предотвращают контакт. Пока контакт длится, цель видит кошмары; только после хотя бы 1 часа таких видений отдых не приносит пользы, а максимум хитов уменьшается на 5 (1d10). Если максимум падает до 0, цель умирает; душа попадает в мешок душ карги (soul bag), только если цель была злой. Уменьшение максимума сохраняется до greater restoration или подобной магии. Обычное лечение само по себе это уменьшение не снимает.\nАтаки, формы, заклинания и прочие эффекты справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:spell:detect-magic",
+        "srd51:2014:spell:magic-missile",
+        "srd51:2014:spell:plane-shift",
+        "srd51:2014:spell:ray-of-enfeeblement",
+        "srd51:2014:spell:sleep",
+        "srd51:2014:spell:protection-from-evil-and-good",
+        "srd51:2014:spell:magic-circle",
+        "srd51:2014:spell:greater-restoration"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "fiend",
+        "armorClass": 17,
+        "hitPoints": 112,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 15,
+          "con": 16,
+          "int": 16,
+          "wis": 14,
+          "cha": 16
+        },
+        "challenge": "5",
+        "xp": 1800
+      }
+    },
+    {
+      "id": "srd51:2014:monster:nightmare",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Кошмар",
+        "en": "Nightmare"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=336",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz night fiends v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 336.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшое исчадие, нейтрально-злое. Природный доспех; хиты 68 (8d10 + 24). Иммунитет к огненному урону. Пассивное Восприятие 11. Понимает Бездны, Общий и Инфернальный, но не говорит.\nМожет дать сопротивление огненному урону тому, кто едет на нём: всаднику предоставляется сопротивление, не иммунитет самого кошмара. Испускает яркий свет в радиусе 10 футов и тусклый ещё на 10 футов.\nКопыта: рукопашная атака оружием +6, досягаемость 5 футов, одна цель; 13 (2d8 + 4) дробящего плюс 7 (2d6) огненного урона.\nЭфирный шаг: кошмар и до трёх согласных существ в пределах 5 футов от него магически переходят с Материального на Эфирный план или обратно. Ограничения только всадниками нет; это не заклинание plane shift и суточный лимит в данном блоке не указан.\nАтаки, формы, заклинания и прочие эффекты справочные; автоматически не применяются.",
+      "links": [],
+      "monster": {
+        "size": "large",
+        "type": "fiend",
+        "armorClass": 13,
+        "hitPoints": 68,
+        "speed": {
+          "walk": 60,
+          "fly": 90
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 15,
+          "con": 16,
+          "int": 10,
+          "wis": 13,
+          "cha": 15
+        },
+        "challenge": "3",
+        "xp": 700
+      }
+    }
+  ]
+}

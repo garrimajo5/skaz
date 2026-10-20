@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Fiend statblock headings in pinned SRD 5.1 pages 254–394; not all D&D fiends",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "sourcePageRange": [
+    254,
+    394
+  ],
+  "sections": [
+    {
+      "monsterType": "fiend",
+      "expectedCount": 23,
+      "entries": [
+        {
+          "id": "srd51:2014:monster:balor",
+          "nameEn": "Balor",
+          "page": 270
+        },
+        {
+          "id": "srd51:2014:monster:dretch",
+          "nameEn": "Dretch",
+          "page": 270
+        },
+        {
+          "id": "srd51:2014:monster:glabrezu",
+          "nameEn": "Glabrezu",
+          "page": 271
+        },
+        {
+          "id": "srd51:2014:monster:hezrou",
+          "nameEn": "Hezrou",
+          "page": 271
+        },
+        {
+          "id": "srd51:2014:monster:marilith",
+          "nameEn": "Marilith",
+          "page": 272
+        },
+        {
+          "id": "srd51:2014:monster:nalfeshnee",
+          "nameEn": "Nalfeshnee",
+          "page": 272
+        },
+        {
+          "id": "srd51:2014:monster:quasit",
+          "nameEn": "Quasit",
+          "page": 273
+        },
+        {
+          "id": "srd51:2014:monster:vrock",
+          "nameEn": "Vrock",
+          "page": 273
+        },
+        {
+          "id": "srd51:2014:monster:barbed-devil",
+          "nameEn": "Barbed Devil",
+          "page": 274
+        },
+        {
+          "id": "srd51:2014:monster:bearded-devil",
+          "nameEn": "Bearded Devil",
+          "page": 274
+        },
+        {
+          "id": "srd51:2014:monster:bone-devil",
+          "nameEn": "Bone Devil",
+          "page": 275
+        },
+        {
+          "id": "srd51:2014:monster:chain-devil",
+          "nameEn": "Chain Devil",
+          "page": 275
+        },
+        {
+          "id": "srd51:2014:monster:erinyes",
+          "nameEn": "Erinyes",
+          "page": 276
+        },
+        {
+          "id": "srd51:2014:monster:horned-devil",
+          "nameEn": "Horned Devil",
+          "page": 276
+        },
+        {
+          "id": "srd51:2014:monster:ice-devil",
+          "nameEn": "Ice Devil",
+          "page": 277
+        },
+        {
+          "id": "srd51:2014:monster:imp",
+          "nameEn": "Imp",
+          "page": 277
+        },
+        {
+          "id": "srd51:2014:monster:lemure",
+          "nameEn": "Lemure",
+          "page": 278
+        },
+        {
+          "id": "srd51:2014:monster:pit-fiend",
+          "nameEn": "Pit Fiend",
+          "page": 278
+        },
+        {
+          "id": "srd51:2014:monster:night-hag",
+          "nameEn": "Night Hag",
+          "page": 319
+        },
+        {
+          "id": "srd51:2014:monster:hell-hound",
+          "nameEn": "Hell Hound",
+          "page": 321
+        },
+        {
+          "id": "srd51:2014:monster:nightmare",
+          "nameEn": "Nightmare",
+          "page": 336
+        },
+        {
+          "id": "srd51:2014:monster:rakshasa",
+          "nameEn": "Rakshasa",
+          "page": 341
+        },
+        {
+          "id": "srd51:2014:monster:succubus-incubus",
+          "nameEn": "Succubus/Incubus",
+          "page": 349
+        }
+      ]
+    }
+  ],
+  "completeGameCatalog": false
+}

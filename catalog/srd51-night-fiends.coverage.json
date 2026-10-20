@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Selected Night Hag and Nightmare fiends; not the complete fiend type",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 2,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:night-hag",
+      "nameEn": "Night Hag",
+      "pages": [
+        319,
+        320
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:nightmare",
+      "nameEn": "Nightmare",
+      "pages": [
+        336
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Selected two fiends only; other SRD fiends remain outside this pack.",
+    "Night Hag claws require hag form; etherealness requires heartstone; haunting needs one hour and only traps an evil soul.",
+    "Nightmare grants resistance, not immunity, and carries up to three willing nearby creatures with Ethereal Stride."
+  ],
+  "innateSpellcastingChecks": [
+    {
+      "monsterId": "srd51:2014:monster:night-hag",
+      "nameEn": "Night Hag",
+      "ability": "cha",
+      "saveDC": 14,
+      "spellAttackBonus": 6,
+      "components": "no-material",
+      "groups": [
+        {
+          "usesPerDay": null,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:detect-magic",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:magic-missile",
+              "target": null
+            }
+          ]
+        },
+        {
+          "usesPerDay": 2,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:plane-shift",
+              "target": "self"
+            },
+            {
+              "id": "srd51:2014:spell:ray-of-enfeeblement",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:sleep",
+              "target": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

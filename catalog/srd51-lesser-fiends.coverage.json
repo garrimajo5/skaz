@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Selected Dretch, Quasit, Imp and Lemure statblocks; not complete fiends",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 4,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:dretch",
+      "nameEn": "Dretch",
+      "pages": [
+        270,
+        271
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:quasit",
+      "nameEn": "Quasit",
+      "pages": [
+        273
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:imp",
+      "nameEn": "Imp",
+      "pages": [
+        277,
+        278
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:lemure",
+      "nameEn": "Lemure",
+      "pages": [
+        278
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Shapechanging speeds stay in trait text; only true-form speeds are structured.",
+    "Quasit and Imp invisibility are traits, not imported spell resources.",
+    "Lemure rejuvenation requires death in Nine Hells and preserves the source exceptions."
+  ]
+}

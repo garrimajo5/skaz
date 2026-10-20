@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Selected Barbed Devil and Bearded Devil guards; not complete fiends",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 2,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:barbed-devil",
+      "nameEn": "Barbed Devil",
+      "pages": [
+        274
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:bearded-devil",
+      "nameEn": "Bearded Devil",
+      "pages": [
+        274,
+        275
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Barbed Hide hurts creatures grappling the devil, not every target it grapples.",
+    "Bearded Devil wound excludes undead/constructs and stacks; healing block belongs to beard poison."
+  ]
+}

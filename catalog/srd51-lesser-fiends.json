@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:dretch",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Дретч",
+        "en": "Dretch"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=270",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz lesser fiends v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 270, 271.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nМаленькое исчадие (демон), хаотично-злое. Природный доспех; хиты 18 (4d6 + 4). Сопротивление холодному, огненному и электрическому урону. Иммунитет к яду и состоянию отравлен. Тёмное зрение 60 футов, пассивное Восприятие 9; Бездны, телепатия 60 футов работает только с существами, понимающими язык Бездны.\nМультиатака: один укус и одна атака когтями. Обе рукопашные атаки оружием +2, досягаемость 5 футов, одна цель. Укус: 3 (1d6) колющего; когти: 5 (2d4) рубящего урона.\nЗловонное облако (1 раз в день): газ в радиусе 10 футов от дретча огибает углы, слабо заслоняет область и держится 1 минуту либо до рассеивания сильным ветром. Начавшее ход в области существо делает спасбросок Телосложения Сл 11; при провале отравлено до начала своего следующего хода. Пока отравлено именно этим облаком, в свой ход может совершить действие или бонусное действие, но не оба; реакции недоступны. Это дополнительное ограничение облака, не общее правило любого отравления.\nАтаки, формы и прочие эффекты справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:poisoned"
+      ],
+      "monster": {
+        "size": "small",
+        "type": "fiend",
+        "armorClass": 11,
+        "hitPoints": 18,
+        "speed": {
+          "walk": 20
+        },
+        "abilities": {
+          "str": 11,
+          "dex": 11,
+          "con": 12,
+          "int": 5,
+          "wis": 8,
+          "cha": 3
+        },
+        "challenge": "1/4",
+        "xp": 50
+      }
+    },
+    {
+      "id": "srd51:2014:monster:quasit",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Квазит",
+        "en": "Quasit"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=273",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz lesser fiends v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 273.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nКрошечное исчадие (демон, перевёртыш), хаотично-злое. Хиты 7 (3d4). Скрытность +5; сопротивление холодному, огненному и электрическому урону, а также дробящему, колющему и рубящему от немагических атак. Исключения для серебра у квазита в этом источнике нет. Иммунитет к яду и состоянию отравлен. Тёмное зрение 120 футов, пассивное Восприятие 10; Бездны и Общий.\nПеревёртыш действием: летучая мышь (ходьба 10, полёт 40 футов), многоножка (ходьба 40, лазание 40) или жаба (ходьба 40, плавание 40), либо истинная форма. Прочие параметры одинаковы; снаряжение не превращается, при смерти истинная форма возвращается. Сопротивление магии: преимущество на спасброски от заклинаний и других магических эффектов.\nКогти (укус в звериной форме): рукопашная атака оружием +4, досягаемость 5 футов, одна цель; 5 (1d4 + 3) колющего урона. Телосложение Сл 10: при провале ещё 5 (2d4) урона ядом и отравление на 1 минуту; в конце каждого своего хода цель повторяет спасбросок, снимая эффект при успехе.\nИспуг (1 раз в день): одно выбранное существо в пределах 20 футов, Мудрость Сл 10, при провале испугано на 1 минуту; повторяет спасбросок в конце каждого своего хода, с помехой, если квазит в пределах видимости, завершая эффект при успехе.\nНевидимость действием: до атаки, применения Испуга или окончания концентрации (как на заклинании); носимое и переносимое снаряжение также невидимо. Не предоставляет отдельного заклинания invisibility.\nАтаки, формы и прочие эффекты справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:poisoned",
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:invisible"
+      ],
+      "monster": {
+        "size": "tiny",
+        "type": "fiend",
+        "armorClass": 13,
+        "hitPoints": 7,
+        "speed": {
+          "walk": 40
+        },
+        "abilities": {
+          "str": 5,
+          "dex": 17,
+          "con": 10,
+          "int": 7,
+          "wis": 10,
+          "cha": 10
+        },
+        "challenge": "1",
+        "xp": 200
+      }
+    },
+    {
+      "id": "srd51:2014:monster:imp",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Бес",
+        "en": "Imp"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=277",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz lesser fiends v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 277, 278.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nКрошечное исчадие (дьявол, перевёртыш), законно-злое. Хиты 10 (3d4 + 3). Обман +4, Проницательность +3, Убеждение +4, Скрытность +5. Сопротивление холодному урону, а также дробящему, колющему и рубящему от немагических непосеребрённых атак. Иммунитет к огню, яду и состоянию отравлен. Тёмное зрение 120 футов, пассивное Восприятие 11; Инфернальный и Общий. Магическая тьма не мешает его тёмному зрению. Сопротивление магии: преимущество на спасброски от заклинаний и других магических эффектов.\nПеревёртыш действием: крыса (ходьба 20 футов), ворон (ходьба 20, полёт 60) или паук (ходьба 20, лазание 20), либо истинная форма. Кроме указанных скоростей, параметры одинаковы; снаряжение не превращается, при смерти истинная форма возвращается. Смена формы не выдаёт параметры одноимённого зверя.\nЖало (укус в звериной форме): рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 5 (1d4 + 3) колющего урона. Телосложение Сл 11: 10 (3d6) урона ядом при провале либо половина при успехе. Состояние отравлен этой атакой не накладывается.\nНевидимость действием: до атаки или окончания концентрации (как на заклинании); носимое и переносимое снаряжение также невидимо. Это свойство, не отдельное заклинание invisibility.\nАтаки, формы и прочие эффекты справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:invisible"
+      ],
+      "monster": {
+        "size": "tiny",
+        "type": "fiend",
+        "armorClass": 13,
+        "hitPoints": 10,
+        "speed": {
+          "walk": 20,
+          "fly": 40
+        },
+        "abilities": {
+          "str": 6,
+          "dex": 17,
+          "con": 13,
+          "int": 11,
+          "wis": 12,
+          "cha": 14
+        },
+        "challenge": "1",
+        "xp": 200
+      }
+    },
+    {
+      "id": "srd51:2014:monster:lemure",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Лемур",
+        "en": "Lemure"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=278",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz lesser fiends v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 278.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСреднее исчадие (дьявол), законно-злое. Хиты 13 (3d8). Сопротивление холодному урону; иммунитет к огню, яду, очарованию, испугу и состоянию отравлен. Тёмное зрение 120 футов, пассивное Восприятие 10; понимает Инфернальный, но не говорит. Магическая тьма не мешает его тёмному зрению.\nАдское возрождение: погибший в Девяти Преисподних лемур возвращается со всеми хитами через 1d10 дней. Этого не происходит, если его убило существо доброго мировоззрения, на которое наложено bless, или его останки окроплены святой водой. За пределами Девяти Преисподних это свойство возрождения не заявлено; одного доброго мировоззрения без bless для исключения недостаточно.\nКулак: рукопашная атака оружием +3, досягаемость 5 футов, одна цель; 2 (1d4) дробящего урона. Бонус Силы к урону в этом блоке не добавляется.\nАтаки, формы и прочие эффекты справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:poisoned",
+        "srd51:2014:spell:bless"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "fiend",
+        "armorClass": 7,
+        "hitPoints": 13,
+        "speed": {
+          "walk": 15
+        },
+        "abilities": {
+          "str": 10,
+          "dex": 5,
+          "con": 11,
+          "int": 1,
+          "wis": 11,
+          "cha": 3
+        },
+        "challenge": "0",
+        "xp": 10
+      }
+    }
+  ]
+}

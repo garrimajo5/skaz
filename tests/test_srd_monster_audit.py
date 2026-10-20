@@ -10,6 +10,65 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_selected_pack_source_identity_pages_counts_duplicates_and_statistics_are_independent(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        row={'id':'source:beast','nameEn':'Beast','pages':[300]}
+        manifest={'schemaVersion':1,'ruleset':'5e-2014','sourceSha256':m['SHA256'],'sourceUrl':'https://source.invalid/pdf','completeGameCatalog':False,'expectedSubsetCount':1,'entries':[row]}
+        card={'id':row['id'],'ruleset':'5e-2014','name':{'en':'Beast'},'source':{'usage':'cc-by-4.0','url':manifest['sourceUrl']+'#page=300'},'monster':parse(BASE,'Beast')}
+        check=m['check_selected_monster_manifest']
+        self.assertEqual(check({300:BASE},manifest,[card]),1)
+        for key,value in [('expectedSubsetCount',2),('completeGameCatalog',True),('sourceSha256','wrong'),('ruleset','5e-2024')]:
+            wrong=copy.deepcopy(manifest);wrong[key]=value
+            with self.assertRaises(ValueError):check({300:BASE},wrong,[card])
+        for numbers in [[300,300],[301,300],[253],[395]]:
+            wrong=copy.deepcopy(manifest);wrong['entries'][0]['pages']=numbers
+            with self.assertRaises(ValueError):check({300:BASE},wrong,[card])
+        wrong=copy.deepcopy(manifest);wrong['entries']*=2;wrong['expectedSubsetCount']=2
+        with self.assertRaises(ValueError):check({300:BASE},wrong,[card])
+        for changed in [[],[card,card],[{**card,'monster':{**card['monster'],'xp':100}}],[{**card,'source':{**card['source'],'url':manifest['sourceUrl']+'#page=301'}}],[{**card,'name':{'en':'Neighbor'}}]]:
+            with self.assertRaises(ValueError):check({300:BASE},manifest,changed)
+
+    def test_fiend_inventory_ignores_section_labels_preserves_slash_name_and_reports_missing(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        pages={270:'Demons Balor Huge fiend (demon). Dretch Small fiend (demon).',274:'Devils Barbed Devil Medium fiend (devil).',349:'Succubus/Incubus Medium fiend (shapechanger).'}
+        rows=m['fiend_headings'](pages)
+        self.assertEqual([r['nameEn'] for r in rows],['Balor','Dretch','Barbed Devil','Succubus/Incubus'])
+        self.assertEqual(rows[-1]['id'],'srd51:2014:monster:succubus-incubus')
+        manifest={'ruleset':'5e-2014','sourceSha256':m['SHA256'],'sourcePageRange':[254,394],'sections':[{'monsterType':'fiend','expectedCount':4,'entries':rows}]}
+        cards=[{'id':rows[0]['id'],'name':{'en':'Balor'},'monster':{'type':'fiend'},'source':{'url':'https://source.invalid/#page=270'}}]
+        self.assertEqual(m['check_type_inventory'](pages,manifest,cards,('fiend',),True),{'fiend':{'expected':4,'prepared':1}})
+        with self.assertRaises(ValueError):m['check_type_inventory'](pages,manifest,cards,('fiend',))
+        for bad in [cards+cards,[{**cards[0],'monster':{'type':'fey'}}],[{**cards[0],'source':{'url':'https://source.invalid/#page=271'}}]]:
+            with self.assertRaises(ValueError):m['check_type_inventory'](pages,manifest,bad,('fiend',),True)
+        wrong=copy.deepcopy(manifest);wrong['sections'][0]['entries']=rows[:-1]
+        with self.assertRaises(ValueError):m['check_type_inventory'](pages,wrong,cards,('fiend',),True)
+
+    def test_innate_attack_bonus_cannot_be_borrowed_from_adjacent_creatures(self):
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        parser=m['innate_spell_attack_bonus']
+        other=BASE.replace('Beast Large','Neighbor Large')+' Innate Spellcasting. Its spellcasting ability is Charisma (spell save DC 14, +6 to hit with spell attacks).'
+        self.assertIsNone(parser(other+BASE,'Beast'))
+        self.assertIsNone(parser(BASE+other,'Beast'))
+        self.assertEqual(parser(BASE+' Innate Spellcasting. Its spellcasting ability is Charisma (spell save DC 14, +6 to hit with spell attacks).'+other,'Beast'),6)
+
+    def test_innate_attack_bonus_and_twice_daily_self_restriction_are_checked(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        text=BASE+" Innate Spellcasting. Its spellcasting ability is Charisma (spell save DC 14, +6 to hit with spell attacks). It can innately cast the following spells, requiring no material components: At will: magic missile 2/day each: plane shift (self only), sleep Magic Resistance."
+        value=m['innate_spellcasting'](text,'Beast')
+        self.assertEqual(value['groups'][1]['usesPerDay'],2)
+        manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:beast','pages':[319]}],'innateSpellcastingChecks':[{'monsterId':'source:beast','nameEn':'Beast','spellAttackBonus':6,**value}]}
+        spells=[{'id':ref['id'],'name':{'en':ref['id'].split(':')[-1].replace('-',' ')}} for group in value['groups'] for ref in group['spells']]
+        card={'id':'source:beast','links':[s['id'] for s in spells],'text':'Врождённая магия: Харизма, Сл 14, атака заклинанием +6, без материальных компонентов. Без ограничений — magic missile; 2 раза в день каждое — plane shift только на себя, sleep.'}
+        self.assertEqual(m['check_innate_spellcasting_inventory']({319:text},manifest,[card],spells),{'Beast':3})
+        for wrong in [card['text'].replace('+6','+5'),card['text'].replace('2 раза','1 раз'),card['text'].replace(' только на себя','')]:
+            with self.assertRaises(ValueError):m['check_innate_spellcasting_inventory']({319:text},manifest,[{**card,'text':wrong}],spells)
+        wrong=copy.deepcopy(manifest);wrong['innateSpellcastingChecks'][0]['spellAttackBonus']=5
+        with self.assertRaises(ValueError):m['check_innate_spellcasting_inventory']({319:text},wrong,[card],spells)
+        with self.assertRaises(ValueError):m['check_innate_spellcasting_inventory']({319:text.replace('+6','+5')},manifest,[card],spells)
+
     def test_authored_innate_lists_preserve_unknown_dc_and_reject_changed_frequency(self):
         m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
         text='Врождённая магия: Харизма, без материальных компонентов. Сл в источнике не указана. Без ограничений — light; 3 раза в день каждое — fly.'
@@ -162,7 +221,8 @@ class MonsterAuditTests(unittest.TestCase):
         plants = module['type_headings'](pages, 'plant')
         self.assertEqual([row['nameEn'] for row in plants], ['Shrieker','Violet Fungus'])
         self.assertEqual(plants[0]['id'], 'srd51:2014:monster:shrieker')
-        with self.assertRaises(ValueError): module['type_headings'](pages, 'fiend')
+        self.assertEqual(module['type_headings'](pages, 'fiend')[0]['nameEn'], 'Night Hag')
+        with self.assertRaises(ValueError): module['type_headings'](pages, 'dragon')
 
     def test_typed_inventory_rejects_missing_duplicate_wrong_type_page_or_source(self):
         import copy
