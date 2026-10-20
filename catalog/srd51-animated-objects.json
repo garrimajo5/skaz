@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:animated-armor",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Оживлённый доспех",
+        "en": "Animated Armor"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=263",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz animated objects v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 263, 264.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний конструкт, без мировоззрения. Хиты 33 (6d8 + 6), природный доспех. Иммунитет к ядовитому и психическому урону; иммунитет к ослеплению, очарованию, глухоте, испугу, параличу, окаменению и отравлению. Слепое зрение 60 футов, за пределами слеп; языков нет. Дополнительно иммунитет к истощению; пассивное Восприятие 6.\nВосприимчивость к антимагии: в области antimagic field недееспособен. Если становится целью dispel magic, спасбросок Телосложения против Сл заклинаний наложившего; провал лишает сознания на 1 минуту.\nЛожная внешность: пока неподвижен, неотличим от обычного комплекта доспехов.\nМультиатака: две рукопашные атаки. Удар: рукопашная атака оружием +4, досягаемость 5 футов, одна цель; 5 (1d6 + 2) дробящего урона.\nДействия, антимагия, удушье и перенос урона справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:deafened",
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:paralyzed",
+        "srd51:2014:mechanic:petrified",
+        "srd51:2014:mechanic:poisoned",
+        "srd51:2014:mechanic:incapacitated",
+        "srd51:2014:mechanic:unconscious",
+        "srd51:2014:mechanic:exhaustion",
+        "srd51:2014:spell:antimagic-field",
+        "srd51:2014:spell:dispel-magic"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "construct",
+        "armorClass": 18,
+        "hitPoints": 33,
+        "speed": {
+          "walk": 25
+        },
+        "abilities": {
+          "str": 14,
+          "dex": 11,
+          "con": 13,
+          "int": 1,
+          "wis": 3,
+          "cha": 1
+        },
+        "challenge": "1",
+        "xp": 200
+      }
+    },
+    {
+      "id": "srd51:2014:monster:flying-sword",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Летающий меч",
+        "en": "Flying Sword"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=264",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz animated objects v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 264.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nМаленький конструкт, без мировоззрения. Хиты 17 (5d6), природный доспех. Скорость по земле 0 футов, полёт 50 футов с парением; спасброски Ловкости +4. Иммунитет к ядовитому и психическому урону; иммунитет к ослеплению, очарованию, глухоте, испугу, параличу, окаменению и отравлению. Слепое зрение 60 футов, за пределами слеп; языков нет. Пассивное Восприятие 7. Иммунитет к истощению в этом блоке не указан.\nВосприимчивость к антимагии: в области antimagic field недееспособен. Если становится целью dispel magic, спасбросок Телосложения против Сл заклинаний наложившего; провал лишает сознания на 1 минуту.\nЛожная внешность: пока неподвижен и не летит, неотличим от обычного меча.\nДлинный меч: рукопашная атака оружием +3, досягаемость 5 футов, одна цель; 5 (1d8 + 1) рубящего урона. Это существо, не магическое оружие для инвентаря.\nДействия, антимагия, удушье и перенос урона справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:deafened",
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:paralyzed",
+        "srd51:2014:mechanic:petrified",
+        "srd51:2014:mechanic:poisoned",
+        "srd51:2014:mechanic:incapacitated",
+        "srd51:2014:mechanic:unconscious",
+        "srd51:2014:spell:antimagic-field",
+        "srd51:2014:spell:dispel-magic"
+      ],
+      "monster": {
+        "size": "small",
+        "type": "construct",
+        "armorClass": 17,
+        "hitPoints": 17,
+        "speed": {
+          "walk": 0,
+          "fly": 50
+        },
+        "abilities": {
+          "str": 12,
+          "dex": 15,
+          "con": 11,
+          "int": 1,
+          "wis": 5,
+          "cha": 1
+        },
+        "challenge": "1/4",
+        "xp": 50
+      }
+    },
+    {
+      "id": "srd51:2014:monster:rug-of-smothering",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Ковёр удушения",
+        "en": "Rug of Smothering"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=264",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz animated objects v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 264.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшой конструкт, без мировоззрения. Хиты 33 (6d10). Иммунитет к ядовитому и психическому урону; иммунитет к ослеплению, очарованию, глухоте, испугу, параличу, окаменению и отравлению. Слепое зрение 60 футов, за пределами слеп; языков нет. Пассивное Восприятие 6. Иммунитет к истощению в этом блоке не указан.\nВосприимчивость к антимагии: в области antimagic field недееспособен. Если становится целью dispel magic, спасбросок Телосложения против Сл заклинаний наложившего; провал лишает сознания на 1 минуту.\nПеренос урона: пока ковёр держит существо в захвате, получает только половину нанесённого ему урона, а схваченное им существо получает другую половину.\nЛожная внешность: пока неподвижен, неотличим от обычного ковра.\nУдушение: рукопашная атака оружием +5, досягаемость 5 футов, одно существо Среднего или меньшего размера; попадание захватывает (Сл освобождения 13). Пока захват длится, цель опутана, ослеплена и рискует задохнуться, а ковёр не может душить другую цель. В начале каждого хода цели она получает 10 (2d6 + 3) дробящего урона. Это урон в ход цели, не в ход ковра.\nДействия, антимагия, удушье и перенос урона справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:deafened",
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:paralyzed",
+        "srd51:2014:mechanic:petrified",
+        "srd51:2014:mechanic:poisoned",
+        "srd51:2014:mechanic:incapacitated",
+        "srd51:2014:mechanic:unconscious",
+        "srd51:2014:mechanic:grappled",
+        "srd51:2014:mechanic:restrained",
+        "srd51:2014:spell:antimagic-field",
+        "srd51:2014:spell:dispel-magic"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "construct",
+        "armorClass": 12,
+        "hitPoints": 33,
+        "speed": {
+          "walk": 10
+        },
+        "abilities": {
+          "str": 17,
+          "dex": 14,
+          "con": 10,
+          "int": 1,
+          "wis": 3,
+          "cha": 1
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    }
+  ]
+}

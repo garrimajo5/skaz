@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Two selected utility constructs, not the full construct category",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 2,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:homunculus",
+      "nameEn": "Homunculus",
+      "pages": [
+        322,
+        323
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:shield-guardian",
+      "nameEn": "Shield Guardian",
+      "pages": [
+        345,
+        346
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Four golem types remain absent from the construct category.",
+    "Not an automatic companion/amulet inventory or spell-storing implementation.",
+    "Poison, communication, transfer of damage and reactions require manual resolution."
+  ]
+}

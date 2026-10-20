@@ -29,6 +29,10 @@ const SkazCatalog = (() => {
   const usageLabel = usage => ({ 'reference-only': 'Справочная ссылка · без текста', personal: 'Личный импорт', 'cc-by-4.0': 'Открытый материал · CC BY 4.0' }[usage] || 'Неизвестные условия');
   const scopeText=()=>coverage?.scopes?.srd51Spells?` Заклинания SRD 5.1: актуальных версий установлено ${coverage.scopes.srd51Spells.installed}${coverage.scopes.srd51Spells.upgradable?`, доступны обновления для ${Number(coverage.scopes.srd51Spells.upgradable)}`:''}, подготовлено ${coverage.scopes.srd51Spells.prepared} из ${coverage.scopes.srd51Spells.expected} описаний. Это охват SRD, не всех книг D&D.`:'';
   const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  function creatureCoverage(){
+    const types=coverage?.scopes?.srd51CreatureTypes;if(kind!=='monster'||!types)return '';
+    return `<details class="notice"><summary>Охват фей и растений SRD 5.1</summary><p>Только два типа существ открытого SRD 2014. Другие типы и книги сюда не входят.</p><ul>${[['fey','Феи'],['plant','Растения']].filter(([key])=>types[key]).map(([key,label])=>`<li>${label}: актуальных версий установлено ${Number(types[key].installed)}, подготовлено ${Number(types[key].prepared)} из ${Number(types[key].expected)}.</li>`).join('')}</ul><p>Краткие изложения; действия и эффекты разрешаются вручную. Это не полный бестиарий D&D.</p></details>`;
+  }
   function view() {
     if (location.protocol === 'file:') return `<section class="panel"><h2>Каталог доступен с сервером</h2><p>Этот HTML-файл — автономная демонстрация. Открой локальное приложение, чтобы искать импортированные материалы.</p><button data-page="spells">8 демо-заклинаний →</button></section>`;
     if (status === 'idle') queueMicrotask(() => load());
@@ -36,6 +40,7 @@ const SkazCatalog = (() => {
     return `<section class="catalog" aria-label="Каталог D&D 2014">
       <div class="notice"><b>D&D 2014 · Каталог пополняется</b><p>${coverage ? `В базе: ${coverage.total}. Справочных ссылок: ${coverage.referenceOnly}, личных записей: ${coverage.personal}, CC BY 4.0: ${coverage.openlyLicensed || 0}.` : 'Полнота базы пока не подтверждена.'} Предметы и артефакты можно добавить в инвентарь из карточки.${scopeText()}</p></div>
       <div class="catalog-tools" aria-label="Наполнение каталога"><button id="catalog-bundled">Проверенная подборка 2014</button><button id="catalog-help">Личный импорт</button><button id="catalog-inventory">Охват заклинаний SRD</button></div>
+      <div id="catalog-creature-coverage">${creatureCoverage()}</div>
       <form id="catalog-search" class="catalog-search"><label>Название или ключевые слова<input name="q" type="search" maxlength="200" placeholder="Например, Spellcasting" value="${escape(draft.q)}"></label><label>Категория<select name="kind"><option value="">Все категории</option>${Object.entries(names).map(([key, name]) => `<option value="${key}" ${draft.kind === key ? 'selected' : ''}>${name}</option>`).join('')}</select></label><label>Где искать<select name="scope"><option value="name" ${draft.scope!=='text'?'selected':''}>В названиях</option><option value="text" ${draft.scope==='text'?'selected':''}>В названиях и описаниях</option></select></label><div id="catalog-specific" class="catalog-specific">${filterControl(draft.kind,draft[filterKeys[draft.kind]]||'',draft)}</div><div class="catalog-search-actions"><button type="submit" class="primary">Найти</button><button type="button" id="catalog-reset">Сбросить фильтры</button></div></form>
       <div id="catalog-results" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div>
       <div class="catalog-footer"><p>В разделе магии доступны личный список из каталога и отдельные демонстрационные заклинания.</p><button data-page="spells">К моей магии →</button></div>
@@ -94,6 +99,8 @@ const SkazCatalog = (() => {
       if (region) { region.innerHTML = results(); region.setAttribute('aria-busy', String(status === 'loading')); }
       const notice = document.querySelector('.catalog .notice p');
       if (notice && coverage) notice.textContent = `В базе: ${coverage.total}. Справочных ссылок: ${coverage.referenceOnly}, личных записей: ${coverage.personal}, CC BY 4.0: ${coverage.openlyLicensed || 0}. Предметы и артефакты можно добавить в инвентарь из карточки.${scopeText()}`;
+      const typeRegion=document.getElementById('catalog-creature-coverage');
+      if(typeRegion){const open=typeRegion.querySelector?.('details')?.open;typeRegion.innerHTML=creatureCoverage();if(open&&typeRegion.querySelector?.('details'))typeRegion.querySelector('details').open=true;}
     }
   }
   function facts(entry) {

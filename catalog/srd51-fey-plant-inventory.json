@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Fey and plant statblock headings in SRD 5.1 creature pages 254–394",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "sourcePageRange": [
+    254,
+    394
+  ],
+  "sections": [
+    {
+      "monsterType": "fey",
+      "expectedCount": 6,
+      "entries": [
+        {
+          "id": "srd51:2014:monster:dryad",
+          "nameEn": "Dryad",
+          "page": 304
+        },
+        {
+          "id": "srd51:2014:monster:green-hag",
+          "nameEn": "Green Hag",
+          "page": 319
+        },
+        {
+          "id": "srd51:2014:monster:sea-hag",
+          "nameEn": "Sea Hag",
+          "page": 320
+        },
+        {
+          "id": "srd51:2014:monster:satyr",
+          "nameEn": "Satyr",
+          "page": 344
+        },
+        {
+          "id": "srd51:2014:monster:sprite",
+          "nameEn": "Sprite",
+          "page": 348
+        },
+        {
+          "id": "srd51:2014:monster:blink-dog",
+          "nameEn": "Blink Dog",
+          "page": 368
+        }
+      ]
+    },
+    {
+      "monsterType": "plant",
+      "expectedCount": 6,
+      "entries": [
+        {
+          "id": "srd51:2014:monster:shrieker",
+          "nameEn": "Shrieker",
+          "page": 309
+        },
+        {
+          "id": "srd51:2014:monster:violet-fungus",
+          "nameEn": "Violet Fungus",
+          "page": 309
+        },
+        {
+          "id": "srd51:2014:monster:shambling-mound",
+          "nameEn": "Shambling Mound",
+          "page": 345
+        },
+        {
+          "id": "srd51:2014:monster:treant",
+          "nameEn": "Treant",
+          "page": 351
+        },
+        {
+          "id": "srd51:2014:monster:awakened-shrub",
+          "nameEn": "Awakened Shrub",
+          "page": 366
+        },
+        {
+          "id": "srd51:2014:monster:awakened-tree",
+          "nameEn": "Awakened Tree",
+          "page": 366
+        }
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Only these two creature types in the pinned SRD section; not a complete D&D bestiary.",
+    "Fungi is a section label preceding Shrieker, not part of the creature name.",
+    "Night Hag is a fiend and is intentionally excluded from fey.",
+    "Prepared summaries retain manual actions; no automatic combat simulation."
+  ]
+}

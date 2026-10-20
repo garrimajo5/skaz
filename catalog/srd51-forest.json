@@ -1,0 +1,392 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:dryad",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Дриада",
+        "en": "Dryad"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=304",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz forest v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 304, 305.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредняя фея, нейтральная. Хиты 22 (5d8). КД 11, с barkskin — 16. Восприятие +4, Скрытность +5; тёмное зрение 60 футов, пассивное Восприятие 14. Языки: эльфийский, сильван.\nВрождённые заклинания от Харизмы, Сл 14, без материальных компонентов: неограниченно druidcraft; по 3 раза в день entangle и goodberry; по 1 разу в день barkskin, pass without trace, shillelagh. Сопротивление магии: преимущество на спасброски от заклинаний и других магических эффектов. Общается со зверями и растениями как на общем языке.\nШаг через дерево: один раз в свой ход тратит 10 футов перемещения, входя в живое дерево в пределах досягаемости и выходя из второго живого дерева в пределах 60 футов от первого, в свободное место в пределах 5 футов от второго. Оба дерева должны быть Большого или большего размера.\nДубинка: рукопашная атака оружием +2 (+6 с shillelagh), досягаемость 5 футов, одна цель; 2 (1d4) дробящего урона, либо 8 (1d8 + 4) с shillelagh.\nОчарование феи: один видимый гуманоид или зверь в пределах 30 футов; если цель видит дриаду, спасбросок Мудрости Сл 14 или магическое очарование. Цель считает дриаду надёжным другом, которого слушает и защищает, благоприятно толкует просьбы и действия, но не находится под её контролем. Каждый вред от дриады или союзников разрешает новый спасбросок, успех прекращает эффект. Иначе длится 24 часа, до смерти дриады, разных планов существования или её прекращения бонусным действием. Успешный спасбросок даёт иммунитет к этому очарованию дриады на 24 часа. Одновременно не более одного гуманоида и трёх зверей.\nДействия, заклинания и эффекты справочные; разрешаются вручную, автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:spell:druidcraft",
+        "srd51:2014:spell:entangle",
+        "srd51:2014:spell:goodberry",
+        "srd51:2014:spell:barkskin",
+        "srd51:2014:spell:pass-without-trace",
+        "srd51:2014:spell:shillelagh"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "fey",
+        "armorClass": 11,
+        "hitPoints": 22,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 10,
+          "dex": 12,
+          "con": 11,
+          "int": 14,
+          "wis": 15,
+          "cha": 18
+        },
+        "challenge": "1",
+        "xp": 200
+      }
+    },
+    {
+      "id": "srd51:2014:monster:satyr",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Сатир",
+        "en": "Satyr"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=344",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz forest v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 344.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредняя фея, хаотично-нейтральная. Хиты 31 (7d8), кожаный доспех. Восприятие +2, Выступление +6, Скрытность +5; пассивное Восприятие 12. Языки: общий, эльфийский, сильван.\nСопротивление магии: преимущество на спасброски от заклинаний и других магических эффектов.\nУдар рогами: рукопашная атака оружием +3, досягаемость 5 футов, одна цель; 6 (2d4 + 1) дробящего урона.\nКороткий меч: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 6 (1d6 + 3) колющего урона.\nКороткий лук: дальнобойная атака оружием +5, дистанция 80/320 футов, одна цель; 6 (1d6 + 3) колющего урона. Волшебная свирель в этом блоке SRD не указана и не добавлена.\nДействия, заклинания и эффекты справочные; разрешаются вручную, автоматически не применяются.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "fey",
+        "armorClass": 14,
+        "hitPoints": 31,
+        "speed": {
+          "walk": 40
+        },
+        "abilities": {
+          "str": 12,
+          "dex": 16,
+          "con": 11,
+          "int": 12,
+          "wis": 10,
+          "cha": 14
+        },
+        "challenge": "1/2",
+        "xp": 100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:sprite",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Спрайт",
+        "en": "Sprite"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=348",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz forest v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 348, 349.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nКрошечная фея, нейтрально-добрая. Хиты 2 (1d4), кожаный доспех. Восприятие +3, Скрытность +8; пассивное Восприятие 13. Языки: общий, эльфийский, сильван.\nДлинный меч: рукопашная атака оружием +2, досягаемость 5 футов, одна цель; 1 рубящего урона.\nКороткий лук: дальнобойная атака оружием +6, дистанция 40/160 футов, одна цель; 1 колющего урона. Цель делает спасбросок Телосложения Сл 10; провал отравляет на 1 минуту. Если итоговый результат спасброска 5 или ниже, отравленная цель также теряет сознание на ту же длительность, до получения урона или пока другое существо действием не разбудит её. Это порог результата броска, не только натуральной грани к20.\nВзгляд в сердце: касанием магически узнаёт текущее эмоциональное состояние существа; при провале спасброска Харизмы Сл 10 также узнаёт мировоззрение. Небожители, исчадия и нежить автоматически проваливают этот спасбросок.\nНевидимость: магически невидим до атаки, заклинания или окончания концентрации (как на заклинании). Носимое и переносимое снаряжение также невидимо.\nДействия, заклинания и эффекты справочные; разрешаются вручную, автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:poisoned",
+        "srd51:2014:mechanic:unconscious",
+        "srd51:2014:mechanic:invisible"
+      ],
+      "monster": {
+        "size": "tiny",
+        "type": "fey",
+        "armorClass": 15,
+        "hitPoints": 2,
+        "speed": {
+          "walk": 10,
+          "fly": 40
+        },
+        "abilities": {
+          "str": 3,
+          "dex": 18,
+          "con": 10,
+          "int": 14,
+          "wis": 13,
+          "cha": 11
+        },
+        "challenge": "1/4",
+        "xp": 50
+      }
+    },
+    {
+      "id": "srd51:2014:monster:blink-dog",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Мерцающий пёс",
+        "en": "Blink Dog"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=368",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz forest v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 368.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредняя фея, законно-добрая. Хиты 22 (4d8 + 4). Восприятие +3, Скрытность +5; пассивное Восприятие 13. Язык мерцающих псов; понимает сильван, но не говорит на нём.\nОстрый слух и нюх: преимущество на проверки Мудрости (Восприятие), основанные на слухе или запахе.\nУкус: рукопашная атака оружием +3, досягаемость 5 футов, одна цель; 4 (1d6 + 1) колющего урона.\nТелепортация (перезарядка 4–6): магически телепортируется со всем носимым и переносимым снаряжением в видимое свободное место в пределах 40 футов. До или после телепортации может сделать одну атаку укусом. Это действие с перезарядкой, не неограниченное бонусное действие.\nДействия, заклинания и эффекты справочные; разрешаются вручную, автоматически не применяются.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "fey",
+        "armorClass": 13,
+        "hitPoints": 22,
+        "speed": {
+          "walk": 40
+        },
+        "abilities": {
+          "str": 12,
+          "dex": 17,
+          "con": 12,
+          "int": 10,
+          "wis": 13,
+          "cha": 11
+        },
+        "challenge": "1/4",
+        "xp": 50
+      }
+    },
+    {
+      "id": "srd51:2014:monster:shambling-mound",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Ползающая насыпь",
+        "en": "Shambling Mound"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=345",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz forest v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 345.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшое растение, без мировоззрения. Хиты 136 (16d10 + 48), природный доспех. Скрытность +2. Сопротивление холодному и огненному урону, иммунитет к электрическому. Иммунитет к ослеплению, глухоте и истощению. Слепое зрение 60 футов, за пределами слепа; пассивное Восприятие 10, языков нет.\nПоглощение электричества: когда подвергается электрическому урону, не получает его и восстанавливает столько хитов, сколько составил бы этот урон.\nМультиатака: два удара. Если оба попали по одной цели Среднего или меньшего размера, цель схвачена (Сл освобождения 14) и насыпь использует на ней Поглощение.\nУдар: рукопашная атака оружием +7, досягаемость 5 футов, одна цель; 13 (2d8 + 4) дробящего урона.\nПоглощение: поглощает схваченное ею существо Среднего или меньшего размера. Цель ослеплена, опутана и не может дышать. В начале каждого хода насыпи делает спасбросок Телосложения Сл 14; провал наносит 13 (2d8 + 4) дробящего урона. При перемещении насыпи цель перемещается с ней; одновременно может быть поглощено только одно существо.\nДействия, заклинания и эффекты справочные; разрешаются вручную, автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:deafened",
+        "srd51:2014:mechanic:exhaustion",
+        "srd51:2014:mechanic:grappled",
+        "srd51:2014:mechanic:restrained"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "plant",
+        "armorClass": 15,
+        "hitPoints": 136,
+        "speed": {
+          "walk": 20,
+          "swim": 20
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 8,
+          "con": 16,
+          "int": 5,
+          "wis": 10,
+          "cha": 5
+        },
+        "challenge": "5",
+        "xp": 1800
+      }
+    },
+    {
+      "id": "srd51:2014:monster:green-hag",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Зелёная карга",
+        "en": "Green Hag"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=319",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz forest v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 319.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредняя фея, нейтрально-злая. Хиты 82 (11d8 + 33), природный доспех. Магия +3, Обман +4, Восприятие +4, Скрытность +3; тёмное зрение 60 футов, пассивное Восприятие 14. Языки: общий, драконий, сильван. Амфибия: дышит воздухом и водой.\nВрождённые заклинания от Харизмы, Сл 12, без материальных компонентов: неограниченно dancing lights, minor illusion, vicious mockery.\nПодражание: копирует звуки животных и голоса гуманоидов; услышавшее существо распознаёт имитацию успешной проверкой Мудрости (Проницательность) Сл 14.\nКогти: рукопашная атака оружием +6, досягаемость 5 футов, одна цель; 13 (2d8 + 4) рубящего урона.\nИллюзорная внешность: магическая иллюзия на себе и снаряжении придаёт облик другого существа примерно того же размера и гуманоидной формы. Заканчивается по желанию бонусным действием или при смерти. Физическое ощупывание раскрывает несоответствие; иначе нужны действие на зрительное изучение и успешная проверка Интеллекта (Расследование) Сл 20.\nНевидимый проход: магически невидима до атаки, заклинания или окончания концентрации (как на заклинании); снаряжение также невидимо. Пока невидима, не оставляет физических следов прохода и выслеживается только магией.\nАтаки, магия и состояния справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:invisible",
+        "srd51:2014:spell:dancing-lights",
+        "srd51:2014:spell:minor-illusion",
+        "srd51:2014:spell:vicious-mockery"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "fey",
+        "armorClass": 17,
+        "hitPoints": 82,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 12,
+          "con": 16,
+          "int": 13,
+          "wis": 14,
+          "cha": 14
+        },
+        "challenge": "3",
+        "xp": 700
+      }
+    },
+    {
+      "id": "srd51:2014:monster:sea-hag",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Морская карга",
+        "en": "Sea Hag"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=320",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz forest v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 320.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредняя фея, хаотично-злая. Хиты 52 (7d8 + 21), природный доспех. Тёмное зрение 60 футов, пассивное Восприятие 11. Языки: акван, общий, великаний. Амфибия: дышит воздухом и водой.\nУжасная внешность: гуманоид, начинающий свой ход в пределах 30 футов и видящий истинный облик карги, делает спасбросок Мудрости Сл 11; провал пугает на 1 минуту. Повтор в конце каждого своего хода, с помехой, если карга в пределах видимости; успех прекращает эффект. Успешный спасбросок или окончание эффекта даёт иммунитет к её ужасной внешности на 24 часа. Если цель не застигнута врасплох и раскрытие облика не внезапно, можно отвести глаза и избежать начального спасброска; до начала следующего своего хода атаки по карге совершаются с помехой.\nКогти: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 10 (2d6 + 3) рубящего урона.\nСмертельный взгляд: одно уже испуганное существо, которое карга видит в пределах 30 футов. Если цель видит каргу, спасбросок Мудрости Сл 11 против магии; провал снижает хиты до 0. Это не автоматическая смерть и не атака по любой непуганной цели.\nИллюзорная внешность: магическая иллюзия на себе и снаряжении придаёт уродливый облик существа примерно того же размера и гуманоидной формы. Заканчивается по желанию бонусным действием или при смерти. Физическое ощупывание раскрывает несоответствие; иначе нужны действие на зрительное изучение и успешная проверка Интеллекта (Расследование) Сл 16.\nАтаки, магия и состояния справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:frightened"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "fey",
+        "armorClass": 14,
+        "hitPoints": 52,
+        "speed": {
+          "walk": 30,
+          "swim": 40
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 13,
+          "con": 16,
+          "int": 12,
+          "wis": 12,
+          "cha": 13
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    },
+    {
+      "id": "srd51:2014:monster:shrieker",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Крикун",
+        "en": "Shrieker"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=309",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz forest v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 309.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСреднее растение, без мировоззрения. Хиты 13 (3d8), скорость 0 футов. Иммунитет к ослеплению, глухоте и испугу. Слепое зрение 30 футов, за пределами слеп; пассивное Восприятие 6, языков нет.\nЛожная внешность: пока неподвижен, неотличим от обычного гриба.\nРеакция «Крик»: при ярком свете или существе в пределах 30 футов издаёт крик, слышимый в пределах 300 футов. Продолжает, пока раздражитель в пределах дальности, и ещё 1d4 своих ходов после его ухода. Действий атаки в этом блоке не указано.\nАтаки, магия и состояния справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:deafened",
+        "srd51:2014:mechanic:frightened"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "plant",
+        "armorClass": 5,
+        "hitPoints": 13,
+        "speed": {
+          "walk": 0
+        },
+        "abilities": {
+          "str": 1,
+          "dex": 1,
+          "con": 10,
+          "int": 1,
+          "wis": 3,
+          "cha": 1
+        },
+        "challenge": "0",
+        "xp": 10
+      }
+    },
+    {
+      "id": "srd51:2014:monster:violet-fungus",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Фиолетовый гриб",
+        "en": "Violet Fungus"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=309",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz forest v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 309.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСреднее растение, без мировоззрения. Хиты 18 (4d8), скорость 5 футов. Иммунитет к ослеплению, глухоте и испугу. Слепое зрение 30 футов, за пределами слеп; пассивное Восприятие 6, языков нет.\nЛожная внешность: пока неподвижен, неотличим от обычного гриба.\nМультиатака: 1d4 атак Разлагающим прикосновением, а не фиксированные четыре.\nРазлагающее прикосновение: рукопашная атака оружием +2, досягаемость 10 футов, одно существо; 4 (1d8) некротического урона.\nАтаки, магия и состояния справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:deafened",
+        "srd51:2014:mechanic:frightened"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "plant",
+        "armorClass": 5,
+        "hitPoints": 18,
+        "speed": {
+          "walk": 5
+        },
+        "abilities": {
+          "str": 3,
+          "dex": 1,
+          "con": 10,
+          "int": 1,
+          "wis": 3,
+          "cha": 1
+        },
+        "challenge": "1/4",
+        "xp": 50
+      }
+    }
+  ]
+}

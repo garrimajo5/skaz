@@ -4,6 +4,7 @@ import { bundledCatalog, validateBundledInstall } from './bundled-catalog.mjs';
 import { AppError } from './state.mjs';
 
 const spellIndex=JSON.parse(readFileSync(new URL('../catalog/srd51-spells.index.json',import.meta.url),'utf8'));
+const creatureTypeIndex=JSON.parse(readFileSync(new URL('../catalog/srd51-fey-plant-inventory.json',import.meta.url),'utf8'));
 const monsterTypes = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'undead'];
 const monsterSizes = ['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan'];
 const itemTypes = ['armor', 'potion', 'ring', 'rod', 'scroll', 'staff', 'wand', 'weapon', 'wondrous'];
@@ -265,13 +266,19 @@ export function createCatalog(db, { visible } = {}) {
     const entries = all();
     const indexed=new Set(spellIndex.entries.map(e=>e.id));
     const {bundle,upgrades}=bundledCatalog();
-    const prepared=validateCatalog(bundle).filter(e=>e.kind==='spell' && indexed.has(e.id));
+    const validated=validateCatalog(bundle);
+    const prepared=validated.filter(e=>e.kind==='spell' && indexed.has(e.id));
     const installed=new Map(entries.map(e=>[e.id,e]));
     const exact=prepared.filter(e=>JSON.stringify(installed.get(e.id))===JSON.stringify(e));
     const byLevel=Array.from({length:10},(_,level)=>({level,expected:spellIndex.entries.filter(e=>e.level===level).length,prepared:prepared.filter(e=>e.spell.level===level).length,installed:exact.filter(e=>e.spell.level===level).length}));
     const upgradable=prepared.filter(e=>installed.has(e.id)&&isKnownBundledUpgrade(installed.get(e.id),e,upgrades)).length;
     const srd51Spells={expected:spellIndex.count,prepared:prepared.length,installed:exact.length,upgradable,sourceUrl:spellIndex.sourceUrl,byLevel};
-    return { ruleset: '5e-2014', complete: false, expectedTotal: null, total: entries.length, scopes:{srd51Spells},
+    const srd51CreatureTypes=Object.fromEntries(creatureTypeIndex.sections.map(section=>{
+      const ids=new Set(section.entries.map(row=>row.id));
+      const ready=validated.filter(e=>e.kind==='monster'&&e.monster?.type===section.monsterType&&ids.has(e.id));
+      return [section.monsterType,{expected:section.expectedCount,prepared:ready.length,installed:ready.filter(e=>JSON.stringify(installed.get(e.id))===JSON.stringify(e)).length,sourceUrl:creatureTypeIndex.sourceUrl}];
+    }));
+    return { ruleset: '5e-2014', complete: false, expectedTotal: null, total: entries.length, scopes:{srd51Spells,srd51CreatureTypes},
       categories: Object.fromEntries(kinds.map(kind => [kind, entries.filter(entry => entry.kind === kind).length])),
       referenceOnly: entries.filter(entry => entry.source.usage === 'reference-only').length,
       personal: entries.filter(entry => entry.source.usage === 'personal').length,

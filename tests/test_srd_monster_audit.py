@@ -10,6 +10,44 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_animated_objects_include_compound_name_and_ignore_other_creature_types(self):
+        module=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        pages={263:'Animated Objects Animated Armor Medium construct, unaligned.',264:'Flying Sword Small construct. Rug of Smothering Large construct. Ankheg Large monstrosity.'}
+        rows=module['animated_headings'](pages)
+        self.assertEqual([row['nameEn'] for row in rows],['Animated Armor','Flying Sword','Rug of Smothering'])
+        self.assertEqual(rows[2]['id'],'srd51:2014:monster:rug-of-smothering')
+        manifest={'sourceSha256':module['SHA256'],'expectedSubsetCount':3,'entries':[{**row,'pages':[row['page']]} for row in rows]}
+        cards=[{'id':row['id'],'name':{'en':row['nameEn']},'monster':{'type':'construct'},'source':{'url':'https://source.invalid/#page='+str(row['page'])}} for row in rows]
+        self.assertEqual(module['check_animated_coverage'](pages,manifest,cards),3)
+        for invalid in [cards[:2],cards+cards[:1],[{**cards[0],'monster':{'type':'item'}},*cards[1:]]]:
+            with self.assertRaises(ValueError):module['check_animated_coverage'](pages,manifest,invalid)
+        manifest['entries'][0]['pages']=[264]
+        with self.assertRaises(ValueError):module['check_animated_coverage'](pages,manifest,cards)
+
+    def test_typed_headings_keep_pages_and_exclude_fiend_hags(self):
+        module = runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        pages = {320: 'Sea Hag Medium fey, chaotic evil. Night Hag Medium fiend, neutral evil.',
+                 309: 'Fungi Shrieker Medium plant, unaligned. Violet Fungus Medium plant, unaligned.'}
+        self.assertEqual(module['type_headings'](pages, 'fey'), [{'id':'srd51:2014:monster:sea-hag','nameEn':'Sea Hag','page':320}])
+        plants = module['type_headings'](pages, 'plant')
+        self.assertEqual([row['nameEn'] for row in plants], ['Shrieker','Violet Fungus'])
+        self.assertEqual(plants[0]['id'], 'srd51:2014:monster:shrieker')
+        with self.assertRaises(ValueError): module['type_headings'](pages, 'fiend')
+
+    def test_typed_inventory_rejects_missing_duplicate_wrong_type_page_or_source(self):
+        import copy
+        module = runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        pages = {304:'Dryad Medium fey, neutral.',309:'Fungi Shrieker Medium plant, unaligned.'}
+        sections = [{'monsterType':kind,'expectedCount':1,'entries':module['type_headings'](pages,kind)} for kind in ['fey','plant']]
+        manifest = {'sourceSha256':module['SHA256'],'ruleset':'5e-2014','sourcePageRange':[254,394],'sections':sections}
+        cards = [{'id':s['entries'][0]['id'],'name':{'en':s['entries'][0]['nameEn']},'monster':{'type':s['monsterType']},'source':{'url':'https://source.invalid/#page='+str(s['entries'][0]['page'])}} for s in sections]
+        self.assertEqual(module['check_type_inventory'](pages,manifest,cards), {'fey':1,'plant':1})
+        for invalid in [cards[:1],cards+cards[:1],[{**cards[0],'monster':{'type':'fiend'}},cards[1]],[{**cards[0],'source':{'url':'https://source.invalid/#page=305'}},cards[1]]]:
+            with self.assertRaises(ValueError): module['check_type_inventory'](pages,manifest,invalid)
+        for mutate in [lambda x:x.update(sourceSha256='other'),lambda x:x.update(ruleset='5e-2024'),lambda x:x.update(sourcePageRange=[1,403]),lambda x:x['sections'][0].update(expectedCount=2),lambda x:x['sections'][0].update(entries=[])]:
+            invalid = copy.deepcopy(manifest); mutate(invalid)
+            with self.assertRaises(ValueError): module['check_type_inventory'](pages,invalid,cards)
+
     def test_ooze_section_inventory_ignores_prose_and_preserves_heading_pages(self):
         headings = runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))['ooze_headings']
         rows = headings({338:'Gray Ooze Medium ooze, unaligned. A Black Pudding is mentioned in prose.',337:'Black Pudding Large ooze, unaligned. Gelatinous Cube Large ooze, unaligned.'})

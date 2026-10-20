@@ -101,6 +101,66 @@ def check_ooze_coverage(pages, manifest, cards):
     return len(rows)
 
 
+def animated_headings(pages):
+    rows = []
+    for page, text in sorted(pages.items()):
+        text = normalize(text).replace('Animated Objects ', '')
+        for match in re.finditer(r'([A-Z][a-z]+(?: (?:of )?[A-Z][a-z]+){0,2}) (?:' + SIZES + r') construct\b', text):
+            name = match[1]
+            rows.append({'id':'srd51:2014:monster:'+name.lower().replace(' ','-'),
+                         'nameEn':name, 'page':page})
+    return rows
+
+
+def check_animated_coverage(pages, manifest, cards):
+    rows = animated_headings(pages)
+    declared = [{'id':row['id'],'nameEn':row['nameEn'],'page':row['pages'][0]} for row in manifest['entries']]
+    if (manifest['sourceSha256'] != SHA256 or not rows or
+            manifest['expectedSubsetCount'] != len(rows) or declared != rows):
+        raise ValueError('Animated objects differ from source headings/pages')
+    for row in rows:
+        found = [card for card in cards if card['id'] == row['id']]
+        if (len(found) != 1 or found[0]['name']['en'] != row['nameEn'] or
+                found[0]['monster']['type'] != 'construct' or
+                not found[0]['source']['url'].endswith('#page='+str(row['page']))):
+            raise ValueError('Missing or mismatched animated object: '+row['nameEn'])
+    return len(rows)
+
+
+def type_headings(pages, kind):
+    if kind not in ('fey', 'plant'):
+        raise ValueError('Unsupported source inventory type')
+    rows = []
+    for page, text in sorted(pages.items()):
+        for match in re.finditer(r'([A-Z][a-z]+(?: [A-Z][a-z]+)?) (?:' + SIZES + r') ' + kind + r'\b', normalize(text)):
+            # The section heading immediately precedes Shrieker on page 309.
+            name = match[1].removeprefix('Fungi ')
+            rows.append({'id': 'srd51:2014:monster:' + name.lower().replace(' ', '-'),
+                         'nameEn': name, 'page': page})
+    return rows
+
+
+def check_type_inventory(pages, manifest, cards):
+    if (manifest['sourceSha256'] != SHA256 or manifest['ruleset'] != '5e-2014' or
+            manifest['sourcePageRange'] != [254, 394] or
+            [section['monsterType'] for section in manifest['sections']] != ['fey', 'plant']):
+        raise ValueError('Wrong typed source inventory')
+    result = {}
+    for section in manifest['sections']:
+        kind = section['monsterType']
+        rows = type_headings(pages, kind)
+        if not rows or section['expectedCount'] != len(rows) or section['entries'] != rows:
+            raise ValueError('Typed headings/pages differ from source: ' + kind)
+        for row in rows:
+            found = [card for card in cards if card['id'] == row['id']]
+            if (len(found) != 1 or found[0]['name']['en'] != row['nameEn'] or
+                    found[0]['monster']['type'] != kind or
+                    not found[0]['source']['url'].endswith('#page=' + str(row['page']))):
+                raise ValueError('Missing or mismatched typed card: ' + row['nameEn'])
+        result[kind] = len(rows)
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('pdf', type=Path)
@@ -117,6 +177,10 @@ def main():
     cards = json.loads(subprocess.check_output(['node','--input-type=module','-e',code], cwd=ROOT, encoding='utf-8'))
     ooze_manifest = json.loads((ROOT / 'catalog/srd51-oozes.coverage.json').read_text(encoding='utf-8-sig'))
     ooze_count = check_ooze_coverage({p: reader.pages[p-1].extract_text() for p in range(337, 340)}, ooze_manifest, cards)
+    type_inventory = json.loads((ROOT / 'catalog/srd51-fey-plant-inventory.json').read_text(encoding='utf-8-sig'))
+    type_counts = check_type_inventory({p: reader.pages[p-1].extract_text() for p in range(254, 395)}, type_inventory, cards)
+    animated_manifest = json.loads((ROOT / 'catalog/srd51-animated-objects.coverage.json').read_text(encoding='utf-8-sig'))
+    animated_count = check_animated_coverage({p:reader.pages[p-1].extract_text() for p in [263,264]}, animated_manifest, cards)
     familiar = json.loads((ROOT / 'catalog/srd51-familiar-forms.coverage.json').read_text(encoding='utf-8-sig'))
     familiar_names = familiar_headings(reader.pages[142].extract_text())
     if familiar['sourceSha256'] != SHA256 or familiar['expectedSubsetCount'] != 15 or sorted(row['nameEn'] for row in familiar['entries']) != sorted(familiar_names):
@@ -138,7 +202,7 @@ def main():
                 failures.append({'id': card['id'], 'fields': errors, 'source': expected})
         except ValueError as error:
             failures.append({'id': card['id'], 'error': str(error)})
-    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'failures': failures,
+    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'typedHeadingsChecked': type_counts, 'animatedHeadingsChecked': animated_count, 'failures': failures,
                       'scope': 'Base statistics only; actions, traits and summaries need source review.'}, ensure_ascii=False, indent=2))
     if failures:
         raise SystemExit(1)

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Three named statblocks of the Animated Objects section, SRD 5.1 pages 263–264; not all constructs",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 3,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:animated-armor",
+      "nameEn": "Animated Armor",
+      "pages": [
+        263,
+        264
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:flying-sword",
+      "nameEn": "Flying Sword",
+      "pages": [
+        264
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:rug-of-smothering",
+      "nameEn": "Rug of Smothering",
+      "pages": [
+        264
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Only the selected three animated objects; golems and shield guardian not included.",
+    "Construct creatures, not magic-item inventory entries.",
+    "Antimagic, different condition immunities, target-turn damage and damage transfer resolve manually."
+  ]
+}

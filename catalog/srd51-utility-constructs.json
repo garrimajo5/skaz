@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:homunculus",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Гомункул",
+        "en": "Homunculus"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=322",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz utility constructs v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 322, 323.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nКрошечный конструкт, нейтральный. Хиты 5 (2d4), природный доспех. Иммунитет к ядовитому урону, очарованию и отравлению. Тёмное зрение 60 футов, пассивное Восприятие 10. Понимает языки создателя, но не говорит.\nТелепатическая связь: на одном плане существования с хозяином магически передаёт ему свои ощущения; оба могут телепатически общаться.\nУкус: рукопашная атака оружием +4, досягаемость 5 футов, одно существо; 1 колющего урона. Спасбросок Телосложения Сл 10: провал отравляет на 1 минуту. Если спасбросок провален на 5 или больше, вместо этого цель отравлена на 5 (1d10) минут и бессознательна, пока отравлена таким образом. Длительность и условия отличаются от яда спрайта.\nСвязь, яд, хранение заклинания, реакция и перенос урона справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:poisoned",
+        "srd51:2014:mechanic:unconscious"
+      ],
+      "monster": {
+        "size": "tiny",
+        "type": "construct",
+        "armorClass": 13,
+        "hitPoints": 5,
+        "speed": {
+          "walk": 20,
+          "fly": 40
+        },
+        "abilities": {
+          "str": 4,
+          "dex": 15,
+          "con": 11,
+          "int": 10,
+          "wis": 10,
+          "cha": 7
+        },
+        "challenge": "0",
+        "xp": 10
+      }
+    },
+    {
+      "id": "srd51:2014:monster:shield-guardian",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Щитовой страж",
+        "en": "Shield Guardian"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=345",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz utility constructs v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 345, 346.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшой конструкт, без мировоззрения. Хиты 142 (15d10 + 60), природный доспех. Иммунитет к ядовитому урону, очарованию, истощению, испугу, параличу и отравлению. Слепое зрение 10 футов, тёмное зрение 60 футов, пассивное Восприятие 10. Понимает команды на любом языке, но не говорит.\nПривязка: магически связан с амулетом. На одном плане существования владелец амулета может телепатически призвать стража к себе; страж знает расстояние и направление к амулету. Если страж в пределах 60 футов от носящего амулет, половина любого получаемого тем урона с округлением вверх переносится на стража.\nРегенерация: восстанавливает 10 хитов в начале своего хода, если имеет хотя бы 1 хит.\nХранение заклинания: заклинатель, носящий амулет стража, может наложить на него одно заклинание не выше 4 уровня. Оно не действует немедленно, а сохраняется. По команде владельца или при заранее заданной заклинателем ситуации страж накладывает сохранённое заклинание с параметрами исходного заклинателя и без компонентов. При накладывании сохранённого или сохранении нового прежнее теряется; одновременно хранится только одно.\nМультиатака: два удара кулаком. Кулак: рукопашная атака оружием +7, досягаемость 5 футов, одна цель; 11 (2d6 + 4) дробящего урона.\nРеакция «Щит»: когда существо атакует носящего амулет, страж даёт владельцу +2 к КД, если находится в пределах 5 футов от него. Это реакция стража, не постоянная прибавка к листу.\nСвязь, яд, хранение заклинания, реакция и перенос урона справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:exhaustion",
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:paralyzed",
+        "srd51:2014:mechanic:poisoned"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "construct",
+        "armorClass": 17,
+        "hitPoints": 142,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 8,
+          "con": 18,
+          "int": 7,
+          "wis": 10,
+          "cha": 3
+        },
+        "challenge": "7",
+        "xp": 2900
+      }
+    }
+  ]
+}

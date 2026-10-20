@@ -7,18 +7,18 @@ function harness(protocol = 'http:') {
   const handlers = {}, requests = [], tasks = [], additions = [];
   const movement=[];
   const region = { innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
-  let dialog = '', isOpen=true;const messages=[];
+  let dialog = '', isOpen=true;const messages=[],typeRegion={innerHTML:'',querySelector:()=>null};
   const context = vm.createContext({
     location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
     queueMicrotask: task => tasks.push(task),
     fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
-    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='dialog'?{open:isOpen}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region, querySelector: () => null },
+    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region, querySelector: () => null },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
     toast:message=>messages.push(message),render:()=>{}, modal: html => dialog = html, SkazStorage: { addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { messages,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
+  return { messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>isOpen=false, otherModal:()=>dialog='<h2>Other</h2>',
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
@@ -31,6 +31,10 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
 function respond(request, payload) { request.resolve({ ok: true, json: async () => payload }); }
 const entry = { kind: 'mechanic', name: { ru: '<img src=x onerror=alert(1)>', en: 'Test' }, source: { title: 'Fixture', usage: 'personal', url: 'javascript:alert(1)', version: '1', terms: '<script>unsafe</script>' }, text: '<b>plain text</b>' };
 const coverage = { total: 1, referenceOnly: 0, personal: 1 };
+
+test('creature source coverage is bounded to named types and distinguishes prepared from installed',async()=>{
+ const h=harness();h.submit('',{kind:'monster'});respond(h.requests[0],{entries:[],total:0});respond(h.requests[1],{...coverage,scopes:{srd51CreatureTypes:{fey:{expected:6,prepared:6,installed:0},plant:{expected:6,prepared:5,installed:3}}}});await settle();assert.match(h.typeRegion.innerHTML,/Охват фей и растений SRD 5.1/);assert.match(h.view(),/Охват фей и растений SRD 5.1/);assert.match(h.view(),/Феи: актуальных версий установлено 0, подготовлено 6 из 6/);assert.match(h.view(),/Растения: актуальных версий установлено 3, подготовлено 5 из 6/);assert.match(h.view(),/не полный бестиарий D&D/);h.submit('',{kind:'spell'});assert.doesNotMatch(h.view(),/Охват фей и растений/);
+});
 
 test('challenge range draft survives rendering and paging, clears on category change and rejects reversed bounds before fetch',async()=>{
  const h=harness();h.changeKind('monster');h.draft('challengeMin','1/8');h.draft('challengeMax','2');assert.match(h.view(),/name="challengeMin"/);assert.match(h.view(),/name="challengeMax"/);assert.match(h.view(),/value="1\/8" selected/);assert.match(h.view(),/value="2" selected/);

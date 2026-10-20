@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Nine selected fey and plant cards; coverage by source headings tracked separately",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 9,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:dryad",
+      "nameEn": "Dryad",
+      "pages": [
+        304,
+        305
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:satyr",
+      "nameEn": "Satyr",
+      "pages": [
+        344
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:sprite",
+      "nameEn": "Sprite",
+      "pages": [
+        348,
+        349
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:blink-dog",
+      "nameEn": "Blink Dog",
+      "pages": [
+        368
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:shambling-mound",
+      "nameEn": "Shambling Mound",
+      "pages": [
+        345
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:green-hag",
+      "nameEn": "Green Hag",
+      "pages": [
+        319
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:sea-hag",
+      "nameEn": "Sea Hag",
+      "pages": [
+        320
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:shrieker",
+      "nameEn": "Shrieker",
+      "pages": [
+        309
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:violet-fungus",
+      "nameEn": "Violet Fungus",
+      "pages": [
+        309
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Author summaries and Russian names are not official translations.",
+    "Only base numeric fields are structured; conditional armor, attacks, spells, charms and engulfing resolve manually.",
+    "No claim of complete D&D bestiary or support for other books/2024."
+  ]
+}
