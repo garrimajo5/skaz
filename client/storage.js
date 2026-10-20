@@ -405,7 +405,7 @@ const SkazStorage = (() => {
   function entityFormDraft(kind,selected,entityId,readValues,restoreValues) {
     const target={...activeContext},version=revision,form=$('#'+kind+'-form');
     const draftKey=draftPrefix('entity-form')+tabId+':'+encodeURIComponent(JSON.stringify({context:target,revision:version,kind,id:selected?.id||'new'}));
-    const show=text=>{$('#'+kind+'-draft-status').textContent=text;};
+    const show=text=>{const region=$('#'+kind+'-draft-status');if(region.textContent!==text)region.textContent=text;};
     const validString=(value,max)=>typeof value==='string'&&value.length<=max;
     const valid=values=>values&&validString(values.title,200)&&validString(values.description,12000)&&(kind==='quest'
       ? ['active','completed','failed'].includes(values.status)&&Array.isArray(values.steps)&&values.steps.length<=50&&new Set(values.steps.map(s=>s?.id)).size===values.steps.length&&values.steps.every(s=>s&&validString(s.id,80)&&/^[a-zA-Z0-9-]{8,80}$/.test(s.id)&&validString(s.title,500)&&typeof s.done==='boolean')

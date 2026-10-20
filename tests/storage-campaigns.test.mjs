@@ -841,3 +841,9 @@ test('a successful HTTP status with invalid acknowledgement never removes entity
   await h.get('#place-form').onsubmit({preventDefault(){}});assert.ok(local.getItem(key));assert.equal(h.api.editable(),false);assert.ok([...local.values.keys()].some(k=>k.startsWith('skaz-pending-v1:')));
  }
 });
+
+test('draft save status does not repeatedly announce identical text while typing',async()=>{
+ const h=harness(memory(),memory(),async()=>response(payload(0)));await h.api.boot();h.api.editPlace();for(const [field,value]of Object.entries({title:'One',description:'Known',x:'0',y:'50'}))h.get('#place-'+field).value=value;
+ let text='',announcements=0;Object.defineProperty(h.get('#place-draft-status'),'textContent',{get:()=>text,set:value=>{text=value;announcements++;}});
+ h.get('#place-form').oninput();h.get('#place-title').value='Two';h.get('#place-form').oninput();assert.equal(announcements,1);assert.match(text,/сохранён/);
+});
