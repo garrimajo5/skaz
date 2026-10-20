@@ -445,7 +445,9 @@ def check_dragon_breath_inventory(pages,manifest,cards):
         expected=dragon_breath(text,row['nameEn'],declared['nameEn'])
         if expected!={k:v for k,v in declared.items() if k!='underwaterResistance'}:raise ValueError('Breath geometry, save or damage differs')
         ru=normalize(card['text']);geometry=('линия '+str(expected['length'])+' футов шириной '+str(expected['width'])+' футов') if expected['shape']=='line' else ('конус '+str(expected['length'])+' футов')
-        fragments=[geometry,{'dex':'Ловкость','con':'Телосложение'}[expected['saveAbility']]+' Сл '+str(expected['saveDC']),str(expected['averageDamage'])+' ('+expected['damageDice']+')','перезарядка '+str(expected['recharge'][0])+'–'+str(expected['recharge'][1]),'половина при успехе']
+        damage_type={'acid':'кислотного','lightning':'электрического','poison':'урона ядом','fire':'огненного','cold':'холодного'}.get(expected['damageType'])
+        if damage_type is None:raise ValueError('Unsupported authored breath damage type')
+        fragments=[geometry,{'dex':'Ловкость','con':'Телосложение'}[expected['saveAbility']]+' Сл '+str(expected['saveDC']),str(expected['averageDamage'])+' ('+expected['damageDice']+') '+damage_type,'перезарядка '+str(expected['recharge'][0])+'–'+str(expected['recharge'][1]),'половина при успехе']
         if any(fragment not in ru for fragment in fragments):raise ValueError('Authored breath geometry, save, recharge or damage differs')
         if 'underwaterResistance' in declared:
             if declared['underwaterResistance'] is not False or "Being underwater doesn't grant resistance against this damage." not in normalize(text) or 'Нахождение под водой не даёт сопротивления этому урону' not in ru:
@@ -572,7 +574,7 @@ def main():
         except ValueError as error:
             failures.append({'id': card['id'], 'error': str(error)})
     print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'typedHeadingsChecked': type_counts, 'animatedHeadingsChecked': animated_count, 'undeadHeadingsChecked':undead_count, 'preparedCasterSpellsChecked':caster_counts,'innateCasterSpellsChecked':innate_counts, 'selectedFiendCardsChecked':selected_fiends, 'selectedDragonCardsChecked':selected_dragons, 'breathWeaponsChecked':breath_checked, 'meleeAttacksChecked':melee_checked, 'additionalMeleeDamageGroupsChecked':additional_melee_checked, 'failures': failures,
-                      'scope': 'Base statistics, declared prepared/innate spell lists and selected primary melee attack fields; other effects need manual source review.'}, ensure_ascii=False, indent=2))
+                      'scope': 'Base statistics, declared prepared/innate spells, selected primary/additional melee damage and dragon breath fields; other effects need manual source review.'}, ensure_ascii=False, indent=2))
     if failures:
         raise SystemExit(1)
 

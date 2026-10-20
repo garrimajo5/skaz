@@ -43,7 +43,7 @@ class MonsterAuditTests(unittest.TestCase):
         for key,val in [('recharge',[6,6]),('shape','cone'),('length',60),('width',10),('saveAbility','con'),('saveDC',15),('averageDamage',50),('damageDice','12d8'),('damageType','fire')]:
             wrong=copy.deepcopy(manifest);wrong['breathChecks'][0]['breath'][key]=val
             with self.assertRaises(ValueError):m['check_dragon_breath_inventory']({282:text},wrong,[card])
-        for changed in [card['text'].replace('линия','конус'),card['text'].replace('Ловкость','Телосложение'),card['text'].replace('Сл 14','Сл 15')]:
+        for changed in [card['text'].replace('линия','конус'),card['text'].replace('Ловкость','Телосложение'),card['text'].replace('Сл 14','Сл 15'),card['text'].replace('кислотного','огненного'),card['text'].replace('49 (11d8) кислотного','49 (11d8) огненного')+' Другой эффект кислотного урона.']:
             with self.assertRaises(ValueError):m['check_dragon_breath_inventory']({282:text},manifest,[{**card,'text':changed}])
         wrong=copy.deepcopy(manifest);wrong['breathChecks']*=2
         with self.assertRaises(ValueError):m['check_dragon_breath_inventory']({282:text},wrong,[card])
