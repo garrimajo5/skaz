@@ -22,7 +22,7 @@ const SkazMap = (() => {
   function refresh() {
     if (key !== SkazStorage.snapshotKey()) return;
     const region = document.getElementById('map-results');
-    if (region) { region.innerHTML = results(); region.setAttribute('aria-busy',String(status === 'loading')); }
+    if (region) { region.innerHTML = results(); SkazStorage.decorate?.(region); region.setAttribute('aria-busy',String(status === 'loading')); }
   }
   async function load() {
     const requestId = ++serial, requestedKey = SkazStorage.snapshotKey(); status = 'loading'; refresh();

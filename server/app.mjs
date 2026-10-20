@@ -90,7 +90,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           if (pathname === '/api/catalog') return json(response, 200, view.catalog.search(new URL(request.url, `http://${host}`).searchParams));
           if (pathname === '/api/catalog/spell-inventory') return json(response, 200, view.catalog.spellInventory());
           if (pathname === '/api/catalog/coverage') return json(response, 200, view.catalog.coverage());
-          if (pathname === '/api/workspace') return json(response, 200, view.read());
+          if (pathname === '/api/workspace') return json(response, 200, { ...view.read(), ...(authenticate ? {permissions:view.permissions()} : {}) });
           if (pathname === '/api/context') return json(response, 200, view.context());
           if (pathname === '/api/campaigns') return json(response, 200, { campaigns: view.campaigns() });
           const sessionList = pathname.match(/^\/api\/campaigns\/([a-zA-Z0-9-]{1,80})\/sessions$/);
@@ -113,7 +113,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           const data = await body(request);
           if (!data || typeof data !== 'object' || Array.isArray(data)) throw new AppError(400, 'Неверный запрос');
           const result = pathname === '/api/catalog/import/preview' ? view.catalog.reviewedImport(data) : pathname === '/api/catalog/import' ? view.catalog.reviewedImport(data,true) : pathname === '/api/catalog/bundled' ? view.catalog.installBundled(data) : pathname === '/api/characters' ? view.createCharacter(data) : pathname === '/api/proposals' ? view.createProposal(data) : pathname === '/api/proposals/decide' ? view.decideProposal(data) : pathname === '/api/places' ? view.savePlace(data) : pathname === '/api/quests' ? view.saveQuest(data) : pathname === '/api/spellbook' ? view.setSpell(data) : pathname === '/api/import/active' ? view.importActive(data) : pathname === '/api/inventory/charges' ? view.changeCharges(data) : pathname === '/api/inventory/undo' ? view.undoInventory(data) : pathname === '/api/inventory/remove' ? view.removeInventory(data) : pathname === '/api/inventory' ? view.addInventory(data) : pathname === '/api/sessions' ? view.startSession(data) : pathname === '/api/campaigns' ? view.createCampaign(data) : pathname === '/api/context/select' ? view.selectContext(data) : view.update(data);
-          return json(response, 200, result);
+          return json(response, 200, { ...result, ...(authenticate && result?.state ? {permissions:view.permissions()} : {}) });
         }
         return json(response, 404, { error: 'Неизвестный метод API' });
       }

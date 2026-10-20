@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:archmage",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Архимаг",
+        "en": "Archmage"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=395",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC specialists v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 395, 396.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое мировоззрение. КД 12, с доспехами мага — 15; хиты 99 (18d8+18). Спасброски Интеллект +9, Мудрость +6; Магия +13, История +13; пассивное Восприятие 12; шесть любых языков.\nСопротивление урону от заклинаний; сопротивление немагическому дробящему, колющему и рубящему урону указано как эффект Stoneskin. Магическое сопротивление: преимущество к спасброскам от заклинаний и других магических эффектов.\nЗаклинатель 18-го уровня, Интеллект: Сл 17, атака заклинанием +9. Маскировка (Disguise Self) и невидимость (Invisibility) доступны без ограничения. Подготовленные заклинания волшебника: заговоры — огненный снаряд (Fire Bolt), свет (Light), волшебная рука (Mage Hand), фокусы (Prestidigitation), электрошок (Shocking Grasp); 1-й уровень, 4 ячейки — обнаружение магии (Detect Magic), опознание (Identify), доспехи мага (Mage Armor), волшебная стрела (Magic Missile); 2-й уровень, 3 ячейки — обнаружение мыслей (Detect Thoughts), отражения (Mirror Image), туманный шаг (Misty Step); 3-й уровень, 3 ячейки — контрзаклинание (Counterspell), полёт (Fly), молния (Lightning Bolt); 4-й уровень, 3 ячейки — изгнание (Banishment), огненный щит (Fire Shield), каменная кожа (Stoneskin); 5-й уровень, 3 ячейки — конус холода (Cone of Cold), наблюдение (Scrying), силовая стена (Wall of Force); 6-й уровень, 1 ячейка — сфера неуязвимости (Globe of Invulnerability); 7-й уровень, 1 ячейка — телепортация (Teleport); 8-й уровень, 1 ячейка — сокрытие разума (Mind Blank); 9-й уровень, 1 ячейка — остановка времени (Time Stop).\nИсточник предполагает применение Mage Armor, Stoneskin и Mind Blank на себя до боя. Это условие справочного блока, а не автоматически включённые эффекты листа; наличие эффектов и потраченные ячейки нужно учитывать вручную.\nКинжал: рукопашная или дальнобойная атака оружием +6, досягаемость 5 футов либо дистанция 20/60 футов, одна цель; 4 (1d4+2) колющего. Мультиатаки нет.\nСпособности, заклинания, атаки и расход ресурсов не применяются автоматически.",
+      "links": [
+        "srd51:2014:spell:disguise-self",
+        "srd51:2014:spell:invisibility",
+        "srd51:2014:spell:fire-bolt",
+        "srd51:2014:spell:light",
+        "srd51:2014:spell:mage-hand",
+        "srd51:2014:spell:prestidigitation",
+        "srd51:2014:spell:shocking-grasp",
+        "srd51:2014:spell:detect-magic",
+        "srd51:2014:spell:identify",
+        "srd51:2014:spell:mage-armor",
+        "srd51:2014:spell:magic-missile",
+        "srd51:2014:spell:detect-thoughts",
+        "srd51:2014:spell:mirror-image",
+        "srd51:2014:spell:misty-step",
+        "srd51:2014:spell:counterspell",
+        "srd51:2014:spell:fly",
+        "srd51:2014:spell:lightning-bolt",
+        "srd51:2014:spell:banishment",
+        "srd51:2014:spell:fire-shield",
+        "srd51:2014:spell:stoneskin",
+        "srd51:2014:spell:cone-of-cold",
+        "srd51:2014:spell:scrying",
+        "srd51:2014:spell:wall-of-force",
+        "srd51:2014:spell:globe-of-invulnerability",
+        "srd51:2014:spell:teleport",
+        "srd51:2014:spell:mind-blank",
+        "srd51:2014:spell:time-stop"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 12,
+        "hitPoints": 99,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 10,
+          "dex": 14,
+          "con": 12,
+          "int": 20,
+          "wis": 15,
+          "cha": 16
+        },
+        "challenge": "12",
+        "xp": 8400
+      }
+    },
+    {
+      "id": "srd51:2014:monster:assassin",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Убийца",
+        "en": "Assassin"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=396",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC specialists v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 396.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое недоброе мировоззрение. Клёпаный кожаный доспех; хиты 78 (12d8+24). Спасброски Ловкость +6, Интеллект +4; Акробатика +6, Обман +3, Восприятие +3, Скрытность +9; сопротивление яду; пассивное Восприятие 13; воровской жаргон и ещё два любых языка.\nУбийство: в свой первый ход имеет преимущество к броскам атаки против существа, ещё не совершившего ход; любое попадание по застигнутому врасплох существу является критическим.\nУвёртливость: когда эффект допускает спасбросок Ловкости для половины урона, успех даёт отсутствие урона, провал — половину.\nСкрытая атака: один раз за ход дополнительно 14 (4d6) урона при попадании атакой оружием с преимуществом; либо если в пределах 5 футов от цели есть союзник убийцы, который не недееспособен, а у убийцы нет помехи к броску атаки.\nМультиатака: две атаки коротким мечом, не две арбалетные атаки. Короткий меч: рукопашная атака +6, досягаемость 5 футов; 6 (1d6+3) колющего. Лёгкий арбалет: дальнобойная атака +6, дистанция 80/320 футов; 7 (1d8+3) колющего. Для обеих атак одна цель; дополнительно цель делает спасбросок Телосложения Сл 15: 24 (7d6) ядом при провале, половина при успехе.\nСпособности, заклинания, атаки и расход ресурсов не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 15,
+        "hitPoints": 78,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 11,
+          "dex": 16,
+          "con": 14,
+          "int": 13,
+          "wis": 11,
+          "cha": 10
+        },
+        "challenge": "8",
+        "xp": 3900
+      }
+    },
+    {
+      "id": "srd51:2014:monster:gladiator",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Гладиатор",
+        "en": "Gladiator"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=399",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC specialists v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 399.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое мировоззрение. Клёпаный кожаный доспех и щит; хиты 112 (15d8+45). Спасброски Сила +7, Ловкость +5, Телосложение +6; Атлетика +10, Запугивание +5; пассивное Восприятие 11; один любой язык, обычно Общий.\nХрабрость: преимущество к спасброскам от испуга. Грубая сила: дополнительная кость урона рукопашного оружия уже включена в указанный урон; не добавляй её повторно.\nМультиатака: три рукопашные либо две дальнобойные атаки. Копьё: рукопашная или дальнобойная атака +7, досягаемость 5 футов либо дистанция 20/60 футов, одна цель; 11 (2d6+4) колющего. Только при рукопашном ударе двумя руками — 13 (2d8+4).\nУдар щитом: рукопашная атака +7, досягаемость 5 футов, одно существо; 9 (2d4+4) дробящего. Цель Среднего или меньшего размера делает спасбросок Силы Сл 15, иначе сбита с ног.\nРеакция «Парирование»: +3 КД против одной попавшей рукопашной атаки, если гладиатор видит атакующего и держит рукопашное оружие.\nСпособности, заклинания, атаки и расход ресурсов не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 16,
+        "hitPoints": 112,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 15,
+          "con": 16,
+          "int": 10,
+          "wis": 12,
+          "cha": 15
+        },
+        "challenge": "5",
+        "xp": 1800
+      }
+    }
+  ]
+}

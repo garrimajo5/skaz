@@ -12,6 +12,7 @@ const SkazCatalogImport = (() => {
   }
   function open(){
     if(busy)return;
+    if(typeof SkazStorage!=='undefined' && SkazStorage.can && !SkazStorage.can('catalog'))return modal('<h2>Импорт пока доступен администратору</h2><p>Индивидуальные аккаунты используют проверенную общую подборку. Личные импортированные материалы пока не разделены между пользователями.</p>');
     ++serial;
     modal('<div id="catalog-import-panel"><div class="overline">ЛИЧНАЯ БИБЛИОТЕКА · D&D 2014</div><h2>Добавить материалы из файла</h2><p>Выбери JSON-подборку СКАЗ с названиями, редакцией, источниками и условиями использования. Импортируй собственный материал или текст, на использование которого у тебя есть разрешение.</p><p>Файл проверится до записи. Прогресс, предметы и заклинания персонажей не меняются. Совпадающие записи не дублируются, конфликтующие ID не заменяются.</p><label>JSON-подборка, до 512 КиБ<input id="personal-catalog-file" type="file" accept="application/json,.json"></label><details><summary>Как подготовить JSON-подборку</summary><p>Скопируй пример в текстовый файл с расширением .json. Замени ID, названия, текст и источник своими данными. Для другого материала используй новый ID. Адрес example.com — пример, укажи свой источник.</p><textarea id="catalog-example" aria-label="Пример JSON-подборки" rows="12" readonly></textarea></details><p id="catalog-import-message" role="status"></p></div>');
     document.getElementById('catalog-example').textContent=JSON.stringify(example,null,2);

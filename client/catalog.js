@@ -162,6 +162,7 @@ const SkazCatalog = (() => {
   const bundleVisible = token => token===bundleSerial && document.getElementById('dialog')?.open && document.getElementById('bundled-catalog');
   async function previewBundled() {
     if(installing)return;
+    if(SkazStorage.can && !SkazStorage.can('catalog'))return modal('<h2>Подборкой управляет администратор</h2><p>Материалы доступны для чтения и добавления в личный лист. Установка общей базы выполняется владельцем сервера.</p>');
     const token=++bundleSerial;
     modal('<div id="bundled-catalog"><h2>Проверенная подборка</h2><p role="status">Сверяем состав с твоим справочником…</p></div>');
     try{

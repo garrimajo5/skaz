@@ -34,3 +34,13 @@ test('rest forms remain open after stale detection; ready note saves normally on
  const h=harness();h.run('addNote()');h.get('#note-body').value='Новая зацепка';h.get('#save-note').onclick();await new Promise(resolve=>setImmediate(resolve));
  assert.equal(h.get('#dialog').open,false);assert.equal(h.writes.length,1);assert.equal(h.state().notes.at(-1).text,'Новая зацепка');
 });
+
+test('player resource changes write a personal entry instead of changing the common session journal',async()=>{
+ const h=harness();h.run("SkazStorage.can=action=>action!=='shared'");h.run('hpDialog()');h.get('#hp-value').value='4';await h.get('#apply-hp').onclick();await new Promise(resolve=>setImmediate(resolve));
+ assert.equal(h.writes.length,1);assert.equal(h.writes[0].state.hp,24);assert.equal(h.writes[0].state.journal.length,0);assert.equal(h.writes[0].state.notes.length,1);assert.match(h.writes[0].state.notes[0].text,/28 → 24/);
+});
+
+test('initial HTTP rendering waits for saved state instead of flashing the demonstration hero',()=>{
+ const h=harness();h.run('SkazStorage.readyToDisplay=()=>false;render()');assert.match(h.get('#main').innerHTML,/Открываем твою игру/);assert.equal(h.get('#campaign-name').textContent,'');assert.equal(h.get('#quick-state').innerHTML,'');
+ h.run('SkazStorage.readyToDisplay=()=>true;render()');assert.match(h.get('#main').innerHTML,/Элиан/);
+});

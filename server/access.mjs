@@ -7,6 +7,11 @@ import { splitState } from './entities.mjs';
 
 const missing = () => { throw new AppError(404, 'Данные недоступны'); };
 const disabled = () => { throw new AppError(403, 'Операция пока недоступна в режиме индивидуального доступа'); };
+const permissions = (role, write) => ({
+  mode: 'individual', role, character: write, shared: write && role !== 'player',
+  manageCampaign: write && role !== 'player', catalog: false, newCampaign: write,
+  select: write, import: write, history: write, export: true,
+});
 const id = value => {
   if (typeof value !== 'string' || !/^[a-zA-Z0-9-]{8,80}$/.test(value)) throw new AppError(422, 'Неверный идентификатор доступа');
   return value;
@@ -180,6 +185,7 @@ export function createUserReader(db, access, userId, clientViewId, createView, g
     catch(error) { db.exec('ROLLBACK'); throw error; }
   }
   const result={};
+  result.permissions=()=>read(()=>permissions(access.membership(userId,active().campaignId),false));
   for (const method of ['read','context','proposals','places','quests','spellbook','inventory']) result[method]=()=>read(()=>view[method]());
   result.inventory=()=>read(()=>({...view.inventory(),undo:null}));
   result.campaigns=()=>read(()=>view.campaigns().filter(c=>db.prepare('SELECT 1 FROM campaign_memberships WHERE user_id=? AND campaign_id=?').get(userId,c.id)).map(c=>({...c,characters:c.characters.filter(h=>db.prepare('SELECT 1 FROM character_access WHERE user_id=? AND character_id=?').get(userId,h.id))})));
@@ -241,6 +247,11 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
     }
   }
   const result={...reader};
+  result.permissions=()=>{
+    db.exec('BEGIN');
+    try {const selected=current(),value=permissions(access.membership(userId,selected.campaignId),true);db.exec('COMMIT');return value;}
+    catch(error){db.exec('ROLLBACK');throw error;}
+  };
   result.inventory=()=>{
     db.exec('BEGIN');
     try {

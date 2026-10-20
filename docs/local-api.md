@@ -308,3 +308,5 @@ GET /api/me работает только с доверенным authenticate: 
 
 
 Экспериментальный sessions-адаптер и /api/auth/login, /api/auth/logout описаны в [authentication.md](authentication.md). Обычный запуск их не включает; X-Skaz-Identity не является способом авторизации.
+
+В индивидуальном адаптере GET /api/workspace и ответы команд с state дополнены permissions. Поля: mode="individual", role="owner"|"gm"|"player", boolean character/shared/manageCampaign/catalog/newCampaign/select/import/history/export. В общем режиме поля нет. Метаданные относятся к выбранной кампании; не являются токеном или разрешением обходить серверную проверку. Отзыв/изменение роли применяется к следующему запросу независимо от игровой revision.

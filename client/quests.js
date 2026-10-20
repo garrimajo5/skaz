@@ -8,14 +8,14 @@ const SkazQuests = (() => {
     const current = SkazStorage.snapshotKey();
     if (key !== current) { const nextContext = SkazStorage.contextKey(); if (contextKey !== nextContext) { offset = 0; focusStep = null; } contextKey = nextContext; key = current; ++serial; status = 'idle'; data = []; }
     if (status === 'idle') { status = 'loading'; queueMicrotask(load); }
-    return `<section aria-label="Задания кампании"><div class="map-toolbar"><div><h2>Задания кампании</h2><p>Зацепки, обещания и личные цели.</p></div><button id="create-personal-quest" class="primary">Новое задание</button></div><form id="personal-quest-search" class="map-search"><label>Найти задание<input name="q" type="search" maxlength="200" value="${escape(query)}" placeholder="Название, заметка или этап"></label><label>Статус<select name="status"><option value="all">Все задания</option>${Object.entries(labels).map(([value,label]) => `<option value="${value}" ${value === filter ? 'selected' : ''}>${label}</option>`).join('')}</select></label><button type="submit">Найти</button></form><div id="personal-quest-results" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div><p class="quest-help">Отмечай этапы прямо здесь. Статус задания и награды меняются отдельно.</p></section>`;
+    return `<section aria-label="Задания кампании"><div class="map-toolbar"><div><h2>Задания кампании</h2><p>Зацепки, обещания и личные цели.</p></div><button id="create-personal-quest" class="primary">Новое задание</button></div><form id="personal-quest-search" class="map-search"><label>Найти задание<input name="q" type="search" maxlength="200" value="${escape(query)}" placeholder="Название, заметка или этап"></label><label>Статус<select name="status"><option value="all">Все задания</option>${Object.entries(labels).map(([value,label]) => `<option value="${value}" ${value === filter ? 'selected' : ''}>${label}</option>`).join('')}</select></label><button type="submit">Найти</button></form><div id="personal-quest-results" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div><p class="quest-help">${(SkazStorage.can?.('shared')??true)?'Отмечай этапы прямо здесь. Статус задания и награды меняются отдельно.':'Общие задания и отметки этапов меняет мастер или владелец.'}</p></section>`;
   }
   function filtered() {
     const q = query.toLocaleLowerCase('ru');
     return data.filter(item => (filter === 'all' || item.status === filter) && [item.title,item.description,...item.steps.map(s => s.title)].join(' ').toLocaleLowerCase('ru').includes(q));
   }
   function stepRow(quest,step) {
-    return `<label class="quest-check"><input type="checkbox" data-personal-step="${escape(step.id)}" data-personal-quest="${escape(quest.id)}" ${step.done ? 'checked' : ''} ${SkazStorage.editable() ? '' : 'disabled'}><span>${escape(step.title)}</span></label>`;
+    return `<label class="quest-check"><input type="checkbox" data-personal-step="${escape(step.id)}" data-personal-quest="${escape(quest.id)}" ${step.done ? 'checked' : ''} ${(SkazStorage.can?.('shared')??SkazStorage.editable()) ? '' : 'disabled'}><span>${escape(step.title)}</span></label>`;
   }
   function results() {
     if (status === 'loading') return '<p class="empty">Открываем задания…</p>';
@@ -27,7 +27,7 @@ const SkazQuests = (() => {
   function refresh() {
     if (key !== SkazStorage.snapshotKey()) return;
     const region = document.getElementById('personal-quest-results');
-    if (region) { region.innerHTML = results(); region.setAttribute('aria-busy',String(status === 'loading')); }
+    if (region) { region.innerHTML = results(); SkazStorage.decorate?.(region); region.setAttribute('aria-busy',String(status === 'loading')); }
   }
   async function load() {
     const requestId = ++serial, requestedKey = SkazStorage.snapshotKey(); status = 'loading'; refresh();

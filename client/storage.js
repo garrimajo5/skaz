@@ -31,9 +31,24 @@ const SkazStorage = (() => {
   }
   let status = demo ? 'demo' : 'loading';
   let revision = 0;
-  let privateServer = false;
+  let privateServer = false, permissions = null;
+  const permissionKeys=['character','shared','manageCampaign','catalog','newCampaign','select','import','history','export'];
+  const individual=()=>typeof SkazAccount!=='undefined' && Boolean(SkazAccount.userId);
+  function adoptPermissions(payload){
+    const p=payload.permissions;
+    if(p===undefined){if(individual())throw new Error('Сервер не подтвердил права доступа');permissions=null;return;}
+    if(!p||p.mode!=='individual'||!['owner','gm','player'].includes(p.role)||permissionKeys.some(k=>typeof p[k]!=='boolean'))throw new Error('Неверные права доступа');
+    permissions={...p};
+  }
+  function can(action='character'){return ['ready','demo'].includes(status) && permissionKeys.includes(action) && (permissions?permissions[action]:!individual());}
+  function requirePermission(action){if(!can(action))throw new Error('Это действие недоступно с текущими правами. Обнови игру или обратись к мастеру.');}
+  function decorate(root=document){
+    if(!root.querySelectorAll)return;
+    const selectors={shared:'[data-check],[data-accept],[data-dismiss],[data-edit-event],#restore-events,[data-personal-step],[data-personal-edit],[data-map-edit],#new-place,#create-personal-quest,#map-note,#profile-campaign',manageCampaign:'#new-session,#new-session-form button,#new-character',catalog:'#catalog-bundled,#catalog-help',newCampaign:'#new-campaign',select:'[data-select-character]',import:'#import-state,#import-old',history:'#change-history',character:'#spellbook-form button,#spellbook-status,#damage,#heal,[data-health],#rest,#edit-profile,#inspire,#add-note,#new-proposal,#cast-spell,#catalog-add-inventory,#catalog-add-spell,[data-spell-edit],[data-inventory-remove],[data-inventory-charges],#inventory-undo'};
+    for(const [action,selector]of Object.entries(selectors))for(const control of root.querySelectorAll(selector))if(!can(action)){control.disabled=true;control.setAttribute('aria-disabled','true');control.title=action==='shared'||action==='manageCampaign'?'Доступно мастеру или владельцу':'Недоступно с текущими правами';}
+  }
   let activeContext = null;
-  let sessionInfo = null;
+  let sessionInfo = null, loaded = false;
   let pending = null;
   let message = '';
   let draftStored = true;
@@ -61,10 +76,10 @@ const SkazStorage = (() => {
       ready: privateServer?'Сохранено на сервере':'Сохранено на этом компьютере', saving: 'Сохраняем…',
       error: 'Нет связи с сервером', pending: 'Изменение ещё не подтверждено сервером',
       conflict: 'Другая вкладка уже изменила данные',
-      stale: 'В другом окне есть изменения',
+      stale: 'В другом окне есть изменения', denied: 'Сервер отклонил изменение по правам доступа',
     };
     box.dataset.status = status;
-    box.innerHTML = `<span><span class="sync-dot"></span>${labels[status]}${message ? `<small>${esc(message)}</small>` : ''}</span><div>${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления">↻</button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button>${typeof SkazAccount!=='undefined' && SkazAccount.userId?'<button id="account-logout">Выйти</button>':''}<button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
+    box.innerHTML = `<span><span class="sync-dot"></span>${labels[status]}${permissions?` · ${permissions.role==='player'?'Игрок':permissions.role==='gm'?'Мастер':'Владелец'}${permissions.character?'':' · Только чтение'}`:''}${message ? `<small>${esc(message)}</small>` : ''}${permissions?`<small>${!permissions.character?'Доступно чтение назначенных игр.':permissions.shared?'Личный лист и общие записи кампании доступны для изменения.':'Личные ресурсы и заметки доступны для изменения. Общий сюжет, задания и карту ведёт мастер.'}</small>`:''}</span><div>${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления">↻</button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button>${typeof SkazAccount!=='undefined' && SkazAccount.userId?'<button id="account-logout">Выйти</button>':''}<button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
   }
   async function checkRemote() {
     if(demo||status!=='ready'||pending||checkingRemote)return;
@@ -73,7 +88,7 @@ const SkazStorage = (() => {
       const remote=await request('/api/workspace');
       if(token!==remoteCheckSerial||status!=='ready'||pending||key!==snapshotKey())return;
       if(remote.schemaVersion!==1||!Number.isSafeInteger(remote.revision)||remote.revision<0||!remote.context)throw new Error('Неверная версия');
-      if(remote.revision!==revision||JSON.stringify(remote.context)!==JSON.stringify(activeContext)){
+      if(remote.revision!==revision||JSON.stringify(remote.context)!==JSON.stringify(activeContext)||JSON.stringify(remote.permissions??null)!==JSON.stringify(permissions)){
         status='stale';message='Экран и открытая форма остались без изменений. Скопируй нужный текст из формы, закрой её и обнови игру.';paint();
       }else if(message==='Не удалось проверить обновления. При сохранении сервер снова проверит версию.'){message='';paint();}
     }catch{
@@ -82,6 +97,7 @@ const SkazStorage = (() => {
   }
   function apply(payload) {
     ++remoteCheckSerial;checkingRemote=false;
+    adoptPermissions(payload);loaded=true;
     sessionInfo = payload.session || null;
     adoptContext(payload.context);
     revision = payload.revision;
@@ -95,19 +111,22 @@ const SkazStorage = (() => {
     try {
       const payload = await request('/api/workspace');
       if (payload.schemaVersion !== 1 || !payload.state) throw new Error('Неподдерживаемая версия сервера');
+      adoptPermissions(payload);
+      loaded = true;
       revision = payload.revision;
       sessionInfo = payload.session || null;
       adoptContext(payload.context);
       state = { ...payload.state, theme: state.theme };
       try { pending = JSON.parse(localStorage.getItem(pendingKey) || 'null'); } catch { pending = null; }
-      status = pending ? 'pending' : 'ready';
+      status = pending ? pending.permissionDenied ? 'denied' : 'pending' : 'ready';
       render();
     } catch { status = 'error'; message = location.protocol==='https:'?'Не удалось подключиться. Проверь соединение и повтори попытку.':'Запусти приложение командой node scripts/dev.mjs и повтори подключение.'; paint(); }
   }
   async function sendPending() {
+    if(pending?.permissionDenied)throw new Error('Сервер отклонил этот черновик по правам. Скачай его и загрузи актуальную игру.');
     status = 'saving'; message = ''; paint();
     try {
-      const { operation, formDraftKey, ...body } = pending;
+      const { operation, formDraftKey, permissionDenied, ...body } = pending;
       if(operation === 'inventory-charges'){body.operation=body.chargeAction;delete body.chargeAction;}
       if (operation === 'place-create' || operation === 'place-update') body.operation = operation === 'place-create' ? 'create' : 'update';
       if (operation === 'quest-create' || operation === 'quest-update') body.operation = operation === 'quest-create' ? 'create' : 'update';
@@ -117,7 +136,8 @@ const SkazStorage = (() => {
       apply(payload);
       return payload;
     } catch (error) {
-      status = error.status === 409 ? 'conflict' : 'pending';
+      if([403,404].includes(error.status)&&pending){pending.permissionDenied=true;rememberDraft();}
+      status = [403,404].includes(error.status) ? 'denied' : error.status === 409 ? 'conflict' : 'pending';
       message = !draftStored ? 'Черновик только в памяти вкладки. Скачай его перед закрытием.' : error.status ? error.message : 'Черновик сохранён в браузере. Повторный запрос не применит изменение дважды.';
       if (!error.status) error.message = 'Нет связи с сервером. Черновик можно отправить повторно.';
       paint();
@@ -130,6 +150,7 @@ const SkazStorage = (() => {
       return;
     }
     if (status !== 'ready') throw new Error('Сначала заверши сохранение или восстанови соединение');
+    requirePermission('character');
     pending = { mutationId: crypto.randomUUID(), expectedRevision: revision, label, state: clean(next) };
     rememberDraft();
     return sendPending();
@@ -175,6 +196,8 @@ const SkazStorage = (() => {
   }
   async function campaignCommand(operation, data, formDraftKey) {
     if (demo || status !== 'ready') throw new Error('Сначала сохрани черновик или загрузи актуальные данные');
+    const action=operation==='select'?'select':operation==='create'?'newCampaign':operation==='import-active'?'import':['quest-create','quest-update','place-create','place-update','session','character-create'].includes(operation)?'shared':operation==='proposal-create'&&data.suggestion?.kind==='journal'?'shared':'character';
+    requirePermission(action);
     const command = { mutationId: crypto.randomUUID(), expectedRevision: revision, ...data };
     if (new Blob([JSON.stringify(command)]).size > 512 * 1024) throw new Error('Команда больше 512 КиБ. Для переноса используй резервную копию SQLite.');
     pending = { ...command, operation, ...(formDraftKey ? { formDraftKey } : {}) };
@@ -389,6 +412,7 @@ const SkazStorage = (() => {
     } catch (error) { toast(error.message || 'Не удалось загрузить задания'); }
   }
   function editQuest(selected = null) {
+    if(!can('shared'))return toast('Изменение заданий доступно мастеру или владельцу');
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key = JSON.stringify(activeContext), version = revision, campaignId = activeContext.campaignId;
     const questId = selected?.id || crypto.randomUUID();
@@ -422,7 +446,7 @@ const SkazStorage = (() => {
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key = snapshotKey(), target = { ...activeContext }, proposalId = crypto.randomUUID();
     const draftKey = draftPrefix('proposal-form') + tabId + ':' + encodeURIComponent(JSON.stringify(target));
-    modal(`<h2>Событие из текста</h2><p>Подготовка распознавания: пока фрагмент и краткую запись вводишь ты. Микрофон и AI не используются. Сначала создаётся предложение, затем ты подтверждаешь запись.</p><p id="proposal-draft-status" class="small" role="status">Текст формы сохраняется только в этом браузере.</p><form id="proposal-form"><div class="proposal-fields"><label for="proposal-source">Фрагмент разговора</label><textarea id="proposal-source" required maxlength="4000" rows="4" placeholder="Что рассказал мастер или игрок?"></textarea><label for="proposal-speaker">Кто сказал (необязательно)</label><input id="proposal-speaker" maxlength="120" placeholder="Например, мастер"><label for="proposal-minute">Минута с начала сессии</label><input id="proposal-minute" type="number" min="0" max="1440" step="1" required value="0"><label for="proposal-title">Краткий заголовок события</label><input id="proposal-title" required maxlength="2000"><label for="proposal-target">Куда записать после подтверждения</label><select id="proposal-target"><option value="journal">В журнал текущей сессии</option><option value="personal-note">В личные заметки персонажа</option></select></div><div class="dialog-actions"><button type="submit" class="primary">Создать предложение</button></div></form>`);
+    modal(`<h2>Событие из текста</h2><p>Подготовка распознавания: пока фрагмент и краткую запись вводишь ты. Микрофон и AI не используются. Сначала создаётся предложение, затем ты подтверждаешь запись.</p>${can('shared')?'':'<p>Общий сюжет записывает мастер. Здесь можно подготовить личную заметку своего персонажа.</p>'}<p id="proposal-draft-status" class="small" role="status">Текст формы сохраняется только в этом браузере.</p><form id="proposal-form"><div class="proposal-fields"><label for="proposal-source">Фрагмент разговора</label><textarea id="proposal-source" required maxlength="4000" rows="4" placeholder="Что рассказал мастер или игрок?"></textarea><label for="proposal-speaker">Кто сказал (необязательно)</label><input id="proposal-speaker" maxlength="120" placeholder="Например, мастер"><label for="proposal-minute">Минута с начала сессии</label><input id="proposal-minute" type="number" min="0" max="1440" step="1" required value="0"><label for="proposal-title">Краткий заголовок события</label><input id="proposal-title" required maxlength="2000"><label for="proposal-target">Куда записать после подтверждения</label><select id="proposal-target"><option value="journal" ${can('shared')?'':'disabled'}>В журнал текущей сессии</option><option value="personal-note" ${can('shared')?'':'selected'}>В личные заметки персонажа</option></select></div><div class="dialog-actions"><button type="submit" class="primary">Создать предложение</button></div></form>`);
     const fields = ['source', 'speaker', 'minute', 'title', 'target'];
     const showDraftStatus = text => { if ($('#proposal-draft-status').textContent !== text) $('#proposal-draft-status').textContent = text; };
     try {
@@ -487,6 +511,7 @@ const SkazStorage = (() => {
     return data;
   }
   function editPlace(selected = null) {
+    if(!can('shared'))return toast('Изменение карты доступно мастеру или владельцу');
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key = snapshotKey(), campaignId = activeContext.campaignId, placeId = selected?.id || crypto.randomUUID();
     modal(`<h2>${selected ? 'Изменить место' : 'Новое место'}</h2><form id="place-form"><label for="place-title">Название</label><input id="place-title" maxlength="200" required value="${esc(selected?.title || '')}"><label for="place-description">Что мы знаем</label><textarea id="place-description" rows="3" maxlength="12000">${esc(selected?.description || '')}</textarea><label class="quest-check"><input type="checkbox" id="place-visited" ${selected?.visited ? 'checked' : ''}>Мы здесь побывали</label><p id="position-help">Коснись схемы, чтобы поставить отметку. Ползунки позволяют уточнить положение.</p><div id="place-position" class="place-position" aria-hidden="true"><span id="place-preview">◆</span></div><label for="place-x">Запад — восток</label><input id="place-x" type="range" min="0" max="100" step="0.1" value="${selected?.x ?? 50}"><label for="place-y">Север — юг</label><input id="place-y" type="range" min="0" max="100" step="0.1" value="${selected?.y ?? 50}"><div class="dialog-actions"><button type="submit" class="primary">Сохранить место</button></div></form>`);
@@ -535,7 +560,7 @@ const SkazStorage = (() => {
     } catch { modal('<h2>Сессии недоступны</h2><p>Проверь соединение и открой список снова.</p>'); }
   }
   function settings() {
-    modal(`<div class="overline">СКАЗ · ${privateServer?'ЗАКРЫТЫЙ СЕРВЕР':'ЛОКАЛЬНАЯ ВЕРСИЯ'} 0.2</div><h2>Данные приключения</h2><p>${demo ? 'Этот HTML-файл работает в демонстрационном режиме. Для сохранения в базе открой локальное приложение.' : privateServer?'Прогресс хранится на сервере. Вход общий для приглашённых: выбранная игра и изменения общие для подключённых устройств. Тема выбирается отдельно в браузере.':'Прогресс хранится в SQLite на этом компьютере. Тема выбирается отдельно для каждого браузера.'}</p><div class="settings-actions"><button id="export-state">Скачать прогресс без инвентаря (v1)</button>${!demo ? '<button id="export-active" class="primary">Скачать активную игру (v7)</button>' : ''}<label class="file-label">Импортировать JSON v1–v7<input id="import-state" type="file" accept=".json,application/json"></label><button id="import-old">Перенести данные раннего прототипа</button>${!demo ? '<button id="change-history">История сохранений</button><button id="saved-drafts">Несохранённые черновики</button>' : ''}</div><p>v7 переносит остатки зарядов, предложения событий, активного персонажа, текущую сессию, задания, места кампании, инвентарь и заклинания с источниками в новую кампанию. Другие персонажи, архивы сессий и история не входят. v2–v6 не содержат текущих зарядов. v2–v5 не содержат предложений событий. v2–v4 не содержат собственных мест кампании. v2/v3 не содержат сохранённых заданий; в v2 также нет списка заклинаний. v1 заменяет текущий прогресс без инвентаря, списка заклинаний и сохранённых заданий. Лимит импорта — 512 КиБ. Для полной копии нужна резервная копия SQLite.</p><p>Каждая кампания использует шаблон барда 5 уровня. В магии доступны 8 демонстрационных заклинаний. События из текста вводятся и подтверждаются вручную. Распознавание речи не подключено.</p><button class="text-button" id="reset-workspace">Начать демо заново</button>`);
+    modal(`<div class="overline">СКАЗ · ${privateServer?'ЗАКРЫТЫЙ СЕРВЕР':'ЛОКАЛЬНАЯ ВЕРСИЯ'} 0.2</div><h2>Данные приключения</h2><p>${demo ? 'Этот HTML-файл работает в демонстрационном режиме. Для сохранения в базе открой локальное приложение.' : privateServer?(permissions?'Прогресс хранится на сервере. Доступ ограничен твоими назначениями. Общие записи меняет мастер или владелец.':'Прогресс хранится на сервере. Вход общий для приглашённых: выбранная игра и изменения общие для подключённых устройств. Тема выбирается отдельно в браузере.'):'Прогресс хранится в SQLite на этом компьютере. Тема выбирается отдельно для каждого браузера.'}</p><div class="settings-actions"><button id="export-state">Скачать прогресс без инвентаря (v1)</button>${!demo ? '<button id="export-active" class="primary">Скачать активную игру (v7)</button>' : ''}<label class="file-label">Импортировать JSON v1–v7<input id="import-state" type="file" accept=".json,application/json"></label><button id="import-old">Перенести данные раннего прототипа</button>${!demo ? '<button id="change-history">История сохранений</button><button id="saved-drafts">Несохранённые черновики</button>' : ''}</div><p>v7 переносит остатки зарядов, предложения событий, активного персонажа, текущую сессию, задания, места кампании, инвентарь и заклинания с источниками в новую кампанию. Другие персонажи, архивы сессий и история не входят. v2–v6 не содержат текущих зарядов. v2–v5 не содержат предложений событий. v2–v4 не содержат собственных мест кампании. v2/v3 не содержат сохранённых заданий; в v2 также нет списка заклинаний. v1 заменяет текущий прогресс без инвентаря, списка заклинаний и сохранённых заданий. Лимит импорта — 512 КиБ. Для полной копии нужна резервная копия SQLite.</p><p>Каждая кампания использует шаблон барда 5 уровня. В магии доступны 8 демонстрационных заклинаний. События из текста вводятся и подтверждаются вручную. Распознавание речи не подключено.</p><button class="text-button" id="reset-workspace">Начать демо заново</button>`);
     $('#export-state').onclick = exportState;
     if (!demo) $('#export-active').onclick = exportActive;
     if ($('#saved-drafts')) $('#saved-drafts').onclick = () => {
@@ -613,5 +638,5 @@ const SkazStorage = (() => {
   });
   window.addEventListener('beforeunload', event => { if (status === 'saving') { event.preventDefault(); event.returnValue = ''; } });
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')void checkRemote();});
-  return { commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => ['ready', 'demo'].includes(status), boot: () => demo ? paint() : load() };
+  return { readyToDisplay:()=>demo||loaded, can, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
 })();

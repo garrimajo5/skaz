@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:cult-fanatic",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Фанатик культа",
+        "en": "Cult Fanatic"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=398",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC casters v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 398.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое недоброе мировоззрение. Кожаный доспех; хиты 33 (6d8+6). Обман +4, Убеждение +4, Религия +2; пассивное Восприятие 11; один любой язык, обычно Общий.\nТёмная преданность: преимущество к спасброскам от очарования и испуга.\nЗаклинатель 4-го уровня, Мудрость: Сл 11, атака заклинанием +3. Подготовленные заклинания жреца: заговоры без ограничения — свет (Light), священное пламя (Sacred Flame), чудотворство (Thaumaturgy); 1-й уровень, 4 ячейки — приказ (Command), нанесение ран (Inflict Wounds), щит веры (Shield of Faith); 2-й уровень, 3 ячейки — удержание личности (Hold Person), божественное оружие (Spiritual Weapon).\nМультиатака: две рукопашные атаки. Кинжал: рукопашная или дальнобойная атака оружием +4, досягаемость 5 футов либо дистанция 20/60 футов, одно существо; 4 (1d4+2) колющего. Мультиатака не даёт две дальнобойные атаки.\nЯчейки указаны по блоку NPC, не пересчитаны по классу персонажа. Заклинания, эффекты доспехов, атаки и расход ресурсов не применяются автоматически.",
+      "links": [
+        "srd51:2014:spell:light",
+        "srd51:2014:spell:sacred-flame",
+        "srd51:2014:spell:thaumaturgy",
+        "srd51:2014:spell:command",
+        "srd51:2014:spell:inflict-wounds",
+        "srd51:2014:spell:shield-of-faith",
+        "srd51:2014:spell:hold-person",
+        "srd51:2014:spell:spiritual-weapon"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 13,
+        "hitPoints": 33,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 11,
+          "dex": 14,
+          "con": 12,
+          "int": 10,
+          "wis": 13,
+          "cha": 14
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    },
+    {
+      "id": "srd51:2014:monster:druid",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Друид",
+        "en": "Druid"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=398",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC casters v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 398, 399.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое мировоззрение. КД 11, с дубовой корой — 16; хиты 27 (5d8+5). Медицина +4, Природа +3, Восприятие +4; пассивное Восприятие 14; Друидический и ещё два любых языка.\nЗаклинатель 4-го уровня, Мудрость: Сл 12, атака заклинанием +4. Подготовленные заклинания друида: заговоры без ограничения — искусство друидов (Druidcraft), сотворение пламени (Produce Flame), дубинка (Shillelagh); 1-й уровень, 4 ячейки — опутывание (Entangle), скороход (Longstrider), разговор с животными (Speak with Animals), волна грома (Thunderwave); 2-й уровень, 3 ячейки — животное-посыльный (Animal Messenger), дубовая кора (Barkskin).\nБоевой посох: рукопашная атака оружием +2, досягаемость 5 футов, одна цель; 3 (1d6) дробящего, двумя руками — 4 (1d8). Под действием Shillelagh атака +4 и урон 6 (1d8+2) дробящего. Мультиатаки нет; превращение в зверя в этом блоке NPC не указано.\nЯчейки указаны по блоку NPC, не пересчитаны по классу персонажа. Заклинания, эффекты доспехов, атаки и расход ресурсов не применяются автоматически.",
+      "links": [
+        "srd51:2014:spell:druidcraft",
+        "srd51:2014:spell:produce-flame",
+        "srd51:2014:spell:shillelagh",
+        "srd51:2014:spell:entangle",
+        "srd51:2014:spell:longstrider",
+        "srd51:2014:spell:speak-with-animals",
+        "srd51:2014:spell:thunderwave",
+        "srd51:2014:spell:animal-messenger",
+        "srd51:2014:spell:barkskin"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 11,
+        "hitPoints": 27,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 10,
+          "dex": 12,
+          "con": 13,
+          "int": 12,
+          "wis": 15,
+          "cha": 11
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    },
+    {
+      "id": "srd51:2014:monster:mage",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Маг",
+        "en": "Mage"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=400",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC casters v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 400.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое мировоззрение. КД 12, с доспехами мага — 15; хиты 40 (9d8). Спасброски Интеллект +6, Мудрость +4; Магия +6, История +6; пассивное Восприятие 11; четыре любых языка.\nЗаклинатель 9-го уровня, Интеллект: Сл 14, атака заклинанием +6. Подготовленные заклинания волшебника: заговоры без ограничения — огненный снаряд (Fire Bolt), свет (Light), волшебная рука (Mage Hand), фокусы (Prestidigitation); 1-й уровень, 4 ячейки — обнаружение магии (Detect Magic), доспехи мага (Mage Armor), волшебная стрела (Magic Missile), щит (Shield); 2-й уровень, 3 ячейки — туманный шаг (Misty Step), внушение (Suggestion); 3-й уровень, 3 ячейки — контрзаклинание (Counterspell), огненный шар (Fireball), полёт (Fly); 4-й уровень, 3 ячейки — высшая невидимость (Greater Invisibility), град (Ice Storm); 5-й уровень, 1 ячейка — конус холода (Cone of Cold).\nКинжал: рукопашная или дальнобойная атака оружием +5, досягаемость 5 футов либо дистанция 20/60 футов, одна цель; 4 (1d4+2) колющего. Мультиатаки нет.\nЯчейки указаны по блоку NPC, не пересчитаны по классу персонажа. Заклинания, эффекты доспехов, атаки и расход ресурсов не применяются автоматически.",
+      "links": [
+        "srd51:2014:spell:fire-bolt",
+        "srd51:2014:spell:light",
+        "srd51:2014:spell:mage-hand",
+        "srd51:2014:spell:prestidigitation",
+        "srd51:2014:spell:detect-magic",
+        "srd51:2014:spell:mage-armor",
+        "srd51:2014:spell:magic-missile",
+        "srd51:2014:spell:shield",
+        "srd51:2014:spell:misty-step",
+        "srd51:2014:spell:suggestion",
+        "srd51:2014:spell:counterspell",
+        "srd51:2014:spell:fireball",
+        "srd51:2014:spell:fly",
+        "srd51:2014:spell:greater-invisibility",
+        "srd51:2014:spell:ice-storm",
+        "srd51:2014:spell:cone-of-cold"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 12,
+        "hitPoints": 40,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 9,
+          "dex": 14,
+          "con": 11,
+          "int": 17,
+          "wis": 12,
+          "cha": 11
+        },
+        "challenge": "6",
+        "xp": 2300
+      }
+    }
+  ]
+}

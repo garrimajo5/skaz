@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 3,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:archmage",
+      "nameEn": "Archmage",
+      "pages": [
+        395,
+        396
+      ],
+      "spellReferences": 27
+    },
+    {
+      "id": "srd51:2014:monster:assassin",
+      "nameEn": "Assassin",
+      "pages": [
+        396
+      ],
+      "spellReferences": 0
+    },
+    {
+      "id": "srd51:2014:monster:gladiator",
+      "nameEn": "Gladiator",
+      "pages": [
+        399
+      ],
+      "spellReferences": 0
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Author-written Russian summaries, not official translations.",
+    "Attacks, traits, resistances and spellcasting are reference text only.",
+    "All 21 Appendix B headings have a shortened card; this is not the complete SRD bestiary or all D&D books."
+  ]
+}

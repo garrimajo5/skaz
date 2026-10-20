@@ -122,10 +122,10 @@ test('catalog sharing is exact bundled content, not a license flag; private impo
   // Deliberately retains CC BY license metadata: license is not visibility.
   store.catalog.importEntries({schemaVersion:1,entries:[privateCard]},{apply:true});
   const reader=store.forUser(userA,'window-one');
-  assert.equal(store.catalog.coverage().total,470);assert.equal(reader.catalog.coverage().total,469);
+  assert.equal(store.catalog.coverage().total,476);assert.equal(reader.catalog.coverage().total,475);
   assert.equal(reader.catalog.search(new URLSearchParams({q:'SECRET_ITEM'})).total,0);
   assert.throws(()=>reader.catalog.lookup(new URLSearchParams({id:privateCard.id})),{status:404});
-  assert.equal(reader.catalog.search(new URLSearchParams({kind:'monster'})).total,47);
+  assert.equal(reader.catalog.search(new URLSearchParams({kind:'monster'})).total,53);
   a.addInventory(command(a,{characterId:a.read().context.characterId,catalogId:privateCard.id,quantity:1}));
   assert.equal(reader.inventory().entries[0].entry.text,'PRIVATE_ITEM_DESCRIPTION');
   assert.throws(()=>reader.exportActive(),{status:403});
@@ -357,4 +357,15 @@ test('identity bootstrap returns only the verified enabled user even before any 
  identity=null;const anonymous=await fetch(base+'/api/me');assert.equal(anonymous.status,401);await anonymous.body.cancel();
  const shared=createApp(store);await new Promise(resolve=>shared.listen(0,'127.0.0.1',resolve));t.after(()=>new Promise(resolve=>shared.close(resolve)));
  const noIdentity=await fetch('http://127.0.0.1:'+shared.address().port+'/api/me');assert.equal(noIdentity.status,404);await noIdentity.body.cancel();
+});
+
+test('permission hints reflect role and opt-in write mode; demotion cannot authorize a shared write',t=>{
+ const {store,first}=setup(t),player=store.forUser(userB,'permissions-window',{write:true});
+ assert.equal(player.permissions().character,true);assert.equal(player.permissions().shared,false);assert.equal(player.permissions().catalog,false);
+ const owner=store.forUser(userA,'owner-permissions',{write:true});assert.equal(owner.permissions().shared,true);
+ const readOnly=store.forUser(userA,'readonly-permissions');assert.equal(readOnly.permissions().character,false);assert.equal(readOnly.permissions().shared,false);
+ store.access.apply({action:'grant-character',userId:userGM,campaignId:first.campaignId,characterId:first.characterId});
+ const gm=store.forUser(userGM,'gm-permissions',{write:true});assert.equal(gm.permissions().manageCampaign,true);
+ store.access.apply({action:'set-member',userId:userGM,campaignId:first.campaignId,role:'player'});assert.equal(gm.permissions().manageCampaign,false);
+ const before=gm.read();assert.throws(()=>gm.update({mutationId:randomUUID(),expectedRevision:before.revision,label:'Shared write',state:{...before.state,journal:[note('Denied')]}}),{status:403});assert.deepEqual(gm.read(),before);
 });

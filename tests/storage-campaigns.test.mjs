@@ -732,7 +732,7 @@ test('event draft storage failure is visible and never reports a server save', a
 test('individual drafts never replay another user or legacy shared queue',async()=>{
  const local=memory(),session=memory(),calls=[];let offline=true;
  const account=id=>({userId:id,prefix:kind=>'skaz-user-v1:'+id+':'+(kind==='pending'?'pending:':'proposal-form:')});
- const transport=async(url,options)=>{calls.push(options);if(offline&&options.method)throw new Error('offline');return response(payload(0));};
+ const transport=async(url,options)=>{calls.push(options);if(offline&&options.method)throw new Error('offline');return response({...payload(0),permissions:permissionFixture('owner')});};
  const alice=harness(local,session,transport,undefined,account('alice-user'));await alice.api.boot();await assert.rejects(alice.api.commit(seed,'Alice draft'));
  assert.equal([...local.values.keys()].filter(k=>k.startsWith('skaz-user-v1:alice-user:pending:')).length,1);
  local.setItem('skaz-pending-v1:'+session.getItem('skaz-tab-id'),JSON.stringify({mutationId:randomUUID(),expectedRevision:0,state:seed,label:'Legacy'}));
@@ -743,10 +743,46 @@ test('individual drafts never replay another user or legacy shared queue',async(
 });
 
 test('individual event forms restore only their owner and draft listing excludes other users',async()=>{
- const local=memory(),session=memory(),transport=async()=>response(payload(0));
+ const local=memory(),session=memory(),transport=async()=>response({...payload(0),permissions:permissionFixture('owner')});
  const account=id=>({userId:id,prefix:kind=>'skaz-user-v1:'+id+':'+(kind==='pending'?'pending:':'proposal-form:')});
  const alice=harness(local,session,transport,undefined,account('alice-user'));await alice.api.boot();alice.api.newProposal();alice.get('#proposal-source').value='Private Alice event';alice.get('#proposal-target').value='journal';alice.get('#proposal-form').oninput();
  const bob=harness(local,session,transport,undefined,account('other-user'));await bob.api.boot();bob.api.newProposal();assert.equal(bob.get('#proposal-source').value,'');
  bob.api.settings();bob.get('#saved-drafts').onclick();assert.match(bob.dialog(),/Несохранённых черновиков нет/);assert.ok(!bob.dialog().includes('data-draft-index='));
  const restored=harness(local,session,transport,undefined,account('alice-user'));await restored.api.boot();restored.api.newProposal();assert.equal(restored.get('#proposal-source').value,'Private Alice event');
+});
+
+function permissionFixture(role='player',write=true){return {mode:'individual',role,character:write,shared:write&&role!=='player',manageCampaign:write&&role!=='player',catalog:false,newCampaign:write,select:write,import:write,history:write,export:true};}
+
+test('role metadata governs shared forms, catalog administration and read-only personal writes',async()=>{
+ let current={...payload(0),permissions:permissionFixture('player')},writes=0;
+ const h=harness(memory(),memory(),async(url,options)=>{if(options.method)writes++;return response(current);});await h.api.boot();
+ assert.equal(h.api.can('character'),true);assert.equal(h.api.can('shared'),false);assert.equal(h.api.can('catalog'),false);
+ h.api.editQuest();assert.match(h.messages.at(-1),/мастеру/);h.api.editPlace();assert.match(h.messages.at(-1),/мастеру/);assert.equal(writes,0);
+ h.api.newProposal();assert.match(h.dialog(),/value="journal" disabled/);assert.match(h.dialog(),/value="personal-note" selected/);
+ current={...payload(0),permissions:permissionFixture('gm',false)};await h.api.boot();assert.equal(h.api.editable(),false);await assert.rejects(h.api.commit(seed,'denied'));assert.equal(writes,0);
+ current={...payload(0),permissions:permissionFixture('gm')};await h.api.boot();assert.equal(h.api.can('shared'),true);assert.equal(h.api.can('catalog'),false);
+});
+
+test('role change at the same revision makes the tab stale until explicit refresh',async()=>{
+ let current={...payload(0),permissions:permissionFixture('owner')};const h=harness(memory(),memory(),async()=>response(current));await h.api.boot();
+ current={...payload(0),permissions:permissionFixture('player')};await h.click('sync-check');assert.equal(h.api.editable(),false);
+ await h.api.boot();assert.equal(h.api.can('shared'),false);assert.equal(h.api.editable(),true);
+});
+
+test('authenticated page fails closed when its response lacks valid permission metadata',async()=>{
+ const account={userId:'alice-user',prefix:k=>'private:'+k+':'},h=harness(memory(),memory(),async()=>response(payload(0)),undefined,account);
+ await h.api.boot();assert.equal(h.api.editable(),false);await assert.rejects(h.api.commit(seed,'Denied'));
+});
+
+test('permission rejection preserves the downloadable draft but cannot silently retry after reload',async()=>{
+ const local=memory(),session=memory();let writes=0;
+ const transport=async(url,options)=>{if(options.method){writes++;return {ok:false,status:403,json:async()=>({error:'Rights changed'})};}return response({...payload(0),permissions:permissionFixture('owner')});};
+ const h=harness(local,session,transport);await h.api.boot();await assert.rejects(h.api.commit(seed,'Denied draft'));assert.equal(writes,1);
+ const again=harness(local,session,transport);await again.api.boot();await again.click('sync-retry');assert.equal(writes,1);assert.equal(again.api.editable(),false);assert.equal([...local.values.values()].some(value=>value.includes('permissionDenied')),true);
+});
+
+test('saved-state display remains hidden on initial failure and opens after a successful load',async()=>{
+ let available=false;const h=harness(memory(),memory(),async()=>{if(!available)throw new Error('offline');return response(payload(0));});
+ assert.equal(h.api.readyToDisplay(),false);await h.api.boot();assert.equal(h.api.readyToDisplay(),false);
+ available=true;await h.api.boot();assert.equal(h.api.readyToDisplay(),true);assert.equal(h.api.editable(),true);
 });

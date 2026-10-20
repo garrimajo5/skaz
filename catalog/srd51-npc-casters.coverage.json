@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 3,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:cult-fanatic",
+      "nameEn": "Cult Fanatic",
+      "pages": [
+        398
+      ],
+      "spellReferences": 8
+    },
+    {
+      "id": "srd51:2014:monster:druid",
+      "nameEn": "Druid",
+      "pages": [
+        398,
+        399
+      ],
+      "spellReferences": 9
+    },
+    {
+      "id": "srd51:2014:monster:mage",
+      "nameEn": "Mage",
+      "pages": [
+        400
+      ],
+      "spellReferences": 16
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Author-written Russian summaries, not official translations.",
+    "Base statistics structured; spellcasting, attacks and armor effects are reference text only.",
+    "This file contains three NPCs; actual Appendix B coverage is computed by scripts/npc-coverage.mjs. The wider D&D bestiary is incomplete."
+  ]
+}
