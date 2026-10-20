@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 3,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:bandit-captain",
+      "nameEn": "Bandit Captain",
+      "pages": [
+        397
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:noble",
+      "nameEn": "Noble",
+      "pages": [
+        401
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:tribal-warrior",
+      "nameEn": "Tribal Warrior",
+      "pages": [
+        402,
+        403
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not official translations.",
+    "Base statistics structured; attacks and reactions remain text, not automatically applied.",
+    "Appendix B coverage is computed by scripts/npc-coverage.mjs; remaining NPCs and the wider D&D catalog are not claimed complete."
+  ]
+}

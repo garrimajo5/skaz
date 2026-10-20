@@ -148,17 +148,26 @@ export function createAccess(db) {
       db.exec('COMMIT'); return viewId;
     } catch(error) { db.exec('ROLLBACK'); throw error; }
   }
-  return { apply, user, membership, character, context, bindView };
+  function hasPlayableCharacter(userId) {
+    user(userId);
+    return Boolean(db.prepare(`SELECT 1 FROM character_access g
+      JOIN campaign_memberships m ON m.user_id=g.user_id AND m.campaign_id=g.campaign_id
+      JOIN sessions s ON s.campaign_id=g.campaign_id LEFT JOIN session_details d ON d.session_id=s.id
+      WHERE g.user_id=? AND coalesce(d.archived,0)=0 LIMIT 1`).get(userId));
+  }
+  return { apply, user, membership, character, context, bindView, hasPlayableCharacter };
 }
 
 // Read-only first stage. The trusted caller supplies an authenticated user ID;
 // this facade is deliberately NOT wired to the existing shared-password HTTP API.
-export function createUserReader(db, access, userId, clientViewId, createView) {
+export function createUserReader(db, access, userId, clientViewId, createView, guard=()=>{}) {
+  guard();
   const viewId=access.bindView(userId,clientViewId), view=createView(viewId,()=>active());
   const shared=new Map(validateCatalog(bundledCatalog().bundle).map(entry=>[entry.id,entry]));
   const visible=entry=>isDeepStrictEqual(shared.get(entry.id),entry);
   const catalog=createCatalog(db,{ visible });
   function active() {
+    guard();
     access.user(userId);
     const ids=db.prepare('SELECT campaign_id AS campaignId,character_id AS characterId,session_id AS sessionId FROM browser_contexts WHERE view_id=?').get(viewId);
     access.context(userId,ids); return ids;
@@ -196,11 +205,12 @@ export function createUserReader(db, access, userId, clientViewId, createView) {
 // Write capability remains opt-in for a trusted authentication adapter. All
 // authorization and automatic ownership of NEW entities occur inside mutate's
 // transaction, including replay checks and the actor receipt.
-export function createUserWriter(db, access, userId, clientViewId, createView) {
-  const reader=createUserReader(db,access,userId,clientViewId,createView);
+export function createUserWriter(db, access, userId, clientViewId, createView, guard=()=>{}) {
+  const reader=createUserReader(db,access,userId,clientViewId,createView,guard);
   const viewId=access.bindView(userId,clientViewId);
   const shared=new Map(validateCatalog(bundledCatalog().bundle).map(entry=>[entry.id,entry]));
   function current() {
+    guard();
     const ids=db.prepare('SELECT campaign_id AS campaignId,character_id AS characterId,session_id AS sessionId FROM browser_contexts WHERE view_id=?').get(viewId);
     access.context(userId,ids);return ids;
   }

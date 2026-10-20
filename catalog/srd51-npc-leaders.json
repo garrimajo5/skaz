@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:bandit-captain",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Капитан разбойников",
+        "en": "Bandit Captain"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=397",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC leaders v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 397.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое мировоззрение кроме законного. Проклёпанный кожаный доспех; хиты 65 (10d8+20). Спасброски Силы +4, Ловкости +5, Мудрости +2; Атлетика +4, Обман +4; пассивное Восприятие 10; два любых языка.\nМультиатака: либо три рукопашные атаки — две скимитаром и одна кинжалом, либо две дальнобойные атаки кинжалами. Это разные варианты, не три атаки любым оружием.\nСкимитар: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 6 (1d6+3) рубящего. Кинжал: рукопашная или дальнобойная атака оружием +5, досягаемость 5 футов или дистанция 20/60 футов, одна цель; 5 (1d4+3) колющего.\nПарирование: реакцией +2 к КД против одной попадающей рукопашной атаки, если капитан видит атакующего и держит рукопашное оружие. Это не постоянная прибавка КД.\nАтаки, реакции и преимущество не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 15,
+        "hitPoints": 65,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 15,
+          "dex": 16,
+          "con": 14,
+          "int": 14,
+          "wis": 11,
+          "cha": 14
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    },
+    {
+      "id": "srd51:2014:monster:noble",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Дворянин",
+        "en": "Noble"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=401",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC leaders v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 401.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое мировоззрение. Кираса; хиты 9 (2d8). Обман +5, Проницательность +4, Убеждение +5; пассивное Восприятие 12; два любых языка.\nРапира: рукопашная атака оружием +3, досягаемость 5 футов, одна цель; 5 (1d8+1) колющего. Мультиатаки нет.\nПарирование: реакцией +2 к КД против одной попадающей рукопашной атаки, если дворянин видит атакующего и держит рукопашное оружие. Не действует на произвольные дальнобойные атаки и не является постоянным бонусом.\nАтаки, реакции и преимущество не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 15,
+        "hitPoints": 9,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 11,
+          "dex": 12,
+          "con": 11,
+          "int": 12,
+          "wis": 14,
+          "cha": 16
+        },
+        "challenge": "1/8",
+        "xp": 25
+      }
+    },
+    {
+      "id": "srd51:2014:monster:tribal-warrior",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Племенной воин",
+        "en": "Tribal Warrior"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=402",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC leaders v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 402, 403.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое мировоззрение. Шкурный доспех; хиты 11 (2d8+2). Пассивное Восприятие 10; один любой язык.\nТактика стаи: преимущество к броску атаки против существа, если хотя бы один союзник воина находится в пределах 5 футов от цели и этот союзник не недееспособен. Союзник должен находиться рядом с целью, не обязательно с воином.\nКопьё: рукопашная или дальнобойная атака оружием +3, досягаемость 5 футов или дистанция 20/60 футов, одна цель; 4 (1d6+1) колющего. При рукопашном ударе двумя руками — 5 (1d8+1) колющего; этот вариант не повышает урон броска. Мультиатаки нет.\nАтаки, реакции и преимущество не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 12,
+        "hitPoints": 11,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 13,
+          "dex": 11,
+          "con": 12,
+          "int": 8,
+          "wis": 11,
+          "cha": 8
+        },
+        "challenge": "1/8",
+        "xp": 25
+      }
+    }
+  ]
+}

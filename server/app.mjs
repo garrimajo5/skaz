@@ -3,29 +3,34 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { AppError } from './state.mjs';
+import { cookieToken, sessionCookie, clearSessionCookie } from './authentication.mjs';
 
 const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
-const files = new Set(['index.html', 'style.css', 'quick.css', 'app.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
+const files = new Set(['index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'account.js', 'style.css', 'quick.css', 'app.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
 const contentTypes = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
 const MAX_BODY = 512 * 1024;
 function json(response, status, value, extra = {}) {
   response.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', ...extra });
   response.end(JSON.stringify(value));
 }
-async function body(request) {
+async function body(request, limit = MAX_BODY) {
   if (request.headers['content-type']?.split(';')[0] !== 'application/json') throw new AppError(415, 'Ожидается JSON');
-  if (Number(request.headers['content-length']) > MAX_BODY) { request.resume(); throw new AppError(413, 'Слишком большой файл. Максимум 512 КБ.'); }
+  if (Number(request.headers['content-length']) > limit) { request.resume(); throw new AppError(413, 'Слишком большой запрос.'); }
   let length = 0;
   const chunks = [];
   for await (const chunk of request) {
     length += chunk.length;
-    if (length > MAX_BODY) throw new AppError(413, 'Слишком большой файл. Максимум 512 КБ.');
+    if (length > limit) throw new AppError(413, 'Слишком большой запрос.');
     chunks.push(chunk);
   }
   try { return JSON.parse(Buffer.concat(chunks).toString('utf8')); }
   catch { throw new AppError(400, 'Не удалось прочитать JSON'); }
 }
-export function createApp(store, { publicOrigin, authenticate, individualWrites = false } = {}) {
+export function createApp(store, { publicOrigin, authenticate, individualWrites = false, sessions } = {}) {
+  if (sessions !== undefined) {
+    if (!publicOrigin || authenticate !== undefined || !sessions || ['login','authenticate','check','logout'].some(key=>typeof sessions[key]!=='function')) throw new Error('Сессии требуют HTTPS origin и отдельный доверенный провайдер');
+    authenticate=request=>sessions.authenticate(cookieToken(request.headers.cookie));
+  }
   if (authenticate !== undefined && typeof authenticate !== 'function') throw new Error('authenticate должен быть доверенной серверной функцией');
   if (typeof individualWrites !== 'boolean' || (individualWrites && !authenticate)) throw new Error('Индивидуальная запись требует доверенной авторизации и логического флага');
   // TLS and authentication terminate at a loopback reverse proxy. Never trust forwarded headers.
@@ -43,15 +48,35 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
       if (request.headers.origin && request.headers.origin !== `http://${host}` && request.headers.origin !== publicOrigin) throw new AppError(403, 'Запрос с другого сайта запрещён');
       const pathname = new URL(request.url, `http://${host}`).pathname;
       if (pathname.startsWith('/api/')) {
+        if (sessions && !['GET','HEAD'].includes(request.method)) {
+          if(request.headers.origin!==publicOrigin || request.headers['x-skaz-client']!=='local-v1')throw new AppError(403,'Нужен запрос из приложения');
+        }
+        if (sessions && request.method==='POST' && ['/api/auth/login','/api/auth/logout'].includes(pathname)) {
+          const input=await body(request,8192);
+          if(!input||typeof input!=='object'||Array.isArray(input))throw new AppError(422,'Неверные поля входа');
+          if(pathname==='/api/auth/logout') {
+            if(Object.keys(input).length)throw new AppError(422,'Выход не принимает параметры');
+            const current=sessions.authenticate(cookieToken(request.headers.cookie));
+            if(current && request.headers['x-skaz-identity']!==current)throw new AppError(401,'В этой вкладке изменился пользователь');
+            sessions.logout(cookieToken(request.headers.cookie));
+            return json(response,200,{signedOut:true},{'Set-Cookie':clearSessionCookie()});
+          }
+          if(Object.keys(input).length!==2 || !Object.hasOwn(input,'login') || !Object.hasOwn(input,'password'))throw new AppError(422,'Неверные поля входа');
+          const session=await sessions.login(input.login,input.password);
+          sessions.logout(cookieToken(request.headers.cookie));
+          return json(response,200,{signedIn:true,expiresAt:session.expiresAt},{'Set-Cookie':sessionCookie(session.token)});
+        }
         const viewId = request.headers['x-skaz-view'];
         let view;
         if (authenticate) {
           const userId = await authenticate(request);
           if (typeof userId !== 'string' || !userId) throw new AppError(401, 'Нужен индивидуальный вход');
+          if(sessions && request.headers['x-skaz-identity']!==userId)throw new AppError(401,'В этой вкладке изменился пользователь');
           // Identity bootstrap must work before a user has a hero. It never
           // falls back to the shared workspace or accepts a client-supplied ID.
           if (pathname === '/api/me' && request.method === 'GET') return json(response,200,{user:store.access.user(userId),individualWrites});
-          view = store.forUser(userId, viewId ?? 'primary-view', {write:individualWrites});
+          const guard=sessions?()=>{if(sessions.check(cookieToken(request.headers.cookie))!==userId)throw new AppError(401,'Нужен индивидуальный вход');}:undefined;
+          view = store.forUser(userId, viewId ?? 'primary-view', {write:individualWrites,guard});
         } else view = viewId === undefined ? store : store.forView(viewId);
         if (request.method === 'GET') {
           if (pathname === '/api/health') return json(response, 200, { status: 'ok', mode: authenticate ? individualWrites ? 'individual' : 'individual-read-only' : publicOrigin ? 'private-server' : 'local', storage: 'sqlite' });
@@ -93,9 +118,16 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
         return json(response, 404, { error: 'Неизвестный метод API' });
       }
       if (!['GET', 'HEAD'].includes(request.method)) return json(response, 405, { error: 'Метод не поддерживается' }, { Allow: 'GET, HEAD' });
-      const filename = pathname === '/' ? 'index.html' : pathname.slice(1);
+      let filename = pathname === '/' ? 'index.html' : pathname.slice(1);
       if (!files.has(filename)) return json(response, 404, { error: 'Страница не найдена' });
-      const content = await readFile(path.join(clientRoot, filename));
+      let identity;
+      if(sessions && filename==='index.html') {
+        identity=await authenticate(request);
+        if(!identity)filename='login.html';
+        else {store.access.user(identity);if(!store.access.hasPlayableCharacter(identity))filename='waiting.html';if(!/^[a-zA-Z0-9-]{8,80}$/.test(identity))throw new AppError(401,'Нужен индивидуальный вход');}
+      }
+      let content = await readFile(path.join(clientRoot, filename));
+      if(identity)content=content.toString('utf8').replace('<body ',`<body data-user-id="${identity}" `);
       response.writeHead(200, { 'Content-Type': contentTypes[path.extname(filename)], 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' });
       response.end(request.method === 'HEAD' ? undefined : content);
     } catch (error) {

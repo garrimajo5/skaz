@@ -1,26 +1,14 @@
-import { DatabaseSync, backup } from 'node:sqlite';
-import { readFile, stat, open, chmod, realpath } from 'node:fs/promises';
+import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { openStore } from '../server/store.mjs';
+import { privateDatabaseBackup } from './private-backup.mjs';
 
-// This is a local administrative tool, never an HTTP endpoint. The explicit
-// destination is reserved exclusively and backed up before openStore migrates it.
 export async function administerAccess({ database, requestFile, backupFile }) {
   if (![database,requestFile,backupFile].every(value=>typeof value==='string'&&value)) throw new Error('Нужны база, JSON команды и новый путь резервной копии');
-  const source=await realpath(database), destination=path.resolve(backupFile);
-  if (source===destination) throw new Error('Копия должна отличаться от рабочей базы');
-  if (!(await stat(source)).isFile()) throw new Error('Нужна существующая база');
   if ((await stat(requestFile)).size>8192) throw new Error('Административная команда слишком велика');
   const request=JSON.parse((await readFile(requestFile,'utf8')).replace(/^\uFEFF/,''));
-  const reservation=await open(destination,'wx',0o600);
-  await reservation.close();
-  let connection;
-  try {
-    connection=new DatabaseSync(source,{readOnly:true});
-    await backup(connection,destination);
-    await chmod(destination,0o600);
-  } finally { connection?.close(); }
+  const {source,destination}=await privateDatabaseBackup(database,backupFile);
   // Even an invalid command keeps the pre-migration backup for the operator.
   const store=openStore(source);
   try { return { ...store.access.apply(request), backup:destination }; }

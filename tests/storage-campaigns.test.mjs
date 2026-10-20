@@ -6,10 +6,10 @@ import { randomUUID } from 'node:crypto';
 import { seed } from '../server/state.mjs';
 const source = await readFile(new URL('../client/storage.js', import.meta.url), 'utf8');
 const memory = () => { const values = new Map(); return { get length() { return values.size; }, key: index => [...values.keys()][index], getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
-function harness(localStorage, sessionStorage, fetch, navigator) {
+function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount) {
   const handlers = {}, elements = new Map(), messages = [], archiveCalls = [], references = []; let dialog='';
   const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '', style: {}, focus() {} }); return elements.get(id); };
-  const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch, navigator,
+  const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch, navigator, SkazAccount,
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
     document: { getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
@@ -727,4 +727,26 @@ test('event draft storage failure is visible and never reports a server save', a
   h.get('#proposal-source').value='Не потерять';h.get('#proposal-form').oninput();
   assert.match(h.get('#proposal-draft-status').textContent,/Черновик не сохранён/);
   assert.equal(h.get('#proposal-source').value,'Не потерять'); assert.equal(h.api.editable(),true);
+});
+
+test('individual drafts never replay another user or legacy shared queue',async()=>{
+ const local=memory(),session=memory(),calls=[];let offline=true;
+ const account=id=>({userId:id,prefix:kind=>'skaz-user-v1:'+id+':'+(kind==='pending'?'pending:':'proposal-form:')});
+ const transport=async(url,options)=>{calls.push(options);if(offline&&options.method)throw new Error('offline');return response(payload(0));};
+ const alice=harness(local,session,transport,undefined,account('alice-user'));await alice.api.boot();await assert.rejects(alice.api.commit(seed,'Alice draft'));
+ assert.equal([...local.values.keys()].filter(k=>k.startsWith('skaz-user-v1:alice-user:pending:')).length,1);
+ local.setItem('skaz-pending-v1:'+session.getItem('skaz-tab-id'),JSON.stringify({mutationId:randomUUID(),expectedRevision:0,state:seed,label:'Legacy'}));
+ const bob=harness(local,session,transport,undefined,account('other-user'));await bob.api.boot();offline=false;await bob.click('sync-retry');
+ assert.equal(calls.filter(c=>c.method).length,1);
+ const again=harness(local,session,transport,undefined,account('alice-user'));await again.api.boot();await again.click('sync-retry');assert.equal(calls.filter(c=>c.method).length,2);
+ assert.equal([...local.values.keys()].filter(k=>k.includes(':pending:')).length,0);
+});
+
+test('individual event forms restore only their owner and draft listing excludes other users',async()=>{
+ const local=memory(),session=memory(),transport=async()=>response(payload(0));
+ const account=id=>({userId:id,prefix:kind=>'skaz-user-v1:'+id+':'+(kind==='pending'?'pending:':'proposal-form:')});
+ const alice=harness(local,session,transport,undefined,account('alice-user'));await alice.api.boot();alice.api.newProposal();alice.get('#proposal-source').value='Private Alice event';alice.get('#proposal-target').value='journal';alice.get('#proposal-form').oninput();
+ const bob=harness(local,session,transport,undefined,account('other-user'));await bob.api.boot();bob.api.newProposal();assert.equal(bob.get('#proposal-source').value,'');
+ bob.api.settings();bob.get('#saved-drafts').onclick();assert.match(bob.dialog(),/Несохранённых черновиков нет/);assert.ok(!bob.dialog().includes('data-draft-index='));
+ const restored=harness(local,session,transport,undefined,account('alice-user'));await restored.api.boot();restored.api.newProposal();assert.equal(restored.get('#proposal-source').value,'Private Alice event');
 });

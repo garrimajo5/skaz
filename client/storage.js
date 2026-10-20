@@ -1,12 +1,13 @@
 // Transport is separate from the UI. A failed request never looks like a saved change.
 const SkazStorage = (() => {
   const demo = location.protocol === 'file:';
+  const draftPrefix = kind => typeof SkazAccount === 'undefined' ? (kind==='pending'?'skaz-pending-v1:':'skaz-proposal-form-v1:') : SkazAccount.prefix(kind);
   let tabId;
   try {
     tabId = sessionStorage.getItem('skaz-tab-id') || crypto.randomUUID();
     sessionStorage.setItem('skaz-tab-id', tabId);
   } catch { tabId = crypto.randomUUID(); }
-  let pendingKey = 'skaz-pending-v1:' + tabId;
+  let pendingKey = draftPrefix('pending') + tabId;
   let tabClaim;
   function claimTab() {
     if (tabClaim) return tabClaim;
@@ -16,7 +17,7 @@ const SkazStorage = (() => {
     tabClaim = new Promise(resolve => {
       const claim = () => navigator.locks.request('skaz-window:' + tabId, { ifAvailable: true }, lock => {
         if (!lock) {
-          tabId = crypto.randomUUID(); pendingKey = 'skaz-pending-v1:' + tabId;
+          tabId = crypto.randomUUID(); pendingKey = draftPrefix('pending') + tabId;
           try { sessionStorage.setItem('skaz-tab-id', tabId); } catch {}
           claim(); return;
         }
@@ -63,7 +64,7 @@ const SkazStorage = (() => {
       stale: 'В другом окне есть изменения',
     };
     box.dataset.status = status;
-    box.innerHTML = `<span><span class="sync-dot"></span>${labels[status]}${message ? `<small>${esc(message)}</small>` : ''}</span><div>${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления">↻</button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button><button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
+    box.innerHTML = `<span><span class="sync-dot"></span>${labels[status]}${message ? `<small>${esc(message)}</small>` : ''}</span><div>${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления">↻</button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button>${typeof SkazAccount!=='undefined' && SkazAccount.userId?'<button id="account-logout">Выйти</button>':''}<button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
   }
   async function checkRemote() {
     if(demo||status!=='ready'||pending||checkingRemote)return;
@@ -112,7 +113,7 @@ const SkazStorage = (() => {
       if (operation === 'quest-create' || operation === 'quest-update') body.operation = operation === 'quest-create' ? 'create' : 'update';
       const url = operation === 'character-create' ? '/api/characters' : operation === 'proposal-create' ? '/api/proposals' : operation === 'proposal-decide' ? '/api/proposals/decide' : operation?.startsWith('place-') ? '/api/places' : operation?.startsWith('quest-') ? '/api/quests' : operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-charges' ? '/api/inventory/charges' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
       const payload = await request(url, { method: operation ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body: JSON.stringify(body) });
-      if (typeof formDraftKey === 'string' && formDraftKey.startsWith('skaz-proposal-form-v1:')) { try { localStorage.removeItem(formDraftKey); } catch {} }
+      if (typeof formDraftKey === 'string' && formDraftKey.startsWith(draftPrefix('proposal-form'))) { try { localStorage.removeItem(formDraftKey); } catch {} }
       apply(payload);
       return payload;
     } catch (error) {
@@ -420,7 +421,7 @@ const SkazStorage = (() => {
   function newProposal() {
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key = snapshotKey(), target = { ...activeContext }, proposalId = crypto.randomUUID();
-    const draftKey = 'skaz-proposal-form-v1:' + tabId + ':' + encodeURIComponent(JSON.stringify(target));
+    const draftKey = draftPrefix('proposal-form') + tabId + ':' + encodeURIComponent(JSON.stringify(target));
     modal(`<h2>Событие из текста</h2><p>Подготовка распознавания: пока фрагмент и краткую запись вводишь ты. Микрофон и AI не используются. Сначала создаётся предложение, затем ты подтверждаешь запись.</p><p id="proposal-draft-status" class="small" role="status">Текст формы сохраняется только в этом браузере.</p><form id="proposal-form"><div class="proposal-fields"><label for="proposal-source">Фрагмент разговора</label><textarea id="proposal-source" required maxlength="4000" rows="4" placeholder="Что рассказал мастер или игрок?"></textarea><label for="proposal-speaker">Кто сказал (необязательно)</label><input id="proposal-speaker" maxlength="120" placeholder="Например, мастер"><label for="proposal-minute">Минута с начала сессии</label><input id="proposal-minute" type="number" min="0" max="1440" step="1" required value="0"><label for="proposal-title">Краткий заголовок события</label><input id="proposal-title" required maxlength="2000"><label for="proposal-target">Куда записать после подтверждения</label><select id="proposal-target"><option value="journal">В журнал текущей сессии</option><option value="personal-note">В личные заметки персонажа</option></select></div><div class="dialog-actions"><button type="submit" class="primary">Создать предложение</button></div></form>`);
     const fields = ['source', 'speaker', 'minute', 'title', 'target'];
     const showDraftStatus = text => { if ($('#proposal-draft-status').textContent !== text) $('#proposal-draft-status').textContent = text; };
@@ -542,10 +543,10 @@ const SkazStorage = (() => {
       try {
         for (let i = 0; i < localStorage.length; i++) {
           const key = localStorage.key(i);
-          if (key.startsWith('skaz-proposal-form-v1:')) {
+          if (key.startsWith(draftPrefix('proposal-form'))) {
             try { const value = JSON.parse(localStorage.getItem(key)); if (value?.kind === 'proposal-form' && typeof value.values?.source === 'string') drafts.push(value); } catch {}
           }
-          if (key.startsWith('skaz-pending-v1:')) {
+          if (key.startsWith(draftPrefix('pending'))) {
             try { const value = JSON.parse(localStorage.getItem(key)); if (value?.state || value?.operation) drafts.push(value); } catch {}
           }
         }

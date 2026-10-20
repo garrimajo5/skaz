@@ -1,5 +1,6 @@
 import { setupViews, ensureView } from './views.mjs';
 import { createAccess, createUserReader, createUserWriter } from './access.mjs';
+import { createAuthentication } from './authentication.mjs';
 import { validateCharacterCreate, createCharacter } from './characters.mjs';
 import { setupProposals, readProposals, validateProposalCreate, validateProposalDecision, createProposal, decideProposal } from './proposals.mjs';
 import { setupPlaces, readPlaces, validatePlaceCommand, savePlace } from './places.mjs';
@@ -285,9 +286,11 @@ export function openStore(filename) {
   };
   }
   const root = createView();
-  return { ...root, access, forUser: (userId, viewId, { write = false } = {}) => {
+  let authentication;
+  return { ...root, access, authentication: () => authentication ??= createAuthentication(db), forUser: (userId, viewId, { write = false, guard = () => {} } = {}) => {
     if (typeof write !== 'boolean') throw new AppError(422, 'Режим записи должен быть логическим значением');
-    return write ? createUserWriter(db,access,userId,viewId,createView) : createUserReader(db,access,userId,viewId,createView);
+    if (typeof guard !== 'function') throw new AppError(422,'Нужна доверенная проверка сессии');
+    return write ? createUserWriter(db,access,userId,viewId,createView,guard) : createUserReader(db,access,userId,viewId,createView,guard);
   },
     forView: viewId => { ensureView(db, viewId); return createView(viewId); } };
 }
