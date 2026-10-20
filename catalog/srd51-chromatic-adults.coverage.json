@@ -1,0 +1,426 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Five adult chromatic dragon statblocks; not complete dragon type",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 5,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:adult-black-dragon",
+      "nameEn": "Adult Black Dragon",
+      "pages": [
+        281,
+        282
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:adult-blue-dragon",
+      "nameEn": "Adult Blue Dragon",
+      "pages": [
+        283
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:adult-green-dragon",
+      "nameEn": "Adult Green Dragon",
+      "pages": [
+        285
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:adult-red-dragon",
+      "nameEn": "Adult Red Dragon",
+      "pages": [
+        287,
+        288
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:adult-white-dragon",
+      "nameEn": "Adult White Dragon",
+      "pages": [
+        289,
+        290
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Only five adult chromatic blocks; ancient and adult metallic dragons remain missing.",
+    "Authored Russian summaries; no automated combat or effect application.",
+    "Declared fear, legendary resistance/action budget/trigger/recovery/wing fields independently audited; other traits manually reviewed."
+  ],
+  "weaponAttackChecks": [
+    {
+      "monsterId": "srd51:2014:monster:adult-black-dragon",
+      "nameEn": "Adult Black Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 11,
+          "reach": 10,
+          "averageDamage": 17,
+          "damageDice": "2d10 + 6",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 4,
+              "damageDice": "1d8",
+              "damageType": "acid"
+            }
+          ]
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 11,
+          "reach": 5,
+          "averageDamage": 13,
+          "damageDice": "2d6 + 6",
+          "damageType": "slashing"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 11,
+          "reach": 15,
+          "averageDamage": 15,
+          "damageDice": "2d8 + 6",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:adult-blue-dragon",
+      "nameEn": "Adult Blue Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 12,
+          "reach": 10,
+          "averageDamage": 18,
+          "damageDice": "2d10 + 7",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 5,
+              "damageDice": "1d10",
+              "damageType": "lightning"
+            }
+          ]
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 12,
+          "reach": 5,
+          "averageDamage": 14,
+          "damageDice": "2d6 + 7",
+          "damageType": "slashing"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 12,
+          "reach": 15,
+          "averageDamage": 16,
+          "damageDice": "2d8 + 7",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:adult-green-dragon",
+      "nameEn": "Adult Green Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 11,
+          "reach": 10,
+          "averageDamage": 17,
+          "damageDice": "2d10 + 6",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 7,
+              "damageDice": "2d6",
+              "damageType": "poison"
+            }
+          ]
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 11,
+          "reach": 5,
+          "averageDamage": 13,
+          "damageDice": "2d6 + 6",
+          "damageType": "slashing"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 11,
+          "reach": 15,
+          "averageDamage": 15,
+          "damageDice": "2d8 + 6",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:adult-red-dragon",
+      "nameEn": "Adult Red Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 14,
+          "reach": 10,
+          "averageDamage": 19,
+          "damageDice": "2d10 + 8",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 7,
+              "damageDice": "2d6",
+              "damageType": "fire"
+            }
+          ]
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 14,
+          "reach": 5,
+          "averageDamage": 15,
+          "damageDice": "2d6 + 8",
+          "damageType": "slashing"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 14,
+          "reach": 15,
+          "averageDamage": 17,
+          "damageDice": "2d8 + 8",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:adult-white-dragon",
+      "nameEn": "Adult White Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 11,
+          "reach": 10,
+          "averageDamage": 17,
+          "damageDice": "2d10 + 6",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 4,
+              "damageDice": "1d8",
+              "damageType": "cold"
+            }
+          ]
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 11,
+          "reach": 5,
+          "averageDamage": 13,
+          "damageDice": "2d6 + 6",
+          "damageType": "slashing"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 11,
+          "reach": 15,
+          "averageDamage": 15,
+          "damageDice": "2d8 + 6",
+          "damageType": "bludgeoning"
+        }
+      ]
+    }
+  ],
+  "breathChecks": [
+    {
+      "monsterId": "srd51:2014:monster:adult-black-dragon",
+      "nameEn": "Adult Black Dragon",
+      "breath": {
+        "nameEn": "Acid Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "line",
+        "length": 60,
+        "width": 5,
+        "saveAbility": "dex",
+        "saveDC": 18,
+        "averageDamage": 54,
+        "damageDice": "12d8",
+        "damageType": "acid"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:adult-blue-dragon",
+      "nameEn": "Adult Blue Dragon",
+      "breath": {
+        "nameEn": "Lightning Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "line",
+        "length": 90,
+        "width": 5,
+        "saveAbility": "dex",
+        "saveDC": 19,
+        "averageDamage": 66,
+        "damageDice": "12d10",
+        "damageType": "lightning"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:adult-green-dragon",
+      "nameEn": "Adult Green Dragon",
+      "breath": {
+        "nameEn": "Poison Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 60,
+        "width": null,
+        "saveAbility": "con",
+        "saveDC": 18,
+        "averageDamage": 56,
+        "damageDice": "16d6",
+        "damageType": "poison"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:adult-red-dragon",
+      "nameEn": "Adult Red Dragon",
+      "breath": {
+        "nameEn": "Fire Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 60,
+        "width": null,
+        "saveAbility": "dex",
+        "saveDC": 21,
+        "averageDamage": 63,
+        "damageDice": "18d6",
+        "damageType": "fire"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:adult-white-dragon",
+      "nameEn": "Adult White Dragon",
+      "breath": {
+        "nameEn": "Cold Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 60,
+        "width": null,
+        "saveAbility": "con",
+        "saveDC": 19,
+        "averageDamage": 54,
+        "damageDice": "12d8",
+        "damageType": "cold"
+      }
+    }
+  ],
+  "legendaryChecks": [
+    {
+      "monsterId": "srd51:2014:monster:adult-black-dragon",
+      "nameEn": "Adult Black Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 16,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 10,
+        "wingSaveDC": 19,
+        "wingAverageDamage": 13,
+        "wingDamageDice": "2d6 + 6"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:adult-blue-dragon",
+      "nameEn": "Adult Blue Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 17,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 10,
+        "wingSaveDC": 20,
+        "wingAverageDamage": 14,
+        "wingDamageDice": "2d6 + 7"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:adult-green-dragon",
+      "nameEn": "Adult Green Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 16,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 10,
+        "wingSaveDC": 19,
+        "wingAverageDamage": 13,
+        "wingDamageDice": "2d6 + 6"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:adult-red-dragon",
+      "nameEn": "Adult Red Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 19,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 10,
+        "wingSaveDC": 22,
+        "wingAverageDamage": 15,
+        "wingDamageDice": "2d6 + 8"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:adult-white-dragon",
+      "nameEn": "Adult White Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 14,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 10,
+        "wingSaveDC": 19,
+        "wingAverageDamage": 13,
+        "wingDamageDice": "2d6 + 6"
+      }
+    }
+  ]
+}

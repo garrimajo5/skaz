@@ -1,6 +1,6 @@
 """Read-only comparison of bundled monster statistics with the pinned SRD PDF.
 
-Checks base statistics, declared prepared/innate lists and selected primary melee attacks; other effects remain manual.
+Checks declared statistics, spells, attacks, dragon breaths/traits and adult legendary fields; other effects remain manual.
 Requires pypdf and the application's Node.js runtime.
 """
 import argparse
@@ -443,6 +443,166 @@ def dragon_breath(text,creature,name):
             'saveAbility':{'Dexterity':'dex','Constitution':'con'}[match[7]],'saveDC':int(match[6]),'averageDamage':int(match[8]),'damageDice':match[9],'damageType':match[10]}
 
 
+def adult_dragon_legendary(text,creature):
+    text=normalize(text)
+    heading=re.search(re.escape(creature)+r'\s+Huge dragon\b',text)
+    if not heading:raise ValueError('Missing adult dragon heading')
+    body=text[heading.end():]
+    next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b[^.]*? Armor Class \d+',body)
+    if next_block:body=body[:next_block.start()]
+    resistance=re.findall(r'Legendary Resistance \((\d+)/Day\)\. If the dragon fails a saving throw, it can choose to succeed instead\.',body)
+    fear=re.findall(r"Frightful Presence\. Each creature of the dragon's choice that is within (\d+) feet of the dragon and aware of it must succeed on a DC (\d+) Wisdom saving throw or become frightened for (\d+) minute\. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success\. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next (\d+) hours\.",body)
+    actions=re.findall(r"Legendary Actions The dragon can take (\d+) legendary actions, choosing from the options below\. Only one legendary action option can be used at a time and only at the end of another creature's turn\. The dragon regains spent legendary actions at the start of its turn\. Detect\. The dragon makes a Wisdom \(Perception\) check\. Tail Attack\. The dragon makes a tail attack\. Wing Attack \(Costs (\d+) Actions\)\. The dragon beats its wings\. Each creature within (\d+) feet of the dragon must succeed on a DC (\d+) Dexterity saving throw or take (\d+) \((\d+d\d+ [+-] \d+)\) bludgeoning damage and be knocked prone\. The dragon can then fly up to half its flying speed\.",body)
+    if len(resistance)!=1 or len(fear)!=1 or len(actions)!=1:raise ValueError('Incomplete or ambiguous adult legendary rules')
+    f,a=fear[0],actions[0]
+    return {'resistancePerDay':int(resistance[0]),'fearRange':int(f[0]),'fearSaveDC':int(f[1]),'fearMinutes':int(f[2]),'fearImmunityHours':int(f[3]),
+            'legendaryActions':int(a[0]),'wingCost':int(a[1]),'wingRadius':int(a[2]),'wingSaveDC':int(a[3]),'wingAverageDamage':int(a[4]),'wingDamageDice':a[5]}
+
+
+def check_adult_legendary_inventory(pages,manifest,cards):
+    if manifest['sourceSha256']!=SHA256:raise ValueError('Wrong adult legendary source')
+    seen=set()
+    for row in manifest.get('legendaryChecks',[]):
+        if row['monsterId'] in seen:raise ValueError('Duplicate adult legendary declaration')
+        seen.add(row['monsterId'])
+        source_row=next((r for r in manifest['entries'] if r['id']==row['monsterId']),None)
+        card=next((c for c in cards if c['id']==row['monsterId']),None)
+        if source_row is None or card is None or source_row['nameEn']!=row['nameEn']:raise ValueError('Missing adult legendary card')
+        expected=adult_dragon_legendary(' '.join(pages[n] for n in source_row['pages']),row['nameEn'])
+        if expected!=row['legendary']:raise ValueError('Adult legendary source fields differ')
+        e=expected;ru=normalize(card['text'])
+        fragments=['Легендарное сопротивление ('+str(e['resistancePerDay'])+'/день): провалив спасбросок, может вместо этого выбрать успех.',
+                   'выбранные драконом существа в пределах '+str(e['fearRange'])+' футов, осознающие его присутствие',
+                   'спасбросок Мудрости Сл '+str(e['fearSaveDC'])+'; при провале испуганы на '+str(e['fearMinutes'])+' минуту',
+                   'В конце каждого своего хода повторяют спасбросок, прекращая эффект при успехе',
+                   'После успешного спасброска или прекращения эффекта',
+                   'иммунитет к устрашающему присутствию этого дракона на '+str(e['fearImmunityHours'])+' часа',
+                   'Легендарные действия: '+str(e['legendaryActions'])+'; за один раз только один вариант и только в конце хода другого существа.',
+                   'Потраченные действия восстанавливаются в начале своего хода.',
+                   'Обнаружение: проверка Мудрости (Восприятие). Атака хвостом: одна атака хвостом.',
+                   'Атака крыльями стоит '+str(e['wingCost'])+' действия: каждое существо в пределах '+str(e['wingRadius'])+' футов совершает спасбросок Ловкости Сл '+str(e['wingSaveDC'])+'; при провале '+str(e['wingAverageDamage'])+' ('+e['wingDamageDice']+') дробящего урона и сбивается с ног.',
+                   'После этого дракон может пролететь до половины своей скорости полёта.']
+        if any(v not in ru for v in fragments):raise ValueError('Authored adult legendary rules differ')
+    return len(seen)
+
+
+def metallic_traits(text,creature):
+    """Selected saves, skills and defenses declared by the ten metallic age blocks."""
+    text=normalize(text)
+    heading=re.search(re.escape(creature)+r'\s+(?:'+SIZES+r')\s+dragon\b',text)
+    if not heading:raise ValueError('Missing metallic trait creature')
+    body=text[heading.end():]
+    next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b[^.]*? Armor Class \d+',body)
+    if next_block:body=body[:next_block.start()]
+    body=body.split(' Actions ',1)[0]
+    fields=re.search(r'Saving Throws (.*?) Skills (.*?) Damage Immunities (.*?) Senses blindsight (\d+) ft\., darkvision (\d+) ft\., passive Perception (\d+) Languages (.*?) Challenge ',body)
+    if not fields:raise ValueError('Missing or unsupported metallic trait fields')
+    def bonuses(value,allowed):
+        result={}
+        for token in value.split(', '):
+            pair=re.fullmatch(r'([A-Za-z]+) ([+-]\d+)',token)
+            if not pair or pair[1] not in allowed or allowed[pair[1]] in result:raise ValueError('Unsupported or duplicate trait bonus')
+            result[allowed[pair[1]]]=int(pair[2])
+        return result
+    saves=bonuses(fields[1],{'Dex':'dex','Con':'con','Wis':'wis','Cha':'cha'})
+    skills=bonuses(fields[2],{'Perception':'perception','Persuasion':'persuasion','Stealth':'stealth','Insight':'insight','Deception':'deception','Arcana':'arcana','History':'history'})
+    immunities=fields[3].split(', ');languages=fields[7].split(', ')
+    if len(immunities)!=1 or immunities[0] not in ('acid','fire','lightning','cold') or languages not in (['Common','Draconic'],['Draconic']):
+        raise ValueError('Unsupported metallic immunity or language')
+    return {'savingThrows':saves,'skills':skills,'damageImmunities':immunities,
+            'senses':{'blindsight':int(fields[4]),'darkvision':int(fields[5]),'passivePerception':int(fields[6])},
+            'languages':languages,'amphibious':'Amphibious. The dragon can breathe air and water.' in body}
+
+
+def check_metallic_trait_inventory(pages,manifest,cards):
+    if manifest['sourceSha256']!=SHA256:raise ValueError('Wrong metallic trait source')
+    seen=set()
+    for row in manifest.get('traitChecks',[]):
+        if row['monsterId'] in seen:raise ValueError('Duplicate metallic trait declaration')
+        seen.add(row['monsterId'])
+        source_row=next((r for r in manifest['entries'] if r['id']==row['monsterId']),None)
+        card=next((c for c in cards if c['id']==row['monsterId']),None)
+        if source_row is None or card is None or source_row['nameEn']!=row['nameEn']:raise ValueError('Missing metallic trait card')
+        expected=metallic_traits(' '.join(pages[n] for n in source_row['pages']),row['nameEn'])
+        if expected!=row['traits']:raise ValueError('Metallic trait source fields differ')
+        ru=normalize(card['text'])
+        saves={'dex':'Ловкости','con':'Телосложения','wis':'Мудрости','cha':'Харизмы'}
+        skills={'perception':'Восприятие','persuasion':'Убеждение','stealth':'Скрытность','insight':'Проницательность','deception':'Обман','arcana':'Магия','history':'История'}
+        bonus=lambda n:('+' if n>=0 else '')+str(n)
+        fragments=['Спасброски '+', '.join(saves[k]+' '+bonus(v) for k,v in expected['savingThrows'].items())+'.',
+                   'Навыки: '+', '.join(skills[k]+' '+bonus(v) for k,v in expected['skills'].items())+'.',
+                   'Иммунитет к '+{'acid':'кислотному','fire':'огненному','lightning':'электрическому','cold':'холодному'}[expected['damageImmunities'][0]]+' урону.',
+                   'Слепое зрение '+str(expected['senses']['blindsight'])+' футов, тёмное зрение '+str(expected['senses']['darkvision'])+' футов, пассивное Восприятие '+str(expected['senses']['passivePerception'])+'.',
+                   'Языки: '+('Общий, Драконий' if 'Common' in expected['languages'] else 'Драконий')+'.']
+        if any(v not in ru for v in fragments):raise ValueError('Authored metallic trait fields differ')
+        if expected['amphibious']!=('Амфибия: дышит воздухом и водой.' in ru):raise ValueError('Authored amphibious trait differs')
+    return len(seen)
+
+
+def dragon_secondary_breath(text,creature,name):
+    """Parse the five explicit SRD metallic control breaths, not spell effects."""
+    text=re.sub(r'[-\u00ad\u2010\u2011]+','-',normalize(text))
+    text=re.sub(r'(?<=\d)-\s+foot\b','-foot',text)
+    heading=re.search(re.escape(creature)+r'\s+(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',text)
+    if not heading:raise ValueError('Missing secondary breath creature')
+    body=text[heading.end():]
+    next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b[^.]*? Armor Class \d+',body)
+    if next_block:body=body[:next_block.start()]
+    parents=list(re.finditer(r'Breath Weapons \(Recharge ([1-6])[–-]([1-6])\)\. The dragon uses one of the following breath weapons\.\s*',body))
+    actions=list(re.finditer(r'(?<![a-zA-Z])'+re.escape(name)+r'\. The dragon exhales ',body))
+    if len(parents)!=1 or len(actions)!=1 or parents[0].end()>actions[0].start():
+        raise ValueError('Missing or ambiguous secondary breath parent/action')
+    parent,action=parents[0],actions[0]
+    if re.search(r'\(Recharge ',body[parent.end():action.start()]):raise ValueError('Ambiguous secondary breath recharge')
+    cases={
+        'Sleep Breath':('sleep',r'sleep gas in a (\d+)-foot cone\. Each creature in that area must succeed on a DC (\d+) Constitution saving throw or fall unconscious for (\d+) minutes?\. This effect ends for a creature if the creature takes damage or someone uses an action to wake it\.'),
+        'Repulsion Breath':('push',r'repulsion energy in a (\d+)-foot cone\. Each creature in that area must succeed on a DC (\d+) Strength saving throw\. On a failed save, the creature is pushed (\d+) feet away from the dragon\.'),
+        'Slowing Breath':('slow',r'gas in a (\d+)-foot cone\. Each creature in that area must succeed on a DC (\d+) Constitution saving throw\. On a failed save, the creature can\'t use reactions, its speed is halved, and it can\'t make more than one attack on its turn\. In addition, the creature can use either an action or a bonus action on its turn, but not both\. These effects last for (\d+) minute\. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save\.'),
+        'Weakening Breath':('weaken',r'gas in a (\d+)-foot cone\. Each creature in that area must succeed on a DC (\d+) Strength saving throw or have disadvantage on Strength-based attack rolls, Strength checks, and Strength saving throws for (\d+) minute\. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success\.'),
+        'Paralyzing Breath':('paralyze',r'paralyzing gas in a (\d+)-foot cone\. Each creature in that area must succeed on a DC (\d+) Constitution saving throw or be paralyzed for (\d+) minute\. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success\.')
+    }
+    if name not in cases:raise ValueError('Unsupported secondary breath')
+    effect,pattern=cases[name];match=re.match(pattern,body[action.end():])
+    if not match:raise ValueError('Unsupported or incomplete secondary breath effect')
+    return {'nameEn':name,'recharge':[int(parent[1]),int(parent[2])],'shape':'cone','length':int(match[1]),
+            'saveAbility':'str' if effect in ('push','weaken') else 'con','saveDC':int(match[2]),'effect':effect,
+            'durationMinutes':None if effect=='push' else int(match[3]),'pushFeet':int(match[3]) if effect=='push' else None,
+            'repeatAtEndOfTurn':effect in ('slow','weaken','paralyze'),'wakeOnDamage':effect=='sleep','wakeWithAction':effect=='sleep'}
+
+
+def check_secondary_breath_inventory(pages,manifest,cards):
+    if manifest['sourceSha256']!=SHA256:raise ValueError('Wrong secondary breath source')
+    seen=set()
+    for row in manifest.get('secondaryBreathChecks',[]):
+        key=(row['monsterId'],row['breath']['nameEn'])
+        if key in seen:raise ValueError('Duplicate secondary breath declaration')
+        seen.add(key)
+        source_row=next((r for r in manifest['entries'] if r['id']==row['monsterId']),None)
+        card=next((c for c in cards if c['id']==row['monsterId']),None)
+        if source_row is None or card is None or source_row['nameEn']!=row['nameEn']:raise ValueError('Missing secondary breath card')
+        expected=dragon_secondary_breath(' '.join(pages[n] for n in source_row['pages']),row['nameEn'],row['breath']['nameEn'])
+        if expected!=row['breath']:raise ValueError('Secondary breath source fields differ')
+        ru=normalize(card['text']);effect=expected['effect']
+        labels={'sleep':'Усыпляющее','push':'Отталкивающее','slow':'Замедляющее','weaken':'Ослабляющее','paralyze':'Парализующее'}
+        # Bind save/area to this breath, not another action elsewhere in the card.
+        start=labels[effect]+' дыхание: конус '+str(expected['length'])+' футов, '+('Сила' if expected['saveAbility']=='str' else 'Телосложение')+' Сл '+str(expected['saveDC'])+'; '
+        if start not in ru:raise ValueError('Authored secondary breath area or save differs')
+        section=ru.split(start,1)[1].split('Легендарные действия',1)[0]
+        if expected['durationMinutes'] is not None:
+            duration='на '+str(expected['durationMinutes'])+(' минут' if expected['durationMinutes']!=1 else ' минуту')
+            if duration not in section:raise ValueError('Authored secondary breath duration differs')
+        fragments={
+            'sleep':['бессознательность','от урона','кто-то действием разбудит'],
+            'push':['на '+str(expected['pushFeet'])+' футов от дракона'],
+            'slow':['не может использовать реакции','скорость уменьшается вдвое','больше одной атаки в свой ход','либо действие, либо бонусное действие, но не оба'],
+            'weaken':['помеха на броски атак, использующих Силу, проверки Силы и спасброски Силы'],
+            'paralyze':['паралич']
+        }[effect]
+        if expected['repeatAtEndOfTurn']:fragments+=['В конце каждого своего хода','прекращая эффект при успехе']
+        if any(v not in section for v in fragments):raise ValueError('Authored secondary breath effect differs')
+    return len(seen)
+
+
 def check_dragon_breath_inventory(pages,manifest,cards):
     if manifest['sourceSha256']!=SHA256:raise ValueError('Wrong breath source')
     count=0;seen=set()
@@ -565,11 +725,17 @@ def main():
         additional_melee_checked+=sum(len(a.get('additionalDamage',[])) for row in manifest.get('weaponAttackChecks',[]) for a in row['attacks'])
     selected_dragons=0
     breath_checked=0
-    for package in ['srd51-dragon-kin','srd51-chromatic-young']:
+    secondary_checked=0
+    metallic_traits_checked=0
+    legendary_checked=0
+    for package in ['srd51-dragon-kin','srd51-chromatic-young','srd51-metallic-young','srd51-chromatic-adults']:
         manifest=json.loads((ROOT/('catalog/'+package+'.coverage.json')).read_text(encoding='utf-8-sig'))
         source_pages={n:monster_pages[n] for row in manifest['entries'] for n in row['pages']}
         selected_dragons+=check_selected_monster_manifest(source_pages,manifest,cards)
         breath_checked+=check_dragon_breath_inventory(source_pages,manifest,cards)
+        secondary_checked+=check_secondary_breath_inventory(source_pages,manifest,cards)
+        metallic_traits_checked+=check_metallic_trait_inventory(source_pages,manifest,cards)
+        legendary_checked+=check_adult_legendary_inventory(source_pages,manifest,cards)
         melee_checked+=check_melee_weapon_inventory(source_pages,manifest,cards)
         additional_melee_checked+=sum(len(a.get('additionalDamage',[])) for row in manifest.get('weaponAttackChecks',[]) for a in row['attacks'])
     pages, failures = dict(monster_pages), []
@@ -585,8 +751,8 @@ def main():
                 failures.append({'id': card['id'], 'fields': errors, 'source': expected})
         except ValueError as error:
             failures.append({'id': card['id'], 'error': str(error)})
-    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'typedHeadingsChecked': type_counts, 'animatedHeadingsChecked': animated_count, 'undeadHeadingsChecked':undead_count, 'preparedCasterSpellsChecked':caster_counts,'innateCasterSpellsChecked':innate_counts, 'selectedFiendCardsChecked':selected_fiends, 'selectedDragonCardsChecked':selected_dragons, 'breathWeaponsChecked':breath_checked, 'meleeAttacksChecked':melee_checked, 'additionalMeleeDamageGroupsChecked':additional_melee_checked, 'failures': failures,
-                      'scope': 'Base statistics, declared prepared/innate spells, selected primary/additional melee damage and dragon breath fields; other effects need manual source review.'}, ensure_ascii=False, indent=2))
+    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'typedHeadingsChecked': type_counts, 'animatedHeadingsChecked': animated_count, 'undeadHeadingsChecked':undead_count, 'preparedCasterSpellsChecked':caster_counts,'innateCasterSpellsChecked':innate_counts, 'selectedFiendCardsChecked':selected_fiends, 'selectedDragonCardsChecked':selected_dragons, 'breathWeaponsChecked':breath_checked, 'secondaryBreathsChecked':secondary_checked, 'metallicTraitsChecked':metallic_traits_checked, 'adultLegendaryBlocksChecked':legendary_checked, 'meleeAttacksChecked':melee_checked, 'additionalMeleeDamageGroupsChecked':additional_melee_checked, 'failures': failures,
+                      'scope': 'Base statistics, declared prepared/innate spells, selected melee damage, dragon breaths, metallic traits and adult legendary fields; other effects need manual source review.'}, ensure_ascii=False, indent=2))
     if failures:
         raise SystemExit(1)
 

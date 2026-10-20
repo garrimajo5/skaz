@@ -10,6 +10,85 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_adult_legendary_rules_preserve_budget_timing_fear_immunity_and_wing_cost(self):
+        import copy,json
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        source="Adult Black Dragon Huge dragon, chaotic evil Armor Class 19 Legendary Resistance (3/Day). If the dragon fails a saving throw, it can choose to succeed instead. Actions Frightful Presence. Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours. Legendary Actions The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn. Detect. The dragon makes a Wisdom (Perception) check. Tail Attack. The dragon makes a tail attack. Wing Attack (Costs 2 Actions). The dragon beats its wings. Each creature within 10 feet of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed."
+        expected={'resistancePerDay':3,'fearRange':120,'fearSaveDC':16,'fearMinutes':1,'fearImmunityHours':24,'legendaryActions':3,'wingCost':2,'wingRadius':10,'wingSaveDC':19,'wingAverageDamage':13,'wingDamageDice':'2d6 + 6'}
+        self.assertEqual(m['adult_dragon_legendary'](source,'Adult Black Dragon'),expected)
+        root=Path(__file__).resolve().parents[1];full=json.loads((root/'catalog/srd51-chromatic-adults.coverage.json').read_text());manifest={**full,'legendaryChecks':full['legendaryChecks'][:1]};card=json.loads((root/'catalog/srd51-chromatic-adults.json').read_text())['entries'][0]
+        pages={281:source,282:''};self.assertEqual(m['check_adult_legendary_inventory'](pages,manifest,[card]),1)
+        for key,val in [('resistancePerDay',2),('fearRange',60),('fearSaveDC',17),('fearMinutes',2),('fearImmunityHours',12),('legendaryActions',2),('wingCost',1),('wingRadius',15),('wingSaveDC',20),('wingAverageDamage',14),('wingDamageDice','2d8 + 6')]:
+            wrong=copy.deepcopy(manifest);wrong['legendaryChecks'][0]['legendary'][key]=val
+            with self.assertRaises(ValueError):m['check_adult_legendary_inventory'](pages,wrong,[card])
+        for old,new in [('3/день','3/ход'),('120 футов','60 футов'),('Мудрости Сл 16','Мудрости Сл 17'),('на 24 часа','на 12 часов'),('в конце хода другого','в начале хода другого'),('в начале своего хода','в конце своего хода'),('стоит 2 действия','стоит 1 действие'),('Ловкости Сл 19','Ловкости Сл 20'),('13 (2d6 + 6) дробящего','14 (2d6 + 6) дробящего'),('до половины своей скорости полёта','до своей скорости полёта')]:
+            with self.assertRaises(ValueError):m['check_adult_legendary_inventory'](pages,manifest,[{**card,'text':card['text'].replace(old,new)}])
+        for changed in [source.replace('only at the end of another', 'only at the start of another'),source.replace('at the start of its turn','at the end of its turn'),source.replace('at the end of each of its turns','at the start of each of its turns'),source+source[source.index('Legendary Resistance'):source.index(' Actions')],source.replace('Adult Black Dragon Huge dragon','Adult Black Dragon is described. Neighbor Huge dragon')]:
+            with self.assertRaises(ValueError):m['adult_dragon_legendary'](changed,'Adult Black Dragon')
+        with self.assertRaises(ValueError):m['check_adult_legendary_inventory']({281:source.replace('Costs 2 Actions','Costs 1 Actions'),282:''},manifest,[card])
+
+    def test_metallic_traits_keep_saves_skills_immunity_senses_languages_and_amphibious_separate(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        source=BASE.replace('Large beast','Large dragon').replace('Senses passive Perception 10 Languages —','Saving Throws Dex +3, Con +7, Wis +4, Cha +6 Skills Insight +4, Perception +7, Stealth +3 Damage Immunities lightning Senses blindsight 30 ft., darkvision 120 ft., passive Perception 17 Languages Common, Draconic')+' Amphibious. The dragon can breathe air and water. Actions'
+        value=m['metallic_traits'](source,'Beast')
+        self.assertEqual(value,{'savingThrows':{'dex':3,'con':7,'wis':4,'cha':6},'skills':{'insight':4,'perception':7,'stealth':3},'damageImmunities':['lightning'],'senses':{'blindsight':30,'darkvision':120,'passivePerception':17},'languages':['Common','Draconic'],'amphibious':True})
+        manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:beast','nameEn':'Beast','pages':[295]}],'traitChecks':[{'monsterId':'source:beast','nameEn':'Beast','traits':value}]}
+        card={'id':'source:beast','text':'Спасброски Ловкости +3, Телосложения +7, Мудрости +4, Харизмы +6. Навыки: Проницательность +4, Восприятие +7, Скрытность +3. Иммунитет к электрическому урону. Слепое зрение 30 футов, тёмное зрение 120 футов, пассивное Восприятие 17. Языки: Общий, Драконий. Амфибия: дышит воздухом и водой.'}
+        self.assertEqual(m['check_metallic_trait_inventory']({295:source},manifest,[card]),1)
+        for group,key,changed in [('savingThrows','con',6),('skills','insight',5),('senses','blindsight',10),('senses','darkvision',60),('senses','passivePerception',14)]:
+            wrong=copy.deepcopy(manifest);wrong['traitChecks'][0]['traits'][group][key]=changed
+            with self.assertRaises(ValueError):m['check_metallic_trait_inventory']({295:source},wrong,[card])
+        for key,changed in [('damageImmunities',['fire']),('languages',['Draconic']),('amphibious',False)]:
+            wrong=copy.deepcopy(manifest);wrong['traitChecks'][0]['traits'][key]=changed
+            with self.assertRaises(ValueError):m['check_metallic_trait_inventory']({295:source},wrong,[card])
+        for old,new in [('Телосложения +7','Телосложения +6'),('Восприятие +7','Восприятие +6'),('электрическому','огненному'),('Иммунитет','Сопротивление'),('30 футов','10 футов'),('120 футов','60 футов'),('Восприятие 17','Восприятие 14'),('Общий, Драконий','Драконий'),('Амфибия: дышит воздухом и водой.','')]:
+            with self.assertRaises(ValueError):m['check_metallic_trait_inventory']({295:source},manifest,[{**card,'text':card['text'].replace(old,new)}])
+        for changed in [source.replace('Dex +3','Dex +3, Dex +4'),source.replace('lightning','poison'),source.replace('Common, Draconic','Unknown'),source.replace('darkvision 120 ft., ',''),BASE.replace('Large beast','Large dragon')+source.replace('Beast Large','Neighbor Large')]:
+            with self.assertRaises(ValueError):m['metallic_traits'](changed,'Beast')
+        # A changed/missing skill remains parseable, but must fail the declared source comparison.
+        with self.assertRaises(ValueError):m['check_metallic_trait_inventory']({295:source.replace('Insight +4, ','')},manifest,[card])
+
+    def test_secondary_breath_sleep_source_and_authored_fields_are_bounded_and_exact(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        parent=' Breath Weapons (Recharge 5–6). The dragon uses one of the following breath weapons. '
+        action='Sleep Breath. The dragon exhales sleep gas in a 30-foot cone. Each creature in that area must succeed on a DC 14 Constitution saving throw or fall unconscious for 5 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.'
+        source=BASE+parent+action;value=m['dragon_secondary_breath'](source,'Beast','Sleep Breath')
+        self.assertEqual(value,{'nameEn':'Sleep Breath','recharge':[5,6],'shape':'cone','length':30,'saveAbility':'con','saveDC':14,'effect':'sleep','durationMinutes':5,'pushFeet':None,'repeatAtEndOfTurn':False,'wakeOnDamage':True,'wakeWithAction':True})
+        manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:beast','nameEn':'Beast','pages':[292]}],'secondaryBreathChecks':[{'monsterId':'source:beast','nameEn':'Beast','breath':value}]}
+        card={'id':'source:beast','text':'Усыпляющее дыхание: конус 30 футов, Телосложение Сл 14; при провале бессознательность на 5 минут. Прекращается от урона или если кто-то действием разбудит его.'}
+        self.assertEqual(m['check_secondary_breath_inventory']({292:source},manifest,[card]),1)
+        for key,changed in [('recharge',[6,6]),('shape','line'),('length',15),('saveDC',11),('saveAbility','str'),('effect','paralyze'),('durationMinutes',1),('pushFeet',30),('repeatAtEndOfTurn',True),('wakeOnDamage',False),('wakeWithAction',False)]:
+            wrong=copy.deepcopy(manifest);wrong['secondaryBreathChecks'][0]['breath'][key]=changed
+            with self.assertRaises(ValueError):m['check_secondary_breath_inventory']({292:source},wrong,[card])
+        for changed in [card['text'].replace('30 футов','15 футов'),card['text'].replace('Сл 14','Сл 11'),card['text'].replace('на 5 минут','на 1 минуту'),card['text'].replace('от урона',''),card['text'].replace('действием','бонусным действием')]:
+            with self.assertRaises(ValueError):m['check_secondary_breath_inventory']({292:source},manifest,[{**card,'text':changed}])
+        wrong=copy.deepcopy(manifest);wrong['secondaryBreathChecks']*=2
+        with self.assertRaises(ValueError):m['check_secondary_breath_inventory']({292:source},wrong,[card])
+        for invalid in [BASE+action,source+parent,source+action,BASE+action+parent,BASE+BASE.replace('Beast Large','Neighbor Large')+parent+action,source.replace('uses an action','uses a bonus action'),source.replace('Constitution','Strength')]:
+            with self.assertRaises(ValueError):m['dragon_secondary_breath'](invalid,'Beast','Sleep Breath')
+
+    def test_secondary_control_breaths_preserve_push_strength_only_and_end_of_own_turn(self):
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        parent=' Breath Weapons (Recharge 5–6). The dragon uses one of the following breath weapons. '
+        actions=[
+          ('Repulsion Breath','repulsion energy in a 30-foot cone. Each creature in that area must succeed on a DC 15 Strength saving throw. On a failed save, the creature is pushed 40 feet away from the dragon.','push',None,40,False),
+          ('Slowing Breath',"gas in a 30-foot cone. Each creature in that area must succeed on a DC 14 Constitution saving throw. On a failed save, the creature can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the creature can use either an action or a bonus action on its turn, but not both. These effects last for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save.",'slow',1,None,True),
+          ('Weakening Breath','gas in a 30-foot cone. Each creature in that area must succeed on a DC 17 Strength saving throw or have disadvantage on Strength-based attack rolls, Strength checks, and Strength saving throws for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.','weaken',1,None,True),
+          ('Paralyzing Breath','paralyzing gas in a 30-foot cone. Each creature in that area must succeed on a DC 17 Constitution saving throw or be paralyzed for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.','paralyze',1,None,True)
+        ]
+        for name,body,effect,duration,push,repeat in actions:
+            text=BASE+parent+name+'. The dragon exhales '+body;value=m['dragon_secondary_breath'](text,'Beast',name)
+            self.assertEqual([value['effect'],value['durationMinutes'],value['pushFeet'],value['repeatAtEndOfTurn']],[effect,duration,push,repeat])
+            self.assertFalse(value['wakeWithAction']);self.assertFalse(value['wakeOnDamage'])
+            if repeat:
+                with self.assertRaises(ValueError):m['dragon_secondary_breath'](text.replace('at the end of each of its turns','at the start of each of its turns'),'Beast',name)
+                with self.assertRaises(ValueError):m['dragon_secondary_breath'](text.replace('ending the effect on itself','keeping the effect on itself'),'Beast',name)
+        slow=BASE+parent+'Slowing Breath. The dragon exhales '+actions[1][1]
+        for changed in [slow.replace('but not both','including both'),slow.replace('more than one attack','more than two attacks'),slow.replace('speed is halved','speed is doubled')]:
+            with self.assertRaises(ValueError):m['dragon_secondary_breath'](changed,'Beast','Slowing Breath')
+
     def test_metallic_breath_inherits_only_explicit_parent_recharge_in_same_creature(self):
         m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
         parent=' Breath Weapons (Recharge 5–6). The dragon uses one of the following breath weapons. '
