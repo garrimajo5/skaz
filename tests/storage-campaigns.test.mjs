@@ -847,3 +847,39 @@ test('draft save status does not repeatedly announce identical text while typing
  let text='',announcements=0;Object.defineProperty(h.get('#place-draft-status'),'textContent',{get:()=>text,set:value=>{text=value;announcements++;}});
  h.get('#place-form').oninput();h.get('#place-title').value='Two';h.get('#place-form').oninput();assert.equal(announcements,1);assert.match(text,/сохранён/);
 });
+
+function resourceValues(h,overrides={}){
+ const values={hp:'28',maxHp:'38',gold:'124',inspiration:'3',slot1:'3',slot2:'2',slot3:'1',reason:'',...overrides};
+ for(const [key,value]of Object.entries(values))h.get('#resource-'+key).value=value;
+}
+test('resource correction previews exact balances and sends one personal update only after confirmation',async()=>{
+ const writes=[];const h=harness(memory(),memory(),async(url,options)=>{
+  if(options.method){const command=JSON.parse(options.body);writes.push(command);return response({...payload(1),state:command.state,permissions:permissionFixture('player')});}
+  return response({...payload(0),permissions:permissionFixture('player')});
+ });await h.api.boot();h.click('edit-resources');resourceValues(h,{hp:'0',maxHp:'40',gold:'0',inspiration:'0',slot1:'0',slot2:'0',slot3:'0',reason:'После расчёта'});
+ h.get('#resource-form').onsubmit({preventDefault(){}});assert.equal(writes.length,0);assert.equal(h.state().gold,124);assert.match(h.dialog(),/<td>124<\/td><td>0<\/td>/);
+ h.get('#resource-back').onclick();assert.match(h.dialog(),/value="40"/);assert.match(h.dialog(),/После расчёта/);
+ resourceValues(h,{hp:'0',maxHp:'40',gold:'0',inspiration:'0',slot1:'0',slot2:'0',slot3:'0',reason:'После расчёта'});h.get('#resource-form').onsubmit({preventDefault(){}});
+ const confirm=h.get('#resource-confirm').onclick;await Promise.all([confirm(),confirm()]);assert.equal(writes.length,1);
+ const saved=writes[0].state;assert.equal(saved.hp,0);assert.equal(saved.maxHp,40);assert.equal(saved.gold,0);assert.equal(saved.inspiration,0);assert.deepEqual(saved.slots,{'1':0,'2':0,'3':0});
+ for(const key of Object.keys(seed).filter(k=>!['hp','maxHp','gold','inspiration','slots'].includes(k)))assert.deepEqual(saved[key],seed[key],key+' stays unchanged');
+ assert.match(writes[0].label,/После расчёта/);assert.equal(h.state().gold,0);
+});
+test('resource form rejects invalid numbers, excessive limits, implicit HP clamping and no-op writes',async()=>{
+ let writes=0;const h=harness(memory(),memory(),async(url,options)=>{if(options.method)writes++;return response(payload(0));});await h.api.boot();h.click('edit-resources');
+ for(const changes of [{hp:''},{hp:'-1'},{hp:'1.5'},{gold:'1e3'},{gold:'1000000001'},{inspiration:'5'},{slot1:'5'},{slot2:'4'},{slot3:'3'},{maxHp:'0'},{hp:'39'},{reason:'x'.repeat(101)}]){
+  resourceValues(h,changes);h.get('#resource-form').onsubmit({preventDefault(){}});assert.match(h.dialog(),/id="resource-form"/);assert.equal(writes,0);
+ }
+ resourceValues(h);h.get('#resource-form').onsubmit({preventDefault(){}});assert.match(h.messages.at(-1),/уже имеют/);assert.equal(writes,0);
+});
+test('resource review cannot write after revision, context or permission changes',async()=>{
+ for(const next of [payload(1),payload(0,'other'),{...payload(0),permissions:permissionFixture('player',false)}]){
+  let current=payload(0),writes=0;const h=harness(memory(),memory(),async(url,options)=>{if(options.method)writes++;return response(current);});await h.api.boot();h.click('edit-resources');resourceValues(h,{gold:'1'});h.get('#resource-form').onsubmit({preventDefault(){}});const confirm=h.get('#resource-confirm').onclick;
+  current=next;await h.api.boot();await confirm();assert.equal(writes,0);assert.match(h.messages.at(-1),/права изменились/);
+ }
+ const denied=harness(memory(),memory(),async()=>response({...payload(0),permissions:permissionFixture('player',false)}));await denied.api.boot();denied.click('edit-resources');assert.equal(denied.dialog(),'');
+});
+test('failed resource correction leaves current balances and retries the exact durable command',async()=>{
+ const local=memory(),session=memory(),calls=[];const h=harness(local,session,async(url,options)=>{if(options.method){calls.push(options.body);throw new Error('offline');}return response(payload(0));});await h.api.boot();h.click('edit-resources');resourceValues(h,{gold:'5'});h.get('#resource-form').onsubmit({preventDefault(){}});await h.get('#resource-confirm').onclick();assert.equal(h.state().gold,124);assert.equal(h.api.editable(),false);
+ const reload=harness(local,session,async(url,options)=>{if(options.method){calls.push(options.body);return response({...payload(1),state:JSON.parse(options.body).state});}return response(payload(0));});await reload.api.boot();await reload.click('sync-retry');assert.equal(calls.length,2);assert.equal(calls[0],calls[1]);assert.equal(reload.state().gold,5);assert.equal(reload.api.editable(),true);
+});

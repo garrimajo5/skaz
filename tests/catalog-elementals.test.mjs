@@ -16,7 +16,7 @@ test('elementals and awakened plants retain distinct statistics, provenance and 
  assert.equal(get('Awakened Shrub').monster.xp,10);assert.equal(get('Awakened Tree').monster.challenge,'2');
  const s=openStore(':memory:');try{const before=s.read(),p=s.catalog.previewBundled();s.catalog.installBundled({version:p.version});assert.equal(s.catalog.importEntries(pack,{apply:true}).unchanged,6);
  const elementals=s.catalog.search(new URLSearchParams({kind:'monster',monsterType:'elemental',challenge:'5'}));assert.equal(elementals.total,4);
- const plants=s.catalog.search(new URLSearchParams({kind:'monster',monsterType:'plant'}));assert.equal(plants.total,2);
+ const plants=s.catalog.search(new URLSearchParams({kind:'monster',monsterType:'plant'}));assert.equal(plants.total,3);assert.deepEqual(plants.entries.map(e=>e.name.en).sort(),['Awakened Shrub','Awakened Tree','Treant']);
  const spells=read('srd51-level-five.json').entries;for(const [name,count] of [['Conjure Elemental',4],['Awaken',2]]){const spell=spells.find(e=>e.name.en===name);const linked=entries.filter(e=>spell.links.includes(e.id));assert.equal(linked.length,count);}
  assert.deepEqual(s.read(),before);assert.deepEqual(s.history(),[]);
  }finally{s.close();}

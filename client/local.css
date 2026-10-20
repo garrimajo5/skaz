@@ -60,3 +60,14 @@ dialog:has(#quest-form),dialog:has(#place-form){height:min(860px,90dvh);max-heig
 #quest-form input[type=checkbox],#place-form input[type=checkbox]{width:20px;min-height:20px;flex-shrink:0}
 .personal-quest-card .quest-description-full{margin:0}.quest-description-full summary{min-height:44px;display:flex;align-items:center;cursor:pointer;color:var(--accent)}.personal-quest-card .quest-description-full .session-text{max-height:none;overflow:visible;padding:0}
 #quest-form .quest-check,#place-form .quest-check{min-height:44px;align-items:center}
+dialog:has(#resource-form){height:min(860px,90dvh);max-height:90dvh;overflow:hidden}#dialog-content:has(#resource-form){height:100%;max-height:90dvh;display:flex;flex-direction:column;min-height:0}#dialog-content:has(#resource-form)>h2{font-size:26px;margin-block:8px;flex-shrink:0}#dialog-content:has(#resource-form)>p{font-size:12px;margin-block:6px;flex-shrink:0}#resource-form{display:flex;flex-direction:column;flex:1;min-height:0}#resource-form .dialog-actions{flex-shrink:0;margin-top:10px;padding-top:8px;border-top:1px solid var(--line)}.resource-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}#resource-form label{margin:0}#resource-form input{min-height:44px;width:100%;min-width:0}#resource-form .entity-fields{display:grid;gap:12px}.resource-review{overflow:auto}.resource-review table{width:100%;border-collapse:collapse;text-align:left}.resource-review th,.resource-review td{padding:10px 8px;border-bottom:1px solid var(--line)}.resource-review td{font-variant-numeric:tabular-nums}@media(max-width:480px){.resource-fields{grid-template-columns:1fr}}
+/* Review keeps its confirmation visible even when every balance changes. */
+dialog:has(.resource-review){height:min(600px,90dvh);max-height:90dvh;overflow:hidden}
+#dialog-content:has(.resource-review){height:100%;display:flex;flex-direction:column;min-height:0}
+#dialog-content:has(.resource-review)>h2{font-size:26px;margin-block:8px;flex-shrink:0}
+#dialog-content:has(.resource-review)>p{font-size:12px;margin-block:6px;flex-shrink:0}
+.resource-review{min-height:0;flex:1}
+#dialog-content:has(.resource-review)>.dialog-actions{flex-shrink:0;margin-top:10px;padding-top:8px;border-top:1px solid var(--line)}
+
+.resource-review thead{position:sticky;top:0;background:var(--panel)}
+.resource-review:focus-visible{outline:2px solid var(--accent);outline-offset:2px}

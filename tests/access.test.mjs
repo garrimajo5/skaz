@@ -31,6 +31,15 @@ function setup(t,file=':memory:') {
   return {store,a,b,first,second,hidden};
 }
 
+test('player corrects all personal balances atomically without altering shared state or another hero',t=>{
+ const {store}=setup(t),player=store.forUser(userB,'resource-window',{write:true}),owner=store.forUser(userA,'resource-window');
+ const before=player.read(),other=owner.read(),state={...before.state,hp:0,maxHp:40,gold:0,inspiration:0,slots:{1:0,2:0,3:0}};
+ const request=command(player,{label:'Ручная корректировка ресурсов',state}),saved=player.update(request);
+ assert.equal(saved.state.gold,0);assert.equal(saved.state.hp,0);assert.deepEqual(saved.state.slots,{1:0,2:0,3:0});assert.deepEqual(saved.state.notes,before.state.notes);assert.deepEqual(saved.state.journal,before.state.journal);assert.deepEqual(owner.read().state,other.state);
+ assert.deepEqual(player.update(request),{...saved,replayed:true});
+ const version=player.read().revision;assert.throws(()=>player.update(command(player,{label:'Invalid slots',state:{...state,slots:{1:5,2:0,3:0}}})),{status:422});assert.equal(player.read().revision,version);assert.deepEqual(player.read().state,saved.state);
+});
+
 test('grants choose only authorized heroes and identical client view IDs never share a user context',t=>{
   const {store,first,second}=setup(t);
   const a=store.forUser(userA,'same-window'), b=store.forUser(userB,'same-window');
@@ -122,10 +131,10 @@ test('catalog sharing is exact bundled content, not a license flag; private impo
   // Deliberately retains CC BY license metadata: license is not visibility.
   store.catalog.importEntries({schemaVersion:1,entries:[privateCard]},{apply:true});
   const reader=store.forUser(userA,'window-one');
-  assert.equal(store.catalog.coverage().total,494);assert.equal(reader.catalog.coverage().total,493);
+  assert.equal(store.catalog.coverage().total,500);assert.equal(reader.catalog.coverage().total,499);
   assert.equal(reader.catalog.search(new URLSearchParams({q:'SECRET_ITEM'})).total,0);
   assert.throws(()=>reader.catalog.lookup(new URLSearchParams({id:privateCard.id})),{status:404});
-  assert.equal(reader.catalog.search(new URLSearchParams({kind:'monster'})).total,71);
+  assert.equal(reader.catalog.search(new URLSearchParams({kind:'monster'})).total,77);
   a.addInventory(command(a,{characterId:a.read().context.characterId,catalogId:privateCard.id,quantity:1}));
   assert.equal(reader.inventory().entries[0].entry.text,'PRIVATE_ITEM_DESCRIPTION');
   assert.throws(()=>reader.exportActive(),{status:403});

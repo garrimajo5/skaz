@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:basilisk",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Василиск",
+        "en": "Basilisk"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=265",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz stone encounters v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 265.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСреднее чудовище, без мировоззрения. Природный доспех; хиты 52 (8d8 + 16). Тёмное зрение 60 футов, пассивное Восприятие 9; языков нет.\nОкаменяющий взгляд: если существо начинает ход в пределах 30 футов, они видят друг друга и василиск не недееспособен, василиск может заставить его сделать спасбросок Телосложения Сл 12. При провале цель начинает превращаться в камень и опутана. В конце своего следующего хода повторяет спасбросок: успех снимает эффект, провал делает цель окаменевшей до Высшего восстановления или иной магии.\nЕсли цель не застигнута врасплох, может отвести глаза и избежать спасброска в начале хода; тогда не видит василиска до начала следующего хода, когда может снова отвести глаза. Если взглянет раньше, немедленно делает спасбросок. Увидев собственное отражение в пределах 30 футов при ярком свете, василиск принимает его за соперника и направляет взгляд на себя.\nУкус: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 10 (2d6 + 3) колющего и 7 (2d6) урона ядом.\nАтаки, состояния, взгляд и сопротивления не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:incapacitated",
+        "srd51:2014:mechanic:restrained",
+        "srd51:2014:mechanic:petrified",
+        "srd51:2014:spell:greater-restoration"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "monstrosity",
+        "armorClass": 15,
+        "hitPoints": 52,
+        "speed": {
+          "walk": 20
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 8,
+          "con": 15,
+          "int": 2,
+          "wis": 8,
+          "cha": 7
+        },
+        "challenge": "3",
+        "xp": 700
+      }
+    },
+    {
+      "id": "srd51:2014:monster:gargoyle",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Горгулья",
+        "en": "Gargoyle"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=309",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz stone encounters v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 309.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний элементаль, хаотично-злой. Природный доспех; хиты 52 (7d8 + 21). Сопротивление дробящему, колющему и рубящему урону от немагических атак, не являющихся адамантиновыми; иммунитет к урону ядом. Иммунитет к состояниям: истощение, окаменение, отравление. Тёмное зрение 60 футов, пассивное Восприятие 10. Язык Терран.\nЛожная внешность: пока неподвижна, неотличима от неодушевлённой статуи. Мультиатака: один укус и одна атака когтями.\nУкус: рукопашная атака оружием +4, досягаемость 5 футов, одна цель; 5 (1d6 + 2) колющего. Когти: рукопашная атака оружием +4, досягаемость 5 футов, одна цель; 5 (1d6 + 2) рубящего.\nАтаки, состояния, взгляд и сопротивления не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:exhaustion",
+        "srd51:2014:mechanic:petrified",
+        "srd51:2014:mechanic:poisoned"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "elemental",
+        "armorClass": 15,
+        "hitPoints": 52,
+        "speed": {
+          "walk": 30,
+          "fly": 60
+        },
+        "abilities": {
+          "str": 15,
+          "dex": 11,
+          "con": 16,
+          "int": 6,
+          "wis": 11,
+          "cha": 7
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    }
+  ]
+}

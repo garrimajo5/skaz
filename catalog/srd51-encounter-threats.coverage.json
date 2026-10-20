@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Four selected encounter creatures; not the full bestiary",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 4,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:harpy",
+      "nameEn": "Harpy",
+      "pages": [
+        321
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:minotaur",
+      "nameEn": "Minotaur",
+      "pages": [
+        333
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:troll",
+      "nameEn": "Troll",
+      "pages": [
+        351
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:treant",
+      "nameEn": "Treant",
+      "pages": [
+        351
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not an official translation.",
+    "Only base statistics are structured; actions and conditional traits require manual resolution.",
+    "Other SRD creatures and other books are outside this subset."
+  ]
+}

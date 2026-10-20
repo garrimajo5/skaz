@@ -44,7 +44,7 @@ const SkazStorage = (() => {
   function requirePermission(action){if(!can(action))throw new Error('Это действие недоступно с текущими правами. Обнови игру или обратись к мастеру.');}
   function decorate(root=document){
     if(!root.querySelectorAll)return;
-    const selectors={shared:'[data-check],[data-accept],[data-dismiss],[data-edit-event],#restore-events,[data-personal-step],[data-personal-edit],[data-map-edit],#new-place,#create-personal-quest,#map-note,#profile-campaign',manageCampaign:'#new-session,#new-session-form button,#new-character',catalog:'#catalog-bundled,#catalog-help',newCampaign:'#new-campaign',select:'[data-select-character]',import:'#import-state,#import-old',history:'#change-history',character:'#spellbook-form button,#spellbook-status,#damage,#heal,[data-health],#rest,#edit-profile,#inspire,#add-note,#new-proposal,#cast-spell,#catalog-add-inventory,#catalog-add-spell,[data-spell-edit],[data-inventory-remove],[data-inventory-charges],#inventory-undo'};
+    const selectors={shared:'[data-check],[data-accept],[data-dismiss],[data-edit-event],#restore-events,[data-personal-step],[data-personal-edit],[data-map-edit],#new-place,#create-personal-quest,#map-note,#profile-campaign',manageCampaign:'#new-session,#new-session-form button,#new-character',catalog:'#catalog-bundled,#catalog-help',newCampaign:'#new-campaign',select:'[data-select-character]',import:'#import-state,#import-old',history:'#change-history',character:'#edit-resources,#spellbook-form button,#spellbook-status,#damage,#heal,[data-health],#rest,#edit-profile,#inspire,#add-note,#new-proposal,#cast-spell,#catalog-add-inventory,#catalog-add-spell,[data-spell-edit],[data-inventory-remove],[data-inventory-charges],#inventory-undo'};
     for(const [action,selector]of Object.entries(selectors))for(const control of root.querySelectorAll(selector))if(!can(action)){control.disabled=true;control.setAttribute('aria-disabled','true');control.title=action==='shared'||action==='manageCampaign'?'Доступно мастеру или владельцу':'Недоступно с текущими правами';}
   }
   let activeContext = null;
@@ -400,6 +400,37 @@ const SkazStorage = (() => {
       catch (error) { toast(error.message); }
     };
   }
+  function editResources(){
+    if(demo||!can('character')||!activeContext)return toast('Ресурсы доступны после подключения с правом изменения персонажа');
+    const key=snapshotKey(),before=clean(state);
+    const fields=[['hp','Текущие хиты',0,999],['maxHp','Максимум хитов',1,999],['gold','Золото, зм',0,1000000000],['inspiration','Бардовское вдохновение',0,4],['slot1','Ячейки 1 круга',0,4],['slot2','Ячейки 2 круга',0,3],['slot3','Ячейки 3 круга',0,2]];
+    const original={hp:before.hp,maxHp:before.maxHp,gold:before.gold,inspiration:before.inspiration,slot1:before.slots[1],slot2:before.slots[2],slot3:before.slots[3]};
+    const current=()=>key===snapshotKey()&&can('character');let busy=false;
+    const changed=()=>toast('Игра или права изменились. Открой ресурсы заново.');
+    function form(values=original,reason=''){
+      if(!current())return changed();
+      modal(`<h2>Ресурсы персонажа</h2><p>${esc(before.profile.name)} · ${esc(before.profile.campaign)}. Укажи новые остатки после расчёта за столом. Это полные значения, не прибавка или списание.</p><form id="resource-form"><div class="entity-fields"><div class="resource-fields">${fields.map(([id,title,min,max])=>`<label for="resource-${id}">${title}<input id="resource-${id}" type="number" inputmode="numeric" min="${min}" max="${max}" step="1" required value="${values[id]}"></label>`).join('')}</div><label for="resource-reason">Причина (необязательно)</label><input id="resource-reason" maxlength="100" value="${esc(reason)}"><p>Ячейки и вдохновение пока ограничены шаблоном барда 5 уровня: 4/3/2 ячейки и 4 вдохновения. Инвентарь, концентрация и журнал не изменяются. Ввод этой формы не сохраняется до отправки.</p></div><div class="dialog-actions"><button class="primary" type="submit">Проверить изменения</button></div></form>`);
+      $('#resource-form').onsubmit=event=>{
+        event.preventDefault();if(!current())return changed();
+        const values={};for(const [id,title,min,max]of fields){const raw=$('#resource-'+id).value.trim(),number=Number(raw);if(!/^\d+$/.test(raw)||!Number.isSafeInteger(number)||number<min||number>max)return toast(title+': целое число от '+min+' до '+max);values[id]=number;}
+        if(values.hp>values.maxHp)return toast('Текущие хиты не могут превышать максимум. Укажи оба значения явно.');
+        const reason=$('#resource-reason').value.trim();if(reason.length>100)return toast('Причина: не более 100 символов');
+        review(values,reason);
+      };
+    }
+    function review(values,reason){
+      const differences=fields.filter(([id])=>values[id]!==original[id]);
+      if(!differences.length)return toast('Ресурсы уже имеют эти значения');
+      modal(`<h2>Проверить ресурсы</h2><p>${esc(before.profile.name)} · ${esc(before.profile.campaign)}</p><div class="resource-review" role="region" aria-label="Сравнение ресурсов" tabindex="0"><table><thead><tr><th scope="col">Ресурс</th><th scope="col">Сейчас</th><th scope="col">Будет</th></tr></thead><tbody>${differences.map(([id,title])=>`<tr><th scope="row">${title}</th><td>${original[id]}</td><td>${values[id]}</td></tr>`).join('')}</tbody></table></div>${reason?`<p>Причина: ${esc(reason)}</p>`:''}<p>Будет сохранена одна ручная корректировка. Проверь остатки; сервер повторно проверит версию и права.</p><div class="dialog-actions"><button id="resource-confirm" class="primary">Подтвердить</button><button id="resource-back">Исправить</button></div>`);
+      $('#resource-back').onclick=()=>form(values,reason);
+      $('#resource-confirm').onclick=async()=>{
+        if(busy)return;if(!current())return changed();busy=true;
+        const next={...before,hp:values.hp,maxHp:values.maxHp,gold:values.gold,inspiration:values.inspiration,slots:{1:values.slot1,2:values.slot2,3:values.slot3}};
+        closeModal();try{await commit(next,'Ручная корректировка ресурсов'+(reason?' · '+reason:''));toast('Ресурсы сохранены');}catch(error){toast(error.message);}finally{busy=false;}
+      };
+    }
+    form();
+  }
   // Drafts include the base revision: old text is downloadable, never silently
   // placed over a newer quest/place or another user's current game.
   function entityFormDraft(kind,selected,entityId,readValues,restoreValues) {
@@ -663,6 +694,7 @@ const SkazStorage = (() => {
     if (id === 'open-quests') questList();
     if (id === 'open-spellbook') spellbook();
     if (id === 'open-inventory') inventory();
+    if (id === 'edit-resources') editResources();
     if (id === 'session-settings') sessions();
     if (id === 'campaign-settings') campaigns();
     if (id === 'data-settings') settings();

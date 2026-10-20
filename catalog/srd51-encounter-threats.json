@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:harpy",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Гарпия",
+        "en": "Harpy"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=321",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz encounter threats v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 321.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСреднее чудовище, хаотично-злое. Хиты 38 (7d8 + 7); пассивное Восприятие 10, язык Общий.\nМультиатака: одна атака когтями и одна дубинкой. Когти: рукопашная атака оружием +3, досягаемость 5 футов, одна цель; 6 (2d4 + 1) рубящего. Дубинка: рукопашная атака оружием +3, досягаемость 5 футов, одна цель; 3 (1d4 + 1) дробящего.\nМанящая песня: каждый гуманоид и великан в пределах 300 футов, слышащий песню, делает спасбросок Мудрости Сл 11; провал очаровывает до окончания песни. Для продолжения гарпия тратит бонусное действие в последующие ходы; может прекратить петь в любой момент. При недееспособности гарпии песня заканчивается.\nОчарованная цель недееспособна и игнорирует песни других гарпий. Если она дальше 5 футов, в свой ход идёт самым прямым путём, стараясь оказаться в пределах 5 футов. Провоцированные атаки не избегает. Перед входом на опасную местность и при получении урона не от гарпии может повторить спасбросок; также повторяет его в конце каждого своего хода. Успех прекращает эффект. Успешный спасбросок даёт иммунитет к песне именно этой гарпии на 24 часа.\nАтаки, песня, регенерация и состояния не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:incapacitated"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "monstrosity",
+        "armorClass": 11,
+        "hitPoints": 38,
+        "speed": {
+          "walk": 20,
+          "fly": 40
+        },
+        "abilities": {
+          "str": 12,
+          "dex": 13,
+          "con": 12,
+          "int": 7,
+          "wis": 10,
+          "cha": 13
+        },
+        "challenge": "1",
+        "xp": 200
+      }
+    },
+    {
+      "id": "srd51:2014:monster:minotaur",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Минотавр",
+        "en": "Minotaur"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=333",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz encounter threats v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 333.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшое чудовище, хаотично-злое. Природный доспех; хиты 76 (9d10 + 27). Восприятие +7, тёмное зрение 60 футов, пассивное Восприятие 17. Язык Бездны.\nРазбег: если минотавр прошёл не менее 10 футов прямо к цели и в тот же ход попал рогами, цель получает дополнительно 9 (2d8) колющего урона. Если цель — существо, спасбросок Силы Сл 14 предотвращает отталкивание до 10 футов и сбивание с ног.\nПамять лабиринта: безошибочно помнит любой пройденный путь. Безрассудство: в начале своего хода может получить преимущество на все рукопашные атаки оружием в этот ход; тогда атаки по нему имеют преимущество до начала его следующего хода.\nСекира: рукопашная атака оружием +6, досягаемость 5 футов, одна цель; 17 (2d12 + 4) рубящего. Рога: рукопашная атака оружием +6, досягаемость 5 футов, одна цель; 13 (2d8 + 4) колющего.\nАтаки, песня, регенерация и состояния не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:prone"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "monstrosity",
+        "armorClass": 14,
+        "hitPoints": 76,
+        "speed": {
+          "walk": 40
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 11,
+          "con": 16,
+          "int": 6,
+          "wis": 16,
+          "cha": 9
+        },
+        "challenge": "3",
+        "xp": 700
+      }
+    },
+    {
+      "id": "srd51:2014:monster:troll",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Тролль",
+        "en": "Troll"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=351",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz encounter threats v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 351.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшой великан, хаотично-злой. Природный доспех; хиты 84 (8d10 + 40). Восприятие +2, тёмное зрение 60 футов, пассивное Восприятие 12. Язык Великанов.\nОстрое обоняние даёт преимущество на проверки Мудрости (Восприятие), основанные на запахе. Регенерация: восстанавливает 10 хитов в начале своего хода. Если получил урон кислотой или огнём, регенерация не работает в начале его следующего хода. Умирает, только если начинает ход с 0 хитов и не регенерирует.\nМультиатака: один укус и две атаки когтями. Укус: рукопашная атака оружием +7, досягаемость 5 футов, одна цель; 7 (1d6 + 4) колющего. Когти: рукопашная атака оружием +7, досягаемость 5 футов, одна цель; 11 (2d6 + 4) рубящего.\nАтаки, песня, регенерация и состояния не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "large",
+        "type": "giant",
+        "armorClass": 15,
+        "hitPoints": 84,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 13,
+          "con": 20,
+          "int": 7,
+          "wis": 9,
+          "cha": 7
+        },
+        "challenge": "5",
+        "xp": 1800
+      }
+    },
+    {
+      "id": "srd51:2014:monster:treant",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Энт",
+        "en": "Treant"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=351",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz encounter threats v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 351.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nОгромное растение, хаотично-доброе. Природный доспех; хиты 138 (12d12 + 60). Сопротивление дробящему и колющему урону, уязвимость к огню. Пассивное Восприятие 13. Языки: Общий, Друидический, Эльфийский, Сильван.\nЛожная внешность: пока неподвижен, неотличим от обычного дерева. Осадное чудовище: наносит двойной урон предметам и сооружениям.\nМультиатака: два удара. Удар: рукопашная атака оружием +10, досягаемость 5 футов, одна цель; 16 (3d6 + 6) дробящего. Камень: дальнобойная атака оружием +10, дистанция 60/180 футов, одна цель; 28 (4d10 + 6) дробящего.\nОживление деревьев (1/день): магически оживляет одно или два видимых дерева в пределах 60 футов. Их характеристики как у энта, кроме Интеллекта и Харизмы 1; они не говорят и из вариантов действий имеют только Удар. Действуют как союзники. Оживление длится один день, либо до гибели дерева или энта, либо пока энт не отойдёт дальше 120 футов или не потратит бонусное действие на прекращение эффекта. Тогда дерево по возможности пускает корни.\nСопротивления, уязвимость, атаки и оживление деревьев не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "huge",
+        "type": "plant",
+        "armorClass": 16,
+        "hitPoints": 138,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 23,
+          "dex": 8,
+          "con": 21,
+          "int": 12,
+          "wis": 16,
+          "cha": 12
+        },
+        "challenge": "9",
+        "xp": 5000
+      }
+    }
+  ]
+}
