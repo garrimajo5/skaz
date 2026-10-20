@@ -460,6 +460,8 @@ def adult_dragon_legendary(text,creature):
 
 
 def check_adult_legendary_inventory(pages,manifest,cards):
+    if 'legendaryChecks' in manifest and {r['monsterId'] for r in manifest['legendaryChecks']}!={r['id'] for r in manifest['entries']}:
+        raise ValueError('Incomplete declared legendaryChecks coverage')
     if manifest['sourceSha256']!=SHA256:raise ValueError('Wrong adult legendary source')
     seen=set()
     for row in manifest.get('legendaryChecks',[]):
@@ -515,6 +517,8 @@ def metallic_traits(text,creature):
 
 
 def check_metallic_trait_inventory(pages,manifest,cards):
+    if 'traitChecks' in manifest and {r['monsterId'] for r in manifest['traitChecks']}!={r['id'] for r in manifest['entries']}:
+        raise ValueError('Incomplete declared traitChecks coverage')
     if manifest['sourceSha256']!=SHA256:raise ValueError('Wrong metallic trait source')
     seen=set()
     for row in manifest.get('traitChecks',[]):
@@ -571,6 +575,8 @@ def dragon_secondary_breath(text,creature,name):
 
 
 def check_secondary_breath_inventory(pages,manifest,cards):
+    if 'secondaryBreathChecks' in manifest and {r['monsterId'] for r in manifest['secondaryBreathChecks']}!={r['id'] for r in manifest['entries']}:
+        raise ValueError('Incomplete declared secondaryBreathChecks coverage')
     if manifest['sourceSha256']!=SHA256:raise ValueError('Wrong secondary breath source')
     seen=set()
     for row in manifest.get('secondaryBreathChecks',[]):

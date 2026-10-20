@@ -10,13 +10,21 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_declared_control_trait_and_legendary_coverage_cannot_silently_drop_a_card(self):
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        for key,fn in [('legendaryChecks','check_adult_legendary_inventory'),('traitChecks','check_metallic_trait_inventory'),('secondaryBreathChecks','check_secondary_breath_inventory')]:
+            for rows in [[],[{'monsterId':'wrong:id'}]]:
+                manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:a'},{'id':'source:b'}],key:rows}
+                with self.assertRaisesRegex(ValueError,'Incomplete declared'):m[fn]({},manifest,[])
+            self.assertEqual(m[fn]({}, {'sourceSha256':m['SHA256'],'entries':[]}, []),0)
+
     def test_adult_legendary_rules_preserve_budget_timing_fear_immunity_and_wing_cost(self):
         import copy,json
         m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
         source="Adult Black Dragon Huge dragon, chaotic evil Armor Class 19 Legendary Resistance (3/Day). If the dragon fails a saving throw, it can choose to succeed instead. Actions Frightful Presence. Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours. Legendary Actions The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn. Detect. The dragon makes a Wisdom (Perception) check. Tail Attack. The dragon makes a tail attack. Wing Attack (Costs 2 Actions). The dragon beats its wings. Each creature within 10 feet of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed."
         expected={'resistancePerDay':3,'fearRange':120,'fearSaveDC':16,'fearMinutes':1,'fearImmunityHours':24,'legendaryActions':3,'wingCost':2,'wingRadius':10,'wingSaveDC':19,'wingAverageDamage':13,'wingDamageDice':'2d6 + 6'}
         self.assertEqual(m['adult_dragon_legendary'](source,'Adult Black Dragon'),expected)
-        root=Path(__file__).resolve().parents[1];full=json.loads((root/'catalog/srd51-chromatic-adults.coverage.json').read_text());manifest={**full,'legendaryChecks':full['legendaryChecks'][:1]};card=json.loads((root/'catalog/srd51-chromatic-adults.json').read_text())['entries'][0]
+        root=Path(__file__).resolve().parents[1];full=json.loads((root/'catalog/srd51-chromatic-adults.coverage.json').read_text());manifest={**full,'entries':full['entries'][:1],'legendaryChecks':full['legendaryChecks'][:1]};card=json.loads((root/'catalog/srd51-chromatic-adults.json').read_text())['entries'][0]
         pages={281:source,282:''};self.assertEqual(m['check_adult_legendary_inventory'](pages,manifest,[card]),1)
         for key,val in [('resistancePerDay',2),('fearRange',60),('fearSaveDC',17),('fearMinutes',2),('fearImmunityHours',12),('legendaryActions',2),('wingCost',1),('wingRadius',15),('wingSaveDC',20),('wingAverageDamage',14),('wingDamageDice','2d8 + 6')]:
             wrong=copy.deepcopy(manifest);wrong['legendaryChecks'][0]['legendary'][key]=val
