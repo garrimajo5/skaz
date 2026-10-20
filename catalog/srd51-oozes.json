@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:black-pudding",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Чёрный пудинг",
+        "en": "Black Pudding"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=337",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz oozes v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 337.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшая слизь, без мировоззрения. Хиты 85 (10d10 + 30). Иммунитет к кислотному, холодному, электрическому и рубящему урону.\nАморфность: проходит щель шириной 1 дюйм без протискивания. Лазание паука: сложные поверхности и потолки без проверки характеристики.\nРазъедающая форма: коснувшееся пудинга существо или попавшее по нему рукопашной атакой в пределах 5 футов получает 4 (1d8) кислотного урона. Попавшее немагическое оружие из металла или дерева после нанесения урона получает постоянный накапливающийся штраф −1 к броскам урона; при −5 уничтожается. Такие же немагические боеприпасы уничтожаются после попадания и нанесения урона. За 1 раунд пудинг проедает 2 дюйма немагического дерева или металла.\nЛожноножка: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 6 (1d6 + 3) дробящего и 18 (4d8) кислотного урона. Надетый на цель немагический доспех частично растворяется: постоянный накапливающийся штраф −1 к предоставляемой КД; уничтожается при снижении его КД до 10.\nРеакция «Деление»: если пудинг Среднего или большего размера подвергается электрическому или рубящему урону и имеет хотя бы 10 хитов, разделяется на два новых пудинга. Каждый получает половину исходных хитов с округлением вниз и размер на одну категорию меньше. Иммунитет к этим типам урона не убирается; реакция разрешается вручную.\nИммунитет к состояниям ослепления, очарования, глухоты, истощения, испуга и сбивания с ног. Слепое зрение 60 футов, за пределами слепа; пассивное Восприятие 8; языков нет.\nАтаки, иммунитеты, деление и повреждение снаряжения справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:deafened",
+        "srd51:2014:mechanic:exhaustion",
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:prone"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "ooze",
+        "armorClass": 7,
+        "hitPoints": 85,
+        "speed": {
+          "walk": 20,
+          "climb": 20
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 5,
+          "con": 16,
+          "int": 1,
+          "wis": 6,
+          "cha": 1
+        },
+        "challenge": "4",
+        "xp": 1100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:gray-ooze",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Серая слизь",
+        "en": "Gray Ooze"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=338",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz oozes v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 338.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредняя слизь, без мировоззрения. Хиты 22 (3d8 + 9). Скрытность +2. Сопротивление кислотному, холодному и огненному урону.\nАморфность: проходит щель шириной 1 дюйм без протискивания. Разъедание металла: попавшее немагическое металлическое оружие после нанесения урона получает постоянный накапливающийся штраф −1 к броскам урона; при −5 уничтожается. Немагические металлические боеприпасы уничтожаются после нанесения урона. За 1 раунд слизь проедает 2 дюйма немагического металла. Ложная внешность: пока неподвижна, неотличима от маслянистой лужи или мокрого камня.\nЛожноножка: рукопашная атака оружием +3, досягаемость 5 футов, одна цель; 4 (1d6 + 1) дробящего и 7 (2d6) кислотного урона. Надетый немагический металлический доспех получает постоянный накапливающийся штраф −1 к предоставляемой КД и уничтожается, когда его КД снижена до 10. В отличие от пудинга, эта особенность не распространяется на деревянное оружие; у серой слизи в исходной карточке нет реакции деления.\nИммунитет к состояниям ослепления, очарования, глухоты, истощения, испуга и сбивания с ног. Слепое зрение 60 футов, за пределами слепа; пассивное Восприятие 8; языков нет.\nАтаки, иммунитеты, деление и повреждение снаряжения справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:deafened",
+        "srd51:2014:mechanic:exhaustion",
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:prone"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "ooze",
+        "armorClass": 8,
+        "hitPoints": 22,
+        "speed": {
+          "walk": 10,
+          "climb": 10
+        },
+        "abilities": {
+          "str": 12,
+          "dex": 6,
+          "con": 16,
+          "int": 1,
+          "wis": 6,
+          "cha": 2
+        },
+        "challenge": "1/2",
+        "xp": 100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ochre-jelly",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Охряное желе",
+        "en": "Ochre Jelly"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=338",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz oozes v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 338, 339.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшая слизь, без мировоззрения. Хиты 45 (6d10 + 12). Сопротивление кислотному урону; иммунитет к электрическому и рубящему урону.\nАморфность: проходит щель шириной 1 дюйм без протискивания. Лазание паука: сложные поверхности и потолки без проверки характеристики.\nЛожноножка: рукопашная атака оружием +4, досягаемость 5 футов, одна цель; 9 (2d6 + 2) дробящего и 3 (1d6) кислотного урона.\nРеакция «Деление»: если желе Среднего или большего размера подвергается электрическому или рубящему урону и имеет хотя бы 10 хитов, делится на два новых желе. Каждое получает половину исходных хитов с округлением вниз и размер на одну категорию меньше. Урон и иммунитеты разрешаются по исходным правилам; реакция не расходуется автоматически.\nИммунитет к состояниям ослепления, очарования, глухоты, истощения, испуга и сбивания с ног. Слепое зрение 60 футов, за пределами слепа; пассивное Восприятие 8; языков нет.\nАтаки, иммунитеты, деление и повреждение снаряжения справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:deafened",
+        "srd51:2014:mechanic:exhaustion",
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:prone"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "ooze",
+        "armorClass": 8,
+        "hitPoints": 45,
+        "speed": {
+          "walk": 10,
+          "climb": 10
+        },
+        "abilities": {
+          "str": 15,
+          "dex": 6,
+          "con": 14,
+          "int": 2,
+          "wis": 6,
+          "cha": 1
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    }
+  ]
+}

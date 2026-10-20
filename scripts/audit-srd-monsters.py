@@ -74,6 +74,33 @@ def familiar_headings(text):
     return names
 
 
+def ooze_headings(pages):
+    """Inventory this source section independently of the authored card list."""
+    rows = []
+    for page, text in sorted(pages.items()):
+        for match in re.finditer(r'([A-Z][a-z]+(?: [A-Z][a-z]+)?) (?:' + SIZES + r') ooze\b', normalize(text)):
+            name = match[1]
+            rows.append({'id': 'srd51:2014:monster:' + name.lower().replace(' ', '-'),
+                         'nameEn': name, 'page': page})
+    return rows
+
+
+def check_ooze_coverage(pages, manifest, cards):
+    rows = ooze_headings(pages)
+    declared = [{'id': row['id'], 'nameEn': row['nameEn'], 'page': row['pages'][0]}
+                for row in manifest['entries']]
+    if (manifest['sourceSha256'] != SHA256 or not rows or
+            manifest['expectedSubsetCount'] != len(rows) or declared != rows):
+        raise ValueError('Ooze coverage differs from pinned section headings/pages.')
+    for row in rows:
+        found = [card for card in cards if card['id'] == row['id']]
+        if (len(found) != 1 or found[0]['name']['en'] != row['nameEn'] or
+                found[0]['monster']['type'] != 'ooze' or
+                not found[0]['source']['url'].endswith('#page=' + str(row['page']))):
+            raise ValueError('Missing, duplicate or mismatched ooze card: ' + row['nameEn'])
+    return len(rows)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('pdf', type=Path)
@@ -88,6 +115,8 @@ def main():
         raise SystemExit('NPC inventory differs from the pinned Appendix B headings/pages.')
     code = "import{bundledCatalog}from'./server/bundled-catalog.mjs';process.stdout.write(JSON.stringify(bundledCatalog().bundle.entries.filter(e=>e.kind==='monster')))"
     cards = json.loads(subprocess.check_output(['node','--input-type=module','-e',code], cwd=ROOT, encoding='utf-8'))
+    ooze_manifest = json.loads((ROOT / 'catalog/srd51-oozes.coverage.json').read_text(encoding='utf-8-sig'))
+    ooze_count = check_ooze_coverage({p: reader.pages[p-1].extract_text() for p in range(337, 340)}, ooze_manifest, cards)
     familiar = json.loads((ROOT / 'catalog/srd51-familiar-forms.coverage.json').read_text(encoding='utf-8-sig'))
     familiar_names = familiar_headings(reader.pages[142].extract_text())
     if familiar['sourceSha256'] != SHA256 or familiar['expectedSubsetCount'] != 15 or sorted(row['nameEn'] for row in familiar['entries']) != sorted(familiar_names):
@@ -109,7 +138,7 @@ def main():
                 failures.append({'id': card['id'], 'fields': errors, 'source': expected})
         except ValueError as error:
             failures.append({'id': card['id'], 'error': str(error)})
-    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'failures': failures,
+    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'failures': failures,
                       'scope': 'Base statistics only; actions, traits and summaries need source review.'}, ensure_ascii=False, indent=2))
     if failures:
         raise SystemExit(1)

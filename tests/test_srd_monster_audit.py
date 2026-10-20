@@ -10,6 +10,28 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_ooze_section_inventory_ignores_prose_and_preserves_heading_pages(self):
+        headings = runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))['ooze_headings']
+        rows = headings({338:'Gray Ooze Medium ooze, unaligned. A Black Pudding is mentioned in prose.',337:'Black Pudding Large ooze, unaligned. Gelatinous Cube Large ooze, unaligned.'})
+        self.assertEqual([row['nameEn'] for row in rows], ['Black Pudding','Gelatinous Cube','Gray Ooze'])
+        self.assertEqual([row['page'] for row in rows], [337,337,338])
+        self.assertEqual(rows[1]['id'], 'srd51:2014:monster:gelatinous-cube')
+
+    def test_ooze_coverage_rejects_missing_duplicate_wrong_page_or_type(self):
+        import copy
+        module = runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        check = module['check_ooze_coverage']
+        pages={337:'Black Pudding Large ooze, unaligned.'}
+        row={'id':'srd51:2014:monster:black-pudding','nameEn':'Black Pudding','pages':[337]}
+        manifest={'sourceSha256':module['SHA256'],'expectedSubsetCount':1,'entries':[row]}
+        card={'id':row['id'],'name':{'en':row['nameEn']},'monster':{'type':'ooze'},'source':{'url':'https://source.invalid/#page=337'}}
+        self.assertEqual(check(pages,manifest,[card]),1)
+        for cards in [[],[card,card],[{**card,'monster':{'type':'beast'}}],[{**card,'source':{'url':'https://source.invalid/#page=338'}}]]:
+            with self.assertRaises(ValueError):check(pages,manifest,cards)
+        for mutate in [lambda m:m.update(expectedSubsetCount=0),lambda m:m.update(entries=[]),lambda m:m['entries'][0].update(pages=[338]),lambda m:m.update(sourceSha256='changed')]:
+            invalid=copy.deepcopy(manifest);mutate(invalid)
+            with self.assertRaises(ValueError):check(pages,invalid,[card])
+
     def test_familiar_forms_preserve_aliases_and_reject_missing_or_duplicate_names(self):
         headings = runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))['familiar_headings']
         text = 'animal form you choose: bat, cat, crab, frog (toad), hawk, lizard, octopus, owl, poisonous snake, fish (quipper), rat, raven, sea horse, spider, or weasel. Appearing'

@@ -179,7 +179,7 @@ export function createCatalog(db, { visible } = {}) {
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
   function search(params = new URLSearchParams()) {
-    for (const key of params.keys()) if (!['q', 'scope', 'kind', 'level', 'school', 'ritual', 'concentration', 'challenge', 'monsterType', 'size', 'rarity', 'itemType', 'attunement', 'mechanicCategory', 'limit', 'offset'].includes(key) || params.getAll(key).length !== 1) throw new AppError(400, 'Неизвестный или повторный фильтр');
+    for (const key of params.keys()) if (!['q', 'scope', 'kind', 'level', 'school', 'ritual', 'concentration', 'challenge', 'challengeMin', 'challengeMax', 'monsterType', 'size', 'rarity', 'itemType', 'attunement', 'mechanicCategory', 'limit', 'offset'].includes(key) || params.getAll(key).length !== 1) throw new AppError(400, 'Неизвестный или повторный фильтр');
     const q = (params.get('q') || '').trim().toLocaleLowerCase('ru');
     const kind = params.get('kind');
     const scope=params.get('scope')??'name';
@@ -191,6 +191,12 @@ export function createCatalog(db, { visible } = {}) {
     if(school!==null && (kind!=='spell' || !['abjuration','conjuration','divination','enchantment','evocation','illusion','necromancy','transmutation'].includes(school)))throw new AppError(400,'Неверная школа или категория');
     for(const flag of [ritual,concentration])if(flag!==null && (kind!=='spell' || !['true','false'].includes(flag)))throw new AppError(400,'Признаки заклинаний принимают true или false');
     if (challenge!==null && (kind!=='monster' || !['0','1/8','1/4','1/2',...Array.from({length:30},(_,i)=>String(i+1))].includes(challenge))) throw new AppError(400,'Неверный показатель опасности или категория');
+    const challengeMin=params.get('challengeMin'),challengeMax=params.get('challengeMax');
+    const challenges=['0','1/8','1/4','1/2',...Array.from({length:30},(_,i)=>String(i+1))];
+    const challengeNumber=value=>{const [n,d=1]=value.split('/').map(Number);return n/d;};
+    for(const bound of [challengeMin,challengeMax])if(bound!==null&&(kind!=='monster'||!challenges.includes(bound)))throw new AppError(400,'Неверная граница опасности или категория');
+    if(challenge!==null&&(challengeMin!==null||challengeMax!==null))throw new AppError(400,'Выбери точную опасность или диапазон');
+    if(challengeMin!==null&&challengeMax!==null&&challengeNumber(challengeMin)>challengeNumber(challengeMax))throw new AppError(400,'Минимальная опасность больше максимальной');
     const monsterType=params.get('monsterType'),size=params.get('size');
     if(monsterType!==null && (kind!=='monster' || !monsterTypes.includes(monsterType)))throw new AppError(400,'Неверный тип существа или категория');
     if(size!==null && (kind!=='monster' || !monsterSizes.includes(size)))throw new AppError(400,'Неверный размер существа или категория');
@@ -208,7 +214,7 @@ export function createCatalog(db, { visible } = {}) {
     };
     const limit = number('limit', 50, 100), offset = number('offset', 0, Number.MAX_SAFE_INTEGER);
     if (!limit) throw new AppError(400, 'Лимит должен быть больше нуля');
-    const matches = all().filter(entry => (!kind || entry.kind === kind) && (level===null || entry.spell?.level===Number(level)) && (school===null || entry.spell?.school===school) && (ritual===null || entry.spell?.ritual===(ritual==='true')) && (concentration===null || entry.spell?.concentration===(concentration==='true')) && (challenge===null || entry.monster?.challenge===challenge) && (monsterType===null || entry.monster?.type===monsterType) && (size===null || entry.monster?.size===size) && (rarity===null || entry.item?.rarity===rarity) && (itemType===null || entry.item?.type===itemType) && (attunement===null || entry.item?.attunement===(attunement==='true')) && (mechanicCategory===null || entry.mechanic?.category===mechanicCategory) && `${entry.name.ru} ${entry.name.en}${scope==='text'?' '+(entry.text||''):''}`.toLocaleLowerCase('ru').includes(q));
+    const matches = all().filter(entry => (!kind || entry.kind === kind) && (level===null || entry.spell?.level===Number(level)) && (school===null || entry.spell?.school===school) && (ritual===null || entry.spell?.ritual===(ritual==='true')) && (concentration===null || entry.spell?.concentration===(concentration==='true')) && (challenge===null || entry.monster?.challenge===challenge) && (challengeMin===null || entry.monster!==undefined&&challengeNumber(entry.monster.challenge)>=challengeNumber(challengeMin)) && (challengeMax===null || entry.monster!==undefined&&challengeNumber(entry.monster.challenge)<=challengeNumber(challengeMax)) && (monsterType===null || entry.monster?.type===monsterType) && (size===null || entry.monster?.size===size) && (rarity===null || entry.item?.rarity===rarity) && (itemType===null || entry.item?.type===itemType) && (attunement===null || entry.item?.attunement===(attunement==='true')) && (mechanicCategory===null || entry.mechanic?.category===mechanicCategory) && `${entry.name.ru} ${entry.name.en}${scope==='text'?' '+(entry.text||''):''}`.toLocaleLowerCase('ru').includes(q));
     return { entries: matches.slice(offset, offset + limit), total: matches.length, limit, offset };
   }
   function reviewedImport(request,apply=false) {

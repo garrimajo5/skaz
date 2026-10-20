@@ -7,18 +7,18 @@ function harness(protocol = 'http:') {
   const handlers = {}, requests = [], tasks = [], additions = [];
   const movement=[];
   const region = { innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
-  let dialog = '', isOpen=true;
+  let dialog = '', isOpen=true;const messages=[];
   const context = vm.createContext({
     location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
     queueMicrotask: task => tasks.push(task),
     fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
     document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='dialog'?{open:isOpen}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region, querySelector: () => null },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
-    render:()=>{}, modal: html => dialog = html, SkazStorage: { addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
+    toast:message=>messages.push(message),render:()=>{}, modal: html => dialog = html, SkazStorage: { addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
+  return { messages,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>isOpen=false, otherModal:()=>dialog='<h2>Other</h2>',
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
@@ -31,6 +31,13 @@ const settle = () => new Promise(resolve => setImmediate(resolve));
 function respond(request, payload) { request.resolve({ ok: true, json: async () => payload }); }
 const entry = { kind: 'mechanic', name: { ru: '<img src=x onerror=alert(1)>', en: 'Test' }, source: { title: 'Fixture', usage: 'personal', url: 'javascript:alert(1)', version: '1', terms: '<script>unsafe</script>' }, text: '<b>plain text</b>' };
 const coverage = { total: 1, referenceOnly: 0, personal: 1 };
+
+test('challenge range draft survives rendering and paging, clears on category change and rejects reversed bounds before fetch',async()=>{
+ const h=harness();h.changeKind('monster');h.draft('challengeMin','1/8');h.draft('challengeMax','2');assert.match(h.view(),/name="challengeMin"/);assert.match(h.view(),/name="challengeMax"/);assert.match(h.view(),/value="1\/8" selected/);assert.match(h.view(),/value="2" selected/);
+ h.submit('',{kind:'monster',challengeMin:'1/8',challengeMax:'2',monsterType:'beast'});let params=new URL(h.requests[0].url,'http://local').searchParams;assert.equal(params.get('challengeMin'),'1/8');assert.equal(params.get('challengeMax'),'2');assert.equal(params.has('challenge'),false);respond(h.requests[0],{entries:[entry],total:21});respond(h.requests[1],coverage);await settle();h.click('catalog-next');params=new URL(h.requests[2].url,'http://local').searchParams;assert.equal(params.get('challengeMax'),'2');assert.equal(params.get('offset'),'20');
+ h.draft('challengeMin','2');h.draft('challengeMax','1/4');const count=h.requests.length;h.submit('',{kind:'monster',challengeMin:'2',challengeMax:'1/4'});assert.equal(h.requests.length,count);assert.match(h.messages.at(-1),/не больше/);assert.match(h.view(),/value="1\/4" selected/);
+ h.changeKind('spell');assert.doesNotMatch(h.view(),/name="challengeMin"|name="challengeMax"/);h.submit('',{kind:'spell',level:'0',challengeMax:'2'});assert.doesNotMatch(h.requests[count].url,/challenge/);h.click('catalog-reset');assert.doesNotMatch(h.view(),/name="challengeMin"|name="challengeMax"/);
+});
 
 test('catalog cards expose useful safe summaries without opening a dialog or applying effects',async()=>{
  const h=harness();h.submit('');
@@ -163,7 +170,7 @@ test('structured search preserves filters across cards and paging, resets page o
  const h=harness();h.submit('test',{kind:'spell',level:'0'});assert.match(h.requests[0].url,/level=0/);
  respond(h.requests[0],{entries:[{...entry,kind:'spell',id:'test:zero'}],total:25});respond(h.requests[1],coverage);await settle();
  h.detail();assert.match(h.view(),/value="0" selected/);h.click('catalog-next');assert.match(h.requests[2].url,/offset=20/);assert.match(h.requests[2].url,/level=0/);
- h.submit('',{kind:'monster',challenge:'1/4',level:'0'});assert.match(h.requests[4].url,/offset=0/);assert.match(h.requests[4].url,/challenge=1%2F4/);assert.doesNotMatch(h.requests[4].url,/level=/);
+ h.submit('',{kind:'monster',challengeMin:'1/4',level:'0'});assert.match(h.requests[4].url,/offset=0/);assert.match(h.requests[4].url,/challengeMin=1%2F4/);assert.doesNotMatch(h.requests[4].url,/level=/);
  h.click('catalog-reset');assert.doesNotMatch(h.requests[6].url,/kind=|level=|challenge=|rarity=/);assert.match(h.requests[6].url,/offset=0/);
 });
 test('category change exposes only applicable control without applying or losing draft search',()=>{
@@ -171,10 +178,10 @@ test('category change exposes only applicable control without applying or losing
 });
 
 test('monster type and size drafts survive rerender, apply together and clear when leaving bestiary',async()=>{
- const h=harness();h.changeKind('monster');h.draft('monsterType','beast');h.draft('size','medium');h.draft('challenge','1/8');
+ const h=harness();h.changeKind('monster');h.draft('monsterType','beast');h.draft('size','medium');h.draft('challengeMin','1/8');
  assert.match(h.view(),/value="beast" selected/);assert.match(h.view(),/value="medium" selected/);assert.equal(h.requests.length,0);
- h.submit('',{kind:'monster',monsterType:'beast',size:'medium',challenge:'1/8',school:'illusion'});
- const query=new URL(h.requests[0].url,'http://localhost').searchParams;assert.equal(query.get('monsterType'),'beast');assert.equal(query.get('size'),'medium');assert.equal(query.get('challenge'),'1/8');assert.equal(query.has('school'),false);
+ h.submit('',{kind:'monster',monsterType:'beast',size:'medium',challengeMin:'1/8',school:'illusion'});
+ const query=new URL(h.requests[0].url,'http://localhost').searchParams;assert.equal(query.get('monsterType'),'beast');assert.equal(query.get('size'),'medium');assert.equal(query.get('challengeMin'),'1/8');assert.equal(query.has('school'),false);
  respond(h.requests[0],{entries:[entry],total:21});respond(h.requests[1],coverage);await settle();h.click('catalog-next');assert.match(h.requests[2].url,/monsterType=beast/);assert.match(h.requests[2].url,/size=medium/);assert.match(h.requests[2].url,/offset=20/);
  h.changeKind('spell');assert.doesNotMatch(h.view(),/name="monsterType"|name="size"/);h.submit('',{kind:'spell',monsterType:'beast',size:'medium'});assert.doesNotMatch(h.requests[4].url,/monsterType=|size=/);
  h.click('catalog-reset');h.changeKind('monster');assert.doesNotMatch(h.view(),/value="beast" selected|value="medium" selected/);
@@ -203,7 +210,7 @@ test('unfinished catalog filters survive a theme rerender without searching or l
  const h=harness();h.submit('saved',{kind:'spell',level:'1'});respond(h.requests[0],{entries:[entry],total:1});respond(h.requests[1],coverage);await settle();
  h.draft('q','<draft>');h.draft('school','illusion');h.draft('concentration','false');assert.match(h.view(),/value="&lt;draft&gt;"/);assert.match(h.view(),/value="illusion" selected/);assert.match(h.view(),/value="false" selected/);assert.equal(h.requests.length,2);
  h.changeKind('monster');assert.match(h.view(),/value="monster" selected/);assert.match(h.view(),/value="&lt;draft&gt;"/);assert.doesNotMatch(h.view(),/name="school"|name="concentration"/);
- h.draft('challenge','1/4');assert.match(h.view(),/value="1\/4" selected/);h.click('catalog-reset');assert.doesNotMatch(h.view(),/draft|value="monster" selected|name="challenge"/);
+ h.draft('challengeMin','1/4');assert.match(h.view(),/value="1\/4" selected/);h.click('catalog-reset');assert.doesNotMatch(h.view(),/draft|value="monster" selected|name="challengeMin"/);
 });
 
 test('structured cards show useful values, negative modifiers and escape imported fields',async()=>{

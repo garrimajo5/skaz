@@ -9,18 +9,18 @@ const SkazCatalog = (() => {
   const monsterSizes={tiny:'Крошечный',small:'Маленький',medium:'Средний',large:'Большой',huge:'Огромный',gargantuan:'Громадный'};
   const itemTypes={armor:'Доспех',potion:'Зелье',ring:'Кольцо',rod:'Жезл',scroll:'Свиток',staff:'Посох',wand:'Волшебная палочка',weapon:'Оружие',wondrous:'Чудесный предмет'};
   const mechanicCategories={condition:'Состояния',spellcasting:'Накладывание заклинаний',combat:'Бой',rest:'Отдых',equipment:'Магические предметы',exploration:'Исследование и среда'};
-  const extraKeys={spell:['school','ritual','concentration'],monster:['monsterType','size'],item:['itemType','attunement']};
-  const filterKeys={spell:'level',monster:'challenge',item:'rarity',mechanic:'mechanicCategory'};
+  const extraKeys={spell:['school','ritual','concentration'],monster:['challengeMax','monsterType','size'],item:['itemType','attunement']};
+  const filterKeys={spell:'level',monster:'challengeMin',item:'rarity',mechanic:'mechanicCategory'};
   const rarityLabels={common:'Обычный',uncommon:'Необычный',rare:'Редкий','very-rare':'Очень редкий',legendary:'Легендарный',varies:'Разная редкость'};
   function filterControl(category,value='',extra={}) {
     const key=filterKeys[category];if(!key)return '';
-    const label={spell:'Уровень заклинания',monster:'Опасность существа',item:'Редкость предмета',mechanic:'Раздел механик'}[category];
+    const label={spell:'Уровень заклинания',monster:'Опасность от',item:'Редкость предмета',mechanic:'Раздел механик'}[category];
     const options=category==='spell'?Array.from({length:10},(_,i)=>[String(i),i===0?'Заговор':i+' уровень']):category==='monster'?['0','1/8','1/4','1/2',...Array.from({length:30},(_,i)=>String(i+1))].map(v=>[v,v]):category==='mechanic'?Object.entries(mechanicCategories):Object.entries(rarityLabels);
     const select=(name,label,choices,current)=>`<label>${label}<select name="${name}"><option value="">Все</option>${choices.map(([v,text])=>`<option value="${v}" ${current===v?'selected':''}>${text}</option>`).join('')}</select></label>`;
     const spells=category==='spell'?select('school','Школа',Object.entries(schools),extra.school)+select('ritual','Ритуальное накладывание',[['true','Есть'],['false','Нет']],extra.ritual)+select('concentration','Концентрация',[['true','Нужна'],['false','Не нужна']],extra.concentration):'';
-    const monsters=category==='monster'?select('monsterType','Тип существа',Object.entries(monsterTypes),extra.monsterType)+select('size','Размер',Object.entries(monsterSizes),extra.size):'';
+    const monsters=category==='monster'?select('challengeMax','Опасность до',options,extra.challengeMax)+select('monsterType','Тип существа',Object.entries(monsterTypes),extra.monsterType)+select('size','Размер',Object.entries(monsterSizes),extra.size):'';
     const items=category==='item'?select('itemType','Тип предмета',Object.entries(itemTypes),extra.itemType)+select('attunement','Настройка',[['true','Требуется'],['false','Не требуется']],extra.attunement):'';
-    return select(key,label,options,value)+spells+monsters+items+'<p>При выборе характеристики записи без неё не показываются.</p>';
+    return select(key,label,options,value)+spells+monsters+items+(category==='monster'?'<p>Для точного значения выбери одинаковые границы. Пустая — без ограничения. Сложность боя не рассчитывается.</p>':'<p>При выборе характеристики записи без неё не показываются.</p>');
   }
 
   let detailSerial=0, currentEntry=null, trail=[], returnToInventory=false, referenceReturn=null;
@@ -212,15 +212,17 @@ const SkazCatalog = (() => {
     if(event.target.id==='spell-inventory-search'){event.preventDefault();const fields=new FormData(event.target);inventoryQuery=String(fields.get('q')).trim();inventoryStatus=String(fields.get('status'));inventoryLevel=String(fields.get('level')||'');inventoryOffset=0;if(inventoryData)paintInventory();return;}
     if (event.target.id !== 'catalog-search') return;
     event.preventDefault();
-    searchDraft=null;
-    const data = new FormData(event.target); query = String(data.get('q')).trim(); searchScope=data.get('scope')==='text'?'text':'name'; kind = String(data.get('kind')); detailFilter=filterKeys[kind]?String(data.get(filterKeys[kind])||''):''; extraFilters=Object.fromEntries((extraKeys[kind]||[]).map(key=>[key,String(data.get(key)||'')])); offset = 0; load();
+    const data = new FormData(event.target);
+    const rank=value=>{const [n,d=1]=String(value).split('/').map(Number);return n/d;};
+    if(data.get('kind')==='monster'&&data.get('challengeMin')&&data.get('challengeMax')&&rank(data.get('challengeMin'))>rank(data.get('challengeMax')))return toast('Опасность «от» должна быть не больше «до». Исправь границы.');
+    searchDraft=null; query = String(data.get('q')).trim(); searchScope=data.get('scope')==='text'?'text':'name'; kind = String(data.get('kind')); detailFilter=filterKeys[kind]?String(data.get(filterKeys[kind])||''):''; extraFilters=Object.fromEntries((extraKeys[kind]||[]).map(key=>[key,String(data.get(key)||'')])); offset = 0; load();
   });
   function rememberSearch(event){
     const field=event.target;
-    if(field.form?.id!=='catalog-search'||!['q','scope','kind','level','school','ritual','concentration','challenge','monsterType','size','rarity','itemType','attunement','mechanicCategory'].includes(field.name))return;
+    if(field.form?.id!=='catalog-search'||!['q','scope','kind','level','school','ritual','concentration','challengeMin','challengeMax','monsterType','size','rarity','itemType','attunement','mechanicCategory'].includes(field.name))return;
     searchDraft={...(searchDraft||{q:query,scope:searchScope,kind,[filterKeys[kind]]:detailFilter,...extraFilters}),[field.name]:field.value};
     if(field.name==='kind'){
-      for(const key of ['level','school','ritual','concentration','challenge','monsterType','size','rarity','itemType','attunement','mechanicCategory'])delete searchDraft[key];
+      for(const key of ['level','school','ritual','concentration','challengeMin','challengeMax','monsterType','size','rarity','itemType','attunement','mechanicCategory'])delete searchDraft[key];
       const region=document.getElementById('catalog-specific');if(region)region.innerHTML=filterControl(field.value);
     }
   }

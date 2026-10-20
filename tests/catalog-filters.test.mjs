@@ -5,6 +5,21 @@ import {createApp} from '../server/app.mjs';
 import {readFileSync} from 'node:fs';
 const read=name=>JSON.parse(readFileSync(new URL('../catalog/'+name+'.json',import.meta.url),'utf8'));
 function setup(){const store=openStore(':memory:');for(const file of ['srd51-spells','srd51-items','srd51-monsters'])store.catalog.importEntries(read(file),{apply:true});return store;}
+
+test('challenge ranges compare fractions numerically, include boundaries and exclude unknown statistics',()=>{
+ const s=openStore(':memory:');try{
+ const base=read('srd51-monsters').entries[0],values=['0','1/8','1/4','1/2','2','10'];const entries=values.map((cr,i)=>({...structuredClone(base),id:'range:monster:'+i,name:{ru:'Диапазон '+i,en:'Range '+i},monster:{...base.monster,challenge:cr}}));const unknown={...structuredClone(base),id:'range:unknown'};delete unknown.monster;s.catalog.importEntries({schemaVersion:1,entries:[...entries,unknown]},{apply:true});const before=s.read(),search=q=>s.catalog.search(new URLSearchParams('kind=monster&'+q));
+ assert.deepEqual(search('challengeMin=1%2F8&challengeMax=1%2F2').entries.map(e=>e.monster.challenge),['1/8','1/4','1/2']);assert.deepEqual(search('challengeMin=0&challengeMax=0').entries.map(e=>e.monster.challenge),['0']);assert.deepEqual(search('challengeMax=2').entries.map(e=>e.monster.challenge),['0','1/8','1/4','1/2','2']);assert.equal(search('challengeMin=1%2F2').total,3);assert.equal(search('challenge=1%2F4').total,1);
+ const page=search('challengeMin=1%2F8&challengeMax=2&limit=1&offset=1');assert.equal(page.total,4);assert.equal(page.entries[0].monster.challenge,'1/4');assert.deepEqual(s.read(),before);assert.deepEqual(s.history(),[]);
+ for(const q of ['challengeMin=1/2&challengeMax=1/4','challenge=1&challengeMax=2','challenge=0&challengeMin=0','challengeMin=','challengeMax=0.25','challengeMin=01','challengeMax=31','challengeMin=1/3','challengeMax=NaN','challengeMin=1e1','challengeMin=1&challengeMin=2'])assert.throws(()=>search(q),{status:400},q);
+ for(const q of ['challengeMin=0','kind=spell&challengeMax=2','kind=item&challengeMin=1/8'])assert.throws(()=>s.catalog.search(new URLSearchParams(q)),{status:400},q);
+ }finally{s.close();}
+});
+
+test('HTTP challenge bounds combine with type, size and text without changing progress',async t=>{
+ const s=openStore(':memory:'),preview=s.catalog.previewBundled();s.catalog.installBundled({version:preview.version});const before=s.read(),app=createApp(s);await new Promise(r=>app.listen(0,'127.0.0.1',r));t.after(async()=>{await new Promise(r=>app.close(r));s.close();});const base='http://127.0.0.1:'+app.address().port+'/api/catalog';
+ const result=await fetch(base+'?kind=monster&monsterType=ooze&size=large&challengeMin=2&challengeMax=4').then(r=>r.json());assert.deepEqual(result.entries.map(e=>e.name.en).sort(),['Black Pudding','Gelatinous Cube','Ochre Jelly']);assert.equal((await fetch(base+'?kind=monster&challengeMin=2&challengeMax=1')).status,400);assert.equal((await fetch(base+'?kind=monster&challengeMax=4',{headers:{Origin:'https://foreign.invalid'}})).status,403);assert.deepEqual(s.read(),before);
+});
 test('structured filters combine with bilingual name, category and pagination, exclude missing metadata',()=>{
  const s=setup();try{
  const base=read('srd51-spells').entries[0];const zero={...structuredClone(base),id:'test:cantrip',name:{ru:'Тестовый заговор',en:'Test cantrip'}};zero.spell.level=0;

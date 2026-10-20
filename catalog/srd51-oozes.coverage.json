@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Four named oozes in the Oozes section of SRD 5.1 pages 337–339; three supplied here, Gelatinous Cube supplied by dungeon-crawlers",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 4,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:black-pudding",
+      "nameEn": "Black Pudding",
+      "pages": [
+        337
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:gelatinous-cube",
+      "nameEn": "Gelatinous Cube",
+      "pages": [
+        337,
+        338
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:gray-ooze",
+      "nameEn": "Gray Ooze",
+      "pages": [
+        338
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:ochre-jelly",
+      "nameEn": "Ochre Jelly",
+      "pages": [
+        338,
+        339
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "All four headings of this selected SRD section were visually reviewed; other creatures and other books are not counted.",
+    "Authored summaries, not official translations or automatic combat rules.",
+    "Conditional damage immunities, split reactions and equipment corrosion require manual resolution."
+  ]
+}
