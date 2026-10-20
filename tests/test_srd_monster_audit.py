@@ -10,6 +10,61 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_shapechanger_medium_humanoid_prose_is_not_a_new_statblock_before_melee_actions(self):
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        action=' Claw (Fiend Form Only). Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage.'
+        text=BASE+' Shapechanger. It becomes a Small or Medium humanoid, or its true form. Actions'+action
+        self.assertEqual(m['melee_weapon_attack'](text,'Beast','Claw (Fiend Form Only)')['averageDamage'],6)
+        with self.assertRaises(ValueError):m['melee_weapon_attack'](BASE+' Actions '+BASE.replace('Beast Large','Neighbor Large')+action,'Beast','Claw (Fiend Form Only)')
+
+    def test_melee_attack_source_fields_reject_changed_bonus_reach_dice_and_wrong_block(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        action=' Fist. Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) bludgeoning damage.'
+        text=BASE+' Actions'+action
+        attack=m['melee_weapon_attack'](text,'Beast','Fist')
+        self.assertEqual(attack,{'nameEn':'Fist','attackBonus':9,'reach':5,'averageDamage':7,'damageDice':'2d4 + 2','damageType':'bludgeoning'})
+        manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:beast','nameEn':'Beast','pages':[300]}],'weaponAttackChecks':[{'monsterId':'source:beast','nameEn':'Beast','attacks':[attack]}]}
+        card={'id':'source:beast','text':'Кулак: 7 (2d4 + 2) дробящего.'}
+        self.assertEqual(m['check_melee_weapon_inventory']({300:text},manifest,[card]),1)
+        for key,value in [('attackBonus',8),('reach',10),('averageDamage',8),('damageDice','2d6 + 2'),('damageType','slashing')]:
+            wrong=copy.deepcopy(manifest);wrong['weaponAttackChecks'][0]['attacks'][0][key]=value
+            with self.assertRaises(ValueError):m['check_melee_weapon_inventory']({300:text},wrong,[card])
+        wrong=copy.deepcopy(manifest);wrong['weaponAttackChecks'][0]['attacks']*=2
+        with self.assertRaises(ValueError):m['check_melee_weapon_inventory']({300:text},wrong,[card])
+        with self.assertRaises(ValueError):m['check_melee_weapon_inventory']({300:text},manifest,[{**card,'text':'Wrong damage 9 (2d6 + 2)'}])
+        for changed in [BASE+BASE.replace('Beast Large','Neighbor Large')+action,text+action,text.replace('Melee Weapon','Ranged Spell')]:
+            with self.assertRaises(ValueError):m['melee_weapon_attack'](changed,'Beast','Fist')
+
+    def test_dragon_headings_keep_age_colour_wyrmlings_and_outside_section_species(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        pages={280:'Black Dragon Ancient Black Dragon Gargantuan dragon.',281:'Adult Black Dragon Huge dragon. Young Black Dragon Large dragon.',282:'Black Dragon Wyrmling Medium dragon.',303:'Dragon Turtle Gargantuan dragon.',340:'Pseudodragon Tiny dragon.',356:'Wyvern Large dragon. Half-Red Dragon Veteran Medium humanoid.'}
+        rows=m['dragon_headings'](pages)
+        self.assertEqual([r['nameEn'] for r in rows],['Ancient Black Dragon','Adult Black Dragon','Young Black Dragon','Black Dragon Wyrmling','Dragon Turtle','Pseudodragon','Wyvern'])
+        self.assertEqual(rows[0]['id'],'srd51:2014:monster:ancient-black-dragon')
+        manifest={'ruleset':'5e-2014','sourceSha256':m['SHA256'],'sourcePageRange':[254,394],'sections':[{'monsterType':'dragon','expectedCount':7,'entries':rows}]}
+        self.assertEqual(m['check_type_inventory'](pages,manifest,[],('dragon',),True),{'dragon':{'expected':7,'prepared':0}})
+        wrong=copy.deepcopy(manifest);wrong['sections'][0]['entries'][0]['page']=281
+        with self.assertRaises(ValueError):m['check_type_inventory'](pages,wrong,[],('dragon',),True)
+        with self.assertRaises(ValueError):m['dragon_headings']({300:'Strange-Dragon Huge dragon.'})
+
+    def test_innate_intelligence_is_read_from_source_not_inferred_from_charisma(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        text=BASE+" Innate Spellcasting. Its spellcasting ability is Intelligence (spell save DC 16). It can innately cast the following spells, requiring no material components: At will: darkness 1/day each: fly Magic Resistance."
+        value=m['innate_spellcasting'](text,'Beast')
+        self.assertEqual(value['ability'],'int');self.assertEqual(value['saveDC'],16)
+        manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:beast','pages':[271]}],'innateSpellcastingChecks':[{'monsterId':'source:beast','nameEn':'Beast',**value}]}
+        spells=[{'id':'srd51:2014:spell:'+s,'name':{'en':s}} for s in ['darkness','fly']]
+        card={'id':'source:beast','links':[s['id'] for s in spells],'text':'Врождённая магия: Интеллект, Сл 16, без материальных компонентов. Без ограничений — darkness; 1 раз в день каждое — fly.'}
+        self.assertEqual(m['check_innate_spellcasting_inventory']({271:text},manifest,[card],spells),{'Beast':2})
+        for changed in [card['text'].replace('Интеллект','Харизма'),card['text'].replace('Сл 16','Сл 15')]:
+            with self.assertRaises(ValueError):m['check_innate_spellcasting_inventory']({271:text},manifest,[{**card,'text':changed}],spells)
+        wrong=copy.deepcopy(manifest);wrong['innateSpellcastingChecks'][0]['ability']='cha'
+        with self.assertRaises(ValueError):m['check_innate_spellcasting_inventory']({271:text},wrong,[card],spells)
+        with self.assertRaises(ValueError):m['innate_spellcasting'](text.replace('Intelligence','Wisdom'),'Beast')
+
     def test_selected_pack_source_identity_pages_counts_duplicates_and_statistics_are_independent(self):
         import copy
         m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
@@ -222,7 +277,7 @@ class MonsterAuditTests(unittest.TestCase):
         self.assertEqual([row['nameEn'] for row in plants], ['Shrieker','Violet Fungus'])
         self.assertEqual(plants[0]['id'], 'srd51:2014:monster:shrieker')
         self.assertEqual(module['type_headings'](pages, 'fiend')[0]['nameEn'], 'Night Hag')
-        with self.assertRaises(ValueError): module['type_headings'](pages, 'dragon')
+        with self.assertRaises(ValueError): module['type_headings'](pages, 'beast')
 
     def test_typed_inventory_rejects_missing_duplicate_wrong_type_page_or_source(self):
         import copy

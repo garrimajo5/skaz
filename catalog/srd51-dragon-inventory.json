@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Dragon-type headings in pinned SRD 5.1 pages 254–394; not all D&D dragons",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "sourcePageRange": [
+    254,
+    394
+  ],
+  "sections": [
+    {
+      "monsterType": "dragon",
+      "expectedCount": 43,
+      "entries": [
+        {
+          "id": "srd51:2014:monster:ancient-black-dragon",
+          "nameEn": "Ancient Black Dragon",
+          "page": 280
+        },
+        {
+          "id": "srd51:2014:monster:adult-black-dragon",
+          "nameEn": "Adult Black Dragon",
+          "page": 281
+        },
+        {
+          "id": "srd51:2014:monster:young-black-dragon",
+          "nameEn": "Young Black Dragon",
+          "page": 281
+        },
+        {
+          "id": "srd51:2014:monster:black-dragon-wyrmling",
+          "nameEn": "Black Dragon Wyrmling",
+          "page": 282
+        },
+        {
+          "id": "srd51:2014:monster:ancient-blue-dragon",
+          "nameEn": "Ancient Blue Dragon",
+          "page": 282
+        },
+        {
+          "id": "srd51:2014:monster:adult-blue-dragon",
+          "nameEn": "Adult Blue Dragon",
+          "page": 283
+        },
+        {
+          "id": "srd51:2014:monster:young-blue-dragon",
+          "nameEn": "Young Blue Dragon",
+          "page": 283
+        },
+        {
+          "id": "srd51:2014:monster:blue-dragon-wyrmling",
+          "nameEn": "Blue Dragon Wyrmling",
+          "page": 284
+        },
+        {
+          "id": "srd51:2014:monster:ancient-green-dragon",
+          "nameEn": "Ancient Green Dragon",
+          "page": 284
+        },
+        {
+          "id": "srd51:2014:monster:adult-green-dragon",
+          "nameEn": "Adult Green Dragon",
+          "page": 285
+        },
+        {
+          "id": "srd51:2014:monster:young-green-dragon",
+          "nameEn": "Young Green Dragon",
+          "page": 285
+        },
+        {
+          "id": "srd51:2014:monster:green-dragon-wyrmling",
+          "nameEn": "Green Dragon Wyrmling",
+          "page": 286
+        },
+        {
+          "id": "srd51:2014:monster:ancient-red-dragon",
+          "nameEn": "Ancient Red Dragon",
+          "page": 286
+        },
+        {
+          "id": "srd51:2014:monster:adult-red-dragon",
+          "nameEn": "Adult Red Dragon",
+          "page": 287
+        },
+        {
+          "id": "srd51:2014:monster:young-red-dragon",
+          "nameEn": "Young Red Dragon",
+          "page": 288
+        },
+        {
+          "id": "srd51:2014:monster:red-dragon-wyrmling",
+          "nameEn": "Red Dragon Wyrmling",
+          "page": 288
+        },
+        {
+          "id": "srd51:2014:monster:ancient-white-dragon",
+          "nameEn": "Ancient White Dragon",
+          "page": 288
+        },
+        {
+          "id": "srd51:2014:monster:adult-white-dragon",
+          "nameEn": "Adult White Dragon",
+          "page": 289
+        },
+        {
+          "id": "srd51:2014:monster:young-white-dragon",
+          "nameEn": "Young White Dragon",
+          "page": 290
+        },
+        {
+          "id": "srd51:2014:monster:white-dragon-wyrmling",
+          "nameEn": "White Dragon Wyrmling",
+          "page": 290
+        },
+        {
+          "id": "srd51:2014:monster:ancient-brass-dragon",
+          "nameEn": "Ancient Brass Dragon",
+          "page": 290
+        },
+        {
+          "id": "srd51:2014:monster:adult-brass-dragon",
+          "nameEn": "Adult Brass Dragon",
+          "page": 291
+        },
+        {
+          "id": "srd51:2014:monster:young-brass-dragon",
+          "nameEn": "Young Brass Dragon",
+          "page": 292
+        },
+        {
+          "id": "srd51:2014:monster:brass-dragon-wyrmling",
+          "nameEn": "Brass Dragon Wyrmling",
+          "page": 292
+        },
+        {
+          "id": "srd51:2014:monster:ancient-bronze-dragon",
+          "nameEn": "Ancient Bronze Dragon",
+          "page": 293
+        },
+        {
+          "id": "srd51:2014:monster:adult-bronze-dragon",
+          "nameEn": "Adult Bronze Dragon",
+          "page": 294
+        },
+        {
+          "id": "srd51:2014:monster:young-bronze-dragon",
+          "nameEn": "Young Bronze Dragon",
+          "page": 295
+        },
+        {
+          "id": "srd51:2014:monster:bronze-dragon-wyrmling",
+          "nameEn": "Bronze Dragon Wyrmling",
+          "page": 295
+        },
+        {
+          "id": "srd51:2014:monster:ancient-copper-dragon",
+          "nameEn": "Ancient Copper Dragon",
+          "page": 295
+        },
+        {
+          "id": "srd51:2014:monster:adult-copper-dragon",
+          "nameEn": "Adult Copper Dragon",
+          "page": 296
+        },
+        {
+          "id": "srd51:2014:monster:young-copper-dragon",
+          "nameEn": "Young Copper Dragon",
+          "page": 297
+        },
+        {
+          "id": "srd51:2014:monster:copper-dragon-wyrmling",
+          "nameEn": "Copper Dragon Wyrmling",
+          "page": 298
+        },
+        {
+          "id": "srd51:2014:monster:ancient-gold-dragon",
+          "nameEn": "Ancient Gold Dragon",
+          "page": 298
+        },
+        {
+          "id": "srd51:2014:monster:adult-gold-dragon",
+          "nameEn": "Adult Gold Dragon",
+          "page": 299
+        },
+        {
+          "id": "srd51:2014:monster:young-gold-dragon",
+          "nameEn": "Young Gold Dragon",
+          "page": 300
+        },
+        {
+          "id": "srd51:2014:monster:gold-dragon-wyrmling",
+          "nameEn": "Gold Dragon Wyrmling",
+          "page": 300
+        },
+        {
+          "id": "srd51:2014:monster:ancient-silver-dragon",
+          "nameEn": "Ancient Silver Dragon",
+          "page": 301
+        },
+        {
+          "id": "srd51:2014:monster:adult-silver-dragon",
+          "nameEn": "Adult Silver Dragon",
+          "page": 302
+        },
+        {
+          "id": "srd51:2014:monster:young-silver-dragon",
+          "nameEn": "Young Silver Dragon",
+          "page": 303
+        },
+        {
+          "id": "srd51:2014:monster:silver-dragon-wyrmling",
+          "nameEn": "Silver Dragon Wyrmling",
+          "page": 303
+        },
+        {
+          "id": "srd51:2014:monster:dragon-turtle",
+          "nameEn": "Dragon Turtle",
+          "page": 303
+        },
+        {
+          "id": "srd51:2014:monster:pseudodragon",
+          "nameEn": "Pseudodragon",
+          "page": 340
+        },
+        {
+          "id": "srd51:2014:monster:wyvern",
+          "nameEn": "Wyvern",
+          "page": 356
+        }
+      ]
+    }
+  ],
+  "completeGameCatalog": false
+}

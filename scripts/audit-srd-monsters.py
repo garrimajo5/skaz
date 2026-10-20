@@ -1,6 +1,6 @@
 """Read-only comparison of bundled monster statistics with the pinned SRD PDF.
 
-Checks base statistics and declared prepared/innate caster lists; other traits/actions remain manual.
+Checks base statistics, declared prepared/innate lists and selected primary melee attacks; other effects remain manual.
 Requires pypdf and the application's Node.js runtime.
 """
 import argparse
@@ -105,13 +105,13 @@ def innate_spellcasting(text,name):
     body=text[start.end():]
     next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',body)
     if next_block:body=body[:next_block.start()]
-    caster=re.search(r"spellcasting ability is Charisma(?: \(spell save DC (\d+)(?:, \+\d+ to hit with spell attacks)?\))?\..*?following spells, requiring (only verbal|no material) components: (.*?)(?: Magic Resistance\.| Magic Weapons\.| Regeneration\.| Actions)",body)
+    caster=re.search(r"spellcasting ability is (Charisma|Intelligence)(?: \(spell save DC (\d+)(?:, \+\d+ to hit with spell attacks)?\))?\..*?following spells, requiring (only verbal|no material) components: (.*?)(?: Magic Resistance\.| Magic Weapons\.| Regeneration\.| Actions)",body)
     if not caster:raise ValueError('Unsupported innate spellcasting block for '+name)
-    marks=list(re.finditer(r'At will:|([1-9])/day each:',caster[3]))
+    marks=list(re.finditer(r'At will:|([1-9])/day each:',caster[4]))
     if not marks or marks[0].start()!=0:raise ValueError('Unsupported innate frequency')
     groups=[]
     for i,mark in enumerate(marks):
-        names=caster[3][mark.end():marks[i+1].start() if i+1<len(marks) else len(caster[3])].strip().split(', ')
+        names=caster[4][mark.end():marks[i+1].start() if i+1<len(marks) else len(caster[4])].strip().split(', ')
         spells=[]
         for name_text in names:
             target='self' if name_text.endswith(' (self only)') else None
@@ -120,7 +120,7 @@ def innate_spellcasting(text,name):
             spells.append({'id':'srd51:2014:spell:'+name_text.replace(' ','-'),'target':target})
         groups.append({'usesPerDay':int(mark[1]) if mark[1] else None,'spells':spells})
     if len({g['usesPerDay'] for g in groups})!=len(groups):raise ValueError('Duplicate innate frequency')
-    return {'ability':'cha','saveDC':int(caster[1]) if caster[1] else None,'components':'verbal-only' if caster[2]=='only verbal' else 'no-material','groups':groups}
+    return {'ability':{'Charisma':'cha','Intelligence':'int'}[caster[1]],'saveDC':int(caster[2]) if caster[2] else None,'components':'verbal-only' if caster[3]=='only verbal' else 'no-material','groups':groups}
 
 
 def innate_spell_attack_bonus(text,name):
@@ -130,14 +130,14 @@ def innate_spell_attack_bonus(text,name):
     body=text[heading.end():]
     next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',body)
     if next_block:body=body[:next_block.start()]
-    found=re.search(r'spellcasting ability is Charisma \(spell save DC \d+, \+(\d+) to hit with spell attacks\)',body)
+    found=re.search(r'spellcasting ability is (?:Charisma|Intelligence) \(spell save DC \d+, \+(\d+) to hit with spell attacks\)',body)
     return int(found[1]) if found else None
 
 
 def authored_innate_spellcasting(text):
     """Compare this project's explicit RU frequency lists with the source, not inferred class math."""
     text=normalize(text)
-    header=re.search(r'Врождённая магия: Харизма(?:, Сл (\d+))?',text)
+    header=re.search(r'Врождённая магия: (Харизма|Интеллект)(?:, Сл (\d+))?',text)
     listing=re.search(r'Без ограничений — (.*?)(?:\.|$)',text)
     if not header or not listing:raise ValueError('Missing authored innate casting list')
     components='verbal-only' if 'только вербальные компоненты' in text.lower() else 'no-material' if 'без материальных компонентов' in text.lower() else None
@@ -153,7 +153,7 @@ def authored_innate_spellcasting(text):
             if not re.fullmatch(r'[a-z]+(?: [a-z]+)*',title):raise ValueError('Unsupported authored innate spell name')
             spells.append({'id':'srd51:2014:spell:'+title.replace(' ','-'),'target':target})
         groups.append({'usesPerDay':int(mark[1]) if mark[1] else None,'spells':spells})
-    return {'ability':'cha','saveDC':int(header[1]) if header[1] else None,'components':components,'groups':groups}
+    return {'ability':{'Харизма':'cha','Интеллект':'int'}[header[1]],'saveDC':int(header[2]) if header[2] else None,'components':components,'groups':groups}
 
 
 def check_innate_spellcasting_inventory(pages,manifest,cards,spells):
@@ -270,7 +270,22 @@ def fiend_headings(pages):
     return rows
 
 
+def dragon_headings(pages):
+    rows=[]
+    for page,text in sorted(pages.items()):
+        text=normalize(text)
+        found=list(re.finditer(r'(?<![A-Za-z/’–-])([A-Z][a-z]+(?: [A-Z][a-z]+){0,3}) (?:'+SIZES+r') dragon\b',text))
+        if len(found)!=len(re.findall(r'\b(?:'+SIZES+r') dragon\b',text)):
+            raise ValueError('Unsupported dragon heading')
+        for match in found:
+            name=match[1]
+            if name.startswith('Dragon Ancient '):name=name.removeprefix('Dragon ')
+            rows.append({'id':'srd51:2014:monster:'+name.lower().replace(' ','-'),'nameEn':name,'page':page})
+    return rows
+
+
 def type_headings(pages, kind):
+    if kind == 'dragon':return dragon_headings(pages)
     if kind == 'fiend':return fiend_headings(pages)
     if kind == 'construct':
         return animated_headings(pages)
@@ -337,6 +352,38 @@ def check_type_inventory(pages, manifest, cards, expected_types=('fey', 'plant')
     return result
 
 
+def melee_weapon_attack(text,creature,name):
+    text=normalize(text)
+    heading=re.search(re.escape(creature)+r'\s+(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',text)
+    if not heading:raise ValueError('Missing melee creature')
+    body=text[heading.end():]
+    next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b[^.]*? Armor Class \d+',body)
+    if next_block:body=body[:next_block.start()]
+    pattern=(r'(?<![a-zA-Z])'+re.escape(name)+r'\. Melee Weapon Attack: \+(\d+) to hit, reach (\d+) ft\., '
+             r'one (?:target|creature)\. Hit: (\d+) \((\d+d\d+(?: [+-] \d+)?)\) ([a-z]+) damage')
+    found=list(re.finditer(pattern,body))
+    if len(found)!=1:raise ValueError('Missing, duplicate or unsupported melee attack: '+creature+'/'+name)
+    match=found[0]
+    return {'nameEn':name,'attackBonus':int(match[1]),'reach':int(match[2]),'averageDamage':int(match[3]),'damageDice':match[4],'damageType':match[5]}
+
+
+def check_melee_weapon_inventory(pages,manifest,cards):
+    if manifest['sourceSha256']!=SHA256:raise ValueError('Wrong melee source')
+    count=0
+    for declared in manifest.get('weaponAttackChecks',[]):
+        row=next((r for r in manifest['entries'] if r['id']==declared['monsterId']),None)
+        card=next((c for c in cards if c['id']==declared['monsterId']),None)
+        if row is None or card is None or row['nameEn']!=declared['nameEn']:raise ValueError('Missing melee creature manifest')
+        attacks=declared['attacks']
+        if not attacks or len({a['nameEn'] for a in attacks})!=len(attacks):raise ValueError('Duplicate melee declaration')
+        for attack in attacks:
+            source=melee_weapon_attack(' '.join(pages[n] for n in row['pages']),declared['nameEn'],attack['nameEn'])
+            if source!=attack:raise ValueError('Melee source statistics differ')
+            if str(source['averageDamage'])+' ('+source['damageDice']+')' not in normalize(card['text']):raise ValueError('Melee damage missing in authored text')
+            count+=1
+    return count
+
+
 def check_selected_monster_manifest(pages,manifest,cards):
     """Audit a bounded source pack without treating its size as full type coverage."""
     rows=manifest['entries']
@@ -387,6 +434,8 @@ def main():
     type_counts.update(check_type_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)},aberration_inventory,cards,('aberration',)))
     fiend_inventory=json.loads((ROOT/'catalog/srd51-fiend-inventory.json').read_text(encoding='utf-8-sig'))
     type_counts.update(check_type_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)},fiend_inventory,cards,('fiend',),allow_missing=True))
+    dragon_inventory=json.loads((ROOT/'catalog/srd51-dragon-inventory.json').read_text(encoding='utf-8-sig'))
+    type_counts.update(check_type_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)},dragon_inventory,cards,('dragon',),allow_missing=True))
     animated_manifest = json.loads((ROOT / 'catalog/srd51-animated-objects.coverage.json').read_text(encoding='utf-8-sig'))
     animated_count = check_animated_coverage({p:reader.pages[p-1].extract_text() for p in [263,264]}, animated_manifest, cards)
     familiar = json.loads((ROOT / 'catalog/srd51-familiar-forms.coverage.json').read_text(encoding='utf-8-sig'))
@@ -416,11 +465,17 @@ def main():
     night_manifest=json.loads((ROOT/'catalog/srd51-night-fiends.coverage.json').read_text(encoding='utf-8-sig'))
     night_pages={n:reader.pages[n-1].extract_text() for row in night_manifest['entries'] for n in row['pages']}
     innate_counts.update(check_innate_spellcasting_inventory(night_pages,night_manifest,cards,spells))
+    for package in ['srd51-demon-casters','srd51-pit-fiend','srd51-fiend-intrigues']:
+        manifest=json.loads((ROOT/('catalog/'+package+'.coverage.json')).read_text(encoding='utf-8-sig'))
+        source_pages={n:reader.pages[n-1].extract_text() for row in manifest['entries'] for n in row['pages']}
+        innate_counts.update(check_innate_spellcasting_inventory(source_pages,manifest,cards,spells))
     selected_fiends=0
-    for package in ['srd51-night-fiends','srd51-lesser-fiends','srd51-devil-guards']:
+    melee_checked=0
+    for package in ['srd51-night-fiends','srd51-lesser-fiends','srd51-devil-guards','srd51-demon-casters','srd51-demon-horrors','srd51-demon-commanders','srd51-devil-enforcers','srd51-devil-warriors','srd51-pit-fiend','srd51-fiend-intrigues']:
         manifest=json.loads((ROOT/('catalog/'+package+'.coverage.json')).read_text(encoding='utf-8-sig'))
         source_pages={n:reader.pages[n-1].extract_text() for row in manifest['entries'] for n in row['pages']}
         selected_fiends+=check_selected_monster_manifest(source_pages,manifest,cards)
+        melee_checked+=check_melee_weapon_inventory(source_pages,manifest,cards)
     pages, failures = {}, []
     for card in cards:
         page = int(card['source']['url'].rsplit('#page=', 1)[1])
@@ -434,8 +489,8 @@ def main():
                 failures.append({'id': card['id'], 'fields': errors, 'source': expected})
         except ValueError as error:
             failures.append({'id': card['id'], 'error': str(error)})
-    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'typedHeadingsChecked': type_counts, 'animatedHeadingsChecked': animated_count, 'undeadHeadingsChecked':undead_count, 'preparedCasterSpellsChecked':caster_counts,'innateCasterSpellsChecked':innate_counts, 'selectedFiendCardsChecked':selected_fiends, 'failures': failures,
-                      'scope': 'Base statistics and declared prepared/innate spell lists; other actions/traits need manual source review.'}, ensure_ascii=False, indent=2))
+    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'typedHeadingsChecked': type_counts, 'animatedHeadingsChecked': animated_count, 'undeadHeadingsChecked':undead_count, 'preparedCasterSpellsChecked':caster_counts,'innateCasterSpellsChecked':innate_counts, 'selectedFiendCardsChecked':selected_fiends, 'meleeAttacksChecked':melee_checked, 'failures': failures,
+                      'scope': 'Base statistics, declared prepared/innate spell lists and selected primary melee attack fields; other effects need manual source review.'}, ensure_ascii=False, indent=2))
     if failures:
         raise SystemExit(1)
 

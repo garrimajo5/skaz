@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Selected Bone Devil, Chain Devil statblocks, not complete fiends",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 2,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:bone-devil",
+      "nameEn": "Bone Devil",
+      "pages": [
+        275
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:chain-devil",
+      "nameEn": "Chain Devil",
+      "pages": [
+        275,
+        276
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Bone Devil poison damage is on hit; the save only gates poisoned condition.",
+    "Animated chains are objects, not extra monster or inventory imports, and stop attacking while grappling.",
+    "Chain Devil mask consumes a reaction and lasts until end of target turn."
+  ],
+  "weaponAttackChecks": [
+    {
+      "monsterId": "srd51:2014:monster:bone-devil",
+      "nameEn": "Bone Devil",
+      "attacks": [
+        {
+          "nameEn": "Claw",
+          "attackBonus": 8,
+          "reach": 10,
+          "averageDamage": 8,
+          "damageDice": "1d8 + 4",
+          "damageType": "slashing"
+        },
+        {
+          "nameEn": "Sting",
+          "attackBonus": 8,
+          "reach": 10,
+          "averageDamage": 13,
+          "damageDice": "2d8 + 4",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:chain-devil",
+      "nameEn": "Chain Devil",
+      "attacks": [
+        {
+          "nameEn": "Chain",
+          "attackBonus": 8,
+          "reach": 10,
+          "averageDamage": 11,
+          "damageDice": "2d6 + 4",
+          "damageType": "slashing"
+        }
+      ]
+    }
+  ]
+}

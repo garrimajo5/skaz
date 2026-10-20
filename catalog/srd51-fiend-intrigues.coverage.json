@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Selected Rakshasa, Succubus/Incubus statblocks, not complete fiends",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 2,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:rakshasa",
+      "nameEn": "Rakshasa",
+      "pages": [
+        341
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:succubus-incubus",
+      "nameEn": "Succubus/Incubus",
+      "pages": [
+        349,
+        350
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Rakshasa vulnerability requires magic piercing weapon wielded by good creature.",
+    "Rakshasa limited immunity covers spells of level 6 or lower unless willing, not all magical effects.",
+    "Succubus/Incubus is one statblock; kiss requires own charm or willingness and HP maximum follows actual damage."
+  ],
+  "innateSpellcastingChecks": [
+    {
+      "monsterId": "srd51:2014:monster:rakshasa",
+      "nameEn": "Rakshasa",
+      "ability": "cha",
+      "saveDC": 18,
+      "spellAttackBonus": 10,
+      "components": "no-material",
+      "groups": [
+        {
+          "usesPerDay": null,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:detect-thoughts",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:disguise-self",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:mage-hand",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:minor-illusion",
+              "target": null
+            }
+          ]
+        },
+        {
+          "usesPerDay": 3,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:charm-person",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:detect-magic",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:invisibility",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:major-image",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:suggestion",
+              "target": null
+            }
+          ]
+        },
+        {
+          "usesPerDay": 1,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:dominate-person",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:fly",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:plane-shift",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:true-seeing",
+              "target": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "weaponAttackChecks": [
+    {
+      "monsterId": "srd51:2014:monster:rakshasa",
+      "nameEn": "Rakshasa",
+      "attacks": [
+        {
+          "nameEn": "Claw",
+          "attackBonus": 7,
+          "reach": 5,
+          "averageDamage": 9,
+          "damageDice": "2d6 + 2",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:succubus-incubus",
+      "nameEn": "Succubus/Incubus",
+      "attacks": [
+        {
+          "nameEn": "Claw (Fiend Form Only)",
+          "attackBonus": 5,
+          "reach": 5,
+          "averageDamage": 6,
+          "damageDice": "1d6 + 3",
+          "damageType": "slashing"
+        }
+      ]
+    }
+  ]
+}

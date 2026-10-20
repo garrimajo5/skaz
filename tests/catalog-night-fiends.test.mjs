@@ -29,10 +29,10 @@ test('personal night fiend conflict preserves local text and prevents partial bu
  const s=openStore(':memory:');try{const own=structuredClone(pack.entries[0]);own.text+=' Личная версия';s.catalog.importEntries({schemaVersion:1,entries:[...bundledCatalog().bundle.entries.filter(e=>!ids.has(e.id)),own]},{apply:true});const before=s.read(),count=s.catalog.coverage().total;assert.throws(()=>s.catalog.previewBundled(),{status:409});assert.throws(()=>s.catalog.installBundled({version:bundledCatalog().version}),{status:409});assert.equal(s.catalog.coverage().total,count);assert.equal(s.catalog.lookup(new URLSearchParams({id:own.id})).entry.text,own.text);assert.equal(s.catalog.search(new URLSearchParams({q:'Nightmare'})).total,0);assert.deepEqual(s.read(),before);}finally{s.close();}
 });
 
-test('missing fiend headings keep source identity and never expose matching personal cards',()=>{
+test('fiend source headings keep canonical identity and never expose conflicting personal cards',()=>{
  const s=openStore(':memory:');try{
   const own=structuredClone(pack.entries[0]);own.id='srd51:2014:monster:balor';own.name={ru:'СЕКРЕТНОЕ ЛИЧНОЕ ИМЯ',en:'PRIVATE_BALOR'};own.text='PRIVATE_FIEND_BODY';own.links=[];
   s.catalog.importEntries({schemaVersion:1,entries:[own]},{apply:true});const c=s.read().context;s.access.apply({action:'bootstrap-owner',userId:'fiend-reader',displayName:'Тест',campaignId:c.campaignId,characterId:c.characterId});
-  for(const catalog of [s.catalog,s.forUser('fiend-reader','fiend-window').catalog]){const inv=catalog.creatureInventory(),balor=inv.entries.find(e=>e.id===own.id);assert.deepEqual(balor,{id:own.id,nameEn:'Balor',page:270,monsterType:'fiend',nameRu:null,status:'missing'});assert.doesNotMatch(JSON.stringify(inv),/СЕКРЕТНОЕ|PRIVATE_BALOR|PRIVATE_FIEND_BODY/);assert.deepEqual(catalog.coverage().scopes.srd51CreatureTypes.fiend,{expected:23,prepared:9,installed:0,sourceUrl:manifest.sourceUrl});}
+  for(const catalog of [s.catalog,s.forUser('fiend-reader','fiend-window').catalog]){const inv=catalog.creatureInventory(),balor=inv.entries.find(e=>e.id===own.id);assert.deepEqual(balor,{id:own.id,nameEn:'Balor',page:270,monsterType:'fiend',nameRu:'Балор',status:catalog===s.catalog?'conflict':'prepared'});assert.doesNotMatch(JSON.stringify(inv),/СЕКРЕТНОЕ|PRIVATE_BALOR|PRIVATE_FIEND_BODY/);assert.deepEqual(catalog.coverage().scopes.srd51CreatureTypes.fiend,{expected:23,prepared:23,installed:0,sourceUrl:manifest.sourceUrl});}
  }finally{s.close();}
 });

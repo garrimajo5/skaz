@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Selected Marilith, Balor statblocks, not complete fiends",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 2,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:marilith",
+      "nameEn": "Marilith",
+      "pages": [
+        272
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:balor",
+      "nameEn": "Balor",
+      "pages": [
+        270
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Marilith reacts once per turn, not unlimited reactions, and tail auto-hit still needs an attack.",
+    "Balor critical weapon dice are rolled three times; the constant modifier is not multiplied.",
+    "Balor fire immunity is not just resistance; death destroys its weapons."
+  ],
+  "weaponAttackChecks": [
+    {
+      "monsterId": "srd51:2014:monster:marilith",
+      "nameEn": "Marilith",
+      "attacks": [
+        {
+          "nameEn": "Longsword",
+          "attackBonus": 9,
+          "reach": 5,
+          "averageDamage": 13,
+          "damageDice": "2d8 + 4",
+          "damageType": "slashing"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 9,
+          "reach": 10,
+          "averageDamage": 15,
+          "damageDice": "2d10 + 4",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:balor",
+      "nameEn": "Balor",
+      "attacks": [
+        {
+          "nameEn": "Longsword",
+          "attackBonus": 14,
+          "reach": 10,
+          "averageDamage": 21,
+          "damageDice": "3d8 + 8",
+          "damageType": "slashing"
+        },
+        {
+          "nameEn": "Whip",
+          "attackBonus": 14,
+          "reach": 30,
+          "averageDamage": 15,
+          "damageDice": "2d6 + 8",
+          "damageType": "slashing"
+        }
+      ]
+    }
+  ]
+}

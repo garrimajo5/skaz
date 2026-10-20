@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Selected Erinyes, Horned Devil, Ice Devil statblocks, not complete fiends",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 3,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:erinyes",
+      "nameEn": "Erinyes",
+      "pages": [
+        276
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:horned-devil",
+      "nameEn": "Horned Devil",
+      "pages": [
+        276
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:ice-devil",
+      "nameEn": "Ice Devil",
+      "pages": [
+        277
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Erinyes extra poison is already included; its bow poison persists until restorative magic.",
+    "Horned Devil may replace any melee attack with Hurl Flame.",
+    "Ice wall uses Dexterity on appearance and Constitution for movement through remaining air; no spell card is implied."
+  ],
+  "weaponAttackChecks": [
+    {
+      "monsterId": "srd51:2014:monster:erinyes",
+      "nameEn": "Erinyes",
+      "attacks": [
+        {
+          "nameEn": "Longsword",
+          "attackBonus": 8,
+          "reach": 5,
+          "averageDamage": 8,
+          "damageDice": "1d8 + 4",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:horned-devil",
+      "nameEn": "Horned Devil",
+      "attacks": [
+        {
+          "nameEn": "Fork",
+          "attackBonus": 10,
+          "reach": 10,
+          "averageDamage": 15,
+          "damageDice": "2d8 + 6",
+          "damageType": "piercing"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 10,
+          "reach": 10,
+          "averageDamage": 10,
+          "damageDice": "1d8 + 6",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:ice-devil",
+      "nameEn": "Ice Devil",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 10,
+          "reach": 5,
+          "averageDamage": 12,
+          "damageDice": "2d6 + 5",
+          "damageType": "piercing"
+        },
+        {
+          "nameEn": "Claws",
+          "attackBonus": 10,
+          "reach": 5,
+          "averageDamage": 10,
+          "damageDice": "2d4 + 5",
+          "damageType": "slashing"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 10,
+          "reach": 10,
+          "averageDamage": 12,
+          "damageDice": "2d6 + 5",
+          "damageType": "bludgeoning"
+        }
+      ]
+    }
+  ]
+}
