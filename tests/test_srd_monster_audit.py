@@ -10,9 +10,62 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_source_field_types_reject_bool_integer_float_and_nested_null_substitution(self):
+        equal=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))['source_fields_equal']
+        self.assertTrue(equal({'a':[1,False,None],'b':{'c':2}},{'b':{'c':2},'a':[1,False,None]}))
+        for wrong in [{'a':[True,False,None],'b':{'c':2}},{'a':[1,0,None],'b':{'c':2}},{'a':[1,False,False],'b':{'c':2}},{'a':[1,False,None],'b':{'c':2.0}},{'a':[1,False,None],'b':{'c':2,'extra':0}},{'a':[1,False],'b':{'c':2}}]:
+            self.assertFalse(equal({'a':[1,False,None],'b':{'c':2}},wrong))
+
+    def test_authored_primary_melee_fields_are_bound_to_the_action_label(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        source=BASE+' Actions Bite. Melee Weapon Attack: +15 to hit, reach 15 ft., one target. Hit: 19 (2d10 + 8) piercing damage.'
+        a={**m['melee_weapon_attack'](source,'Beast','Bite'),'nameRu':'Укус'}
+        manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:beast','nameEn':'Beast','pages':[280]}],'weaponAttackChecks':[{'monsterId':'source:beast','nameEn':'Beast','attacks':[a]}]}
+        card={'id':'source:beast','text':'Укус: рукопашная атака оружием +15, досягаемость 15 футов, одна цель; 19 (2d10 + 8) колющего урона.'}
+        self.assertEqual(m['check_melee_weapon_inventory']({280:source},manifest,[card]),1)
+        for old,new in [('+15,','+14,'),('15 футов','10 футов'),('19 (','20 ('),('2d10 + 8','2d10 + 7'),('колющего','дробящего'),('Укус:','Коготь:')]:
+            changed=card['text'].replace(old,new)+' Коготь: рукопашная атака оружием +15, досягаемость 15 футов, одна цель; 19 (2d10 + 8) колющего урона.'
+            with self.assertRaises(ValueError):m['check_melee_weapon_inventory']({280:source},manifest,[{**card,'text':changed}])
+        for label in ['',12,'Bite','Укус: другой текст']:
+            wrong=copy.deepcopy(manifest);wrong['weaponAttackChecks'][0]['attacks'][0]['nameRu']=label
+            with self.assertRaises(ValueError):m['check_melee_weapon_inventory']({280:source},wrong,[card])
+
+    def test_change_shape_keeps_cr_limit_death_equipment_retained_resources_and_excluded_form_features(self):
+        import copy,json
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        action="Change Shape. The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice). In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form."
+        source='Adult Bronze Dragon Huge dragon, lawful good Armor Class 19 Actions '+action
+        self.assertTrue(m['dragon_change_shape'](source,'Adult Bronze Dragon'))
+        self.assertTrue(m['dragon_change_shape'](source.replace('Adult Bronze Dragon Huge','Ancient Bronze Dragon Gargantuan'),'Ancient Bronze Dragon'))
+        root=Path(__file__).resolve().parents[1];full=json.loads((root/'catalog/srd51-metallic-adults.coverage.json').read_text());manifest={**full,'entries':full['entries'][1:2],'changeShapeChecks':full['changeShapeChecks'][1:2]};card=json.loads((root/'catalog/srd51-metallic-adults.json').read_text())['entries'][1]
+        self.assertEqual(m['check_change_shape_inventory']({294:source},manifest,[card]),1)
+        for changed in [source.replace('no higher than its own','higher than its own'),source.replace('if it dies','if it is unconscious'),source.replace('hit points, Hit Dice,','hit points,'),source.replace('absorbed or borne','discarded'),source.replace('except any class features or legendary actions','including any class features or legendary actions'),source+action]:
+            with self.assertRaises(ValueError):m['dragon_change_shape'](changed,'Adult Bronze Dragon')
+        for old,new in [('не выше собственного','выше собственного'),('При смерти возвращается','При потере сознания возвращается'),('Кости Хитов,',''),('легендарное сопротивление, действия логова','легендарное сопротивление'),('новой формы не приобретаются','новой формы приобретаются')]:
+            with self.assertRaises(ValueError):m['check_change_shape_inventory']({294:source},manifest,[{**card,'text':card['text'].replace(old,new)}])
+        for available in [False,1,'true']:
+            wrong=copy.deepcopy(manifest);wrong['changeShapeChecks'][0]['available']=available
+            with self.assertRaises(ValueError):m['check_change_shape_inventory']({294:source},wrong,[card])
+        missing='Adult Bronze Dragon Huge dragon, lawful good Armor Class 19 Actions Bite. Melee Weapon Attack.'
+        self.assertFalse(m['dragon_change_shape'](missing,'Adult Bronze Dragon'))
+        self.assertFalse(m['dragon_change_shape'](missing+' Neighbor Huge dragon, neutral Armor Class 18 '+action,'Adult Bronze Dragon'))
+        with self.assertRaises(ValueError):m['check_change_shape_inventory']({294:missing},manifest,[card])
+        false=copy.deepcopy(manifest);false['changeShapeChecks'][0]['available']=False
+        with self.assertRaises(ValueError):m['check_change_shape_inventory']({294:missing},false,[card])
+
+    def test_ancient_shared_breath_colon_and_gargantuan_legendary_fields_remain_source_specific(self):
+        import json
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        source='Ancient Brass Dragon Gargantuan dragon, chaotic good Armor Class 20 Actions Breath Weapons (Recharge 5–6). The dragon uses one of the following breath weapons: Fire Breath. The dragon exhales fire in an 90-foot line that is 10 feet wide. Each creature in that line must make a DC 21 Dexterity saving throw, taking 56 (16d6) fire damage on a failed save, or half as much damage on a successful one. Sleep Breath. The dragon exhales sleep gas in a 90-foot cone. Each creature in that area must succeed on a DC 21 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.'
+        breath=m['dragon_breath'](source,'Ancient Brass Dragon','Fire Breath');control=m['dragon_secondary_breath'](source,'Ancient Brass Dragon','Sleep Breath')
+        self.assertEqual([breath['length'],breath['width'],breath['saveDC'],breath['averageDamage']],[90,10,21,56]);self.assertEqual([control['length'],control['durationMinutes']],[90,10])
+        with self.assertRaises(ValueError):m['dragon_breath'](source.replace('weapons:','weapons;'),'Ancient Brass Dragon','Fire Breath')
+        with self.assertRaises(ValueError):m['dragon_secondary_breath'](source.replace('weapons:','weapons;'),'Ancient Brass Dragon','Sleep Breath')
+
     def test_declared_control_trait_and_legendary_coverage_cannot_silently_drop_a_card(self):
         m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
-        for key,fn in [('legendaryChecks','check_adult_legendary_inventory'),('traitChecks','check_metallic_trait_inventory'),('secondaryBreathChecks','check_secondary_breath_inventory')]:
+        for key,fn in [('legendaryChecks','check_adult_legendary_inventory'),('traitChecks','check_metallic_trait_inventory'),('secondaryBreathChecks','check_secondary_breath_inventory'),('changeShapeChecks','check_change_shape_inventory')]:
             for rows in [[],[{'monsterId':'wrong:id'}]]:
                 manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:a'},{'id':'source:b'}],key:rows}
                 with self.assertRaisesRegex(ValueError,'Incomplete declared'):m[fn]({},manifest,[])
@@ -26,7 +79,7 @@ class MonsterAuditTests(unittest.TestCase):
         self.assertEqual(m['adult_dragon_legendary'](source,'Adult Black Dragon'),expected)
         root=Path(__file__).resolve().parents[1];full=json.loads((root/'catalog/srd51-chromatic-adults.coverage.json').read_text());manifest={**full,'entries':full['entries'][:1],'legendaryChecks':full['legendaryChecks'][:1]};card=json.loads((root/'catalog/srd51-chromatic-adults.json').read_text())['entries'][0]
         pages={281:source,282:''};self.assertEqual(m['check_adult_legendary_inventory'](pages,manifest,[card]),1)
-        for key,val in [('resistancePerDay',2),('fearRange',60),('fearSaveDC',17),('fearMinutes',2),('fearImmunityHours',12),('legendaryActions',2),('wingCost',1),('wingRadius',15),('wingSaveDC',20),('wingAverageDamage',14),('wingDamageDice','2d8 + 6')]:
+        for key,val in [('resistancePerDay',2),('fearRange',60),('fearSaveDC',17),('fearMinutes',2),('fearMinutes',True),('fearMinutes',1.0),('fearImmunityHours',12),('legendaryActions',2),('wingCost',1),('wingRadius',15),('wingSaveDC',20),('wingAverageDamage',14),('wingDamageDice','2d8 + 6')]:
             wrong=copy.deepcopy(manifest);wrong['legendaryChecks'][0]['legendary'][key]=val
             with self.assertRaises(ValueError):m['check_adult_legendary_inventory'](pages,wrong,[card])
         for old,new in [('3/день','3/ход'),('120 футов','60 футов'),('Мудрости Сл 16','Мудрости Сл 17'),('на 24 часа','на 12 часов'),('в конце хода другого','в начале хода другого'),('в начале своего хода','в конце своего хода'),('стоит 2 действия','стоит 1 действие'),('Ловкости Сл 19','Ловкости Сл 20'),('13 (2d6 + 6) дробящего','14 (2d6 + 6) дробящего'),('до половины своей скорости полёта','до своей скорости полёта')]:
@@ -47,7 +100,7 @@ class MonsterAuditTests(unittest.TestCase):
         for group,key,changed in [('savingThrows','con',6),('skills','insight',5),('senses','blindsight',10),('senses','darkvision',60),('senses','passivePerception',14)]:
             wrong=copy.deepcopy(manifest);wrong['traitChecks'][0]['traits'][group][key]=changed
             with self.assertRaises(ValueError):m['check_metallic_trait_inventory']({295:source},wrong,[card])
-        for key,changed in [('damageImmunities',['fire']),('languages',['Draconic']),('amphibious',False)]:
+        for key,changed in [('damageImmunities',['fire']),('languages',['Draconic']),('amphibious',False),('amphibious',1)]:
             wrong=copy.deepcopy(manifest);wrong['traitChecks'][0]['traits'][key]=changed
             with self.assertRaises(ValueError):m['check_metallic_trait_inventory']({295:source},wrong,[card])
         for old,new in [('Телосложения +7','Телосложения +6'),('Восприятие +7','Восприятие +6'),('электрическому','огненному'),('Иммунитет','Сопротивление'),('30 футов','10 футов'),('120 футов','60 футов'),('Восприятие 17','Восприятие 14'),('Общий, Драконий','Драконий'),('Амфибия: дышит воздухом и водой.','')]:
@@ -67,7 +120,7 @@ class MonsterAuditTests(unittest.TestCase):
         manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:beast','nameEn':'Beast','pages':[292]}],'secondaryBreathChecks':[{'monsterId':'source:beast','nameEn':'Beast','breath':value}]}
         card={'id':'source:beast','text':'Усыпляющее дыхание: конус 30 футов, Телосложение Сл 14; при провале бессознательность на 5 минут. Прекращается от урона или если кто-то действием разбудит его.'}
         self.assertEqual(m['check_secondary_breath_inventory']({292:source},manifest,[card]),1)
-        for key,changed in [('recharge',[6,6]),('shape','line'),('length',15),('saveDC',11),('saveAbility','str'),('effect','paralyze'),('durationMinutes',1),('pushFeet',30),('repeatAtEndOfTurn',True),('wakeOnDamage',False),('wakeWithAction',False)]:
+        for key,changed in [('recharge',[6,6]),('shape','line'),('length',15),('saveDC',11),('saveAbility','str'),('effect','paralyze'),('durationMinutes',1),('pushFeet',30),('repeatAtEndOfTurn',True),('wakeOnDamage',False),('wakeWithAction',False),('repeatAtEndOfTurn',0),('wakeOnDamage',1),('wakeWithAction',1)]:
             wrong=copy.deepcopy(manifest);wrong['secondaryBreathChecks'][0]['breath'][key]=changed
             with self.assertRaises(ValueError):m['check_secondary_breath_inventory']({292:source},wrong,[card])
         for changed in [card['text'].replace('30 футов','15 футов'),card['text'].replace('Сл 14','Сл 11'),card['text'].replace('на 5 минут','на 1 минуту'),card['text'].replace('от урона',''),card['text'].replace('действием','бонусным действием')]:

@@ -1,0 +1,697 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Five selected srd51-metallic-ancients statblocks from SRD 5.1",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 5,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:ancient-brass-dragon",
+      "nameEn": "Ancient Brass Dragon",
+      "pages": [
+        290,
+        291
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:ancient-bronze-dragon",
+      "nameEn": "Ancient Bronze Dragon",
+      "pages": [
+        293,
+        294
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:ancient-copper-dragon",
+      "nameEn": "Ancient Copper Dragon",
+      "pages": [
+        295,
+        296
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:ancient-gold-dragon",
+      "nameEn": "Ancient Gold Dragon",
+      "pages": [
+        298,
+        299
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:ancient-silver-dragon",
+      "nameEn": "Ancient Silver Dragon",
+      "pages": [
+        301,
+        302
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Bounded five-card source pack; not full D&D bestiary.",
+    "Author-written Russian summaries. No automatic combat, shape change or lair actions.",
+    "Declared statistics, attacks, breaths, legendary rules and shape change audited against pinned SRD; other wording manually reviewed."
+  ],
+  "weaponAttackChecks": [
+    {
+      "monsterId": "srd51:2014:monster:ancient-brass-dragon",
+      "nameEn": "Ancient Brass Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 14,
+          "reach": 15,
+          "averageDamage": 19,
+          "damageDice": "2d10 + 8",
+          "damageType": "piercing",
+          "nameRu": "Укус"
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 14,
+          "reach": 10,
+          "averageDamage": 15,
+          "damageDice": "2d6 + 8",
+          "damageType": "slashing",
+          "nameRu": "Коготь"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 14,
+          "reach": 20,
+          "averageDamage": 17,
+          "damageDice": "2d8 + 8",
+          "damageType": "bludgeoning",
+          "nameRu": "Хвост"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-bronze-dragon",
+      "nameEn": "Ancient Bronze Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 16,
+          "reach": 15,
+          "averageDamage": 20,
+          "damageDice": "2d10 + 9",
+          "damageType": "piercing",
+          "nameRu": "Укус"
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 16,
+          "reach": 10,
+          "averageDamage": 16,
+          "damageDice": "2d6 + 9",
+          "damageType": "slashing",
+          "nameRu": "Коготь"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 16,
+          "reach": 20,
+          "averageDamage": 18,
+          "damageDice": "2d8 + 9",
+          "damageType": "bludgeoning",
+          "nameRu": "Хвост"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-copper-dragon",
+      "nameEn": "Ancient Copper Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 15,
+          "reach": 15,
+          "averageDamage": 19,
+          "damageDice": "2d10 + 8",
+          "damageType": "piercing",
+          "nameRu": "Укус"
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 15,
+          "reach": 10,
+          "averageDamage": 15,
+          "damageDice": "2d6 + 8",
+          "damageType": "slashing",
+          "nameRu": "Коготь"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 15,
+          "reach": 20,
+          "averageDamage": 17,
+          "damageDice": "2d8 + 8",
+          "damageType": "bludgeoning",
+          "nameRu": "Хвост"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-gold-dragon",
+      "nameEn": "Ancient Gold Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 17,
+          "reach": 15,
+          "averageDamage": 21,
+          "damageDice": "2d10 + 10",
+          "damageType": "piercing",
+          "nameRu": "Укус"
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 17,
+          "reach": 10,
+          "averageDamage": 17,
+          "damageDice": "2d6 + 10",
+          "damageType": "slashing",
+          "nameRu": "Коготь"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 17,
+          "reach": 20,
+          "averageDamage": 19,
+          "damageDice": "2d8 + 10",
+          "damageType": "bludgeoning",
+          "nameRu": "Хвост"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-silver-dragon",
+      "nameEn": "Ancient Silver Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 17,
+          "reach": 15,
+          "averageDamage": 21,
+          "damageDice": "2d10 + 10",
+          "damageType": "piercing",
+          "nameRu": "Укус"
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 17,
+          "reach": 10,
+          "averageDamage": 17,
+          "damageDice": "2d6 + 10",
+          "damageType": "slashing",
+          "nameRu": "Коготь"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 17,
+          "reach": 20,
+          "averageDamage": 19,
+          "damageDice": "2d8 + 10",
+          "damageType": "bludgeoning",
+          "nameRu": "Хвост"
+        }
+      ]
+    }
+  ],
+  "breathChecks": [
+    {
+      "monsterId": "srd51:2014:monster:ancient-brass-dragon",
+      "nameEn": "Ancient Brass Dragon",
+      "breath": {
+        "nameEn": "Fire Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "line",
+        "length": 90,
+        "width": 10,
+        "saveAbility": "dex",
+        "saveDC": 21,
+        "averageDamage": 56,
+        "damageDice": "16d6",
+        "damageType": "fire"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-bronze-dragon",
+      "nameEn": "Ancient Bronze Dragon",
+      "breath": {
+        "nameEn": "Lightning Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "line",
+        "length": 120,
+        "width": 10,
+        "saveAbility": "dex",
+        "saveDC": 23,
+        "averageDamage": 88,
+        "damageDice": "16d10",
+        "damageType": "lightning"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-copper-dragon",
+      "nameEn": "Ancient Copper Dragon",
+      "breath": {
+        "nameEn": "Acid Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "line",
+        "length": 90,
+        "width": 10,
+        "saveAbility": "dex",
+        "saveDC": 22,
+        "averageDamage": 63,
+        "damageDice": "14d8",
+        "damageType": "acid"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-gold-dragon",
+      "nameEn": "Ancient Gold Dragon",
+      "breath": {
+        "nameEn": "Fire Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 90,
+        "width": null,
+        "saveAbility": "dex",
+        "saveDC": 24,
+        "averageDamage": 71,
+        "damageDice": "13d10",
+        "damageType": "fire"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-silver-dragon",
+      "nameEn": "Ancient Silver Dragon",
+      "breath": {
+        "nameEn": "Cold Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 90,
+        "width": null,
+        "saveAbility": "con",
+        "saveDC": 24,
+        "averageDamage": 67,
+        "damageDice": "15d8",
+        "damageType": "cold"
+      }
+    }
+  ],
+  "legendaryChecks": [
+    {
+      "monsterId": "srd51:2014:monster:ancient-brass-dragon",
+      "nameEn": "Ancient Brass Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 18,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 15,
+        "wingSaveDC": 22,
+        "wingAverageDamage": 15,
+        "wingDamageDice": "2d6 + 8"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-bronze-dragon",
+      "nameEn": "Ancient Bronze Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 20,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 15,
+        "wingSaveDC": 24,
+        "wingAverageDamage": 16,
+        "wingDamageDice": "2d6 + 9"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-copper-dragon",
+      "nameEn": "Ancient Copper Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 19,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 15,
+        "wingSaveDC": 23,
+        "wingAverageDamage": 15,
+        "wingDamageDice": "2d6 + 8"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-gold-dragon",
+      "nameEn": "Ancient Gold Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 24,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 15,
+        "wingSaveDC": 25,
+        "wingAverageDamage": 17,
+        "wingDamageDice": "2d6 + 10"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-silver-dragon",
+      "nameEn": "Ancient Silver Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 21,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 15,
+        "wingSaveDC": 25,
+        "wingAverageDamage": 17,
+        "wingDamageDice": "2d6 + 10"
+      }
+    }
+  ],
+  "changeShapeChecks": [
+    {
+      "monsterId": "srd51:2014:monster:ancient-brass-dragon",
+      "nameEn": "Ancient Brass Dragon",
+      "available": true
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-bronze-dragon",
+      "nameEn": "Ancient Bronze Dragon",
+      "available": true
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-copper-dragon",
+      "nameEn": "Ancient Copper Dragon",
+      "available": true
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-gold-dragon",
+      "nameEn": "Ancient Gold Dragon",
+      "available": true
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-silver-dragon",
+      "nameEn": "Ancient Silver Dragon",
+      "available": true
+    }
+  ],
+  "secondaryBreathChecks": [
+    {
+      "monsterId": "srd51:2014:monster:ancient-brass-dragon",
+      "nameEn": "Ancient Brass Dragon",
+      "breath": {
+        "nameEn": "Sleep Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 90,
+        "saveAbility": "con",
+        "saveDC": 21,
+        "effect": "sleep",
+        "durationMinutes": 10,
+        "pushFeet": null,
+        "repeatAtEndOfTurn": false,
+        "wakeOnDamage": true,
+        "wakeWithAction": true
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-bronze-dragon",
+      "nameEn": "Ancient Bronze Dragon",
+      "breath": {
+        "nameEn": "Repulsion Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 30,
+        "saveAbility": "str",
+        "saveDC": 23,
+        "effect": "push",
+        "durationMinutes": null,
+        "pushFeet": 60,
+        "repeatAtEndOfTurn": false,
+        "wakeOnDamage": false,
+        "wakeWithAction": false
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-copper-dragon",
+      "nameEn": "Ancient Copper Dragon",
+      "breath": {
+        "nameEn": "Slowing Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 90,
+        "saveAbility": "con",
+        "saveDC": 22,
+        "effect": "slow",
+        "durationMinutes": 1,
+        "pushFeet": null,
+        "repeatAtEndOfTurn": true,
+        "wakeOnDamage": false,
+        "wakeWithAction": false
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-gold-dragon",
+      "nameEn": "Ancient Gold Dragon",
+      "breath": {
+        "nameEn": "Weakening Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 90,
+        "saveAbility": "str",
+        "saveDC": 24,
+        "effect": "weaken",
+        "durationMinutes": 1,
+        "pushFeet": null,
+        "repeatAtEndOfTurn": true,
+        "wakeOnDamage": false,
+        "wakeWithAction": false
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-silver-dragon",
+      "nameEn": "Ancient Silver Dragon",
+      "breath": {
+        "nameEn": "Paralyzing Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 90,
+        "saveAbility": "con",
+        "saveDC": 24,
+        "effect": "paralyze",
+        "durationMinutes": 1,
+        "pushFeet": null,
+        "repeatAtEndOfTurn": true,
+        "wakeOnDamage": false,
+        "wakeWithAction": false
+      }
+    }
+  ],
+  "traitChecks": [
+    {
+      "monsterId": "srd51:2014:monster:ancient-brass-dragon",
+      "nameEn": "Ancient Brass Dragon",
+      "traits": {
+        "savingThrows": {
+          "dex": 6,
+          "con": 13,
+          "wis": 8,
+          "cha": 10
+        },
+        "skills": {
+          "history": 9,
+          "perception": 14,
+          "persuasion": 10,
+          "stealth": 6
+        },
+        "damageImmunities": [
+          "fire"
+        ],
+        "senses": {
+          "blindsight": 60,
+          "darkvision": 120,
+          "passivePerception": 24
+        },
+        "languages": [
+          "Common",
+          "Draconic"
+        ],
+        "amphibious": false
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-bronze-dragon",
+      "nameEn": "Ancient Bronze Dragon",
+      "traits": {
+        "savingThrows": {
+          "dex": 7,
+          "con": 15,
+          "wis": 10,
+          "cha": 12
+        },
+        "skills": {
+          "insight": 10,
+          "perception": 17,
+          "stealth": 7
+        },
+        "damageImmunities": [
+          "lightning"
+        ],
+        "senses": {
+          "blindsight": 60,
+          "darkvision": 120,
+          "passivePerception": 27
+        },
+        "languages": [
+          "Common",
+          "Draconic"
+        ],
+        "amphibious": true
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-copper-dragon",
+      "nameEn": "Ancient Copper Dragon",
+      "traits": {
+        "savingThrows": {
+          "dex": 8,
+          "con": 14,
+          "wis": 10,
+          "cha": 11
+        },
+        "skills": {
+          "deception": 11,
+          "perception": 17,
+          "stealth": 8
+        },
+        "damageImmunities": [
+          "acid"
+        ],
+        "senses": {
+          "blindsight": 60,
+          "darkvision": 120,
+          "passivePerception": 27
+        },
+        "languages": [
+          "Common",
+          "Draconic"
+        ],
+        "amphibious": false
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-gold-dragon",
+      "nameEn": "Ancient Gold Dragon",
+      "traits": {
+        "savingThrows": {
+          "dex": 9,
+          "con": 16,
+          "wis": 10,
+          "cha": 16
+        },
+        "skills": {
+          "insight": 10,
+          "perception": 17,
+          "persuasion": 16,
+          "stealth": 9
+        },
+        "damageImmunities": [
+          "fire"
+        ],
+        "senses": {
+          "blindsight": 60,
+          "darkvision": 120,
+          "passivePerception": 27
+        },
+        "languages": [
+          "Common",
+          "Draconic"
+        ],
+        "amphibious": true
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-silver-dragon",
+      "nameEn": "Ancient Silver Dragon",
+      "traits": {
+        "savingThrows": {
+          "dex": 7,
+          "con": 16,
+          "wis": 9,
+          "cha": 13
+        },
+        "skills": {
+          "arcana": 11,
+          "history": 11,
+          "perception": 16,
+          "stealth": 7
+        },
+        "damageImmunities": [
+          "cold"
+        ],
+        "senses": {
+          "blindsight": 60,
+          "darkvision": 120,
+          "passivePerception": 26
+        },
+        "languages": [
+          "Common",
+          "Draconic"
+        ],
+        "amphibious": false
+      }
+    }
+  ]
+}

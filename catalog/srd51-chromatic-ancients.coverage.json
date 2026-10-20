@@ -1,0 +1,470 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Five selected srd51-chromatic-ancients statblocks from SRD 5.1",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 5,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:ancient-black-dragon",
+      "nameEn": "Ancient Black Dragon",
+      "pages": [
+        280,
+        281
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:ancient-blue-dragon",
+      "nameEn": "Ancient Blue Dragon",
+      "pages": [
+        282,
+        283
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:ancient-green-dragon",
+      "nameEn": "Ancient Green Dragon",
+      "pages": [
+        284,
+        285
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:ancient-red-dragon",
+      "nameEn": "Ancient Red Dragon",
+      "pages": [
+        286,
+        287
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:ancient-white-dragon",
+      "nameEn": "Ancient White Dragon",
+      "pages": [
+        288,
+        289
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Bounded five-card source pack; not full D&D bestiary.",
+    "Author-written Russian summaries. No automatic combat, shape change or lair actions.",
+    "Declared statistics, attacks, breaths, legendary rules and shape change audited against pinned SRD; other wording manually reviewed."
+  ],
+  "weaponAttackChecks": [
+    {
+      "monsterId": "srd51:2014:monster:ancient-black-dragon",
+      "nameEn": "Ancient Black Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 15,
+          "reach": 15,
+          "averageDamage": 19,
+          "damageDice": "2d10 + 8",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 9,
+              "damageDice": "2d8",
+              "damageType": "acid"
+            }
+          ],
+          "nameRu": "Укус"
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 15,
+          "reach": 10,
+          "averageDamage": 15,
+          "damageDice": "2d6 + 8",
+          "damageType": "slashing",
+          "nameRu": "Коготь"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 15,
+          "reach": 20,
+          "averageDamage": 17,
+          "damageDice": "2d8 + 8",
+          "damageType": "bludgeoning",
+          "nameRu": "Хвост"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-blue-dragon",
+      "nameEn": "Ancient Blue Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 16,
+          "reach": 15,
+          "averageDamage": 20,
+          "damageDice": "2d10 + 9",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 11,
+              "damageDice": "2d10",
+              "damageType": "lightning"
+            }
+          ],
+          "nameRu": "Укус"
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 16,
+          "reach": 10,
+          "averageDamage": 16,
+          "damageDice": "2d6 + 9",
+          "damageType": "slashing",
+          "nameRu": "Коготь"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 16,
+          "reach": 20,
+          "averageDamage": 18,
+          "damageDice": "2d8 + 9",
+          "damageType": "bludgeoning",
+          "nameRu": "Хвост"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-green-dragon",
+      "nameEn": "Ancient Green Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 15,
+          "reach": 15,
+          "averageDamage": 19,
+          "damageDice": "2d10 + 8",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 10,
+              "damageDice": "3d6",
+              "damageType": "poison"
+            }
+          ],
+          "nameRu": "Укус"
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 15,
+          "reach": 10,
+          "averageDamage": 22,
+          "damageDice": "4d6 + 8",
+          "damageType": "slashing",
+          "nameRu": "Коготь"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 15,
+          "reach": 20,
+          "averageDamage": 17,
+          "damageDice": "2d8 + 8",
+          "damageType": "bludgeoning",
+          "nameRu": "Хвост"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-red-dragon",
+      "nameEn": "Ancient Red Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 17,
+          "reach": 15,
+          "averageDamage": 21,
+          "damageDice": "2d10 + 10",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 14,
+              "damageDice": "4d6",
+              "damageType": "fire"
+            }
+          ],
+          "nameRu": "Укус"
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 17,
+          "reach": 10,
+          "averageDamage": 17,
+          "damageDice": "2d6 + 10",
+          "damageType": "slashing",
+          "nameRu": "Коготь"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 17,
+          "reach": 20,
+          "averageDamage": 19,
+          "damageDice": "2d8 + 10",
+          "damageType": "bludgeoning",
+          "nameRu": "Хвост"
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-white-dragon",
+      "nameEn": "Ancient White Dragon",
+      "attacks": [
+        {
+          "nameEn": "Bite",
+          "attackBonus": 14,
+          "reach": 15,
+          "averageDamage": 19,
+          "damageDice": "2d10 + 8",
+          "damageType": "piercing",
+          "additionalDamage": [
+            {
+              "averageDamage": 9,
+              "damageDice": "2d8",
+              "damageType": "cold"
+            }
+          ],
+          "nameRu": "Укус"
+        },
+        {
+          "nameEn": "Claw",
+          "attackBonus": 14,
+          "reach": 10,
+          "averageDamage": 15,
+          "damageDice": "2d6 + 8",
+          "damageType": "slashing",
+          "nameRu": "Коготь"
+        },
+        {
+          "nameEn": "Tail",
+          "attackBonus": 14,
+          "reach": 20,
+          "averageDamage": 17,
+          "damageDice": "2d8 + 8",
+          "damageType": "bludgeoning",
+          "nameRu": "Хвост"
+        }
+      ]
+    }
+  ],
+  "breathChecks": [
+    {
+      "monsterId": "srd51:2014:monster:ancient-black-dragon",
+      "nameEn": "Ancient Black Dragon",
+      "breath": {
+        "nameEn": "Acid Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "line",
+        "length": 90,
+        "width": 10,
+        "saveAbility": "dex",
+        "saveDC": 22,
+        "averageDamage": 67,
+        "damageDice": "15d8",
+        "damageType": "acid"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-blue-dragon",
+      "nameEn": "Ancient Blue Dragon",
+      "breath": {
+        "nameEn": "Lightning Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "line",
+        "length": 120,
+        "width": 10,
+        "saveAbility": "dex",
+        "saveDC": 23,
+        "averageDamage": 88,
+        "damageDice": "16d10",
+        "damageType": "lightning"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-green-dragon",
+      "nameEn": "Ancient Green Dragon",
+      "breath": {
+        "nameEn": "Poison Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 90,
+        "width": null,
+        "saveAbility": "con",
+        "saveDC": 22,
+        "averageDamage": 77,
+        "damageDice": "22d6",
+        "damageType": "poison"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-red-dragon",
+      "nameEn": "Ancient Red Dragon",
+      "breath": {
+        "nameEn": "Fire Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 90,
+        "width": null,
+        "saveAbility": "dex",
+        "saveDC": 24,
+        "averageDamage": 91,
+        "damageDice": "26d6",
+        "damageType": "fire"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-white-dragon",
+      "nameEn": "Ancient White Dragon",
+      "breath": {
+        "nameEn": "Cold Breath",
+        "recharge": [
+          5,
+          6
+        ],
+        "shape": "cone",
+        "length": 90,
+        "width": null,
+        "saveAbility": "con",
+        "saveDC": 22,
+        "averageDamage": 72,
+        "damageDice": "16d8",
+        "damageType": "cold"
+      }
+    }
+  ],
+  "legendaryChecks": [
+    {
+      "monsterId": "srd51:2014:monster:ancient-black-dragon",
+      "nameEn": "Ancient Black Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 19,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 15,
+        "wingSaveDC": 23,
+        "wingAverageDamage": 15,
+        "wingDamageDice": "2d6 + 8"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-blue-dragon",
+      "nameEn": "Ancient Blue Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 20,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 15,
+        "wingSaveDC": 24,
+        "wingAverageDamage": 16,
+        "wingDamageDice": "2d6 + 9"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-green-dragon",
+      "nameEn": "Ancient Green Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 19,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 15,
+        "wingSaveDC": 23,
+        "wingAverageDamage": 15,
+        "wingDamageDice": "2d6 + 8"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-red-dragon",
+      "nameEn": "Ancient Red Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 21,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 15,
+        "wingSaveDC": 25,
+        "wingAverageDamage": 17,
+        "wingDamageDice": "2d6 + 10"
+      }
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-white-dragon",
+      "nameEn": "Ancient White Dragon",
+      "legendary": {
+        "resistancePerDay": 3,
+        "fearRange": 120,
+        "fearSaveDC": 16,
+        "fearMinutes": 1,
+        "fearImmunityHours": 24,
+        "legendaryActions": 3,
+        "wingCost": 2,
+        "wingRadius": 15,
+        "wingSaveDC": 22,
+        "wingAverageDamage": 15,
+        "wingDamageDice": "2d6 + 8"
+      }
+    }
+  ],
+  "changeShapeChecks": [
+    {
+      "monsterId": "srd51:2014:monster:ancient-black-dragon",
+      "nameEn": "Ancient Black Dragon",
+      "available": false
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-blue-dragon",
+      "nameEn": "Ancient Blue Dragon",
+      "available": false
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-green-dragon",
+      "nameEn": "Ancient Green Dragon",
+      "available": false
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-red-dragon",
+      "nameEn": "Ancient Red Dragon",
+      "available": false
+    },
+    {
+      "monsterId": "srd51:2014:monster:ancient-white-dragon",
+      "nameEn": "Ancient White Dragon",
+      "available": false
+    }
+  ]
+}

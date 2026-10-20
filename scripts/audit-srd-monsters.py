@@ -1,6 +1,6 @@
 """Read-only comparison of bundled monster statistics with the pinned SRD PDF.
 
-Checks declared statistics, spells, attacks, dragon breaths/traits and adult legendary fields; other effects remain manual.
+Checks declared statistics, spells, attacks, dragon breaths/traits and dragon legendary/Change Shape fields; other effects remain manual.
 Requires pypdf and the application's Node.js runtime.
 """
 import argparse
@@ -15,6 +15,16 @@ shared = runpy.run_path(str(Path(__file__).with_name('audit-srd-spell-cards.py')
 normalize, ROOT, SHA256 = shared['normalize'], shared['ROOT'], shared['SHA256']
 SIZES = 'Tiny|Small|Medium|Large|Huge|Gargantuan'
 TYPES = 'aberration|beast|celestial|construct|dragon|elemental|fey|fiend|giant|humanoid|monstrosity|ooze|plant|undead'
+
+
+def source_fields_equal(expected,declared):
+    """JSON audit declarations preserve integer/boolean/null types recursively."""
+    if type(expected) is not type(declared):return False
+    if isinstance(expected,dict):
+        return expected.keys()==declared.keys() and all(source_fields_equal(v,declared[k]) for k,v in expected.items())
+    if isinstance(expected,list):
+        return len(expected)==len(declared) and all(source_fields_equal(a,b) for a,b in zip(expected,declared))
+    return expected==declared
 
 
 def statistics(text, name):
@@ -399,10 +409,18 @@ def check_melee_weapon_inventory(pages,manifest,cards):
         if not attacks or len({a['nameEn'] for a in attacks})!=len(attacks):raise ValueError('Duplicate melee declaration')
         for attack in attacks:
             source=melee_weapon_attack(' '.join(pages[n] for n in row['pages']),declared['nameEn'],attack['nameEn'])
-            if source!={k:v for k,v in attack.items() if k!='additionalDamage'}:raise ValueError('Melee source statistics differ')
+            if not source_fields_equal(source,{k:v for k,v in attack.items() if k not in ('additionalDamage','nameRu')}):raise ValueError('Melee source statistics differ')
+            if 'nameRu' in attack:
+                label=attack['nameRu']
+                if not isinstance(label,str) or not re.fullmatch(r'[А-ЯЁ][А-Яа-яЁё -]{0,80}',label):raise ValueError('Invalid authored melee action label')
+                damage_type={'piercing':'колющего','slashing':'рубящего','bludgeoning':'дробящего'}.get(source['damageType'])
+                if damage_type is None:raise ValueError('Unsupported authored melee primary damage type')
+                action=(label+': рукопашная атака оружием +'+str(source['attackBonus'])+', досягаемость '+str(source['reach'])+
+                        ' футов, одна цель; '+str(source['averageDamage'])+' ('+source['damageDice']+') '+damage_type+' урона')
+                if action not in normalize(card['text']):raise ValueError('Authored melee hit, reach or primary damage differs')
             if 'additionalDamage' in attack:
                 additional=melee_additional_damage(' '.join(pages[n] for n in row['pages']),declared['nameEn'],attack['nameEn'])
-                if additional!=attack['additionalDamage']:raise ValueError('Additional melee damage differs')
+                if not source_fields_equal(additional,attack['additionalDamage']):raise ValueError('Additional melee damage differs')
                 for damage in additional:
                     ru_type={'acid':'кислотного','lightning':'электрического','poison':'урона ядом','fire':'огненного','cold':'холодного'}.get(damage['damageType'])
                     fragment=str(damage['averageDamage'])+' ('+damage['damageDice']+') '+str(ru_type)
@@ -424,7 +442,7 @@ def dragon_breath(text,creature,name):
     # Only inherit it from the explicit parent in this same statblock.
     named=list(re.finditer(r'(?<![a-zA-Z])'+re.escape(name)+r'\. The dragon exhales ',body))
     if named:
-        parents=list(re.finditer(r'Breath Weapons \(Recharge ([1-6])[–-]([1-6])\)\. The dragon uses one of the following breath weapons\.\s*',body))
+        parents=list(re.finditer(r'Breath Weapons \(Recharge ([1-6])[–-]([1-6])\)\. The dragon uses one of the following breath weapons[.:]\s*',body))
         if len(named)!=1 or len(parents)!=1 or parents[0].end()>named[0].start():
             raise ValueError('Missing, duplicate or misplaced shared breath recharge')
         parent=parents[0];action=named[0]
@@ -445,7 +463,7 @@ def dragon_breath(text,creature,name):
 
 def adult_dragon_legendary(text,creature):
     text=normalize(text)
-    heading=re.search(re.escape(creature)+r'\s+Huge dragon\b',text)
+    heading=re.search(re.escape(creature)+r'\s+(?:Huge|Gargantuan) dragon\b',text)
     if not heading:raise ValueError('Missing adult dragon heading')
     body=text[heading.end():]
     next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b[^.]*? Armor Class \d+',body)
@@ -471,7 +489,7 @@ def check_adult_legendary_inventory(pages,manifest,cards):
         card=next((c for c in cards if c['id']==row['monsterId']),None)
         if source_row is None or card is None or source_row['nameEn']!=row['nameEn']:raise ValueError('Missing adult legendary card')
         expected=adult_dragon_legendary(' '.join(pages[n] for n in source_row['pages']),row['nameEn'])
-        if expected!=row['legendary']:raise ValueError('Adult legendary source fields differ')
+        if not source_fields_equal(expected,row['legendary']):raise ValueError('Adult legendary source fields differ')
         e=expected;ru=normalize(card['text'])
         fragments=['Легендарное сопротивление ('+str(e['resistancePerDay'])+'/день): провалив спасбросок, может вместо этого выбрать успех.',
                    'выбранные драконом существа в пределах '+str(e['fearRange'])+' футов, осознающие его присутствие',
@@ -485,6 +503,49 @@ def check_adult_legendary_inventory(pages,manifest,cards):
                    'Атака крыльями стоит '+str(e['wingCost'])+' действия: каждое существо в пределах '+str(e['wingRadius'])+' футов совершает спасбросок Ловкости Сл '+str(e['wingSaveDC'])+'; при провале '+str(e['wingAverageDamage'])+' ('+e['wingDamageDice']+') дробящего урона и сбивается с ног.',
                    'После этого дракон может пролететь до половины своей скорости полёта.']
         if any(v not in ru for v in fragments):raise ValueError('Authored adult legendary rules differ')
+    return len(seen)
+
+
+def dragon_change_shape(text,creature):
+    text=normalize(text)
+    heading=re.search(re.escape(creature)+r'\s+(?:Huge|Gargantuan) dragon\b',text)
+    if not heading:raise ValueError('Missing shapechanging dragon heading')
+    body=text[heading.end():]
+    next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b[^.]*? Armor Class \d+',body)
+    if next_block:body=body[:next_block.start()]
+    actions=list(re.finditer(r'Change Shape\.',body))
+    if not actions:return False
+    pattern=(r"Change Shape\. The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form\. "
+             r"It reverts to its true form if it dies\. Any equipment it is wearing or carrying is absorbed or borne by the new form \(the dragon's choice\)\. "
+             r"In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action\. "
+             r"Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form\.")
+    if len(actions)!=1 or not re.match(pattern,body[actions[0].start():]):raise ValueError('Incomplete or ambiguous dragon Change Shape')
+    return True
+
+
+def check_change_shape_inventory(pages,manifest,cards):
+    key='changeShapeChecks'
+    if manifest['sourceSha256']!=SHA256:raise ValueError('Wrong Change Shape source')
+    if key in manifest and {r['monsterId'] for r in manifest[key]}!={r['id'] for r in manifest['entries']}:raise ValueError('Incomplete declared Change Shape coverage')
+    seen=set()
+    for row in manifest.get(key,[]):
+        if row['monsterId'] in seen:raise ValueError('Duplicate Change Shape declaration')
+        seen.add(row['monsterId'])
+        source_row=next((r for r in manifest['entries'] if r['id']==row['monsterId']),None)
+        card=next((c for c in cards if c['id']==row['monsterId']),None)
+        if source_row is None or card is None or source_row['nameEn']!=row['nameEn']:raise ValueError('Missing Change Shape card')
+        available=dragon_change_shape(' '.join(pages[n] for n in source_row['pages']),row['nameEn'])
+        if type(row['available']) is not bool or available!=row['available']:raise ValueError('Change Shape availability differs')
+        ru=normalize(card['text'])
+        if available:
+            fragments=['Смена формы: магически превращается в гуманоида или зверя с показателем опасности не выше собственного либо возвращается в истинную форму.',
+                       'При смерти возвращается в истинную форму.',
+                       'Снаряжение поглощается новой формой или остаётся на ней по выбору дракона.',
+                       'Сохраняет мировоззрение, хиты, Кости Хитов, способность говорить, владения, легендарное сопротивление, действия логова, значения Интеллекта, Мудрости и Харизмы, а также это действие.',
+                       'Остальные характеристики и возможности заменяются характеристиками и возможностями новой формы.',
+                       'Классовые особенности и легендарные действия новой формы не приобретаются.']
+            if any(v not in ru for v in fragments):raise ValueError('Authored Change Shape rules differ')
+        elif 'Смена формы:' in ru:raise ValueError('Invented Change Shape action')
     return len(seen)
 
 
@@ -528,7 +589,7 @@ def check_metallic_trait_inventory(pages,manifest,cards):
         card=next((c for c in cards if c['id']==row['monsterId']),None)
         if source_row is None or card is None or source_row['nameEn']!=row['nameEn']:raise ValueError('Missing metallic trait card')
         expected=metallic_traits(' '.join(pages[n] for n in source_row['pages']),row['nameEn'])
-        if expected!=row['traits']:raise ValueError('Metallic trait source fields differ')
+        if not source_fields_equal(expected,row['traits']):raise ValueError('Metallic trait source fields differ')
         ru=normalize(card['text'])
         saves={'dex':'Ловкости','con':'Телосложения','wis':'Мудрости','cha':'Харизмы'}
         skills={'perception':'Восприятие','persuasion':'Убеждение','stealth':'Скрытность','insight':'Проницательность','deception':'Обман','arcana':'Магия','history':'История'}
@@ -552,7 +613,7 @@ def dragon_secondary_breath(text,creature,name):
     body=text[heading.end():]
     next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b[^.]*? Armor Class \d+',body)
     if next_block:body=body[:next_block.start()]
-    parents=list(re.finditer(r'Breath Weapons \(Recharge ([1-6])[–-]([1-6])\)\. The dragon uses one of the following breath weapons\.\s*',body))
+    parents=list(re.finditer(r'Breath Weapons \(Recharge ([1-6])[–-]([1-6])\)\. The dragon uses one of the following breath weapons[.:]\s*',body))
     actions=list(re.finditer(r'(?<![a-zA-Z])'+re.escape(name)+r'\. The dragon exhales ',body))
     if len(parents)!=1 or len(actions)!=1 or parents[0].end()>actions[0].start():
         raise ValueError('Missing or ambiguous secondary breath parent/action')
@@ -587,7 +648,7 @@ def check_secondary_breath_inventory(pages,manifest,cards):
         card=next((c for c in cards if c['id']==row['monsterId']),None)
         if source_row is None or card is None or source_row['nameEn']!=row['nameEn']:raise ValueError('Missing secondary breath card')
         expected=dragon_secondary_breath(' '.join(pages[n] for n in source_row['pages']),row['nameEn'],row['breath']['nameEn'])
-        if expected!=row['breath']:raise ValueError('Secondary breath source fields differ')
+        if not source_fields_equal(expected,row['breath']):raise ValueError('Secondary breath source fields differ')
         ru=normalize(card['text']);effect=expected['effect']
         labels={'sleep':'Усыпляющее','push':'Отталкивающее','slow':'Замедляющее','weaken':'Ослабляющее','paralyze':'Парализующее'}
         # Bind save/area to this breath, not another action elsewhere in the card.
@@ -621,7 +682,7 @@ def check_dragon_breath_inventory(pages,manifest,cards):
         if source_row is None or card is None or source_row['nameEn']!=row['nameEn']:raise ValueError('Missing breath card')
         text=' '.join(pages[n] for n in source_row['pages']);declared=row['breath']
         expected=dragon_breath(text,row['nameEn'],declared['nameEn'])
-        if expected!={k:v for k,v in declared.items() if k!='underwaterResistance'}:raise ValueError('Breath geometry, save or damage differs')
+        if not source_fields_equal(expected,{k:v for k,v in declared.items() if k!='underwaterResistance'}):raise ValueError('Breath geometry, save or damage differs')
         ru=normalize(card['text']);geometry=('линия '+str(expected['length'])+' футов шириной '+str(expected['width'])+' футов') if expected['shape']=='line' else ('конус '+str(expected['length'])+' футов')
         damage_type={'acid':'кислотного','lightning':'электрического','poison':'урона ядом','fire':'огненного','cold':'холодного'}.get(expected['damageType'])
         if damage_type is None:raise ValueError('Unsupported authored breath damage type')
@@ -734,7 +795,8 @@ def main():
     secondary_checked=0
     metallic_traits_checked=0
     legendary_checked=0
-    for package in ['srd51-dragon-kin','srd51-chromatic-young','srd51-metallic-young','srd51-chromatic-adults']:
+    shape_checked=0
+    for package in ['srd51-dragon-kin','srd51-chromatic-young','srd51-metallic-young','srd51-chromatic-adults','srd51-metallic-adults','srd51-chromatic-ancients','srd51-metallic-ancients']:
         manifest=json.loads((ROOT/('catalog/'+package+'.coverage.json')).read_text(encoding='utf-8-sig'))
         source_pages={n:monster_pages[n] for row in manifest['entries'] for n in row['pages']}
         selected_dragons+=check_selected_monster_manifest(source_pages,manifest,cards)
@@ -742,6 +804,7 @@ def main():
         secondary_checked+=check_secondary_breath_inventory(source_pages,manifest,cards)
         metallic_traits_checked+=check_metallic_trait_inventory(source_pages,manifest,cards)
         legendary_checked+=check_adult_legendary_inventory(source_pages,manifest,cards)
+        shape_checked+=check_change_shape_inventory(source_pages,manifest,cards)
         melee_checked+=check_melee_weapon_inventory(source_pages,manifest,cards)
         additional_melee_checked+=sum(len(a.get('additionalDamage',[])) for row in manifest.get('weaponAttackChecks',[]) for a in row['attacks'])
     pages, failures = dict(monster_pages), []
@@ -757,8 +820,8 @@ def main():
                 failures.append({'id': card['id'], 'fields': errors, 'source': expected})
         except ValueError as error:
             failures.append({'id': card['id'], 'error': str(error)})
-    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'typedHeadingsChecked': type_counts, 'animatedHeadingsChecked': animated_count, 'undeadHeadingsChecked':undead_count, 'preparedCasterSpellsChecked':caster_counts,'innateCasterSpellsChecked':innate_counts, 'selectedFiendCardsChecked':selected_fiends, 'selectedDragonCardsChecked':selected_dragons, 'breathWeaponsChecked':breath_checked, 'secondaryBreathsChecked':secondary_checked, 'metallicTraitsChecked':metallic_traits_checked, 'adultLegendaryBlocksChecked':legendary_checked, 'meleeAttacksChecked':melee_checked, 'additionalMeleeDamageGroupsChecked':additional_melee_checked, 'failures': failures,
-                      'scope': 'Base statistics, declared prepared/innate spells, selected melee damage, dragon breaths, metallic traits and adult legendary fields; other effects need manual source review.'}, ensure_ascii=False, indent=2))
+    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'oozeHeadingsChecked': ooze_count, 'typedHeadingsChecked': type_counts, 'animatedHeadingsChecked': animated_count, 'undeadHeadingsChecked':undead_count, 'preparedCasterSpellsChecked':caster_counts,'innateCasterSpellsChecked':innate_counts, 'selectedFiendCardsChecked':selected_fiends, 'selectedDragonCardsChecked':selected_dragons, 'breathWeaponsChecked':breath_checked, 'secondaryBreathsChecked':secondary_checked, 'metallicTraitsChecked':metallic_traits_checked, 'legendaryDragonBlocksChecked':legendary_checked, 'changeShapeBlocksChecked':shape_checked, 'meleeAttacksChecked':melee_checked, 'additionalMeleeDamageGroupsChecked':additional_melee_checked, 'failures': failures,
+                      'scope': 'Base statistics, declared prepared/innate spells, selected melee damage, dragon breaths, metallic traits and dragon legendary/Change Shape fields; other effects need manual source review.'}, ensure_ascii=False, indent=2))
     if failures:
         raise SystemExit(1)
 

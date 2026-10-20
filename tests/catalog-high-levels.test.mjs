@@ -1,3 +1,4 @@
+import {CATALOG_TOTAL} from './catalog-expectations.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -31,7 +32,7 @@ test('high-level effects retain 2014 thresholds, costs and exceptions',()=>{
 });
 test('complete SRD spell coverage remains distinct from complete game coverage and installs without progress changes',()=>{
  const s=openStore(':memory:');try{const before=s.read(),preview=s.catalog.previewBundled();s.catalog.installBundled({version:preview.version});
- const c=s.catalog.coverage();assert.equal(c.total,608);assert.equal(c.complete,false);assert.equal(c.expectedTotal,null);assert.deepEqual([c.scopes.srd51Spells.expected,c.scopes.srd51Spells.prepared,c.scopes.srd51Spells.installed],[319,319,319]);
+ const c=s.catalog.coverage();assert.equal(c.total,CATALOG_TOTAL);assert.equal(c.complete,false);assert.equal(c.expectedTotal,null);assert.deepEqual([c.scopes.srd51Spells.expected,c.scopes.srd51Spells.prepared,c.scopes.srd51Spells.installed],[319,319,319]);
  for(const row of c.scopes.srd51Spells.byLevel)assert.deepEqual([row.prepared,row.installed],[row.expected,row.expected]);
  assert.equal(s.catalog.spellInventory().entries.filter(e=>e.status==='missing').length,0);
  for(const w of ['seven','eight','nine']){const p=read(`srd51-level-${w}.json`);assert.equal(s.catalog.importEntries(p,{apply:true}).unchanged,p.entries.length);}
