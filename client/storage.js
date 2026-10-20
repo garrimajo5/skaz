@@ -34,7 +34,7 @@ const SkazStorage = (() => {
   let privateServer = false, permissions = null, characterStats=null,characterSheet=null;
   const baseStats={abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18},armorClass:14,initiative:2,speed:30};
   function normalizedSheet(value){if(value===undefined||value===null)return null;if(typeof SkazCharacterSheet==='undefined')throw new Error('Редактор ручного листа не загрузился');return SkazCharacterSheet.validate(value);}
-  async function saveSheet(sheet,key){if(key!==snapshotKey()||!can('character'))throw new Error('Игра или права изменились');pending={operation:'character-sheet',mutationId:crypto.randomUUID(),expectedRevision:revision,characterId:activeContext.characterId,sheet:normalizedSheet(sheet)};rememberDraft();return sendPending();}
+  async function saveSheet(sheet,key,formDraftKey){if(key!==snapshotKey()||!can('character'))throw new Error('Игра или права изменились');pending={operation:'character-sheet',mutationId:crypto.randomUUID(),expectedRevision:revision,characterId:activeContext.characterId,sheet:normalizedSheet(sheet),...(formDraftKey?{formDraftKey}:{})};rememberDraft();return sendPending();}
   async function changeCounter(counterId,delta,key){if(key!==snapshotKey()||!can('character')||!characterSheet)throw new Error('Игра или права изменились');pending={operation:'character-sheet-counter',mutationId:crypto.randomUUID(),expectedRevision:revision,characterId:activeContext.characterId,counterId,delta};rememberDraft();return sendPending();}
   function normalizedStats(value){
     if(value===undefined||value===null)return null;
@@ -111,6 +111,8 @@ const SkazStorage = (() => {
     if(pending?.operation==='character-stats'&&payload.revision<=pending.expectedRevision)throw new Error('Сервер не подтвердил новую версию характеристик');
     if((pending?.operation?.startsWith('character-sheet')||pending?.operation==='import-active'&&pending.file?.schemaVersion>=9)&&!Object.hasOwn(payload,'characterSheet'))throw new Error('Сервер не подтвердил ручной лист');
     if(pending?.operation?.startsWith('character-sheet')&&payload.revision<=pending.expectedRevision)throw new Error('Сервер не подтвердил новую версию ручного листа');
+    if(pending?.formDraftKey&&payload.revision<=pending.expectedRevision)throw new Error('Сервер не подтвердил новую версию формы');
+    if(pending?.formDraftKey&&['campaignId','characterId','sessionId'].some(k=>payload.context[k]!==activeContext?.[k]))throw new Error('Сервер подтвердил другую игру. Черновик сохранён.');
     const nextSheet=normalizedSheet(payload.characterSheet);
     const nextStats=normalizedStats(payload.characterStats);
     adoptPermissions(payload);characterStats=nextStats;characterSheet=nextSheet;loaded=true;
@@ -163,14 +165,14 @@ const SkazStorage = (() => {
       throw error;
     }
   }
-  async function commit(next, label) {
+  async function commit(next, label, formDraftKey) {
     if (demo) {
       localStorage.setItem('skaz-v1', JSON.stringify(next));
       return;
     }
     if (status !== 'ready') throw new Error('Сначала заверши сохранение или восстанови соединение');
     requirePermission('character');
-    pending = { mutationId: crypto.randomUUID(), expectedRevision: revision, label, state: clean(next) };
+    pending = { mutationId: crypto.randomUUID(), expectedRevision: revision, label, state: clean(next), ...(formDraftKey?{formDraftKey}:{}) };
     rememberDraft();
     return sendPending();
   }
@@ -186,7 +188,9 @@ const SkazStorage = (() => {
     else download({ app: 'skaz', schemaVersion: 1, state: draft.state }, 'skaz-unsaved-draft.json');
   }
   function entityDraftLabel(draft){
-    return [draft.entityKind==='quest'?'Задание':'Место',draft.values.title.trim()||'Без названия',draft.campaignName,draft.characterName,draft.sessionName,Number.isSafeInteger(draft.revision)?'версия '+draft.revision:''].filter(value=>typeof value==='string'&&value.trim()).join(' · ');
+    const names={quest:'Задание',place:'Место',sheet:'Свой класс',stats:'Характеристики',resource:'Ресурсы'};
+    const title=draft.entityKind==='sheet'?draft.values?.className:['stats','resource'].includes(draft.entityKind)?'Ручной ввод':draft.values?.title;
+    return [names[draft.entityKind]||'Форма',typeof title==='string'&&title.trim()?title.trim():'Без названия',draft.campaignName,draft.characterName,draft.sessionName,Number.isSafeInteger(draft.revision)?'версия '+draft.revision:''].filter(value=>typeof value==='string'&&value.trim()).join(' · ');
   }
   function exportState() { if(characterStats||characterSheet)return toast("Ручные характеристики требуют активную игру v9 или SQLite backup");download({ app: 'skaz', schemaVersion: 1, exportedAt: new Date().toISOString(), state: clean(state) }, 'skaz-backup.json'); }
   async function exportActive() {
@@ -427,19 +431,20 @@ const SkazStorage = (() => {
     if(demo||!can('character')||!activeContext)return toast('Характеристики доступны после подключения с правом изменения листа');
     const key=snapshotKey(),original=characterStats,values=structuredClone(characterStats||baseStats);
     const fields=[['str','Сила',1,30],['dex','Ловкость',1,30],['con','Телосложение',1,30],['int','Интеллект',1,30],['wis','Мудрость',1,30],['cha','Харизма',1,30],['armorClass','Класс доспеха',0,100],['initiative','Инициатива',-20,40],['speed','Скорость, футы',0,1000]];
-    modal(`<h2>Характеристики листа</h2><p>${esc(state.profile.name)}. Введи итоговые значения после расчёта за столом.</p><form id="stats-form"><div class="entity-fields"><div class="resource-fields">${fields.map(([id,title,min,max])=>`<label for="stats-${id}">${title}<input id="stats-${id}" type="number" min="${min}" max="${max}" step="1" required value="${values.abilities[id]??values[id]}"></label>`).join('')}</div><p>Модификаторы шести характеристик вычисляются как округление вниз (значение − 10) / 2. КД, инициатива и скорость заданы вручную и не пересчитываются от предметов или Ловкости. ${characterSheet?'Класс и уровень заданы в ручном листе':'Класс и уровень остаются шаблоном барда 5 уровня'}; применение демонстрационных атак и заклинаний отключается. Заклинания из каталога доступны с ручным расчётом. Ресурсы не меняются. Ввод до отправки не сохраняется.</p></div><div class="dialog-actions"><button type="submit" class="primary">Сохранить характеристики</button>${original?'<button type="button" id="stats-template">Вернуть значения шаблона</button>':''}</div></form>`);
+    modal(`<h2>Характеристики листа</h2><p>${esc(state.profile.name)}. Введи итоговые значения после расчёта за столом.</p><p id="stats-draft-status" class="small" role="status">Ввод формы сохраняется только в этом браузере.</p><form id="stats-form"><div class="entity-fields"><div class="resource-fields">${fields.map(([id,title,min,max])=>`<label for="stats-${id}">${title}<input id="stats-${id}" type="number" min="${min}" max="${max}" step="1" required value="${values.abilities[id]??values[id]}"></label>`).join('')}</div><p>Модификаторы шести характеристик вычисляются как округление вниз (значение − 10) / 2. КД, инициатива и скорость заданы вручную и не пересчитываются от предметов или Ловкости. ${characterSheet?'Класс и уровень заданы в ручном листе':'Класс и уровень остаются шаблоном барда 5 уровня'}; применение демонстрационных атак и заклинаний отключается. Заклинания из каталога доступны с ручным расчётом. Ресурсы не меняются. Черновик не отправляется на сервер до сохранения.</p></div><div class="dialog-actions"><button type="submit" class="primary">Сохранить характеристики</button>${original?'<button type="button" id="stats-template">Вернуть значения шаблона</button>':''}</div></form>`);
+    const draft=entityFormDraft('stats',{id:activeContext.characterId},activeContext.characterId,()=>Object.fromEntries(fields.map(([id])=>[id,$('#stats-'+id).value])),raw=>{for(const [id]of fields)$('#stats-'+id).value=raw[id];},raw=>validEditorDraft(raw,fields.map(([id])=>[id,16])));
     async function submit(stats){
       if(key!==snapshotKey()||!can('character'))return toast('Игра или права изменились. Открой характеристики заново.');
       if(JSON.stringify(stats)===JSON.stringify(original))return toast('Характеристики уже сохранены');
-      pending={operation:'character-stats',mutationId:crypto.randomUUID(),expectedRevision:revision,characterId:activeContext.characterId,stats};rememberDraft();closeModal();
+      pending={operation:'character-stats',mutationId:crypto.randomUUID(),expectedRevision:revision,characterId:activeContext.characterId,stats,formDraftKey:draft.key};rememberDraft();closeModal();
       try{await sendPending();toast('Характеристики сохранены');}catch(error){toast(error.message);}
     }
     $('#stats-form').onsubmit=event=>{
-      event.preventDefault();const stats={abilities:{}};
+      event.preventDefault();if(key!==snapshotKey()||!can('character'))return toast('Игра или права изменились. Открой характеристики заново.');draft.save();const stats={abilities:{}};
       for(const [id,title,min,max]of fields){const raw=$('#stats-'+id).value.trim(),value=Number(raw);if(!/^-?\d+$/.test(raw)||!Number.isSafeInteger(value)||value<min||value>max)return toast(title+': целое число от '+min+' до '+max);if(id in baseStats.abilities)stats.abilities[id]=value;else stats[id]=value;}
       return submit(stats);
     };
-    if(original)$('#stats-template').onclick=()=>{modal('<h2>Вернуть шаблон?</h2><p>Ручные характеристики будут заменены исходными значениями барда 5 уровня. Ресурсы, предметы и записи сохранятся.</p><button id="stats-reset-confirm" class="primary">Подтвердить возврат</button>');$('#stats-reset-confirm').onclick=()=>submit(null);};
+    if(original)$('#stats-template').onclick=()=>{draft.save();modal('<h2>Вернуть шаблон?</h2><p>Ручные характеристики будут заменены исходными значениями барда 5 уровня. Ресурсы, предметы и записи сохранятся.</p><button id="stats-reset-confirm" class="primary">Подтвердить возврат</button>');$('#stats-reset-confirm').onclick=()=>submit(null);};
   }
   function editResources(){
     if(demo||!can('character')||!activeContext)return toast('Ресурсы доступны после подключения с правом изменения персонажа');
@@ -450,16 +455,17 @@ const SkazStorage = (() => {
     const changed=()=>toast('Игра или права изменились. Открой ресурсы заново.');
     function form(values=original,reason=''){
       if(!current())return changed();
-      modal(`<h2>Ресурсы персонажа</h2><p>${esc(before.profile.name)} · ${esc(before.profile.campaign)}. Укажи новые остатки после расчёта за столом. Это полные значения, не прибавка или списание.</p><form id="resource-form"><div class="entity-fields"><div class="resource-fields">${fields.map(([id,title,min,max])=>`<label for="resource-${id}">${title}<input id="resource-${id}" type="number" inputmode="numeric" min="${min}" max="${max}" step="1" required value="${values[id]}"></label>`).join('')}</div><label for="resource-reason">Причина (необязательно)</label><input id="resource-reason" maxlength="100" value="${esc(reason)}"><p>${characterSheet?'Счётчики собственного класса доступны в редакторе «Свой класс».':'Ячейки и вдохновение ограничены шаблоном барда 5 уровня: 4/3/2 ячейки и 4 вдохновения.'} Инвентарь, концентрация и журнал не изменяются. Ввод этой формы не сохраняется до отправки.</p></div><div class="dialog-actions"><button class="primary" type="submit">Проверить изменения</button></div></form>`);
+      modal(`<h2>Ресурсы персонажа</h2><p>${esc(before.profile.name)} · ${esc(before.profile.campaign)}. Укажи новые остатки после расчёта за столом. Это полные значения, не прибавка или списание.</p><p id="resource-draft-status" class="small" role="status">Ввод формы сохраняется только в этом браузере.</p><form id="resource-form"><div class="entity-fields"><div class="resource-fields">${fields.map(([id,title,min,max])=>`<label for="resource-${id}">${title}<input id="resource-${id}" type="number" inputmode="numeric" min="${min}" max="${max}" step="1" required value="${values[id]}"></label>`).join('')}</div><label for="resource-reason">Причина (необязательно)</label><input id="resource-reason" maxlength="100" value="${esc(reason)}"><p>${characterSheet?'Счётчики собственного класса доступны в редакторе «Свой класс».':'Ячейки и вдохновение ограничены шаблоном барда 5 уровня: 4/3/2 ячейки и 4 вдохновения.'} Инвентарь, концентрация и журнал не изменяются. Черновик этой формы остаётся в браузере до подтверждённого сохранения.</p></div><div class="dialog-actions"><button class="primary" type="submit">Проверить изменения</button></div></form>`);
+      const draft=entityFormDraft('resource',{id:activeContext.characterId},activeContext.characterId,()=>Object.fromEntries([...fields.map(([id])=>[id,$('#resource-'+id).value]),['reason',$('#resource-reason').value]]),raw=>{for(const [id]of fields)$('#resource-'+id).value=raw[id];$('#resource-reason').value=raw.reason;},raw=>validEditorDraft(raw,[...fields.map(([id])=>[id,16]),['reason',100]]));
       $('#resource-form').onsubmit=event=>{
-        event.preventDefault();if(!current())return changed();
+        event.preventDefault();if(!current())return changed();draft.save();
         const values={};for(const [id,title,min,max]of fields){const raw=$('#resource-'+id).value.trim(),number=Number(raw);if(!/^\d+$/.test(raw)||!Number.isSafeInteger(number)||number<min||number>max)return toast(title+': целое число от '+min+' до '+max);values[id]=number;}
         if(values.hp>values.maxHp)return toast('Текущие хиты не могут превышать максимум. Укажи оба значения явно.');
         const reason=$('#resource-reason').value.trim();if(reason.length>100)return toast('Причина: не более 100 символов');
-        review(values,reason);
+        review(values,reason,draft.key);
       };
     }
-    function review(values,reason){
+    function review(values,reason,formDraftKey){
       const differences=fields.filter(([id])=>values[id]!==original[id]);
       if(!differences.length)return toast('Ресурсы уже имеют эти значения');
       modal(`<h2>Проверить ресурсы</h2><p>${esc(before.profile.name)} · ${esc(before.profile.campaign)}</p><div class="resource-review" role="region" aria-label="Сравнение ресурсов" tabindex="0"><table><thead><tr><th scope="col">Ресурс</th><th scope="col">Сейчас</th><th scope="col">Будет</th></tr></thead><tbody>${differences.map(([id,title])=>`<tr><th scope="row">${title}</th><td>${original[id]}</td><td>${values[id]}</td></tr>`).join('')}</tbody></table></div>${reason?`<p>Причина: ${esc(reason)}</p>`:''}<p>Будет сохранена одна ручная корректировка. Проверь остатки; сервер повторно проверит версию и права.</p><div class="dialog-actions"><button id="resource-confirm" class="primary">Подтвердить</button><button id="resource-back">Исправить</button></div>`);
@@ -467,21 +473,22 @@ const SkazStorage = (() => {
       $('#resource-confirm').onclick=async()=>{
         if(busy)return;if(!current())return changed();busy=true;
         const next={...before,hp:values.hp,maxHp:values.maxHp,gold:values.gold,inspiration:values.inspiration??before.inspiration,slots:characterSheet?before.slots:{1:values.slot1,2:values.slot2,3:values.slot3}};
-        closeModal();try{await commit(next,'Ручная корректировка ресурсов'+(reason?' · '+reason:''));toast('Ресурсы сохранены');}catch(error){toast(error.message);}finally{busy=false;}
+        closeModal();try{await commit(next,'Ручная корректировка ресурсов'+(reason?' · '+reason:''),formDraftKey);toast('Ресурсы сохранены');}catch(error){toast(error.message);}finally{busy=false;}
       };
     }
     form();
   }
+  function validEditorDraft(value,fields){return value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===fields.length&&fields.every(([id,max])=>typeof value[id]==='string'&&value[id].length<=max);}
   // Drafts include the base revision: old text is downloadable, never silently
   // placed over a newer quest/place or another user's current game.
-  function entityFormDraft(kind,selected,entityId,readValues,restoreValues) {
+  function entityFormDraft(kind,selected,entityId,readValues,restoreValues,validateValues) {
     const target={...activeContext},version=revision,form=$('#'+kind+'-form');
     const draftKey=draftPrefix('entity-form')+tabId+':'+encodeURIComponent(JSON.stringify({context:target,revision:version,kind,id:selected?.id||'new'}));
     const show=text=>{const region=$('#'+kind+'-draft-status');if(region.textContent!==text)region.textContent=text;};
     const validString=(value,max)=>typeof value==='string'&&value.length<=max;
-    const valid=values=>values&&validString(values.title,200)&&validString(values.description,12000)&&(kind==='quest'
+    const valid=validateValues||((values)=>values&&validString(values.title,200)&&validString(values.description,12000)&&(kind==='quest'
       ? ['active','completed','failed'].includes(values.status)&&Array.isArray(values.steps)&&values.steps.length<=50&&new Set(values.steps.map(s=>s?.id)).size===values.steps.length&&values.steps.every(s=>s&&validString(s.id,80)&&/^[a-zA-Z0-9-]{8,80}$/.test(s.id)&&validString(s.title,500)&&typeof s.done==='boolean')
-      : typeof values.visited==='boolean'&&['x','y'].every(k=>validString(values[k],32)&&values[k].trim()!==''&&Number.isFinite(Number(values[k]))&&Number(values[k])>=0&&Number(values[k])<=100));
+      : typeof values.visited==='boolean'&&['x','y'].every(k=>validString(values[k],32)&&values[k].trim()!==''&&Number.isFinite(Number(values[k]))&&Number(values[k])>=0&&Number(values[k])<=100)));
     const current=()=>JSON.stringify(activeContext)===JSON.stringify(target)&&revision===version&&$('#'+kind+'-form')===form;
     try {
       const record=JSON.parse(localStorage.getItem(draftKey)||'null');
@@ -684,14 +691,14 @@ const SkazStorage = (() => {
             try { const value = JSON.parse(localStorage.getItem(key)); if (value?.kind === 'proposal-form' && typeof value.values?.source === 'string') drafts.push(value); } catch {}
           }
           if (key.startsWith(draftPrefix('entity-form'))) {
-            try { const value=JSON.parse(localStorage.getItem(key));if(value?.kind==='entity-form'&&['quest','place'].includes(value.entityKind)&&typeof value.values?.title==='string')drafts.push(value); } catch {}
+            try { const value=JSON.parse(localStorage.getItem(key));if(value?.kind==='entity-form'&&(['quest','place'].includes(value.entityKind)&&typeof value.values?.title==='string'||['sheet','stats','resource'].includes(value.entityKind)&&value.values&&typeof value.values==='object'&&!Array.isArray(value.values)))drafts.push(value); } catch {}
           }
           if (key.startsWith(draftPrefix('pending'))) {
             try { const value = JSON.parse(localStorage.getItem(key)); if (value?.state || value?.operation) drafts.push(value); } catch {}
           }
         }
       } catch { toast('Хранилище браузера недоступно'); return; }
-      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Ввод события, задания или места можно скачать для чтения и копирования; это ещё не запись сервера и не файл импорта игры. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc((draft.kind === 'entity-form' ? entityDraftLabel(draft) : draft.kind === 'proposal-form' ? 'Текст события · ' + (draft.characterName || '') + ' · ' + (draft.sessionName || '') : draft.label) || (draft.operation?.startsWith('proposal-') ? 'Решение по событию' : draft.operation?.startsWith('place-') ? 'Сохранение места' : draft.operation?.startsWith('quest-') ? 'Сохранение задания' : draft.operation === 'spell-set' ? 'Изменение списка заклинаний' : draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-charges' ? 'Изменение зарядов' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
+      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Ввод события, задания, места, класса, характеристик или ресурсов можно скачать для чтения и копирования; это ещё не запись сервера и не файл импорта игры. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc((draft.kind === 'entity-form' ? entityDraftLabel(draft) : draft.kind === 'proposal-form' ? 'Текст события · ' + (draft.characterName || '') + ' · ' + (draft.sessionName || '') : draft.label) || (draft.operation?.startsWith('proposal-') ? 'Решение по событию' : draft.operation?.startsWith('place-') ? 'Сохранение места' : draft.operation?.startsWith('quest-') ? 'Сохранение задания' : draft.operation === 'spell-set' ? 'Изменение списка заклинаний' : draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-charges' ? 'Изменение зарядов' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
       $$('[data-draft-index]').forEach(button => button.onclick = () => downloadDraft(drafts[Number(button.dataset.draftIndex)]));
     };
     $('#import-state').onchange = async event => {
@@ -768,5 +775,5 @@ const SkazStorage = (() => {
     if(key!==contextKey()||value.campaignId!==activeContext?.campaignId)throw new Error('Выбрана другая кампания');return value;
   }
   function contextKey(){return JSON.stringify(activeContext);}
-  return { sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
+  return { sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
 })();
