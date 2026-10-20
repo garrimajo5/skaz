@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Four missing aberration statblocks; Otyugh is already supplied separately",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 4,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:aboleth",
+      "nameEn": "Aboleth",
+      "pages": [
+        261
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:chuul",
+      "nameEn": "Chuul",
+      "pages": [
+        267,
+        268
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:cloaker",
+      "nameEn": "Cloaker",
+      "pages": [
+        268
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:gibbering-mouther",
+      "nameEn": "Gibbering Mouther",
+      "pages": [
+        314
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Otyugh is an existing aberration and is not duplicated.",
+    "Roper and Mimic are monstrosities, not included in this type inventory.",
+    "Aboleth diseases, control, Cloaker light/phantasms and Gibbering behavior remain manual."
+  ]
+}

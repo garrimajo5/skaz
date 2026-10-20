@@ -17,7 +17,7 @@ test('celestial forms retain source statistics, innate components and legendary 
 test('celestial summon links eligible forms without applying spells or resources',()=>{
  const s=openStore(':memory:');try{const before=s.read(),p=s.catalog.previewBundled();s.catalog.installBundled({version:p.version});
  const detail=s.catalog.lookup(new URLSearchParams({id:'srd51:2014:spell:conjure-celestial'}));assert.deepEqual(detail.related.filter(e=>e.kind==='monster').map(e=>e.name.en),['Couatl','Pegasus','Unicorn']);assert.match(detail.entry.text,/Только ячейка 9-го/);
- assert.equal(s.catalog.search(new URLSearchParams({kind:'monster',monsterType:'celestial'})).total,3);assert.equal(s.catalog.importEntries(pack,{apply:true}).unchanged,3);
+ assert.equal(s.catalog.search(new URLSearchParams({kind:'monster',monsterType:'celestial'})).total,6);assert.equal(s.catalog.importEntries(pack,{apply:true}).unchanged,3);
  for(const e of pack.entries)assert.equal(s.catalog.lookup(new URLSearchParams({id:e.id})).related.length,e.links.length);
  assert.deepEqual(s.read(),before);assert.deepEqual(s.history(),[]);
  }finally{s.close();}

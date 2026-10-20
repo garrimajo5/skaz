@@ -10,6 +10,73 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_authored_innate_lists_preserve_unknown_dc_and_reject_changed_frequency(self):
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        text='Врождённая магия: Харизма, без материальных компонентов. Сл в источнике не указана. Без ограничений — light; 3 раза в день каждое — fly.'
+        v=m['authored_innate_spellcasting'](text)
+        self.assertIsNone(v['saveDC']);self.assertEqual(v['groups'][1]['usesPerDay'],3)
+        self.assertNotEqual(v,m['authored_innate_spellcasting'](text.replace('3 раза','1 раз')))
+        self.assertNotEqual(v,m['authored_innate_spellcasting'](text.replace('Харизма,','Харизма, Сл 15,')))
+
+    def test_aberration_inventory_keeps_canonical_names_and_excludes_monstrosities(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        pages={261:'Aboleth Large aberration.',267:'Chuul Large aberration.',268:'Cloaker Large aberration.',314:'Gibbering Mouther Medium aberration.',339:'Otyugh Large aberration. Roper Large monstrosity. Mimic Medium monstrosity.'}
+        rows=m['type_headings'](pages,'aberration')
+        self.assertEqual([r['nameEn'] for r in rows],['Aboleth','Chuul','Cloaker','Gibbering Mouther','Otyugh'])
+        manifest={'ruleset':'5e-2014','sourceSha256':m['SHA256'],'sourcePageRange':[254,394],'sections':[{'monsterType':'aberration','expectedCount':5,'entries':rows}]}
+        cards=[{'id':r['id'],'name':{'en':r['nameEn']},'monster':{'type':'aberration'},'source':{'url':'https://source.invalid/#page='+str(r['page'])}} for r in rows]
+        self.assertEqual(m['check_type_inventory'](pages,manifest,cards,('aberration',)),{'aberration':5})
+        for bad in [cards[:-1],cards+cards[:1],[{**cards[0],'monster':{'type':'monstrosity'}},*cards[1:]]]:
+            with self.assertRaises(ValueError):m['check_type_inventory'](pages,manifest,bad,('aberration',))
+
+    def test_giant_type_inventory_includes_named_giants_and_kin_outside_the_section(self):
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        pages={308:'Ettin Large giant.',312:'Giants Cloud Giant Huge giant. Fire Giant Huge giant.',313:'Frost Giant Huge giant. Hill Giant Huge giant. Stone Giant Huge giant. Storm Giant Huge giant.',336:'Ogre Large giant. Oni Large giant.',351:'Troll Large giant.'}
+        rows=m['type_headings'](pages,'giant')
+        self.assertEqual(len(rows),10);self.assertEqual(rows[1]['nameEn'],'Cloud Giant')
+        self.assertEqual([r['nameEn'] for r in rows[-3:]],['Ogre','Oni','Troll'])
+
+    def test_innate_missing_dc_is_unknown_and_following_magic_weapon_trait_is_not_a_spell(self):
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        text=BASE+" Innate Spellcasting. The beast's innate spellcasting ability is Charisma. It can innately cast the following spells, requiring no material components: At will: light 1/day each: fly Magic Weapons. The beast's attacks are magical. Regeneration. 10 hit points. Actions Bite."
+        value=m['innate_spellcasting'](text,'Beast')
+        self.assertIsNone(value['saveDC']);self.assertEqual(value['groups'][1]['spells'],[{'id':'srd51:2014:spell:fly','target':None}])
+
+    def test_innate_casting_preserves_frequency_components_and_self_restriction(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        text=BASE+" Innate Spellcasting. The beast's spellcasting ability is Charisma (spell save DC 20). It can innately cast the following spells, requiring no material components: At will: detect evil and good, invisibility (self only) 3/day each: raise dead Magic Resistance."
+        value=m['innate_spellcasting'](text,'Beast')
+        self.assertEqual(value['saveDC'],20);self.assertEqual(value['components'],'no-material')
+        self.assertEqual([g['usesPerDay'] for g in value['groups']],[None,3])
+        self.assertEqual(value['groups'][0]['spells'][1],{'id':'srd51:2014:spell:invisibility','target':'self'})
+        manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:beast','pages':[311]}],'innateSpellcastingChecks':[{'monsterId':'source:beast','nameEn':'Beast',**value}]}
+        spells=[{'id':ref['id'],'name':{'en':ref['id'].split(':')[-1].replace('-',' ')}} for group in value['groups'] for ref in group['spells']]
+        cards=[{'id':'source:beast','links':[s['id'] for s in spells],'text':'Врождённая магия: Харизма, Сл 20, без материальных компонентов. Без ограничений — detect evil and good, invisibility только на себя; 3 раза в день каждое — raise dead.'}]
+        self.assertEqual(m['check_innate_spellcasting_inventory']({311:text},manifest,cards,spells),{'Beast':3})
+        for key,val in [('saveDC',19),('components','verbal-only')]:
+            wrong=copy.deepcopy(manifest);wrong['innateSpellcastingChecks'][0][key]=val
+            with self.assertRaises(ValueError):m['check_innate_spellcasting_inventory']({311:text},wrong,cards,spells)
+        wrong=copy.deepcopy(manifest);wrong['innateSpellcastingChecks'][0]['groups'][0]['spells'][1]['target']=None
+        with self.assertRaises(ValueError):m['check_innate_spellcasting_inventory']({311:text},wrong,cards,spells)
+        with self.assertRaises(ValueError):m['check_innate_spellcasting_inventory']({311:text},manifest,[{**cards[0],'text':'detect evil and good, invisibility; raise dead'}],spells)
+        with self.assertRaises(ValueError):m['innate_spellcasting'](text.replace('3/day each:','At will:'),'Beast')
+
+    def test_celestial_headings_ignore_the_angels_section_label_and_keep_both_pages(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        pages={261:'Angels Deva Medium celestial.',262:'Planetar Large celestial. Solar Large celestial.',269:'Couatl Medium celestial.',340:'Pegasus Large celestial.',351:'Unicorn Large celestial.'}
+        rows=m['type_headings'](pages,'celestial')
+        self.assertEqual([r['nameEn'] for r in rows],['Deva','Planetar','Solar','Couatl','Pegasus','Unicorn'])
+        manifest={'ruleset':'5e-2014','sourceSha256':m['SHA256'],'sourcePageRange':[254,394],'sections':[{'monsterType':'celestial','expectedCount':6,'entries':rows}]}
+        cards=[{'id':r['id'],'name':{'en':r['nameEn']},'monster':{'type':'celestial'},'source':{'url':'https://source.invalid/#page='+str(r['page'])}} for r in rows]
+        self.assertEqual(m['check_type_inventory'](pages,manifest,cards,('celestial',)),{'celestial':6})
+        for bad in [cards[:-1],cards+cards[:1],[{**cards[0],'monster':{'type':'fiend'}},*cards[1:]]]:
+            with self.assertRaises(ValueError):m['check_type_inventory'](pages,manifest,bad,('celestial',))
+        wrong=copy.deepcopy(manifest);wrong['sections'][0]['entries'][2]['page']=263
+        with self.assertRaises(ValueError):m['check_type_inventory'](pages,wrong,cards,('celestial',))
+
     def test_prepared_caster_list_preserves_levels_slots_and_spell_ids(self):
         m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
         text=BASE+' Spellcasting. The beast has the following wizard spells prepared: Cantrips (at will): mage hand, ray of frost 1st level (4 slots): shield, magic missile 6th level (1 slot): harm Actions Bite.'

@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Six Giants section statblocks, not the whole giant creature type or all D&D",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 6,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:cloud-giant",
+      "nameEn": "Cloud Giant",
+      "pages": [
+        312
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:fire-giant",
+      "nameEn": "Fire Giant",
+      "pages": [
+        312,
+        313
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:frost-giant",
+      "nameEn": "Frost Giant",
+      "pages": [
+        313
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:hill-giant",
+      "nameEn": "Hill Giant",
+      "pages": [
+        313
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:stone-giant",
+      "nameEn": "Stone Giant",
+      "pages": [
+        313
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:storm-giant",
+      "nameEn": "Storm Giant",
+      "pages": [
+        313,
+        314
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Ogre and Troll are existing giant-type cards outside the Giants section; not duplicated.",
+    "Cloud Giant innate save DC is absent in this pinned block and remains null.",
+    "Stone reaction, Storm lightning, weapon reach and immunity differences require manual resolution."
+  ],
+  "innateSpellcastingChecks": [
+    {
+      "monsterId": "srd51:2014:monster:cloud-giant",
+      "nameEn": "Cloud Giant",
+      "ability": "cha",
+      "saveDC": null,
+      "components": "no-material",
+      "groups": [
+        {
+          "usesPerDay": null,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:detect-magic",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:fog-cloud",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:light",
+              "target": null
+            }
+          ]
+        },
+        {
+          "usesPerDay": 3,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:feather-fall",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:fly",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:misty-step",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:telekinesis",
+              "target": null
+            }
+          ]
+        },
+        {
+          "usesPerDay": 1,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:control-weather",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:gaseous-form",
+              "target": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:storm-giant",
+      "nameEn": "Storm Giant",
+      "ability": "cha",
+      "saveDC": 17,
+      "components": "no-material",
+      "groups": [
+        {
+          "usesPerDay": null,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:detect-magic",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:feather-fall",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:levitate",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:light",
+              "target": null
+            }
+          ]
+        },
+        {
+          "usesPerDay": 3,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:control-weather",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:water-breathing",
+              "target": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Three angel statblocks in SRD 5.1, not all D&D celestials",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 3,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:deva",
+      "nameEn": "Deva",
+      "pages": [
+        261,
+        262
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:planetar",
+      "nameEn": "Planetar",
+      "pages": [
+        262
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:solar",
+      "nameEn": "Solar",
+      "pages": [
+        262,
+        263
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Extra angelic weapon damage is already included in listed attacks.",
+    "Deva form, hearing a lie, Flying Sword and healing have distinct restrictions.",
+    "Solar longbow and gaze DC 15 differ from innate DC 25 and burst DC 23.",
+    "Manual reference rules, not automatic combat, form or healing changes."
+  ],
+  "innateSpellcastingChecks": [
+    {
+      "monsterId": "srd51:2014:monster:deva",
+      "nameEn": "Deva",
+      "ability": "cha",
+      "saveDC": 17,
+      "components": "verbal-only",
+      "groups": [
+        {
+          "usesPerDay": null,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:detect-evil-and-good",
+              "target": null
+            }
+          ]
+        },
+        {
+          "usesPerDay": 1,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:commune",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:raise-dead",
+              "target": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:planetar",
+      "nameEn": "Planetar",
+      "ability": "cha",
+      "saveDC": 20,
+      "components": "no-material",
+      "groups": [
+        {
+          "usesPerDay": null,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:detect-evil-and-good",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:invisibility",
+              "target": "self"
+            }
+          ]
+        },
+        {
+          "usesPerDay": 3,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:blade-barrier",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:dispel-evil-and-good",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:flame-strike",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:raise-dead",
+              "target": null
+            }
+          ]
+        },
+        {
+          "usesPerDay": 1,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:commune",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:control-weather",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:insect-plague",
+              "target": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monsterId": "srd51:2014:monster:solar",
+      "nameEn": "Solar",
+      "ability": "cha",
+      "saveDC": 25,
+      "components": "no-material",
+      "groups": [
+        {
+          "usesPerDay": null,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:detect-evil-and-good",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:invisibility",
+              "target": "self"
+            }
+          ]
+        },
+        {
+          "usesPerDay": 3,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:blade-barrier",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:dispel-evil-and-good",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:resurrection",
+              "target": null
+            }
+          ]
+        },
+        {
+          "usesPerDay": 1,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:commune",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:control-weather",
+              "target": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

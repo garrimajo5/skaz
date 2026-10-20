@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Aberration headings in pinned SRD 5.1 pages 254–394, not all D&D",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "sourcePageRange": [
+    254,
+    394
+  ],
+  "sections": [
+    {
+      "monsterType": "aberration",
+      "expectedCount": 5,
+      "entries": [
+        {
+          "id": "srd51:2014:monster:aboleth",
+          "nameEn": "Aboleth",
+          "page": 261
+        },
+        {
+          "id": "srd51:2014:monster:chuul",
+          "nameEn": "Chuul",
+          "page": 267
+        },
+        {
+          "id": "srd51:2014:monster:cloaker",
+          "nameEn": "Cloaker",
+          "page": 268
+        },
+        {
+          "id": "srd51:2014:monster:gibbering-mouther",
+          "nameEn": "Gibbering Mouther",
+          "page": 314
+        },
+        {
+          "id": "srd51:2014:monster:otyugh",
+          "nameEn": "Otyugh",
+          "page": 339
+        }
+      ]
+    }
+  ],
+  "completeGameCatalog": false
+}

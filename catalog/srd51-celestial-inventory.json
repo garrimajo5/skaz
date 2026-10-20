@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Celestial creature headings in pinned SRD 5.1 pages 254–394, not all D&D",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "sourcePageRange": [
+    254,
+    394
+  ],
+  "sections": [
+    {
+      "monsterType": "celestial",
+      "expectedCount": 6,
+      "entries": [
+        {
+          "id": "srd51:2014:monster:deva",
+          "nameEn": "Deva",
+          "page": 261
+        },
+        {
+          "id": "srd51:2014:monster:planetar",
+          "nameEn": "Planetar",
+          "page": 262
+        },
+        {
+          "id": "srd51:2014:monster:solar",
+          "nameEn": "Solar",
+          "page": 262
+        },
+        {
+          "id": "srd51:2014:monster:couatl",
+          "nameEn": "Couatl",
+          "page": 269
+        },
+        {
+          "id": "srd51:2014:monster:pegasus",
+          "nameEn": "Pegasus",
+          "page": 340
+        },
+        {
+          "id": "srd51:2014:monster:unicorn",
+          "nameEn": "Unicorn",
+          "page": 351
+        }
+      ]
+    }
+  ],
+  "completeGameCatalog": false
+}

@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:ettin",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Эттин",
+        "en": "Ettin"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=308",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz giant kin v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 308.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшой великан, хаотично-злой. Природный доспех; хиты 85 (10d10 + 30). Восприятие +4, тёмное зрение 60 футов, пассивное Восприятие 14; Великаний и Орочий.\nДве головы: преимущество на проверки Мудрости (Восприятие) и спасброски от слепоты, очарования, глухоты, испуга, ошеломления и потери сознания. Это преимущество, не иммунитет к перечисленным состояниям. Когда одна голова спит, другая бодрствует.\nМультиатака: две атаки — одна боевым топором и одна моргенштерном. Топор: рукопашная атака оружием +7, досягаемость 5 футов, одна цель; 14 (2d8 + 5) рубящего урона. Моргенштерн: рукопашная атака оружием +7, досягаемость 5 футов, одна цель; 14 (2d8 + 5) колющего урона.\nАтаки, формы, заклинания, регенерация и прочие эффекты справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:blinded",
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:deafened",
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:stunned",
+        "srd51:2014:mechanic:unconscious"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "giant",
+        "armorClass": 12,
+        "hitPoints": 85,
+        "speed": {
+          "walk": 40
+        },
+        "abilities": {
+          "str": 21,
+          "dex": 8,
+          "con": 17,
+          "int": 6,
+          "wis": 10,
+          "cha": 8
+        },
+        "challenge": "4",
+        "xp": 1100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:oni",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Они",
+        "en": "Oni"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=336",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz giant kin v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 336, 337.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшой великан, законно-злой. Кольчуга; хиты 110 (13d10 + 39). Спасброски Ловкости +3, Телосложения +6, Мудрости +4, Харизмы +5; Магия +5, Обман +8, Восприятие +4. Тёмное зрение 60 футов, пассивное Восприятие 14; Общий и Великаний.\nВрождённая магия: Харизма, Сл 13, без материальных компонентов. Без ограничений — darkness, invisibility; 1 раз в день каждое — charm person, cone of cold, gaseous form, sleep. Невидимость не ограничена только собой в этом блоке источника. Атаки оружием магические. Регенерация: в начале своего хода восстанавливает 10 хитов, только если имеет хотя бы 1 хит; не поднимает из 0 хитов.\nМультиатака: две атаки когтями или глефой. Коготь только в форме они: рукопашная атака оружием +7, досягаемость 5 футов, одна цель; 8 (1d8 + 4) рубящего урона. Глефа: рукопашная атака оружием +7, досягаемость 10 футов, одна цель; 15 (2d10 + 4) рубящего урона, либо 9 (1d10 + 4) в маленькой или средней форме.\nСмена облика: действием принимает форму маленького/среднего гуманоида, большого великана или истинную форму. Кроме размера, игровые параметры во всех формах одинаковы. Из снаряжения превращается только глефа, уменьшаясь для гуманоидной формы. При смерти они возвращается в истинную форму, а глефа — в обычный размер. Способности выбранного гуманоида и классовые умения этим правилом не предоставляются.\nАтаки, формы, заклинания, регенерация и прочие эффекты справочные; автоматически не применяются.",
+      "links": [
+        "srd51:2014:spell:darkness",
+        "srd51:2014:spell:invisibility",
+        "srd51:2014:spell:charm-person",
+        "srd51:2014:spell:cone-of-cold",
+        "srd51:2014:spell:gaseous-form",
+        "srd51:2014:spell:sleep"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "giant",
+        "armorClass": 16,
+        "hitPoints": 110,
+        "speed": {
+          "walk": 30,
+          "fly": 30
+        },
+        "abilities": {
+          "str": 19,
+          "dex": 11,
+          "con": 16,
+          "int": 14,
+          "wis": 12,
+          "cha": 15
+        },
+        "challenge": "7",
+        "xp": 2900
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Giant type headings in pinned SRD pages 254–394, including Ettin/Ogre/Oni/Troll outside Giants section",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "sourcePageRange": [
+    254,
+    394
+  ],
+  "sections": [
+    {
+      "monsterType": "giant",
+      "expectedCount": 10,
+      "entries": [
+        {
+          "id": "srd51:2014:monster:ettin",
+          "nameEn": "Ettin",
+          "page": 308
+        },
+        {
+          "id": "srd51:2014:monster:cloud-giant",
+          "nameEn": "Cloud Giant",
+          "page": 312
+        },
+        {
+          "id": "srd51:2014:monster:fire-giant",
+          "nameEn": "Fire Giant",
+          "page": 312
+        },
+        {
+          "id": "srd51:2014:monster:frost-giant",
+          "nameEn": "Frost Giant",
+          "page": 313
+        },
+        {
+          "id": "srd51:2014:monster:hill-giant",
+          "nameEn": "Hill Giant",
+          "page": 313
+        },
+        {
+          "id": "srd51:2014:monster:stone-giant",
+          "nameEn": "Stone Giant",
+          "page": 313
+        },
+        {
+          "id": "srd51:2014:monster:storm-giant",
+          "nameEn": "Storm Giant",
+          "page": 313
+        },
+        {
+          "id": "srd51:2014:monster:ogre",
+          "nameEn": "Ogre",
+          "page": 336
+        },
+        {
+          "id": "srd51:2014:monster:oni",
+          "nameEn": "Oni",
+          "page": 336
+        },
+        {
+          "id": "srd51:2014:monster:troll",
+          "nameEn": "Troll",
+          "page": 351
+        }
+      ]
+    }
+  ],
+  "completeGameCatalog": false
+}

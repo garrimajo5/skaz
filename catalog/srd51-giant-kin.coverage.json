@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Ettin and Oni giant-type statblocks outside the Giants section",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 2,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:ettin",
+      "nameEn": "Ettin",
+      "pages": [
+        308
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:oni",
+      "nameEn": "Oni",
+      "pages": [
+        336,
+        337
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Ettin has advantage, not condition immunities.",
+    "Oni regeneration requires at least 1 HP; smaller form glaive damage and transformed equipment remain distinct.",
+    "Oni invisibility is not limited to self by this source block."
+  ],
+  "innateSpellcastingChecks": [
+    {
+      "monsterId": "srd51:2014:monster:oni",
+      "nameEn": "Oni",
+      "ability": "cha",
+      "saveDC": 13,
+      "components": "no-material",
+      "groups": [
+        {
+          "usesPerDay": null,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:darkness",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:invisibility",
+              "target": null
+            }
+          ]
+        },
+        {
+          "usesPerDay": 1,
+          "spells": [
+            {
+              "id": "srd51:2014:spell:charm-person",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:cone-of-cold",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:gaseous-form",
+              "target": null
+            },
+            {
+              "id": "srd51:2014:spell:sleep",
+              "target": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
