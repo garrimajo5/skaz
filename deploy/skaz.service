@@ -9,7 +9,9 @@ Group=skaz
 WorkingDirectory=/opt/skaz/current
 EnvironmentFile=/etc/skaz.env
 ExecStart=/opt/skaz-node/bin/node server/index.mjs
-ExecStartPost=/usr/bin/curl --retry 10 --retry-connrefused --retry-delay 1 --fail --silent --show-error http://127.0.0.1:4173/api/health
+# The root serves the sign-in page without a session in individual mode.
+# /api/health itself requires a personal session in that mode.
+ExecStartPost=/usr/bin/curl --retry 10 --retry-connrefused --retry-delay 1 --fail --silent --show-error --output /dev/null http://127.0.0.1:4173/
 TimeoutStartSec=30
 Restart=on-failure
 RestartSec=3
