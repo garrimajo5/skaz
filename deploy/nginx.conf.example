@@ -21,6 +21,22 @@ server {
     add_header Referrer-Policy no-referrer always;
     auth_basic "SKAZ private";
     auth_basic_user_file /etc/nginx/skaz.htpasswd;
+    # Keep a rejected form login from evicting the independent Basic login.
+    # In shared mode this endpoint is absent (404); other API 401s are unchanged.
+    location = /api/auth/login {
+        limit_req zone=skaz_requests burst=30 nodelay;
+        proxy_pass http://127.0.0.1:4173;
+        proxy_set_header Host 127.0.0.1:4173;
+        proxy_set_header Authorization "";
+        proxy_intercept_errors on;
+        error_page 401 = @skaz_login_denied;
+    }
+    location @skaz_login_denied {
+        default_type application/json;
+        add_header Cache-Control no-store always;
+        add_header X-Content-Type-Options nosniff always;
+        return 403 '{"error":"Неверный логин или пароль"}';
+    }
     location / {
         limit_req zone=skaz_requests burst=30 nodelay;
         proxy_pass http://127.0.0.1:4173;
