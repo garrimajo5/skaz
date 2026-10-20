@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:acolyte",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Послушник",
+        "en": "Acolyte"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=395",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC roles v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 395.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое мировоззрение. Хиты 9 (2d8). Медицина +4, Религия +2; пассивное Восприятие 12; один любой язык, обычно Общий.\nЗаклинатель 1-го уровня, Мудрость: Сл спасброска 12, атака заклинанием +4. Подготовленные заклинания жреца: заговоры без ограничения — свет (Light), священное пламя (Sacred Flame), чудотворство (Thaumaturgy); 1-й уровень, 3 ячейки — благословение (Bless), лечение ран (Cure Wounds), убежище (Sanctuary). Число ячеек взято из блока NPC, не пересчитано по таблице класса игрока.\nДубинка: рукопашная атака оружием +2, досягаемость 5 футов, одна цель; 2 (1d4) дробящего урона. Мультиатаки нет.\nАтаки, реакции, заклинания и расход ресурсов не применяются автоматически.",
+      "links": [
+        "srd51:2014:spell:light",
+        "srd51:2014:spell:sacred-flame",
+        "srd51:2014:spell:thaumaturgy",
+        "srd51:2014:spell:bless",
+        "srd51:2014:spell:cure-wounds",
+        "srd51:2014:spell:sanctuary"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 10,
+        "hitPoints": 9,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 10,
+          "dex": 10,
+          "con": 10,
+          "int": 10,
+          "wis": 14,
+          "cha": 11
+        },
+        "challenge": "1/4",
+        "xp": 50
+      }
+    },
+    {
+      "id": "srd51:2014:monster:berserker",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Берсерк",
+        "en": "Berserker"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=397",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC roles v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 397.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое хаотичное мировоззрение. Шкурный доспех; хиты 67 (9d8+27). Пассивное Восприятие 10; один любой язык, обычно Общий.\nБезрассудство: в начале своего хода может получить преимущество на все рукопашные атаки оружием в этот ход; тогда атаки против него имеют преимущество до начала его следующего хода. Это не постоянное преимущество и не ярость класса варвара.\nСекира: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 9 (1d12+3) рубящего урона. Мультиатаки в блоке нет.\nАтаки, реакции, заклинания и расход ресурсов не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 13,
+        "hitPoints": 67,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 12,
+          "con": 17,
+          "int": 9,
+          "wis": 11,
+          "cha": 9
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    },
+    {
+      "id": "srd51:2014:monster:commoner",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Обыватель",
+        "en": "Commoner"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=398",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC roles v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 398.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое мировоззрение. Хиты 4 (1d8). Все шесть характеристик равны 10. Пассивное Восприятие 10; один любой язык, обычно Общий.\nДубинка: рукопашная атака оружием +2, досягаемость 5 футов, одна цель; 2 (1d4) дробящего урона. Показатель опасности 0 даёт 10 опыта именно в этом блоке. Заклинаний и мультиатаки нет.\nАтаки, реакции, заклинания и расход ресурсов не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 10,
+        "hitPoints": 4,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 10,
+          "dex": 10,
+          "con": 10,
+          "int": 10,
+          "wis": 10,
+          "cha": 10
+        },
+        "challenge": "0",
+        "xp": 10
+      }
+    },
+    {
+      "id": "srd51:2014:monster:knight",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Рыцарь",
+        "en": "Knight"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=400",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC roles v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 400.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое мировоззрение. Латы, хиты 52 (8d8+16). Спасброски Телосложение +4, Мудрость +2. Пассивное Восприятие 10; один любой язык, обычно Общий. Храбрость даёт преимущество на спасброски против испуга, а не иммунитет.\nМультиатака: две рукопашные атаки; она не даёт двух выстрелов. Двуручный меч: +5 к попаданию, досягаемость 5 футов, одна цель; 10 (2d6+3) рубящего. Тяжёлый арбалет: дальнобойная атака +2, дистанция 100/400 футов, одна цель; 5 (1d10) колющего.\nЛидерство — действие, восстанавливается после короткого или продолжительного отдыха. В течение 1 минуты рыцарь может дать команду/предупреждение, когда видимое им невраждебное существо в пределах 30 футов совершает атаку или спасбросок. Если существо слышит и понимает рыцаря, оно может добавить d4; одновременно действует только одна кость Лидерства. Эффект заканчивается при недееспособности рыцаря.\nПарирование — реакция: +2 КД против одной попадающей рукопашной атаки, если рыцарь видит атакующего и держит рукопашное оружие. Базовая КД не увеличивается постоянно.\nАтаки, реакции, заклинания и расход ресурсов не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:incapacitated"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 18,
+        "hitPoints": 52,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 11,
+          "con": 14,
+          "int": 11,
+          "wis": 11,
+          "cha": 15
+        },
+        "challenge": "3",
+        "xp": 700
+      }
+    },
+    {
+      "id": "srd51:2014:monster:priest",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Священник",
+        "en": "Priest"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=401",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC roles v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 401.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое мировоззрение. Кольчужная рубаха; хиты 27 (5d8+5), скорость 25 футов. Медицина +7, Убеждение +3, Религия +4; пассивное Восприятие 13; два любых языка.\nБожественное превосходство: бонусным действием тратит ячейку, чтобы до конца этого хода попадания его рукопашных атак оружием наносили дополнительно 10 (3d6) излучением. За каждый уровень ячейки выше 1-го добавляется ещё 1d6. Это отдельный расход ячейки, не постоянный бонус.\nЗаклинатель 5-го уровня, Мудрость: Сл 13, атака заклинанием +5. Подготовленные заклинания жреца: заговоры без ограничения — свет (Light), священное пламя (Sacred Flame), чудотворство (Thaumaturgy); 1-й уровень, 4 ячейки — лечение ран (Cure Wounds), направляющий снаряд (Guiding Bolt), убежище (Sanctuary); 2-й, 3 ячейки — малое восстановление (Lesser Restoration), божественное оружие (Spiritual Weapon); 3-й, 2 ячейки — рассеивание магии (Dispel Magic), духовные стражи (Spirit Guardians).\nБулава: рукопашная атака оружием +2, досягаемость 5 футов, одна цель; 3 (1d6) дробящего. Мультиатаки нет.\nАтаки, реакции, заклинания и расход ресурсов не применяются автоматически.",
+      "links": [
+        "srd51:2014:spell:light",
+        "srd51:2014:spell:sacred-flame",
+        "srd51:2014:spell:thaumaturgy",
+        "srd51:2014:spell:cure-wounds",
+        "srd51:2014:spell:guiding-bolt",
+        "srd51:2014:spell:sanctuary",
+        "srd51:2014:spell:lesser-restoration",
+        "srd51:2014:spell:spiritual-weapon",
+        "srd51:2014:spell:dispel-magic",
+        "srd51:2014:spell:spirit-guardians"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 13,
+        "hitPoints": 27,
+        "speed": {
+          "walk": 25
+        },
+        "abilities": {
+          "str": 10,
+          "dex": 10,
+          "con": 12,
+          "int": 13,
+          "wis": 16,
+          "cha": 13
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    },
+    {
+      "id": "srd51:2014:monster:spy",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Шпион",
+        "en": "Spy"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=402",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz NPC roles v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 402.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид любой расы, любое мировоззрение. Хиты 27 (6d8). Обман +5, Проницательность +4, Расследование +5, Восприятие +6, Убеждение +5, Ловкость рук +4, Скрытность +4. Пассивное Восприятие 16; два любых языка.\nХитрое действие: каждый свой ход может бонусным действием совершить Рывок, Отход или Засаду.\nСкрытая атака — один раз за ход: при попадании атакой оружием дополнительно 7 (2d6) урона, если есть преимущество на атаку; либо если в пределах 5 футов от цели есть союзник шпиона, который не недееспособен, и у шпиона нет помехи на эту атаку.\nМультиатака: две рукопашные атаки; не два выстрела. Короткий меч: +4 к попаданию, досягаемость 5 футов, одна цель; 5 (1d6+2) колющего. Ручной арбалет: дальнобойная атака +4, дистанция 30/120 футов, одна цель; 5 (1d6+2) колющего.\nАтаки, реакции, заклинания и расход ресурсов не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:incapacitated"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 12,
+        "hitPoints": 27,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 10,
+          "dex": 15,
+          "con": 10,
+          "int": 12,
+          "wis": 14,
+          "cha": 16
+        },
+        "challenge": "1",
+        "xp": 200
+      }
+    }
+  ]
+}

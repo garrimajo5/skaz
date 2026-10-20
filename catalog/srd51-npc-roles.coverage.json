@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Six additional SRD 5.1 NPC statblocks, including cleric spellcasters",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 6,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:acolyte",
+      "nameEn": "Acolyte",
+      "pages": [
+        395
+      ],
+      "spellNamesEn": [
+        "Light",
+        "Sacred Flame",
+        "Thaumaturgy",
+        "Bless",
+        "Cure Wounds",
+        "Sanctuary"
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:berserker",
+      "nameEn": "Berserker",
+      "pages": [
+        397
+      ],
+      "spellNamesEn": []
+    },
+    {
+      "id": "srd51:2014:monster:commoner",
+      "nameEn": "Commoner",
+      "pages": [
+        398
+      ],
+      "spellNamesEn": []
+    },
+    {
+      "id": "srd51:2014:monster:knight",
+      "nameEn": "Knight",
+      "pages": [
+        400
+      ],
+      "spellNamesEn": []
+    },
+    {
+      "id": "srd51:2014:monster:priest",
+      "nameEn": "Priest",
+      "pages": [
+        401
+      ],
+      "spellNamesEn": [
+        "Light",
+        "Sacred Flame",
+        "Thaumaturgy",
+        "Cure Wounds",
+        "Guiding Bolt",
+        "Sanctuary",
+        "Lesser Restoration",
+        "Spiritual Weapon",
+        "Dispel Magic",
+        "Spirit Guardians"
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:spy",
+      "nameEn": "Spy",
+      "pages": [
+        402
+      ],
+      "spellNamesEn": []
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not official translation or a complete NPC catalog.",
+    "Only base statistics are structured; spellcasting, attacks, reactions and skills remain text.",
+    "Acolyte has three first-level slots as printed; Priest has speed 25 ft. Class progression is not substituted.",
+    "No automated spell use, bonus actions, advantage, sneak attack or Leadership.",
+    "Archmage, Assassin, Bandit Captain, Cult Fanatic, Druid, Gladiator, Mage, Noble and Tribal Warrior remain outside the installed NPC subsets."
+  ]
+}

@@ -1,4 +1,5 @@
 import { setupViews, ensureView } from './views.mjs';
+import { createAccess, createUserReader, createUserWriter } from './access.mjs';
 import { validateCharacterCreate, createCharacter } from './characters.mjs';
 import { setupProposals, readProposals, validateProposalCreate, validateProposalDecision, createProposal, decideProposal } from './proposals.mjs';
 import { setupPlaces, readPlaces, validatePlaceCommand, savePlace } from './places.mjs';
@@ -37,6 +38,8 @@ export function openStore(filename) {
   try { migrateEntities(db); } catch (error) { db.close(); throw error; }
   setupSessions(db);
   setupViews(db);
+  let access;
+  try { access = createAccess(db); } catch(error) { db.close(); throw error; }
   const catalog = createCatalog(db);
   setupInventory(db);
   setupSpellbook(db);
@@ -47,8 +50,9 @@ export function openStore(filename) {
     mutation_id TEXT PRIMARY KEY REFERENCES changes(mutation_id),
     operation TEXT NOT NULL, before_json TEXT NOT NULL, after_json TEXT NOT NULL
   )`);
-  function createView(viewId) {
+  function createView(viewId, authorize = () => {}, authorizeMutation = () => {}) {
   function read() {
+    authorize();
     const context = readEntities(db, viewId);
     const session = readSession(db, context.session.id);
     return { schemaVersion: 1, revision: context.revision, updatedAt: context.updatedAt, context: contextIds(context),
@@ -116,7 +120,8 @@ export function openStore(filename) {
     if (typeof label !== 'string' || !label.trim() || label.length > 200) throw new AppError(400, 'Нужно описание изменения');
     db.exec('BEGIN IMMEDIATE');
     try {
-      const previous = db.prepare('SELECT request_hash FROM changes WHERE mutation_id=?').get(mutationId);
+      const previous = db.prepare('SELECT * FROM changes WHERE mutation_id=?').get(mutationId);
+      authorizeMutation({ phase: previous ? 'replay' : 'before', previous, mutationId });
       if (previous) {
         if (previous.request_hash !== hash) throw new AppError(409, 'Идентификатор уже использован для другого изменения');
         const receipt = db.prepare('SELECT after_json FROM context_changes WHERE mutation_id=?').get(mutationId);
@@ -135,6 +140,7 @@ export function openStore(filename) {
       db.prepare('UPDATE workspace SET revision=?, state_json=?, updated_at=? WHERE id=1').run(revision, JSON.stringify(defaultState), now);
       const affectedContext = contextIds(readEntities(db, viewId));
       if (operation) db.prepare('INSERT INTO context_changes VALUES (?, ?, ?, ?)').run(mutationId, operation, JSON.stringify(current.context), JSON.stringify(affectedContext));
+      authorizeMutation({ phase: 'after', mutationId, beforeContext: current.context, context: affectedContext });
       const response = { ...read(), ...(operation ? { affectedContext } : {}) };
       db.exec('COMMIT');
       return response;
@@ -279,5 +285,9 @@ export function openStore(filename) {
   };
   }
   const root = createView();
-  return { ...root, forView: viewId => { ensureView(db, viewId); return createView(viewId); } };
+  return { ...root, access, forUser: (userId, viewId, { write = false } = {}) => {
+    if (typeof write !== 'boolean') throw new AppError(422, 'Режим записи должен быть логическим значением');
+    return write ? createUserWriter(db,access,userId,viewId,createView) : createUserReader(db,access,userId,viewId,createView);
+  },
+    forView: viewId => { ensureView(db, viewId); return createView(viewId); } };
 }

@@ -137,14 +137,16 @@ export function validateCatalog(bundle) {
   });
 }
 
-export function createCatalog(db) {
+export function createCatalog(db, { visible } = {}) {
   db.exec('CREATE TABLE IF NOT EXISTS catalog_entries (id TEXT PRIMARY KEY, entry_json TEXT NOT NULL)');
-  const all = () => db.prepare('SELECT entry_json FROM catalog_entries ORDER BY id').all().map(row => JSON.parse(row.entry_json));
+  const canRead = visible ?? (() => true);
+  const all = () => db.prepare('SELECT entry_json FROM catalog_entries ORDER BY id').all().map(row => JSON.parse(row.entry_json)).filter(canRead);
   function importEntries(bundle, { apply = false } = {}) {
     // Personal imports never receive permission to replace an existing ID.
     return importRecords(bundle,{apply});
   }
   function importRecords(bundle, { apply = false, upgrades = [] } = {}) {
+    if (visible) throw new AppError(403,'Изменение ограниченного каталога запрещено');
     const entries = validateCatalog(bundle);
     const targets=new Map(entries.map(entry=>[entry.id,entry]));
     for(const rule of upgrades)if(!targets.has(rule.id)||fingerprint(targets.get(rule.id))!==rule.toSha256)throw new AppError(500,'Обновление не соответствует проверенной карточке');
@@ -234,10 +236,13 @@ export function createCatalog(db) {
     const row=db.prepare('SELECT entry_json FROM catalog_entries WHERE id=?').get(entryId);
     if(!row)throw new AppError(404,'Материал не найден');
     const entry=JSON.parse(row.entry_json);
+    if (!canRead(entry)) throw new AppError(404,'Материал не найден');
     const related=entry.links.map(link=>{
       const linked=db.prepare('SELECT entry_json FROM catalog_entries WHERE id=?').get(link);
       if(!linked)throw new AppError(409,'В каталоге отсутствует связанный материал');
-      const item=JSON.parse(linked.entry_json);return {id:item.id,kind:item.kind,name:item.name};
+      const item=JSON.parse(linked.entry_json);
+      if (!canRead(item)) throw new AppError(404,'Материал не найден');
+      return {id:item.id,kind:item.kind,name:item.name};
     });
     return {entry,related};
   }

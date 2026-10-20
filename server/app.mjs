@@ -25,7 +25,9 @@ async function body(request) {
   try { return JSON.parse(Buffer.concat(chunks).toString('utf8')); }
   catch { throw new AppError(400, 'Не удалось прочитать JSON'); }
 }
-export function createApp(store, { publicOrigin } = {}) {
+export function createApp(store, { publicOrigin, authenticate, individualWrites = false } = {}) {
+  if (authenticate !== undefined && typeof authenticate !== 'function') throw new Error('authenticate должен быть доверенной серверной функцией');
+  if (typeof individualWrites !== 'boolean' || (individualWrites && !authenticate)) throw new Error('Индивидуальная запись требует доверенной авторизации и логического флага');
   // TLS and authentication terminate at a loopback reverse proxy. Never trust forwarded headers.
   if (publicOrigin !== undefined) {
     let parsed;
@@ -42,9 +44,14 @@ export function createApp(store, { publicOrigin } = {}) {
       const pathname = new URL(request.url, `http://${host}`).pathname;
       if (pathname.startsWith('/api/')) {
         const viewId = request.headers['x-skaz-view'];
-        const view = viewId === undefined ? store : store.forView(viewId);
+        let view;
+        if (authenticate) {
+          const userId = await authenticate(request);
+          if (typeof userId !== 'string' || !userId) throw new AppError(401, 'Нужен индивидуальный вход');
+          view = store.forUser(userId, viewId ?? 'primary-view', {write:individualWrites});
+        } else view = viewId === undefined ? store : store.forView(viewId);
         if (request.method === 'GET') {
-          if (pathname === '/api/health') return json(response, 200, { status: 'ok', mode: publicOrigin ? 'private-server' : 'local', storage: 'sqlite' });
+          if (pathname === '/api/health') return json(response, 200, { status: 'ok', mode: authenticate ? individualWrites ? 'individual' : 'individual-read-only' : publicOrigin ? 'private-server' : 'local', storage: 'sqlite' });
           if (pathname === '/api/proposals') return json(response, 200, view.proposals());
           if (pathname === '/api/places') return json(response, 200, view.places());
           if (pathname === '/api/quests') return json(response, 200, view.quests());

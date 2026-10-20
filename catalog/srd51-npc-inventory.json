@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "All 21 statblock headings in SRD 5.1 Appendix B: Nonplayer Characters, pages 395–403; not all D&D NPCs",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedCount": 21,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:acolyte",
+      "nameEn": "Acolyte",
+      "page": 395
+    },
+    {
+      "id": "srd51:2014:monster:archmage",
+      "nameEn": "Archmage",
+      "page": 395
+    },
+    {
+      "id": "srd51:2014:monster:assassin",
+      "nameEn": "Assassin",
+      "page": 396
+    },
+    {
+      "id": "srd51:2014:monster:bandit",
+      "nameEn": "Bandit",
+      "page": 396
+    },
+    {
+      "id": "srd51:2014:monster:bandit-captain",
+      "nameEn": "Bandit Captain",
+      "page": 397
+    },
+    {
+      "id": "srd51:2014:monster:berserker",
+      "nameEn": "Berserker",
+      "page": 397
+    },
+    {
+      "id": "srd51:2014:monster:commoner",
+      "nameEn": "Commoner",
+      "page": 398
+    },
+    {
+      "id": "srd51:2014:monster:cultist",
+      "nameEn": "Cultist",
+      "page": 398
+    },
+    {
+      "id": "srd51:2014:monster:cult-fanatic",
+      "nameEn": "Cult Fanatic",
+      "page": 398
+    },
+    {
+      "id": "srd51:2014:monster:druid",
+      "nameEn": "Druid",
+      "page": 398
+    },
+    {
+      "id": "srd51:2014:monster:gladiator",
+      "nameEn": "Gladiator",
+      "page": 399
+    },
+    {
+      "id": "srd51:2014:monster:guard",
+      "nameEn": "Guard",
+      "page": 399
+    },
+    {
+      "id": "srd51:2014:monster:knight",
+      "nameEn": "Knight",
+      "page": 400
+    },
+    {
+      "id": "srd51:2014:monster:mage",
+      "nameEn": "Mage",
+      "page": 400
+    },
+    {
+      "id": "srd51:2014:monster:noble",
+      "nameEn": "Noble",
+      "page": 401
+    },
+    {
+      "id": "srd51:2014:monster:priest",
+      "nameEn": "Priest",
+      "page": 401
+    },
+    {
+      "id": "srd51:2014:monster:scout",
+      "nameEn": "Scout",
+      "page": 401
+    },
+    {
+      "id": "srd51:2014:monster:spy",
+      "nameEn": "Spy",
+      "page": 402
+    },
+    {
+      "id": "srd51:2014:monster:thug",
+      "nameEn": "Thug",
+      "page": 402
+    },
+    {
+      "id": "srd51:2014:monster:tribal-warrior",
+      "nameEn": "Tribal Warrior",
+      "page": 402
+    },
+    {
+      "id": "srd51:2014:monster:veteran",
+      "nameEn": "Veteran",
+      "page": 403
+    }
+  ]
+}
