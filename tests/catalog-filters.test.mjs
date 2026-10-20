@@ -60,7 +60,7 @@ test('bestiary type and size intersect with challenge, exclude unknown metadata 
  const raw=structuredClone(read('srd51-monsters').entries[0]);raw.id='test:unknown:monster';delete raw.monster;s.catalog.importEntries({schemaVersion:1,entries:[raw]},{apply:true});
  const search=q=>s.catalog.search(new URLSearchParams(q));
  assert.deepEqual(search('kind=monster&monsterType=beast&size=medium&challenge=1%2F8').entries.map(e=>e.name.en).sort(),['Mastiff','Pony']);
- assert.equal(search('kind=monster&monsterType=undead&q=Skeleton').total,1);
+ assert.deepEqual(search('kind=monster&monsterType=undead&q=Skeleton').entries.map(e=>e.name.en).sort(),['Minotaur Skeleton','Skeleton','Warhorse Skeleton']);
  assert.equal(search('kind=monster&monsterType=beast&size=gargantuan').total,0);
  assert.ok(search('kind=monster&size=small').entries.every(e=>e.monster?.size==='small'));
  const a=search('kind=monster&monsterType=beast&limit=1'),b=search('kind=monster&monsterType=beast&limit=1&offset=1');assert.equal(a.total,b.total);assert.notEqual(a.entries[0].id,b.entries[0].id);

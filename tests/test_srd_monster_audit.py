@@ -10,6 +10,54 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_prepared_caster_list_preserves_levels_slots_and_spell_ids(self):
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        text=BASE+' Spellcasting. The beast has the following wizard spells prepared: Cantrips (at will): mage hand, ray of frost 1st level (4 slots): shield, magic missile 6th level (1 slot): harm Actions Bite.'
+        rows=m['spellcasting_levels'](text,'Beast')
+        self.assertEqual([r['level'] for r in rows],[0,1,6])
+        self.assertEqual([r['slots'] for r in rows],[None,4,1])
+        self.assertEqual(rows[0]['spellIds'],['srd51:2014:spell:mage-hand','srd51:2014:spell:ray-of-frost'])
+        with self.assertRaises(ValueError):m['spellcasting_levels'](text.replace('6th level','1st level'),'Beast')
+        with self.assertRaises(ValueError):m['spellcasting_levels'](BASE+' Other Medium undead '+text,'Beast')
+
+    def test_caster_manifest_rejects_wrong_slots_missing_link_or_missing_authored_spell(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        text=BASE+' Spellcasting. The beast has the following cleric spells prepared: Cantrips (at will): mage hand 6th level (1 slot): harm Actions Bite.'
+        levels=m['spellcasting_levels'](text,'Beast')
+        manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:beast','pages':[311]}],'spellcastingChecks':[{'monsterId':'source:beast','nameEn':'Beast','levels':levels}]}
+        cards=[{'id':'source:beast','name':{'en':'Beast'},'links':['srd51:2014:spell:mage-hand','srd51:2014:spell:harm'],'text':'mage hand, harm'}]
+        spells=[{'id':'srd51:2014:spell:mage-hand','name':{'en':'Mage Hand'},'spell':{'level':0}},{'id':'srd51:2014:spell:harm','name':{'en':'Harm'},'spell':{'level':6}}]
+        self.assertEqual(m['check_spellcasting_inventory']({311:text},manifest,cards,spells),{'Beast':2})
+        wrong=copy.deepcopy(manifest);wrong['spellcastingChecks'][0]['levels'][1]['slots']=2
+        with self.assertRaises(ValueError):m['check_spellcasting_inventory']({311:text},wrong,cards,spells)
+        for bad in [[{**cards[0],'links':cards[0]['links'][:1]}],[{**cards[0],'text':'mage hand only'}],[{**cards[0],'text':'mage hand and charm'}]]:
+            with self.assertRaises(ValueError):m['check_spellcasting_inventory']({311:text},manifest,bad,spells)
+        with self.assertRaises(ValueError):m['check_spellcasting_inventory']({311:text},manifest,cards,spells[:1])
+        wrong_spells=copy.deepcopy(spells);wrong_spells[1]['spell']['level']=5
+        with self.assertRaises(ValueError):m['check_spellcasting_inventory']({311:text},manifest,cards,wrong_spells)
+
+    def test_undead_source_inventory_keeps_gaps_and_rejects_false_prepared_cards(self):
+        import copy
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        pages={311:'Ghouls Ghast Medium undead.',346:'Skeletons Skeleton Medium undead. Minotaur Skeleton Large undead.',355:"Will-\u00ad\u2010o’-\u00ad\u2010Wisp Tiny undead. Wraith Medium undead.",356:'Zombies Zombie Medium undead.'}
+        rows=m['undead_headings'](pages)
+        self.assertEqual([r['nameEn'] for r in rows],['Ghast','Skeleton','Minotaur Skeleton','Will-o’-Wisp','Wraith','Zombie'])
+        manifest={'sourceSha256':m['SHA256'],'ruleset':'5e-2014','sourcePageRange':[254,394],'expectedCount':6,'entries':rows}
+        cards=[{'id':r['id'],'name':{'en':r['nameEn']},'monster':{'type':'undead'},'source':{'url':'https://source.invalid/#page='+str(r['page'])}} for r in rows[:2]]
+        self.assertEqual(m['check_undead_inventory'](pages,manifest,cards),{'expected':6,'prepared':2})
+        for bad in [cards+cards[:1],[{**cards[0],'monster':{'type':'beast'}}]]:
+            with self.assertRaises(ValueError):m['check_undead_inventory'](pages,manifest,bad)
+        wrong=copy.deepcopy(manifest);wrong['entries'][0]['page']=312
+        with self.assertRaises(ValueError):m['check_undead_inventory'](pages,wrong,cards)
+        wrong=copy.deepcopy(manifest);wrong['entries'].pop()
+        with self.assertRaises(ValueError):m['check_undead_inventory'](pages,wrong,cards)
+
+    def test_compound_creature_name_normalizes_pdf_discretionary_hyphens(self):
+        text=BASE.replace('Beast Large beast',"Will-\u00ad\u2010o’-\u00ad\u2010Wisp Large undead")
+        self.assertEqual(parse(text,"Will-o’-Wisp")['hitPoints'],13)
+        with self.assertRaises(ValueError):parse(text,'Willow Wisp')
+
     def test_construct_inventory_spans_sections_without_importing_their_labels(self):
         import copy
         module=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))

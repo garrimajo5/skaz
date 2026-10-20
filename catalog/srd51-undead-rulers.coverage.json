@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Lich and base Vampire statblocks in the pinned SRD, not all books or vampire variants",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 2,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:lich",
+      "nameEn": "Lich",
+      "pages": [
+        325,
+        326
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:vampire",
+      "nameEn": "Vampire",
+      "pages": [
+        352,
+        353
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Vampire alternate speeds are manual reference text, not extra base speed fields.",
+    "Summoned swarms are not substituted by individual beast statblocks and are not added here.",
+    "No lair rules or variants from outside the pinned source are inferred."
+  ],
+  "spellcastingChecks": [
+    {
+      "monsterId": "srd51:2014:monster:lich",
+      "nameEn": "Lich",
+      "levels": [
+        {
+          "level": 0,
+          "slots": null,
+          "spellIds": [
+            "srd51:2014:spell:mage-hand",
+            "srd51:2014:spell:prestidigitation",
+            "srd51:2014:spell:ray-of-frost"
+          ]
+        },
+        {
+          "level": 1,
+          "slots": 4,
+          "spellIds": [
+            "srd51:2014:spell:detect-magic",
+            "srd51:2014:spell:magic-missile",
+            "srd51:2014:spell:shield",
+            "srd51:2014:spell:thunderwave"
+          ]
+        },
+        {
+          "level": 2,
+          "slots": 3,
+          "spellIds": [
+            "srd51:2014:spell:acid-arrow",
+            "srd51:2014:spell:detect-thoughts",
+            "srd51:2014:spell:invisibility",
+            "srd51:2014:spell:mirror-image"
+          ]
+        },
+        {
+          "level": 3,
+          "slots": 3,
+          "spellIds": [
+            "srd51:2014:spell:animate-dead",
+            "srd51:2014:spell:counterspell",
+            "srd51:2014:spell:dispel-magic",
+            "srd51:2014:spell:fireball"
+          ]
+        },
+        {
+          "level": 4,
+          "slots": 3,
+          "spellIds": [
+            "srd51:2014:spell:blight",
+            "srd51:2014:spell:dimension-door"
+          ]
+        },
+        {
+          "level": 5,
+          "slots": 3,
+          "spellIds": [
+            "srd51:2014:spell:cloudkill",
+            "srd51:2014:spell:scrying"
+          ]
+        },
+        {
+          "level": 6,
+          "slots": 1,
+          "spellIds": [
+            "srd51:2014:spell:disintegrate",
+            "srd51:2014:spell:globe-of-invulnerability"
+          ]
+        },
+        {
+          "level": 7,
+          "slots": 1,
+          "spellIds": [
+            "srd51:2014:spell:finger-of-death",
+            "srd51:2014:spell:plane-shift"
+          ]
+        },
+        {
+          "level": 8,
+          "slots": 1,
+          "spellIds": [
+            "srd51:2014:spell:dominate-monster",
+            "srd51:2014:spell:power-word-stun"
+          ]
+        },
+        {
+          "level": 9,
+          "slots": 1,
+          "spellIds": [
+            "srd51:2014:spell:power-word-kill"
+          ]
+        }
+      ]
+    }
+  ]
+}

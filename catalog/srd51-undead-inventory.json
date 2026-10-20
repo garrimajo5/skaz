@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Undead headings in SRD 5.1 creature pages 254–394; missing cards are explicit",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "sourcePageRange": [
+    254,
+    394
+  ],
+  "expectedCount": 18,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:ghost",
+      "nameEn": "Ghost",
+      "page": 311
+    },
+    {
+      "id": "srd51:2014:monster:ghast",
+      "nameEn": "Ghast",
+      "page": 311
+    },
+    {
+      "id": "srd51:2014:monster:ghoul",
+      "nameEn": "Ghoul",
+      "page": 312
+    },
+    {
+      "id": "srd51:2014:monster:lich",
+      "nameEn": "Lich",
+      "page": 325
+    },
+    {
+      "id": "srd51:2014:monster:mummy",
+      "nameEn": "Mummy",
+      "page": 333
+    },
+    {
+      "id": "srd51:2014:monster:mummy-lord",
+      "nameEn": "Mummy Lord",
+      "page": 334
+    },
+    {
+      "id": "srd51:2014:monster:shadow",
+      "nameEn": "Shadow",
+      "page": 344
+    },
+    {
+      "id": "srd51:2014:monster:skeleton",
+      "nameEn": "Skeleton",
+      "page": 346
+    },
+    {
+      "id": "srd51:2014:monster:minotaur-skeleton",
+      "nameEn": "Minotaur Skeleton",
+      "page": 346
+    },
+    {
+      "id": "srd51:2014:monster:warhorse-skeleton",
+      "nameEn": "Warhorse Skeleton",
+      "page": 346
+    },
+    {
+      "id": "srd51:2014:monster:specter",
+      "nameEn": "Specter",
+      "page": 346
+    },
+    {
+      "id": "srd51:2014:monster:vampire",
+      "nameEn": "Vampire",
+      "page": 352
+    },
+    {
+      "id": "srd51:2014:monster:vampire-spawn",
+      "nameEn": "Vampire Spawn",
+      "page": 354
+    },
+    {
+      "id": "srd51:2014:monster:wight",
+      "nameEn": "Wight",
+      "page": 354
+    },
+    {
+      "id": "srd51:2014:monster:will-o-wisp",
+      "nameEn": "Will-o’-Wisp",
+      "page": 355
+    },
+    {
+      "id": "srd51:2014:monster:wraith",
+      "nameEn": "Wraith",
+      "page": 355
+    },
+    {
+      "id": "srd51:2014:monster:zombie",
+      "nameEn": "Zombie",
+      "page": 356
+    },
+    {
+      "id": "srd51:2014:monster:ogre-zombie",
+      "nameEn": "Ogre Zombie",
+      "page": 357
+    }
+  ],
+  "completeGameCatalog": false
+}

@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Selected Mummy Lord and Vampire Spawn, not complete undead or vampire family",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 2,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:mummy-lord",
+      "nameEn": "Mummy Lord",
+      "pages": [
+        334,
+        335
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:vampire-spawn",
+      "nameEn": "Vampire Spawn",
+      "pages": [
+        354
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Mummy Lord level 10 and level 6 slot retained exactly as the pinned SRD.",
+    "Legendary actions are reference text with separate costs and end conditions.",
+    "Vampire Spawn does not inherit the Vampire statblock, condition immunities or creation of spawn.",
+    "Lich and Vampire are supplied separately in srd51-undead-rulers."
+  ],
+  "spellcastingChecks": [
+    {
+      "monsterId": "srd51:2014:monster:mummy-lord",
+      "nameEn": "Mummy Lord",
+      "levels": [
+        {
+          "level": 0,
+          "slots": null,
+          "spellIds": [
+            "srd51:2014:spell:sacred-flame",
+            "srd51:2014:spell:thaumaturgy"
+          ]
+        },
+        {
+          "level": 1,
+          "slots": 4,
+          "spellIds": [
+            "srd51:2014:spell:command",
+            "srd51:2014:spell:guiding-bolt",
+            "srd51:2014:spell:shield-of-faith"
+          ]
+        },
+        {
+          "level": 2,
+          "slots": 3,
+          "spellIds": [
+            "srd51:2014:spell:hold-person",
+            "srd51:2014:spell:silence",
+            "srd51:2014:spell:spiritual-weapon"
+          ]
+        },
+        {
+          "level": 3,
+          "slots": 3,
+          "spellIds": [
+            "srd51:2014:spell:animate-dead",
+            "srd51:2014:spell:dispel-magic"
+          ]
+        },
+        {
+          "level": 4,
+          "slots": 3,
+          "spellIds": [
+            "srd51:2014:spell:divination",
+            "srd51:2014:spell:guardian-of-faith"
+          ]
+        },
+        {
+          "level": 5,
+          "slots": 2,
+          "spellIds": [
+            "srd51:2014:spell:contagion",
+            "srd51:2014:spell:insect-plague"
+          ]
+        },
+        {
+          "level": 6,
+          "slots": 1,
+          "spellIds": [
+            "srd51:2014:spell:harm"
+          ]
+        }
+      ]
+    }
+  ]
+}

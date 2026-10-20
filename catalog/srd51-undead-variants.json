@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:minotaur-skeleton",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Скелет минотавра",
+        "en": "Minotaur Skeleton"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=346",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz undead variants v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 346.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшая нежить, законно-злая. Природный доспех; хиты 67 (9d10 + 18). Уязвимость к дробящему урону, иммунитет к ядовитому урону, истощению и отравлению. Тёмное зрение 60 футов, пассивное Восприятие 9; понимает Бездну, но не говорит.\nРазбег: если перед попаданием рогами прошёл не менее 10 футов по прямой к цели в этом же ходу, атака наносит ещё 9 (2d8) колющего урона. Если цель — существо, спасбросок Силы Сл 14; провал — отталкивание до 10 футов и сбивание с ног.\nСекира: рукопашная атака оружием +6, досягаемость 5 футов, одна цель; 17 (2d12 + 4) рубящего урона. Рога: рукопашная атака оружием +6, досягаемость 5 футов, одна цель; 13 (2d8 + 4) колющего урона. Безрассудство живого минотавра этой карточке не предоставлено.\nАтаки, уязвимости и особенности разрешаются вручную; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:exhaustion",
+        "srd51:2014:mechanic:poisoned",
+        "srd51:2014:mechanic:prone"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "undead",
+        "armorClass": 12,
+        "hitPoints": 67,
+        "speed": {
+          "walk": 40
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 11,
+          "con": 15,
+          "int": 6,
+          "wis": 8,
+          "cha": 5
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    },
+    {
+      "id": "srd51:2014:monster:warhorse-skeleton",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Скелет боевого коня",
+        "en": "Warhorse Skeleton"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=346",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz undead variants v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 346.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшая нежить, законно-злая. Обрывки конского доспеха; хиты 22 (3d10 + 6). Уязвимость к дробящему урону, иммунитет к ядовитому урону, истощению и отравлению. Тёмное зрение 60 футов, пассивное Восприятие 9; языков нет.\nКопыта: рукопашная атака оружием +6, досягаемость 5 футов, одна цель; 11 (2d6 + 4) дробящего урона. Топчущий разбег и бонусная атака живого боевого коня этой карточке не предоставлены.\nАтаки, уязвимости и особенности разрешаются вручную; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:exhaustion",
+        "srd51:2014:mechanic:poisoned"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "undead",
+        "armorClass": 13,
+        "hitPoints": 22,
+        "speed": {
+          "walk": 60
+        },
+        "abilities": {
+          "str": 18,
+          "dex": 12,
+          "con": 15,
+          "int": 2,
+          "wis": 8,
+          "cha": 5
+        },
+        "challenge": "1/2",
+        "xp": 100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ogre-zombie",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Зомби огра",
+        "en": "Ogre Zombie"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=357",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz undead variants v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 357.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшая нежить, нейтрально-злая. Хиты 85 (9d10 + 36). Спасбросок Мудрости +0. Иммунитет к ядовитому урону и отравлению; иммунитет истощению не указан. Тёмное зрение 60 футов, пассивное Восприятие 8; понимает Общий и Великаний, но не говорит.\nСтойкость нежити: если урон снижает хиты до 0, совершает спасбросок Телосложения со Сл 5 + полученный урон, кроме случаев урона излучением или критического попадания. При успехе вместо 0 остаётся 1 хит. Это не регенерация и не спасбросок от смерти.\nМоргенштерн: рукопашная атака оружием +6, досягаемость 5 футов, одна цель; 13 (2d8 + 4) дробящего урона.\nАтаки, уязвимости и особенности разрешаются вручную; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:poisoned"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "undead",
+        "armorClass": 8,
+        "hitPoints": 85,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 19,
+          "dex": 6,
+          "con": 18,
+          "int": 3,
+          "wis": 6,
+          "cha": 5
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    }
+  ]
+}

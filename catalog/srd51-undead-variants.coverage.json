@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Three selected skeleton/zombie variants; not all undead",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 3,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:minotaur-skeleton",
+      "nameEn": "Minotaur Skeleton",
+      "pages": [
+        346
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:warhorse-skeleton",
+      "nameEn": "Warhorse Skeleton",
+      "pages": [
+        346
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:ogre-zombie",
+      "nameEn": "Ogre Zombie",
+      "pages": [
+        357
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Skeleton and Zombie already exist and are not duplicated.",
+    "No living minotaur Reckless or warhorse Trampling Charge traits are inherited.",
+    "Undead Fortitude has radiant/critical exceptions and is resolved manually."
+  ]
+}
