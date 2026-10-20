@@ -131,10 +131,10 @@ test('catalog sharing is exact bundled content, not a license flag; private impo
   // Deliberately retains CC BY license metadata: license is not visibility.
   store.catalog.importEntries({schemaVersion:1,entries:[privateCard]},{apply:true});
   const reader=store.forUser(userA,'window-one');
-  assert.equal(store.catalog.coverage().total,500);assert.equal(reader.catalog.coverage().total,499);
+  assert.equal(store.catalog.coverage().total,501);assert.equal(reader.catalog.coverage().total,500);
   assert.equal(reader.catalog.search(new URLSearchParams({q:'SECRET_ITEM'})).total,0);
   assert.throws(()=>reader.catalog.lookup(new URLSearchParams({id:privateCard.id})),{status:404});
-  assert.equal(reader.catalog.search(new URLSearchParams({kind:'monster'})).total,77);
+  assert.equal(reader.catalog.search(new URLSearchParams({kind:'monster'})).total,78);
   a.addInventory(command(a,{characterId:a.read().context.characterId,catalogId:privateCard.id,quantity:1}));
   assert.equal(reader.inventory().entries[0].entry.text,'PRIVATE_ITEM_DESCRIPTION');
   assert.throws(()=>reader.exportActive(),{status:403});

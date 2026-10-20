@@ -162,6 +162,47 @@
         "challenge": "9",
         "xp": 5000
       }
+    },
+    {
+      "id": "srd51:2014:monster:azer",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Азер",
+        "en": "Azer"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=265",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz encounter threats v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страница 265.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний элементаль, законно-нейтральный. Природный доспех и щит; хиты 39 (6d8 + 12). Спасбросок Телосложения +4. Иммунитет к урону огнём и ядом и к состоянию отравления. Пассивное Восприятие 11. Язык Игнан.\nРаскалённое тело: существо, которое касается азера или попадает по нему рукопашной атакой, находясь в пределах 5 футов, получает 5 (1d10) урона огнём. Раскалённое оружие: попадание металлическим рукопашным оружием добавляет 3 (1d6) огнём; этот урон уже включён в указанную атаку. Азер испускает яркий свет в радиусе 10 футов и тусклый ещё на 10 футов.\nБоевой молот: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 7 (1d8 + 3) дробящего, либо 8 (1d10 + 3) при атаке двумя руками, плюс 3 (1d6) огнём. Указанный класс доспеха включает щит; смена хвата и щита автоматически не пересчитывается.\nАтаки, иммунитеты, свет и ответный урон не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:poisoned"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "elemental",
+        "armorClass": 17,
+        "hitPoints": 39,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 17,
+          "dex": 12,
+          "con": 15,
+          "int": 12,
+          "wis": 13,
+          "cha": 10
+        },
+        "challenge": "2",
+        "xp": 450
+      }
     }
   ]
 }
