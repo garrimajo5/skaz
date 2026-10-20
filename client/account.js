@@ -2,7 +2,7 @@
 // app never enables this adapter. Tokens remain in HttpOnly cookies.
 const SkazAccount=(()=>{
  const userId=document.body.dataset.userId;
- if(!userId)return {userId:null,prefix:kind=>kind==='pending'?'skaz-pending-v1:':'skaz-proposal-form-v1:'};
+ if(!userId)return {userId:null,prefix:kind=>kind==='pending'?'skaz-pending-v1:':kind==='entity-form'?'skaz-entity-form-v1:':'skaz-proposal-form-v1:'};
  if(!/^[a-zA-Z0-9-]{8,80}$/.test(userId))throw new Error('Invalid server identity');
  try{const theme=localStorage.getItem('skaz-theme');if(['polar','atlas','coal'].includes(theme))document.body.dataset.theme=theme;}catch{}
  const code=document.getElementById?.('account-user-code');if(code)code.textContent=userId;
@@ -41,5 +41,5 @@ const SkazAccount=(()=>{
    location.replace('/');
   }catch{lock('Не удалось подтвердить выход на сервере. Открой приложение заново и повтори выход; личные данные сейчас скрыты.');}
  });
- return {userId,prefix:kind=>'skaz-user-v1:'+userId+':'+(kind==='pending'?'pending:':'proposal-form:'),lock};
+ return {userId,prefix:kind=>'skaz-user-v1:'+userId+':'+(kind==='pending'?'pending:':kind==='entity-form'?'entity-form:':'proposal-form:'),lock};
 })();

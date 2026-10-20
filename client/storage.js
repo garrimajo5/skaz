@@ -1,7 +1,7 @@
 // Transport is separate from the UI. A failed request never looks like a saved change.
 const SkazStorage = (() => {
   const demo = location.protocol === 'file:';
-  const draftPrefix = kind => typeof SkazAccount === 'undefined' ? (kind==='pending'?'skaz-pending-v1:':'skaz-proposal-form-v1:') : SkazAccount.prefix(kind);
+  const draftPrefix = kind => typeof SkazAccount === 'undefined' ? (kind==='pending'?'skaz-pending-v1:':kind==='entity-form'?'skaz-entity-form-v1:':'skaz-proposal-form-v1:') : SkazAccount.prefix(kind);
   let tabId;
   try {
     tabId = sessionStorage.getItem('skaz-tab-id') || crypto.randomUUID();
@@ -96,6 +96,7 @@ const SkazStorage = (() => {
     }finally{if(token===remoteCheckSerial)checkingRemote=false;}
   }
   function apply(payload) {
+    if(!payload||payload.schemaVersion!==1||!payload.state||Array.isArray(payload.state)||typeof payload.state!=='object'||!Number.isSafeInteger(payload.revision)||payload.revision<0||!payload.context||['campaignId','characterId','sessionId'].some(k=>typeof payload.context[k]!=='string'||!payload.context[k]))throw new Error('Сервер не подтвердил сохранённую игру');
     ++remoteCheckSerial;checkingRemote=false;
     adoptPermissions(payload);loaded=true;
     sessionInfo = payload.session || null;
@@ -132,8 +133,8 @@ const SkazStorage = (() => {
       if (operation === 'quest-create' || operation === 'quest-update') body.operation = operation === 'quest-create' ? 'create' : 'update';
       const url = operation === 'character-create' ? '/api/characters' : operation === 'proposal-create' ? '/api/proposals' : operation === 'proposal-decide' ? '/api/proposals/decide' : operation?.startsWith('place-') ? '/api/places' : operation?.startsWith('quest-') ? '/api/quests' : operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-charges' ? '/api/inventory/charges' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
       const payload = await request(url, { method: operation ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body: JSON.stringify(body) });
-      if (typeof formDraftKey === 'string' && formDraftKey.startsWith(draftPrefix('proposal-form'))) { try { localStorage.removeItem(formDraftKey); } catch {} }
       apply(payload);
+      if (typeof formDraftKey === 'string' && [draftPrefix('proposal-form'),draftPrefix('entity-form')].some(prefix=>formDraftKey.startsWith(prefix))) { try { localStorage.removeItem(formDraftKey); } catch {} }
       return payload;
     } catch (error) {
       if([403,404].includes(error.status)&&pending){pending.permissionDenied=true;rememberDraft();}
@@ -161,9 +162,13 @@ const SkazStorage = (() => {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   function downloadDraft(draft) {
+    if (draft.kind === 'entity-form') return download({ app: 'skaz-form-draft', ...draft, note: 'Локальный ввод формы. Это не запись сервера и не файл импорта игры.' }, 'skaz-'+draft.entityKind+'-draft.json');
     if (draft.kind === 'proposal-form') download({ app: 'skaz-form-draft', ...draft, note: 'Локальный текст формы. Это не запись сервера и не файл импорта игры.' }, 'skaz-event-draft.json');
     else if (draft.operation) download({ app: 'skaz-command', command: draft, note: 'Копия команды для сохранности. Повтор выполняется кнопкой в исходной вкладке; это не файл импорта прогресса.' }, 'skaz-pending-command.json');
     else download({ app: 'skaz', schemaVersion: 1, state: draft.state }, 'skaz-unsaved-draft.json');
+  }
+  function entityDraftLabel(draft){
+    return [draft.entityKind==='quest'?'Задание':'Место',draft.values.title.trim()||'Без названия',draft.campaignName,draft.characterName,draft.sessionName,Number.isSafeInteger(draft.revision)?'версия '+draft.revision:''].filter(value=>typeof value==='string'&&value.trim()).join(' · ');
   }
   function exportState() { download({ app: 'skaz', schemaVersion: 1, exportedAt: new Date().toISOString(), state: clean(state) }, 'skaz-backup.json'); }
   async function exportActive() {
@@ -395,6 +400,33 @@ const SkazStorage = (() => {
       catch (error) { toast(error.message); }
     };
   }
+  // Drafts include the base revision: old text is downloadable, never silently
+  // placed over a newer quest/place or another user's current game.
+  function entityFormDraft(kind,selected,entityId,readValues,restoreValues) {
+    const target={...activeContext},version=revision,form=$('#'+kind+'-form');
+    const draftKey=draftPrefix('entity-form')+tabId+':'+encodeURIComponent(JSON.stringify({context:target,revision:version,kind,id:selected?.id||'new'}));
+    const show=text=>{$('#'+kind+'-draft-status').textContent=text;};
+    const validString=(value,max)=>typeof value==='string'&&value.length<=max;
+    const valid=values=>values&&validString(values.title,200)&&validString(values.description,12000)&&(kind==='quest'
+      ? ['active','completed','failed'].includes(values.status)&&Array.isArray(values.steps)&&values.steps.length<=50&&new Set(values.steps.map(s=>s?.id)).size===values.steps.length&&values.steps.every(s=>s&&validString(s.id,80)&&/^[a-zA-Z0-9-]{8,80}$/.test(s.id)&&validString(s.title,500)&&typeof s.done==='boolean')
+      : typeof values.visited==='boolean'&&['x','y'].every(k=>validString(values[k],32)&&values[k].trim()!==''&&Number.isFinite(Number(values[k]))&&Number(values[k])>=0&&Number(values[k])<=100));
+    const current=()=>JSON.stringify(activeContext)===JSON.stringify(target)&&revision===version&&$('#'+kind+'-form')===form;
+    try {
+      const record=JSON.parse(localStorage.getItem(draftKey)||'null');
+      if(record&&record.schemaVersion===1&&record.kind==='entity-form'&&record.entityKind===kind&&record.revision===version&&JSON.stringify(record.context)===JSON.stringify(target)&&record.creating===!selected&&typeof record.entityId==='string'&&/^[a-zA-Z0-9-]{8,80}$/.test(record.entityId)&&(!selected||record.entityId===selected.id)&&valid(record.values)){
+        entityId=record.entityId;restoreValues(record.values);show('Восстановлен черновик этой вкладки и версии игры. На сервер он ещё не отправлен.');
+      }else if(record)show('Черновик повреждён или относится к другой форме. Он не подставлен.');
+    }catch{show('Хранилище черновика недоступно. Скопируй текст перед закрытием.');}
+    const save=()=>{
+      if(!current())return;
+      try {const values=readValues();if(!valid(values)){show('Ввод пока не сохранён как черновик. Проверь длину полей и значения.');return;}
+        localStorage.setItem(draftKey,JSON.stringify({schemaVersion:1,kind:'entity-form',entityKind:kind,creating:!selected,entityId,context:target,revision:version,campaignName:state.profile.campaign,characterName:state.profile.name,sessionName:sessionTitle(),savedAt:new Date().toISOString(),values}));
+        show('Черновик сохранён в этом браузере. На сервер он ещё не отправлен.');
+      }catch{show('Черновик не сохранён. Скопируй текст перед закрытием или перезагрузкой.');}
+    };
+    form.oninput=save;form.onchange=save;
+    return {key:draftKey,entityId,save};
+  }
   const questStatus = { active: 'В процессе', completed: 'Завершено', failed: 'Не выполнено' };
   async function questList() {
     if (demo || status !== 'ready') return toast('Задания доступны в локальном приложении после сохранения черновика');
@@ -415,23 +447,27 @@ const SkazStorage = (() => {
     if(!can('shared'))return toast('Изменение заданий доступно мастеру или владельцу');
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key = JSON.stringify(activeContext), version = revision, campaignId = activeContext.campaignId;
-    const questId = selected?.id || crypto.randomUUID();
+    let questId = selected?.id || crypto.randomUUID();
     let steps = structuredClone(selected?.steps || []);
-    modal(`<h2>${selected ? 'Изменить задание' : 'Новое задание'}</h2><form id="quest-form"><label for="quest-title">Название</label><input id="quest-title" maxlength="200" required value="${esc(selected?.title || '')}"><label for="quest-description">Что известно</label><textarea id="quest-description" maxlength="12000" rows="3">${esc(selected?.description || '')}</textarea><label for="quest-status">Статус</label><select id="quest-status">${Object.entries(questStatus).map(([value,label]) => `<option value="${value}" ${value === (selected?.status || 'active') ? 'selected' : ''}>${label}</option>`).join('')}</select><h3>Этапы</h3><div id="quest-steps"></div><button type="button" id="add-quest-step">Добавить этап</button><p>Статус выбираешь ты; отметки этапов не начисляют награды.</p><div class="dialog-actions"><button type="submit" class="primary">Сохранить задание</button></div></form>`);
-    const readSteps = () => steps.map((step,i) => ({ id: step.id, title: $('#quest-step-' + i).value.trim(), done: $('#quest-done-' + i).checked }));
+    modal(`<h2>${selected ? 'Изменить задание' : 'Новое задание'}</h2><p id="quest-draft-status" class="small" role="status">Черновик остаётся в браузере для этой версии игры. Старые версии доступны в «Несохранённых черновиках».</p><form id="quest-form"><div class="entity-fields"><label for="quest-title">Название</label><input id="quest-title" maxlength="200" required value="${esc(selected?.title || '')}"><label for="quest-description">Что известно</label><textarea id="quest-description" maxlength="12000" rows="3">${esc(selected?.description || '')}</textarea><label for="quest-status">Статус</label><select id="quest-status">${Object.entries(questStatus).map(([value,label]) => `<option value="${value}" ${value === (selected?.status || 'active') ? 'selected' : ''}>${label}</option>`).join('')}</select><h3>Этапы</h3><div id="quest-steps"></div><button type="button" id="add-quest-step">Добавить этап</button><p>Статус выбираешь ты; отметки этапов не начисляют награды.</p></div><div class="dialog-actions"><button type="submit" class="primary">Сохранить задание</button></div></form>`);
+    const readSteps = () => steps.map((step,i) => ({ id: step.id, title: $('#quest-step-' + i).value, done: $('#quest-done-' + i).checked }));
     const drawSteps = () => {
       $('#quest-steps').innerHTML = steps.map((step,i) => `<fieldset class="quest-step-editor"><legend>Этап ${i+1}</legend><label for="quest-step-${i}">Описание этапа</label><input id="quest-step-${i}" maxlength="500" required value="${esc(step.title)}"><label class="quest-check"><input id="quest-done-${i}" type="checkbox" ${step.done ? 'checked' : ''}>Выполнен</label><button type="button" data-remove-step="${i}">Убрать этап ${i+1}</button></fieldset>`).join('');
       $('#add-quest-step').disabled = steps.length >= 50;
-      $$('[data-remove-step]').forEach(button => button.onclick = () => { steps = readSteps(); steps.splice(Number(button.dataset.removeStep),1); drawSteps(); });
+      $$('[data-remove-step]').forEach(button => button.onclick = () => { steps = readSteps(); steps.splice(Number(button.dataset.removeStep),1); drawSteps(); draft.save(); });
     };
     drawSteps();
-    $('#add-quest-step').onclick = () => { if (steps.length >= 50) return; steps = readSteps(); steps.push({ id: crypto.randomUUID(), title: '', done: false }); drawSteps(); $('#quest-step-' + (steps.length-1)).focus(); };
+    const draft=entityFormDraft('quest',selected,questId,
+      ()=>({title:$('#quest-title').value,description:$('#quest-description').value,status:$('#quest-status').value,steps:readSteps()}),
+      values=>{$('#quest-title').value=values.title;$('#quest-description').value=values.description;$('#quest-status').value=values.status;steps=structuredClone(values.steps);drawSteps();});
+    questId=draft.entityId;
+    $('#add-quest-step').onclick = () => { if (steps.length >= 50) return; steps = readSteps(); steps.push({ id: crypto.randomUUID(), title: '', done: false }); drawSteps(); draft.save(); $('#quest-step-' + (steps.length-1)).focus(); };
     $('#quest-form').onsubmit = async event => {
       event.preventDefault();
       if (key !== JSON.stringify(activeContext) || version !== revision) return toast('Игра изменилась. Открой задания заново.');
-      const quest = { title: $('#quest-title').value.trim(), description: $('#quest-description').value, status: $('#quest-status').value, steps: readSteps() };
+      const quest = { title: $('#quest-title').value.trim(), description: $('#quest-description').value, status: $('#quest-status').value, steps: readSteps().map(step=>({...step,title:step.title.trim()})) };
       if (!quest.title || quest.steps.some(step => !step.title)) return toast('Заполни название задания и каждого этапа');
-      try { await campaignCommand(selected ? 'quest-update' : 'quest-create', { campaignId, questId, quest }); if (typeof SkazQuests === 'undefined' || typeof page === 'undefined' || page !== 'quests') await questList(); }
+      try { await campaignCommand(selected ? 'quest-update' : 'quest-create', { campaignId, questId, quest }, draft.key); if (typeof SkazQuests === 'undefined' || typeof page === 'undefined' || page !== 'quests') await questList(); }
       catch (error) { toast(error.message); }
     };
   }
@@ -513,14 +549,18 @@ const SkazStorage = (() => {
   function editPlace(selected = null) {
     if(!can('shared'))return toast('Изменение карты доступно мастеру или владельцу');
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
-    const key = snapshotKey(), campaignId = activeContext.campaignId, placeId = selected?.id || crypto.randomUUID();
-    modal(`<h2>${selected ? 'Изменить место' : 'Новое место'}</h2><form id="place-form"><label for="place-title">Название</label><input id="place-title" maxlength="200" required value="${esc(selected?.title || '')}"><label for="place-description">Что мы знаем</label><textarea id="place-description" rows="3" maxlength="12000">${esc(selected?.description || '')}</textarea><label class="quest-check"><input type="checkbox" id="place-visited" ${selected?.visited ? 'checked' : ''}>Мы здесь побывали</label><p id="position-help">Коснись схемы, чтобы поставить отметку. Ползунки позволяют уточнить положение.</p><div id="place-position" class="place-position" aria-hidden="true"><span id="place-preview">◆</span></div><label for="place-x">Запад — восток</label><input id="place-x" type="range" min="0" max="100" step="0.1" value="${selected?.x ?? 50}"><label for="place-y">Север — юг</label><input id="place-y" type="range" min="0" max="100" step="0.1" value="${selected?.y ?? 50}"><div class="dialog-actions"><button type="submit" class="primary">Сохранить место</button></div></form>`);
+    const key = snapshotKey(), campaignId = activeContext.campaignId; let placeId = selected?.id || crypto.randomUUID();
+    modal(`<h2>${selected ? 'Изменить место' : 'Новое место'}</h2><p id="place-draft-status" class="small" role="status">Черновик остаётся в браузере для этой версии игры. Старые версии доступны в «Несохранённых черновиках».</p><form id="place-form"><div class="entity-fields"><label for="place-title">Название</label><input id="place-title" maxlength="200" required value="${esc(selected?.title || '')}"><label for="place-description">Что мы знаем</label><textarea id="place-description" rows="3" maxlength="12000">${esc(selected?.description || '')}</textarea><label class="quest-check"><input type="checkbox" id="place-visited" ${selected?.visited ? 'checked' : ''}>Мы здесь побывали</label><p id="position-help">Коснись схемы, чтобы поставить отметку. Ползунки позволяют уточнить положение.</p><div id="place-position" class="place-position" aria-hidden="true"><span id="place-preview">◆</span></div><label for="place-x">Запад — восток</label><input id="place-x" type="range" min="0" max="100" step="0.1" value="${selected?.x ?? 50}"><label for="place-y">Север — юг</label><input id="place-y" type="range" min="0" max="100" step="0.1" value="${selected?.y ?? 50}"></div><div class="dialog-actions"><button type="submit" class="primary">Сохранить место</button></div></form>`);
     const preview = () => { $('#place-preview').style.left = $('#place-x').value + '%'; $('#place-preview').style.top = $('#place-y').value + '%'; };
     $('#place-x').oninput = preview; $('#place-y').oninput = preview;
+    const draft=entityFormDraft('place',selected,placeId,
+      ()=>({title:$('#place-title').value,description:$('#place-description').value,x:$('#place-x').value,y:$('#place-y').value,visited:Boolean($('#place-visited').checked)}),
+      values=>{for(const field of ['title','description','x','y'])$('#place-'+field).value=values[field];$('#place-visited').checked=values.visited;});
+    placeId=draft.entityId;
     $('#place-position').onclick = event => {
       const box = event.currentTarget.getBoundingClientRect();
       $('#place-x').value = Math.max(0,Math.min(100,100*(event.clientX-box.left)/box.width)).toFixed(1);
-      $('#place-y').value = Math.max(0,Math.min(100,100*(event.clientY-box.top)/box.height)).toFixed(1); preview();
+      $('#place-y').value = Math.max(0,Math.min(100,100*(event.clientY-box.top)/box.height)).toFixed(1); preview(); draft.save();
     };
     preview();
     $('#place-form').onsubmit = async event => {
@@ -528,7 +568,7 @@ const SkazStorage = (() => {
       if (key !== snapshotKey()) return toast('Игра изменилась. Открой место заново.');
       const place = { title: $('#place-title').value.trim(), description: $('#place-description').value, x: Number($('#place-x').value), y: Number($('#place-y').value), visited: $('#place-visited').checked };
       if (!place.title) return toast('Введи название места');
-      try { await campaignCommand(selected ? 'place-update' : 'place-create', { campaignId, placeId, place }); }
+      try { await campaignCommand(selected ? 'place-update' : 'place-create', { campaignId, placeId, place }, draft.key); }
       catch (error) { toast(error.message); }
     };
   }
@@ -571,12 +611,15 @@ const SkazStorage = (() => {
           if (key.startsWith(draftPrefix('proposal-form'))) {
             try { const value = JSON.parse(localStorage.getItem(key)); if (value?.kind === 'proposal-form' && typeof value.values?.source === 'string') drafts.push(value); } catch {}
           }
+          if (key.startsWith(draftPrefix('entity-form'))) {
+            try { const value=JSON.parse(localStorage.getItem(key));if(value?.kind==='entity-form'&&['quest','place'].includes(value.entityKind)&&typeof value.values?.title==='string')drafts.push(value); } catch {}
+          }
           if (key.startsWith(draftPrefix('pending'))) {
             try { const value = JSON.parse(localStorage.getItem(key)); if (value?.state || value?.operation) drafts.push(value); } catch {}
           }
         }
       } catch { toast('Хранилище браузера недоступно'); return; }
-      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Текст события из формы можно скачать для чтения и копирования; это ещё не запись сервера и не файл импорта игры. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc((draft.kind === 'proposal-form' ? 'Текст события · ' + (draft.characterName || '') + ' · ' + (draft.sessionName || '') : draft.label) || (draft.operation?.startsWith('proposal-') ? 'Решение по событию' : draft.operation?.startsWith('place-') ? 'Сохранение места' : draft.operation?.startsWith('quest-') ? 'Сохранение задания' : draft.operation === 'spell-set' ? 'Изменение списка заклинаний' : draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-charges' ? 'Изменение зарядов' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
+      modal(`<h2>Несохранённые черновики</h2><p>Здесь остаются черновики закрытых вкладок. Ввод события, задания или места можно скачать для чтения и копирования; это ещё не запись сервера и не файл импорта игры. Прогресс можно скачать и восстановить импортом. Копии команд создания и переключения — только для сохранности; повтор доступен в исходной вкладке.</p>${drafts.map((draft, i) => `<div class="list-row"><strong>${esc((draft.kind === 'entity-form' ? entityDraftLabel(draft) : draft.kind === 'proposal-form' ? 'Текст события · ' + (draft.characterName || '') + ' · ' + (draft.sessionName || '') : draft.label) || (draft.operation?.startsWith('proposal-') ? 'Решение по событию' : draft.operation?.startsWith('place-') ? 'Сохранение места' : draft.operation?.startsWith('quest-') ? 'Сохранение задания' : draft.operation === 'spell-set' ? 'Изменение списка заклинаний' : draft.operation === 'import-active' ? 'Импорт игры в новую кампанию' : draft.operation === 'inventory-charges' ? 'Изменение зарядов' : draft.operation === 'inventory-remove' ? 'Списание предмета' : draft.operation === 'inventory-undo' ? 'Отмена операции инвентаря' : draft.operation === 'inventory-add' ? 'Добавление предмета' : draft.operation === 'session' ? 'Начало сессии' : draft.operation === 'select' ? 'Переключение кампании' : 'Создание кампании'))}</strong><button data-draft-index="${i}">Скачать</button></div>`).join('') || '<p>Несохранённых черновиков нет.</p>'}`);
       $$('[data-draft-index]').forEach(button => button.onclick = () => downloadDraft(drafts[Number(button.dataset.draftIndex)]));
     };
     $('#import-state').onchange = async event => {

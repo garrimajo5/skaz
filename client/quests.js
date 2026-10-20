@@ -17,12 +17,17 @@ const SkazQuests = (() => {
   function stepRow(quest,step) {
     return `<label class="quest-check"><input type="checkbox" data-personal-step="${escape(step.id)}" data-personal-quest="${escape(quest.id)}" ${step.done ? 'checked' : ''} ${(SkazStorage.can?.('shared')??SkazStorage.editable()) ? '' : 'disabled'}><span>${escape(step.title)}</span></label>`;
   }
+  function description(text) {
+    if(!text)return '';
+    if(text.length<=300)return '<p class="session-text">'+escape(text)+'</p>';
+    return '<p class="session-text">'+escape(text.slice(0,240))+'…</p><details class="quest-description-full"><summary>Полное описание</summary><p class="session-text">'+escape(text)+'</p></details>';
+  }
   function results() {
     if (status === 'loading') return '<p class="empty">Открываем задания…</p>';
     if (status === 'error') return `<div class="panel"><h3>Задания недоступны</h3><p>${escape(error)}</p><button id="quests-retry">Повторить</button></div>`;
     const matches = filtered(), slice = matches.slice(offset,offset+limit);
     if (!slice.length) return `<div class="panel"><h3>${data.length ? 'Задания не найдены' : 'Первая нить приключения'}</h3><p>${data.length ? 'Попробуй другой запрос или статус.' : 'Добавь обещание, зацепку или личную цель. Здесь будут только твои записи.'}</p></div>`;
-    return `<div class="personal-quest-grid">${slice.map(q => `<article class="panel personal-quest-card"><div class="quest-card-top"><span class="tag">${labels[q.status]}</span><span>${q.steps.filter(s => s.done).length}/${q.steps.length} этапов</span></div><h3>${escape(q.title)}</h3>${q.description ? `<p class="session-text">${escape(q.description)}</p>` : ''}<div class="personal-quest-steps">${q.steps.slice(0,3).map(step => stepRow(q,step)).join('')}${q.steps.length > 3 ? `<details><summary>Ещё ${q.steps.length-3} этапов</summary>${q.steps.slice(3).map(step => stepRow(q,step)).join('')}</details>` : ''}</div>${q.importedFrom ? '<p class="quest-origin">Перенесено из другой игры</p>' : ''}<button data-personal-edit="${escape(q.id)}">Изменить задание</button></article>`).join('')}</div><div class="map-pagination"><button id="quests-prev" ${offset === 0 ? 'disabled' : ''}>Назад</button><span>${offset+1}–${Math.min(offset+limit,matches.length)} из ${matches.length}</span><button id="quests-next" ${offset+limit >= matches.length ? 'disabled' : ''}>Дальше</button></div>`;
+    return `<div class="personal-quest-grid">${slice.map(q => `<article class="panel personal-quest-card"><div class="quest-card-top"><span class="tag">${labels[q.status]}</span><span>${q.steps.filter(s => s.done).length}/${q.steps.length} этапов</span></div><h3>${escape(q.title)}</h3>${description(q.description)}<div class="personal-quest-steps">${q.steps.slice(0,3).map(step => stepRow(q,step)).join('')}${q.steps.length > 3 ? `<details><summary>Ещё ${q.steps.length-3} этапов</summary>${q.steps.slice(3).map(step => stepRow(q,step)).join('')}</details>` : ''}</div>${q.importedFrom ? '<p class="quest-origin">Перенесено из другой игры</p>' : ''}<button data-personal-edit="${escape(q.id)}">Изменить задание</button></article>`).join('')}</div><div class="map-pagination"><button id="quests-prev" ${offset === 0 ? 'disabled' : ''}>Назад</button><span>${offset+1}–${Math.min(offset+limit,matches.length)} из ${matches.length}</span><button id="quests-next" ${offset+limit >= matches.length ? 'disabled' : ''}>Дальше</button></div>`;
   }
   function refresh() {
     if (key !== SkazStorage.snapshotKey()) return;

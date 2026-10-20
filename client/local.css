@@ -47,3 +47,16 @@ dialog:has(#proposal-form){height:min(850px,90dvh);max-height:90dvh;overflow:hid
 #proposal-form input,#proposal-form select,#proposal-form textarea{width:100%;min-width:0}
 .member-list{display:grid;gap:14px;margin-block:20px}.member-list .panel{padding:18px}.member-actions{display:flex;flex-wrap:wrap;align-items:end;gap:10px}.member-actions label{flex:1;min-width:140px}.member-actions select{width:100%}#member-add{display:grid;gap:12px}#member-add label{margin:0}#members-panel .list-row{align-items:center;flex-wrap:wrap}#members-panel .list-row button{min-height:44px}
 dialog:has(#members-panel){max-width:900px}#members-panel{overflow-wrap:anywhere}.member-list{grid-template-columns:repeat(2,minmax(0,1fr))}.member-list .panel{min-width:0}.member-actions{align-items:stretch}.member-actions label{flex-basis:100%}.member-actions button{flex:1}#members-panel .list-row{gap:10px;justify-content:space-between}#members-panel .list-row span{flex:1;min-width:120px}#member-add{grid-template-columns:minmax(180px,1fr) minmax(140px,.6fr) auto;align-items:end}#member-add input,#member-add select{width:100%;min-width:0}@media(max-width:640px){.member-list{grid-template-columns:1fr}#member-add{grid-template-columns:1fr}}
+/* The primary action stays visible while long notes and quest steps scroll. */
+dialog:has(#quest-form),dialog:has(#place-form){height:min(860px,90dvh);max-height:90dvh;overflow:hidden}
+#dialog-content:has(#quest-form),#dialog-content:has(#place-form){height:100%;max-height:90dvh;display:flex;flex-direction:column;min-height:0}
+#dialog-content:has(#quest-form)>h2,#dialog-content:has(#place-form)>h2{font-size:26px;margin-block:8px;flex-shrink:0}
+#quest-draft-status,#place-draft-status{font-size:12px;margin-block:6px;flex-shrink:0}
+#quest-form,#place-form{display:flex;flex-direction:column;flex:1;min-height:0;margin-top:8px}
+.entity-fields{overflow:auto;min-height:0;padding:4px;scrollbar-gutter:stable}
+#quest-form .dialog-actions,#place-form .dialog-actions{flex-shrink:0;margin-top:10px;padding-top:8px;border-top:1px solid var(--line)}
+#quest-form input,#quest-form select,#quest-form button,#place-form input,#place-form button{min-height:44px}
+#quest-form input,#quest-form select,#quest-form textarea,#place-form input,#place-form textarea{width:100%;min-width:0}
+#quest-form input[type=checkbox],#place-form input[type=checkbox]{width:20px;min-height:20px;flex-shrink:0}
+.personal-quest-card .quest-description-full{margin:0}.quest-description-full summary{min-height:44px;display:flex;align-items:center;cursor:pointer;color:var(--accent)}.personal-quest-card .quest-description-full .session-text{max-height:none;overflow:visible;padding:0}
+#quest-form .quest-check,#place-form .quest-check{min-height:44px;align-items:center}

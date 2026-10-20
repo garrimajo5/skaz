@@ -797,3 +797,47 @@ test('membership storage requests pin the active window and reject foreign-campa
  const player=harness(memory(),memory(),async()=>response({...payload(0),permissions:permissionFixture('player')}));await player.api.boot();await assert.rejects(player.api.membersData());await assert.rejects(player.api.changeMembers({campaignId:'first'}));
  const shared=harness(memory(),memory(),async()=>response(payload(0)));await shared.api.boot();assert.equal(shared.api.can('members'),false);await assert.rejects(shared.api.membersData());
 });
+
+test('quest draft restores raw fields, incomplete steps and stable entity IDs without a server write',async()=>{
+ const local=memory(),session=memory(),calls=[];const transport=async(url,options)=>{calls.push(options);return response(payload(0));};
+ const h=harness(local,session,transport);await h.api.boot();h.api.editQuest();h.get('#quest-title').value='  <Map>  ';h.get('#quest-description').value='Private lead';h.get('#quest-status').value='active';h.get('#add-quest-step').onclick();h.get('#quest-step-0').value='';h.get('#quest-done-0').checked=false;h.get('#quest-form').oninput();
+ const [key,raw]=[...local.values.entries()].find(([key])=>key.startsWith('skaz-entity-form-v1:')),draft=JSON.parse(raw);assert.equal(draft.values.title,'  <Map>  ');assert.equal(draft.values.steps.length,1);assert.equal(draft.values.steps[0].title,'');assert.equal(draft.creating,true);
+ const reloaded=harness(local,session,transport);await reloaded.api.boot();reloaded.api.editQuest();assert.equal(reloaded.get('#quest-title').value,'  <Map>  ');assert.equal(reloaded.get('#quest-description').value,'Private lead');assert.match(reloaded.get('#quest-steps').innerHTML,/quest-step-0/);assert.match(reloaded.get('#quest-draft-status').textContent,/Восстановлен/);
+ reloaded.get('#quest-step-0').value='Ask keeper';reloaded.get('#quest-done-0').checked=true;reloaded.get('#quest-form').oninput();assert.equal(JSON.parse(local.getItem(key)).entityId,draft.entityId);assert.equal(JSON.parse(local.getItem(key)).values.steps[0].id,draft.values.steps[0].id);assert.ok(calls.every(c=>!c.method));
+});
+test('place draft preserves zero position and visit status; newer versions and another campaign never adopt it',async()=>{
+ const local=memory(),session=memory();let current=payload(0);const transport=async()=>response(current),h=harness(local,session,transport);await h.api.boot();h.api.editPlace();
+ h.get('#place-title').value='Hidden bay';h.get('#place-description').value='<b>Known route</b>';h.get('#place-x').value='0';h.get('#place-y').value='100';h.get('#place-visited').checked=true;h.get('#place-form').oninput();
+ const reloaded=harness(local,session,transport);await reloaded.api.boot();reloaded.api.editPlace();assert.equal(reloaded.get('#place-x').value,'0');assert.equal(reloaded.get('#place-y').value,'100');assert.equal(reloaded.get('#place-visited').checked,true);assert.equal(reloaded.get('#place-description').value,'<b>Known route</b>');assert.equal(reloaded.get('#place-preview').style.left,'0%');
+ current=payload(1);const newer=harness(local,session,transport);await newer.api.boot();newer.api.editPlace();assert.notEqual(newer.get('#place-title').value,'Hidden bay');newer.api.settings();newer.get('#saved-drafts').onclick();assert.match(newer.dialog(),/Hidden bay/);assert.match(newer.dialog(),/версия 0/);
+ current=payload(0,'other');const other=harness(local,session,transport);await other.api.boot();other.api.editPlace();assert.notEqual(other.get('#place-title').value,'Hidden bay');
+});
+test('failed entity submission retains its form draft and the exact retry removes it only after acknowledgement',async()=>{
+ const local=memory(),session=memory(),calls=[];const h=harness(local,session,async(url,options)=>{if(url==='/api/workspace')return response(payload(0));calls.push(options);throw new Error('offline');});await h.api.boot();h.api.editPlace();
+ for(const [field,value]of Object.entries({title:'Harbor',description:'Keeper',x:'20',y:'30'}))h.get('#place-'+field).value=value;h.get('#place-form').oninput();const key=[...local.values.keys()].find(k=>k.startsWith('skaz-entity-form-v1:')),entityId=JSON.parse(local.getItem(key)).entityId;
+ await h.get('#place-form').onsubmit({preventDefault(){}});assert.ok(local.getItem(key));const original=JSON.parse(calls[0].body);assert.equal(original.placeId,entityId);assert.equal(original.formDraftKey,undefined);
+ const next=harness(local,session,async(url,options)=>{if(options.method)calls.push(options);return response(payload(1));});await next.api.boot();await next.click('sync-retry');assert.equal(calls[0].body,calls[1].body);assert.equal(local.getItem(key),null);
+});
+test('entity form drafts belong to one identity, tab, hero and session, including downloadable lists',async()=>{
+ const local=memory(),session=memory(),account=id=>({userId:id,prefix:kind=>'skaz-user-v1:'+id+':'+kind+':'});let current={...payload(0),permissions:permissionFixture('owner')};const transport=async()=>response(current);
+ const h=harness(local,session,transport,undefined,account('alice-user'));await h.api.boot();h.api.editQuest();h.get('#quest-title').value='Alice secret';h.get('#quest-description').value='';h.get('#quest-status').value='active';h.get('#quest-form').oninput();
+ for(const [storage,user]of [[memory(),'alice-user'],[session,'other-user']]){const next=harness(local,storage,transport,undefined,account(user));await next.api.boot();next.api.editQuest();assert.notEqual(next.get('#quest-title').value,'Alice secret');if(user==='other-user'){next.api.settings();next.get('#saved-drafts').onclick();assert.ok(!next.dialog().includes('Alice secret'));}}
+ current={...current,context:{...payload(0).context,characterId:'other-hero'}};const hero=harness(local,session,transport,undefined,account('alice-user'));await hero.api.boot();hero.api.editQuest();assert.notEqual(hero.get('#quest-title').value,'Alice secret');
+ current={...current,context:{...payload(0).context,sessionId:'other-session'}};const another=harness(local,session,transport,undefined,account('alice-user'));await another.api.boot();another.api.editQuest();assert.notEqual(another.get('#quest-title').value,'Alice secret');
+});
+test('entity draft storage errors remain visible and malformed records cannot restore fields or IDs',async()=>{
+ const local=memory(),session=memory(),transport=async()=>response(payload(0)),h=harness(local,session,transport);await h.api.boot();h.api.editQuest();h.get('#quest-title').value='Keep text';h.get('#quest-description').value='';h.get('#quest-status').value='active';h.get('#quest-form').oninput();const key=[...local.values.keys()].find(k=>k.startsWith('skaz-entity-form-v1:')),saved=JSON.parse(local.getItem(key));
+ for(const mutate of [d=>d.entityId='../bad',d=>d.context.campaignId='other',d=>d.values.steps=[{id:'bad',title:'x',done:false}],d=>d.values.description='x'.repeat(12001)]){const invalid=structuredClone(saved);mutate(invalid);local.setItem(key,JSON.stringify(invalid));const next=harness(local,session,transport);await next.api.boot();next.api.editQuest();assert.notEqual(next.get('#quest-title').value,'Keep text');assert.match(next.get('#quest-draft-status').textContent,/не подставлен/);}
+ local.setItem=()=>{throw new Error('full');};h.get('#quest-form').oninput();assert.equal(h.get('#quest-title').value,'Keep text');assert.match(h.get('#quest-draft-status').textContent,/не сохранён/);
+});
+test('stale entity form input cannot overwrite the original draft after a game switch',async()=>{
+ const local=memory(),session=memory();let current=payload(0);const h=harness(local,session,async()=>response(current));await h.api.boot();h.api.editQuest();h.get('#quest-title').value='Original';h.get('#quest-description').value='';h.get('#quest-status').value='active';h.get('#quest-form').oninput();const before=[...local.values.values()];current=payload(1,'another');await h.api.boot();h.get('#quest-title').value='Wrong game';h.get('#quest-form').oninput();assert.deepEqual([...local.values.values()],before);
+});
+
+test('a successful HTTP status with invalid acknowledgement never removes entity text or its pending command',async()=>{
+ for(const invalid of [{}, {...payload(1),permissions:{mode:'individual'}}]){
+  const local=memory(),session=memory(),h=harness(local,session,async(url,options)=>response(options.method?invalid:payload(0)));await h.api.boot();h.api.editPlace();
+  for(const [field,value]of Object.entries({title:'Keep me',description:'Important',x:'0',y:'50'}))h.get('#place-'+field).value=value;h.get('#place-form').oninput();const key=[...local.values.keys()].find(k=>k.startsWith('skaz-entity-form-v1:'));
+  await h.get('#place-form').onsubmit({preventDefault(){}});assert.ok(local.getItem(key));assert.equal(h.api.editable(),false);assert.ok([...local.values.keys()].some(k=>k.startsWith('skaz-pending-v1:')));
+ }
+});

@@ -56,3 +56,9 @@ test('quest page remains selected after a revision update within the same campai
   h.setKey('second:1'); h.view(); h.tasks.shift()(); h.requests[2].resolve({ quests }); await settle();
   assert.match(h.region.innerHTML, /1–12 из 15/);
 });
+
+test('long quest notes expose an escaped full description without requiring editing or a nested text scroller',async()=>{
+ const h=harness(),long='Known lead '.repeat(50)+'<script>attack()</script> hidden-tail';h.view();h.tasks.shift()();h.requests[0].resolve({quests:[{...quest(),description:long}]});await settle();
+ assert.match(h.region.innerHTML,/<details class="quest-description-full"><summary>Полное описание/);assert.match(h.region.innerHTML,/&lt;script&gt;/);assert.doesNotMatch(h.region.innerHTML,/<script>/);assert.match(h.region.innerHTML,/hidden-tail/);
+ h.search('hidden-tail');assert.match(h.region.innerHTML,/1–1 из 1/);assert.equal(h.edits.length,0);assert.equal(h.toggles.length,0);
+});

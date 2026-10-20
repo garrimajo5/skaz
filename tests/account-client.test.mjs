@@ -13,7 +13,7 @@ test('account adapter pins every API request to server identity and locks on 401
  await c.context.window.fetch('/api/workspace',{headers:{'X-Skaz-Identity':'other-user'}});assert.equal(calls[0].headers.get('X-Skaz-Identity'),'alice-user');
  await assert.rejects(c.context.window.fetch('/api/me'));assert.equal(c.body.cleared,true);
  await assert.rejects(c.context.window.fetch('/api/workspace'));assert.equal(calls.length,2);
- assert.equal(c.api.prefix('pending'),'skaz-user-v1:alice-user:pending:');
+ assert.equal(c.api.prefix('pending'),'skaz-user-v1:alice-user:pending:');assert.equal(c.api.prefix('entity-form'),'skaz-user-v1:alice-user:entity-form:');
 });
 test('cross-tab sign-in hides old DOM and discards an in-flight response',async()=>{
  let deliver;const c=client(()=>new Promise(resolve=>deliver=resolve));const pending=c.context.window.fetch('/api/workspace');

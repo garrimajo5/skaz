@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:bugbear",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Багбир",
+        "en": "Bugbear"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=266",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz humanoid encounters v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 266.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид (гоблиноид), хаотично-злой. Шкурный доспех и щит; хиты 27 (5d8 + 5). Скрытность +6, Выживание +2; тёмное зрение 60 футов, пассивное Восприятие 10. Языки: Общий и Гоблинский.\nГрубая сила: при попадании рукопашным оружием добавляется одна кость его урона; она уже включена в приведённые атаки. Внезапная атака: если багбир застал существо врасплох и попал по нему атакой в первом раунде боя, эта атака наносит дополнительно 7 (2d6) урона.\nМоргенштерн: рукопашная атака оружием +4, досягаемость 5 футов, одна цель; 11 (2d8 + 2) колющего урона. Метательное копьё: рукопашная или дальнобойная атака оружием +4, досягаемость 5 футов или дистанция 30/120 футов, одна цель; 9 (2d6 + 2) колющего в рукопашной или 5 (1d6 + 2) на расстоянии.\nКласс доспеха указан для исходной экипировки. Атаки, преимущества, смена оружия и щита не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 16,
+        "hitPoints": 27,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 15,
+          "dex": 14,
+          "con": 13,
+          "int": 8,
+          "wis": 11,
+          "cha": 9
+        },
+        "challenge": "1",
+        "xp": 200
+      }
+    },
+    {
+      "id": "srd51:2014:monster:gnoll",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Гнолл",
+        "en": "Gnoll"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=314",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz humanoid encounters v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 314, 315.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид (гнолл), хаотично-злой. Шкурный доспех и щит; хиты 22 (5d8). Тёмное зрение 60 футов, пассивное Восприятие 10. Язык: Гнолльский.\nБуйство: когда гнолл снижает хиты существа до 0 рукопашной атакой в свой ход, он может бонусным действием переместиться на расстояние до половины своей скорости и совершить атаку укусом.\nУкус: рукопашная атака оружием +4, досягаемость 5 футов, одно существо; 4 (1d4 + 2) колющего урона. Копьё: рукопашная или дальнобойная атака оружием +4, досягаемость 5 футов или дистанция 20/60 футов, одна цель; 5 (1d6 + 2) колющего, либо 6 (1d8 + 2) при рукопашной атаке двумя руками. Длинный лук: дальнобойная атака оружием +3, дистанция 150/600 футов, одна цель; 5 (1d8 + 1) колющего.\nКласс доспеха указан для исходной экипировки. Атаки, преимущества, смена оружия и щита не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 15,
+        "hitPoints": 22,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 14,
+          "dex": 12,
+          "con": 11,
+          "int": 6,
+          "wis": 10,
+          "cha": 7
+        },
+        "challenge": "1/2",
+        "xp": 100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:hobgoblin",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Хобгоблин",
+        "en": "Hobgoblin"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=322",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz humanoid encounters v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 322.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид (гоблиноид), законопослушно-злой. Кольчуга и щит; хиты 11 (2d8 + 2). Тёмное зрение 60 футов, пассивное Восприятие 10. Языки: Общий и Гоблинский.\nВоинское преимущество: один раз за ход хобгоблин может нанести дополнительно 7 (2d6) урона существу, по которому попал атакой оружием, если в пределах 5 футов от этого существа находится союзник хобгоблина, который не недееспособен.\nДлинный меч: рукопашная атака оружием +3, досягаемость 5 футов, одна цель; 5 (1d8 + 1) рубящего урона, либо 6 (1d10 + 1) при использовании двумя руками. Длинный лук: дальнобойная атака оружием +3, дистанция 150/600 футов, одна цель; 5 (1d8 + 1) колющего.\nКласс доспеха указан для исходной экипировки. Атаки, преимущества, смена оружия и щита не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:incapacitated"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 18,
+        "hitPoints": 11,
+        "speed": {
+          "walk": 30
+        },
+        "abilities": {
+          "str": 13,
+          "dex": 12,
+          "con": 12,
+          "int": 10,
+          "wis": 10,
+          "cha": 9
+        },
+        "challenge": "1/2",
+        "xp": 100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:lizardfolk",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Людоящер",
+        "en": "Lizardfolk"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=326",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz humanoid encounters v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 326.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредний гуманоид (людоящер), нейтральный. Природный доспех и щит; хиты 22 (4d8 + 4). Восприятие +3, Скрытность +4, Выживание +5; пассивное Восприятие 13. Язык: Драконий. Может задерживать дыхание на 15 минут.\nМультиатака: две рукопашные атаки, каждая разным оружием. Укус: рукопашная атака оружием +4, досягаемость 5 футов, одна цель; 5 (1d6 + 2) колющего урона. Тяжёлая дубина: рукопашная атака оружием +4, досягаемость 5 футов, одна цель; 5 (1d6 + 2) дробящего. Метательное копьё: рукопашная или дальнобойная атака оружием +4, досягаемость 5 футов или дистанция 30/120 футов, одна цель; 5 (1d6 + 2) колющего. Шипованный щит: рукопашная атака оружием +4, досягаемость 5 футов, одна цель; 5 (1d6 + 2) колющего.\nКласс доспеха указан для исходной экипировки. Атаки, преимущества, смена оружия и щита не применяются автоматически.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "humanoid",
+        "armorClass": 15,
+        "hitPoints": 22,
+        "speed": {
+          "walk": 30,
+          "swim": 30
+        },
+        "abilities": {
+          "str": 15,
+          "dex": 10,
+          "con": 13,
+          "int": 7,
+          "wis": 12,
+          "cha": 7
+        },
+        "challenge": "1/2",
+        "xp": 100
+      }
+    }
+  ]
+}
