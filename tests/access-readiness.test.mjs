@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtempSync,readFileSync,existsSync} from 'node:fs';
+import {mkdtempSync,readFileSync,existsSync,symlinkSync} from 'node:fs';
+import {spawnSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {DatabaseSync} from 'node:sqlite';
@@ -21,6 +23,13 @@ test('data-only readiness reflects credentials, enabled owners and explicit usab
 });
 test('missing and future-schema databases fail closed without creating or migrating files',()=>{
  const {file}=fixture();assert.throws(()=>accessReadiness(file));assert.equal(existsSync(file),false);const store=openStore(file);store.close();const db=new DatabaseSync(file);db.exec('UPDATE access_schema SET version=99');db.close();const bytes=readFileSync(file);assert.throws(()=>accessReadiness(file));assert.deepEqual(readFileSync(file),bytes);
+});
+
+test('readiness CLI runs through a release symlink and retains its non-ready exit code',{skip:process.platform==='win32'},()=>{
+ const {dir,file}=fixture(),store=openStore(file);store.close();const before=readFileSync(file),link=join(dir,'current');
+ symlinkSync(fileURLToPath(new URL('../',import.meta.url)),link,'dir');
+ const result=spawnSync(process.execPath,[join(link,'scripts/access-readiness.mjs'),file],{encoding:'utf8'});
+ assert.equal(result.status,2,result.stderr);assert.equal(JSON.parse(result.stdout).dataReady,false);assert.deepEqual(readFileSync(file),before);
 });
 
 test('readiness rejects partial authentication schemas without repairing or changing them',()=>{

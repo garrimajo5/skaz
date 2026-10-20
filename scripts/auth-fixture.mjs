@@ -69,7 +69,7 @@ export async function serveAuthFixture(directory,port){
  }catch(error){store.close();throw error;}
 }
 
-if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+if(process.argv[1]&&await realpath(process.argv[1]).catch(()=>null)===fileURLToPath(import.meta.url)){
  const [action,directory,value,...extra]=process.argv.slice(2);
  try{
   if(extra.length||!value)throw new Error('Неверные аргументы');

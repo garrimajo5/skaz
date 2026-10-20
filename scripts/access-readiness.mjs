@@ -1,5 +1,5 @@
 import {DatabaseSync} from 'node:sqlite';
-import path from 'node:path';
+import {realpath} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 
 // Administrative, read-only database inspection. Never imported by the HTTP app.
@@ -52,7 +52,7 @@ export function accessReadiness(database){
   return {scope:'database-only',dataReady:!blockers.length,changesAccess:false,integrity,foreignKeyViolations,authenticationInitialized:auth,campaigns,enabledUsers,blockers,manualChecks:['verified-backup-and-restore','browser-https-login-logout-two-users','review-every-assignment-with-owner','keep-shared-entry-point-until-explicit-switch']};
  }finally{db.close();}
 }
-if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+if(process.argv[1]&&await realpath(process.argv[1]).catch(()=>null)===fileURLToPath(import.meta.url)){
  const [database,...extra]=process.argv.slice(2);
  if(!database||extra.length){console.error('Использование: node scripts/access-readiness.mjs существующая-база.sqlite');process.exitCode=1;}
  else try{const report=accessReadiness(database);console.log(JSON.stringify(report,null,2));process.exitCode=report.dataReady?0:2;}

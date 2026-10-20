@@ -15,6 +15,23 @@ server {
     add_header Referrer-Policy no-referrer always;
     auth_basic "SKAZ synthetic check";
     auth_basic_user_file /etc/nginx/skaz.htpasswd;
+    # A form-login 401 can evict the browser's unrelated HTTP Basic credential.
+    # Translate ONLY this endpoint's rejection; protected API session failures
+    # remain 401. Both the outer Basic gate and inner password check stay active.
+    location = /api/auth/login {
+        limit_req zone=skaz_requests burst=30 nodelay;
+        proxy_pass http://127.0.0.1:4177;
+        proxy_set_header Host 127.0.0.1:4177;
+        proxy_set_header Authorization "";
+        proxy_intercept_errors on;
+        error_page 401 = @skaz_fixture_login_denied;
+    }
+    location @skaz_fixture_login_denied {
+        default_type application/json;
+        add_header Cache-Control no-store always;
+        add_header X-Content-Type-Options nosniff always;
+        return 403 '{"error":"Неверный логин или пароль"}';
+    }
     location / {
         limit_req zone=skaz_requests burst=30 nodelay;
         proxy_pass http://127.0.0.1:4177;

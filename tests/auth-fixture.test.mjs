@@ -5,6 +5,8 @@ import {tmpdir} from 'node:os';
 import path from 'node:path';
 import {DatabaseSync} from 'node:sqlite';
 import {randomUUID} from 'node:crypto';
+import {spawnSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
 import {prepareAuthFixture,serveAuthFixture} from '../scripts/auth-fixture.mjs';
 import {accessReadiness} from '../scripts/access-readiness.mjs';
 
@@ -35,6 +37,14 @@ test('fixture refuses invalid origins before creating files, unrelated databases
  for(const port of [-1,65536,1.5,'4177'])await assert.rejects(serveAuthFixture(folder,port));
  const file=path.join(folder,'fixture.sqlite'),db=new DatabaseSync(file);db.exec('DROP TABLE auth_fixture_marker');db.close();const before=await readFile(file);
  await assert.rejects(serveAuthFixture(folder,0));assert.deepEqual(await readFile(file),before);
+});
+
+test('fixture CLI preparation runs through the current release symlink',{skip:process.platform==='win32'},async()=>{
+ const folder=await directory(),link=path.join(path.dirname(folder),'current');
+ await symlink(fileURLToPath(new URL('../',import.meta.url)),link,'dir');
+ const result=spawnSync(process.execPath,[path.join(link,'scripts/auth-fixture.mjs'),'prepare',folder,'https://fixture.example:8443'],{encoding:'utf8'});
+ assert.equal(result.status,0,result.stderr);assert.equal(JSON.parse(result.stdout).prepared,true);
+ assert.equal(JSON.parse(await readFile(path.join(folder,'fixture.json'),'utf8')).kind,'skaz-synthetic-auth-fixture');
 });
 
 test('loopback fixture runs actual sessions, waiting assignment and withdrawal without changing games',async t=>{
