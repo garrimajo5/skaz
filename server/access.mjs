@@ -4,13 +4,14 @@ import { AppError } from './state.mjs';
 import { bundledCatalog } from './bundled-catalog.mjs';
 import { createCatalog, validateCatalog } from './catalog.mjs';
 import { splitState } from './entities.mjs';
+import { createMemberManagement } from './members.mjs';
 
 const missing = () => { throw new AppError(404, 'Данные недоступны'); };
 const disabled = () => { throw new AppError(403, 'Операция пока недоступна в режиме индивидуального доступа'); };
 const permissions = (role, write) => ({
   mode: 'individual', role, character: write, shared: write && role !== 'player',
   manageCampaign: write && role !== 'player', catalog: false, newCampaign: write,
-  select: write, import: write, history: write, export: true,
+  select: write, import: write, history: write, export: true, members: write && role === 'owner',
 });
 const id = value => {
   if (typeof value !== 'string' || !/^[a-zA-Z0-9-]{8,80}$/.test(value)) throw new AppError(422, 'Неверный идентификатор доступа');
@@ -79,7 +80,7 @@ export function createAccess(db) {
       throw new AppError(409, 'Сначала назначьте другого активного владельца кампании');
     }
   }
-  function apply(command) {
+  function applyInTransaction(command) {
     if (!command || typeof command !== 'object' || Array.isArray(command)) throw new AppError(422,'Нужна административная команда');
     const fields = {
       'create-user': ['action','userId','displayName'],
@@ -98,8 +99,6 @@ export function createAccess(db) {
     if (fields.includes('role') && !['owner','gm','player'].includes(command.role)) throw new AppError(422,'Неизвестная роль');
     if (fields.includes('enabled') && typeof command.enabled !== 'boolean') throw new AppError(422,'Нужен логический статус пользователя');
     const {action,userId,campaignId,characterId} = command;
-    db.exec('BEGIN IMMEDIATE');
-    try {
       const existing = db.prepare('SELECT * FROM access_users WHERE id=?').get(userId);
       if (action === 'create-user' || action === 'bootstrap-owner') {
         if (existing && (existing.display_name !== command.displayName.trim() || existing.enabled !== 1)) throw new AppError(409,'Пользователь уже существует с другими данными');
@@ -126,10 +125,14 @@ export function createAccess(db) {
         db.prepare('UPDATE access_users SET enabled=? WHERE id=?').run(Number(command.enabled),userId);
       }
       db.prepare('INSERT INTO access_audit(action,user_id,campaign_id,character_id,created_at) VALUES (?,?,?,?,?)').run(action,userId,campaignId??null,characterId??null,new Date().toISOString());
-      db.exec('COMMIT');
       return { applied:true, action, userId, ...(campaignId ? {campaignId}:{}), ...(characterId ? {characterId}:{}) };
-    } catch(error) { db.exec('ROLLBACK'); throw error; }
   }
+  function apply(command){
+    db.exec('BEGIN IMMEDIATE');
+    try {const result=applyInTransaction(command);db.exec('COMMIT');return result;}
+    catch(error){db.exec('ROLLBACK');throw error;}
+  }
+  const management=createMemberManagement(db,{user,membership,applyInTransaction});
   function bindView(userId, clientViewId) {
     user(userId); id(clientViewId);
     db.exec('BEGIN IMMEDIATE');
@@ -160,7 +163,7 @@ export function createAccess(db) {
       JOIN sessions s ON s.campaign_id=g.campaign_id LEFT JOIN session_details d ON d.session_id=s.id
       WHERE g.user_id=? AND coalesce(d.archived,0)=0 LIMIT 1`).get(userId));
   }
-  return { apply, user, membership, character, context, bindView, hasPlayableCharacter };
+  return { apply, user, membership, character, context, bindView, hasPlayableCharacter, management };
 }
 
 // Read-only first stage. The trusted caller supplies an authenticated user ID;
@@ -188,6 +191,7 @@ export function createUserReader(db, access, userId, clientViewId, createView, g
   result.permissions=()=>read(()=>permissions(access.membership(userId,active().campaignId),false));
   for (const method of ['read','context','proposals','places','quests','spellbook','inventory']) result[method]=()=>read(()=>view[method]());
   result.inventory=()=>read(()=>({...view.inventory(),undo:null}));
+  result.members=Object.freeze({list:()=>read(()=>access.management.list(userId,active().campaignId)),change:disabled});
   result.campaigns=()=>read(()=>view.campaigns().filter(c=>db.prepare('SELECT 1 FROM campaign_memberships WHERE user_id=? AND campaign_id=?').get(userId,c.id)).map(c=>({...c,characters:c.characters.filter(h=>db.prepare('SELECT 1 FROM character_access WHERE user_id=? AND character_id=?').get(userId,h.id))})));
   result.sessions=campaignId=>read(()=>{access.membership(userId,campaignId);return view.sessions(campaignId);});
   result.session=sessionId=>read(()=>{
@@ -247,6 +251,7 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
     }
   }
   const result={...reader};
+  result.members=Object.freeze({list:reader.members.list,change:request=>access.management.change(userId,request,{guard,current})});
   result.permissions=()=>{
     db.exec('BEGIN');
     try {const selected=current(),value=permissions(access.membership(userId,selected.campaignId),true);db.exec('COMMIT');return value;}

@@ -10,6 +10,17 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_familiar_forms_preserve_aliases_and_reject_missing_or_duplicate_names(self):
+        headings = runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))['familiar_headings']
+        text = 'animal form you choose: bat, cat, crab, frog (toad), hawk, lizard, octopus, owl, poisonous snake, fish (quipper), rat, raven, sea horse, spider, or weasel. Appearing'
+        names = headings(text)
+        self.assertEqual(len(names), 15)
+        self.assertIn('Quipper', names)
+        self.assertIn('Frog', names)
+        for bad in [text.replace('bat, ', ''), text.replace('bat, ', 'cat, '), 'Other spell']:
+            with self.assertRaises(ValueError):
+                headings(bad)
+
     def test_npc_inventory_preserves_pages_and_compound_names(self):
         headings = runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))['npc_headings']
         rows = headings({397: 'Bandit Captain Medium humanoid, any race', 395: 'Acolyte Medium humanoid, any race'})

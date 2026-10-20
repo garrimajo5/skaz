@@ -36,6 +36,12 @@ test('HTTPS proxy preserves authenticated identity, rejects cross-tab account ch
  const boris=await request('/api/auth/login',{method:'POST',body:{login:'boris',password}});const cookieB=boris.headers['set-cookie'][0].split(';')[0];
  const sheet=await request('/api/workspace',{cookie:cookieB,identity:'https-boris'});assert.equal(sheet.status,200);assert.equal(sheet.json().state.profile.name,'BORIS_ONLY');assert.equal(sheet.json().permissions.shared,false);
  const own=await request('/api/workspace',{cookie:cookieA,identity:'https-alice'});assert.equal(own.status,200);assert.ok(!own.text.includes('BORIS_ONLY'));assert.equal(own.json().permissions.shared,true);
+ const roster=await request('/api/members',{cookie:cookieA,identity:'https-alice'});assert.equal(roster.status,200);assert.equal((await request('/api/members',{cookie:cookieB,identity:'https-boris'})).status,403);
+ const grant={action:'grant-character',mutationId:randomUUID(),expectedVersion:roster.json().version,campaignId:first.campaignId,userId:'https-boris',characterId:first.characterId};
+ assert.equal((await request('/api/members',{method:'POST',cookie:cookieA,identity:'https-alice',body:grant,originHeader:'https://foreign.test'})).status,403);
+ assert.equal((await request('/api/members',{method:'POST',cookie:cookieB,identity:'https-alice',body:grant})).status,401);
+ assert.equal((await request('/api/members',{method:'POST',cookie:cookieA,identity:'https-alice',body:grant})).status,200);
+ assert.equal((await request('/api/members',{method:'POST',cookie:cookieA,identity:'https-alice',body:grant})).json().replayed,true);
  const stale={method:'PUT',cookie:cookieB,identity:'https-alice',body:{mutationId:randomUUID(),expectedRevision:sheet.json().revision,label:'Old tab',state:{...sheet.json().state,hp:1}}};assert.equal((await request('/api/workspace',stale)).status,401);assert.equal((await request('/api/workspace',{cookie:cookieB,identity:'https-boris'})).json().state.hp,28);
  assert.equal((await request('/api/auth/logout',{method:'POST',cookie:cookieB,identity:'https-boris',body:{},originHeader:'https://foreign.test'})).status,403);
  assert.equal((await request('/api/auth/logout',{method:'POST',cookie:cookieB,identity:'https-boris',body:{}})).status,200);assert.equal((await request('/api/workspace',{cookie:cookieB,identity:'https-boris'})).status,401);assert.equal((await request('/api/workspace',{cookie:cookieA,identity:'https-alice'})).status,200);

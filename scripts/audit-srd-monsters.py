@@ -62,6 +62,18 @@ def npc_headings(pages):
     return entries
 
 
+def familiar_headings(text):
+    match = re.search(r'animal form you choose: (.*?)\. Appearing', normalize(text))
+    if not match:
+        raise ValueError('Missing Find Familiar form list')
+    names = match[1].replace(', or ', ', ').split(', ')
+    aliases = {'frog (toad)': 'Frog', 'fish (quipper)': 'Quipper'}
+    names = [aliases.get(name, name.title()) for name in names]
+    if len(names) != 15 or len(set(names)) != 15:
+        raise ValueError('Unexpected or duplicate familiar forms')
+    return names
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('pdf', type=Path)
@@ -76,6 +88,14 @@ def main():
         raise SystemExit('NPC inventory differs from the pinned Appendix B headings/pages.')
     code = "import{bundledCatalog}from'./server/bundled-catalog.mjs';process.stdout.write(JSON.stringify(bundledCatalog().bundle.entries.filter(e=>e.kind==='monster')))"
     cards = json.loads(subprocess.check_output(['node','--input-type=module','-e',code], cwd=ROOT, encoding='utf-8'))
+    familiar = json.loads((ROOT / 'catalog/srd51-familiar-forms.coverage.json').read_text(encoding='utf-8-sig'))
+    familiar_names = familiar_headings(reader.pages[142].extract_text())
+    if familiar['sourceSha256'] != SHA256 or familiar['expectedSubsetCount'] != 15 or sorted(row['nameEn'] for row in familiar['entries']) != sorted(familiar_names):
+        raise SystemExit('Familiar inventory differs from the pinned spell on page 143.')
+    for row in familiar['entries']:
+        matches = [card for card in cards if card['id'] == row['id']]
+        if len(matches) != 1 or matches[0]['name']['en'] != row['nameEn'] or not matches[0]['source']['url'].endswith('#page=' + str(row['pages'][0])):
+            raise SystemExit('Missing or mismatched familiar card: ' + row['nameEn'])
     pages, failures = {}, []
     for card in cards:
         page = int(card['source']['url'].rsplit('#page=', 1)[1])
@@ -89,7 +109,7 @@ def main():
                 failures.append({'id': card['id'], 'fields': errors, 'source': expected})
         except ValueError as error:
             failures.append({'id': card['id'], 'error': str(error)})
-    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'failures': failures,
+    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'familiarFormsChecked': len(familiar_names), 'failures': failures,
                       'scope': 'Base statistics only; actions, traits and summaries need source review.'}, ensure_ascii=False, indent=2))
     if failures:
         raise SystemExit(1)

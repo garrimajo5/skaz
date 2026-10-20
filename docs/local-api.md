@@ -310,3 +310,12 @@ GET /api/me работает только с доверенным authenticate: 
 Экспериментальный sessions-адаптер и /api/auth/login, /api/auth/logout описаны в [authentication.md](authentication.md). Обычный запуск их не включает; X-Skaz-Identity не является способом авторизации.
 
 В индивидуальном адаптере GET /api/workspace и ответы команд с state дополнены permissions. Поля: mode="individual", role="owner"|"gm"|"player", boolean character/shared/manageCampaign/catalog/newCampaign/select/import/history/export. В общем режиме поля нет. Метаданные относятся к выбранной кампании; не являются токеном или разрешением обходить серверную проверку. Отзыв/изменение роли применяется к следующему запросу независимо от игровой revision.
+
+## Участники выбранной кампании
+
+Только экспериментальный authenticate + individualWrites:true, владелец кампании:
+
+- GET /api/members → {campaignId,actorId,version,members:[{id,displayName,enabled,role,characterIds}],characters:[{id,name}]}. Чужие ресурсы и заметки отсутствуют. GET допускается владельцу при режиме чтения, но UI и POST управления отключены.
+- POST /api/members → тот же актуальный снимок + replayed. Общие поля: action,mutationId,expectedVersion,campaignId,userId. action=set-member требует role=owner|gm|player; remove-member не принимает дополнительных полей; grant-character/revoke-character требуют characterId. expectedVersion — SHA-256 из GET, mutationId — новый устойчивый ключ подтверждённого решения. Нужны JSON и X-Skaz-Client:local-v1; sessions-адаптер также требует точный Origin/проверенную личность. 409 — состав изменился, ключ занят другим решением или попытка отозвать собственное управление; 403 — роль/режим не позволяют; 404 — аккаунт/лист/контекст недоступны; 422 — неверные поля. Запрос ограничен 16 КиБ.
+
+В permissions добавлен boolean members: true только владельцу при включённой записи. Эти маршруты не создают аккаунты/пароли, не заменяют авторизацию, не включаются на общем VPS и не изменяют игровую revision. Подробности повтора, аудита и административной проверки — access-control.md.

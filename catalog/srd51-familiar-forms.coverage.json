@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "15 named Find Familiar forms on SRD 5.1 page 143; not a complete bestiary",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 15,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:cat",
+      "nameEn": "Cat",
+      "pages": [
+        369
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:hawk",
+      "nameEn": "Hawk",
+      "pages": [
+        382
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:owl",
+      "nameEn": "Owl",
+      "pages": [
+        385
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:raven",
+      "nameEn": "Raven",
+      "pages": [
+        387
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:weasel",
+      "nameEn": "Weasel",
+      "pages": [
+        392
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:bat",
+      "nameEn": "Bat",
+      "pages": [
+        367
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:crab",
+      "nameEn": "Crab",
+      "pages": [
+        370
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:frog",
+      "nameEn": "Frog",
+      "pages": [
+        372
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:lizard",
+      "nameEn": "Lizard",
+      "pages": [
+        383
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:octopus",
+      "nameEn": "Octopus",
+      "pages": [
+        384,
+        385
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:poisonous-snake",
+      "nameEn": "Poisonous Snake",
+      "pages": [
+        386
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:quipper",
+      "nameEn": "Quipper",
+      "pages": [
+        387
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:sea-horse",
+      "nameEn": "Sea Horse",
+      "pages": [
+        389
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:spider",
+      "nameEn": "Spider",
+      "pages": [
+        389
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:rat",
+      "nameEn": "Rat",
+      "pages": [
+        387
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Base beast cards only; familiar type and inability to attack are described by the spell, not automatically applied.",
+    "Authored Russian summaries; not an official translation.",
+    "No automatic familiar sheet, senses, spell delivery or creature attacks."
+  ]
+}

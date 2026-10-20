@@ -6,7 +6,7 @@ import { AppError } from './state.mjs';
 import { cookieToken, sessionCookie, clearSessionCookie } from './authentication.mjs';
 
 const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
-const files = new Set(['index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'account.js', 'style.css', 'quick.css', 'app.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
+const files = new Set(['index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'account.js', 'members.js', 'style.css', 'quick.css', 'app.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
 const contentTypes = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
 const MAX_BODY = 512 * 1024;
 function json(response, status, value, extra = {}) {
@@ -78,6 +78,14 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           const guard=sessions?()=>{if(sessions.check(cookieToken(request.headers.cookie))!==userId)throw new AppError(401,'Нужен индивидуальный вход');}:undefined;
           view = store.forUser(userId, viewId ?? 'primary-view', {write:individualWrites,guard});
         } else view = viewId === undefined ? store : store.forView(viewId);
+        if(authenticate && pathname==='/api/members'){
+          if(request.method==='GET')return json(response,200,view.members.list());
+          if(request.method==='POST'){
+            if(request.headers['x-skaz-client']!=='local-v1')throw new AppError(403,'Нужен запрос из приложения');
+            return json(response,200,view.members.change(await body(request,16384)));
+          }
+          return json(response,405,{error:'Метод не поддерживается'},{Allow:'GET, POST'});
+        }
         if (request.method === 'GET') {
           if (pathname === '/api/health') return json(response, 200, { status: 'ok', mode: authenticate ? individualWrites ? 'individual' : 'individual-read-only' : publicOrigin ? 'private-server' : 'local', storage: 'sqlite' });
           if (pathname === '/api/proposals') return json(response, 200, view.proposals());

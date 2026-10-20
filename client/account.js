@@ -5,6 +5,7 @@ const SkazAccount=(()=>{
  if(!userId)return {userId:null,prefix:kind=>kind==='pending'?'skaz-pending-v1:':'skaz-proposal-form-v1:'};
  if(!/^[a-zA-Z0-9-]{8,80}$/.test(userId))throw new Error('Invalid server identity');
  try{const theme=localStorage.getItem('skaz-theme');if(['polar','atlas','coal'].includes(theme))document.body.dataset.theme=theme;}catch{}
+ const code=document.getElementById?.('account-user-code');if(code)code.textContent=userId;
  const nativeFetch=window.fetch.bind(window);let locked=false;
  function lock(message='Сеанс изменился. Открой приложение заново, чтобы продолжить.'){
   locked=true;document.body.replaceChildren();
@@ -29,7 +30,9 @@ const SkazAccount=(()=>{
  window.addEventListener('pageshow',event=>{if(event.persisted)lock();});
  window.addEventListener('storage',event=>{if(event.key==='skaz-auth-change')lock();});
  document.addEventListener('click',async event=>{
-  if(event.target.closest('button')?.id!=='account-logout')return;
+  const action=event.target.closest('button')?.id;
+  if(action==='account-code'){if(!locked&&typeof modal==='function')modal('<h2>Мой код участника</h2><p>Передай код владельцу кампании, чтобы он мог добавить тебя и открыть доступ к герою.</p><p><code>'+userId+'</code></p><p>Это идентификатор аккаунта. Он не заменяет пароль и не открывает вход.</p>');return;}
+  if(action!=='account-logout')return;
   event.preventDefault();lock('Завершаем сеанс…');
   try{
    const r=await nativeFetch('/api/auth/logout',{method:'POST',headers:{'Content-Type':'application/json','X-Skaz-Client':'local-v1','X-Skaz-Identity':userId},body:'{}',signal:AbortSignal.timeout(10000)});

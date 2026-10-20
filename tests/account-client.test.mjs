@@ -24,3 +24,9 @@ test('restored history document and withdrawn hero hide the old interface',async
  const cached=client(async()=>new Response('{}'));cached.events.pageshow({persisted:true});assert.equal(cached.body.cleared,true);await assert.rejects(cached.context.window.fetch('/api/me'));
  const revoked=client(async()=>new Response('{}',{status:404}));await assert.rejects(revoked.context.window.fetch('/api/workspace'));assert.equal(revoked.body.cleared,true);
 });
+
+test('participant code is readable without a network call or credential and locked pages cannot reopen it',async()=>{
+ let calls=0,html='';const c=client(async()=>{calls++;return new Response('{}');});c.context.modal=value=>html=value;
+ await c.events.click({target:{closest:()=>({id:'account-code'})}});assert.match(html,/alice-user/);assert.match(html,/не заменяет пароль/);assert.equal(calls,0);
+ c.api.lock();html='';await c.events.click({target:{closest:()=>({id:'account-code'})}});assert.equal(html,'');
+});

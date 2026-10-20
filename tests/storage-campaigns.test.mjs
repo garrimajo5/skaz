@@ -751,7 +751,7 @@ test('individual event forms restore only their owner and draft listing excludes
  const restored=harness(local,session,transport,undefined,account('alice-user'));await restored.api.boot();restored.api.newProposal();assert.equal(restored.get('#proposal-source').value,'Private Alice event');
 });
 
-function permissionFixture(role='player',write=true){return {mode:'individual',role,character:write,shared:write&&role!=='player',manageCampaign:write&&role!=='player',catalog:false,newCampaign:write,select:write,import:write,history:write,export:true};}
+function permissionFixture(role='player',write=true){return {mode:'individual',role,character:write,shared:write&&role!=='player',manageCampaign:write&&role!=='player',catalog:false,newCampaign:write,select:write,import:write,history:write,export:true,members:write&&role==='owner'};}
 
 test('role metadata governs shared forms, catalog administration and read-only personal writes',async()=>{
  let current={...payload(0),permissions:permissionFixture('player')},writes=0;
@@ -785,4 +785,15 @@ test('saved-state display remains hidden on initial failure and opens after a su
  let available=false;const h=harness(memory(),memory(),async()=>{if(!available)throw new Error('offline');return response(payload(0));});
  assert.equal(h.api.readyToDisplay(),false);await h.api.boot();assert.equal(h.api.readyToDisplay(),false);
  available=true;await h.api.boot();assert.equal(h.api.readyToDisplay(),true);assert.equal(h.api.editable(),true);
+});
+
+test('membership storage requests pin the active window and reject foreign-campaign responses',async()=>{
+ let roster={campaignId:'first'},writes=0;const calls=[];
+ const h=harness(memory(),memory(),async(url,options)=>{calls.push({url,options});if(url==='/api/workspace')return response({...payload(0),permissions:permissionFixture('owner')});if(options.method)writes++;return response(roster);});await h.api.boot();
+ assert.equal((await h.api.membersData()).campaignId,'first');assert.ok(calls.at(-1).options.headers['X-Skaz-View']);
+ await assert.rejects(h.api.changeMembers({campaignId:'second'}));assert.equal(writes,0);
+ await h.api.changeMembers({campaignId:'first'});assert.equal(calls.at(-1).options.headers['X-Skaz-Client'],'local-v1');assert.equal(writes,1);
+ roster={campaignId:'second'};await assert.rejects(h.api.membersData(),/другая кампания/);
+ const player=harness(memory(),memory(),async()=>response({...payload(0),permissions:permissionFixture('player')}));await player.api.boot();await assert.rejects(player.api.membersData());await assert.rejects(player.api.changeMembers({campaignId:'first'}));
+ const shared=harness(memory(),memory(),async()=>response(payload(0)));await shared.api.boot();assert.equal(shared.api.can('members'),false);await assert.rejects(shared.api.membersData());
 });

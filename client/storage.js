@@ -32,7 +32,7 @@ const SkazStorage = (() => {
   let status = demo ? 'demo' : 'loading';
   let revision = 0;
   let privateServer = false, permissions = null;
-  const permissionKeys=['character','shared','manageCampaign','catalog','newCampaign','select','import','history','export'];
+  const permissionKeys=['character','shared','manageCampaign','catalog','newCampaign','select','import','history','export','members'];
   const individual=()=>typeof SkazAccount!=='undefined' && Boolean(SkazAccount.userId);
   function adoptPermissions(payload){
     const p=payload.permissions;
@@ -40,7 +40,7 @@ const SkazStorage = (() => {
     if(!p||p.mode!=='individual'||!['owner','gm','player'].includes(p.role)||permissionKeys.some(k=>typeof p[k]!=='boolean'))throw new Error('Неверные права доступа');
     permissions={...p};
   }
-  function can(action='character'){return ['ready','demo'].includes(status) && permissionKeys.includes(action) && (permissions?permissions[action]:!individual());}
+  function can(action='character'){return ['ready','demo'].includes(status) && permissionKeys.includes(action) && (permissions?permissions[action]:action!=='members'&&!individual());}
   function requirePermission(action){if(!can(action))throw new Error('Это действие недоступно с текущими правами. Обнови игру или обратись к мастеру.');}
   function decorate(root=document){
     if(!root.querySelectorAll)return;
@@ -79,7 +79,7 @@ const SkazStorage = (() => {
       stale: 'В другом окне есть изменения', denied: 'Сервер отклонил изменение по правам доступа',
     };
     box.dataset.status = status;
-    box.innerHTML = `<span><span class="sync-dot"></span>${labels[status]}${permissions?` · ${permissions.role==='player'?'Игрок':permissions.role==='gm'?'Мастер':'Владелец'}${permissions.character?'':' · Только чтение'}`:''}${message ? `<small>${esc(message)}</small>` : ''}${permissions?`<small>${!permissions.character?'Доступно чтение назначенных игр.':permissions.shared?'Личный лист и общие записи кампании доступны для изменения.':'Личные ресурсы и заметки доступны для изменения. Общий сюжет, задания и карту ведёт мастер.'}</small>`:''}</span><div>${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления">↻</button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button>${typeof SkazAccount!=='undefined' && SkazAccount.userId?'<button id="account-logout">Выйти</button>':''}<button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
+    box.innerHTML = `<span><span class="sync-dot"></span>${labels[status]}${permissions?` · ${permissions.role==='player'?'Игрок':permissions.role==='gm'?'Мастер':'Владелец'}${permissions.character?'':' · Только чтение'}`:''}${message ? `<small>${esc(message)}</small>` : ''}${permissions?`<small>${!permissions.character?'Доступно чтение назначенных игр.':permissions.shared?'Личный лист и общие записи кампании доступны для изменения.':'Личные ресурсы и заметки доступны для изменения. Общий сюжет, задания и карту ведёт мастер.'}</small>`:''}</span><div>${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления">↻</button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button>${permissions?.members?'<button id="campaign-members">Участники</button>':''}${typeof SkazAccount!=='undefined' && SkazAccount.userId?'<button id="account-code">Мой код</button><button id="account-logout">Выйти</button>':''}<button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
   }
   async function checkRemote() {
     if(demo||status!=='ready'||pending||checkingRemote)return;
@@ -638,5 +638,15 @@ const SkazStorage = (() => {
   });
   window.addEventListener('beforeunload', event => { if (status === 'saving') { event.preventDefault(); event.returnValue = ''; } });
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')void checkRemote();});
-  return { readyToDisplay:()=>demo||loaded, can, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
+  async function membersData(){
+    requirePermission('members');const key=contextKey();const value=await request('/api/members');
+    if(key!==contextKey()||value.campaignId!==activeContext?.campaignId)throw new Error('Выбрана другая кампания');return value;
+  }
+  async function changeMembers(command){
+    requirePermission('members');const key=contextKey();if(command.campaignId!==activeContext?.campaignId)throw new Error('Выбрана другая кампания');
+    const value=await request('/api/members',{method:'POST',headers:{'Content-Type':'application/json','X-Skaz-Client':'local-v1'},body:JSON.stringify(command)});
+    if(key!==contextKey()||value.campaignId!==activeContext?.campaignId)throw new Error('Выбрана другая кампания');return value;
+  }
+  function contextKey(){return JSON.stringify(activeContext);}
+  return { membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
 })();
