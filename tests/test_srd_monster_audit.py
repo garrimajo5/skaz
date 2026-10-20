@@ -10,6 +10,22 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_metallic_breath_inherits_only_explicit_parent_recharge_in_same_creature(self):
+        m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        parent=' Breath Weapons (Recharge 5–6). The dragon uses one of the following breath weapons. '
+        damage='Fire Breath. The dragon exhales fire in a 40-foot line that is 5 feet wide. Each creature in that line must make a DC 14 Dexterity saving throw, taking 42 (12d6) fire damage on a failed save, or half as much damage on a successful one.'
+        sleep=' Sleep Breath. The dragon exhales sleep gas in a 30-foot cone. Each creature in that area must succeed on a DC 14 Constitution saving throw or fall unconscious for 5 minutes.'
+        text=BASE+' Actions'+parent+damage+sleep
+        result=m['dragon_breath'](text,'Beast','Fire Breath')
+        self.assertEqual(result,{'nameEn':'Fire Breath','recharge':[5,6],'shape':'line','length':40,'width':5,'saveAbility':'dex','saveDC':14,'averageDamage':42,'damageDice':'12d6','damageType':'fire'})
+        self.assertEqual(m['dragon_breath'](text.replace('40-foot','40-\u00ad\u2010 foot'),'Beast','Fire Breath'),result)
+        self.assertEqual(m['dragon_breath'](text.replace(parent,parent.replace('5–6','4–6')),'Beast','Fire Breath')['recharge'],[4,6])
+        # Condition breaths have no damage/half-save fields and remain unsupported here.
+        with self.assertRaises(ValueError):m['dragon_breath'](text,'Beast','Sleep Breath')
+        for invalid in [text.replace(parent,' '),BASE+' Actions'+damage+parent+sleep,text+parent,text+damage,BASE+BASE.replace('Beast Large','Neighbor Large')+parent+damage,text.replace(parent,parent+' Other Breath (Recharge 6–6). ')]:
+            with self.subTest(invalid=invalid):
+                with self.assertRaises(ValueError):m['dragon_breath'](invalid,'Beast','Fire Breath')
+
     def test_additional_melee_damage_keeps_dice_type_and_primary_damage_separate(self):
         import copy
         m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))

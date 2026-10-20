@@ -414,11 +414,23 @@ def check_melee_weapon_inventory(pages,manifest,cards):
 
 def dragon_breath(text,creature,name):
     text=re.sub(r'[-\u00ad\u2010\u2011]+','-',normalize(text))
+    text=re.sub(r'(?<=\d)-\s+foot\b','-foot',text)
     heading=re.search(re.escape(creature)+r'\s+(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',text)
     if not heading:raise ValueError('Missing breath creature')
     body=text[heading.end():]
     next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b[^.]*? Armor Class \d+',body)
     if next_block:body=body[:next_block.start()]
+    # Metallic dragons declare recharge once for a choice of two breaths.
+    # Only inherit it from the explicit parent in this same statblock.
+    named=list(re.finditer(r'(?<![a-zA-Z])'+re.escape(name)+r'\. The dragon exhales ',body))
+    if named:
+        parents=list(re.finditer(r'Breath Weapons \(Recharge ([1-6])[–-]([1-6])\)\. The dragon uses one of the following breath weapons\.\s*',body))
+        if len(named)!=1 or len(parents)!=1 or parents[0].end()>named[0].start():
+            raise ValueError('Missing, duplicate or misplaced shared breath recharge')
+        parent=parents[0];action=named[0]
+        if re.search(r'\(Recharge ',body[parent.end():action.start()]):
+            raise ValueError('Ambiguous shared breath recharge')
+        body=body[:action.start()]+name+' (Recharge '+parent[1]+'–'+parent[2]+'). The dragon exhales '+body[action.end():]
     pattern=(re.escape(name)+r' \(Recharge ([1-6])[–-]([1-6])\)\. The (?:dragon turtle|dragon) exhales [^.]*? in an? '
              r'(\d+)-foot (line|cone)(?: that is (\d+) feet wide)?\. Each creature in that (?:line|area) must make a DC (\d+) '
              r'(Dexterity|Constitution) saving throw, taking (\d+) \((\d+d\d+(?: [+-] \d+)?)\) ([a-z]+) damage on a failed save, '
