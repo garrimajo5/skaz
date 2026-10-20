@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Construct statblock headings in SRD 5.1 creature pages 254–394",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "sourcePageRange": [
+    254,
+    394
+  ],
+  "sections": [
+    {
+      "monsterType": "construct",
+      "expectedCount": 9,
+      "entries": [
+        {
+          "id": "srd51:2014:monster:animated-armor",
+          "nameEn": "Animated Armor",
+          "page": 263
+        },
+        {
+          "id": "srd51:2014:monster:flying-sword",
+          "nameEn": "Flying Sword",
+          "page": 264
+        },
+        {
+          "id": "srd51:2014:monster:rug-of-smothering",
+          "nameEn": "Rug of Smothering",
+          "page": 264
+        },
+        {
+          "id": "srd51:2014:monster:clay-golem",
+          "nameEn": "Clay Golem",
+          "page": 315
+        },
+        {
+          "id": "srd51:2014:monster:flesh-golem",
+          "nameEn": "Flesh Golem",
+          "page": 316
+        },
+        {
+          "id": "srd51:2014:monster:iron-golem",
+          "nameEn": "Iron Golem",
+          "page": 317
+        },
+        {
+          "id": "srd51:2014:monster:stone-golem",
+          "nameEn": "Stone Golem",
+          "page": 317
+        },
+        {
+          "id": "srd51:2014:monster:homunculus",
+          "nameEn": "Homunculus",
+          "page": 322
+        },
+        {
+          "id": "srd51:2014:monster:shield-guardian",
+          "nameEn": "Shield Guardian",
+          "page": 345
+        }
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Only construct statblocks in the pinned SRD section, not all D&D creatures or books.",
+    "Animated Objects and Golems are section labels, not part of creature names.",
+    "Prepared summaries do not implement automatic companion, absorption, berserk or combat rules."
+  ]
+}

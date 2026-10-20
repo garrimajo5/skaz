@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:shadow",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Тень",
+        "en": "Shadow"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=344",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz shadow undead v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 344, 345.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредняя нежить, хаотично-злая. Хиты 16 (3d8 + 3). Скрытность +4, в тусклом свете или темноте +6. Уязвимость к излучению. Сопротивление кислотному, холодному, огненному, электрическому и звуковому урону. Иммунитет к некротическому и ядовитому урону. Сопротивление дробящему, колющему и рубящему урону от немагических атак.\nИммунитет к истощению, испугу, захвату, параличу, окаменению, отравлению, сбиванию с ног и опутыванию. Тёмное зрение 60 футов, пассивное Восприятие 10; языков нет.\nАморфность: проходит щель шириной 1 дюйм без протискивания. Теневая скрытность: в тусклом свете или темноте может Скрыться бонусным действием. Прохождение сквозь стены этой особенностью не предоставлено.\nСлабость на солнце: на солнечном свету помеха на атаки, проверки характеристик и спасброски.\nИстощение силы: рукопашная атака оружием +4, досягаемость 5 футов, одно существо; 9 (2d6 + 2) некротического урона, Сила цели снижается на 1d4. Если Сила стала 0, цель умирает; иначе снижение длится до окончания короткого или продолжительного отдыха цели. Если этой атакой убит гуманоид не злого мировоззрения, через 1d4 часа из тела поднимается новая тень.\nУрон, изменение Силы/максимума хитов, смерть и создание существ разрешаются вручную; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:exhaustion",
+        "srd51:2014:mechanic:frightened",
+        "srd51:2014:mechanic:grappled",
+        "srd51:2014:mechanic:paralyzed",
+        "srd51:2014:mechanic:petrified",
+        "srd51:2014:mechanic:poisoned",
+        "srd51:2014:mechanic:prone",
+        "srd51:2014:mechanic:restrained"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "undead",
+        "armorClass": 12,
+        "hitPoints": 16,
+        "speed": {
+          "walk": 40
+        },
+        "abilities": {
+          "str": 6,
+          "dex": 14,
+          "con": 13,
+          "int": 6,
+          "wis": 10,
+          "cha": 8
+        },
+        "challenge": "1/2",
+        "xp": 100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:specter",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Спектр",
+        "en": "Specter"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=346",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz shadow undead v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 346, 347.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредняя нежить, хаотично-злая. Хиты 22 (5d8), наземная скорость 0 футов, полёт 50 футов с парением. Сопротивление кислотному, холодному, огненному, электрическому и звуковому урону. Иммунитет к некротическому и ядовитому урону. Сопротивление дробящему, колющему и рубящему урону от немагических атак.\nИммунитет к очарованию, истощению, захвату, параличу, окаменению, отравлению, сбиванию с ног, опутыванию и бессознательности. Тёмное зрение 60 футов, пассивное Восприятие 10. Понимает все языки, которые знал при жизни, но не говорит.\nБестелесное перемещение: проходит через других существ и предметы как через труднопроходимую местность; если заканчивает свой ход внутри предмета, получает 5 (1d10) силового урона.\nЧувствительность к солнцу: на солнечном свету помеха на атаки и проверки Мудрости (Восприятие), полагающиеся на зрение.\nВытягивание жизни: рукопашная атака заклинанием +4, досягаемость 5 футов, одно существо; 10 (3d6) некротического урона. Спасбросок Телосложения Сл 10; провал снижает максимум хитов цели на величину полученного урона. Снижение длится до окончания продолжительного отдыха цели; при снижении максимума до 0 цель умирает.\nУрон, изменение Силы/максимума хитов, смерть и создание существ разрешаются вручную; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:exhaustion",
+        "srd51:2014:mechanic:grappled",
+        "srd51:2014:mechanic:paralyzed",
+        "srd51:2014:mechanic:petrified",
+        "srd51:2014:mechanic:poisoned",
+        "srd51:2014:mechanic:prone",
+        "srd51:2014:mechanic:restrained",
+        "srd51:2014:mechanic:unconscious"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "undead",
+        "armorClass": 12,
+        "hitPoints": 22,
+        "speed": {
+          "walk": 0,
+          "fly": 50
+        },
+        "abilities": {
+          "str": 1,
+          "dex": 14,
+          "con": 11,
+          "int": 10,
+          "wis": 10,
+          "cha": 11
+        },
+        "challenge": "1",
+        "xp": 200
+      }
+    },
+    {
+      "id": "srd51:2014:monster:wraith",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Призрак",
+        "en": "Wraith"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=355",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz shadow undead v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 355, 356.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСредняя нежить, нейтрально-злая. Хиты 67 (9d8 + 27), наземная скорость 0 футов, полёт 60 футов с парением. Сопротивление кислотному, холодному, огненному, электрическому и звуковому урону. Иммунитет к некротическому и ядовитому урону. Сопротивление дробящему, колющему и рубящему урону от немагических атак, кроме посеребрённых.\nИммунитет к очарованию, истощению, захвату, параличу, окаменению, отравлению, сбиванию с ног и опутыванию. Тёмное зрение 60 футов, пассивное Восприятие 12. Языки, которые знал при жизни.\nБестелесное перемещение: проходит через других существ и предметы как через труднопроходимую местность; если заканчивает свой ход внутри предмета, получает 5 (1d10) силового урона.\nЧувствительность к солнцу: на солнечном свету помеха на атаки и проверки Мудрости (Восприятие), полагающиеся на зрение.\nВытягивание жизни: рукопашная атака оружием +6, досягаемость 5 футов, одно существо; 21 (4d8 + 3) некротического урона. Спасбросок Телосложения Сл 14; провал снижает максимум хитов цели на величину полученного урона. Снижение длится до окончания продолжительного отдыха цели; при снижении максимума до 0 цель умирает.\nСоздать спектра: гуманоид в пределах 10 футов, погибший насильственной смертью не более 1 минуты назад. Его дух поднимается спектром в пространстве тела или ближайшем свободном месте и подчиняется призраку. Одновременно не более семи подконтрольных спектров. Это отдельное действие над погибшим гуманоидом, не автоматическое следствие каждого попадания.\nУрон, изменение Силы/максимума хитов, смерть и создание существ разрешаются вручную; автоматически не применяются.",
+      "links": [
+        "srd51:2014:mechanic:charmed",
+        "srd51:2014:mechanic:exhaustion",
+        "srd51:2014:mechanic:grappled",
+        "srd51:2014:mechanic:paralyzed",
+        "srd51:2014:mechanic:petrified",
+        "srd51:2014:mechanic:poisoned",
+        "srd51:2014:mechanic:prone",
+        "srd51:2014:mechanic:restrained",
+        "srd51:2014:monster:specter"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "undead",
+        "armorClass": 13,
+        "hitPoints": 67,
+        "speed": {
+          "walk": 0,
+          "fly": 60
+        },
+        "abilities": {
+          "str": 6,
+          "dex": 16,
+          "con": 16,
+          "int": 12,
+          "wis": 14,
+          "cha": 15
+        },
+        "challenge": "5",
+        "xp": 1800
+      }
+    }
+  ]
+}

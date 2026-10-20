@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Three selected Shadow/Specter/Wraith statblocks, not the full undead type",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 3,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:shadow",
+      "nameEn": "Shadow",
+      "pages": [
+        344,
+        345
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:specter",
+      "nameEn": "Specter",
+      "pages": [
+        346,
+        347
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:wraith",
+      "nameEn": "Wraith",
+      "pages": [
+        355,
+        356
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Shadow is amorphous, not given the Incorporeal Movement trait or flight.",
+    "Strength drain, maximum-HP drain, sunlight effects and silvered-attack exceptions differ.",
+    "Other undead remain absent; no complete source-type coverage is claimed.",
+    "Source summaries, not official translations or automatic combat rules."
+  ]
+}

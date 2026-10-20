@@ -97,6 +97,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           if (pathname === '/api/catalog/entry') return json(response, 200, view.catalog.lookup(new URL(request.url, `http://${host}`).searchParams));
           if (pathname === '/api/catalog') return json(response, 200, view.catalog.search(new URL(request.url, `http://${host}`).searchParams));
           if (pathname === '/api/catalog/spell-inventory') return json(response, 200, view.catalog.spellInventory());
+          if (pathname === '/api/catalog/creature-inventory') return json(response, 200, view.catalog.creatureInventory());
           if (pathname === '/api/catalog/coverage') return json(response, 200, view.catalog.coverage());
           if (pathname === '/api/workspace') return json(response, 200, { ...view.read(), ...(authenticate ? {permissions:view.permissions()} : {}) });
           if (pathname === '/api/context') return json(response, 200, view.context());

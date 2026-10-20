@@ -26,7 +26,7 @@
   ],
   "completeGameCatalog": false,
   "limitations": [
-    "Four golem types remain absent from the construct category.",
+    "Four golem types are supplied separately in srd51-golems; this package contains only Homunculus and Shield Guardian.",
     "Not an automatic companion/amulet inventory or spell-storing implementation.",
     "Poison, communication, transfer of damage and reactions require manual resolution."
   ]

@@ -205,7 +205,7 @@ export function createUserReader(db, access, userId, clientViewId, createView, g
     return exported;
   },true);
   result.catalog={};
-  for (const method of ['search','coverage','spellInventory','lookup']) result.catalog[method]=(...args)=>read(()=>catalog[method](...args));
+  for (const method of ['search','coverage','spellInventory','creatureInventory','lookup']) result.catalog[method]=(...args)=>read(()=>catalog[method](...args));
   for (const method of ['importEntries','reviewedImport','previewBundled','installBundled']) result.catalog[method]=disabled;
   // Never leak a raw store method by spreading it into a scoped capability.
   for (const method of ['update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','saveCharacterStats','saveCharacterSheet','changeCharacterCounter','changeCharges','addInventory','removeInventory','undoInventory','history','backup','close','forView','forUser']) result[method]=disabled;

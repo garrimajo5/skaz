@@ -5,6 +5,7 @@ import { AppError } from './state.mjs';
 
 const spellIndex=JSON.parse(readFileSync(new URL('../catalog/srd51-spells.index.json',import.meta.url),'utf8'));
 const creatureTypeIndex=JSON.parse(readFileSync(new URL('../catalog/srd51-fey-plant-inventory.json',import.meta.url),'utf8'));
+const constructTypeIndex=JSON.parse(readFileSync(new URL('../catalog/srd51-constructs-inventory.json',import.meta.url),'utf8'));
 const monsterTypes = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'undead'];
 const monsterSizes = ['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan'];
 const itemTypes = ['armor', 'potion', 'ring', 'rod', 'scroll', 'staff', 'wand', 'weapon', 'wondrous'];
@@ -262,6 +263,15 @@ export function createCatalog(db, { visible } = {}) {
       return {...e,nameRu:card?.name.ru||null,status:!card?'missing':!local?'prepared':JSON.stringify(card)===JSON.stringify(local)?'installed':isKnownBundledUpgrade(local,card,upgrades)?'update-available':'conflict'};
     })};
   }
+  function creatureInventory() {
+    const {bundle,upgrades}=bundledCatalog();
+    const prepared=new Map(validateCatalog(bundle).filter(e=>e.kind==='monster').map(e=>[e.id,e]));
+    const installed=new Map(all().map(e=>[e.id,e]));
+    return {ruleset:'5e-2014',scope:'Selected SRD 5.1 creature types',completeGameCatalog:false,sourceUrl:creatureTypeIndex.sourceUrl,entries:[...creatureTypeIndex.sections,...constructTypeIndex.sections].flatMap(section=>section.entries.map(row=>{
+      const card=prepared.get(row.id),local=installed.get(row.id);
+      return {...row,monsterType:section.monsterType,nameRu:card?.name.ru||null,status:!card?'missing':!local?'prepared':JSON.stringify(card)===JSON.stringify(local)?'installed':isKnownBundledUpgrade(local,card,upgrades)?'update-available':'conflict'};
+    }))};
+  }
   function coverage() {
     const entries = all();
     const indexed=new Set(spellIndex.entries.map(e=>e.id));
@@ -273,7 +283,7 @@ export function createCatalog(db, { visible } = {}) {
     const byLevel=Array.from({length:10},(_,level)=>({level,expected:spellIndex.entries.filter(e=>e.level===level).length,prepared:prepared.filter(e=>e.spell.level===level).length,installed:exact.filter(e=>e.spell.level===level).length}));
     const upgradable=prepared.filter(e=>installed.has(e.id)&&isKnownBundledUpgrade(installed.get(e.id),e,upgrades)).length;
     const srd51Spells={expected:spellIndex.count,prepared:prepared.length,installed:exact.length,upgradable,sourceUrl:spellIndex.sourceUrl,byLevel};
-    const srd51CreatureTypes=Object.fromEntries(creatureTypeIndex.sections.map(section=>{
+    const srd51CreatureTypes=Object.fromEntries([...creatureTypeIndex.sections,...constructTypeIndex.sections].map(section=>{
       const ids=new Set(section.entries.map(row=>row.id));
       const ready=validated.filter(e=>e.kind==='monster'&&e.monster?.type===section.monsterType&&ids.has(e.id));
       return [section.monsterType,{expected:section.expectedCount,prepared:ready.length,installed:ready.filter(e=>JSON.stringify(installed.get(e.id))===JSON.stringify(e)).length,sourceUrl:creatureTypeIndex.sourceUrl}];
@@ -290,5 +300,5 @@ export function createCatalog(db, { visible } = {}) {
       structuredArtifacts: entries.filter(entry => entry.artifact !== undefined).length,
       gaps: ['Полная база не загружена; общее количество материалов не установлено.', 'Структуры заклинаний, предметов и существ частичные; действия и особенности остаются в тексте. Структура артефактов содержит только основные поля. Инвентарь и личный список заклинаний подключены; автоматические эффекты и применение состояний не реализованы.'] };
   }
-  return { importEntries, search, coverage, spellInventory, lookup, previewBundled, installBundled, reviewedImport };
+  return { importEntries, search, coverage, spellInventory, creatureInventory, lookup, previewBundled, installBundled, reviewedImport };
 }

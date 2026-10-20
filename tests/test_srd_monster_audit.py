@@ -10,6 +10,21 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_construct_inventory_spans_sections_without_importing_their_labels(self):
+        import copy
+        module=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        pages={263:'Animated Objects Animated Armor Medium construct.',264:'Rug of Smothering Large construct.',315:'Golems Clay Golem Large construct.',317:'Iron Golem Large construct. Gorgon Large monstrosity.'}
+        rows=module['type_headings'](pages,'construct')
+        self.assertEqual([r['nameEn'] for r in rows],['Animated Armor','Rug of Smothering','Clay Golem','Iron Golem'])
+        manifest={'sourceSha256':module['SHA256'],'ruleset':'5e-2014','sourcePageRange':[254,394],'sections':[{'monsterType':'construct','expectedCount':4,'entries':rows}]}
+        cards=[{'id':r['id'],'name':{'en':r['nameEn']},'monster':{'type':'construct'},'source':{'url':'https://source.invalid/#page='+str(r['page'])}} for r in rows]
+        self.assertEqual(module['check_type_inventory'](pages,manifest,cards,('construct',)),{'construct':4})
+        for bad in [cards[:3],cards+cards[:1],[{**cards[0],'monster':{'type':'fey'}},*cards[1:]]]:
+            with self.assertRaises(ValueError):module['check_type_inventory'](pages,manifest,bad,('construct',))
+        broken=copy.deepcopy(manifest);broken['sections'][0]['entries'][2]['page']=316
+        with self.assertRaises(ValueError):module['check_type_inventory'](pages,broken,cards,('construct',))
+        with self.assertRaises(ValueError):module['check_type_inventory'](pages,manifest,cards)
+
     def test_animated_objects_include_compound_name_and_ignore_other_creature_types(self):
         module=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
         pages={263:'Animated Objects Animated Armor Medium construct, unaligned.',264:'Flying Sword Small construct. Rug of Smothering Large construct. Ankheg Large monstrosity.'}

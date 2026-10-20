@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Four golem statblocks in SRD 5.1 pages 315–317, not all D&D constructs",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-10-20",
+  "expectedSubsetCount": 4,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:clay-golem",
+      "nameEn": "Clay Golem",
+      "pages": [
+        315,
+        316
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:flesh-golem",
+      "nameEn": "Flesh Golem",
+      "pages": [
+        316
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:iron-golem",
+      "nameEn": "Iron Golem",
+      "pages": [
+        317
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:stone-golem",
+      "nameEn": "Stone Golem",
+      "pages": [
+        317
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored summaries, not official Russian translations.",
+    "Conditional immunities, adamantine exception, absorption, berserk, maximum-HP loss and slow require manual resolution.",
+    "Haste/Slow traits must not be substituted with full spell effects."
+  ]
+}

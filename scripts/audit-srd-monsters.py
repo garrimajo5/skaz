@@ -104,7 +104,7 @@ def check_ooze_coverage(pages, manifest, cards):
 def animated_headings(pages):
     rows = []
     for page, text in sorted(pages.items()):
-        text = normalize(text).replace('Animated Objects ', '')
+        text = normalize(text).replace('Animated Objects ', '').replace('Golems ', '')
         for match in re.finditer(r'([A-Z][a-z]+(?: (?:of )?[A-Z][a-z]+){0,2}) (?:' + SIZES + r') construct\b', text):
             name = match[1]
             rows.append({'id':'srd51:2014:monster:'+name.lower().replace(' ','-'),
@@ -128,6 +128,8 @@ def check_animated_coverage(pages, manifest, cards):
 
 
 def type_headings(pages, kind):
+    if kind == 'construct':
+        return animated_headings(pages)
     if kind not in ('fey', 'plant'):
         raise ValueError('Unsupported source inventory type')
     rows = []
@@ -140,10 +142,10 @@ def type_headings(pages, kind):
     return rows
 
 
-def check_type_inventory(pages, manifest, cards):
+def check_type_inventory(pages, manifest, cards, expected_types=('fey', 'plant')):
     if (manifest['sourceSha256'] != SHA256 or manifest['ruleset'] != '5e-2014' or
             manifest['sourcePageRange'] != [254, 394] or
-            [section['monsterType'] for section in manifest['sections']] != ['fey', 'plant']):
+            [section['monsterType'] for section in manifest['sections']] != list(expected_types)):
         raise ValueError('Wrong typed source inventory')
     result = {}
     for section in manifest['sections']:
@@ -179,6 +181,8 @@ def main():
     ooze_count = check_ooze_coverage({p: reader.pages[p-1].extract_text() for p in range(337, 340)}, ooze_manifest, cards)
     type_inventory = json.loads((ROOT / 'catalog/srd51-fey-plant-inventory.json').read_text(encoding='utf-8-sig'))
     type_counts = check_type_inventory({p: reader.pages[p-1].extract_text() for p in range(254, 395)}, type_inventory, cards)
+    construct_inventory = json.loads((ROOT / 'catalog/srd51-constructs-inventory.json').read_text(encoding='utf-8-sig'))
+    type_counts.update(check_type_inventory({p:reader.pages[p-1].extract_text() for p in range(254,395)}, construct_inventory, cards, ('construct',)))
     animated_manifest = json.loads((ROOT / 'catalog/srd51-animated-objects.coverage.json').read_text(encoding='utf-8-sig'))
     animated_count = check_animated_coverage({p:reader.pages[p-1].extract_text() for p in [263,264]}, animated_manifest, cards)
     familiar = json.loads((ROOT / 'catalog/srd51-familiar-forms.coverage.json').read_text(encoding='utf-8-sig'))
