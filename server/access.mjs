@@ -208,7 +208,7 @@ export function createUserReader(db, access, userId, clientViewId, createView, g
   for (const method of ['search','coverage','spellInventory','lookup']) result.catalog[method]=(...args)=>read(()=>catalog[method](...args));
   for (const method of ['importEntries','reviewedImport','previewBundled','installBundled']) result.catalog[method]=disabled;
   // Never leak a raw store method by spreading it into a scoped capability.
-  for (const method of ['update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','changeCharges','addInventory','removeInventory','undoInventory','history','backup','close','forView','forUser']) result[method]=disabled;
+  for (const method of ['update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','saveCharacterStats','changeCharges','addInventory','removeInventory','undoInventory','history','backup','close','forView','forUser']) result[method]=disabled;
   return Object.freeze({...result,catalog:Object.freeze(result.catalog)});
 }
 
@@ -266,7 +266,7 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
       db.exec('COMMIT');return inventory;
     } catch(error) {db.exec('ROLLBACK');throw error;}
   };
-  const methods=['update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','changeCharges','addInventory','removeInventory','undoInventory'];
+  const methods=['update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','saveCharacterStats','changeCharges','addInventory','removeInventory','undoInventory'];
   for (const method of methods) result[method]=request=>{
     const mutationView=createView(viewId,()=>{},event=>{
       // Revocation is checked inside BEGIN IMMEDIATE, not merely at dispatch.

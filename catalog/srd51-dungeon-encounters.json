@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:ankheg",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Анхег",
+        "en": "Ankheg"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=264",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz dungeon encounters v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 264, 265.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nБольшое чудовище, без мировоззрения. Природный доспех: КД 14, либо 11, когда сбит с ног. Хиты 39 (6d10 + 6). Тёмное зрение и чувство вибрации по 60 футов, пассивное Восприятие 11. Языков нет.\nУкус: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 10 (2d6 + 3) рубящего и 3 (1d6) кислотного урона. Существо Большого или меньшего размера также схвачено (освобождение Сл 13). Пока этот захват длится, анхег может кусать только схваченное существо и имеет преимущество на эти атаки.\nБрызги кислоты (перезарядка 6): только если никого не держит в захвате, выпускает кислоту линией длиной 30 и шириной 5 футов. Каждое существо в линии делает спасбросок Ловкости Сл 13: провал — 10 (3d6) кислотного урона, успех — половина.\nАтаки, захват, состояния, сопротивления и перезарядка не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:prone",
+        "srd51:2014:mechanic:grappled"
+      ],
+      "monster": {
+        "size": "large",
+        "type": "monstrosity",
+        "armorClass": 14,
+        "hitPoints": 39,
+        "speed": {
+          "walk": 30,
+          "burrow": 10
+        },
+        "abilities": {
+          "str": 17,
+          "dex": 11,
+          "con": 13,
+          "int": 1,
+          "wis": 13,
+          "cha": 6
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    },
+    {
+      "id": "srd51:2014:monster:hell-hound",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Адская гончая",
+        "en": "Hell Hound"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=321",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz dungeon encounters v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 321, 322.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСреднее исчадие, законно-злое. Природный доспех; хиты 45 (7d8 + 14). Восприятие +5, иммунитет к урону огнём, тёмное зрение 60 футов, пассивное Восприятие 15. Понимает Инфернальный, но говорить не может.\nОстрые слух и обоняние: преимущество на проверки Мудрости (Восприятие), основанные на слухе или запахе. Тактика стаи: преимущество на атаку существа, если хотя бы один союзник гончей находится в пределах 5 футов от цели и не недееспособен.\nУкус: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 7 (1d8 + 3) колющего и 7 (2d6) огненного урона.\nОгненное дыхание (перезарядка 5–6): конус 15 футов, спасбросок Ловкости Сл 12 каждому существу в области; провал — 21 (6d6) урона огнём, успех — половина.\nАтаки, захват, состояния, сопротивления и перезарядка не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:incapacitated"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "fiend",
+        "armorClass": 15,
+        "hitPoints": 45,
+        "speed": {
+          "walk": 50
+        },
+        "abilities": {
+          "str": 17,
+          "dex": 12,
+          "con": 14,
+          "int": 6,
+          "wis": 13,
+          "cha": 6
+        },
+        "challenge": "3",
+        "xp": 700
+      }
+    },
+    {
+      "id": "srd51:2014:monster:mimic",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Мимик",
+        "en": "Mimic"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=332",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-20; skaz dungeon encounters v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 332, 333.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nСреднее чудовище (перевёртыш), нейтральное. Природный доспех; хиты 58 (9d8 + 18). Скрытность +5, иммунитет к кислотному урону и состоянию сбитого с ног, тёмное зрение 60 футов, пассивное Восприятие 11. Языков нет.\nПеревёртыш: действием превращается в предмет или обратно в истинную аморфную форму. Характеристики одинаковы, носимое и переносимое снаряжение не превращается; после смерти возвращается в истинную форму.\nКлейкость действует только в форме предмета: мимик прилипает ко всему, что его касается. Прилипшее существо Огромного или меньшего размера также схвачено (освобождение Сл 13); проверки характеристик для освобождения от этого захвата совершаются с помехой. Ложная внешность только в форме предмета: пока неподвижен, неотличим от обычного предмета. Хвататель: преимущество на атаки любого существа, которое он держит в захвате.\nЛожноножка: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 7 (1d8 + 3) дробящего урона. В форме предмета цель также подвергается Клейкости. Укус: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 7 (1d8 + 3) колющего и 4 (1d8) кислотного урона.\nАтаки, захват, состояния, сопротивления и перезарядка не применяются автоматически.",
+      "links": [
+        "srd51:2014:mechanic:prone",
+        "srd51:2014:mechanic:grappled"
+      ],
+      "monster": {
+        "size": "medium",
+        "type": "monstrosity",
+        "armorClass": 12,
+        "hitPoints": 58,
+        "speed": {
+          "walk": 15
+        },
+        "abilities": {
+          "str": 17,
+          "dex": 12,
+          "con": 15,
+          "int": 5,
+          "wis": 13,
+          "cha": 8
+        },
+        "challenge": "2",
+        "xp": 450
+      }
+    }
+  ]
+}

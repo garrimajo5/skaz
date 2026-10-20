@@ -340,14 +340,14 @@ test('v3 preview includes spell list in the durable import and rejects a missing
   assert.deepEqual(calls[0].body.file.spellbook, file.spellbook);
 });
 
-test('client requests v7 export and refuses a response from another revision', async () => {
+test('client requests v8 export and refuses a response from another revision', async () => {
   const calls = [];
   const h = harness(memory(), memory(), async url => {
     calls.push(url);
     return response(url === '/api/workspace' ? payload(0) : { source: { context: payload(0).context, revision: 1 } });
   });
   await h.api.boot(); h.api.settings(); await h.get('#export-active').onclick();
-  assert.equal(calls.at(-1), '/api/export/active-v7');
+  assert.equal(calls.at(-1), '/api/export/active-v8');
   assert.match(h.messages.at(-1), /Игра изменилась/);
 });
 
@@ -882,4 +882,37 @@ test('resource review cannot write after revision, context or permission changes
 test('failed resource correction leaves current balances and retries the exact durable command',async()=>{
  const local=memory(),session=memory(),calls=[];const h=harness(local,session,async(url,options)=>{if(options.method){calls.push(options.body);throw new Error('offline');}return response(payload(0));});await h.api.boot();h.click('edit-resources');resourceValues(h,{gold:'5'});h.get('#resource-form').onsubmit({preventDefault(){}});await h.get('#resource-confirm').onclick();assert.equal(h.state().gold,124);assert.equal(h.api.editable(),false);
  const reload=harness(local,session,async(url,options)=>{if(options.method){calls.push(options.body);return response({...payload(1),state:JSON.parse(options.body).state});}return response(payload(0));});await reload.api.boot();await reload.click('sync-retry');assert.equal(calls.length,2);assert.equal(calls[0],calls[1]);assert.equal(reload.state().gold,5);assert.equal(reload.api.editable(),true);
+});
+
+const manualStats=()=>({abilities:{str:1,dex:30,con:13,int:9,wis:10,cha:20},armorClass:0,initiative:-3,speed:0});
+function statsValues(h,overrides={}){for(const [key,value]of Object.entries({str:'1',dex:'30',con:'13',int:'9',wis:'10',cha:'20',armorClass:'0',initiative:'-3',speed:'0',...overrides}))h.get('#stats-'+key).value=value;}
+test('manual stats form sends one typed operation with zero and negative values and adopts acknowledged stats',async()=>{
+ const calls=[];let resolve;const h=harness(memory(),memory(),async(url,options)=>{if(options.method){calls.push({url,body:JSON.parse(options.body)});return new Promise(r=>resolve=r);}return response(payload(0));});await h.api.boot();h.click('edit-stats');statsValues(h);
+ const form=h.get('#stats-form').onsubmit,first=form({preventDefault(){}});await form({preventDefault(){}});assert.equal(calls.length,1);assert.equal(calls[0].url,'/api/character-stats');assert.equal(calls[0].body.operation,undefined);assert.deepEqual(calls[0].body.stats,manualStats());assert.equal(h.api.manualStats(),false);
+ resolve(response({...payload(1),characterStats:manualStats()}));await first;assert.deepEqual(JSON.parse(JSON.stringify(h.api.stats())),manualStats());assert.equal(h.api.manualStats(),true);assert.deepEqual(h.state(),{...seed,theme:'polar'});
+});
+test('manual stats rejects invalid input, denies stale or read-only forms and requires a complete acknowledgement',async()=>{
+ let current=payload(0),writes=0;const local=memory(),session=memory(),h=harness(local,session,async(url,options)=>{if(options.method){writes++;return response(payload(1));}return response(current);});await h.api.boot();h.click('edit-stats');
+ for(const value of ['','0','31','1.5','1e1']){statsValues(h,{str:value});await h.get('#stats-form').onsubmit({preventDefault(){}});assert.equal(writes,0);}
+ statsValues(h);current=payload(1,'other');await h.api.boot();await h.get('#stats-form').onsubmit({preventDefault(){}});assert.equal(writes,0);
+ h.click('edit-stats');statsValues(h);await h.get('#stats-form').onsubmit({preventDefault(){}});assert.equal(writes,1);assert.equal(h.api.editable(),false);assert.ok([...local.values.keys()].some(k=>k.startsWith('skaz-pending-v1:')));
+ const denied=harness(memory(),memory(),async()=>response({...payload(0),permissions:permissionFixture('player',false)}));await denied.api.boot();denied.click('edit-stats');assert.equal(denied.dialog(),'');
+});
+test('manual stats exact command survives response loss and reset requires explicit confirmation',async()=>{
+ const local=memory(),session=memory(),calls=[];const h=harness(local,session,async(url,options)=>{if(options.method){calls.push(options.body);throw new Error('lost');}return response(payload(0));});await h.api.boot();h.click('edit-stats');statsValues(h);await h.get('#stats-form').onsubmit({preventDefault(){}});
+ let current={...payload(1),characterStats:manualStats()};const reload=harness(local,session,async(url,options)=>{if(options.method){calls.push(options.body);if(JSON.parse(options.body).stats===null)current={...payload(2),characterStats:null};}return response(current);});await reload.api.boot();await reload.click('sync-retry');assert.equal(calls[0],calls[1]);assert.equal(reload.api.manualStats(),true);
+ reload.click('edit-stats');reload.get('#stats-template').onclick();assert.match(reload.dialog(),/Подтвердить возврат/);assert.equal(calls.length,2);await reload.get('#stats-reset-confirm').onclick();assert.equal(JSON.parse(calls[2]).stats,null);assert.equal(reload.api.manualStats(),false);
+});
+
+test('v8 preview lists manual values and refuses missing stats; v1 export and demo reset cannot hide them',async()=>{
+ let writes=0;const h=harness(memory(),memory(),async(url,options)=>{if(options.method)writes++;return response({...payload(0),characterStats:manualStats()});});await h.api.boot();h.api.settings();h.get('#export-state').onclick();assert.match(h.messages.at(-1),/v8/);h.get('#reset-workspace').onclick();assert.match(h.messages.at(-1),/шаблона/);
+ const file={app:'skaz-active',schemaVersion:8,ruleset:'5e-2014',scope:'active-game',state:seed,inventory:[],catalog:{entries:[]},spellbook:[],quests:[],places:[],proposals:[],characterStats:manualStats()};
+ await h.get('#import-state').onchange({target:{files:[{size:1000,text:async()=>JSON.stringify(file)}]}});assert.match(h.dialog(),/СИЛ 1 · ЛОВ 30/);assert.match(h.dialog(),/Инициатива -3/);assert.equal(writes,0);
+ delete file.characterStats;h.api.settings();await h.get('#import-state').onchange({target:{files:[{size:1000,text:async()=>JSON.stringify(file)}]}});assert.match(h.messages.at(-1),/отсутствуют характеристики/);assert.equal(writes,0);
+});
+
+test('old revision or malformed stats cannot acknowledge a manual operation or lose its queue',async()=>{
+ for(const ack of [{...payload(0),characterStats:manualStats()},{...payload(1),characterStats:{...manualStats(),speed:-1}}]){
+  const local=memory(),h=harness(local,memory(),async(url,options)=>response(options.method?ack:payload(0)));await h.api.boot();h.click('edit-stats');statsValues(h);await h.get('#stats-form').onsubmit({preventDefault(){}});assert.equal(h.api.manualStats(),false);assert.equal(h.api.editable(),false);assert.ok([...local.values.keys()].some(k=>k.startsWith('skaz-pending-v1:')));
+ }
 });

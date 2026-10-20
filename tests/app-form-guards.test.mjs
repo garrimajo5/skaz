@@ -13,6 +13,10 @@ function harness(){
  return {get,writes,block:()=>editable=false,run:code=>vm.runInContext(code,context),state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),click:id=>handlers.click({target:{closest:()=>({id,dataset:{},classList:{contains:()=>false}})}})};
 }
 
+test('manual sheet never applies fixed demo healing or presents its attack as a usable roll',async()=>{
+ const h=harness();h.run('SkazStorage.manualStats=()=>true');h.run("openSpell('word')");h.get('#cast-level').value='1';h.get('#heal-target').value='self';const before=h.state();await h.get('#cast-spell').onclick();assert.deepEqual(h.state(),before);assert.equal(h.writes.length,0);assert.match(h.get('#dialog-content').innerHTML,/Демо-применение отключено/);assert.match(h.run('hero()'),/data-roll="rapier" disabled/);
+});
+
 test('forms keep entered values when the tab becomes stale before save',async()=>{
  const cases=[
   ['addNote()',{'#note-body':'Рассказ мастера, ещё не отправлен'},'#save-note'],

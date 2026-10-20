@@ -1,3 +1,4 @@
+import {setupCharacterStats,readCharacterStats,validateStatsCommand,saveCharacterStats} from './character-stats.mjs';
 import { setupViews, ensureView } from './views.mjs';
 import { createAccess, createUserReader, createUserWriter } from './access.mjs';
 import { createAuthentication } from './authentication.mjs';
@@ -44,6 +45,7 @@ export function openStore(filename) {
   const catalog = createCatalog(db);
   setupInventory(db);
   setupSpellbook(db);
+  setupCharacterStats(db);
   setupQuests(db);
   setupPlaces(db);
   setupProposals(db);
@@ -58,6 +60,7 @@ export function openStore(filename) {
     const session = readSession(db, context.session.id);
     return { schemaVersion: 1, revision: context.revision, updatedAt: context.updatedAt, context: contextIds(context),
       session: { name: session.name, playedOn: session.playedOn },
+      characterStats: readCharacterStats(db,context.character.id),
       state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
   }
   function exportActive(version = 2) {
@@ -69,7 +72,8 @@ export function openStore(filename) {
       const quests = readQuests(db, current.context.campaignId);
       const places = readPlaces(db, current.context.campaignId);
       const proposals = readProposals(db, current.context);
-      if (![2,3,4,5,6,7].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if (![2,3,4,5,6,7,8].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if (version < 8 && current.characterStats!==null) throw new AppError(409,'Ручные характеристики требуют экспорт v8 или SQLite backup');
       if (version < 7 && inventory.some(item => item.chargeCounts)) throw new AppError(409, 'Остатки зарядов требуют экспорт v7 или SQLite backup');
       if (version < 6 && proposals.length) throw new AppError(409, 'Предложения событий требуют экспорт v6 или SQLite backup');
       if (version < 5 && places.length) throw new AppError(409, 'Места кампании требуют экспорт v5 или SQLite backup');
@@ -95,6 +99,7 @@ export function openStore(filename) {
         app: 'skaz-active', schemaVersion: version, ruleset: '5e-2014', scope: 'active-game',
         exportedAt: new Date().toISOString(), source: { revision: current.revision, context: current.context },
         state: current.state, session: current.session,
+        ...(version>=8?{characterStats:current.characterStats}:{}),
         inventory: inventory.map(({ catalogId, quantity, chargeCounts }) => ({ catalogId, quantity, ...(version >= 7 && chargeCounts ? { chargeCounts } : {}) })),
         ...(version >= 3 ? { spellbook: spellbook.map(({ catalogId, status }) => ({ catalogId, status })) } : {}),
         ...(version >= 4 ? { quests: quests.map(({ id, campaignId, createdSessionId, importedFrom, title, description, status, steps }) => ({ origin: importedFrom || { campaignId, questId: id, sessionId: createdSessionId }, quest: { title, description, status, steps } })) } : {}),
@@ -203,6 +208,14 @@ export function openStore(filename) {
         saveQuest(db, payload, request.mutationId, read().context);
         return read().state;
       }, 'quest-save');
+    },
+    saveCharacterStats: request => {
+      const payload=validateStatsCommand(request);
+      const hash=createHash('sha256').update(JSON.stringify({operation:'character-stats',expectedRevision:request.expectedRevision,payload})).digest('hex');
+      return mutate(request,hash,'Ручные характеристики персонажа',()=>{
+        saveCharacterStats(db,payload,request.mutationId,read().context.characterId);
+        return read().state;
+      },'character-stats');
     },
     spellbook: () => { const current = read(); return { revision: current.revision, context: current.context, entries: readSpellbook(db, current.context.characterId) }; },
     setSpell: request => {

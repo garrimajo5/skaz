@@ -1,3 +1,4 @@
+import {validateCharacterStats,writeCharacterStats} from './character-stats.mjs';
 import { validateChargeCounts, writeChargeCounts } from './inventory.mjs';
 import { validateTransferredProposal } from './proposals.mjs';
 import { validatePlace } from './places.mjs';
@@ -13,11 +14,12 @@ function exact(value, keys) {
   if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).length !== keys.length || keys.some(key => !Object.hasOwn(value, key))) fail('Неверные поля файла переноса');
 }
 export function validateTransfer(file) {
-  exact(file, ['app','schemaVersion','ruleset','scope','exportedAt','source','state','session','inventory','catalog', ...([3,4,5,6,7].includes(file?.schemaVersion) ? ['spellbook'] : []), ...([4,5,6,7].includes(file?.schemaVersion) ? ['quests'] : []), ...([5,6,7].includes(file?.schemaVersion) ? ['places'] : []), ...(file?.schemaVersion >= 6 ? ['proposals'] : [])]);
-  if (file.app !== 'skaz-active' || ![2,3,4,5,6,7].includes(file.schemaVersion) || file.ruleset !== '5e-2014' || file.scope !== 'active-game') fail('Нужен экспорт активной игры СКАЗ v2–v7, D&D 2014');
+  exact(file, ['app','schemaVersion','ruleset','scope','exportedAt','source','state','session','inventory','catalog', ...([3,4,5,6,7,8].includes(file?.schemaVersion) ? ['spellbook'] : []), ...([4,5,6,7,8].includes(file?.schemaVersion) ? ['quests'] : []), ...([5,6,7,8].includes(file?.schemaVersion) ? ['places'] : []), ...(file?.schemaVersion >= 6 ? ['proposals'] : []), ...(file?.schemaVersion >=8 ? ['characterStats'] : [])]);
+  if (file.app !== 'skaz-active' || ![2,3,4,5,6,7,8].includes(file.schemaVersion) || file.ruleset !== '5e-2014' || file.scope !== 'active-game') fail('Нужен экспорт активной игры СКАЗ v2–v8, D&D 2014');
   if (typeof file.exportedAt !== 'string' || file.exportedAt.length > 40 || !Number.isFinite(Date.parse(file.exportedAt))) fail('Неверная дата экспорта');
   exact(file.source, ['revision','context']); exact(file.source.context, ['campaignId','characterId','sessionId']);
   if (!Number.isSafeInteger(file.source.revision) || file.source.revision < 0 || Object.values(file.source.context).some(id => typeof id !== 'string' || !/^[a-zA-Z0-9-]{1,80}$/.test(id))) fail('Неверные сведения об исходной игре');
+  const characterStats=file.schemaVersion>=8?(file.characterStats===null?null:validateCharacterStats(file.characterStats)):undefined;
   const state = validateState(file.state);
   exact(file.session, ['name','playedOn']);
   const session = validateSession({ name: file.session.name === null ? 'Импорт' : file.session.name, playedOn: file.session.playedOn === null ? '2000-01-01' : file.session.playedOn });
@@ -89,7 +91,7 @@ export function validateTransfer(file) {
     });
   }
   // Preserve the normalized v2 payload and its existing mutation hashes.
-  return { state, session, inventory, ...(proposals ? { proposals } : {}), ...(places ? { places } : {}), ...(quests ? { quests } : {}), ...(spellbook ? { spellbook } : {}), entries: entries.sort((a,b) => a.id.localeCompare(b.id, 'en')) };
+  return { state, session, inventory, ...(characterStats!==undefined?{characterStats}:{}), ...(proposals ? { proposals } : {}), ...(places ? { places } : {}), ...(quests ? { quests } : {}), ...(spellbook ? { spellbook } : {}), entries: entries.sort((a,b) => a.id.localeCompare(b.id, 'en')) };
 }
 // Caller owns one transaction for catalog, new game, inventory and mutation receipt.
 export function importTransfer(db, data, mutationId, viewId) {
@@ -99,6 +101,7 @@ export function importTransfer(db, data, mutationId, viewId) {
   }
   for (const entry of data.entries) db.prepare('INSERT OR IGNORE INTO catalog_entries VALUES (?, ?)').run(entry.id, JSON.stringify(entry));
   const ids = createGame(db, data.state, viewId);
+  if(data.characterStats!==undefined)writeCharacterStats(db,ids.characterId,data.characterStats);
   db.prepare('INSERT INTO session_details VALUES (?, ?, ?, 0)').run(ids.sessionId, data.session.name, data.session.playedOn);
   for (const item of data.quests || []) {
     const questId = randomUUID();

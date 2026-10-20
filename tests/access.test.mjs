@@ -40,6 +40,24 @@ test('player corrects all personal balances atomically without altering shared s
  const version=player.read().revision;assert.throws(()=>player.update(command(player,{label:'Invalid slots',state:{...state,slots:{1:5,2:0,3:0}}})),{status:422});assert.equal(player.read().revision,version);assert.deepEqual(player.read().state,saved.state);
 });
 
+test('manual statistics obey explicit hero grants, read-only mode, revocation and actor audit rollback',t=>{
+ const file=join(mkdtempSync(join(tmpdir(),'skaz-user-stats-')),'db.sqlite'),{store,first,second}=setup(t,file),player=store.forUser(userB,'stats-window',{write:true}),owner=store.forUser(userA,'stats-window');
+ const value={abilities:{str:10,dex:12,con:14,int:16,wis:18,cha:20},armorClass:15,initiative:1,speed:25},request=command(player,{characterId:second.characterId,stats:value});
+ player.saveCharacterStats(request);assert.deepEqual(player.read().characterStats,value);assert.equal(owner.read().characterStats,null);
+ assert.throws(()=>player.saveCharacterStats(command(player,{characterId:first.characterId,stats:value})),{status:409});assert.throws(()=>store.forUser(userB,'read-stats').saveCharacterStats(request),{status:403});
+ store.access.apply({action:'revoke-character',userId:userB,campaignId:first.campaignId,characterId:second.characterId});assert.throws(()=>player.saveCharacterStats(request),{status:404});
+ const db=new DatabaseSync(file);t.after(()=>db.close());const writer=store.forUser(userA,'stats-audit',{write:true}),before=writer.read();db.exec("CREATE TRIGGER fail_user_stats BEFORE INSERT ON user_changes BEGIN SELECT RAISE(ABORT,'audit failed');END");assert.throws(()=>writer.saveCharacterStats(command(writer,{characterId:first.characterId,stats:value})));assert.deepEqual(writer.read(),before);
+ assert.equal(db.prepare('SELECT count(*) AS n FROM character_stats WHERE character_id=?').get(first.characterId).n,0);
+});
+
+test('v8 personal import claims manual stats atomically and failed ownership audit leaves no orphan sheet',t=>{
+ const file=join(mkdtempSync(join(tmpdir(),'skaz-stats-import-')),'db.sqlite'),{store}=setup(t,file),owner=store.forUser(userA,'stats-import',{write:true});
+ const value={abilities:{str:10,dex:12,con:14,int:16,wis:18,cha:20},armorClass:15,initiative:1,speed:25};owner.saveCharacterStats(command(owner,{characterId:owner.read().context.characterId,stats:value}));
+ const before=owner.read(),exported=owner.exportActive(8),request=command(owner,{destination:'new-campaign',file:exported}),db=new DatabaseSync(file);t.after(()=>db.close());const count=table=>db.prepare('SELECT count(*) AS n FROM '+table).get().n,counts=['campaigns','characters','character_stats'].map(count);
+ db.exec("CREATE TRIGGER fail_stats_claim BEFORE INSERT ON access_audit WHEN NEW.action='claim-created' BEGIN SELECT RAISE(ABORT,'claim audit failed');END");assert.throws(()=>owner.importActive(request));assert.deepEqual(owner.read(),before);assert.deepEqual(['campaigns','characters','character_stats'].map(count),counts);
+ db.exec('DROP TRIGGER fail_stats_claim');const saved=owner.importActive(request);assert.notEqual(saved.context.characterId,before.context.characterId);assert.deepEqual(saved.characterStats,value);assert.equal(owner.importActive(request).replayed,true);assert.equal(store.access.membership(userA,saved.context.campaignId),'owner');assert.equal(db.prepare('PRAGMA foreign_key_check').all().length,0);
+});
+
 test('grants choose only authorized heroes and identical client view IDs never share a user context',t=>{
   const {store,first,second}=setup(t);
   const a=store.forUser(userA,'same-window'), b=store.forUser(userB,'same-window');
@@ -131,10 +149,10 @@ test('catalog sharing is exact bundled content, not a license flag; private impo
   // Deliberately retains CC BY license metadata: license is not visibility.
   store.catalog.importEntries({schemaVersion:1,entries:[privateCard]},{apply:true});
   const reader=store.forUser(userA,'window-one');
-  assert.equal(store.catalog.coverage().total,501);assert.equal(reader.catalog.coverage().total,500);
+  assert.equal(store.catalog.coverage().total,504);assert.equal(reader.catalog.coverage().total,503);
   assert.equal(reader.catalog.search(new URLSearchParams({q:'SECRET_ITEM'})).total,0);
   assert.throws(()=>reader.catalog.lookup(new URLSearchParams({id:privateCard.id})),{status:404});
-  assert.equal(reader.catalog.search(new URLSearchParams({kind:'monster'})).total,78);
+  assert.equal(reader.catalog.search(new URLSearchParams({kind:'monster'})).total,81);
   a.addInventory(command(a,{characterId:a.read().context.characterId,catalogId:privateCard.id,quantity:1}));
   assert.equal(reader.inventory().entries[0].entry.text,'PRIVATE_ITEM_DESCRIPTION');
   assert.throws(()=>reader.exportActive(),{status:403});
