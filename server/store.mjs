@@ -1,3 +1,4 @@
+import {setupCharacterSheets,readCharacterSheet,validateSheetCommand,saveCharacterSheet,validateCounterCommand,changeCharacterCounter} from './character-sheet.mjs';
 import {setupCharacterStats,readCharacterStats,validateStatsCommand,saveCharacterStats} from './character-stats.mjs';
 import { setupViews, ensureView } from './views.mjs';
 import { createAccess, createUserReader, createUserWriter } from './access.mjs';
@@ -46,6 +47,7 @@ export function openStore(filename) {
   setupInventory(db);
   setupSpellbook(db);
   setupCharacterStats(db);
+  setupCharacterSheets(db);
   setupQuests(db);
   setupPlaces(db);
   setupProposals(db);
@@ -61,6 +63,7 @@ export function openStore(filename) {
     return { schemaVersion: 1, revision: context.revision, updatedAt: context.updatedAt, context: contextIds(context),
       session: { name: session.name, playedOn: session.playedOn },
       characterStats: readCharacterStats(db,context.character.id),
+      characterSheet: readCharacterSheet(db,context.character.id),
       state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
   }
   function exportActive(version = 2) {
@@ -72,7 +75,8 @@ export function openStore(filename) {
       const quests = readQuests(db, current.context.campaignId);
       const places = readPlaces(db, current.context.campaignId);
       const proposals = readProposals(db, current.context);
-      if (![2,3,4,5,6,7,8].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if (![2,3,4,5,6,7,8,9].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if(version<9&&current.characterSheet!==null)throw new AppError(409,'Собственный класс и счётчики требуют экспорт v9 или SQLite backup');
       if (version < 8 && current.characterStats!==null) throw new AppError(409,'Ручные характеристики требуют экспорт v8 или SQLite backup');
       if (version < 7 && inventory.some(item => item.chargeCounts)) throw new AppError(409, 'Остатки зарядов требуют экспорт v7 или SQLite backup');
       if (version < 6 && proposals.length) throw new AppError(409, 'Предложения событий требуют экспорт v6 или SQLite backup');
@@ -100,6 +104,7 @@ export function openStore(filename) {
         exportedAt: new Date().toISOString(), source: { revision: current.revision, context: current.context },
         state: current.state, session: current.session,
         ...(version>=8?{characterStats:current.characterStats}:{}),
+        ...(version>=9?{characterSheet:current.characterSheet}:{}),
         inventory: inventory.map(({ catalogId, quantity, chargeCounts }) => ({ catalogId, quantity, ...(version >= 7 && chargeCounts ? { chargeCounts } : {}) })),
         ...(version >= 3 ? { spellbook: spellbook.map(({ catalogId, status }) => ({ catalogId, status })) } : {}),
         ...(version >= 4 ? { quests: quests.map(({ id, campaignId, createdSessionId, importedFrom, title, description, status, steps }) => ({ origin: importedFrom || { campaignId, questId: id, sessionId: createdSessionId }, quest: { title, description, status, steps } })) } : {}),
@@ -115,7 +120,7 @@ export function openStore(filename) {
     const next = validateState(request.state);
     const { expectedRevision, label } = request;
     const hash = createHash('sha256').update(JSON.stringify({ expectedRevision, label, state: next })).digest('hex');
-    return mutate(request, hash, label, () => { writeEntities(db, next, viewId); return next; });
+    return mutate(request, hash, label, () => {const current=read();if(current.characterSheet&&(JSON.stringify(current.state.slots)!==JSON.stringify(next.slots)||current.state.inspiration!==next.inspiration))throw new AppError(409,'Счётчики собственного класса изменяются в ручном листе');writeEntities(db, next, viewId); return next; });
   }
   function mutate(request, hash, label, apply, operation) {
     const { mutationId, expectedRevision } = request;
@@ -208,6 +213,11 @@ export function openStore(filename) {
         saveQuest(db, payload, request.mutationId, read().context);
         return read().state;
       }, 'quest-save');
+    },
+    changeCharacterCounter:request=>{const payload=validateCounterCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'character-sheet-counter',expectedRevision:request.expectedRevision,payload})).digest('hex');return mutate(request,hash,'Изменение счётчика класса',()=>{changeCharacterCounter(db,payload,request.mutationId,read().context.characterId);return read().state;},'character-sheet-counter');},
+    saveCharacterSheet:request=>{
+      const payload=validateSheetCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'character-sheet',expectedRevision:request.expectedRevision,payload})).digest('hex');
+      return mutate(request,hash,'Ручной класс и счётчики',()=>{saveCharacterSheet(db,payload,request.mutationId,read().context.characterId);return read().state;},'character-sheet');
     },
     saveCharacterStats: request => {
       const payload=validateStatsCommand(request);

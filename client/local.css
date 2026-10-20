@@ -82,3 +82,17 @@ dialog:has(#stats-form){height:min(860px,90dvh);max-height:90dvh;overflow:hidden
 #stats-form input{min-height:44px;width:100%;min-width:0}#stats-form label{margin:0}
 #stats-form .entity-fields{display:grid;gap:12px}
 @media(max-width:480px){#stats-form .dialog-actions{display:grid;grid-template-columns:1fr}#stats-form .dialog-actions button{width:100%}}
+
+/* Class metadata and arbitrary counters remain usable with an on-screen keyboard. */
+dialog:has(#sheet-form),dialog:has(.sheet-review){height:min(860px,90dvh);max-height:90dvh;overflow:hidden}
+#dialog-content:has(#sheet-form),#dialog-content:has(.sheet-review){height:100%;display:flex;flex-direction:column;min-height:0}
+#dialog-content:has(#sheet-form)>h2,#dialog-content:has(.sheet-review)>h2{font-size:26px;margin-block:8px;flex-shrink:0}
+#dialog-content:has(#sheet-form)>p{font-size:12px;margin-block:6px;flex-shrink:0}
+#sheet-form{display:flex;flex-direction:column;flex:1;min-height:0}
+#sheet-form .entity-fields,.sheet-review{min-height:0;overflow:auto;padding:4px;scrollbar-gutter:stable}
+#sheet-form .dialog-actions,#dialog-content:has(.sheet-review)>.dialog-actions{flex-shrink:0;margin-top:10px;padding-top:8px;border-top:1px solid var(--line)}
+#sheet-form label{display:grid;gap:5px;margin-block:10px}#sheet-form input{min-height:44px;width:100%;min-width:0}.sheet-counter{border:1px solid var(--line);border-radius:10px;margin:14px 0;min-width:0;padding:12px}.sheet-counter legend{color:var(--muted);padding-inline:6px}.sheet-counter .resource-fields label{margin-top:0}
+.own-sheet .action-row{gap:12px;overflow-wrap:anywhere}.own-sheet .action-row strong{min-width:0}.own-sheet .action-row span{white-space:nowrap}
+@media(max-width:480px){#sheet-form .dialog-actions{display:grid;grid-template-columns:1fr}.character-edit button{max-width:140px;white-space:normal}}
+
+.own-counter{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.own-counter strong{overflow-wrap:anywhere}.own-counter small{display:block;color:var(--muted);font-variant-numeric:tabular-nums}.counter-actions{display:flex;gap:8px}.counter-actions button{min-width:44px;min-height:44px}

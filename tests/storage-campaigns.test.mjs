@@ -5,6 +5,7 @@ import { readFile } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
 import { seed } from '../server/state.mjs';
 const source = await readFile(new URL('../client/storage.js', import.meta.url), 'utf8');
+const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const memory = () => { const values = new Map(); return { get length() { return values.size; }, key: index => [...values.keys()][index], getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
 function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount) {
   const handlers = {}, elements = new Map(), messages = [], archiveCalls = [], references = []; let dialog='';
@@ -15,6 +16,7 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount) {
     document: { getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
     SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>dialog=html, closeModal() {}, toast: value => messages.push(value),
   });
+  vm.runInContext(sheetSource,context);
   vm.runInContext(source, context);
   return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, references, dialog:()=>dialog,
     click: id => handlers.click({ target: { closest: () => ({ id }) } }),
@@ -340,14 +342,14 @@ test('v3 preview includes spell list in the durable import and rejects a missing
   assert.deepEqual(calls[0].body.file.spellbook, file.spellbook);
 });
 
-test('client requests v8 export and refuses a response from another revision', async () => {
+test('client requests v9 export and refuses a response from another revision', async () => {
   const calls = [];
   const h = harness(memory(), memory(), async url => {
     calls.push(url);
     return response(url === '/api/workspace' ? payload(0) : { source: { context: payload(0).context, revision: 1 } });
   });
   await h.api.boot(); h.api.settings(); await h.get('#export-active').onclick();
-  assert.equal(calls.at(-1), '/api/export/active-v8');
+  assert.equal(calls.at(-1), '/api/export/active-v9');
   assert.match(h.messages.at(-1), /Игра изменилась/);
 });
 
@@ -905,7 +907,7 @@ test('manual stats exact command survives response loss and reset requires expli
 });
 
 test('v8 preview lists manual values and refuses missing stats; v1 export and demo reset cannot hide them',async()=>{
- let writes=0;const h=harness(memory(),memory(),async(url,options)=>{if(options.method)writes++;return response({...payload(0),characterStats:manualStats()});});await h.api.boot();h.api.settings();h.get('#export-state').onclick();assert.match(h.messages.at(-1),/v8/);h.get('#reset-workspace').onclick();assert.match(h.messages.at(-1),/шаблона/);
+ let writes=0;const h=harness(memory(),memory(),async(url,options)=>{if(options.method)writes++;return response({...payload(0),characterStats:manualStats()});});await h.api.boot();h.api.settings();h.get('#export-state').onclick();assert.match(h.messages.at(-1),/v9/);h.get('#reset-workspace').onclick();assert.match(h.messages.at(-1),/шаблона/);
  const file={app:'skaz-active',schemaVersion:8,ruleset:'5e-2014',scope:'active-game',state:seed,inventory:[],catalog:{entries:[]},spellbook:[],quests:[],places:[],proposals:[],characterStats:manualStats()};
  await h.get('#import-state').onchange({target:{files:[{size:1000,text:async()=>JSON.stringify(file)}]}});assert.match(h.dialog(),/СИЛ 1 · ЛОВ 30/);assert.match(h.dialog(),/Инициатива -3/);assert.equal(writes,0);
  delete file.characterStats;h.api.settings();await h.get('#import-state').onchange({target:{files:[{size:1000,text:async()=>JSON.stringify(file)}]}});assert.match(h.messages.at(-1),/отсутствуют характеристики/);assert.equal(writes,0);
@@ -915,4 +917,32 @@ test('old revision or malformed stats cannot acknowledge a manual operation or l
  for(const ack of [{...payload(0),characterStats:manualStats()},{...payload(1),characterStats:{...manualStats(),speed:-1}}]){
   const local=memory(),h=harness(local,memory(),async(url,options)=>response(options.method?ack:payload(0)));await h.api.boot();h.click('edit-stats');statsValues(h);await h.get('#stats-form').onsubmit({preventDefault(){}});assert.equal(h.api.manualStats(),false);assert.equal(h.api.editable(),false);assert.ok([...local.values.keys()].some(k=>k.startsWith('skaz-pending-v1:')));
  }
+});
+
+const ownSheet=()=>({ruleset:'5e-2014',ancestry:'Человек',className:'Воин',subclass:'',level:1,counters:[{id:'counter-second-wind',name:'Второе дыхание',current:0,max:1}]});
+function sheetFields(h){for(const [id,value]of Object.entries({ancestry:'Человек',class:'Воин',subclass:'',level:'1'}))h.get('#sheet-'+id).value=value;}
+test('own class editor keeps raw values through adding/removing counters, previews and saves one stable-ID command',async()=>{
+ const calls=[];const h=harness(memory(),memory(),async(url,options)=>{if(options.method){calls.push({url,body:JSON.parse(options.body)});return response({...payload(1),characterSheet:JSON.parse(options.body).sheet});}return response(payload(0));});await h.api.boot();h.click('edit-sheet');sheetFields(h);h.get('#counter-add').onclick();
+ h.get('#counter-name-0').value='Второе дыхание';h.get('#counter-current-0').value='0';h.get('#counter-max-0').value='1';h.get('#counter-add').onclick();assert.match(h.dialog(),/value="Второе дыхание"/);
+ h.get('#counter-name-1').value='Убрать';h.get('#counter-current-1').value='0';h.get('#counter-max-1').value='0';h.get('#counter-remove-1').onclick();h.get('#sheet-form').onsubmit({preventDefault(){}});assert.equal(calls.length,0);assert.match(h.dialog(),/Воин/);assert.match(h.dialog(),/0 \/ 1/);
+ const confirm=h.get('#sheet-confirm').onclick;await Promise.all([confirm(),confirm()]);assert.equal(calls.length,1);assert.equal(calls[0].url,'/api/character-sheet');assert.equal(calls[0].body.operation,undefined);assert.match(calls[0].body.sheet.counters[0].id,/^[a-zA-Z0-9-]{8,80}$/);assert.equal(calls[0].body.sheet.counters.length,1);assert.equal(h.api.sheet().className,'Воин');
+});
+test('own class hides legacy resource edits and preserves every bard balance when saving HP and gold',async()=>{
+ let command;const h=harness(memory(),memory(),async(url,options)=>{if(options.method)command=JSON.parse(options.body);return response({...payload(options.method?1:0),characterSheet:ownSheet(),state:command?.state||seed});});await h.api.boot();h.click('edit-resources');assert.ok(!h.dialog().includes('id="resource-inspiration"'));assert.ok(!h.dialog().includes('id="resource-slot1"'));
+ resourceValues(h,{hp:'0',gold:'0'});h.get('#resource-form').onsubmit({preventDefault(){}});await h.get('#resource-confirm').onclick();assert.deepEqual(command.state.slots,seed.slots);assert.equal(command.state.inspiration,seed.inspiration);assert.equal(command.state.hp,0);assert.equal(command.state.gold,0);
+});
+test('own class command survives response loss with exact IDs and stale/readonly forms never submit',async()=>{
+ const local=memory(),session=memory(),calls=[];let current=payload(0);const h=harness(local,session,async(url,options)=>{if(options.method){calls.push(options.body);throw new Error('lost');}return response(current);});await h.api.boot();h.click('edit-sheet');sheetFields(h);h.get('#sheet-form').onsubmit({preventDefault(){}});await h.get('#sheet-confirm').onclick();assert.equal(h.api.sheet(),null);
+ const saved=JSON.parse(calls[0]).sheet,reload=harness(local,session,async(url,options)=>{if(options.method)calls.push(options.body);return response({...payload(1),characterSheet:saved});});await reload.api.boot();await reload.click('sync-retry');assert.equal(calls[0],calls[1]);assert.equal(reload.api.sheet().className,'Воин');
+ let writes=0;const stale=harness(memory(),memory(),async(url,options)=>{if(options.method)writes++;return response(current);});await stale.api.boot();stale.click('edit-sheet');sheetFields(stale);stale.get('#sheet-form').onsubmit({preventDefault(){}});const confirm=stale.get('#sheet-confirm').onclick;current=payload(1,'other');await stale.api.boot();await confirm();assert.equal(writes,0);
+ const denied=harness(memory(),memory(),async()=>response({...payload(0),permissions:permissionFixture('player',false)}));await denied.api.boot();denied.click('edit-sheet');assert.equal(denied.dialog(),'');
+});
+test('v9 requires a manual-sheet field and malformed acknowledgements cannot lose pending configuration',async()=>{
+ const local=memory(),h=harness(local,memory(),async(url,options)=>response(options.method?payload(1):payload(0)));await h.api.boot();h.click('edit-sheet');sheetFields(h);h.get('#sheet-form').onsubmit({preventDefault(){}});await h.get('#sheet-confirm').onclick();assert.equal(h.api.editable(),false);assert.equal(h.api.sheet(),null);assert.ok([...local.values.keys()].some(k=>k.startsWith('skaz-pending-v1:')));
+});
+
+test('quick counter keeps its exact command after response loss and rejects old acknowledgements and stale clicks',async()=>{
+ const local=memory(),session=memory(),calls=[],initial={...payload(0),characterSheet:ownSheet()};const h=harness(local,session,async(url,options)=>{if(options.method){calls.push({url,body:options.body});throw new Error('lost');}return response(initial);});await h.api.boot();const key=h.api.snapshotKey();await assert.rejects(()=>h.api.changeCounter('counter-second-wind',1,key));assert.equal(h.api.sheet().counters[0].current,0);assert.equal(h.api.editable(),false);
+ const next=ownSheet();next.counters[0].current=1;const reload=harness(local,session,async(url,options)=>{if(options.method)calls.push({url,body:options.body});return response(options.method?{...payload(1),characterSheet:next}:initial);});await reload.api.boot();await reload.click('sync-retry');assert.equal(calls[0].url,'/api/character-sheet/counter');assert.equal(calls[0].body,calls[1].body);assert.equal(JSON.parse(calls[0].body).operation,undefined);assert.equal(reload.api.sheet().counters[0].current,1);await assert.rejects(()=>reload.api.changeCounter('counter-second-wind',-1,key));
+ const bad=harness(memory(),memory(),async()=>response(initial));await bad.api.boot();await assert.rejects(()=>bad.api.changeCounter('counter-second-wind',1,bad.api.snapshotKey()));assert.equal(bad.api.editable(),false);assert.equal(bad.api.sheet().counters[0].current,0);
 });

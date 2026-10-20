@@ -58,6 +58,22 @@ test('v8 personal import claims manual stats atomically and failed ownership aud
  db.exec('DROP TRIGGER fail_stats_claim');const saved=owner.importActive(request);assert.notEqual(saved.context.characterId,before.context.characterId);assert.deepEqual(saved.characterStats,value);assert.equal(owner.importActive(request).replayed,true);assert.equal(store.access.membership(userA,saved.context.campaignId),'owner');assert.equal(db.prepare('PRAGMA foreign_key_check').all().length,0);
 });
 
+test('manual class and counters stay private to granted heroes and revocation blocks captured writes and replay',t=>{
+ const {store,first,second}=setup(t),player=store.forUser(userB,'own-sheet',{write:true}),owner=store.forUser(userA,'own-sheet'),sheet={ruleset:'5e-2014',ancestry:'Человек',className:'Воин',subclass:'',level:1,counters:[{id:'counter-second-wind',name:'Второе дыхание',current:1,max:1}]};
+ const request=command(player,{characterId:second.characterId,sheet});player.saveCharacterSheet(request);assert.deepEqual(player.read().characterSheet,sheet);assert.equal(owner.read().characterSheet,null);assert.deepEqual(player.exportActive(9).characterSheet,sheet);
+  const spend=command(player,{characterId:second.characterId,counterId:'counter-second-wind',delta:-1});player.changeCharacterCounter(spend);assert.equal(player.read().characterSheet.counters[0].current,0);assert.equal(owner.read().characterSheet,null);
+  assert.throws(()=>player.changeCharacterCounter(command(player,{characterId:first.characterId,counterId:'counter-second-wind',delta:1})),{status:409});assert.throws(()=>store.forUser(userB,'readonly-counter').changeCharacterCounter(spend),{status:403});
+  assert.throws(()=>player.saveCharacterSheet(command(player,{characterId:first.characterId,sheet})),{status:409});assert.throws(()=>store.forUser(userB,'readonly-sheet').saveCharacterSheet(request),{status:403});store.access.apply({action:'revoke-character',userId:userB,campaignId:first.campaignId,characterId:second.characterId});assert.throws(()=>player.saveCharacterSheet(request),{status:404});assert.throws(()=>player.changeCharacterCounter(spend),{status:404});
+});
+
+test('v9 ownership failure rolls back the imported manual class and statistics together',t=>{
+ const file=join(mkdtempSync(join(tmpdir(),'skaz-v9-import-')),'db.sqlite'),{store}=setup(t,file),owner=store.forUser(userA,'sheet-import',{write:true});
+ const sheet={ruleset:'5e-2014',ancestry:'',className:'Волшебник',subclass:'',level:17,counters:[{id:'counter-ninth-level',name:'Ячейки 9 круга',current:1,max:1}]};owner.saveCharacterSheet(command(owner,{characterId:owner.read().context.characterId,sheet}));
+ const before=owner.read(),request=command(owner,{destination:'new-campaign',file:owner.exportActive(9)}),db=new DatabaseSync(file);t.after(()=>db.close());const counts=()=>['campaigns','characters','character_sheets','character_stats'].map(table=>db.prepare('SELECT count(*) AS n FROM '+table).get().n),initial=counts();
+ db.exec("CREATE TRIGGER fail_sheet_claim BEFORE INSERT ON access_audit WHEN NEW.action='claim-created' BEGIN SELECT RAISE(ABORT,'claim failed');END");assert.throws(()=>owner.importActive(request));assert.deepEqual(owner.read(),before);assert.deepEqual(counts(),initial);db.exec('DROP TRIGGER fail_sheet_claim');
+ const saved=owner.importActive(request);assert.deepEqual(saved.characterSheet,sheet);assert.equal(saved.characterStats,null);assert.equal(store.access.membership(userA,saved.context.campaignId),'owner');assert.equal(owner.importActive(request).replayed,true);assert.equal(db.prepare('PRAGMA foreign_key_check').all().length,0);
+});
+
 test('grants choose only authorized heroes and identical client view IDs never share a user context',t=>{
   const {store,first,second}=setup(t);
   const a=store.forUser(userA,'same-window'), b=store.forUser(userB,'same-window');
