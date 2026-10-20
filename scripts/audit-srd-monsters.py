@@ -51,6 +51,17 @@ def statistics(text, name):
             'challenge': cr[1], 'xp': int(cr[2].replace(',', ''))}
 
 
+def npc_headings(pages):
+    """Inventory the pinned appendix, independently of prepared catalog cards."""
+    entries = []
+    for page, text in sorted(pages.items()):
+        for match in re.finditer(r'([A-Z][a-z]+(?: [A-Z][a-z]+)?) Medium humanoid', normalize(text)):
+            name = match[1]
+            entries.append({'id': 'srd51:2014:monster:' + name.lower().replace(' ', '-'),
+                            'nameEn': name, 'page': page})
+    return entries
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('pdf', type=Path)
@@ -59,6 +70,10 @@ def main():
         raise SystemExit('Source hash differs; only the pinned SRD 5.1 is supported.')
     from pypdf import PdfReader
     reader = PdfReader(args.pdf)
+    appendix = npc_headings({p: reader.pages[p-1].extract_text() for p in range(395, 404)})
+    inventory = json.loads((ROOT / 'catalog/srd51-npc-inventory.json').read_text(encoding='utf-8-sig'))
+    if inventory['sourceSha256'] != SHA256 or inventory['expectedCount'] != len(appendix) or inventory['entries'] != appendix:
+        raise SystemExit('NPC inventory differs from the pinned Appendix B headings/pages.')
     code = "import{bundledCatalog}from'./server/bundled-catalog.mjs';process.stdout.write(JSON.stringify(bundledCatalog().bundle.entries.filter(e=>e.kind==='monster')))"
     cards = json.loads(subprocess.check_output(['node','--input-type=module','-e',code], cwd=ROOT, encoding='utf-8'))
     pages, failures = {}, []
@@ -74,7 +89,7 @@ def main():
                 failures.append({'id': card['id'], 'fields': errors, 'source': expected})
         except ValueError as error:
             failures.append({'id': card['id'], 'error': str(error)})
-    print(json.dumps({'checked': len(cards), 'failures': failures,
+    print(json.dumps({'checked': len(cards), 'npcHeadingsChecked': len(appendix), 'failures': failures,
                       'scope': 'Base statistics only; actions, traits and summaries need source review.'}, ensure_ascii=False, indent=2))
     if failures:
         raise SystemExit(1)

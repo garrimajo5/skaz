@@ -48,6 +48,9 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
         if (authenticate) {
           const userId = await authenticate(request);
           if (typeof userId !== 'string' || !userId) throw new AppError(401, 'Нужен индивидуальный вход');
+          // Identity bootstrap must work before a user has a hero. It never
+          // falls back to the shared workspace or accepts a client-supplied ID.
+          if (pathname === '/api/me' && request.method === 'GET') return json(response,200,{user:store.access.user(userId),individualWrites});
           view = store.forUser(userId, viewId ?? 'primary-view', {write:individualWrites});
         } else view = viewId === undefined ? store : store.forView(viewId);
         if (request.method === 'GET') {

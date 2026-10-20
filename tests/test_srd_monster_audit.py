@@ -10,6 +10,14 @@ BASE = ('Beast Large beast, unaligned Armor Class 12 (natural armor) '
 
 
 class MonsterAuditTests(unittest.TestCase):
+    def test_npc_inventory_preserves_pages_and_compound_names(self):
+        headings = runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))['npc_headings']
+        rows = headings({397: 'Bandit Captain Medium humanoid, any race', 395: 'Acolyte Medium humanoid, any race'})
+        self.assertEqual([row['nameEn'] for row in rows], ['Acolyte', 'Bandit Captain'])
+        self.assertEqual(rows[1]['id'], 'srd51:2014:monster:bandit-captain')
+        self.assertEqual(rows[1]['page'], 397)
+        self.assertEqual(headings({395: 'Acolyte is mentioned in prose without a statblock.'}), [])
+
     def test_fractional_challenge_multiple_speeds_and_negative_modifiers(self):
         result = parse(BASE, 'Beast')
         self.assertEqual(result['challenge'], '1/4')

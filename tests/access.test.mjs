@@ -340,3 +340,21 @@ test('campaign roles govern quests, places, sessions and new heroes without expo
  assert.equal(player.read().context.sessionId,session.context.sessionId);assert.equal(player.read().state.notes[0].text,'BORIS_PRIVATE');
  assert.equal(owner.read().state.notes.length,0);
 });
+
+test('identity bootstrap returns only the verified enabled user even before any hero grant',async t=>{
+ const store=openStore(':memory:');t.after(()=>store.close());
+ store.access.apply({action:'create-user',userId:'new-player',displayName:'New player'});
+ let identity='new-player';
+ const app=createApp(store,{authenticate:()=>identity});
+ await new Promise(resolve=>app.listen(0,'127.0.0.1',resolve));t.after(()=>new Promise(resolve=>app.close(resolve)));
+ const base='http://127.0.0.1:'+app.address().port;
+ const response=await fetch(base+'/api/me?userId=other-user',{headers:{'X-Skaz-User':'other-user'}});
+ assert.equal(response.status,200);assert.match(response.headers.get('cache-control'),/no-store/);
+ assert.deepEqual(await response.json(),{user:{id:'new-player',displayName:'New player',enabled:true},individualWrites:false});
+ const workspace=await fetch(base+'/api/workspace');assert.equal(workspace.status,404);await workspace.body.cancel();
+ store.access.apply({action:'set-enabled',userId:'new-player',enabled:false});
+ const disabled=await fetch(base+'/api/me');assert.equal(disabled.status,404);await disabled.body.cancel();
+ identity=null;const anonymous=await fetch(base+'/api/me');assert.equal(anonymous.status,401);await anonymous.body.cancel();
+ const shared=createApp(store);await new Promise(resolve=>shared.listen(0,'127.0.0.1',resolve));t.after(()=>new Promise(resolve=>shared.close(resolve)));
+ const noIdentity=await fetch('http://127.0.0.1:'+shared.address().port+'/api/me');assert.equal(noIdentity.status,404);await noIdentity.body.cancel();
+});
