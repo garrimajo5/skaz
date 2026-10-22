@@ -46,7 +46,7 @@ function modal(html){
  content.focus({preventScroll:true});
 }
 function closeModal(){$('#dialog').close()}
-let toastTimer;function toast(text,undo){clearTimeout(toastTimer);$('#toast').innerHTML=`<span>${esc(text)}</span>${undo?'<button id="undo">Отменить</button>':''}`;$('#toast').classList.add('show');if(undo)$('#undo').onclick=()=>{undo();$('#toast').classList.remove('show')};toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),undo?12000:5000)}
+let toastTimer,toastVersion=0;function toast(text,undo){clearTimeout(toastTimer);const version=++toastVersion;let used=false;$('#toast').innerHTML=`<span>${esc(text)}</span>${undo?'<button id="undo">Отменить</button>':''}`;$('#toast').classList.add('show');if(undo)$('#undo').onclick=()=>{if(used||version!==toastVersion)return;used=true;clearTimeout(toastTimer);$('#undo').disabled=true;$('#toast').classList.remove('show');return undo()};toastTimer=setTimeout(()=>{if(version===toastVersion){toastVersion++;$('#toast').classList.remove('show')}},undo?12000:5000)}
 function canChange(){
  if(SkazStorage.editable())return true;
  const message='Сначала обнови игру или заверши сохранение. Введённые данные остаются в форме.';
@@ -57,7 +57,7 @@ function canChange(){
  }else toast(message);
  return false;
 }
-async function change(label,fn){
+async function change(label,fn,{undoable=true}={}){
   if(!canChange()){render();return}
   const before=structuredClone(state);
   const contextBefore=SkazStorage.contextKey();
@@ -68,7 +68,8 @@ async function change(label,fn){
     const result=await SkazStorage.commit(next,label);
     state={...(result?.state||next),theme:state.theme};
     render();
-    const undo=contextBefore===SkazStorage.contextKey()?()=>{if(contextBefore!==SkazStorage.contextKey())return toast('Эта отмена относится к другой игре');change('Отмена: '+label,()=>{state={...structuredClone(before),theme:state.theme}})}:undefined;
+    const savedKey=SkazStorage.snapshotKey();
+    const undo=undoable&&contextBefore===SkazStorage.contextKey()?()=>{if(contextBefore!==SkazStorage.contextKey())return toast('Эта отмена относится к другой игре');if(savedKey!==SkazStorage.snapshotKey())return toast('Игра изменилась. Эта отмена больше недоступна');return change('Отмена: '+label,()=>{state={...structuredClone(before),theme:state.theme}},{undoable:false})}:undefined;
     toast(label,undo);
   }catch(error){state=before;render();toast('Не сохранено: '+error.message)}
 }

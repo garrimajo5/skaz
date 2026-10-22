@@ -4,11 +4,11 @@ import vm from 'node:vm';
 import {readFile} from 'node:fs/promises';
 const source=await readFile(new URL('../client/app.js',import.meta.url),'utf8');
 function harness(){
- let editable=true;const elements=new Map(),handlers={},writes=[];
+ let editable=true,revision=0;const elements=new Map(),handlers={},writes=[];
  const get=id=>{if(!elements.has(id))elements.set(id,{value:'',innerHTML:'',dataset:{},classList:{add(){},remove(){},toggle(){}},focus(){},scrollIntoView(){},append(node){elements.set('#'+node.id,node);},setAttribute(){},addEventListener(){},showModal(){this.open=true;},close(){this.open=false;}});return elements.get(id);};
  const context=vm.createContext({structuredClone,URL,Blob,location:{protocol:'http:',hash:'#hero'},history:{replaceState(){}},localStorage:{getItem:()=>null},setTimeout:()=>0,clearTimeout(){},
   document:{body:{dataset:{}},querySelector:get,querySelectorAll:()=>[],getElementById:id=>id==='blocked-form-message'?(elements.get('#'+id)||null):get('#'+id),createElement:()=>({setAttribute(){},scrollIntoView(){}}),addEventListener:(key,fn)=>handlers[key]=fn},window:{addEventListener(){},scrollTo(){}},
-  SkazStorage:{preference:()=> 'polar',paint(){},boot(){},setTheme(){},sessionTitle:()=>'',sessionDate:()=>'',contextKey:()=> 'same',editable:()=>editable,commit:async(state,label)=>{writes.push({state:structuredClone(state),label});return {state};}},SkazEvents:{pendingCount:()=>0}
+  SkazStorage:{preference:()=> 'polar',paint(){},boot(){},setTheme(){},sessionTitle:()=>'',sessionDate:()=>'',contextKey:()=> 'same',snapshotKey:()=> 'same:'+revision,editable:()=>editable,commit:async(state,label)=>{writes.push({state:structuredClone(state),label});revision++;return {state};}},SkazEvents:{pendingCount:()=>0}
  });vm.runInContext(source,context);
  return {get,writes,block:()=>editable=false,run:code=>vm.runInContext(code,context),state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),click:id=>handlers.click({target:{closest:()=>({id,dataset:{},classList:{contains:()=>false}})}})};
 }
@@ -47,4 +47,44 @@ test('player resource changes write a personal entry instead of changing the com
 test('initial HTTP rendering waits for saved state instead of flashing the demonstration hero',()=>{
  const h=harness();h.run('SkazStorage.readyToDisplay=()=>false;render()');assert.match(h.get('#main').innerHTML,/Открываем твою игру/);assert.equal(h.get('#campaign-name').textContent,'');assert.equal(h.get('#quick-state').innerHTML,'');
  h.run('SkazStorage.readyToDisplay=()=>true;render()');assert.match(h.get('#main').innerHTML,/Элиан/);
+});
+
+test('damage and healing undo restore the saved state once without offering undo of undo',async()=>{
+ for(const heal of [false,true]){
+  const h=harness(),before=h.state();h.run(`hpDialog(${heal})`);h.get('#hp-value').value='7';h.get('#apply-hp').onclick();await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(h.state().hp,before.hp+(heal?7:-7));assert.equal(h.writes.length,1);
+  const undo=h.get('#undo').onclick;await undo();await undo();
+  assert.deepEqual(h.state(),before);assert.equal(h.writes.length,2);
+  assert.equal(h.writes[1].label,'Отмена: '+(heal?'Здоровье восстановлено':'Урон применён'));
+  assert.doesNotMatch(h.get('#toast').innerHTML,/<button/);assert.doesNotMatch(h.get('#toast').innerHTML,/Отмена: Отмена:/);
+ }
+});
+
+test('rapid double undo sends only one save while its first save is still pending',async()=>{
+ const h=harness();await h.run("change('Урон применён',()=>{state.hp-=7})");
+ h.run('let finishUndo;SkazStorage.commit=next=>new Promise(resolve=>{finishUndo=()=>resolve({state:next})})');
+ const undo=h.get('#undo').onclick,first=undo();assert.equal(h.get('#undo').disabled,true);assert.equal(undo(),undefined);
+ h.run('finishUndo()');await first;assert.equal(h.state().hp,28);assert.doesNotMatch(h.get('#toast').innerHTML,/<button/);
+});
+
+test('old undo cannot erase a later change or a newer server snapshot',async()=>{
+ for(const newer of ["change('Золото',()=>{state.gold+=1})","Promise.resolve(SkazStorage.snapshotKey=()=> 'new-server-revision')"]){
+  const h=harness();await h.run("change('Урон применён',()=>{state.hp-=7})");const undo=h.get('#undo').onclick;
+  await h.run(newer);const current=h.state(),writes=h.writes.length;await undo();
+  assert.deepEqual(h.state(),current);assert.equal(h.writes.length,writes);
+ }
+});
+
+test('replaced or expired notifications cannot run their saved undo handlers',async()=>{
+ for(const action of ["toast('Другое уведомление')",'expireToast()']){
+  const h=harness();h.run('setTimeout=fn=>{globalThis.expireToast=fn;return 0}');
+  await h.run("change('Урон применён',()=>{state.hp-=7})");const undo=h.get('#undo').onclick;
+  h.run(action);await undo();assert.equal(h.state().hp,21);assert.equal(h.writes.length,1);
+ }
+});
+
+test('undo refuses a different game and failed undo does not create a new inverse action',async()=>{
+ const other=harness();await other.run("change('Урон применён',()=>{state.hp-=7})");other.run("SkazStorage.contextKey=()=> 'other'");await other.get('#undo').onclick();assert.equal(other.writes.length,1);assert.equal(other.state().hp,21);
+ const failed=harness();await failed.run("change('Урон применён',()=>{state.hp-=7})");failed.run("SkazStorage.commit=async()=>{throw new Error('Нет соединения')}");const undo=failed.get('#undo').onclick;await undo();await undo();
+ assert.equal(failed.state().hp,21);assert.match(failed.get('#toast').innerHTML,/Не сохранено/);assert.doesNotMatch(failed.get('#toast').innerHTML,/<button/);
 });
