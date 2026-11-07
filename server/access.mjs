@@ -174,7 +174,7 @@ export function createUserReader(db, access, userId, clientViewId, createView, g
   const viewId=access.bindView(userId,clientViewId), view=createView(viewId,()=>active());
   const shared=new Map(validateCatalog(bundledCatalog().bundle).map(entry=>[entry.id,entry]));
   const visible=entry=>isDeepStrictEqual(shared.get(entry.id),entry);
-  const catalog=createCatalog(db,{ visible });
+  const catalog=createCatalog(db,{ visible, preferred:()=>new Set(view.spellbook().entries.map(item=>item.catalogId)) });
   function active() {
     guard();
     access.user(userId);

@@ -180,7 +180,7 @@ export function openStore(filename) {
     }, operation);
   }
   return {
-    catalog,
+    catalog: {...catalog, search: params => catalog.search(params, new Set(readSpellbook(db, read().context.characterId).map(item => item.catalogId)))},
     changeResource: request => {
       const payload=validateResourceCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'resource',expectedRevision:request.expectedRevision,payload})).digest('hex');
       // Preserve the established revision/identity receipt checks for replay.

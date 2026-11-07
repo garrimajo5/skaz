@@ -146,7 +146,7 @@ export function validateCatalog(bundle) {
   });
 }
 
-export function createCatalog(db, { visible } = {}) {
+export function createCatalog(db, { visible, preferred } = {}) {
   db.exec('CREATE TABLE IF NOT EXISTS catalog_entries (id TEXT PRIMARY KEY, entry_json TEXT NOT NULL)');
   const canRead = visible ?? (() => true);
   const all = () => db.prepare('SELECT entry_json FROM catalog_entries ORDER BY id').all().map(row => JSON.parse(row.entry_json)).filter(canRead);
@@ -187,7 +187,7 @@ export function createCatalog(db, { visible } = {}) {
       return { applied: apply, added, unchanged, total: existing.size + (apply ? added : 0), ...(upgrades.length?{updated:updates.length,updates}:{}) };
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
-  function search(params = new URLSearchParams()) {
+  function search(params = new URLSearchParams(), preferredIds) {
     for (const key of params.keys()) if (!['q', 'scope', 'kind', 'level', 'school', 'ritual', 'concentration', 'challenge', 'challengeMin', 'challengeMax', 'monsterType', 'size', 'rarity', 'itemType', 'attunement', 'mechanicCategory', 'limit', 'offset'].includes(key) || params.getAll(key).length !== 1) throw new AppError(400, 'Неизвестный или повторный фильтр');
     const q = (params.get('q') || '').trim().toLocaleLowerCase('ru');
     const kind = params.get('kind');
@@ -225,8 +225,9 @@ export function createCatalog(db, { visible } = {}) {
     if (!limit) throw new AppError(400, 'Лимит должен быть больше нуля');
     const matches = all().filter(entry => (!kind || entry.kind === kind) && (level===null || entry.spell?.level===Number(level)) && (school===null || entry.spell?.school===school) && (ritual===null || entry.spell?.ritual===(ritual==='true')) && (concentration===null || entry.spell?.concentration===(concentration==='true')) && (challenge===null || entry.monster?.challenge===challenge) && (challengeMin===null || entry.monster!==undefined&&challengeNumber(entry.monster.challenge)>=challengeNumber(challengeMin)) && (challengeMax===null || entry.monster!==undefined&&challengeNumber(entry.monster.challenge)<=challengeNumber(challengeMax)) && (monsterType===null || entry.monster?.type===monsterType) && (size===null || entry.monster?.size===size) && (rarity===null || entry.item?.rarity===rarity) && (itemType===null || entry.item?.type===itemType) && (attunement===null || entry.item?.attunement===(attunement==='true')) && (mechanicCategory===null || entry.mechanic?.category===mechanicCategory) && `${entry.name.ru} ${entry.name.en}${scope==='text'?' '+(entry.text||''):''}`.toLocaleLowerCase('ru').includes(q));
     if(q){
+      const personal=preferredIds??preferred?.()??new Set();
       const rank=entry=>Math.min(...[entry.name.ru,entry.name.en].map(name=>{const n=name.toLocaleLowerCase('ru');return n===q?0:n.startsWith(q)?1:n.split(/[^\p{L}\p{N}]+/u).some(word=>word.startsWith(q))?2:n.includes(q)?3:4;}));
-      matches.sort((a,b)=>rank(a)-rank(b)||(a.spell?.level??99)-(b.spell?.level??99)||a.name.ru.localeCompare(b.name.ru,'ru')||a.id.localeCompare(b.id));
+      matches.sort((a,b)=>rank(a)-rank(b)||Number(personal.has(b.id))-Number(personal.has(a.id))||(a.spell?.level??99)-(b.spell?.level??99)||a.name.ru.localeCompare(b.name.ru,'ru')||a.id.localeCompare(b.id));
     }
     return { entries: matches.slice(offset, offset + limit), total: matches.length, limit, offset };
   }

@@ -14,13 +14,13 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
   const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch, navigator, SkazAccount,
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
-    document: { getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
-    SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-resource-undo]' ? [get('resource-undo-button')] : selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>dialog=html, closeModal() {}, toast: value => messages.push(value),
+    document: { getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')&&!get('inventory-page').innerHTML.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
+    SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-resource-undo]' ? [get('resource-undo-button')] : selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>{dialog=html;get('dialog').open=true;}, closeModal() {dialog='';get('dialog').open=false;}, toast: value => messages.push(value),
   });
   if(withQueue)vm.runInContext(queueSource,context);
   vm.runInContext(sheetSource,context);
   vm.runInContext(source, context);
-  return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, references, dialog:()=>dialog,
+  return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, references, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
     click: (id,dataset={},disabled=false) => handlers.click({ target: { closest: () => ({ id,dataset,disabled }) } }),
     visible: value => {context.document.visibilityState=value;return handlers.visibilitychange();},
     state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),
@@ -1059,4 +1059,34 @@ test('repeated manual counter buttons need no IDs and reject disabled or stale c
  await h.click('',dataset,true);assert.equal(writes.length,0);
  await h.click('',dataset);assert.equal(writes.length,1);assert.equal(writes[0].counterId,dataset.counterId);assert.equal(h.api.sheet().counters[0].current,1);
  await h.click('',dataset);assert.equal(writes.length,1);assert.match(h.messages.at(-1),/изменились/);
+});
+
+test('inventory page prioritizes consumables and charges while actions retain original item identity',async()=>{
+ const make=(id,name,info)=>({catalogId:id,quantity:1,entry:{id,name:{ru:name,en:id},item:info,source:{url:'https://example.com',title:'Test',version:'1',terms:'Test'}}});
+ const entries=[make('armor','Адамантовый доспех',{type:'armor'}),make('potion','Зелье лечения',{type:'potion'}),make('wand','Волшебная палочка',{type:'wand',charges:{max:7}})];
+ const h=harness(memory(),memory(),async url=>response(url==='/api/inventory'?{...payload(0),entries}:payload(0)));
+ await h.api.boot();h.setPage('inventory');await h.api.inventory();
+ assert.equal(h.dialog(),'');assert.match(h.pageHtml(),/<h1 id="inventory-view"/);
+ assert.ok(h.pageHtml().indexOf('Волшебная палочка')<h.pageHtml().indexOf('Зелье лечения'));
+ assert.ok(h.pageHtml().indexOf('Зелье лечения')<h.pageHtml().indexOf('Адамантовый доспех'));
+ assert.match(h.pageHtml(),/data-inventory-read="2"/);
+ h.get('inventory-read-button').dataset.inventoryRead='2';h.get('inventory-read-button').onclick();assert.match(h.dialog(),/Волшебная палочка/);
+ await h.get('#inventory-read-back').onclick();assert.equal(h.dialog(),'');assert.match(h.pageHtml(),/Под рукой/);
+ h.get('inventory-remove-button').dataset.inventoryRemove='1';h.get('inventory-remove-button').onclick();assert.match(h.dialog(),/Списать: Зелье лечения/);
+});
+
+test('inventory page discards late results after leaving the page or changing context',async()=>{
+ let resolve,current=payload(0);
+ const h=harness(memory(),memory(),async url=>url==='/api/inventory'?new Promise(r=>resolve=r):response(current));
+ await h.api.boot();h.setPage('inventory');const pending=h.api.inventory();h.setPage('hero');resolve(response({...payload(0),entries:[]}));await pending;
+ assert.match(h.pageHtml(),/Загружаем/);assert.equal(h.dialog(),'');
+ h.setPage('inventory');const second=h.api.inventory();current=payload(1,'other');await h.api.boot();resolve(response({...payload(0),entries:[]}));await second;
+ assert.match(h.pageHtml(),/Загружаем/);assert.equal(h.dialog(),'');
+});
+
+test('background inventory redraw preserves an open dialog and cannot act through stale page handlers',async()=>{
+ const h=harness(memory(),memory(),async url=>response(url==='/api/inventory'?{...payload(0),entries:[]}:payload(0)));
+ await h.api.boot();h.setPage('inventory');h.api.settings();const settings=h.dialog();
+ await h.api.inventory({preserveDialog:true});assert.equal(h.dialog(),settings);assert.match(h.pageHtml(),/Пока пусто/);
+ const before=h.pageHtml();h.get('#inventory-reset').onclick();assert.equal(h.pageHtml(),before);assert.match(h.messages.at(-1),/Игра изменилась/);
 });

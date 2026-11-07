@@ -436,3 +436,19 @@ test('permission hints reflect role and opt-in write mode; demotion cannot autho
  store.access.apply({action:'set-member',userId:userGM,campaignId:first.campaignId,role:'player'});assert.equal(gm.permissions().manageCampaign,false);
  const before=gm.read();assert.throws(()=>gm.update({mutationId:randomUUID(),expectedRevision:before.revision,label:'Shared write',state:{...before.state,journal:[note('Denied')]}}),{status:403});assert.deepEqual(gm.read(),before);
 });
+
+test('catalog relevance prefers only the authorized hero book after textual rank and before pagination',t=>{
+ const {store,second}=setup(t),bundle=store.catalog.previewBundled();store.catalog.installBundled({version:bundle.version});
+ const player=store.forUser(userB,'catalog-priority',{write:true}),owner=store.forUser(userA,'catalog-priority',{write:true});
+ const fire=store.catalog.search(new URLSearchParams({q:'fire',kind:'spell',limit:'100'})).entries;
+ const storm=fire.find(e=>e.name.en==='Fire Storm'),shield=fire.find(e=>e.name.en==='Fire Shield');assert.ok(storm&&shield);
+ player.setSpell(command(player,{characterId:player.read().context.characterId,catalogId:storm.id,status:'known'}));
+ owner.setSpell(command(owner,{characterId:owner.read().context.characterId,catalogId:shield.id,status:'prepared'}));
+ const params=new URLSearchParams({q:'fire',kind:'spell',limit:'1'});
+ assert.equal(player.catalog.search(params).entries[0].id,storm.id);assert.equal(owner.catalog.search(params).entries[0].id,shield.id);
+ assert.equal(store.forUser(userB,'catalog-priority-reader').catalog.search(params).entries[0].id,storm.id);
+ const local=store.forView('local-catalog-priority');local.setSpell(command(local,{characterId:local.read().context.characterId,catalogId:shield.id,status:'known'}));assert.equal(local.catalog.search(params).entries[0].id,shield.id);
+ for(const view of [player,owner])for(const q of ['щит','Shield'])assert.equal(view.catalog.search(new URLSearchParams({q})).entries[0].name.en,'Shield');
+ const all=player.catalog.search(new URLSearchParams({q:'fire',kind:'spell',limit:'100'}));assert.equal(player.catalog.search(new URLSearchParams({q:'fire',kind:'spell',limit:'1',offset:'1'})).entries[0].id,all.entries[1].id);
+ store.access.apply({action:'revoke-character',userId:userB,campaignId:second.campaignId,characterId:second.characterId});assert.throws(()=>player.catalog.search(params),{status:404});
+});

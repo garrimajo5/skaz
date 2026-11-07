@@ -2,6 +2,14 @@ const SkazCatalog = (() => {
   const names = { mechanic: 'Механики', spell: 'Заклинания', monster: 'Бестиарий', item: 'Предметы', artifact: 'Артефакты' };
   let query = '', searchScope='name', kind = '', offset = 0, result = null, coverage = null, status = 'idle', serial = 0;
   const limit = 20;
+  let ownerKey='',homeMode=false,homeGroups=[],homeDirty=false;
+  const owner=()=>JSON.stringify([typeof SkazAccount==='undefined'?'local':SkazAccount.userId||'local',SkazStorage.contextKey?.()||'local']);
+  const snapshot=()=>owner()+':'+(SkazStorage.snapshotKey?.()||'');
+  const recentKey=()=> 'skaz-catalog-recent-v1:'+owner();
+  function recentIds(){try{const ids=JSON.parse(localStorage.getItem(recentKey())||'[]');return Array.isArray(ids)?[...new Set(ids.filter(id=>typeof id==='string'&&id.length>0&&id.length<=200))].slice(0,12):[];}catch{return [];}}
+  function rememberEntry(entry){if(!entry.id||referenceReturn)return;homeDirty=true;try{localStorage.setItem(recentKey(),JSON.stringify([entry.id,...recentIds().filter(id=>id!==entry.id)].slice(0,12)));}catch{}}
+  const isHome=()=>!query&&!kind&&!detailFilter&&!Object.values(extraFilters).some(Boolean)&&typeof SkazStorage.spellbookData==='function';
+
   let detailFilter='';
   let extraFilters={}, searchDraft=null;
   const schools={abjuration:'Ограждение',conjuration:'Вызов',divination:'Прорицание',enchantment:'Очарование',evocation:'Воплощение',illusion:'Иллюзия',necromancy:'Некромантия',transmutation:'Преобразование'};
@@ -35,13 +43,15 @@ const SkazCatalog = (() => {
   }
   function view() {
     if (location.protocol === 'file:') return `<section class="panel"><h2>Каталог доступен с сервером</h2><p>Этот HTML-файл — автономная демонстрация. Открой локальное приложение, чтобы искать импортированные материалы.</p><button data-page="spells">8 демо-заклинаний →</button></section>`;
-    if (status === 'idle') queueMicrotask(() => load());
+    if(homeDirty&&isHome()){homeDirty=false;status='idle';}
+    const nextOwner=snapshot();if(ownerKey!==nextOwner){ownerKey=nextOwner;result=null;homeGroups=[];status='idle';++serial;++detailSerial;relatedCache.clear();}
+    if (status === 'idle'){status='loading';const scheduled=serial;queueMicrotask(() => {if(serial===scheduled)load();});}
     const draft=searchDraft||{q:query,scope:searchScope,kind,[filterKeys[kind]]:detailFilter,...extraFilters};
     return `<section class="catalog" aria-label="Каталог D&D 2014">
-      <div class="notice"><b>D&D 2014 · Каталог пополняется</b><p>${coverage ? `В базе: ${coverage.total}. Справочных ссылок: ${coverage.referenceOnly}, личных записей: ${coverage.personal}, CC BY 4.0: ${coverage.openlyLicensed || 0}.` : 'Полнота базы пока не подтверждена.'} Предметы и артефакты можно добавить в инвентарь из карточки.${scopeText()}</p></div>
-      <div class="catalog-tools" aria-label="Наполнение каталога"><button id="catalog-bundled">Проверенная подборка 2014</button><button id="catalog-help">Личный импорт</button><button id="catalog-inventory">Охват заклинаний SRD</button></div>
       <div id="catalog-creature-coverage">${creatureCoverage()}</div>
-      <form id="catalog-search" class="catalog-search"><label>Название или ключевые слова<input name="q" type="search" maxlength="200" placeholder="Например, Spellcasting" value="${escape(draft.q)}"></label><label>Категория<select name="kind"><option value="">Все категории</option>${Object.entries(names).map(([key, name]) => `<option value="${key}" ${draft.kind === key ? 'selected' : ''}>${name}</option>`).join('')}</select></label><label>Где искать<select name="scope"><option value="name" ${draft.scope!=='text'?'selected':''}>В названиях</option><option value="text" ${draft.scope==='text'?'selected':''}>В названиях и описаниях</option></select></label><div id="catalog-specific" class="catalog-specific">${filterControl(draft.kind,draft[filterKeys[draft.kind]]||'',draft)}</div><div class="catalog-search-actions"><button type="submit" class="primary">Найти</button><button type="button" id="catalog-reset">Сбросить фильтры</button></div></form>
+      <form id="catalog-search" class="catalog-search"><h1>Справочник</h1><label>Название или ключевые слова<input name="q" type="search" maxlength="200" placeholder="Например, Spellcasting" value="${escape(draft.q)}"></label><input type="hidden" name="kind" value="${escape(draft.kind)}"><details class="catalog-about"><summary>О каталоге 2014</summary><div class="notice"><b>Каталог пополняется</b><p>${coverage ? `В базе: ${coverage.total}. Справочных ссылок: ${coverage.referenceOnly}, личных записей: ${coverage.personal}, CC BY 4.0: ${coverage.openlyLicensed || 0}.` : 'Полнота базы пока не подтверждена.'} Предметы и артефакты можно добавить в инвентарь из карточки.${scopeText()}</p></div>
+      <div class="catalog-tools" aria-label="Наполнение каталога"><button type="button" id="catalog-bundled">Проверенная подборка 2014</button><button type="button" id="catalog-help">Личный импорт</button><button type="button" id="catalog-inventory">Охват заклинаний SRD</button></div>
+      </details><details class="catalog-filters"><summary>Фильтры</summary><label class="catalog-text-toggle"><input type="checkbox" name="scope" value="text" ${draft.scope==='text'?'checked':''}>И в описаниях</label><div id="catalog-specific" class="catalog-specific">${filterControl(draft.kind,draft[filterKeys[draft.kind]]||'',draft)}</div></details><div class="catalog-search-actions"><button type="submit" class="primary">Найти</button><button type="button" id="catalog-reset">Сбросить фильтры</button></div></form><div class="catalog-kinds" aria-label="Категория">${[['','Все'],...Object.entries(names)].map(([key,label])=>`<button data-catalog-kind="${key}" aria-pressed="${draft.kind===key}">${label}</button>`).join('')}</div>
       <div id="catalog-results" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div>
       <div class="catalog-footer"><p>В разделе магии доступны личный список из каталога и отдельные демонстрационные заклинания.</p><button data-page="spells">К моей магии →</button></div>
     </section>`;
@@ -49,10 +59,13 @@ const SkazCatalog = (() => {
   function results() {
     if (status === 'loading' || status === 'idle') return '<p class="empty">Загружаем каталог…</p>';
     if (status === 'error') return '<div class="empty"><h2>Каталог недоступен</h2><p>Проверь, что локальный сервер запущен. Поиск сохранён — можно повторить запрос.</p><button id="catalog-retry">Повторить</button></div>';
+    if(homeMode)return homeResults();
     if (!result?.entries.length) return `<div class="empty"><h2>${query || kind ? 'Ничего не найдено' : 'Каталог пока пуст'}</h2><p>${query || kind ? 'Попробуй другие слова, поиск по описаниям или все категории.' : 'Добавь справочные ссылки или личные материалы. Демо-заклинания доступны отдельно.'}</p></div>`;
     const pages=bottom=>`<nav class="catalog-pages" aria-label="${bottom?'Страницы каталога внизу':'Страницы каталога'}"><button id="catalog-prev${bottom?'-bottom':''}" ${offset === 0 ? 'disabled' : ''}>← Назад</button><span>${Math.floor(offset/limit)+1} / ${Math.ceil(result.total/limit)}</span><button id="catalog-next${bottom?'-bottom':''}" ${offset + limit >= result.total ? 'disabled' : ''}>Далее →</button></nav>`;
-    return `<p class="catalog-count" id="catalog-result-heading" tabindex="-1">Найдено: ${result.total} · ${offset + 1}–${offset + result.entries.length}</p>${pages(false)}<div class="catalog-grid">${result.entries.map((entry, index) => `<article class="panel catalog-card"><div class="overline">${names[entry.kind]} · 2014</div><h2>${escape(entry.name.ru)}</h2><p>${escape(entry.name.en)}</p>${cardSummary(entry)}${searchExcerpt(entry)}<span>${usageLabel(entry.source.usage)}</span><p class="catalog-source">${escape(entry.source.title)}</p><button data-catalog-entry="${index}">Подробнее →</button></article>`).join('')}</div>${result.total>limit?pages(true):''}`;
+    return `<p class="catalog-count" id="catalog-result-heading" tabindex="-1">Найдено: ${result.total} · ${offset + 1}–${offset + result.entries.length}</p><div class="catalog-grid">${result.entries.map((entry,index)=>row(entry,index)).join('')}</div>${result.total>limit?pages(true):''}`;
   }
+  function row(entry,index){return `<article class="panel catalog-card catalog-row"><div class="catalog-row-name"><h2>${escape(entry.name.ru)}</h2><p>${escape(entry.name.en)}</p></div><div class="catalog-row-facts">${cardSummary(entry)}</div><button data-catalog-entry="${index}" aria-label="Открыть: ${escape(entry.name.ru)}">Читать</button>${searchExcerpt(entry)}</article>`;}
+  function homeResults(){let index=0;return '<p class="catalog-count">Мои материалы и последние открытия этого персонажа. Для полного списка выбери категорию.</p>'+homeGroups.map(group=>'<section class="catalog-home-group"><h2>'+group.title+'</h2><div class="catalog-grid">'+(group.entries.length?group.entries.map(entry=>row(entry,index++)).join(''):'<p class="small">'+group.empty+'</p>')+'</div></section>').join('');}
   function searchExcerpt(entry) {
     if(searchScope!=='text'||!query||!entry.text)return '';
     const body=entry.text,match=body.toLocaleLowerCase('ru').indexOf(query.toLocaleLowerCase('ru'));
@@ -62,15 +75,15 @@ const SkazCatalog = (() => {
   }
   function cardSummary(entry) {
     const parts=[];
-    if(entry.spell){const s=entry.spell;parts.push(s.level===0?'Заговор':`${s.level} уровень`,schools[s.school]||s.school,s.castingTime);if(s.ritual)parts.push('Ритуал');if(s.concentration)parts.push('Концентрация');}
+    if(entry.spell){const s=entry.spell;parts.push(s.level===0?'Заговор':`${s.level} ур`,String(s.castingTime||'').split(',')[0],s.range?.type==='feet'?s.range.feet+' фт':({self:'На себя',touch:'Касание',sight:'Видимость',unlimited:'Не ограничена',special:'Особая'}[s.range?.type]||''));if(s.ritual)parts.push('Ритуал');if(s.concentration)parts.push('Концентрация');}
     if(entry.monster){const m=entry.monster;parts.push(monsterTypes[m.type]||m.type,`Опасность ${m.challenge}`,`КД ${m.armorClass}`,`Хиты ${m.hitPoints}`);}
     const item=entry.item||entry.artifact;
     if(item){parts.push(itemTypes[item.type]||item.type);if(item.rarity)parts.push(rarityLabels[item.rarity]||item.rarity);parts.push(item.attunement?'Требует настройки':'Без настройки');}
     if(entry.mechanic)parts.push(mechanicCategories[entry.mechanic.category]||entry.mechanic.category);
-    return parts.length?`<ul class="catalog-card-summary" aria-label="Краткие характеристики">${parts.map(value=>`<li>${escape(value)}</li>`).join('')}</ul>`:'';
+    return parts.length?`<ul class="catalog-card-summary" aria-label="Краткие характеристики">${parts.filter(Boolean).map(value=>`<li>${escape(value)}</li>`).join('')}</ul>`:'';
   }
   async function load({focusResults=false}={}) {
-    const requestId = ++serial;
+    const requestId = ++serial, requestedOwner=snapshot();ownerKey=requestedOwner;homeMode=isHome();homeDirty=false;
     status = 'loading'; refresh();
     const params = new URLSearchParams({ q: query, limit: String(limit), offset: String(offset) });
     if (kind) params.set('kind', kind);
@@ -78,15 +91,21 @@ const SkazCatalog = (() => {
     if(detailFilter && filterKeys[kind])params.set(filterKeys[kind],detailFilter);
     for(const key of extraKeys[kind]||[])if(extraFilters[key])params.set(key,extraFilters[key]);
     try {
+      if(homeMode){
+        const [book,covered,recent]=await Promise.all([SkazStorage.spellbookData(),fetch('/api/catalog/coverage',{cache:'no-store',signal:AbortSignal.timeout(10000)}).then(r=>{if(!r.ok)throw new Error('Coverage unavailable');return r.json();}),Promise.all(recentIds().map(async id=>{const r=await fetch('/api/catalog/entry?'+new URLSearchParams({id}),{cache:'no-store',signal:AbortSignal.timeout(10000)});if(r.status===404)return null;if(!r.ok)throw new Error('Recent unavailable');const value=await r.json();return value.entry;}))]);
+        if(requestId!==serial||requestedOwner!==snapshot())return;
+        homeGroups=[{title:'Недавно открытые',entries:recent.filter(Boolean),empty:'Здесь появятся открытые карточки.'},{title:book.entries.length>20?'Мои заклинания · первые 20':'Мои заклинания',entries:book.entries.map(item=>item.entry).sort((a,b)=>(a.spell?.level??99)-(b.spell?.level??99)||a.name.ru.localeCompare(b.name.ru,'ru')).slice(0,20),empty:'Книга пока пуста. Найди заклинание и добавь его из карточки.'}];
+        result={entries:homeGroups.flatMap(group=>group.entries),total:homeGroups.reduce((sum,group)=>sum+group.entries.length,0)};coverage=covered;status='ready';refresh();return;
+      }
       const values = await Promise.all(['/api/catalog?' + params, '/api/catalog/coverage'].map(async url => {
         const response = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
         if (!response.ok) throw new Error('Catalog unavailable');
         return response.json();
       }));
-      if (requestId !== serial) return;
+      if (requestId !== serial||requestedOwner!==snapshot()) return;
       [result, coverage] = values;
       status = 'ready';
-    } catch { if (requestId !== serial) return; status = 'error'; }
+    } catch { if (requestId !== serial||requestedOwner!==snapshot()) return; status = 'error'; }
     refresh();
     if(focusResults && typeof page!=='undefined' && page==='library' && !document.getElementById('dialog')?.open){
       const heading=document.getElementById('catalog-result-heading');
@@ -115,13 +134,14 @@ const SkazCatalog = (() => {
     return rows.length?`<section class="catalog-facts"><h3>Характеристики</h3><dl>${rows.join('')}</dl><p>Справочные данные. Эффекты автоматически не применяются.</p></section>`:'';
   }
   function details(index) {
+    if(ownerKey!==snapshot())return;
     const entry = result?.entries[index];
     if (!entry) return;
     trail=[]; returnToInventory=false; referenceReturn=null; showDetails(entry);
   }
   function showDetails(entry, related) {
     if(referenceReturn&&!referenceReturn.valid())return;
-    const token=++detailSerial; currentEntry=entry;
+    const token=++detailSerial; currentEntry=entry;rememberEntry(entry);
     if(related)relatedCache.set(entry.id,related);
     // Restrict links again at the rendering boundary, even for previously imported data.
     let source = '';
@@ -243,9 +263,10 @@ const SkazCatalog = (() => {
   function rememberSearch(event){
     const field=event.target;
     if(field.form?.id!=='catalog-search'||!['q','scope','kind','level','school','ritual','concentration','challengeMin','challengeMax','monsterType','size','rarity','itemType','attunement','mechanicCategory'].includes(field.name))return;
-    searchDraft={...(searchDraft||{q:query,scope:searchScope,kind,[filterKeys[kind]]:detailFilter,...extraFilters}),[field.name]:field.value};
+    searchDraft={...(searchDraft||{q:query,scope:searchScope,kind,[filterKeys[kind]]:detailFilter,...extraFilters}),[field.name]:field.name==='scope'?(field.checked?'text':'name'):field.value};
     clearTimeout(searchTimer);
     if(field.name==='q')searchTimer=setTimeout(()=>{if(document.getElementById('catalog-search')!==field.form)return;field.form.requestSubmit();},200);
+    if(field.name==='scope'&&event.type==='change')field.form.requestSubmit?.();
     if(field.name==='kind'){
       for(const key of ['level','school','ritual','concentration','challengeMin','challengeMax','monsterType','size','rarity','itemType','attunement','mechanicCategory'])delete searchDraft[key];
       const region=document.getElementById('catalog-specific');if(region)region.innerHTML=filterControl(field.value);
@@ -255,6 +276,7 @@ const SkazCatalog = (() => {
   document.addEventListener('change',rememberSearch);
   document.addEventListener('click', event => {
     const button = event.target.closest('button'); if (!button) return;
+    if(Object.hasOwn(button.dataset,'catalogKind')){clearTimeout(searchTimer);const next=button.dataset.catalogKind;if(next&&!Object.hasOwn(names,next))return;kind=next;query=(searchDraft?.q??query).trim();searchScope=searchDraft?.scope??searchScope;detailFilter='';extraFilters={};searchDraft=null;offset=0;render();load();return;}
     if (button.hasAttribute('data-catalog-entry')) details(Number(button.dataset.catalogEntry));
     if(button.dataset.catalogRelated)openRelated(button.dataset.catalogRelated);
     if(button.dataset.catalogSection && detailVisible(detailSerial)){

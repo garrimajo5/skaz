@@ -3,26 +3,27 @@ import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import { readFile } from 'node:fs/promises';
 const source = await readFile(new URL('../client/catalog.js', import.meta.url), 'utf8');
-function harness(protocol = 'http:') {
+function harness(protocol = 'http:', home=false, memory=new Map()) {
+  let snapshotKey='hero:0',userId='user-a';
   const handlers = {}, requests = [], tasks = [], additions = [];
   const movement=[];
   const region = { parentElement:{open:false}, innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
   let dialog = '', isOpen=true;const messages=[],typeRegion={innerHTML:'',querySelector:()=>null};
   const context = vm.createContext({
-    setTimeout, clearTimeout, location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
+    localStorage:{getItem:key=>memory.get(key)||null,setItem:(key,value)=>memory.set(key,value)},SkazAccount:{get userId(){return userId;}},setTimeout, clearTimeout, location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
     queueMicrotask: task => tasks.push(task),
     fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
     document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region, querySelector: () => null },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
-    toast:message=>messages.push(message),render:()=>{}, modal: html => dialog = html, SkazStorage: { addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
+    toast:message=>messages.push(message),render:()=>{}, modal: html => dialog = html, SkazStorage: { ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
+  return { memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>isOpen=false, otherModal:()=>dialog='<h2>Other</h2>',
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
-    draft:(name,value)=>handlers.input({target:{name,value,form:{id:'catalog-search'}}}),
+    draft:(name,value)=>handlers.input({target:{name,value,checked:name==='scope'&&value==='text',form:{id:'catalog-search'}}}),
     changeKind:value=>handlers.change({target:{name:'kind',value,form:{id:'catalog-search'}}}),
     detail: () => handlers.click({ target: { closest: () => ({ hasAttribute: () => true, dataset: { catalogEntry: '0' } }) } }),
   };
@@ -50,7 +51,7 @@ test('catalog cards expose useful safe summaries without opening a dialog or app
  {...entry,kind:'item',item:{type:'ring',rarity:'rare',attunement:false}},
  {...entry,mechanic:{category:'<img onerror=bad>',effects:[]}}];
  respond(h.requests[0],{entries:cards,total:4});respond(h.requests[1],coverage);await settle();
- for(const value of ['5 уровень','Воплощение','Ритуал','Концентрация','КД 15','Хиты 90','Без настройки','Редкий'])assert.ok(h.region.innerHTML.includes(value));
+ for(const value of ['5 ур','Ритуал','Концентрация','КД 15','Хиты 90','Без настройки','Редкий'])assert.ok(h.region.innerHTML.includes(value));
  assert.match(h.region.innerHTML,/&lt;img onerror=bad&gt;/);assert.doesNotMatch(h.region.innerHTML,/<img/);assert.equal(h.dialog(),'');assert.equal(h.additions.length,0);
 });
 
@@ -85,7 +86,7 @@ test('CC material shows license, escaped attribution and translation changes', a
   const licensed = { ...entry, source: { ...entry.source, usage: 'cc-by-4.0', attribution: '<b>Author</b>', changes: '<script>Translation</script>' } };
   respond(h.requests[0], { entries: [licensed], total: 1 }); respond(h.requests[1], { ...coverage, personal: 0, openlyLicensed: 1 });
   await settle(); h.detail();
-  assert.match(h.region.innerHTML, /Открытый материал · CC BY 4.0/);
+  assert.doesNotMatch(h.region.innerHTML, /Открытый материал · CC BY 4.0/);assert.match(h.dialog(), /Открытый материал · CC BY 4.0/);
   assert.match(h.view(), /CC BY 4.0: 1/);
   assert.match(h.dialog(), /&lt;b&gt;Author/);
   assert.match(h.dialog(), /&lt;script&gt;Translation/);
@@ -213,8 +214,8 @@ test('spell-specific filters preserve false through paging and rerender, then cl
 test('unfinished catalog filters survive a theme rerender without searching or leaking across categories',async()=>{
  const h=harness();h.submit('saved',{kind:'spell',level:'1'});respond(h.requests[0],{entries:[entry],total:1});respond(h.requests[1],coverage);await settle();
  h.draft('q','<draft>');h.draft('school','illusion');h.draft('concentration','false');assert.match(h.view(),/value="&lt;draft&gt;"/);assert.match(h.view(),/value="illusion" selected/);assert.match(h.view(),/value="false" selected/);assert.equal(h.requests.length,2);
- h.changeKind('monster');assert.match(h.view(),/value="monster" selected/);assert.match(h.view(),/value="&lt;draft&gt;"/);assert.doesNotMatch(h.view(),/name="school"|name="concentration"/);
- h.draft('challengeMin','1/4');assert.match(h.view(),/value="1\/4" selected/);h.click('catalog-reset');assert.doesNotMatch(h.view(),/draft|value="monster" selected|name="challengeMin"/);
+ h.changeKind('monster');assert.match(h.view(),/data-catalog-kind="monster" aria-pressed="true"/);assert.match(h.view(),/value="&lt;draft&gt;"/);assert.doesNotMatch(h.view(),/name="school"|name="concentration"/);
+ h.draft('challengeMin','1/4');assert.match(h.view(),/value="1\/4" selected/);h.click('catalog-reset');assert.doesNotMatch(h.view(),/draft|data-catalog-kind="monster" aria-pressed="true"|name="challengeMin"/);
 });
 
 test('structured cards show useful values, negative modifiers and escape imported fields',async()=>{
@@ -310,14 +311,14 @@ test('exploration category is available and stays separate from equipment',async
 });
 
 test('description search preserves scope and safely highlights only the matching body fragment',async()=>{
- const h=harness();h.draft('scope','text');assert.match(h.view(),/value="text" selected/);
- h.changeKind('item');assert.match(h.view(),/value="text" selected/);
+ const h=harness();h.draft('scope','text');assert.match(h.view(),/name="scope" value="text" checked/);
+ h.changeKind('item');assert.match(h.view(),/name="scope" value="text" checked/);
  h.submit('<tag>',{scope:'text'});assert.match(h.requests[0].url,/scope=text/);
  respond(h.requests[0],{entries:[{...entry,text:'Prefix <tag> <img src=x> suffix'}],total:21});respond(h.requests[1],coverage);await settle();
  assert.match(h.region.innerHTML,/<mark>&lt;tag&gt;<\/mark>/);assert.match(h.region.innerHTML,/&lt;img src=x&gt;/);assert.doesNotMatch(h.region.innerHTML,/<img|<tag>/);
  h.click('catalog-next');assert.match(h.requests[2].url,/scope=text/);assert.match(h.requests[2].url,/offset=20/);
  respond(h.requests[2],{entries:[entry],total:21});respond(h.requests[3],coverage);await settle();
- h.click('catalog-reset');assert.doesNotMatch(h.requests[4].url,/scope=text/);assert.match(h.view(),/value="name" selected/);
+ h.click('catalog-reset');assert.doesNotMatch(h.requests[4].url,/scope=text/);assert.doesNotMatch(h.view(),/name="scope" value="text" checked/);
 });
 
 test('creature inventory searches types and readiness, pages safely and returns from a card to the same list',async()=>{
@@ -341,3 +342,25 @@ test('fiend source filter separates unprepared headings from installed cards wit
 });
 
 test('unprepared dragon source search keeps EN names, readiness and pagination without open buttons or writes',async()=>{const h=harness();h.click('catalog-creature-inventory');respond(h.requests[0],{entries:Array.from({length:43},(_,i)=>({id:'source:dragon-'+i,nameEn:'Dragon '+i,nameRu:null,page:280+i%24,monsterType:'dragon',status:'missing'}))});await settle();h.inventorySubmit('','missing','dragon');assert.match(h.dialog(),/Найдено: 43/);assert.match(h.dialog(),/подготовлено 0 из 43/);assert.doesNotMatch(h.dialog(),/data-inventory-read/);h.click('inventory-next');assert.match(h.dialog(),/21–40 из 43/);h.click('inventory-next');assert.match(h.dialog(),/41–43 из 43/);assert.match(h.dialog(),/id="inventory-next" disabled/);h.inventorySubmit('Dragon 42','missing','dragon');assert.match(h.dialog(),/Найдено: 1/);assert.match(h.dialog(),/<h3>Dragon 42/);assert.doesNotMatch(h.dialog(),/data-inventory-read/);assert.equal(h.requests.length,1);assert.equal(h.additions.length,0);});
+
+test('catalog home stores only IDs, rechecks recent access and never mixes hero or user data',async()=>{
+ const memory=new Map(),h=harness('http:',true,memory),saved={...entry,id:'test:recent',name:{ru:'Недавняя запись',en:'Recent'}};
+ h.submit('recent');respond(h.requests[0],{entries:[saved],total:1});respond(h.requests[1],coverage);await settle();h.detail();
+ assert.equal(memory.size,1);assert.deepEqual(JSON.parse([...memory.values()][0]),['test:recent']);assert.ok(![...memory.values()][0].includes('Недавняя'));
+ h.submit('');assert.equal(h.requests[2].url,'/api/spellbook');assert.match(h.requests[4].url,/id=test%3Arecent/);
+ h.requests[2].resolve({entries:[{entry:{...saved,name:{ru:'Моё заклинание',en:'Mine'}}}]});respond(h.requests[3],coverage);respond(h.requests[4],{entry:saved,related:[]});await settle();assert.match(h.region.innerHTML,/Недавно открытые|Мои заклинания/);assert.match(h.region.innerHTML,/Недавняя запись/);assert.match(h.region.innerHTML,/Моё заклинание/);
+ h.setOwner('other:0');h.view();h.tasks.shift()();assert.equal(h.requests.length,7);h.requests[5].resolve({entries:[]});respond(h.requests[6],coverage);await settle();assert.doesNotMatch(h.region.innerHTML,/Недавняя запись|Моё заклинание/);
+ h.setOwner('hero:0','user-b');h.view();h.tasks.shift()();assert.equal(h.requests.length,9);h.requests[7].resolve({entries:[]});respond(h.requests[8],coverage);await settle();assert.doesNotMatch(h.region.innerHTML,/Недавняя запись|Моё заклинание/);
+});
+
+test('catalog home discards stale responses and inaccessible recent entries rather than showing cached text',async()=>{
+ const memory=new Map(),h=harness('http:',true,memory);const storageKey='skaz-catalog-recent-v1:'+JSON.stringify(['user-a','hero']);memory.set(storageKey,JSON.stringify(['missing-entry']));
+ h.submit('');h.requests[0].resolve({entries:[]});respond(h.requests[1],coverage);h.requests[2].resolve({ok:false,status:404});await settle();assert.match(h.region.innerHTML,/Здесь появятся/);assert.doesNotMatch(h.region.innerHTML,/missing-entry/);
+ h.submit('');h.setOwner('other:0');h.view();h.tasks.shift()();h.requests[6].resolve({entries:[]});respond(h.requests[7],coverage);await settle();const latest=h.region.innerHTML;
+ h.requests[3].resolve({entries:[{entry:{...entry,name:{ru:'STALE_PRIVATE',en:'stale'}}}]});respond(h.requests[4],coverage);respond(h.requests[5],{entry:{...entry,id:'missing-entry'}});await settle();assert.equal(h.region.innerHTML,latest);assert.doesNotMatch(h.region.innerHTML,/STALE_PRIVATE/);
+});
+
+test('category chips preserve the latest unsent query and drop incompatible detail filters',()=>{
+ const h=harness();h.draft('q',' shield ');h.draft('school','illusion');h.click('',{catalogKind:'monster'});assert.match(h.requests[0].url,/q=shield/);assert.match(h.requests[0].url,/kind=monster/);assert.doesNotMatch(h.requests[0].url,/school/);assert.match(h.view(),/data-catalog-kind="monster" aria-pressed="true"/);
+ const count=h.requests.length;h.click('',{catalogKind:'unknown'});assert.equal(h.requests.length,count);assert.match(h.view(),/data-catalog-kind="monster" aria-pressed="true"/);
+});
