@@ -55,11 +55,15 @@ const SkazResourceQueue = (() => {
   }
   acknowledge(command,payload){
    if(!this.head||JSON.stringify(command)!==JSON.stringify(this.head))throw new Error('Нарушен порядок подтверждений');
-   if(!sameContext(command.context,payload.context)||payload.revision!==command.expectedRevision+1)throw new Error('После отправки игра изменилась. Очередь сохранена для сверки');
+   const receipt=payload.resourceReceipt;
+   const verified=receipt&&receipt.mutationId===command.mutationId&&sameContext(receipt.context,command.context)&&JSON.stringify(receipt.resource)===JSON.stringify(command.resource)&&receipt.before===command.before&&receipt.maximum===command.maximum&&receipt.delta===command.delta&&Number.isSafeInteger(receipt.revision)&&receipt.revision>command.expectedRevision&&payload.revision>=receipt.revision;
+   if(receipt&&!verified)throw new Error('Подтверждение относится к другой операции. Очередь сохранена');
+   if(!sameContext(command.context,payload.context)||(!verified&&payload.revision!==command.expectedRevision+1))throw new Error('После отправки игра изменилась. Очередь сохранена для сверки');
    const expected=projectOne(this.data.baseline,command),actual={...clone(payload),inventory:payload.inventory??expected.inventory};
    const before=balance(expected,command.resource),after=balance(actual,command.resource);
    if(!after||after.value!==before.value||after.maximum!==before.maximum)throw new Error('Сервер не подтвердил ожидаемый результат');
-   this.persist({schemaVersion:1,baseline:actual,commands:this.data.commands.slice(1)});
+   if(verified&&receipt.after!==after.value)throw new Error('Подтверждение ресурса не совпало с остатком');
+   this.persist({schemaVersion:1,baseline:actual,commands:this.data.commands.slice(1).map((next,i)=>({...next,expectedRevision:payload.revision+i}))});
   }
  }
  return Queue;

@@ -15,7 +15,7 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
     document: { getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
-    SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>dialog=html, closeModal() {}, toast: value => messages.push(value),
+    SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-resource-undo]' ? [get('resource-undo-button')] : selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>dialog=html, closeModal() {}, toast: value => messages.push(value),
   });
   if(withQueue)vm.runInContext(queueSource,context);
   vm.runInContext(sheetSource,context);
@@ -29,6 +29,18 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
 const tick = () => new Promise(resolve => setImmediate(resolve));
 const payload = (revision, campaignId = 'first') => ({ schemaVersion: 1, revision, state: seed, context: { campaignId, characterId: campaignId + '-hero', sessionId: campaignId + '-session' } });
 const response = data => ({ ok: true, json: async () => data });
+test('history renders numeric differences, sends addressed undo and keeps last confirmed time on load',async()=>{
+ const calls=[],row={mutationId:'resource-target',label:'Хиты',createdAt:'2026-11-08T00:00:00Z',changes:[{resource:{kind:'hp'},before:28,after:25}],canUndo:true,undoKind:'resource'};
+ let revision=0;const h=harness(memory(),memory(),async(url,options)=>{
+  if(url==='/api/history')return response({changes:[row]});
+  if(options.method){calls.push({url,body:JSON.parse(options.body)});revision++;row.canUndo=false;}
+  return response({...payload(revision),updatedAt:'2026-11-08T00:00:00Z'});
+ });
+ await h.api.boot();h.api.paint();assert.match(h.get('sync-status').innerHTML,/Последнее подтверждение/);
+ h.api.settings();await h.get('#change-history').onclick();assert.match(h.dialog(),/28 → 25/);
+ h.get('resource-undo-button').dataset.resourceUndo='0';await h.get('resource-undo-button').onclick();
+ assert.equal(calls[0].url,'/api/resources/undo');assert.equal(calls[0].body.targetMutationId,'resource-target');assert.equal(calls[0].body.characterId,'first-hero');assert.equal(calls.length,1);
+});
 
 test('window header survives reload and failed-command retry without changing another window identity', async () => {
   const local = memory(), session = memory(), calls = [];

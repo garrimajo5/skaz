@@ -110,17 +110,22 @@ export function validateInventoryUndo(request) {
   return { characterId, targetMutationId };
 }
 
-// Only the latest global mutation may be undone; never replace later progress.
-export function undoInventory(db, payload, mutationId, current) {
+// Later resource-only actions are safe only while the full inventory snapshot
+// still matches. Any absolute/unknown mutation remains a barrier.
+export function inventoryInverse(db, payload, current) {
   if (payload.characterId !== current.context.characterId) throw new AppError(409, 'Активный персонаж изменился');
   const receipt = db.prepare(`SELECT i.*, c.revision, x.operation FROM inventory_changes i
     JOIN changes c ON c.mutation_id=i.mutation_id
     JOIN context_changes x ON x.mutation_id=i.mutation_id WHERE i.mutation_id=?`).get(payload.targetMutationId);
   if (!receipt) throw new AppError(404, 'Операция инвентаря не найдена');
-  if (receipt.character_id !== payload.characterId || receipt.revision !== current.revision || !['inventory-add', 'inventory-remove','inventory-charges'].includes(receipt.operation)) throw new AppError(409, 'Можно отменить только последнюю операцию инвентаря без последующих изменений игры');
+  if (receipt.character_id !== payload.characterId || !['inventory-add', 'inventory-remove','inventory-charges'].includes(receipt.operation)) throw new AppError(409, 'Эта операция инвентаря не может быть отменена');
+  if(db.prepare('SELECT 1 FROM changes c LEFT JOIN resource_changes r ON r.mutation_id=c.mutation_id WHERE c.revision>? AND r.mutation_id IS NULL LIMIT 1').get(receipt.revision))throw new AppError(409,'После операции были другие правки. Нужна ручная сверка');
   const before = readInventory(db, payload.characterId);
   if (JSON.stringify(before) !== receipt.after_json) throw new AppError(409, 'Инвентарь изменился после операции');
-  const restored = JSON.parse(receipt.before_json);
+  return {before,restored:JSON.parse(receipt.before_json)};
+}
+export function undoInventory(db, payload, mutationId, current) {
+  const {before,restored}=inventoryInverse(db,payload,current);
   db.prepare('DELETE FROM inventory WHERE character_id=?').run(payload.characterId);
   const insert = db.prepare('INSERT INTO inventory VALUES (?, ?, ?, ?)');
   for (const item of restored) {insert.run(payload.characterId, item.catalogId, item.quantity, JSON.stringify(item.entry));writeChargeCounts(db,payload.characterId,item.catalogId,item.chargeCounts);}

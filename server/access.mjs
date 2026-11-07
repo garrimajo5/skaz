@@ -1,3 +1,4 @@
+import {historyDetail} from './resource-history.mjs';
 import { createHash } from 'node:crypto';
 import { isDeepStrictEqual } from 'node:util';
 import { AppError } from './state.mjs';
@@ -208,7 +209,7 @@ export function createUserReader(db, access, userId, clientViewId, createView, g
   for (const method of ['search','coverage','spellInventory','creatureInventory','lookup']) result.catalog[method]=(...args)=>read(()=>catalog[method](...args));
   for (const method of ['importEntries','reviewedImport','previewBundled','installBundled']) result.catalog[method]=disabled;
   // Never leak a raw store method by spreading it into a scoped capability.
-  for (const method of ['changeResource','update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','saveCharacterStats','saveCharacterSheet','changeCharacterCounter','changeCharges','addInventory','removeInventory','undoInventory','history','backup','close','forView','forUser']) result[method]=disabled;
+  for (const method of ['undoResource','changeResource','update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','saveCharacterStats','saveCharacterSheet','changeCharacterCounter','changeCharges','addInventory','removeInventory','undoInventory','history','backup','close','forView','forUser']) result[method]=disabled;
   return Object.freeze({...result,catalog:Object.freeze(result.catalog)});
 }
 
@@ -231,7 +232,7 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
     access.context(userId,context);
     if (['savePlace','saveQuest','startSession','createCharacter'].includes(method)) requireGM(context);
     if (method==='selectContext') access.context(userId,request?.context);
-    if (method==='undoInventory' && !db.prepare('SELECT 1 FROM user_changes WHERE mutation_id=? AND user_id=?').get(request?.targetMutationId??'',userId)) missing();
+    if (['undoInventory','undoResource'].includes(method) && !db.prepare('SELECT 1 FROM user_changes WHERE mutation_id=? AND user_id=?').get(request?.targetMutationId??'',userId)) missing();
     if (method==='update') {
       const before=splitState(beforeState),after=splitState(request?.state);
       if (!isDeepStrictEqual(before.campaign,after.campaign) || !isDeepStrictEqual(before.session,after.session)) requireGM(context);
@@ -266,7 +267,7 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
       db.exec('COMMIT');return inventory;
     } catch(error) {db.exec('ROLLBACK');throw error;}
   };
-  const methods=['changeResource','update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','saveCharacterStats','saveCharacterSheet','changeCharacterCounter','changeCharges','addInventory','removeInventory','undoInventory'];
+  const methods=['undoResource','changeResource','update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','saveCharacterStats','saveCharacterSheet','changeCharacterCounter','changeCharges','addInventory','removeInventory','undoInventory'];
   for (const method of methods) result[method]=request=>{
     const mutationView=createView(viewId,()=>{},event=>{
       // Revocation is checked inside BEGIN IMMEDIATE, not merely at dispatch.
@@ -300,14 +301,14 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
     db.exec('BEGIN');
     try {
       const selected=current();
-      const rows=db.prepare(`SELECT c.revision,c.label,c.created_at AS createdAt,u.before_context,u.after_context
+      const rows=db.prepare(`SELECT c.*,u.before_context,u.after_context
         FROM user_changes u JOIN changes c ON c.mutation_id=u.mutation_id WHERE u.user_id=? ORDER BY c.revision DESC`).all(userId);
       const filtered=[];
       for (const row of rows) {
         const before=JSON.parse(row.before_context),after=JSON.parse(row.after_context);
         try {access.context(userId,before);access.context(userId,after);} catch(error) {if(error instanceof AppError&&error.status===404)continue;throw error;}
         if (after.campaignId!==selected.campaignId || after.characterId!==selected.characterId) continue;
-        filtered.push({revision:row.revision,label:row.label,createdAt:row.createdAt});if(filtered.length===50)break;
+        filtered.push(historyDetail(db,row,createView(viewId).read()));if(filtered.length===50)break;
       }
       db.exec('COMMIT');return filtered;
     } catch(error) {db.exec('ROLLBACK');throw error;}

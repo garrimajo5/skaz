@@ -13,6 +13,14 @@ import { seed } from '../server/state.mjs';
 const command=(view,fields)=>({mutationId:randomUUID(),expectedRevision:view.read().revision,...fields});
 const userA='user-alice',userB='user-boris',userGM='user-master';
 const note=text=>({title:text,text,kind:'Личная заметка',at:1,time:'00:01'});
+test('resource inverse remains actor-owned and revocation blocks both history and captured undo',t=>{
+ const {store,first,second}=setup(t),p=store.forUser(userB,'history-player',{write:true}),owner=store.forUser(userA,'history-owner',{write:true});
+ const before=p.read(),damage=command(p,{context:before.context,resource:{kind:'hp'},delta:-2,before:before.state.hp,maximum:before.state.maxHp});p.changeResource(damage);
+ const request=command(p,{characterId:second.characterId,targetMutationId:damage.mutationId});
+ assert.throws(()=>store.forUser(userB,'history-reader').undoResource(request),{status:403});assert.throws(()=>owner.undoResource({...request,characterId:first.characterId}),{status:404});
+ assert.ok(p.history().find(r=>r.mutationId===damage.mutationId).canUndo);assert.ok(!owner.history().some(r=>r.mutationId===damage.mutationId));
+ store.access.apply({action:'revoke-character',userId:userB,campaignId:first.campaignId,characterId:second.characterId});assert.throws(()=>p.undoResource(request),{status:404});assert.throws(()=>p.history(),{status:404});
+});
 test('queued resource writes bind actor and hero, and revocation blocks replay',t=>{
  const {store,first,second}=setup(t),player=store.forUser(userB,'queued-resource',{write:true}),owner=store.forUser(userA,'queued-resource');
  const before=player.read(),other=owner.read(),request=command(player,{context:before.context,resource:{kind:'hp'},delta:-2,before:before.state.hp,maximum:before.state.maxHp});

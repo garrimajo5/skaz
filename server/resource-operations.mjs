@@ -54,5 +54,5 @@ export function applyResourceCommand(db,current,payload,mutationId,writeState){
   if(r.kind==='hp')next.hp=after;else if(r.kind==='slot')next.slots[r.level]=after;else next.inspiration=after;
   writeState(next);
  }
- return {state:next,label:balance.title+': '+balance.value+' → '+after};
+ return {state:next,title:balance.title,label:balance.title+': '+balance.value+' → '+after};
 }

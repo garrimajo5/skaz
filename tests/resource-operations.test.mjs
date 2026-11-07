@@ -4,6 +4,29 @@ import {randomUUID} from 'node:crypto';
 import {openStore} from '../server/store.mjs';
 import {createApp} from '../server/app.mjs';
 const command=(s,resource={kind:'hp'},delta=-3)=>{const current=s.read();return {mutationId:randomUUID(),expectedRevision:current.revision,context:current.context,resource,delta,before:resource.kind==='hp'?current.state.hp:resource.kind==='slot'?current.state.slots[resource.level]:current.state.inspiration,maximum:resource.kind==='hp'?current.state.maxHp:resource.kind==='slot'?[4,3,2][resource.level-1]:4};};
+const undo=(s,target)=>({mutationId:randomUUID(),expectedRevision:s.read().revision,characterId:s.read().context.characterId,targetMutationId:target});
+
+test('resource history supports addressed inverse after later increments and makes undo itself one-shot',()=>{
+ const s=openStore(':memory:');try{
+  const damage=command(s,undefined,-5);s.changeResource(damage);s.changeResource(command(s,{kind:'slot',level:1},-1));s.changeResource(command(s,undefined,-2));
+  const row=s.history().find(r=>r.mutationId===damage.mutationId);assert.equal(row.canUndo,true);assert.deepEqual(row.changes,[{resource:{kind:'hp'},before:28,after:23}]);
+  const request=undo(s,damage.mutationId);s.undoResource(request);assert.equal(s.read().state.hp,26);assert.equal(s.read().state.slots[1],2);
+  assert.equal(s.undoResource(request).replayed,true);assert.equal(s.read().state.hp,26);
+  assert.throws(()=>s.undoResource(undo(s,damage.mutationId)),{status:409});assert.throws(()=>s.undoResource(undo(s,request.mutationId)),{status:409});
+  assert.equal(s.history().find(r=>r.mutationId===damage.mutationId).canUndo,false);
+ }finally{s.close();}
+});
+test('resource undo preserves clamping semantics, refuses overflow and absolute barriers even if values match',()=>{
+ const s=openStore(':memory:');try{
+  const hit=command(s,undefined,-40);s.changeResource(hit);s.changeResource(command(s,undefined,5));s.undoResource(undo(s,hit.mutationId));assert.equal(s.read().state.hp,33);
+  const heal=command(s,undefined,100);s.changeResource(heal);s.changeResource(command(s,undefined,-38));assert.throws(()=>s.undoResource(undo(s,heal.mutationId)),{status:409});
+  const slot=command(s,{kind:'slot',level:1},-1);s.changeResource(slot);const current=s.read();s.update({mutationId:randomUUID(),expectedRevision:current.revision,label:'Manual correction',state:current.state});
+  const before=s.read();assert.throws(()=>s.undoResource(undo(s,slot.mutationId)),{status:409});assert.deepEqual(s.read(),before);assert.match(s.history().find(r=>r.mutationId===slot.mutationId).undoReason,/правки/);
+ }finally{s.close();}
+});
+test('legacy absolute resources expose before and after without pretending to support inverse',()=>{
+ const s=openStore(':memory:');try{const current=s.read();s.update({mutationId:randomUUID(),expectedRevision:0,label:'Manual',state:{...current.state,hp:10,gold:9}});const row=s.history()[0];assert.equal(row.canUndo,false);assert.deepEqual(row.changes,[{resource:{kind:'hp'},before:28,after:10},{resource:{kind:'gold'},before:124,after:9}]);}finally{s.close();}
+});
 
 test('resource commands apply in order, clamp HP individually, replay exactly once and preserve all unrelated data',()=>{
  const s=openStore(':memory:');try{

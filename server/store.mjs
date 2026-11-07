@@ -1,4 +1,5 @@
 import {validateResourceCommand,applyResourceCommand} from './resource-operations.mjs';
+import {setupResourceHistory,recordResource,inverseResource,historyDetail,independentResourcesSince,resourceReceipt} from './resource-history.mjs';
 import {setupCharacterSheets,readCharacterSheet,validateSheetCommand,saveCharacterSheet,validateCounterCommand,changeCharacterCounter} from './character-sheet.mjs';
 import {setupCharacterStats,readCharacterStats,validateStatsCommand,saveCharacterStats} from './character-stats.mjs';
 import { setupViews, ensureView } from './views.mjs';
@@ -49,6 +50,7 @@ export function openStore(filename) {
   setupSpellbook(db);
   setupCharacterStats(db);
   setupCharacterSheets(db);
+  setupResourceHistory(db);
   setupQuests(db);
   setupPlaces(db);
   setupProposals(db);
@@ -123,7 +125,7 @@ export function openStore(filename) {
     const hash = createHash('sha256').update(JSON.stringify({ expectedRevision, label, state: next })).digest('hex');
     return mutate(request, hash, label, () => {const current=read();if(current.characterSheet&&(JSON.stringify(current.state.slots)!==JSON.stringify(next.slots)||current.state.inspiration!==next.inspiration))throw new AppError(409,'Счётчики собственного класса изменяются в ручном листе');writeEntities(db, next, viewId); return next; });
   }
-  function mutate(request, hash, label, apply, operation) {
+  function mutate(request, hash, label, apply, operation, allowStale) {
     const { mutationId, expectedRevision } = request;
     // Receipts belong to the originating window; another window cannot replay them.
     if (viewId !== undefined) hash = createHash('sha256').update(JSON.stringify({ viewId, hash })).digest('hex');
@@ -142,7 +144,7 @@ export function openStore(filename) {
         return response;
       }
       const current = read();
-      if (current.revision !== expectedRevision) throw new AppError(409, 'Данные изменились в другой вкладке. Загрузи актуальную версию.');
+      if (current.revision !== expectedRevision && !(expectedRevision<current.revision&&allowStale?.())) throw new AppError(409, 'Данные изменились в другой вкладке. Загрузи актуальную версию.');
       const now = new Date().toISOString();
       const revision = current.revision + 1;
       const next = apply();
@@ -183,7 +185,22 @@ export function openStore(filename) {
       const payload=validateResourceCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'resource',expectedRevision:request.expectedRevision,payload})).digest('hex');
       // Preserve the established revision/identity receipt checks for replay.
       const label=(payload.resource.kind==='hp'?'Хиты':payload.resource.kind==='slot'?payload.resource.level+' круг':payload.resource.kind==='inspiration'?'Вдохновение':payload.resource.kind==='counter'?'Счётчик':'Заряды')+': '+payload.before+' → '+(payload.resource.kind==='hp'?Math.max(0,Math.min(payload.maximum,payload.before+payload.delta)):payload.before+payload.delta);
-      return mutate(request,hash,label,()=>applyResourceCommand(db,read(),payload,request.mutationId,next=>writeEntities(db,next,viewId)).state,'resource');
+      const saved=mutate(request,hash,label,()=>{
+        const result=applyResourceCommand(db,read(),payload,request.mutationId,next=>writeEntities(db,next,viewId));
+        recordResource(db,request.mutationId,{...payload,title:result.title},payload.resource.kind==='hp'?Math.max(0,Math.min(payload.maximum,payload.before+payload.delta)):payload.before+payload.delta);
+        return result.state;
+      },'resource',()=>independentResourcesSince(db,request.expectedRevision,payload));
+      return {...saved,resourceReceipt:resourceReceipt(db,request.mutationId)};
+    },
+    undoResource: request=>{
+      const payload=validateInventoryUndo(request),hash=createHash('sha256').update(JSON.stringify({operation:'resource-undo',expectedRevision:request.expectedRevision,payload})).digest('hex');
+      return mutate(request,hash,'Отмена изменения ресурса',()=>{
+        const current=read();if(payload.characterId!==current.context.characterId)throw new AppError(409,'Выбран другой персонаж');
+        const inverse=inverseResource(db,current,payload.targetMutationId);
+        const result=applyResourceCommand(db,current,inverse,request.mutationId,next=>writeEntities(db,next,viewId));
+        recordResource(db,request.mutationId,{...inverse,title:result.title},inverse.before+inverse.delta,payload.targetMutationId);
+        return result.state;
+      },'resource-undo');
     },
     createCharacter: request => {
       const payload = validateCharacterCreate(request);
@@ -310,7 +327,7 @@ export function openStore(filename) {
       }, 'import-active');
     },
     read, update, exportActive,
-    history: () => db.prepare('SELECT revision, label, created_at AS createdAt FROM changes ORDER BY revision DESC LIMIT 50').all(),
+    history: () => {const current=read();return db.prepare('SELECT * FROM changes ORDER BY revision DESC LIMIT 50').all().map(row=>historyDetail(db,row,current));},
     backup: destination => backup(db, destination),
     close: () => db.close(),
   };

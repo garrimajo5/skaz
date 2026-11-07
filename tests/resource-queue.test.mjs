@@ -2,6 +2,23 @@ import test from 'node:test';import assert from 'node:assert/strict';import vm f
 const source=readFileSync(new URL('../client/resource-queue.js',import.meta.url),'utf8');const ctx=vm.createContext({});vm.runInContext(source,ctx);const Queue=vm.runInContext('SkazResourceQueue',ctx);
 const memory=()=>{const data=new Map();return {data,getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v)};};
 const plain=x=>JSON.parse(JSON.stringify(x));
+test('independent concurrent resources advance the queue using durable receipts without changing command IDs',()=>{
+ const s=openStore(':memory:'),q=new Queue(memory(),'concurrent');try{
+  q.resetBaseline(s.read());const first=q.enqueue({kind:'hp'},-2,randomUUID()),second=q.enqueue({kind:'hp'},-1,randomUUID());
+  const original=s.read();s.changeResource({mutationId:randomUUID(),expectedRevision:original.revision,context:original.context,resource:{kind:'slot',level:1},delta:-1,before:3,maximum:4});
+  const saved=s.changeResource(plain(first));assert.equal(saved.revision,2);assert.equal(saved.resourceReceipt.revision,2);assert.equal(s.changeResource(plain(first)).replayed,true);
+  q.acknowledge(plain(first),saved);assert.equal(q.head.mutationId,second.mutationId);assert.equal(q.head.expectedRevision,2);assert.equal(q.snapshot.state.slots[1],2);assert.equal(q.snapshot.state.hp,25);
+  const tail=plain(q.head);q.acknowledge(tail,s.changeResource(tail));assert.equal(q.length,0);assert.equal(s.read().state.hp,25);
+ }finally{s.close();}
+});
+test('same-resource concurrency and a changed queued tail remain explicit conflicts without dropping commands',()=>{
+ const s=openStore(':memory:'),m=memory(),q=new Queue(m,'concurrent');try{
+  q.resetBaseline(s.read());const head=q.enqueue({kind:'hp'},-2,randomUUID());q.enqueue({kind:'slot',level:1},-1,randomUUID());const saved=m.getItem('concurrent');
+  const base=s.read();s.changeResource({mutationId:randomUUID(),expectedRevision:0,context:base.context,resource:{kind:'slot',level:1},delta:-1,before:3,maximum:4});
+  const result=s.changeResource(plain(head));assert.throws(()=>q.acknowledge(plain(head),result));assert.equal(m.getItem('concurrent'),saved);assert.equal(q.length,2);
+  assert.throws(()=>s.changeResource({...plain(head),mutationId:randomUUID()}),{status:409});assert.equal(s.read().state.hp,26);
+ }finally{s.close();}
+});
 test('explicit conflict archive preserves exact commands and refuses overwrite or failed archive storage',()=>{
  const s=openStore(':memory:'),m=memory(),q=new Queue(m,'one');try{
   q.resetBaseline(s.read());q.enqueue({kind:'hp'},-3,randomUUID());const saved=m.getItem('one');

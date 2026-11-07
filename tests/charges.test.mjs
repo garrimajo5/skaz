@@ -16,6 +16,21 @@ const charge=(s,operation='set',amount=5,unit=0)=>cmd(s,{characterId:s.read().co
 function setup(file=':memory:'){const s=openStore(file);s.catalog.importEntries({schemaVersion:1,entries:[fixture]},{apply:true});s.addInventory(quantity(s,2));return s;}
 const counts=s=>s.inventory().entries[0]?.chargeCounts;
 const undo=(s,id)=>s.undoInventory(cmd(s,{characterId:s.read().context.characterId,targetMutationId:id}));
+test('inventory removal can be reversed after damage without reverting HP or duplicating the item',()=>{
+ const s=setup();try{
+  const removal=quantity(s,1);s.removeInventory(removal);const current=s.read();
+  s.changeResource({mutationId:randomUUID(),expectedRevision:current.revision,context:current.context,resource:{kind:'hp'},delta:-3,before:current.state.hp,maximum:current.state.maxHp});
+  const row=s.history().find(r=>r.mutationId===removal.mutationId);assert.equal(row.canUndo,true);assert.equal(row.undoKind,'inventory');assert.equal(row.changes[0].before,2);assert.equal(row.changes[0].after,1);
+  undo(s,removal.mutationId);assert.equal(s.inventory().entries[0].quantity,2);assert.equal(s.read().state.hp,25);assert.throws(()=>undo(s,removal.mutationId),{status:409});
+ }finally{s.close();}
+});
+test('addressed charge inverse restores only its copy after later health change',()=>{
+ const s=setup();try{
+  s.changeCharges(charge(s));const start=s.read(),request={mutationId:randomUUID(),expectedRevision:start.revision,context:start.context,resource:{kind:'charges',catalogId:entry.id,unit:0},delta:-2,before:5,maximum:7};s.changeResource(request);
+  const now=s.read();s.changeResource({mutationId:randomUUID(),expectedRevision:now.revision,context:now.context,resource:{kind:'hp'},delta:-1,before:now.state.hp,maximum:now.state.maxHp});
+  s.undoResource(cmd(s,{characterId:now.context.characterId,targetMutationId:request.mutationId}));assert.deepEqual(counts(s),[5,null]);assert.equal(s.read().state.hp,27);
+ }finally{s.close();}
+});
 test('charges are unknown initially, independent per copy and never inferred from maximum',()=>{
  const s=setup();try{
  assert.equal(counts(s),undefined);assert.throws(()=>s.changeCharges(charge(s,'spend',1)),{status:422});

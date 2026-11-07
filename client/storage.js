@@ -182,8 +182,9 @@ const SkazStorage = (() => {
     adoptContext(payload.context);
     revision = payload.revision;
     state = { ...payload.state, theme: state.theme };
-    pending = null; message = ''; status = 'ready'; rememberDraft(); hydrateResources(payload); render();
+    pending = null; message = confirmedTime(payload); status = 'ready'; rememberDraft(); hydrateResources(payload); render();
   }
+  function confirmedTime(payload){return payload.updatedAt&&Number.isFinite(Date.parse(payload.updatedAt))?'Последнее подтверждение: '+new Date(payload.updatedAt).toLocaleString('ru-RU'):'';}
   async function load() {
     await claimTab();
     ++remoteCheckSerial;checkingRemote=false;if(resourceQueue)resourceGeneration++;
@@ -200,6 +201,7 @@ const SkazStorage = (() => {
       sessionInfo = payload.session || null;
       adoptContext(payload.context);
       state = { ...payload.state, theme: state.theme };
+      message=confirmedTime(payload);
       try { pending = JSON.parse(localStorage.getItem(pendingKey) || 'null'); } catch { pending = null; }
       status = pending ? pending.permissionDenied ? 'denied' : 'pending' : 'ready';
       hydrateResources(payload);render();if(resourceQueue?.length&&!pending)void flushResources();
@@ -213,7 +215,7 @@ const SkazStorage = (() => {
       if(operation === 'inventory-charges'){body.operation=body.chargeAction;delete body.chargeAction;}
       if (operation === 'place-create' || operation === 'place-update') body.operation = operation === 'place-create' ? 'create' : 'update';
       if (operation === 'quest-create' || operation === 'quest-update') body.operation = operation === 'quest-create' ? 'create' : 'update';
-      const url = operation === 'character-sheet-counter' ? '/api/character-sheet/counter' : operation === 'character-sheet' ? '/api/character-sheet' : operation === 'character-stats' ? '/api/character-stats' : operation === 'character-create' ? '/api/characters' : operation === 'proposal-create' ? '/api/proposals' : operation === 'proposal-decide' ? '/api/proposals/decide' : operation?.startsWith('place-') ? '/api/places' : operation?.startsWith('quest-') ? '/api/quests' : operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-charges' ? '/api/inventory/charges' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
+      const url = operation === 'resource-undo' ? '/api/resources/undo' : operation === 'character-sheet-counter' ? '/api/character-sheet/counter' : operation === 'character-sheet' ? '/api/character-sheet' : operation === 'character-stats' ? '/api/character-stats' : operation === 'character-create' ? '/api/characters' : operation === 'proposal-create' ? '/api/proposals' : operation === 'proposal-decide' ? '/api/proposals/decide' : operation?.startsWith('place-') ? '/api/places' : operation?.startsWith('quest-') ? '/api/quests' : operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-charges' ? '/api/inventory/charges' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
       const payload = await request(url, { method: operation ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body: JSON.stringify(body) });
       apply(payload);
       if (typeof formDraftKey === 'string' && [draftPrefix('proposal-form'),draftPrefix('entity-form')].some(prefix=>formDraftKey.startsWith(prefix))) { try { localStorage.removeItem(formDraftKey); } catch {} }
@@ -249,6 +251,21 @@ const SkazStorage = (() => {
     if (draft.kind === 'proposal-form') download({ app: 'skaz-form-draft', ...draft, note: 'Локальный текст формы. Это не запись сервера и не файл импорта игры.' }, 'skaz-event-draft.json');
     else if (draft.operation) download({ app: 'skaz-command', command: draft, note: 'Копия команды для сохранности. Повтор выполняется кнопкой в исходной вкладке; это не файл импорта прогресса.' }, 'skaz-pending-command.json');
     else download({ app: 'skaz', schemaVersion: 1, state: draft.state }, 'skaz-unsaved-draft.json');
+  }
+  async function showResourceHistory(){
+    if(!can('history'))return toast('Сначала отправь или сверь очередь');
+    const key=snapshotKey(),{changes}=await request('/api/history');
+    if(key!==snapshotKey())throw new Error('Игра изменилась. Открой историю заново');
+    const title=r=>r.name||({hp:'Хиты',maxHp:'Максимум хитов',gold:'Золото',inspiration:'Вдохновение',slot:r.level+' круг',counter:'Счётчик '+r.counterId,charges:'Заряды · экземпляр '+(r.unit+1),quantity:'Количество предметов'}[r.kind]||'Ресурс');
+    modal(`<h2>История изменений</h2><p>Последние 50 сохранений. Отмена приращения добавляет обратное изменение к текущему остатку; она не перематывает последующие действия. После ручных правок или при выходе за границы нужна сверка.</p>${changes.map((item,i)=>`<div class="list-row"><div><strong>${esc(item.label)}</strong><small>${esc(new Date(item.createdAt).toLocaleString('ru-RU'))}</small>${(item.changes||[]).map(change=>`<p>${esc(title(change.resource))}: ${esc(change.before??'неизвестно')} → ${esc(change.after??'неизвестно')}</p>`).join('')}${!item.canUndo?`<small>${esc(item.undoReason||'Отмена недоступна')}</small>`:''}</div>${item.canUndo?`<button data-resource-undo="${i}">Отменить</button>`:''}</div>`).join('')||'<p>Изменений ещё нет.</p>'}`);
+    $$('[data-resource-undo]').forEach(button=>button.onclick=async()=>{
+      try{
+        if(key!==snapshotKey()||!can('character'))throw new Error('Игра изменилась. Открой историю заново');
+        button.disabled=true;const item=changes[Number(button.dataset.resourceUndo)];
+        await campaignCommand(item.undoKind==='inventory'?'inventory-undo':'resource-undo',{characterId:activeContext.characterId,targetMutationId:item.mutationId});
+        await showResourceHistory();
+      }catch(error){toast(error.message,undefined,{error:true,persistent:true});}
+    });
   }
   function entityDraftLabel(draft){
     const names={quest:'Задание',place:'Место',sheet:'Свой класс',stats:'Характеристики',resource:'Ресурсы'};
@@ -299,7 +316,7 @@ const SkazStorage = (() => {
     rememberDraft();
     closeModal();
     const payload = await sendPending();
-    toast(operation === 'character-create' ? 'Создан персонаж: ' + payload.state.profile.name : operation === 'select' ? 'Выбран персонаж: ' + payload.state.profile.name : operation === 'proposal-create' ? 'Предложение ждёт подтверждения' : operation === 'proposal-decide' ? 'Решение по событию сохранено' : operation.startsWith('place-') ? 'Место сохранено' : operation.startsWith('quest-') ? 'Задание сохранено' : operation === 'spell-set' ? 'Список заклинаний сохранён' : operation === 'import-active' ? 'Игра импортирована в новую кампанию' : operation === 'inventory-charges' ? 'Остаток зарядов сохранён' : operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
+    toast(operation === 'resource-undo' ? 'Изменение ресурса отменено' : operation === 'character-create' ? 'Создан персонаж: ' + payload.state.profile.name : operation === 'select' ? 'Выбран персонаж: ' + payload.state.profile.name : operation === 'proposal-create' ? 'Предложение ждёт подтверждения' : operation === 'proposal-decide' ? 'Решение по событию сохранено' : operation.startsWith('place-') ? 'Место сохранено' : operation.startsWith('quest-') ? 'Задание сохранено' : operation === 'spell-set' ? 'Список заклинаний сохранён' : operation === 'import-active' ? 'Игра импортирована в новую кампанию' : operation === 'inventory-charges' ? 'Остаток зарядов сохранён' : operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
     return payload;
   }
   function newCharacter() {
@@ -789,10 +806,7 @@ const SkazStorage = (() => {
       } catch { toast('Не удалось прочитать старое сохранение'); }
     };
     if ($('#change-history')) $('#change-history').onclick = async () => {
-      try {
-        const { changes } = await request('/api/history');
-        modal(`<div class="overline">ПОСЛЕДНИЕ 50 СОХРАНЕНИЙ</div><h2>История изменений</h2>${changes.map(item => `<div class="list-row"><div><strong>${esc(item.label)}</strong><small>${esc(new Date(item.createdAt).toLocaleString('ru-RU'))} · версия ${item.revision}</small></div></div>`).join('') || '<p>Изменений ещё нет.</p>'}`);
-      } catch { toast('Не удалось загрузить историю'); }
+      try {await showResourceHistory();} catch(error) {toast(error.message);}
     };
     $('#reset-workspace').onclick = () => {
       if(characterStats||characterSheet)return toast('Сначала верни значения шаблона в редакторах класса и характеристик. Полную копию листа скачай в v9.');
