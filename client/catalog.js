@@ -127,8 +127,20 @@ const SkazCatalog = (() => {
     let source = '';
     try { const url = new URL(entry.source.url); if (['http:', 'https:'].includes(url.protocol)) source = `<a href="${escape(url.href)}" target="_blank" rel="noopener noreferrer">Открыть источник ↗</a>`; } catch {}
     const readerNav=`<nav class="catalog-reader-nav" aria-label="Разделы карточки"><strong class="catalog-reader-name" title="${escape(entry.name.ru)}">${escape(entry.name.ru)}</strong><button data-catalog-section="catalog-detail-title">В начало</button><button data-catalog-section="catalog-body-title">Описание</button>${entry.links?.length?'<button data-catalog-section="catalog-links-title">Связи</button>':''}<button data-catalog-section="catalog-source-title">Источник</button></nav>`;
-    modal(`${readerNav}${referenceReturn?'<button id="catalog-reference-back">← К сохранённому предмету</button><p>Актуальная справка из каталога. Сохранённая карточка и имущество не меняются.</p>':''}${returnToInventory?`<button id="inventory-return">← К ${inventoryMode==='creature'?'перечню существ':'охвату заклинаний'}</button>`:''}${trail.length?'<button id="catalog-detail-back">← К предыдущему материалу</button>':''}<div class="overline">${names[entry.kind]} · D&D 2014</div><h2 id="catalog-detail-title" tabindex="-1" autofocus>${escape(entry.name.ru)}</h2><p>${escape(entry.name.en)}</p>${!referenceReturn&&["item", "artifact"].includes(entry.kind) ? '<button id="catalog-add-inventory" class="primary">В инвентарь →</button>' : ''}${!referenceReturn&&entry.kind === "spell" ? '<button id="catalog-add-spell" class="primary">В мой список заклинаний →</button>' : ''}${facts(entry)}<h3 id="catalog-body-title" tabindex="-1">Описание</h3>${entry.text ? `<div class="catalog-text">${escape(entry.text)}</div>` : '<p>Здесь сохранена справочная ссылка. Текст материала не импортирован.</p>'}${entry.links?.length?'<section class="catalog-related"><h3 id="catalog-links-title" tabindex="-1">Связанные материалы</h3><div id="catalog-related" aria-live="polite">Загружаем связи…</div></section>':''}<h3 id="catalog-source-title" tabindex="-1">Источник и версия</h3><dl class="catalog-meta"><dt>Источник</dt><dd>${escape(entry.source.title)}</dd><dt>Версия</dt><dd>${escape(entry.source.version)}</dd><dt>Использование</dt><dd>${usageLabel(entry.source.usage)}</dd><dt>Условия, указанные при импорте</dt><dd>${escape(entry.source.terms)}</dd>${entry.source.attribution ? `<dt>Атрибуция</dt><dd>${escape(entry.source.attribution)}</dd><dt>Изменения</dt><dd>${escape(entry.source.changes)}</dd>` : ''}</dl>${source}`);
+    modal(`${readerNav}${referenceReturn?'<button id="catalog-reference-back">← К сохранённому предмету</button><p>Актуальная справка из каталога. Сохранённая карточка и имущество не меняются.</p>':''}${returnToInventory?`<button id="inventory-return">← К ${inventoryMode==='creature'?'перечню существ':'охвату заклинаний'}</button>`:''}${trail.length?'<button id="catalog-detail-back">← К предыдущему материалу</button>':''}<div class="overline">${names[entry.kind]} · D&D 2014</div><h2 id="catalog-detail-title" tabindex="-1" autofocus>${escape(entry.name.ru)}</h2><p>${escape(entry.name.en)}</p>${!referenceReturn&&["item", "artifact"].includes(entry.kind) ? '<button id="catalog-add-inventory" class="primary">В инвентарь →</button>' : ''}${!referenceReturn&&entry.kind === "spell" ? '<div class="catalog-spell-actions"><button id="catalog-known" disabled>Изучить</button><button id="catalog-prepared" class="primary" disabled>Подготовить</button><button id="catalog-add-spell">Изменить отметку…</button><p id="catalog-book-status" role="status">Проверяем книгу…</p></div>' : ''}${facts(entry)}<h3 id="catalog-body-title" tabindex="-1">Описание</h3>${entry.text ? `<div class="catalog-text">${escape(entry.text)}</div>` : '<p>Здесь сохранена справочная ссылка. Текст материала не импортирован.</p>'}${entry.links?.length?'<section class="catalog-related"><h3 id="catalog-links-title" tabindex="-1">Связанные материалы</h3><div id="catalog-related" aria-live="polite">Загружаем связи…</div></section>':''}<details class="catalog-source-details"><summary id="catalog-source-title" tabindex="-1">Источник и версия</summary><dl class="catalog-meta"><dt>Источник</dt><dd>${escape(entry.source.title)}</dd><dt>Версия</dt><dd>${escape(entry.source.version)}</dd><dt>Использование</dt><dd>${usageLabel(entry.source.usage)}</dd><dt>Условия, указанные при импорте</dt><dd>${escape(entry.source.terms)}</dd>${entry.source.attribution ? `<dt>Атрибуция</dt><dd>${escape(entry.source.attribution)}</dd><dt>Изменения</dt><dd>${escape(entry.source.changes)}</dd>` : ''}</dl>${source}</details>`);
     if(entry.links?.length)loadRelated(entry,token);
+    if(!referenceReturn&&entry.kind==='spell'&&SkazStorage.spellbookData){
+      const key=SkazStorage.snapshotKey();
+      SkazStorage.spellbookData().then(book=>{
+        if(!detailVisible(token)||key!==SkazStorage.snapshotKey())return;
+        const existing=book.entries.find(item=>item.catalogId===entry.id)?.status;
+        document.getElementById('catalog-book-status').textContent=existing==='prepared'?'В книге · Подготовлено':existing==='known'?'В книге · Изучено':'Ещё не в книге';
+        for(const [id,mark] of [['catalog-known','known'],['catalog-prepared','prepared']]){
+          const button=document.getElementById(id);button.disabled=existing===mark||!SkazStorage.can('character');
+          button.onclick=async()=>{button.disabled=true;try{await SkazStorage.setSpell(entry,mark,key);}catch(error){if(detailVisible(token)){document.getElementById('catalog-book-status').textContent=error.message;button.disabled=false;}}};
+        }
+      }).catch(()=>{if(detailVisible(token))document.getElementById('catalog-book-status').textContent='Книга недоступна. Повторно открой карточку после подключения.';});
+    }
     if (!referenceReturn && entry.kind === 'spell') document.getElementById('catalog-add-spell').onclick = () => SkazStorage.editSpell(entry);
     if (!referenceReturn && ['item', 'artifact'].includes(entry.kind)) document.getElementById('catalog-add-inventory').onclick = () => SkazStorage.addInventory(entry);
   }
@@ -221,15 +233,19 @@ const SkazCatalog = (() => {
     if(event.target.id==='spell-inventory-search'){event.preventDefault();const fields=new FormData(event.target);inventoryQuery=String(fields.get('q')).trim();inventoryStatus=String(fields.get('status'));inventoryLevel=String(fields.get('level')||'');inventoryOffset=0;if(inventoryData)paintInventory(true);return;}
     if (event.target.id !== 'catalog-search') return;
     event.preventDefault();
+    clearTimeout(searchTimer);
     const data = new FormData(event.target);
     const rank=value=>{const [n,d=1]=String(value).split('/').map(Number);return n/d;};
     if(data.get('kind')==='monster'&&data.get('challengeMin')&&data.get('challengeMax')&&rank(data.get('challengeMin'))>rank(data.get('challengeMax')))return toast('Опасность «от» должна быть не больше «до». Исправь границы.');
     searchDraft=null; query = String(data.get('q')).trim(); searchScope=data.get('scope')==='text'?'text':'name'; kind = String(data.get('kind')); detailFilter=filterKeys[kind]?String(data.get(filterKeys[kind])||''):''; extraFilters=Object.fromEntries((extraKeys[kind]||[]).map(key=>[key,String(data.get(key)||'')])); offset = 0; load();
   });
+  let searchTimer;
   function rememberSearch(event){
     const field=event.target;
     if(field.form?.id!=='catalog-search'||!['q','scope','kind','level','school','ritual','concentration','challengeMin','challengeMax','monsterType','size','rarity','itemType','attunement','mechanicCategory'].includes(field.name))return;
     searchDraft={...(searchDraft||{q:query,scope:searchScope,kind,[filterKeys[kind]]:detailFilter,...extraFilters}),[field.name]:field.value};
+    clearTimeout(searchTimer);
+    if(field.name==='q')searchTimer=setTimeout(()=>{if(document.getElementById('catalog-search')!==field.form)return;field.form.requestSubmit();},200);
     if(field.name==='kind'){
       for(const key of ['level','school','ritual','concentration','challengeMin','challengeMax','monsterType','size','rarity','itemType','attunement','mechanicCategory'])delete searchDraft[key];
       const region=document.getElementById('catalog-specific');if(region)region.innerHTML=filterControl(field.value);
@@ -245,7 +261,7 @@ const SkazCatalog = (() => {
       const id=button.dataset.catalogSection;
       if(['catalog-detail-title','catalog-body-title','catalog-links-title','catalog-source-title'].includes(id)){
         const target=document.getElementById(id);
-        if(target){target.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:'instant'});}
+        if(target){if(id==='catalog-source-title')target.parentElement.open=true;target.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:'instant'});}
       }
     }
     if(button.id==='catalog-related-retry'&&currentEntry)loadRelated(currentEntry,detailSerial);
@@ -258,7 +274,7 @@ const SkazCatalog = (() => {
       if((next&&offset+limit>=result.total)||(!next&&offset===0))return;
       offset=Math.max(0,offset+(next?limit:-limit));load({focusResults:true});
     }
-    if (button.id === 'catalog-reset') { query = ''; searchScope='name'; kind = ''; detailFilter=''; extraFilters={}; searchDraft=null; offset = 0; render(); load(); }
+    if (button.id === 'catalog-reset') { clearTimeout(searchTimer); query = ''; searchScope='name'; kind = ''; detailFilter=''; extraFilters={}; searchDraft=null; offset = 0; render(); load(); }
     if(button.id==='catalog-inventory')openInventory();
     if(button.id==='catalog-creature-inventory')openInventory('creature');
     if(button.dataset.inventoryRead)readInventoryEntry(button.dataset.inventoryRead);

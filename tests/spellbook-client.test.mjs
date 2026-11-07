@@ -41,3 +41,8 @@ test('personal ritual and concentration filters intersect and do not treat unkno
  h.search('','all','',{ritual:'false'});assert.match(h.region.innerHTML,/Заклинания не найдены/);h.click('personal-spell-reset');assert.doesNotMatch(h.view(),/value="false" selected|value="true" selected/);
  h.setKey('other:0');h.search('stale','prepared','0',{concentration:'true'});assert.doesNotMatch(h.view(),/stale|value="true" selected/);
 });
+
+test('book groups circles before name and keeps inline descriptions escaped',async()=>{
+ const h=harness();h.view();h.tasks.shift()();const a=item(2),b=item(1),c=item(0);a.entry.text='<script>unsafe</script>';h.requests[0].resolve({entries:[a,b,c]});await settle();
+ const html=h.region.innerHTML;assert.ok(html.indexOf('Заклинание 0')<html.indexOf('Заклинание 1'));assert.ok(html.indexOf('Заклинание 1')<html.indexOf('Заклинание 2'));assert.match(html,/Заговоры/);assert.match(html,/book-description/);assert.match(html,/&lt;script&gt;/);assert.doesNotMatch(html,/<script>/);
+});

@@ -1000,3 +1000,11 @@ test('explicit template reset retains unfinished input until acknowledgement and
   const local=memory(),calls=[],initial={...payload(0),characterSheet:ownSheet(),characterStats:manualStats()},h=harness(local,memory(),async(url,options)=>{if(!options.method)return response(initial);calls.push(JSON.parse(options.body));if(!acknowledged)throw new Error('lost reset response');return response({...payload(1),characterSheet:kind==='sheet'?null:initial.characterSheet,characterStats:kind==='stats'?null:initial.characterStats});});await h.api.boot();h.click(kind==='sheet'?'edit-sheet':'edit-stats');if(kind==='sheet'){sheetFields(h);h.get('#sheet-level').value='';}else statsValues(h,{speed:''});h.get('#'+kind+'-form').oninput();const key=editorDraftKeys(local,kind)[0];h.get('#'+kind+'-template').onclick();assert.equal(calls.length,0);assert.ok(local.getItem(key));await h.get(kind==='sheet'?'#sheet-confirm':'#stats-reset-confirm').onclick();assert.equal(calls.length,1);assert.equal(calls[0][kind==='sheet'?'sheet':'stats'],null);assert.equal(calls[0].formDraftKey,undefined);assert.equal(Boolean(local.getItem(key)),!acknowledged);assert.equal(kind==='sheet'?h.api.sheet()===null:!h.api.manualStats(),acknowledged);
  }
 });
+
+test('one-click spell mark binds the visible character version and rejects stale or invalid actions',async()=>{
+ const calls=[];let rev=1;const h=harness(memory(),memory(),async(url,options)=>{calls.push({url,options});return response(payload(options?.method?++rev:rev));});
+ await h.api.boot();const key=h.api.snapshotKey();await h.api.setSpell({id:'personal:light',kind:'spell'},'prepared',key);
+ const command=JSON.parse(calls.at(-1).options.body);assert.equal(calls.at(-1).url,'/api/spellbook');assert.equal(command.status,'prepared');assert.equal(command.characterId,'first-hero');assert.equal(command.expectedRevision,1);
+ const count=calls.length;await assert.rejects(()=>h.api.setSpell({id:'personal:light',kind:'spell'},'known',key));assert.equal(calls.length,count);
+ await assert.rejects(()=>h.api.setSpell({id:'personal:light',kind:'item'},'known',h.api.snapshotKey()));assert.equal(calls.length,count);
+});

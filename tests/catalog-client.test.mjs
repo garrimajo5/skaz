@@ -6,10 +6,10 @@ const source = await readFile(new URL('../client/catalog.js', import.meta.url), 
 function harness(protocol = 'http:') {
   const handlers = {}, requests = [], tasks = [], additions = [];
   const movement=[];
-  const region = { innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
+  const region = { parentElement:{open:false}, innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
   let dialog = '', isOpen=true;const messages=[],typeRegion={innerHTML:'',querySelector:()=>null};
   const context = vm.createContext({
-    location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
+    setTimeout, clearTimeout, location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
     queueMicrotask: task => tasks.push(task),
     fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
     document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region, querySelector: () => null },

@@ -224,6 +224,10 @@ export function createCatalog(db, { visible } = {}) {
     const limit = number('limit', 50, 100), offset = number('offset', 0, Number.MAX_SAFE_INTEGER);
     if (!limit) throw new AppError(400, 'Лимит должен быть больше нуля');
     const matches = all().filter(entry => (!kind || entry.kind === kind) && (level===null || entry.spell?.level===Number(level)) && (school===null || entry.spell?.school===school) && (ritual===null || entry.spell?.ritual===(ritual==='true')) && (concentration===null || entry.spell?.concentration===(concentration==='true')) && (challenge===null || entry.monster?.challenge===challenge) && (challengeMin===null || entry.monster!==undefined&&challengeNumber(entry.monster.challenge)>=challengeNumber(challengeMin)) && (challengeMax===null || entry.monster!==undefined&&challengeNumber(entry.monster.challenge)<=challengeNumber(challengeMax)) && (monsterType===null || entry.monster?.type===monsterType) && (size===null || entry.monster?.size===size) && (rarity===null || entry.item?.rarity===rarity) && (itemType===null || entry.item?.type===itemType) && (attunement===null || entry.item?.attunement===(attunement==='true')) && (mechanicCategory===null || entry.mechanic?.category===mechanicCategory) && `${entry.name.ru} ${entry.name.en}${scope==='text'?' '+(entry.text||''):''}`.toLocaleLowerCase('ru').includes(q));
+    if(q){
+      const rank=entry=>Math.min(...[entry.name.ru,entry.name.en].map(name=>{const n=name.toLocaleLowerCase('ru');return n===q?0:n.startsWith(q)?1:n.split(/[^\p{L}\p{N}]+/u).some(word=>word.startsWith(q))?2:n.includes(q)?3:4;}));
+      matches.sort((a,b)=>rank(a)-rank(b)||(a.spell?.level??99)-(b.spell?.level??99)||a.name.ru.localeCompare(b.name.ru,'ru')||a.id.localeCompare(b.id));
+    }
     return { entries: matches.slice(offset, offset + limit), total: matches.length, limit, offset };
   }
   function reviewedImport(request,apply=false) {

@@ -116,3 +116,14 @@ test('catalog API supports Russian/English search, filters, pagination and hones
   assert.equal(coverage.complete, false); assert.equal(coverage.expectedTotal, null);
   assert.equal(coverage.categories.monster, 0);
 });
+
+test('name relevance precedes id and pagination in RU and EN, with deterministic ties',()=>{
+ const s=openStore(':memory:');try{
+  const names=[['personal:a','Сверхсвет','Superlight'],['personal:b','Яркий свет','Bright light'],['personal:c','Свет маяка','Light beacon'],['personal:z','Свет','Light']];
+  s.catalog.importEntries(bundle(...names.map(([id,ru,en])=>({...entry(id),name:{ru,en}}))),{apply:true});
+  for(const q of ['свет','LIGHT']){
+   const all=s.catalog.search(new URLSearchParams({q}));assert.deepEqual(all.entries.map(e=>e.id),['personal:z','personal:c','personal:b','personal:a']);
+   assert.equal(s.catalog.search(new URLSearchParams({q,limit:'1',offset:'1'})).entries[0].id,'personal:c');
+  }
+ }finally{s.close();}
+});

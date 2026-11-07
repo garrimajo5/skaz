@@ -10,7 +10,7 @@ function harness(){
   document:{body:{dataset:{}},querySelector:get,querySelectorAll:()=>[],getElementById:id=>id==='blocked-form-message'?(elements.get('#'+id)||null):get('#'+id),createElement:()=>({setAttribute(){},scrollIntoView(){}}),addEventListener:(key,fn)=>handlers[key]=fn},window:{addEventListener(){},scrollTo(){}},
   SkazStorage:{preference:()=> 'polar',paint(){},boot(){},setTheme(){},sessionTitle:()=>'',sessionDate:()=>'',contextKey:()=> 'same',snapshotKey:()=> 'same:'+revision,editable:()=>editable,commit:async(state,label)=>{writes.push({state:structuredClone(state),label});revision++;return {state};}},SkazEvents:{pendingCount:()=>0}
  });vm.runInContext(source,context);
- return {get,writes,block:()=>editable=false,run:code=>vm.runInContext(code,context),state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),click:id=>handlers.click({target:{closest:()=>({id,dataset:{},classList:{contains:()=>false}})}})};
+ return {get,writes,block:()=>editable=false,run:code=>vm.runInContext(code,context),state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset,classList:{contains:()=>false}})}})};
 }
 
 test('manual sheet never applies fixed demo healing or presents its attack as a usable roll',async()=>{
@@ -99,4 +99,12 @@ test('health entry starts empty, previews clamping and submits explicit numbers 
 test('health entry rejects stale preview and keeps concentration reminder with undo',async()=>{
  const h=harness();h.run('hpDialog()');h.get('#hp-value').value='12';h.run("SkazStorage.snapshotKey=()=> 'changed'");await h.get('#apply-hp').onclick();assert.equal(h.writes.length,0);
  const c=harness();c.run("state.concentration='Свет';hpDialog()");c.get('#hp-value').value='22';await c.get('#apply-hp').onclick();assert.match(c.get('#toast').innerHTML,/Телосложение Сл 11/);assert.match(c.get('#toast').innerHTML,/id="undo"/);
+});
+
+test('quick resources spend and restore one unit, obey bounds and refuse manual or read-only sheets',async()=>{
+ const h=harness();h.click('',{resource:'slot1',delta:'-1'});await new Promise(r=>setImmediate(r));assert.equal(h.state().slots[1],2);assert.equal(h.writes.length,1);assert.match(h.writes[0].label,/3 → 2/);
+ await h.get('#undo').onclick();assert.equal(h.state().slots[1],3);assert.doesNotMatch(h.get('#toast').innerHTML,/<button/);
+ h.click('',{resource:'slot1',delta:'1'});await new Promise(r=>setImmediate(r));assert.equal(h.state().slots[1],4);const count=h.writes.length;h.click('',{resource:'slot1',delta:'1'});assert.equal(h.writes.length,count);
+ h.run('SkazStorage.sheet=()=>({level:5})');h.click('',{resource:'inspiration',delta:'-1'});assert.equal(h.writes.length,count);
+ h.run('SkazStorage.sheet=()=>null');h.block();h.click('',{resource:'inspiration',delta:'-1'});assert.equal(h.writes.length,count);
 });
