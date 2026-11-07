@@ -55,7 +55,7 @@ test('damage and healing undo restore the saved state once without offering undo
   assert.equal(h.state().hp,before.hp+(heal?7:-7));assert.equal(h.writes.length,1);
   const undo=h.get('#undo').onclick;await undo();await undo();
   assert.deepEqual(h.state(),before);assert.equal(h.writes.length,2);
-  assert.equal(h.writes[1].label,'Отмена: '+(heal?'Здоровье восстановлено':'Урон применён'));
+  assert.equal(h.writes[1].label,'Отмена: '+(heal?'+7 хитов · 28 → 35':'−7 хитов · 28 → 21'));
   assert.doesNotMatch(h.get('#toast').innerHTML,/<button/);assert.doesNotMatch(h.get('#toast').innerHTML,/Отмена: Отмена:/);
  }
 });
@@ -87,4 +87,16 @@ test('undo refuses a different game and failed undo does not create a new invers
  const other=harness();await other.run("change('Урон применён',()=>{state.hp-=7})");other.run("SkazStorage.contextKey=()=> 'other'");await other.get('#undo').onclick();assert.equal(other.writes.length,1);assert.equal(other.state().hp,21);
  const failed=harness();await failed.run("change('Урон применён',()=>{state.hp-=7})");failed.run("SkazStorage.commit=async()=>{throw new Error('Нет соединения')}");const undo=failed.get('#undo').onclick;await undo();await undo();
  assert.equal(failed.state().hp,21);assert.match(failed.get('#toast').innerHTML,/Не сохранено/);assert.doesNotMatch(failed.get('#toast').innerHTML,/<button/);
+});
+
+test('health entry starts empty, previews clamping and submits explicit numbers with Enter',async()=>{
+ const h=harness();h.run('hpDialog()');assert.match(h.get('#dialog-content').innerHTML,/inputmode="numeric"/);assert.doesNotMatch(h.get('#dialog-content').innerHTML,/value="7"/);
+ await h.get('#apply-hp').onclick();assert.equal(h.writes.length,0);
+ h.get('#hp-value').value='99';h.get('#hp-value').oninput();assert.equal(h.get('#hp-preview').textContent,'28 → 0 хитов · Без сознания');assert.equal(h.get('#apply-hp').textContent,'Применить −99');
+ await h.get('#hp-value').onkeydown({key:'Enter',preventDefault(){}});assert.equal(h.state().hp,0);assert.match(h.writes[0].label,/−99 хитов · 28 → 0/);
+});
+
+test('health entry rejects stale preview and keeps concentration reminder with undo',async()=>{
+ const h=harness();h.run('hpDialog()');h.get('#hp-value').value='12';h.run("SkazStorage.snapshotKey=()=> 'changed'");await h.get('#apply-hp').onclick();assert.equal(h.writes.length,0);
+ const c=harness();c.run("state.concentration='Свет';hpDialog()");c.get('#hp-value').value='22';await c.get('#apply-hp').onclick();assert.match(c.get('#toast').innerHTML,/Телосложение Сл 11/);assert.match(c.get('#toast').innerHTML,/id="undo"/);
 });
