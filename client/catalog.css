@@ -54,3 +54,16 @@ dialog:has(#spell-inventory){max-width:760px}
 
 @media(min-width:651px){#spell-inventory-search{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.1fr) auto}#spell-inventory-search label:first-child{grid-column:auto}}
 #inventory-result-count{scroll-margin-top:12px}#inventory-result-count:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+
+/* Spell descriptions start in the first viewport; keep facts readable inline. */
+#dialog:has(.catalog-spell-actions) #catalog-detail-title{margin:8px 0;font-size:28px;line-height:1.2}
+#dialog:has(.catalog-spell-actions) #catalog-detail-title+p{margin:4px 0 12px}
+#dialog:has(.catalog-spell-actions) .catalog-facts{margin:12px 0}
+#dialog:has(.catalog-spell-actions) .catalog-facts h3{display:none}
+#dialog:has(.catalog-spell-actions) .catalog-facts dl{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 0}
+#dialog:has(.catalog-spell-actions) .catalog-facts dl>div{display:flex;gap:5px;align-items:baseline;border:0;padding:0;max-width:100%}
+#dialog:has(.catalog-spell-actions) .catalog-facts dt{font-size:12px}
+#dialog:has(.catalog-spell-actions) .catalog-facts dt:after{content:':' }
+#dialog:has(.catalog-spell-actions) .catalog-facts dd{font-size:14px;margin:0}
+#dialog:has(.catalog-spell-actions) #catalog-body-title{margin:12px 0 8px}
+#dialog:has(.catalog-spell-actions) .catalog-text{font-size:16px;line-height:1.5}
