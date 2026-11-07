@@ -35,7 +35,7 @@ const SkazStorage = (() => {
   const baseStats={abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18},armorClass:14,initiative:2,speed:30};
   function normalizedSheet(value){if(value===undefined||value===null)return null;if(typeof SkazCharacterSheet==='undefined')throw new Error('Редактор ручного листа не загрузился');return SkazCharacterSheet.validate(value);}
   async function saveSheet(sheet,key,formDraftKey){if(key!==snapshotKey()||!can('character'))throw new Error('Игра или права изменились');pending={operation:'character-sheet',mutationId:crypto.randomUUID(),expectedRevision:revision,characterId:activeContext.characterId,sheet:normalizedSheet(sheet),...(formDraftKey?{formDraftKey}:{})};rememberDraft();return sendPending();}
-  async function changeCounter(counterId,delta,key){if(key!==snapshotKey()||!can('character')||!characterSheet)throw new Error('Игра или права изменились');pending={operation:'character-sheet-counter',mutationId:crypto.randomUUID(),expectedRevision:revision,characterId:activeContext.characterId,counterId,delta};rememberDraft();return sendPending();}
+  async function changeCounter(counterId,delta,key){if(resourceQueue&&!demo)return resourceDelta({kind:'counter',counterId},delta,key);if(key!==snapshotKey()||!can('character')||!characterSheet)throw new Error('Игра или права изменились');pending={operation:'character-sheet-counter',mutationId:crypto.randomUUID(),expectedRevision:revision,characterId:activeContext.characterId,counterId,delta};rememberDraft();return sendPending();}
   function normalizedStats(value){
     if(value===undefined||value===null)return null;
     if(!value||Array.isArray(value)||Object.keys(value).sort().join()!==["abilities","armorClass","initiative","speed"].sort().join()||!value.abilities||Object.keys(value.abilities).sort().join()!==["str","dex","con","int","wis","cha"].sort().join()||Object.values(value.abilities).some(n=>!Number.isSafeInteger(n)||n<1||n>30)||![["armorClass",0,100],["initiative",-20,40],["speed",0,1000]].every(([k,min,max])=>Number.isSafeInteger(value[k])&&value[k]>=min&&value[k]<=max))throw new Error("Сервер вернул неверные характеристики");
@@ -49,16 +49,76 @@ const SkazStorage = (() => {
     if(!p||p.mode!=='individual'||!['owner','gm','player'].includes(p.role)||permissionKeys.some(k=>typeof p[k]!=='boolean'))throw new Error('Неверные права доступа');
     permissions={...p};
   }
-  function can(action='character'){return ['ready','demo'].includes(status) && permissionKeys.includes(action) && (permissions?permissions[action]:action!=='members'&&!individual());}
+  function can(action='character'){return ['ready','demo'].includes(status) && !resourceQueue?.length && permissionKeys.includes(action) && (permissions?permissions[action]:action!=='members'&&!individual());}
   function requirePermission(action){if(!can(action))throw new Error('Это действие недоступно с текущими правами. Обнови игру или обратись к мастеру.');}
   function decorate(root=document){
     if(!root.querySelectorAll)return;
-    const selectors={shared:'[data-check],[data-accept],[data-dismiss],[data-edit-event],#restore-events,[data-personal-step],[data-personal-edit],[data-map-edit],#new-place,#create-personal-quest,#map-note,#profile-campaign',manageCampaign:'#new-session,#new-session-form button,#new-character',catalog:'#catalog-bundled,#catalog-help',newCampaign:'#new-campaign',select:'[data-select-character]',import:'#import-state,#import-old',history:'#change-history',character:'[data-resource],[data-sheet-context],#edit-sheet,#edit-sheet-resources,#edit-stats,#edit-resources,#spellbook-form button,#spellbook-status,#damage,#heal,[data-health],#rest,#edit-profile,#inspire,#add-note,#new-proposal,#cast-spell,#catalog-add-inventory,#catalog-add-spell,[data-spell-edit],[data-inventory-remove],[data-inventory-charges],#inventory-undo'};
+    const selectors={shared:'[data-check],[data-accept],[data-dismiss],[data-edit-event],#restore-events,[data-personal-step],[data-personal-edit],[data-map-edit],#new-place,#create-personal-quest,#map-note,#profile-campaign',manageCampaign:'#new-session,#new-session-form button,#new-character',catalog:'#catalog-bundled,#catalog-help',newCampaign:'#new-campaign',select:'[data-select-character]',import:'#import-state,#import-old',history:'#change-history',character:'#edit-sheet,#edit-sheet-resources,#edit-stats,#edit-resources,#spellbook-form button,#spellbook-status,#rest,#edit-profile,#inspire,#add-note,#new-proposal,#cast-spell,#catalog-add-inventory,#catalog-add-spell,[data-spell-edit],[data-inventory-remove],#inventory-undo'};
+    for(const control of root.querySelectorAll('[data-resource],[data-sheet-context],[data-inventory-charges],#inventory-charges,#damage,#heal,[data-health]')){control.disabled=(control.dataset?.counterId?control.disabled:false)||(demo?!can('character'):!canResource());control.setAttribute('aria-disabled',String(control.disabled));}
     for(const [action,selector]of Object.entries(selectors))for(const control of root.querySelectorAll(selector))if(!can(action)){control.disabled=true;control.setAttribute('aria-disabled','true');control.title=action==='shared'||action==='manageCampaign'?'Доступно мастеру или владельцу':'Недоступно с текущими правами';}
   }
   let activeContext = null;
   let sessionInfo = null, loaded = false;
   let pending = null;
+  let inventoryCache=null;
+  let resourceQueue=null,resourceFailure='',resourceSending=false,resourceGeneration=0;
+  const resourceContextMatches=()=>!resourceQueue?.length||activeContext&&['campaignId','characterId','sessionId'].every(k=>resourceQueue.head.context[k]===activeContext[k]);
+  function canResource(){return !demo&&loaded&&!pending&&resourceQueue&&!resourceFailure.startsWith('Повреждена')&&resourceContextMatches()&&['ready','resource-pending','stale'].includes(status)&&(permissions?permissions.character:!individual());}
+  function projectResources(){if(resourceQueue?.length&&resourceContextMatches()){const value=resourceQueue.snapshot;state={...value.state,theme:state.theme};characterSheet=value.characterSheet??null;}}
+  function hydrateResources(payload){
+    if(typeof SkazResourceQueue==='undefined'||demo)return;
+    try{
+      if(!resourceQueue)resourceQueue=new SkazResourceQueue(localStorage,'skaz-resource-v1:'+(typeof SkazAccount!=='undefined'?SkazAccount.userId||'local':'local')+':'+tabId);
+      if(!resourceQueue.length){resourceQueue.resetBaseline(payload);resourceFailure='';}
+      else{if(status!=='denied')status='resource-pending';resourceFailure=resourceContextMatches()?'':'Очередь относится к другой игре; скачай её для сверки';projectResources();}
+    }catch(error){resourceFailure='Повреждена или недоступна очередь: '+error.message;status='resource-conflict';}
+  }
+  function recoverResources(){
+    if(typeof SkazResourceQueue==='undefined'||demo)return false;
+    try{
+      if(!resourceQueue)resourceQueue=new SkazResourceQueue(localStorage,'skaz-resource-v1:'+(typeof SkazAccount!=='undefined'?SkazAccount.userId||'local':'local')+':'+tabId);
+      if(!resourceQueue.length)return false;
+      const base=resourceQueue.data.baseline;adoptPermissions(base);activeContext=base.context;revision=base.revision;characterStats=normalizedStats(base.characterStats);characterSheet=normalizedSheet(base.characterSheet);sessionInfo=base.session||null;loaded=true;status='resource-pending';projectResources();resourceFailure='Нет связи. Показана сохранённая очередь этого персонажа';render();return true;
+    }catch(error){resourceFailure='Повреждена или недоступна очередь: '+error.message;return false;}
+  }
+  function resourceDelta(resource,delta,key){
+    if(key!==snapshotKey()||!canResource())throw new Error('Игра или доступ изменились. Открой действие заново');
+    if(!resourceQueue.length)resourceQueue.resetBaseline({schemaVersion:1,revision,context:activeContext,state:clean(state),characterSheet,characterStats,session:sessionInfo,...(inventoryCache?.revision===revision&&JSON.stringify(inventoryCache.context)===JSON.stringify(activeContext)?{inventory:inventoryCache.entries}:{}),...(permissions?{permissions}:{})});
+    const command=resourceQueue.enqueue(resource,delta,crypto.randomUUID());resourceGeneration++;status='resource-pending';projectResources();render();
+    void flushResources();return command;
+  }
+  async function flushResources(){
+    if(resourceSending||!resourceQueue?.length||pending||!resourceContextMatches()||status==='denied')return;
+    resourceSending=true;resourceFailure='';paint();
+    try{
+      while(resourceQueue.length){
+        const command=resourceQueue.head;
+        const payload=await request('/api/resources/change',{method:'POST',headers:{'Content-Type':'application/json','X-Skaz-Client':'local-v1'},body:JSON.stringify(command)});
+        resourceQueue.acknowledge(command,payload);adoptPermissions(payload);revision=payload.revision;sessionInfo=payload.session||null;characterStats=normalizedStats(payload.characterStats);characterSheet=normalizedSheet(payload.characterSheet);state={...payload.state,theme:state.theme};projectResources();
+        message='Последнее подтверждение: '+new Date(payload.updatedAt).toLocaleTimeString('ru-RU');
+      }
+      status='ready';
+    }catch(error){status=[401,403,404].includes(error.status)?'denied':error.status===409?'resource-conflict':'resource-pending';resourceFailure=error.message||'Нет связи. Очередь сохранена в браузере';}
+    finally{resourceSending=false;render();}
+  }
+  async function reviewResourceQueue(){
+    if(resourceSending||pending||!resourceQueue?.length)return;
+    const captured=JSON.stringify(resourceQueue.data),remote=await request('/api/workspace');
+    if(resourceSending||captured!==JSON.stringify(resourceQueue.data))throw new Error('Очередь изменилась. Открой сверку заново');
+    if(remote?.schemaVersion!==1||!remote.state||!Number.isSafeInteger(remote.revision)||!remote.context)throw new Error('Сервер не подтвердил игру');
+    normalizedStats(remote.characterStats);normalizedSheet(remote.characterSheet);adoptPermissions(remote);
+    modal(`<h2>Сверить очередь</h2><p>${resourceQueue.length} действий остаются в браузере. На сервере: ${esc(remote.state.profile.name)}, хиты ${remote.state.hp}/${remote.state.maxHp}. Версия ${remote.revision}.</p><p>При конфликте часть действий уже могла сохраниться. Автоматического объединения нет. Скачай очередь и сравни историю перед ручной корректировкой.</p><p>«Принять сервер» уберёт эти действия из отправки и сохранит их отдельным архивом в этом браузере. На сервер ничего не записывается.</p><div class="dialog-actions"><button id="resource-review-download">Скачать очередь</button><button id="resource-review-accept">Принять сервер и архивировать очередь</button></div>`);
+    $('#resource-review-download').onclick=()=>download(JSON.parse(captured),'skaz-resource-queue.json');
+    $('#resource-review-accept').onclick=async()=>{
+      try{
+        if(resourceSending||captured!==JSON.stringify(resourceQueue.data))throw new Error('Очередь изменилась. Открой сверку заново');
+        const fresh=await request('/api/workspace');
+        if(resourceSending||captured!==JSON.stringify(resourceQueue.data)||fresh.revision!==remote.revision||JSON.stringify(fresh.context)!==JSON.stringify(remote.context))throw new Error('Игра изменилась. Открой сверку заново');
+        adoptPermissions(fresh);resourceQueue.archiveAndReset(remote,resourceQueue.key+':archive:'+crypto.randomUUID());
+        apply(remote);closeModal();toast('Принята серверная версия. Очередь сохранена в архиве браузера');
+      }catch(error){toast(error.message,undefined,{error:true,persistent:true});}
+    };
+  }
   let message = '';
   let draftStored = true;
   let checkingRemote = false, remoteCheckSerial = 0;
@@ -88,8 +148,9 @@ const SkazStorage = (() => {
       conflict: 'Другая вкладка уже изменила данные',
       stale: 'В другом окне есть изменения', denied: 'Сервер отклонил изменение по правам доступа',
     };
-    box.dataset.status = status;
-    box.innerHTML = `<span><span class="sync-dot"></span>${labels[status]}${permissions?` · ${permissions.role==='player'?'Игрок':permissions.role==='gm'?'Мастер':'Владелец'}${permissions.character?'':' · Только чтение'}`:''}${message ? `<small>${esc(message)}</small>` : ''}${permissions?`<small>${!permissions.character?'Доступно чтение назначенных игр.':permissions.shared?'Личный лист и общие записи кампании доступны для изменения.':'Личные ресурсы и заметки доступны для изменения. Общий сюжет, задания и карту ведёт мастер.'}</small>`:''}</span><div>${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления">↻</button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button>${permissions?.members?'<button id="campaign-members">Участники</button>':''}${typeof SkazAccount!=='undefined' && SkazAccount.userId?'<button id="account-code">Мой код</button><button id="account-logout">Выйти</button>':''}<button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
+    box.dataset.status = resourceFailure?'error':status;
+    labels['resource-pending']=(resourceSending?'Отправляем · ':'Ждёт отправки · ')+(resourceQueue?.length||0)+' изменений';labels['resource-conflict']='Очередь требует сверки';
+    box.innerHTML = `<span><span class="sync-dot"></span>${labels[status]}${permissions?` · ${permissions.role==='player'?'Игрок':permissions.role==='gm'?'Мастер':'Владелец'}${permissions.character?'':' · Только чтение'}`:''}${resourceFailure?`<small>${esc(resourceFailure)}</small>`:''}${message ? `<small>${esc(message)}</small>` : ''}${permissions?`<small>${!permissions.character?'Доступно чтение назначенных игр.':permissions.shared?'Личный лист и общие записи кампании доступны для изменения.':'Личные ресурсы и заметки доступны для изменения. Общий сюжет, задания и карту ведёт мастер.'}</small>`:''}</span><div>${resourceQueue?.length?'<button id="resource-send">Отправить очередь</button><button id="resource-download">Скачать очередь</button><button id="resource-review">Сверить очередь</button>':''}${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления">↻</button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button>${permissions?.members?'<button id="campaign-members">Участники</button>':''}${typeof SkazAccount!=='undefined' && SkazAccount.userId?'<button id="account-code">Мой код</button><button id="account-logout">Выйти</button>':''}<button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
   }
   async function checkRemote() {
     if(demo||status!=='ready'||pending||checkingRemote)return;
@@ -107,7 +168,7 @@ const SkazStorage = (() => {
   }
   function apply(payload) {
     if(!payload||payload.schemaVersion!==1||!payload.state||Array.isArray(payload.state)||typeof payload.state!=='object'||!Number.isSafeInteger(payload.revision)||payload.revision<0||!payload.context||['campaignId','characterId','sessionId'].some(k=>typeof payload.context[k]!=='string'||!payload.context[k]))throw new Error('Сервер не подтвердил сохранённую игру');
-    ++remoteCheckSerial;checkingRemote=false;
+    ++remoteCheckSerial;checkingRemote=false;if(resourceQueue)resourceGeneration++;
     if((pending?.operation==='character-stats'||pending?.operation==='import-active'&&pending.file?.schemaVersion>=8)&&!Object.hasOwn(payload,'characterStats'))throw new Error('Сервер не подтвердил характеристики');
     if(pending?.operation==='character-stats'&&payload.revision<=pending.expectedRevision)throw new Error('Сервер не подтвердил новую версию характеристик');
     if((pending?.operation?.startsWith('character-sheet')||pending?.operation==='import-active'&&pending.file?.schemaVersion>=9)&&!Object.hasOwn(payload,'characterSheet'))throw new Error('Сервер не подтвердил ручной лист');
@@ -121,11 +182,11 @@ const SkazStorage = (() => {
     adoptContext(payload.context);
     revision = payload.revision;
     state = { ...payload.state, theme: state.theme };
-    pending = null; message = ''; status = 'ready'; rememberDraft(); render();
+    pending = null; message = ''; status = 'ready'; rememberDraft(); hydrateResources(payload); render();
   }
   async function load() {
     await claimTab();
-    ++remoteCheckSerial;checkingRemote=false;
+    ++remoteCheckSerial;checkingRemote=false;if(resourceQueue)resourceGeneration++;
     status = 'loading'; message = ''; paint();
     try {
       const payload = await request('/api/workspace');
@@ -141,8 +202,8 @@ const SkazStorage = (() => {
       state = { ...payload.state, theme: state.theme };
       try { pending = JSON.parse(localStorage.getItem(pendingKey) || 'null'); } catch { pending = null; }
       status = pending ? pending.permissionDenied ? 'denied' : 'pending' : 'ready';
-      render();
-    } catch { status = 'error'; message = location.protocol==='https:'?'Не удалось подключиться. Проверь соединение и повтори попытку.':'Запусти приложение командой node scripts/dev.mjs и повтори подключение.'; paint(); }
+      hydrateResources(payload);render();if(resourceQueue?.length&&!pending)void flushResources();
+    } catch(error) { if(![401,403,404].includes(error.status)&&recoverResources())return;status = [401,403,404].includes(error.status)?'denied':'error'; message = location.protocol==='https:'?'Не удалось подключиться. Проверь соединение и повтори попытку.':'Запусти приложение командой node scripts/dev.mjs и повтори подключение.'; paint(); }
   }
   async function sendPending() {
     if(pending?.permissionDenied)throw new Error('Сервер отклонил этот черновик по правам. Скачай его и загрузи актуальную игру.');
@@ -183,6 +244,7 @@ const SkazStorage = (() => {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   function downloadDraft(draft) {
+    if(draft.kind==='resource-queue')return download({schemaVersion:draft.schemaVersion,baseline:draft.baseline,commands:draft.commands},'skaz-resource-queue.json');
     if (draft.kind === 'entity-form') return download({ app: 'skaz-form-draft', ...draft, note: 'Локальный ввод формы. Это не запись сервера и не файл импорта игры.' }, 'skaz-'+draft.entityKind+'-draft.json');
     if (draft.kind === 'proposal-form') download({ app: 'skaz-form-draft', ...draft, note: 'Локальный текст формы. Это не запись сервера и не файл импорта игры.' }, 'skaz-event-draft.json');
     else if (draft.operation) download({ app: 'skaz-command', command: draft, note: 'Копия команды для сохранности. Повтор выполняется кнопкой в исходной вкладке; это не файл импорта прогресса.' }, 'skaz-pending-command.json');
@@ -278,22 +340,24 @@ const SkazStorage = (() => {
       };
     } catch { modal('<h2>Не удалось загрузить кампании</h2><p>Проверь соединение и открой список снова.</p>'); }
   }
+  function queuedInventory(){const snapshot=resourceQueue?.snapshot;if(resourceQueue?.length&&resourceContextMatches()&&snapshot.inventory)return {revision,context:activeContext,entries:snapshot.inventory,undo:null};return null;}
   let inventorySerial=0;
   let inventoryFilter={owner:null,q:"",attunement:"",offset:0};
   async function inventory() {
-    if (demo || status !== 'ready' || !activeContext) return toast('Инвентарь доступен после подключения и сохранения черновика');
+    if (demo || (status !== 'ready'&&!queuedInventory()) || !activeContext) return toast('Инвентарь доступен после подключения и сохранения черновика');
     const key = JSON.stringify(activeContext), version = revision;
     const token=++inventorySerial;
     const visible=()=>token===inventorySerial && document.getElementById('dialog')?.open!==false && document.getElementById('inventory-view') && key===JSON.stringify(activeContext) && version===revision;
     modal('<h2 id="inventory-view">Инвентарь</h2><p>Загружаем предметы…</p>');
     try {
-      const data = await request('/api/inventory');
+      const data = queuedInventory() || await request('/api/inventory').catch(error=>{if(canResource()&&inventoryCache?.revision===revision&&JSON.stringify(inventoryCache.context)===JSON.stringify(activeContext))return {...inventoryCache,undo:null};throw error;});
       if (!visible()) return;
       if (JSON.stringify(data.context) !== key || data.revision !== revision) {
         modal('<h2>Игра изменилась в другой вкладке</h2><p>Обнови данные перед просмотром инвентаря.</p><button id="inventory-reload">Обновить данные</button>');
         $('#inventory-reload').onclick = async () => { closeModal(); await load(); };
         return;
       }
+      inventoryCache=structuredClone(data);
       const owner=JSON.stringify([activeContext.campaignId,activeContext.characterId]);
       if(inventoryFilter.owner!==owner)inventoryFilter={owner,q:'',attunement:'',offset:0};
       const pageSize=10;
@@ -350,10 +414,10 @@ const SkazStorage = (() => {
     if(entry.id&&typeof SkazCatalog!=='undefined')$('#inventory-reference').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.');SkazCatalog.openReference(entry.id,()=>readInventoryItem(item),()=>key===snapshotKey());};
   }
   function editCharges(item) {
-    if(demo||status!=='ready'||!activeContext)return toast('Сначала сохрани черновик или загрузи актуальные данные');
+    if(demo||(!canResource()&&status!=='ready')||!activeContext)return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key=snapshotKey(),characterId=activeContext.characterId,info=item.entry.item||item.entry.artifact,maximum=info.charges.max;
     const counts=item.chargeCounts||Array(item.quantity).fill(null);
-    modal(`<button id="charges-back">← К предмету</button><div class="overline">${esc(state.profile.name)} · ИНВЕНТАРЬ</div><h2 tabindex="-1" autofocus>Заряды: ${esc(item.entry.name.ru)}</h2><p>Максимум: ${maximum}. Восстановление: ${esc(info.charges.recharge)}</p><form id="charges-form"><div class="charges-fields"><label for="charges-unit">Экземпляр<select id="charges-unit">${counts.map((n,i)=>`<option value="${i}">№ ${i+1} · ${n===null?'остаток неизвестен':n+' / '+maximum}</option>`).join('')}</select></label><label for="charges-operation">Что произошло<select id="charges-operation"><option value="set">Указать текущий остаток</option><option value="spend">Потратить заряды</option><option value="recover">Восстановить заряды</option><option value="unknown">Остаток неизвестен</option></select></label><label for="charges-amount">Количество<input id="charges-amount" type="number" min="0" max="${maximum}" step="1" inputmode="numeric" required placeholder="Введи число"></label><p id="charges-preview" role="status" aria-live="polite"></p><p class="small">Броски и восстановление подтверждаешь ты. Ноль зарядов не уничтожает предмет автоматически. Номера различают одинаковые предметы внутри этого списка.</p></div><div class="dialog-actions"><button type="submit" class="primary">Сохранить заряды</button></div></form>`);
+    modal(`<button id="charges-back">← К предмету</button><div class="overline">${esc(state.profile.name)} · ИНВЕНТАРЬ</div><h2 tabindex="-1" autofocus>Заряды: ${esc(item.entry.name.ru)}</h2><p>Максимум: ${maximum}. Восстановление: ${esc(info.charges.recharge)}</p><form id="charges-form"><div class="charges-fields"><label for="charges-unit">Экземпляр<select id="charges-unit">${counts.map((n,i)=>`<option value="${i}">№ ${i+1} · ${n===null?'остаток неизвестен':n+' / '+maximum}</option>`).join('')}</select></label><label for="charges-operation">Что произошло<select id="charges-operation"><option value="set" ${!can('character')?'disabled':''}>Указать текущий остаток</option><option value="spend" ${!can('character')?'selected':''}>Потратить заряды</option><option value="recover">Восстановить заряды</option><option value="unknown" ${!can('character')?'disabled':''}>Остаток неизвестен</option></select></label><label for="charges-amount">Количество<input id="charges-amount" type="number" min="0" max="${maximum}" step="1" inputmode="numeric" required placeholder="Введи число"></label><p id="charges-preview" role="status" aria-live="polite"></p><p class="small">Броски и восстановление подтверждаешь ты. Ноль зарядов не уничтожает предмет автоматически. Номера различают одинаковые предметы внутри этого списка.</p></div><div class="dialog-actions"><button type="submit" class="primary">Сохранить заряды</button></div></form>`);
     $('#charges-back').onclick=()=>{if(key===snapshotKey())readInventoryItem(item);else inventory();};
     function value(){
       const unit=Number($('#charges-unit').value),operation=$('#charges-operation').value,raw=$('#charges-amount').value;
@@ -374,7 +438,7 @@ const SkazStorage = (() => {
     $('#charges-unit').onchange=preview;$('#charges-operation').onchange=preview;$('#charges-amount').oninput=preview;preview();
     $('#charges-form').onsubmit=async event=>{
       event.preventDefault();if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.');
-      try{const {next,operation:chargeAction,...fields}=value();await campaignCommand('inventory-charges',{characterId,catalogId:item.catalogId,chargeAction,...fields});await inventory();}catch(error){toast(error.message);}
+      try{const {next,operation:chargeAction,...fields}=value();if(resourceQueue&&['spend','recover'].includes(chargeAction)){resourceDelta({kind:'charges',catalogId:item.catalogId,unit:fields.unit},chargeAction==='spend'?-fields.amount:fields.amount,key);closeModal();await inventory();return;}await campaignCommand('inventory-charges',{characterId,catalogId:item.catalogId,chargeAction,...fields});await inventory();}catch(error){toast(error.message);}
     };
   }
   function addInventory(entry) {
@@ -555,7 +619,7 @@ const SkazStorage = (() => {
       catch (error) { toast(error.message); }
     };
   }
-  const snapshotKey = () => JSON.stringify({ context: activeContext, revision });
+  const snapshotKey = () => JSON.stringify({ context: activeContext, revision, ...(resourceGeneration?{resourceGeneration}:{}) });
   async function proposalsData() {
     if (demo || status !== 'ready') throw new Error('Сначала сохрани черновик или подключись к серверу');
     const key = snapshotKey(), data = await request('/api/proposals');
@@ -692,6 +756,10 @@ const SkazStorage = (() => {
       try {
         for (let i = 0; i < localStorage.length; i++) {
           const key = localStorage.key(i);
+          const resourcePrefix='skaz-resource-v1:'+(typeof SkazAccount!=='undefined'?SkazAccount.userId||'local':'local')+':';
+          if(key.startsWith(resourcePrefix)){
+            try{const value=JSON.parse(localStorage.getItem(key));if(value?.schemaVersion===1&&Array.isArray(value.commands)&&value.commands.length)drafts.push({...value,kind:'resource-queue',label:(key.includes(':archive:')?'Архив очереди':'Очередь ресурсов')+' · '+(value.baseline?.state?.profile?.name||'')+' · '+value.commands.length+' действий'});}catch{}
+          }
           if (key.startsWith(draftPrefix('proposal-form'))) {
             try { const value = JSON.parse(localStorage.getItem(key)); if (value?.kind === 'proposal-form' && typeof value.values?.source === 'string') drafts.push(value); } catch {}
           }
@@ -755,6 +823,9 @@ const SkazStorage = (() => {
     if (id === 'session-settings') sessions();
     if (id === 'campaign-settings') campaigns();
     if (id === 'data-settings') settings();
+    if(id==='resource-send')await flushResources();
+    if(id==='resource-review')try{await reviewResourceQueue();}catch(error){toast(error.message,undefined,{error:true,persistent:true});}
+    if(id==='resource-download'&&resourceQueue)download(resourceQueue.data,'skaz-resource-queue.json');
     if (id === 'sync-retry') { try { pending ? await sendPending() : await load(); } catch {} }
     if(id==='sync-check')await checkRemote();
     if(id==='sync-refresh'&&status==='stale'){
@@ -781,5 +852,6 @@ const SkazStorage = (() => {
   }
   function contextKey(){return JSON.stringify(activeContext);}
   document.addEventListener('change',event=>{if(event.target.id!=='show-examples')return;try{localStorage.setItem('skaz-show-examples',String(event.target.checked));render();}catch{toast('Не удалось сохранить настройку браузера');}});
-  return { showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
+  window.addEventListener('online',()=>{if(resourceQueue?.length)void flushResources();});
+  return { canResource,resourceDelta,resourceGeneration:()=>resourceGeneration,flushResources, showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
 })();

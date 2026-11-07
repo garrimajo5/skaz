@@ -13,6 +13,15 @@ import { seed } from '../server/state.mjs';
 const command=(view,fields)=>({mutationId:randomUUID(),expectedRevision:view.read().revision,...fields});
 const userA='user-alice',userB='user-boris',userGM='user-master';
 const note=text=>({title:text,text,kind:'Личная заметка',at:1,time:'00:01'});
+test('queued resource writes bind actor and hero, and revocation blocks replay',t=>{
+ const {store,first,second}=setup(t),player=store.forUser(userB,'queued-resource',{write:true}),owner=store.forUser(userA,'queued-resource');
+ const before=player.read(),other=owner.read(),request=command(player,{context:before.context,resource:{kind:'hp'},delta:-2,before:before.state.hp,maximum:before.state.maxHp});
+ assert.throws(()=>store.forUser(userB,'resource-reader').changeResource(request),{status:403});
+ assert.throws(()=>player.changeResource({...request,context:first}),{status:409});
+ const saved=player.changeResource(request);assert.equal(saved.state.hp,5);assert.equal(player.changeResource(request).replayed,true);assert.deepEqual(owner.read().state,other.state);assert.deepEqual(owner.read().context,other.context);
+ store.access.apply({action:'revoke-character',userId:userB,campaignId:first.campaignId,characterId:second.characterId});
+ assert.throws(()=>player.changeResource(request),{status:404});
+});
 function setup(t,file=':memory:') {
   const store=openStore(file); t.after(()=>store.close());
   const a=store.forView('fixture-alice'), b=store.forView('fixture-boris');

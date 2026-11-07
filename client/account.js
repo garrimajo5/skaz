@@ -18,13 +18,13 @@ const SkazAccount=(()=>{
  window.fetch=async(input,options={})=>{
   const url=new URL(typeof input==='string'?input:input.url,location.href);
   if(url.origin!==location.origin||!url.pathname.startsWith('/api/'))return nativeFetch(input,options);
-  if(locked)throw new Error('Сеанс закрыт');
+  if(locked)throw Object.assign(new Error('Сеанс закрыт'),{status:401});
   const headers=new Headers(input instanceof Request?input.headers:undefined);
   new Headers(options.headers).forEach((value,key)=>headers.set(key,value));headers.set('X-Skaz-Identity',userId);
   const response=await nativeFetch(input,{...options,headers});
-  if(response.status===404 && url.pathname==='/api/workspace'){await response.body?.cancel();lock('Доступ к герою изменился. Открой приложение заново, чтобы проверить назначение.');throw new Error('Доступ изменился');}
-  if(response.status===401){await response.body?.cancel();lock();throw new Error('Сеанс закрыт');}
-  if(locked){await response.body?.cancel();throw new Error('Сеанс закрыт');}
+  if(response.status===404 && url.pathname==='/api/workspace'){await response.body?.cancel();lock('Доступ к герою изменился. Открой приложение заново, чтобы проверить назначение.');throw Object.assign(new Error('Доступ изменился'),{status:404});}
+  if(response.status===401){await response.body?.cancel();lock();throw Object.assign(new Error('Сеанс закрыт'),{status:401});}
+  if(locked){await response.body?.cancel();throw Object.assign(new Error('Сеанс закрыт'),{status:401});}
   return response;
  };
  window.addEventListener('pageshow',event=>{if(event.persisted)lock();});

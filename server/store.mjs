@@ -1,3 +1,4 @@
+import {validateResourceCommand,applyResourceCommand} from './resource-operations.mjs';
 import {setupCharacterSheets,readCharacterSheet,validateSheetCommand,saveCharacterSheet,validateCounterCommand,changeCharacterCounter} from './character-sheet.mjs';
 import {setupCharacterStats,readCharacterStats,validateStatsCommand,saveCharacterStats} from './character-stats.mjs';
 import { setupViews, ensureView } from './views.mjs';
@@ -178,6 +179,12 @@ export function openStore(filename) {
   }
   return {
     catalog,
+    changeResource: request => {
+      const payload=validateResourceCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'resource',expectedRevision:request.expectedRevision,payload})).digest('hex');
+      // Preserve the established revision/identity receipt checks for replay.
+      const label=(payload.resource.kind==='hp'?'Хиты':payload.resource.kind==='slot'?payload.resource.level+' круг':payload.resource.kind==='inspiration'?'Вдохновение':payload.resource.kind==='counter'?'Счётчик':'Заряды')+': '+payload.before+' → '+(payload.resource.kind==='hp'?Math.max(0,Math.min(payload.maximum,payload.before+payload.delta)):payload.before+payload.delta);
+      return mutate(request,hash,label,()=>applyResourceCommand(db,read(),payload,request.mutationId,next=>writeEntities(db,next,viewId)).state,'resource');
+    },
     createCharacter: request => {
       const payload = validateCharacterCreate(request);
       const hash = createHash('sha256').update(JSON.stringify({operation:'character-create',expectedRevision:request.expectedRevision,payload})).digest('hex');

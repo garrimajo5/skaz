@@ -5,9 +5,10 @@ import { readFile } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
 import { seed } from '../server/state.mjs';
 const source = await readFile(new URL('../client/storage.js', import.meta.url), 'utf8');
+const queueSource=await readFile(new URL('../client/resource-queue.js',import.meta.url),'utf8');
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const memory = () => { const values = new Map(); return { get length() { return values.size; }, key: index => [...values.keys()][index], getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
-function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount) {
+function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, withQueue=false) {
   const handlers = {}, elements = new Map(), messages = [], archiveCalls = [], references = []; let dialog='';
   const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '', style: {}, focus() {} }); return elements.get(id); };
   const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch, navigator, SkazAccount,
@@ -16,6 +17,7 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount) {
     document: { getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
     SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>dialog=html, closeModal() {}, toast: value => messages.push(value),
   });
+  if(withQueue)vm.runInContext(queueSource,context);
   vm.runInContext(sheetSource,context);
   vm.runInContext(source, context);
   return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, references, dialog:()=>dialog,
@@ -1007,4 +1009,33 @@ test('one-click spell mark binds the visible character version and rejects stale
  const command=JSON.parse(calls.at(-1).options.body);assert.equal(calls.at(-1).url,'/api/spellbook');assert.equal(command.status,'prepared');assert.equal(command.characterId,'first-hero');assert.equal(command.expectedRevision,1);
  const count=calls.length;await assert.rejects(()=>h.api.setSpell({id:'personal:light',kind:'spell'},'known',key));assert.equal(calls.length,count);
  await assert.rejects(()=>h.api.setSpell({id:'personal:light',kind:'item'},'known',h.api.snapshotKey()));assert.equal(calls.length,count);
+});
+
+test('durable resource controls accept ten offline operations and reload without losing optimistic values',async()=>{
+ const local=memory(),session=memory();let offline=false,rev=0,serverState=structuredClone(seed);const ids=new Set();
+ const fetch=async(url,options)=>{if(offline)throw new Error('offline');if(url==='/api/resources/change'){const c=JSON.parse(options.body);if(!ids.has(c.mutationId)){assert.equal(c.expectedRevision,rev);if(c.resource.kind==='hp'){assert.equal(c.before,serverState.hp);serverState.hp=Math.max(0,Math.min(serverState.maxHp,serverState.hp+c.delta));}else{assert.equal(c.before,serverState.slots[c.resource.level]);serverState.slots[c.resource.level]+=c.delta;}ids.add(c.mutationId);rev++;}}return response({...payload(rev),state:structuredClone(serverState)});};
+ let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.canResource(),true);offline=true;
+ for(let i=0;i<10;i++)h.api.resourceDelta(i%2?{kind:'slot',level:1}:{kind:'hp'},i%2?(i%4===1?-1:1):-1,h.api.snapshotKey());
+ await tick();assert.equal(h.state().hp,23);assert.equal(h.state().slots[1],2);assert.equal(h.api.editable(),false);assert.equal(h.api.canResource(),true);assert.equal(rev,0);
+ h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.state().hp,23);assert.equal(h.api.canResource(),true);
+ offline=false;await h.api.flushResources();assert.equal(rev,10);assert.equal(ids.size,10);assert.equal(h.state().hp,23);assert.equal(h.api.editable(),true);h.api.paint();assert.match(h.get('sync-status').innerHTML,/Последнее подтверждение/);
+});
+
+test('server denial retains queued resources but disables further changes and never restores cached authority',async()=>{
+ const local=memory(),session=memory();let denied=false;const fetch=async(url)=>denied?{ok:false,status:403,json:async()=>({error:'Denied'})}:response(payload(0));
+ const h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();denied=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();assert.equal(h.api.canResource(),false);assert.equal(h.state().hp,27);
+ const next=harness(local,session,fetch,undefined,undefined,true);await next.api.boot();assert.equal(next.api.canResource(),false);assert.equal(next.api.readyToDisplay(),false);assert.ok([...local.values.keys()].some(k=>k.startsWith('skaz-resource-v1:')));
+});
+
+test('explicit queue reconciliation archives exact commands, checks intervening edits and exposes archived copies',async()=>{
+ const local=memory(),session=memory();let current=payload(0),offline=false;
+ const h=harness(local,session,async(url,options)=>{if(options.method){if(offline)throw new Error('offline');throw new Error('unexpected write');}return response(current);},undefined,undefined,true);
+ await h.api.boot();offline=true;h.api.resourceDelta({kind:'hp'},-2,h.api.snapshotKey());await tick();
+ const key=[...local.values.keys()].find(k=>k.startsWith('skaz-resource-v1:')),saved=local.getItem(key);
+ current={...payload(1),state:{...seed,hp:10}};await h.click('resource-review');assert.match(h.dialog(),/хиты 10\/38/);
+ current={...current,revision:2};await h.get('#resource-review-accept').onclick();assert.equal(local.getItem(key),saved);
+ await h.click('resource-review');await h.get('#resource-review-accept').onclick();
+ assert.equal(h.state().hp,10);assert.equal(h.api.editable(),true);
+ const archived=[...local.values.keys()].find(k=>k.startsWith(key+':archive:'));assert.equal(local.getItem(archived),saved);
+ h.api.settings();h.get('#saved-drafts').onclick();assert.match(h.dialog(),/Архив очереди/);
 });

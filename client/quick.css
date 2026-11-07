@@ -41,3 +41,6 @@ body[data-theme="atlas"]{--muted:#52665b;--warn:#805916}
 .book-description{grid-column:1/-1}.book-description p{white-space:pre-wrap;margin:8px 0}.book-circle{margin:8px 0 0}
 .catalog-spell-actions{display:flex;gap:16px;flex-wrap:wrap}.catalog-spell-actions p{flex-basis:100%;margin:0}
 .counter-actions{gap:16px}.counter-actions button{min-width:48px;min-height:48px}
+
+#toast[data-kind="error"]{background:var(--panel);color:var(--red);border:2px solid var(--red)}
+.sync-status[data-status="resource-pending"],.sync-status[data-status="resource-conflict"]{border-color:var(--warn)}
