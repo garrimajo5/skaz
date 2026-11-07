@@ -108,3 +108,9 @@ test('quick resources spend and restore one unit, obey bounds and refuse manual 
  h.run('SkazStorage.sheet=()=>({level:5})');h.click('',{resource:'inspiration',delta:'-1'});assert.equal(h.writes.length,count);
  h.run('SkazStorage.sheet=()=>null');h.block();h.click('',{resource:'inspiration',delta:'-1'});assert.equal(h.writes.length,count);
 });
+
+
+test('fixed resource groups render only their book circle and remain in the bottom panel',()=>{
+ const h=harness();const one=h.run('resourceControls(1)');assert.equal((one.match(/data-resource="slot1"/g)||[]).length,4);assert.doesNotMatch(one,/data-resource="(?:slot2|slot3|inspiration)"/);assert.doesNotMatch(h.run('resourceControls(0)'),/data-resource/);assert.match(h.get('#quick-state').innerHTML,/quick-resources/);
+ h.run('SkazStorage.sheet=()=>({counters:[]});');assert.equal(h.run('resourceControls(1)'),'');
+});

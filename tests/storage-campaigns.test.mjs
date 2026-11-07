@@ -21,7 +21,7 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
   vm.runInContext(sheetSource,context);
   vm.runInContext(source, context);
   return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, references, dialog:()=>dialog,
-    click: id => handlers.click({ target: { closest: () => ({ id }) } }),
+    click: (id,dataset={},disabled=false) => handlers.click({ target: { closest: () => ({ id,dataset,disabled }) } }),
     visible: value => {context.document.visibilityState=value;return handlers.visibilitychange();},
     state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),
   };
@@ -1050,4 +1050,13 @@ test('explicit queue reconciliation archives exact commands, checks intervening 
  assert.equal(h.state().hp,10);assert.equal(h.api.editable(),true);
  const archived=[...local.values.keys()].find(k=>k.startsWith(key+':archive:'));assert.equal(local.getItem(archived),saved);
  h.api.settings();h.get('#saved-drafts').onclick();assert.match(h.dialog(),/Архив очереди/);
+});
+
+
+test('repeated manual counter buttons need no IDs and reject disabled or stale context before sending',async()=>{
+ let current={...payload(0),characterSheet:ownSheet()},writes=[];const h=harness(memory(),memory(),async(url,options)=>{if(!options.method)return response(current);const body=JSON.parse(options.body);writes.push(body);current={...payload(1),characterSheet:ownSheet()};current.characterSheet.counters[0].current=1;return response(current);});await h.api.boot();
+ const dataset={counterId:'counter-second-wind',counterDelta:'1',sheetContext:h.api.snapshotKey()};
+ await h.click('',dataset,true);assert.equal(writes.length,0);
+ await h.click('',dataset);assert.equal(writes.length,1);assert.equal(writes[0].counterId,dataset.counterId);assert.equal(h.api.sheet().counters[0].current,1);
+ await h.click('',dataset);assert.equal(writes.length,1);assert.match(h.messages.at(-1),/изменились/);
 });

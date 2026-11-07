@@ -827,7 +827,7 @@ const SkazStorage = (() => {
   }
   document.addEventListener('click', async event => {
     const id = event.target.closest('button')?.id;
-    if(id?.startsWith('own-counter-use-')||id?.startsWith('own-counter-return-')){const button=event.target.closest('button');try{await changeCounter(button.dataset.counterId,Number(button.dataset.counterDelta),button.dataset.sheetContext);}catch(error){toast(error.message);}}
+    if(event.target.closest('button')?.dataset?.counterId){const button=event.target.closest('button');if(button.disabled)return;try{await changeCounter(button.dataset.counterId,Number(button.dataset.counterDelta),button.dataset.sheetContext);}catch(error){toast(error.message);}}
     if (id === 'open-quests') questList();
     if (id === 'open-spellbook') spellbook();
     if (['open-inventory','nav-inventory','catalog-inventory-open'].includes(id)) inventory();
