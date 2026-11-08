@@ -226,3 +226,14 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
  .hp-entry label{margin-block:8px 6px}
  .hp-entry .dialog-actions{margin-top:8px}
 }
+
+.quick-concentration-row.concentration-pending{border:1px solid var(--warn);border-radius:12px;padding:8px;flex-wrap:wrap}.concentration-question{display:grid;gap:6px;color:var(--warn);min-width:230px;font-size:14px}.concentration-question>div{display:flex;gap:8px}.concentration-question button{min-height:44px;flex:1;color:var(--text);background:var(--panel)}
+.concentration-question strong{color:var(--warn)!important;font-size:14px!important;white-space:normal!important}.concentration-question span{font-size:12px}
+@media(max-width:999px),(max-height:599px),(orientation:portrait){
+ .quick-concentration-row.concentration-pending{flex-wrap:nowrap}
+ .concentration-question{position:fixed;z-index:35;bottom:178px;right:12px;box-sizing:border-box;width:min(360px,calc(100vw - 24px));min-width:0;padding:12px;background:var(--panel);border:1px solid var(--warn);border-radius:12px;box-shadow:0 4px 20px #0005}
+}
+
+.quick-vitals.wounded strong,.quick-vitals.wounded .health-state-label{color:var(--warn)}.quick-vitals.wounded .quick-health-meter>i:first-child{background:var(--warn)}.health-state-label{font-size:14px!important;white-space:normal!important}.quick-vitals.zero-hp{display:flex;flex-wrap:wrap;gap:6px}.quick-vitals.zero-hp>strong{width:100%}.quick-vitals.zero-hp>button{min-height:44px!important}.death-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.death-actions button{min-height:44px}
+@media(max-width:999px),(max-height:599px),(orientation:portrait){body[data-hp-state=zero] .quick-state{display:flex;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start}body[data-hp-state=zero] .quick-vitals.zero-hp{min-width:330px;max-width:330px}body[data-hp-state=zero] .quick-state>*{flex-shrink:0}body[data-hp-state=zero] .quick-state .quick-resources{width:max-content;overflow:visible}}
+.quick-vitals.zero-hp{display:grid;grid-template-columns:1fr;gap:4px}.quick-vitals.zero-hp>strong:first-child{display:flex;align-items:baseline;gap:8px;font-size:24px;line-height:28px;margin:0}.quick-vitals.zero-hp>strong:first-child span{display:inline;font-size:12px}.quick-vitals.zero-hp .quick-health-meter{display:none}.quick-vitals.zero-hp .health-state-label{line-height:20px}.quick-vitals.zero-hp>button{height:44px;min-height:44px!important;padding:4px 8px!important}

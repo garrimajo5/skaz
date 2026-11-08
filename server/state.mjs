@@ -1,3 +1,4 @@
+import Health from '../client/health.js';
 export const seed = {
   hp: 28, maxHp: 38, gold: 124, slots: { 1: 3, 2: 2, 3: 1 }, inspiration: 3,
   accepted: [], dismissed: [], journal: [], notes: [], mapNotes: [], checks: {},
@@ -24,7 +25,12 @@ function list(value, max, label) {
 }
 
 export function validateState(input) {
-  keys(input, [...Object.keys(seed),'tempHp'], 'состояние');
+  keys(input, [...Object.keys(seed),'tempHp','concentrationChecks','deathSaves'], 'состояние');
+  if(input.deathSaves!==undefined)try{Health.deathState(input.hp,input.deathSaves);}catch(error){fail(error.message);}
+  if(input.concentrationChecks!==undefined){
+    list(input.concentrationChecks,100,'проверки концентрации');const ids=new Set();
+    for(const c of input.concentrationChecks){keys(c,['id','spell','damage','dc'],'проверка концентрации');if(Object.keys(c).length!==4||typeof c.id!=='string'||!/^[a-zA-Z0-9-]{8,80}$/.test(c.id)||ids.has(c.id))fail('Неверный ID проверки');ids.add(c.id);text(c.spell,200,'заклинание',false);integer(c.damage,1,10000,'урон');if(c.dc!==Math.max(10,Math.floor(c.damage/2))||c.spell!==input.concentration)fail('Неверная проверка концентрации');}
+  }
   if(input.tempHp!==undefined)integer(input.tempHp,0,9999,'временные хиты');
   for (const key of Object.keys(seed)) if (!(key in input)) fail(`Отсутствует поле: ${key}`);
   integer(input.maxHp, 1, 999, 'максимум хитов');

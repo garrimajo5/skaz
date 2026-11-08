@@ -10,18 +10,18 @@ const queueSource=(await readFile(new URL('../client/health.js',import.meta.url)
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const memory = () => { const values = new Map(); return { get length() { return values.size; }, key: index => [...values.keys()][index], getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
 function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, withQueue=false) {
-  const handlers = {}, elements = new Map(), messages = [], archiveCalls = [], references = []; let dialog='';
+  const handlers = {}, elements = new Map(), messages = [], archiveCalls = [], references = [], downloads = []; let dialog='';
   const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '', style: {}, focus() {} }); return elements.get(id); };
   const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch, navigator, SkazAccount,
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
-    document: { getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')&&!get('inventory-page').innerHTML.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
+    document: { createElement:()=>({click(){downloads.push(this.download);}}), getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')&&!get('inventory-page').innerHTML.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
     SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-queued-undo]' ? [get('queued-undo-button')] : selector === '[data-resource-undo]' ? [get('resource-undo-button')] : selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>{dialog=html;get('dialog').open=true;}, closeModal() {dialog='';get('dialog').open=false;}, toast: value => messages.push(value),
   });
   if(withQueue)vm.runInContext(queueSource,context);
   vm.runInContext(sheetSource,context);
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
-  return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, references, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
+  return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, references, downloads, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
     click: (id,dataset={},disabled=false) => handlers.click({ target: { closest: () => ({ id,dataset,disabled }) } }),
     visible: value => {context.document.visibilityState=value;return handlers.visibilitychange();},
     state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),
@@ -357,14 +357,14 @@ test('v3 preview includes spell list in the durable import and rejects a missing
   assert.deepEqual(calls[0].body.file.spellbook, file.spellbook);
 });
 
-test('client requests v11 export and refuses a response from another revision', async () => {
+test('client requests v12 export and refuses a response from another revision', async () => {
   const calls = [];
   const h = harness(memory(), memory(), async url => {
     calls.push(url);
     return response(url === '/api/workspace' ? payload(0) : { source: { context: payload(0).context, revision: 1 } });
   });
   await h.api.boot(); h.api.settings(); await h.get('#export-active').onclick();
-  assert.equal(calls.at(-1), '/api/export/active-v11');
+  assert.equal(calls.at(-1), '/api/export/active-v12');
   assert.match(h.messages.at(-1), /Игра изменилась/);
 });
 
@@ -1117,4 +1117,8 @@ test('history queues a linked inverse once and keeps the original command pendin
  await h.click('sync-history-chip');assert.match(h.dialog(),/data-queued-undo/);
  const button=h.get('queued-undo-button');button.dataset.queuedUndo=hit.mutationId;await button.onclick();await tick();
  assert.equal(h.state().hp,33);assert.equal(h.api.pendingCount(),3);await h.click('sync-history-chip');assert.match(h.dialog(),/Отмена · Хиты: 5 → 33/);await button.onclick();assert.equal(h.api.pendingCount(),3);
+});
+
+test('active v12 download accepts current export and rejects older schema without claiming success',async()=>{
+ for(const version of [11,12]){const h=harness(memory(),memory(),async url=>response(url==='/api/workspace'?payload(0):{app:'skaz-active',schemaVersion:version,source:{context:payload(0).context,revision:0},characterStats:null,characterSheet:null}));await h.api.boot();h.api.settings();await h.get('#export-active').onclick();assert.deepEqual(h.downloads,version===12?['skaz-active-v12.json']:[]);if(version===11)assert.match(h.messages.at(-1),/v12/);}
 });

@@ -16,7 +16,7 @@ export async function verifyIndividualDeployment({origin,outerLogin,account,mini
  }
  async function status(route,options,expected){const r=await request(route,options);await r.body?.cancel();if(r.status!==expected)throw new Error('Не подтверждена защита или готовность сервера');}
  async function json(route,options){const r=await request(route,options);if(r.status!==200){await r.body?.cancel();throw new Error('Личный API не подтвердил готовность');}try{return await r.json();}catch{throw new Error('Некорректный ответ личного API');}}
- for(const route of ['/','/api/workspace','/api/export/active-v11'])await status(route,{outer:false},401);
+ for(const route of ['/','/api/workspace','/api/export/active-v12'])await status(route,{outer:false},401);
  await status('/api/workspace',{},401);
  const form=await request('/');if(form.status!==200||!(await form.text()).includes('login-form'))throw new Error('Нет индивидуальной формы входа');
  const signed=await request('/api/auth/login',{method:'POST',originHeader:origin,body:{login:account.login,password:account.password}});
@@ -29,11 +29,11 @@ export async function verifyIndividualDeployment({origin,outerLogin,account,mini
   let result;try{result=await signed.json();}catch{throw new Error('Некорректное подтверждение входа');}if(result.signedIn!==true||Object.hasOwn(result,'token'))throw new Error('Неверное подтверждение входа');
   const page=await request('/',{personal:true});const html=await page.text();identity=html.match(/<body\b[^>]*\bdata-user-id="([a-zA-Z0-9-]{8,80})"/)?.[1];if(page.status!==200||!identity)throw new Error('Сервер не подтвердил личность');
   const health=await json('/api/health',{personal:true});if(health.status!=='ok'||health.mode!=='individual'||health.storage!=='sqlite')throw new Error('Неверный режим сервера');
-  const game=await json('/api/workspace',{personal:true}),file=await json('/api/export/active-v11',{personal:true});
-  if(game.permissions?.mode!=='individual'||file.schemaVersion!==11||file.source?.revision!==game.revision||!isDeepStrictEqual(file.state,game.state)||!isDeepStrictEqual(file.source?.context,game.context))throw new Error('Не подтверждена сохранность экспорта');
+  const game=await json('/api/workspace',{personal:true}),file=await json('/api/export/active-v12',{personal:true});
+  if(game.permissions?.mode!=='individual'||file.schemaVersion!==12||file.source?.revision!==game.revision||!isDeepStrictEqual(file.state,game.state)||!isDeepStrictEqual(file.source?.context,game.context))throw new Error('Не подтверждена сохранность экспорта');
   const coverage=await json('/api/catalog/coverage',{personal:true});if(!Number.isSafeInteger(coverage.total)||coverage.total<minimumCatalogCount)throw new Error('Недостаточный охват личного каталога');
   await status('/api/health',{personal:true,originHeader:'https://skaz-check.invalid'},403);
-  return {catalogTotal:coverage.total,checks:['HTTPS и общий вход защищают страницы и API','Общего пароля недостаточно для личного листа','Индивидуальный вход и защищённая cookie подтверждены','Личный режим, экспорт v11 и каталог проверены','Чужой Origin отклонён','Проверочный сеанс отозван после проверки']};
+  return {catalogTotal:coverage.total,checks:['HTTPS и общий вход защищают страницы и API','Общего пароля недостаточно для личного листа','Индивидуальный вход и защищённая cookie подтверждены','Личный режим, экспорт v12 и каталог проверены','Чужой Origin отклонён','Проверочный сеанс отозван после проверки']};
  }finally{
   if(cookie){
    // Without a pinned identity, first obtain it only from authenticated HTML.

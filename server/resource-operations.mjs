@@ -12,9 +12,11 @@ export function validateResourceCommand(input){
  if(Object.hasOwn(input,'targetMutationId')&&(!id(input.targetMutationId)||input.targetMutationId===input.mutationId))fail('Неверная цель отмены');
  const r=input.resource;
  if(!r||!['health','hp','slot','inspiration','counter','charges'].includes(r.kind))fail('Неизвестный ресурс');
- const keys=r.kind==='health'?['kind','operation','temporaryBefore','concentrationBefore',...(r.operation==='restore'?['hpAfter','tempAfter','concentrationAfter']:[])]:r.kind==='slot'?['kind','level']:r.kind==='counter'?['kind','counterId']:r.kind==='charges'?['kind','catalogId','unit']:['kind'];
+ const keys=r.kind==='health'?['kind','operation','temporaryBefore','concentrationBefore',...(Object.hasOwn(r,'checksBefore')?['checksBefore']:[]),...(Object.hasOwn(r,'deathBefore')?['deathBefore']:[]),...(['pass','fail'].includes(r.operation)?['checkId']:[]),...(r.operation==='restore'?['hpAfter','tempAfter','concentrationAfter',...(Object.hasOwn(r,'checksBefore')?['checksAfter']:[]),...(Object.hasOwn(r,'deathBefore')?['deathAfter']:[])]:[])]:r.kind==='slot'?['kind','level']:r.kind==='counter'?['kind','counterId']:r.kind==='charges'?['kind','catalogId','unit']:['kind'];
  if(!exact(r,keys))fail('Неверные поля ресурса');
- if(r.kind==='health'&&([r.concentrationBefore,...(r.operation==='restore'?[r.concentrationAfter]:[])].some(c=>c!==null&&(typeof c!=='string'||!c.trim()||c.length>200))||!['damage','heal','temporary','restore'].includes(r.operation)||!Number.isSafeInteger(r.temporaryBefore)||r.temporaryBefore<0||r.temporaryBefore>9999||input.delta<0||r.operation==='restore'&&!input.targetMutationId))fail('Неверная операция здоровья');
+ if(r.kind==='health'&&([r.concentrationBefore,...(r.operation==='restore'?[r.concentrationAfter]:[])].some(c=>c!==null&&(typeof c!=='string'||!c.trim()||c.length>200))||!['damage','heal','temporary','restore','pass','fail','critical-damage','death-success','death-failure','death-1','death-20','death-stabilize'].includes(r.operation)||!Number.isSafeInteger(r.temporaryBefore)||r.temporaryBefore<0||r.temporaryBefore>9999||input.delta<0||r.operation==='restore'&&!input.targetMutationId))fail('Неверная операция здоровья');
+ if(r.kind==='health'&&Object.hasOwn(r,'checksBefore'))for(const entries of [r.checksBefore,...(r.operation==='restore'?[r.checksAfter]:[])])if(!Array.isArray(entries)||entries.length>100)fail('Неверный список проверок');
+ if(r.kind==='health'&&['pass','fail'].includes(r.operation)&&(!id(r.checkId)||input.delta!==1||!Object.hasOwn(r,'checksBefore')))fail('Неверное решение проверки');
  if(r.kind==='slot'&&![1,2,3].includes(r.level))fail('Неверный круг шаблона');
  if(r.kind==='counter'&&!id(r.counterId))fail('Неверный счётчик');
  if(r.kind==='charges'&&(typeof r.catalogId!=='string'||!/^[a-z0-9][a-z0-9:._-]{2,119}$/.test(r.catalogId)||!Number.isSafeInteger(r.unit)||r.unit<0||r.unit>998))fail('Неверный экземпляр предмета');
@@ -45,8 +47,10 @@ export function applyResourceCommand(db,current,payload,mutationId,writeState){
  const balance=resourceBalance(db,current,payload.resource);
  if(balance.value!==payload.before||balance.maximum!==payload.maximum)throw new AppError(409,'Остаток или максимум ресурса изменился. Нужна сверка очереди');
  if(payload.resource.kind==='hp'&&payload.delta<0&&(current.state.tempHp||0)>0)throw new AppError(409,'Обнови страницу: урон должен учитывать временные хиты');
+ if(['health','hp'].includes(payload.resource.kind)&&current.state.concentrationChecks?.length&&!Object.hasOwn(payload.resource,'checksBefore'))throw new AppError(409,'Обнови страницу: есть вопросы концентрации');
+ if(['health','hp'].includes(payload.resource.kind)&&current.state.deathSaves!==undefined&&!Object.hasOwn(payload.resource,'deathBefore'))throw new AppError(409,'Обнови страницу: сохранены спасброски от смерти');
  let after=balance.value+payload.delta,health;
- if(payload.resource.kind==='health'){try{health=Health.project(current.state.hp,current.state.maxHp,current.state.tempHp||0,payload.resource,payload.delta,current.state.concentration);}catch(error){throw new AppError(409,error.message);}after=health.hp;}
+ if(payload.resource.kind==='health'){try{health=Health.project(current.state.hp,current.state.maxHp,current.state.tempHp||0,payload.resource,payload.delta,current.state.concentration,current.state.concentrationChecks||[],mutationId,Health.deathState(current.state.hp,current.state.deathSaves));}catch(error){throw new AppError(409,error.message);}after=health.hp;}
  if(payload.resource.kind==='hp')after=Math.max(0,Math.min(balance.maximum,after));
  else if(!health&&(after<0||after>balance.maximum))throw new AppError(409,'Приращение выходит за пределы ресурса');
  const next=structuredClone(current.state),r=payload.resource;

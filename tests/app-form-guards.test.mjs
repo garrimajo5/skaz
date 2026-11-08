@@ -94,8 +94,8 @@ test('undo refuses a different game and failed undo does not create a new invers
 test('health entry starts empty, previews clamping and submits explicit numbers with Enter',async()=>{
  const h=harness();h.run('hpDialog()');assert.match(h.get('#dialog-content').innerHTML,/inputmode="numeric"/);assert.doesNotMatch(h.get('#dialog-content').innerHTML,/value="7"/);
  await h.get('#apply-hp').onclick();assert.equal(h.writes.length,0);
- h.get('#hp-value').value='99';h.get('#hp-value').oninput();assert.equal(h.get('#hp-preview').textContent,'28 → 0 хитов · Без сознания · Урон сверх оставшихся хитов: 71');assert.equal(h.get('#apply-hp').textContent,'Применить −99');
- await h.get('#hp-value').onkeydown({key:'Enter',preventDefault(){}});assert.equal(h.state().hp,0);assert.match(h.writes[0].label,/−99 хитов · 28 → 0/);
+ h.get('#hp-value').value='99';h.get('#hp-value').oninput();assert.equal(h.get('#hp-preview').textContent,'28 → 0 хитов · Погиб · Урон сверх оставшихся хитов: 71');assert.equal(h.get('#apply-hp').textContent,'Применить −99');
+ await h.get('#hp-value').onkeydown({key:'Enter',preventDefault(){}});assert.equal(h.writes.length,0);await h.get('#confirm-death').onclick();await new Promise(r=>setImmediate(r));assert.equal(h.state().hp,0);assert.match(h.writes[0].label,/−99 хитов · 28 → 0/);
 });
 
 test('health entry rejects stale preview and keeps concentration reminder with undo',async()=>{
@@ -191,4 +191,21 @@ test('long rest clears temporary HP and one undo restores that reserve',async()=
 
 test('manual-class rest restores health and clears temp HP without inventing counter recovery',async()=>{
  const h=harness();h.run('state.tempHp=9;SkazStorage.sheet=()=>({counters:[{id:"ki",current:1,max:4}]})');const before=h.state();h.click('rest');await h.get('#long-rest').onclick();await new Promise(r=>setImmediate(r));assert.equal(h.state().hp,38);assert.equal(h.state().tempHp,0);assert.deepEqual(h.state().slots,before.slots);assert.equal(h.state().inspiration,before.inspiration);
+});
+
+test('concentration question remains visible independently of toast, is escaped and rejects stale buttons',()=>{
+ const h=harness();h.run(`state.concentration='<Bless>';state.concentrationChecks=[{id:'damage-question',spell:'<Bless>',damage:8,dc:10}];`);
+ assert.match(h.run('quickPanel()'),/Проверка концентрации · СЛ 10/);assert.match(h.run('quickPanel()'),/concentration-pending/);
+ h.run(`var answered=0;SkazStorage.resourceDelta=()=>{answered++;throw Error('unexpected')};answerConcentration('fail','damage-question','stale')`);assert.equal(h.run('answered'),0);
+ h.run('state.concentration=null');assert.equal(h.run('concentrationQuestion()'),'');
+});
+test('manual concentration end clears pending questions and its one undo restores them',async()=>{
+ const h=harness();h.run(`state.concentration='Bless';state.concentrationChecks=[{id:'damage-question',spell:'Bless',damage:8,dc:10}];endConcentration('Bless',SkazStorage.snapshotKey());`);await new Promise(r=>setImmediate(r));
+ assert.equal(h.state().concentration,null);assert.deepEqual(h.state().concentrationChecks,[]);
+ await h.get('#undo').onclick();await new Promise(r=>setImmediate(r));assert.equal(h.state().concentration,'Bless');assert.equal(h.state().concentrationChecks.length,1);
+});
+
+test('zero health replaces ordinary damage with named death state and a touch-sized saves dialog',()=>{
+ const h=harness();h.run("state.hp=0;state.deathSaves={successes:1,failures:2,status:'dying'}");const html=h.run('healthVitals()');assert.match(html,/Без сознания/);assert.match(html,/Успехи ●○○ · Провалы ●●○/);assert.doesNotMatch(html,/data-health="damage"/);h.run('deathDialog()');assert.match(h.get('#dialog-content').innerHTML,/Натуральная 20/);assert.match(h.get('#dialog-content').innerHTML,/Критический урон/);
+ h.run("state.deathSaves={successes:0,failures:3,status:'dead'}");assert.match(h.run('healthVitals()'),/data-health="heal" disabled/);h.run('hpDialog(true)');assert.match(h.get('#toast').innerHTML,/не воскрешает/);
 });

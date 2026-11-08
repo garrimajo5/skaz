@@ -43,7 +43,7 @@ test('bad cookie flags and mismatched export fail safely and still revoke the te
  for(const fault of ['cookie','export']){
   const f=await fixture(t,async(route,response)=>{
    if(fault==='cookie'&&route==='/api/auth/login'&&response.status===200){const headers=new Headers(response.headers);headers.set('set-cookie',headers.get('set-cookie').replace('; Secure',''));return new Response(await response.text(),{status:200,headers});}
-   if(fault==='export'&&route==='/api/export/active-v11'){const value=await response.json();value.state.hp=0;return Response.json(value);}return response;
+   if(fault==='export'&&route==='/api/export/active-v12'){const value=await response.json();value.state.hp=0;return Response.json(value);}return response;
   });
   const before=f.store.read();await assert.rejects(verifyIndividualDeployment({origin,outerLogin,account,fetchImpl:f.fetchImpl}));assert.equal(f.auth.check(f.token()),null);assert.deepEqual(f.store.read(),before);
  }

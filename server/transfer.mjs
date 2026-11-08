@@ -15,14 +15,15 @@ function exact(value, keys) {
   if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).length !== keys.length || keys.some(key => !Object.hasOwn(value, key))) fail('Неверные поля файла переноса');
 }
 export function validateTransfer(file) {
-  exact(file, ['app','schemaVersion','ruleset','scope','exportedAt','source','state','session','inventory','catalog', ...([3,4,5,6,7,8,9,10,11].includes(file?.schemaVersion) ? ['spellbook'] : []), ...([4,5,6,7,8,9,10,11].includes(file?.schemaVersion) ? ['quests'] : []), ...([5,6,7,8,9,10,11].includes(file?.schemaVersion) ? ['places'] : []), ...(file?.schemaVersion >= 6 ? ['proposals'] : []), ...(file?.schemaVersion >=8 ? ['characterStats'] : []), ...(file?.schemaVersion>=9 ? ['characterSheet']:[])]);
-  if (file.app !== 'skaz-active' || ![2,3,4,5,6,7,8,9,10,11].includes(file.schemaVersion) || file.ruleset !== '5e-2014' || file.scope !== 'active-game') fail('Нужен экспорт активной игры СКАЗ v2–v11, D&D 2014');
+  exact(file, ['app','schemaVersion','ruleset','scope','exportedAt','source','state','session','inventory','catalog', ...([3,4,5,6,7,8,9,10,11,12].includes(file?.schemaVersion) ? ['spellbook'] : []), ...([4,5,6,7,8,9,10,11,12].includes(file?.schemaVersion) ? ['quests'] : []), ...([5,6,7,8,9,10,11,12].includes(file?.schemaVersion) ? ['places'] : []), ...(file?.schemaVersion >= 6 ? ['proposals'] : []), ...(file?.schemaVersion >=8 ? ['characterStats'] : []), ...(file?.schemaVersion>=9 ? ['characterSheet']:[])]);
+  if (file.app !== 'skaz-active' || ![2,3,4,5,6,7,8,9,10,11,12].includes(file.schemaVersion) || file.ruleset !== '5e-2014' || file.scope !== 'active-game') fail('Нужен экспорт активной игры СКАЗ v2–v12, D&D 2014');
   if (typeof file.exportedAt !== 'string' || file.exportedAt.length > 40 || !Number.isFinite(Date.parse(file.exportedAt))) fail('Неверная дата экспорта');
   exact(file.source, ['revision','context']); exact(file.source.context, ['campaignId','characterId','sessionId']);
   if (!Number.isSafeInteger(file.source.revision) || file.source.revision < 0 || Object.values(file.source.context).some(id => typeof id !== 'string' || !/^[a-zA-Z0-9-]{1,80}$/.test(id))) fail('Неверные сведения об исходной игре');
   if(file.schemaVersion<10&&file.characterSheet&&['spellcasting','saveProficiencies'].some(key=>Object.hasOwn(file.characterSheet,key)))fail('Настройки заклинаний требуют формат v10');
   const characterSheet=file.schemaVersion>=9?(file.characterSheet===null?null:validateCharacterSheet(file.characterSheet)):undefined;
   const characterStats=file.schemaVersion>=8?(file.characterStats===null?null:validateCharacterStats(file.characterStats)):undefined;
+  if(file.schemaVersion<12&&(file.state?.concentrationChecks!==undefined||file.state?.deathSaves!==undefined))fail('Проверки концентрации требуют формат v12');
   if(file.schemaVersion<11&&file.state?.tempHp!==undefined)fail('Временные хиты требуют формат v11');
   const state = validateState(file.state);
   exact(file.session, ['name','playedOn']);

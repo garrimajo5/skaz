@@ -78,7 +78,8 @@ export function openStore(filename) {
       const quests = readQuests(db, current.context.campaignId);
       const places = readPlaces(db, current.context.campaignId);
       const proposals = readProposals(db, current.context);
-      if (![2,3,4,5,6,7,8,9,10,11].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if (![2,3,4,5,6,7,8,9,10,11,12].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if(version<12&&(current.state.concentrationChecks!==undefined||current.state.deathSaves!==undefined))throw new AppError(409,'Здоровье и проверки требуют экспорт v12');
       if(version<11&&current.state.tempHp!==undefined)throw new AppError(409,'Временные хиты требуют экспорт v11');
       if(version<10&&current.characterSheet&&['spellcasting','saveProficiencies'].some(key=>Object.hasOwn(current.characterSheet,key)))throw new AppError(409,'Настройки заклинаний требуют экспорт v10 или SQLite backup');
       if(version<9&&current.characterSheet!==null)throw new AppError(409,'Собственный класс и счётчики требуют экспорт v9 или SQLite backup');
@@ -125,7 +126,7 @@ export function openStore(filename) {
     const next = validateState(request.state);
     const { expectedRevision, label } = request;
     const hash = createHash('sha256').update(JSON.stringify({ expectedRevision, label, state: next })).digest('hex');
-    return mutate(request, hash, label, () => {const current=read();if(current.state.tempHp!==undefined&&next.tempHp===undefined)throw new AppError(409,'Обнови страницу: отсутствуют временные хиты');if(current.characterSheet&&(JSON.stringify(current.state.slots)!==JSON.stringify(next.slots)||current.state.inspiration!==next.inspiration))throw new AppError(409,'Счётчики собственного класса изменяются в ручном листе');writeEntities(db, next, viewId); return next; });
+    return mutate(request, hash, label, () => {const current=read();if(current.state.deathSaves!==undefined&&next.deathSaves===undefined)throw new AppError(409,'Обнови страницу: отсутствуют спасброски от смерти');if(current.state.concentrationChecks!==undefined&&next.concentrationChecks===undefined)throw new AppError(409,'Обнови страницу: отсутствуют проверки концентрации');if(current.state.tempHp!==undefined&&next.tempHp===undefined)throw new AppError(409,'Обнови страницу: отсутствуют временные хиты');if(current.characterSheet&&(JSON.stringify(current.state.slots)!==JSON.stringify(next.slots)||current.state.inspiration!==next.inspiration))throw new AppError(409,'Счётчики собственного класса изменяются в ручном листе');writeEntities(db, next, viewId); return next; });
   }
   function mutate(request, hash, label, apply, operation, allowStale) {
     const { mutationId, expectedRevision } = request;
@@ -186,11 +187,11 @@ export function openStore(filename) {
     changeResource: request => {
       const payload=validateResourceCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'resource',expectedRevision:request.expectedRevision,payload})).digest('hex');
       // Preserve the established revision/identity receipt checks for replay.
-      const label=payload.resource.kind==='health'?'Здоровье: '+({damage:'урон',heal:'лечение',temporary:'временные хиты',restore:'отмена'}[payload.resource.operation])+' '+payload.delta:(payload.resource.kind==='hp'?'Хиты':payload.resource.kind==='slot'?payload.resource.level+' круг':payload.resource.kind==='inspiration'?'Вдохновение':payload.resource.kind==='counter'?'Счётчик':'Заряды')+': '+payload.before+' → '+(payload.resource.kind==='hp'?Math.max(0,Math.min(payload.maximum,payload.before+payload.delta)):payload.before+payload.delta);
+      const label=payload.resource.kind==='health'?'Здоровье: '+({damage:'урон',heal:'лечение',temporary:'временные хиты',restore:'отмена',pass:'концентрация пройдена',fail:'концентрация провалена','critical-damage':'критический урон','death-success':'успех от смерти','death-failure':'провал от смерти','death-1':'натуральная 1','death-20':'натуральная 20','death-stabilize':'стабилизация'}[payload.resource.operation])+' '+payload.delta:(payload.resource.kind==='hp'?'Хиты':payload.resource.kind==='slot'?payload.resource.level+' круг':payload.resource.kind==='inspiration'?'Вдохновение':payload.resource.kind==='counter'?'Счётчик':'Заряды')+': '+payload.before+' → '+(payload.resource.kind==='hp'?Math.max(0,Math.min(payload.maximum,payload.before+payload.delta)):payload.before+payload.delta);
       const saved=mutate(request,hash,payload.targetMutationId?'Отмена изменения ресурса':label,()=>{
         if(payload.targetMutationId){const inverse=inverseResource(db,read(),payload.targetMutationId);if(['delta','before','maximum'].some(k=>payload[k]!==inverse[k])||JSON.stringify(payload.resource)!==JSON.stringify(inverse.resource))throw new AppError(409,'Отмена не соответствует исходной операции');}
         const result=applyResourceCommand(db,read(),payload,request.mutationId,next=>writeEntities(db,next,viewId));
-        recordResource(db,request.mutationId,{...payload,title:result.title,...(result.health?{tempAfter:result.health.tempHp,concentrationAfter:result.health.concentration}:{})},result.after,payload.targetMutationId||null);
+        recordResource(db,request.mutationId,{...payload,title:result.title,...(result.health?{tempAfter:result.health.tempHp,concentrationAfter:result.health.concentration,...(result.health.deathSaves?{deathAfter:result.health.deathSaves}:{}),...(result.health.concentrationChecks?{checksAfter:result.health.concentrationChecks}:{})}:{})},result.after,payload.targetMutationId||null);
         return result.state;
       },'resource',()=>independentResourcesSince(db,request.expectedRevision,payload));
       return {...saved,resourceReceipt:resourceReceipt(db,request.mutationId)};
@@ -201,7 +202,7 @@ export function openStore(filename) {
         const current=read();if(payload.characterId!==current.context.characterId)throw new AppError(409,'Выбран другой персонаж');
         const inverse=inverseResource(db,current,payload.targetMutationId);
         const result=applyResourceCommand(db,current,inverse,request.mutationId,next=>writeEntities(db,next,viewId));
-        recordResource(db,request.mutationId,{...inverse,title:result.title,...(result.health?{tempAfter:result.health.tempHp,concentrationAfter:result.health.concentration}:{})},result.after,payload.targetMutationId);
+        recordResource(db,request.mutationId,{...inverse,title:result.title,...(result.health?{tempAfter:result.health.tempHp,concentrationAfter:result.health.concentration,...(result.health.deathSaves?{deathAfter:result.health.deathSaves}:{}),...(result.health.concentrationChecks?{checksAfter:result.health.concentrationChecks}:{})}:{})},result.after,payload.targetMutationId);
         return result.state;
       },'resource-undo');
     },

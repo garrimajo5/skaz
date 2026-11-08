@@ -19,7 +19,7 @@ const SkazResourceQueue = (() => {
   if(!b||!Number.isSafeInteger(b.value)||!Number.isSafeInteger(b.maximum)||b.value!==command.before||b.maximum!==command.maximum||!Number.isSafeInteger(command.delta)||(!command.delta&&!(command.resource.kind==='health'&&command.resource.operation==='temporary'))||Math.abs(command.delta)>10000)throw new Error('Остаток ресурса требует сверки');
   if(command.resource.kind==='health'){
    if(command.resource.operation==='restore'&&!command.targetMutationId)throw new Error('Отмена требует исходную операцию');
-   const next=clone(snapshot);Object.assign(next.state,SkazHealth.project(snapshot.state.hp,snapshot.state.maxHp,snapshot.state.tempHp||0,command.resource,command.delta,snapshot.state.concentration));return next;
+   const next=clone(snapshot);Object.assign(next.state,SkazHealth.project(snapshot.state.hp,snapshot.state.maxHp,snapshot.state.tempHp||0,command.resource,command.delta,snapshot.state.concentration,snapshot.state.concentrationChecks||[],command.mutationId,SkazHealth.deathState(snapshot.state.hp,snapshot.state.deathSaves)));return next;
   }
   if(command.resource.kind==='hp'&&command.delta<0&&(snapshot.state.tempHp||0)>0)throw new Error('Обнови страницу: урон должен учитывать временные хиты');
   let value=b.value+command.delta;
@@ -58,7 +58,7 @@ const SkazResourceQueue = (() => {
   enqueue(resource,delta,mutationId,targetMutationId){
    if(!this.data)throw new Error('Сначала открой сохранённую игру');
    const snapshot=this.snapshot,b=balance(snapshot,resource);if(!b)throw new Error('Ресурс недоступен');
-   if(resource.kind==='health')resource={kind:'health',operation:resource.operation,temporaryBefore:resource.temporaryBefore,concentrationBefore:snapshot.state.concentration,...(resource.operation==='restore'?{hpAfter:resource.hpAfter,tempAfter:resource.tempAfter,concentrationAfter:resource.concentrationAfter}:{})};
+   if(resource.kind==='health')resource={kind:'health',operation:resource.operation,temporaryBefore:resource.temporaryBefore,concentrationBefore:snapshot.state.concentration,checksBefore:clone(snapshot.state.concentrationChecks||[]),deathBefore:SkazHealth.deathState(snapshot.state.hp,snapshot.state.deathSaves),...(['pass','fail'].includes(resource.operation)?{checkId:resource.checkId}:{}),...(resource.operation==='restore'?{hpAfter:resource.hpAfter,tempAfter:resource.tempAfter,concentrationAfter:resource.concentrationAfter,checksAfter:clone(resource.checksAfter||[]),deathAfter:resource.deathAfter||SkazHealth.deathState(resource.hpAfter)}:{})};
    const command={mutationId,expectedRevision:this.data.baseline.revision+this.length,context:clone(snapshot.context),resource:clone(resource),delta,before:b.value,maximum:b.maximum,...(targetMutationId?{targetMutationId}:{})};
    projectOne(snapshot,command);this.persist({...this.data,createdAt:{...this.data.createdAt,[mutationId]:new Date().toISOString()},commands:[...this.data.commands,command]});return clone(command);
   }
@@ -68,9 +68,9 @@ const SkazResourceQueue = (() => {
    const later=this.data.commands.slice(this.data.commands.indexOf(target)+1);
    if(later.some(c=>SkazHealth.overlaps(c.resource,target.resource)&&(c.resource.kind==='health'||target.resource.kind==='health')))throw new Error('После действия менялось здоровье. Нужна сверка');
    if(target.resource.kind==='health'){
-    const snapshot=this.snapshot,after=SkazHealth.project(target.before,target.maximum,target.resource.temporaryBefore,target.resource,target.delta);
-    if(snapshot.state.hp!==after.hp||(snapshot.state.tempHp||0)!==after.tempHp||snapshot.state.maxHp!==target.maximum||target.before===after.hp&&target.resource.temporaryBefore===after.tempHp&&target.resource.concentrationBefore===after.concentration)throw new Error('Здоровье изменилось или операция ничего не изменила');
-    return {resource:{kind:'health',operation:'restore',temporaryBefore:after.tempHp,hpAfter:target.before,tempAfter:target.resource.temporaryBefore,concentrationBefore:snapshot.state.concentration,concentrationAfter:target.resource.concentrationBefore},delta:1};
+    const snapshot=this.snapshot,after=SkazHealth.project(target.before,target.maximum,target.resource.temporaryBefore,target.resource,target.delta,target.resource.concentrationBefore,target.resource.checksBefore,target.mutationId,target.resource.deathBefore);
+    if(snapshot.state.hp!==after.hp||(snapshot.state.tempHp||0)!==after.tempHp||snapshot.state.maxHp!==target.maximum||target.before===after.hp&&target.resource.temporaryBefore===after.tempHp&&target.resource.concentrationBefore===after.concentration&&JSON.stringify(target.resource.checksBefore||[])===JSON.stringify(after.concentrationChecks||[])&&JSON.stringify(target.resource.deathBefore)===JSON.stringify(after.deathSaves))throw new Error('Здоровье изменилось или операция ничего не изменила');
+    return {resource:{kind:'health',operation:'restore',temporaryBefore:after.tempHp,hpAfter:target.before,tempAfter:target.resource.temporaryBefore,concentrationBefore:snapshot.state.concentration,concentrationAfter:target.resource.concentrationBefore,checksAfter:clone(target.resource.checksBefore||[]),deathAfter:target.resource.deathBefore},delta:1};
    }
    const after=target.resource.kind==='hp'?Math.max(0,Math.min(target.maximum,target.before+target.delta)):target.before+target.delta;
    const delta=target.before-after,b=balance(this.snapshot,target.resource);
@@ -87,6 +87,8 @@ const SkazResourceQueue = (() => {
    const expected=projectOne(this.data.baseline,command),actual={...clone(payload),inventory:payload.inventory??expected.inventory};
    const before=balance(expected,command.resource),after=balance(actual,command.resource);
    if(!after||after.value!==before.value||after.maximum!==before.maximum)throw new Error('Сервер не подтвердил ожидаемый результат');
+   if(command.resource.kind==='health'&&Object.hasOwn(command.resource,'deathBefore')&&(JSON.stringify(actual.state.deathSaves)!==JSON.stringify(expected.state.deathSaves)||JSON.stringify(receipt.deathAfter)!==JSON.stringify(expected.state.deathSaves)))throw new Error('Сервер не подтвердил спасброски от смерти');
+   if(command.resource.kind==='health'&&Object.hasOwn(command.resource,'checksBefore')&&(JSON.stringify(actual.state.concentrationChecks||[])!==JSON.stringify(expected.state.concentrationChecks||[])||JSON.stringify(receipt.checksAfter)!==JSON.stringify(expected.state.concentrationChecks)))throw new Error('Сервер не подтвердил вопросы концентрации');
    if(command.resource.kind==='health'&&((actual.state.tempHp||0)!==expected.state.tempHp||receipt.tempAfter!==expected.state.tempHp||actual.state.concentration!==expected.state.concentration||receipt.concentrationAfter!==expected.state.concentration))throw new Error('Сервер не подтвердил временные хиты');
    if(verified&&receipt.after!==after.value)throw new Error('Подтверждение ресурса не совпало с остатком');
    this.persist({schemaVersion:1,baseline:actual,createdAt:Object.fromEntries(Object.entries(this.data.createdAt||{}).filter(([id])=>id!==command.mutationId)),commands:this.data.commands.slice(1).map((next,i)=>({...next,expectedRevision:payload.revision+i}))});
