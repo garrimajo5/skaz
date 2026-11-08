@@ -269,17 +269,17 @@
       },
       "contentSha256": "d94495ee0983d7feeb335539a33229d6dcb893dc276ce4a7f3bba6964d39f87e",
       "status": "candidate",
-      "path": "data/art-pilot-v1/fireball-v3.png",
-      "bytes": 1060347,
+      "path": "data/art-pilot-v1/fireball-v6.png",
+      "bytes": 1134812,
       "width": 1254,
       "height": 1254,
       "pngColorType": 6,
-      "sha256": "6ad3442ff946e70da71e32bab293877d22b67dde616beb3365bf61592fce6df2",
-      "source": "OpenAI built-in image_gen edit; user requested Claude issue #33 feedback, 2026-11-09",
+      "sha256": "655a68fe80b94bd94ce8490dc5c59b129314dde5cd06f9d2d280d9d093362f5b",
+      "source": "OpenAI built-in image_gen; option 19 selected by user 2026-11-09",
       "usage": "Local project style review; no external reference image; not accepted for distribution",
-      "review": "Candidate revised from Claude written feedback; user recognition testing and production preparation pending",
+      "review": "User selected option 19 as best artwork; production checks pending",
       "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
-      "prompt": "Ember bead lower-left, segmented arc, large upper-right explosion with dark smoky rim.",
+      "prompt": "ONE SQUARE 1:1 original painterly fantasy Fireball spell icon for SKAZ fantasy encyclopedia. Broad sculpted brush shapes, clear silhouette at32px, moderate detail, warm upper-left light. Orange fire, pale yellow core, charcoal-brown smoky edge, dark red shadows. TRUE TRANSPARENT background, 9percent safe margins, no ground/figures/text/numbers/frame, NO white haze or background patch. Fit entire composition in SQUARE canvas. Subject: Round explosion upper-right with bold dark smoky rim and FLAT elliptical pressure ring; small round fireball lower-left with short tapered flame wake trailing downward-left, detached from the explosion by clear space. Complete projectile and pressure-blast story.",
       "previousVersions": [
         {
           "version": 1,
@@ -292,9 +292,20 @@
           "path": "data/art-pilot-v1/fireball-v2.png",
           "sha256": "145d4b95e99a2b7037bfa070a7b48d9d347e5820fa6aecbee6e3320b0d28f47d",
           "review": "Revised per user feedback; awaiting review at icon size and production preparation"
+        },
+        {
+          "version": 3,
+          "path": "data/art-pilot-v1/fireball-v3.png",
+          "sha256": "6ad3442ff946e70da71e32bab293877d22b67dde616beb3365bf61592fce6df2",
+          "review": "Candidate revised from Claude written feedback; user recognition testing and production preparation pending"
         }
       ],
-      "version": 3
+      "version": 6,
+      "visualApproval": {
+        "date": "2026-11-09",
+        "selectedOption": "19",
+        "scope": "Fireball artwork only; not acceptance of other candidates"
+      }
     },
     {
       "id": "srd51:2014:spell:misty-step",
@@ -435,14 +446,108 @@
       "review": "Awaiting visual and production checks",
       "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
       "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: One glassy ancient orb containing a small coiled dragon-shaped motif, muted amber and dark teal, simple subtle bronze socket beneath it, magical artifact without noisy ornaments, no writing. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:monster:owl",
+      "name": {
+        "ru": "Сова",
+        "en": "Owl"
+      },
+      "contentSha256": "f8355cc93542878a4f4f9f2c29f632826edd549fc06052776bf6732094ccb186",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/owl.png",
+      "bytes": 1911717,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "ea19f2513383749d6ef052f448ab61b3812e4538e370346fad0a63449b64bbe6",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "source": "OpenAI built-in image_gen, continuation authorized by user 2026-11-09",
+      "usage": "Original project pilot artwork; no external reference; production acceptance pending",
+      "review": "Awaiting user visual review and production preparation",
+      "prompt": "Create ONE square original painterly fantasy bestiary portrait for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear silhouette at48px, moderate detail, natural muted materials, warm upper-left light and cool shadows. Subject: ONE natural owl, head and upper chest with upper folded wings, frontal three-quarter pose, alert round amber eyes, hooked small beak, layered mottled tawny and cream feathers; natural animal anatomy, no humanoid costume. Calm watchful expression, not cartoon. Entire owl silhouette within central76percent square, generous clear margins for circular token crop. TRUE transparent background, no scenery, branch, text, frame, runes, or extra animals. Dark brown outer feather contour plus restrained cream highlights readable against navy, charcoal and parchment."
+    },
+    {
+      "id": "srd51:2014:monster:gelatinous-cube",
+      "name": {
+        "ru": "Студенистый куб",
+        "en": "Gelatinous Cube"
+      },
+      "contentSha256": "91dd34c612c4adcc28168dc3eb6d9721b5eb882fe039a11e2cf8d6bb9fea111a",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/gelatinous-cube.png",
+      "bytes": 1502272,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "819741a533d5fa48bbd4a0c527c6897479c6a24c03c80e88cc2e30cff8572dc3",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "source": "OpenAI built-in image_gen, continuation authorized by user 2026-11-09",
+      "usage": "Original project pilot artwork; no external reference; production acceptance pending",
+      "review": "Awaiting user visual review and production preparation",
+      "prompt": "Create ONE square original painterly fantasy bestiary illustration for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear silhouette at48px, moderate detail, soft warm upper-left light. Subject: ONE gelatinous cube, recognizable nearly cubic translucent ooze seen in three-quarter view with THREE broad visible faces and softly rounded jelly edges. Clear muted blue-green material, darker teal outer edges and sparse cream reflections. A few small worn bones and one plain metal buckle suspended inside convey ooze without adding a face. NO eyes, mouth, limbs or humanoid anatomy. Whole cube centered within central72percent of square with generous margins for round token. TRUE transparent background outside and translucent interior, no ground, puddle, dungeon scenery, frame, text or symbols. Painterly natural jelly not glossy app-logo crystal or ice block."
+    },
+    {
+      "id": "srd51:2014:monster:fire-elemental",
+      "name": {
+        "ru": "Огненный элементаль",
+        "en": "Fire Elemental"
+      },
+      "contentSha256": "e5eeea33afa0f1f6a60498c20a92541c3b6906c91ceca94f4cb727837f8b1b15",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/fire-elemental.png",
+      "bytes": 1035143,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "c2f679259a8daa29c2ea65c022e47698744307e36f7f8fa45120980c74f2bfe0",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "source": "OpenAI built-in image_gen, continuation authorized by user 2026-11-09",
+      "usage": "Original project pilot artwork; no external reference; production acceptance pending",
+      "review": "Awaiting user visual review and production preparation",
+      "prompt": "Create ONE square original painterly fantasy bestiary portrait for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, strong silhouette at48px, moderate detail. Subject: ONE living FIRE ELEMENTAL, upright rising twisting column of orange and deep-red flame, a vaguely humanoid upper torso with two broad arm-like flame extensions and a small head-shaped crest; body entirely FIRE, no flesh, armor or rock. Two restrained pale luminous eye slits suggest awareness. Bottom tapers to curling flame rather than legs. Tall asymmetric creature silhouette, NOT a round fireball/explosion and NO shockwave ring. Yellow-white heat in chest, dark red outer edges and a few charcoal curls distinguish against light and dark themes. Compact entire creature within central76percent square, generous space for round token, no clipped crest. TRUE transparent background, no scene/ground/pedestal, no text/frame or tiny sparks."
+    },
+    {
+      "id": "srd51:2014:monster:ancient-red-dragon",
+      "name": {
+        "ru": "Древний красный дракон",
+        "en": "Ancient Red Dragon"
+      },
+      "contentSha256": "ffc399d7a0f610a9e69e9008e26f25f41d4312e021ac162e32564c6f7b07be73",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/ancient-red-dragon.png",
+      "bytes": 1822619,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "de0b2009dc75d6b6b301c22e2c878cc18c0723380c5d0ad779d5ad37d8821334",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "source": "OpenAI built-in image_gen, continuation authorized by user 2026-11-09",
+      "usage": "Original project pilot artwork; no external reference; production acceptance pending",
+      "review": "Awaiting user visual review and production preparation",
+      "prompt": "Create ONE square original painterly fantasy bestiary portrait for SKAZ, restrained high-quality fantasy encyclopedia, not copied from existing artwork. Broad sculpted brush shapes, clear silhouette at48px, moderate selective detail, warm upper-left light and cool shadows. Subject: ONE ANCIENT RED DRAGON head and thick upper neck in three-quarter view, broad powerful reptilian muzzle, two heavy backward-swept weathered horns, deep crimson and rust-red large scales, charcoal creases, pale old horn edges, amber watchful eye, stern ancient intelligent expression. Closed mouth with a few visible uneven teeth, small scars and worn scales convey age, no flame breath. Strong broad portrait not a full distant body, all horn tips and chin wholly inside central76percent square with generous transparent margin suitable for circular token. TRUE transparent background, no scenery, wings across frame, jewelry, letters, text or frame."
+    },
+    {
+      "id": "srd51:2014:monster:ghost",
+      "name": {
+        "ru": "Привидение",
+        "en": "Ghost"
+      },
+      "contentSha256": "c2bd234e50c6d86a443f18eaa6ab9b6010e641abbf998d0b9b2bf725f24dc0af",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/ghost.png",
+      "bytes": 1322493,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "a7ed80856e73457f66c9462c71d7c1821ef375abb5607f43a58004f722ba5c8d",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "source": "OpenAI built-in image_gen, continuation authorized by user 2026-11-09",
+      "usage": "Original project pilot artwork; no external reference; production acceptance pending",
+      "review": "Awaiting user visual review and production preparation",
+      "prompt": "Create ONE square original painterly fantasy bestiary portrait for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear silhouette at48px, moderate detail. Subject: ONE sorrowful humanoid GHOST, whole spectral upper body visible with head, shoulders and two arms tapering into a ragged floating lower shroud; pale blue-grey translucent face and old flowing robe, dark slate-blue edges plus soft ivory inner light. Empty shadowed eyes, quiet haunting expression, no gore, no skull mask, no hood hiding face. Entire figure is spectral, NOT one half disappearing, NOT the half-solid outline used by an invisibility spell. Broad central torso and three clear torn mist ends, no thin noisy wisps. Entire silhouette within central76percent square for circular token. TRUE transparent background, no graveyard/ground/scenery, no solid white haze rectangle, no text/frame/symbols. Restrained painterly fantasy style, face has warm-grey faint highlights upper-left, cool slate shadows to remain readable on parchment."
     }
   ],
-  "missingPilot": [
-    "srd51:2014:monster:owl",
-    "srd51:2014:monster:gelatinous-cube",
-    "srd51:2014:monster:fire-elemental",
-    "srd51:2014:monster:ancient-red-dragon",
-    "srd51:2014:monster:ghost"
-  ],
-  "generationBlocker": "Previous HTTP 403 on owl; service responded to three requested revisions on 2026-11-08. Five creature candidates still not generated."
+  "missingPilot": [],
+  "generationBlocker": null
 }
