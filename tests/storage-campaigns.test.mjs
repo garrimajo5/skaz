@@ -357,14 +357,14 @@ test('v3 preview includes spell list in the durable import and rejects a missing
   assert.deepEqual(calls[0].body.file.spellbook, file.spellbook);
 });
 
-test('client requests v9 export and refuses a response from another revision', async () => {
+test('client requests v10 export and refuses a response from another revision', async () => {
   const calls = [];
   const h = harness(memory(), memory(), async url => {
     calls.push(url);
     return response(url === '/api/workspace' ? payload(0) : { source: { context: payload(0).context, revision: 1 } });
   });
   await h.api.boot(); h.api.settings(); await h.get('#export-active').onclick();
-  assert.equal(calls.at(-1), '/api/export/active-v9');
+  assert.equal(calls.at(-1), '/api/export/active-v10');
   assert.match(h.messages.at(-1), /Игра изменилась/);
 });
 

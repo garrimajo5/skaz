@@ -109,6 +109,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           const sessionDetail = pathname.match(/^\/api\/sessions\/([a-zA-Z0-9-]{1,80})$/);
           if (sessionDetail) return json(response, 200, view.session(sessionDetail[1]));
           if (pathname === '/api/history') {const params=new URL(request.url, `http://${host}`).searchParams;const scope=params.get('scope')||'all';if(!['all','session'].includes(scope)||params.getAll('scope').length>1)throw new AppError(400,'Неверный фильтр истории');return json(response,200,{changes:view.history(scope)});}
+          if (pathname === '/api/export/active-v10') return json(response,200,view.exportActive(10),{'Content-Disposition':'attachment; filename="skaz-active-v10.json"'});
           if (pathname === '/api/export/active-v9') return json(response,200,view.exportActive(9),{'Content-Disposition':'attachment; filename="skaz-active-v9.json"'});
           if (pathname === '/api/export/active-v8') return json(response,200,view.exportActive(8),{'Content-Disposition':'attachment; filename="skaz-active-v8.json"'});
           if (pathname === '/api/export/active-v7') return json(response, 200, view.exportActive(7), { 'Content-Disposition': 'attachment; filename="skaz-active-v7.json"' });
