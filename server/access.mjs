@@ -297,7 +297,7 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
     });
     return mutationView[method](request);
   };
-  result.history=()=>{
+  result.history=(scope='all')=>{
     db.exec('BEGIN');
     try {
       const selected=current();
@@ -308,6 +308,7 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
         const before=JSON.parse(row.before_context),after=JSON.parse(row.after_context);
         try {access.context(userId,before);access.context(userId,after);} catch(error) {if(error instanceof AppError&&error.status===404)continue;throw error;}
         if (after.campaignId!==selected.campaignId || after.characterId!==selected.characterId) continue;
+        if(scope==='session'&&after.sessionId!==selected.sessionId)continue;
         filtered.push(historyDetail(db,row,createView(viewId).read()));if(filtered.length===50)break;
       }
       db.exec('COMMIT');return filtered;

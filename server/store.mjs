@@ -138,7 +138,7 @@ export function openStore(filename) {
       authorizeMutation({ phase: previous ? 'replay' : 'before', previous, mutationId });
       if (previous) {
         if (previous.request_hash !== hash) throw new AppError(409, 'Идентификатор уже использован для другого изменения');
-        const receipt = db.prepare('SELECT after_json FROM context_changes WHERE mutation_id=?').get(mutationId);
+        const receipt = db.prepare("SELECT after_json FROM context_changes WHERE mutation_id=? AND operation!='state'").get(mutationId);
         const response = { ...read(), replayed: true, ...(receipt ? { affectedContext: JSON.parse(receipt.after_json) } : {}) };
         db.exec('COMMIT');
         return response;
@@ -153,7 +153,7 @@ export function openStore(filename) {
       const defaultState = joinState({ campaign: defaultContext.campaign.data, character: defaultContext.character.data, session: defaultContext.session.data });
       db.prepare('UPDATE workspace SET revision=?, state_json=?, updated_at=? WHERE id=1').run(revision, JSON.stringify(defaultState), now);
       const affectedContext = contextIds(readEntities(db, viewId));
-      if (operation) db.prepare('INSERT INTO context_changes VALUES (?, ?, ?, ?)').run(mutationId, operation, JSON.stringify(current.context), JSON.stringify(affectedContext));
+      db.prepare('INSERT INTO context_changes VALUES (?, ?, ?, ?)').run(mutationId, operation || 'state', JSON.stringify(current.context), JSON.stringify(affectedContext));
       authorizeMutation({ phase: 'after', mutationId, beforeContext: current.context, context: affectedContext });
       const response = { ...read(), ...(operation ? { affectedContext } : {}) };
       db.exec('COMMIT');
@@ -327,7 +327,7 @@ export function openStore(filename) {
       }, 'import-active');
     },
     read, update, exportActive,
-    history: () => {const current=read();return db.prepare('SELECT * FROM changes ORDER BY revision DESC LIMIT 50').all().map(row=>historyDetail(db,row,current));},
+    history: (scope='all') => {const current=read();const rows=scope==='session'?db.prepare(`SELECT c.* FROM changes c JOIN context_changes x ON x.mutation_id=c.mutation_id WHERE json_extract(x.after_json,'$.campaignId')=? AND json_extract(x.after_json,'$.characterId')=? AND json_extract(x.after_json,'$.sessionId')=? ORDER BY c.revision DESC LIMIT 50`).all(current.context.campaignId,current.context.characterId,current.context.sessionId):db.prepare('SELECT * FROM changes ORDER BY revision DESC LIMIT 50').all();return rows.map(row=>historyDetail(db,row,current));},
     backup: destination => backup(db, destination),
     close: () => db.close(),
   };

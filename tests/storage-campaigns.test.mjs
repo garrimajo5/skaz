@@ -33,7 +33,7 @@ const response = data => ({ ok: true, json: async () => data });
 test('history renders numeric differences, sends addressed undo and keeps last confirmed time on load',async()=>{
  const calls=[],row={mutationId:'resource-target',label:'Хиты',createdAt:'2026-11-08T00:00:00Z',changes:[{resource:{kind:'hp'},before:28,after:25}],canUndo:true,undoKind:'resource'};
  let revision=0;const h=harness(memory(),memory(),async(url,options)=>{
-  if(url==='/api/history')return response({changes:[row]});
+  if(url==='/api/history?scope=session')return response({changes:[row]});
   if(options.method){calls.push({url,body:JSON.parse(options.body)});revision++;row.canUndo=false;}
   return response({...payload(revision),updatedAt:'2026-11-08T00:00:00Z'});
  });

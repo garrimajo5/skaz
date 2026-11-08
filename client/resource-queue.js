@@ -33,6 +33,7 @@ const SkazResourceQueue = (() => {
    let projected=data.baseline;const ids=new Set();
    for(const [i,command] of data.commands.entries()){
     if(typeof command.mutationId!=='string'||!/^[a-zA-Z0-9-]{8,80}$/.test(command.mutationId)||ids.has(command.mutationId)||command.expectedRevision!==data.baseline.revision+i)throw new Error('Нарушен порядок очереди');
+    const time=data.createdAt?.[command.mutationId];if(time!==undefined&&(typeof time!=='string'||!Number.isFinite(Date.parse(time))))throw new Error('Неверное время операции');
     ids.add(command.mutationId);projected=projectOne(projected,command);
    }
   }
@@ -51,7 +52,7 @@ const SkazResourceQueue = (() => {
    if(!this.data)throw new Error('Сначала открой сохранённую игру');
    const snapshot=this.snapshot,b=balance(snapshot,resource);if(!b)throw new Error('Ресурс недоступен');
    const command={mutationId,expectedRevision:this.data.baseline.revision+this.length,context:clone(snapshot.context),resource:clone(resource),delta,before:b.value,maximum:b.maximum};
-   projectOne(snapshot,command);this.persist({...this.data,commands:[...this.data.commands,command]});return clone(command);
+   projectOne(snapshot,command);this.persist({...this.data,createdAt:{...this.data.createdAt,[mutationId]:new Date().toISOString()},commands:[...this.data.commands,command]});return clone(command);
   }
   acknowledge(command,payload){
    if(!this.head||JSON.stringify(command)!==JSON.stringify(this.head))throw new Error('Нарушен порядок подтверждений');
@@ -63,7 +64,7 @@ const SkazResourceQueue = (() => {
    const before=balance(expected,command.resource),after=balance(actual,command.resource);
    if(!after||after.value!==before.value||after.maximum!==before.maximum)throw new Error('Сервер не подтвердил ожидаемый результат');
    if(verified&&receipt.after!==after.value)throw new Error('Подтверждение ресурса не совпало с остатком');
-   this.persist({schemaVersion:1,baseline:actual,commands:this.data.commands.slice(1).map((next,i)=>({...next,expectedRevision:payload.revision+i}))});
+   this.persist({schemaVersion:1,baseline:actual,createdAt:Object.fromEntries(Object.entries(this.data.createdAt||{}).filter(([id])=>id!==command.mutationId)),commands:this.data.commands.slice(1).map((next,i)=>({...next,expectedRevision:payload.revision+i}))});
   }
  }
  return Queue;

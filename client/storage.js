@@ -267,22 +267,23 @@ const SkazStorage = (() => {
     else if (draft.operation) download({ app: 'skaz-command', command: draft, note: 'Копия команды для сохранности. Повтор выполняется кнопкой в исходной вкладке; это не файл импорта прогресса.' }, 'skaz-pending-command.json');
     else download({ app: 'skaz', schemaVersion: 1, state: draft.state }, 'skaz-unsaved-draft.json');
   }
-  async function showResourceHistory(){
+  async function showResourceHistory(scope='session'){
     if(status==='denied'||permissions?.history===false||!permissions&&individual()||!loaded)return toast('История недоступна с текущими правами');
     const key=snapshotKey(),queued=structuredClone(resourceContextMatches()?resourceQueue?.data?.commands||[]:[]);let changes=[],unavailable=false;
-    if(can('history')){try{({changes}=await request('/api/history'));}catch{unavailable=true;}}
+    if(can('history')){try{({changes}=await request('/api/history?scope='+scope));}catch{unavailable=true;}}
     else unavailable=true;
     if(key!==snapshotKey())throw new Error('Игра изменилась. Открой историю заново');
     const title=r=>r.name||({hp:'Хиты',maxHp:'Максимум хитов',gold:'Золото',inspiration:'Вдохновение',slot:r.level+' круг',counter:'Счётчик '+r.counterId,charges:'Заряды · экземпляр '+(r.unit+1),quantity:'Количество предметов'}[r.kind]||'Ресурс');
-    const localRows=queued.map(command=>`<div class="list-row history-pending"><div><strong>${esc(title(command.resource))}: ${command.before} → ${Math.max(0,Math.min(command.maximum,command.before+command.delta))}</strong><small>Ждёт подтверждения сервера</small><small>Отмена из истории доступна после отправки</small></div></div>`).join('')+(pending?'<div class="list-row history-pending"><strong>Правка листа · ждёт подтверждения сервера</strong></div>':'');
-    modal(`<h2>История изменений</h2>${localRows}${unavailable?'<p>Серверная история сейчас недоступна. Операции со статусом ожидания ещё не подтверждены сервером.</p>':''}<button id="history-refresh">Обновить историю</button><p>Последние 50 сохранений. Отмена приращения добавляет обратное изменение к текущему остатку; она не перематывает последующие действия. После ручных правок или при выходе за границы нужна сверка.</p>${changes.map((item,i)=>`<div class="list-row"><div><strong>${esc(item.label)}</strong><small>${esc(new Date(item.createdAt).toLocaleString('ru-RU'))} · Сохранено</small>${(item.changes||[]).map(change=>`<p>${esc(title(change.resource))}: ${esc(change.before??'неизвестно')} → ${esc(change.after??'неизвестно')}</p>`).join('')}${!item.canUndo?`<small>${esc(item.undoReason||'Отмена недоступна')}</small>`:''}</div>${item.canUndo?`<button data-resource-undo="${i}">Отменить</button>`:''}</div>`).join('')||(unavailable?'':'<p>Подтверждённых сохранений нет.</p>')}`);
-    $('#history-refresh').onclick=()=>showResourceHistory().catch(error=>toast(error.message));
+    const localRows=queued.map(command=>`<div class="list-row history-pending"><div><strong>${esc(title(command.resource))}: ${command.before} → ${Math.max(0,Math.min(command.maximum,command.before+command.delta))}</strong><small>${esc(resourceQueue?.data?.createdAt?.[command.mutationId]?new Date(resourceQueue.data.createdAt[command.mutationId]).toLocaleString('ru-RU'):'Время не записано')} · Ждёт подтверждения сервера</small><small>Отмена из истории доступна после отправки</small></div></div>`).join('')+(pending?'<div class="list-row history-pending"><strong>Правка листа · ждёт подтверждения сервера</strong></div>':'');
+    modal(`<h2>История изменений</h2><button id="history-scope">${scope==='session'?'Показать все сессии':'Только текущая сессия'}</button>${localRows}${unavailable?'<p>Серверная история сейчас недоступна. Операции со статусом ожидания ещё не подтверждены сервером.</p>':''}<button id="history-refresh">Обновить историю</button><p>${scope==='session'?'Последние 50 сохранений текущей сессии. Старые записи без привязки доступны во всех сессиях.':'Последние 50 доступных сохранений всех сессий.'} Отмена приращения добавляет обратное изменение к текущему остатку; она не перематывает последующие действия. После ручных правок или при выходе за границы нужна сверка.</p>${changes.map((item,i)=>`<div class="list-row"><div><strong>${esc(item.label)}</strong><small>${esc(new Date(item.createdAt).toLocaleString('ru-RU'))} · Сохранено</small>${(item.changes||[]).map(change=>`<p>${esc(title(change.resource))}: ${esc(change.before??'неизвестно')} → ${esc(change.after??'неизвестно')}</p>`).join('')}${!item.canUndo?`<small>${esc(item.undoReason||'Отмена недоступна')}</small>`:''}</div>${item.canUndo?`<button data-resource-undo="${i}">Отменить</button>`:''}</div>`).join('')||(unavailable?'':'<p>Подтверждённых сохранений нет.</p>')}`);
+    $('#history-scope').onclick=()=>showResourceHistory(scope==='session'?'all':'session').catch(error=>toast(error.message));
+    $('#history-refresh').onclick=()=>showResourceHistory(scope).catch(error=>toast(error.message));
     $$('[data-resource-undo]').forEach(button=>button.onclick=async()=>{
       try{
         if(key!==snapshotKey()||!can('character'))throw new Error('Игра изменилась. Открой историю заново');
         button.disabled=true;const item=changes[Number(button.dataset.resourceUndo)];
         await campaignCommand(item.undoKind==='inventory'?'inventory-undo':'resource-undo',{characterId:activeContext.characterId,targetMutationId:item.mutationId});
-        await showResourceHistory();
+        await showResourceHistory(scope);
       }catch(error){toast(error.message,undefined,{error:true,persistent:true});}
     });
   }

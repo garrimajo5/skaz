@@ -72,4 +72,17 @@ test('resource API retains Origin and local-client checks',async t=>{
  assert.equal((await fetch(url,{method:'POST',headers:{...headers,Origin:'https://wrong.invalid'},body})).status,403);
  assert.equal((await fetch(url,{method:'POST',headers,body})).status,200);
  assert.equal((await fetch(url,{method:'POST',headers,body}).then(r=>r.json())).replayed,true);
+ const history=url.replace('/resources/change','/history');assert.equal((await fetch(history+'?scope=session')).status,200);assert.equal((await fetch(history+'?scope=wrong')).status,400);assert.equal((await fetch(history+'?scope=all&scope=session')).status,400);
+});
+
+test('session history excludes previous sessions while all history remains available',()=>{
+ const s=openStore(':memory:');try{
+  const old=command(s);s.changeResource(old);
+  s.startSession({mutationId:randomUUID(),expectedRevision:s.read().revision,session:{name:'Next test session',playedOn:'2026-11-08'}});
+  const next=command(s);s.changeResource(next);
+  const noteId=randomUUID();s.update({mutationId:noteId,expectedRevision:s.read().revision,label:'Session note',state:s.read().state});assert.ok(s.history('session').some(r=>r.mutationId===noteId));
+  assert.ok(s.history().some(r=>r.mutationId===old.mutationId));
+  assert.ok(!s.history('session').some(r=>r.mutationId===old.mutationId));
+  assert.ok(s.history('session').some(r=>r.mutationId===next.mutationId));
+ }finally{s.close();}
 });

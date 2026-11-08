@@ -75,3 +75,14 @@ test('storage failure does not optimistically accept an operation; damaged data 
 test('duplicate operation ids and tampered persisted order fail closed without clearing data',()=>{
  const s=openStore(':memory:'),m=memory(),q=new Queue(m,'a');try{q.resetBaseline(s.read());const id=randomUUID();q.enqueue({kind:'hp'},-1,id);assert.throws(()=>q.enqueue({kind:'hp'},-1,id));assert.equal(q.length,1);const data=JSON.parse(m.getItem('a'));data.commands[0].expectedRevision=99;m.data.set('a',JSON.stringify(data));assert.throws(()=>new Queue(m,'a'));assert.equal(JSON.parse(m.getItem('a')).commands[0].expectedRevision,99);}finally{s.close();}
 });
+
+test('local operation times persist across reload without changing wire commands or legacy queues',()=>{
+ const s=openStore(':memory:'),m=memory();try{
+  let q=new Queue(m,'times');q.resetBaseline(s.read());const a=q.enqueue({kind:'hp'},-1,randomUUID()),b=q.enqueue({kind:'hp'},-1,randomUUID());
+  const times=plain(q.data.createdAt);assert.ok(Number.isFinite(Date.parse(times[a.mutationId])));assert.equal(a.createdAt,undefined);
+  q=new Queue(m,'times');assert.deepEqual(plain(q.data.createdAt),times);q.acknowledge(plain(a),s.changeResource(plain(a)));
+  assert.equal(q.data.createdAt[a.mutationId],undefined);assert.equal(q.data.createdAt[b.mutationId],times[b.mutationId]);
+  const legacy=JSON.parse(m.getItem('times'));delete legacy.createdAt;m.setItem('times',JSON.stringify(legacy));q=new Queue(m,'times');assert.equal(q.length,1);assert.equal(q.snapshot.state.hp,26);
+  const corrupt=JSON.parse(m.getItem('times'));corrupt.createdAt={[b.mutationId]:'invalid'};m.setItem('times',JSON.stringify(corrupt));assert.throws(()=>new Queue(m,'times'),/повреждена/);
+ }finally{s.close();}
+});
