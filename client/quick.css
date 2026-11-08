@@ -108,6 +108,19 @@ button{min-width:var(--touch)}.dialog-close{min-width:var(--touch);min-height:va
 #dialog:has(.hp-entry){width:min(480px,calc(100% - 24px))}
 @media(max-width:700px){.entry-row,.catalog .entry-row{grid-template-columns:minmax(0,1fr)}.entry-description>summary{flex-wrap:wrap;gap:4px 12px}.entry-name{flex-basis:60%}.entry-metadata{flex-basis:100%;order:2}.entry-actions{padding-top:0}.entry-badge{margin-left:auto}.entry-description>summary:after{margin-left:0}}
 .entry-row>.entry-description{grid-column:auto}
+/* Health preview remains readable beside the combat panel on wide tablets. */
+.hp-tabs,.hp-factors,.hp-recent{display:flex;gap:8px;margin-block:8px}
+.hp-tabs button,.hp-factors button{flex:1;min-height:44px;font-size:14px}
+.hp-tabs [aria-pressed="true"],.hp-factors [aria-pressed="true"]{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.hp-factors[hidden]{display:none}.hp-recent button{min-height:44px;min-width:56px;font-variant-numeric:tabular-nums}
+.hp-preview-bar{display:flex;height:12px;background:var(--raised);border-radius:6px;overflow:hidden}
+.hp-preview-bar i{display:block;background:var(--green)}.hp-preview-bar .hp-gained{background:var(--accent)}
+.hp-preview-bar .hp-lost{background:repeating-linear-gradient(135deg,var(--red) 0 3px,transparent 3px 6px)}
+.hp-entry .hp-concentration{color:var(--text);font-size:14px;line-height:1.4;margin-block:8px}.hp-concentration:empty{display:none}
+#dialog:has(.hp-entry)::backdrop{backdrop-filter:none;background:#080c1033}
+@media(min-width:1000px) and (min-height:600px) and (orientation:landscape){
+ #dialog:has(.hp-entry){margin:0;left:312px;top:64px;width:min(560px,calc(100vw - 328px));max-width:560px;max-height:calc(100dvh - 80px);border-radius:16px}
+}
 /* Short Android landscape viewports still need room for the page above the controls. */
 @media(max-height:500px) and (orientation:landscape){
  .quick-state{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;gap:12px;min-height:72px;padding:4px 10px}
@@ -177,3 +190,39 @@ button.play-abilities{text-align:left;justify-content:flex-start;padding:4px 8px
 .play-screen .play-spell-row{height:50px;min-height:50px;max-height:50px;gap:8px;padding:3px 8px;flex-shrink:0}.play-spell-row .play-spell-level{width:24px;max-width:24px;flex:none;text-align:center;color:var(--accent)}.play-spell-row .play-spell-copy{flex:1;min-width:0;max-width:none;text-align:left}.play-spell-copy strong,.play-spell-copy small{display:block;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.play-spell-copy strong{font-size:14px;color:var(--text)}.play-spell-copy small{font-size:12px;color:var(--muted)}.play-spell-row.is-concentrating{border-color:var(--accent);box-shadow:inset 3px 0 var(--accent)}
 @media(min-width:700px){body[data-page="play"] #dialog:has(#catalog-detail-title){margin:0 0 0 auto;width:420px;max-width:calc(100% - 160px);height:100dvh;max-height:100dvh;border-radius:16px 0 0 16px}body[data-page="play"] #dialog:has(#catalog-detail-title)::backdrop{background:#0002;backdrop-filter:none}}
 @media(min-width:700px){body[data-page="play"] #dialog:has(#catalog-detail-title){padding:24px}body[data-page="play"] #dialog .catalog-facts dl{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-page="play"] #dialog .catalog-reader-nav{grid-template-columns:repeat(3,minmax(0,1fr));padding-right:0}body[data-page="play"] #dialog .catalog-reader-nav button{white-space:nowrap}body[data-page="play"] #dialog .catalog-reader-name{padding-right:28px}}
+/* Typography: serif only for titles, character names and the wordmark. */
+:root{font-family:Inter,Arial,sans-serif;font-variant-numeric:tabular-nums}
+h1,h2,h3,.character-name,.brand,body[data-theme=polar] h1,body[data-theme=polar] .character-name{font-family:'PT Serif',Georgia,serif}
+.quote,.sidebar-foot p,.map-caption,.spell-level{font-family:Inter,Arial,sans-serif}
+.play-mode-switch{display:flex;gap:0;padding:3px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.play-mode-switch button{border:0;border-radius:8px;min-height:44px;background:transparent;color:var(--text);font-size:14px}
+.play-mode-switch button[aria-pressed=true]{background:var(--accent);color:var(--ink);font-weight:600}
+nav i[hidden]{display:none}
+#dialog:has(.hp-entry input[type="number"]){width:min(480px,calc(100% - 24px));max-width:560px}
+#dialog-content:has(.hp-entry){padding:20px;max-height:inherit}
+.hp-entry #hp-title{font-size:24px;margin:8px 30px 8px 0}.hp-entry .overline{margin-bottom:8px}
+.hp-entry .dialog-actions{position:sticky;bottom:0;background:var(--panel);padding-block:8px;margin-bottom:-8px}
+@media(min-width:1000px) and (min-height:600px) and (orientation:landscape){
+ #dialog:has(.hp-entry input[type="number"]){margin:0;left:400px;top:64px;width:min(560px,calc(100vw - 416px));max-height:calc(100dvh - 80px);border-radius:16px}
+}
+#header-search{display:flex;align-items:center;margin-left:auto;min-width:44px;max-width:280px;flex:1}
+#header-search input{width:100%;min-width:0;min-height:44px;font-size:14px;border-radius:9px 0 0 9px}
+#header-search button{min-width:44px;min-height:44px;padding:4px;font-size:24px;border-radius:0 9px 9px 0}
+header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
+@media(max-width:1100px){#header-search{flex:0 0 44px}#header-search input{display:none}#header-search button{border-radius:9px}}
+@media(max-width:550px){header:has(#header-search){gap:4px}.play-mode-switch button{font-size:12px;padding-inline:6px}.play-mode-switch{padding:2px}#header-search{margin-left:0}}
+.temp-hp-chip{display:block!important;color:var(--text)!important;background:color-mix(in srgb,var(--accent) 15%,var(--panel));border:1px solid var(--accent);border-radius:6px;padding:4px 8px;font-size:14px!important;font-weight:500}
+.hp-tabs{flex-wrap:wrap}.hp-tabs button{min-width:85px}
+:root{--temporary:#9ecfff}body[data-theme=atlas]{--temporary:#315e83}
+.quick-health-meter{display:flex;height:6px;min-width:100px;margin-block:6px;background:var(--raised);border-radius:4px;overflow:hidden}
+.quick-health-meter i{display:block;height:100%;background:var(--green)}.quick-health-meter .hp-temporary,.hp-preview-bar .hp-temporary{background:var(--temporary)}
+.temp-hp-chip{color:var(--temporary)!important;border-color:var(--temporary)}
+.hp-tabs button{padding-inline:6px;white-space:nowrap}
+@media(max-width:550px){
+ #dialog-content:has(.hp-entry){padding:16px}
+ .hp-entry #hp-preview{font-size:16px;line-height:1.4;margin-block:8px}
+ .hp-keypad{gap:6px}.hp-keypad button{min-height:44px;padding:6px;font-size:20px}
+ .hp-factors button{font-size:12px;padding:6px;min-height:44px}
+ .hp-entry label{margin-block:8px 6px}
+ .hp-entry .dialog-actions{margin-top:8px}
+}

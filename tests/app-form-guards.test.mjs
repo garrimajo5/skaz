@@ -1,3 +1,4 @@
+const healthSource=await readFile(new URL('../client/health.js',import.meta.url),'utf8');
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
@@ -10,7 +11,7 @@ function harness(){
  const context=vm.createContext({structuredClone,URL,Blob,location:{protocol:'http:',hash:'#hero'},history:{replaceState(){}},localStorage:{getItem:()=>null},setTimeout:()=>0,clearTimeout(){},
   document:{body:{dataset:{}},querySelector:get,querySelectorAll:()=>[],getElementById:id=>id==='blocked-form-message'?(elements.get('#'+id)||null):get('#'+id),createElement:()=>({setAttribute(){},scrollIntoView(){}}),addEventListener:(key,fn)=>handlers[key]=fn},window:{addEventListener(){},scrollTo(){}},
   SkazStorage:{preference:()=> 'polar',paint(){},boot(){},setTheme(){},sessionTitle:()=>'',sessionDate:()=>'',contextKey:()=> 'same',snapshotKey:()=> 'same:'+revision,editable:()=>editable,commit:async(state,label)=>{writes.push({state:structuredClone(state),label});revision++;return {state};}},SkazEvents:{pendingCount:()=>0}
- });vm.runInContext(sheetSource,context);vm.runInContext(source,context);
+ });vm.runInContext(healthSource,context);vm.runInContext(sheetSource,context);vm.runInContext(source,context);
  return {get,writes,block:()=>editable=false,run:code=>vm.runInContext(code,context),state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset,classList:{contains:()=>false}})}})};
 }
 
@@ -93,7 +94,7 @@ test('undo refuses a different game and failed undo does not create a new invers
 test('health entry starts empty, previews clamping and submits explicit numbers with Enter',async()=>{
  const h=harness();h.run('hpDialog()');assert.match(h.get('#dialog-content').innerHTML,/inputmode="numeric"/);assert.doesNotMatch(h.get('#dialog-content').innerHTML,/value="7"/);
  await h.get('#apply-hp').onclick();assert.equal(h.writes.length,0);
- h.get('#hp-value').value='99';h.get('#hp-value').oninput();assert.equal(h.get('#hp-preview').textContent,'28 → 0 хитов · Без сознания');assert.equal(h.get('#apply-hp').textContent,'Применить −99');
+ h.get('#hp-value').value='99';h.get('#hp-value').oninput();assert.equal(h.get('#hp-preview').textContent,'28 → 0 хитов · Без сознания · Урон сверх оставшихся хитов: 71');assert.equal(h.get('#apply-hp').textContent,'Применить −99');
  await h.get('#hp-value').onkeydown({key:'Enter',preventDefault(){}});assert.equal(h.state().hp,0);assert.match(h.writes[0].label,/−99 хитов · 28 → 0/);
 });
 
@@ -152,5 +153,42 @@ test('combat values render only in the common panel across hero and demo spell p
  const panel=h.run('quickPanel()');assert.equal((panel.match(/data-health="damage"/g)||[]).length,1);assert.equal((panel.match(/data-health="heal"/g)||[]).length,1);assert.equal((panel.match(/id="rest"/g)||[]).length,1);assert.match(panel,/Хиты: 28 из 38/);
  h.run("SkazStorage.sheet=()=>({counters:[],level:2,className:'Тест'});SkazStorage.snapshotKey=()=> 'test'");
  assert.doesNotMatch(h.run('hero()'),/data-counter-delta|id="rest"/);
- assert.match(h.run('quickPanel()'),/id="rest" class="secondary" disabled/);
+ assert.doesNotMatch(h.run('quickPanel()'),/id="rest" class="secondary" disabled/);
+});
+
+test('damage applies resistance before vulnerability with rounding and never modifies healing',async()=>{
+ const h=harness();h.run('hpDialog()');h.get('#hp-value').value='7';h.get('#hp-half').onclick();assert.equal(h.get('#apply-hp').textContent,'Применить −3');
+ h.get('#hp-double').onclick();assert.equal(h.get('#apply-hp').textContent,'Применить −6');
+ h.get('#hp-heal').onclick();assert.equal(h.get('#apply-hp').textContent,'Применить +7');assert.equal(h.get('#hp-factors').hidden,true);
+ h.get('#hp-damage').onclick();assert.equal(h.get('#apply-hp').textContent,'Применить −7');
+ h.get('#hp-half').onclick();await h.get('#apply-hp').onclick();assert.equal(h.state().hp,25);assert.equal(h.writes.length,1);
+ await h.get('#apply-hp').onclick();assert.equal(h.writes.length,1);
+});
+
+test('zero after resistance cannot submit and concentration preview uses final damage and owned save',()=>{
+ const h=harness();h.run("state.concentration='<test>';SkazStorage.stats=()=>({abilities:{con:14}});SkazStorage.sheet=()=>({level:5,saveProficiencies:['con']});hpDialog()");
+ h.get('#hp-value').value='23';h.get('#hp-value').oninput();assert.match(h.get('#hp-concentration').textContent,/Сл 11 · твой бонус \+5/);
+ h.get('#hp-half').onclick();assert.match(h.get('#hp-concentration').textContent,/Сл 10/);
+ h.get('#hp-value').value='1';h.get('#hp-value').oninput();assert.equal(h.get('#apply-hp').disabled,true);h.get('#apply-hp').onclick();assert.equal(h.writes.length,0);assert.equal(h.get('#hp-concentration').textContent,'');
+ h.get('#hp-heal').onclick();assert.equal(h.get('#hp-concentration').textContent,'');
+});
+
+test('recent health values are bounded, deduplicated and scoped to current game',async()=>{
+ const h=harness();for(const n of [2,4,6,8,4]){h.run('hpDialog()');h.get('#hp-value').value=String(n);await h.get('#apply-hp').onclick();}
+ h.run('hpDialog()');const html=h.get('#dialog-content').innerHTML;assert.match(html,/data-hp-recent="4".*data-hp-recent="8".*data-hp-recent="6"/);assert.doesNotMatch(html,/data-hp-recent="2"/);
+ h.run("SkazStorage.contextKey=()=> 'another';hpDialog()");assert.doesNotMatch(h.get('#dialog-content').innerHTML,/data-hp-recent=/);
+});
+
+test('temporary entry replaces rather than adds, can clear, and damage preview includes absorption',async()=>{
+ const h=harness();h.run('state.tempHp=5;hpDialog()');h.get('#hp-value').value='12';h.get('#hp-value').oninput();assert.match(h.get('#hp-preview').textContent,/28 → 21 хитов · временные 5 → 0/);await h.get('#apply-hp').onclick();assert.equal(h.state().hp,21);assert.equal(h.state().tempHp,0);await h.get('#undo').onclick();assert.equal(h.state().hp,28);assert.equal(h.state().tempHp,5);
+ h.run('hpDialog()');h.get('#hp-temporary').onclick();h.get('#hp-value').value='3';await h.get('#apply-hp').onclick();assert.equal(h.state().tempHp,3);assert.equal(h.state().hp,28);
+ h.run('hpDialog()');h.get('#hp-temporary').onclick();h.get('#hp-value').value='0';await h.get('#apply-hp').onclick();assert.equal(h.state().tempHp,0);
+});
+
+test('long rest clears temporary HP and one undo restores that reserve',async()=>{
+ const h=harness();h.run('state.tempHp=8');h.click('rest');await h.get('#long-rest').onclick();await new Promise(r=>setImmediate(r));assert.equal(h.state().tempHp,0);assert.equal(h.state().hp,38);await h.get('#undo').onclick();assert.equal(h.state().tempHp,8);assert.equal(h.state().hp,28);
+});
+
+test('manual-class rest restores health and clears temp HP without inventing counter recovery',async()=>{
+ const h=harness();h.run('state.tempHp=9;SkazStorage.sheet=()=>({counters:[{id:"ki",current:1,max:4}]})');const before=h.state();h.click('rest');await h.get('#long-rest').onclick();await new Promise(r=>setImmediate(r));assert.equal(h.state().hp,38);assert.equal(h.state().tempHp,0);assert.deepEqual(h.state().slots,before.slots);assert.equal(h.state().inspiration,before.inspiration);
 });

@@ -6,8 +6,8 @@ import { AppError } from './state.mjs';
 import { cookieToken, sessionCookie, clearSessionCookie } from './authentication.mjs';
 
 const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
-const files = new Set(['resource-queue.js', 'index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'account.js', 'members.js', 'character-sheet.js', 'style.css', 'quick.css', 'app.js', 'play.js', 'ui.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
-const contentTypes = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
+const files = new Set(['fonts.css',"fonts/inter-400-800-cyrillic.woff2","fonts/inter-400-800-latin.woff2","fonts/pt-serif-400-cyrillic.woff2","fonts/pt-serif-400-latin.woff2","fonts/pt-serif-700-cyrillic.woff2","fonts/pt-serif-700-latin.woff2",'health.js', 'resource-queue.js', 'index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'account.js', 'members.js', 'character-sheet.js', 'style.css', 'quick.css', 'app.js', 'play.js', 'ui.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
+const contentTypes = { '.woff2': 'font/woff2', '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
 const MAX_BODY = 512 * 1024;
 function json(response, status, value, extra = {}) {
   response.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', ...extra });
@@ -109,6 +109,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           const sessionDetail = pathname.match(/^\/api\/sessions\/([a-zA-Z0-9-]{1,80})$/);
           if (sessionDetail) return json(response, 200, view.session(sessionDetail[1]));
           if (pathname === '/api/history') {const params=new URL(request.url, `http://${host}`).searchParams;const scope=params.get('scope')||'all';if(!['all','session'].includes(scope)||params.getAll('scope').length>1)throw new AppError(400,'Неверный фильтр истории');return json(response,200,{changes:view.history(scope)});}
+          if (pathname === '/api/export/active-v11') return json(response,200,view.exportActive(11),{'Content-Disposition':'attachment; filename="skaz-active-v11.json"'});
           if (pathname === '/api/export/active-v10') return json(response,200,view.exportActive(10),{'Content-Disposition':'attachment; filename="skaz-active-v10.json"'});
           if (pathname === '/api/export/active-v9') return json(response,200,view.exportActive(9),{'Content-Disposition':'attachment; filename="skaz-active-v9.json"'});
           if (pathname === '/api/export/active-v8') return json(response,200,view.exportActive(8),{'Content-Disposition':'attachment; filename="skaz-active-v8.json"'});

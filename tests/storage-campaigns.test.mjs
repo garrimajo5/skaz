@@ -6,7 +6,7 @@ import { randomUUID } from 'node:crypto';
 import { seed } from '../server/state.mjs';
 const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source = await readFile(new URL('../client/storage.js', import.meta.url), 'utf8');
-const queueSource=await readFile(new URL('../client/resource-queue.js',import.meta.url),'utf8');
+const queueSource=(await readFile(new URL('../client/health.js',import.meta.url),'utf8'))+'\n'+await readFile(new URL('../client/resource-queue.js',import.meta.url),'utf8');
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const memory = () => { const values = new Map(); return { get length() { return values.size; }, key: index => [...values.keys()][index], getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
 function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, withQueue=false) {
@@ -357,14 +357,14 @@ test('v3 preview includes spell list in the durable import and rejects a missing
   assert.deepEqual(calls[0].body.file.spellbook, file.spellbook);
 });
 
-test('client requests v10 export and refuses a response from another revision', async () => {
+test('client requests v11 export and refuses a response from another revision', async () => {
   const calls = [];
   const h = harness(memory(), memory(), async url => {
     calls.push(url);
     return response(url === '/api/workspace' ? payload(0) : { source: { context: payload(0).context, revision: 1 } });
   });
   await h.api.boot(); h.api.settings(); await h.get('#export-active').onclick();
-  assert.equal(calls.at(-1), '/api/export/active-v10');
+  assert.equal(calls.at(-1), '/api/export/active-v11');
   assert.match(h.messages.at(-1), /Игра изменилась/);
 });
 

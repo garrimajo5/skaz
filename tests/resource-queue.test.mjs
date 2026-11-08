@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import vm from 'node:vm';import {readFileSync} from 'node:fs';import {randomUUID} from 'node:crypto';import {openStore} from '../server/store.mjs';
-const source=readFileSync(new URL('../client/resource-queue.js',import.meta.url),'utf8');const ctx=vm.createContext({});vm.runInContext(source,ctx);const Queue=vm.runInContext('SkazResourceQueue',ctx);
+const source=readFileSync(new URL('../client/resource-queue.js',import.meta.url),'utf8');const ctx=vm.createContext({});vm.runInContext(readFileSync(new URL('../client/health.js',import.meta.url),'utf8')+'\n'+source,ctx);const Queue=vm.runInContext('SkazResourceQueue',ctx);
 const memory=()=>{const data=new Map();return {data,getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v)};};
 const plain=x=>JSON.parse(JSON.stringify(x));
 test('independent concurrent resources advance the queue using durable receipts without changing command IDs',()=>{

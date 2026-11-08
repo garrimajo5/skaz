@@ -453,3 +453,11 @@ test('catalog relevance prefers only the authorized hero book after textual rank
  const all=player.catalog.search(new URLSearchParams({q:'fire',kind:'spell',limit:'100'}));assert.equal(player.catalog.search(new URLSearchParams({q:'fire',kind:'spell',limit:'1',offset:'1'})).entries[0].id,all.entries[1].id);
  store.access.apply({action:'revoke-character',userId:userB,campaignId:second.campaignId,characterId:second.characterId});assert.throws(()=>player.catalog.search(params),{status:404});
 });
+
+test('temporary health grants and paired undo retain actor ownership and revoked grants block retries',t=>{
+ const {store,first,second}=setup(t),player=store.forUser(userB,'health-player',{write:true}),owner=store.forUser(userA,'health-owner',{write:true}),before=player.read();
+ const grant=command(player,{context:before.context,resource:{kind:'health',operation:'temporary',temporaryBefore:0,concentrationBefore:before.state.concentration},delta:5,before:before.state.hp,maximum:before.state.maxHp});
+ assert.throws(()=>store.forUser(userB,'health-reader').changeResource(grant),{status:403});assert.throws(()=>player.changeResource({...grant,context:first}),{status:409});player.changeResource(grant);
+ assert.equal(player.read().state.tempHp,5);assert.equal(owner.read().state.tempHp,undefined);assert.throws(()=>owner.undoResource(command(owner,{characterId:first.characterId,targetMutationId:grant.mutationId})),{status:404});
+ store.access.apply({action:'revoke-character',userId:userB,campaignId:first.campaignId,characterId:second.characterId});assert.throws(()=>player.changeResource(grant),{status:404});
+});

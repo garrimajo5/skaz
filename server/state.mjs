@@ -24,7 +24,8 @@ function list(value, max, label) {
 }
 
 export function validateState(input) {
-  keys(input, Object.keys(seed), 'состояние');
+  keys(input, [...Object.keys(seed),'tempHp'], 'состояние');
+  if(input.tempHp!==undefined)integer(input.tempHp,0,9999,'временные хиты');
   for (const key of Object.keys(seed)) if (!(key in input)) fail(`Отсутствует поле: ${key}`);
   integer(input.maxHp, 1, 999, 'максимум хитов');
   integer(input.hp, 0, input.maxHp, 'хиты');
