@@ -143,3 +143,14 @@ test('resource toast undo references its original mutation rather than an unrela
  const h=harness();h.run(`var queuedCommands=[];var queueGeneration=0;SkazStorage.resourceGeneration=()=>queueGeneration;SkazStorage.resourceDelta=(resource,delta,key,targetMutationId)=>{const command={resource,delta,key,targetMutationId,mutationId:'command-'+queuedCommands.length,before:3,maximum:4};queuedCommands.push(command);queueGeneration++;return command;};resourceAction({kind:'slot',level:1},-1,'Ячейка');`);
  await h.get('#undo').onclick();const commands=h.run('queuedCommands');assert.equal(commands.length,2);assert.equal(commands[1].targetMutationId,commands[0].mutationId);assert.equal(commands[1].delta,1);assert.doesNotMatch(h.get('#toast').innerHTML,/<button/);
 });
+
+test('combat values render only in the common panel across hero and demo spell pages',()=>{
+ const h=harness();
+ for(const page of ['hero()','demoSpellsPage()']){
+  const html=h.run(page);assert.doesNotMatch(html,/data-resource=|class="hp-number"|id="inspire"|id="rest"|class="slots"/);
+ }
+ const panel=h.run('quickPanel()');assert.equal((panel.match(/data-health="damage"/g)||[]).length,1);assert.equal((panel.match(/data-health="heal"/g)||[]).length,1);assert.equal((panel.match(/id="rest"/g)||[]).length,1);assert.match(panel,/Хиты: 28 из 38/);
+ h.run("SkazStorage.sheet=()=>({counters:[],level:2,className:'Тест'});SkazStorage.snapshotKey=()=> 'test'");
+ assert.doesNotMatch(h.run('hero()'),/data-counter-delta|id="rest"/);
+ assert.match(h.run('quickPanel()'),/id="rest" class="secondary" disabled/);
+});

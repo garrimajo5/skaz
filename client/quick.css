@@ -146,3 +146,28 @@ button.play-abilities{text-align:left;justify-content:flex-start;padding:4px 8px
 :root{--tracker-sand:#e5bc75}body[data-theme=atlas]{--tracker-sand:#805213}.tracker-mark.diamond,.tracker-pending{color:var(--tracker-sand)}
 
 .tracker-mark{background:transparent;font-style:normal;border-radius:0}.tracker-pending{font-style:normal;background:transparent}.tracker-mark.available{background:currentColor}
+/* One combat panel: bottom rows by default, a reserved column on large landscape screens. */
+.quick-state{--pult-side:0;display:grid;grid-template-columns:auto minmax(120px,1fr) auto;grid-template-areas:"vitals concentration extras" "resources resources resources";gap:4px 12px;padding:6px 12px;min-height:0;max-height:170px;overflow:hidden}
+.quick-vitals{grid-area:vitals;display:flex;align-items:center;gap:8px}.quick-vitals strong{white-space:nowrap;font-size:24px}.quick-vitals strong span{display:block}.quick-state .quick-vitals button{min-width:56px;min-height:56px;margin:0;padding:6px 10px}
+.quick-concentration-row{grid-area:concentration;display:flex;align-items:center;gap:4px;min-width:0}.quick-concentration{max-width:none;flex:1;min-width:0}.quick-state .quick-concentration-row button{min-height:44px;padding:4px 8px}
+.quick-extras{grid-area:extras;margin:0;gap:4px}.quick-state .quick-extras button{min-height:44px;padding:4px 8px}
+.quick-state .quick-resources{grid-area:resources;order:0;max-width:none;width:100%;overflow-x:auto;overflow-y:hidden;padding:0;margin:0;flex:none}
+.quick-state .resource-controls{margin:0;gap:8px}.quick-state .resource-group{padding:2px 4px}.quick-state .tracker-hint{display:none}.quick-state .resource-dots button{min-width:44px;min-height:44px;height:44px;padding:4px}.quick-state .resource-dots{gap:2px}.quick-state .resource-group strong{display:block;line-height:18px}
+.hero-grid{grid-template-columns:1fr}
+@media(min-width:1000px) and (min-height:600px) and (orientation:landscape){
+ header{position:sticky;top:0}.shell,body[data-page="play"] .shell{display:grid;grid-template-columns:88px minmax(0,1fr);max-width:none}
+ .sidebar,body[data-page="play"] .sidebar{display:block}.bottomnav,body[data-page="play"] .bottomnav{display:none}
+ .shell main,body[data-page="play"] .shell main{margin-left:300px;min-width:0;padding:20px 24px var(--bottom-reserve,24px)!important}
+ .quick-state{--pult-side:1;left:88px;top:56px;bottom:0;right:auto;width:300px;max-height:none;box-sizing:border-box;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:12px;padding:16px 12px;overflow-y:auto;border-block:0;border-radius:0}
+ .quick-vitals{flex-wrap:wrap}.quick-vitals strong{flex-basis:100%;font-size:36px}.quick-vitals strong span{display:inline}.quick-vitals button{flex:1}
+ .quick-state .quick-resources{width:100%;overflow:visible;flex:0 0 auto!important}.quick-state .resource-controls{width:100%;flex-direction:column;gap:8px}.quick-state .resource-group{max-width:100%;box-sizing:border-box;padding:6px}.quick-state .resource-dots{flex-wrap:wrap}
+ .quick-extras{flex-wrap:wrap;margin-top:auto}.quick-state .quick-concentration{white-space:normal;overflow-wrap:anywhere}
+ .play-screen{min-height:0}#toast{left:412px;max-width:calc(100vw - 436px)}
+}
+@media(max-width:650px){
+ .quick-state{display:flex;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;max-height:170px;gap:12px;padding:6px 10px}
+ .quick-state>*{flex-shrink:0}.quick-vitals{white-space:nowrap}.quick-concentration-row{width:170px}.quick-state .quick-resources{width:max-content;overflow:visible;flex:0 0 auto!important}.quick-extras{flex-shrink:0}
+}
+@media(max-height:500px) and (orientation:landscape){
+ .quick-state{display:flex;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;gap:12px}.quick-state>*{flex-shrink:0}.quick-concentration-row{width:170px}.quick-state .quick-resources{width:max-content;overflow:visible;flex:0 0 auto!important}
+}
