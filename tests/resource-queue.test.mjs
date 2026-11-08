@@ -86,3 +86,19 @@ test('local operation times persist across reload without changing wire commands
   const corrupt=JSON.parse(m.getItem('times'));corrupt.createdAt={[b.mutationId]:'invalid'};m.setItem('times',JSON.stringify(corrupt));assert.throws(()=>new Queue(m,'times'),/повреждена/);
  }finally{s.close();}
 });
+
+test('queued addressed undo preserves ordered clamping, reload, lost responses and one-shot server history',()=>{
+ const s=openStore(':memory:'),m=memory();try{
+  let q=new Queue(m,'undo');q.resetBaseline(s.read());const hit=q.enqueue({kind:'hp'},-100,randomUUID());q.enqueue({kind:'hp'},5,randomUUID());const inverse=q.enqueueUndo(hit.mutationId,randomUUID());
+  assert.equal(inverse.delta,28);assert.equal(q.snapshot.state.hp,33);assert.throws(()=>q.enqueueUndo(hit.mutationId,randomUUID()));assert.throws(()=>q.enqueueUndo(inverse.mutationId,randomUUID()));
+  q=new Queue(m,'undo');while(q.length){const head=plain(q.head);s.changeResource(head);const replay=s.changeResource(head);if(head.targetMutationId){const {resourceReceipt,...missing}=replay;assert.throws(()=>q.acknowledge(head,missing));assert.throws(()=>q.acknowledge(head,{...replay,resourceReceipt:{...resourceReceipt,targetMutationId:'wrong-target'}}));}q.acknowledge(head,replay);}
+  assert.equal(s.read().state.hp,33);assert.equal(s.history().find(r=>r.mutationId===hit.mutationId).canUndo,false);assert.equal(s.history().find(r=>r.mutationId===inverse.mutationId).canUndo,false);
+  assert.throws(()=>s.undoResource({mutationId:randomUUID(),expectedRevision:s.read().revision,characterId:s.read().context.characterId,targetMutationId:hit.mutationId}),{status:409});
+ }finally{s.close();}
+});
+test('queued undo refuses overflow and forged inverse without losing the queue',()=>{
+ const s=openStore(':memory:'),q=new Queue(memory(),'undo');try{
+  q.resetBaseline(s.read());const hit=q.enqueue({kind:'hp'},-10,randomUUID());q.enqueue({kind:'hp'},20,randomUUID());const saved=JSON.stringify(q.data);assert.throws(()=>q.enqueueUndo(hit.mutationId,randomUUID()));assert.equal(JSON.stringify(q.data),saved);
+  s.changeResource(plain(hit));const forged={...plain(hit),mutationId:randomUUID(),expectedRevision:s.read().revision,before:18,delta:9,targetMutationId:hit.mutationId};assert.throws(()=>s.changeResource(forged),{status:409});assert.equal(s.read().state.hp,18);
+ }finally{s.close();}
+});

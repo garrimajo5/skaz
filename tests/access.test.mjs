@@ -17,9 +17,10 @@ test('resource inverse remains actor-owned and revocation blocks both history an
  const {store,first,second}=setup(t),p=store.forUser(userB,'history-player',{write:true}),owner=store.forUser(userA,'history-owner',{write:true});
  const before=p.read(),damage=command(p,{context:before.context,resource:{kind:'hp'},delta:-2,before:before.state.hp,maximum:before.state.maxHp});p.changeResource(damage);
  const request=command(p,{characterId:second.characterId,targetMutationId:damage.mutationId});
+ const queuedUndo=command(p,{context:p.read().context,resource:{kind:'hp'},before:p.read().state.hp,maximum:p.read().state.maxHp,delta:2,targetMutationId:damage.mutationId});assert.throws(()=>owner.changeResource(queuedUndo),{status:404});assert.throws(()=>store.forUser(userB,'history-reader').changeResource(queuedUndo),{status:403});
  assert.throws(()=>store.forUser(userB,'history-reader').undoResource(request),{status:403});assert.throws(()=>owner.undoResource({...request,characterId:first.characterId}),{status:404});
  assert.ok(p.history().find(r=>r.mutationId===damage.mutationId).canUndo);assert.ok(p.history('session').some(r=>r.mutationId===damage.mutationId));assert.ok(!owner.history('session').some(r=>r.mutationId===damage.mutationId));assert.ok(!owner.history().some(r=>r.mutationId===damage.mutationId));
- store.access.apply({action:'revoke-character',userId:userB,campaignId:first.campaignId,characterId:second.characterId});assert.throws(()=>p.undoResource(request),{status:404});assert.throws(()=>p.history(),{status:404});assert.throws(()=>p.history('session'),{status:404});
+ store.access.apply({action:'revoke-character',userId:userB,campaignId:first.campaignId,characterId:second.characterId});assert.throws(()=>p.undoResource(request),{status:404});assert.throws(()=>p.changeResource(queuedUndo),{status:404});assert.throws(()=>p.history(),{status:404});assert.throws(()=>p.history('session'),{status:404});
 });
 test('queued resource writes bind actor and hero, and revocation blocks replay',t=>{
  const {store,first,second}=setup(t),player=store.forUser(userB,'queued-resource',{write:true}),owner=store.forUser(userA,'queued-resource');

@@ -16,7 +16,7 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
     document: { getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')&&!get('inventory-page').innerHTML.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
-    SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-resource-undo]' ? [get('resource-undo-button')] : selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>{dialog=html;get('dialog').open=true;}, closeModal() {dialog='';get('dialog').open=false;}, toast: value => messages.push(value),
+    SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-queued-undo]' ? [get('queued-undo-button')] : selector === '[data-resource-undo]' ? [get('resource-undo-button')] : selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>{dialog=html;get('dialog').open=true;}, closeModal() {dialog='';get('dialog').open=false;}, toast: value => messages.push(value),
   });
   if(withQueue)vm.runInContext(queueSource,context);
   vm.runInContext(sheetSource,context);
@@ -1109,4 +1109,12 @@ test('history chip shows durable offline operations without claiming server conf
  assert.match(h.get('sync-status').innerHTML,/Без сети · ждут 1/);
  await h.click('sync-history-chip');assert.match(h.dialog(),/28 → 25/);assert.match(h.dialog(),/Ждёт подтверждения сервера/);assert.doesNotMatch(h.dialog(),/data-resource-undo/);
  assert.equal(h.api.pendingCount(),1);assert.equal(h.state().hp,25);
+});
+
+test('history queues a linked inverse once and keeps the original command pending',async()=>{
+ let offline=false;const h=harness(memory(),memory(),async()=>{if(offline)throw Error('offline');return response(payload(0));},undefined,undefined,true);
+ await h.api.boot();offline=true;const hit=h.api.resourceDelta({kind:'hp'},-40,h.api.snapshotKey());await tick();h.api.resourceDelta({kind:'hp'},5,h.api.snapshotKey());await tick();
+ await h.click('sync-history-chip');assert.match(h.dialog(),/data-queued-undo/);
+ const button=h.get('queued-undo-button');button.dataset.queuedUndo=hit.mutationId;await button.onclick();await tick();
+ assert.equal(h.state().hp,33);assert.equal(h.api.pendingCount(),3);await h.click('sync-history-chip');assert.match(h.dialog(),/Отмена · Хиты: 5 → 33/);await button.onclick();assert.equal(h.api.pendingCount(),3);
 });

@@ -232,7 +232,7 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
     access.context(userId,context);
     if (['savePlace','saveQuest','startSession','createCharacter'].includes(method)) requireGM(context);
     if (method==='selectContext') access.context(userId,request?.context);
-    if (['undoInventory','undoResource'].includes(method) && !db.prepare('SELECT 1 FROM user_changes WHERE mutation_id=? AND user_id=?').get(request?.targetMutationId??'',userId)) missing();
+    if ((['undoInventory','undoResource'].includes(method)||method==='changeResource'&&request?.targetMutationId) && !db.prepare('SELECT 1 FROM user_changes WHERE mutation_id=? AND user_id=?').get(request?.targetMutationId??'',userId)) missing();
     if (method==='update') {
       const before=splitState(beforeState),after=splitState(request?.state);
       if (!isDeepStrictEqual(before.campaign,after.campaign) || !isDeepStrictEqual(before.session,after.session)) requireGM(context);

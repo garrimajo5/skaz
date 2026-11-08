@@ -185,9 +185,10 @@ export function openStore(filename) {
       const payload=validateResourceCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'resource',expectedRevision:request.expectedRevision,payload})).digest('hex');
       // Preserve the established revision/identity receipt checks for replay.
       const label=(payload.resource.kind==='hp'?'Хиты':payload.resource.kind==='slot'?payload.resource.level+' круг':payload.resource.kind==='inspiration'?'Вдохновение':payload.resource.kind==='counter'?'Счётчик':'Заряды')+': '+payload.before+' → '+(payload.resource.kind==='hp'?Math.max(0,Math.min(payload.maximum,payload.before+payload.delta)):payload.before+payload.delta);
-      const saved=mutate(request,hash,label,()=>{
+      const saved=mutate(request,hash,payload.targetMutationId?'Отмена изменения ресурса':label,()=>{
+        if(payload.targetMutationId){const inverse=inverseResource(db,read(),payload.targetMutationId);if(['delta','before','maximum'].some(k=>payload[k]!==inverse[k])||JSON.stringify(payload.resource)!==JSON.stringify(inverse.resource))throw new AppError(409,'Отмена не соответствует исходной операции');}
         const result=applyResourceCommand(db,read(),payload,request.mutationId,next=>writeEntities(db,next,viewId));
-        recordResource(db,request.mutationId,{...payload,title:result.title},payload.resource.kind==='hp'?Math.max(0,Math.min(payload.maximum,payload.before+payload.delta)):payload.before+payload.delta);
+        recordResource(db,request.mutationId,{...payload,title:result.title},payload.resource.kind==='hp'?Math.max(0,Math.min(payload.maximum,payload.before+payload.delta)):payload.before+payload.delta,payload.targetMutationId||null);
         return result.state;
       },'resource',()=>independentResourcesSince(db,request.expectedRevision,payload));
       return {...saved,resourceReceipt:resourceReceipt(db,request.mutationId)};

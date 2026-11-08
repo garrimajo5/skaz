@@ -274,8 +274,19 @@ const SkazStorage = (() => {
     else unavailable=true;
     if(key!==snapshotKey())throw new Error('Игра изменилась. Открой историю заново');
     const title=r=>r.name||({hp:'Хиты',maxHp:'Максимум хитов',gold:'Золото',inspiration:'Вдохновение',slot:r.level+' круг',counter:'Счётчик '+r.counterId,charges:'Заряды · экземпляр '+(r.unit+1),quantity:'Количество предметов'}[r.kind]||'Ресурс');
-    const localRows=queued.map(command=>`<div class="list-row history-pending"><div><strong>${esc(title(command.resource))}: ${command.before} → ${Math.max(0,Math.min(command.maximum,command.before+command.delta))}</strong><small>${esc(resourceQueue?.data?.createdAt?.[command.mutationId]?new Date(resourceQueue.data.createdAt[command.mutationId]).toLocaleString('ru-RU'):'Время не записано')} · Ждёт подтверждения сервера</small><small>Отмена из истории доступна после отправки</small></div></div>`).join('')+(pending?'<div class="list-row history-pending"><strong>Правка листа · ждёт подтверждения сервера</strong></div>':'');
+    const localRows=queued.map(command=>{
+      let reason='';try{resourceQueue.undoInfo(command.mutationId);}catch(error){reason=error.message;}
+      const allowed=!reason&&canResource()&&!resourceSending;
+      return `<div class="list-row history-pending"><div><strong>${command.targetMutationId?'Отмена · ':''}${esc(title(command.resource))}: ${command.before} → ${Math.max(0,Math.min(command.maximum,command.before+command.delta))}</strong><small>${esc(resourceQueue?.data?.createdAt?.[command.mutationId]?new Date(resourceQueue.data.createdAt[command.mutationId]).toLocaleString('ru-RU'):'Время не записано')} · Ждёт подтверждения сервера</small>${!allowed?'<small>'+esc(reason||'Отмена недоступна с текущими правами')+'</small>':''}</div>${allowed?'<button data-queued-undo="'+esc(command.mutationId)+'">Отменить</button>':''}</div>`;
+    }).join('')+(pending?'<div class="list-row history-pending"><strong>Правка листа · ждёт подтверждения сервера</strong></div>':'');
     modal(`<h2>История изменений</h2><button id="history-scope">${scope==='session'?'Показать все сессии':'Только текущая сессия'}</button>${localRows}${unavailable?'<p>Серверная история сейчас недоступна. Операции со статусом ожидания ещё не подтверждены сервером.</p>':''}<button id="history-refresh">Обновить историю</button><p>${scope==='session'?'Последние 50 сохранений текущей сессии. Старые записи без привязки доступны во всех сессиях.':'Последние 50 доступных сохранений всех сессий.'} Отмена приращения добавляет обратное изменение к текущему остатку; она не перематывает последующие действия. После ручных правок или при выходе за границы нужна сверка.</p>${changes.map((item,i)=>`<div class="list-row"><div><strong>${esc(item.label)}</strong><small>${esc(new Date(item.createdAt).toLocaleString('ru-RU'))} · Сохранено</small>${(item.changes||[]).map(change=>`<p>${esc(title(change.resource))}: ${esc(change.before??'неизвестно')} → ${esc(change.after??'неизвестно')}</p>`).join('')}${!item.canUndo?`<small>${esc(item.undoReason||'Отмена недоступна')}</small>`:''}</div>${item.canUndo?`<button data-resource-undo="${i}">Отменить</button>`:''}</div>`).join('')||(unavailable?'':'<p>Подтверждённых сохранений нет.</p>')}`);
+    $$('[data-queued-undo]').forEach(button=>button.onclick=async()=>{
+      try{
+        if(key!==snapshotKey()||!canResource()||resourceSending)throw new Error('Игра или очередь изменилась. Обнови историю');
+        resourceQueue.enqueueUndo(button.dataset.queuedUndo,crypto.randomUUID());resourceGeneration++;status='resource-pending';projectResources();render();
+        void flushResources();await showResourceHistory(scope);
+      }catch(error){toast(error.message);}
+    });
     $('#history-scope').onclick=()=>showResourceHistory(scope==='session'?'all':'session').catch(error=>toast(error.message));
     $('#history-refresh').onclick=()=>showResourceHistory(scope).catch(error=>toast(error.message));
     $$('[data-resource-undo]').forEach(button=>button.onclick=async()=>{

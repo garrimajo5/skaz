@@ -6,8 +6,9 @@ const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&
 const fail=message=>{throw new AppError(422,message);};
 const id=value=>typeof value==='string'&&/^[a-zA-Z0-9-]{1,80}$/.test(value);
 export function validateResourceCommand(input){
- if(!exact(input,['mutationId','expectedRevision','context','resource','delta','before','maximum']))fail('Неверные поля операции ресурса');
+ if(!exact(input,['mutationId','expectedRevision','context','resource','delta','before','maximum',...(Object.hasOwn(input||{},'targetMutationId')?['targetMutationId']:[])]))fail('Неверные поля операции ресурса');
  if(!exact(input.context,['campaignId','characterId','sessionId'])||!Object.values(input.context).every(id))fail('Нужен контекст операции');
+ if(Object.hasOwn(input,'targetMutationId')&&(!id(input.targetMutationId)||input.targetMutationId===input.mutationId))fail('Неверная цель отмены');
  const r=input.resource;
  if(!r||!['hp','slot','inspiration','counter','charges'].includes(r.kind))fail('Неизвестный ресурс');
  const keys=r.kind==='slot'?['kind','level']:r.kind==='counter'?['kind','counterId']:r.kind==='charges'?['kind','catalogId','unit']:['kind'];
@@ -17,7 +18,7 @@ export function validateResourceCommand(input){
  if(r.kind==='charges'&&(typeof r.catalogId!=='string'||!/^[a-z0-9][a-z0-9:._-]{2,119}$/.test(r.catalogId)||!Number.isSafeInteger(r.unit)||r.unit<0||r.unit>998))fail('Неверный экземпляр предмета');
  if(!Number.isSafeInteger(input.delta)||!input.delta||Math.abs(input.delta)>10000)fail('Нужно ненулевое целое приращение до 10000');
  if(!Number.isSafeInteger(input.maximum)||input.maximum<0||input.maximum>10000||!Number.isSafeInteger(input.before)||input.before<0||input.before>input.maximum)fail('Неверный ожидаемый остаток');
- return {context:{campaignId:input.context.campaignId,characterId:input.context.characterId,sessionId:input.context.sessionId},resource:Object.fromEntries(keys.map(k=>[k,r[k]])),delta:input.delta,before:input.before,maximum:input.maximum};
+ return {context:{campaignId:input.context.campaignId,characterId:input.context.characterId,sessionId:input.context.sessionId},resource:Object.fromEntries(keys.map(k=>[k,r[k]])),delta:input.delta,before:input.before,maximum:input.maximum,...(input.targetMutationId?{targetMutationId:input.targetMutationId}:{})};
 }
 export function resourceBalance(db,current,resource){
  const sheet=current.characterSheet;
