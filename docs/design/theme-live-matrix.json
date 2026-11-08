@@ -1,0 +1,551 @@
+{
+  "note": "Synthetic game; manual cases are not passes. Source reports predate correction of manual pass flag; normalized from explicit manual reasons.",
+  "reports": [
+    {
+      "scenario": "✧ Магия",
+      "theme": "polar",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 161,
+      "fields": 6,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "▣ Вещи",
+      "theme": "polar",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 143,
+      "fields": 3,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "≋ Журнал",
+      "theme": "polar",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 75,
+      "fields": 2,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "⚑ Задания",
+      "theme": "polar",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 174,
+      "fields": 3,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "◇ Карта",
+      "theme": "polar",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 149,
+      "fields": 3,
+      "failed": [],
+      "manual": [
+        {
+          "label": "СЕВЕР ↑",
+          "reasons": [
+            "DIV.personal-map"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "▤ Справочник",
+      "theme": "polar",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 185,
+      "fields": 2,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "♙ Игра",
+      "theme": "polar",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 187,
+      "fields": 1,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "✧ Магия",
+      "theme": "polar",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 160,
+      "fields": 5,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "▣ Вещи",
+      "theme": "polar",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 142,
+      "fields": 2,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "≋ Журнал",
+      "theme": "polar",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 74,
+      "fields": 1,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "⚑ Задания",
+      "theme": "polar",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 173,
+      "fields": 2,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "◇ Карта",
+      "theme": "polar",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 148,
+      "fields": 2,
+      "failed": [],
+      "manual": [
+        {
+          "label": "СЕВЕР ↑",
+          "reasons": [
+            "DIV.personal-map"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "▤ База",
+      "theme": "polar",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 184,
+      "fields": 1,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "♙ Игра",
+      "theme": "polar",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 172,
+      "fields": 0,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "✧ Магия",
+      "theme": "coal",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 161,
+      "fields": 6,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "▣ Вещи",
+      "theme": "coal",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 143,
+      "fields": 3,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "≋ Журнал",
+      "theme": "coal",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 75,
+      "fields": 2,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "⚑ Задания",
+      "theme": "coal",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 174,
+      "fields": 3,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "◇ Карта",
+      "theme": "coal",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 149,
+      "fields": 3,
+      "failed": [],
+      "manual": [
+        {
+          "label": "СЕВЕР ↑",
+          "reasons": [
+            "DIV.personal-map"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "▤ Справочник",
+      "theme": "coal",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 185,
+      "fields": 2,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "♙ Игра",
+      "theme": "coal",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 187,
+      "fields": 1,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "✧ Магия",
+      "theme": "coal",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 160,
+      "fields": 5,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "▣ Вещи",
+      "theme": "coal",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 142,
+      "fields": 2,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "≋ Журнал",
+      "theme": "coal",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 74,
+      "fields": 1,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "⚑ Задания",
+      "theme": "coal",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 173,
+      "fields": 2,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "◇ Карта",
+      "theme": "coal",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 148,
+      "fields": 2,
+      "failed": [],
+      "manual": [
+        {
+          "label": "СЕВЕР ↑",
+          "reasons": [
+            "DIV.personal-map"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "▤ База",
+      "theme": "coal",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 184,
+      "fields": 1,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "♙ Игра",
+      "theme": "coal",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 172,
+      "fields": 0,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "✧ Магия",
+      "theme": "atlas",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 161,
+      "fields": 6,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "▣ Вещи",
+      "theme": "atlas",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 143,
+      "fields": 3,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "≋ Журнал",
+      "theme": "atlas",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 75,
+      "fields": 2,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "⚑ Задания",
+      "theme": "atlas",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 174,
+      "fields": 3,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "◇ Карта",
+      "theme": "atlas",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 149,
+      "fields": 3,
+      "failed": [],
+      "manual": [
+        {
+          "label": "СЕВЕР ↑",
+          "reasons": [
+            "DIV.personal-map"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "▤ Справочник",
+      "theme": "atlas",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 185,
+      "fields": 2,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "♙ Игра",
+      "theme": "atlas",
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      },
+      "texts": 187,
+      "fields": 1,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "✧ Магия",
+      "theme": "atlas",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 160,
+      "fields": 5,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "▣ Вещи",
+      "theme": "atlas",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 142,
+      "fields": 2,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "≋ Журнал",
+      "theme": "atlas",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 74,
+      "fields": 1,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "⚑ Задания",
+      "theme": "atlas",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 173,
+      "fields": 2,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "◇ Карта",
+      "theme": "atlas",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 148,
+      "fields": 2,
+      "failed": [],
+      "manual": [
+        {
+          "label": "СЕВЕР ↑",
+          "reasons": [
+            "DIV.personal-map"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "▤ База",
+      "theme": "atlas",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 184,
+      "fields": 1,
+      "failed": [],
+      "manual": []
+    },
+    {
+      "scenario": "♙ Игра",
+      "theme": "atlas",
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      },
+      "texts": 172,
+      "fields": 0,
+      "failed": [],
+      "manual": []
+    }
+  ]
+}

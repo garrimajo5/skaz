@@ -247,3 +247,9 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
 /* Disabled reasons stay legible; opacity on the whole control dims its text. */
 button:disabled{opacity:1;color:var(--muted);background:var(--raised);border-color:var(--muted);border-style:dashed;box-shadow:none;cursor:not-allowed}
 button:disabled:hover{filter:none;transform:none;border-color:var(--muted)}
+
+/* Field boundaries convey where text can be entered; decorative lines stay quiet. */
+:root{--radius-control:8px;--radius-panel:12px;--radius-dialog:16px}
+body{--control-line:var(--muted);--ok:var(--green);--danger:var(--red)}
+input:not([type=checkbox]):not([type=radio]),textarea,select{border-color:var(--control-line);border-radius:var(--radius-control)}
+input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{border-color:var(--danger)}
