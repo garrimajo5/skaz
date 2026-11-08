@@ -6,11 +6,12 @@ const root=new URL('../',import.meta.url);
 const candidates=JSON.parse(readFileSync(new URL('../docs/design/pilot-v1/candidates.json',import.meta.url))).entries;
 const slugs=candidates.map(entry=>entry.id.split(':').at(-1));
 if(slugs.some(slug=>! /^[a-z]+(?:-[a-z]+)*$/.test(slug)))throw Error('Invalid pilot filename');
+for(const [index,entry] of candidates.entries())if(!new RegExp('^data/art-pilot-v1/'+slugs[index]+'(?:-v[1-9][0-9]*)?\\.png$').test(entry.path))throw Error('Invalid versioned pilot path');
 const files=new Map([
  ['/', ['docs/design/pilot-v1/index.html','text/html; charset=utf-8']],
  ['/all',['docs/design/pilot-v1/all.html','text/html; charset=utf-8']],
  ['/candidates.json',['docs/design/pilot-v1/candidates.json','application/json']],
- ...slugs.map(name=>['/'+name+'.png',['data/art-pilot-v1/'+name+'.png','image/png']]),
+ ...candidates.map((entry,index)=>['/'+slugs[index]+'.png',[entry.path,'image/png']]),
  ['/fonts.css',['client/fonts.css','text/css']],
  ...['inter-400-800-cyrillic','inter-400-800-latin','pt-serif-400-cyrillic','pt-serif-400-latin','pt-serif-700-cyrillic','pt-serif-700-latin'].map(name=>['/fonts/'+name+'.woff2',['client/fonts/'+name+'.woff2','font/woff2']])
 ]);

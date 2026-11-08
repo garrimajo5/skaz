@@ -187,17 +187,26 @@
       },
       "contentSha256": "6ab3e40b60e601af8fff5ffbd51611e32784807d11249c3aca7b3f58fb571367",
       "status": "candidate",
-      "path": "data/art-pilot-v1/shield.png",
-      "bytes": 1260472,
+      "path": "data/art-pilot-v1/shield-v2.png",
+      "bytes": 1415539,
       "width": 1254,
       "height": 1254,
       "pngColorType": 6,
-      "sha256": "6f890d5fe0b2421db114467866cec1231e0529d442fd3c37984ab292cbc57040",
-      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "sha256": "3b0fce89ef4aaf3af903dd850157ac32a53b9f8aeb154da5443e5147635ccd06",
+      "source": "OpenAI built-in image_gen edit of own v1 candidate, explicitly requested by user 2026-11-08",
       "usage": "Local project style review; no external reference image; not accepted for distribution",
-      "review": "Awaiting visual and production checks",
+      "review": "Revised per user feedback; awaiting review at icon size and production preparation",
       "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
-      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: One translucent blue magical shield seen three-quarter view, broad solid silhouette, subtle luminous rim, no heraldry, no letters, no hands. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+      "prompt": "User revision: translucent protective projection in front of an open hand; exterior impact communicates reactive defense.",
+      "previousVersions": [
+        {
+          "version": 1,
+          "path": "data/art-pilot-v1/shield.png",
+          "sha256": "6f890d5fe0b2421db114467866cec1231e0529d442fd3c37984ab292cbc57040",
+          "review": "Superseded after explicit user feedback"
+        }
+      ],
+      "version": 2
     },
     {
       "id": "srd51:2014:spell:invisibility",
@@ -207,17 +216,26 @@
       },
       "contentSha256": "706db7a2d4a67f34008ae29a8349290604127b7b123a13d9d157468472c916c6",
       "status": "candidate",
-      "path": "data/art-pilot-v1/invisibility.png",
-      "bytes": 836787,
+      "path": "data/art-pilot-v1/invisibility-v2.png",
+      "bytes": 1132450,
       "width": 1254,
       "height": 1254,
       "pngColorType": 6,
-      "sha256": "1fb188fc79be2479868724515be2d3c261a2b54ff80ddb17eba16a16ec966d4b",
-      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "sha256": "ebbedea24be108f41de1ca1751b4311f6afb924919996fcd60cb61a720c0cfce",
+      "source": "OpenAI built-in image_gen edit of own v1 candidate, explicitly requested by user 2026-11-08",
       "usage": "Local project style review; no external reference image; not accepted for distribution",
-      "review": "Needs revision: resembles a ghost; use interrupted contour and transparent interior without flowing ghost robes.",
+      "review": "Revised per user feedback; awaiting review at icon size and production preparation",
       "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
-      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: A single standing human silhouette whose contour dissolves in three broad interrupted wisps; cool grey violet edges and transparent center, no extra person. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+      "prompt": "User revision: hooded head/shoulders visibly disappears into empty transparent half with contour; no ghost robes.",
+      "previousVersions": [
+        {
+          "version": 1,
+          "path": "data/art-pilot-v1/invisibility.png",
+          "sha256": "1fb188fc79be2479868724515be2d3c261a2b54ff80ddb17eba16a16ec966d4b",
+          "review": "Superseded after explicit user feedback"
+        }
+      ],
+      "version": 2
     },
     {
       "id": "srd51:2014:spell:fireball",
@@ -227,17 +245,26 @@
       },
       "contentSha256": "d94495ee0983d7feeb335539a33229d6dcb893dc276ce4a7f3bba6964d39f87e",
       "status": "candidate",
-      "path": "data/art-pilot-v1/fireball.png",
-      "bytes": 1390537,
+      "path": "data/art-pilot-v1/fireball-v2.png",
+      "bytes": 1169733,
       "width": 1254,
       "height": 1254,
       "pngColorType": 6,
-      "sha256": "d9e4bea6bc8fd790630dcc1801183d9ecf8f85eeb158899ddafc23ace58b8460",
-      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "sha256": "145d4b95e99a2b7037bfa070a7b48d9d347e5820fa6aecbee6e3320b0d28f47d",
+      "source": "OpenAI built-in image_gen edit of own v1 candidate, explicitly requested by user 2026-11-08",
       "usage": "Local project style review; no external reference image; not accepted for distribution",
-      "review": "Awaiting visual and production checks",
+      "review": "Revised per user feedback; awaiting review at icon size and production preparation",
       "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
-      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: One circular orange fiery burst with a dark ember core and broad radial lobes, compact round silhouette; absolutely no directional tail, clearly different from a fire bolt. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+      "prompt": "User revision: immediately recognizable volumetric spherical fireball; no flat radial flower-like burst.",
+      "previousVersions": [
+        {
+          "version": 1,
+          "path": "data/art-pilot-v1/fireball.png",
+          "sha256": "d9e4bea6bc8fd790630dcc1801183d9ecf8f85eeb158899ddafc23ace58b8460",
+          "review": "Superseded after explicit user feedback"
+        }
+      ],
+      "version": 2
     },
     {
       "id": "srd51:2014:spell:misty-step",
@@ -387,5 +414,5 @@
     "srd51:2014:monster:ancient-red-dragon",
     "srd51:2014:monster:ghost"
   ],
-  "generationBlocker": "Built-in generator returned HTTP 403 on owl; remaining five not generated."
+  "generationBlocker": "Previous HTTP 403 on owl; service responded to three requested revisions on 2026-11-08. Five creature candidates still not generated."
 }
