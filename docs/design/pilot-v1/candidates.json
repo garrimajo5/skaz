@@ -127,17 +127,26 @@
       },
       "contentSha256": "5bcdd4c173e4bfe2a2137bc12134c5aa42170a6d81aa5164dcaedb903c27cd6f",
       "status": "candidate",
-      "path": "data/art-pilot-v1/cure-wounds.png",
-      "bytes": 1072574,
+      "path": "data/art-pilot-v1/cure-wounds-v2.png",
+      "bytes": 1289173,
       "width": 1254,
       "height": 1254,
       "pngColorType": 6,
-      "sha256": "c876bccd18590b6e2b3e4ff715b61516115407f837325a7c352e6f7a0872c6e6",
-      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "sha256": "def8b76f6992918f7a818ef338a1a72068ffdc18920e4066941dfe877974bb49",
+      "source": "OpenAI built-in image_gen edit; user requested Claude issue #33 feedback, 2026-11-09",
       "usage": "Local project style review; no external reference image; not accepted for distribution",
-      "review": "Needs revision: stone surface reads as object repair; replace with unambiguous non-graphic healing on a living arm.",
+      "review": "Candidate revised from Claude written feedback; user recognition testing and production preparation pending",
       "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
-      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: A single open human palm held immediately above a clean closing crack in a small abstract stone-like skin-colored surface, warm amber restoration glow at contact; no blood, no text, clear simple hand anatomy. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+      "prompt": "Healing hand touches living forearm; converging light seam, no stone or blood.",
+      "previousVersions": [
+        {
+          "version": 1,
+          "path": "data/art-pilot-v1/cure-wounds.png",
+          "sha256": "c876bccd18590b6e2b3e4ff715b61516115407f837325a7c352e6f7a0872c6e6",
+          "review": "Needs revision: stone surface reads as object repair; replace with unambiguous non-graphic healing on a living arm."
+        }
+      ],
+      "version": 2
     },
     {
       "id": "srd51:2014:spell:healing-word",
@@ -167,17 +176,26 @@
       },
       "contentSha256": "619f7b149469a13908b0f7903c33182d24acf6001afb64330e7736a553097a93",
       "status": "candidate",
-      "path": "data/art-pilot-v1/hold-person.png",
-      "bytes": 556887,
+      "path": "data/art-pilot-v1/hold-person-v2.png",
+      "bytes": 1771628,
       "width": 1254,
       "height": 1254,
       "pngColorType": 6,
-      "sha256": "0159c7396a7e9ba5388e5d7d619f6c21deafa7f0ab00b56f5ccf46ec9f3089dc",
-      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "sha256": "e8cb703eaa0f433eae0e361d6bb83a7f6e9a2b0d89bfabf3effb02d603d13739",
+      "source": "OpenAI built-in image_gen edit; user requested Claude issue #33 feedback, 2026-11-09",
       "usage": "Local project style review; no external reference image; not accepted for distribution",
-      "review": "Needs revision: full-body silhouette too narrow at 32 px; simplify and enlarge torso/rings.",
+      "review": "Candidate revised from Claude written feedback; user recognition testing and production preparation pending",
       "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
-      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: One simplified upright human silhouette immobilized inside two horizontal closed pale violet magical rings, no injury or chains, clear restrained pose. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+      "prompt": "Wide head/shoulders bust bound by two simple horizontal rings.",
+      "previousVersions": [
+        {
+          "version": 1,
+          "path": "data/art-pilot-v1/hold-person.png",
+          "sha256": "0159c7396a7e9ba5388e5d7d619f6c21deafa7f0ab00b56f5ccf46ec9f3089dc",
+          "review": "Needs revision: full-body silhouette too narrow at 32 px; simplify and enlarge torso/rings."
+        }
+      ],
+      "version": 2
     },
     {
       "id": "srd51:2014:spell:shield",
@@ -216,26 +234,32 @@
       },
       "contentSha256": "706db7a2d4a67f34008ae29a8349290604127b7b123a13d9d157468472c916c6",
       "status": "candidate",
-      "path": "data/art-pilot-v1/invisibility-v2.png",
-      "bytes": 1132450,
+      "path": "data/art-pilot-v1/invisibility-v3.png",
+      "bytes": 1011585,
       "width": 1254,
       "height": 1254,
       "pngColorType": 6,
-      "sha256": "ebbedea24be108f41de1ca1751b4311f6afb924919996fcd60cb61a720c0cfce",
-      "source": "OpenAI built-in image_gen edit of own v1 candidate, explicitly requested by user 2026-11-08",
+      "sha256": "8b5fa99ff367fc60457a4f7fcadfe98cf604122eeaf032b130665ce7e544cb36",
+      "source": "OpenAI built-in image_gen edit; user requested Claude issue #33 feedback, 2026-11-09",
       "usage": "Local project style review; no external reference image; not accepted for distribution",
-      "review": "Revised per user feedback; awaiting review at icon size and production preparation",
+      "review": "Candidate revised from Claude written feedback; user recognition testing and production preparation pending",
       "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
-      "prompt": "User revision: hooded head/shoulders visibly disappears into empty transparent half with contour; no ghost robes.",
+      "prompt": "Half-material bust retained; thicker broken dual-value outline on empty half.",
       "previousVersions": [
         {
           "version": 1,
           "path": "data/art-pilot-v1/invisibility.png",
           "sha256": "1fb188fc79be2479868724515be2d3c261a2b54ff80ddb17eba16a16ec966d4b",
           "review": "Superseded after explicit user feedback"
+        },
+        {
+          "version": 2,
+          "path": "data/art-pilot-v1/invisibility-v2.png",
+          "sha256": "ebbedea24be108f41de1ca1751b4311f6afb924919996fcd60cb61a720c0cfce",
+          "review": "Revised per user feedback; awaiting review at icon size and production preparation"
         }
       ],
-      "version": 2
+      "version": 3
     },
     {
       "id": "srd51:2014:spell:fireball",
@@ -245,26 +269,32 @@
       },
       "contentSha256": "d94495ee0983d7feeb335539a33229d6dcb893dc276ce4a7f3bba6964d39f87e",
       "status": "candidate",
-      "path": "data/art-pilot-v1/fireball-v2.png",
-      "bytes": 1169733,
+      "path": "data/art-pilot-v1/fireball-v3.png",
+      "bytes": 1060347,
       "width": 1254,
       "height": 1254,
       "pngColorType": 6,
-      "sha256": "145d4b95e99a2b7037bfa070a7b48d9d347e5820fa6aecbee6e3320b0d28f47d",
-      "source": "OpenAI built-in image_gen edit of own v1 candidate, explicitly requested by user 2026-11-08",
+      "sha256": "6ad3442ff946e70da71e32bab293877d22b67dde616beb3365bf61592fce6df2",
+      "source": "OpenAI built-in image_gen edit; user requested Claude issue #33 feedback, 2026-11-09",
       "usage": "Local project style review; no external reference image; not accepted for distribution",
-      "review": "Revised per user feedback; awaiting review at icon size and production preparation",
+      "review": "Candidate revised from Claude written feedback; user recognition testing and production preparation pending",
       "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
-      "prompt": "User revision: immediately recognizable volumetric spherical fireball; no flat radial flower-like burst.",
+      "prompt": "Ember bead lower-left, segmented arc, large upper-right explosion with dark smoky rim.",
       "previousVersions": [
         {
           "version": 1,
           "path": "data/art-pilot-v1/fireball.png",
           "sha256": "d9e4bea6bc8fd790630dcc1801183d9ecf8f85eeb158899ddafc23ace58b8460",
           "review": "Superseded after explicit user feedback"
+        },
+        {
+          "version": 2,
+          "path": "data/art-pilot-v1/fireball-v2.png",
+          "sha256": "145d4b95e99a2b7037bfa070a7b48d9d347e5820fa6aecbee6e3320b0d28f47d",
+          "review": "Revised per user feedback; awaiting review at icon size and production preparation"
         }
       ],
-      "version": 2
+      "version": 3
     },
     {
       "id": "srd51:2014:spell:misty-step",
