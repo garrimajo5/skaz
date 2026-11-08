@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import contrast from '../scripts/theme-contrast.js';
+test('contrast uses linearized sRGB and both luminance orders',()=>{assert.equal(contrast.ratio([0,0,0],[255,255,255]),21);assert.equal(contrast.ratio([255,255,255],[0,0,0]),21);assert.equal(contrast.ratio([100,100,100],[100,100,100]),1);assert.ok(Math.abs(contrast.luminance([128,128,128])-.21586)<.00001);});
+test('opacity is composited rather than measuring an opaque disabled label',()=>{assert.deepEqual(contrast.composite([255,255,255,.4],[0,0,0,1]),[102,102,102,1]);assert.ok(contrast.ratio([102,102,102],[0,0,0])<4.5);assert.deepEqual(contrast.composite([255,0,0,0],[20,30,40,1]),[20,30,40,1]);});

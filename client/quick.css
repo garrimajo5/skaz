@@ -243,3 +243,7 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
 .play-cast{flex:0 0 auto;min-height:44px;max-width:110px;padding:4px 8px;font-size:12px;line-height:16px}
 .play-cast small{display:block;font-size:10px;color:var(--warn)}
 .cast-warning{color:var(--warn);border-left:3px solid var(--warn);padding-left:10px}
+
+/* Disabled reasons stay legible; opacity on the whole control dims its text. */
+button:disabled{opacity:1;color:var(--muted);background:var(--raised);border-color:var(--muted);border-style:dashed;box-shadow:none;cursor:not-allowed}
+button:disabled:hover{filter:none;transform:none;border-color:var(--muted)}

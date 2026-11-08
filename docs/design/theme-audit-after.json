@@ -1,0 +1,800 @@
+[
+  {
+    "theme": "polar",
+    "scope": "flat CSS fixtures; own opacity composited; no ancestor opacity, gradients or hover simulation",
+    "rows": [
+      {
+        "sample": "Основной текст",
+        "color": "rgb(237, 244, 252)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "compositedBackground": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "ratio": 13.782,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Вторичный текст",
+        "color": "rgb(159, 179, 202)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "compositedBackground": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "ratio": 7.11,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Обычная кнопка",
+        "color": "rgb(237, 244, 252)",
+        "background": "rgb(32, 51, 75)",
+        "opacity": 1,
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "compositedBackground": [
+          32,
+          51,
+          75,
+          1
+        ],
+        "ratio": 11.577,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Основное действие",
+        "color": "rgb(13, 52, 59)",
+        "background": "rgb(140, 226, 210)",
+        "opacity": 1,
+        "foreground": [
+          13,
+          52,
+          59,
+          1
+        ],
+        "compositedBackground": [
+          140,
+          226,
+          210,
+          1
+        ],
+        "ratio": 8.861,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Выбранность",
+        "color": "rgb(140, 226, 210)",
+        "background": "rgb(32, 51, 75)",
+        "opacity": 1,
+        "foreground": [
+          140,
+          226,
+          210,
+          1
+        ],
+        "compositedBackground": [
+          32,
+          51,
+          75,
+          1
+        ],
+        "ratio": 8.508,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Недоступная обычная",
+        "color": "rgb(159, 179, 202)",
+        "background": "rgb(32, 51, 75)",
+        "opacity": 1,
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "compositedBackground": [
+          32,
+          51,
+          75,
+          1
+        ],
+        "ratio": 5.973,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Недоступная основная",
+        "color": "rgb(159, 179, 202)",
+        "background": "rgb(32, 51, 75)",
+        "opacity": 1,
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "compositedBackground": [
+          32,
+          51,
+          75,
+          1
+        ],
+        "ratio": 5.973,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Ждёт сети",
+        "color": "rgb(214, 173, 100)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          214,
+          173,
+          100,
+          1
+        ],
+        "compositedBackground": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "ratio": 7.289,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Конфликт",
+        "color": "rgb(255, 172, 181)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          255,
+          172,
+          181,
+          1
+        ],
+        "compositedBackground": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "ratio": 8.598,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Временные хиты",
+        "color": "rgb(158, 207, 255)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          158,
+          207,
+          255,
+          1
+        ],
+        "compositedBackground": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "ratio": 9.327,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Вдохновение",
+        "color": "rgb(229, 188, 117)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          229,
+          188,
+          117,
+          1
+        ],
+        "compositedBackground": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "ratio": 8.57,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Кнопка фокуса",
+        "color": "rgb(237, 244, 252)",
+        "background": "rgb(32, 51, 75)",
+        "opacity": 1,
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "compositedBackground": [
+          32,
+          51,
+          75,
+          1
+        ],
+        "ratio": 11.577,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Фокус: акцент на панели",
+        "color": "#8ce2d2",
+        "background": "rgb(23, 38, 58)",
+        "ratio": 10.128,
+        "target": 3,
+        "pass": true
+      }
+    ]
+  },
+  {
+    "theme": "coal",
+    "scope": "flat CSS fixtures; own opacity composited; no ancestor opacity, gradients or hover simulation",
+    "rows": [
+      {
+        "sample": "Основной текст",
+        "color": "rgb(238, 238, 229)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "compositedBackground": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "ratio": 13.823,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Вторичный текст",
+        "color": "rgb(164, 175, 166)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "compositedBackground": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "ratio": 7.113,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Обычная кнопка",
+        "color": "rgb(238, 238, 229)",
+        "background": "rgb(38, 44, 40)",
+        "opacity": 1,
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "compositedBackground": [
+          38,
+          44,
+          40,
+          1
+        ],
+        "ratio": 12.215,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Основное действие",
+        "color": "rgb(33, 29, 18)",
+        "background": "rgb(217, 188, 124)",
+        "opacity": 1,
+        "foreground": [
+          33,
+          29,
+          18,
+          1
+        ],
+        "compositedBackground": [
+          217,
+          188,
+          124,
+          1
+        ],
+        "ratio": 9.154,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Выбранность",
+        "color": "rgb(217, 188, 124)",
+        "background": "rgb(38, 44, 40)",
+        "opacity": 1,
+        "foreground": [
+          217,
+          188,
+          124,
+          1
+        ],
+        "compositedBackground": [
+          38,
+          44,
+          40,
+          1
+        ],
+        "ratio": 7.761,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Недоступная обычная",
+        "color": "rgb(164, 175, 166)",
+        "background": "rgb(38, 44, 40)",
+        "opacity": 1,
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "compositedBackground": [
+          38,
+          44,
+          40,
+          1
+        ],
+        "ratio": 6.286,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Недоступная основная",
+        "color": "rgb(164, 175, 166)",
+        "background": "rgb(38, 44, 40)",
+        "opacity": 1,
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "compositedBackground": [
+          38,
+          44,
+          40,
+          1
+        ],
+        "ratio": 6.286,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Ждёт сети",
+        "color": "rgb(214, 173, 100)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          214,
+          173,
+          100,
+          1
+        ],
+        "compositedBackground": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "ratio": 7.697,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Конфликт",
+        "color": "rgb(227, 153, 137)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          227,
+          153,
+          137,
+          1
+        ],
+        "compositedBackground": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "ratio": 7.054,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Временные хиты",
+        "color": "rgb(158, 207, 255)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          158,
+          207,
+          255,
+          1
+        ],
+        "compositedBackground": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "ratio": 9.849,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Вдохновение",
+        "color": "rgb(229, 188, 117)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          229,
+          188,
+          117,
+          1
+        ],
+        "compositedBackground": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "ratio": 9.05,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Кнопка фокуса",
+        "color": "rgb(238, 238, 229)",
+        "background": "rgb(38, 44, 40)",
+        "opacity": 1,
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "compositedBackground": [
+          38,
+          44,
+          40,
+          1
+        ],
+        "ratio": 12.215,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Фокус: акцент на панели",
+        "color": "#d9bc7c",
+        "background": "rgb(29, 34, 32)",
+        "ratio": 8.783,
+        "target": 3,
+        "pass": true
+      }
+    ]
+  },
+  {
+    "theme": "atlas",
+    "scope": "flat CSS fixtures; own opacity composited; no ancestor opacity, gradients or hover simulation",
+    "rows": [
+      {
+        "sample": "Основной текст",
+        "color": "rgb(38, 63, 56)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "compositedBackground": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "ratio": 10.673,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Вторичный текст",
+        "color": "rgb(82, 102, 91)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "compositedBackground": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "ratio": 5.791,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Обычная кнопка",
+        "color": "rgb(38, 63, 56)",
+        "background": "rgb(232, 229, 217)",
+        "opacity": 1,
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "compositedBackground": [
+          232,
+          229,
+          217,
+          1
+        ],
+        "ratio": 8.993,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Основное действие",
+        "color": "rgb(255, 253, 244)",
+        "background": "rgb(70, 109, 84)",
+        "opacity": 1,
+        "foreground": [
+          255,
+          253,
+          244,
+          1
+        ],
+        "compositedBackground": [
+          70,
+          109,
+          84,
+          1
+        ],
+        "ratio": 5.763,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Выбранность",
+        "color": "rgb(70, 109, 84)",
+        "background": "rgb(232, 229, 217)",
+        "opacity": 1,
+        "foreground": [
+          70,
+          109,
+          84,
+          1
+        ],
+        "compositedBackground": [
+          232,
+          229,
+          217,
+          1
+        ],
+        "ratio": 4.654,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Недоступная обычная",
+        "color": "rgb(82, 102, 91)",
+        "background": "rgb(232, 229, 217)",
+        "opacity": 1,
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "compositedBackground": [
+          232,
+          229,
+          217,
+          1
+        ],
+        "ratio": 4.879,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Недоступная основная",
+        "color": "rgb(82, 102, 91)",
+        "background": "rgb(232, 229, 217)",
+        "opacity": 1,
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "compositedBackground": [
+          232,
+          229,
+          217,
+          1
+        ],
+        "ratio": 4.879,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Ждёт сети",
+        "color": "rgb(128, 89, 22)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          128,
+          89,
+          22,
+          1
+        ],
+        "compositedBackground": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "ratio": 5.881,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Конфликт",
+        "color": "rgb(160, 74, 56)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          160,
+          74,
+          56,
+          1
+        ],
+        "compositedBackground": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "ratio": 5.593,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Временные хиты",
+        "color": "rgb(49, 94, 131)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          49,
+          94,
+          131,
+          1
+        ],
+        "compositedBackground": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "ratio": 6.455,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Вдохновение",
+        "color": "rgb(128, 82, 19)",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": 1,
+        "foreground": [
+          128,
+          82,
+          19,
+          1
+        ],
+        "compositedBackground": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "ratio": 6.302,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Кнопка фокуса",
+        "color": "rgb(38, 63, 56)",
+        "background": "rgb(232, 229, 217)",
+        "opacity": 1,
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "compositedBackground": [
+          232,
+          229,
+          217,
+          1
+        ],
+        "ratio": 8.993,
+        "target": 4.5,
+        "pass": true
+      },
+      {
+        "sample": "Фокус: акцент на панели",
+        "color": "#466d54",
+        "background": "rgb(250, 248, 240)",
+        "ratio": 5.523,
+        "target": 3,
+        "pass": true
+      }
+    ]
+  }
+]
