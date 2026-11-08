@@ -33,7 +33,7 @@ export async function verifyIndividualDeployment({origin,outerLogin,account,mini
   if(game.permissions?.mode!=='individual'||file.schemaVersion!==11||file.source?.revision!==game.revision||!isDeepStrictEqual(file.state,game.state)||!isDeepStrictEqual(file.source?.context,game.context))throw new Error('Не подтверждена сохранность экспорта');
   const coverage=await json('/api/catalog/coverage',{personal:true});if(!Number.isSafeInteger(coverage.total)||coverage.total<minimumCatalogCount)throw new Error('Недостаточный охват личного каталога');
   await status('/api/health',{personal:true,originHeader:'https://skaz-check.invalid'},403);
-  return {catalogTotal:coverage.total,checks:['HTTPS и общий вход защищают страницы и API','Общего пароля недостаточно для личного листа','Индивидуальный вход и защищённая cookie подтверждены','Личный режим, экспорт v10 и каталог проверены','Чужой Origin отклонён','Проверочный сеанс отозван после проверки']};
+  return {catalogTotal:coverage.total,checks:['HTTPS и общий вход защищают страницы и API','Общего пароля недостаточно для личного листа','Индивидуальный вход и защищённая cookie подтверждены','Личный режим, экспорт v11 и каталог проверены','Чужой Origin отклонён','Проверочный сеанс отозван после проверки']};
  }finally{
   if(cookie){
    // Without a pinned identity, first obtain it only from authenticated HTML.
