@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "note": "Style candidates outside production art manifest; accepted coverage remains zero",
+  "entries": [
+    {
+      "id": "srd51:2014:spell:fire-bolt",
+      "name": {
+        "ru": "Огненный снаряд",
+        "en": "Fire Bolt"
+      },
+      "contentSha256": "05e8d8415966dcd991a7367651c3e2b0fe44d0f45eefc4e67291f30c21463671",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/fire-bolt.png",
+      "bytes": 525255,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "3ff44e50d29835ad690a0c8d305cfb5bc3e322365b5155a82e9bcab46829d7c6",
+      "source": "OpenAI built-in image_gen; generated 2026-11-08; explicitly authorized in chat",
+      "usage": "Project style review; no external reference image used; not accepted for distribution",
+      "review": "Awaiting user style decision and production asset checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX"
+    },
+    {
+      "id": "srd51:2014:item:potion-of-healing",
+      "name": {
+        "ru": "Зелье лечения",
+        "en": "Potion of Healing"
+      },
+      "contentSha256": "bfb99147fc682b20b0d99d298135a069034176580a5e00892b8755e853fee40e",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/potion-of-healing.png",
+      "bytes": 1242931,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
+      "source": "OpenAI built-in image_gen; generated 2026-11-08; explicitly authorized in chat",
+      "usage": "Project style review; no external reference image used; not accepted for distribution",
+      "review": "Awaiting user style decision and production asset checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX"
+    },
+    {
+      "id": "srd51:2014:monster:goblin",
+      "name": {
+        "ru": "Гоблин",
+        "en": "Goblin"
+      },
+      "contentSha256": "ce1c6f9ed5e71d2318cc98e5e05fb35ce9533fd4c6e0c77cd1b71c457d6dcac3",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/goblin.png",
+      "bytes": 2225405,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 2,
+      "sha256": "ed7ab236ef823c4fae49676530e80c0e6e1593d886961ff3d4823540414fa3b4",
+      "source": "OpenAI built-in image_gen; generated 2026-11-08; explicitly authorized in chat",
+      "usage": "Project style review; no external reference image used; not accepted for distribution",
+      "review": "Awaiting user style decision and production asset checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX"
+    }
+  ]
+}
