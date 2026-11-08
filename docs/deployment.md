@@ -654,3 +654,13 @@ cookie/Origin, экспорт v9, каталог 623 и семь клиентс�
 Восстановление: /var/backups/skaz/restore-status26-20261108.sqlite,
 40 таблиц совпали, integrity/FK корректны. Сервис и таймеры active, NRestarts=0.
 Откат кода: /opt/skaz/releases/584190a; рабочую базу заменять не требуется.
+
+## Обновление 08.11: история текущей сессии и время очереди
+
+Релиз /opt/skaz/releases/61ac12d. Финальный Linux 679/679, целевые Windows после
+исправления повторного ответа 49/49. Прежний контракт replay сохранён.
+Предрелизная копия /var/backups/skaz/skaz-2026-11-08T13-46-24-412Z.sqlite;
+проверка /var/backups/skaz/restore-history26-20261108.sqlite сверила 40 таблиц
+и integrity/FK. Защищённый вход, cookie/Origin, экспорт v9, каталог 623 и восемь
+клиентских файлов подтверждены. Сервис/таймеры active, NRestarts=0.
+Откат кода: /opt/skaz/releases/14fe859, без замены базы.
