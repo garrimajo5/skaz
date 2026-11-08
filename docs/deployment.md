@@ -644,3 +644,13 @@ integrity/FK совпали. Откат кода: /opt/skaz/releases/4684900 б�
 и integrity/FK. HTTPS/Basic/личный вход, cookie/Origin, экспорт v9, каталог 623
 и семь клиентских файлов проверены. Сервис/таймеры active, NRestarts=0.
 Откат кода — /opt/skaz/releases/dd4a6c8, рабочую БД заменять не требуется.
+
+## Обновление 08.11: компактный статус и ожидающая история
+
+Релиз /opt/skaz/releases/14fe859; схема/экспорт не менялись. Linux 677/677,
+Windows 674 pass / 3 POSIX skip, сборки успешны. Защищённый общий и личный вход,
+cookie/Origin, экспорт v9, каталог 623 и семь клиентских файлов проверены.
+Копия: /var/backups/skaz/skaz-2026-11-08T13-24-44-697Z.sqlite.
+Восстановление: /var/backups/skaz/restore-status26-20261108.sqlite,
+40 таблиц совпали, integrity/FK корректны. Сервис и таймеры active, NRestarts=0.
+Откат кода: /opt/skaz/releases/584190a; рабочую базу заменять не требуется.
