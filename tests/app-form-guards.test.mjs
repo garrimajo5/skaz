@@ -112,7 +112,7 @@ test('quick resources spend and restore one unit, obey bounds and refuse manual 
 
 
 test('fixed resource groups render only their book circle and remain in the bottom panel',()=>{
- const h=harness();const one=h.run('resourceControls(1)');assert.equal((one.match(/data-resource="slot1"/g)||[]).length,4);assert.doesNotMatch(one,/data-resource="(?:slot2|slot3|inspiration)"/);assert.doesNotMatch(h.run('resourceControls(0)'),/data-resource/);assert.match(h.get('#quick-state').innerHTML,/quick-resources/);
+ const h=harness();const one=h.run('resourceControls(1)');assert.equal((one.match(/data-resource="slot1"/g)||[]).length,5);assert.doesNotMatch(one,/data-resource="(?:slot2|slot3|inspiration)"/);assert.doesNotMatch(h.run('resourceControls(0)'),/data-resource/);assert.match(h.get('#quick-state').innerHTML,/quick-resources/);
  h.run('SkazStorage.sheet=()=>({counters:[]});');assert.equal(h.run('resourceControls(1)'),'');
 });
 
@@ -137,4 +137,9 @@ test('ending concentration has one-shot undo and rejects stale control from anot
 
 test('bottom bar escapes concentration and exposes queue count without claiming it is saved',()=>{
  const h=harness();h.run("state.concentration='<img src=x>';SkazStorage.pendingCount=()=>3;render()");const html=h.get('#quick-state').innerHTML;assert.doesNotMatch(html,/<img/);assert.match(html,/&lt;img/);assert.match(html,/Не подтверждено сервером: 3/);assert.match(html,/quick-note/);
+});
+
+test('resource toast undo references its original mutation rather than an unrelated increment',async()=>{
+ const h=harness();h.run(`var queuedCommands=[];var queueGeneration=0;SkazStorage.resourceGeneration=()=>queueGeneration;SkazStorage.resourceDelta=(resource,delta,key,targetMutationId)=>{const command={resource,delta,key,targetMutationId,mutationId:'command-'+queuedCommands.length,before:3,maximum:4};queuedCommands.push(command);queueGeneration++;return command;};resourceAction({kind:'slot',level:1},-1,'Ячейка');`);
+ await h.get('#undo').onclick();const commands=h.run('queuedCommands');assert.equal(commands.length,2);assert.equal(commands[1].targetMutationId,commands[0].mutationId);assert.equal(commands[1].delta,1);assert.doesNotMatch(h.get('#toast').innerHTML,/<button/);
 });

@@ -81,10 +81,10 @@ const SkazStorage = (() => {
       const base=resourceQueue.data.baseline;adoptPermissions(base);activeContext=base.context;revision=base.revision;characterStats=normalizedStats(base.characterStats);characterSheet=normalizedSheet(base.characterSheet);sessionInfo=base.session||null;loaded=true;status='resource-pending';projectResources();resourceFailure='Нет связи. Показана сохранённая очередь этого персонажа';render();return true;
     }catch(error){resourceFailure='Повреждена или недоступна очередь: '+error.message;return false;}
   }
-  function resourceDelta(resource,delta,key){
+  function resourceDelta(resource,delta,key,targetMutationId){
     if(key!==snapshotKey()||!canResource())throw new Error('Игра или доступ изменились. Открой действие заново');
     if(!resourceQueue.length)resourceQueue.resetBaseline({schemaVersion:1,revision,context:activeContext,state:clean(state),characterSheet,characterStats,session:sessionInfo,...(inventoryCache?.revision===revision&&JSON.stringify(inventoryCache.context)===JSON.stringify(activeContext)?{inventory:inventoryCache.entries}:{}),...(permissions?{permissions}:{})});
-    const command=resourceQueue.enqueue(resource,delta,crypto.randomUUID());resourceGeneration++;status='resource-pending';projectResources();render();
+    const command=resourceQueue.enqueue(resource,delta,crypto.randomUUID(),targetMutationId);resourceGeneration++;status='resource-pending';projectResources();render();
     void flushResources();return command;
   }
   async function flushResources(){
@@ -137,6 +137,7 @@ const SkazStorage = (() => {
     if (!response.ok) { const error = new Error(payload.error || 'Сервер не ответил'); error.status = response.status; throw error; }
     return payload;
   }
+  function pendingResourceIndices(resource){if(!resourceContextMatches())return [];return [...new Set((resourceQueue?.data?.commands||[]).filter(c=>JSON.stringify(c.resource)===JSON.stringify(resource)).map(c=>c.delta<0?c.before-1:c.before+c.delta-1).filter(i=>i>=0))];}
   const pendingCount=()=> (resourceQueue?.length||0)+Number(Boolean(pending));
   let badgeSavingSince=null;
   function compactStatus(){
@@ -878,8 +879,9 @@ const SkazStorage = (() => {
     };
   }
   document.addEventListener('click', async event => {
+    if(typeof SkazCharacterSheet!=='undefined'&&SkazCharacterSheet.suppressTrackerClick?.(event))return;
     const id = event.target.closest('button')?.id;
-    if(event.target.closest('button')?.dataset?.counterId){const button=event.target.closest('button');if(button.disabled)return;try{await changeCounter(button.dataset.counterId,Number(button.dataset.counterDelta),button.dataset.sheetContext);}catch(error){toast(error.message);}}
+    if(event.target.closest('button')?.dataset?.counterId){const button=event.target.closest('button');if(button.disabled)return;try{if(button.dataset.sheetContext!==snapshotKey())throw new Error('Игра или права изменились. Открой ресурс заново');if(resourceQueue&&!demo){const counter=characterSheet?.counters.find(c=>c.id===button.dataset.counterId),delta=Number(button.dataset.counterDelta);if(!counter||![-1,1].includes(delta)||counter.current+delta<0||counter.current+delta>counter.max)return;resourceAction({kind:'counter',counterId:counter.id},delta,counter.name+': '+counter.current+' → '+(counter.current+delta));}else await changeCounter(button.dataset.counterId,Number(button.dataset.counterDelta),button.dataset.sheetContext);}catch(error){toast(error.message);}}
     if (id === 'open-quests') questList();
     if (id === 'open-spellbook') spellbook();
     if (['open-inventory','nav-inventory','catalog-inventory-open'].includes(id)) {if(typeof go==='function' && location.protocol!=='file:'){closeModal();if(!event.target.closest('button')?.dataset?.page)go('inventory');}else inventory();}
@@ -920,5 +922,5 @@ const SkazStorage = (() => {
   function contextKey(){return JSON.stringify(activeContext);}
   document.addEventListener('change',event=>{if(event.target.id!=='show-examples')return;try{localStorage.setItem('skaz-show-examples',String(event.target.checked));render();}catch{toast('Не удалось сохранить настройку браузера');}});
   window.addEventListener('online',()=>{if(resourceQueue?.length)void flushResources();});
-  return { inventoryData,spendInventoryOne,pendingCount,canResource,resourceDelta,resourceGeneration:()=>resourceGeneration,flushResources, showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
+  return { pendingResourceIndices,inventoryData,spendInventoryOne,pendingCount,canResource,resourceDelta,resourceGeneration:()=>resourceGeneration,flushResources, showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
 })();
