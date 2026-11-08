@@ -108,3 +108,12 @@ button{min-width:var(--touch)}.dialog-close{min-width:var(--touch);min-height:va
 #dialog:has(.hp-entry){width:min(480px,calc(100% - 24px))}
 @media(max-width:700px){.entry-row,.catalog .entry-row{grid-template-columns:minmax(0,1fr)}.entry-description>summary{flex-wrap:wrap;gap:4px 12px}.entry-name{flex-basis:60%}.entry-metadata{flex-basis:100%;order:2}.entry-actions{padding-top:0}.entry-badge{margin-left:auto}.entry-description>summary:after{margin-left:0}}
 .entry-row>.entry-description{grid-column:auto}
+/* Short Android landscape viewports still need room for the page above the controls. */
+@media(max-height:500px) and (orientation:landscape){
+ .quick-state{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;gap:12px;min-height:72px;padding:4px 10px}
+ .quick-state>*{flex-shrink:0}.quick-state>button,.quick-state>div:first-child{white-space:nowrap}.quick-resources{order:0;flex:0 0 auto!important;overflow:visible;padding:0}.quick-resources .resource-controls{margin:0;gap:8px}.quick-resources .resource-group{padding:2px 6px}.quick-extras{margin-left:0}
+ .bottomnav{padding:2px 8px;min-height:48px;height:52px}.bottomnav button{min-height:48px;padding:2px 8px;font-size:0}.bottomnav button span{display:block;font-size:12px}
+ .session-menu-content{max-height:calc(100dvh - 72px)}
+}
+#toast button{flex-shrink:0}#toast>span{min-width:0;overflow-wrap:anywhere}
+@media(max-width:550px){.page-top .character-edit{max-width:none}.character-edit{flex-direction:row;flex-wrap:wrap;justify-content:flex-start}.character-edit button{flex:0 1 auto}}
