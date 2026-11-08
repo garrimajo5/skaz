@@ -58,6 +58,334 @@
       "usage": "Project style review; no external reference image used; not accepted for distribution",
       "review": "Awaiting user style decision and production asset checks",
       "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX"
+    },
+    {
+      "id": "srd51:2014:spell:acid-splash",
+      "name": {
+        "ru": "Брызги кислоты",
+        "en": "Acid Splash"
+      },
+      "contentSha256": "620c6b0679a3015c621edbc451bd18d4a689932e7446dcf4dfa8ad3763da39f1",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/acid-splash.png",
+      "bytes": 934051,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "d2b1499c7920da9f0a23ebfd57899a25b095b1615a04e00045e72ba5836d3ec2",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Awaiting visual and production checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: One large pear-shaped acidic droplet bursting into exactly two small splashes; olive-chartreuse liquid, dark amber rim, clear curved liquid silhouette, no flame. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:spell:ray-of-frost",
+      "name": {
+        "ru": "Луч холода",
+        "en": "Ray of Frost"
+      },
+      "contentSha256": "293ffaf7d303c0a54abf931d080e8b974de93ece7aea557c0e1fdf0e9c829ec4",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/ray-of-frost.png",
+      "bytes": 376957,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "8dc0477b0f87dfe26ae534a5c6cfac164202814a6932eaee3cb53aa58541df58",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Awaiting visual and production checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: A slim straight diagonal blue-white ray ending in one angular ice crystal, dark slate-blue edges, cold faceted geometry, clearly different from a flame. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:spell:magic-missile",
+      "name": {
+        "ru": "Волшебная стрела",
+        "en": "Magic Missile"
+      },
+      "contentSha256": "0b5c36ebf317566fe17c5b9bc33ee54e8d50d582db1119e38c7e343d70d427ef",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/magic-missile.png",
+      "bytes": 534135,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "978f0ea1c135a75f773aa894e9283b0270648a39319dc5b60458aee6a2137336",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Awaiting visual and production checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: Exactly three distinct curved violet luminous projectiles, each with its own bright tip, parallel arc paths, visible gaps, no bow or arrows. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:spell:cure-wounds",
+      "name": {
+        "ru": "Лечение ран",
+        "en": "Cure Wounds"
+      },
+      "contentSha256": "5bcdd4c173e4bfe2a2137bc12134c5aa42170a6d81aa5164dcaedb903c27cd6f",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/cure-wounds.png",
+      "bytes": 1072574,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "c876bccd18590b6e2b3e4ff715b61516115407f837325a7c352e6f7a0872c6e6",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Needs revision: stone surface reads as object repair; replace with unambiguous non-graphic healing on a living arm.",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: A single open human palm held immediately above a clean closing crack in a small abstract stone-like skin-colored surface, warm amber restoration glow at contact; no blood, no text, clear simple hand anatomy. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:spell:healing-word",
+      "name": {
+        "ru": "Лечащее слово",
+        "en": "Healing Word"
+      },
+      "contentSha256": "9410ca0efa761eceeea34e5031dd26050f8cfeb80d14711505f6517e9f20920f",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/healing-word.png",
+      "bytes": 1009146,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "a239a4fe1b1a5e6bcbc5a46a5f837c5a782cdc62e6f007bea5c80bb906c1684f",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Awaiting visual and production checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: A simple side-profile mouth silhouette emitting three broad curved golden sound waves ending at one small healing spark, no hand, no text, clear sound rather than touch. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:spell:hold-person",
+      "name": {
+        "ru": "Удержание личности",
+        "en": "Hold Person"
+      },
+      "contentSha256": "619f7b149469a13908b0f7903c33182d24acf6001afb64330e7736a553097a93",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/hold-person.png",
+      "bytes": 556887,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "0159c7396a7e9ba5388e5d7d619f6c21deafa7f0ab00b56f5ccf46ec9f3089dc",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Needs revision: full-body silhouette too narrow at 32 px; simplify and enlarge torso/rings.",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: One simplified upright human silhouette immobilized inside two horizontal closed pale violet magical rings, no injury or chains, clear restrained pose. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:spell:shield",
+      "name": {
+        "ru": "Щит",
+        "en": "Shield"
+      },
+      "contentSha256": "6ab3e40b60e601af8fff5ffbd51611e32784807d11249c3aca7b3f58fb571367",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/shield.png",
+      "bytes": 1260472,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "6f890d5fe0b2421db114467866cec1231e0529d442fd3c37984ab292cbc57040",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Awaiting visual and production checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: One translucent blue magical shield seen three-quarter view, broad solid silhouette, subtle luminous rim, no heraldry, no letters, no hands. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:spell:invisibility",
+      "name": {
+        "ru": "Невидимость",
+        "en": "Invisibility"
+      },
+      "contentSha256": "706db7a2d4a67f34008ae29a8349290604127b7b123a13d9d157468472c916c6",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/invisibility.png",
+      "bytes": 836787,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "1fb188fc79be2479868724515be2d3c261a2b54ff80ddb17eba16a16ec966d4b",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Needs revision: resembles a ghost; use interrupted contour and transparent interior without flowing ghost robes.",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: A single standing human silhouette whose contour dissolves in three broad interrupted wisps; cool grey violet edges and transparent center, no extra person. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:spell:fireball",
+      "name": {
+        "ru": "Огненный шар",
+        "en": "Fireball"
+      },
+      "contentSha256": "d94495ee0983d7feeb335539a33229d6dcb893dc276ce4a7f3bba6964d39f87e",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/fireball.png",
+      "bytes": 1390537,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "d9e4bea6bc8fd790630dcc1801183d9ecf8f85eeb158899ddafc23ace58b8460",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Awaiting visual and production checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: One circular orange fiery burst with a dark ember core and broad radial lobes, compact round silhouette; absolutely no directional tail, clearly different from a fire bolt. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:spell:misty-step",
+      "name": {
+        "ru": "Туманный шаг",
+        "en": "Misty Step"
+      },
+      "contentSha256": "73348d41a657a9af50d2441678dcbf5c6efb3bd2b6c032a30aef8f223cad09b8",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/misty-step.png",
+      "bytes": 779953,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "5c4934030f0c976985be74482b0022b4beabf187eb05ba9858b9616ae98e2c98",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Awaiting visual and production checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: Two separated stylized boot footprints joined by one soft crescent of silvery teal mist, distinct arrival and departure shapes, no full person. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:spell:entangle",
+      "name": {
+        "ru": "Опутывание",
+        "en": "Entangle"
+      },
+      "contentSha256": "5dc48835ba2e15b56492edb6ff1cf62deb7e62dc997a1f674a4aedcea50ac241",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/entangle.png",
+      "bytes": 1443537,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "79fd86bded8a43d47c4ba503ff9f7c2199bc9596fb71048883c1962b7ffecfa9",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Awaiting visual and production checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: Two simple booted feet caught in thick interlaced roots with a few broad green leaves, clear grasping vines, no humanoid face, no lettering. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:item:potion-of-greater-healing",
+      "name": {
+        "ru": "Зелье большого лечения",
+        "en": "Potion of Greater Healing"
+      },
+      "contentSha256": "fafd1f7e507122e13b08605b35091da9d7cdf851907faf45beb27b17e6a0d7fb",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/potion-of-greater-healing.png",
+      "bytes": 692144,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Awaiting visual and production checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: One taller healing potion flask with a distinctly elongated hexagonal body, double glass collar around the neck, a small tapered cork and ruby liquid. Different from the squat round basic healing potion by geometry, not just color. Natural glass and brown leather, no labels. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:item:wand-of-lightning-bolts",
+      "name": {
+        "ru": "Палочка молний",
+        "en": "Wand of Lightning Bolts"
+      },
+      "contentSha256": "5dc1a2fae3fdd08a5e2598ddee5d68874c2e90832e1e7bc9a77d634d42a759fe",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/wand-of-lightning-bolts.png",
+      "bytes": 348339,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "4aab3f83aae15b4bc404d1e750ce93520214bc588835454c8d2d8cff59a5acc9",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Awaiting visual and production checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: One compact dark wooden wand placed diagonally, thick enough to read small, distinctive forked metal tip with a restrained short pale yellow electric arc between its two prongs. Whole wand visible. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:item:adamantine-armor",
+      "name": {
+        "ru": "Адамантиновый доспех",
+        "en": "Adamantine Armor"
+      },
+      "contentSha256": "22fc6ac0da1fe97ae0d0d9f7084f7865c546e42ca5692bcb311eca404be652bb",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/adamantine-armor.png",
+      "bytes": 1391884,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "625da949feaf30d257a3cef13757291fe784a9cd18ed1fd3ab92ac74ef858b60",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Awaiting visual and production checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: One empty dark charcoal-metal breastplate with broad substantial angular plates, cool reflected edge light, practical sober craftsmanship, no helmet, arms, wearer or stand. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:item:mithral-armor",
+      "name": {
+        "ru": "Мифрильный доспех",
+        "en": "Mithral Armor"
+      },
+      "contentSha256": "4f4c670f097f8995b31119ef61e67b594102bba0b85cef9b9c7a0c53435f0791",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/mithral-armor.png",
+      "bytes": 1432933,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "9c7a12a29933529be3486478580447db4a5ee1149d10c838fc3757b5212eae9a",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Awaiting visual and production checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: One empty pale silver breastplate with thin elegant articulated joins, soft warm highlights and cool grey contour, clear light metal silhouette on a light background; no wearer, stand, helmet or weapons. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
+    },
+    {
+      "id": "srd51:2014:artifact:orb-of-dragonkind",
+      "name": {
+        "ru": "Сфера драконов",
+        "en": "Orb of Dragonkind"
+      },
+      "contentSha256": "0f26dc329a235b9241a53f850270283fd84c03a2d72f90829f46752ee79b9bd4",
+      "status": "candidate",
+      "path": "data/art-pilot-v1/orb-of-dragonkind.png",
+      "bytes": 1254895,
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 6,
+      "sha256": "b68e53b686c626bcad5f8ce5a46f45cb0724eaff42b85bc96950cd05ce04aed2",
+      "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat",
+      "usage": "Local project style review; no external reference image; not accepted for distribution",
+      "review": "Awaiting visual and production checks",
+      "registryCheck": "Unsupported PNG chunk (metadata/active content): caBX",
+      "prompt": "Create ONE square original painterly fantasy reference illustration for SKAZ, matching a restrained high-quality encyclopedia library. Broad sculpted brush shapes, clear silhouette readable at 32-48px, controlled moderate detail, natural slightly muted materials, soft warm light from upper left and neutral cool shadows. No typography, digits, logos, watermarks, UI frames or scenery. No excessive bloom or tiny noisy detail. Subject: One glassy ancient orb containing a small coiled dragon-shaped motif, muted amber and dark teal, simple subtle bronze socket beneath it, magical artifact without noisy ornaments, no writing. Isolated subject on TRUE TRANSPARENT background, no ground plane or cast shadow outside subject. Entire subject within central 76 percent of square. Substantial colored outer edges readable on navy #17263A, charcoal #1D2220 and parchment #FAF8F0. "
     }
-  ]
+  ],
+  "missingPilot": [
+    "srd51:2014:monster:owl",
+    "srd51:2014:monster:gelatinous-cube",
+    "srd51:2014:monster:fire-elemental",
+    "srd51:2014:monster:ancient-red-dragon",
+    "srd51:2014:monster:ghost"
+  ],
+  "generationBlocker": "Built-in generator returned HTTP 403 on owl; remaining five not generated."
 }
