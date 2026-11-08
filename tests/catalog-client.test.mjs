@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import { readFile } from 'node:fs/promises';
+const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source = await readFile(new URL('../client/catalog.js', import.meta.url), 'utf8');
 function harness(protocol = 'http:', home=false, memory=new Map()) {
   let snapshotKey='hero:0',userId='user-a';
@@ -17,7 +18,7 @@ function harness(protocol = 'http:', home=false, memory=new Map()) {
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
     toast:message=>messages.push(message),render:()=>{}, modal: html => dialog = html, SkazStorage: { ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
-  vm.runInContext(source, context);
+  vm.runInContext(uiSource,context);vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
   return { memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>isOpen=false, otherModal:()=>dialog='<h2>Other</h2>',

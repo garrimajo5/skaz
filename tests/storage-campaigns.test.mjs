@@ -4,6 +4,7 @@ import vm from 'node:vm';
 import { readFile } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
 import { seed } from '../server/state.mjs';
+const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source = await readFile(new URL('../client/storage.js', import.meta.url), 'utf8');
 const queueSource=await readFile(new URL('../client/resource-queue.js',import.meta.url),'utf8');
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
@@ -19,7 +20,7 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
   });
   if(withQueue)vm.runInContext(queueSource,context);
   vm.runInContext(sheetSource,context);
-  vm.runInContext(source, context);
+  vm.runInContext(uiSource,context);vm.runInContext(source, context);
   return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, references, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
     click: (id,dataset={},disabled=false) => handlers.click({ target: { closest: () => ({ id,dataset,disabled }) } }),
     visible: value => {context.document.visibilityState=value;return handlers.visibilitychange();},

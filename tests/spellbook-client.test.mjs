@@ -2,9 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFile} from 'node:fs/promises';
+const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/spellbook.js',import.meta.url),'utf8');
 function harness(preparedDefault=false){let firstView=true,key='hero:0';const tasks=[],requests=[],edits=[],handlers={},region={innerHTML:'',setAttribute(){}};
- const context=vm.createContext({queueMicrotask:fn=>tasks.push(fn),document:{addEventListener:(n,f)=>handlers[n]=f,getElementById:()=>region},render:()=>{},SkazStorage:{snapshotKey:()=>key,contextKey:()=>key.split(':')[0],spellbookData:()=>new Promise((resolve,reject)=>requests.push({resolve,reject})),editSpell:(...args)=>edits.push(args)}});vm.runInContext(source,context);
+ const context=vm.createContext({queueMicrotask:fn=>tasks.push(fn),document:{addEventListener:(n,f)=>handlers[n]=f,getElementById:()=>region},render:()=>{},SkazStorage:{snapshotKey:()=>key,contextKey:()=>key.split(':')[0],spellbookData:()=>new Promise((resolve,reject)=>requests.push({resolve,reject})),editSpell:(...args)=>edits.push(args)}});vm.runInContext(uiSource,context);vm.runInContext(source,context);
  return{tasks,requests,edits,region,view:()=>{let html=vm.runInContext('SkazSpellbook.view()',context);if(firstView&&!preparedDefault){firstView=false;handlers.click({target:{closest:()=>({dataset:{bookScope:'all'}})}});html=vm.runInContext('SkazSpellbook.view()',context);}return html;},setKey:v=>key=v,draft:(q,scope='all',level='',flags={})=>handlers.change({target:{form:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}}}}),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}}),search:(q,scope='all',level='',flags={})=>handlers.submit({target:{id:'personal-spell-search',elements:{q:{value:q},scope:{value:scope},level:{value:level},ritual:{value:flags.ritual||''},concentration:{value:flags.concentration||''}}},preventDefault(){}})};
 }
 const settle=()=>new Promise(r=>setImmediate(r));
