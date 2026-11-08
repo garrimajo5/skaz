@@ -1,4 +1,4 @@
-// Shared projection for issue #20. Not connected to UI/API yet. The transaction
+// Shared projection for issue #20, used by the API and durable queue. The transaction
 // layer must authenticate the owner, check revision/idempotency and persist one
 // receipt; history must reject intervening overlapping writes before restore.
 const SkazCasting = (() => {
@@ -72,6 +72,6 @@ const SkazCasting = (() => {
   const c=command.cost;
   return !!c&&(c.kind==='slot'&&resource.kind==='slot'&&c.level===resource.level||c.kind==='counter'&&resource.kind==='counter'&&c.counterId===resource.counterId);
  }
- return {prepare,project,restore,touches};
+ return {prepare,project,restore,touches,balance};
 })();
 if(typeof module!=='undefined')module.exports=SkazCasting;

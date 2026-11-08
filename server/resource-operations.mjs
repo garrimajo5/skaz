@@ -1,4 +1,5 @@
 import Health from '../client/health.js';
+import {castingBalance,applyCasting} from './casting.mjs';
 import {AppError} from './state.mjs';
 import {readCharacterSheet,saveCharacterSheet} from './character-sheet.mjs';
 import {readInventory,changeCharges} from './inventory.mjs';
@@ -11,9 +12,10 @@ export function validateResourceCommand(input){
  if(!exact(input.context,['campaignId','characterId','sessionId'])||!Object.values(input.context).every(id))fail('Нужен контекст операции');
  if(Object.hasOwn(input,'targetMutationId')&&(!id(input.targetMutationId)||input.targetMutationId===input.mutationId))fail('Неверная цель отмены');
  const r=input.resource;
- if(!r||!['health','hp','slot','inspiration','counter','charges'].includes(r.kind))fail('Неизвестный ресурс');
- const keys=r.kind==='health'?['kind','operation','temporaryBefore','concentrationBefore',...(Object.hasOwn(r,'checksBefore')?['checksBefore']:[]),...(Object.hasOwn(r,'deathBefore')?['deathBefore']:[]),...(['pass','fail'].includes(r.operation)?['checkId']:[]),...(r.operation==='restore'?['hpAfter','tempAfter','concentrationAfter',...(Object.hasOwn(r,'checksBefore')?['checksAfter']:[]),...(Object.hasOwn(r,'deathBefore')?['deathAfter']:[])]:[])]:r.kind==='slot'?['kind','level']:r.kind==='counter'?['kind','counterId']:r.kind==='charges'?['kind','catalogId','unit']:['kind'];
+ if(!r||!['cast','health','hp','slot','inspiration','counter','charges'].includes(r.kind))fail('Неизвестный ресурс');
+ const keys=r.kind==='cast'?['kind','operation',r.operation==='restore'?'receipt':'command']:r.kind==='health'?['kind','operation','temporaryBefore','concentrationBefore',...(Object.hasOwn(r,'checksBefore')?['checksBefore']:[]),...(Object.hasOwn(r,'deathBefore')?['deathBefore']:[]),...(['pass','fail'].includes(r.operation)?['checkId']:[]),...(r.operation==='restore'?['hpAfter','tempAfter','concentrationAfter',...(Object.hasOwn(r,'checksBefore')?['checksAfter']:[]),...(Object.hasOwn(r,'deathBefore')?['deathAfter']:[])]:[])]:r.kind==='slot'?['kind','level']:r.kind==='counter'?['kind','counterId']:r.kind==='charges'?['kind','catalogId','unit']:['kind'];
  if(!exact(r,keys))fail('Неверные поля ресурса');
+ if(r.kind==='cast'&&(!['cast','restore'].includes(r.operation)||input.delta!==1||r.operation==='restore'&&!input.targetMutationId||r.operation==='cast'&&input.targetMutationId))fail('Неверная команда сотворения');
  if(r.kind==='health'&&([r.concentrationBefore,...(r.operation==='restore'?[r.concentrationAfter]:[])].some(c=>c!==null&&(typeof c!=='string'||!c.trim()||c.length>200))||!['damage','heal','temporary','restore','pass','fail','critical-damage','death-success','death-failure','death-1','death-20','death-stabilize'].includes(r.operation)||!Number.isSafeInteger(r.temporaryBefore)||r.temporaryBefore<0||r.temporaryBefore>9999||input.delta<0||r.operation==='restore'&&!input.targetMutationId))fail('Неверная операция здоровья');
  if(r.kind==='health'&&Object.hasOwn(r,'checksBefore'))for(const entries of [r.checksBefore,...(r.operation==='restore'?[r.checksAfter]:[])])if(!Array.isArray(entries)||entries.length>100)fail('Неверный список проверок');
  if(r.kind==='health'&&['pass','fail'].includes(r.operation)&&(!id(r.checkId)||input.delta!==1||!Object.hasOwn(r,'checksBefore')))fail('Неверное решение проверки');
@@ -26,6 +28,7 @@ export function validateResourceCommand(input){
 }
 export function resourceBalance(db,current,resource){
  const sheet=current.characterSheet;
+ if(resource.kind==='cast')return castingBalance(current,resource);
  if(['hp','health'].includes(resource.kind))return {value:current.state.hp,maximum:current.state.maxHp,title:'Хиты'};
  if(resource.kind==='slot'||resource.kind==='inspiration'){
   if(sheet)throw new AppError(409,'Ресурсы шаблона недоступны для собственного класса');
@@ -46,6 +49,7 @@ export function applyResourceCommand(db,current,payload,mutationId,writeState){
  if(Object.keys(payload.context).some(k=>payload.context[k]!==current.context[k]))throw new AppError(409,'Активная игра изменилась');
  const balance=resourceBalance(db,current,payload.resource);
  if(balance.value!==payload.before||balance.maximum!==payload.maximum)throw new AppError(409,'Остаток или максимум ресурса изменился. Нужна сверка очереди');
+ if(payload.resource.kind==='cast')return applyCasting(db,current,payload,mutationId,writeState);
  if(payload.resource.kind==='hp'&&payload.delta<0&&(current.state.tempHp||0)>0)throw new AppError(409,'Обнови страницу: урон должен учитывать временные хиты');
  if(['health','hp'].includes(payload.resource.kind)&&current.state.concentrationChecks?.length&&!Object.hasOwn(payload.resource,'checksBefore'))throw new AppError(409,'Обнови страницу: есть вопросы концентрации');
  if(['health','hp'].includes(payload.resource.kind)&&current.state.deathSaves!==undefined&&!Object.hasOwn(payload.resource,'deathBefore'))throw new AppError(409,'Обнови страницу: сохранены спасброски от смерти');

@@ -1,4 +1,5 @@
 import Health from '../client/health.js';
+import Casting from '../client/casting.js';
 import {AppError} from './state.mjs';
 import {resourceBalance} from './resource-operations.mjs';
 import {inventoryInverse} from './inventory.mjs';
@@ -34,7 +35,12 @@ export function inverseResource(db,current,target){
  if(db.prepare('SELECT 1 FROM changes c LEFT JOIN resource_changes r ON r.mutation_id=c.mutation_id WHERE c.revision>? AND r.mutation_id IS NULL LIMIT 1').get(row.revision))throw new AppError(409,'После действия были другие правки. Нужна ручная сверка');
  const balance=resourceBalance(db,current,value.resource),delta=value.before-value.after;
  const later=db.prepare('SELECT r.data_json FROM changes c JOIN resource_changes r ON r.mutation_id=c.mutation_id WHERE c.revision>?').all(row.revision).map(r=>JSON.parse(r.data_json));
- if(later.some(r=>r.context.characterId===current.context.characterId&&Health.overlaps(r.resource,value.resource)&&(r.resource.kind==='health'||value.resource.kind==='health')))throw new AppError(409,'После действия менялось здоровье. Нужна сверка');
+ if(later.some(r=>r.context.characterId===current.context.characterId&&Health.overlaps(r.resource,value.resource)&&(['health','cast'].includes(r.resource.kind)||['health','cast'].includes(value.resource.kind))))throw new AppError(409,'После действия менялось здоровье. Нужна сверка');
+ if(value.resource.kind==='cast'){
+  try{Casting.restore(current,value.casting);}catch(error){throw new AppError(409,error.message);}
+  if(value.casting.cost===null&&!value.casting.changesFocus)throw new AppError(409,'Заговор не изменил ресурсы');
+  return {context:current.context,resource:{kind:'cast',operation:'restore',receipt:value.casting},delta:1,before:balance.value,maximum:balance.maximum};
+ }
  if(value.resource.kind==='health'){
   if(Object.hasOwn(value.resource,'deathBefore')&&JSON.stringify(current.state.deathSaves)!==JSON.stringify(value.deathAfter))throw new AppError(409,'Спасброски от смерти изменились');
   if(Object.hasOwn(value.resource,'checksBefore')&&JSON.stringify(current.state.concentrationChecks||[])!==JSON.stringify(value.checksAfter))throw new AppError(409,'Вопросы концентрации изменились');
@@ -48,7 +54,7 @@ export function historyDetail(db,row,current){
  const resource=db.prepare('SELECT * FROM resource_changes WHERE mutation_id=?').get(row.mutation_id);
  const changes=[];
  if(resource){
-  const r=JSON.parse(resource.data_json);if(r.resource.kind==='health'){changes.push({resource:{kind:'hp'},before:r.before,after:r.after},{resource:{kind:'tempHp'},before:r.resource.temporaryBefore,after:r.tempAfter});if(r.deathAfter&&JSON.stringify(r.resource.deathBefore)!==JSON.stringify(r.deathAfter))changes.push({resource:{kind:'deathSaves'},before:JSON.stringify(r.resource.deathBefore),after:JSON.stringify(r.deathAfter)});if(Object.hasOwn(r.resource,'checksBefore')&&JSON.stringify(r.resource.checksBefore)!==JSON.stringify(r.checksAfter))changes.push({resource:{kind:'concentrationChecks'},before:r.resource.checksBefore.length,after:r.checksAfter.length});if(r.resource.concentrationBefore!==r.concentrationAfter)changes.push({resource:{kind:'concentration'},before:r.resource.concentrationBefore,after:r.concentrationAfter});}else changes.push({resource:{...r.resource,...(['counter','charges'].includes(r.resource.kind)&&r.title?{name:r.title}:{})},before:r.before,after:r.after});
+  const r=JSON.parse(resource.data_json);if(r.resource.kind==='cast'){const c=r.casting||r.resource.receipt,undo=r.resource.operation==='restore';if(c.cost)changes.push({resource:c.cost,before:undo?c.after:c.before,after:undo?c.before:c.after});if(c.changesFocus){changes.push({resource:{kind:'concentration'},before:undo?c.focusAfter.concentration:c.focusBefore.concentration,after:undo?c.focusBefore.concentration:c.focusAfter.concentration});if(c.focusBefore.checks.length||c.focusAfter.checks.length)changes.push({resource:{kind:'concentrationChecks'},before:undo?c.focusAfter.checks.length:c.focusBefore.checks.length,after:undo?c.focusBefore.checks.length:c.focusAfter.checks.length});}}else if(r.resource.kind==='health'){changes.push({resource:{kind:'hp'},before:r.before,after:r.after},{resource:{kind:'tempHp'},before:r.resource.temporaryBefore,after:r.tempAfter});if(r.deathAfter&&JSON.stringify(r.resource.deathBefore)!==JSON.stringify(r.deathAfter))changes.push({resource:{kind:'deathSaves'},before:JSON.stringify(r.resource.deathBefore),after:JSON.stringify(r.deathAfter)});if(Object.hasOwn(r.resource,'checksBefore')&&JSON.stringify(r.resource.checksBefore)!==JSON.stringify(r.checksAfter))changes.push({resource:{kind:'concentrationChecks'},before:r.resource.checksBefore.length,after:r.checksAfter.length});if(r.resource.concentrationBefore!==r.concentrationAfter)changes.push({resource:{kind:'concentration'},before:r.resource.concentrationBefore,after:r.concentrationAfter});}else changes.push({resource:{...r.resource,...(['counter','charges'].includes(r.resource.kind)&&r.title?{name:r.title}:{})},before:r.before,after:r.after});
  }else{
   const before=JSON.parse(row.before_json),after=JSON.parse(row.after_json);
   for(const key of ['hp','tempHp','maxHp','gold','inspiration'])if(before[key]!==after[key])changes.push({resource:{kind:key},before:before[key],after:after[key]});

@@ -237,3 +237,9 @@ header:has(#header-search){gap:12px}.play-heading #play-search{display:none}
 .quick-vitals.wounded strong,.quick-vitals.wounded .health-state-label{color:var(--warn)}.quick-vitals.wounded .quick-health-meter>i:first-child{background:var(--warn)}.health-state-label{font-size:14px!important;white-space:normal!important}.quick-vitals.zero-hp{display:flex;flex-wrap:wrap;gap:6px}.quick-vitals.zero-hp>strong{width:100%}.quick-vitals.zero-hp>button{min-height:44px!important}.death-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.death-actions button{min-height:44px}
 @media(max-width:999px),(max-height:599px),(orientation:portrait){body[data-hp-state=zero] .quick-state{display:flex;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start}body[data-hp-state=zero] .quick-vitals.zero-hp{min-width:330px;max-width:330px}body[data-hp-state=zero] .quick-state>*{flex-shrink:0}body[data-hp-state=zero] .quick-state .quick-resources{width:max-content;overflow:visible}}
 .quick-vitals.zero-hp{display:grid;grid-template-columns:1fr;gap:4px}.quick-vitals.zero-hp>strong:first-child{display:flex;align-items:baseline;gap:8px;font-size:24px;line-height:28px;margin:0}.quick-vitals.zero-hp>strong:first-child span{display:inline;font-size:12px}.quick-vitals.zero-hp .quick-health-meter{display:none}.quick-vitals.zero-hp .health-state-label{line-height:20px}.quick-vitals.zero-hp>button{height:44px;min-height:44px!important;padding:4px 8px!important}
+/* Casting keeps the reading target separate and every row 50px tall. */
+.play-spell-action{display:flex;align-items:center;gap:4px;height:50px;min-width:0}
+.play-spell-action>.play-spell-row{flex:1;min-width:0}
+.play-cast{flex:0 0 auto;min-height:44px;max-width:110px;padding:4px 8px;font-size:12px;line-height:16px}
+.play-cast small{display:block;font-size:10px;color:var(--warn)}
+.cast-warning{color:var(--warn);border-left:3px solid var(--warn);padding-left:10px}

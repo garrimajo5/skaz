@@ -31,7 +31,8 @@ const SkazHealth=(()=>{
   if(operation==='restore'&&integer(resource.hpAfter,maxHp)&&integer(resource.tempAfter,9999))return finish({hp:resource.hpAfter,tempHp:resource.tempAfter},resource.concentrationAfter,resource.checksAfter,deathTracked?deathState(resource.hpAfter,resource.deathAfter):currentDeath);
   throw Error('Неизвестная операция здоровья');
  }
- const overlaps=(a,b)=>['hp','health'].includes(a.kind)&&['hp','health'].includes(b.kind)||JSON.stringify(a)===JSON.stringify(b);
+ const castOverlap=(a,b)=>{if(a.kind!=='cast')return false;if(b.kind==='cast'||['health','hp'].includes(b.kind))return true;const c=a.operation==='restore'?a.receipt?.cost:a.command?.cost;return !!c&&(c.kind==='slot'&&b.kind==='slot'&&c.level===b.level||c.kind==='counter'&&b.kind==='counter'&&c.counterId===b.counterId);};
+ const overlaps=(a,b)=>castOverlap(a,b)||castOverlap(b,a)||['hp','health'].includes(a.kind)&&['hp','health'].includes(b.kind)||JSON.stringify(a)===JSON.stringify(b);
  return {project,overlaps,deathState};
 })();
 if(typeof module!=='undefined')module.exports=SkazHealth;
