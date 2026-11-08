@@ -114,3 +114,26 @@ test('fixed resource groups render only their book circle and remain in the bott
  const h=harness();const one=h.run('resourceControls(1)');assert.equal((one.match(/data-resource="slot1"/g)||[]).length,4);assert.doesNotMatch(one,/data-resource="(?:slot2|slot3|inspiration)"/);assert.doesNotMatch(h.run('resourceControls(0)'),/data-resource/);assert.match(h.get('#quick-state').innerHTML,/quick-resources/);
  h.run('SkazStorage.sheet=()=>({counters:[]});');assert.equal(h.run('resourceControls(1)'),'');
 });
+
+test('quick personal note saves once on Enter, preserves newlines and never writes common journal',async()=>{
+ const h=harness();h.run('quickNote()');h.get('#quick-note-body').value='Запомнить имя';let prevented=0;
+ const handler=h.get('#quick-note-body').onkeydown;
+ handler({key:'Enter',shiftKey:true,preventDefault(){prevented++;}});handler({key:'Enter',isComposing:true,preventDefault(){prevented++;}});assert.equal(h.writes.length,0);
+ await handler({key:'Enter',preventDefault(){prevented++;}});await handler({key:'Enter',preventDefault(){prevented++;}});
+ assert.equal(h.writes.length,1);assert.equal(h.state().notes.at(-1).text,'Запомнить имя');assert.equal(h.state().journal.length,0);assert.equal(prevented,2);
+});
+
+test('quick note refuses changed snapshot or permissions and leaves typed text available',async()=>{
+ for(const stale of [true,false]){const h=harness();h.run('quickNote()');h.get('#quick-note-body').value='Не потерять';if(stale)h.run("SkazStorage.snapshotKey=()=> 'another-game'");else h.block();await h.get('#quick-note-save').onclick();assert.equal(h.writes.length,0);assert.equal(h.get('#dialog').open,true);assert.equal(h.get('#quick-note-body').value,'Не потерять');}
+});
+
+test('ending concentration has one-shot undo and rejects stale control from another snapshot',async()=>{
+ const h=harness();h.run("state.concentration='Гипнотический узор'");const before=h.state();await h.run("endConcentration('Гипнотический узор',SkazStorage.snapshotKey())");assert.equal(h.state().concentration,null);assert.equal(h.writes.length,1);
+ const undo=h.get('#undo').onclick;await undo();await undo();assert.deepEqual(h.state(),before);assert.equal(h.writes.length,2);assert.doesNotMatch(h.get('#toast').innerHTML,/<button/);
+ await h.run("endConcentration('Гипнотический узор','old-context')");assert.equal(h.writes.length,2);
+ h.block();await h.run("endConcentration('Гипнотический узор',SkazStorage.snapshotKey())");assert.equal(h.state().concentration,before.concentration);assert.equal(h.writes.length,2);
+});
+
+test('bottom bar escapes concentration and exposes queue count without claiming it is saved',()=>{
+ const h=harness();h.run("state.concentration='<img src=x>';SkazStorage.pendingCount=()=>3;render()");const html=h.get('#quick-state').innerHTML;assert.doesNotMatch(html,/<img/);assert.match(html,/&lt;img/);assert.match(html,/Не подтверждено сервером: 3/);assert.match(html,/quick-note/);
+});

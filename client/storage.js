@@ -137,6 +137,7 @@ const SkazStorage = (() => {
     if (!response.ok) { const error = new Error(payload.error || 'Сервер не ответил'); error.status = response.status; throw error; }
     return payload;
   }
+  const pendingCount=()=> (resourceQueue?.length||0)+Number(Boolean(pending));
   function paint() {
     const box = document.getElementById('sync-status');
     if (!box) return;
@@ -150,7 +151,9 @@ const SkazStorage = (() => {
     };
     box.dataset.status = resourceFailure?'error':status;
     labels['resource-pending']=(resourceSending?'Отправляем · ':'Ждёт отправки · ')+(resourceQueue?.length||0)+' изменений';labels['resource-conflict']='Очередь требует сверки';
-    box.innerHTML = `<span><span class="sync-dot"></span>${labels[status]}${permissions?` · ${permissions.role==='player'?'Игрок':permissions.role==='gm'?'Мастер':'Владелец'}${permissions.character?'':' · Только чтение'}`:''}${resourceFailure?`<small>${esc(resourceFailure)}</small>`:''}${message ? `<small>${esc(message)}</small>` : ''}${permissions?`<small>${!permissions.character?'Доступно чтение назначенных игр.':permissions.shared?'Личный лист и общие записи кампании доступны для изменения.':'Личные ресурсы и заметки доступны для изменения. Общий сюжет, задания и карту ведёт мастер.'}</small>`:''}</span><div>${resourceQueue?.length?'<button id="resource-send">Отправить очередь</button><button id="resource-download">Скачать очередь</button><button id="resource-review">Сверить очередь</button>':''}${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления">↻</button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button>${permissions?.members?'<button id="campaign-members">Участники</button>':''}${typeof SkazAccount!=='undefined' && SkazAccount.userId?'<button id="account-code">Мой код</button><button id="account-logout">Выйти</button>':''}<button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div>`;
+    const menuOpen=document.getElementById('session-menu')?.open===true;
+    const badge=document.getElementById('quick-pending');if(badge){badge.hidden=pendingCount()===0;badge.textContent='● '+pendingCount();badge.setAttribute?.('aria-label','Не подтверждено сервером: '+pendingCount()+'. Открыть состояние сохранения');}
+    box.innerHTML = `<details id="session-menu" ${menuOpen?'open':''}><summary aria-label="Состояние сохранения и меню"><span class="sync-compact" role="status" aria-live="polite"><span class="sync-dot"></span>${labels[status]}</span><span aria-hidden="true">⋯</span></summary><div class="session-menu-content"><span><span class="sync-dot"></span>${labels[status]}${permissions?` · ${permissions.role==='player'?'Игрок':permissions.role==='gm'?'Мастер':'Владелец'}${permissions.character?'':' · Только чтение'}`:''}${resourceFailure?`<small>${esc(resourceFailure)}</small>`:''}${message ? `<small>${esc(message)}</small>` : ''}${permissions?`<small>${!permissions.character?'Доступно чтение назначенных игр.':permissions.shared?'Личный лист и общие записи кампании доступны для изменения.':'Личные ресурсы и заметки доступны для изменения. Общий сюжет, задания и карту ведёт мастер.'}</small>`:''}</span><div>${resourceQueue?.length?'<button id="resource-send">Отправить очередь</button><button id="resource-download">Скачать очередь</button><button id="resource-review">Сверить очередь</button>':''}${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления">↻</button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button>${permissions?.members?'<button id="campaign-members">Участники</button>':''}${typeof SkazAccount!=='undefined' && SkazAccount.userId?'<button id="account-code">Мой код</button><button id="account-logout">Выйти</button>':''}<button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div></div></details>`;
   }
   async function checkRemote() {
     if(demo||status!=='ready'||pending||checkingRemote)return;
@@ -489,6 +492,17 @@ const SkazStorage = (() => {
       catch (error) { toast(error.message); }
     };
   }
+  async function inventoryData(){
+    if(demo || status!=='ready')throw new Error('Сначала сохрани черновик или подключись к серверу');
+    const key=snapshotKey(),data=await request('/api/inventory');
+    if(key!==snapshotKey()||JSON.stringify(data.context)!==JSON.stringify(activeContext)||data.revision!==revision)throw new Error('Игра изменилась. Открой инвентарь заново.');
+    inventoryCache=structuredClone(data);return data;
+  }
+  async function spendInventoryOne(item,key){
+    if(key!==snapshotKey()||!can('character')||!item?.catalogId||item.quantity<1)throw new Error('Игра или права изменились');
+    const info=item.entry?.item||item.entry?.artifact;if(info?.charges||!['potion','scroll'].includes(info?.type))throw new Error('Это не расходник');
+    return campaignCommand('inventory-remove',{characterId:activeContext.characterId,catalogId:item.catalogId,quantity:1});
+  }
   async function spellbookData() {
     if(demo || status!=='ready')throw new Error('Сначала сохрани черновик или подключись к серверу');
     const key=snapshotKey(),data=await request('/api/spellbook');
@@ -763,7 +777,7 @@ const SkazStorage = (() => {
           event.preventDefault();
           const name = $('#session-name').value.trim(), playedOn = $('#session-date').value;
           if (!name || !playedOn) return toast('Укажи название и дату');
-          try { await campaignCommand('session', { session: { name, playedOn } }); } catch (error) { toast(error.message); }
+          try { await campaignCommand('session', { session: { name, playedOn } });if(typeof SkazPlay!=='undefined')modal('<h2>Сессия началась</h2><p>Перейти к подготовленным заклинаниям и расходникам?</p><button data-play-mode="play">Перейти в игру</button><button data-play-mode="prepare">Остаться в подготовке</button>'); } catch (error) { toast(error.message); }
         };
       };
     } catch { modal('<h2>Сессии недоступны</h2><p>Проверь соединение и открой список снова.</p>'); }
@@ -871,5 +885,5 @@ const SkazStorage = (() => {
   function contextKey(){return JSON.stringify(activeContext);}
   document.addEventListener('change',event=>{if(event.target.id!=='show-examples')return;try{localStorage.setItem('skaz-show-examples',String(event.target.checked));render();}catch{toast('Не удалось сохранить настройку браузера');}});
   window.addEventListener('online',()=>{if(resourceQueue?.length)void flushResources();});
-  return { canResource,resourceDelta,resourceGeneration:()=>resourceGeneration,flushResources, showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
+  return { inventoryData,spendInventoryOne,pendingCount,canResource,resourceDelta,resourceGeneration:()=>resourceGeneration,flushResources, showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
 })();
