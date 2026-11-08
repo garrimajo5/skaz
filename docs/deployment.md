@@ -634,3 +634,13 @@ Cache-Control: no-store. Служба active/NRestarts=0, оба таймера 
 Восстановление /var/backups/skaz/restore-android-20261108.sqlite: 40 таблиц,
 integrity/FK совпали. Откат кода: /opt/skaz/releases/4684900 без замены БД.
 Сервис/таймеры active, NRestarts=0. Локальные тестовые данные не переносились.
+
+## Непрерывные игровые списки — 08.11.2026, 584190a
+
+Рабочий выпуск /opt/skaz/releases/584190a. Клиентские списки/раскладка;
+схема базы не менялась. Полный Linux-прогон 674/674, сборка успешна.
+Предрелизная копия /var/backups/skaz/skaz-2026-11-08T12-37-18-749Z.sqlite;
+восстановление /var/backups/skaz/restore-play18-20261108.sqlite сверило 40 таблиц
+и integrity/FK. HTTPS/Basic/личный вход, cookie/Origin, экспорт v9, каталог 623
+и семь клиентских файлов проверены. Сервис/таймеры active, NRestarts=0.
+Откат кода — /opt/skaz/releases/dd4a6c8, рабочую БД заменять не требуется.
