@@ -128,3 +128,9 @@ button{min-width:var(--touch)}.dialog-close{min-width:var(--touch);min-height:va
 .play-empty>button{min-height:44px;max-height:44px;width:100%;padding:4px 8px;text-align:left;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:14px}
 @media(max-width:700px){.play-spells .play-list{max-height:50dvh}.play-side{overflow:visible}.play-side>.play-consumables{max-height:none}.play-consumables .play-list{max-height:35dvh}}
 .play-last>*{flex-shrink:0}.play-last{min-height:164px!important}.play-last p{max-height:40px}
+/* A short history chip is separate from the service menu. */
+header .sync-status{display:flex;flex-direction:row;align-items:center;gap:6px;flex-basis:auto}
+#sync-history-chip{display:flex;align-items:center;gap:6px;min-height:44px;white-space:nowrap;overflow:visible;text-overflow:clip;font-size:12px;padding:4px 8px}
+#sync-history-chip[data-kind="saved"]{color:var(--green)}#sync-history-chip[data-kind="pending"]{color:var(--warn)}#sync-history-chip[data-kind="conflict"]{color:var(--red)}
+#session-menu>summary{min-width:44px;justify-content:center}.history-pending{border-left:3px solid var(--warn)}
+@media(max-width:950px){header .sync-status{flex-basis:auto}}@media(max-width:550px){header .sync-status{flex:0 0 auto}}

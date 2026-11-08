@@ -138,6 +138,17 @@ const SkazStorage = (() => {
     return payload;
   }
   const pendingCount=()=> (resourceQueue?.length||0)+Number(Boolean(pending));
+  let badgeSavingSince=null;
+  function compactStatus(){
+    const count=pendingCount(),number=count>999?'999+':String(count);
+    const busy=status==='saving'||status==='resource-pending'&&resourceSending;
+    if(busy){if(badgeSavingSince===null){badgeSavingSince=Date.now();const started=badgeSavingSince;setTimeout(()=>{if(badgeSavingSince===started)paint();},1000);}return {text:Date.now()-badgeSavingSince>=1000?'Сохраняю…':'В очереди · '+number,kind:'saving',icon:'◌'};}
+    badgeSavingSince=null;
+    if(['conflict','resource-conflict','denied'].includes(status))return {text:status==='denied'?'Нет доступа':'Нужен выбор · '+(number==='0'?'1':number),kind:'conflict',icon:'!'};
+    if(['error','pending','resource-pending'].includes(status))return {text:'Без сети · ждут '+number,kind:'pending',icon:'↯'};
+    if(status==='stale')return {text:'Есть обновления',kind:'pending',icon:'↻'};
+    return {text:status==='demo'?'Демо':status==='loading'?'Подключение…':'Сохранено',kind:status==='ready'?'saved':'pending',icon:status==='ready'?'●':'◌'};
+  }
   function paint() {
     const box = document.getElementById('sync-status');
     if (!box) return;
@@ -149,11 +160,12 @@ const SkazStorage = (() => {
       conflict: 'Другая вкладка уже изменила данные',
       stale: 'В другом окне есть изменения', denied: 'Сервер отклонил изменение по правам доступа',
     };
-    box.dataset.status = resourceFailure?'error':status;
+    box.dataset.status = status;
     labels['resource-pending']=(resourceSending?'Отправляем · ':'Ждёт отправки · ')+(resourceQueue?.length||0)+' изменений';labels['resource-conflict']='Очередь требует сверки';
     const menuOpen=document.getElementById('session-menu')?.open===true;
     const badge=document.getElementById('quick-pending');if(badge){badge.hidden=pendingCount()===0;badge.textContent='● '+pendingCount();badge.setAttribute?.('aria-label','Не подтверждено сервером: '+pendingCount()+'. Открыть состояние сохранения');}
-    box.innerHTML = `<details id="session-menu" ${menuOpen?'open':''}><summary aria-label="Состояние сохранения и меню"><span class="sync-compact" role="status" aria-live="polite"><span class="sync-dot"></span>${labels[status]}</span><span aria-hidden="true">⋯</span></summary><div class="session-menu-content"><span><span class="sync-dot"></span>${labels[status]}${permissions?` · ${permissions.role==='player'?'Игрок':permissions.role==='gm'?'Мастер':'Владелец'}${permissions.character?'':' · Только чтение'}`:''}${resourceFailure?`<small>${esc(resourceFailure)}</small>`:''}${message ? `<small>${esc(message)}</small>` : ''}${permissions?`<small>${!permissions.character?'Доступно чтение назначенных игр.':permissions.shared?'Личный лист и общие записи кампании доступны для изменения.':'Личные ресурсы и заметки доступны для изменения. Общий сюжет, задания и карту ведёт мастер.'}</small>`:''}</span><div>${resourceQueue?.length?'<button id="resource-send">Отправить очередь</button><button id="resource-download">Скачать очередь</button><button id="resource-review">Сверить очередь</button>':''}${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления">↻</button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button>${permissions?.members?'<button id="campaign-members">Участники</button>':''}${typeof SkazAccount!=='undefined' && SkazAccount.userId?'<button id="account-code">Мой код</button><button id="account-logout">Выйти</button>':''}<button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div></div></details>`;
+    const chip=compactStatus();
+    box.innerHTML = `<button id="sync-history-chip" class="sync-compact" data-kind="${chip.kind}" aria-label="${chip.text}. История изменений" ${demo?'disabled':''}><span aria-hidden="true">${chip.icon}</span><span role="status" aria-live="polite">${chip.text}</span></button><details id="session-menu" ${menuOpen?'open':''}><summary aria-label="Состояние сохранения и меню"><span aria-hidden="true">⋯</span></summary><div class="session-menu-content"><span><span class="sync-dot"></span>${labels[status]}${permissions?` · ${permissions.role==='player'?'Игрок':permissions.role==='gm'?'Мастер':'Владелец'}${permissions.character?'':' · Только чтение'}`:''}${resourceFailure?`<small>${esc(resourceFailure)}</small>`:''}${message ? `<small>${esc(message)}</small>` : ''}${permissions?`<small>${!permissions.character?'Доступно чтение назначенных игр.':permissions.shared?'Личный лист и общие записи кампании доступны для изменения.':'Личные ресурсы и заметки доступны для изменения. Общий сюжет, задания и карту ведёт мастер.'}</small>`:''}</span><div>${resourceQueue?.length?'<button id="resource-send">Отправить очередь</button><button id="resource-download">Скачать очередь</button><button id="resource-review">Сверить очередь</button>':''}${status==='ready'?'<button id="sync-check" aria-label="Проверить обновления" title="Проверить обновления">↻</button>':''}${status==='stale'?'<button id="sync-refresh">Обновить игру</button>':''}${['error','pending','conflict'].includes(status) ? `<button id="sync-retry">${pending ? 'Повторить сохранение' : 'Подключиться'}</button>` : ''}${pending ? '<button id="sync-draft">Скачать черновик</button><button id="sync-current">Загрузить актуальное</button>' : ''}<button id="session-settings">Сессии</button><button id="campaign-settings">Кампании</button>${permissions?.members?'<button id="campaign-members">Участники</button>':''}${typeof SkazAccount!=='undefined' && SkazAccount.userId?'<button id="account-code">Мой код</button><button id="account-logout">Выйти</button>':''}<button id="data-settings" aria-label="Данные и настройки">Данные и настройки</button></div></div></details>`;
   }
   async function checkRemote() {
     if(demo||status!=='ready'||pending||checkingRemote)return;
@@ -256,11 +268,15 @@ const SkazStorage = (() => {
     else download({ app: 'skaz', schemaVersion: 1, state: draft.state }, 'skaz-unsaved-draft.json');
   }
   async function showResourceHistory(){
-    if(!can('history'))return toast('Сначала отправь или сверь очередь');
-    const key=snapshotKey(),{changes}=await request('/api/history');
+    if(status==='denied'||permissions?.history===false||!permissions&&individual()||!loaded)return toast('История недоступна с текущими правами');
+    const key=snapshotKey(),queued=structuredClone(resourceContextMatches()?resourceQueue?.data?.commands||[]:[]);let changes=[],unavailable=false;
+    if(can('history')){try{({changes}=await request('/api/history'));}catch{unavailable=true;}}
+    else unavailable=true;
     if(key!==snapshotKey())throw new Error('Игра изменилась. Открой историю заново');
     const title=r=>r.name||({hp:'Хиты',maxHp:'Максимум хитов',gold:'Золото',inspiration:'Вдохновение',slot:r.level+' круг',counter:'Счётчик '+r.counterId,charges:'Заряды · экземпляр '+(r.unit+1),quantity:'Количество предметов'}[r.kind]||'Ресурс');
-    modal(`<h2>История изменений</h2><p>Последние 50 сохранений. Отмена приращения добавляет обратное изменение к текущему остатку; она не перематывает последующие действия. После ручных правок или при выходе за границы нужна сверка.</p>${changes.map((item,i)=>`<div class="list-row"><div><strong>${esc(item.label)}</strong><small>${esc(new Date(item.createdAt).toLocaleString('ru-RU'))}</small>${(item.changes||[]).map(change=>`<p>${esc(title(change.resource))}: ${esc(change.before??'неизвестно')} → ${esc(change.after??'неизвестно')}</p>`).join('')}${!item.canUndo?`<small>${esc(item.undoReason||'Отмена недоступна')}</small>`:''}</div>${item.canUndo?`<button data-resource-undo="${i}">Отменить</button>`:''}</div>`).join('')||'<p>Изменений ещё нет.</p>'}`);
+    const localRows=queued.map(command=>`<div class="list-row history-pending"><div><strong>${esc(title(command.resource))}: ${command.before} → ${Math.max(0,Math.min(command.maximum,command.before+command.delta))}</strong><small>Ждёт подтверждения сервера</small><small>Отмена из истории доступна после отправки</small></div></div>`).join('')+(pending?'<div class="list-row history-pending"><strong>Правка листа · ждёт подтверждения сервера</strong></div>':'');
+    modal(`<h2>История изменений</h2>${localRows}${unavailable?'<p>Серверная история сейчас недоступна. Операции со статусом ожидания ещё не подтверждены сервером.</p>':''}<button id="history-refresh">Обновить историю</button><p>Последние 50 сохранений. Отмена приращения добавляет обратное изменение к текущему остатку; она не перематывает последующие действия. После ручных правок или при выходе за границы нужна сверка.</p>${changes.map((item,i)=>`<div class="list-row"><div><strong>${esc(item.label)}</strong><small>${esc(new Date(item.createdAt).toLocaleString('ru-RU'))} · Сохранено</small>${(item.changes||[]).map(change=>`<p>${esc(title(change.resource))}: ${esc(change.before??'неизвестно')} → ${esc(change.after??'неизвестно')}</p>`).join('')}${!item.canUndo?`<small>${esc(item.undoReason||'Отмена недоступна')}</small>`:''}</div>${item.canUndo?`<button data-resource-undo="${i}">Отменить</button>`:''}</div>`).join('')||(unavailable?'':'<p>Подтверждённых сохранений нет.</p>')}`);
+    $('#history-refresh').onclick=()=>showResourceHistory().catch(error=>toast(error.message));
     $$('[data-resource-undo]').forEach(button=>button.onclick=async()=>{
       try{
         if(key!==snapshotKey()||!can('character'))throw new Error('Игра изменилась. Открой историю заново');
@@ -860,6 +876,7 @@ const SkazStorage = (() => {
     if (id === 'edit-resources') editResources();
     if (id === 'session-settings') sessions();
     if (id === 'campaign-settings') campaigns();
+    if(id==='sync-history-chip')try{await showResourceHistory();}catch(error){toast(error.message);}
     if (id === 'data-settings') settings();
     if(id==='resource-send')await flushResources();
     if(id==='resource-review')try{await reviewResourceQueue();}catch(error){toast(error.message,undefined,{error:true,persistent:true});}

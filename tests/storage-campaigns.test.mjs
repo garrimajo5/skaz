@@ -1101,3 +1101,12 @@ test('play inventory uses one addressed unit, leaves effects manual and rejects 
 test('play inventory data rejects mismatched revision instead of showing another snapshot',async()=>{
  const h=harness(memory(),memory(),async url=>response(url==='/api/workspace'?payload(0):{...payload(1),entries:[]}));await h.api.boot();await assert.rejects(h.api.inventoryData(),/Игра изменилась/);
 });
+
+test('history chip shows durable offline operations without claiming server confirmation',async()=>{
+ const local=memory(),session=memory();let offline=false;
+ const h=harness(local,session,async()=>{if(offline)throw Error('offline');return response(payload(0));},undefined,undefined,true);
+ await h.api.boot();offline=true;h.api.resourceDelta({kind:'hp'},-3,h.api.snapshotKey());await tick();h.api.paint();
+ assert.match(h.get('sync-status').innerHTML,/Без сети · ждут 1/);
+ await h.click('sync-history-chip');assert.match(h.dialog(),/28 → 25/);assert.match(h.dialog(),/Ждёт подтверждения сервера/);assert.doesNotMatch(h.dialog(),/data-resource-undo/);
+ assert.equal(h.api.pendingCount(),1);assert.equal(h.state().hp,25);
+});
