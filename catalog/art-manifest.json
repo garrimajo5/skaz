@@ -3521,6 +3521,94 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:spell:sacred-flame",
+      "contentSha256": "d0aeae88a934d23f0df2bce409e974b841d8d6befb05c13caf716d82b04aa576",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 b5d20f57f60072c7aef62b6327314719ac0147407069ed85418b1770401425e4",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "b5d20f57f60072c7aef62b6327314719ac0147407069ed85418b1770401425e4",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v12.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/sacred-flame-original-43f4c08274108279.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 114872,
+          "sha256": "43f4c08274108279d4d1c2a0acffbc8a0f731591ee1fb11dc063e6e230ecc695",
+          "derivedFrom": "b5d20f57f60072c7aef62b6327314719ac0147407069ed85418b1770401425e4",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/sacred-flame-thumbnail-4d6b46638e46d31d.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 8546,
+          "sha256": "4d6b46638e46d31dc9361f8fd63202aee960726b56afd30c98e9a015bfef28cb",
+          "derivedFrom": "b5d20f57f60072c7aef62b6327314719ac0147407069ed85418b1770401425e4",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:shocking-grasp",
+      "contentSha256": "9b4d44607e587101e027d6c4db46d49d76723a5342fda95aa0f88a14ea46e9a5",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 39ebae97bcfcc668f68312513a3a1ecebf8defbf67bddd35d10de4b393f93893",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "39ebae97bcfcc668f68312513a3a1ecebf8defbf67bddd35d10de4b393f93893",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v12.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/shocking-grasp-original-7c844dcbae7925a9.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 233143,
+          "sha256": "7c844dcbae7925a9b38de25aa691fd83c3faae2274d957ea2fd0b24d3b67f7ee",
+          "derivedFrom": "39ebae97bcfcc668f68312513a3a1ecebf8defbf67bddd35d10de4b393f93893",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/shocking-grasp-thumbnail-c8d2925e9532ffc6.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16749,
+          "sha256": "c8d2925e9532ffc6a54d0804cc105d14e4e4dca0262e4d29cf7b8e2d26cb0539",
+          "derivedFrom": "39ebae97bcfcc668f68312513a3a1ecebf8defbf67bddd35d10de4b393f93893",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }
