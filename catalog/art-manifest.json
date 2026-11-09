@@ -1585,6 +1585,138 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:monster:cat",
+      "contentSha256": "2bfffd6285fad6b30169ea14590144742877029d2b209b448a159645cc0679e1",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 81c8e2981223781d5f5cba9da53246bd4dab7dc532fd39cb20e966519d405edb",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "81c8e2981223781d5f5cba9da53246bd4dab7dc532fd39cb20e966519d405edb",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v3.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/cat-original-226ad08fc8e1e163.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 295163,
+          "sha256": "226ad08fc8e1e163aba009f09f9a47fd13d59c378652cf9051854b8fc959599f",
+          "derivedFrom": "81c8e2981223781d5f5cba9da53246bd4dab7dc532fd39cb20e966519d405edb",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/cat-thumbnail-64eadeaa34522d0c.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 20747,
+          "sha256": "64eadeaa34522d0c7ae809723e11bdcc966ea07d5fc78b4a375d275d5cd2a2f6",
+          "derivedFrom": "81c8e2981223781d5f5cba9da53246bd4dab7dc532fd39cb20e966519d405edb",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:hawk",
+      "contentSha256": "1780f6627f2daf8960d49e22b7c74fbc78ee7ab968665265db4f11582438ade5",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 de504e9ad09abfefdc79856c5987cd6d0b407458a621a6e6912ee08d29dc2ffd",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "de504e9ad09abfefdc79856c5987cd6d0b407458a621a6e6912ee08d29dc2ffd",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v3.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/hawk-original-f9577844ae63231a.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 299596,
+          "sha256": "f9577844ae63231a297abfa014d8405523f1e58a58f698bfdb2274aa2b268f89",
+          "derivedFrom": "de504e9ad09abfefdc79856c5987cd6d0b407458a621a6e6912ee08d29dc2ffd",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/hawk-thumbnail-df5faeb404f69fec.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 20684,
+          "sha256": "df5faeb404f69fec3b8e7ea678be4c6e6380f7a813468a9bfd93a3595c2ca886",
+          "derivedFrom": "de504e9ad09abfefdc79856c5987cd6d0b407458a621a6e6912ee08d29dc2ffd",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:raven",
+      "contentSha256": "ac43cb5bc7e096c7116639c63d0436c0d4ccd674718c3a931ed4d9a52fa1347a",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 ef5406a7e316af14632655e1ab8fc9743492ebc77013c34774c37a07d336c5e7",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "ef5406a7e316af14632655e1ab8fc9743492ebc77013c34774c37a07d336c5e7",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v3.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/raven-original-9029f99424bd3055.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 241073,
+          "sha256": "9029f99424bd3055f667a9665a80e5f00c9a8e2a149347b7521d707c10e8d6e7",
+          "derivedFrom": "ef5406a7e316af14632655e1ab8fc9743492ebc77013c34774c37a07d336c5e7",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/raven-thumbnail-cff6cc737ae10b9b.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16870,
+          "sha256": "cff6cc737ae10b9bb86d4f6dea60fc1bd6efa0ea3687d97d4ee7e3997aa6ed1e",
+          "derivedFrom": "ef5406a7e316af14632655e1ab8fc9743492ebc77013c34774c37a07d336c5e7",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }
