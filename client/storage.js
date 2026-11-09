@@ -285,6 +285,9 @@ const SkazStorage = (() => {
     const title=r=>r.name||({deathSaves:'Спасброски от смерти',concentrationChecks:'Проверки концентрации',concentration:'Концентрация',health:'Здоровье',tempHp:'Временные хиты',hp:'Хиты',maxHp:'Максимум хитов',gold:'Золото',inspiration:'Вдохновение',slot:r.level+' круг',counter:'Счётчик '+r.counterId,charges:'Заряды · экземпляр '+(r.unit+1),quantity:'Количество предметов'}[r.kind]||'Ресурс');
     const localRows=queued.map(command=>{
       let reason='';try{resourceQueue.undoInfo(command.mutationId);}catch(error){reason=error.message;}
+      if(!reason&&status==='resource-conflict')reason='Сначала сверь очередь с сервером; отмена при конфликте недоступна';
+      if(!reason&&resourceSending)reason='Дождись завершения отправки очереди';
+      if(!reason&&pending)reason='Сначала разреши несохранённую правку листа';
       const casting=command.resource.kind==='cast',castReceipt=casting?(command.resource.receipt||{before:command.before,after:command.resource.command.cost===null?0:command.before-1}):null;
       const health=command.resource.kind==='health'?SkazHealth.project(command.before,command.maximum,command.resource.temporaryBefore,command.resource,command.delta,command.resource.concentrationBefore,command.resource.checksBefore,command.mutationId):null;
       const allowed=!reason&&canResource()&&!resourceSending;

@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-09",
+  "release": "01c838b",
+  "device": "Android Studio Pixel_8 emulator-5554, Chrome, 2400x1080 landscape",
+  "fixture": "Separate fictional game, one Fireball, Potion of Healing and Cloak of the Manta Ray; /#play",
+  "method": "New localhost origin :4215 through adb reverse; Android Chrome opens same URL in a second tab, sharing CacheStorage. Count response bodies at server write/end; no browser-cache clearing or production data.",
+  "firstOpen": {
+    "requests": 40,
+    "bodyBytes": 785113,
+    "shell": {
+      "requests": 34,
+      "bodyBytes": 677441
+    },
+    "api": {
+      "requests": 4,
+      "bodyBytes": 82055
+    },
+    "art": {
+      "requests": 2,
+      "bodyBytes": 25617
+    }
+  },
+  "secondOpenDelta": {
+    "requests": 37,
+    "bodyBytes": 759448,
+    "shell": {
+      "requests": 33,
+      "bodyBytes": 677393
+    },
+    "api": {
+      "requests": 4,
+      "bodyBytes": 82055
+    },
+    "art": {
+      "requests": 0,
+      "bodyBytes": 0
+    }
+  },
+  "thumbnailCache": {
+    "maxBytes": 2097152,
+    "maxFiles": 128,
+    "observedFiles": 2,
+    "observedBytes": 25617
+  },
+  "limits": [
+    "Only local response bodies, not HTTP/TLS overhead or VPS compression",
+    "No latency, FPS, decode-time or physical device claim",
+    "The first shell includes a 48-byte favicon 404",
+    "Fresh origin; second opening still downloads shell/API",
+    "Art index is memory-only: this is not a cold offline bootstrap",
+    "Scenario-specific baseline, not a bound on arbitrary campaign size"
+  ],
+  "localEvidence": [
+    "data/prod37-network-first.json",
+    "data/prod37-network-second.json",
+    "data/android-qa/prod37-network-first.png",
+    "data/android-qa/prod37-network-warm.png"
+  ],
+  "acceptedArtCount": 179,
+  "availablePngCount": 358
+}

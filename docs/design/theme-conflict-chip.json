@@ -1,0 +1,129 @@
+{
+  "date": "2026-11-09",
+  "scenario": "Synthetic 409 on resource POST; one queued slot decrement; real sync chip; flat ancestor backgrounds and opacity 1 verified; not all conflict dialog controls",
+  "reports": [
+    {
+      "background": [
+        16,
+        27,
+        43,
+        1
+      ],
+      "effects": [
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        },
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        },
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        },
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        },
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        }
+      ],
+      "foreground": "rgb(255, 172, 181)",
+      "height": 44,
+      "label": "!Нужен выбор · 1",
+      "ratio": 9.739111486459713,
+      "theme": "polar",
+      "width": 124.875
+    },
+    {
+      "background": [
+        20,
+        24,
+        23,
+        1
+      ],
+      "effects": [
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        },
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        },
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        },
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        },
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        }
+      ],
+      "foreground": "rgb(227, 153, 137)",
+      "height": 44,
+      "label": "!Нужен выбор · 1",
+      "ratio": 7.830944655215918,
+      "theme": "coal",
+      "width": 124.875
+    },
+    {
+      "background": [
+        241,
+        238,
+        229,
+        1
+      ],
+      "effects": [
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        },
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        },
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        },
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        },
+        {
+          "backgroundImage": "none",
+          "filter": "none",
+          "opacity": "1"
+        }
+      ],
+      "foreground": "rgb(160, 74, 56)",
+      "height": 44,
+      "label": "!Нужен выбор · 1",
+      "ratio": 5.125938749728878,
+      "theme": "atlas",
+      "width": 124.875
+    }
+  ]
+}
