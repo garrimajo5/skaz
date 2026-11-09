@@ -3,29 +3,29 @@
   "measurement": "in-process delivered PNG bytes; not browser network or offline cache",
   "encoder": "1.3.2.1-motley-285e94b",
   "recipe": "skaz-rgba-area-premultiplied-v1",
-  "acceptedCount": 80,
-  "selectedCount": 80,
+  "acceptedCount": 82,
+  "selectedCount": 82,
   "summary": {
     "thumbnail": {
-      "count": 80,
-      "totalBytes": 1097842,
+      "count": 82,
+      "totalBytes": 1122485,
       "maxBytes": 21187,
       "p95Bytes": 19951,
       "limitBytes": 32768
     },
     "card": {
-      "count": 80,
-      "totalBytes": 15128020,
+      "count": 82,
+      "totalBytes": 15473336,
       "maxBytes": 299596,
       "p95Bytes": 279867,
       "limitBytes": 393216
     }
   },
-  "uniqueFiles": 160,
-  "uniqueBytes": 16225862,
+  "uniqueFiles": 164,
+  "uniqueBytes": 16595821,
   "serverCache": {
-    "files": 84,
-    "bytes": 8156135,
+    "files": 86,
+    "bytes": 8359955,
     "limit": 8388608
   },
   "violations": [],
@@ -1186,6 +1186,21 @@
       }
     },
     {
+      "id": "srd51:2014:spell:sacred-flame",
+      "files": {
+        "thumbnail": {
+          "bytes": 8280,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 113719,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:shield",
       "files": {
         "thumbnail": {
@@ -1195,6 +1210,21 @@
         },
         "card": {
           "bytes": 218206,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:shocking-grasp",
+      "files": {
+        "thumbnail": {
+          "bytes": 16363,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 231597,
           "width": 384,
           "height": 384
         }
