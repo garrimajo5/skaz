@@ -4846,7 +4846,7 @@
       "id": "srd51:2014:spell:burning-hands",
       "contentSha256": "6100ffd921a657c1a3ca7be6aa4c482606732b4e3d043bf341116ec76e5d080d",
       "status": "accepted",
-      "version": 1,
+      "version": 2,
       "crop": {
         "x": 0.5,
         "y": 0.5
@@ -4854,34 +4854,34 @@
       "provenance": {
         "method": "generated",
         "author": "SKAZ; OpenAI built-in image generator",
-        "source": "Original generation 2026-11-09; SHA256 0e3843d950b07b44515b4fef0b06145d33f58d2495f95b761036439ed2d5def0",
+        "source": "Original SKAZ artwork, hand anatomy correction requested by user 2026-11-09 UTC; SHA256 4d0fa9694d1480786d1bbd69285efeae774f29eeeec5098f557a16b03fd1f008",
         "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
         "attribution": "SKAZ visual library",
         "reviewedBy": "Codex under user authorization of 2026-11-09",
-        "originalSha256": "0e3843d950b07b44515b4fef0b06145d33f58d2495f95b761036439ed2d5def0",
+        "originalSha256": "4d0fa9694d1480786d1bbd69285efeae774f29eeeec5098f557a16b03fd1f008",
         "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
       },
       "review": {
         "by": "Codex, delegated visual and technical acceptance",
-        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v20.json."
+        "evidence": "User requested correction of left-side palm. Both hands now show their backs, five fingers each, joined thumb tips; flames and composition preserved. See docs/design/burning-hands-v2.json."
       },
       "files": {
         "original": {
-          "path": "assets/art/spells/burning-hands-original-8f809a9052eadd0d.png",
+          "path": "assets/art/spells/burning-hands-original-5f5a567c2a28f8fc.png",
           "width": 384,
           "height": 384,
-          "bytes": 200367,
-          "sha256": "8f809a9052eadd0d28997aec9b4353fb2535b72431a7d08da193e95e80c0e796",
-          "derivedFrom": "0e3843d950b07b44515b4fef0b06145d33f58d2495f95b761036439ed2d5def0",
+          "bytes": 197503,
+          "sha256": "5f5a567c2a28f8fc782ff51a37a30cbb70af842ecea54b05391e4b8d754f7686",
+          "derivedFrom": "4d0fa9694d1480786d1bbd69285efeae774f29eeeec5098f557a16b03fd1f008",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         },
         "thumbnail": {
-          "path": "assets/art/spells/burning-hands-thumbnail-c03180c5d854675e.png",
+          "path": "assets/art/spells/burning-hands-thumbnail-9beea6b9ead9693b.png",
           "width": 96,
           "height": 96,
-          "bytes": 14655,
-          "sha256": "c03180c5d854675e065969fa8f16a624215879e895310fa97af4691f932d8dbe",
-          "derivedFrom": "0e3843d950b07b44515b4fef0b06145d33f58d2495f95b761036439ed2d5def0",
+          "bytes": 14505,
+          "sha256": "9beea6b9ead9693b767e78999365816008032353cadc62b302bbc8b12052b041",
+          "derivedFrom": "4d0fa9694d1480786d1bbd69285efeae774f29eeeec5098f557a16b03fd1f008",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }

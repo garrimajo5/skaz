@@ -1,0 +1,54 @@
+{
+  "id": "srd51:2014:spell:burning-hands",
+  "version": 2,
+  "sourcePath": "data/art-burning-hands-v2/burning-hands.png",
+  "sourceSha256": "4d0fa9694d1480786d1bbd69285efeae774f29eeeec5098f557a16b03fd1f008",
+  "method": "built-in image_gen edit",
+  "previous": {
+    "id": "srd51:2014:spell:burning-hands",
+    "contentSha256": "6100ffd921a657c1a3ca7be6aa4c482606732b4e3d043bf341116ec76e5d080d",
+    "status": "accepted",
+    "version": 1,
+    "crop": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "provenance": {
+      "method": "generated",
+      "author": "SKAZ; OpenAI built-in image generator",
+      "source": "Original generation 2026-11-09; SHA256 0e3843d950b07b44515b4fef0b06145d33f58d2495f95b761036439ed2d5def0",
+      "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+      "attribution": "SKAZ visual library",
+      "reviewedBy": "Codex under user authorization of 2026-11-09",
+      "originalSha256": "0e3843d950b07b44515b4fef0b06145d33f58d2495f95b761036439ed2d5def0",
+      "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+    },
+    "review": {
+      "by": "Codex, delegated visual and technical acceptance",
+      "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v20.json."
+    },
+    "files": {
+      "original": {
+        "path": "assets/art/spells/burning-hands-original-8f809a9052eadd0d.png",
+        "width": 384,
+        "height": 384,
+        "bytes": 200367,
+        "sha256": "8f809a9052eadd0d28997aec9b4353fb2535b72431a7d08da193e95e80c0e796",
+        "derivedFrom": "0e3843d950b07b44515b4fef0b06145d33f58d2495f95b761036439ed2d5def0",
+        "recipe": "skaz-rgba-area-premultiplied-v1"
+      },
+      "thumbnail": {
+        "path": "assets/art/spells/burning-hands-thumbnail-c03180c5d854675e.png",
+        "width": 96,
+        "height": 96,
+        "bytes": 14655,
+        "sha256": "c03180c5d854675e065969fa8f16a624215879e895310fa97af4691f932d8dbe",
+        "derivedFrom": "0e3843d950b07b44515b4fef0b06145d33f58d2495f95b761036439ed2d5def0",
+        "recipe": "skaz-rgba-area-premultiplied-v1"
+      }
+    }
+  },
+  "prompt": "Edit this exact SKAZ Burning Hands spell illustration. Correct ONLY the anatomy/orientation of the hand on the LEFT SIDE OF THE IMAGE and its wrist. Currently it incorrectly shows its palm facing the viewer while the other hand shows its back. Both are the same caster's outstretched hands, with palms facing AWAY from viewer toward the flames. Show the BACK of the left hand with natural knuckles, subtle tendons and fingernails, not palm creases. Exactly five anatomically coherent digits per hand, four spread fingers and one thumb on the inner side, the two thumb tips meeting naturally without fusion. Correct wrist rotation continuous with its forearm. Preserve the right-hand anatomy, two forearm positions, spread-finger casting gesture, huge orange-yellow cone of flame sweeping upper-right, exact framing, painterly brush texture and colors. Keep all flames and all remaining composition as close to original as possible. True transparent background, no text, no frame, no scenery.",
+  "inputSha256": "a6f5fa51ec83ce26eb959bb724cb695507c2c85fdac61506cf0bdd17c4e5856b",
+  "inputSource": "User-supplied SKAZ Burning Hands image"
+}

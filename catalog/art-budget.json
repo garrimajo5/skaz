@@ -8,21 +8,21 @@
   "summary": {
     "thumbnail": {
       "count": 161,
-      "totalBytes": 2224808,
+      "totalBytes": 2224667,
       "maxBytes": 24489,
       "p95Bytes": 20769,
       "limitBytes": 32768
     },
     "card": {
       "count": 161,
-      "totalBytes": 30761672,
+      "totalBytes": 30758610,
       "maxBytes": 359979,
       "p95Bytes": 296547,
       "limitBytes": 393216
     }
   },
   "uniqueFiles": 322,
-  "uniqueBytes": 32986480,
+  "uniqueBytes": 32983277,
   "serverCache": {
     "files": 92,
     "bytes": 8321060,
@@ -1714,12 +1714,12 @@
       "id": "srd51:2014:spell:burning-hands",
       "files": {
         "thumbnail": {
-          "bytes": 14368,
+          "bytes": 14227,
           "width": 96,
           "height": 96
         },
         "card": {
-          "bytes": 198889,
+          "bytes": 195827,
           "width": 384,
           "height": 384
         }
