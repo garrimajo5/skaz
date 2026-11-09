@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-09",
+  "scope": "Synthetic Mage Hand catalogue card, browser viewport emulation; no physical iPad claim",
+  "narrow": {
+    "artWidth": 96,
+    "dialogWidth": 378,
+    "scrollWidth": 378,
+    "viewport": 412
+  },
+  "tablets": [
+    {
+      "artWidth": 160,
+      "dialogWidth": 758,
+      "scrollWidth": 758,
+      "viewport": {
+        "height": 820,
+        "width": 1180
+      }
+    },
+    {
+      "artWidth": 160,
+      "dialogWidth": 758,
+      "scrollWidth": 758,
+      "viewport": {
+        "height": 1180,
+        "width": 820
+      }
+    }
+  ]
+}
