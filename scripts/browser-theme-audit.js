@@ -18,6 +18,24 @@ function auditSkazTheme(){
   }catch(error){rows.push({tag:e.tagName,id:e.id,label:label.slice(0,120),manual:[error.message],pass:null});}
  }
  const fields=[...scope.querySelectorAll('input:not([type=checkbox]):not([type=radio]),textarea,select')].filter(visible).map(e=>{const s=getComputedStyle(e),parent=paint(e.parentElement,[0,0,0,0]),own=paint(e,[0,0,0,0]),border=paint(e,rgba(s.borderTopColor));const edge=ratio(border.color,parent.color),fill=ratio(own.color,parent.color);return {tag:e.tagName,id:e.id,label:e.getAttribute('aria-label')||e.placeholder||e.tagName,border:s.borderTopColor,background:s.backgroundColor,edge:Number(edge.toFixed(3)),fill:Number(fill.toFixed(3)),target:3,pass:parent.manual.length||own.manual.length||border.manual.length?null:Math.max(edge,fill)>=3};});
- const active=document.activeElement,s=active?getComputedStyle(active):null;
- return {theme:document.body.dataset.theme,url:location.hash,viewport:{width:innerWidth,height:innerHeight},scope:'Rendered DOM text (including scrollable content); flat compositing including ancestor opacity; gradients/filters require manual review; field boundaries; synthetic data only',rows,fields,focus:active?{tag:active.tagName,id:active.id,visible:active.matches(':focus-visible'),outline:s.outlineColor,width:s.outlineWidth,offset:s.outlineOffset}:null};
+ const placeholders=[...scope.querySelectorAll('input[placeholder],textarea[placeholder]')].filter(e=>visible(e)&&e.matches(':placeholder-shown')).map(e=>{
+  try{const s=getComputedStyle(e,'::placeholder'),color=rgba(s.color);color[3]*=Number(s.opacity);const fg=paint(e,color),bg=paint(e,[0,0,0,0]),manual=[...new Set([...fg.manual,...bg.manual])],value=ratio(fg.color,bg.color);
+   // Unsupported pseudo-element effects must not be silently certified.
+   if(s.filter&&s.filter!=='none')manual.push('placeholder filter');
+   return {id:e.id,label:e.getAttribute('placeholder'),color:s.color,opacity:s.opacity,ratio:Number(value.toFixed(3)),target:4.5,manual,pass:manual.length?null:value>=4.5};
+  }catch(error){return {id:e.id,manual:[error.message],pass:null};}
+ });
+ const active=document.activeElement,s=active?getComputedStyle(active):null;let focus=null;
+ if(active){focus={tag:active.tagName,id:active.id,visible:active.matches(':focus-visible'),outline:s.outlineColor,width:s.outlineWidth,offset:s.outlineOffset,pass:null};
+  if(focus.visible){
+   try{const inset=Number(s.outlineOffset.replace('px',''))<0,base=inset?active:active.parentElement,fg=paint(base,rgba(s.outlineColor)),bg=paint(base,[0,0,0,0]),manual=[...new Set([...fg.manual,...bg.manual])];
+    // An external outline is painted outside its own background, but shares
+    // the element's opacity/filter. Those effects need pixel-level review.
+    if(!inset&&(Number(s.opacity)!==1||s.filter!=='none'))manual.push('external outline element effect');
+    const value=ratio(fg.color,bg.color),drawn=Number(s.outlineWidth.replace('px',''))>0&&!['none','hidden'].includes(s.outlineStyle);
+    Object.assign(focus,{ratio:Number(value.toFixed(3)),target:3,manual,pass:manual.length?null:drawn&&value>=3});
+   }catch(error){Object.assign(focus,{manual:[error.message],pass:null});}
+  }
+ }
+ return {theme:document.body.dataset.theme,url:location.hash,viewport:{width:innerWidth,height:innerHeight},scope:'Rendered DOM text, shown placeholders and focus outline; flat compositing including ancestor opacity; gradients/filters require manual review; field boundaries; synthetic data only',rows,fields,placeholders,focus};
 }

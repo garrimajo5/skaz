@@ -1,0 +1,75 @@
+{
+  "batch": "production-v10",
+  "entries": [
+    {
+      "id": "srd51:2014:spell:prestidigitation",
+      "sourcePath": "data/art-production-v10/prestidigitation.png",
+      "sourceSha256": "08be405567d2f1963a9c42f537cea09715e42d12f728bd86c42b815b4b6abe4c",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, moderate detail, clear silhouette readable at 32 px, soft warm light upper left, cool dark edge shadows. Center composition occupies 75% with safe margins. TRUE TRANSPARENT background. No text, letters, digits, UI, borders, logos, scenery or ground. Subject: One poised human hand with thumb and middle finger just completing a snap; a tiny fan of three sparkling motes and a small floating colorful ribbon above the fingertips. Harmless playful minor magic, warm gold motes and muted teal ribbon, dark contours. Anatomically correct five fingers, no attack beam, no fireball.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:spell:vicious-mockery",
+      "sourcePath": "data/art-production-v10/vicious-mockery.png",
+      "sourceSha256": "ea8e3f3e4efa4a442f0c4d3d49b5e3c1f36e69eb7a428438b02cd7e274145f07",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, moderate detail, clear silhouette readable at 32 px, soft warm light upper left, cool dark edge shadows. Center composition occupies 75% with safe margins. TRUE TRANSPARENT background. No text, letters, digits, UI, borders, logos, scenery or ground. Subject: One theatrical dark burgundy half-mask with a sharply mocking grin and arched eyebrow, turned three-quarter; three short angular violet shards of psychic sound shoot outward from its mouth. Expressive bold silhouette, not a monster, no blood, no written insult, no speech bubble.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:spell:chill-touch",
+      "sourcePath": "data/art-production-v10/chill-touch.png",
+      "sourceSha256": "b7f8599062d1b21f8f82cc4e578c3c0d5d85ce378b9538629bf265fe598de753",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, moderate detail, clear silhouette readable at 32 px, soft warm light upper left, cool dark edge shadows. Center composition occupies 75% with safe margins. TRUE TRANSPARENT background. No text, letters, digits, UI, borders, logos, scenery or ground. Subject: One ghostly SKELETAL hand, ivory finger bones and dark violet joints, reaching forward with five curved bony fingers. Short wisps of smoky violet necrotic energy around the wrist, dark purple contour. No ice, no snow, no blue frost; this is necrotic spectral grasp, not an icy attack.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:spell:druidcraft",
+      "sourcePath": "data/art-production-v10/druidcraft.png",
+      "sourceSha256": "e4ae703e30153bdc19d589e0e3dd5a099667dc193220cd55902e48a7aec6bb51",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, moderate detail, clear silhouette readable at 32 px, soft warm light upper left, cool dark edge shadows. Center composition occupies 75% with safe margins. TRUE TRANSPARENT background. No text, letters, digits, UI, borders, logos, scenery or ground. Subject: One fresh green leaf bud opening into a small cream wildflower, with a single curled stem and two broad leaves. Warm light catches the newly opening petals, a few tiny gold motes. Compact botanical silhouette, no pot, no soil, no human, no aggressive vine.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09",
+      "revision": {
+        "reason": "Rejected broad luminous background haze; edited to clean transparent plant cutout.",
+        "inputSourcePath": "data/art-production-v10/druidcraft-rejected.png",
+        "inputSha256": "ae12c50dcbd58fde487074657ff43e39e8e744e047f0e392b564161f49689e70",
+        "prompt": "Edit this flower icon: remove ALL background glow, haze, mist, gray/white translucent field and golden fog completely. Preserve the flower, two leaves, stem, painterly material, composition and their dark edges. All pixels outside the plant and three tiny separated sparks must be fully transparent. No halo, no colored background. Clean isolated plant cutout."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:eldritch-blast",
+      "sourcePath": "data/art-production-v10/eldritch-blast.png",
+      "sourceSha256": "45ded2eff55d5692c8d44c856b440f30e22567ad88eeac83a2cf497f5af53c7d",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, moderate detail, clear silhouette readable at 32 px, soft warm light upper left, cool dark edge shadows. Center composition occupies 75% with safe margins. TRUE TRANSPARENT background. No text, letters, digits, UI, borders, logos, scenery or ground. Subject: One sharply focused violet-white ray of magical FORCE travelling diagonally upward-right from a compact dark purple knot at lower-left. Bright narrow core, thick sculpted indigo-violet edges, two short angular energy splinters. Clearly a directed beam, no fire, no ice, no lightning zigzag, no skull or hand, no explosive sphere.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:spell:guidance",
+      "sourcePath": "data/art-production-v10/guidance.png",
+      "sourceSha256": "e556c6e21a4aaae70b7c4967ccdc8ef98bf648c2f97c3dd691963d7e04af6243",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, moderate detail, clear silhouette readable at 32 px, soft warm light upper left, cool dark edge shadows. Center composition occupies 75% with safe margins. TRUE TRANSPARENT background. No text, letters, digits, UI, borders, logos, scenery or ground. Subject: One steady human hand resting gently on another person's shoulder, cropped as a simple symbolic shoulder and single five-finger hand. A small warm gold guiding star shines just above the contact, one faint curved golden accent. Muted blue cloth, warm natural skin, calm support, no wound, no healing cross, no dice.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:spell:poison-spray",
+      "sourcePath": "data/art-production-v10/poison-spray.png",
+      "sourceSha256": "bb1e8191d9e73840f5a5b3072ca85791d9002664fadaedeb9eb44f1aac45c560",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, moderate detail, clear silhouette readable at 32 px, soft warm light upper left, cool dark edge shadows. Center composition occupies 75% with safe margins. TRUE TRANSPARENT background. No text, letters, digits, UI, borders, logos, scenery or ground. Subject: A short dense cone-shaped puff of murky olive-green poisonous vapor, narrow at lower-left and wide at upper-right, with three distinct dark droplets along the edge. Broad sculpted billowing lobes and dark charcoal-green perimeter. No skull symbol, no acid melting, no fire, no scenery, no flask.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:spell:produce-flame",
+      "sourcePath": "data/art-production-v10/produce-flame.png",
+      "sourceSha256": "469075bb21e229d23d25fe0fd681798e77d4f14dca4fa349a2673b9a1e6765df",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, moderate detail, clear silhouette readable at 32 px, soft warm light upper left, cool dark edge shadows. Center composition occupies 75% with safe margins. TRUE TRANSPARENT background. No text, letters, digits, UI, borders, logos, scenery or ground. Subject: One small upright orange flame hovering just above the open palm of a human hand. Exactly five anatomically natural fingers cupped gently, warm skin in firelight, dark cool underside. Flame compact and held safely, not a launched missile or explosion, no smoke cloud, no arm beyond short wrist.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "batch": "production-v11",
+  "entries": [
+    {
+      "id": "srd51:2014:monster:air-elemental",
+      "sourcePath": "data/art-production-v11/air-elemental.png",
+      "sourceSha256": "f52d7105efcd4194d5ee0df95d61195e7401f7d2fd4460608e39041bd0f7eb45",
+      "brief": "Create ONE square original painterly fantasy bestiary portrait for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear distinctive silhouette readable at 40px and circular token crop, moderate detail, warm upper-left highlights and cool dark contour shadows. Entire subject centered with 12% safe margin. TRUE TRANSPARENT background, no scenery, ground, text, letters, digits, logo, UI or frame. Subject: a living AIR elemental made entirely of pale silver-blue swirling wind. Broad upper spiral with subtle hollow eye-like recesses, tapering lower whirlwind, two short sweeping air arms. Wispy transparent gaps, dark slate edges keep it readable. No flesh, armor, rock, water droplets, lightning or solid legs. A compact sentient whirlwind, not a weather landscape.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:earth-elemental",
+      "sourcePath": "data/art-production-v11/earth-elemental.png",
+      "sourceSha256": "e2e193e5513d5fb9b42265109a18de4164c83de107d1b4ef51d8f0868fdb69b7",
+      "brief": "Create ONE square original painterly fantasy bestiary portrait for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear distinctive silhouette readable at 40px and circular token crop, moderate detail, warm upper-left highlights and cool dark contour shadows. Entire subject centered with 12% safe margin. TRUE TRANSPARENT background, no scenery, ground, text, letters, digits, logo, UI or frame. Subject: an EARTH elemental bust and broad shoulders built from rugged brown-gray boulders, heavy asymmetrical stone brow, deep dark eye recesses with tiny amber glints, blocky jaw. One massive rocky fist partly visible beside chest. Natural rough stone, no carved runes, no armor, no crystals, no lava, no mechanical joints. Powerful squat silhouette.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:water-elemental",
+      "sourcePath": "data/art-production-v11/water-elemental.png",
+      "sourceSha256": "dba9f68bd24edb228a65ddcd96d8d3012def676259389b1da1399cbe5b5572b5",
+      "brief": "Create ONE square original painterly fantasy bestiary portrait for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear distinctive silhouette readable at 40px and circular token crop, moderate detail, warm upper-left highlights and cool dark contour shadows. Entire subject centered with 12% safe margin. TRUE TRANSPARENT background, no scenery, ground, text, letters, digits, logo, UI or frame. Subject: a living WATER elemental made entirely of deep teal-blue flowing water. A rising compact wave with two curling liquid arms, subtle face suggested in the water crest, pale foam along the edges and three distinct droplets. Broad liquid torso tapers into a rounded curling wave below. No flesh, ice, clothing, weapon, fish, ocean or ground.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:awakened-tree",
+      "sourcePath": "data/art-production-v11/awakened-tree.png",
+      "sourceSha256": "8a734ccf94ef6d8c7755d0a0e0273df3d1198c115edcf038ff0acabe3f702530",
+      "brief": "Create ONE square original painterly fantasy bestiary portrait for SKAZ, restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear distinctive silhouette readable at 40px and circular token crop, moderate detail, warm upper-left highlights and cool dark contour shadows. Entire subject centered with 12% safe margin. TRUE TRANSPARENT background, no scenery, ground, text, letters, digits, logo, UI or frame. Subject: an awakened old oak tree, sturdy trunk with subtle knot eyes and a mouth-like bark crease, two branch-like arms, compact crown of muted green leaves. Root feet slightly visible but no soil. Ordinary natural tree anatomy, no humanoid flesh, carved ornaments, glowing magic, weapons or clothing. Clear broad canopy and trunk silhouette fitting inside a circular token.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    }
+  ]
+}

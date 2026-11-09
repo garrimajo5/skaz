@@ -1,0 +1,131 @@
+{
+  "note": "Synthetic game, real keyboard Tab to catalogue summary; outline colour contrast only, not full WCAG focus area/occlusion certification.",
+  "reports": [
+    {
+      "failed": [],
+      "focus": {
+        "id": "",
+        "manual": [],
+        "offset": "0px",
+        "outline": "rgb(238, 238, 238)",
+        "pass": true,
+        "ratio": 14.913,
+        "tag": "SUMMARY",
+        "target": 3,
+        "visible": true,
+        "width": "1px"
+      },
+      "placeholders": [
+        {
+          "color": "rgb(159, 179, 202)",
+          "id": "header-search-query",
+          "label": "Правила, заклинания, вещи",
+          "manual": [],
+          "opacity": "1",
+          "pass": true,
+          "ratio": 7.11,
+          "target": 4.5
+        },
+        {
+          "color": "rgb(159, 179, 202)",
+          "id": "",
+          "label": "Например, Spellcasting",
+          "manual": [],
+          "opacity": "1",
+          "pass": true,
+          "ratio": 7.11,
+          "target": 4.5
+        }
+      ],
+      "theme": "polar",
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "failed": [],
+      "focus": {
+        "id": "",
+        "manual": [],
+        "offset": "0px",
+        "outline": "rgb(16, 16, 16)",
+        "pass": true,
+        "ratio": 16.402,
+        "tag": "SUMMARY",
+        "target": 3,
+        "visible": true,
+        "width": "1px"
+      },
+      "placeholders": [
+        {
+          "color": "rgb(82, 102, 91)",
+          "id": "header-search-query",
+          "label": "Правила, заклинания, вещи",
+          "manual": [],
+          "opacity": "1",
+          "pass": true,
+          "ratio": 5.791,
+          "target": 4.5
+        },
+        {
+          "color": "rgb(82, 102, 91)",
+          "id": "",
+          "label": "Например, Spellcasting",
+          "manual": [],
+          "opacity": "1",
+          "pass": true,
+          "ratio": 5.791,
+          "target": 4.5
+        }
+      ],
+      "theme": "atlas",
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      }
+    },
+    {
+      "failed": [],
+      "focus": {
+        "id": "",
+        "manual": [],
+        "offset": "0px",
+        "outline": "rgb(238, 238, 238)",
+        "pass": true,
+        "ratio": 15.433,
+        "tag": "SUMMARY",
+        "target": 3,
+        "visible": true,
+        "width": "1px"
+      },
+      "placeholders": [
+        {
+          "color": "rgb(164, 175, 166)",
+          "id": "header-search-query",
+          "label": "Правила, заклинания, вещи",
+          "manual": [],
+          "opacity": "1",
+          "pass": true,
+          "ratio": 7.113,
+          "target": 4.5
+        },
+        {
+          "color": "rgb(164, 175, 166)",
+          "id": "",
+          "label": "Например, Spellcasting",
+          "manual": [],
+          "opacity": "1",
+          "pass": true,
+          "ratio": 7.113,
+          "target": 4.5
+        }
+      ],
+      "theme": "coal",
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      }
+    }
+  ]
+}
