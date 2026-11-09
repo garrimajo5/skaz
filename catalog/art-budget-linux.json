@@ -3,26 +3,26 @@
   "measurement": "in-process delivered PNG bytes; not browser network or offline cache",
   "encoder": "1.3.2.1-motley-285e94b",
   "recipe": "skaz-rgba-area-premultiplied-v1",
-  "acceptedCount": 82,
-  "selectedCount": 82,
+  "acceptedCount": 110,
+  "selectedCount": 110,
   "summary": {
     "thumbnail": {
-      "count": 82,
-      "totalBytes": 1122485,
-      "maxBytes": 21187,
+      "count": 110,
+      "totalBytes": 1417249,
+      "maxBytes": 23363,
       "p95Bytes": 19951,
       "limitBytes": 32768
     },
     "card": {
-      "count": 82,
-      "totalBytes": 15473336,
-      "maxBytes": 299596,
+      "count": 110,
+      "totalBytes": 19560023,
+      "maxBytes": 329626,
       "p95Bytes": 279867,
       "limitBytes": 393216
     }
   },
-  "uniqueFiles": 164,
-  "uniqueBytes": 16595821,
+  "uniqueFiles": 220,
+  "uniqueBytes": 20977272,
   "serverCache": {
     "files": 86,
     "bytes": 8359955,
@@ -76,6 +76,21 @@
       }
     },
     {
+      "id": "srd51:2014:item:amulet-of-proof-against-detection-and-location",
+      "files": {
+        "thumbnail": {
+          "bytes": 11271,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 160669,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:item:bag-of-holding",
       "files": {
         "thumbnail": {
@@ -100,6 +115,51 @@
         },
         "card": {
           "bytes": 184915,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:boots-of-levitation",
+      "files": {
+        "thumbnail": {
+          "bytes": 10645,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 145320,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:boots-of-speed",
+      "files": {
+        "thumbnail": {
+          "bytes": 13155,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 186534,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:boots-of-striding-and-springing",
+      "files": {
+        "thumbnail": {
+          "bytes": 14072,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 200295,
           "width": 384,
           "height": 384
         }
@@ -166,6 +226,21 @@
       }
     },
     {
+      "id": "srd51:2014:item:cloak-of-displacement",
+      "files": {
+        "thumbnail": {
+          "bytes": 15281,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 191266,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:item:cloak-of-elvenkind",
       "files": {
         "thumbnail": {
@@ -175,6 +250,21 @@
         },
         "card": {
           "bytes": 120421,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-protection",
+      "files": {
+        "thumbnail": {
+          "bytes": 14301,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 189923,
           "width": 384,
           "height": 384
         }
@@ -316,6 +406,21 @@
       }
     },
     {
+      "id": "srd51:2014:item:periapt-of-wound-closure",
+      "files": {
+        "thumbnail": {
+          "bytes": 8719,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 123695,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:item:potion-of-greater-healing",
       "files": {
         "thumbnail": {
@@ -340,6 +445,36 @@
         },
         "card": {
           "bytes": 182233,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:potion-of-superior-healing",
+      "files": {
+        "thumbnail": {
+          "bytes": 10192,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 144246,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:potion-of-supreme-healing",
+      "files": {
+        "thumbnail": {
+          "bytes": 17674,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 248676,
           "width": 384,
           "height": 384
         }
@@ -406,6 +541,81 @@
       }
     },
     {
+      "id": "srd51:2014:item:slippers-of-spider-climbing",
+      "files": {
+        "thumbnail": {
+          "bytes": 11407,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 156783,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-binding",
+      "files": {
+        "thumbnail": {
+          "bytes": 7198,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 98167,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-enemy-detection",
+      "files": {
+        "thumbnail": {
+          "bytes": 6092,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 81726,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-fear",
+      "files": {
+        "thumbnail": {
+          "bytes": 5232,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 69218,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-fireballs",
+      "files": {
+        "thumbnail": {
+          "bytes": 5886,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 79407,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:item:wand-of-lightning-bolts",
       "files": {
         "thumbnail": {
@@ -415,6 +625,156 @@
         },
         "card": {
           "bytes": 45551,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-magic-detection",
+      "files": {
+        "thumbnail": {
+          "bytes": 6506,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 86183,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-magic-missiles",
+      "files": {
+        "thumbnail": {
+          "bytes": 4969,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 64359,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-paralysis",
+      "files": {
+        "thumbnail": {
+          "bytes": 7580,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 106640,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-polymorph",
+      "files": {
+        "thumbnail": {
+          "bytes": 6774,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 94440,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-secrets",
+      "files": {
+        "thumbnail": {
+          "bytes": 6332,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 88286,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-the-war-mage-1",
+      "files": {
+        "thumbnail": {
+          "bytes": 5627,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 75110,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-the-war-mage-2",
+      "files": {
+        "thumbnail": {
+          "bytes": 7241,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 99399,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-the-war-mage-3",
+      "files": {
+        "thumbnail": {
+          "bytes": 10018,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 142365,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-web",
+      "files": {
+        "thumbnail": {
+          "bytes": 6515,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 88007,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-wonder",
+      "files": {
+        "thumbnail": {
+          "bytes": 6689,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 91738,
           "width": 384,
           "height": 384
         }
@@ -460,6 +820,21 @@
         },
         "card": {
           "bytes": 241478,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:animated-armor",
+      "files": {
+        "thumbnail": {
+          "bytes": 19332,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 273862,
           "width": 384,
           "height": 384
         }
@@ -571,6 +946,21 @@
       }
     },
     {
+      "id": "srd51:2014:monster:camel",
+      "files": {
+        "thumbnail": {
+          "bytes": 17603,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 254270,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:monster:cat",
       "files": {
         "thumbnail": {
@@ -580,6 +970,36 @@
         },
         "card": {
           "bytes": 295163,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:crab",
+      "files": {
+        "thumbnail": {
+          "bytes": 15090,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 216477,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:dire-wolf",
+      "files": {
+        "thumbnail": {
+          "bytes": 23363,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 329626,
           "width": 384,
           "height": 384
         }
