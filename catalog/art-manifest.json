@@ -1057,6 +1057,182 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:spell:bless",
+      "contentSha256": "ffd23952cb44d6081583dc046a3c09e77abffef6b97662241c4bdf610df06483",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 2f1c7a0cebe5d59381be7aa193d38a6a8e2e0c20c8475e684cf729df7dc68b3d",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "2f1c7a0cebe5d59381be7aa193d38a6a8e2e0c20c8475e684cf729df7dc68b3d",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v1.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/bless-original-8dbae1c5b2734498.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 157922,
+          "sha256": "8dbae1c5b2734498c40fb4bd7ca55e9e8c2a726bb0452687a1b7152708c8efee",
+          "derivedFrom": "2f1c7a0cebe5d59381be7aa193d38a6a8e2e0c20c8475e684cf729df7dc68b3d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/bless-thumbnail-696dae732ba54636.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13005,
+          "sha256": "696dae732ba5463635e755dc1a5fb386d47e6299969e258ca87af9cd37d4652f",
+          "derivedFrom": "2f1c7a0cebe5d59381be7aa193d38a6a8e2e0c20c8475e684cf729df7dc68b3d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:bag-of-holding",
+      "contentSha256": "017ff36d735efc23c18cbf3fa4cd246817c5742a6f3a09263744eaa40f784297",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 86a98814945618bae70c4f216e8dcaf794a0af00d8795374bda9f0ab13dc967a",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "86a98814945618bae70c4f216e8dcaf794a0af00d8795374bda9f0ab13dc967a",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v1.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/bag-of-holding-original-7a67acc532567f85.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 245941,
+          "sha256": "7a67acc532567f8568d1a6b13ed877f0069f05b383b59b1139220ffc8d8681f6",
+          "derivedFrom": "86a98814945618bae70c4f216e8dcaf794a0af00d8795374bda9f0ab13dc967a",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/bag-of-holding-thumbnail-16b5c005387391da.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 17737,
+          "sha256": "16b5c005387391da6928d3b468adf8e680ea750c27adfc8beac9ddb1c21925bb",
+          "derivedFrom": "86a98814945618bae70c4f216e8dcaf794a0af00d8795374bda9f0ab13dc967a",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:boots-of-elvenkind",
+      "contentSha256": "a7b24ddfbf3cb5eb7a5e977330a97a8a440ef636abdfae2011740a2100e9851f",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 f39385be6e50cf7d1de273c3409459e2397ef6716239e68d1a14b2f8dc18530d",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "f39385be6e50cf7d1de273c3409459e2397ef6716239e68d1a14b2f8dc18530d",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v1.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/boots-of-elvenkind-original-636fed832a1b2f4c.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 185617,
+          "sha256": "636fed832a1b2f4c333c710cef6308fb4f958abeae75a84a7299f0951ee31e82",
+          "derivedFrom": "f39385be6e50cf7d1de273c3409459e2397ef6716239e68d1a14b2f8dc18530d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/boots-of-elvenkind-thumbnail-0a063cbdbee18b9f.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13524,
+          "sha256": "0a063cbdbee18b9fff8bf6b4f2908d02b1baef78ed2ea17cc2f2c23bca453bdd",
+          "derivedFrom": "f39385be6e50cf7d1de273c3409459e2397ef6716239e68d1a14b2f8dc18530d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:amulet-of-health",
+      "contentSha256": "79821b64268d5a67265d8bb8b19aa8bb627186ede493cae72c5c0642f580c619",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 28c2ce5984253f04b0fb5c02a97d17eca0c606aab8906c8533fbcf462c87ad65",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "28c2ce5984253f04b0fb5c02a97d17eca0c606aab8906c8533fbcf462c87ad65",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v1.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/amulet-of-health-original-8f0b4f993513cefa.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 161071,
+          "sha256": "8f0b4f993513cefa7ae1acecc5e56877d9ab8bfa037118802481612872d26974",
+          "derivedFrom": "28c2ce5984253f04b0fb5c02a97d17eca0c606aab8906c8533fbcf462c87ad65",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/amulet-of-health-thumbnail-a6c2334f1562ff61.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11869,
+          "sha256": "a6c2334f1562ff61ea963bb966943640e0f9b9c39a94d1490f916bababeae6ea",
+          "derivedFrom": "28c2ce5984253f04b0fb5c02a97d17eca0c606aab8906c8533fbcf462c87ad65",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }

@@ -1,0 +1,37 @@
+{
+  "batch": "production-v1",
+  "entries": [
+    {
+      "id": "srd51:2014:spell:bless",
+      "sourcePath": "data/art-production-v1/bless.png",
+      "sourceSha256": "2f1c7a0cebe5d59381be7aa193d38a6a8e2e0c20c8475e684cf729df7dc68b3d",
+      "brief": "Silver open palm releasing three warm gold four-point sparks; blessing of courage and fortune, not healing; broad painterly shapes, upper-left warm light, transparent background, no text or UI.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:item:bag-of-holding",
+      "sourcePath": "data/art-production-v1/bag-of-holding.png",
+      "sourceSha256": "86a98814945618bae70c4f216e8dcaf794a0af00d8795374bda9f0ab13dc967a",
+      "brief": "Weathered chestnut leather drawstring shoulder bag; broad open mouth with impossibly deep indigo interior and three gold glints; rolled rim, brass clasp, folded strap; painterly, warm upper-left light, transparent background.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:item:boots-of-elvenkind",
+      "sourcePath": "data/art-production-v1/boots-of-elvenkind.png",
+      "sourceSha256": "f39385be6e50cf7d1de273c3409459e2397ef6716239e68d1a14b2f8dc18530d",
+      "brief": "Matching pair of moss-green supple calf boots, leaf-shaped seams and copper-brown fastenings, thin brown soles, no wings; painterly warm upper-left light, transparent background.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:item:amulet-of-health",
+      "sourcePath": "data/art-production-v1/amulet-of-health.png",
+      "sourceSha256": "28c2ce5984253f04b0fb5c02a97d17eca0c606aab8906c8533fbcf462c87ad65",
+      "brief": "Deep-red cabochon pendant in aged warm silver with two leaf-shaped supports and short chain loop; robust vitality, no medical cross or blood; painterly warm upper-left light, transparent background.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    }
+  ]
+}

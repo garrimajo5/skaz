@@ -5,11 +5,11 @@
   "counts": {
     "spell": {
       "total": 319,
-      "accepted": 12
+      "accepted": 13
     },
     "item": {
       "total": 49,
-      "accepted": 5
+      "accepted": 8
     },
     "artifact": {
       "total": 1,
@@ -24,6 +24,9 @@
     "accepted": [
       "srd51:2014:artifact:orb-of-dragonkind",
       "srd51:2014:item:adamantine-armor",
+      "srd51:2014:item:amulet-of-health",
+      "srd51:2014:item:bag-of-holding",
+      "srd51:2014:item:boots-of-elvenkind",
       "srd51:2014:item:mithral-armor",
       "srd51:2014:item:potion-of-greater-healing",
       "srd51:2014:item:potion-of-healing",
@@ -35,6 +38,7 @@
       "srd51:2014:monster:goblin",
       "srd51:2014:monster:owl",
       "srd51:2014:spell:acid-splash",
+      "srd51:2014:spell:bless",
       "srd51:2014:spell:cure-wounds",
       "srd51:2014:spell:entangle",
       "srd51:2014:spell:fire-bolt",
@@ -52,10 +56,7 @@
     "placeholder": []
   },
   "missing": [
-    "srd51:2014:item:amulet-of-health",
     "srd51:2014:item:amulet-of-proof-against-detection-and-location",
-    "srd51:2014:item:bag-of-holding",
-    "srd51:2014:item:boots-of-elvenkind",
     "srd51:2014:item:boots-of-levitation",
     "srd51:2014:item:boots-of-speed",
     "srd51:2014:item:boots-of-striding-and-springing",
@@ -318,7 +319,6 @@
     "srd51:2014:spell:bestow-curse",
     "srd51:2014:spell:black-tentacles",
     "srd51:2014:spell:blade-barrier",
-    "srd51:2014:spell:bless",
     "srd51:2014:spell:blight",
     "srd51:2014:spell:blindness-deafness",
     "srd51:2014:spell:blink",
@@ -600,10 +600,7 @@
     "srd51:2014:spell:zone-of-truth"
   ],
   "uncovered": [
-    "srd51:2014:item:amulet-of-health",
     "srd51:2014:item:amulet-of-proof-against-detection-and-location",
-    "srd51:2014:item:bag-of-holding",
-    "srd51:2014:item:boots-of-elvenkind",
     "srd51:2014:item:boots-of-levitation",
     "srd51:2014:item:boots-of-speed",
     "srd51:2014:item:boots-of-striding-and-springing",
@@ -866,7 +863,6 @@
     "srd51:2014:spell:bestow-curse",
     "srd51:2014:spell:black-tentacles",
     "srd51:2014:spell:blade-barrier",
-    "srd51:2014:spell:bless",
     "srd51:2014:spell:blight",
     "srd51:2014:spell:blindness-deafness",
     "srd51:2014:spell:blink",
