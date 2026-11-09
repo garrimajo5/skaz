@@ -1,0 +1,37 @@
+{
+  "batch": "production-v27",
+  "entries": [
+    {
+      "id": "srd51:2014:monster:skeleton",
+      "sourcePath": "data/art-production-v27/skeleton.png",
+      "sourceSha256": "1b6f4c39ddcfa87c13c721e2a8eeec55b73fd7e3e73df215b688b5c4894842f2",
+      "brief": "Create ONE SQUARE original painterly fantasy bestiary portrait for SKAZ. Broad sculpted brush shapes, clear silhouette readable at 40 px and in a circular token, moderate detail, soft warm upper-left light, deep cool shadows. Centered head and shoulders, fills 75% of frame, 10% transparent safe margin on every side. TRUE TRANSPARENT background. No scenery, ground, text, letters, frame, logo or UI symbols. An animated human skeleton, ivory skull with empty deep black eye sockets, full intact jaw with teeth, bare cervical bones, rusted broken iron armor fragments on narrow bony shoulders. Three-quarter view. An old short sword hilt beside shoulder. No flesh, no hood, no luminous eyes, no crown. Strong skull and rib silhouette.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:zombie",
+      "sourcePath": "data/art-production-v27/zombie.png",
+      "sourceSha256": "c0fba69a7924dea64208ae0916a9c7c9365e567ed88e81e519438e691caee9f5",
+      "brief": "Create ONE SQUARE original painterly fantasy bestiary portrait for SKAZ. Broad sculpted brush shapes, clear silhouette readable at 40 px and in a circular token, moderate detail, soft warm upper-left light, deep cool shadows. Centered head and shoulders, fills 75% of frame, 10% transparent safe margin on every side. TRUE TRANSPARENT background. No scenery, ground, text, letters, frame, logo or UI symbols. A shambling human zombie with ashen green-grey skin, heavy slack jaw, dull milky eyes, sparse disheveled dark hair, broad slumped shoulders and a ragged brown peasant tunic. Dead weight and vacant expression, asymmetrical posture. Intact skin, no blood, no exposed organs. No weapons, no claws, no armor, no glowing magical effects.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:ghoul",
+      "sourcePath": "data/art-production-v27/ghoul.png",
+      "sourceSha256": "d375abdee52f7837957f1c83b2f9d6578e97d826f19b9135b4efcd7137c3c9d9",
+      "brief": "Create ONE SQUARE original painterly fantasy bestiary portrait for SKAZ. Broad sculpted brush shapes, clear silhouette readable at 40 px and in a circular token, moderate detail, soft warm upper-left light, deep cool shadows. Centered head and shoulders, fills 75% of frame, 10% transparent safe margin on every side. TRUE TRANSPARENT background. No scenery, ground, text, letters, frame, logo or UI symbols. A feral gaunt humanoid ghoul with cold desaturated blue-grey skin, pointed ears, bald elongated head, wide predatory mouth with sharp teeth and long dark tongue. Hunched narrow shoulders, one thin clawed hand near chest with five long separated fingers. Tattered dark cloth. Menacing hungry expression. No armor, no weapon, no blood or exposed organs, no glowing eyes.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:wraith",
+      "sourcePath": "data/art-production-v27/wraith.png",
+      "sourceSha256": "893ec64fa690797fee54485f725a2a12eb4388111c6326b86711aa2ae987f018",
+      "brief": "Create ONE SQUARE original painterly fantasy bestiary portrait for SKAZ. Broad sculpted brush shapes, clear silhouette readable at 40 px and in a circular token, moderate detail, soft warm upper-left light, deep cool shadows. Centered head and shoulders, fills 75% of frame, 10% transparent safe margin on every side. TRUE TRANSPARENT background. No scenery, ground, text, letters, frame, logo or UI symbols. An incorporeal sinister wraith, compact bust of charcoal-black tattered spectral shroud with a deep hood and a mostly empty shadowed face, just two small cold pale eyes. Ragged shoulders taper into a few curved smoke-like tendrils contained within safe margins. Subtle teal-grey rim defining silhouette on dark background, still dark translucent substance rather than solid armor. No skull mask, no scythe, no crown, no scenery or diffuse background haze.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    }
+  ]
+}

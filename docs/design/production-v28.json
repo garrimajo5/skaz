@@ -1,0 +1,37 @@
+{
+  "batch": "production-v28",
+  "entries": [
+    {
+      "id": "srd51:2014:monster:gargoyle",
+      "sourcePath": "data/art-production-v28/gargoyle.png",
+      "sourceSha256": "aff9215c3650f5d03f3d726123ccd13972da6b58d1596ca255d71eee0ec52328",
+      "brief": "Create ONE SQUARE original painterly fantasy bestiary portrait for SKAZ. Broad sculpted brush shapes, strong material and silhouette readable at 40px and circular token. Moderate detail, warm upper-left light and cool shadows, head and shoulders three-quarter view, fills 75% frame with safe transparent margin. TRUE TRANSPARENT background, no scenery, ground, text, letters, frame, logo or UI symbols. A sinister carved grey stone gargoyle with bat-like pointed ears, two short curved horns, heavy fanged jaw and deep-set amber eyes. Compact angular stony shoulders with folded stone bat wings visible behind them, weathered chipped edges. Clearly living stone statue, no flesh, no armor, no metal, no pedestal.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:clay-golem",
+      "sourcePath": "data/art-production-v28/clay-golem.png",
+      "sourceSha256": "92e7c1886f65adf72b58ed258f4952acdd722c42a6ec6e7f39eaf2da0b32849c",
+      "brief": "Create ONE SQUARE original painterly fantasy bestiary portrait for SKAZ. Broad sculpted brush shapes, strong material and silhouette readable at 40px and circular token. Moderate detail, warm upper-left light and cool shadows, head and shoulders three-quarter view, fills 75% frame with safe transparent margin. TRUE TRANSPARENT background, no scenery, ground, text, letters, frame, logo or UI symbols. An enormous crude humanoid sculpted entirely from reddish brown unglazed clay. Rounded bald head, simple deeply pressed eyes and straight mouth, immense rounded shoulders. Uneven kneaded surfaces and a few broad drying cracks, warm ochre material. Bare sculpted body, no clothes, no armor, no ornament, no writing on forehead. Heavy simple silhouette, not a rocky elemental.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:stone-golem",
+      "sourcePath": "data/art-production-v28/stone-golem.png",
+      "sourceSha256": "af3bb8fffc9324a9225028aa5c96bef3aca83b781e1f717d85b7f7da2b2ad355",
+      "brief": "Create ONE SQUARE original painterly fantasy bestiary portrait for SKAZ. Broad sculpted brush shapes, strong material and silhouette readable at 40px and circular token. Moderate detail, warm upper-left light and cool shadows, head and shoulders three-quarter view, fills 75% frame with safe transparent margin. TRUE TRANSPARENT background, no scenery, ground, text, letters, frame, logo or UI symbols. An imposing ancient humanoid statue carved from pale cool grey granite, angular square head with blank pupil-less eyes, symmetrical stern face and geometric carved locks of hair. Broad squared shoulders and chest with restrained carved geometric borders integral to the stone. Subtle moss only in a few recesses, chisel marks and chips. No separate armor, no glowing crystals, no pedestal, not a pile of rocks.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:flesh-golem",
+      "sourcePath": "data/art-production-v28/flesh-golem.png",
+      "sourceSha256": "116a3b415ca1556d9546370a04252cd8e0e1ede3f944dcf2554366705834369f",
+      "brief": "Create ONE SQUARE original painterly fantasy bestiary portrait for SKAZ. Broad sculpted brush shapes, strong material and silhouette readable at 40px and circular token. Moderate detail, warm upper-left light and cool shadows, head and shoulders three-quarter view, fills 75% frame with safe transparent margin. TRUE TRANSPARENT background, no scenery, ground, text, letters, frame, logo or UI symbols. A massive artificial humanoid assembled from mismatched grey and ochre skin sections, clearly visible dark surgical stitches across bald scalp, neck and wide shoulders. Heavy asymmetrical face, one brow higher, subdued dull eyes, broad blunt nose and closed mouth. Intact healed skin, no gore, blood, exposed muscle or organs. Simple dark cloth at lower chest, no bolts, no armor, no lightning effects, original design not a film character.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    }
+  ]
+}

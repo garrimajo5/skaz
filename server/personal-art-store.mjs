@@ -1,0 +1,90 @@
+// Preparation for #38. Deliberately not mounted by openStore or HTTP yet.
+// Identity and character authorization must come from trusted session adapters.
+import {createHash} from 'node:crypto';
+import {AppError} from './state.mjs';
+import {normalizePersonalArt,personalArtLimits} from './personal-art-image.mjs';
+import {inspectPng} from '../scripts/art-registry.mjs';
+
+const fail=(status,message)=>{throw new AppError(status,message);};
+const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+const validId=v=>typeof v==='string'&&/^[a-zA-Z0-9:_-]{1,160}$/.test(v);
+const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
+export const personalStorageLimits=Object.freeze({bytes:32*1024*1024,versions:1000});
+
+export function createPersonalArtStore(db,{authorize,catalogExists,limits=personalStorageLimits}={}){
+ if(typeof authorize!=='function'||typeof catalogExists!=='function')throw Error('Trusted synchronous authorization and catalog adapters required');
+ if(!Number.isSafeInteger(limits.bytes)||limits.bytes<1||!Number.isSafeInteger(limits.versions)||limits.versions<1)throw Error('Invalid personal art quota');
+ db.exec(`CREATE TABLE IF NOT EXISTS personal_art_versions (
+  user_id TEXT NOT NULL REFERENCES access_users(id), character_id TEXT NOT NULL REFERENCES characters(id), catalog_id TEXT NOT NULL,
+  revision INTEGER NOT NULL CHECK(revision>0), mutation_id TEXT NOT NULL,
+  request_hash TEXT NOT NULL, master BLOB, thumbnail BLOB, master_sha TEXT, thumbnail_sha TEXT,
+  created_at TEXT NOT NULL,
+  PRIMARY KEY(user_id,character_id,catalog_id,revision), UNIQUE(user_id,mutation_id),
+  CHECK((master IS NULL AND thumbnail IS NULL AND master_sha IS NULL AND thumbnail_sha IS NULL)
+     OR (master IS NOT NULL AND thumbnail IS NOT NULL AND master_sha IS NOT NULL AND thumbnail_sha IS NOT NULL)));
+ CREATE INDEX IF NOT EXISTS personal_art_user_character ON personal_art_versions(user_id,character_id);`);
+ function transaction(fn){db.exec('BEGIN IMMEDIATE');try{const result=fn();db.exec('COMMIT');return result;}catch(e){db.exec('ROLLBACK');throw e;}}
+ function scope(userId,characterId,catalogId,write){
+  if(![userId,characterId,catalogId].every(validId))fail(422,'Неверная область изображения');
+  // Check even before receipts and missing-file results. No captured grant/cache.
+  if(authorize(userId,characterId,write)!==true)fail(404,'Изображение недоступно');
+  if(catalogExists(catalogId)!==true)fail(404,'Запись каталога недоступна');
+ }
+ function latest(u,c,id){return db.prepare('SELECT * FROM personal_art_versions WHERE user_id=? AND character_id=? AND catalog_id=? ORDER BY revision DESC LIMIT 1').get(u,c,id);}
+ function metadata(row){return {revision:row?.revision??0,standard:!row?.master,mutationId:row?.mutation_id??null};}
+ function file(row,role){
+  if(!row?.master)return null;
+  const bytes=Buffer.from(row[role]),expected=row[role+'_sha'];
+  try{const info=inspectPng(bytes);if(info.sha256!==expected||info.width!==info.height||info.width>(role==='master'?512:96))throw Error('Invalid stored image');}
+  catch{fail(409,'Личное изображение повреждено; требуется восстановление из копии');}
+  return {bytes,sha256:expected,type:'image/png'};
+ }
+ function view(userId){
+  if(!validId(userId))fail(422,'Неверный пользователь');
+  return {
+   read(characterId,catalogId,role='thumbnail'){
+    scope(userId,characterId,catalogId,false);
+    if(!['master','thumbnail'].includes(role))fail(422,'Неизвестный размер изображения');
+    const row=latest(userId,characterId,catalogId);return {...metadata(row),file:file(row,role)};
+   },
+   history(characterId,catalogId){
+    scope(userId,characterId,catalogId,false);
+    return db.prepare('SELECT revision,mutation_id,created_at,master IS NULL AS standard FROM personal_art_versions WHERE user_id=? AND character_id=? AND catalog_id=? ORDER BY revision DESC').all(userId,characterId,catalogId)
+     .map(r=>({revision:r.revision,mutationId:r.mutation_id,createdAt:r.created_at,standard:!!r.standard}));
+   },
+   change(request){
+    if(!object(request)||Object.keys(request).some(k=>!['characterId','catalogId','mutationId','expectedRevision','action','bytes','crop','targetRevision'].includes(k)))fail(422,'Неверная команда изображения');
+    const {characterId,catalogId,mutationId,expectedRevision,action}=request;
+    scope(userId,characterId,catalogId,true);
+    if(typeof mutationId!=='string'||!/^[-a-zA-Z0-9]{8,80}$/.test(mutationId)||!Number.isSafeInteger(expectedRevision)||expectedRevision<0||!['set','reset','restore'].includes(action))fail(422,'Неверная версия или операция изображения');
+    if(action==='set'){
+     if(!Buffer.isBuffer(request.bytes)||request.bytes.length>personalArtLimits.inputBytes||request.targetRevision!==undefined)fail(422,'Нужен PNG допустимого размера');
+     if(request.crop!==undefined&&(!object(request.crop)||Object.keys(request.crop).length!==3||!['x','y','size'].every(k=>Number.isSafeInteger(request.crop[k]))))fail(422,'Неверное кадрирование');
+    }else if(request.bytes!==undefined||request.crop!==undefined||(action==='reset'&&request.targetRevision!==undefined))fail(422,'Лишние поля команды');
+    if(action==='restore'&&(!Number.isSafeInteger(request.targetRevision)||request.targetRevision<1))fail(422,'Неверная версия восстановления');
+    const requestHash=hash(JSON.stringify({characterId,catalogId,expectedRevision,action,source:request.bytes?hash(request.bytes):null,crop:request.crop?{x:request.crop.x,y:request.crop.y,size:request.crop.size}:null,target:request.targetRevision??null}));
+    return transaction(()=>{
+     scope(userId,characterId,catalogId,true);
+     const prior=db.prepare('SELECT * FROM personal_art_versions WHERE user_id=? AND mutation_id=?').get(userId,mutationId);
+     if(prior){if(prior.request_hash!==requestHash)fail(409,'Идентификатор операции уже использован');return {...metadata(prior),replayed:true};}
+     const current=latest(userId,characterId,catalogId);
+     if((current?.revision??0)!==expectedRevision)fail(409,'Изображение изменилось; обновите карточку');
+     let files=null;
+     if(action==='set'){
+      try{files=normalizePersonalArt(request.bytes,request.crop).files;}catch{fail(422,'Не удалось проверить PNG или кадрирование');}
+     }else if(action==='restore'){
+      const old=db.prepare('SELECT * FROM personal_art_versions WHERE user_id=? AND character_id=? AND catalog_id=? AND revision=?').get(userId,characterId,catalogId,request.targetRevision);
+      if(!old)fail(404,'Версия изображения недоступна');
+      if(old.master)files={master:file(old,'master'),thumbnail:file(old,'thumbnail')};
+     }
+     const usage=db.prepare('SELECT count(*) AS versions,coalesce(sum(length(master)+length(thumbnail)),0) AS bytes FROM personal_art_versions WHERE user_id=?').get(userId);
+     const added=files?files.master.bytes.length+files.thumbnail.bytes.length:0;
+     if(usage.versions>=limits.versions||usage.bytes+added>limits.bytes)fail(409,'Лимит личных изображений и сохранённых версий исчерпан');
+     db.prepare('INSERT INTO personal_art_versions VALUES (?,?,?,?,?,?,?,?,?,?,?)').run(userId,characterId,catalogId,expectedRevision+1,mutationId,requestHash,files?.master.bytes??null,files?.thumbnail.bytes??null,files?.master.sha256??null,files?.thumbnail.sha256??null,new Date().toISOString());
+     return {...metadata(latest(userId,characterId,catalogId)),replayed:false};
+    });
+   },
+  };
+ }
+ return {forUser:view};
+}

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 138,
+  "count": 161,
   "pairs": [
     {
       "ids": [
@@ -376,6 +376,11 @@
       "light": "434b38f23ff0311c"
     },
     {
+      "id": "srd51:2014:monster:clay-golem",
+      "dark": "500e1dfd61233766",
+      "light": "6de5da0abc508a0f"
+    },
+    {
       "id": "srd51:2014:monster:crab",
       "dark": "51c62f39308dc3e6",
       "light": "6e3b908cc9726c87"
@@ -416,9 +421,29 @@
       "light": "636cc45a8f399887"
     },
     {
+      "id": "srd51:2014:monster:fire-giant",
+      "dark": "505a09fc778123e7",
+      "light": "2f85d652b818d07b"
+    },
+    {
+      "id": "srd51:2014:monster:flesh-golem",
+      "dark": "490f3df4099f7c20",
+      "light": "2cb45383bfc0ea15"
+    },
+    {
       "id": "srd51:2014:monster:frog",
       "dark": "143f2de04b0ee699",
       "light": "6bc0d41f95b163c2"
+    },
+    {
+      "id": "srd51:2014:monster:frost-giant",
+      "dark": "494f1d1f7ab80c61",
+      "light": "6ab4b485c95bca15"
+    },
+    {
+      "id": "srd51:2014:monster:gargoyle",
+      "dark": "501f1be36f786821",
+      "light": "6ba4f850869fc523"
     },
     {
       "id": "srd51:2014:monster:gelatinous-cube",
@@ -429,6 +454,11 @@
       "id": "srd51:2014:monster:ghost",
       "dark": "4c8f3cf03158e2b5",
       "light": "25e6932fd8930cca"
+    },
+    {
+      "id": "srd51:2014:monster:ghoul",
+      "dark": "584f1ff060213f36",
+      "light": "6ec5c01ab516c36b"
     },
     {
       "id": "srd51:2014:monster:goblin",
@@ -444,6 +474,11 @@
       "id": "srd51:2014:monster:hawk",
       "dark": "476d30986cb671c3",
       "light": "476d30986cb671c3"
+    },
+    {
+      "id": "srd51:2014:monster:hill-giant",
+      "dark": "411d3ff07a426687",
+      "light": "6ad09517872d9c78"
     },
     {
       "id": "srd51:2014:monster:knight",
@@ -496,6 +531,21 @@
       "light": "38d1a50a8e9ed6a6"
     },
     {
+      "id": "srd51:2014:monster:skeleton",
+      "dark": "4c0f1ef03c397166",
+      "light": "6ac48d1ad21ab93e"
+    },
+    {
+      "id": "srd51:2014:monster:stone-giant",
+      "dark": "460c79e13636715b",
+      "light": "6b93944dc15bca34"
+    },
+    {
+      "id": "srd51:2014:monster:stone-golem",
+      "dark": "431b1efc64a97960",
+      "light": "69a1d686e616985e"
+    },
+    {
       "id": "srd51:2014:monster:water-elemental",
       "dark": "405b0fad3cd269ac",
       "light": "6794c0d28b2d96ce"
@@ -504,6 +554,16 @@
       "id": "srd51:2014:monster:wolf",
       "dark": "43333cd93ee4241e",
       "light": "43333cd93ee4241e"
+    },
+    {
+      "id": "srd51:2014:monster:wraith",
+      "dark": "444e1cb1716736cd",
+      "light": "66c6961ad9b14c1b"
+    },
+    {
+      "id": "srd51:2014:monster:zombie",
+      "dark": "400f3df0663b38f1",
+      "light": "6ab4975aa513d849"
     },
     {
       "id": "srd51:2014:spell:acid-arrow",
@@ -586,6 +646,11 @@
       "light": "6a70974e9c09ca9e"
     },
     {
+      "id": "srd51:2014:spell:counterspell",
+      "dark": "4c1c31e31f70663e",
+      "light": "3be08e18e90ff903"
+    },
+    {
       "id": "srd51:2014:spell:cure-wounds",
       "dark": "443e694b13e43d3a",
       "light": "1bc0d6b4a91bce19"
@@ -596,9 +661,29 @@
       "light": "6684a74d99b14e3c"
     },
     {
+      "id": "srd51:2014:spell:darkness",
+      "dark": "40c70e3c3878f3c7",
+      "light": "6ac6973c9e2109d3"
+    },
+    {
+      "id": "srd51:2014:spell:daylight",
+      "dark": "43c73d383438d363",
+      "light": "6fc7903aca9819c3"
+    },
+    {
       "id": "srd51:2014:spell:detect-magic",
       "dark": "4ec72c3c399b9131",
       "light": "666de49493319a1b"
+    },
+    {
+      "id": "srd51:2014:spell:detect-thoughts",
+      "dark": "40c567525acdbcb4",
+      "light": "3d4ed2688b91ce1a"
+    },
+    {
+      "id": "srd51:2014:spell:dispel-magic",
+      "dark": "46703c9f8dc17358",
+      "light": "34cbd134cf329839"
     },
     {
       "id": "srd51:2014:spell:druidcraft",
@@ -631,9 +716,19 @@
       "light": "6a6b8585e19a98e3"
     },
     {
+      "id": "srd51:2014:spell:fly",
+      "dark": "12356dda644d93b4",
+      "light": "3e60c99fb02738e2"
+    },
+    {
       "id": "srd51:2014:spell:guidance",
       "dark": "153d78e2469e30e3",
       "light": "6ac2952bf02d94b5"
+    },
+    {
+      "id": "srd51:2014:spell:haste",
+      "dark": "413e3eb5614b8635",
+      "light": "6625995a9e916396"
     },
     {
       "id": "srd51:2014:spell:healing-word",
@@ -654,6 +749,11 @@
       "id": "srd51:2014:spell:invisibility",
       "dark": "441e39e133e56786",
       "light": "3be4c61ec81bc139"
+    },
+    {
+      "id": "srd51:2014:spell:levitate",
+      "dark": "4ccc333133c766c6",
+      "light": "66668e933109db33"
     },
     {
       "id": "srd51:2014:spell:light",
@@ -721,6 +821,11 @@
       "light": "32c78a6c9332cd33"
     },
     {
+      "id": "srd51:2014:spell:sending",
+      "dark": "651c35e30ecb7b20",
+      "light": "1ed05a0ff124a6ba"
+    },
+    {
       "id": "srd51:2014:spell:shield",
       "dark": "429a3dc978a56366",
       "light": "69a5ca369458b6d8"
@@ -731,6 +836,11 @@
       "light": "3aced1cc8764c8b2"
     },
     {
+      "id": "srd51:2014:spell:tongues",
+      "dark": "70f20f2c0dc3f0e9",
+      "light": "4a40a197873c5ef6"
+    },
+    {
       "id": "srd51:2014:spell:unseen-servant",
       "dark": "436f3c90b34ec439",
       "light": "39b0c44f4b917b38"
@@ -739,6 +849,11 @@
       "id": "srd51:2014:spell:vicious-mockery",
       "dark": "40c33e36797a34cc",
       "light": "37e4c1d887931e31"
+    },
+    {
+      "id": "srd51:2014:spell:zone-of-truth",
+      "dark": "444f13353c91753b",
+      "light": "66c6992f923949b2"
     }
   ]
 }
