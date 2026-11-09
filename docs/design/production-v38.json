@@ -1,0 +1,37 @@
+{
+  "batch": "production-v38",
+  "entries": [
+    {
+      "id": "srd51:2014:monster:gnoll",
+      "sourcePath": "data/art-production-v38/gnoll.png",
+      "sourceSha256": "925a2a784a21e816ceff3bc14b33ca4989b4b057787c17cd51dbabe84a763e39",
+      "brief": "ONE square original painterly fantasy bestiary portrait for SKAZ, restrained encyclopedia, broad sculpted brush shapes clearly readable at 40 px, moderate detail, warm upper-left light and cool shadows. GNOLL: a fierce hyena-headed humanoid, coarse tawny spotted fur, dark bristling mane, rounded hyena ears, heavy sloping muzzle with a few visible teeth. Worn brown hide armor at broad shoulders, simple spear point beside shoulder. Clearly hyena, not wolf or dog. Compact head-and-shoulders portrait, complete ears inside generous margins, strong silhouette suitable for circular token. TRUE TRANSPARENT background. No scenery, text, letters, border, frame, glow or gore.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:kobold",
+      "sourcePath": "data/art-production-v38/kobold.png",
+      "sourceSha256": "21028e74a5ba051cee5de00b42f3a27a5e01b4ad8da85517dd872bd6dd122ab4",
+      "brief": "ONE square original painterly fantasy bestiary portrait for SKAZ, restrained encyclopedia, broad sculpted brush shapes clearly readable at 40 px, moderate detail, warm upper-left light and cool shadows. KOBOLD: small lean reptilian humanoid with rusty red scales, long narrow crocodilian snout, bright amber eyes, two short pale backward horns, no hair and no external mammal ears. Alert wary expression, simple patched leather shoulder straps, tiny sheathed dagger hilt beside shoulder. NOT a dragonborn warrior, NOT furry, no wings, no fire breath. Compact head and shoulders occupying only central 75 percent of frame, full horns inside generous transparent margins suitable for circular token. TRUE TRANSPARENT background. No scenery, text, letters, border, frame or glow.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:minotaur",
+      "sourcePath": "data/art-production-v38/minotaur.png",
+      "sourceSha256": "a3c99a087ea22be6190964e7c9f01bfda3ec5dcc24cac30818f3d32dbc833230",
+      "brief": "ONE square original painterly fantasy bestiary portrait for SKAZ, restrained encyclopedia, broad sculpted brush shapes clearly readable at 40 px, moderate detail, warm upper-left light and cool shadows. MINOTAUR: massive bull-headed humanoid, dark umber fur, broad bovine muzzle with wet black nose, two heavy ivory horns sweeping sideways then curving upward, small bovine ears, angry intelligent eyes under shaggy brow. Muscular furry shoulders and plain worn leather diagonal harness, iron greataxe head beside one shoulder. Distinct bull, not goat or demon. Compact head and shoulders occupying central 75 percent of frame, BOTH horns fully inside generous transparent margins for circular token. TRUE TRANSPARENT background. No scenery, text, letters, border, frame, glowing eyes or gore.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:harpy",
+      "sourcePath": "data/art-production-v38/harpy.png",
+      "sourceSha256": "d1c1f4c9be3df3c596db22dd27e729bea452b0686b546f0531cd2b32ab80a990",
+      "brief": "ONE square original painterly fantasy bestiary portrait for SKAZ, restrained encyclopedia, broad sculpted brush shapes readable at 40 px, moderate detail, warm upper-left light and cool shadows. HARPY: fierce adult female human face, weathered olive skin, tangled dark hair, open mouth singing, predatory focused expression. Human head above dense dark brown feathered shoulders, two folded vulture-like wings framing the bust; modest opaque tattered cloth fully covers chest. Clearly a human-faced winged monster, NOT an angel, not a bird beak. Compact bust with complete head and folded wing edges inside generous transparent margins, central 75 percent of square for circular token. TRUE TRANSPARENT background. No scenery, text, letters, border, halo, music notes, magical glow or gore.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    }
+  ]
+}

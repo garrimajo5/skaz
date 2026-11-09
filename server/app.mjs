@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { AppError } from './state.mjs';
 import { cookieToken, sessionCookie, clearSessionCookie } from './authentication.mjs';
 import { createArtLibrary } from './art-library.mjs';
+import {personalArtHttp} from './personal-art-http.mjs';
 
 const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
 const files = new Set(['art-cache.js', 'art.js', 'fonts.css',"fonts/inter-400-800-cyrillic.woff2","fonts/inter-400-800-latin.woff2","fonts/pt-serif-400-cyrillic.woff2","fonts/pt-serif-400-latin.woff2","fonts/pt-serif-700-cyrillic.woff2","fonts/pt-serif-700-latin.woff2",'health.js', 'casting.js', 'spell-facts.js', 'resource-queue.js', 'index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'account.js', 'members.js', 'character-sheet.js', 'style.css', 'quick.css', 'app.js', 'play.js', 'ui.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
@@ -27,7 +28,7 @@ async function body(request, limit = MAX_BODY) {
   try { return JSON.parse(Buffer.concat(chunks).toString('utf8')); }
   catch { throw new AppError(400, 'Не удалось прочитать JSON'); }
 }
-export function createApp(store, { publicOrigin, authenticate, individualWrites = false, sessions, artLibrary } = {}) {
+export function createApp(store, { publicOrigin, authenticate, individualWrites = false, sessions, artLibrary, personalArt } = {}) {
   // A trusted fixture can inject a library; requests cannot select a manifest,
   // directory, or pilot status. Production always uses the accepted registry.
   let artPromise;
@@ -37,6 +38,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
     authenticate=request=>sessions.authenticate(cookieToken(request.headers.cookie));
   }
   if (authenticate !== undefined && typeof authenticate !== 'function') throw new Error('authenticate должен быть доверенной серверной функцией');
+  if(personalArt!==undefined&&(!sessions||typeof personalArt!=='function'))throw new Error('Личные изображения требуют доверенных cookie-сеансов');
   if (typeof individualWrites !== 'boolean' || (individualWrites && !authenticate)) throw new Error('Индивидуальная запись требует доверенной авторизации и логического флага');
   // TLS and authentication terminate at a loopback reverse proxy. Never trust forwarded headers.
   if (publicOrigin !== undefined) {
@@ -88,7 +90,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           return json(response,200,{signedIn:true,expiresAt:session.expiresAt},{'Set-Cookie':sessionCookie(session.token)});
         }
         const viewId = request.headers['x-skaz-view'];
-        let view;
+        let view,personal;
         if (authenticate) {
           const userId = await authenticate(request);
           if (typeof userId !== 'string' || !userId) throw new AppError(401, 'Нужен индивидуальный вход');
@@ -98,7 +100,9 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           if (pathname === '/api/me' && request.method === 'GET') return json(response,200,{user:store.access.user(userId),individualWrites});
           const guard=sessions?()=>{if(sessions.check(cookieToken(request.headers.cookie))!==userId)throw new AppError(401,'Нужен индивидуальный вход');}:undefined;
           view = store.forUser(userId, viewId ?? 'primary-view', {write:individualWrites,guard});
+          if(personalArt&&pathname.startsWith('/api/personal-art/'))personal=personalArt(userId,{write:individualWrites,guard});
         } else view = viewId === undefined ? store : store.forView(viewId);
+        if(await personalArtHttp(request,response,personal,body))return;
         if(authenticate && pathname==='/api/members'){
           if(request.method==='GET')return json(response,200,view.members.list());
           if(request.method==='POST'){

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 179,
+  "count": 189,
   "pairs": [
     {
       "ids": [
@@ -486,6 +486,11 @@
       "light": "6ec5c01ab516c36b"
     },
     {
+      "id": "srd51:2014:monster:gnoll",
+      "dark": "541e31694fb948f2",
+      "light": "2be1d2e6e4129d94"
+    },
+    {
       "id": "srd51:2014:monster:goblin",
       "dark": "4cce33361e7031b9",
       "light": "4cce33361e7031b9"
@@ -494,6 +499,11 @@
       "id": "srd51:2014:monster:guard",
       "dark": "4c4cb7273a2133f2",
       "light": "7785daca911cc925"
+    },
+    {
+      "id": "srd51:2014:monster:harpy",
+      "dark": "59490ebe6fe43830",
+      "light": "7ba5a446c30e9639"
     },
     {
       "id": "srd51:2014:monster:hawk",
@@ -521,6 +531,11 @@
       "light": "2fe542c8949aeb91"
     },
     {
+      "id": "srd51:2014:monster:kobold",
+      "dark": "4c2f71e43a923b2c",
+      "light": "31928e4fd32dc472"
+    },
+    {
       "id": "srd51:2014:monster:lizard",
       "dark": "52973f64c9c84a53",
       "light": "2f68c09f3233a53c"
@@ -534,6 +549,16 @@
       "id": "srd51:2014:monster:mastiff",
       "dark": "402f9d706b353e64",
       "light": "6ca59296c5c3958e"
+    },
+    {
+      "id": "srd51:2014:monster:mimic",
+      "dark": "40903f1f3f726ac1",
+      "light": "2fc0d0cdd237865a"
+    },
+    {
+      "id": "srd51:2014:monster:minotaur",
+      "dark": "40255e782b0f5fd2",
+      "light": "7ed5830bd458a12d"
     },
     {
       "id": "srd51:2014:monster:octopus",
@@ -574,6 +599,11 @@
       "id": "srd51:2014:monster:rhinoceros",
       "dark": "500f2e7e76f00963",
       "light": "38d1a50a8e9ed6a6"
+    },
+    {
+      "id": "srd51:2014:monster:rust-monster",
+      "dark": "15b670e3ca4859b5",
+      "light": "6ac89b393596b249"
     },
     {
       "id": "srd51:2014:monster:skeleton",
@@ -791,9 +821,29 @@
       "light": "69b1931b8668daa5"
     },
     {
+      "id": "srd51:2014:spell:faerie-fire",
+      "dark": "402d3e7869c76627",
+      "light": "36c2c10f9c78cb3a"
+    },
+    {
+      "id": "srd51:2014:spell:false-life",
+      "dark": "426c3cd0c1e6693f",
+      "light": "2ec6e40bc83e90db"
+    },
+    {
+      "id": "srd51:2014:spell:fear",
+      "dark": "4fc73338343b303c",
+      "light": "243cccc39336cc9b"
+    },
+    {
       "id": "srd51:2014:spell:feather-fall",
       "dark": "15356aca1bd95296",
       "light": "6ad29539c13ee047"
+    },
+    {
+      "id": "srd51:2014:spell:feeblemind",
+      "dark": "43873e7a7c386161",
+      "light": "6d4a81b48f729cc3"
     },
     {
       "id": "srd51:2014:spell:fire-bolt",

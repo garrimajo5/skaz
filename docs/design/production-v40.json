@@ -1,0 +1,21 @@
+{
+  "batch": "production-v40",
+  "entries": [
+    {
+      "id": "srd51:2014:monster:mimic",
+      "sourcePath": "data/art-production-v40/mimic.png",
+      "sourceSha256": "3ded6dd5debf036cdc78e2846f4ed3de809810ffe296853381242c6c1d37d895",
+      "brief": "ONE square original painterly fantasy bestiary illustration for SKAZ, restrained encyclopedia, broad sculpted brush shapes readable at 40 px, warm upper-left light, moderate detail. MIMIC in treasure chest form: compact weathered oak chest with simple iron bands, lid lifted as a living jaw; rows of irregular ivory teeth line both upper lid and lower rim, a single thick purple tongue curls outward into a short sticky pseudopod. No eyes required, chest silhouette dominant and unmistakable, three-quarter view, dark mouth interior. Object transformed into a predatory creature, not a normal chest with a monster inside. Entire chest and short tongue fit central 75 percent with transparent margins, no cropped edges. TRUE TRANSPARENT background. No ground, coins, scenery, text, letters, border, gore or glow.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:rust-monster",
+      "sourcePath": "data/art-production-v40/rust-monster.png",
+      "sourceSha256": "9dfac31d6933b2fd2434321473ac84a8405f3f7c41190eb29b39d44f16280727",
+      "brief": "ONE square original painterly fantasy bestiary illustration for SKAZ, restrained encyclopedia, broad sculpted brush shapes readable at 40 px, warm upper-left light, moderate detail. RUST MONSTER: a compact squat four-legged chitinous creature with rust-orange segmented armored back, low insectlike head with two long soft feathery antennae extending forward, small dark eyes and mandibled mouth, long thick tail curling to the side ending in a broad fan-shaped paddle. Three-quarter whole-creature view, all FOUR sturdy short legs anatomically coherent, both antennae and fan tail wholly visible within generous margins. One antenna touches a small old iron horseshoe that crumbles into a few rusty flakes, no lightning or magic beam. The creature is the dominant silhouette, horseshoe tiny. Earthy orange-brown shell, cool shadow, no wings. TRUE TRANSPARENT background. No ground, scenery, text, letters, frame or gore.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    }
+  ]
+}

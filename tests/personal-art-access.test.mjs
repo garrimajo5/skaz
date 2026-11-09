@@ -1,0 +1,124 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {DatabaseSync} from 'node:sqlite';
+import {mkdtempSync,readFileSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {randomUUID} from 'node:crypto';
+import {openStore} from '../server/store.mjs';
+import {createAccess} from '../server/access.mjs';
+import {createPersonalArtAccess} from '../server/personal-art-access.mjs';
+import {createApp} from '../server/app.mjs';
+import {request as httpRequest} from 'node:http';
+const catalogId='srd51:2014:spell:shield';
+const manifest=JSON.parse(readFileSync(new URL('../catalog/art-manifest.json',import.meta.url)));
+const bytes=readFileSync(new URL('../'+manifest.entries[0].files.thumbnail.path,import.meta.url));
+function fixture(t){
+ const dir=mkdtempSync(join(tmpdir(),'skaz-art-bridge-')),file=join(dir,'game.sqlite');
+ const game=openStore(file),db=new DatabaseSync(file);db.exec('PRAGMA foreign_keys=ON');
+ game.catalog.installBundled({version:game.catalog.previewBundled().version});
+ t.after(()=>{db.close();game.close();rmSync(dir,{recursive:true,force:true});});
+ const access=createAccess(db),context=game.read().context;
+ access.apply({action:'bootstrap-owner',userId:'owner-art',displayName:'Owner',campaignId:context.campaignId,characterId:context.characterId});
+ access.apply({action:'create-user',userId:'player-art',displayName:'Player'});
+ access.apply({action:'set-member',userId:'player-art',campaignId:context.campaignId,role:'player'});
+ access.apply({action:'grant-character',userId:'player-art',campaignId:context.campaignId,characterId:context.characterId});
+ const forUser=createPersonalArtAccess(db,access);let live=true;
+ const guard=()=>{if(!live)throw Object.assign(new Error('Expired'),{status:401});};
+ const art=forUser('player-art',{write:true,guard});
+ const request={characterId:context.characterId,catalogId,bytes,action:'set',expectedRevision:0,mutationId:randomUUID()};
+ return {game,db,access,context,forUser,art,request,guard,expire:()=>{live=false;}};
+}
+test('trusted bridge isolates users and preserves readonly and revoked-character permissions',t=>{
+ const f=fixture(t);f.art.change(f.request);
+ const owner=f.forUser('owner-art',{write:true,guard:f.guard});
+ assert.equal(owner.read(f.context.characterId,catalogId).standard,true);
+ const reader=f.forUser('player-art',{guard:f.guard});
+ assert.equal(reader.read(f.context.characterId,catalogId).revision,1);
+ for(const fn of [()=>reader.change(f.request),()=>reader.cleanup(f.context.characterId,catalogId),()=>reader.importCharacter({characterId:f.context.characterId,mutationId:randomUUID(),expectedRevisions:{},bundle:f.art.exportCharacter(f.context.characterId)})])assert.throws(fn,{status:403});
+ f.access.apply({action:'revoke-character',userId:'player-art',campaignId:f.context.campaignId,characterId:f.context.characterId});
+ for(const fn of [()=>f.art.read(f.context.characterId,catalogId),()=>f.art.change(f.request),()=>f.art.exportCharacter(f.context.characterId)])assert.throws(fn,{status:404});
+});
+test('captured personal capability checks session on reads, history, export and exact retries',t=>{
+ const f=fixture(t);f.art.change(f.request);const bundle=f.art.exportCharacter(f.context.characterId);
+ f.expire();
+ for(const fn of [()=>f.art.read(f.context.characterId,catalogId),()=>f.art.history(f.context.characterId,catalogId),()=>f.art.change(f.request),()=>f.art.cleanup(f.context.characterId,catalogId),()=>f.art.exportCharacter(f.context.characterId),()=>f.art.importCharacter({characterId:f.context.characterId,mutationId:randomUUID(),expectedRevisions:{[catalogId]:1},bundle})])assert.throws(fn,{status:401});
+ assert.equal(f.db.prepare('SELECT count(*) AS n FROM personal_art_versions').get().n,1);
+});
+test('changed private catalog record blocks reads and retries without nested transactions',t=>{
+ const f=fixture(t);f.art.change(f.request);
+ const original=f.db.prepare('SELECT entry_json FROM catalog_entries WHERE id=?').get(catalogId).entry_json;
+ const changed=JSON.parse(original);changed.name.ru+=' private';
+ f.db.prepare('UPDATE catalog_entries SET entry_json=? WHERE id=?').run(JSON.stringify(changed),catalogId);
+ assert.throws(()=>f.art.read(f.context.characterId,catalogId),{status:404});
+ assert.throws(()=>f.art.change(f.request),{status:404});
+ f.db.prepare('UPDATE catalog_entries SET entry_json=? WHERE id=?').run(original,catalogId);
+ assert.equal(f.art.change(f.request).replayed,true);
+ const bundle=f.art.exportCharacter(f.context.characterId);
+ assert.equal(f.art.importCharacter({characterId:f.context.characterId,mutationId:randomUUID(),expectedRevisions:{[catalogId]:1},bundle}).entries.length,1);
+ assert.deepEqual(f.db.prepare('PRAGMA foreign_key_check').all(),[]);
+});
+
+async function httpFixture(t,{enabled=true,write=true}={}){
+ const f=fixture(t),sessions=f.game.authentication(),origin='https://skaz.test';
+ await sessions.setPassword('player-art','player','test-only password phrase');
+ await sessions.setPassword('owner-art','owner','other test password phrase');
+ let reached;const authorized=new Promise(resolve=>{reached=resolve;});
+ const app=createApp(f.game,{publicOrigin:origin,sessions,individualWrites:write,...(enabled?{personalArt:(...args)=>{const capability=f.forUser(...args);reached();return capability;}}:{})});
+ await new Promise(resolve=>app.listen(0,'127.0.0.1',resolve));
+ t.after(()=>new Promise(resolve=>app.close(resolve)));
+ const base='http://127.0.0.1:'+app.address().port;
+ const tokens={player:await sessions.login('player','test-only password phrase'),owner:await sessions.login('owner','other test password phrase')};
+ const {sessionCookie}=await import('../server/authentication.mjs');
+ const headers=who=>({'Content-Type':'application/json','X-Skaz-Client':'local-v1',Origin:origin,'X-Skaz-Identity':who==='owner'?'owner-art':'player-art',Cookie:sessionCookie(tokens[who].token).split(';')[0]});
+ const call=(route,{who='player',method='GET',body,extra={}}={})=>fetch(base+'/api/personal-art/'+route,{method,headers:{...headers(who),...extra},body:body===undefined?undefined:JSON.stringify(body)});
+ const query=new URLSearchParams({characterId:f.context.characterId,catalogId}).toString();
+ const {bytes:raw,...command}=f.request;command.png=raw.toString('base64');
+ return {...f,sessions,tokens,call,query,command,base,headers,authorized};
+}
+test('cookie HTTP art read/write/export is personal, non-cacheable and replay safe',async t=>{
+ const f=await httpFixture(t);
+ let response=await f.call('change',{method:'POST',body:f.command});assert.equal(response.status,200);assert.equal((await response.json()).revision,1);
+ response=await f.call('change',{method:'POST',body:f.command});assert.equal((await response.json()).replayed,true);
+ response=await f.call('image?'+f.query,{extra:{'If-None-Match':'anything'}});assert.equal(response.status,200);assert.match(response.headers.get('cache-control'),/no-store/);assert.equal(response.headers.get('content-type'),'image/png');assert.equal(Buffer.from(await response.arrayBuffer())[0],137);
+ assert.equal((await f.call('image?'+f.query,{who:'owner'})).status,404);
+ response=await f.call('image?'+f.query,{method:'HEAD'});assert.equal(response.status,200);assert.equal((await response.arrayBuffer()).byteLength,0);
+ response=await f.call('export?characterId='+f.context.characterId);const bundle=await response.json();assert.equal(bundle.entries.length,1);assert.equal(bundle.userId,undefined);
+ response=await f.call('import',{method:'POST',body:{characterId:f.context.characterId,mutationId:randomUUID(),expectedRevisions:{[catalogId]:1},bundle}});assert.equal(response.status,200);
+ assert.equal((await f.call('change',{method:'POST',body:{...f.command,mutationId:randomUUID()}})).status,409);
+ f.sessions.logout(f.tokens.player.token);
+ assert.equal((await f.call('image?'+f.query,{extra:{'If-None-Match':'anything'}})).status,401);
+});
+test('HTTP rejects forged identity, CSRF, bad payloads, invalid image and ambiguous query',async t=>{
+ const f=await httpFixture(t);
+ for(const extra of [{Origin:'https://evil.test'},{Origin:''},{'X-Skaz-Client':''}])assert.equal((await f.call('change',{method:'POST',body:f.command,extra})).status,403);
+ assert.equal((await f.call('change',{method:'POST',body:f.command,extra:{'X-Skaz-Identity':'owner-art'}})).status,401);
+ for(const body of [{...f.command,userId:'owner-art'},{...f.command,png:'data:image/png;base64,'+f.command.png},{...f.command,png:'PHN2Zz4='},{...f.command,png:f.command.png+'\n'},{...f.command,action:'reset'}])assert.equal((await f.call('change',{method:'POST',body})).status,422);
+ assert.equal((await f.call('image?'+f.query+'&catalogId='+catalogId)).status,422);
+ assert.equal((await f.call('image?'+f.query+'&userId=owner-art')).status,422);
+ assert.equal((await f.call('change?extra=1',{method:'POST',body:f.command})).status,422);
+ assert.equal((await f.call('image?'+f.query,{method:'DELETE'})).status,405);
+ assert.equal(f.db.prepare('SELECT count(*) AS n FROM personal_art_versions').get().n,0);
+});
+test('HTTP disabled feature remains closed and requires cookie-session authentication',async t=>{
+ const f=await httpFixture(t,{enabled:false});
+ assert.equal((await f.call('change',{method:'POST',body:f.command})).status,404);
+ assert.throws(()=>createApp(f.game,{authenticate:()=> 'player-art',personalArt:f.forUser}),/cookie/);
+});
+test('session revoked while HTTP upload is streaming cannot commit or replay',async t=>{
+ const f=await httpFixture(t),payload=JSON.stringify(f.command);
+ let request;
+ const response=new Promise((resolve,reject)=>{
+  request=httpRequest(f.base+'/api/personal-art/change',{method:'POST',headers:{...f.headers('player'),'Content-Length':Buffer.byteLength(payload)}},r=>{r.resume();r.on('end',()=>resolve(r.statusCode));});request.on('error',reject);request.write(payload.slice(0,10));
+ });
+ await f.authorized;f.sessions.logout(f.tokens.player.token);request.end(payload.slice(10));
+ assert.equal(await response,401);
+ assert.equal(f.db.prepare('SELECT count(*) AS n FROM personal_art_versions').get().n,0);
+});
+test('HTTP readonly mode and revoked character block image mutations and reads',async t=>{
+ const f=await httpFixture(t,{write:false});f.art.change(f.request);
+ assert.equal((await f.call('image?'+f.query)).status,200);
+ assert.equal((await f.call('change',{method:'POST',body:f.command})).status,403);
+ f.access.apply({action:'revoke-character',userId:'player-art',campaignId:f.context.campaignId,characterId:f.context.characterId});
+ assert.equal((await f.call('image?'+f.query)).status,404);
+});
