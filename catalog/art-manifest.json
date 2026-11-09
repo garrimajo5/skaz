@@ -1,5 +1,50 @@
 {
   "schemaVersion": 1,
   "ruleset": "5e-2014",
-  "entries": []
+  "entries": [
+    {
+      "id": "srd51:2014:spell:fireball",
+      "contentSha256": "d94495ee0983d7feeb335539a33229d6dcb893dc276ce4a7f3bba6964d39f87e",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "User-selected Fireball option 19; original SHA256 655a68fe80b94bd94ce8490dc5c59b129314dde5cd06f9d2d280d9d093362f5b",
+        "usage": "Original generated SKAZ artwork; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User visual choice; Codex delivery checks",
+        "originalSha256": "655a68fe80b94bd94ce8490dc5c59b129314dde5cd06f9d2d280d9d093362f5b",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (visual choice 19) and Codex (technical integration)",
+        "evidence": "User approval 2026-11-09 in this chat; real catalog/card/book pilot in Polaris, Coal and Atlas, 768x1024/1024x768/390x844 browser; Android Chrome thumbnail; strict PNG and HTTP regressions. Other candidates not accepted."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/fireball-original-b2fc3622c252cb15.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 168803,
+          "sha256": "b2fc3622c252cb151b220bf405d56ecc669885838e7f3e6ac5acf67a84be1e7d",
+          "derivedFrom": "655a68fe80b94bd94ce8490dc5c59b129314dde5cd06f9d2d280d9d093362f5b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/fireball-thumbnail-b76c1c1709f5cd6d.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 12571,
+          "sha256": "b76c1c1709f5cd6d7957fa43cab211452f03944cf5382cee1509989de6bc1086",
+          "derivedFrom": "655a68fe80b94bd94ce8490dc5c59b129314dde5cd06f9d2d280d9d093362f5b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    }
+  ]
 }

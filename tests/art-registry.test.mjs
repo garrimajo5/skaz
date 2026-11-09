@@ -12,7 +12,7 @@ return {base,entries,item,manifest:{schemaVersion:1,ruleset:'5e-2014',entries:[i
 test('inventory preserves every artwork identity, edition and source; generated report is reproducible',()=>{
 const entries=inventory();assert.equal(entries.length,570);assert.deepEqual(Object.fromEntries(['spell','item','artifact','monster'].map(k=>[k,entries.filter(e=>e.kind===k).length])),{spell:319,item:49,artifact:1,monster:201});
 assert.deepEqual(entries,JSON.parse(readFileSync(new URL('../catalog/art-inventory.json',import.meta.url))));
-const m=JSON.parse(readFileSync(new URL('../catalog/art-manifest.json',import.meta.url))),r=validate(m);assert.deepEqual(r,JSON.parse(readFileSync(new URL('../catalog/art-coverage.json',import.meta.url))));assert.equal(r.complete,false);assert.equal(r.uncovered.length,570);
+const m=JSON.parse(readFileSync(new URL('../catalog/art-manifest.json',import.meta.url))),r=validate(m);assert.deepEqual(r,JSON.parse(readFileSync(new URL('../catalog/art-coverage.json',import.meta.url))));assert.equal(r.complete,false);assert.equal(r.uncovered.length,570-m.entries.filter(e=>e.status==='accepted').length);
 const e={...entries[0]};assert.throws(()=>inventory([e,e]),/Duplicate/);assert.throws(()=>inventory([{...e,ruleset:'5e-2024'}]),/edition/);
 });
 test('new catalog IDs are missing; pilot/draft/placeholder never count as accepted',t=>{

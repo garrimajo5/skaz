@@ -108,6 +108,13 @@ button{min-width:var(--touch)}.dialog-close{min-width:var(--touch);min-height:va
 #dialog:has(.hp-entry){width:min(480px,calc(100% - 24px))}
 @media(max-width:700px){.entry-row,.catalog .entry-row{grid-template-columns:minmax(0,1fr)}.entry-description>summary{flex-wrap:wrap;gap:4px 12px}.entry-name{flex-basis:60%}.entry-metadata{flex-basis:100%;order:2}.entry-actions{padding-top:0}.entry-badge{margin-left:auto}.entry-description>summary:after{margin-left:0}}
 .entry-row>.entry-description{grid-column:auto}
+.skaz-art{position:relative;display:inline-flex;flex:none;align-items:center;justify-content:center;width:40px;height:40px;overflow:hidden;border-radius:8px;background:var(--raised);color:var(--muted);vertical-align:middle}
+.skaz-art img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;opacity:0}
+.skaz-art-fallback{font-size:22px;line-height:1}
+.skaz-art-loaded img{opacity:1}.skaz-art-loaded .skaz-art-fallback{visibility:hidden}
+.skaz-art-card{float:right;width:160px;height:160px;margin:0 0 12px 16px}
+@media(max-width:700px){.entry-description>summary>.skaz-art{width:32px;height:32px}.entry-description>summary:has(.skaz-art) .entry-name{flex-basis:45%}}
+@media(max-width:400px){.entry-description>summary>.skaz-art{display:none}.skaz-art-card{width:96px;height:96px;margin-left:8px}}
 /* Health preview remains readable beside the combat panel on wide tablets. */
 .hp-tabs,.hp-factors,.hp-recent{display:flex;gap:8px;margin-block:8px}
 .hp-tabs button,.hp-factors button{flex:1;min-height:44px;font-size:14px}

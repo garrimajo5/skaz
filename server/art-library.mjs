@@ -16,7 +16,7 @@ export function createArtLibrary(manifest,{base,entries=inventory(),maxCacheByte
  const index=snapshot.entries.filter(item=>item.status==='accepted').map(item=>{
   const files={};
   for(const [role,edge] of [['thumbnail',96],['card',384]]){
-   const source=item.files.original;
+   const source=item.files[role==='thumbnail'?'thumbnail':'original'];
    // The URL identifies source + conversion, including encoder changes. It is
    // not claimed to be the delivered byte hash (returned separately as ETag).
    const key=sha256(JSON.stringify([source.sha256,recipe,encoder,role]));

@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createApp} from '../server/app.mjs';
 import {AppError} from '../server/state.mjs';
+import {readFile} from 'node:fs/promises';
+import {inspectPng} from '../scripts/art-registry.mjs';
 
 async function fixture(t,{protectedMode=true,library}={}){
  let signedIn=true,enabled=true,reads=0;
@@ -33,6 +35,13 @@ test('disabled accounts, foreign origins, missing files and methods fail safely'
  f.disable();assert.equal((await f.request(f.url)).status,403);
 });
 test('default production registry publishes no pilot candidates and never reads arbitrary files',async t=>{
- const f=await fixture(t,{protectedMode:false,library:null});const response=await f.request('/api/art');assert.equal(response.status,200);assert.deepEqual((await response.json()).entries,[]);
+ const f=await fixture(t,{protectedMode:false,library:null});const response=await f.request('/api/art');assert.equal(response.status,200);
+ const manifest=JSON.parse(await readFile(new URL('../catalog/art-manifest.json',import.meta.url),'utf8'));
+ const index=await response.json();
+ assert.deepEqual(index.entries.map(e=>e.id),manifest.entries.filter(e=>e.status==='accepted').map(e=>e.id));
+ for(const entry of index.entries)for(const file of Object.values(entry.files)){
+  const image=await f.request(file.url);assert.equal(image.status,200);const measured=inspectPng(Buffer.from(await image.arrayBuffer()));
+  assert.equal(measured.width,file.width);assert.equal(measured.height,file.height);assert.equal(image.headers.get('etag'),'"'+measured.sha256+'"');
+ }
  for(const path of [f.url,'/data/art-pilot-v1/fireball-v6.png','/catalog/art-manifest.json','/art/common/%2e%2e%2fsecret'])assert.equal((await f.request(path)).status,404);
 });

@@ -5,7 +5,7 @@
   "counts": {
     "spell": {
       "total": 319,
-      "accepted": 0
+      "accepted": 1
     },
     "item": {
       "total": 49,
@@ -21,7 +21,9 @@
     }
   },
   "statuses": {
-    "accepted": [],
+    "accepted": [
+      "srd51:2014:spell:fireball"
+    ],
     "pilot": [],
     "draft": [],
     "placeholder": []
@@ -396,7 +398,6 @@
     "srd51:2014:spell:fire-bolt",
     "srd51:2014:spell:fire-shield",
     "srd51:2014:spell:fire-storm",
-    "srd51:2014:spell:fireball",
     "srd51:2014:spell:flame-blade",
     "srd51:2014:spell:flame-strike",
     "srd51:2014:spell:flaming-sphere",
@@ -968,7 +969,6 @@
     "srd51:2014:spell:fire-bolt",
     "srd51:2014:spell:fire-shield",
     "srd51:2014:spell:fire-storm",
-    "srd51:2014:spell:fireball",
     "srd51:2014:spell:flame-blade",
     "srd51:2014:spell:flame-strike",
     "srd51:2014:spell:flaming-sphere",
