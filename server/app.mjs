@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { AppError } from './state.mjs';
 import { cookieToken, sessionCookie, clearSessionCookie } from './authentication.mjs';
+import { createArtLibrary } from './art-library.mjs';
 
 const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
 const files = new Set(['fonts.css',"fonts/inter-400-800-cyrillic.woff2","fonts/inter-400-800-latin.woff2","fonts/pt-serif-400-cyrillic.woff2","fonts/pt-serif-400-latin.woff2","fonts/pt-serif-700-cyrillic.woff2","fonts/pt-serif-700-latin.woff2",'health.js', 'casting.js', 'spell-facts.js', 'resource-queue.js', 'index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'account.js', 'members.js', 'character-sheet.js', 'style.css', 'quick.css', 'app.js', 'play.js', 'ui.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
@@ -26,7 +27,11 @@ async function body(request, limit = MAX_BODY) {
   try { return JSON.parse(Buffer.concat(chunks).toString('utf8')); }
   catch { throw new AppError(400, 'Не удалось прочитать JSON'); }
 }
-export function createApp(store, { publicOrigin, authenticate, individualWrites = false, sessions } = {}) {
+export function createApp(store, { publicOrigin, authenticate, individualWrites = false, sessions, artLibrary } = {}) {
+  // A trusted fixture can inject a library; requests cannot select a manifest,
+  // directory, or pilot status. Production always uses the accepted registry.
+  let artPromise;
+  const art = () => artPromise ??= artLibrary ? Promise.resolve(artLibrary) : readFile(new URL('../catalog/art-manifest.json',import.meta.url),'utf8').then(text=>createArtLibrary(JSON.parse(text),{base:fileURLToPath(new URL('../',import.meta.url))}));
   if (sessions !== undefined) {
     if (!publicOrigin || authenticate !== undefined || !sessions || ['login','authenticate','check','logout'].some(key=>typeof sessions[key]!=='function')) throw new Error('Сессии требуют HTTPS origin и отдельный доверенный провайдер');
     authenticate=request=>sessions.authenticate(cookieToken(request.headers.cookie));
@@ -47,6 +52,22 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
       if (![ `localhost:${port}`, `127.0.0.1:${port}` ].includes(host)) throw new AppError(403, 'Доступ только с локального адреса');
       if (request.headers.origin && request.headers.origin !== `http://${host}` && request.headers.origin !== publicOrigin) throw new AppError(403, 'Запрос с другого сайта запрещён');
       const pathname = new URL(request.url, `http://${host}`).pathname;
+      if(pathname.startsWith('/art/common/')) {
+        if(authenticate){
+          const identity=await authenticate(request);
+          if(typeof identity!=='string'||!identity)throw new AppError(401,'Нужен индивидуальный вход');
+          store.access.user(identity);
+        }
+        if(!['GET','HEAD'].includes(request.method))return json(response,405,{error:'Метод не поддерживается'},{Allow:'GET, HEAD'});
+        const image=(await art()).read(pathname);
+        if(!image)return json(response,404,{error:'Изображение не найдено'});
+        // Revalidation happens behind authentication, even for conditional GET.
+        // Browser offline storage will be explicit and limited to common art.
+        const headers={'Content-Type':image.type,'Cache-Control':'private, max-age=0, must-revalidate','X-Content-Type-Options':'nosniff','ETag':image.etag,'Vary':'Cookie'};
+        if(request.headers['if-none-match']===image.etag){response.writeHead(304,headers);return response.end();}
+        response.writeHead(200,{...headers,'Content-Length':image.bytes.length});
+        return response.end(request.method==='HEAD'?undefined:image.bytes);
+      }
       if (pathname.startsWith('/api/')) {
         if (sessions && !['GET','HEAD'].includes(request.method)) {
           if(request.headers.origin!==publicOrigin || request.headers['x-skaz-client']!=='local-v1')throw new AppError(403,'Нужен запрос из приложения');
@@ -87,6 +108,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           return json(response,405,{error:'Метод не поддерживается'},{Allow:'GET, POST'});
         }
         if (request.method === 'GET') {
+          if (pathname === '/api/art') return json(response,200,(await art()).index());
           if (pathname === '/api/health') return json(response, 200, { status: 'ok', mode: authenticate ? individualWrites ? 'individual' : 'individual-read-only' : publicOrigin ? 'private-server' : 'local', storage: 'sqlite' });
           if (pathname === '/api/proposals') return json(response, 200, view.proposals());
           if (pathname === '/api/places') return json(response, 200, view.places());
