@@ -5,7 +5,7 @@ import {randomUUID} from 'node:crypto';
 import {readFileSync,mkdtempSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
-import {createPersonalArtStore} from '../server/personal-art-store.mjs';
+import {createPersonalArtStore,personalArtRetentionMs} from '../server/personal-art-store.mjs';
 import {normalizePersonalArt} from '../server/personal-art-image.mjs';
 import {openStore} from '../server/store.mjs';
 
@@ -62,10 +62,58 @@ test('quota includes retained versions; failed update leaves no receipt or parti
  assert.throws(()=>alice.change(command({expectedRevision:2,action:'restore',bytes:undefined,targetRevision:1})),{status:409});
  assert.equal(alice.read(characterId,catalogId).revision,2);
 });
-test('version quota also bounds reset-only commands and cross-character usage',t=>{
+test('full image quota still allows reset; repeated standard resets consume no rows',t=>{
  const {alice}=fixture(t,{limits:{bytes:1000000,versions:1}});
- alice.change(command({action:'reset',bytes:undefined}));
- assert.throws(()=>alice.change(command({characterId:'character-two',action:'reset',bytes:undefined})),{status:409});
+ const reset=command({expectedRevision:1,action:'reset',bytes:undefined});
+ alice.change(command());assert.equal(alice.change(reset).standard,true);
+ assert.equal(alice.change(reset).replayed,true);
+ for(let i=0;i<20;i++)assert.equal(alice.change(command({expectedRevision:2,action:'reset',bytes:undefined})).unchanged,true);
+ for(let i=0;i<20;i++)assert.equal(alice.change(command({expectedRevision:2,action:'restore',bytes:undefined,targetRevision:2})).unchanged,true);
+ assert.equal(alice.history(characterId,catalogId).length,2);
+ assert.equal(alice.change(command({characterId:'character-two',action:'reset',bytes:undefined})).revision,0);
+ assert.throws(()=>alice.change(command({characterId:'character-two'})),{status:409});
+});
+
+test('cleanup expires only old history, retains current tombstone and rejects expired retries',t=>{
+ let time=Date.UTC(2026,0,1);const {alice}=fixture(t,{now:()=>time,limits:{versions:1}});
+ const original=command();alice.change(original);
+ alice.change(command({expectedRevision:1,action:'reset',bytes:undefined}));
+ time+=personalArtRetentionMs;
+ assert.equal(alice.cleanup(characterId,catalogId).removed,0);
+ time++;
+ assert.equal(alice.cleanup(characterId,catalogId).removed,1);
+ assert.equal(alice.read(characterId,catalogId).revision,2);
+ assert.throws(()=>alice.change(original),{status:409});
+ assert.throws(()=>alice.change(command({expectedRevision:2,action:'restore',bytes:undefined,targetRevision:1})),{status:404});
+ assert.equal(alice.change(command({expectedRevision:2})).revision,3);
+ assert.equal(alice.history(characterId,catalogId).length,2);
+});
+
+test('cleanup cannot remove current art or act on another actor, character or revoked grant',t=>{
+ let time=Date.UTC(2026,0,1);const f=fixture(t,{now:()=>time});
+ f.alice.change(command());f.boris.change(command());
+ f.alice.change(command({characterId:'character-two'}));
+ f.alice.change(command({expectedRevision:1,action:'reset',bytes:undefined}));
+ time+=personalArtRetentionMs+1;
+ assert.equal(f.alice.cleanup(characterId,catalogId).removed,1);
+ assert.equal(f.boris.read(characterId,catalogId).standard,false);
+ assert.equal(f.alice.cleanup('character-two',catalogId).removed,0);
+ assert.equal(f.alice.read('character-two',catalogId).standard,false);
+ f.readonly();assert.throws(()=>f.alice.cleanup(characterId,catalogId),{status:404});
+ f.grants.delete('alice/character-one');assert.throws(()=>f.alice.cleanup(characterId,catalogId),{status:404});
+});
+
+test('current version stays protected by quota; binding limit never prevents reset',t=>{
+ let time=Date.UTC(2026,0,1);const {alice}=fixture(t,{now:()=>time,limits:{versions:1,bindings:1}});
+ alice.change(command());time+=personalArtRetentionMs+1;
+ // Latest image remains protected even when old, so replacing it needs room.
+ assert.throws(()=>alice.change(command({expectedRevision:1})),{status:409});
+ assert.equal(alice.history(characterId,catalogId).length,1);
+ alice.change(command({expectedRevision:1,action:'reset',bytes:undefined}));
+ assert.equal(alice.cleanup(characterId,catalogId).removed,0);
+ time+=personalArtRetentionMs+1;assert.equal(alice.cleanup(characterId,catalogId).removed,1);
+ assert.throws(()=>alice.change(command({characterId:'character-two'})),{status:409});
+ assert.equal(alice.change(command({expectedRevision:2})).revision,3);
 });
 test('corrupt or missing stored bytes fail explicitly, and a reset still recovers standard art',t=>{
  const {alice,db}=fixture(t);alice.change(command());
@@ -82,6 +130,8 @@ test('invalid input, catalog IDs and unknown fields do not write anything',t=>{
 });
 test('SQLite online backup transfers normalized bytes, history and replay receipts together',async t=>{
  const f=fixture(t),c=command();f.alice.change(c);
+ const transferred={characterId:'character-two',mutationId:randomUUID(),expectedRevisions:{[catalogId]:0},bundle:f.alice.exportCharacter(characterId)};
+ f.alice.importCharacter(transferred);
  f.alice.change(command({expectedRevision:1,action:'reset',bytes:undefined}));
  const dir=mkdtempSync(join(tmpdir(),'skaz-personal-art-'));let restored;t.after(()=>{restored?.close();rmSync(dir,{recursive:true,force:true});});
  const path=join(dir,'backup.sqlite');await backup(f.db,path);
@@ -89,6 +139,8 @@ test('SQLite online backup transfers normalized bytes, history and replay receip
  const user=createPersonalArtStore(restored,f.adapters).forUser('alice');
  assert.deepEqual(user.history(characterId,catalogId),f.alice.history(characterId,catalogId));
  assert.equal(user.change(c).replayed,true);
+ assert.equal(user.importCharacter(transferred).replayed,true);
+ assert.deepEqual(user.read('character-two',catalogId,'master').file.bytes,normalizePersonalArt(source).files.master.bytes);
  user.change(command({expectedRevision:2,action:'restore',bytes:undefined,targetRevision:1}));
  assert.deepEqual(user.read(characterId,catalogId,'master').file.bytes,normalizePersonalArt(source).files.master.bytes);
  assert.equal(restored.prepare('PRAGMA integrity_check').get().integrity_check,'ok');
@@ -111,4 +163,84 @@ test('real campaign grants and account disabling are checked on every stored-art
  assert.equal(art.read(ctx.characterId,catalogId).revision,1);
  game.access.apply({action:'set-enabled',userId:otherId,enabled:false});assert.throws(()=>art.history(ctx.characterId,catalogId),{status:404});
  assert.deepEqual(db.prepare('PRAGMA foreign_key_check').all(),[]);
+});
+
+test('personal companion transfer copies only current owned images to explicitly chosen character',t=>{
+ const {alice,boris}=fixture(t);alice.change(command());
+ boris.change(command({catalogId:'srd51:2014:spell:aid'}));
+ const bundle=alice.exportCharacter(characterId);
+ assert.deepEqual(bundle.entries.map(e=>e.catalogId),[catalogId]);
+ const request={characterId:'character-two',mutationId:randomUUID(),expectedRevisions:{[catalogId]:0},bundle};
+ alice.importCharacter(request);
+ assert.deepEqual(alice.read('character-two',catalogId,'master').file.bytes,alice.read(characterId,catalogId,'master').file.bytes);
+ assert.equal(alice.importCharacter(request).replayed,true);
+ assert.throws(()=>alice.importCharacter({...request,bundle:{...bundle,entries:[]},expectedRevisions:{}}),{status:409});
+ assert.equal(alice.read(characterId,catalogId).revision,1);
+ alice.change(command({expectedRevision:1,action:'reset',bytes:undefined}));
+ assert.equal(alice.exportCharacter(characterId).entries.length,0);
+});
+
+test('multi-image transfer rolls back all preceding images and receipts on a later conflict',t=>{
+ const {alice,db}=fixture(t),aid='srd51:2014:spell:aid';
+ alice.change(command());alice.change(command({catalogId:aid}));
+ const bundle=alice.exportCharacter(characterId);
+ alice.change(command({characterId:'character-two'}));
+ const request={characterId:'character-two',mutationId:randomUUID(),expectedRevisions:{[aid]:0,[catalogId]:0},bundle};
+ assert.throws(()=>alice.importCharacter(request),{status:409});
+ assert.equal(alice.read('character-two',aid).revision,0);
+ assert.equal(db.prepare('SELECT count(*) AS n FROM personal_art_imports').get().n,0);
+ request.expectedRevisions[catalogId]=1;
+ assert.equal(alice.importCharacter(request).entries.length,2);
+ assert.equal(alice.read('character-two',aid).revision,1);
+});
+
+test('transfer rejects missing catalog, bad SHA, unknown fields, malformed base64 and corrupt exports',t=>{
+ const {alice,db}=fixture(t);alice.change(command());const original=alice.exportCharacter(characterId);
+ const send=bundle=>alice.importCharacter({characterId:'character-two',mutationId:randomUUID(),expectedRevisions:Object.fromEntries(bundle.entries.map(e=>[e.catalogId,0])),bundle});
+ for(const edit of [b=>b.entries.push({...b.entries[0]}),b=>b.entries[0].sha256='0'.repeat(64),b=>b.entries[0].png+='\n',b=>b.entries[0].url='https://invalid.test',b=>b.ruleset='5e-2024']){
+  const b=structuredClone(original);edit(b);assert.throws(()=>send(b),{status:422});
+ }
+ const missing=structuredClone(original);missing.entries[0].catalogId='missing-entry';assert.throws(()=>send(missing),{status:404});
+ assert.equal(alice.read('character-two',catalogId).revision,0);
+ db.prepare('UPDATE personal_art_versions SET master=?').run(Buffer.from('missing'));
+ assert.throws(()=>alice.exportCharacter(characterId),{status:409});
+});
+
+test('transfer replay rechecks access and cannot acquire source identity from the bundle',t=>{
+ const f=fixture(t);f.alice.change(command());const bundle=f.alice.exportCharacter(characterId);
+ const request={characterId:'character-two',mutationId:randomUUID(),expectedRevisions:{[catalogId]:0},bundle};f.alice.importCharacter(request);
+ assert.throws(()=>f.boris.importCharacter(request),{status:404});
+ f.grants.delete('alice/character-two');assert.throws(()=>f.alice.importCharacter(request),{status:404});
+ assert.throws(()=>f.alice.exportCharacter('character-two'),{status:404});
+ f.grants.add('alice/character-two');f.readonly();assert.throws(()=>f.alice.importCharacter(request),{status:404});
+});
+
+test('expired batch receipts cannot replay an import after its images were reset and pruned',t=>{
+ let time=Date.UTC(2026,0,1);const {alice,db}=fixture(t,{now:()=>time});
+ alice.change(command());const bundle=alice.exportCharacter(characterId);
+ const request={characterId:'character-two',mutationId:randomUUID(),expectedRevisions:{[catalogId]:0},bundle};
+ alice.importCharacter(request);
+ alice.change(command({characterId:'character-two',expectedRevision:1,action:'reset',bytes:undefined}));
+ time+=personalArtRetentionMs+1;
+ alice.cleanup('character-two',catalogId);
+ const aid='srd51:2014:spell:aid',other=structuredClone(bundle);other.entries[0].catalogId=aid;
+ alice.importCharacter({characterId:'character-two',mutationId:randomUUID(),expectedRevisions:{[aid]:0},bundle:other});
+ assert.equal(db.prepare('SELECT count(*) AS n FROM personal_art_imports WHERE mutation_id=?').get(request.mutationId).n,0);
+ assert.throws(()=>alice.importCharacter(request),{status:409});
+ assert.equal(alice.read('character-two',catalogId).revision,2);
+ assert.equal(alice.read('character-two',catalogId).standard,true);
+});
+
+test('failed quota check restores history deleted earlier in the same transaction',t=>{
+ let time=Date.UTC(2026,0,1);
+ const small=normalizePersonalArt(source),cost=Object.values(small.files).reduce((n,f)=>n+f.bytes.length,0);
+ const big=readFileSync(new URL('../'+manifest.entries[0].files.original.path,import.meta.url));
+ const large=normalizePersonalArt(big);assert.ok(Object.values(large.files).reduce((n,f)=>n+f.bytes.length,0)>cost*2);
+ const {alice}=fixture(t,{now:()=>time,limits:{bytes:cost*2,versions:10}});
+ alice.change(command());alice.change(command({expectedRevision:1}));
+ time+=personalArtRetentionMs+1;
+ const before=alice.history(characterId,catalogId);
+ assert.throws(()=>alice.change(command({expectedRevision:2,bytes:big})),{status:409});
+ assert.deepEqual(alice.history(characterId,catalogId),before);
+ assert.equal(alice.cleanup(characterId,catalogId).removed,1);
 });

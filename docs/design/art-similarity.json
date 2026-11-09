@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 161,
+  "count": 179,
   "pairs": [
     {
       "ids": [
@@ -366,6 +366,11 @@
       "light": "50930f6c7832f2e6"
     },
     {
+      "id": "srd51:2014:monster:bugbear",
+      "dark": "44070ffe34083ff4",
+      "light": "7ef09503835cd42e"
+    },
+    {
       "id": "srd51:2014:monster:camel",
       "dark": "501e3263696b6dd2",
       "light": "27c04996bc85dbc9"
@@ -381,6 +386,16 @@
       "light": "6de5da0abc508a0f"
     },
     {
+      "id": "srd51:2014:monster:cloud-giant",
+      "dark": "414d373e64b11ee4",
+      "light": "3a94a10bce538de6"
+    },
+    {
+      "id": "srd51:2014:monster:commoner",
+      "dark": "414f3fcc3c986439",
+      "light": "3ca5c3c2960fc91b"
+    },
+    {
       "id": "srd51:2014:monster:crab",
       "dark": "51c62f39308dc3e6",
       "light": "6e3b908cc9726c87"
@@ -389,6 +404,11 @@
       "id": "srd51:2014:monster:cult-fanatic",
       "dark": "590d3df264996623",
       "light": "2fe5d20ebc588839"
+    },
+    {
+      "id": "srd51:2014:monster:cultist",
+      "dark": "410f763c18f911af",
+      "light": "2df583169c0bf90a"
     },
     {
       "id": "srd51:2014:monster:dire-wolf",
@@ -414,6 +434,11 @@
       "id": "srd51:2014:monster:elk",
       "dark": "5217616a1e920fed",
       "light": "29da9ee4c361f049"
+    },
+    {
+      "id": "srd51:2014:monster:ettin",
+      "dark": "43072ef83df83c84",
+      "light": "6a9885079737d26a"
     },
     {
       "id": "srd51:2014:monster:fire-elemental",
@@ -481,6 +506,16 @@
       "light": "6ad09517872d9c78"
     },
     {
+      "id": "srd51:2014:monster:hobgoblin",
+      "dark": "400f37e00fbc7a35",
+      "light": "3da4c247b64ae11e"
+    },
+    {
+      "id": "srd51:2014:monster:iron-golem",
+      "dark": "4c0f0afe7075093d",
+      "light": "76f4a30fab0ad058"
+    },
+    {
       "id": "srd51:2014:monster:knight",
       "dark": "501e3ce029bb6733",
       "light": "2fe542c8949aeb91"
@@ -504,6 +539,16 @@
       "id": "srd51:2014:monster:octopus",
       "dark": "414703a63ebd3e1c",
       "light": "3eb0b14bc94b884f"
+    },
+    {
+      "id": "srd51:2014:monster:ogre",
+      "dark": "404009bf27a77f1e",
+      "light": "3eb4b850c34be50e"
+    },
+    {
+      "id": "srd51:2014:monster:orc",
+      "dark": "432f15707a063ef2",
+      "light": "7af0b207a14bc32d"
     },
     {
       "id": "srd51:2014:monster:owl",
@@ -546,6 +591,11 @@
       "light": "69a1d686e616985e"
     },
     {
+      "id": "srd51:2014:monster:storm-giant",
+      "dark": "450b0ff43cb678a1",
+      "light": "6eb4c1038b5fd05c"
+    },
+    {
       "id": "srd51:2014:monster:water-elemental",
       "dark": "405b0fad3cd269ac",
       "light": "6794c0d28b2d96ce"
@@ -586,6 +636,31 @@
       "light": "66c6c930cacb389b"
     },
     {
+      "id": "srd51:2014:spell:animate-dead",
+      "dark": "40e44b13279f333e",
+      "light": "3a13e5c8d8678dc8"
+    },
+    {
+      "id": "srd51:2014:spell:animate-objects",
+      "dark": "46d03b2f6d1ab2b0",
+      "light": "390bc4f4b6874d4a"
+    },
+    {
+      "id": "srd51:2014:spell:arcane-eye",
+      "dark": "4fc76c383266838d",
+      "light": "656cc793188f61cc"
+    },
+    {
+      "id": "srd51:2014:spell:arcane-lock",
+      "dark": "423f3cc9c9983167",
+      "light": "69c1a667c61e929c"
+    },
+    {
+      "id": "srd51:2014:spell:bane",
+      "dark": "04b735e76c4d4358",
+      "light": "6b489eb0a4b2b32d"
+    },
+    {
       "id": "srd51:2014:spell:barkskin",
       "dark": "461f61473af04fc8",
       "light": "79c09cb2c73bb025"
@@ -621,9 +696,19 @@
       "light": "6a6cc7a4941e56d2"
     },
     {
+      "id": "srd51:2014:spell:calm-emotions",
+      "dark": "4170272d7a9d69d2",
+      "light": "3c33c2c28f9fc20d"
+    },
+    {
       "id": "srd51:2014:spell:chain-lightning",
       "dark": "451471e35e78175a",
       "light": "7e569b1aa5a0a9a1"
+    },
+    {
+      "id": "srd51:2014:spell:charm-person",
+      "dark": "4d393ac6a5e91a26",
+      "light": "26c2903d4fb2ecca"
     },
     {
       "id": "srd51:2014:spell:chill-touch",
@@ -634,6 +719,11 @@
       "id": "srd51:2014:spell:cloudkill",
       "dark": "40cf3f3930736686",
       "light": "6ec4851f923bc2e4"
+    },
+    {
+      "id": "srd51:2014:spell:command",
+      "dark": "61e03c3c1acfc792",
+      "light": "1a25c3eabd32a9c8"
     },
     {
       "id": "srd51:2014:spell:comprehend-languages",

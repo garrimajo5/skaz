@@ -1,0 +1,44 @@
+{
+  "batch": "production-v35",
+  "entries": [
+    {
+      "id": "srd51:2014:spell:animate-dead",
+      "sourcePath": "data/art-production-v35/animate-dead.png",
+      "sourceSha256": "3f41be8ef378b214837094ba034e724198c4445403242f8b9edb791e0583ec9b",
+      "brief": "ONE square original painterly fantasy spell icon for SKAZ, broad sculpted brush shapes, strong readable 32 px silhouette, moderate detail, warm upper-left light, TRUE TRANSPARENT background. ANIMATE DEAD: a single pale humanoid skull and one skeletal hand rising together, lifted by a narrow curling violet necromantic ribbon. The skull faces three-quarter toward viewer, hollow dark sockets with a tiny dim violet light, skeletal fingers naturally curl upward, exactly one hand. Bone color dominant, dark violet accent. Clearly animated skeletal remains, not a living resurrection or healing. No graveyard or ground, no blood, no severed flesh, no text or frame. Compact isolated composition with transparent margins.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:spell:animate-objects",
+      "sourcePath": "data/art-production-v35/animate-objects.png",
+      "sourceSha256": "4555969a9f87d521ee9ecf5e3f0149063db6961e8b6d981e73d8cad21c229520",
+      "brief": "ONE square original painterly fantasy spell icon for SKAZ, broad sculpted brush shapes, strong readable 32 px silhouette, moderate detail, warm upper-left light, TRUE TRANSPARENT background. ANIMATE OBJECTS: three clearly separate ordinary objects floating in a tight circular arrangement: a small wooden chair tilted dynamically, a plain pewter cup and a brass key. A single thin amber magical ribbon curves between them to imply they have come alive. No limbs or faces added to the objects, no hand controlling them, no telekinetic eye. Chair is the largest object, compact clear silhouette, ample empty margin. No scene, no ground, no text, no frame.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09",
+      "edits": [
+        {
+          "prompt": "Remove ALL white, grey, cream background and glow haze from this exact Animate Objects icon. Make every gap between the chair, cup, key and thin golden ribbon fully transparent, including gaps through the chair back and legs and through key handle. Preserve the three original objects, their shapes, painterly texture, placement and thin golden ribbon. Only the objects and thin ribbon may remain opaque; no soft haze or painted background whatsoever. Keep the whole composition centered inside generous transparent margins. No new objects, text or frame.",
+          "inputSha256": "803272cd2e2472934f740653dfd0cca1ad6178c14d008f85c9fa705dfc6e2a27",
+          "input": "data/art-production-v35/animate-objects-rejected.png"
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:arcane-eye",
+      "sourcePath": "data/art-production-v35/arcane-eye.png",
+      "sourceSha256": "a817ca5dc2320133ecaedc57b8569e7679c9d09b87712bef9f6987713d01a371",
+      "brief": "ONE square original painterly fantasy spell icon for SKAZ, broad sculpted brush shapes, strong readable 32 px silhouette, moderate detail, warm upper-left light, TRUE TRANSPARENT background. ARCANE EYE: one floating translucent spherical magical eye, big iris of pale cyan and a clear dark pupil. Two thin curved orbital trails pass behind the eyeball, suggesting remote all-direction scouting, with a small tapering wisp beneath. The eye is magical blue-grey glass with dark readable edges, not a bloody anatomical eyeball. No eyelids, no face, no tentacles, no laser beam, no wings. Sphere occupies about 65 percent of square with generous empty margins. No text, frame or scenery.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:spell:arcane-lock",
+      "sourcePath": "data/art-production-v35/arcane-lock.png",
+      "sourceSha256": "9073b9be24a54fac616db64c5f2b1d95b76c08cecd4023cb1b02a931faffdf84",
+      "brief": "ONE square original painterly fantasy spell icon for SKAZ, broad sculpted brush shapes, strong readable 32 px silhouette, moderate detail, warm upper-left light, TRUE TRANSPARENT background. ARCANE LOCK: one heavy antique brass padlock closed firmly, front three-quarter view, with a bright pale blue magical seal wrapping tightly across its body and shackle like two crossing smooth bands. Keyhole remains clearly visible as a dark shape. Brass and cool cyan restrained palette, large compact central object, no floating keys, no runic letters, no chains outside the lock, no door background. Generous transparent margins, no text, no frame, no scenery.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "batch": "production-v37",
+  "entries": [
+    {
+      "id": "srd51:2014:monster:commoner",
+      "sourcePath": "data/art-production-v37/commoner.png",
+      "sourceSha256": "7c1c39842a4bc4d401da5b9949c9cb23c662788a469b59d2ad13df5142825c4b",
+      "brief": "ONE square original painterly fantasy bestiary portrait for SKAZ, restrained encyclopedia, broad sculpted brush shapes clearly readable at 40 px, moderate detail, warm upper-left light and cool shadows. COMMONER: a mature human village woman with sun-weathered tan skin, brown eyes, dark hair loosely tied beneath a simple linen headscarf, plain worn earth-brown wool tunic and cream linen collar. Honest attentive expression, no glamour. A plain short wooden club tucked beside her shoulder, no armor or magical equipment. Head and shoulders, entire head fully inside generous transparent margins, compact rounded silhouette for a token. TRUE TRANSPARENT background. No scenery, no text, no letters, no border or frame.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:cultist",
+      "sourcePath": "data/art-production-v37/cultist.png",
+      "sourceSha256": "7fd95c5b912095e2a35b0492ecb681d53817f6e858f6c060e0092f208ae605b8",
+      "brief": "ONE square original painterly fantasy bestiary portrait for SKAZ, restrained encyclopedia, broad sculpted brush shapes clearly readable at 40 px, moderate detail, warm upper-left light and cool shadows. CULTIST, an ordinary non-spellcasting human sect member: narrow pale middle-aged face, focused unsettling eyes, stubble, charcoal cloth hood with muted burgundy lining, plain leather armor visible at shoulders. Hilt of a simple curved scimitar beside one shoulder. Human face readable in hood, no supernatural eyes, no spell effect, no glowing magic, no horns, no crown, no real-world religious insignia. Isolated head and shoulders entirely inside generous transparent margin, compact token silhouette. TRUE TRANSPARENT background, no scenery, text, letters, border or frame.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    }
+  ]
+}
