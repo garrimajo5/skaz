@@ -3,6 +3,9 @@ const SkazArt=(()=>{
  const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  let pendingIndex,indexLoading=false,retryAfter=0;
  const failed=new Set();
+ let closed=false,cacheGeneration=0;
+ const objectUrls=new Map();
+ const cache=(()=>{try{return typeof createSkazArtCache==='function'?createSkazArtCache({storage:globalThis.caches,locks:globalThis.navigator?.locks,identity:typeof SkazAccount!=='undefined'?SkazAccount.userId||'local':'local',origin:location.origin}):null;}catch{return null;}})();
  async function index(){
   if(!pendingIndex&&Date.now()<retryAfter)return null;
   if(!pendingIndex){indexLoading=true;pendingIndex=fetch('/api/art',{cache:'no-store',signal:AbortSignal.timeout(10000)}).then(async response=>{
@@ -28,20 +31,36 @@ const SkazArt=(()=>{
   return `<span class="skaz-art skaz-art-${size}" data-skaz-art="${escape(entry.id)}" data-art-role="${size}" aria-hidden="true"><span class="skaz-art-fallback">${symbol}</span></span>`;
  }
  async function hydrate(node){
-  const entries=await index();if(!node.isConnected)return;
+  const generation=cacheGeneration;
+  const entries=await index();if(closed||!node.isConnected)return;
   if(!entries){failed.add(node);return;}
   const item=entries.get(node.dataset.skazArt),file=item?.files[node.dataset.artRole];if(!file)return;
   const img=document.createElement('img');img.alt='';img.width=file.width;img.height=file.height;img.loading='lazy';img.decoding='async';
   img.addEventListener('load',()=>node.classList.add('skaz-art-loaded'),{once:true});
-  img.addEventListener('error',()=>{node.classList.remove('skaz-art-loaded');img.remove();if(node.isConnected)failed.add(node);},{once:true});
-  img.src=file.url;node.append(img);
+  img.addEventListener('error',()=>{node.classList.remove('skaz-art-loaded');img.remove();const url=objectUrls.get(node);if(url){URL.revokeObjectURL(url);objectUrls.delete(node);}void cache?.remove(file.url);if(node.isConnected)failed.add(node);},{once:true});
+  let blob=null;
+  if(cache&&node.dataset.artRole==='thumbnail'){
+   blob=await cache.get(file.url);
+   if(!blob&&!closed){
+    try{const response=await fetch(file.url,{cache:'no-store',signal:AbortSignal.timeout(10000)});
+     if([401,403].includes(response.status)){await response.body?.cancel();if(typeof SkazAccount!=='undefined'&&SkazAccount.userId)SkazAccount.lock();else lock();return;}
+     if(response.ok&&response.headers.get('Content-Type')?.split(';')[0]==='image/png'){
+      const candidate=await response.blob();if(candidate.size<=32768){blob=candidate;if(generation===cacheGeneration)await cache.put(file.url,blob);}
+     }else await response.body?.cancel();
+    }catch{}
+   }
+  }
+  if(closed||!node.isConnected)return;
+  if(blob){const url=URL.createObjectURL(blob);objectUrls.set(node,url);img.src=url;}else img.src=file.url;
+  node.append(img);
  }
  const seen=new WeakSet(),watching=new Set();
  const visibility=typeof IntersectionObserver==='function'?new IntersectionObserver(entries=>{
   for(const entry of entries)if(entry.isIntersecting){visibility.unobserve(entry.target);watching.delete(entry.target);hydrate(entry.target);}
  },{rootMargin:'80px'}):null;
  function scan(){
-  if(location.protocol==='file:')return;
+  for(const [node,url] of objectUrls)if(!node.isConnected){URL.revokeObjectURL(url);objectUrls.delete(node);}
+  if(closed||location.protocol==='file:')return;
   for(const node of failed)if(!node.isConnected)failed.delete(node);
   for(const node of watching)if(!node.isConnected){visibility.unobserve(node);watching.delete(node);}
   for(const node of document.querySelectorAll('[data-skaz-art]'))if(node.isConnected&&!seen.has(node)){seen.add(node);if(visibility){watching.add(node);visibility.observe(node);}else hydrate(node);}
@@ -56,5 +75,7 @@ const SkazArt=(()=>{
   let queued=false;
   new MutationObserver(()=>{if(!queued){queued=true;queueMicrotask(()=>{queued=false;scan();});}}).observe(document.body,{childList:true,subtree:true});
  }
- return {markup};
+ async function clearCache(){cacheGeneration++;return cache?cache.clear():false;}
+ function lock(){closed=true;pendingIndex=null;failed.clear();for(const url of objectUrls.values())URL.revokeObjectURL(url);objectUrls.clear();void cache?.clear({lock:true});}
+ return {markup,clearCache,cacheStats:async()=>cache?cache.stats():null,lock};
 })();

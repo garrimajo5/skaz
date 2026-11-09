@@ -8,6 +8,7 @@ const SkazAccount=(()=>{
  const code=document.getElementById?.('account-user-code');if(code)code.textContent=userId;
  const nativeFetch=window.fetch.bind(window);let locked=false;
  function lock(message='Сеанс изменился. Открой приложение заново, чтобы продолжить.'){
+  if(typeof SkazArt!=='undefined')SkazArt.lock();
   locked=true;document.body.replaceChildren();
   const box=document.createElement('main');box.className='account-card';
   const title=document.createElement('h1');title.textContent='Сеанс закрыт';

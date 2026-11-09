@@ -16,8 +16,8 @@ test('account adapter pins every API request to server identity and locks on 401
  assert.equal(c.api.prefix('pending'),'skaz-user-v1:alice-user:pending:');assert.equal(c.api.prefix('entity-form'),'skaz-user-v1:alice-user:entity-form:');
 });
 test('cross-tab sign-in hides old DOM and discards an in-flight response',async()=>{
- let deliver;const c=client(()=>new Promise(resolve=>deliver=resolve));const pending=c.context.window.fetch('/api/workspace');
- c.events.storage({key:'skaz-auth-change'});assert.equal(c.body.cleared,true);deliver(new Response('{}'));await assert.rejects(pending);
+ let deliver,artLocked=false;const c=client(()=>new Promise(resolve=>deliver=resolve));c.context.SkazArt={lock:()=>{artLocked=true;}};const pending=c.context.window.fetch('/api/workspace');
+ c.events.storage({key:'skaz-auth-change'});assert.equal(c.body.cleared,true);assert.equal(artLocked,true);deliver(new Response('{}'));await assert.rejects(pending);
 });
 
 test('restored history document and withdrawn hero hide the old interface',async()=>{

@@ -3,15 +3,33 @@ const source=await readFile(new URL('../client/art.js',import.meta.url),'utf8');
 const file={url:'/art/common/'+'a'.repeat(64)+'.png',width:96,height:48};
 const index={schemaVersion:1,entries:[{id:'spell-a',files:{thumbnail:file,card:{...file,width:384,height:192}}}]};
 const settle=()=>new Promise(resolve=>setImmediate(resolve));
-function harness(data=index,protocol='http:'){
+function harness(data=index,protocol='http:',cache=null,imageFetch=null){
  const nodes=[],observed=[],requests=[],images=[],events={};let mutation,visibility,networkError=false;
- const context=vm.createContext({location:{protocol},AbortSignal,queueMicrotask,addEventListener:(type,fn)=>events[type]=fn,fetch:async(...args)=>{requests.push(args);if(networkError)throw Error('Network unavailable');return {ok:true,json:async()=>data};},
+ const context=vm.createContext({location:{protocol},AbortSignal,queueMicrotask,URL:{createObjectURL:()=> 'blob:test',revokeObjectURL(){}},...(cache?{createSkazArtCache:()=>cache}:{}),addEventListener:(type,fn)=>events[type]=fn,fetch:async(...args)=>{requests.push(args);if(args[0].startsWith('/art/')&&imageFetch)return imageFetch();if(networkError)throw Error('Network unavailable');return {ok:true,json:async()=>data};},
   MutationObserver:class{constructor(fn){mutation=fn;}observe(){}},IntersectionObserver:class{constructor(fn){visibility=fn;}observe(node){observed.push(node);}unobserve(){}},
   document:{body:{},querySelectorAll:()=>nodes,createElement:()=>{const image={handlers:{},addEventListener(type,fn){this.handlers[type]=fn;},remove(){this.removed=true;}};images.push(image);return image;}}
  });vm.runInContext(source,context);
  const api=vm.runInContext('SkazArt',context);
  return {api,requests,images,observed,offline:value=>networkError=value,online:()=>events.online(),scan:()=>mutation(),visible:node=>visibility([{target:node,isIntersecting:true}]),node(id='spell-a',role='thumbnail'){const classes=new Set(),node={dataset:{skazArt:id,artRole:role},isConnected:true,classList:{add:x=>classes.add(x),remove:x=>classes.delete(x)},classes,children:[],append(child){this.children.push(child);}};nodes.push(node);return node;}};
 }
+
+test('cached thumbnail avoids image network and decoding errors evict it',async()=>{
+ const removed=[],cache={get:async()=>new Blob(['png']),remove:async url=>removed.push(url),clear:async()=>true};
+ const h=harness(index,'http:',cache),node=h.node();h.visible(node);await settle();
+ assert.equal(node.children[0].src,'blob:test');assert.equal(h.requests.length,1);
+ node.children[0].handlers.error();await settle();assert.deepEqual(removed,[file.url]);
+});
+test('manual clear during a fetch cannot silently repopulate the cache',async()=>{
+ let deliver,puts=0;const cache={get:async()=>null,put:async()=>puts++,clear:async()=>true};
+ const h=harness(index,'http:',cache,()=>new Promise(resolve=>deliver=resolve)),node=h.node();h.visible(node);await settle();
+ await h.api.clearCache();deliver({ok:true,status:200,headers:new Headers({'Content-Type':'image/png'}),blob:async()=>new Blob(['png'],{type:'image/png'})});await settle();
+ assert.equal(puts,0);assert.equal(node.children[0].src,'blob:test');
+});
+test('locked page discards pending cached data and clears its cache',async()=>{
+ let deliver,cleared=false;const cache={get:()=>new Promise(resolve=>deliver=resolve),clear:async options=>{cleared=options.lock;}};
+ const h=harness(index,'http:',cache),node=h.node();h.visible(node);await settle();h.api.lock();deliver(new Blob(['png']));await settle();
+ assert.equal(cleared,true);assert.equal(node.children.length,0);
+});
 test('network failure is shared and throttled; reconnect retries failed visible slots without reloading',async()=>{
  const h=harness(),a=h.node(),b=h.node();h.offline(true);h.scan();await settle();h.visible(a);h.visible(b);await settle();assert.equal(h.requests.length,1);assert.equal(h.images.length,0);
  const c=h.node();h.scan();await settle();h.visible(c);await settle();assert.equal(h.requests.length,1);
