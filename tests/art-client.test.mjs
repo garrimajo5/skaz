@@ -4,14 +4,25 @@ const file={url:'/art/common/'+'a'.repeat(64)+'.png',width:96,height:48};
 const index={schemaVersion:1,entries:[{id:'spell-a',files:{thumbnail:file,card:{...file,width:384,height:192}}}]};
 const settle=()=>new Promise(resolve=>setImmediate(resolve));
 function harness(data=index,protocol='http:'){
- const nodes=[],observed=[],requests=[],images=[];let mutation,visibility;
- const context=vm.createContext({location:{protocol},AbortSignal,queueMicrotask,fetch:async(...args)=>{requests.push(args);return {ok:true,json:async()=>data};},
+ const nodes=[],observed=[],requests=[],images=[],events={};let mutation,visibility,networkError=false;
+ const context=vm.createContext({location:{protocol},AbortSignal,queueMicrotask,addEventListener:(type,fn)=>events[type]=fn,fetch:async(...args)=>{requests.push(args);if(networkError)throw Error('Network unavailable');return {ok:true,json:async()=>data};},
   MutationObserver:class{constructor(fn){mutation=fn;}observe(){}},IntersectionObserver:class{constructor(fn){visibility=fn;}observe(node){observed.push(node);}unobserve(){}},
   document:{body:{},querySelectorAll:()=>nodes,createElement:()=>{const image={handlers:{},addEventListener(type,fn){this.handlers[type]=fn;},remove(){this.removed=true;}};images.push(image);return image;}}
  });vm.runInContext(source,context);
  const api=vm.runInContext('SkazArt',context);
- return {api,requests,images,observed,scan:()=>mutation(),visible:node=>visibility([{target:node,isIntersecting:true}]),node(id='spell-a',role='thumbnail'){const classes=new Set(),node={dataset:{skazArt:id,artRole:role},isConnected:true,classList:{add:x=>classes.add(x),remove:x=>classes.delete(x)},classes,children:[],append(child){this.children.push(child);}};nodes.push(node);return node;}};
+ return {api,requests,images,observed,offline:value=>networkError=value,online:()=>events.online(),scan:()=>mutation(),visible:node=>visibility([{target:node,isIntersecting:true}]),node(id='spell-a',role='thumbnail'){const classes=new Set(),node={dataset:{skazArt:id,artRole:role},isConnected:true,classList:{add:x=>classes.add(x),remove:x=>classes.delete(x)},classes,children:[],append(child){this.children.push(child);}};nodes.push(node);return node;}};
 }
+test('network failure is shared and throttled; reconnect retries failed visible slots without reloading',async()=>{
+ const h=harness(),a=h.node(),b=h.node();h.offline(true);h.scan();await settle();h.visible(a);h.visible(b);await settle();assert.equal(h.requests.length,1);assert.equal(h.images.length,0);
+ const c=h.node();h.scan();await settle();h.visible(c);await settle();assert.equal(h.requests.length,1);
+ h.offline(false);h.online();assert.equal(h.requests.length,1);h.visible(a);h.visible(b);h.visible(c);await settle();assert.equal(h.requests.length,2);assert.equal(h.images.length,3);
+ h.scan();await settle();assert.equal(h.requests.length,2);
+});
+test('reconnect restores failed images but does not duplicate successful or detached slots',async()=>{
+ const h=harness(),good=h.node(),bad=h.node(),gone=h.node();h.scan();await settle();h.visible(good);h.visible(bad);h.visible(gone);await settle();
+ good.children[0].handlers.load();bad.children[0].handlers.error();gone.children[0].handlers.error();gone.isConnected=false;
+ const count=h.observed.length;h.online();assert.equal(h.observed.length,count+1);assert.equal(h.observed.at(-1),bad);h.visible(bad);await settle();assert.equal(h.images.length,4);assert.equal(good.children.length,1);
+});
 test('decorative slots escape IDs, preserve roles and omit unsupported mechanics',()=>{
  const h=harness();const html=h.api.markup({id:'"><img onerror=bad>',kind:'spell',name:{ru:'Name'}});
  assert.match(html,/&quot;&gt;&lt;img/);assert.match(html,/aria-hidden="true"/);assert.doesNotMatch(html,/<img|Name|onclick/);assert.equal(h.api.markup({id:'m',kind:'mechanic'}),'');assert.match(h.api.markup({id:'a',kind:'item'},'evil'),/data-art-role="thumbnail"/);
