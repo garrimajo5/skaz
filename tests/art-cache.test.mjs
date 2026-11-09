@@ -35,3 +35,12 @@ test('only common PNG thumbnails within the per-file limit can enter storage',as
  assert.equal(await a.put(url(1),new Blob(['svg'],{type:'image/svg+xml'})),false);
  assert.equal(await a.put(url(1),blob(32769)),false);assert.equal((await a.stats()).files,0);
 });
+
+test('a new content hash cannot reuse an old version and clearing one user preserves another',async()=>{
+ const env=environment(),alice=factory(env),bob=factory({...env,identity:'bob-user'});
+ await alice.put(url(1),blob(10));await bob.put(url(1),blob(20));
+ assert.equal(await alice.get(url(2)),null);
+ await alice.put(url(2),blob(15));assert.equal((await alice.get(url(2))).size,15);
+ await alice.clear({lock:true});assert.equal((await bob.get(url(1))).size,20);
+ assert.equal((await factory(env).stats()).files,0);
+});

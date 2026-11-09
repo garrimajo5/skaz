@@ -30,6 +30,22 @@ test('locked page discards pending cached data and clears its cache',async()=>{
  const h=harness(index,'http:',cache),node=h.node();h.visible(node);await settle();h.api.lock();deliver(new Blob(['png']));await settle();
  assert.equal(cleared,true);assert.equal(node.children.length,0);
 });
+
+test('large cards bypass thumbnail storage and keep their direct URL',async()=>{
+ let reads=0,writes=0;const cache={get:async()=>{reads++;return null;},put:async()=>writes++};
+ const h=harness(index,'http:',cache),node=h.node('spell-a','card');h.visible(node);await settle();
+ assert.equal(reads,0);assert.equal(writes,0);assert.equal(h.requests.length,1);
+ assert.equal(node.children[0].width,384);assert.equal(node.children[0].src,file.url);
+});
+
+test('denied thumbnail locks art, clears storage and never falls back to an unauthenticated image',async()=>{
+ for(const status of [401,403]){
+  let cleared=false,cancelled=false;const cache={get:async()=>null,clear:async options=>{cleared=options.lock;}};
+  const h=harness(index,'http:',cache,async()=>({status,body:{cancel:async()=>{cancelled=true;}}}));
+  const node=h.node();h.visible(node);await settle();assert.equal(cleared,true);assert.equal(cancelled,true);assert.equal(node.children.length,0);
+  const next=h.node();h.scan();await settle();assert.equal(h.observed.includes(next),false);
+ }
+});
 test('network failure is shared and throttled; reconnect retries failed visible slots without reloading',async()=>{
  const h=harness(),a=h.node(),b=h.node();h.offline(true);h.scan();await settle();h.visible(a);h.visible(b);await settle();assert.equal(h.requests.length,1);assert.equal(h.images.length,0);
  const c=h.node();h.scan();await settle();h.visible(c);await settle();assert.equal(h.requests.length,1);

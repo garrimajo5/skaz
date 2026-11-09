@@ -2069,6 +2069,402 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-elvenkind",
+      "contentSha256": "3c0dc12037e6cae7c323a6ef4cfd82feb4b9ced648c7312e9a5d930d9eacf162",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 6bc17495644320a5459ae44dd87a42ce26d63c25454a4d334fe2813f3dbe266b",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "6bc17495644320a5459ae44dd87a42ce26d63c25454a4d334fe2813f3dbe266b",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v5.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/cloak-of-elvenkind-original-9fd382ccf1306774.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 121019,
+          "sha256": "9fd382ccf13067746551f343e80add0639f95d820b55d6726a3978d19645f6ee",
+          "derivedFrom": "6bc17495644320a5459ae44dd87a42ce26d63c25454a4d334fe2813f3dbe266b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/cloak-of-elvenkind-thumbnail-aef0902d6aa00423.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9182,
+          "sha256": "aef0902d6aa004239e5f8436aab283c652cf022e7d87b7f0d203c2d56a4c9be8",
+          "derivedFrom": "6bc17495644320a5459ae44dd87a42ce26d63c25454a4d334fe2813f3dbe266b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-the-manta-ray",
+      "contentSha256": "3504ceb17c248ec7025685a79fe84063e71832dd43a2e140d35598bddb7d7964",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 bb6706616d574adb55c29cfc79b806fb0d545f0db9f27d9ea4fe683926e5a551",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "bb6706616d574adb55c29cfc79b806fb0d545f0db9f27d9ea4fe683926e5a551",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v5.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/cloak-of-the-manta-ray-original-a6245fcc081b82ba.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 147680,
+          "sha256": "a6245fcc081b82ba0df49e6c4f5c9912d6756627caceec3c6461063f703d62be",
+          "derivedFrom": "bb6706616d574adb55c29cfc79b806fb0d545f0db9f27d9ea4fe683926e5a551",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/cloak-of-the-manta-ray-thumbnail-a247ebacb3ed2e1a.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10885,
+          "sha256": "a247ebacb3ed2e1aaa30ed9732278c227e5016b6660cf2e13e3a036b7e924797",
+          "derivedFrom": "bb6706616d574adb55c29cfc79b806fb0d545f0db9f27d9ea4fe683926e5a551",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:gauntlets-of-ogre-power",
+      "contentSha256": "a01e9f587d88f9431fb88d4f767019b3bcdfcbfba15656e86c051556a6723695",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 c3e8e604245549b01f915024b8f96c26fd6810c1a9103dffc144abb346fb7e4d",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "c3e8e604245549b01f915024b8f96c26fd6810c1a9103dffc144abb346fb7e4d",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v5.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/gauntlets-of-ogre-power-original-549b61982c57ab0e.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 265170,
+          "sha256": "549b61982c57ab0ebdb3456ad45b1b78348aa08f4b6d1a938aaa883b87f14043",
+          "derivedFrom": "c3e8e604245549b01f915024b8f96c26fd6810c1a9103dffc144abb346fb7e4d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/gauntlets-of-ogre-power-thumbnail-69756372a104f67e.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 18763,
+          "sha256": "69756372a104f67e443349f2cb784d5c0540ece2d3c14475415e4c962a2eb546",
+          "derivedFrom": "c3e8e604245549b01f915024b8f96c26fd6810c1a9103dffc144abb346fb7e4d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:ring-of-protection",
+      "contentSha256": "28a90446076cf189c7070e4d38b470d0695abd81a4a5f30e4685367a06c09dfc",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 2278a796d5e7ac08a210fc0e980e033473a6334ad6e970fc1de6bbac540e9868",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "2278a796d5e7ac08a210fc0e980e033473a6334ad6e970fc1de6bbac540e9868",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v6.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/ring-of-protection-original-724329bcd255833e.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 212278,
+          "sha256": "724329bcd255833e7296204c369b7182a1fbf708543c3b4b095e5bd80b160655",
+          "derivedFrom": "2278a796d5e7ac08a210fc0e980e033473a6334ad6e970fc1de6bbac540e9868",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/ring-of-protection-thumbnail-bdd88492d0058431.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 15709,
+          "sha256": "bdd88492d0058431b4518d2665439a99d8b2d748ee5465a87a75283489aa0ae1",
+          "derivedFrom": "2278a796d5e7ac08a210fc0e980e033473a6334ad6e970fc1de6bbac540e9868",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:ring-of-swimming",
+      "contentSha256": "45a9b68c5414de2a8cd591d508d466de86353fd358b9766f03602641c6a29c40",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 446f97165b84dbffe1772390b2f354a21b232c814069f7d736bf5035d1c5ef60",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "446f97165b84dbffe1772390b2f354a21b232c814069f7d736bf5035d1c5ef60",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v6.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/ring-of-swimming-original-a9ed2456fa27e0b7.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 122350,
+          "sha256": "a9ed2456fa27e0b7a64dfa18aff50018cee7f19523f33bd78d60c0900e7f4a1f",
+          "derivedFrom": "446f97165b84dbffe1772390b2f354a21b232c814069f7d736bf5035d1c5ef60",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/ring-of-swimming-thumbnail-4eb25d9cb6361b15.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9018,
+          "sha256": "4eb25d9cb6361b15c07323742b0af8c4d5689fd8f039ed4eb1ad6d8b475bd648",
+          "derivedFrom": "446f97165b84dbffe1772390b2f354a21b232c814069f7d736bf5035d1c5ef60",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:ring-of-warmth",
+      "contentSha256": "095e9bb488decbdba50febb9d7f4a2136c4d302dc9aa88a3ac0da83f24331fe2",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 7a82d4996a57d3cbf27ca6bd2f1e55c4ba7f24dea871fba5b86d50bd32e89739",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "7a82d4996a57d3cbf27ca6bd2f1e55c4ba7f24dea871fba5b86d50bd32e89739",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v6.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/ring-of-warmth-original-40674af6cb39a16d.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 229217,
+          "sha256": "40674af6cb39a16d1066fd1e2ab00f5ee1ca8f9fbfc2ad6d8a6fc38e003a7464",
+          "derivedFrom": "7a82d4996a57d3cbf27ca6bd2f1e55c4ba7f24dea871fba5b86d50bd32e89739",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/ring-of-warmth-thumbnail-5897b9ec1cdb5795.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16202,
+          "sha256": "5897b9ec1cdb579591a4d4126adf6b1e81b844b43f4eeee9c4a18867a494dc6f",
+          "derivedFrom": "7a82d4996a57d3cbf27ca6bd2f1e55c4ba7f24dea871fba5b86d50bd32e89739",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:ring-of-water-walking",
+      "contentSha256": "b0fb0278cb44d54235c1762792ad21636214926c37170ff71a819083b366673e",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 ebc6aa6f8fa38ce8a8fef3ca11f9e5f637a04312ca6a0fdabd4816dc8cc78362",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "ebc6aa6f8fa38ce8a8fef3ca11f9e5f637a04312ca6a0fdabd4816dc8cc78362",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v6.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/ring-of-water-walking-original-3fbea391c6c50451.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 207372,
+          "sha256": "3fbea391c6c50451346449dd051b27595bd6e212b137623a31f35f9227cf6ea2",
+          "derivedFrom": "ebc6aa6f8fa38ce8a8fef3ca11f9e5f637a04312ca6a0fdabd4816dc8cc78362",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/ring-of-water-walking-thumbnail-e2f14ce5872bf1c7.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 15063,
+          "sha256": "e2f14ce5872bf1c7406e80f6a0cca12bfbb09cd03aabd138e0e2ffc85ad18a7b",
+          "derivedFrom": "ebc6aa6f8fa38ce8a8fef3ca11f9e5f637a04312ca6a0fdabd4816dc8cc78362",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:headband-of-intellect",
+      "contentSha256": "401cf3024b1219488df904b75f6b9abab92a685b555d28c7fc4f44a83f515043",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 7364d10b9ab7c3c55650ad15d56d9b49a743aca90085e37dbe042b0f07b79614",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "7364d10b9ab7c3c55650ad15d56d9b49a743aca90085e37dbe042b0f07b79614",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v6.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/headband-of-intellect-original-baa8411983949299.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 133168,
+          "sha256": "baa8411983949299e35568af021a53253edbff3787a5e58184b887659cebd4f9",
+          "derivedFrom": "7364d10b9ab7c3c55650ad15d56d9b49a743aca90085e37dbe042b0f07b79614",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/headband-of-intellect-thumbnail-7e677b5ea5a210f9.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10162,
+          "sha256": "7e677b5ea5a210f9ae7edf33465c946082e3330022843445f6545b0cdaf6aef4",
+          "derivedFrom": "7364d10b9ab7c3c55650ad15d56d9b49a743aca90085e37dbe042b0f07b79614",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:helm-of-comprehending-languages",
+      "contentSha256": "ade038e701bb85e37204e3003b34d24f0ef1360ce286cd74c03a5078548b614a",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 718c72972efeeb3b0933ad6cd7f261f1f614933f0544701dd3c0c0ac3af12918",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "718c72972efeeb3b0933ad6cd7f261f1f614933f0544701dd3c0c0ac3af12918",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v6.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/helm-of-comprehending-languages-original-87b568874db047ab.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 198601,
+          "sha256": "87b568874db047abcdde4169c320ea4201c2668beb8cfcb65d134f86474ac844",
+          "derivedFrom": "718c72972efeeb3b0933ad6cd7f261f1f614933f0544701dd3c0c0ac3af12918",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/helm-of-comprehending-languages-thumbnail-fba27ea04028e18f.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 14651,
+          "sha256": "fba27ea04028e18fb6504bfb2e937602ec0ef790bdadea07d56bad04e7becf16",
+          "derivedFrom": "718c72972efeeb3b0933ad6cd7f261f1f614933f0544701dd3c0c0ac3af12918",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }
