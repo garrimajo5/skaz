@@ -45,6 +45,1018 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:spell:fire-bolt",
+      "contentSha256": "05e8d8415966dcd991a7367651c3e2b0fe44d0f45eefc4e67291f30c21463671",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; generated 2026-11-08; explicitly authorized in chat; original SHA256 3ff44e50d29835ad690a0c8d305cfb5bc3e322365b5155a82e9bcab46829d7c6",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "3ff44e50d29835ad690a0c8d305cfb5bc3e322365b5155a82e9bcab46829d7c6",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/fire-bolt-original-a1560db4d6114aec.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 76627,
+          "sha256": "a1560db4d6114aec5251f47341db773ed2485ee6a61119e0142d70281b6c4aeb",
+          "derivedFrom": "3ff44e50d29835ad690a0c8d305cfb5bc3e322365b5155a82e9bcab46829d7c6",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/fire-bolt-thumbnail-26253d677d9d20c4.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 6002,
+          "sha256": "26253d677d9d20c4dcec46bade14974d6673618b167e95472bc520267748d92c",
+          "derivedFrom": "3ff44e50d29835ad690a0c8d305cfb5bc3e322365b5155a82e9bcab46829d7c6",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:potion-of-healing",
+      "contentSha256": "bfb99147fc682b20b0d99d298135a069034176580a5e00892b8755e853fee40e",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; generated 2026-11-08; explicitly authorized in chat; original SHA256 c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/potion-of-healing-original-9a375c5e9471c7f1.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 183205,
+          "sha256": "9a375c5e9471c7f179104d2d8db1b1ef59c37974e68da801c5ee32e9b9ea9470",
+          "derivedFrom": "c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/potion-of-healing-thumbnail-db42ed52fd1cc81a.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13696,
+          "sha256": "db42ed52fd1cc81a804dc7d70b4c03e3cdad77f81bc8efbf5649e58c1efe93fb",
+          "derivedFrom": "c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:goblin",
+      "contentSha256": "ce1c6f9ed5e71d2318cc98e5e05fb35ce9533fd4c6e0c77cd1b71c457d6dcac3",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; generated 2026-11-08; explicitly authorized in chat; original SHA256 ed7ab236ef823c4fae49676530e80c0e6e1593d886961ff3d4823540414fa3b4",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "ed7ab236ef823c4fae49676530e80c0e6e1593d886961ff3d4823540414fa3b4",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/goblin-original-42ebe5d7d221fc61.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 279867,
+          "sha256": "42ebe5d7d221fc61a2f24e520b9bdbda3bbac32e6b3c6a7ea6b05d09979edfca",
+          "derivedFrom": "ed7ab236ef823c4fae49676530e80c0e6e1593d886961ff3d4823540414fa3b4",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/goblin-thumbnail-130cf2295d074dcb.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 19951,
+          "sha256": "130cf2295d074dcb5e67f31dbf51113f5b4d5aded42ca9397ac59d1584638d8c",
+          "derivedFrom": "ed7ab236ef823c4fae49676530e80c0e6e1593d886961ff3d4823540414fa3b4",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:acid-splash",
+      "contentSha256": "620c6b0679a3015c621edbc451bd18d4a689932e7446dcf4dfa8ad3763da39f1",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat; original SHA256 d2b1499c7920da9f0a23ebfd57899a25b095b1615a04e00045e72ba5836d3ec2",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "d2b1499c7920da9f0a23ebfd57899a25b095b1615a04e00045e72ba5836d3ec2",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/acid-splash-original-5308fcff814dfa9c.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 125048,
+          "sha256": "5308fcff814dfa9caafdb53b0df61227c39edf84f9e65c1bf2d36f5965c81ddb",
+          "derivedFrom": "d2b1499c7920da9f0a23ebfd57899a25b095b1615a04e00045e72ba5836d3ec2",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/acid-splash-thumbnail-376068dc02a783c4.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9405,
+          "sha256": "376068dc02a783c4b72a2e9515f815c214f96514abc03eaa615ef5abb82d8b00",
+          "derivedFrom": "d2b1499c7920da9f0a23ebfd57899a25b095b1615a04e00045e72ba5836d3ec2",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:ray-of-frost",
+      "contentSha256": "293ffaf7d303c0a54abf931d080e8b974de93ece7aea557c0e1fdf0e9c829ec4",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat; original SHA256 8dc0477b0f87dfe26ae534a5c6cfac164202814a6932eaee3cb53aa58541df58",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "8dc0477b0f87dfe26ae534a5c6cfac164202814a6932eaee3cb53aa58541df58",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/ray-of-frost-original-c1fc0937a253ef34.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 55081,
+          "sha256": "c1fc0937a253ef347d147ae708c449d0fce131f969dadbac7204646f566b208d",
+          "derivedFrom": "8dc0477b0f87dfe26ae534a5c6cfac164202814a6932eaee3cb53aa58541df58",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/ray-of-frost-thumbnail-cdff40032a66e500.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 4383,
+          "sha256": "cdff40032a66e5008c2ad7d59f6c68c8e2f71d4b343c1824dc4d88c321045a01",
+          "derivedFrom": "8dc0477b0f87dfe26ae534a5c6cfac164202814a6932eaee3cb53aa58541df58",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:magic-missile",
+      "contentSha256": "0b5c36ebf317566fe17c5b9bc33ee54e8d50d582db1119e38c7e343d70d427ef",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat; original SHA256 978f0ea1c135a75f773aa894e9283b0270648a39319dc5b60458aee6a2137336",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "978f0ea1c135a75f773aa894e9283b0270648a39319dc5b60458aee6a2137336",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/magic-missile-original-2f432eb7e90e15e2.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 83764,
+          "sha256": "2f432eb7e90e15e24a19a370bff14bbcaa112d1de15f8333e02a0a7c3ea6ce27",
+          "derivedFrom": "978f0ea1c135a75f773aa894e9283b0270648a39319dc5b60458aee6a2137336",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/magic-missile-thumbnail-14c2b7a52023c9bb.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 7136,
+          "sha256": "14c2b7a52023c9bb95881215dccb21210198ec7651bd8a17c77f3d73c5d30c9c",
+          "derivedFrom": "978f0ea1c135a75f773aa894e9283b0270648a39319dc5b60458aee6a2137336",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:cure-wounds",
+      "contentSha256": "5bcdd4c173e4bfe2a2137bc12134c5aa42170a6d81aa5164dcaedb903c27cd6f",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen edit; user requested Claude issue #33 feedback, 2026-11-09; original SHA256 def8b76f6992918f7a818ef338a1a72068ffdc18920e4066941dfe877974bb49",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "def8b76f6992918f7a818ef338a1a72068ffdc18920e4066941dfe877974bb49",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/cure-wounds-original-535efec41627aca1.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 180488,
+          "sha256": "535efec41627aca158e24edbfccb94ae08e13206329554f965543b0be8d9ac01",
+          "derivedFrom": "def8b76f6992918f7a818ef338a1a72068ffdc18920e4066941dfe877974bb49",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/cure-wounds-thumbnail-7e268cdbfd952efb.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 14426,
+          "sha256": "7e268cdbfd952efb61165db45d9e2f21378efa803c90e7ecb5af48937cc15915",
+          "derivedFrom": "def8b76f6992918f7a818ef338a1a72068ffdc18920e4066941dfe877974bb49",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:healing-word",
+      "contentSha256": "9410ca0efa761eceeea34e5031dd26050f8cfeb80d14711505f6517e9f20920f",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat; original SHA256 a239a4fe1b1a5e6bcbc5a46a5f837c5a782cdc62e6f007bea5c80bb906c1684f",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "a239a4fe1b1a5e6bcbc5a46a5f837c5a782cdc62e6f007bea5c80bb906c1684f",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/healing-word-original-8b6dd400c8677bb3.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 142147,
+          "sha256": "8b6dd400c8677bb39f503668e79182e00baa25d93590c7bd08ea52b212aa8ccb",
+          "derivedFrom": "a239a4fe1b1a5e6bcbc5a46a5f837c5a782cdc62e6f007bea5c80bb906c1684f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/healing-word-thumbnail-aaf1f3e469803711.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11556,
+          "sha256": "aaf1f3e4698037117d176fb2bfccafc08eb11ac942cbb0113ae24c59e57a9a5b",
+          "derivedFrom": "a239a4fe1b1a5e6bcbc5a46a5f837c5a782cdc62e6f007bea5c80bb906c1684f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:hold-person",
+      "contentSha256": "619f7b149469a13908b0f7903c33182d24acf6001afb64330e7736a553097a93",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen edit; user requested Claude issue #33 feedback, 2026-11-09; original SHA256 e8cb703eaa0f433eae0e361d6bb83a7f6e9a2b0d89bfabf3effb02d603d13739",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "e8cb703eaa0f433eae0e361d6bb83a7f6e9a2b0d89bfabf3effb02d603d13739",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/hold-person-original-c91fc7115ab106d1.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 259646,
+          "sha256": "c91fc7115ab106d18f753335cada77fc2a49e4777ce8f122fde4128dd28a7f1f",
+          "derivedFrom": "e8cb703eaa0f433eae0e361d6bb83a7f6e9a2b0d89bfabf3effb02d603d13739",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/hold-person-thumbnail-00533b4f5a2a3389.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 18877,
+          "sha256": "00533b4f5a2a3389f85996e48f0e627903b29e67be2b74e35a46eb2b7479e5b2",
+          "derivedFrom": "e8cb703eaa0f433eae0e361d6bb83a7f6e9a2b0d89bfabf3effb02d603d13739",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:shield",
+      "contentSha256": "6ab3e40b60e601af8fff5ffbd51611e32784807d11249c3aca7b3f58fb571367",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen edit of own v1 candidate, explicitly requested by user 2026-11-08; original SHA256 3b0fce89ef4aaf3af903dd850157ac32a53b9f8aeb154da5443e5147635ccd06",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "3b0fce89ef4aaf3af903dd850157ac32a53b9f8aeb154da5443e5147635ccd06",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/shield-original-02ec489da5819d69.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 219509,
+          "sha256": "02ec489da5819d69f09b411eceebee6cc374b038fe7dd7dbd0b16bec04a255a5",
+          "derivedFrom": "3b0fce89ef4aaf3af903dd850157ac32a53b9f8aeb154da5443e5147635ccd06",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/shield-thumbnail-3b76695b80cd4f0d.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16716,
+          "sha256": "3b76695b80cd4f0d21fd32efb53a319aaa3bcc664b713c60318b19cefa650f54",
+          "derivedFrom": "3b0fce89ef4aaf3af903dd850157ac32a53b9f8aeb154da5443e5147635ccd06",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:invisibility",
+      "contentSha256": "706db7a2d4a67f34008ae29a8349290604127b7b123a13d9d157468472c916c6",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen edit; user requested Claude issue #33 feedback, 2026-11-09; original SHA256 8b5fa99ff367fc60457a4f7fcadfe98cf604122eeaf032b130665ce7e544cb36",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "8b5fa99ff367fc60457a4f7fcadfe98cf604122eeaf032b130665ce7e544cb36",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/invisibility-original-d208fb311de4f8a6.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 136349,
+          "sha256": "d208fb311de4f8a680acbbfacc701c1af8e38179eedea849e9537c05db689cfa",
+          "derivedFrom": "8b5fa99ff367fc60457a4f7fcadfe98cf604122eeaf032b130665ce7e544cb36",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/invisibility-thumbnail-a1f024977407dcc9.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11534,
+          "sha256": "a1f024977407dcc9268cd06a4994d6e264a425b0644cdfe4f903263fd9f879fd",
+          "derivedFrom": "8b5fa99ff367fc60457a4f7fcadfe98cf604122eeaf032b130665ce7e544cb36",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:misty-step",
+      "contentSha256": "73348d41a657a9af50d2441678dcbf5c6efb3bd2b6c032a30aef8f223cad09b8",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat; original SHA256 5c4934030f0c976985be74482b0022b4beabf187eb05ba9858b9616ae98e2c98",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "5c4934030f0c976985be74482b0022b4beabf187eb05ba9858b9616ae98e2c98",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/misty-step-original-217f0c212fc60fea.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 111636,
+          "sha256": "217f0c212fc60feabda9d618da959012220719a6b6e500ad5ee843f47dc60830",
+          "derivedFrom": "5c4934030f0c976985be74482b0022b4beabf187eb05ba9858b9616ae98e2c98",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/misty-step-thumbnail-77383906db643298.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 8513,
+          "sha256": "77383906db643298a6ce995961e1fb0bfca7063431c33055afb2fec96a34e072",
+          "derivedFrom": "5c4934030f0c976985be74482b0022b4beabf187eb05ba9858b9616ae98e2c98",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:entangle",
+      "contentSha256": "5dc48835ba2e15b56492edb6ff1cf62deb7e62dc997a1f674a4aedcea50ac241",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat; original SHA256 79fd86bded8a43d47c4ba503ff9f7c2199bc9596fb71048883c1962b7ffecfa9",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "79fd86bded8a43d47c4ba503ff9f7c2199bc9596fb71048883c1962b7ffecfa9",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/entangle-original-12eee10d5d14e1f8.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 212852,
+          "sha256": "12eee10d5d14e1f8b16c76e83daf93040c797ed7424cd4097f02db5b6a81a6a5",
+          "derivedFrom": "79fd86bded8a43d47c4ba503ff9f7c2199bc9596fb71048883c1962b7ffecfa9",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/entangle-thumbnail-aee61bc9b10b0e98.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 15436,
+          "sha256": "aee61bc9b10b0e9863fbebc2cf6d2133da7ff1c440d4bb9bd2d1219dc1d96360",
+          "derivedFrom": "79fd86bded8a43d47c4ba503ff9f7c2199bc9596fb71048883c1962b7ffecfa9",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:potion-of-greater-healing",
+      "contentSha256": "fafd1f7e507122e13b08605b35091da9d7cdf851907faf45beb27b17e6a0d7fb",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat; original SHA256 c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/potion-of-greater-healing-original-ed5c8fcb06f1f872.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 104216,
+          "sha256": "ed5c8fcb06f1f8724660ecd70cd6f2eeb0f664c52c3542a450ca05a74d93df7a",
+          "derivedFrom": "c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/potion-of-greater-healing-thumbnail-7ef1fab8b46a33a0.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 7572,
+          "sha256": "7ef1fab8b46a33a0979b3d66ddc044040343a46dcb154aca1e457389dbfea674",
+          "derivedFrom": "c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:wand-of-lightning-bolts",
+      "contentSha256": "5dc1a2fae3fdd08a5e2598ddee5d68874c2e90832e1e7bc9a77d634d42a759fe",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat; original SHA256 4aab3f83aae15b4bc404d1e750ce93520214bc588835454c8d2d8cff59a5acc9",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "4aab3f83aae15b4bc404d1e750ce93520214bc588835454c8d2d8cff59a5acc9",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/wand-of-lightning-bolts-original-8544311f26edb1fe.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 46188,
+          "sha256": "8544311f26edb1fe28c67a85ac66c87090d84e267d59e0200f1a785b56ff6cbc",
+          "derivedFrom": "4aab3f83aae15b4bc404d1e750ce93520214bc588835454c8d2d8cff59a5acc9",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/wand-of-lightning-bolts-thumbnail-9ebc4b13fd197ae0.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 3746,
+          "sha256": "9ebc4b13fd197ae023257c0a8a0bb158de7506b8cf9bd5686fc4e90cba1812e6",
+          "derivedFrom": "4aab3f83aae15b4bc404d1e750ce93520214bc588835454c8d2d8cff59a5acc9",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:adamantine-armor",
+      "contentSha256": "22fc6ac0da1fe97ae0d0d9f7084f7865c546e42ca5692bcb311eca404be652bb",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat; original SHA256 625da949feaf30d257a3cef13757291fe784a9cd18ed1fd3ab92ac74ef858b60",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "625da949feaf30d257a3cef13757291fe784a9cd18ed1fd3ab92ac74ef858b60",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/adamantine-armor-original-c0f28ef92a7a3337.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 178027,
+          "sha256": "c0f28ef92a7a33378df650d5362c830aeb77954270e3af0ab3a8df17ef589035",
+          "derivedFrom": "625da949feaf30d257a3cef13757291fe784a9cd18ed1fd3ab92ac74ef858b60",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/adamantine-armor-thumbnail-01dc761d715317fc.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13235,
+          "sha256": "01dc761d715317fc60c0417cd173c5831b379dd26077cdd8a1f9ac0e420be49f",
+          "derivedFrom": "625da949feaf30d257a3cef13757291fe784a9cd18ed1fd3ab92ac74ef858b60",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:mithral-armor",
+      "contentSha256": "4f4c670f097f8995b31119ef61e67b594102bba0b85cef9b9c7a0c53435f0791",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat; original SHA256 9c7a12a29933529be3486478580447db4a5ee1149d10c838fc3757b5212eae9a",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "9c7a12a29933529be3486478580447db4a5ee1149d10c838fc3757b5212eae9a",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/mithral-armor-original-e7eda40eacc1ff95.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 184922,
+          "sha256": "e7eda40eacc1ff951e7f9c5f4b7045889edd822ee8bfc65132263ae33f7a2b78",
+          "derivedFrom": "9c7a12a29933529be3486478580447db4a5ee1149d10c838fc3757b5212eae9a",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/mithral-armor-thumbnail-23de0d61e7e1a3cb.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13409,
+          "sha256": "23de0d61e7e1a3cb0a1265b34b717854095f7b160ffee0e5849bc0189ea6ecc9",
+          "derivedFrom": "9c7a12a29933529be3486478580447db4a5ee1149d10c838fc3757b5212eae9a",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:artifact:orb-of-dragonkind",
+      "contentSha256": "0f26dc329a235b9241a53f850270283fd84c03a2d72f90829f46752ee79b9bd4",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat; original SHA256 b68e53b686c626bcad5f8ce5a46f45cb0724eaff42b85bc96950cd05ce04aed2",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "b68e53b686c626bcad5f8ce5a46f45cb0724eaff42b85bc96950cd05ce04aed2",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/artifacts/orb-of-dragonkind-original-ab1f6d5458426e9c.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 187699,
+          "sha256": "ab1f6d5458426e9cfbd1ff9a96f1b5cf62ca76ad75e461347b590f392a984db3",
+          "derivedFrom": "b68e53b686c626bcad5f8ce5a46f45cb0724eaff42b85bc96950cd05ce04aed2",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/artifacts/orb-of-dragonkind-thumbnail-58c0fca863d190b4.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13045,
+          "sha256": "58c0fca863d190b4c69a44860cf9963f34cfc223a9633f7b23cad7c46f194b4f",
+          "derivedFrom": "b68e53b686c626bcad5f8ce5a46f45cb0724eaff42b85bc96950cd05ce04aed2",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:owl",
+      "contentSha256": "f8355cc93542878a4f4f9f2c29f632826edd549fc06052776bf6732094ccb186",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen, continuation authorized by user 2026-11-09; original SHA256 ea19f2513383749d6ef052f448ab61b3812e4538e370346fad0a63449b64bbe6",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "ea19f2513383749d6ef052f448ab61b3812e4538e370346fad0a63449b64bbe6",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/owl-original-a0d379d67914c203.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 242538,
+          "sha256": "a0d379d67914c203327d5125c7a8339a09e400e4b599651213490f72fc4dc17e",
+          "derivedFrom": "ea19f2513383749d6ef052f448ab61b3812e4538e370346fad0a63449b64bbe6",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/owl-thumbnail-15877c19c29a1fc5.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16916,
+          "sha256": "15877c19c29a1fc53db1568dc866edee3fbaff260d511e92fdd75ff86a6c2bf7",
+          "derivedFrom": "ea19f2513383749d6ef052f448ab61b3812e4538e370346fad0a63449b64bbe6",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:gelatinous-cube",
+      "contentSha256": "91dd34c612c4adcc28168dc3eb6d9721b5eb882fe039a11e2cf8d6bb9fea111a",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen, continuation authorized by user 2026-11-09; original SHA256 819741a533d5fa48bbd4a0c527c6897479c6a24c03c80e88cc2e30cff8572dc3",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "819741a533d5fa48bbd4a0c527c6897479c6a24c03c80e88cc2e30cff8572dc3",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/gelatinous-cube-original-e508e4876eaab9e1.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 217714,
+          "sha256": "e508e4876eaab9e1f2bde3800658f9217dc5fd63c9b18bf9e823a4ab02adb552",
+          "derivedFrom": "819741a533d5fa48bbd4a0c527c6897479c6a24c03c80e88cc2e30cff8572dc3",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/gelatinous-cube-thumbnail-934767be0596702e.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16247,
+          "sha256": "934767be0596702e1bc70400e151da04eb46fee5e12c5a4cc9934f06df4e39f2",
+          "derivedFrom": "819741a533d5fa48bbd4a0c527c6897479c6a24c03c80e88cc2e30cff8572dc3",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:fire-elemental",
+      "contentSha256": "e5eeea33afa0f1f6a60498c20a92541c3b6906c91ceca94f4cb727837f8b1b15",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen, continuation authorized by user 2026-11-09; original SHA256 c2f679259a8daa29c2ea65c022e47698744307e36f7f8fa45120980c74f2bfe0",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "c2f679259a8daa29c2ea65c022e47698744307e36f7f8fa45120980c74f2bfe0",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/fire-elemental-original-82089c573d0ef1a3.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 157004,
+          "sha256": "82089c573d0ef1a3bc5579d43e2cc7f804677697d1809ab815b661ba842284da",
+          "derivedFrom": "c2f679259a8daa29c2ea65c022e47698744307e36f7f8fa45120980c74f2bfe0",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/fire-elemental-thumbnail-5881621c573f696d.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 12228,
+          "sha256": "5881621c573f696d053cd1da30c9eb6fea9b730f88377f00d3f9304d7a029cc3",
+          "derivedFrom": "c2f679259a8daa29c2ea65c022e47698744307e36f7f8fa45120980c74f2bfe0",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ancient-red-dragon",
+      "contentSha256": "ffc399d7a0f610a9e69e9008e26f25f41d4312e021ac162e32564c6f7b07be73",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen, continuation authorized by user 2026-11-09; original SHA256 de0b2009dc75d6b6b301c22e2c878cc18c0723380c5d0ad779d5ad37d8821334",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "de0b2009dc75d6b6b301c22e2c878cc18c0723380c5d0ad779d5ad37d8821334",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ancient-red-dragon-original-55e8e90d8a4cd3e3.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 242697,
+          "sha256": "55e8e90d8a4cd3e383f8e58ecdcc53cfd8c2308f39505576b2e05e91f8eb69d6",
+          "derivedFrom": "de0b2009dc75d6b6b301c22e2c878cc18c0723380c5d0ad779d5ad37d8821334",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ancient-red-dragon-thumbnail-781553fe7fe0385c.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16815,
+          "sha256": "781553fe7fe0385c4c00e0e80e7b9c33c3bf6fcc0eeecb61f120ed05d7860ed9",
+          "derivedFrom": "de0b2009dc75d6b6b301c22e2c878cc18c0723380c5d0ad779d5ad37d8821334",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ghost",
+      "contentSha256": "c2bd234e50c6d86a443f18eaa6ab9b6010e641abbf998d0b9b2bf725f24dc0af",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "OpenAI built-in image_gen, continuation authorized by user 2026-11-09; original SHA256 a7ed80856e73457f66c9462c71d7c1821ef375abb5607f43a58004f722ba5c8d",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "a7ed80856e73457f66c9462c71d7c1821ef375abb5607f43a58004f722ba5c8d",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+      },
+      "review": {
+        "by": "User (batch visual acceptance) and Codex (technical validation)",
+        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ghost-original-be8d63b957ce8640.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 181764,
+          "sha256": "be8d63b957ce8640f6b5f8eb3d8b537f66de318cec86232bdc69a4f9d90fbecf",
+          "derivedFrom": "a7ed80856e73457f66c9462c71d7c1821ef375abb5607f43a58004f722ba5c8d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ghost-thumbnail-64dba0ae886d8f65.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13576,
+          "sha256": "64dba0ae886d8f658691b2e2d9dbd5f91b8ec67126f2ef244a3921e4507a0e17",
+          "derivedFrom": "a7ed80856e73457f66c9462c71d7c1821ef375abb5607f43a58004f722ba5c8d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }
