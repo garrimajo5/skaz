@@ -10,18 +10,18 @@ const queueSource=(await readFile(new URL('../client/health.js',import.meta.url)
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const memory = () => { const values = new Map(); return { get length() { return values.size; }, key: index => [...values.keys()][index], getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
 function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, withQueue=false) {
-  const handlers = {}, elements = new Map(), messages = [], archiveCalls = [], references = [], downloads = []; let dialog='';
+  const handlers = {}, elements = new Map(), messages = [], messageOptions = [], archiveCalls = [], references = [], downloads = []; let dialog='';
   const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '', style: {}, focus() {} }); return elements.get(id); };
   const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch, navigator, SkazAccount,
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
     document: { createElement:()=>({click(){downloads.push(this.download);}}), getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')&&!get('inventory-page').innerHTML.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
-    SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-queued-undo]' ? [get('queued-undo-button')] : selector === '[data-resource-undo]' ? [get('resource-undo-button')] : selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>{dialog=html;get('dialog').open=true;}, closeModal() {dialog='';get('dialog').open=false;}, toast: value => messages.push(value),
+    SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-queued-undo]' ? [get('queued-undo-button')] : selector === '[data-resource-undo]' ? [get('resource-undo-button')] : selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>{dialog=html;get('dialog').open=true;}, closeModal() {dialog='';get('dialog').open=false;}, toast: (value,undo,options) => {messages.push(value);messageOptions.push(options);},
   });
   if(withQueue)vm.runInContext(queueSource,context);
   vm.runInContext(sheetSource,context);
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
-  return { api: vm.runInContext('SkazStorage', context), get, messages, archiveCalls, references, downloads, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
+  return { api: vm.runInContext('SkazStorage', context), get, messages, messageOptions, archiveCalls, references, downloads, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
     click: (id,dataset={},disabled=false) => handlers.click({ target: { closest: () => ({ id,dataset,disabled }) } }),
     visible: value => {context.document.visibilityState=value;return handlers.visibilitychange();},
     state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),
@@ -674,7 +674,7 @@ test('charge form validates unknown balances and retries the exact manual operat
  });
  await h.api.boot();await h.api.inventory();h.get('inventory-read-button').dataset.inventoryRead='0';h.get('inventory-read-button').onclick();h.get('#inventory-charges').onclick();
  h.get('#charges-unit').value='1';h.get('#charges-operation').value='spend';h.get('#charges-amount').value='1';
- await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls.length,0);assert.match(h.messages.at(-1),/Сначала укажи/);
+ await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls.length,0);assert.match(h.messages.at(-1),/Сначала укажи/);assert.equal(h.messageOptions.at(-1).error,true);assert.equal(h.messageOptions.at(-1).persistent,true);
  h.get('#charges-unit').value='0';h.get('#charges-amount').value='6';await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls.length,0);
  h.get('#charges-amount').value='2';h.get('#charges-amount').oninput();assert.match(h.get('#charges-preview').textContent,/3 \/ 7/);
  await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls[0].url,'/api/inventory/charges');assert.equal(JSON.parse(calls[0].body).operation,'spend');assert.equal(JSON.parse(calls[0].body).unit,0);
@@ -694,7 +694,7 @@ test('charge form keeps zero, accepts explicit unknown and rejects stale context
  await h.api.boot();await open();h.get('#charges-operation').value='set';h.get('#charges-amount').value='';await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls.length,0);
  h.get('#charges-amount').value='0';await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls[0].amount,0);
  await open();h.get('#charges-operation').value='unknown';h.get('#charges-operation').onchange();assert.equal(h.get('#charges-amount').disabled,true);await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls[1].amount,null);
- await open();current=payload(3,'other');await h.api.boot();await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls.length,2);assert.match(h.messages.at(-1),/Игра изменилась/);
+ await open();current=payload(3,'other');await h.api.boot();await h.get('#charges-form').onsubmit({preventDefault(){}});assert.equal(calls.length,2);assert.match(h.messages.at(-1),/Игра изменилась/);assert.equal(h.messageOptions.at(-1).error,true);assert.equal(h.messageOptions.at(-1).persistent,true);
 });
 
 test('private server responses label storage honestly without changing local defaults',async()=>{

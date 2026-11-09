@@ -34,6 +34,13 @@ dialog:has(#charges-form){height:min(760px,90dvh);max-height:90dvh;overflow:hidd
 .charges-fields{overflow:auto;min-height:0;padding:4px;scrollbar-gutter:stable}
 #charges-form .dialog-actions{flex-shrink:0;margin-top:12px;padding-top:8px;border-top:1px solid var(--line)}
 #charges-form input,#charges-form select{min-height:44px;width:100%;min-width:0}
+/* In a short landscape viewport the fixed heading/footer leave no room for
+   the inner field scroller. Scroll the complete form instead. */
+@media(max-height:500px){
+ #dialog-content:has(#charges-form){display:block;max-height:100%;overflow:auto;padding:48px 20px 20px}
+ #charges-form{display:block}
+ #charges-form .charges-fields{overflow:visible;scrollbar-gutter:auto}
+}
 
 /* Keep a long source fragment and its explicit send action usable on a tablet. */
 dialog:has(#proposal-form){height:min(850px,90dvh);max-height:90dvh;overflow:hidden}

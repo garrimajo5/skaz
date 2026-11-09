@@ -481,8 +481,8 @@ const SkazStorage = (() => {
     try{const source=new URL(entry.source.url);if(['https:','http:'].includes(source.protocol)&&!source.username&&!source.password)sourceLink=`<p><a href="${esc(source.href)}" target="_blank" rel="noopener noreferrer">Открыть первоисточник ↗</a></p>`;}catch{}
     modal(`<button id="inventory-read-back">← К инвентарю</button><div class="overline">${esc(state.profile.name)} · В наличии: ${item.quantity}</div>${typeof SkazArt!=='undefined'?SkazArt.markup(entry,'card'):''}<h2>${esc(entry.name.ru)}</h2><p>${esc(entry.name.en)}</p>${info?`<p>Настройка: ${info.attunement?'требуется':'не требуется'}${info.attunementRequirement?' · '+esc(info.attunementRequirement):''}.</p>`:''}<p>Сохранённая карточка предмета. Чтение не меняет количество и не применяет эффекты.</p>${info?.charges?`<p>Максимум зарядов: ${esc(info.charges.max)}. Восстановление: ${esc(info.charges.recharge)} Это справочные значения, не текущий остаток.</p><button id="inventory-charges" class="primary">Учёт зарядов · ${item.chargeCounts?.filter(n=>n!==null).length||0} из ${item.quantity} указано</button>`:''}${entry.id&&typeof SkazCatalog!=='undefined'?'<button id="inventory-reference">Правила и связи в справочнике →</button>':''}<div class="catalog-text">${esc(entry.text||'Текст не импортирован; используй ссылку на источник.')}</div><p>${esc(entry.source.title)} · ${esc(entry.source.version)}</p><p>${esc(entry.source.terms)}</p>${sourceLink}${entry.source.attribution?`<p>${esc(entry.source.attribution)}</p>`:''}${entry.source.changes?`<p>${esc(entry.source.changes)}</p>`:''}`);
     $('#inventory-read-back').onclick=inventory;
-    if(info?.charges)$('#inventory-charges').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.');editCharges(item);};
-    if(entry.id&&typeof SkazCatalog!=='undefined')$('#inventory-reference').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.');SkazCatalog.openReference(entry.id,()=>readInventoryItem(item),()=>key===snapshotKey());};
+    if(info?.charges)$('#inventory-charges').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.',undefined,{error:true,persistent:true});editCharges(item);};
+    if(entry.id&&typeof SkazCatalog!=='undefined')$('#inventory-reference').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.',undefined,{error:true,persistent:true});SkazCatalog.openReference(entry.id,()=>readInventoryItem(item),()=>key===snapshotKey());};
   }
   function editCharges(item) {
     if(demo||(!canResource()&&status!=='ready')||!activeContext)return toast('Сначала сохрани черновик или загрузи актуальные данные');
@@ -508,8 +508,8 @@ const SkazStorage = (() => {
     }
     $('#charges-unit').onchange=preview;$('#charges-operation').onchange=preview;$('#charges-amount').oninput=preview;preview();
     $('#charges-form').onsubmit=async event=>{
-      event.preventDefault();if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.');
-      try{const {next,operation:chargeAction,...fields}=value();if(resourceQueue&&['spend','recover'].includes(chargeAction)){resourceDelta({kind:'charges',catalogId:item.catalogId,unit:fields.unit},chargeAction==='spend'?-fields.amount:fields.amount,key);closeModal();await inventory();return;}await campaignCommand('inventory-charges',{characterId,catalogId:item.catalogId,chargeAction,...fields});await inventory();}catch(error){toast(error.message);}
+      event.preventDefault();if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.',undefined,{error:true,persistent:true});
+      try{const {next,operation:chargeAction,...fields}=value();if(resourceQueue&&['spend','recover'].includes(chargeAction)){resourceDelta({kind:'charges',catalogId:item.catalogId,unit:fields.unit},chargeAction==='spend'?-fields.amount:fields.amount,key);closeModal();await inventory();return;}await campaignCommand('inventory-charges',{characterId,catalogId:item.catalogId,chargeAction,...fields});await inventory();}catch(error){toast(error.message,undefined,{error:true,persistent:true});}
     };
   }
   function addInventory(entry) {
