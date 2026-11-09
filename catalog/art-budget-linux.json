@@ -3,29 +3,29 @@
   "measurement": "in-process delivered PNG bytes; not browser network or offline cache",
   "encoder": "1.3.2.1-motley-285e94b",
   "recipe": "skaz-rgba-area-premultiplied-v1",
-  "acceptedCount": 39,
-  "selectedCount": 39,
+  "acceptedCount": 56,
+  "selectedCount": 56,
   "summary": {
     "thumbnail": {
-      "count": 39,
-      "totalBytes": 550857,
+      "count": 56,
+      "totalBytes": 764649,
       "maxBytes": 21187,
-      "p95Bytes": 20949,
+      "p95Bytes": 20747,
       "limitBytes": 32768
     },
     "card": {
-      "count": 39,
-      "totalBytes": 7626008,
+      "count": 56,
+      "totalBytes": 10583272,
       "maxBytes": 299596,
-      "p95Bytes": 295163,
+      "p95Bytes": 295010,
       "limitBytes": 393216
     }
   },
-  "uniqueFiles": 78,
-  "uniqueBytes": 8176865,
+  "uniqueFiles": 112,
+  "uniqueBytes": 11347921,
   "serverCache": {
-    "files": 78,
-    "bytes": 8176865,
+    "files": 80,
+    "bytes": 8317383,
     "limit": 8388608
   },
   "violations": [],
@@ -106,6 +106,171 @@
       }
     },
     {
+      "id": "srd51:2014:item:bracers-of-archery",
+      "files": {
+        "thumbnail": {
+          "bytes": 16178,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 234194,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:bracers-of-defense",
+      "files": {
+        "thumbnail": {
+          "bytes": 17187,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 243306,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:broom-of-flying",
+      "files": {
+        "thumbnail": {
+          "bytes": 7225,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 102423,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:circlet-of-blasting",
+      "files": {
+        "thumbnail": {
+          "bytes": 7577,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 103237,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-elvenkind",
+      "files": {
+        "thumbnail": {
+          "bytes": 8981,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 120421,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-the-manta-ray",
+      "files": {
+        "thumbnail": {
+          "bytes": 10627,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 146466,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:gauntlets-of-ogre-power",
+      "files": {
+        "thumbnail": {
+          "bytes": 18484,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 264213,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:goggles-of-night",
+      "files": {
+        "thumbnail": {
+          "bytes": 12719,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 175999,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:hat-of-disguise",
+      "files": {
+        "thumbnail": {
+          "bytes": 11012,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 152547,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:headband-of-intellect",
+      "files": {
+        "thumbnail": {
+          "bytes": 9929,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 132567,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:helm-of-comprehending-languages",
+      "files": {
+        "thumbnail": {
+          "bytes": 14452,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 197763,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:item:mithral-armor",
       "files": {
         "thumbnail": {
@@ -115,6 +280,36 @@
         },
         "card": {
           "bytes": 183968,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:necklace-of-adaptation",
+      "files": {
+        "thumbnail": {
+          "bytes": 8010,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 107996,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:pearl-of-power",
+      "files": {
+        "thumbnail": {
+          "bytes": 16421,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 209962,
           "width": 384,
           "height": 384
         }
@@ -145,6 +340,66 @@
         },
         "card": {
           "bytes": 182233,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:ring-of-protection",
+      "files": {
+        "thumbnail": {
+          "bytes": 15404,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 210941,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:ring-of-swimming",
+      "files": {
+        "thumbnail": {
+          "bytes": 8752,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 120959,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:ring-of-warmth",
+      "files": {
+        "thumbnail": {
+          "bytes": 16028,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 228341,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:ring-of-water-walking",
+      "files": {
+        "thumbnail": {
+          "bytes": 14806,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 205929,
           "width": 384,
           "height": 384
         }
