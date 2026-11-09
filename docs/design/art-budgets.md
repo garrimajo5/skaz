@@ -8,6 +8,19 @@ node scripts/art-budget.mjs --check
 node --test --test-isolation=none tests/art-budget.test.mjs
 ```
 
+Для другой платформы/кодировщика сохранять отдельный снимок, например:
+
+```sh
+node scripts/art-budget.mjs --report=catalog/art-budget-linux.json --write
+node scripts/art-budget.mjs --report=catalog/art-budget-linux.json --check
+```
+
+Windows Node 26 и серверный Linux Node 24 используют разные версии zlib;
+их отчёты не обязаны побайтно совпадать. Ошибка `--check` при чужом кодировщике
+не обходится удалением версии: измеряется и сохраняется отдельный отчёт.
+В текущем прогоне числовые размеры на обеих платформах совпали; отличается
+encoder. Linux-снимок находится в `catalog/art-budget-linux.json`.
+
 Отчёт `catalog/art-budget.json` проходит через настоящий `createArtLibrary`:
 сначала строгая проверка реестра/PNG/происхождения, затем фактические байты
 перекодированной доставки. Версия zlib и рецепт записаны; при смене кодировщика

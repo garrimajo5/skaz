@@ -34,7 +34,8 @@ if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const manifest=JSON.parse(readFileSync(resolve(base,'catalog/art-manifest.json'),'utf8'));
  const report=measureArt(createArtLibrary(manifest,{base}));
  const json=JSON.stringify(report,null,2)+'\n';
- const target=resolve(base,'catalog/art-budget.json');
+ const reportOption=process.argv.find(arg=>arg.startsWith('--report='));
+ const target=reportOption?resolve(reportOption.slice('--report='.length)):resolve(base,'catalog/art-budget.json');
  if(process.argv.includes('--write'))writeFileSync(target,json);
  if(process.argv.includes('--check')&&readFileSync(target,'utf8').replaceAll('\r\n','\n')!==json)throw Error('Stale art-budget.json; run --write with the documented encoder');
  console.log(JSON.stringify({...report,entries:undefined},null,2));
