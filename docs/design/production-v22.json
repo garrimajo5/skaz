@@ -1,0 +1,46 @@
+{
+  "batch": "production-v22",
+  "entries": [
+    {
+      "id": "srd51:2014:spell:aid",
+      "sourcePath": "data/art-production-v22/aid.png",
+      "sourceSha256": "2921cd83bd150a7157ede797773a7286c079220574b0e34861903be5f9ec7d6a",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, a restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear silhouette readable at 32 px, moderate detail, soft warm light from upper left. Rich material shading with dark defined edges, not vector clipart. Composition fills 80% with safe margins. Isolated on TRUE TRANSPARENT background. No text, letters, digits, frame, UI symbols, scenery, ground, logo or background haze. Subject: THREE small solid human bust silhouettes arranged in a compact triangle, one above and two below, each surrounded by a thick warm ivory-gold protective contour. A single white cloth ribbon weaves gently between the three, linking them, with warm light strengthening their chests. No cross or heart symbols, no shield object, no wounds, no numbers. Three separate beneficiaries, calm resilient strength rather than an explosion.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:spell:barkskin",
+      "sourcePath": "data/art-production-v22/barkskin.png",
+      "sourceSha256": "f48a39c060c8c97dae27fdd14209628920cbbaade233f768dd27906c2bcec69a",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, a restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear silhouette readable at 32 px, moderate detail, soft warm light from upper left. Rich material shading with dark defined edges, not vector clipart. Composition fills 80% with safe margins. Isolated on TRUE TRANSPARENT background. No text, letters, digits, frame, UI symbols, scenery, ground, logo or background haze. Subject: one strong human forearm and open hand transformed into thick rugged OAK BARK, raised diagonally lower left to upper right. Five anatomically clear fingers, rough brown bark plates following the skin contours, warm highlights and deep grooves, one tiny green oak leaf near wrist. Clearly a bark-covered hand, not a tree branch, no armor glove, no metal, no magical sphere.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:spell:blur",
+      "sourcePath": "data/art-production-v22/blur.png",
+      "sourceSha256": "22b398d62744ca5c87555beea96abbd1b4fb6d017bc40507d8d9deba5a86e156",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, a restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear silhouette readable at 32 px, moderate detail, soft warm light from upper left. Rich material shading with dark defined edges, not vector clipart. Composition fills 80% with safe margins. Isolated on TRUE TRANSPARENT background. No text, letters, digits, frame, UI symbols, scenery, ground, logo or background haze. Subject: ONE anonymous hooded human head-and-shoulders silhouette, face hidden in shadow, muted violet and grey cloth. Its contour is visibly refracted into closely overlapping smeared edges, a wavering pale lilac distortion hugging the same silhouette. Center torso remains solid enough to read, edges ripple and soften. ONE head only, no separate duplicate figures, no mirrors, no stars, no speed trail. Strong compact overall outline.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09",
+      "edits": [
+        {
+          "method": "built-in image_gen edit",
+          "inputPath": "data/art-production-v22/blur-rejected.png",
+          "inputSha256": "917be89c2c34f1f974c212b177320db18b92071f0ac12d14d9479695c2489140",
+          "prompt": "Keep this original painterly SKAZ Blur spell icon, same single hooded silhouette and close rippled distortion. Recompose it SMALLER centered inside a SQUARE canvas with at least 10% fully transparent EMPTY margin on ALL four sides. The hood, cloak and all refraction must fit entirely inside the canvas, nothing clipped. Reduce the outer fuzzy haze and make the distortion into two narrow wavy contour bands hugging the figure, not a glowing cloud. Retain soft purple-grey cloth and warm upper-left highlights, no background, no text, no frame, no additional heads.",
+          "reason": "Clipped refraction, unsafe margins"
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:mirror-image",
+      "sourcePath": "data/art-production-v22/mirror-image.png",
+      "sourceSha256": "d8abcc260dce82e7f9a95d8939e6dd1740297700822312c4a8a1607d207196c7",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, a restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear silhouette readable at 32 px, moderate detail, soft warm light from upper left. Rich material shading with dark defined edges, not vector clipart. Composition fills 80% with safe margins. Isolated on TRUE TRANSPARENT background. No text, letters, digits, frame, UI symbols, scenery, ground, logo or background haze. Subject: FOUR distinct anonymous hooded head-and-shoulders busts in a tight diamond arrangement: one solid slate-blue foreground caster below center, and THREE separate translucent pale blue illusion duplicates fanned behind at left, upper center and right. All four clearly separated heads; ghostly duplicates resemble the original. Crisp silhouettes, restrained silver edges. No mirror object, no glass shards, no blur smeared silhouette, no motion trail, no text.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    }
+  ]
+}

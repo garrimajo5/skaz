@@ -1,0 +1,37 @@
+{
+  "batch": "production-v26",
+  "entries": [
+    {
+      "id": "srd51:2014:monster:guard",
+      "sourcePath": "data/art-production-v26/guard.png",
+      "sourceSha256": "ef0460441a878b4923987311dd9e206f0e98b270531bae480e2e737ff8f4ba7f",
+      "brief": "Create ONE SQUARE original painterly fantasy NPC encyclopedia portrait for SKAZ. Broad sculpted brush shapes, strong head silhouette readable at 40px and in a circular token, moderate detail, soft warm light upper left, deep cool shadows. Head and shoulders three-quarter view, fills 75% of square, keep 10% transparent safe margin all around, especially above head. TRUE TRANSPARENT background. No scenery, text, letters, frame, logo, UI symbols or floating effects. A vigilant young human town guard with warm brown skin, simple iron open-faced helmet, chain shirt, plain dark blue tabard. A wooden spear with an iron leaf-shaped point beside right shoulder and upper edge of a plain wooden shield below left shoulder. Practical ordinary equipment, no plate armor, no royal crest, calm alert face, no aggressive snarl.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:knight",
+      "sourcePath": "data/art-production-v26/knight.png",
+      "sourceSha256": "07c1a4387bd0046878bd39edf73f1867375e3b1f43e041265080e1a3eefb8a76",
+      "brief": "Create ONE SQUARE original painterly fantasy NPC encyclopedia portrait for SKAZ. Broad sculpted brush shapes, strong head silhouette readable at 40px and in a circular token, moderate detail, soft warm light upper left, deep cool shadows. Head and shoulders three-quarter view, fills 75% of square, keep 10% transparent safe margin all around, especially above head. TRUE TRANSPARENT background. No scenery, text, letters, frame, logo, UI symbols or floating effects. A dignified human woman knight with short dark hair, resolute mature face, polished but battle-worn full steel plate armor and an open visor helmet. A large two-handed sword hilt rises behind shoulder. Broad silver pauldrons, restrained burgundy cloth, no crown, no shield, no fantasy spikes. Strong compact heroic silhouette.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:mage",
+      "sourcePath": "data/art-production-v26/mage.png",
+      "sourceSha256": "a27b09814893657a8636bf56a6caa23d5a05ef78515e4f79decc2f919877f6f6",
+      "brief": "Create ONE SQUARE original painterly fantasy NPC encyclopedia portrait for SKAZ. Broad sculpted brush shapes, strong head silhouette readable at 40px and in a circular token, moderate detail, soft warm light upper left, deep cool shadows. Head and shoulders three-quarter view, fills 75% of square, keep 10% transparent safe margin all around, especially above head. TRUE TRANSPARENT background. No scenery, text, letters, frame, logo, UI symbols or floating effects. An elderly human male scholarly mage with a short white beard, deep intelligent eyes, weathered face and simple dark indigo layered robes. A closed aged leather spellbook held near chest and a slim plain wooden staff beside shoulder. Restrained brass clasp, no readable writing or runes, no armor, no giant pointed hat, no floating magic effects.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:monster:priest",
+      "sourcePath": "data/art-production-v26/priest.png",
+      "sourceSha256": "f0c6147f62e60cdbd4f68ec755e97d0261281ed91d42ccbf4139950687a0c7f7",
+      "brief": "Create ONE SQUARE original painterly fantasy NPC encyclopedia portrait for SKAZ. Broad sculpted brush shapes, strong head silhouette readable at 40px and in a circular token, moderate detail, soft warm light upper left, deep cool shadows. Head and shoulders three-quarter view, fills 75% of square, keep 10% transparent safe margin all around, especially above head. TRUE TRANSPARENT background. No scenery, text, letters, frame, logo, UI symbols or floating effects. A middle-aged human woman priest with a calm compassionate but firm expression, dark braided hair, ivory and muted gold vestments over a visible chain shirt. A plain bronze sun-disc amulet held near chest and a simple mace head just visible beside shoulder. No real-world religious symbols, no pope hat, no wings, no plate armor, no halo. Warm grounded portrait.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    }
+  ]
+}

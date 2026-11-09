@@ -1,0 +1,46 @@
+{
+  "batch": "production-v21",
+  "entries": [
+    {
+      "id": "srd51:2014:spell:acid-arrow",
+      "sourcePath": "data/art-production-v21/acid-arrow.png",
+      "sourceSha256": "e2de6db845925d60bdbcb794d87e99dfa6afacb85793f8fe0e565661cbdc6383",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, a restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear silhouette readable at 32 px, moderate detail, soft warm light from upper left. Rich material shading with dark defined edges, not vector clipart. Composition fills 80% with safe margins. Isolated on TRUE TRANSPARENT background. No text, letters, digits, frame, UI symbols, scenery, ground, logo or background haze. Subject: one magical arrow made of luminous viscous acid, a sharp unmistakable triangular arrowhead and short thin shaft flying diagonally lower-left to upper-right, with three heavy green droplets trailing behind. Yellow-green translucent fluid surface, dark olive edges, pale ivory highlights, a small bubbling acid splash around the arrowhead. No bow, no fire, no lightning, no poison cloud; one compact projectile.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:spell:cloudkill",
+      "sourcePath": "data/art-production-v21/cloudkill.png",
+      "sourceSha256": "53b3419c1c0cf76cef81ef1d84c29e10726ba74138b588ef4e362ad985550a3e",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, a restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear silhouette readable at 32 px, moderate detail, soft warm light from upper left. Rich material shading with dark defined edges, not vector clipart. Composition fills 80% with safe margins. Isolated on TRUE TRANSPARENT background. No text, letters, digits, frame, UI symbols, scenery, ground, logo or background haze. Subject: a dense rounded toxic fog bank with an ominous mustard-yellow upper billow and dark olive-green underside, broad layered lobes rolling outward and curling down at both sides. A few pale yellow eddies illuminate the deep folds. Entire object is clearly a low thick CLOUD, not liquid, no bolt, no skull, no face, no hands, no container. Compact horizontally broad silhouette.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09",
+      "edits": [
+        {
+          "method": "built-in image_gen edit",
+          "inputPath": "data/art-production-v21/cloudkill-rejected.png",
+          "inputSha256": "007944cc681cedc319ae6deab1db9cf31deb699325e961b298e2995c2df02212",
+          "prompt": "Revise this original SKAZ cloud icon. Output SQUARE 1:1 canvas, TRUE TRANSPARENT BACKGROUND. Make the poisonous mustard-yellow/olive cloud a COMPACT nearly round bank with sculpted billows, occupying 80% of square with safe empty margins. REMOVE ALL outer glow, colored haze, background and soft aura. Crisp dark olive contour completely encloses the cloud, no pixels outside the clean silhouette except a couple small solid wisps. Keep painterly brush volume, warm upper-left light, no text, no lightning, no faces. This must be a clean isolated cutout readable at 32 px on light AND dark UI.",
+          "reason": "Non-square composition and outer haze"
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:black-tentacles",
+      "sourcePath": "data/art-production-v21/black-tentacles.png",
+      "sourceSha256": "ee9a3ec6f509ee22a2d672675a0fc31b5979ef8fe425aa637ff116cc9090627e",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, a restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear silhouette readable at 32 px, moderate detail, soft warm light from upper left. Rich material shading with dark defined edges, not vector clipart. Composition fills 80% with safe margins. Isolated on TRUE TRANSPARENT background. No text, letters, digits, frame, UI symbols, scenery, ground, logo or background haze. Subject: a tightly grouped cluster of FIVE thick black magical tentacles curling upward and outward from a small shadow-dark oval at bottom center. Sculpted charcoal purple-black wet surfaces, restrained slate blue rim highlights, subtle suction cups on two inner curves. Bold distinct hooked silhouettes, tentacles of varied height, tallest in middle. No octopus head, no eyes, no water, no monster face, no weapons; conjured grasping appendages.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "srd51:2014:spell:blight",
+      "sourcePath": "data/art-production-v21/blight.png",
+      "sourceSha256": "ba25eded0b8a24f385ffb4a0b8f25ab01f9e564a78bf3f7b45564c094d875275",
+      "brief": "Create ONE square original painterly fantasy spell icon for SKAZ, a restrained high-quality fantasy encyclopedia. Broad sculpted brush shapes, clear silhouette readable at 32 px, moderate detail, soft warm light from upper left. Rich material shading with dark defined edges, not vector clipart. Composition fills 80% with safe margins. Isolated on TRUE TRANSPARENT background. No text, letters, digits, frame, UI symbols, scenery, ground, logo or background haze. Subject: a single once-living leafy sprig visibly withering: crooked brown stem, one small muted green leaf at lower left, two large dry curled brown leaves at center and upper right crumbling into a few dark flakes. A restrained violet-black necrotic curl wraps the stem and draws life from it, but plant remains dominant. Desiccated papery texture and sharp silhouette. No skull, no blood, no flower bloom, no poisonous green liquid, no ground.",
+      "method": "built-in image_gen",
+      "date": "2026-11-09"
+    }
+  ]
+}

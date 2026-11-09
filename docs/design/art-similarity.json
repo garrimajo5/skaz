@@ -1,0 +1,744 @@
+{
+  "schemaVersion": 1,
+  "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
+  "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
+  "count": 138,
+  "pairs": [
+    {
+      "ids": [
+        "srd51:2014:item:wand-of-enemy-detection",
+        "srd51:2014:item:wand-of-wonder"
+      ],
+      "distance": {
+        "dark": 4,
+        "light": 6
+      },
+      "review": "required"
+    },
+    {
+      "ids": [
+        "srd51:2014:item:wand-of-enemy-detection",
+        "srd51:2014:item:wand-of-magic-missiles"
+      ],
+      "distance": {
+        "dark": 10,
+        "light": 8
+      },
+      "review": "required"
+    },
+    {
+      "ids": [
+        "srd51:2014:item:wand-of-magic-detection",
+        "srd51:2014:item:wand-of-magic-missiles"
+      ],
+      "distance": {
+        "dark": 10,
+        "light": 10
+      },
+      "review": "required"
+    },
+    {
+      "ids": [
+        "srd51:2014:item:wand-of-paralysis",
+        "srd51:2014:item:wand-of-the-war-mage-2"
+      ],
+      "distance": {
+        "dark": 10,
+        "light": 10
+      },
+      "review": "required"
+    }
+  ],
+  "fingerprints": [
+    {
+      "id": "srd51:2014:artifact:orb-of-dragonkind",
+      "dark": "47c76c1a306c33e6",
+      "light": "654fc2909e6e9964"
+    },
+    {
+      "id": "srd51:2014:item:adamantine-armor",
+      "dark": "47c1383a3ccf69d0",
+      "light": "6c4b93b4934dcb18"
+    },
+    {
+      "id": "srd51:2014:item:amulet-of-health",
+      "dark": "4e0c39f34e0b3939",
+      "light": "34ce992dc6339332"
+    },
+    {
+      "id": "srd51:2014:item:amulet-of-proof-against-detection-and-location",
+      "dark": "4e2c3993e4c3339c",
+      "light": "64c6933ccc64cd9a"
+    },
+    {
+      "id": "srd51:2014:item:bag-of-holding",
+      "dark": "40373ed02d8f7171",
+      "light": "6ae0858bd41e963e"
+    },
+    {
+      "id": "srd51:2014:item:boots-of-elvenkind",
+      "dark": "41793c963b2d3649",
+      "light": "36b6c369c0dac3b0"
+    },
+    {
+      "id": "srd51:2014:item:boots-of-levitation",
+      "dark": "43c66c613c79371c",
+      "light": "69799630939c93c6"
+    },
+    {
+      "id": "srd51:2014:item:boots-of-speed",
+      "dark": "459f2f6830073ef0",
+      "light": "39e39296ccb0c74c"
+    },
+    {
+      "id": "srd51:2014:item:boots-of-striding-and-springing",
+      "dark": "51991e4a31976759",
+      "light": "6c64819f4c589fe8"
+    },
+    {
+      "id": "srd51:2014:item:bracers-of-archery",
+      "dark": "41e74e58332eb4b2",
+      "light": "3ed8b18dd8514de0"
+    },
+    {
+      "id": "srd51:2014:item:bracers-of-defense",
+      "dark": "51e72e586938b8b1",
+      "light": "6bd2858dd0671ce2"
+    },
+    {
+      "id": "srd51:2014:item:broom-of-flying",
+      "dark": "403f31e51ff2424e",
+      "light": "3bc29c31e60da939"
+    },
+    {
+      "id": "srd51:2014:item:circlet-of-blasting",
+      "dark": "44323bcdf43b83c4",
+      "light": "6ed891264ed9292e"
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-displacement",
+      "dark": "11cb6db42636722d",
+      "light": "3eb0c06fc0c69dc6"
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-elvenkind",
+      "dark": "4e4c38d3659ae1c3",
+      "light": "3492cf3d9a6119cc"
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-protection",
+      "dark": "434e3cb029f332e5",
+      "light": "39e4c21b854e9d4d"
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-the-manta-ray",
+      "dark": "49c93c19f3644f13",
+      "light": "6766c69349c8b199"
+    },
+    {
+      "id": "srd51:2014:item:gauntlets-of-ogre-power",
+      "dark": "70e40add69122f9b",
+      "light": "38dbb624e58cd0a5"
+    },
+    {
+      "id": "srd51:2014:item:goggles-of-night",
+      "dark": "50272f9ce9e3248d",
+      "light": "6ed0c12f98d46b62"
+    },
+    {
+      "id": "srd51:2014:item:hat-of-disguise",
+      "dark": "421e3df1074fdc0c",
+      "light": "69e5961ad0b16356"
+    },
+    {
+      "id": "srd51:2014:item:headband-of-intellect",
+      "dark": "54c20f3d78d0c2cf",
+      "light": "6ab5a1c0976a3c95"
+    },
+    {
+      "id": "srd51:2014:item:helm-of-comprehending-languages",
+      "dark": "40876e783675f161",
+      "light": "6f6883a79a92cc19"
+    },
+    {
+      "id": "srd51:2014:item:mithral-armor",
+      "dark": "4f933c3638c1714d",
+      "light": "6c6d9334960bc993"
+    },
+    {
+      "id": "srd51:2014:item:necklace-of-adaptation",
+      "dark": "4c33cc8e93cc3a8b",
+      "light": "734cb1646997c730"
+    },
+    {
+      "id": "srd51:2014:item:pearl-of-power",
+      "dark": "44cf3f38382471d3",
+      "light": "6ec6b538922ccb31"
+    },
+    {
+      "id": "srd51:2014:item:periapt-of-wound-closure",
+      "dark": "4f66309366cc3374",
+      "light": "32cec939ccc39926"
+    },
+    {
+      "id": "srd51:2014:item:potion-of-greater-healing",
+      "dark": "4ccc313333c367cc",
+      "light": "32cc9933cd31cc93"
+    },
+    {
+      "id": "srd51:2014:item:potion-of-healing",
+      "dark": "4e4c38e1c33839f3",
+      "light": "25c6922dc93cdb32"
+    },
+    {
+      "id": "srd51:2014:item:potion-of-superior-healing",
+      "dark": "4ecc383367c73131",
+      "light": "66ce9a31cc648b33"
+    },
+    {
+      "id": "srd51:2014:item:potion-of-supreme-healing",
+      "dark": "4c0c1cf3e7383cc3",
+      "light": "6686905bc79a92e9"
+    },
+    {
+      "id": "srd51:2014:item:ring-of-protection",
+      "dark": "41ce3f30619336cb",
+      "light": "6ae4950fd29cca38"
+    },
+    {
+      "id": "srd51:2014:item:ring-of-swimming",
+      "dark": "42cf6c30369b3ac9",
+      "light": "3d70928fc83cc5b2"
+    },
+    {
+      "id": "srd51:2014:item:ring-of-warmth",
+      "dark": "41263e796d993166",
+      "light": "3be0948fd236cc38"
+    },
+    {
+      "id": "srd51:2014:item:ring-of-water-walking",
+      "dark": "50873f7064c933e6",
+      "light": "7ae0859fd236c138"
+    },
+    {
+      "id": "srd51:2014:item:slippers-of-spider-climbing",
+      "dark": "413b3fcca10fdc30",
+      "light": "6cc4953f5a70274c"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-binding",
+      "dark": "35b5704b58694b6c",
+      "light": "7ac09fb0a78cb903"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-enemy-detection",
+      "dark": "1297706f487907f4",
+      "light": "2fe09fb0a60ce90b"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-fear",
+      "dark": "15b5614f5a434eb4",
+      "light": "3ac29eb0a71c694e"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-fireballs",
+      "dark": "15b6b44f584b4e68",
+      "light": "684b9eb0a6ace10f"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-lightning-bolts",
+      "dark": "14b6654d497316f4",
+      "light": "3cc19e32e60ce94b"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-magic-detection",
+      "dark": "1597646d485b13f2",
+      "light": "2ee09fb0e30cf883"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-magic-missiles",
+      "dark": "1097646d4cd197f4",
+      "light": "2de19eb0e30c690f"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-paralysis",
+      "dark": "14b7614e4c7187f8",
+      "light": "6e409bb0a72cf117"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-polymorph",
+      "dark": "1393724d4d6067ec",
+      "light": "6e609fb4a50dd903"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-secrets",
+      "dark": "119b32664e6863fc",
+      "light": "6f608f99b386f003"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-the-war-mage-1",
+      "dark": "109734471cf9477c",
+      "light": "6a4a9eb0a7acb903"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-the-war-mage-2",
+      "dark": "1197704e4cf12fe8",
+      "light": "6b489db1a70cd907"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-the-war-mage-3",
+      "dark": "119c72463af32ee8",
+      "light": "6a639db1861c9336"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-web",
+      "dark": "531f704f1ce107b4",
+      "light": "6ee09db1a70cd912"
+    },
+    {
+      "id": "srd51:2014:item:wand-of-wonder",
+      "dark": "1297606f497946f4",
+      "light": "2ee09fb0a71ce107"
+    },
+    {
+      "id": "srd51:2014:monster:acolyte",
+      "dark": "452eb2e01fd88b3c",
+      "light": "452eb2e01fd88b3c"
+    },
+    {
+      "id": "srd51:2014:monster:air-elemental",
+      "dark": "4d933b2c310ebdb0",
+      "light": "666cc5c284b19b4f"
+    },
+    {
+      "id": "srd51:2014:monster:ancient-red-dragon",
+      "dark": "41622b69349f2f17",
+      "light": "3c86c19fc2699479"
+    },
+    {
+      "id": "srd51:2014:monster:animated-armor",
+      "dark": "451e4aedc2b0317e",
+      "light": "62b3b00fcc53a94b"
+    },
+    {
+      "id": "srd51:2014:monster:archmage",
+      "dark": "4fcf1e383c3e2031",
+      "light": "4fcf1e383c3e2031"
+    },
+    {
+      "id": "srd51:2014:monster:assassin",
+      "dark": "61c38f362cd8c91d",
+      "light": "61c38f362cd8c91d"
+    },
+    {
+      "id": "srd51:2014:monster:awakened-shrub",
+      "dark": "41c12f2f3cb87263",
+      "light": "41c12f2f3cb87263"
+    },
+    {
+      "id": "srd51:2014:monster:awakened-tree",
+      "dark": "4cf0530e3d2e3c39",
+      "light": "624ba5b6d646c23a"
+    },
+    {
+      "id": "srd51:2014:monster:bandit",
+      "dark": "490f33642ed8399b",
+      "light": "490f33642ed8399b"
+    },
+    {
+      "id": "srd51:2014:monster:bandit-captain",
+      "dark": "501f26646ddd2387",
+      "light": "6be5c62e941ad819"
+    },
+    {
+      "id": "srd51:2014:monster:bat",
+      "dark": "4676383933ce8c96",
+      "light": "4676383933ce8c96"
+    },
+    {
+      "id": "srd51:2014:monster:berserker",
+      "dark": "511b3fe52c3e5890",
+      "light": "6fa496c289119b3b"
+    },
+    {
+      "id": "srd51:2014:monster:brown-bear",
+      "dark": "50930f6c7832f2e6",
+      "light": "50930f6c7832f2e6"
+    },
+    {
+      "id": "srd51:2014:monster:camel",
+      "dark": "501e3263696b6dd2",
+      "light": "27c04996bc85dbc9"
+    },
+    {
+      "id": "srd51:2014:monster:cat",
+      "dark": "434b38f23ff0311c",
+      "light": "434b38f23ff0311c"
+    },
+    {
+      "id": "srd51:2014:monster:crab",
+      "dark": "51c62f39308dc3e6",
+      "light": "6e3b908cc9726c87"
+    },
+    {
+      "id": "srd51:2014:monster:cult-fanatic",
+      "dark": "590d3df264996623",
+      "light": "2fe5d20ebc588839"
+    },
+    {
+      "id": "srd51:2014:monster:dire-wolf",
+      "dark": "544b037b1c9e786c",
+      "light": "6af4a5909596878e"
+    },
+    {
+      "id": "srd51:2014:monster:druid",
+      "dark": "450f3e7c33313863",
+      "light": "7ef4838f92880dca"
+    },
+    {
+      "id": "srd51:2014:monster:earth-elemental",
+      "dark": "454f0ef870303b73",
+      "light": "6ab4a41fc36b9138"
+    },
+    {
+      "id": "srd51:2014:monster:elephant",
+      "dark": "508d4f72077b2f21",
+      "light": "3bca85adfa04d0a5"
+    },
+    {
+      "id": "srd51:2014:monster:elk",
+      "dark": "5217616a1e920fed",
+      "light": "29da9ee4c361f049"
+    },
+    {
+      "id": "srd51:2014:monster:fire-elemental",
+      "dark": "4cdb3b24e0c38e39",
+      "light": "636cc45a8f399887"
+    },
+    {
+      "id": "srd51:2014:monster:frog",
+      "dark": "143f2de04b0ee699",
+      "light": "6bc0d41f95b163c2"
+    },
+    {
+      "id": "srd51:2014:monster:gelatinous-cube",
+      "dark": "40e43f3f2e5a60d1",
+      "light": "6bc2943d869d9ad0"
+    },
+    {
+      "id": "srd51:2014:monster:ghost",
+      "dark": "4c8f3cf03158e2b5",
+      "light": "25e6932fd8930cca"
+    },
+    {
+      "id": "srd51:2014:monster:goblin",
+      "dark": "4cce33361e7031b9",
+      "light": "4cce33361e7031b9"
+    },
+    {
+      "id": "srd51:2014:monster:guard",
+      "dark": "4c4cb7273a2133f2",
+      "light": "7785daca911cc925"
+    },
+    {
+      "id": "srd51:2014:monster:hawk",
+      "dark": "476d30986cb671c3",
+      "light": "476d30986cb671c3"
+    },
+    {
+      "id": "srd51:2014:monster:knight",
+      "dark": "501e3ce029bb6733",
+      "light": "2fe542c8949aeb91"
+    },
+    {
+      "id": "srd51:2014:monster:lizard",
+      "dark": "52973f64c9c84a53",
+      "light": "2f68c09f3233a53c"
+    },
+    {
+      "id": "srd51:2014:monster:mage",
+      "dark": "494f3f7021397233",
+      "light": "3fc44a2c948bcd3c"
+    },
+    {
+      "id": "srd51:2014:monster:mastiff",
+      "dark": "402f9d706b353e64",
+      "light": "6ca59296c5c3958e"
+    },
+    {
+      "id": "srd51:2014:monster:octopus",
+      "dark": "414703a63ebd3e1c",
+      "light": "3eb0b14bc94b884f"
+    },
+    {
+      "id": "srd51:2014:monster:owl",
+      "dark": "522f2cb065cf21d3",
+      "light": "39c1971a941cd62f"
+    },
+    {
+      "id": "srd51:2014:monster:poisonous-snake",
+      "dark": "441e3bf1302d6e65",
+      "light": "6be1854eec4a911b"
+    },
+    {
+      "id": "srd51:2014:monster:priest",
+      "dark": "510fb4626c3dc671",
+      "light": "31a1ca8796dacd19"
+    },
+    {
+      "id": "srd51:2014:monster:raven",
+      "dark": "65d41f4ed8611e64",
+      "light": "65d41f4ed8611e64"
+    },
+    {
+      "id": "srd51:2014:monster:rhinoceros",
+      "dark": "500f2e7e76f00963",
+      "light": "38d1a50a8e9ed6a6"
+    },
+    {
+      "id": "srd51:2014:monster:water-elemental",
+      "dark": "405b0fad3cd269ac",
+      "light": "6794c0d28b2d96ce"
+    },
+    {
+      "id": "srd51:2014:monster:wolf",
+      "dark": "43333cd93ee4241e",
+      "light": "43333cd93ee4241e"
+    },
+    {
+      "id": "srd51:2014:spell:acid-arrow",
+      "dark": "159569684b7a12de",
+      "light": "6a689497b187fc30"
+    },
+    {
+      "id": "srd51:2014:spell:acid-splash",
+      "dark": "4b6431936e9c34d3",
+      "light": "34c69b3dc371c930"
+    },
+    {
+      "id": "srd51:2014:spell:aid",
+      "dark": "45592db5509973e4",
+      "light": "2ff2c60fc994980e"
+    },
+    {
+      "id": "srd51:2014:spell:alarm",
+      "dark": "49d93333eccc7023",
+      "light": "66c6c930cacb389b"
+    },
+    {
+      "id": "srd51:2014:spell:barkskin",
+      "dark": "461f61473af04fc8",
+      "light": "79c09cb2c73bb025"
+    },
+    {
+      "id": "srd51:2014:spell:black-tentacles",
+      "dark": "441c39bb5b93a6e0",
+      "light": "7cc3864ca47a139b"
+    },
+    {
+      "id": "srd51:2014:spell:bless",
+      "dark": "413d699634c336ec",
+      "light": "3fc236699235c833"
+    },
+    {
+      "id": "srd51:2014:spell:blight",
+      "dark": "13972492d86367ec",
+      "light": "6c60cb6d279c9193"
+    },
+    {
+      "id": "srd51:2014:spell:blur",
+      "dark": "4e4c30f3633ccccc",
+      "light": "26c69939c3b22cce"
+    },
+    {
+      "id": "srd51:2014:spell:burning-hands",
+      "dark": "451f78c11f60ce1d",
+      "light": "6a62958d98b1a74d"
+    },
+    {
+      "id": "srd51:2014:spell:call-lightning",
+      "dark": "4cc3370c3f3d6470",
+      "light": "6a6cc7a4941e56d2"
+    },
+    {
+      "id": "srd51:2014:spell:chain-lightning",
+      "dark": "451471e35e78175a",
+      "light": "7e569b1aa5a0a9a1"
+    },
+    {
+      "id": "srd51:2014:spell:chill-touch",
+      "dark": "419d3a1b39687a9c",
+      "light": "32c6c639c637c558"
+    },
+    {
+      "id": "srd51:2014:spell:cloudkill",
+      "dark": "40cf3f3930736686",
+      "light": "6ec4851f923bc2e4"
+    },
+    {
+      "id": "srd51:2014:spell:comprehend-languages",
+      "dark": "42606997187a3d6f",
+      "light": "3e9db44ac1619734"
+    },
+    {
+      "id": "srd51:2014:spell:cone-of-cold",
+      "dark": "051f78c13f621772",
+      "light": "6a70974e9c09ca9e"
+    },
+    {
+      "id": "srd51:2014:spell:cure-wounds",
+      "dark": "443e694b13e43d3a",
+      "light": "1bc0d6b4a91bce19"
+    },
+    {
+      "id": "srd51:2014:spell:dancing-lights",
+      "dark": "486b0db673493f81",
+      "light": "6684a74d99b14e3c"
+    },
+    {
+      "id": "srd51:2014:spell:detect-magic",
+      "dark": "4ec72c3c399b9131",
+      "light": "666de49493319a1b"
+    },
+    {
+      "id": "srd51:2014:spell:druidcraft",
+      "dark": "5a993c23653c96c6",
+      "light": "6dc4c31896e5599a"
+    },
+    {
+      "id": "srd51:2014:spell:eldritch-blast",
+      "dark": "443d25e1185bf2d6",
+      "light": "3fe09e15e401e33c"
+    },
+    {
+      "id": "srd51:2014:spell:entangle",
+      "dark": "434f3ee07c143578",
+      "light": "69b1931b8668daa5"
+    },
+    {
+      "id": "srd51:2014:spell:feather-fall",
+      "dark": "15356aca1bd95296",
+      "light": "6ad29539c13ee047"
+    },
+    {
+      "id": "srd51:2014:spell:fire-bolt",
+      "dark": "14b5696bda92b624",
+      "light": "6b4a9e3461cf1c64"
+    },
+    {
+      "id": "srd51:2014:spell:fireball",
+      "dark": "13986c673cd2c33c",
+      "light": "6a6b8585e19a98e3"
+    },
+    {
+      "id": "srd51:2014:spell:guidance",
+      "dark": "153d78e2469e30e3",
+      "light": "6ac2952bf02d94b5"
+    },
+    {
+      "id": "srd51:2014:spell:healing-word",
+      "dark": "43472f99bc7ac284",
+      "light": "3ff0c00e432f3d70"
+    },
+    {
+      "id": "srd51:2014:spell:hold-person",
+      "dark": "490f76b10e6c65b1",
+      "light": "38b4c74bc6929e1c"
+    },
+    {
+      "id": "srd51:2014:spell:identify",
+      "dark": "069c3c616b3766c9",
+      "light": "68c2c31db5ad8d34"
+    },
+    {
+      "id": "srd51:2014:spell:invisibility",
+      "dark": "441e39e133e56786",
+      "light": "3be4c61ec81bc139"
+    },
+    {
+      "id": "srd51:2014:spell:light",
+      "dark": "411d3ee2c78dd036",
+      "light": "2dc2922fcb34cb32"
+    },
+    {
+      "id": "srd51:2014:spell:mage-hand",
+      "dark": "429e38e133e34e6c",
+      "light": "3963c63c649e9193"
+    },
+    {
+      "id": "srd51:2014:spell:magic-missile",
+      "dark": "14946b6bc70fcc98",
+      "light": "6969969638f03267"
+    },
+    {
+      "id": "srd51:2014:spell:mending",
+      "dark": "40d03f0f2decb4b1",
+      "light": "3c4d91b4cfd2680b"
+    },
+    {
+      "id": "srd51:2014:spell:message",
+      "dark": "34a50b58fca3a297",
+      "light": "5b50a4af0f755942"
+    },
+    {
+      "id": "srd51:2014:spell:minor-illusion",
+      "dark": "15267a386cc9c75a",
+      "light": "3ec0c13f863e38e4"
+    },
+    {
+      "id": "srd51:2014:spell:mirror-image",
+      "dark": "449c0b653f92b0f3",
+      "light": "2ed2b565c20dd03d"
+    },
+    {
+      "id": "srd51:2014:spell:misty-step",
+      "dark": "463c69c19f6069cb",
+      "light": "38c3c73ce39e8630"
+    },
+    {
+      "id": "srd51:2014:spell:poison-spray",
+      "dark": "419f3c603f78c3c2",
+      "light": "6a6885a5c49fb48b"
+    },
+    {
+      "id": "srd51:2014:spell:prestidigitation",
+      "dark": "4f333c98c3cc38c5",
+      "light": "32cccb653426ce3a"
+    },
+    {
+      "id": "srd51:2014:spell:produce-flame",
+      "dark": "493c63c2b62dc972",
+      "light": "3ec3942dc830e59b"
+    },
+    {
+      "id": "srd51:2014:spell:ray-of-frost",
+      "dark": "136d659249669379",
+      "light": "6c969a6db2592c92"
+    },
+    {
+      "id": "srd51:2014:spell:sacred-flame",
+      "dark": "4c38639b30cf3399",
+      "light": "32c78a6c9332cd33"
+    },
+    {
+      "id": "srd51:2014:spell:shield",
+      "dark": "429a3dc978a56366",
+      "light": "69a5ca369458b6d8"
+    },
+    {
+      "id": "srd51:2014:spell:shocking-grasp",
+      "dark": "45b02f98786b9666",
+      "light": "3aced1cc8764c8b2"
+    },
+    {
+      "id": "srd51:2014:spell:unseen-servant",
+      "dark": "436f3c90b34ec439",
+      "light": "39b0c44f4b917b38"
+    },
+    {
+      "id": "srd51:2014:spell:vicious-mockery",
+      "dark": "40c33e36797a34cc",
+      "light": "37e4c1d887931e31"
+    }
+  ]
+}
