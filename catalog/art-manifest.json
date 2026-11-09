@@ -1717,6 +1717,358 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:item:bracers-of-archery",
+      "contentSha256": "869e2365540ec30554a9ca7a2e850d8888024baec07283010beeb79d299eb768",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 df5442311fbe3fbb3e68b311d5f179b2a64d0f65f9877893cdf2ce4317b8ff87",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "df5442311fbe3fbb3e68b311d5f179b2a64d0f65f9877893cdf2ce4317b8ff87",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v4.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/bracers-of-archery-original-47171b892c365aeb.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 235183,
+          "sha256": "47171b892c365aebae1fd0b68d8cd2836897307384261e72b7dfa570d12209b5",
+          "derivedFrom": "df5442311fbe3fbb3e68b311d5f179b2a64d0f65f9877893cdf2ce4317b8ff87",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/bracers-of-archery-thumbnail-fe92bba51c8db025.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16405,
+          "sha256": "fe92bba51c8db025e4da9b589ae44f961f03aa9d265467cafe929002c135ef3a",
+          "derivedFrom": "df5442311fbe3fbb3e68b311d5f179b2a64d0f65f9877893cdf2ce4317b8ff87",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:bracers-of-defense",
+      "contentSha256": "2f6b23fbb4b021d0f14f25f9d6f36207a9fda0a65eca6bb812bebd28d889e4df",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 2d5b7a9d2bc668a8024294515b7124089cac02928ef4377b9e8a848e996ce7f4",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "2d5b7a9d2bc668a8024294515b7124089cac02928ef4377b9e8a848e996ce7f4",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v4.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/bracers-of-defense-original-48a7cf8c69e68c22.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 244651,
+          "sha256": "48a7cf8c69e68c22264b75548758b9174a84459088c119d8ceb0842b257ff389",
+          "derivedFrom": "2d5b7a9d2bc668a8024294515b7124089cac02928ef4377b9e8a848e996ce7f4",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/bracers-of-defense-thumbnail-ce7b36dbf5a29cc5.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 17458,
+          "sha256": "ce7b36dbf5a29cc5aa428ee074d2753cb79f64709d8d9bb020dfd1b6d622db5a",
+          "derivedFrom": "2d5b7a9d2bc668a8024294515b7124089cac02928ef4377b9e8a848e996ce7f4",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:broom-of-flying",
+      "contentSha256": "5f339a411a0e2298520f52cffb55400664de9ce12279497acab90276606fabf6",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 58015bada7d451e92a32ed5757857ab625cb4b43cd8e6babbf53d9965e8e259c",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "58015bada7d451e92a32ed5757857ab625cb4b43cd8e6babbf53d9965e8e259c",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v4.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/broom-of-flying-original-b80d953b9f9a4f82.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 103147,
+          "sha256": "b80d953b9f9a4f8220227f0c761adf1f7e2c933ed569c6c8647ab5338c2d7ed1",
+          "derivedFrom": "58015bada7d451e92a32ed5757857ab625cb4b43cd8e6babbf53d9965e8e259c",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/broom-of-flying-thumbnail-53fe5037f14cd675.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 7422,
+          "sha256": "53fe5037f14cd675298d7407c128dc10b2318fd6e64c2ef739295e9c6f983bcb",
+          "derivedFrom": "58015bada7d451e92a32ed5757857ab625cb4b43cd8e6babbf53d9965e8e259c",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:circlet-of-blasting",
+      "contentSha256": "bcac2a7776fea7a9ab7eb9c59b6c5cb374791dccf219cf6610944f9647295ba4",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 21136e81f7afe866f6ed9c1011041150762003777e99ecbd263d55ab9f7481a3",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "21136e81f7afe866f6ed9c1011041150762003777e99ecbd263d55ab9f7481a3",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v4.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/circlet-of-blasting-original-0aeed6d53c320e7a.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 104492,
+          "sha256": "0aeed6d53c320e7a544e9a9b134132fa065bf957a978d93bade18134ab32ee6d",
+          "derivedFrom": "21136e81f7afe866f6ed9c1011041150762003777e99ecbd263d55ab9f7481a3",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/circlet-of-blasting-thumbnail-55479c310ded9c9b.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 7823,
+          "sha256": "55479c310ded9c9b8cd92e3f85f4dcd6a2312b6c25da5c904a028ea1f8e0d678",
+          "derivedFrom": "21136e81f7afe866f6ed9c1011041150762003777e99ecbd263d55ab9f7481a3",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:goggles-of-night",
+      "contentSha256": "942eac42a336b793d1f69d5b1cba4853121ab03d7c2bfccd44c40c72715c993b",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 dc447584b7b102b17be3aef551caaf21757d675ee6021003503e23711875864f",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "dc447584b7b102b17be3aef551caaf21757d675ee6021003503e23711875864f",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v4.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/goggles-of-night-original-7f6d43c9d56822a6.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 176523,
+          "sha256": "7f6d43c9d56822a6b78d24c84c97072bf311b1f76cadfd62552a89c19862c767",
+          "derivedFrom": "dc447584b7b102b17be3aef551caaf21757d675ee6021003503e23711875864f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/goggles-of-night-thumbnail-cd89f06e36b6f772.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 12942,
+          "sha256": "cd89f06e36b6f772a2ddde308e632b664b8f98910aa15f0f51eec09119c926ca",
+          "derivedFrom": "dc447584b7b102b17be3aef551caaf21757d675ee6021003503e23711875864f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:hat-of-disguise",
+      "contentSha256": "f2d37230f0facdcc37438711cd43b1d40ce53ae5b2b879f4cb409b90906edd49",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 2a521e6b8b8e9f205aeb45a65024cfe7257f54eb8bb81a6b024c9aab7a405bfe",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "2a521e6b8b8e9f205aeb45a65024cfe7257f54eb8bb81a6b024c9aab7a405bfe",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v4.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/hat-of-disguise-original-a27cd88299749706.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 153256,
+          "sha256": "a27cd88299749706a46dcfc9915d251bfd867c7a8d750ba5b9940aaff835f536",
+          "derivedFrom": "2a521e6b8b8e9f205aeb45a65024cfe7257f54eb8bb81a6b024c9aab7a405bfe",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/hat-of-disguise-thumbnail-8f2458012aac4f66.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11192,
+          "sha256": "8f2458012aac4f66fe9f7eafebcf44a5917a1bf7a05045bfad982546705af2cc",
+          "derivedFrom": "2a521e6b8b8e9f205aeb45a65024cfe7257f54eb8bb81a6b024c9aab7a405bfe",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:pearl-of-power",
+      "contentSha256": "15540b4456925f59fc4ee111980586d117e24487a4b3e8dcb87c4afcab750528",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 6b12c0c5cceff9099acbf59021b8808955e966355380be86d3ff709037c888cf",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "6b12c0c5cceff9099acbf59021b8808955e966355380be86d3ff709037c888cf",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v4.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/pearl-of-power-original-b63a2fa77617a12c.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 211380,
+          "sha256": "b63a2fa77617a12cc38582c019ab48cecf6d7627462e8248f2fc9a46f1469ffb",
+          "derivedFrom": "6b12c0c5cceff9099acbf59021b8808955e966355380be86d3ff709037c888cf",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/pearl-of-power-thumbnail-1671232de312456f.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16635,
+          "sha256": "1671232de312456f9466bff335aab20dc47ad75d8f44d80889f06b0c4c4be45f",
+          "derivedFrom": "6b12c0c5cceff9099acbf59021b8808955e966355380be86d3ff709037c888cf",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:necklace-of-adaptation",
+      "contentSha256": "e6c1b98c9013b02321620cfe7a6b6f25f99041fe94069dd72679ade32a7851fe",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-09; SHA256 5a80a20b5e64d49afc42b73bb1bd79d6a6e4f05d27995d1cf4a3f6a5bb6df7a9",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "5a80a20b5e64d49afc42b73bb1bd79d6a6e4f05d27995d1cf4a3f6a5bb6df7a9",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v4.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/necklace-of-adaptation-original-8f370753b39ef5cc.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 109519,
+          "sha256": "8f370753b39ef5ccd18789237dc24aabc35bf7ee1696950123f325b2fd678648",
+          "derivedFrom": "5a80a20b5e64d49afc42b73bb1bd79d6a6e4f05d27995d1cf4a3f6a5bb6df7a9",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/necklace-of-adaptation-thumbnail-57cd71b9a0a266fd.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 8507,
+          "sha256": "57cd71b9a0a266fd637788e9cfd004b833c08d8ce6ab81bdd59a66a0abd0bfb6",
+          "derivedFrom": "5a80a20b5e64d49afc42b73bb1bd79d6a6e4f05d27995d1cf4a3f6a5bb6df7a9",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }
