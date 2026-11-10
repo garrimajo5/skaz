@@ -5,6 +5,7 @@ import {mkdtempSync,readFileSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {randomUUID} from 'node:crypto';
+import vm from 'node:vm';
 import {openStore} from '../server/store.mjs';
 import {createAccess} from '../server/access.mjs';
 import {createPersonalArtAccess} from '../server/personal-art-access.mjs';
@@ -88,6 +89,21 @@ test('cookie HTTP art read/write/export is personal, non-cacheable and replay sa
  assert.equal((await f.call('change',{method:'POST',body:{...f.command,mutationId:randomUUID()}})).status,409);
  f.sessions.logout(f.tokens.player.token);
  assert.equal((await f.call('image?'+f.query,{extra:{'If-None-Match':'anything'}})).status,401);
+});
+test('browser transport works with actual cookie HTTP and rejects identity change and revoked access',async t=>{
+ const f=await httpFixture(t),context=vm.createContext({URLSearchParams,AbortController,AbortSignal});
+ vm.runInContext(readFileSync(new URL('../client/personal-art-transport.js',import.meta.url),'utf8')+';globalThis.transport=SkazPersonalArtTransport;',context);
+ let who='player';
+ const client=context.transport.create({identity:'player-art',characterId:f.context.characterId,catalogId,request:(url,options)=>fetch(f.base+url,{...options,headers:{...f.headers(who),...options.headers}})});
+ t.after(()=>client.destroy());const binding={characterId:f.context.characterId,catalogId};
+ assert.equal((await client.snapshot(binding)).standard,true);
+ assert.equal((await client.change(JSON.stringify(f.command))).revision,1);
+ const current=await client.snapshot(binding);assert.equal(current.revision,1);assert.equal(new Uint8Array(await current.blob.arrayBuffer())[0],137);
+ who='owner';await assert.rejects(client.snapshot(binding),{status:401});who='player';
+ f.access.apply({action:'revoke-character',userId:'player-art',campaignId:f.context.campaignId,characterId:f.context.characterId});
+ await assert.rejects(client.snapshot(binding),{status:404});
+ await assert.rejects(client.change(JSON.stringify(f.command)),{status:404});
+ assert.equal(f.db.prepare('SELECT count(*) AS n FROM personal_art_versions').get().n,1);
 });
 test('HTTP rejects forged identity, CSRF, bad payloads, invalid image and ambiguous query',async t=>{
  const f=await httpFixture(t);

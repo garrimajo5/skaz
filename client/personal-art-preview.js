@@ -63,7 +63,7 @@ const SkazPersonalArtPreview=(()=>{
    catch(error){if(!closed)status.textContent=error.message||'Не удалось сохранить изображение. Повтори после проверки связи.';}
    finally{saving=false;if(!closed){save.disabled=!bytes;input.disabled=false;controls.disabled=!image;status.scrollIntoView({block:'nearest'});}}
   });
-  return {destroy(){closed=true;serial++;image?.close();image=null;bytes=null;section.remove();}};
+  return {setStatus(message){if(!closed)status.textContent=message;},destroy(){closed=true;serial++;image?.close();image=null;bytes=null;section.remove();}};
  }
  return {dimensions,crop,create};
 })();
