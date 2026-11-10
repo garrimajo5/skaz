@@ -57,3 +57,19 @@ test('definitive conflict stays pending until explicit reconciliation',async()=>
  client.reconciled();await assert.rejects(client.submit({expectedRevision:1}),/Conflict/);
  assert.equal(sequence,2);
 });
+test('explicit retry preserves the captured upload after caller edits or discards its draft',async()=>{
+ const bodies=[];let sequence=0;
+ const client=context.commands.create({newId:()=>String(++sequence),send:async body=>{
+  bodies.push(body);if(bodies.length===1)throw Error('Lost response');return {revision:1};
+ }});
+ await assert.rejects(client.retry(),/Нет команды/);
+ const draft={action:'set',expectedRevision:0,png:'original',crop:{x:0,y:0,size:96}};
+ await assert.rejects(client.submit(draft),/Lost response/);
+ draft.png='replacement';draft.crop.x=12;
+ await assert.rejects(client.submit(draft),/предыдущую/);
+ assert.equal((await client.retry()).revision,1);
+ assert.equal(bodies[0],bodies[1]);assert.equal(sequence,1);
+ await assert.rejects(client.retry(),/Нет команды/);
+ client.destroy();assert.throws(()=>client.reconciled(),/закрыт/);
+ await assert.rejects(client.retry(),/закрыт/);
+});
