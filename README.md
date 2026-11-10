@@ -48,7 +48,7 @@ npm run dev
 
 Открой http://127.0.0.1:4173. При первом запуске автоматически создаётся `data/skaz.sqlite`. По умолчанию приложение доступно только с этого компьютера. Закрытое размещение за HTTPS-прокси описано в [развёртывании](docs/deployment.md).
 
-Если Node установлен без npm, запуск: `node scripts/dev.mjs`, сборка: `node scripts/build.mjs`, тесты: `node --test --test-isolation=none tests/*.test.mjs`.
+Если Node установлен без npm, запуск: `node scripts/dev.mjs`, сборка: `node scripts/build.mjs`, тесты: `node --test --test-isolation=process --test-concurrency=4 tests/*.test.mjs`.
 
 ```sh
 npm run check
@@ -56,6 +56,10 @@ npm test
 npm run build
 npm run backup
 ```
+
+`npm test` запускает все JavaScript-тесты в отдельных процессах, не более четырёх одновременно. Каждый файл сохраняет последовательное выполнение своих тестов; набор проверок не сокращается. Для диагностики в прежнем последовательном режиме используй `npm run test:serial`. Для запуска одного файла: `node --test tests/archive.test.mjs`. На машине с ограниченными ресурсами можно уменьшить число процессов: `node --test --test-isolation=process --test-concurrency=2 tests/*.test.mjs`.
+
+Регрессии Python-парсеров SRD запускаются отдельно: `npm run test:audits` (нужен Python), либо `python -m unittest discover -s tests -p "test_srd_*.py"`. Они не входят в `npm test`; при изменении парсеров или их тестов запускай обе группы.
 
 Сборка создаёт клиент в `dist/` и автономный `dist/skaz.html`. HTML-файл при открытии без сервера остаётся демонстрацией с браузерным сохранением; для настоящей базы используй HTTP-адрес локального приложения. Шрифты загружаются из Google Fonts; при недоступности используются системные.
 
