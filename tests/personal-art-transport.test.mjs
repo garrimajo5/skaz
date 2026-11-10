@@ -34,3 +34,12 @@ test('writes retain exact body and cannot change scope; closing aborts pending r
  await assert.rejects(f.api.change(JSON.stringify({...binding,characterId:'other'})),/Область/);
  f.api.destroy();assert.equal(f.calls[0][1].signal.aborted,true);resolve(Response.json({revision:2}));await assert.rejects(pending,/закрыт/);
 });
+
+test('usage validates server policy and cleanup cannot substitute another binding',async()=>{
+ const f=fixture([Response.json({bytes:5,versions:1,bindings:1,limits:{bytes:33554432,versions:1000,bindings:1000},retentionDays:30}),Response.json({removed:0,revision:1})]);
+ assert.equal((await f.api.usage(binding)).bytes,5);await f.api.cleanup(binding);
+ assert.deepEqual(JSON.parse(f.calls[1][1].body),binding);
+ await assert.rejects(f.api.cleanup({...binding,catalogId:'other'}),/Область/);f.api.destroy();
+ const bad=fixture([Response.json({bytes:0,versions:0,bindings:0,limits:{bytes:1,versions:1,bindings:1},retentionDays:0})]);
+ await assert.rejects(bad.api.usage(binding),/квоту/);bad.api.destroy();
+});

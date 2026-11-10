@@ -27,6 +27,15 @@ export async function personalArtHttp(request,response,api,readBody){
  if(request.method==='GET'&&route==='/api/personal-art/export'){
   const {characterId}=fields(url.searchParams,['characterId']);json(response,api.exportCharacter(characterId));return true;
  }
+ if(request.method==='GET'&&route==='/api/personal-art/usage'){
+  const {characterId}=fields(url.searchParams,['characterId']);json(response,api.usage(characterId));return true;
+ }
+ if(request.method==='POST'&&route==='/api/personal-art/cleanup'){
+  fields(url.searchParams,[]);
+  const input=await readBody(request,4096);
+  if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).length!==2||!Object.hasOwn(input,'characterId')||!Object.hasOwn(input,'catalogId'))throw new AppError(422,'Нужна точная область очистки изображения');
+  json(response,api.cleanup(input.characterId,input.catalogId));return true;
+ }
  if(request.method==='POST'&&['/api/personal-art/change','/api/personal-art/import'].includes(route)){
   fields(url.searchParams,[]);
   if(route.endsWith('/import')){json(response,api.importCharacter(await readBody(request,46*1024*1024)));return true;}

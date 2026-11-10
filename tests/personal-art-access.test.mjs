@@ -165,6 +165,20 @@ test('HTTP disabled feature remains closed and requires cookie-session authentic
  assert.equal((await f.call('change',{method:'POST',body:f.command})).status,404);
  assert.throws(()=>createApp(f.game,{authenticate:()=> 'player-art',personalArt:f.forUser}),/cookie/);
 });
+
+test('usage and scoped cleanup retain cookie isolation, readonly permissions and strict fields',async t=>{
+ const f=await httpFixture(t);await f.call('change',{method:'POST',body:f.command});
+ const route='usage?characterId='+f.context.characterId;
+ const response=await f.call(route);assert.match(response.headers.get('cache-control'),/no-store/);assert.equal((await response.json()).versions,1);
+ assert.equal((await (await f.call(route,{who:'owner'})).json()).versions,0);
+ const scope={characterId:f.context.characterId,catalogId};
+ assert.equal((await (await f.call('cleanup',{method:'POST',body:scope})).json()).removed,0);
+ assert.equal((await f.call('cleanup',{method:'POST',body:{...scope,userId:'owner-art'}})).status,422);
+ assert.equal((await f.call('cleanup',{method:'POST',body:scope,extra:{Origin:'https://other.test'}})).status,403);
+ f.access.apply({action:'revoke-character',userId:'player-art',campaignId:f.context.campaignId,characterId:f.context.characterId});
+ assert.equal((await f.call(route)).status,404);assert.equal((await f.call('cleanup',{method:'POST',body:scope})).status,404);
+ const r=await httpFixture(t,{write:false});assert.equal((await r.call('cleanup',{method:'POST',body:{characterId:r.context.characterId,catalogId}})).status,403);
+});
 test('session revoked while HTTP upload is streaming cannot commit or replay',async t=>{
  const f=await httpFixture(t),payload=JSON.stringify(f.command);
  let request;

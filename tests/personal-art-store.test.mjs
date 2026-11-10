@@ -30,6 +30,14 @@ test('same hero and catalog entry remain personal to each actor; bytes are defen
  assert.throws(()=>boris.read('character-two',catalogId),{status:404});
 });
 
+test('usage includes own history across heroes without exposing another users bytes or mutable policy',t=>{
+ const {alice,boris,grants}=fixture(t);alice.change(command());alice.change(command({characterId:'character-two'}));
+ const usage=alice.usage(characterId);assert.equal(usage.versions,2);assert.equal(usage.bindings,2);assert.ok(usage.bytes>0);assert.equal(usage.retentionDays,30);
+ assert.equal(boris.usage(characterId).bytes,0);usage.limits.bytes=0;assert.ok(alice.usage(characterId).limits.bytes>0);
+ alice.change(command({action:'reset',bytes:undefined,expectedRevision:1}));assert.equal(alice.usage(characterId).bytes,usage.bytes);
+ grants.delete('alice/'+characterId);assert.throws(()=>alice.usage(characterId),{status:404});
+});
+
 test('unversioned personal art migrates in place, retaining bytes and receipts; future schemas fail closed',t=>{
  const {db,alice,adapters}=fixture(t),request=command();alice.change(request);
  const before=alice.exportCharacter(characterId);db.exec('DROP TABLE personal_art_schema');

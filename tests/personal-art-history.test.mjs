@@ -33,3 +33,11 @@ test('pending history load blocks another action and late completion cannot recr
  f.api.destroy();finish([{revision:1,standard:false}]);await loading;
  assert.equal(f.container.children.length,0);
 });
+
+test('quota explains account scope and cleanup refreshes usage without reconciling pending commands',async()=>{
+ let cleaned=0,reconciled=0,fail=false;
+ const f=fixture({load:async()=>[],loadUsage:async()=>{if(fail)throw Error('Access lost');return {bytes:1048576,versions:2,bindings:1,limits:{bytes:33554432,versions:1000,bindings:1000}};},onCleanup:async()=>cleaned++,onReconcile:async()=>reconciled++});
+ await f.api.refresh();assert.ok(f.all().some(n=>n.textContent?.includes('1.00 из 32 МиБ')));
+ await f.click('Очистить истёкшую историю этой карточки');assert.equal(cleaned,1);assert.equal(reconciled,0);
+ fail=true;await f.api.refresh();assert.ok(!f.all().some(n=>n.textContent?.includes('1.00 из 32 МиБ')));
+});

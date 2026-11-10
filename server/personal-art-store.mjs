@@ -92,6 +92,15 @@ export function createPersonalArtStore(db,{authorize,catalogExists,limits=person
  function view(userId){
   if(!validId(userId))fail(422,'Неверный пользователь');
   const api={
+   usage(characterId){
+    characterScope(userId,characterId,false);
+    return transaction(()=>{
+     characterScope(userId,characterId,false);
+     const totals=db.prepare('SELECT count(master) AS versions,coalesce(sum(length(master)+length(thumbnail)),0) AS bytes FROM personal_art_versions WHERE user_id=?').get(userId);
+     const bindings=db.prepare('SELECT count(*) AS n FROM (SELECT 1 FROM personal_art_versions WHERE user_id=? GROUP BY character_id,catalog_id)').get(userId).n;
+     return {...totals,bindings,limits:{...limits},retentionDays:personalArtRetentionMs/86400000};
+    });
+   },
    exportCharacter(characterId){
     characterScope(userId,characterId,false);
     return transaction(()=>{

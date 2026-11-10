@@ -20,6 +20,12 @@ const SkazPersonalArtTransport=(()=>{
   }
   return {
    history,
+   async usage(scope){
+    check(scope);const data=await json(await call('usage?'+new URLSearchParams({characterId})));
+    if(!['bytes','versions','bindings'].every(key=>Number.isSafeInteger(data[key])&&data[key]>=0&&Number.isSafeInteger(data.limits?.[key])&&data.limits[key]>0)||data.retentionDays!==30)throw Error('Не удалось проверить квоту изображений.');
+    return data;
+   },
+   async cleanup(scope){check(scope);return json(await call('cleanup',{method:'POST',body:JSON.stringify(binding)}));},
    async change(body){
     const command=JSON.parse(body);check(command);
     return json(await call('change',{method:'POST',body}));
