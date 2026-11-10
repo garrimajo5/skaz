@@ -8,7 +8,7 @@ const SkazPersonalArtCards=(()=>{
   const captured=scope();if(!host||!captured||!entry?.id)return null;
   SkazPersonalArtSession.assertOpen();
   const box=document.createElement('section'),button=document.createElement('button'),target=document.createElement('div');
-  button.type='button';button.textContent='Моё изображение…';box.append(button,target);const art=host.querySelector?.('.skaz-art-card');if(art)art.insertAdjacentElement('afterend',box);else host.append(box);
+  box.className='personal-art-card-controls';button.type='button';button.textContent='Моё изображение…';box.append(button,target);const art=host.querySelector?.('.skaz-art-card');if(art)art.insertAdjacentElement('afterend',box);else host.append(box);
   let editor=null,closed=false,unregister;
   const item={host:box,scope:captured,destroy(){if(closed)return;closed=true;mounted.delete(item);unregister?.();try{editor?.destroy();}finally{box.remove();}}};
   mounted.add(item);unregister=SkazPersonalArtSession.register(item.destroy);
