@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 189,
+  "count": 211,
   "pairs": [
     {
       "ids": [
@@ -182,18 +182,18 @@
     },
     {
       "id": "srd51:2014:item:potion-of-greater-healing",
+      "dark": "4ecc383367c73131",
+      "light": "66ce9a31cc648b33"
+    },
+    {
+      "id": "srd51:2014:item:potion-of-healing",
       "dark": "4ccc313333c367cc",
       "light": "32cc9933cd31cc93"
     },
     {
-      "id": "srd51:2014:item:potion-of-healing",
+      "id": "srd51:2014:item:potion-of-superior-healing",
       "dark": "4e4c38e1c33839f3",
       "light": "25c6922dc93cdb32"
-    },
-    {
-      "id": "srd51:2014:item:potion-of-superior-healing",
-      "dark": "4ecc383367c73131",
-      "light": "66ce9a31cc648b33"
     },
     {
       "id": "srd51:2014:item:potion-of-supreme-healing",
@@ -221,9 +221,34 @@
       "light": "7ae0859fd236c138"
     },
     {
+      "id": "srd51:2014:item:rope-of-climbing",
+      "dark": "4c31cf33319b64cc",
+      "light": "32ce2ccbcc649b31"
+    },
+    {
+      "id": "srd51:2014:item:rope-of-entanglement",
+      "dark": "41fc3e73844c3c0f",
+      "light": "3e53998c3bb487a0"
+    },
+    {
+      "id": "srd51:2014:item:scarab-of-protection",
+      "dark": "44cc393367c6369c",
+      "light": "66c69339cd6e8c82"
+    },
+    {
       "id": "srd51:2014:item:slippers-of-spider-climbing",
       "dark": "413b3fcca10fdc30",
       "light": "6cc4953f5a70274c"
+    },
+    {
+      "id": "srd51:2014:item:sovereign-glue",
+      "dark": "413935a66ecd3839",
+      "light": "6ec0d26fb03e9131"
+    },
+    {
+      "id": "srd51:2014:item:universal-solvent",
+      "dark": "40e172391d8e6797",
+      "light": "6b9c8bc6e071906b"
     },
     {
       "id": "srd51:2014:item:wand-of-binding",
@@ -301,9 +326,39 @@
       "light": "2ee09fb0a71ce107"
     },
     {
+      "id": "srd51:2014:monster:aboleth",
+      "dark": "49f51f6874132a71",
+      "light": "3ec2e094e1bf851a"
+    },
+    {
       "id": "srd51:2014:monster:acolyte",
       "dark": "452eb2e01fd88b3c",
       "light": "452eb2e01fd88b3c"
+    },
+    {
+      "id": "srd51:2014:monster:adult-black-dragon",
+      "dark": "46b06b1c79676ce0",
+      "light": "6aca95c59e30951e"
+    },
+    {
+      "id": "srd51:2014:monster:adult-blue-dragon",
+      "dark": "45312f0e32c6edc3",
+      "light": "6e8b90b4b169c366"
+    },
+    {
+      "id": "srd51:2014:monster:adult-green-dragon",
+      "dark": "5b663b2d24b26166",
+      "light": "30ccc6929e6b9d98"
+    },
+    {
+      "id": "srd51:2014:monster:adult-red-dragon",
+      "dark": "512e3f1d3cf00b70",
+      "light": "6bc487c2d61f901d"
+    },
+    {
+      "id": "srd51:2014:monster:adult-white-dragon",
+      "dark": "433c3c613496339f",
+      "light": "3d92c18fc6699c34"
     },
     {
       "id": "srd51:2014:monster:air-elemental",
@@ -319,6 +374,11 @@
       "id": "srd51:2014:monster:animated-armor",
       "dark": "451e4aedc2b0317e",
       "light": "62b3b00fcc53a94b"
+    },
+    {
+      "id": "srd51:2014:monster:ape",
+      "dark": "460e38f1239f73a1",
+      "light": "6fe4965aa8199938"
     },
     {
       "id": "srd51:2014:monster:archmage",
@@ -339,6 +399,16 @@
       "id": "srd51:2014:monster:awakened-tree",
       "dark": "4cf0530e3d2e3c39",
       "light": "624ba5b6d646c23a"
+    },
+    {
+      "id": "srd51:2014:monster:baboon",
+      "dark": "460f38712fe46237",
+      "light": "6cd0921bc54fc53c"
+    },
+    {
+      "id": "srd51:2014:monster:badger",
+      "dark": "41476e3c2d993327",
+      "light": "7ac5845ec09bd163"
     },
     {
       "id": "srd51:2014:monster:bandit",
@@ -666,6 +736,21 @@
       "light": "66c6c930cacb389b"
     },
     {
+      "id": "srd51:2014:spell:animal-friendship",
+      "dark": "159f62433be00bf8",
+      "light": "6a6a99bcc414f646"
+    },
+    {
+      "id": "srd51:2014:spell:animal-messenger",
+      "dark": "10e26c3d9b33e68c",
+      "light": "793596c2e1b07869"
+    },
+    {
+      "id": "srd51:2014:spell:animal-shapes",
+      "dark": "13676c902d4e91b7",
+      "light": "39c4c63bc2e42f68"
+    },
+    {
       "id": "srd51:2014:spell:animate-dead",
       "dark": "40e44b13279f333e",
       "light": "3a13e5c8d8678dc8"
@@ -684,6 +769,11 @@
       "id": "srd51:2014:spell:arcane-lock",
       "dark": "423f3cc9c9983167",
       "light": "69c1a667c61e929c"
+    },
+    {
+      "id": "srd51:2014:spell:awaken",
+      "dark": "4e96316c31c3ce3c",
+      "light": "61699e92992c63c7"
     },
     {
       "id": "srd51:2014:spell:bane",
@@ -766,6 +856,11 @@
       "light": "6a70974e9c09ca9e"
     },
     {
+      "id": "srd51:2014:spell:conjure-animals",
+      "dark": "42672fda741d9360",
+      "light": "391994e646c76969"
+    },
+    {
       "id": "srd51:2014:spell:counterspell",
       "dark": "4c1c31e31f70663e",
       "light": "3be08e18e90ff903"
@@ -804,6 +899,11 @@
       "id": "srd51:2014:spell:dispel-magic",
       "dark": "46703c9f8dc17358",
       "light": "34cbd134cf329839"
+    },
+    {
+      "id": "srd51:2014:spell:dominate-beast",
+      "dark": "516468e1075e1d9f",
+      "light": "2fc29d18e069d26e"
     },
     {
       "id": "srd51:2014:spell:druidcraft",
@@ -901,6 +1001,11 @@
       "light": "2dc2922fcb34cb32"
     },
     {
+      "id": "srd51:2014:spell:locate-animals-or-plants",
+      "dark": "413535db2ec873c2",
+      "light": "3ecada25b434910f"
+    },
+    {
       "id": "srd51:2014:spell:mage-hand",
       "dark": "429e38e133e34e6c",
       "light": "3963c63c649e9193"
@@ -974,6 +1079,11 @@
       "id": "srd51:2014:spell:shocking-grasp",
       "dark": "45b02f98786b9666",
       "light": "3aced1cc8764c8b2"
+    },
+    {
+      "id": "srd51:2014:spell:speak-with-animals",
+      "dark": "65c21b3d96c6a1c3",
+      "light": "1e79e1860b391e55"
     },
     {
       "id": "srd51:2014:spell:tongues",

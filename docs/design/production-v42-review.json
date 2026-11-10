@@ -1,0 +1,137 @@
+{
+  "batch": "production-v42",
+  "sourceChecks": [
+    {
+      "id": "srd51:2014:spell:animal-friendship",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.696
+    },
+    {
+      "id": "srd51:2014:spell:animal-messenger",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.706
+    },
+    {
+      "id": "srd51:2014:spell:speak-with-animals",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.735
+    },
+    {
+      "id": "srd51:2014:spell:conjure-animals",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.58
+    },
+    {
+      "id": "srd51:2014:spell:dominate-beast",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.49
+    },
+    {
+      "id": "srd51:2014:spell:awaken",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.759
+    },
+    {
+      "id": "srd51:2014:spell:animal-shapes",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.679
+    },
+    {
+      "id": "srd51:2014:spell:locate-animals-or-plants",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.569
+    },
+    {
+      "id": "srd51:2014:monster:adult-black-dragon",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.491
+    },
+    {
+      "id": "srd51:2014:monster:adult-blue-dragon",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.536
+    },
+    {
+      "id": "srd51:2014:monster:adult-green-dragon",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.591
+    },
+    {
+      "id": "srd51:2014:monster:adult-red-dragon",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.39
+    },
+    {
+      "id": "srd51:2014:monster:adult-white-dragon",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.566
+    },
+    {
+      "id": "srd51:2014:monster:ape",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.438
+    },
+    {
+      "id": "srd51:2014:monster:baboon",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.467
+    },
+    {
+      "id": "srd51:2014:monster:badger",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.377
+    },
+    {
+      "id": "srd51:2014:item:scarab-of-protection",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.616
+    },
+    {
+      "id": "srd51:2014:item:sovereign-glue",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.587
+    },
+    {
+      "id": "srd51:2014:item:universal-solvent",
+      "width": 1254,
+      "height": 1254,
+      "transparentFraction": 0.784
+    }
+  ],
+  "rejected": [
+    {
+      "sourcePath": "data/art-production-v42/conjure-animals-rejected-three.png",
+      "sha256": "503db404a847c5e3dc1e8303cf4688094288109ecc480d8d3d928e87cf2a101b",
+      "reason": "Three wolves replaced by two to match a valid 2014 summoned group choice."
+    },
+    {
+      "sourcePath": "data/art-production-v42/awaken-rejected-crop.png",
+      "sha256": "f79e53003c571da9852d99ef388d3891df6fee9913174793cf25dac082801fdc",
+      "reason": "Crown and roots clipped; edited to retain full silhouette and more natural face."
+    },
+    {
+      "sourcePath": "data/art-production-v42/animal-shapes-rejected-background.png",
+      "sha256": "17d5ac203040d525b5c018eb340306d3661d20cad5e861f7d06e425a2379d21b",
+      "reason": "Opaque wide scene; regenerated as square transparent icon."
+    }
+  ],
+  "visualReview": "Originals and delivered 32/40 px color/grayscale on Polaris, Coal and Atlas reviewed. Animal Shapes uses paired transformation; chromatic dragons differ by horns, head and crest. No new similarity candidates; four prior wand pairs unchanged."
+}

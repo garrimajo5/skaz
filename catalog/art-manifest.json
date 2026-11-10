@@ -8449,6 +8449,842 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:spell:animal-friendship",
+      "contentSha256": "5b420b75c7b94f8d3f3e9c23238a44eadf851c122d6c0c541c6b0fbbb384a1a0",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 540c6eaed1bd9f11ad3aa8f1a09fb70236cd6115a3a558079e2eba7094ac0f31",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "540c6eaed1bd9f11ad3aa8f1a09fb70236cd6115a3a558079e2eba7094ac0f31",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/animal-friendship-original-b58f0bd0f8485a2c.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 150686,
+          "sha256": "b58f0bd0f8485a2c0829639d0f8a3aa6031b7818623f416ca639e8b9615a2117",
+          "derivedFrom": "540c6eaed1bd9f11ad3aa8f1a09fb70236cd6115a3a558079e2eba7094ac0f31",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/animal-friendship-thumbnail-73e06e6878aad612.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11234,
+          "sha256": "73e06e6878aad61267d51935261007f7f4a0dcab4ad5eb3b31a2fdfd6b0b5353",
+          "derivedFrom": "540c6eaed1bd9f11ad3aa8f1a09fb70236cd6115a3a558079e2eba7094ac0f31",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:animal-messenger",
+      "contentSha256": "6d518c782d28dca09c944f574c1816ba03c74d9d703a84112835f5404bc262cf",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 e737e15ca6d12b3d5cb60f2c5ed15456e34a8c41d800fe1af15f74b5eb3ea310",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "e737e15ca6d12b3d5cb60f2c5ed15456e34a8c41d800fe1af15f74b5eb3ea310",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/animal-messenger-original-dfacbb0875b20433.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 145260,
+          "sha256": "dfacbb0875b20433ef1007252e5c7800ec6d69eb0522f6909ee842435f83cfc6",
+          "derivedFrom": "e737e15ca6d12b3d5cb60f2c5ed15456e34a8c41d800fe1af15f74b5eb3ea310",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/animal-messenger-thumbnail-1270a06817f54ebd.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10958,
+          "sha256": "1270a06817f54ebd2e5135813975f161c8dddfd9d5fe5b30916d4265e3524b09",
+          "derivedFrom": "e737e15ca6d12b3d5cb60f2c5ed15456e34a8c41d800fe1af15f74b5eb3ea310",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:speak-with-animals",
+      "contentSha256": "aed4fb801974694d24f8ea983919441d5923498c73483be5f0f731c8189cec1f",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 e994056a5d962db96c757167b96210377043d7bc49b0083a3937c88edfa7b182",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "e994056a5d962db96c757167b96210377043d7bc49b0083a3937c88edfa7b182",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/speak-with-animals-original-f719ac1c088e360a.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 133842,
+          "sha256": "f719ac1c088e360a385efba90f0d198fce9d2ec30552042a722f9b422864228a",
+          "derivedFrom": "e994056a5d962db96c757167b96210377043d7bc49b0083a3937c88edfa7b182",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/speak-with-animals-thumbnail-bb503072dac4b065.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10132,
+          "sha256": "bb503072dac4b065d51c296bbfe22c68592e72e12a432f59068de11f48b51380",
+          "derivedFrom": "e994056a5d962db96c757167b96210377043d7bc49b0083a3937c88edfa7b182",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:conjure-animals",
+      "contentSha256": "84bb927222f05615072dfa81d63614adcf6c16dcc7e7c6f0b0cb27c302b0c0b2",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 3a1175e44c665a8af8cfab62a9f5080b44848a32c930e8c45ca82ec86c3c10cf",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "3a1175e44c665a8af8cfab62a9f5080b44848a32c930e8c45ca82ec86c3c10cf",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/conjure-animals-original-67a6522e4e9325ae.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 209298,
+          "sha256": "67a6522e4e9325ae444b2f64b0cee416d29baea782f409e860eb5454e4c2f96d",
+          "derivedFrom": "3a1175e44c665a8af8cfab62a9f5080b44848a32c930e8c45ca82ec86c3c10cf",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/conjure-animals-thumbnail-81640d3bed164d48.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 14964,
+          "sha256": "81640d3bed164d4892e5437e0e25c7674f962c669a2ba7d1548ba377985a13ec",
+          "derivedFrom": "3a1175e44c665a8af8cfab62a9f5080b44848a32c930e8c45ca82ec86c3c10cf",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:dominate-beast",
+      "contentSha256": "d9d8ef53d9bdd51266fab93d9667eee964a25f9037f99e150139a1448c7fc3f0",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 092ab1f36493db1466df827c4075b6e76ef82bef261d3aaa4eace74390c8a4c5",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "092ab1f36493db1466df827c4075b6e76ef82bef261d3aaa4eace74390c8a4c5",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/dominate-beast-original-445caeecac7bf14a.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 232617,
+          "sha256": "445caeecac7bf14a37f0f98f58f34c02a180f7304a257b10648c50addeab132d",
+          "derivedFrom": "092ab1f36493db1466df827c4075b6e76ef82bef261d3aaa4eace74390c8a4c5",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/dominate-beast-thumbnail-0cc750353023dd94.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 17094,
+          "sha256": "0cc750353023dd9440ea2949cf795ec8a5df8d14635681289b2a2335ad3c401d",
+          "derivedFrom": "092ab1f36493db1466df827c4075b6e76ef82bef261d3aaa4eace74390c8a4c5",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:awaken",
+      "contentSha256": "fd869efcd0ae486621a426b0db812fda09c7d4058b1baf952f61af622aacf4bb",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 b9bfdd0cbb09a782fc383b6c9d95897061fe635b3c6ab0d5e615e9062eb6edde",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "b9bfdd0cbb09a782fc383b6c9d95897061fe635b3c6ab0d5e615e9062eb6edde",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/awaken-original-1658f1c1a9484e93.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 129763,
+          "sha256": "1658f1c1a9484e9320c22582755a7e935f3bbafb4dfe757b42904380cc4eb0d5",
+          "derivedFrom": "b9bfdd0cbb09a782fc383b6c9d95897061fe635b3c6ab0d5e615e9062eb6edde",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/awaken-thumbnail-160646bd66d95907.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9534,
+          "sha256": "160646bd66d95907b53de9b7df56620344677e3be5811745dd4935daa82a9b0c",
+          "derivedFrom": "b9bfdd0cbb09a782fc383b6c9d95897061fe635b3c6ab0d5e615e9062eb6edde",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:animal-shapes",
+      "contentSha256": "c1540bfb2b9e31de82d43af48ad6b67a20eac1571517d9786ffc6aada8da339d",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 b4d85b145e9aa6bfd8231d9e35a5e156664ce78b978e9dc5a263249d845f593f",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "b4d85b145e9aa6bfd8231d9e35a5e156664ce78b978e9dc5a263249d845f593f",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/animal-shapes-original-b1d4fc2f598cb269.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 144238,
+          "sha256": "b1d4fc2f598cb269197a04b5d65d28c893800496eac8c70872c59981a1ff6fcf",
+          "derivedFrom": "b4d85b145e9aa6bfd8231d9e35a5e156664ce78b978e9dc5a263249d845f593f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/animal-shapes-thumbnail-d00b263318e5b27e.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11519,
+          "sha256": "d00b263318e5b27e2340e6b7dd8449804b622112e17ed73d18776491426abcb5",
+          "derivedFrom": "b4d85b145e9aa6bfd8231d9e35a5e156664ce78b978e9dc5a263249d845f593f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:locate-animals-or-plants",
+      "contentSha256": "e5b476db6b0db0cd4285135df26d1aa76a5509bd4fc32da0587385b896e66a2f",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 0b9dd6779c7100501cad32a21b0f06f0aa4c198a9adc5128ada52b1ae3d30471",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "0b9dd6779c7100501cad32a21b0f06f0aa4c198a9adc5128ada52b1ae3d30471",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/locate-animals-or-plants-original-ae6dab438b21f08b.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 195651,
+          "sha256": "ae6dab438b21f08b18c3b51c15e16e9a657c79db8b07eb885051ba82d2196ea9",
+          "derivedFrom": "0b9dd6779c7100501cad32a21b0f06f0aa4c198a9adc5128ada52b1ae3d30471",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/locate-animals-or-plants-thumbnail-d27070a8bea8fe7d.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 14796,
+          "sha256": "d27070a8bea8fe7db83b26c4813268ce15c404fb240458cb53ea95b0e9b3bfae",
+          "derivedFrom": "0b9dd6779c7100501cad32a21b0f06f0aa4c198a9adc5128ada52b1ae3d30471",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:adult-black-dragon",
+      "contentSha256": "f2e0bf2f031e7d4ab7360d1011282df84d6eb976e3bdcc6b6f99f26bcfe4ab52",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 d90563d2e8e6d3e7831f60ad7d1565278e6376da5f40a1b1e6633b851375490f",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "d90563d2e8e6d3e7831f60ad7d1565278e6376da5f40a1b1e6633b851375490f",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/adult-black-dragon-original-64da10ace69fff02.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 229107,
+          "sha256": "64da10ace69fff0261cda21bcba82439b7a0b44702dddec732db0027e75f1f8c",
+          "derivedFrom": "d90563d2e8e6d3e7831f60ad7d1565278e6376da5f40a1b1e6633b851375490f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/adult-black-dragon-thumbnail-c1ffcee6e96fa824.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16600,
+          "sha256": "c1ffcee6e96fa8242b77128e18d21921bae543bc2d726690c9320b6846c2df2f",
+          "derivedFrom": "d90563d2e8e6d3e7831f60ad7d1565278e6376da5f40a1b1e6633b851375490f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:adult-blue-dragon",
+      "contentSha256": "354fcc0e22446b798cdccdf82fbe8d7e44933783adaff7260caa76960d8fb0fd",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 698e74cf0b19990f55495f00e4970da918e071e2c300cf0618659f676928fda8",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "698e74cf0b19990f55495f00e4970da918e071e2c300cf0618659f676928fda8",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/adult-blue-dragon-original-a6cadcb569c6299e.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 230846,
+          "sha256": "a6cadcb569c6299efffcc125e8db11640493edc98f0f1934f857af0fcc3ea972",
+          "derivedFrom": "698e74cf0b19990f55495f00e4970da918e071e2c300cf0618659f676928fda8",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/adult-blue-dragon-thumbnail-d76f0843c0c73630.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16136,
+          "sha256": "d76f0843c0c73630803c1adc1e2b86cebcc9b69b4cc6fcd51f7a1fdbd0ccb9e0",
+          "derivedFrom": "698e74cf0b19990f55495f00e4970da918e071e2c300cf0618659f676928fda8",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:adult-green-dragon",
+      "contentSha256": "7b196108d0113523f7fdb38574b97bad2304c47e7c1ee3e637e2b3448122e578",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 a5d15e14946b634bbfd4fc238ea1e76d1433f69332760947dd904d1dc2a460ff",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "a5d15e14946b634bbfd4fc238ea1e76d1433f69332760947dd904d1dc2a460ff",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/adult-green-dragon-original-4cd66df02bd5a868.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 204708,
+          "sha256": "4cd66df02bd5a8686ea9e8f2f1459401b72ced177ffb46ab38c9f023583b12da",
+          "derivedFrom": "a5d15e14946b634bbfd4fc238ea1e76d1433f69332760947dd904d1dc2a460ff",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/adult-green-dragon-thumbnail-75f69251d3286f23.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13992,
+          "sha256": "75f69251d3286f23222059d162ed59bfd0748d1ddbe274e3a95cef90387f7659",
+          "derivedFrom": "a5d15e14946b634bbfd4fc238ea1e76d1433f69332760947dd904d1dc2a460ff",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:adult-red-dragon",
+      "contentSha256": "1a94da3becf98e9310d11c6c979072674574b0fddd55328e79d516fb7e1f23a9",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 564ad660deadae3f9071228c06ccf61afb448f22c4561dc6b4a0daa40208dabd",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "564ad660deadae3f9071228c06ccf61afb448f22c4561dc6b4a0daa40208dabd",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/adult-red-dragon-original-2d4b3817620a9c61.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 288422,
+          "sha256": "2d4b3817620a9c610421846a4cf847ed08d781b9aaa88e7dc88750fd486d932d",
+          "derivedFrom": "564ad660deadae3f9071228c06ccf61afb448f22c4561dc6b4a0daa40208dabd",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/adult-red-dragon-thumbnail-ed0ebc96dcc2888a.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 20110,
+          "sha256": "ed0ebc96dcc2888a09c01a0b1651eb925a202121073ed888f498cfece7a15e2e",
+          "derivedFrom": "564ad660deadae3f9071228c06ccf61afb448f22c4561dc6b4a0daa40208dabd",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:adult-white-dragon",
+      "contentSha256": "ab1557a74cd2df62ff8a98f1c83753cb45daa8514b2b67edba8eec13f45b6b60",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 d54e3f9c30ea08ce5ddd74cec4297bb713f781865e7e92fad23c9ed9e31558bc",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "d54e3f9c30ea08ce5ddd74cec4297bb713f781865e7e92fad23c9ed9e31558bc",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/adult-white-dragon-original-692e59fba10fad7a.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 201128,
+          "sha256": "692e59fba10fad7aa74078f8288d240aebededc797e72dd0f837d4fd8a96fc8b",
+          "derivedFrom": "d54e3f9c30ea08ce5ddd74cec4297bb713f781865e7e92fad23c9ed9e31558bc",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/adult-white-dragon-thumbnail-1bc46a47d25f6025.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 14237,
+          "sha256": "1bc46a47d25f602566df0d08d63fe8e524ed5c6313f7c3a202cd7d4a9e2feadd",
+          "derivedFrom": "d54e3f9c30ea08ce5ddd74cec4297bb713f781865e7e92fad23c9ed9e31558bc",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ape",
+      "contentSha256": "35c8dfd90f336d66d5146a2a54890ad69e6ae829b5f3a490da7b3bcb92f377ab",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 42ac00743f30cc0904e59d7df292fa3423c5fe0f19f8502f53c5c7fa4dfedc0f",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "42ac00743f30cc0904e59d7df292fa3423c5fe0f19f8502f53c5c7fa4dfedc0f",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ape-original-c70f1f53eaec633e.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 215597,
+          "sha256": "c70f1f53eaec633e651e17c4c548ad87807db0b7ca0cbea0e7d0b77facc35cb0",
+          "derivedFrom": "42ac00743f30cc0904e59d7df292fa3423c5fe0f19f8502f53c5c7fa4dfedc0f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ape-thumbnail-e10f9a6be3438ad4.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 15733,
+          "sha256": "e10f9a6be3438ad4609599f1ba5b09f4e562dc5a0763b45fe48f5e53e385c2d2",
+          "derivedFrom": "42ac00743f30cc0904e59d7df292fa3423c5fe0f19f8502f53c5c7fa4dfedc0f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:baboon",
+      "contentSha256": "5877d112c98bf6f05ec86fdfc1c5c57cbbf2f6e363a0d291f378296df23647ac",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 281c93e3756284ce3c2ed859a8dcb145f93b058dd424e916d97b21bae3181426",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "281c93e3756284ce3c2ed859a8dcb145f93b058dd424e916d97b21bae3181426",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/baboon-original-450570a82feb7262.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 239539,
+          "sha256": "450570a82feb7262f242c6cbd8615a3996fc3cb32f8005b1d82d0d5f49f3e72c",
+          "derivedFrom": "281c93e3756284ce3c2ed859a8dcb145f93b058dd424e916d97b21bae3181426",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/baboon-thumbnail-48d7466a72b18a41.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16871,
+          "sha256": "48d7466a72b18a414d7effb4c5ae87efdcfee7dbf94f5e477c186f36fcd17518",
+          "derivedFrom": "281c93e3756284ce3c2ed859a8dcb145f93b058dd424e916d97b21bae3181426",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:badger",
+      "contentSha256": "7781e87fe5d249e253c260d2a66f583d2ab15a53166303bd7d6bdea65cdbe9f1",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 d0781770c8588e39dd0d8da6869484d361d06bd40c7bc30eaa6b783e29a7b2fc",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "d0781770c8588e39dd0d8da6869484d361d06bd40c7bc30eaa6b783e29a7b2fc",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/badger-original-42ac194645f2ec21.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 271655,
+          "sha256": "42ac194645f2ec21ac9801abc13a29298ecb616b29ea9922eed17f2392770df8",
+          "derivedFrom": "d0781770c8588e39dd0d8da6869484d361d06bd40c7bc30eaa6b783e29a7b2fc",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/badger-thumbnail-49a20947adef0f2c.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 19813,
+          "sha256": "49a20947adef0f2ccebc664abd8b299870e289a8a5c8575f44d6727d37cc7ae3",
+          "derivedFrom": "d0781770c8588e39dd0d8da6869484d361d06bd40c7bc30eaa6b783e29a7b2fc",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:scarab-of-protection",
+      "contentSha256": "bda861b185618db4e6aa6e2049c438c4ae6af687fd70d1d058d4e26cfd617a0d",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 b1b92f7f10c69ba4b93320b41d3e48c5aa37ffddc53f1589f3f80b48c83c5cd5",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "b1b92f7f10c69ba4b93320b41d3e48c5aa37ffddc53f1589f3f80b48c83c5cd5",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/scarab-of-protection-original-6f7ef21e28fbf27c.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 195315,
+          "sha256": "6f7ef21e28fbf27cc5e754592ceee7efed2384c97876266c446f542b8d1ee8fa",
+          "derivedFrom": "b1b92f7f10c69ba4b93320b41d3e48c5aa37ffddc53f1589f3f80b48c83c5cd5",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/scarab-of-protection-thumbnail-178113f3e235341d.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13922,
+          "sha256": "178113f3e235341d82b0e3c9631b3b57cd6b620f4cbfd0401fa2f50ac7623a47",
+          "derivedFrom": "b1b92f7f10c69ba4b93320b41d3e48c5aa37ffddc53f1589f3f80b48c83c5cd5",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:sovereign-glue",
+      "contentSha256": "af123ab741579f60c276938d283280d03780587b5b255b701739f066a4c8a432",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 ef7dd265b99e784c5ec7a190f9321a6ec3585746a0d1392886bdf298e2e0e4f7",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "ef7dd265b99e784c5ec7a190f9321a6ec3585746a0d1392886bdf298e2e0e4f7",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/sovereign-glue-original-108a09293301e804.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 195716,
+          "sha256": "108a09293301e80444734e001bed3698d5711ef28944fb48b39dec66b2008e0d",
+          "derivedFrom": "ef7dd265b99e784c5ec7a190f9321a6ec3585746a0d1392886bdf298e2e0e4f7",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/sovereign-glue-thumbnail-6ec0ca7cf54175b2.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 14331,
+          "sha256": "6ec0ca7cf54175b28b3d98076382621a19d44725b23b5d4c8cb1adab42799d47",
+          "derivedFrom": "ef7dd265b99e784c5ec7a190f9321a6ec3585746a0d1392886bdf298e2e0e4f7",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:universal-solvent",
+      "contentSha256": "66a2c26df32aad59aafd789ba3046a84815e895d38a96d54080bef6234d5a06b",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 907496003f23a5753c88dcbdae6d093657b8f89353841878508f89801ebca530",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "907496003f23a5753c88dcbdae6d093657b8f89353841878508f89801ebca530",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/universal-solvent-original-c7366a32597cdef8.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 106859,
+          "sha256": "c7366a32597cdef8355d67bebff8f0d16731bd3e6e928e14f1e24049de359cbb",
+          "derivedFrom": "907496003f23a5753c88dcbdae6d093657b8f89353841878508f89801ebca530",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/universal-solvent-thumbnail-da21e57d6489c24c.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 8323,
+          "sha256": "da21e57d6489c24c7549da6214e470685e5514f8bed99b6b004f3be7c26fccd1",
+          "derivedFrom": "907496003f23a5753c88dcbdae6d093657b8f89353841878508f89801ebca530",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }

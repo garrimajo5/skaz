@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:monster:ape",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Человекообразная обезьяна",
+        "en": "Ape"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=366",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-11-10; skaz small beasts v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 366.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Базовые характеристики приведены отдельно; особенности и действия не исполняются автоматически.\nБез мировоззрения. Хиты 19 (3d8 + 6). Атлетика +5, Восприятие +3; пассивное Восприятие 13. Языков нет. Мультиатака: две атаки кулаком. Кулак: рукопашная атака оружием +5, досягаемость 5 футов, одна цель; 6 (1d6 + 3) дробящего урона. Камень: дальнобойная атака оружием +5, дистанция 25/50 футов, одна цель; 6 (1d6 + 3) дробящего урона.",
+      "links": [],
+      "monster": {
+        "size": "medium",
+        "type": "beast",
+        "armorClass": 12,
+        "hitPoints": 19,
+        "speed": {
+          "walk": 30,
+          "climb": 30
+        },
+        "abilities": {
+          "str": 16,
+          "dex": 14,
+          "con": 14,
+          "int": 6,
+          "wis": 12,
+          "cha": 7
+        },
+        "challenge": "1/2",
+        "xp": 100
+      }
+    },
+    {
+      "id": "srd51:2014:monster:baboon",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Павиан",
+        "en": "Baboon"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=367",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-11-10; skaz small beasts v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 367.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Базовые характеристики приведены отдельно; особенности и действия не исполняются автоматически.\nБез мировоззрения. Хиты 3 (1d6). Пассивное Восприятие 11. Языков нет. Тактика стаи: преимущество на атаку существа, если в пределах 5 футов от цели есть хотя бы один союзник павиана, не являющийся недееспособным. Укус: рукопашная атака оружием +1, досягаемость 5 футов, одна цель; 1 (1d4 − 1) колющего урона.",
+      "links": [
+        "srd51:2014:mechanic:incapacitated"
+      ],
+      "monster": {
+        "size": "small",
+        "type": "beast",
+        "armorClass": 12,
+        "hitPoints": 3,
+        "speed": {
+          "walk": 30,
+          "climb": 30
+        },
+        "abilities": {
+          "str": 8,
+          "dex": 14,
+          "con": 11,
+          "int": 4,
+          "wis": 12,
+          "cha": 6
+        },
+        "challenge": "0",
+        "xp": 10
+      }
+    },
+    {
+      "id": "srd51:2014:monster:badger",
+      "ruleset": "5e-2014",
+      "kind": "monster",
+      "name": {
+        "ru": "Барсук",
+        "en": "Badger"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=367",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-11-10; skaz small beasts v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 367.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014). Базовые характеристики приведены отдельно; особенности и действия не исполняются автоматически.\nБез мировоззрения. Хиты 3 (1d4 + 1). Тёмное зрение 30 футов, пассивное Восприятие 11. Языков нет. Тонкий нюх: преимущество на проверки Мудрости (Восприятие), связанные с обонянием. Укус: рукопашная атака оружием +2, досягаемость 5 футов, одна цель; 1 колющего урона.",
+      "links": [],
+      "monster": {
+        "size": "tiny",
+        "type": "beast",
+        "armorClass": 10,
+        "hitPoints": 3,
+        "speed": {
+          "walk": 20,
+          "burrow": 5
+        },
+        "abilities": {
+          "str": 4,
+          "dex": 11,
+          "con": 12,
+          "int": 2,
+          "wis": 12,
+          "cha": 5
+        },
+        "challenge": "0",
+        "xp": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Three selected legendary wondrous items; not artifacts and not all magic items",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-11-10",
+  "expectedSubsetCount": 3,
+  "entries": [
+    {
+      "id": "srd51:2014:item:scarab-of-protection",
+      "nameEn": "Scarab of Protection",
+      "pages": [
+        241
+      ]
+    },
+    {
+      "id": "srd51:2014:item:sovereign-glue",
+      "nameEn": "Sovereign Glue",
+      "pages": [
+        242
+      ]
+    },
+    {
+      "id": "srd51:2014:item:universal-solvent",
+      "nameEn": "Universal Solvent",
+      "pages": [
+        248
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not an official translation.",
+    "Item actions and physical limits are reference information, not automatically applied."
+  ]
+}

@@ -684,6 +684,25 @@
     "contentSha256": "46adfb63012006a742a7875f18a471c3bc9ad04e893738c5a84fe965a0f354b7"
   },
   {
+    "id": "srd51:2014:item:scarab-of-protection",
+    "kind": "item",
+    "ruleset": "5e-2014",
+    "name": {
+      "ru": "Скарабей защиты",
+      "en": "Scarab of Protection"
+    },
+    "source": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=241",
+      "title": "System Reference Document 5.1",
+      "version": "5.1; checked 2026-11-10; skaz legendary utilities v1",
+      "usage": "cc-by-4.0",
+      "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 241.",
+      "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+      "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+    },
+    "contentSha256": "bda861b185618db4e6aa6e2049c438c4ae6af687fd70d1d058d4e26cfd617a0d"
+  },
+  {
     "id": "srd51:2014:item:slippers-of-spider-climbing",
     "kind": "item",
     "ruleset": "5e-2014",
@@ -701,6 +720,44 @@
       "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
     },
     "contentSha256": "70cd7c1f3299ef08bdaed11f215452caed1cfdc04e0e049666eae58dfae361e4"
+  },
+  {
+    "id": "srd51:2014:item:sovereign-glue",
+    "kind": "item",
+    "ruleset": "5e-2014",
+    "name": {
+      "ru": "Универсальный клей",
+      "en": "Sovereign Glue"
+    },
+    "source": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=242",
+      "title": "System Reference Document 5.1",
+      "version": "5.1; checked 2026-11-10; skaz legendary utilities v1",
+      "usage": "cc-by-4.0",
+      "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 242.",
+      "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+      "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+    },
+    "contentSha256": "af123ab741579f60c276938d283280d03780587b5b255b701739f066a4c8a432"
+  },
+  {
+    "id": "srd51:2014:item:universal-solvent",
+    "kind": "item",
+    "ruleset": "5e-2014",
+    "name": {
+      "ru": "Универсальный растворитель",
+      "en": "Universal Solvent"
+    },
+    "source": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=248",
+      "title": "System Reference Document 5.1",
+      "version": "5.1; checked 2026-11-10; skaz legendary utilities v1",
+      "usage": "cc-by-4.0",
+      "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 248.",
+      "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+      "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+    },
+    "contentSha256": "66a2c26df32aad59aafd789ba3046a84815e895d38a96d54080bef6234d5a06b"
   },
   {
     "id": "srd51:2014:item:wand-of-binding",
@@ -1463,6 +1520,25 @@
     "contentSha256": "6f95daf2073b379a85ef90aed18c6a4c167f188dae4b010399ff56d5aa2b2cfd"
   },
   {
+    "id": "srd51:2014:monster:ape",
+    "kind": "monster",
+    "ruleset": "5e-2014",
+    "name": {
+      "ru": "Человекообразная обезьяна",
+      "en": "Ape"
+    },
+    "source": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=366",
+      "title": "System Reference Document 5.1",
+      "version": "5.1; checked 2026-11-10; skaz small beasts v1",
+      "usage": "cc-by-4.0",
+      "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 366.",
+      "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+      "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+    },
+    "contentSha256": "35c8dfd90f336d66d5146a2a54890ad69e6ae829b5f3a490da7b3bcb92f377ab"
+  },
+  {
     "id": "srd51:2014:monster:archmage",
     "kind": "monster",
     "ruleset": "5e-2014",
@@ -1556,6 +1632,44 @@
       "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
     },
     "contentSha256": "fe10cb8002833513135b03ac5597e79da5e9744423e6f5a287aa71a1cb2bd2a7"
+  },
+  {
+    "id": "srd51:2014:monster:baboon",
+    "kind": "monster",
+    "ruleset": "5e-2014",
+    "name": {
+      "ru": "Павиан",
+      "en": "Baboon"
+    },
+    "source": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=367",
+      "title": "System Reference Document 5.1",
+      "version": "5.1; checked 2026-11-10; skaz small beasts v1",
+      "usage": "cc-by-4.0",
+      "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 367.",
+      "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+      "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+    },
+    "contentSha256": "5877d112c98bf6f05ec86fdfc1c5c57cbbf2f6e363a0d291f378296df23647ac"
+  },
+  {
+    "id": "srd51:2014:monster:badger",
+    "kind": "monster",
+    "ruleset": "5e-2014",
+    "name": {
+      "ru": "Барсук",
+      "en": "Badger"
+    },
+    "source": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=367",
+      "title": "System Reference Document 5.1",
+      "version": "5.1; checked 2026-11-10; skaz small beasts v1",
+      "usage": "cc-by-4.0",
+      "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 367.",
+      "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+      "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+    },
+    "contentSha256": "7781e87fe5d249e253c260d2a66f583d2ab15a53166303bd7d6bdea65cdbe9f1"
   },
   {
     "id": "srd51:2014:monster:balor",
