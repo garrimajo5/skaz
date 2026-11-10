@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
   "ruleset": "5e-2014",
-  "total": 570,
+  "total": 572,
   "counts": {
     "spell": {
       "total": 319,
       "accepted": 70
     },
     "item": {
-      "total": 49,
-      "accepted": 49
+      "total": 51,
+      "accepted": 51
     },
     "artifact": {
       "total": 1,
@@ -17,7 +17,7 @@
     },
     "monster": {
       "total": 201,
-      "accepted": 69
+      "accepted": 70
     }
   },
   "statuses": {
@@ -56,6 +56,8 @@
       "srd51:2014:item:ring-of-swimming",
       "srd51:2014:item:ring-of-warmth",
       "srd51:2014:item:ring-of-water-walking",
+      "srd51:2014:item:rope-of-climbing",
+      "srd51:2014:item:rope-of-entanglement",
       "srd51:2014:item:slippers-of-spider-climbing",
       "srd51:2014:item:wand-of-binding",
       "srd51:2014:item:wand-of-enemy-detection",
@@ -72,6 +74,7 @@
       "srd51:2014:item:wand-of-the-war-mage-3",
       "srd51:2014:item:wand-of-web",
       "srd51:2014:item:wand-of-wonder",
+      "srd51:2014:monster:aboleth",
       "srd51:2014:monster:acolyte",
       "srd51:2014:monster:air-elemental",
       "srd51:2014:monster:ancient-red-dragon",
@@ -217,7 +220,6 @@
     "placeholder": []
   },
   "missing": [
-    "srd51:2014:monster:aboleth",
     "srd51:2014:monster:adult-black-dragon",
     "srd51:2014:monster:adult-blue-dragon",
     "srd51:2014:monster:adult-brass-dragon",
@@ -600,7 +602,6 @@
     "srd51:2014:spell:word-of-recall"
   ],
   "uncovered": [
-    "srd51:2014:monster:aboleth",
     "srd51:2014:monster:adult-black-dragon",
     "srd51:2014:monster:adult-blue-dragon",
     "srd51:2014:monster:adult-brass-dragon",

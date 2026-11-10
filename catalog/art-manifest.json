@@ -94,7 +94,7 @@
       "id": "srd51:2014:item:potion-of-healing",
       "contentSha256": "bfb99147fc682b20b0d99d298135a069034176580a5e00892b8755e853fee40e",
       "status": "accepted",
-      "version": 1,
+      "version": 2,
       "crop": {
         "x": 0.5,
         "y": 0.5
@@ -102,34 +102,34 @@
       "provenance": {
         "method": "generated",
         "author": "SKAZ; OpenAI built-in image generator",
-        "source": "OpenAI built-in image_gen; generated 2026-11-08; explicitly authorized in chat; original SHA256 c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
+        "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat; original SHA256 c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
         "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
         "attribution": "SKAZ visual library",
         "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
-        "originalSha256": "c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
+        "originalSha256": "c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
         "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
       },
       "review": {
-        "by": "User (batch visual acceptance) and Codex (technical validation)",
-        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+        "by": "User requested reassignment; Codex integrity validation",
+        "evidence": "2026-11-10: swap healing with superior, then greater with healing, so vessel size increases with potency. Supreme unchanged. See docs/design/potion-art-reassignment.json."
       },
       "files": {
         "original": {
-          "path": "assets/art/items/potion-of-healing-original-9a375c5e9471c7f1.png",
+          "path": "assets/art/items/potion-of-greater-healing-original-ed5c8fcb06f1f872.png",
           "width": 384,
           "height": 384,
-          "bytes": 183205,
-          "sha256": "9a375c5e9471c7f179104d2d8db1b1ef59c37974e68da801c5ee32e9b9ea9470",
-          "derivedFrom": "c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
+          "bytes": 104216,
+          "sha256": "ed5c8fcb06f1f8724660ecd70cd6f2eeb0f664c52c3542a450ca05a74d93df7a",
+          "derivedFrom": "c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         },
         "thumbnail": {
-          "path": "assets/art/items/potion-of-healing-thumbnail-db42ed52fd1cc81a.png",
+          "path": "assets/art/items/potion-of-greater-healing-thumbnail-7ef1fab8b46a33a0.png",
           "width": 96,
           "height": 96,
-          "bytes": 13696,
-          "sha256": "db42ed52fd1cc81a804dc7d70b4c03e3cdad77f81bc8efbf5649e58c1efe93fb",
-          "derivedFrom": "c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
+          "bytes": 7572,
+          "sha256": "7ef1fab8b46a33a0979b3d66ddc044040343a46dcb154aca1e457389dbfea674",
+          "derivedFrom": "c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
@@ -622,7 +622,7 @@
       "id": "srd51:2014:item:potion-of-greater-healing",
       "contentSha256": "fafd1f7e507122e13b08605b35091da9d7cdf851907faf45beb27b17e6a0d7fb",
       "status": "accepted",
-      "version": 1,
+      "version": 2,
       "crop": {
         "x": 0.5,
         "y": 0.5
@@ -630,34 +630,34 @@
       "provenance": {
         "method": "generated",
         "author": "SKAZ; OpenAI built-in image generator",
-        "source": "OpenAI built-in image_gen; 2026-11-08; continuation authorized in chat; original SHA256 c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
-        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
+        "source": "Original generation 2026-11-09; SHA256 d740fa983c009245603aecce8c170a882b7ab51547d043bf851cc17052229586",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
         "attribution": "SKAZ visual library",
-        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
-        "originalSha256": "c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
-        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
+        "reviewedBy": "Codex under user authorization of 2026-11-09",
+        "originalSha256": "d740fa983c009245603aecce8c170a882b7ab51547d043bf851cc17052229586",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
       },
       "review": {
-        "by": "User (batch visual acceptance) and Codex (technical validation)",
-        "evidence": "User approved remaining 23 candidates in this chat 2026-11-09: остальные принимаю. Subsequent instruction approves production in the agreed style without per-batch review; individual revisions on request. Source and derivative SHA256 and PNG structure checked."
+        "by": "User requested reassignment; Codex integrity validation",
+        "evidence": "2026-11-10: swap healing with superior, then greater with healing, so vessel size increases with potency. Supreme unchanged. See docs/design/potion-art-reassignment.json."
       },
       "files": {
         "original": {
-          "path": "assets/art/items/potion-of-greater-healing-original-ed5c8fcb06f1f872.png",
+          "path": "assets/art/items/potion-of-superior-healing-original-55e6ccb71685841d.png",
           "width": 384,
           "height": 384,
-          "bytes": 104216,
-          "sha256": "ed5c8fcb06f1f8724660ecd70cd6f2eeb0f664c52c3542a450ca05a74d93df7a",
-          "derivedFrom": "c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
+          "bytes": 145078,
+          "sha256": "55e6ccb71685841d88587ca04c4785e35299038490d82c8d98d4bcd64de7a8e9",
+          "derivedFrom": "d740fa983c009245603aecce8c170a882b7ab51547d043bf851cc17052229586",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         },
         "thumbnail": {
-          "path": "assets/art/items/potion-of-greater-healing-thumbnail-7ef1fab8b46a33a0.png",
+          "path": "assets/art/items/potion-of-superior-healing-thumbnail-946bbfe11140fb41.png",
           "width": 96,
           "height": 96,
-          "bytes": 7572,
-          "sha256": "7ef1fab8b46a33a0979b3d66ddc044040343a46dcb154aca1e457389dbfea674",
-          "derivedFrom": "c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
+          "bytes": 10377,
+          "sha256": "946bbfe11140fb4192b7eb64ad56dbe5834a6d66347dcf3598cbed089f2ed76b",
+          "derivedFrom": "d740fa983c009245603aecce8c170a882b7ab51547d043bf851cc17052229586",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
@@ -4318,7 +4318,7 @@
       "id": "srd51:2014:item:potion-of-superior-healing",
       "contentSha256": "b19d6055c88e404be2af4daa8820b3bdd6d3e5403ee2665e30f25a8dd64df1ca",
       "status": "accepted",
-      "version": 1,
+      "version": 2,
       "crop": {
         "x": 0.5,
         "y": 0.5
@@ -4326,34 +4326,34 @@
       "provenance": {
         "method": "generated",
         "author": "SKAZ; OpenAI built-in image generator",
-        "source": "Original generation 2026-11-09; SHA256 d740fa983c009245603aecce8c170a882b7ab51547d043bf851cc17052229586",
-        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+        "source": "OpenAI built-in image_gen; generated 2026-11-08; explicitly authorized in chat; original SHA256 c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
+        "usage": "Original generated SKAZ artwork; user approved distribution 2026-11-09; no third-party reference artwork imported",
         "attribution": "SKAZ visual library",
-        "reviewedBy": "Codex under user authorization of 2026-11-09",
-        "originalSha256": "d740fa983c009245603aecce8c170a882b7ab51547d043bf851cc17052229586",
-        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        "reviewedBy": "User batch visual acceptance; Codex file integrity checks",
+        "originalSha256": "c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
+        "derivation": "files.original is the normalized 384 px delivery master, not the unchanged generation source; source retained locally"
       },
       "review": {
-        "by": "Codex, delegated visual and technical acceptance",
-        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v16.json."
+        "by": "User requested reassignment; Codex integrity validation",
+        "evidence": "2026-11-10: swap healing with superior, then greater with healing, so vessel size increases with potency. Supreme unchanged. See docs/design/potion-art-reassignment.json."
       },
       "files": {
         "original": {
-          "path": "assets/art/items/potion-of-superior-healing-original-55e6ccb71685841d.png",
+          "path": "assets/art/items/potion-of-healing-original-9a375c5e9471c7f1.png",
           "width": 384,
           "height": 384,
-          "bytes": 145078,
-          "sha256": "55e6ccb71685841d88587ca04c4785e35299038490d82c8d98d4bcd64de7a8e9",
-          "derivedFrom": "d740fa983c009245603aecce8c170a882b7ab51547d043bf851cc17052229586",
+          "bytes": 183205,
+          "sha256": "9a375c5e9471c7f179104d2d8db1b1ef59c37974e68da801c5ee32e9b9ea9470",
+          "derivedFrom": "c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         },
         "thumbnail": {
-          "path": "assets/art/items/potion-of-superior-healing-thumbnail-946bbfe11140fb41.png",
+          "path": "assets/art/items/potion-of-healing-thumbnail-db42ed52fd1cc81a.png",
           "width": 96,
           "height": 96,
-          "bytes": 10377,
-          "sha256": "946bbfe11140fb4192b7eb64ad56dbe5834a6d66347dcf3598cbed089f2ed76b",
-          "derivedFrom": "d740fa983c009245603aecce8c170a882b7ab51547d043bf851cc17052229586",
+          "bytes": 13696,
+          "sha256": "db42ed52fd1cc81a804dc7d70b4c03e3cdad77f81bc8efbf5649e58c1efe93fb",
+          "derivedFrom": "c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
@@ -8314,6 +8314,138 @@
           "bytes": 11046,
           "sha256": "eb70ba47d27c080d7d19c5a9d6a6b8d36f1c30caf2fc7be07a0bf047ecdd0890",
           "derivedFrom": "9dfac31d6933b2fd2434321473ac84a8405f3f7c41190eb29b39d44f16280727",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:aboleth",
+      "contentSha256": "bc37b547d51beccd115c7a1f4f3dbd6862f809f74a79a7ebb47c39057611408b",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 743ac8c53656e4fc9e0aea75e40980453de9474c85651bd5ca772e855780ccfe",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "743ac8c53656e4fc9e0aea75e40980453de9474c85651bd5ca772e855780ccfe",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v41.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/aboleth-original-dc50ff69457d37d2.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 298570,
+          "sha256": "dc50ff69457d37d2327640f6232a75bb0d08923bdb6e723686cbe7204f337c66",
+          "derivedFrom": "743ac8c53656e4fc9e0aea75e40980453de9474c85651bd5ca772e855780ccfe",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/aboleth-thumbnail-71390bec7af92425.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 21038,
+          "sha256": "71390bec7af924253995b274861bdfc642bbeeb6c98a09085374226c774e3abf",
+          "derivedFrom": "743ac8c53656e4fc9e0aea75e40980453de9474c85651bd5ca772e855780ccfe",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:rope-of-climbing",
+      "contentSha256": "0bf88f8d2ee3a469cce12e90d9ccbffb205b5d005395aa390aac9470e1f63ea4",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 b3e0dba75b823c92d3b98fbf7b6ea4ada03a6e6438c4d4bca0f17e41246e10ad",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "b3e0dba75b823c92d3b98fbf7b6ea4ada03a6e6438c4d4bca0f17e41246e10ad",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v41.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/rope-of-climbing-original-c2fedd9c747cd347.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 86171,
+          "sha256": "c2fedd9c747cd347651a40b52acd68e0452be179c39edf302178f9e56ce9dc76",
+          "derivedFrom": "b3e0dba75b823c92d3b98fbf7b6ea4ada03a6e6438c4d4bca0f17e41246e10ad",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/rope-of-climbing-thumbnail-75a97c7558e70511.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 6405,
+          "sha256": "75a97c7558e70511ac7b6c11e8ce957de5143f8ed28c3bfec1947cdd9c72e7bd",
+          "derivedFrom": "b3e0dba75b823c92d3b98fbf7b6ea4ada03a6e6438c4d4bca0f17e41246e10ad",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:item:rope-of-entanglement",
+      "contentSha256": "46adfb63012006a742a7875f18a471c3bc9ad04e893738c5a84fe965a0f354b7",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-10; SHA256 c3babc3aee3fcfa05ed2ff4103b47bf97dd40aa7238f3497793efb1308c10df5",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-10",
+        "originalSha256": "c3babc3aee3fcfa05ed2ff4103b47bf97dd40aa7238f3497793efb1308c10df5",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v41.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/items/rope-of-entanglement-original-4ecb237bd3606473.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 143144,
+          "sha256": "4ecb237bd360647309959663e91b171b0780342f3db032e365cf643b3e8ed5bd",
+          "derivedFrom": "c3babc3aee3fcfa05ed2ff4103b47bf97dd40aa7238f3497793efb1308c10df5",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/items/rope-of-entanglement-thumbnail-19b9189112c99028.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11235,
+          "sha256": "19b9189112c990286cb19f77a4d0485fcb4e34bd0bf8f090103d0179aebbbf27",
+          "derivedFrom": "c3babc3aee3fcfa05ed2ff4103b47bf97dd40aa7238f3497793efb1308c10df5",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }

@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-10",
+  "reason": "Explicit user request: increasing apparent potion volume",
+  "changes": [
+    {
+      "id": "srd51:2014:item:potion-of-healing",
+      "previousSourceSha256": "c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655",
+      "sourceArtId": "srd51:2014:item:potion-of-greater-healing",
+      "sourceSha256": "c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d"
+    },
+    {
+      "id": "srd51:2014:item:potion-of-greater-healing",
+      "previousSourceSha256": "c5060d246c69a27c485b276e487545d3dc93facba5be6dce109dbdee5753692d",
+      "sourceArtId": "srd51:2014:item:potion-of-superior-healing",
+      "sourceSha256": "d740fa983c009245603aecce8c170a882b7ab51547d043bf851cc17052229586"
+    },
+    {
+      "id": "srd51:2014:item:potion-of-superior-healing",
+      "previousSourceSha256": "d740fa983c009245603aecce8c170a882b7ab51547d043bf851cc17052229586",
+      "sourceArtId": "srd51:2014:item:potion-of-healing",
+      "sourceSha256": "c34744d445d667c0d2c906ca8cf14c920ef57fb51ec003dd875e90ae5a8da655"
+    }
+  ],
+  "unchanged": {
+    "id": "srd51:2014:item:potion-of-supreme-healing",
+    "contentSha256": "a4561d1dacd58c9caac122cd1c94ec70e6348509cb306e09b79c977ac46c60c6",
+    "status": "accepted",
+    "version": 1,
+    "crop": {
+      "x": 0.5,
+      "y": 0.5
+    },
+    "provenance": {
+      "method": "generated",
+      "author": "SKAZ; OpenAI built-in image generator",
+      "source": "Original generation 2026-11-09; SHA256 d638abc06edd1df43773ab1ef6ea64b76a8e1b45035f83cbb324a14d65592212",
+      "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+      "attribution": "SKAZ visual library",
+      "reviewedBy": "Codex under user authorization of 2026-11-09",
+      "originalSha256": "d638abc06edd1df43773ab1ef6ea64b76a8e1b45035f83cbb324a14d65592212",
+      "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+    },
+    "review": {
+      "by": "Codex, delegated visual and technical acceptance",
+      "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v16.json."
+    },
+    "files": {
+      "original": {
+        "path": "assets/art/items/potion-of-supreme-healing-original-8ba1bf3ea6ae80d0.png",
+        "width": 384,
+        "height": 384,
+        "bytes": 249890,
+        "sha256": "8ba1bf3ea6ae80d040c7e3f4faad2c974e58454d9dbd7bb2f1003c4080f8b951",
+        "derivedFrom": "d638abc06edd1df43773ab1ef6ea64b76a8e1b45035f83cbb324a14d65592212",
+        "recipe": "skaz-rgba-area-premultiplied-v1"
+      },
+      "thumbnail": {
+        "path": "assets/art/items/potion-of-supreme-healing-thumbnail-4bc301dc4e4d9231.png",
+        "width": 96,
+        "height": 96,
+        "bytes": 17979,
+        "sha256": "4bc301dc4e4d923178a4b218c72e1f8c69a3a630d3af620ce6f6915da63b3202",
+        "derivedFrom": "d638abc06edd1df43773ab1ef6ea64b76a8e1b45035f83cbb324a14d65592212",
+        "recipe": "skaz-rgba-area-premultiplied-v1"
+      }
+    }
+  }
+}

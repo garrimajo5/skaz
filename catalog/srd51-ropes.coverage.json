@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Two selected magic ropes from SRD 5.1; not all magic items",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "checkedOn": "2026-11-10",
+  "expectedSubsetCount": 2,
+  "entries": [
+    {
+      "id": "srd51:2014:item:rope-of-climbing",
+      "nameEn": "Rope of Climbing",
+      "pages": [
+        241
+      ]
+    },
+    {
+      "id": "srd51:2014:item:rope-of-entanglement",
+      "nameEn": "Rope of Entanglement",
+      "pages": [
+        241
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Authored Russian summaries, not an official translation.",
+    "Item actions and physical limits are reference information, not automatically applied."
+  ]
+}

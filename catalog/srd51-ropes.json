@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:item:rope-of-climbing",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Верёвка лазания",
+        "en": "Rope of Climbing"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=241",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-11-10; skaz ropes v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 241.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nШёлковая верёвка: 60 футов, 3 фунта, выдерживает 3000 фунтов. Держа конец, действием произнесите команду оживления. Бонусным действием направьте другой конец: он движется на 10 футов в этот ход и каждый следующий ваш ход до цели, предела длины или команды остановиться. Команды позволяют закрепиться, отвязаться, завязаться, развязаться и свернуться. Узлы через фут сокращают длину до 50 футов и дают преимущество на проверки лазания. КД 20, 20 хитов; пока остаётся хотя бы 1 хит, восстанавливает 1 хит каждые 5 минут. При 0 хитов уничтожается.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [],
+      "item": {
+        "type": "wondrous",
+        "rarity": "uncommon",
+        "attunement": false
+      }
+    },
+    {
+      "id": "srd51:2014:item:rope-of-entanglement",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Верёвка опутывания",
+        "en": "Rope of Entanglement"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=241",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-11-10; skaz ropes v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 241.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nВерёвка: 30 футов, 3 фунта. Держа конец, действием произнесите команду: видимое существо в пределах 20 футов совершает спасбросок Ловкости Сл 15; при провале оно опутано. Бонусным действием вторая команда освобождает его. Опутанное существо может действием выполнить проверку Силы или Ловкости Сл 15 (на свой выбор); успех освобождает. КД 20, 20 хитов; пока остаётся хотя бы 1 хит, восстанавливает 1 хит каждые 5 минут. При 0 хитов уничтожается.\nДобавление в инвентарь не включает эффект автоматически.",
+      "links": [
+        "srd51:2014:mechanic:restrained"
+      ],
+      "item": {
+        "type": "wondrous",
+        "rarity": "rare",
+        "attunement": false
+      }
+    }
+  ]
+}
