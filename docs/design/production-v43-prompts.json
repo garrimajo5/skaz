@@ -1,0 +1,56 @@
+{
+  "batch": "production-v43",
+  "entries": [
+    {
+      "kind": "spell",
+      "slug": "alter-self",
+      "prompt": "Single coherent humanoid face with teal scales and three gill slits on neck; aquatic adaptation, amber arc. Centered 70%, transparent safe margins. Painterly SKAZ encyclopedia; warm upper-left light, dark silhouette, no text or frame."
+    },
+    {
+      "kind": "spell",
+      "slug": "polymorph",
+      "prompt": "Small ochre humanoid lower-left transforms through one amber curved ribbon into a large green frog upper-right. Clear beast transformation, correct limbs, compact diagonal silhouettes, transparent margins. Painterly broad brushwork, warm light, no text or scenery."
+    },
+    {
+      "kind": "spell",
+      "slug": "true-polymorph",
+      "prompt": "Small ochre humanoid mage lower-left transforms through violet-gold ribbon into a golden living dragon head/neck/folded wing upper-right. Creature-to-creature, not stone-to-dragon; transparent safe margins, dark edges, warm upper-left light, no text or scene."
+    },
+    {
+      "slug": "adult-brass-dragon",
+      "prompt": "Create ONE square original painterly fantasy bestiary portrait for SKAZ. Restrained high-quality fantasy encyclopedia, broad sculpted brush shapes, clear silhouette readable at 32px, moderate detail, warm upper-left light. Subject: adult BRASS dragon, broad fan-shaped head shield, sweeping cheek plates, warm matte yellow-brass scales, desert-ochre accents, friendly but imposing intelligent eyes. ONE living dragon head, neck and very limited shoulder bust in three-quarter view. Mature powerful anatomy, not a baby, not a statue, not a spell. Fully visible silhouette inside central 78% of square canvas; keep horns and whiskers inside wide transparent margins. Dark charcoal edges, local pale highlights readable on light/dark UI. No second head, no hands, no accessories, no text, no frame, no ground or scenery. True transparent background.",
+      "kind": "monster"
+    },
+    {
+      "slug": "adult-bronze-dragon",
+      "prompt": "Create ONE square original painterly fantasy bestiary portrait for SKAZ. Restrained high-quality fantasy encyclopedia, broad sculpted brush shapes, clear silhouette readable at 32px, moderate detail, warm upper-left light. Subject: adult BRONZE dragon, powerful angular snout, swept-back branching horns, deep bronze scales with subtle sea-green patina, alert intelligent eyes. ONE living dragon head, neck and very limited shoulder bust in three-quarter view. Mature powerful anatomy, not a baby, not a statue, not a spell. Fully visible silhouette inside central 78% of square canvas; keep horns and whiskers inside wide transparent margins. Dark charcoal edges, local pale highlights readable on light/dark UI. No second head, no hands, no accessories, no text, no frame, no ground or scenery. True transparent background.",
+      "kind": "monster"
+    },
+    {
+      "slug": "adult-copper-dragon",
+      "prompt": "Create ONE square original painterly fantasy bestiary portrait for SKAZ. Restrained high-quality fantasy encyclopedia, broad sculpted brush shapes, clear silhouette readable at 32px, moderate detail, warm upper-left light. Subject: adult COPPER dragon, short strong muzzle and expressive eyebrow ridges, layered cheek frills, curved backward horns, rich reddish copper scales, mischievous intelligent eyes. ONE living dragon head, neck and very limited shoulder bust in three-quarter view. Mature powerful anatomy, not a baby, not a statue, not a spell. Fully visible silhouette inside central 78% of square canvas; keep horns and whiskers inside wide transparent margins. Dark charcoal edges, local pale highlights readable on light/dark UI. No second head, no hands, no accessories, no text, no frame, no ground or scenery. True transparent background.",
+      "kind": "monster"
+    },
+    {
+      "slug": "adult-silver-dragon",
+      "prompt": "Create ONE square original painterly fantasy bestiary portrait for SKAZ. Restrained high-quality fantasy encyclopedia, broad sculpted brush shapes, clear silhouette readable at 32px, moderate detail, warm upper-left light. Subject: adult SILVER dragon, graceful tall neck, elegant pointed muzzle, swept-back horns and a distinctive tall swept fin crest, cool silver scales with restrained icy blue shadows, noble intelligent eyes. ONE living dragon head, neck and very limited shoulder bust in three-quarter view. Mature powerful anatomy, not a baby, not a statue, not a spell. Fully visible silhouette inside central 78% of square canvas; keep horns and whiskers inside wide transparent margins. Dark charcoal edges, local pale highlights readable on light/dark UI. No second head, no hands, no accessories, no text, no frame, no ground or scenery. True transparent background.",
+      "kind": "monster"
+    },
+    {
+      "slug": "adult-gold-dragon",
+      "prompt": "Create ONE square original painterly fantasy bestiary portrait for SKAZ. Restrained high-quality fantasy encyclopedia, broad sculpted brush shapes, clear silhouette readable at 32px, moderate detail, warm upper-left light. Subject: adult GOLD dragon, graceful long neck and long curved backward horns, two long distinctive moustache-like facial tendrils, warm gold scales, wise intelligent eyes, restrained dark vermilion shadows. ONE living dragon head, neck and very limited shoulder bust in three-quarter view. Mature powerful anatomy, not a baby, not a statue, not a spell. Fully visible silhouette inside central 78% of square canvas; keep horns and whiskers inside wide transparent margins. Dark charcoal edges, local pale highlights readable on light/dark UI. No second head, no hands, no accessories, no text, no frame, no ground or scenery. True transparent background.",
+      "kind": "monster"
+    },
+    {
+      "kind": "item",
+      "slug": "oil-of-etherealness",
+      "prompt": "Original square painterly SKAZ icon. Rounded pear-shaped clear glass flask, dark pewter stopper, cloudy pearl-grey oil, blue reflections. Exterior pearly droplets evaporate into two small silvery wisps. Solid readable glass silhouette, warm upper-left light, charcoal edges, 72% centered size, transparent margins, no text or scenery."
+    },
+    {
+      "kind": "item",
+      "slug": "oil-of-slipperiness",
+      "prompt": "Original square painterly SKAZ icon. Squat broad dark glass jar, short neck, worn copper cap, thick black oil and teal reflections. One attached black glossy drop down outside shoulder. Wide low silhouette, warm upper-left light, charcoal edges, 72% central size, transparent margins, no labels or red liquid."
+    }
+  ],
+  "method": "OpenAI built-in image generator"
+}

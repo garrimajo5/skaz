@@ -9,7 +9,7 @@ import {personalArtHttp} from './personal-art-http.mjs';
 import {gameArtPackageMaxBytes} from './game-art-package.mjs';
 
 const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
-const files = new Set(['art-cache.js', 'art.js', 'fonts.css',"fonts/inter-400-800-cyrillic.woff2","fonts/inter-400-800-latin.woff2","fonts/pt-serif-400-cyrillic.woff2","fonts/pt-serif-400-latin.woff2","fonts/pt-serif-700-cyrillic.woff2","fonts/pt-serif-700-latin.woff2",'health.js', 'casting.js', 'spell-facts.js', 'resource-queue.js', 'index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'personal-art-session.js', 'account.js', 'members.js', 'character-sheet.js', 'style.css', 'quick.css', 'app.js', 'play.js', 'ui.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
+const files = new Set(['art-cache.js', 'art.js', 'fonts.css',"fonts/inter-400-800-cyrillic.woff2","fonts/inter-400-800-latin.woff2","fonts/pt-serif-400-cyrillic.woff2","fonts/pt-serif-400-latin.woff2","fonts/pt-serif-700-cyrillic.woff2","fonts/pt-serif-700-latin.woff2",'health.js', 'casting.js', 'spell-facts.js', 'resource-queue.js', 'index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'personal-art-session.js', 'personal-art-command.js', 'personal-art-transport.js', 'personal-art-preview.js', 'personal-art-history.js', 'personal-art-editor.js', 'personal-art-cards.js', 'personal-art-view.js', 'account.js', 'members.js', 'character-sheet.js', 'style.css', 'quick.css', 'app.js', 'play.js', 'ui.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
 const contentTypes = { '.woff2': 'font/woff2', '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
 const MAX_BODY = 512 * 1024;
 function json(response, status, value, extra = {}) {
@@ -180,6 +180,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
         else {store.access.user(identity);if(!store.access.hasPlayableCharacter(identity))filename='waiting.html';if(!/^[a-zA-Z0-9-]{8,80}$/.test(identity))throw new AppError(401,'Нужен индивидуальный вход');}
       }
       let content = await readFile(path.join(clientRoot, filename));
+      if(identity&&personalArt&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-personal-art="enabled" ');
       if(identity)content=content.toString('utf8').replace('<body ',`<body data-user-id="${identity}" `);
       response.writeHead(200, { 'Content-Type': contentTypes[path.extname(filename)], 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' });
       response.end(request.method === 'HEAD' ? undefined : content);

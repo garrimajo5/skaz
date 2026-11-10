@@ -3,7 +3,7 @@ const SkazArt=(()=>{
  const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  let pendingIndex,indexLoading=false,retryAfter=0;
  const failed=new Set();
- let closed=false,cacheGeneration=0;
+ let closed=false,cacheGeneration=0,renderGeneration=0;
  const objectUrls=new Map();
  const cache=(()=>{try{return typeof createSkazArtCache==='function'?createSkazArtCache({storage:globalThis.caches,locks:globalThis.navigator?.locks,identity:typeof SkazAccount!=='undefined'?SkazAccount.userId||'local':'local',origin:location.origin}):null;}catch{return null;}})();
  async function index(){
@@ -31,8 +31,16 @@ const SkazArt=(()=>{
   return `<span class="skaz-art skaz-art-${size}" data-skaz-art="${escape(entry.id)}" data-art-role="${size}" aria-hidden="true"><span class="skaz-art-fallback">${symbol}</span></span>`;
  }
  async function hydrate(node){
-  const generation=cacheGeneration;
-  const entries=await index();if(closed||!node.isConnected)return;
+  const generation=cacheGeneration;let renderVersion=renderGeneration;
+  if(typeof SkazPersonalArtView!=='undefined'){
+   SkazPersonalArtView.sync();renderVersion=renderGeneration;
+   try{
+    const privateBlob=await SkazPersonalArtView.read(node.dataset.skazArt,node.dataset.artRole);
+    if(closed||!node.isConnected||renderVersion!==renderGeneration)return;
+    if(privateBlob){const img=document.createElement('img');img.alt='';img.width=img.height=node.dataset.artRole==='thumbnail'?96:384;img.decoding='async';const url=URL.createObjectURL(privateBlob);objectUrls.set(node,url);img.src=url;img.addEventListener('load',()=>node.classList.add('skaz-art-loaded'),{once:true});img.addEventListener('error',()=>{img.remove();URL.revokeObjectURL(url);objectUrls.delete(node);node.classList.remove('skaz-art-loaded');if(node.isConnected)failed.add(node);},{once:true});node.append(img);return;}
+   }catch{if(!closed&&node.isConnected&&renderVersion===renderGeneration)failed.add(node);return;}
+  }
+  const entries=await index();if(closed||!node.isConnected||renderVersion!==renderGeneration)return;
   if(!entries){failed.add(node);return;}
   const item=entries.get(node.dataset.skazArt),file=item?.files[node.dataset.artRole];if(!file)return;
   const img=document.createElement('img');img.alt='';img.width=file.width;img.height=file.height;img.loading='lazy';img.decoding='async';
@@ -50,7 +58,7 @@ const SkazArt=(()=>{
     }catch{}
    }
   }
-  if(closed||!node.isConnected)return;
+  if(closed||!node.isConnected||renderVersion!==renderGeneration)return;
   if(blob){const url=URL.createObjectURL(blob);objectUrls.set(node,url);img.src=url;}else img.src=file.url;
   node.append(img);
  }
@@ -75,7 +83,8 @@ const SkazArt=(()=>{
   let queued=false;
   new MutationObserver(()=>{if(!queued){queued=true;queueMicrotask(()=>{queued=false;scan();});}}).observe(document.body,{childList:true,subtree:true});
  }
+ function refreshPrivate(){renderGeneration++;cacheGeneration++;for(const url of objectUrls.values())URL.revokeObjectURL(url);objectUrls.clear();for(const node of document.querySelectorAll('[data-skaz-art]')){for(const img of node.querySelectorAll?.('img')||[])img.remove();node.classList.remove('skaz-art-loaded');seen.delete(node);}failed.clear();scan();}
  async function clearCache(){cacheGeneration++;return cache?cache.clear():false;}
  function lock(){closed=true;pendingIndex=null;failed.clear();for(const url of objectUrls.values())URL.revokeObjectURL(url);objectUrls.clear();void cache?.clear({lock:true});}
- return {markup,clearCache,cacheStats:async()=>cache?cache.stats():null,lock};
+ return {refreshPrivate,markup,clearCache,cacheStats:async()=>cache?cache.stats():null,lock};
 })();

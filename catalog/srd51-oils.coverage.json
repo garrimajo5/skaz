@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Two selected oils; not all magic items",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "checkedOn": "2026-11-10",
+  "expectedSubsetCount": 2,
+  "entries": [
+    {
+      "id": "srd51:2014:item:oil-of-etherealness",
+      "nameEn": "Oil of Etherealness",
+      "pages": [
+        231,
+        232
+      ]
+    },
+    {
+      "id": "srd51:2014:item:oil-of-slipperiness",
+      "nameEn": "Oil of Slipperiness",
+      "pages": [
+        232
+      ]
+    }
+  ],
+  "completeGameCatalog": false,
+  "limitations": [
+    "Reference effects only; application time and quantities are not automated.",
+    "Links from the oils to glue are included; existing glue card is not modified."
+  ]
+}

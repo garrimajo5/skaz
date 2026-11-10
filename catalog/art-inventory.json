@@ -456,6 +456,44 @@
     "contentSha256": "e6c1b98c9013b02321620cfe7a6b6f25f99041fe94069dd72679ade32a7851fe"
   },
   {
+    "id": "srd51:2014:item:oil-of-etherealness",
+    "kind": "item",
+    "ruleset": "5e-2014",
+    "name": {
+      "ru": "Масло эфирности",
+      "en": "Oil of Etherealness"
+    },
+    "source": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=231",
+      "title": "System Reference Document 5.1",
+      "version": "5.1; checked 2026-11-10; skaz oils v1",
+      "usage": "cc-by-4.0",
+      "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 231, 232.",
+      "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+      "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+    },
+    "contentSha256": "f60f3d0225c076844c893c3f6cfd7d4460594ac11b647ecbab5f75d09cfc3bda"
+  },
+  {
+    "id": "srd51:2014:item:oil-of-slipperiness",
+    "kind": "item",
+    "ruleset": "5e-2014",
+    "name": {
+      "ru": "Масло скольжения",
+      "en": "Oil of Slipperiness"
+    },
+    "source": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=232",
+      "title": "System Reference Document 5.1",
+      "version": "5.1; checked 2026-11-10; skaz oils v1",
+      "usage": "cc-by-4.0",
+      "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 232.",
+      "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+      "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+    },
+    "contentSha256": "d451a05558db8449bf85f2d7b7621c67729ffb168215c9bb55539ffc12e3a2e3"
+  },
+  {
     "id": "srd51:2014:item:pearl-of-power",
     "kind": "item",
     "ruleset": "5e-2014",

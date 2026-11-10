@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:item:oil-of-etherealness",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Масло эфирности",
+        "en": "Oil of Etherealness"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=231",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-11-10; skaz oils v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 231, 232.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nМутное серое масло: капли на наружной стороне сосуда быстро испаряются. Одного флакона достаточно для существа Среднего или меньшего размера вместе с носимым и переносимым снаряжением; за каждую категорию размера выше Среднего нужен ещё один флакон. Нанесение занимает 10 минут. Существо получает эффект заклинания «Эфирность» на 1 час. Также масло может разорвать связь, созданную универсальным клеем. Масло наносят, а не выпивают; эффекты учитываются вручную.",
+      "links": [
+        "srd51:2014:spell:etherealness",
+        "srd51:2014:item:sovereign-glue"
+      ],
+      "item": {
+        "type": "potion",
+        "rarity": "rare",
+        "attunement": false
+      }
+    },
+    {
+      "id": "srd51:2014:item:oil-of-slipperiness",
+      "ruleset": "5e-2014",
+      "kind": "item",
+      "name": {
+        "ru": "Масло скольжения",
+        "en": "Oil of Slipperiness"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=232",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-11-10; skaz oils v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 232.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nГустая тяжёлая чёрная мазь в сосуде быстро течёт при выливании. Флакон покрывает существо Среднего или меньшего размера и его носимое/переносимое снаряжение; за каждую категорию выше Среднего нужен ещё один флакон. Нанесение занимает 10 минут и даёт эффект «Свободы перемещения» на 8 часов. Вместо этого действием можно вылить масло на землю: квадрат со стороной 10 футов получает эффект «Скольжения» на 8 часов. Им также покрывают сосуд изнутри для хранения универсального клея. Масло наносят или выливают; эффекты учитываются вручную.",
+      "links": [
+        "srd51:2014:spell:freedom-of-movement",
+        "srd51:2014:spell:grease",
+        "srd51:2014:item:sovereign-glue"
+      ],
+      "item": {
+        "type": "potion",
+        "rarity": "uncommon",
+        "attunement": false
+      }
+    }
+  ]
+}

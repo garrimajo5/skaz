@@ -74,7 +74,7 @@ test('item type and attunement false are exact, combinable with rarity, and excl
  const unknown=structuredClone(read('srd51-items').entries[0]);unknown.id='test:unknown:item';delete unknown.item;s.catalog.importEntries({schemaVersion:1,entries:[unknown]},{apply:true});
  const search=q=>s.catalog.search(new URLSearchParams(q));
  assert.deepEqual(search('kind=item&itemType=ring&attunement=false&rarity=uncommon').entries.map(e=>e.name.en),['Ring of Swimming','Ring of Water Walking']);
- assert.equal(search('kind=item&itemType=potion&attunement=false').total,4);assert.equal(search('kind=item&itemType=potion&attunement=true').total,0);
+ assert.equal(search('kind=item&itemType=potion&attunement=false').total,6);assert.equal(search('kind=item&itemType=potion&attunement=true').total,0);
  const a=search('kind=item&attunement=false&limit=1'),b=search('kind=item&attunement=false&limit=1&offset=1');assert.equal(a.total,b.total);assert.notEqual(a.entries[0].id,b.entries[0].id);
  assert.ok(search('kind=item&attunement=false&limit=100').entries.every(e=>e.item?.attunement===false));
  for(const q of ['itemType=ring','kind=artifact&itemType=ring','kind=spell&attunement=false','kind=item&itemType=other','kind=item&attunement=0','kind=item&attunement=','kind=item&attunement=true&attunement=false'])assert.throws(()=>search(q),{status:400},q);

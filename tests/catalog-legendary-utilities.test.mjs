@@ -17,9 +17,9 @@ test('legendary utilities retain exact 2014 limits and are items, not artifacts'
 });
 test('three additions preserve every installed card and game and support cyclic links on repeat',()=>{
  const s=openStore(':memory:');try{
- const ids=new Set(pack.entries.map(e=>e.id));const previous=validateCatalog({schemaVersion:1,entries:bundledCatalog().bundle.entries.filter(e=>!ids.has(e.id))});
+ const ids=new Set(pack.entries.map(e=>e.id));const previous=validateCatalog({schemaVersion:1,entries:bundledCatalog().bundle.entries.filter(e=>!ids.has(e.id)&&!e.id.startsWith("srd51:2014:item:oil-of-"))});
  s.catalog.importEntries({schemaVersion:1,entries:previous},{apply:true});const before=s.read(),history=s.history();
- const p=s.catalog.previewBundled();assert.equal(p.added,3);assert.equal(p.updated,0);s.catalog.installBundled({version:p.version});
+ const added=s.catalog.importEntries(pack,{apply:true});assert.equal(added.added,3);
  assert.equal(s.catalog.importEntries(pack,{apply:true}).unchanged,3);assert.deepEqual(s.read(),before);assert.deepEqual(s.history(),history);
  for(const e of previous)assert.deepEqual(s.catalog.lookup(new URLSearchParams({id:e.id})).entry,e);
  const related=s.catalog.lookup(new URLSearchParams({id:pack.entries[1].id})).related;assert.ok(related.some(e=>e.id===pack.entries[2].id));

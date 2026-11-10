@@ -1,0 +1,96 @@
+{
+  "accepted": [
+    {
+      "id": "srd51:2014:spell:alter-self",
+      "sha256": "359e2eb0dbb8953578557b215e2b28bf99f9eb25d2e2b030106585eebe5d9d36",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1059710,
+      "review": "Original anatomy/materials reviewed. Browser grid: 32 px colour and 40 px grayscale on Polaris, Coal and Atlas; distinct silhouettes, transparent edges, no clipped parts or text. This is visual review, not a blind recognition study."
+    },
+    {
+      "id": "srd51:2014:spell:polymorph",
+      "sha256": "22997ef1d769eabd0c796c3fd76e713e192200eff57239af7c260385b7f26ba9",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1114499,
+      "review": "Original anatomy/materials reviewed. Browser grid: 32 px colour and 40 px grayscale on Polaris, Coal and Atlas; distinct silhouettes, transparent edges, no clipped parts or text. This is visual review, not a blind recognition study."
+    },
+    {
+      "id": "srd51:2014:spell:true-polymorph",
+      "sha256": "eb95962614e61dffe9a0575a1596cf9c072ac9d0eca2a462edf5d3ff9fe0722a",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1184885,
+      "review": "Original anatomy/materials reviewed. Browser grid: 32 px colour and 40 px grayscale on Polaris, Coal and Atlas; distinct silhouettes, transparent edges, no clipped parts or text. This is visual review, not a blind recognition study."
+    },
+    {
+      "id": "srd51:2014:monster:adult-brass-dragon",
+      "sha256": "9aad82d228d1118593138a4b532de29b97e407addd9a2bc560a842d679fb2b5f",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 838616,
+      "review": "Original anatomy/materials reviewed. Browser grid: 32 px colour and 40 px grayscale on Polaris, Coal and Atlas; distinct silhouettes, transparent edges, no clipped parts or text. This is visual review, not a blind recognition study."
+    },
+    {
+      "id": "srd51:2014:monster:adult-bronze-dragon",
+      "sha256": "d97ace338a531d240f72861bc2b875883403d0174965d2cb9ebfc1bc56db8531",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 867440,
+      "review": "Original anatomy/materials reviewed. Browser grid: 32 px colour and 40 px grayscale on Polaris, Coal and Atlas; distinct silhouettes, transparent edges, no clipped parts or text. This is visual review, not a blind recognition study."
+    },
+    {
+      "id": "srd51:2014:monster:adult-copper-dragon",
+      "sha256": "b59ab272e742bb6edb2aa3c095ee0d7e29336fdcefc86cb6e073bd17c40e3ee3",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 790392,
+      "review": "Original anatomy/materials reviewed. Browser grid: 32 px colour and 40 px grayscale on Polaris, Coal and Atlas; distinct silhouettes, transparent edges, no clipped parts or text. This is visual review, not a blind recognition study."
+    },
+    {
+      "id": "srd51:2014:monster:adult-silver-dragon",
+      "sha256": "dd85ce43ea6cf07efdd17cc1e476bf54e7a3c9e138d45fe219caea500140ea56",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 926896,
+      "review": "Original anatomy/materials reviewed. Browser grid: 32 px colour and 40 px grayscale on Polaris, Coal and Atlas; distinct silhouettes, transparent edges, no clipped parts or text. This is visual review, not a blind recognition study."
+    },
+    {
+      "id": "srd51:2014:monster:adult-gold-dragon",
+      "sha256": "4604d297f93709bf3e29bc4be5ac1fa936edb05fb829a12d034d968c84aaa30f",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 934654,
+      "review": "Original anatomy/materials reviewed. Browser grid: 32 px colour and 40 px grayscale on Polaris, Coal and Atlas; distinct silhouettes, transparent edges, no clipped parts or text. This is visual review, not a blind recognition study."
+    },
+    {
+      "id": "srd51:2014:item:oil-of-etherealness",
+      "sha256": "44a3ce0bf3fe5d14dec0996b5f1b8559e8ac02ae7199585f1b7556b304a420bf",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1176548,
+      "review": "Original anatomy/materials reviewed. Browser grid: 32 px colour and 40 px grayscale on Polaris, Coal and Atlas; distinct silhouettes, transparent edges, no clipped parts or text. This is visual review, not a blind recognition study."
+    },
+    {
+      "id": "srd51:2014:item:oil-of-slipperiness",
+      "sha256": "15bd94406f6e15b5c0625738526bcbfb998005217b4d53464519876407aac772",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1097172,
+      "review": "Original anatomy/materials reviewed. Browser grid: 32 px colour and 40 px grayscale on Polaris, Coal and Atlas; distinct silhouettes, transparent edges, no clipped parts or text. This is visual review, not a blind recognition study."
+    }
+  ],
+  "rejected": [
+    {
+      "sourcePath": "data/art-production-v43/alter-self-rejected.png",
+      "sha256": "6c455fd59ae8456c30cae8cb1e4a0624fb91559e20547ee9989c493e33489f6d",
+      "reason": "Hair silhouette clipped at top; regenerated with margin."
+    },
+    {
+      "sourcePath": "data/art-production-v43/true-polymorph-rejected.png",
+      "sha256": "9539a74cb9fbeb34fe7f436c5a4565264579878b3f07d0bcfa8e03c15d7847ec",
+      "reason": "Small object into large adult dragon would suggest invalid object-to-creature size/CR; regenerated as creature-to-creature."
+    }
+  ]
+}

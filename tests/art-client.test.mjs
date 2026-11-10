@@ -3,9 +3,9 @@ const source=await readFile(new URL('../client/art.js',import.meta.url),'utf8');
 const file={url:'/art/common/'+'a'.repeat(64)+'.png',width:96,height:48};
 const index={schemaVersion:1,entries:[{id:'spell-a',files:{thumbnail:file,card:{...file,width:384,height:192}}}]};
 const settle=()=>new Promise(resolve=>setImmediate(resolve));
-function harness(data=index,protocol='http:',cache=null,imageFetch=null){
+function harness(data=index,protocol='http:',cache=null,imageFetch=null,privateRead=null){
  const nodes=[],observed=[],requests=[],images=[],events={};let mutation,visibility,networkError=false;
- const context=vm.createContext({location:{protocol},AbortSignal,queueMicrotask,URL:{createObjectURL:()=> 'blob:test',revokeObjectURL(){}},...(cache?{createSkazArtCache:()=>cache}:{}),addEventListener:(type,fn)=>events[type]=fn,fetch:async(...args)=>{requests.push(args);if(args[0].startsWith('/art/')&&imageFetch)return imageFetch();if(networkError)throw Error('Network unavailable');return {ok:true,json:async()=>data};},
+ const context=vm.createContext({...(privateRead?{SkazPersonalArtView:{sync(){},read:privateRead}}:{}),location:{protocol},AbortSignal,queueMicrotask,URL:{createObjectURL:()=> 'blob:test',revokeObjectURL(){}},...(cache?{createSkazArtCache:()=>cache}:{}),addEventListener:(type,fn)=>events[type]=fn,fetch:async(...args)=>{requests.push(args);if(args[0].startsWith('/art/')&&imageFetch)return imageFetch();if(networkError)throw Error('Network unavailable');return {ok:true,json:async()=>data};},
   MutationObserver:class{constructor(fn){mutation=fn;}observe(){}},IntersectionObserver:class{constructor(fn){visibility=fn;}observe(node){observed.push(node);}unobserve(){}},
   document:{body:{},querySelectorAll:()=>nodes,createElement:()=>{const image={handlers:{},addEventListener(type,fn){this.handlers[type]=fn;},remove(){this.removed=true;}};images.push(image);return image;}}
  });vm.runInContext(source,context);
@@ -75,4 +75,12 @@ test('untrusted URLs and duplicate IDs fail closed without inserting external im
 test('missing artwork, removed nodes and standalone file mode preserve fallback without fetching images',async()=>{
  const h=harness(),missing=h.node('unknown'),removed=h.node();removed.isConnected=false;h.visible(missing);h.visible(removed);await settle();assert.equal(h.images.length,0);
  const offline=harness(index,'file:');offline.node();offline.scan();await settle();assert.equal(offline.requests.length,0);assert.equal(offline.observed.length,0);
+});
+
+test('private art overrides even missing common art without entering the common cache',async()=>{
+ let cacheReads=0;const h=harness(index,'http:',{get:async()=>{cacheReads++;},put:async()=>{throw Error('Private bytes entered shared cache');}},null,async()=>({size:123}));const node=h.node('missing-common');h.scan();h.visible(node);await settle();assert.equal(node.children[0].src,'blob:test');assert.equal(cacheReads,0);assert.equal(h.requests.length,0);
+});
+test('failed private read cannot show stale common art and scope refresh drops late results',async()=>{
+ const denied=harness(index,'http:',null,null,async()=>{throw Error('Denied');});const n=denied.node();denied.scan();denied.visible(n);await settle();assert.equal(n.children.length,0);assert.equal(denied.requests.length,0);
+ let finish;const h=harness(index,'http:',null,null,()=>new Promise(r=>finish=r));const node=h.node();h.scan();h.visible(node);await settle();h.api.refreshPrivate();finish({size:12});await settle();assert.equal(node.children.length,0);
 });

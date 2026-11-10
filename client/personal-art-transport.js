@@ -30,9 +30,10 @@ const SkazPersonalArtTransport=(()=>{
     const command=JSON.parse(body);check(command);
     return json(await call('change',{method:'POST',body}));
    },
-   async snapshot(scope){
+   async snapshot(scope,role){
     const entries=await history(scope),current=entries[0]||{revision:0,standard:true};
-    const response=await call('image?'+query);
+    if(role!==undefined&&!['thumbnail','master'].includes(role))throw Error('Неверный размер изображения.');
+    const response=await call('image?'+query+(role?'&role='+role:''));
     if(current.standard&&response.status===404){
      // A missing image can also mean access was revoked after the first read.
      const again=(await history(scope))[0]||{revision:0,standard:true};

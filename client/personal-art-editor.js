@@ -29,6 +29,7 @@ const SkazPersonalArtEditor=(()=>{
    check();if(!Number.isSafeInteger(result.revision)||result.revision<revision)throw Error('Неверная ревизия сохранения.');
    revision=result.revision;
    await snapshot();
+   if(typeof SkazPersonalArtView!=='undefined')SkazPersonalArtView.invalidate();
    ready=true;
    preview.setStatus?.('Сохранённое изображение обновлено. Выбранный файл и кадр остаются черновиком до следующего сохранения.');
   }

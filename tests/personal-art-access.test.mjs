@@ -240,3 +240,11 @@ test('HTTP readonly mode and revoked character block image mutations and reads',
  f.access.apply({action:'revoke-character',userId:'player-art',campaignId:f.context.campaignId,characterId:f.context.characterId});
  assert.equal((await f.call('image?'+f.query)).status,404);
 });
+
+test('main shell advertises personal-art only with explicit authenticated capability',async t=>{
+ const enabled=await httpFixture(t),disabled=await httpFixture(t,{enabled:false});
+ const active=await fetch(enabled.base+'/',{headers:enabled.headers('player')});assert.equal(active.status,200);assert.match(await active.text(),/data-personal-art="enabled"/);
+ const off=await fetch(disabled.base+'/',{headers:disabled.headers('player')});assert.equal(off.status,200);assert.doesNotMatch(await off.text(),/data-personal-art="enabled"/);
+ const anonymous=await fetch(enabled.base+'/');assert.doesNotMatch(await anonymous.text(),/data-personal-art="enabled"/);
+ for(const name of ['personal-art-cards.js','personal-art-view.js']){const response=await fetch(enabled.base+'/'+name,{headers:enabled.headers('player')});assert.equal(response.status,200);assert.equal(response.headers.get('cache-control'),'no-store');}
+});
