@@ -1,6 +1,7 @@
 // Prepared composite editor. Transport is scoped by the caller; no shared cache.
 const SkazPersonalArtEditor=(()=>{
  function create(container,{characterId,catalogId,transport,label}){
+  if(typeof SkazPersonalArtSession!=='undefined')SkazPersonalArtSession.assertOpen();
   const binding=Object.freeze({characterId,catalogId});
   let closed=false,busy=false,ready=false,revision=0,imageUrl=null;
   const root=document.createElement('fieldset');root.style.cssText='min-width:0;border:0;padding:0';
@@ -49,7 +50,10 @@ const SkazPersonalArtEditor=(()=>{
    onReconcile:()=>exclusive(async()=>{const state=await snapshot();commands.reconciled();revision=state.revision;ready=true;preview.setStatus?.('Состояние сверено. Выбранный файл и кадр ещё не отправлены.');})
   });
   const initialized=exclusive(async()=>{try{const state=await snapshot();revision=state.revision;ready=true;}catch(error){if(!closed)caption.textContent=error.message;}}).then(()=>{if(ready&&!closed)return history.refresh?.();});
-  return {initialized,destroy(){closed=true;commands.destroy();transport.destroy?.();preview.destroy();history.destroy();release();root.remove();}};
+  let unregister;
+  function destroy(){if(closed)return;closed=true;unregister?.();for(const dispose of [()=>commands.destroy(),()=>transport.destroy?.(),()=>preview.destroy(),()=>history.destroy(),release,()=>root.remove()])try{dispose();}catch{}}
+  if(typeof SkazPersonalArtSession!=='undefined')unregister=SkazPersonalArtSession.register(destroy);
+  return {initialized,destroy};
  }
  return {create};
 })();

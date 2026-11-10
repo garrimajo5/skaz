@@ -6,7 +6,7 @@ const source=readFileSync(new URL('../client/account.js',import.meta.url),'utf8'
 function client(fetch){
  const events={},body={dataset:{userId:'alice-user'},replaceChildren(){this.cleared=true;},append(){}};
  const context={document:{body,createElement:()=>({append(){}}),addEventListener:(name,fn)=>events[name]=fn},location:{href:'https://example.test/',origin:'https://example.test',replace(){}},Headers,Request,URL,AbortSignal,window:{fetch,addEventListener:(name,fn)=>events[name]=fn}};
- vm.createContext(context);vm.runInContext(source,context);return {context,events,body,api:vm.runInContext('SkazAccount',context)};
+ vm.createContext(context);vm.runInContext(readFileSync(new URL('../client/personal-art-session.js',import.meta.url),'utf8'),context);vm.runInContext(source,context);return {context,events,body,api:vm.runInContext('SkazAccount',context)};
 }
 test('account adapter pins every API request to server identity and locks on 401',async()=>{
  const calls=[],c=client(async(input,options)=>{calls.push(options);return new Response('{}',{status:calls.length===1?200:401});});
@@ -18,6 +18,10 @@ test('account adapter pins every API request to server identity and locks on 401
 test('cross-tab sign-in hides old DOM and discards an in-flight response',async()=>{
  let deliver,artLocked=false;const c=client(()=>new Promise(resolve=>deliver=resolve));c.context.SkazArt={lock:()=>{artLocked=true;}};const pending=c.context.window.fetch('/api/workspace');
  c.events.storage({key:'skaz-auth-change'});assert.equal(c.body.cleared,true);assert.equal(artLocked,true);deliver(new Response('{}'));await assert.rejects(pending);
+});
+test('account lock releases private resources before replacing DOM and forbids new private UI',async()=>{
+ const c=client(async()=>new Response('{}',{status:401}));let released=false;c.context.dispose=()=>{assert.notEqual(c.body.cleared,true);released=true;};
+ vm.runInContext('SkazPersonalArtSession.register(dispose)',c.context);await assert.rejects(c.context.window.fetch('/api/me'));assert.equal(released,true);assert.throws(()=>vm.runInContext('SkazPersonalArtSession.assertOpen()',c.context),/закрыт/);
 });
 
 test('restored history document and withdrawn hero hide the old interface',async()=>{

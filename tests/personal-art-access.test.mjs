@@ -77,6 +77,32 @@ async function httpFixture(t,{enabled=true,write=true}={}){
  const {bytes:raw,...command}=f.request;command.png=raw.toString('base64');
  return {...f,sessions,tokens,call,query,command,base,headers,authorized};
 }
+
+function gameTransferClient(request){
+ const context=vm.createContext({Blob,AbortController,AbortSignal,crypto:{randomUUID},request});
+ for(const name of ['personal-art-command','game-art-transfer'])vm.runInContext(readFileSync(new URL('../client/'+name+'.js',import.meta.url),'utf8'),context);
+ return vm.runInContext("SkazGameArtTransfer.create({identity:'player-art',viewId:'transfer-ui-test',request})",context);
+}
+test('game transfer client and real cookie HTTP recover lost response without duplicate game or image',async t=>{
+ const f=await httpFixture(t);f.art.change(f.request);let lose=true;const bodies=[];
+ const client=gameTransferClient(async(url,options)=>{
+  const response=await fetch(f.base+url,{...options,headers:{...f.headers('player'),...options.headers}});
+  if(options.method==='POST'){bodies.push(options.body);if(response.ok&&lose){lose=false;await response.body.cancel();throw Error('Lost after real commit');}}
+  return response;
+ });t.after(()=>client.destroy());
+ const exported=await client.exportPackage();assert.equal(JSON.parse(await exported.text()).personalArt.entries.length,1);
+ const count=()=>f.db.prepare('SELECT count(*) AS n FROM campaigns').get().n,before=count();
+ const summary=await client.prepare(exported);assert.equal(summary.images,1);await assert.rejects(client.importPrepared(),/Lost/);assert.equal(count(),before+1);
+ const result=await client.retry();assert.equal(result.replayed,true);assert.equal(count(),before+1);assert.equal(bodies[0],bodies[1]);assert.equal(client.pending,false);
+ assert.deepEqual(JSON.parse(await (await client.exportPackage()).text()).personalArt,JSON.parse(await exported.text()).personalArt);
+});
+test('game transfer client never rebinds a pending import to a new cookie identity',async t=>{
+ const f=await httpFixture(t);f.art.change(f.request);let who='player',lose=true;
+ const client=gameTransferClient(async(url,options)=>{const response=await fetch(f.base+url,{...options,headers:{...f.headers(who),...options.headers}});if(options.method==='POST'&&response.ok&&lose){lose=false;await response.body.cancel();throw Error('Lost');}return response;});t.after(()=>client.destroy());
+ await client.prepare(await client.exportPackage());await assert.rejects(client.importPrepared(),/Lost/);
+ const before=f.db.prepare('SELECT count(*) AS n FROM campaigns').get().n;who='owner';await assert.rejects(client.retry(),{status:401});assert.equal(f.db.prepare('SELECT count(*) AS n FROM campaigns').get().n,before);
+ who='player';assert.equal((await client.retry()).replayed,true);assert.equal(f.db.prepare('SELECT count(*) AS n FROM campaigns').get().n,before);
+});
 test('cookie HTTP art read/write/export is personal, non-cacheable and replay safe',async t=>{
  const f=await httpFixture(t);
  let response=await f.call('change',{method:'POST',body:f.command});assert.equal(response.status,200);assert.equal((await response.json()).revision,1);

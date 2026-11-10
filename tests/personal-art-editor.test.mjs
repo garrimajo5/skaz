@@ -11,10 +11,10 @@ function fixture(transport){
  }
  const revoked=[],issued=[],statuses=[];let preview,history;
  const context=vm.createContext({Blob,crypto:{randomUUID:()=>String(Math.random())},document:{createElement:()=>new Element()},URL:{createObjectURL:()=>{const url='blob:'+issued.length;issued.push(url);return url;},revokeObjectURL:url=>revoked.push(url)},SkazPersonalArtPreview:{create:(_,options)=>{preview=options;return {setStatus:message=>statuses.push(message),destroy(){}};}},SkazPersonalArtHistory:{create:(_,options)=>{history=options;return {destroy(){}};}}});
- for(const name of ['command','editor'])vm.runInContext(readFileSync(new URL('../client/personal-art-'+name+'.js',import.meta.url),'utf8'),context);
+ for(const name of ['session','command','editor'])vm.runInContext(readFileSync(new URL('../client/personal-art-'+name+'.js',import.meta.url),'utf8'),context);
  const container=new Element();context.container=container;context.transport=transport;
  const editor=vm.runInContext("SkazPersonalArtEditor.create(container,{characterId:'hero',catalogId:'shield',transport})",context);
- return {editor,container,revoked,issued,history,preview,statuses};
+ return {editor,container,revoked,issued,history,preview,statuses,lock:()=>vm.runInContext('SkazPersonalArtSession.lock()',context)};
 }
 test('reset and restore use scoped revision and replace/revoke the displayed image',async()=>{
  let revision=1,standard=false;const sent=[];
@@ -49,4 +49,7 @@ test('access failure removes a previously displayed private object URL and requi
  await assert.rejects(f.history.onReset(),/сверь/);assert.equal(writes,0);
  denied=false;await f.history.onReconcile();assert.equal(f.issued.length,2);
  f.editor.destroy();assert.deepEqual(f.revoked,f.issued);
+});
+test('session lock clears current private image even if the transport cleanup throws',async()=>{
+ const f=fixture({snapshot:async()=>({revision:1,standard:false,blob:new Blob(['private'])}),history:async()=>[],destroy(){throw Error('broken abort');}});await f.editor.initialized;assert.equal(f.issued.length,1);f.lock();assert.deepEqual(f.revoked,f.issued);assert.equal(f.container.children.length,0);await assert.rejects(f.history.onReset(),/закрыт/);
 });
