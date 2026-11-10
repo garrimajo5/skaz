@@ -6,6 +6,7 @@ import { AppError } from './state.mjs';
 import { cookieToken, sessionCookie, clearSessionCookie } from './authentication.mjs';
 import { createArtLibrary } from './art-library.mjs';
 import {personalArtHttp} from './personal-art-http.mjs';
+import {gameArtPackageMaxBytes} from './game-art-package.mjs';
 
 const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
 const files = new Set(['art-cache.js', 'art.js', 'fonts.css',"fonts/inter-400-800-cyrillic.woff2","fonts/inter-400-800-latin.woff2","fonts/pt-serif-400-cyrillic.woff2","fonts/pt-serif-400-latin.woff2","fonts/pt-serif-700-cyrillic.woff2","fonts/pt-serif-700-latin.woff2",'health.js', 'casting.js', 'spell-facts.js', 'resource-queue.js', 'index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'account.js', 'members.js', 'character-sheet.js', 'style.css', 'quick.css', 'app.js', 'play.js', 'ui.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
@@ -99,10 +100,22 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           // falls back to the shared workspace or accepts a client-supplied ID.
           if (pathname === '/api/me' && request.method === 'GET') return json(response,200,{user:store.access.user(userId),individualWrites});
           const guard=sessions?()=>{if(sessions.check(cookieToken(request.headers.cookie))!==userId)throw new AppError(401,'Нужен индивидуальный вход');}:undefined;
-          view = store.forUser(userId, viewId ?? 'primary-view', {write:individualWrites,guard});
+          view = store.forUser(userId, viewId ?? 'primary-view', {write:individualWrites,guard,personalArt:!!personalArt&&['/api/export/game-with-art','/api/import/game-with-art'].includes(pathname)});
           if(personalArt&&pathname.startsWith('/api/personal-art/'))personal=personalArt(userId,{write:individualWrites,guard});
         } else view = viewId === undefined ? store : store.forView(viewId);
         if(await personalArtHttp(request,response,personal,body))return;
+        if(['/api/export/game-with-art','/api/import/game-with-art'].includes(pathname)){
+          if(!personalArt)return json(response,404,{error:'Перенос личных изображений не включён'});
+          if(pathname==='/api/export/game-with-art'&&request.method==='GET')return json(response,200,view.exportActive('with-art'),{'Content-Disposition':'attachment; filename="skaz-game-with-art-v1.json"'});
+          if(pathname==='/api/import/game-with-art'&&request.method==='POST'){
+            if(request.headers['x-skaz-client']!=='local-v1')throw new AppError(403,'Запрос должен исходить из приложения');
+            const data=await body(request,gameArtPackageMaxBytes+4096);
+            if(data?.file?.app!=='skaz-game-with-art')throw new AppError(422,'Нужен пакет игры с изображениями');
+            const result=view.importActive(data);
+            return json(response,200,{...result,permissions:view.permissions()});
+          }
+          return json(response,405,{error:'Метод не поддерживается'});
+        }
         if(authenticate && pathname==='/api/members'){
           if(request.method==='GET')return json(response,200,view.members.list());
           if(request.method==='POST'){

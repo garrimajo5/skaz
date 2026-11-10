@@ -202,7 +202,7 @@ export function createUserReader(db, access, userId, clientViewId, createView, g
   result.sessionReview=sessionId=>read(()=>view.sessionReview(sessionId),true);
   result.exportActive=(version=7)=>read(()=>{
     const exported=view.exportActive(version);
-    if (exported.catalog.entries.some(entry=>!visible(entry))) disabled();
+    if ((exported.app==='skaz-game-with-art'?exported.game:exported).catalog.entries.some(entry=>!visible(entry))) disabled();
     return exported;
   },true);
   result.catalog={};
@@ -248,7 +248,8 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
       if (!row || !isDeepStrictEqual(shared.get(request.catalogId),JSON.parse(row.entry_json))) missing();
     }
     if (method==='importActive') {
-      if (!Array.isArray(request?.file?.catalog?.entries) || request.file.catalog.entries.some(entry=>!isDeepStrictEqual(shared.get(entry?.id),entry))) disabled();
+      const file=request?.file?.app==='skaz-game-with-art'?request.file.game:request?.file;
+      if (!Array.isArray(file?.catalog?.entries) || file.catalog.entries.some(entry=>!isDeepStrictEqual(shared.get(entry?.id),entry))) disabled();
     }
   }
   const result={...reader};

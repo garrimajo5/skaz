@@ -1,4 +1,4 @@
-// Preparation for #38. Deliberately not mounted by openStore or HTTP yet.
+// Opt-in #38 storage; production startup does not enable this capability yet.
 // Identity and character authorization must come from trusted session adapters.
 import {createHash} from 'node:crypto';
 import {AppError} from './state.mjs';
@@ -13,11 +13,27 @@ const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
 export const personalStorageLimits=Object.freeze({bytes:32*1024*1024,versions:1000,bindings:1000});
 export const personalArtRetentionMs=30*24*60*60*1000;
 
-export function createPersonalArtStore(db,{authorize,catalogExists,limits=personalStorageLimits,now=Date.now}={}){
- if(typeof authorize!=='function'||typeof catalogExists!=='function')throw Error('Trusted synchronous authorization and catalog adapters required');
- limits={...personalStorageLimits,...limits};
- if(!Number.isSafeInteger(limits.bytes)||limits.bytes<1||!Number.isSafeInteger(limits.versions)||limits.versions<1)throw Error('Invalid personal art quota');
- if(!Number.isSafeInteger(limits.bindings)||limits.bindings<1||typeof now!=='function')throw Error('Invalid personal art policy');
+function setup(db){
+ const nested=db.isTransaction;
+ db.exec(nested?'SAVEPOINT personal_art_schema_setup':'BEGIN IMMEDIATE');
+ try{
+ const exists=name=>!!db.prepare("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?").get(name);
+ const versioned=exists('personal_art_schema');
+ if(versioned&&db.prepare('SELECT version FROM personal_art_schema WHERE id=1').get()?.version!==1)throw Error('Неподдерживаемая версия личных изображений; база не изменена');
+ const shapes={personal_art_versions:['user_id','character_id','catalog_id','revision','mutation_id','request_hash','master','thumbnail','master_sha','thumbnail_sha','created_at'],personal_art_imports:['user_id','character_id','mutation_id','request_hash','result_json','created_at']};
+ for(const [table,columns] of Object.entries(shapes)){
+  if(!exists(table)){if(versioned)throw Error('Отсутствует таблица личных изображений; требуется восстановление');continue;}
+  const actual=db.prepare('PRAGMA table_info('+table+')').all().map(c=>c.name);
+  if(JSON.stringify(actual)!==JSON.stringify(columns))throw Error('Неподдерживаемая структура личных изображений; база не изменена');
+ }
+  db.exec(`CREATE TABLE IF NOT EXISTS personal_art_schema(id INTEGER PRIMARY KEY CHECK(id=1),version INTEGER NOT NULL);
+  INSERT OR IGNORE INTO personal_art_schema VALUES (1,1);`);
+  createTables(db);
+  db.exec(nested?'RELEASE personal_art_schema_setup':'COMMIT');
+ }catch(error){db.exec(nested?'ROLLBACK TO personal_art_schema_setup':'ROLLBACK');if(nested)db.exec('RELEASE personal_art_schema_setup');throw error;}
+}
+
+function createTables(db){
  db.exec(`CREATE TABLE IF NOT EXISTS personal_art_versions (
   user_id TEXT NOT NULL REFERENCES access_users(id), character_id TEXT NOT NULL REFERENCES characters(id), catalog_id TEXT NOT NULL,
   revision INTEGER NOT NULL CHECK(revision>0), mutation_id TEXT NOT NULL,
@@ -31,10 +47,18 @@ export function createPersonalArtStore(db,{authorize,catalogExists,limits=person
   user_id TEXT NOT NULL REFERENCES access_users(id), character_id TEXT NOT NULL REFERENCES characters(id),
   mutation_id TEXT NOT NULL, request_hash TEXT NOT NULL, result_json TEXT NOT NULL, created_at TEXT NOT NULL,
   PRIMARY KEY(user_id,mutation_id));`);
+}
+
+export function createPersonalArtStore(db,{authorize,catalogExists,limits=personalStorageLimits,now=Date.now}={}){
+ if(typeof authorize!=='function'||typeof catalogExists!=='function')throw Error('Trusted synchronous authorization and catalog adapters required');
+ limits={...personalStorageLimits,...limits};
+ if(!Number.isSafeInteger(limits.bytes)||limits.bytes<1||!Number.isSafeInteger(limits.versions)||limits.versions<1)throw Error('Invalid personal art quota');
+ if(!Number.isSafeInteger(limits.bindings)||limits.bindings<1||typeof now!=='function')throw Error('Invalid personal art policy');
+ setup(db);
  let depth=0;
  function transaction(fn){
-  const level=depth++,name='personal_art_nested_'+level;
-  try{db.exec(level?'SAVEPOINT '+name:'BEGIN IMMEDIATE');try{const result=fn();db.exec(level?'RELEASE '+name:'COMMIT');return result;}catch(e){db.exec(level?'ROLLBACK TO '+name:'ROLLBACK');if(level)db.exec('RELEASE '+name);throw e;}}finally{depth--;}
+  const level=depth++,name='personal_art_nested_'+level,nested=level>0||db.isTransaction;
+  try{db.exec(nested?'SAVEPOINT '+name:'BEGIN IMMEDIATE');try{const result=fn();db.exec(nested?'RELEASE '+name:'COMMIT');return result;}catch(e){db.exec(nested?'ROLLBACK TO '+name:'ROLLBACK');if(nested)db.exec('RELEASE '+name);throw e;}}finally{depth--;}
  }
  function characterScope(userId,characterId,write){
   if(![userId,characterId].every(validId))fail(422,'Неверная область изображения');

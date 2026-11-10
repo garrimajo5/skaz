@@ -90,6 +90,50 @@ test('cookie HTTP art read/write/export is personal, non-cacheable and replay sa
  f.sessions.logout(f.tokens.player.token);
  assert.equal((await f.call('image?'+f.query,{extra:{'If-None-Match':'anything'}})).status,401);
 });
+
+test('cookie game package transfers unused catalog art and safely repeats a lost import response',async t=>{
+ const f=await httpFixture(t);
+ assert.equal((await f.call('change',{method:'POST',body:f.command})).status,200);
+ const call=(route,{method='GET',body,who='player',extra={}}={})=>fetch(f.base+'/api/'+route,{method,headers:{...f.headers(who),...extra},body:body===undefined?undefined:JSON.stringify(body)});
+ assert.equal((await call('export/active-v12')).status,409);
+ const exported=await call('export/game-with-art');assert.equal(exported.status,200);assert.match(exported.headers.get('cache-control'),/no-store/);
+ const file=await exported.json();assert.equal(file.personalArt.entries.length,1);assert.ok(file.game.catalog.entries.some(e=>e.id===catalogId));
+ const command={mutationId:randomUUID(),expectedRevision:file.game.source.revision,destination:'new-campaign',file};
+ const first=await call('import/game-with-art',{method:'POST',body:command});assert.equal(first.status,200);await first.arrayBuffer(); // Caller loses acknowledgement.
+ const campaigns=f.db.prepare('SELECT count(*) AS n FROM campaigns').get().n;
+ const retry=await call('import/game-with-art',{method:'POST',body:command});assert.equal(retry.status,200);const result=await retry.json();assert.equal(result.replayed,true);
+ assert.equal(f.db.prepare('SELECT count(*) AS n FROM campaigns').get().n,campaigns);
+ assert.notEqual(result.affectedContext.characterId,f.context.characterId);
+ const newImage=await f.call('image?'+new URLSearchParams({characterId:result.affectedContext.characterId,catalogId}));assert.equal(newImage.status,200);
+ assert.equal((await call('import/game-with-art',{method:'POST',body:command,who:'owner'})).status,404);
+ assert.equal((await call('import/game-with-art',{method:'POST',body:command,extra:{Origin:'https://other.test'}})).status,403);
+ assert.equal((await call('import/game-with-art',{method:'POST',body:command,extra:{'X-Skaz-Client':''}})).status,403);
+ f.sessions.logout(f.tokens.player.token);
+ assert.equal((await call('export/game-with-art')).status,401);
+ assert.equal((await call('import/game-with-art',{method:'POST',body:command})).status,401);
+});
+
+test('game package routes remain disabled by default and readonly import is forbidden',async t=>{
+ const f=await httpFixture(t,{enabled:false});
+ for(const route of ['export/game-with-art','import/game-with-art'])assert.equal((await fetch(f.base+'/api/'+route,{headers:f.headers('player')})).status,404);
+ const r=await httpFixture(t,{write:false});
+ const response=await fetch(r.base+'/api/export/game-with-art',{headers:r.headers('player')});assert.equal(response.status,200);const file=await response.json();
+ const imported=await fetch(r.base+'/api/import/game-with-art',{method:'POST',headers:r.headers('player'),body:JSON.stringify({mutationId:randomUUID(),expectedRevision:file.game.source.revision,destination:'new-campaign',file})});assert.equal(imported.status,403);
+});
+
+test('large game transfer has a bounded body and does not raise the ordinary mutation limit',async t=>{
+ const f=await httpFixture(t),before=f.game.read();
+ async function oversized(route,length){
+  return new Promise((resolve,reject)=>{
+   const request=httpRequest(f.base+'/api/'+route,{method:'POST',headers:{...f.headers('player'),'Content-Length':length}},response=>{
+    response.resume();response.on('end',()=>{request.destroy();resolve(response.statusCode);});
+   });request.on('error',reject);request.write('{');
+  });
+ }
+ assert.equal(await oversized('import/game-with-art',64*1024*1024+4097),413);
+ assert.equal(await oversized('import/active',512*1024+1),413);
+ assert.deepEqual(f.game.read(),before);
+});
 test('browser transport works with actual cookie HTTP and rejects identity change and revoked access',async t=>{
  const f=await httpFixture(t),context=vm.createContext({URLSearchParams,AbortController,AbortSignal});
  vm.runInContext(readFileSync(new URL('../client/personal-art-transport.js',import.meta.url),'utf8')+';globalThis.transport=SkazPersonalArtTransport;',context);
@@ -130,6 +174,24 @@ test('session revoked while HTTP upload is streaming cannot commit or replay',as
  await f.authorized;f.sessions.logout(f.tokens.player.token);request.end(payload.slice(10));
  assert.equal(await response,401);
  assert.equal(f.db.prepare('SELECT count(*) AS n FROM personal_art_versions').get().n,0);
+});
+
+test('session revoked during game-package upload leaves no new game or image',async t=>{
+ const f=await httpFixture(t);await f.call('change',{method:'POST',body:f.command});
+ const file=await (await fetch(f.base+'/api/export/game-with-art',{headers:f.headers('player')})).json();
+ const payload=JSON.stringify({mutationId:randomUUID(),expectedRevision:file.game.source.revision,destination:'new-campaign',file});
+ const before=f.game.read(),campaigns=f.db.prepare('SELECT count(*) AS n FROM campaigns').get().n;
+ const original=f.game.forUser;let reached;
+ const authorized=new Promise(resolve=>{reached=resolve;});
+ f.game.forUser=(...args)=>{const result=original(...args);reached();return result;};
+ t.after(()=>{f.game.forUser=original;});
+ let request;const response=new Promise((resolve,reject)=>{
+  request=httpRequest(f.base+'/api/import/game-with-art',{method:'POST',headers:{...f.headers('player'),'Content-Length':Buffer.byteLength(payload)}},r=>{r.resume();r.on('end',()=>resolve(r.statusCode));});request.on('error',reject);request.write(payload.slice(0,10));
+ });
+ await authorized;f.sessions.logout(f.tokens.player.token);request.end(payload.slice(10));
+ assert.equal(await response,401);assert.deepEqual(f.game.read(),before);
+ assert.equal(f.db.prepare('SELECT count(*) AS n FROM campaigns').get().n,campaigns);
+ assert.equal(f.db.prepare('SELECT count(*) AS n FROM personal_art_versions').get().n,1);
 });
 test('HTTP readonly mode and revoked character block image mutations and reads',async t=>{
  const f=await httpFixture(t,{write:false});f.art.change(f.request);

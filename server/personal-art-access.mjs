@@ -4,7 +4,7 @@ import {isDeepStrictEqual} from 'node:util';
 import {bundledCatalog} from './bundled-catalog.mjs';
 import {validateCatalog} from './catalog.mjs';
 
-// Trusted bridge, not yet mounted by openStore/HTTP. A session guard is checked
+// Trusted opt-in bridge; production startup keeps it disabled. A guard is checked
 // inside every storage authorization, including after asynchronous body reads.
 // Match the individual game's bundled-only catalog policy without nesting a
 // reader transaction inside an image mutation transaction.

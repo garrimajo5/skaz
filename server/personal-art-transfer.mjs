@@ -1,5 +1,5 @@
-// Standalone companion bundle for personal character artwork. Not yet wired to
-// game v12 export/import or HTTP. Contains normalized copies, never source URLs.
+// Companion bundle for personal character artwork, embedded in the opt-in game
+// package. Contains normalized copies, never source URLs or source actor IDs.
 import {AppError} from './state.mjs';
 import {inspectPng,sha256} from '../scripts/art-registry.mjs';
 export const personalTransferLimits=Object.freeze({entries:1000,bytes:32*1024*1024,fileBytes:4*1024*1024});

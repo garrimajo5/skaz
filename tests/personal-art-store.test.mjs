@@ -29,6 +29,44 @@ test('same hero and catalog entry remain personal to each actor; bytes are defen
  first.file.bytes[0]=0;assert.equal(alice.read(characterId,catalogId,'master').file.bytes[0],137);
  assert.throws(()=>boris.read('character-two',catalogId),{status:404});
 });
+
+test('unversioned personal art migrates in place, retaining bytes and receipts; future schemas fail closed',t=>{
+ const {db,alice,adapters}=fixture(t),request=command();alice.change(request);
+ const before=alice.exportCharacter(characterId);db.exec('DROP TABLE personal_art_schema');
+ const migrated=createPersonalArtStore(db,adapters).forUser('alice');
+ assert.equal(db.prepare('SELECT version FROM personal_art_schema').get().version,1);
+ assert.deepEqual(migrated.exportCharacter(characterId),before);assert.equal(migrated.change(request).replayed,true);
+ db.exec('UPDATE personal_art_schema SET version=99');
+ assert.throws(()=>createPersonalArtStore(db,adapters),/Неподдерживаемая версия/);
+ assert.equal(db.prepare('SELECT version FROM personal_art_schema').get().version,99);
+ assert.equal(db.prepare('SELECT count(*) AS n FROM personal_art_versions').get().n,1);
+});
+
+test('missing versioned storage is not silently recreated as an empty art library',t=>{
+ const {db,adapters}=fixture(t);db.exec('DROP TABLE personal_art_imports');
+ assert.throws(()=>createPersonalArtStore(db,adapters),/требуется восстановление/);
+ assert.equal(db.prepare("SELECT 1 FROM sqlite_master WHERE name='personal_art_imports'").get(),undefined);
+});
+test('personal import joins an outer game transaction without committing it and rolls back with it',t=>{
+ const {db,alice}=fixture(t);alice.change(command());const bundle=alice.exportCharacter('character-one');
+ const request={characterId:'character-two',mutationId:randomUUID(),expectedRevisions:{[catalogId]:0},bundle};
+ db.exec('BEGIN IMMEDIATE');
+ alice.importCharacter(request);assert.equal(db.isTransaction,true);
+ assert.equal(alice.read('character-two',catalogId).revision,1);
+ db.exec('ROLLBACK');assert.equal(alice.read('character-two',catalogId).revision,0);
+ assert.equal(db.prepare('SELECT count(*) AS n FROM personal_art_imports').get().n,0);
+ db.exec('BEGIN IMMEDIATE');alice.importCharacter(request);db.exec('COMMIT');
+ assert.equal(alice.read('character-two',catalogId).revision,1);
+});
+test('failed nested art mutation preserves the outer transaction for caller rollback',t=>{
+ const {db,alice}=fixture(t);alice.change(command());
+ db.exec('BEGIN IMMEDIATE');db.prepare("INSERT INTO characters VALUES ('outer-new-character')").run();
+ assert.throws(()=>alice.change(command()),{status:409});
+ assert.equal(db.isTransaction,true);
+ assert.equal(db.prepare("SELECT count(*) AS n FROM characters WHERE id='outer-new-character'").get().n,1);
+ db.exec('ROLLBACK');assert.equal(db.prepare("SELECT count(*) AS n FROM characters WHERE id='outer-new-character'").get().n,0);
+ assert.equal(alice.history('character-one',catalogId).length,1);
+});
 test('receipts are idempotent, actor scoped and cannot be repurposed for another binding',t=>{
  const {alice,boris}=fixture(t),c=command();
  assert.equal(alice.change(c).replayed,false);assert.equal(alice.change(c).replayed,true);
