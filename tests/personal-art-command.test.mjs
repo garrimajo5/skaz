@@ -2,8 +2,34 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
+import {DatabaseSync} from 'node:sqlite';
+import {randomUUID} from 'node:crypto';
+import {createPersonalArtStore} from '../server/personal-art-store.mjs';
 const context=vm.createContext({});
 vm.runInContext(readFileSync(new URL('../client/personal-art-command.js',import.meta.url),'utf8')+';globalThis.commands=SkazPersonalArtCommand;',context);
+test('lost acknowledgement after real commit replays set, reset and restore without duplicate history',async t=>{
+ const db=new DatabaseSync(':memory:');t.after(()=>db.close());
+ db.exec("PRAGMA foreign_keys=ON;CREATE TABLE access_users(id TEXT PRIMARY KEY);CREATE TABLE characters(id TEXT PRIMARY KEY);INSERT INTO access_users VALUES('alice');INSERT INTO characters VALUES('hero');");
+ let allowed=true;
+ const api=createPersonalArtStore(db,{authorize:()=>allowed,catalogExists:()=>true}).forUser('alice');
+ const manifest=JSON.parse(readFileSync(new URL('../catalog/art-manifest.json',import.meta.url)));
+ const png=readFileSync(new URL('../'+manifest.entries[0].files.thumbnail.path,import.meta.url)).toString('base64');
+ let lose=true;
+ const client=context.commands.create({newId:randomUUID,send:async body=>{
+  const {png,...command}=JSON.parse(body);if(png)command.bytes=Buffer.from(png,'base64');
+  const result=api.change(command);if(lose){lose=false;throw Error('Lost acknowledgement');}return result;
+ }});
+ const binding={characterId:'hero',catalogId:'srd51:2014:spell:shield'};
+ for(const [index,operation] of [{action:'set',png},{action:'reset'},{action:'restore',targetRevision:1}].entries()){
+  lose=true;const command={...binding,...operation,expectedRevision:index};
+  await assert.rejects(client.submit(command),/Lost acknowledgement/);
+  assert.equal(api.history('hero',binding.catalogId).length,index+1);
+  allowed=false;await assert.rejects(client.submit(command));allowed=true;
+  const replay=await client.submit(command);assert.equal(replay.replayed,true);assert.equal(replay.revision,index+1);
+  assert.equal(api.history('hero',binding.catalogId).length,index+1);
+ }
+ assert.equal(api.read('hero',binding.catalogId).standard,false);
+});
 test('lost response retries identical bytes and mutation ID; changed command requires reconciliation',async()=>{
  const bodies=[];let sequence=0;
  const client=context.commands.create({newId:()=>String(++sequence),send:async body=>{bodies.push(body);if(bodies.length===1)throw Error('Lost response');return {revision:1};}});
