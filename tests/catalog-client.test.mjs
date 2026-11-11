@@ -20,7 +20,7 @@ function harness(protocol = 'http:', home=false, memory=new Map()) {
   });
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
+  return { offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>isOpen=false, otherModal:()=>dialog='<h2>Other</h2>',
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
@@ -369,4 +369,11 @@ test('category chips preserve the latest unsent query and drop incompatible deta
 test('empty catalog offers preview even inside a filtered category, distinct from no matches',async()=>{
  const h=harness();h.submit('огонь',{kind:'spell'});respond(h.requests[0],{entries:[],total:0});respond(h.requests[1],{total:0});await settle();assert.match(h.region.innerHTML,/Справочник ещё не установлен/);assert.doesNotMatch(h.region.innerHTML,/Ничего не найдено/);h.click('catalog-install-empty');assert.equal(h.requests[2].url,'/api/catalog/bundled');assert.notEqual(h.requests[2].options?.method,'POST');
  const installed=harness();installed.submit('неттакогослова',{kind:'spell'});respond(installed.requests[0],{entries:[],total:0});respond(installed.requests[1],coverage);await settle();assert.match(installed.region.innerHTML,/Ничего не найдено/);assert.doesNotMatch(installed.region.innerHTML,/catalog-install-empty/);
+});
+
+test('setup hints offer no writes, reject stale hero responses and never infer empty from failure',async()=>{
+ const h=harness('http:',true);const pending=h.offerSetup('spell-catalog-setup');assert.equal(h.requests[0].url,'/api/catalog/coverage');h.setOwner('other:1');respond(h.requests[0],{total:0});await pending;assert.equal(h.region.innerHTML,'');
+ const fresh=h.offerSetup('inventory-catalog-setup');respond(h.requests[1],{total:0});await fresh;assert.match(h.region.innerHTML,/catalog-install-empty/);assert.equal(h.requests.some(r=>r.options?.method==='POST'),false);
+ h.region.innerHTML='';const failed=h.offerSetup('inventory-catalog-setup');h.requests[2].resolve({ok:false});await failed;assert.equal(h.region.innerHTML,'');
+ const installed=h.offerSetup('spell-catalog-setup');respond(h.requests[3],{total:633});await installed;assert.equal(h.region.innerHTML,'');
 });
