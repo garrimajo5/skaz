@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 244,
+  "count": 256,
   "pairs": [
     {
       "ids": [
@@ -938,6 +938,21 @@
       "light": "390bc4f4b6874d4a"
     },
     {
+      "id": "srd51:2014:spell:antilife-shell",
+      "dark": "40343efa72c01fcd",
+      "light": "2fc2d20d8d34e536"
+    },
+    {
+      "id": "srd51:2014:spell:antimagic-field",
+      "dark": "40e83837079edcdc",
+      "light": "2d9f9678c96505c2"
+    },
+    {
+      "id": "srd51:2014:spell:antipathy-sympathy",
+      "dark": "60e31b18bc27e39c",
+      "light": "4b59b4b6468d4b43"
+    },
+    {
       "id": "srd51:2014:spell:arcane-eye",
       "dark": "4fc76c383266838d",
       "light": "656cc793188f61cc"
@@ -946,6 +961,11 @@
       "id": "srd51:2014:spell:arcane-lock",
       "dark": "423f3cc9c9983167",
       "light": "69c1a667c61e929c"
+    },
+    {
+      "id": "srd51:2014:spell:arcanists-magic-aura",
+      "dark": "45a63e6cb0f17033",
+      "light": "36c991964f62c93c"
     },
     {
       "id": "srd51:2014:spell:awaken",
@@ -961,6 +981,11 @@
       "id": "srd51:2014:spell:barkskin",
       "dark": "461f61473af04fc8",
       "light": "79c09cb2c73bb025"
+    },
+    {
+      "id": "srd51:2014:spell:beacon-of-hope",
+      "dark": "4b2c30f36c64f2c3",
+      "light": "31864b2fc23b9c6c"
     },
     {
       "id": "srd51:2014:spell:black-tentacles",
@@ -1063,6 +1088,11 @@
       "light": "6fc7903aca9819c3"
     },
     {
+      "id": "srd51:2014:spell:death-ward",
+      "dark": "44cb1b3e6cc1710f",
+      "light": "7ae785181ac3d13c"
+    },
+    {
       "id": "srd51:2014:spell:detect-magic",
       "dark": "4ec72c3c399b9131",
       "light": "666de49493319a1b"
@@ -1076,6 +1106,11 @@
       "id": "srd51:2014:spell:dispel-magic",
       "dark": "46703c9f8dc17358",
       "light": "34cbd134cf329839"
+    },
+    {
+      "id": "srd51:2014:spell:divine-favor",
+      "dark": "14b6646d495b1ee2",
+      "light": "3ac39f308624f11f"
     },
     {
       "id": "srd51:2014:spell:dominate-beast",
@@ -1188,6 +1223,11 @@
       "light": "3963c63c649e9193"
     },
     {
+      "id": "srd51:2014:spell:magic-circle",
+      "dark": "41673e993dc8c067",
+      "light": "6f6790989f486865"
+    },
+    {
       "id": "srd51:2014:spell:magic-missile",
       "dark": "14946b6bc70fcc98",
       "light": "6969969638f03267"
@@ -1218,6 +1258,11 @@
       "light": "38c3c73ce39e8630"
     },
     {
+      "id": "srd51:2014:spell:nondetection",
+      "dark": "47c53c3ae0f183c6",
+      "light": "6bce953cca1268e1"
+    },
+    {
       "id": "srd51:2014:spell:poison-spray",
       "dark": "419f3c603f78c3c2",
       "light": "6a6885a5c49fb48b"
@@ -1238,6 +1283,11 @@
       "light": "3ec3942dc830e59b"
     },
     {
+      "id": "srd51:2014:spell:protection-from-energy",
+      "dark": "4d3726e11a9c94c7",
+      "light": "3bc09437e5296378"
+    },
+    {
       "id": "srd51:2014:spell:ray-of-frost",
       "dark": "136d659249669379",
       "light": "6c969a6db2592c92"
@@ -1246,6 +1296,11 @@
       "id": "srd51:2014:spell:sacred-flame",
       "dark": "4c38639b30cf3399",
       "light": "32c78a6c9332cd33"
+    },
+    {
+      "id": "srd51:2014:spell:sanctuary",
+      "dark": "4434333d6ce067cb",
+      "light": "6ac3c8d29e3c342d"
     },
     {
       "id": "srd51:2014:spell:sending",
@@ -1286,6 +1341,11 @@
       "id": "srd51:2014:spell:vicious-mockery",
       "dark": "40c33e36797a34cc",
       "light": "37e4c1d887931e31"
+    },
+    {
+      "id": "srd51:2014:spell:warding-bond",
+      "dark": "543739c80f6874c7",
+      "light": "79ca96b5a423da18"
     },
     {
       "id": "srd51:2014:spell:zone-of-truth",

@@ -10737,6 +10737,534 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:spell:antilife-shell",
+      "contentSha256": "f0e6e006c1ac985e9d5fd02a4777292a565fa2130c04147659b035cafecb5db3",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 f8012cca641567e2472fe25f5cab51e9b09fa7d8b0399dca6cd00e97a849e108",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "f8012cca641567e2472fe25f5cab51e9b09fa7d8b0399dca6cd00e97a849e108",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v47.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/antilife-shell-original-6a6fd6f2762c8dcd.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 206476,
+          "sha256": "6a6fd6f2762c8dcd962cba01d72aa782446d957e5b42fa3db8199129d49f2519",
+          "derivedFrom": "f8012cca641567e2472fe25f5cab51e9b09fa7d8b0399dca6cd00e97a849e108",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/antilife-shell-thumbnail-82ce5570173b5def.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16062,
+          "sha256": "82ce5570173b5def0de0aafa85b5061e6a87d12453f5cf8d1386016373e03660",
+          "derivedFrom": "f8012cca641567e2472fe25f5cab51e9b09fa7d8b0399dca6cd00e97a849e108",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:antimagic-field",
+      "contentSha256": "e4909f01a79926f9db24d5a751173fc70a179ac795db8abd66d29290bb00db49",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 5e343cb04fcfd708ac3bc1f6f0d80260e0ad057896c50ce798673b0849c99e58",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "5e343cb04fcfd708ac3bc1f6f0d80260e0ad057896c50ce798673b0849c99e58",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v47.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/antimagic-field-original-8a123f018ecc7114.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 128235,
+          "sha256": "8a123f018ecc7114e132f99eaa7fe8c5de91328b7bfa5288f9b6003973bd711c",
+          "derivedFrom": "5e343cb04fcfd708ac3bc1f6f0d80260e0ad057896c50ce798673b0849c99e58",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/antimagic-field-thumbnail-d42db19c307ecb42.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10347,
+          "sha256": "d42db19c307ecb42ffc56c07c7230568dc1258389b49378440fd99c5ffa62f35",
+          "derivedFrom": "5e343cb04fcfd708ac3bc1f6f0d80260e0ad057896c50ce798673b0849c99e58",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:beacon-of-hope",
+      "contentSha256": "a3555bb95dd55ed4d5fe72e50d321b2f56e66120d7da3c2a374c8fd0954b323c",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 ef8c84e3bac12dd6b4ec9104b0f880ebbc26b4b78b1060ba4f736fc00b0c3bf5",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "ef8c84e3bac12dd6b4ec9104b0f880ebbc26b4b78b1060ba4f736fc00b0c3bf5",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v47.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/beacon-of-hope-original-1122da3a29ab1be6.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 227793,
+          "sha256": "1122da3a29ab1be66659b8e4cab80d0113614d2e3dad0c8db4875c646f251761",
+          "derivedFrom": "ef8c84e3bac12dd6b4ec9104b0f880ebbc26b4b78b1060ba4f736fc00b0c3bf5",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/beacon-of-hope-thumbnail-e77b8190c7d51e01.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16626,
+          "sha256": "e77b8190c7d51e0171995536b370f43ccb6ac3e824c82baa257dda93eeee3bcd",
+          "derivedFrom": "ef8c84e3bac12dd6b4ec9104b0f880ebbc26b4b78b1060ba4f736fc00b0c3bf5",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:death-ward",
+      "contentSha256": "326c5d9097f4fbbeeda14f69c071f2c1377eb789ebf2cba37fa69c3790ff7f38",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 c208adbef08ec8db70fa1af72b526b264cf2fe9349baeb23c7b3e0f77729a2fc",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "c208adbef08ec8db70fa1af72b526b264cf2fe9349baeb23c7b3e0f77729a2fc",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v47.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/death-ward-original-8fca03b7dfa2d629.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 209650,
+          "sha256": "8fca03b7dfa2d629a91f04f644c34ca495143c70d0f58f4c430a5cbfd9509e44",
+          "derivedFrom": "c208adbef08ec8db70fa1af72b526b264cf2fe9349baeb23c7b3e0f77729a2fc",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/death-ward-thumbnail-471a029353211ba0.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16314,
+          "sha256": "471a029353211ba094ba81726bfd6c732412567213db04a8e447b8341cc62455",
+          "derivedFrom": "c208adbef08ec8db70fa1af72b526b264cf2fe9349baeb23c7b3e0f77729a2fc",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:divine-favor",
+      "contentSha256": "ab3467e45c176ede72a59bb7648aa8a15413b788d90c6a9d4a301f95c5c91599",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 6806ff71ff65fc1400dfc5d888114bcf41a89fd8e6c40703863d6630ade1e385",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "6806ff71ff65fc1400dfc5d888114bcf41a89fd8e6c40703863d6630ade1e385",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v47.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/divine-favor-original-d5a54975565f7f00.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 99419,
+          "sha256": "d5a54975565f7f0092bfc87ca584bc177c5d6a8a4dff38327e547956cb01e583",
+          "derivedFrom": "6806ff71ff65fc1400dfc5d888114bcf41a89fd8e6c40703863d6630ade1e385",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/divine-favor-thumbnail-56a4b517e53ee9db.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 7687,
+          "sha256": "56a4b517e53ee9db6b604a0022c6b51fa3b3ef636912752c4066ef73e7f77cf0",
+          "derivedFrom": "6806ff71ff65fc1400dfc5d888114bcf41a89fd8e6c40703863d6630ade1e385",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:magic-circle",
+      "contentSha256": "62cbc419f27e35e37e87f28bb296ade930095f62faab3c84ab476070973f3440",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 d25743348b31fd59be6723966ba8a91c79e0b949fb1394decaf0d0c72a75a16e",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "d25743348b31fd59be6723966ba8a91c79e0b949fb1394decaf0d0c72a75a16e",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v47.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/magic-circle-original-e718f7bd2dc038e3.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 183657,
+          "sha256": "e718f7bd2dc038e357a38dcabf248d26382e5d8a868bac5fc7a6e046fe0413a5",
+          "derivedFrom": "d25743348b31fd59be6723966ba8a91c79e0b949fb1394decaf0d0c72a75a16e",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/magic-circle-thumbnail-537780dd86ff12e5.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13712,
+          "sha256": "537780dd86ff12e545381e359f072a9c08b970410b5548d2f248528372e6d4cb",
+          "derivedFrom": "d25743348b31fd59be6723966ba8a91c79e0b949fb1394decaf0d0c72a75a16e",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:nondetection",
+      "contentSha256": "b20457d3ceee600d9e7cc5745b710b95592d6a07c99bb0ff956a8f6ff9abb473",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 9aa7d63ec55e6f6eee970384dcd6a54bf07b8c673597980e284e99abb11401d5",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "9aa7d63ec55e6f6eee970384dcd6a54bf07b8c673597980e284e99abb11401d5",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v47.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/nondetection-original-8867d53af4e9d6be.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 176993,
+          "sha256": "8867d53af4e9d6beb6d017fcd5dd061eb9402e87904784db58b2bdeb26951744",
+          "derivedFrom": "9aa7d63ec55e6f6eee970384dcd6a54bf07b8c673597980e284e99abb11401d5",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/nondetection-thumbnail-08a86bc15c08ae68.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13325,
+          "sha256": "08a86bc15c08ae68eff0db4ec109f7111c692ca2b921d4293c4715c6e60d0061",
+          "derivedFrom": "9aa7d63ec55e6f6eee970384dcd6a54bf07b8c673597980e284e99abb11401d5",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:protection-from-energy",
+      "contentSha256": "ad0ddca32a9c51726ddcef91313c4b3799e9d3078223622b5cfc24822cd3d51a",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 8835fff9505b8875466339307c0593b321ea324a3b3d00f99cbe9f610ff0ccbc",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "8835fff9505b8875466339307c0593b321ea324a3b3d00f99cbe9f610ff0ccbc",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v47.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/protection-from-energy-original-c16b1e64b2449493.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 157153,
+          "sha256": "c16b1e64b244949399e81baa5691cc09efd665452e322153948ff5ab592a11c4",
+          "derivedFrom": "8835fff9505b8875466339307c0593b321ea324a3b3d00f99cbe9f610ff0ccbc",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/protection-from-energy-thumbnail-f2cfa83e5b0abb31.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11873,
+          "sha256": "f2cfa83e5b0abb312451b33d309fd0bc7a67c081dcfc506a20ade1995eef4e11",
+          "derivedFrom": "8835fff9505b8875466339307c0593b321ea324a3b3d00f99cbe9f610ff0ccbc",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:sanctuary",
+      "contentSha256": "b4899f74f6148767504d3ba6bdf09b98b34b12570f26963f2c590b03bafd7157",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 5826d54a49ff0a7237bbac5b16e338baafaee8a93c6194aca46c85bccda6d449",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "5826d54a49ff0a7237bbac5b16e338baafaee8a93c6194aca46c85bccda6d449",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v47.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/sanctuary-original-65b5086e4fab95c0.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 256995,
+          "sha256": "65b5086e4fab95c0f7fb45ef06cdc59275c06841fc6e8d7e41ed5e75bda8183c",
+          "derivedFrom": "5826d54a49ff0a7237bbac5b16e338baafaee8a93c6194aca46c85bccda6d449",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/sanctuary-thumbnail-6d036b843f88b559.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 19593,
+          "sha256": "6d036b843f88b55975f8439576b2f0af15f61bab3980d6db2cd4be39daf25a9b",
+          "derivedFrom": "5826d54a49ff0a7237bbac5b16e338baafaee8a93c6194aca46c85bccda6d449",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:warding-bond",
+      "contentSha256": "ddedc4956eebbfea5f06bee09f6733f65e8da69d6f5bf64bd88b09fe17c03887",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 691eec0e12d68618bd760b34c89674dfc09c9454aab4ac13813fd3e0a867e972",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "691eec0e12d68618bd760b34c89674dfc09c9454aab4ac13813fd3e0a867e972",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v47.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/warding-bond-original-f7497948e18f72c6.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 131102,
+          "sha256": "f7497948e18f72c62f2561c163541b417ea4115c38c50e098fc7f30398bc7707",
+          "derivedFrom": "691eec0e12d68618bd760b34c89674dfc09c9454aab4ac13813fd3e0a867e972",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/warding-bond-thumbnail-1804831422049190.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9660,
+          "sha256": "1804831422049190397b624dadf978abcb2cc23b27bc1809e4388da50b4ba2f3",
+          "derivedFrom": "691eec0e12d68618bd760b34c89674dfc09c9454aab4ac13813fd3e0a867e972",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:antipathy-sympathy",
+      "contentSha256": "d20dec3d107bb5039d16544cc65f271d50853ddc0e369d7a475bff70605a4e1f",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 a71b7cad36ea4744a369cc13c85f673ccbc42a521ca813f29dc422ffbf1b1a5f",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "a71b7cad36ea4744a369cc13c85f673ccbc42a521ca813f29dc422ffbf1b1a5f",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v47.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/antipathy-sympathy-original-e59d833adcb31daf.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 177514,
+          "sha256": "e59d833adcb31daf1ad7069f313309da454977d86402fd13b85b74e561671877",
+          "derivedFrom": "a71b7cad36ea4744a369cc13c85f673ccbc42a521ca813f29dc422ffbf1b1a5f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/antipathy-sympathy-thumbnail-4489e9e796ef0fab.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13442,
+          "sha256": "4489e9e796ef0fab14cfc15f524dea4ad815cafae620480084085cebd9a2d5d6",
+          "derivedFrom": "a71b7cad36ea4744a369cc13c85f673ccbc42a521ca813f29dc422ffbf1b1a5f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:arcanists-magic-aura",
+      "contentSha256": "43a39b2be4c6057bfd570d948291de275f555de5002bba30c2275e943c5cd62f",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 665b21aa3bbd05e2c7120b74ba3c6207d695aae96c96331b6d55edacfafe9380",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "665b21aa3bbd05e2c7120b74ba3c6207d695aae96c96331b6d55edacfafe9380",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v47.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/arcanists-magic-aura-original-171606a4171163a5.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 178627,
+          "sha256": "171606a4171163a57f234013c601a1fdca9a0a50e9fc0057070b003efe59cbd2",
+          "derivedFrom": "665b21aa3bbd05e2c7120b74ba3c6207d695aae96c96331b6d55edacfafe9380",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/arcanists-magic-aura-thumbnail-1b8aa081af506360.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13432,
+          "sha256": "1b8aa081af5063600cf474d1ba436ef4dd27baa8e6021e4c97db30170ffa320e",
+          "derivedFrom": "665b21aa3bbd05e2c7120b74ba3c6207d695aae96c96331b6d55edacfafe9380",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }
