@@ -2,7 +2,7 @@ import { mkdir, copyFile, readFile, writeFile, readdir } from 'node:fs/promises'
 const root = new URL('../', import.meta.url);
 const output = new URL('dist/', root);
 await mkdir(output, { recursive: true });
-for (const name of ['art-cache.js', 'art.js', 'fonts.css', 'health.js', 'casting.js', 'spell-facts.js', 'resource-queue.js', 'waiting.html', 'login.html', 'login.js', 'login.css', 'personal-art-session.js', 'personal-art-command.js', 'personal-art-transport.js', 'personal-art-preview.js', 'personal-art-history.js', 'personal-art-editor.js', 'personal-art-cards.js', 'personal-art-view.js', 'account.js', 'index.html', 'style.css', 'quick.css', 'local.css', 'app.js', 'play.js', 'ui.js', 'storage.js', 'character-sheet.js', 'members.js', 'catalog.js', 'catalog-import.js', 'spellbook.js', 'catalog.css', 'map.js', 'quests.js', 'events.js', 'archive.js']) {
+for (const name of ['art-cache.js', 'art.js', 'fonts.css', 'health.js', 'casting.js', 'spell-facts.js', 'resource-queue.js', 'waiting.html', 'login.html', 'login.js', 'login.css', 'personal-art-session.js', 'private-exit.js', 'game-art-transfer.js', 'game-art-transfer-panel.js', 'game-art-transfer-shell.js', 'personal-art-command.js', 'personal-art-transport.js', 'personal-art-preview.js', 'personal-art-history.js', 'personal-art-editor.js', 'personal-art-cards.js', 'personal-art-view.js', 'account.js', 'index.html', 'style.css', 'quick.css', 'local.css', 'app.js', 'play.js', 'ui.js', 'storage.js', 'character-sheet.js', 'members.js', 'catalog.js', 'catalog-import.js', 'spellbook.js', 'catalog.css', 'map.js', 'quests.js', 'events.js', 'archive.js']) {
   await copyFile(new URL(`client/${name}`, root), new URL(name, output));
 }
 await mkdir(new URL('fonts/', output), {recursive:true});

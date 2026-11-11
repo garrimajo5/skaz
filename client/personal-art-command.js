@@ -17,6 +17,7 @@ const SkazPersonalArtCommand=(()=>{
    }finally{running=false;}
   }
   return {
+   get pending(){return pending!==null;},
    async submit(command){
     ready();
     const payload=JSON.stringify(command);

@@ -2,13 +2,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
-function fixture(transport,onImported=()=>{}){
+function fixture(transport,onImported=()=>{},allowImport=true){
  class Element{constructor(tag){this.tag=tag;this.children=[];this.style={};}append(...nodes){for(const node of nodes){node.parent=this;this.children.push(node);}}setAttribute(k,v){this[k]=v;}removeAttribute(k){delete this[k];}remove(){if(this.parent)this.parent.children=this.parent.children.filter(e=>e!==this);}scrollIntoView(){}}
  const issued=[],revoked=[],container=new Element('main');
- const context=vm.createContext({document:{createElement:tag=>new Element(tag)},URL:{createObjectURL:()=>{const url='blob:'+issued.length;issued.push(url);return url;},revokeObjectURL:url=>revoked.push(url)},transport,onImported,container});
+ const context=vm.createContext({document:{createElement:tag=>new Element(tag)},URL:{createObjectURL:()=>{const url='blob:'+issued.length;issued.push(url);return url;},revokeObjectURL:url=>revoked.push(url)},transport,onImported,allowImport,container});
  vm.runInContext(readFileSync(new URL('../client/personal-art-session.js',import.meta.url),'utf8'),context);
  vm.runInContext(readFileSync(new URL('../client/game-art-transfer-panel.js',import.meta.url),'utf8'),context);
- const panel=vm.runInContext('SkazGameArtTransferPanel.create(container,{transport,onImported})',context),root=container.children[0];
+ const panel=vm.runInContext('SkazGameArtTransferPanel.create(container,{transport,onImported,allowImport})',context),root=container.children[0];
  const [title,note,exportButton,download,label,summary,importButton,retry,status]=root.children;return {panel,root,input:label.children[0],summary,importButton,retry,status,exportButton,download,issued,revoked,container,lock:()=>vm.runInContext('SkazPersonalArtSession.lock()',context)};
 }
 test('pending import prevents file replacement; retry success clears stale failure and invokes adoption once',async()=>{
@@ -33,3 +33,5 @@ test('successful server import followed by UI adoption failure must never offer 
  const f=fixture({pending:false,prepare:async()=>({name:'Test',campaign:'Test',images:0,imageBytes:0,items:0,spells:0}),importPrepared:async()=>({revision:4}),destroy(){}},()=>{throw Error('render failed');});
  f.input.files=[{}];await f.input.onchange();await f.importButton.onclick();assert.match(f.status.textContent,/Новая игра создана/);assert.match(f.status.textContent,/Обнови экран/);assert.equal(f.retry.hidden,true);assert.equal(f.importButton.disabled,true);f.panel.destroy();
 });
+
+test('read-only transfer permits export but rejects preparation and import handlers',async()=>{let writes=0;const f=fixture({pending:false,prepare:async()=>{writes++;},importPrepared:async()=>{writes++;},exportPackage:async()=>new Blob(['readonly']),destroy(){}},()=>{},false);assert.equal(f.input.disabled,true);assert.equal(f.importButton.disabled,true);assert.equal(f.exportButton.disabled,false);f.input.files=[{}];await f.input.onchange();await f.importButton.onclick();assert.equal(writes,0);assert.match(f.status.textContent,/Нет права/);await f.exportButton.onclick();assert.equal(f.download.hidden,false);f.panel.destroy();});

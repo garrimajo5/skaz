@@ -52,7 +52,8 @@ const SkazPersonalArtEditor=(()=>{
   });
   const initialized=exclusive(async()=>{try{const state=await snapshot();revision=state.revision;ready=true;}catch(error){if(!closed)caption.textContent=error.message;}}).then(()=>{if(ready&&!closed)return history.refresh?.();});
   let unregister;
-  function destroy(){if(closed)return;closed=true;unregister?.();for(const dispose of [()=>commands.destroy(),()=>transport.destroy?.(),()=>preview.destroy(),()=>history.destroy(),release,()=>root.remove()])try{dispose();}catch{}}
+  const releaseExit=typeof SkazPrivateExit!=='undefined'?SkazPrivateExit.register(root,()=>commands.pending):()=>{};
+  function destroy(){if(closed)return;closed=true;unregister?.();releaseExit();for(const dispose of [()=>commands.destroy(),()=>transport.destroy?.(),()=>preview.destroy(),()=>history.destroy(),release,()=>root.remove()])try{dispose();}catch{}}
   if(typeof SkazPersonalArtSession!=='undefined')unregister=SkazPersonalArtSession.register(destroy);
   return {initialized,destroy};
  }
