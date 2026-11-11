@@ -99,3 +99,23 @@ test('revoked source access blocks even a successful import receipt replay',t=>{
  assert.throws(()=>f.writer.importActive(f.request),{status:404});
  const after=counts(f.db);assert.equal(after.campaigns,before.campaigns);assert.equal(after.personal_art_versions,before.personal_art_versions);
 });
+
+test('reset and restore after import stay scoped and round-trip only the current image',t=>{
+ const f=fixture(t),result=f.writer.importActive(f.request),characterId=result.context.characterId;
+ const source=f.writer.personalArt.read(f.context.characterId,catalogId,'master');
+ f.writer.personalArt.change({characterId,catalogId,mutationId:randomUUID(),expectedRevision:1,action:'reset'});
+ assert.equal(f.writer.personalArt.read(characterId,catalogId).standard,true);
+ assert.equal(f.writer.exportActive('with-art').personalArt.entries.length,0);
+ assert.deepEqual(f.writer.personalArt.read(f.context.characterId,catalogId,'master').file.bytes,source.file.bytes);
+ f.writer.personalArt.change({characterId,catalogId,mutationId:randomUUID(),expectedRevision:2,action:'restore',targetRevision:1});
+ const bundle=f.writer.exportActive('with-art');
+ assert.equal(bundle.personalArt.entries.length,1);
+ assert.deepEqual(bundle.personalArt,f.bundle.personalArt);
+ const next=f.writer.importActive({mutationId:randomUUID(),expectedRevision:f.writer.read().revision,destination:'new-campaign',file:bundle});
+ assert.notEqual(next.context.characterId,characterId);
+ const image=f.writer.personalArt.read(next.context.characterId,catalogId,'master');
+ assert.equal(image.revision,1);
+ assert.deepEqual(image.file.bytes,source.file.bytes);
+ assert.equal(f.writer.personalArt.read(characterId,catalogId).revision,3);
+ assert.deepEqual(f.db.prepare('PRAGMA foreign_key_check').all(),[]);
+});
