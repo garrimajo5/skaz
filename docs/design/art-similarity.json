@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 211,
+  "count": 240,
   "pairs": [
     {
       "ids": [
@@ -41,6 +41,28 @@
       "ids": [
         "srd51:2014:item:wand-of-paralysis",
         "srd51:2014:item:wand-of-the-war-mage-2"
+      ],
+      "distance": {
+        "dark": 10,
+        "light": 10
+      },
+      "review": "required"
+    },
+    {
+      "ids": [
+        "srd51:2014:monster:ancient-green-dragon",
+        "srd51:2014:monster:ancient-silver-dragon"
+      ],
+      "distance": {
+        "dark": 8,
+        "light": 10
+      },
+      "review": "required"
+    },
+    {
+      "ids": [
+        "srd51:2014:monster:young-copper-dragon",
+        "srd51:2014:monster:young-red-dragon"
       ],
       "distance": {
         "dark": 10,
@@ -169,6 +191,16 @@
       "id": "srd51:2014:item:necklace-of-adaptation",
       "dark": "4c33cc8e93cc3a8b",
       "light": "734cb1646997c730"
+    },
+    {
+      "id": "srd51:2014:item:oil-of-etherealness",
+      "dark": "4c3431c7659932db",
+      "light": "26c79b2ccd90cc63"
+    },
+    {
+      "id": "srd51:2014:item:oil-of-slipperiness",
+      "dark": "47ce3831e38e1cc9",
+      "light": "65c69239cba43cc3"
     },
     {
       "id": "srd51:2014:item:pearl-of-power",
@@ -346,6 +378,26 @@
       "light": "6e8b90b4b169c366"
     },
     {
+      "id": "srd51:2014:monster:adult-brass-dragon",
+      "dark": "43363a6d6cd23cc4",
+      "light": "3ccac790870dda5a"
+    },
+    {
+      "id": "srd51:2014:monster:adult-bronze-dragon",
+      "dark": "13647a6925963ec6",
+      "light": "3c92c794ca69c137"
+    },
+    {
+      "id": "srd51:2014:monster:adult-copper-dragon",
+      "dark": "436c3c693cf2392c",
+      "light": "3d94cf92c24bc15a"
+    },
+    {
+      "id": "srd51:2014:monster:adult-gold-dragon",
+      "dark": "4b24396d64b239ce",
+      "light": "3192cf9ada6dc02c"
+    },
+    {
       "id": "srd51:2014:monster:adult-green-dragon",
       "dark": "5b663b2d24b26166",
       "light": "30ccc6929e6b9d98"
@@ -354,6 +406,11 @@
       "id": "srd51:2014:monster:adult-red-dragon",
       "dark": "512e3f1d3cf00b70",
       "light": "6bc487c2d61f901d"
+    },
+    {
+      "id": "srd51:2014:monster:adult-silver-dragon",
+      "dark": "4f38386c669239e3",
+      "light": "3093c792cb699639"
     },
     {
       "id": "srd51:2014:monster:adult-white-dragon",
@@ -366,9 +423,54 @@
       "light": "666cc5c284b19b4f"
     },
     {
+      "id": "srd51:2014:monster:ancient-black-dragon",
+      "dark": "41c57e0f2db67038",
+      "light": "3f93c194ca699d24"
+    },
+    {
+      "id": "srd51:2014:monster:ancient-blue-dragon",
+      "dark": "10297a4e35952d9f",
+      "light": "3fd7c18ee230a438"
+    },
+    {
+      "id": "srd51:2014:monster:ancient-brass-dragon",
+      "dark": "43653f6b3492331a",
+      "light": "3c9ac294cb6b9165"
+    },
+    {
+      "id": "srd51:2014:monster:ancient-bronze-dragon",
+      "dark": "51647a6925964e9e",
+      "light": "3cca85b4c2699763"
+    },
+    {
+      "id": "srd51:2014:monster:ancient-copper-dragon",
+      "dark": "52e42f4f3db07890",
+      "light": "3d92c394c22b9f68"
+    },
+    {
+      "id": "srd51:2014:monster:ancient-gold-dragon",
+      "dark": "43677b64349a2c9a",
+      "light": "3ec0c49fc169d139"
+    },
+    {
+      "id": "srd51:2014:monster:ancient-green-dragon",
+      "dark": "436d3e69349279d0",
+      "light": "3cd3c192ca6d846e"
+    },
+    {
       "id": "srd51:2014:monster:ancient-red-dragon",
       "dark": "41622b69349f2f17",
       "light": "3c86c19fc2699479"
+    },
+    {
+      "id": "srd51:2014:monster:ancient-silver-dragon",
+      "dark": "432c3e6d349369c3",
+      "light": "38c3c19ecb39946c"
+    },
+    {
+      "id": "srd51:2014:monster:ancient-white-dragon",
+      "dark": "41273f683593629e",
+      "light": "3ed8c11fca6d8660"
     },
     {
       "id": "srd51:2014:monster:animated-armor",
@@ -711,6 +813,56 @@
       "light": "66c6961ad9b14c1b"
     },
     {
+      "id": "srd51:2014:monster:young-black-dragon",
+      "dark": "4c933e1c71e7262c",
+      "light": "6498dbc69e38c863"
+    },
+    {
+      "id": "srd51:2014:monster:young-blue-dragon",
+      "dark": "4cb13f1c71c63287",
+      "light": "645bdbc69c34c461"
+    },
+    {
+      "id": "srd51:2014:monster:young-brass-dragon",
+      "dark": "4b732c3863cc318f",
+      "light": "653b92c69a3cc964"
+    },
+    {
+      "id": "srd51:2014:monster:young-bronze-dragon",
+      "dark": "49263d3962c73ec1",
+      "light": "65cf92c38f38c132"
+    },
+    {
+      "id": "srd51:2014:monster:young-copper-dragon",
+      "dark": "4f33361c71c638c3",
+      "light": "654b92c69b38c939"
+    },
+    {
+      "id": "srd51:2014:monster:young-gold-dragon",
+      "dark": "1a276c3127ce329e",
+      "light": "659296cc9a31d966"
+    },
+    {
+      "id": "srd51:2014:monster:young-green-dragon",
+      "dark": "4c333c9963ce31c6",
+      "light": "64c0d3cc9971cb33"
+    },
+    {
+      "id": "srd51:2014:monster:young-red-dragon",
+      "dark": "4e332e1871e63167",
+      "light": "659b92cf9b3cc120"
+    },
+    {
+      "id": "srd51:2014:monster:young-silver-dragon",
+      "dark": "4f313c3163ce38c6",
+      "light": "649a92cd1930db37"
+    },
+    {
+      "id": "srd51:2014:monster:young-white-dragon",
+      "dark": "4a306d3c30c73d8f",
+      "light": "659b94c69a3cc961"
+    },
+    {
       "id": "srd51:2014:monster:zombie",
       "dark": "400f3df0663b38f1",
       "light": "6ab4975aa513d849"
@@ -734,6 +886,11 @@
       "id": "srd51:2014:spell:alarm",
       "dark": "49d93333eccc7023",
       "light": "66c6c930cacb389b"
+    },
+    {
+      "id": "srd51:2014:spell:alter-self",
+      "dark": "4f67309934dc3135",
+      "light": "656c9a929bc9c91c"
     },
     {
       "id": "srd51:2014:spell:animal-friendship",
@@ -1046,6 +1203,11 @@
       "light": "6a6885a5c49fb48b"
     },
     {
+      "id": "srd51:2014:spell:polymorph",
+      "dark": "149d73616b66464e",
+      "light": "6a628c9de133b196"
+    },
+    {
       "id": "srd51:2014:spell:prestidigitation",
       "dark": "4f333c98c3cc38c5",
       "light": "32cccb653426ce3a"
@@ -1089,6 +1251,11 @@
       "id": "srd51:2014:spell:tongues",
       "dark": "70f20f2c0dc3f0e9",
       "light": "4a40a197873c5ef6"
+    },
+    {
+      "id": "srd51:2014:spell:true-polymorph",
+      "dark": "119f62669ce16b4a",
+      "light": "6e60959de11e9097"
     },
     {
       "id": "srd51:2014:spell:unseen-servant",

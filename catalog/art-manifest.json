@@ -10121,6 +10121,446 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:monster:young-black-dragon",
+      "contentSha256": "eb8bc8b90901fd987ecb5ef0d1a6b9f9c508572318d120f3123af49c233a9569",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 0944fbf118fbd5d714245fe496d545d10cdb669a6e41cbd244211c9cde3e9210",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "0944fbf118fbd5d714245fe496d545d10cdb669a6e41cbd244211c9cde3e9210",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v45.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/young-black-dragon-original-b2541b5276876074.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 123125,
+          "sha256": "b2541b527687607413a8fb49f4e11e74f291fd455e8728d3f4f3ba36172f682e",
+          "derivedFrom": "0944fbf118fbd5d714245fe496d545d10cdb669a6e41cbd244211c9cde3e9210",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/young-black-dragon-thumbnail-f959f9d21f52bfdc.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9376,
+          "sha256": "f959f9d21f52bfdca2e6cb11a0ffc96f7ea45266876ef8f916e43f84dc500eeb",
+          "derivedFrom": "0944fbf118fbd5d714245fe496d545d10cdb669a6e41cbd244211c9cde3e9210",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-blue-dragon",
+      "contentSha256": "c6ef84b34625406d72c3551bef24538a49825abcc3fb5d73a20f0a2f1d8ac589",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 703da3ae1d9181a9b1961e5fb7d7da3158873e996ea7e970271f4f6109c30cd0",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "703da3ae1d9181a9b1961e5fb7d7da3158873e996ea7e970271f4f6109c30cd0",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v45.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/young-blue-dragon-original-112b422830d8b202.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 173856,
+          "sha256": "112b422830d8b2025f2e8e64eab24af8f42f24eddbad8b641ee2812a1f44d1e7",
+          "derivedFrom": "703da3ae1d9181a9b1961e5fb7d7da3158873e996ea7e970271f4f6109c30cd0",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/young-blue-dragon-thumbnail-f286061abb7b5b94.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 12536,
+          "sha256": "f286061abb7b5b94a59d220833403aaead065590c6b411b16b03acd7637437e8",
+          "derivedFrom": "703da3ae1d9181a9b1961e5fb7d7da3158873e996ea7e970271f4f6109c30cd0",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-green-dragon",
+      "contentSha256": "c37b7a62b3d493cef5f5b2734e027c7910addf73e6f39373663509e3429f9de1",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 6edd6d510d86735f53f491b5f0db098821553d3d75039de7b2b3030304bfe44f",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "6edd6d510d86735f53f491b5f0db098821553d3d75039de7b2b3030304bfe44f",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v45.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/young-green-dragon-original-de904048d3c0f5bb.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 137888,
+          "sha256": "de904048d3c0f5bbdf8de0bea7b353f733186f6970344e0d9eabee8667f362f7",
+          "derivedFrom": "6edd6d510d86735f53f491b5f0db098821553d3d75039de7b2b3030304bfe44f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/young-green-dragon-thumbnail-d74c4cc43541a347.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10132,
+          "sha256": "d74c4cc43541a347956b09f5b5b69b558273172070c68a552ce516fa0f384b09",
+          "derivedFrom": "6edd6d510d86735f53f491b5f0db098821553d3d75039de7b2b3030304bfe44f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-red-dragon",
+      "contentSha256": "f7599e9e25bd51423c647ec6e1f911977098bd775cbad060b82dc1748549d103",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 056bfb0a23fcca35111cd02383f2a07196ff72d5fb9df0e953e7ad3715afb5e5",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "056bfb0a23fcca35111cd02383f2a07196ff72d5fb9df0e953e7ad3715afb5e5",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v45.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/young-red-dragon-original-77517ad0fe56b504.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 164300,
+          "sha256": "77517ad0fe56b50491e79de599fe93f785926881725816e5a6f75067872e93dd",
+          "derivedFrom": "056bfb0a23fcca35111cd02383f2a07196ff72d5fb9df0e953e7ad3715afb5e5",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/young-red-dragon-thumbnail-401d12a94c7ae298.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 12051,
+          "sha256": "401d12a94c7ae298bbf0593cbe11258b79759a065bedb31507d2f91089e66268",
+          "derivedFrom": "056bfb0a23fcca35111cd02383f2a07196ff72d5fb9df0e953e7ad3715afb5e5",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-white-dragon",
+      "contentSha256": "c4bcd4107927f60ef64484d6cc7b8e5b715e867adcf438962596e2b8adeb0f1a",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 bd6c35bb922936625dd66967e1cb701da6827c2eae940cbc30ac527b9e030f63",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "bd6c35bb922936625dd66967e1cb701da6827c2eae940cbc30ac527b9e030f63",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v45.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/young-white-dragon-original-c7595354fca6adb3.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 178617,
+          "sha256": "c7595354fca6adb3141b6f25eac1bca4af6a0c8071404b003709e157b9b6c4d1",
+          "derivedFrom": "bd6c35bb922936625dd66967e1cb701da6827c2eae940cbc30ac527b9e030f63",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/young-white-dragon-thumbnail-2a79d06a556fc6de.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13189,
+          "sha256": "2a79d06a556fc6defc20b9baa90570cf3da029164ff8b68396c2d96bf77c08b5",
+          "derivedFrom": "bd6c35bb922936625dd66967e1cb701da6827c2eae940cbc30ac527b9e030f63",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-brass-dragon",
+      "contentSha256": "008141e7cfc4278cb29c7c7a7669bce42ade5c920d4d4dd3dc5b9fc8c5d861f2",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 04749b5c9624058bbe50d338fe6cfe2b68bcc37df193aefdcee9e68d6ee5d6f0",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "04749b5c9624058bbe50d338fe6cfe2b68bcc37df193aefdcee9e68d6ee5d6f0",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v45.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/young-brass-dragon-original-a93d3e37bf62326c.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 181569,
+          "sha256": "a93d3e37bf62326c27c239c57a6704a4a1a56b2eb3002bd955eebc0749e7b224",
+          "derivedFrom": "04749b5c9624058bbe50d338fe6cfe2b68bcc37df193aefdcee9e68d6ee5d6f0",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/young-brass-dragon-thumbnail-f2e84a419b9238c1.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 12934,
+          "sha256": "f2e84a419b9238c17a4b2e95d95e1d6d2f2d6fb58f8cabed3e0754a473a53274",
+          "derivedFrom": "04749b5c9624058bbe50d338fe6cfe2b68bcc37df193aefdcee9e68d6ee5d6f0",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-bronze-dragon",
+      "contentSha256": "03d0c8f0ab7662e0dcdbbc6df2cc5ddf59cf41bf633405d1f61e397653d7ece8",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 6a427a776e86d68531ed4ab09697cf4b4a4759f5fdb41704293a22a3e96777fb",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "6a427a776e86d68531ed4ab09697cf4b4a4759f5fdb41704293a22a3e96777fb",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v45.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/young-bronze-dragon-original-1625d445d8d95565.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 177210,
+          "sha256": "1625d445d8d95565188ca2da897638219281b5d57ca8cacd81182669ea4b1548",
+          "derivedFrom": "6a427a776e86d68531ed4ab09697cf4b4a4759f5fdb41704293a22a3e96777fb",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/young-bronze-dragon-thumbnail-62a930f4133b95a9.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 12652,
+          "sha256": "62a930f4133b95a9ff74c3e9d85a1af80abdaaa739a87eaab761130d42d2059e",
+          "derivedFrom": "6a427a776e86d68531ed4ab09697cf4b4a4759f5fdb41704293a22a3e96777fb",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-copper-dragon",
+      "contentSha256": "fcec47546e24746ca888040e3937a4733d253773c4f716effcf36683ba71d999",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 4aee2e9c8edbe427effdfc555bb7dd3d667334226fe7c6e10aba814ba5d13878",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "4aee2e9c8edbe427effdfc555bb7dd3d667334226fe7c6e10aba814ba5d13878",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v45.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/young-copper-dragon-original-46b48d85ea03355a.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 174586,
+          "sha256": "46b48d85ea03355add418e53d389fbb34414e635263513b6f460b93c50f59161",
+          "derivedFrom": "4aee2e9c8edbe427effdfc555bb7dd3d667334226fe7c6e10aba814ba5d13878",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/young-copper-dragon-thumbnail-d39d6df36a05c5a1.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 12468,
+          "sha256": "d39d6df36a05c5a156886341f68029e7f5613ba5b9734decf7b77fd0a8ba0a48",
+          "derivedFrom": "4aee2e9c8edbe427effdfc555bb7dd3d667334226fe7c6e10aba814ba5d13878",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-silver-dragon",
+      "contentSha256": "ee82ce2db12cb7c3365f1253c156a6892bf5cdc1722bcbf3c90d59f253423af4",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 b202fc5e543a55300b1b0682cebb282542f0a4eff27185dab0cfa95341bde5a7",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "b202fc5e543a55300b1b0682cebb282542f0a4eff27185dab0cfa95341bde5a7",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v45.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/young-silver-dragon-original-16477d06c9ca80dc.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 148579,
+          "sha256": "16477d06c9ca80dc750ce1fa19f26ced1c39833ac943929d791cdf250c374203",
+          "derivedFrom": "b202fc5e543a55300b1b0682cebb282542f0a4eff27185dab0cfa95341bde5a7",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/young-silver-dragon-thumbnail-e9f1061c6ff2653d.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10891,
+          "sha256": "e9f1061c6ff2653dfebfc6ffac54d6c8c4eec7e8d25a54bf8546689186d58f33",
+          "derivedFrom": "b202fc5e543a55300b1b0682cebb282542f0a4eff27185dab0cfa95341bde5a7",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-gold-dragon",
+      "contentSha256": "1ee12afeb17e4aeaf7628cbd7b28cd928f668b9360fe10ebf17361529766b8fa",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 28e8505bc7320b57736bf383e1739d1789a03416a5d73f5f93574f0d8809d2f6",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "28e8505bc7320b57736bf383e1739d1789a03416a5d73f5f93574f0d8809d2f6",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v45.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/young-gold-dragon-original-7d6f3c64ce641d68.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 168647,
+          "sha256": "7d6f3c64ce641d684061121652d12b303f716ded40934204d34b910890580928",
+          "derivedFrom": "28e8505bc7320b57736bf383e1739d1789a03416a5d73f5f93574f0d8809d2f6",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/young-gold-dragon-thumbnail-47c464f0cbb61fd4.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 12743,
+          "sha256": "47c464f0cbb61fd4c16f532f48ddfd38397503da55f1fc67d9db93f0e90ddf90",
+          "derivedFrom": "28e8505bc7320b57736bf383e1739d1789a03416a5d73f5f93574f0d8809d2f6",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }

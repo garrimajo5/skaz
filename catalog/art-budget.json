@@ -3,26 +3,26 @@
   "measurement": "in-process delivered PNG bytes; not browser network or offline cache",
   "encoder": "1.3.2.1-motley-456ae73",
   "recipe": "skaz-rgba-area-premultiplied-v1",
-  "acceptedCount": 230,
-  "selectedCount": 230,
+  "acceptedCount": 240,
+  "selectedCount": 240,
   "summary": {
     "thumbnail": {
-      "count": 230,
-      "totalBytes": 3260212,
+      "count": 240,
+      "totalBytes": 3375268,
       "maxBytes": 24489,
-      "p95Bytes": 21187,
+      "p95Bytes": 21084,
       "limitBytes": 32768
     },
     "card": {
-      "count": 230,
-      "totalBytes": 45365122,
+      "count": 240,
+      "totalBytes": 46979052,
       "maxBytes": 359979,
-      "p95Bytes": 300094,
+      "p95Bytes": 299596,
       "limitBytes": 393216
     }
   },
-  "uniqueFiles": 460,
-  "uniqueBytes": 48625334,
+  "uniqueFiles": 480,
+  "uniqueBytes": 50354320,
   "serverCache": {
     "files": 92,
     "bytes": 8245117,
@@ -2245,6 +2245,156 @@
         },
         "card": {
           "bytes": 169648,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-black-dragon",
+      "files": {
+        "thumbnail": {
+          "bytes": 9122,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 122287,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-blue-dragon",
+      "files": {
+        "thumbnail": {
+          "bytes": 12137,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 172521,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-brass-dragon",
+      "files": {
+        "thumbnail": {
+          "bytes": 12566,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 180044,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-bronze-dragon",
+      "files": {
+        "thumbnail": {
+          "bytes": 12323,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 175860,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-copper-dragon",
+      "files": {
+        "thumbnail": {
+          "bytes": 12163,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 173135,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-gold-dragon",
+      "files": {
+        "thumbnail": {
+          "bytes": 12022,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 166248,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-green-dragon",
+      "files": {
+        "thumbnail": {
+          "bytes": 9846,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 137024,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-red-dragon",
+      "files": {
+        "thumbnail": {
+          "bytes": 11726,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 163168,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-silver-dragon",
+      "files": {
+        "thumbnail": {
+          "bytes": 10471,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 146900,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-white-dragon",
+      "files": {
+        "thumbnail": {
+          "bytes": 12680,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 176743,
           "width": 384,
           "height": 384
         }
