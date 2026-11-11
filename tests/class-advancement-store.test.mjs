@@ -113,3 +113,14 @@ test('future and partially missing advancement schemas fail before changing a da
   assert.deepEqual(db.prepare('SELECT * FROM workspace').get(),before);assert.deepEqual(db.prepare("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name").all(),names);db.close();
  }
 });
+
+test('binding audit failure rolls back counters and ownership; changed retry cannot acquire extra resources',t=>{
+ const file=disk(t,false),s=openStore(file,{classAdvancement:true}),db=new DatabaseSync(file);
+ t.after(()=>{db.close();s.close();rmSync(join(file,'..'),{recursive:true,force:true});});
+ prepare(s,'fighter',3);const before=s.read(),q=fields(s,{classId:'fighter',bindings:[],create:['class-fighter-second-wind']});
+ const counts=()=>['changes','character_sheet_changes','character_stats_changes','character_advancement','advancement_changes'].map(table=>db.prepare('SELECT count(*) AS n FROM '+table).get().n),original=counts();
+ db.exec("CREATE TRIGGER fail_binding_receipt BEFORE INSERT ON changes BEGIN SELECT RAISE(ABORT,'binding receipt failed');END");
+ assert.throws(()=>s.bindClassResources(q),/binding receipt failed/);assert.deepEqual(s.read(),before);assert.deepEqual(counts(),original);
+ db.exec('DROP TRIGGER fail_binding_receipt');const bound=s.bindClassResources(q);assert.equal(bound.advancement.resources.length,1);assert.equal(s.bindClassResources(q).replayed,true);
+ assert.throws(()=>s.bindClassResources({...q,create:[...q.create,'class-fighter-action-surge']}),{status:409});assert.equal(s.read().advancement.resources.length,1);assert.deepEqual(s.read().state,before.state);
+});
