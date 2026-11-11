@@ -1,0 +1,22 @@
+{
+  "batch": "production-v49",
+  "entries": [
+    {
+      "slug": "giant-scorpion",
+      "kind": "monster",
+      "prompt": "Create ONE original square painterly fantasy creature encyclopedia portrait for SKAZ D&D 2014. A giant scorpion, full creature in three-quarter view, dark russet chitin, exactly eight walking legs in four pairs, two strong front pincers and one thick segmented tail curled above its back with a prominent curved stinger. Clearly an arachnid scorpion, no humanoid parts, no extra tail. Broad sculpted brush shapes, strong readable silhouette at 32 pixels, moderate detail, restrained polished fantasy painting. Warm upper-left lighting and dark outlined edges readable on ivory and charcoal. Centered subject occupies 75 percent of canvas, at least 8 percent clear padding on all edges. TRUE TRANSPARENT background. No scenery, ground, frame, labels, text, watermark or haze.",
+      "correctionPrompt": "Correct the anatomy of this scorpion while preserving the exact painterly style, russet chitin, lighting, pose, two pincers, single curled tail and transparent background. The current creature has only six visible walking legs. It needs EIGHT walking legs: FOUR clearly separate jointed legs on its left side and FOUR on its right side, in addition to the two front pincer arms. Add the missing pair naturally attached to the cephalothorax, with clear separation, no fused or extra legs. Retain square composition, increase padding if needed so all legs, pincers and tail stay comfortably inside the canvas. No text or background."
+    },
+    {
+      "slug": "flying-sword",
+      "kind": "monster",
+      "prompt": "Create ONE original square painterly fantasy bestiary illustration for SKAZ D&D 2014: a Flying Sword, a single magically animated steel longsword floating diagonally in empty air, entire straight double-edged blade, simple crossguard, dark leather grip and round pommel fully visible. No hand, no person, no scabbard, no wings, no second sword. Subtle cool blue magical edge glints convey levitation without obscuring the recognizable weapon. Broad sculpted brush shapes, restrained polished fantasy painting, warm upper-left lighting, readable compact silhouette at 32 pixels. Subject fits central 75 percent with clear padding on every edge. TRUE transparent background. No ground, scenery, frame, letters, numbers, labels or watermark."
+    },
+    {
+      "slug": "giant-spider",
+      "kind": "monster",
+      "prompt": "Create ONE original square painted fantasy encyclopedia token of a GIANT SPIDER viewed STRAIGHT FROM ABOVE, anatomical dorsal view. The spider has a large brown hairy oval abdomen behind a smaller dark cephalothorax, two small front pedipalps, and EXACTLY EIGHT LONG WALKING LEGS. Show FOUR COMPLETE LEGS radiating separately on the LEFT and FOUR COMPLETE LEGS radiating separately on the RIGHT; all eight tips visible and separated by transparent gaps, no legs hidden behind the body, no overlaps, no fused limbs. Body centered, legs arranged compactly with wide bent knees so they fit inside square with 10 percent empty margin. Earth-brown chitin, warm upper-left highlights, hand-painted broad sculpted shapes, moderately realistic fantasy bestiary style, easy recognition at 32 pixels. TRUE transparent background. No web, ground, border, text, labels, watermark, symbols or extra anatomy.",
+      "discardedPrompt": "Create ONE original square painterly fantasy bestiary portrait for SKAZ D&D 2014: a giant wolf spider, frontal three-quarter view. Exactly eight long hairy jointed walking legs (four clearly distinct on each side), two short mouth pedipalps and two downward fangs, rounded charcoal and muted brown abdomen, smaller cephalothorax with eight tiny dark glossy eyes, no humanoid traits. Compact strong silhouette and large clearly readable body, legs grouped but not merged, all extremities within frame with 8 percent transparent padding. Polished restrained painted fantasy illustration, broad sculpted brush shapes, warm upper-left light, moderate detail, readable at 32 pixels on ivory or dark charcoal. True transparent background, no web scenery, no ground, no borders, no labels, no text, no watermark."
+    }
+  ]
+}

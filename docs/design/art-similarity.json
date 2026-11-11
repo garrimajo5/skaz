@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 262,
+  "count": 265,
   "pairs": [
     {
       "ids": [
@@ -678,6 +678,11 @@
       "light": "2cb45383bfc0ea15"
     },
     {
+      "id": "srd51:2014:monster:flying-sword",
+      "dark": "131f646d1df1065c",
+      "light": "6a4a9ab2b68ca92b"
+    },
+    {
       "id": "srd51:2014:monster:frog",
       "dark": "143f2de04b0ee699",
       "light": "6bc0d41f95b163c2"
@@ -706,6 +711,16 @@
       "id": "srd51:2014:monster:ghoul",
       "dark": "584f1ff060213f36",
       "light": "6ec5c01ab516c36b"
+    },
+    {
+      "id": "srd51:2014:monster:giant-scorpion",
+      "dark": "14377bd883127666",
+      "light": "6bc88525fca19993"
+    },
+    {
+      "id": "srd51:2014:monster:giant-spider",
+      "dark": "4cf233ce6c31334c",
+      "light": "66989b6ccc33a4a6"
     },
     {
       "id": "srd51:2014:monster:gnoll",

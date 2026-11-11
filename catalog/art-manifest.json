@@ -11529,6 +11529,138 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:monster:giant-scorpion",
+      "contentSha256": "818e6b393e0297cfed9613f107059ed9a14b58a1d583bcdecb098f53cf863686",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 e97d21558bdd12bcf8fc00e2742024af2dedb1046f39c0fcc436b6dfa3b5a278",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "e97d21558bdd12bcf8fc00e2742024af2dedb1046f39c0fcc436b6dfa3b5a278",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v49.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/giant-scorpion-original-19fba699b7fdc0cc.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 200436,
+          "sha256": "19fba699b7fdc0ccddaf7847bc07f21aedc194919b3a39d8f3499ce24f062bbe",
+          "derivedFrom": "e97d21558bdd12bcf8fc00e2742024af2dedb1046f39c0fcc436b6dfa3b5a278",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/giant-scorpion-thumbnail-fb0dd7277a3f31b8.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 14847,
+          "sha256": "fb0dd7277a3f31b80bbd7dad51d6241bc18fd2c2d089f0648c74eae4e6d64d1e",
+          "derivedFrom": "e97d21558bdd12bcf8fc00e2742024af2dedb1046f39c0fcc436b6dfa3b5a278",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:flying-sword",
+      "contentSha256": "ec120f449c0330ea047096fb44c62fcd19bcf2105c04d3f6ea663fb64880de4d",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 24155437cb9ec3073e273389ce178fba2474db602ac3274587ae6e833a2ca049",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "24155437cb9ec3073e273389ce178fba2474db602ac3274587ae6e833a2ca049",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v49.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/flying-sword-original-338129868f22e488.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 74929,
+          "sha256": "338129868f22e4887db8ed410e5a2efa0f952d81a8bc8ec2ed93cb11cd77970b",
+          "derivedFrom": "24155437cb9ec3073e273389ce178fba2474db602ac3274587ae6e833a2ca049",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/flying-sword-thumbnail-9b1601fa2c926888.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 5795,
+          "sha256": "9b1601fa2c926888a39fd79b4f67f8d792ed4fd366f5ed60959514a62fdb5269",
+          "derivedFrom": "24155437cb9ec3073e273389ce178fba2474db602ac3274587ae6e833a2ca049",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:giant-spider",
+      "contentSha256": "54af8a7a5fc79f997c43aa725204e3c3548d91fe4ff116e87b1f40d00bd04d22",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 2562b2e8db0e3649b964118bd622e175aae214c161ffc33ef6a4b1bea068d857",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "2562b2e8db0e3649b964118bd622e175aae214c161ffc33ef6a4b1bea068d857",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v49.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/giant-spider-original-7c0a7e687f267335.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 226746,
+          "sha256": "7c0a7e687f267335ef21ceab9b1a02e81563e4dd0f718b1c3030172607fe06a4",
+          "derivedFrom": "2562b2e8db0e3649b964118bd622e175aae214c161ffc33ef6a4b1bea068d857",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/giant-spider-thumbnail-cdc94cfccaa6ad5b.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 17290,
+          "sha256": "cdc94cfccaa6ad5b7b4d71461e48c5f0436f8ee86e4146e7317994c22621a111",
+          "derivedFrom": "2562b2e8db0e3649b964118bd622e175aae214c161ffc33ef6a4b1bea068d857",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }

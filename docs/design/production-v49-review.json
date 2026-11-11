@@ -1,0 +1,39 @@
+{
+  "accepted": [
+    {
+      "id": "srd51:2014:monster:giant-scorpion",
+      "sha256": "e97d21558bdd12bcf8fc00e2742024af2dedb1046f39c0fcc436b6dfa3b5a278",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 951483,
+      "review": "Original and browser contact sheet reviewed on Polaris, Coal and Atlas at 32/40 px, including grayscale circular crops. Scorpion: eight walking legs, pincers and curled tail; spider: eight separated legs; sword: single floating blade."
+    },
+    {
+      "id": "srd51:2014:monster:flying-sword",
+      "sha256": "24155437cb9ec3073e273389ce178fba2474db602ac3274587ae6e833a2ca049",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1358255,
+      "review": "Original and browser contact sheet reviewed on Polaris, Coal and Atlas at 32/40 px, including grayscale circular crops. Scorpion: eight walking legs, pincers and curled tail; spider: eight separated legs; sword: single floating blade."
+    },
+    {
+      "id": "srd51:2014:monster:giant-spider",
+      "sha256": "2562b2e8db0e3649b964118bd622e175aae214c161ffc33ef6a4b1bea068d857",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 799078,
+      "review": "Original and browser contact sheet reviewed on Polaris, Coal and Atlas at 32/40 px, including grayscale circular crops. Scorpion: eight walking legs, pincers and curled tail; spider: eight separated legs; sword: single floating blade."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "srd51:2014:monster:giant-scorpion",
+      "sourcePath": "data/art-production-v49/giant-scorpion-candidate-1.png",
+      "reason": "Only six walking legs; corrected with built-in image generator. Correction prompt retained in production-v49-prompts.json."
+    },
+    {
+      "id": "srd51:2014:monster:giant-spider",
+      "reason": "First oblique candidate had ambiguous overlapping leg anatomy; regenerated in dorsal view. Discarded prompt retained in production-v49-prompts.json."
+    }
+  ]
+}
