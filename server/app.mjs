@@ -1,3 +1,5 @@
+import {advancementClasses,advancementView} from './class-advancement-view.mjs';
+import {buildAdvancementChange} from './class-advancement.mjs';
 import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -9,7 +11,7 @@ import {personalArtHttp} from './personal-art-http.mjs';
 import {gameArtPackageMaxBytes} from './game-art-package.mjs';
 
 const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
-const files = new Set(['art-cache.js', 'art.js', 'fonts.css',"fonts/inter-400-800-cyrillic.woff2","fonts/inter-400-800-latin.woff2","fonts/pt-serif-400-cyrillic.woff2","fonts/pt-serif-400-latin.woff2","fonts/pt-serif-700-cyrillic.woff2","fonts/pt-serif-700-latin.woff2",'health.js', 'casting.js', 'spell-facts.js', 'resource-queue.js', 'index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'personal-art-session.js', 'private-exit.js', 'game-art-transfer.js', 'game-art-transfer-panel.js', 'game-art-transfer-shell.js', 'personal-art-command.js', 'personal-art-transport.js', 'personal-art-preview.js', 'personal-art-history.js', 'personal-art-editor.js', 'personal-art-cards.js', 'personal-art-view.js', 'account.js', 'members.js', 'character-sheet.js', 'style.css', 'quick.css', 'app.js', 'play.js', 'ui.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
+const files = new Set(['class-advancement-transport.js','class-advancement.js','class-advancement-shell.js','art-cache.js', 'art.js', 'fonts.css',"fonts/inter-400-800-cyrillic.woff2","fonts/inter-400-800-latin.woff2","fonts/pt-serif-400-cyrillic.woff2","fonts/pt-serif-400-latin.woff2","fonts/pt-serif-700-cyrillic.woff2","fonts/pt-serif-700-latin.woff2",'health.js', 'casting.js', 'spell-facts.js', 'resource-queue.js', 'index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'personal-art-session.js', 'private-exit.js', 'game-art-transfer.js', 'game-art-transfer-panel.js', 'game-art-transfer-shell.js', 'personal-art-command.js', 'personal-art-transport.js', 'personal-art-preview.js', 'personal-art-history.js', 'personal-art-editor.js', 'personal-art-cards.js', 'personal-art-view.js', 'account.js', 'members.js', 'character-sheet.js', 'style.css', 'quick.css', 'app.js', 'play.js', 'ui.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
 const contentTypes = { '.woff2': 'font/woff2', '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
 const MAX_BODY = 512 * 1024;
 function json(response, status, value, extra = {}) {
@@ -29,7 +31,8 @@ async function body(request, limit = MAX_BODY) {
   try { return JSON.parse(Buffer.concat(chunks).toString('utf8')); }
   catch { throw new AppError(400, 'Не удалось прочитать JSON'); }
 }
-export function createApp(store, { publicOrigin, authenticate, individualWrites = false, sessions, artLibrary, personalArt } = {}) {
+export function createApp(store, { publicOrigin, authenticate, individualWrites = false, sessions, artLibrary, personalArt, classAdvancement=false } = {}) {
+  if(typeof classAdvancement!=='boolean'||classAdvancement&&!Object.hasOwn(store.read(),'advancement'))throw new Error('Повышение требует совместимого явно включённого хранилища');
   // A trusted fixture can inject a library; requests cannot select a manifest,
   // directory, or pilot status. Production always uses the accepted registry.
   let artPromise;
@@ -103,10 +106,28 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           view = store.forUser(userId, viewId ?? 'primary-view', {write:individualWrites,guard,personalArt:!!personalArt&&['/api/export/game-with-art','/api/import/game-with-art'].includes(pathname)});
           if(personalArt&&pathname.startsWith('/api/personal-art/'))personal=personalArt(userId,{write:individualWrites,guard});
         } else view = viewId === undefined ? store : store.forView(viewId);
+        if(pathname.startsWith('/api/class-advancement')||pathname==='/api/export/active-v13'){
+          if(!classAdvancement)return json(response,404,{error:'Повышение уровня не включено'});
+          if(pathname==='/api/export/active-v13'&&request.method==='GET')return json(response,200,view.exportActive(13),{'Content-Disposition':'attachment; filename="skaz-active-v13.json"'});
+          if(pathname==='/api/class-advancement/classes'&&request.method==='GET')return json(response,200,advancementClasses(view.read()));
+          if(pathname==='/api/class-advancement/plan'&&request.method==='GET'){
+            const params=new URL(request.url,`http://${host}`).searchParams;
+            if([...params.keys()].length!==1||!params.has('classId'))throw new AppError(422,'Нужен один класс');
+            return json(response,200,advancementView(view.read(),params.get('classId'),id=>view.catalog.lookup(new URLSearchParams({id})).entry));
+          }
+          if(['/api/class-advancement/preview','/api/class-advancement/apply','/api/class-advancement/bind'].includes(pathname)&&request.method==='POST'){
+            if(request.headers['x-skaz-client']!=='local-v1')throw new AppError(403,'Запрос должен исходить из приложения');
+            const data=await body(request,32768);
+            if(pathname.endsWith('/preview'))return json(response,200,buildAdvancementChange(view.read(),data).summary);
+            const result=pathname.endsWith('/bind')?view.bindClassResources(data):view.advanceCharacter(data);
+            return json(response,200,{...result,...(authenticate?{permissions:view.permissions()}:{})});
+          }
+          return json(response,404,{error:'Неизвестный метод повышения'});
+        }
         if(await personalArtHttp(request,response,personal,body))return;
         if(['/api/export/game-with-art','/api/import/game-with-art'].includes(pathname)){
           if(!personalArt)return json(response,404,{error:'Перенос личных изображений не включён'});
-          if(pathname==='/api/export/game-with-art'&&request.method==='GET')return json(response,200,view.exportActive('with-art'),{'Content-Disposition':'attachment; filename="skaz-game-with-art-v1.json"'});
+          if(pathname==='/api/export/game-with-art'&&request.method==='GET')return json(response,200,view.exportActive('with-art'),{'Content-Disposition':'attachment; filename="skaz-game-with-art.json"'});
           if(pathname==='/api/import/game-with-art'&&request.method==='POST'){
             if(request.headers['x-skaz-client']!=='local-v1')throw new AppError(403,'Запрос должен исходить из приложения');
             const data=await body(request,gameArtPackageMaxBytes+4096);
@@ -180,6 +201,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
         else {store.access.user(identity);if(!store.access.hasPlayableCharacter(identity))filename='waiting.html';if(!/^[a-zA-Z0-9-]{8,80}$/.test(identity))throw new AppError(401,'Нужен индивидуальный вход');}
       }
       let content = await readFile(path.join(clientRoot, filename));
+      if(classAdvancement&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-class-advancement="enabled" ');
       if(identity&&personalArt&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-personal-art="enabled" ');
       if(identity)content=content.toString('utf8').replace('<body ',`<body data-user-id="${identity}" `);
       response.writeHead(200, { 'Content-Type': contentTypes[path.extname(filename)], 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' });

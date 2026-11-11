@@ -5,12 +5,12 @@ const SkazGameArtTransferPanel=(()=>{
   let closed=false,busy=false,url=null,ready=false;
   const root=document.createElement('fieldset');root.style.cssText='min-width:0;border:0;padding:0';
   const title=document.createElement('h2');title.textContent='Игра с личными изображениями';
-  const note=document.createElement('p');note.textContent='Обычный экспорт JSON v12 не содержит личных изображений. Этот пакет переносит их вместе с игрой. Перенос создаёт новую кампанию и персонажа. Общий каталог не заменяется. Переносятся текущие личные изображения; история замен остаётся только в полной резервной копии. Файл содержит личные данные — храни его у себя.';
+  const note=document.createElement('p');note.textContent='Обычный экспорт игры не содержит личных изображений. Этот пакет переносит их вместе с игрой. Перенос создаёт новую кампанию и персонажа. Общий каталог не заменяется. Переносятся текущие личные изображения; история замен остаётся только в полной резервной копии. Файл содержит личные данные — храни его у себя.';
   const label=document.createElement('label');label.textContent='Выбрать пакет JSON (до 64 МиБ)';
   const input=document.createElement('input');input.type='file';input.accept='.json,application/json';label.append(input);
   const summary=document.createElement('p'),status=document.createElement('p');status.setAttribute('role','status');status.style.overflowWrap='anywhere';
   const exportButton=document.createElement('button'),importButton=document.createElement('button'),retry=document.createElement('button'),download=document.createElement('a');
-  exportButton.textContent='Подготовить файл для скачивания';importButton.textContent='Создать новую игру из пакета';retry.textContent='Повторить тот же импорт';download.textContent='Скачать игру с изображениями';download.download='skaz-game-with-art-v1.json';download.hidden=true;
+  exportButton.textContent='Подготовить файл для скачивания';importButton.textContent='Создать новую игру из пакета';retry.textContent='Повторить тот же импорт';download.textContent='Скачать игру с изображениями';download.download='skaz-game-with-art.json';download.hidden=true;
   for(const b of [exportButton,importButton,retry])b.type='button';
   function controls(){root.disabled=busy;input.disabled=!allowImport||transport.pending;importButton.disabled=!allowImport||!ready||transport.pending;retry.hidden=!transport.pending;retry.style.display=transport.pending?'':'none';exportButton.disabled=transport.pending;}
   function release(){if(url)URL.revokeObjectURL(url);url=null;download.removeAttribute('href');download.hidden=true;download.style.display='none';}

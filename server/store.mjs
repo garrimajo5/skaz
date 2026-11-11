@@ -81,7 +81,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
   function exportActive(version = 2) {
     const withArt=version==='with-art';
     if(withArt&&!personalArt)throw new AppError(403,'Перенос личных изображений не включён');
-    if(withArt)version=12;
+    if(withArt)version=classAdvancement?13:12;
     db.exec('BEGIN');
     try {
       const current = read();

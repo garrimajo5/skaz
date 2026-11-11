@@ -47,3 +47,14 @@ test('parallel actions are blocked and destruction aborts requests without apply
 });
 
 test('truncated JSON response has readable error and retains exactly the same import for retry',async()=>{let lose=true;const bodies=[];const api=fixture(async(url,o)=>{if(url==='/api/workspace')return Response.json(state);bodies.push(o.body);if(lose){lose=false;return new Response('{');}return Response.json({...state,revision:8,replayed:true});});await api.prepare(file(base));await assert.rejects(api.importPrepared(),/Ответ сервера неполный или повреждён/);assert.equal(api.pending,true);assert.equal((await api.retry()).replayed,true);assert.equal(bodies[0],bodies[1]);assert.equal(api.pending,false);api.destroy();});
+
+test('v2 preparation preserves advancement and rejects cross-version or missing-ledger packages before requests',async()=>{
+ const db=openStore(':memory:',{classAdvancement:true});
+ const bundle=gameArtPackage(db.exportActive(13),personalArtTransfer([]));db.close();
+ let calls=0,sent;const api=fixture(async(url,o)=>{calls++;if(url==='/api/workspace')return Response.json(state);sent=JSON.parse(o.body);return Response.json({...state,revision:8});});
+ for(const change of [b=>{b.schemaVersion=1;},b=>{b.game.schemaVersion=12;},b=>{delete b.game.advancement;}]){
+  const bad=structuredClone(bundle);change(bad);await assert.rejects(api.prepare(file(bad)));
+ }
+ assert.equal(calls,0);await api.prepare(file(bundle));await api.importPrepared();
+ assert.equal(sent.file.schemaVersion,2);assert.equal(sent.file.game.schemaVersion,13);assert.equal(sent.file.game.advancement,null);api.destroy();
+});

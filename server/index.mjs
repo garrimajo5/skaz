@@ -4,10 +4,10 @@ import { openStore } from './store.mjs';
 import { createApp } from './app.mjs';
 import {startupOptions} from './startup.mjs';
 const filename = path.resolve(process.env.SKAZ_DB || fileURLToPath(new URL('../data/skaz.sqlite', import.meta.url)));
-const config=startupOptions({database:filename,port:process.env.PORT??'4173',origin:process.env.SKAZ_PUBLIC_ORIGIN,mode:process.env.SKAZ_AUTH_MODE??'shared'});
+const config=startupOptions({database:filename,port:process.env.PORT??'4173',origin:process.env.SKAZ_PUBLIC_ORIGIN,mode:process.env.SKAZ_AUTH_MODE??'shared',classAdvancement:process.env.SKAZ_CLASS_ADVANCEMENT??'0'});
 const port=config.port;
-const store = openStore(filename);
-const server = createApp(store, { publicOrigin: config.publicOrigin, ...(config.mode==='individual'?{sessions:store.authentication(),individualWrites:true}:{}) });
+const store = openStore(filename,{classAdvancement:!!config.classAdvancement});
+const server = createApp(store, { publicOrigin: config.publicOrigin, classAdvancement:!!config.classAdvancement, ...(config.mode==='individual'?{sessions:store.authentication(),individualWrites:true}:{}) });
 server.listen(port, '127.0.0.1', () => {
   console.log(`СКАЗ: http://127.0.0.1:${port}`);
   console.log(`База данных: ${filename}`);

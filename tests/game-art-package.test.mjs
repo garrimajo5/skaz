@@ -38,3 +38,11 @@ test('unknown linked catalog record fails instead of producing a partial package
  const {game,art,lookup}=fixture(t);
  assert.throws(()=>gameArtPackage(game,art,{lookup:id=>id===catalogId?{...lookup(id),links:['missing-record']}:null}),{status:422});
 });
+
+test('v2 package retains a v13 ledger and rejects cross-version downgrades',t=>{
+ const {store,art,lookup}=fixture(t),game=store.exportActive(13),bundle=gameArtPackage(game,art,{lookup});
+ assert.equal(bundle.schemaVersion,2);assert.equal(validateGameArtPackage(bundle).game.advancement,null);
+ for(const mutate of [b=>b.schemaVersion=1,b=>b.game.schemaVersion=12,b=>delete b.game.advancement,b=>b.schemaVersion=3]){
+  const changed=structuredClone(bundle);mutate(changed);assert.throws(()=>validateGameArtPackage(changed),{status:422});
+ }
+});

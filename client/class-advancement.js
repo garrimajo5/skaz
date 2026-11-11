@@ -3,7 +3,7 @@ const SkazClassAdvancement=(()=>{
  const titles={'ability-score-improvement-or-feat':'Повышение характеристик','cantrips':'Новые заговоры','known-spells':'Новые заклинания','spellbook-spells':'Записи в книге','magical-secrets':'Магические тайны','mystic-arcanum':'Таинственный арканум'};
  const abilityNames={str:'Сила',dex:'Ловкость',con:'Телосложение',int:'Интеллект',wis:'Мудрость',cha:'Харизма'};
  function el(tag,text,parent){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(parent)parent.append(e);return e;}
- async function mount(root,{load,preview,send,newId=()=>crypto.randomUUID()}){
+ async function mount(root,{load,preview,send,onSaved=()=>{},newId=()=>crypto.randomUUID()}){
   let closed=false,pending=null,pendingKind='advance',candidate=null,running=false,epoch=0;
   const status=el('p','Загружаю героя…',root);status.setAttribute('role','status');status.setAttribute('aria-live','polite');
   const form=el('form',undefined,root);form.className='class-advancement';
@@ -62,14 +62,14 @@ const SkazClassAdvancement=(()=>{
   }
   async function save(){
    if(running||!pending||closed)return;running=true;lock(true);status.textContent=pendingKind==='bind'?'Подключаю ресурсы…':'Сохраняю повышение…';
-   try{const result=await send(pending,pendingKind);if(closed)return;pending=null;candidate=null;apply.hidden=true;retry.hidden=true;summary.replaceChildren();if(pendingKind==='bind'){try{await refresh();if(!closed)status.textContent='Ресурсы подключены. Теперь выбери повышение уровня.';}catch(e){if(!closed){status.textContent='Ресурсы сохранены, но обновить героя не удалось. Сверь состояние перед повышением.';reconcile.hidden=false;}}}else{form.replaceChildren();check.hidden=true;status.textContent='Сохранено: уровень '+result.characterSheet.level+'. Максимум хитов '+result.state.maxHp+'.';}}
+   try{const result=await send(pending,pendingKind);if(closed)return;pending=null;candidate=null;apply.hidden=true;retry.hidden=true;summary.replaceChildren();if(pendingKind==='bind'){try{await refresh();if(!closed)status.textContent='Ресурсы подключены. Теперь выбери повышение уровня.';}catch(e){if(!closed){status.textContent='Ресурсы сохранены, но обновить героя не удалось. Сверь состояние перед повышением.';reconcile.hidden=false;}}}else{form.replaceChildren();check.hidden=true;status.textContent='Сохранено: уровень '+result.characterSheet.level+'. Максимум хитов '+result.state.maxHp+'.';try{await onSaved(result);}catch{if(!closed)status.textContent+=' Обнови экран героя, чтобы увидеть изменения.';}}}
    catch(e){if(closed)return;status.textContent=e.message+(e.notApplied?' Команда не применена. Сверь героя перед новым выбором.':' Для безопасного повтора используй ту же команду.');retry.hidden=e.notApplied===true;reconcile.hidden=e.notApplied!==true;apply.hidden=true;}
    finally{running=false;if(!closed){retry.disabled=false;if(pending)lock(true);}}
   }
   reconcile.onclick=async()=>{if(running||closed)return;running=true;pending=null;candidate=null;reconcile.hidden=true;retry.hidden=true;check.hidden=false;check.disabled=true;try{await refresh();}catch(e){if(!closed){status.textContent=e.message;reconcile.hidden=false;}}finally{running=false;}};
   apply.onclick=()=>{if(!candidate||pending||running||closed)return;pendingKind='advance';pending=JSON.stringify({...candidate,mutationId:newId()});return save();};retry.onclick=save;
   try{await refresh();}catch(e){if(!closed)status.textContent=e.message;}
-  return {destroy(){closed=true;epoch++;pending=null;root.replaceChildren();}};
+  return {get pending(){return !!pending||running;},destroy(){closed=true;epoch++;pending=null;root.replaceChildren();}};
  }
  return {mount};
 })();

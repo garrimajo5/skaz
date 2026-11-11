@@ -40,3 +40,11 @@ test('only explicitly prepared individual startup passes, and revoked grants imm
  const db=new DatabaseSync(database);db.exec('DELETE FROM character_access');db.close();const revoked=readFileSync(database);
  assert.throws(()=>startupOptions({database,mode:'individual',origin:'https://example.test'}),/не готовы/);assert.deepEqual(readFileSync(database),revoked);
 });
+
+test('class advancement startup flag is explicit and invalid values fail before creating a database',()=>{
+ assert.equal(startupOptions({database:fixture()}).classAdvancement,undefined);
+ assert.equal(startupOptions({database:fixture(),classAdvancement:'1'}).classAdvancement,true);
+ for(const value of ['',true,'true','yes','2'])assert.throws(()=>startupOptions({database:fixture(),classAdvancement:value}),/SKAZ_CLASS_ADVANCEMENT/);
+ const database=fixture(),entry=fileURLToPath(new URL('../server/index.mjs',import.meta.url));
+ const result=spawnSync(process.execPath,[entry],{env:{...process.env,SKAZ_DB:database,SKAZ_CLASS_ADVANCEMENT:'yes',SKAZ_AUTH_MODE:'shared'},encoding:'utf8',timeout:5000});assert.equal(result.status,1);assert.equal(existsSync(database),false);
+});

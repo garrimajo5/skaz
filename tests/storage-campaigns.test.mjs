@@ -23,6 +23,7 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   return { api: vm.runInContext('SkazStorage', context), get, messages, messageOptions, archiveCalls, references, downloads, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
     click: (id,dataset={},disabled=false) => handlers.click({ target: { closest: () => ({ id,dataset,disabled }) } }),
+    advancementEnabled:()=>{context.document.body={dataset:{classAdvancement:'enabled'}};},
     visible: value => {context.document.visibilityState=value;return handlers.visibilitychange();},
     state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),
   };
@@ -1121,4 +1122,9 @@ test('history queues a linked inverse once and keeps the original command pendin
 
 test('active v12 download accepts current export and rejects older schema without claiming success',async()=>{
  for(const version of [11,12]){const h=harness(memory(),memory(),async url=>response(url==='/api/workspace'?payload(0):{app:'skaz-active',schemaVersion:version,source:{context:payload(0).context,revision:0},characterStats:null,characterSheet:null}));await h.api.boot();h.api.settings();await h.get('#export-active').onclick();assert.deepEqual(h.downloads,version===12?['skaz-active-v12.json']:[]);if(version===11)assert.match(h.messages.at(-1),/v12/);}
+});
+
+
+test('enabled advancement downloads v13 without confusing schema version with game revision',async()=>{
+ for(const valid of [true,false]){const routes=[],h=harness(memory(),memory(),async url=>{routes.push(url);return response(url==='/api/workspace'?payload(5):{app:'skaz-active',schemaVersion:13,source:{context:payload(5).context,revision:5},characterStats:null,characterSheet:null,...(valid?{advancement:null}:{})});});h.advancementEnabled();await h.api.boot();h.api.settings();await h.get('#export-active').onclick();assert.ok(routes.includes('/api/export/active-v13'));assert.deepEqual(h.downloads,valid?['skaz-active-v13.json']:[]);if(!valid)assert.match(h.messages.at(-1),/история повышения/);}
 });

@@ -6,14 +6,15 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {randomUUID} from 'node:crypto';
 import {openStore} from '../server/store.mjs';
+import {templateStats} from '../server/character-stats.mjs';
 import {bundledCatalog} from '../server/bundled-catalog.mjs';
 import {gameArtPackage} from '../server/game-art-package.mjs';
 import {personalArtTransfer} from '../server/personal-art-transfer.mjs';
 const catalogId='srd51:2014:spell:shield',userId='art-owner';
 const manifest=JSON.parse(readFileSync(new URL('../catalog/art-manifest.json',import.meta.url)));
 const png=readFileSync(new URL('../'+manifest.entries[0].files.thumbnail.path,import.meta.url));
-function fixture(t){
- const dir=mkdtempSync(join(tmpdir(),'skaz-game-art-')),file=join(dir,'game.sqlite'),store=openStore(file),db=new DatabaseSync(file);
+function fixture(t,options={}){
+ const dir=mkdtempSync(join(tmpdir(),'skaz-game-art-')),file=join(dir,'game.sqlite'),store=openStore(file,options),db=new DatabaseSync(file);
  t.after(()=>{db.close();store.close();rmSync(dir,{recursive:true,force:true});});
  store.catalog.installBundled({version:store.catalog.previewBundled().version});
  const context=store.read().context;
@@ -118,4 +119,20 @@ test('reset and restore after import stay scoped and round-trip only the current
  assert.deepEqual(image.file.bytes,source.file.bytes);
  assert.equal(f.writer.personalArt.read(characterId,catalogId).revision,3);
  assert.deepEqual(f.db.prepare('PRAGMA foreign_key_check').all(),[]);
+});
+
+
+test('v2 transfers advancement and artwork together, and late image failure rolls back both',t=>{
+ const f=fixture(t,{classAdvancement:true}),w=f.writer;
+ const command=extra=>({mutationId:randomUUID(),expectedRevision:w.read().revision,characterId:w.read().context.characterId,...extra});
+ w.saveCharacterSheet(command({sheet:{ruleset:'5e-2014',ancestry:'',className:'fighter',subclass:'',level:1,counters:[]}}));
+ w.saveCharacterStats(command({stats:structuredClone(templateStats)}));
+ w.bindClassResources(command({classId:'fighter',bindings:[],create:['class-fighter-second-wind']}));
+ const before=w.read(),bundle=w.exportActive('with-art');assert.equal(bundle.schemaVersion,2);assert.equal(bundle.game.schemaVersion,13);
+ const request={mutationId:randomUUID(),expectedRevision:before.revision,destination:'new-campaign',file:bundle},original=counts(f.db);
+ f.db.exec("CREATE TRIGGER fail_combined_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'late artwork failed');END");
+ assert.throws(()=>w.importActive(request),/late artwork failed/);assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);assert.equal(f.db.prepare('SELECT count(*) AS n FROM character_advancement').get().n,1);
+ f.db.exec('DROP TRIGGER fail_combined_art');const imported=w.importActive(request);assert.deepEqual(imported.advancement,before.advancement);assert.notEqual(imported.context.characterId,before.context.characterId);
+ assert.deepEqual(w.personalArt.read(imported.context.characterId,catalogId,'master').file.bytes,Buffer.from(bundle.personalArt.entries[0].png,'base64'));
+ const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);assert.equal(w.exportActive('with-art').schemaVersion,2);
 });
