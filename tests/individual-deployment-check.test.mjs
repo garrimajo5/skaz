@@ -5,12 +5,12 @@ import {createApp} from '../server/app.mjs';
 import {verifyIndividualDeployment} from '../scripts/verify-individual-deployment.mjs';
 const origin='https://deployment.example',outerLogin={username:'synthetic-basic',password:'synthetic outer password'},account={login:'owner',password:'synthetic personal password'};
 const basic='Basic '+Buffer.from(outerLogin.username+':'+outerLogin.password).toString('base64');
-async function fixture(t,transform){
- const store=openStore(':memory:'),first=store.read();
+async function fixture(t,transform,{classAdvancement=false}={}){
+ const store=openStore(':memory:',{classAdvancement}),first=store.read();
  store.catalog.installBundled({version:store.catalog.previewBundled().version});
  store.access.apply({action:'bootstrap-owner',userId:'deployment-owner',displayName:'Synthetic',campaignId:first.context.campaignId,characterId:first.context.characterId});
  const auth=store.authentication();await auth.setPassword('deployment-owner',account.login,account.password);
- const server=createApp(store,{publicOrigin:origin,sessions:auth,individualWrites:true});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+ const server=createApp(store,{publicOrigin:origin,sessions:auth,individualWrites:true,classAdvancement});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  t.after(()=>new Promise(resolve=>server.close(()=>{store.close();resolve();})));
  const calls=[],base='http://127.0.0.1:'+server.address().port;let token;
  const fetchImpl=async(url,init)=>{
@@ -53,4 +53,16 @@ test('unsafe origins never receive credentials and transport diagnostics cannot 
  let calls=0;const fetchImpl=async()=>{calls++;throw new Error(account.password);};
  await assert.rejects(verifyIndividualDeployment({origin:'http://deployment.example',outerLogin,account,fetchImpl}));assert.equal(calls,0);
  await assert.rejects(verifyIndividualDeployment({origin,outerLogin,account,fetchImpl}),error=>!error.message.includes(account.password));assert.equal(calls,1);
+});
+
+test('advancement release check verifies gated v13 provenance and still revokes session on mismatch',async t=>{
+ for(const fault of [false,true]){
+  const f=await fixture(t,async(route,response)=>{
+   if(fault&&route==='/api/export/active-v13'&&response.status===200){const value=await response.json();delete value.advancement;return Response.json(value);}return response;
+  },{classAdvancement:true});
+  const before=f.store.read();
+  const work=verifyIndividualDeployment({origin,outerLogin,account,classAdvancement:true,fetchImpl:f.fetchImpl});
+  if(fault)await assert.rejects(work,/происхождения/);else assert.ok((await work).checks.some(x=>x.includes('v13')));
+  assert.deepEqual(f.store.read(),before);assert.equal(f.auth.check(f.token()),null);
+ }
 });
