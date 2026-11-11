@@ -11925,6 +11925,710 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:monster:black-dragon-wyrmling",
+      "contentSha256": "2d59d4cc1f71de7a2897435cc39e53276c9102e38b780b7300a22806f03c82c3",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 5b0d73b328ac0d324c84ffa6890493275d0de61087fba88dc2adcec15f59f513",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "5b0d73b328ac0d324c84ffa6890493275d0de61087fba88dc2adcec15f59f513",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v51.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/black-dragon-wyrmling-original-7b9aa82264cb26aa.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 122039,
+          "sha256": "7b9aa82264cb26aa0d5e3dd521b2e49c934211b7f12dd5a333ee10e4f4f8253d",
+          "derivedFrom": "5b0d73b328ac0d324c84ffa6890493275d0de61087fba88dc2adcec15f59f513",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/black-dragon-wyrmling-thumbnail-5cb62d43ea41ce81.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9450,
+          "sha256": "5cb62d43ea41ce81142b2c916defbd9c67de49d8513eb625a7b32fbd68ebe31f",
+          "derivedFrom": "5b0d73b328ac0d324c84ffa6890493275d0de61087fba88dc2adcec15f59f513",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:blue-dragon-wyrmling",
+      "contentSha256": "2b0a71f40a060f373a4c0d588245182759ff3fb3e3141cc7609c0518e208bd95",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 89bab23fe796168eca02bafd3c4efebbbb946af6bbfb8c302fea8fc00eee6e85",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "89bab23fe796168eca02bafd3c4efebbbb946af6bbfb8c302fea8fc00eee6e85",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v51.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/blue-dragon-wyrmling-original-02363f04882ecfec.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 117346,
+          "sha256": "02363f04882ecfec8a70c432254130f0a25ba4eec800e97ed4cee04ae902f222",
+          "derivedFrom": "89bab23fe796168eca02bafd3c4efebbbb946af6bbfb8c302fea8fc00eee6e85",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/blue-dragon-wyrmling-thumbnail-9bd710318cc39565.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 8620,
+          "sha256": "9bd710318cc3956502cd6e47227a0fcd5d2b996109430d88b3d784a5675ca1fb",
+          "derivedFrom": "89bab23fe796168eca02bafd3c4efebbbb946af6bbfb8c302fea8fc00eee6e85",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:brass-dragon-wyrmling",
+      "contentSha256": "d92a0124b63157dade9eb8e21b366c0e09b2cf6ab8ff064ea6bd2f09cb241e17",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 0f6171e1c5d0905bffd61648fe51c7500b01d1f9444f90f7970e5ebd9ebdf8d2",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "0f6171e1c5d0905bffd61648fe51c7500b01d1f9444f90f7970e5ebd9ebdf8d2",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v51.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/brass-dragon-wyrmling-original-6479a86c0adfec2e.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 248972,
+          "sha256": "6479a86c0adfec2e586d688496f938412de0ec4cb7d4b7e8fd15d908b42ce849",
+          "derivedFrom": "0f6171e1c5d0905bffd61648fe51c7500b01d1f9444f90f7970e5ebd9ebdf8d2",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/brass-dragon-wyrmling-thumbnail-2a6b6f58e204b364.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 17514,
+          "sha256": "2a6b6f58e204b364e600edf87a8b4070eb2f5a66e81ecd39412d6b7133700c71",
+          "derivedFrom": "0f6171e1c5d0905bffd61648fe51c7500b01d1f9444f90f7970e5ebd9ebdf8d2",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:bronze-dragon-wyrmling",
+      "contentSha256": "44dc7981d7bc9410cc996bee17158e71e668098f73d72e309f574fecfedfb0eb",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 076fbc9b0b71fa3173d8f9fa6a85af5db89e1b1482fa31081fe76c384f3c2e05",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "076fbc9b0b71fa3173d8f9fa6a85af5db89e1b1482fa31081fe76c384f3c2e05",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v51.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/bronze-dragon-wyrmling-original-15584d51761cb269.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 165245,
+          "sha256": "15584d51761cb269cc8fd9f3d7952c8a5604b24e1758880a6b531b52135b6664",
+          "derivedFrom": "076fbc9b0b71fa3173d8f9fa6a85af5db89e1b1482fa31081fe76c384f3c2e05",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/bronze-dragon-wyrmling-thumbnail-26235a754cc30abc.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11779,
+          "sha256": "26235a754cc30abc475f743b038f977363924fbc84c4bc07163df0d344cd3a0c",
+          "derivedFrom": "076fbc9b0b71fa3173d8f9fa6a85af5db89e1b1482fa31081fe76c384f3c2e05",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:copper-dragon-wyrmling",
+      "contentSha256": "bfef8b758666b0107f35156789757c82a6bce9adf2974f42b9b1ee2580041abc",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 70a03ed5f1dacd8e4ffd1ffe3fba4029d86eacbeb27e6d51f31fbb9dc83e8e7c",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "70a03ed5f1dacd8e4ffd1ffe3fba4029d86eacbeb27e6d51f31fbb9dc83e8e7c",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v51.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/copper-dragon-wyrmling-original-1eedef64aee6ed4f.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 164820,
+          "sha256": "1eedef64aee6ed4f122b14262d768f8fb2cfba8cb2c82fabec1f924d38a1f500",
+          "derivedFrom": "70a03ed5f1dacd8e4ffd1ffe3fba4029d86eacbeb27e6d51f31fbb9dc83e8e7c",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/copper-dragon-wyrmling-thumbnail-04c372af206843be.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11666,
+          "sha256": "04c372af206843beb1a647299318e35ad7b6fae631920e9be1bb5c3d908c2fdf",
+          "derivedFrom": "70a03ed5f1dacd8e4ffd1ffe3fba4029d86eacbeb27e6d51f31fbb9dc83e8e7c",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:gold-dragon-wyrmling",
+      "contentSha256": "d432cb53afc17502d4d716472808f67ab3a4fff3d2c312127f032a6966210b91",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 c7ed4ea584db086848e25f3e6875f6ef0edb562e4cb502e681d9b5ace0de3e88",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "c7ed4ea584db086848e25f3e6875f6ef0edb562e4cb502e681d9b5ace0de3e88",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v51.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/gold-dragon-wyrmling-original-d8b5bff52b6d72ef.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 160082,
+          "sha256": "d8b5bff52b6d72ef3b621aeb988bec872c30e572c9809e87f958e3d56e178756",
+          "derivedFrom": "c7ed4ea584db086848e25f3e6875f6ef0edb562e4cb502e681d9b5ace0de3e88",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/gold-dragon-wyrmling-thumbnail-9c9073416d503b6f.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11581,
+          "sha256": "9c9073416d503b6f1e9cd1229039c536ba13495f06589fb746e0f937d1c3e970",
+          "derivedFrom": "c7ed4ea584db086848e25f3e6875f6ef0edb562e4cb502e681d9b5ace0de3e88",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:green-dragon-wyrmling",
+      "contentSha256": "3900b145319b0e5dcd911996c0f2d13fd63b3539a200e0e38eb18d9a31f0e4d0",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 47112e7ddb81b9e8d56df5c706e2e10302153426c61a0f8426fb4fe9750b37b3",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "47112e7ddb81b9e8d56df5c706e2e10302153426c61a0f8426fb4fe9750b37b3",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v51.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/green-dragon-wyrmling-original-ef33dc5ae552898d.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 122207,
+          "sha256": "ef33dc5ae552898d118585c71e1bd9512e3f75ef11562bdaf688a2c89ad68964",
+          "derivedFrom": "47112e7ddb81b9e8d56df5c706e2e10302153426c61a0f8426fb4fe9750b37b3",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/green-dragon-wyrmling-thumbnail-e438d51348acc615.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9183,
+          "sha256": "e438d51348acc61523d4efcd3a8d63c0a8e6ba49f63443fb402739bf869668c8",
+          "derivedFrom": "47112e7ddb81b9e8d56df5c706e2e10302153426c61a0f8426fb4fe9750b37b3",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:red-dragon-wyrmling",
+      "contentSha256": "455b60263e69c02bc6de200207365c4d925952a60a22dd197737e8d9d27aab5a",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 de16d44eae5be21578df1c343c46efd1db6b59e65f122eefa9e955b6493a78f3",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "de16d44eae5be21578df1c343c46efd1db6b59e65f122eefa9e955b6493a78f3",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v51.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/red-dragon-wyrmling-original-5cf47aef08fb8d8d.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 157037,
+          "sha256": "5cf47aef08fb8d8da1daf170b6474dae13d0d568ae89f8f33ecc4e28154be40a",
+          "derivedFrom": "de16d44eae5be21578df1c343c46efd1db6b59e65f122eefa9e955b6493a78f3",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/red-dragon-wyrmling-thumbnail-e98176a6b908e09e.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11682,
+          "sha256": "e98176a6b908e09ef24ddc23aefb8803bf58fc80d027e6b6c4cd9b0e12a076c3",
+          "derivedFrom": "de16d44eae5be21578df1c343c46efd1db6b59e65f122eefa9e955b6493a78f3",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:silver-dragon-wyrmling",
+      "contentSha256": "8c13ed1095dac49523c63a5d7acf0b2d7f04a3d853a0a2272c3fd5a178482454",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 b0fdc2a49f5ffebc107a3d74ed3311af6b3a3181fd06611f87c3539a0382666b",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "b0fdc2a49f5ffebc107a3d74ed3311af6b3a3181fd06611f87c3539a0382666b",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v51.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/silver-dragon-wyrmling-original-377096bc8b8b5271.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 164396,
+          "sha256": "377096bc8b8b52713fcbe7beaddeaefb319db7d5f2f458d9863a57d45821ed08",
+          "derivedFrom": "b0fdc2a49f5ffebc107a3d74ed3311af6b3a3181fd06611f87c3539a0382666b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/silver-dragon-wyrmling-thumbnail-50b0fa4def42e7b8.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 12113,
+          "sha256": "50b0fa4def42e7b8a318ebbe19451f724765875c4ccc6048c6439ccf8aacf986",
+          "derivedFrom": "b0fdc2a49f5ffebc107a3d74ed3311af6b3a3181fd06611f87c3539a0382666b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:white-dragon-wyrmling",
+      "contentSha256": "615dca51bafbe5ba77b22ed15d530c439a352a6ffbf64a7cefe453d573e1b656",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 dd8e5271bdbcc42bb5d184c273eb8c09a96af7e83d2714d7bc9118a85c0009a2",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "dd8e5271bdbcc42bb5d184c273eb8c09a96af7e83d2714d7bc9118a85c0009a2",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v51.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/white-dragon-wyrmling-original-174533106e5dd8e6.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 124258,
+          "sha256": "174533106e5dd8e63228902b7f0b2157ceae1fe6d4b488a5e8848b3ad8f2b5ce",
+          "derivedFrom": "dd8e5271bdbcc42bb5d184c273eb8c09a96af7e83d2714d7bc9118a85c0009a2",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/white-dragon-wyrmling-thumbnail-9f47d856df112ccc.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9337,
+          "sha256": "9f47d856df112ccc985a1951a1697e80cb14fc80b742cd28abb3200aab019eee",
+          "derivedFrom": "dd8e5271bdbcc42bb5d184c273eb8c09a96af7e83d2714d7bc9118a85c0009a2",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:arcane-sword",
+      "contentSha256": "f9a952119aa68785f74ed46ba04cc4b907f0fac2c2820839b6ad19a120964383",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 5039e70f90326901b9d131976d2131d35834cbe3375eeca8543c8deeb849a475",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "5039e70f90326901b9d131976d2131d35834cbe3375eeca8543c8deeb849a475",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v52.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/arcane-sword-original-6b42f8dc2fcc9636.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 91844,
+          "sha256": "6b42f8dc2fcc963648b032026b85a5c2cc77729f6f225bfcf8564143ad4696d7",
+          "derivedFrom": "5039e70f90326901b9d131976d2131d35834cbe3375eeca8543c8deeb849a475",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/arcane-sword-thumbnail-5179cb567d7bdace.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 7403,
+          "sha256": "5179cb567d7bdaceac876745a499f10f291161dac537fa6525113a93fd6a72f0",
+          "derivedFrom": "5039e70f90326901b9d131976d2131d35834cbe3375eeca8543c8deeb849a475",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:astral-projection",
+      "contentSha256": "f239939c7013141da9e8a6b88ebcf7cd6f0b3d7996b9ee412e5a85f31b57d1f4",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 8cc4f191bf004b0ca8f88f1dd05c648934e75080ee72941adf2c6a7b0465a340",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "8cc4f191bf004b0ca8f88f1dd05c648934e75080ee72941adf2c6a7b0465a340",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v52.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/astral-projection-original-a61a79e1fae96613.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 112305,
+          "sha256": "a61a79e1fae966135fa80a74ec9f654f4c2a3394403e3fac8d3ceb95122c1b83",
+          "derivedFrom": "8cc4f191bf004b0ca8f88f1dd05c648934e75080ee72941adf2c6a7b0465a340",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/astral-projection-thumbnail-29324413ca2b4abf.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9254,
+          "sha256": "29324413ca2b4abfa2b7bb6497eeeb5643ce71aa96d63c1962be21396536a1ba",
+          "derivedFrom": "8cc4f191bf004b0ca8f88f1dd05c648934e75080ee72941adf2c6a7b0465a340",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:bestow-curse",
+      "contentSha256": "0d49d4a3df42e8c405d08b6db1802e233839195f1dc53626bdb2b3eb05b04f32",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 d5eb0acd0559cc7ccfad6a88a30c2b4a333da36a840d8dd743940ace1d9aec08",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "d5eb0acd0559cc7ccfad6a88a30c2b4a333da36a840d8dd743940ace1d9aec08",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v52.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/bestow-curse-original-6b85abc7e22edf01.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 172820,
+          "sha256": "6b85abc7e22edf0152506700501b0c77628766dcbbcd330440f4377938e9f269",
+          "derivedFrom": "d5eb0acd0559cc7ccfad6a88a30c2b4a333da36a840d8dd743940ace1d9aec08",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/bestow-curse-thumbnail-a9bb753c2ac7a5ae.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13038,
+          "sha256": "a9bb753c2ac7a5aece9fb8bf1a1b8d82f9e1cb7f4a111040a8b61dfda514c5e3",
+          "derivedFrom": "d5eb0acd0559cc7ccfad6a88a30c2b4a333da36a840d8dd743940ace1d9aec08",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:branding-smite",
+      "contentSha256": "b142933140a0876dd5663a556ad0564bdd2cbc4729ca7d03f017e93768536444",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 c28c6658f439698e0485787a040fab092c1438059310ef6ab652a8b9aacb076b",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "c28c6658f439698e0485787a040fab092c1438059310ef6ab652a8b9aacb076b",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v52.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/branding-smite-original-e37e3577c23cc444.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 58516,
+          "sha256": "e37e3577c23cc4448f6866f33bc0442e25c7bf9b329e1cf9465e75ff9c43b7b5",
+          "derivedFrom": "c28c6658f439698e0485787a040fab092c1438059310ef6ab652a8b9aacb076b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/branding-smite-thumbnail-bf62411e2831a8de.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 4729,
+          "sha256": "bf62411e2831a8de3dde78d12a19940b0fe1a2d31c3ff6ec95c46a26587f291f",
+          "derivedFrom": "c28c6658f439698e0485787a040fab092c1438059310ef6ab652a8b9aacb076b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:circle-of-death",
+      "contentSha256": "7bc2e6a1ed482e68d5d02da6fb2ae98b0e6bb22463d9340ff6d1b05ff29827a5",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 70b8e07e42204af0b4e51cb1c809136f49ba51fcc2e0a12cdb0a2e25bb7af250",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "70b8e07e42204af0b4e51cb1c809136f49ba51fcc2e0a12cdb0a2e25bb7af250",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v52.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/circle-of-death-original-895b4584ebb065b3.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 209722,
+          "sha256": "895b4584ebb065b396709b9f017cd9a8fae1df890746d500c3fdb8768fd606cf",
+          "derivedFrom": "70b8e07e42204af0b4e51cb1c809136f49ba51fcc2e0a12cdb0a2e25bb7af250",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/circle-of-death-thumbnail-d0b9c25839aa6f66.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16151,
+          "sha256": "d0b9c25839aa6f66686afd945ae7426ed442a48e0f5473a01feac4cdd083a5a1",
+          "derivedFrom": "70b8e07e42204af0b4e51cb1c809136f49ba51fcc2e0a12cdb0a2e25bb7af250",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:clairvoyance",
+      "contentSha256": "a9eb660f59fb045194ad3a1ae1e1669e4129c54f71c6bcfded734b066a06c12e",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 3bd7e345ecfaae2614a7749ad65119e5ea20c2cc161f29cb9af280ac593e18d1",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "3bd7e345ecfaae2614a7749ad65119e5ea20c2cc161f29cb9af280ac593e18d1",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v52.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/clairvoyance-original-ee8345556ca46d2b.png",
+          "width": 384,
+          "height": 379,
+          "bytes": 184798,
+          "sha256": "ee8345556ca46d2b88070f848e75055a3ab3060453b893cc53b214e67d4667b5",
+          "derivedFrom": "3bd7e345ecfaae2614a7749ad65119e5ea20c2cc161f29cb9af280ac593e18d1",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/clairvoyance-thumbnail-1424f5f66260f5ce.png",
+          "width": 96,
+          "height": 95,
+          "bytes": 12727,
+          "sha256": "1424f5f66260f5ce10be54a35a67e43f56368387a0cb21f90b8d5686c76f39e4",
+          "derivedFrom": "3bd7e345ecfaae2614a7749ad65119e5ea20c2cc161f29cb9af280ac593e18d1",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }

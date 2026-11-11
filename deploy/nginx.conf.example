@@ -40,6 +40,16 @@ server {
         add_header X-Content-Type-Options nosniff always;
         return 403 '{"error":"Неверный логин или пароль"}';
     }
+    # Queue the initial static burst at the SAME 10r/s rate. API/login
+    # retain their existing burst=30 policy; authentication stays inherited.
+    location ~ ^/(?:[a-z0-9-]+\.(?:js|css)|fonts/[a-z0-9-]+\.woff2)$ {
+        limit_req zone=skaz_requests burst=80;
+        proxy_pass http://127.0.0.1:4173;
+        proxy_set_header Host 127.0.0.1:4173;
+        proxy_set_header Authorization "";
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_read_timeout 30s;
+    }
     location / {
         limit_req zone=skaz_requests burst=30 nodelay;
         proxy_pass http://127.0.0.1:4173;

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 271,
+  "count": 287,
   "pairs": [
     {
       "ids": [
@@ -548,6 +548,11 @@
       "light": "6fa496c289119b3b"
     },
     {
+      "id": "srd51:2014:monster:black-dragon-wyrmling",
+      "dark": "43e33c0cf892936b",
+      "light": "38ccc33316cd6cb4"
+    },
+    {
       "id": "srd51:2014:monster:black-pudding",
       "dark": "440c3bb3b7f2c80e",
       "light": "2ec390785f2725d4"
@@ -556,6 +561,21 @@
       "id": "srd51:2014:monster:blink-dog",
       "dark": "4f73323468ce2ccc",
       "light": "349cc94f9663c332"
+    },
+    {
+      "id": "srd51:2014:monster:blue-dragon-wyrmling",
+      "dark": "46c72d3892e7c34a",
+      "light": "61b99a6666cd3930"
+    },
+    {
+      "id": "srd51:2014:monster:brass-dragon-wyrmling",
+      "dark": "074e780d3d373b30",
+      "light": "78919732c64acdc9"
+    },
+    {
+      "id": "srd51:2014:monster:bronze-dragon-wyrmling",
+      "dark": "43877878a6a5c1da",
+      "light": "6a61940e7bda3c25"
     },
     {
       "id": "srd51:2014:monster:brown-bear",
@@ -601,6 +621,11 @@
       "id": "srd51:2014:monster:commoner",
       "dark": "414f3fcc3c986439",
       "light": "3ca5c3c2960fc91b"
+    },
+    {
+      "id": "srd51:2014:monster:copper-dragon-wyrmling",
+      "dark": "50173f60e19a96b5",
+      "light": "3fe0c01f7ef02168"
     },
     {
       "id": "srd51:2014:monster:couatl",
@@ -733,6 +758,16 @@
       "light": "4cce33361e7031b9"
     },
     {
+      "id": "srd51:2014:monster:gold-dragon-wyrmling",
+      "dark": "12363dc1ce2c39b5",
+      "light": "6dc4d23b9292644f"
+    },
+    {
+      "id": "srd51:2014:monster:green-dragon-wyrmling",
+      "dark": "43633c1d9bb0c26b",
+      "light": "3c9cc363634d3c94"
+    },
+    {
       "id": "srd51:2014:monster:guard",
       "dark": "4c4cb7273a2133f2",
       "light": "7785daca911cc925"
@@ -833,6 +868,11 @@
       "light": "65d41f4ed8611e64"
     },
     {
+      "id": "srd51:2014:monster:red-dragon-wyrmling",
+      "dark": "11996e66a7a5421f",
+      "light": "6ee681315a5e2ce1"
+    },
+    {
       "id": "srd51:2014:monster:rhinoceros",
       "dark": "500f2e7e76f00963",
       "light": "38d1a50a8e9ed6a6"
@@ -841,6 +881,11 @@
       "id": "srd51:2014:monster:rust-monster",
       "dark": "15b670e3ca4859b5",
       "light": "6ac89b393596b249"
+    },
+    {
+      "id": "srd51:2014:monster:silver-dragon-wyrmling",
+      "dark": "466c3dd032336be4",
+      "light": "3991c22ecf6c909b"
     },
     {
       "id": "srd51:2014:monster:skeleton",
@@ -866,6 +911,11 @@
       "id": "srd51:2014:monster:water-elemental",
       "dark": "405b0fad3cd269ac",
       "light": "6794c0d28b2d96ce"
+    },
+    {
+      "id": "srd51:2014:monster:white-dragon-wyrmling",
+      "dark": "46372dc89633e10f",
+      "light": "39d9d62665583cc1"
     },
     {
       "id": "srd51:2014:monster:wolf",
@@ -1013,9 +1063,19 @@
       "light": "69c1a667c61e929c"
     },
     {
+      "id": "srd51:2014:spell:arcane-sword",
+      "dark": "15b634cd4959cee0",
+      "light": "6cc9dbb29624610f"
+    },
+    {
       "id": "srd51:2014:spell:arcanists-magic-aura",
       "dark": "45a63e6cb0f17033",
       "light": "36c991964f62c93c"
+    },
+    {
+      "id": "srd51:2014:spell:astral-projection",
+      "dark": "199967646e9236c6",
+      "light": "24c73c9ac13cc379"
     },
     {
       "id": "srd51:2014:spell:augury",
@@ -1046,6 +1106,11 @@
       "id": "srd51:2014:spell:beacon-of-hope",
       "dark": "4b2c30f36c64f2c3",
       "light": "31864b2fc23b9c6c"
+    },
+    {
+      "id": "srd51:2014:spell:bestow-curse",
+      "dark": "193372d8346167ce",
+      "light": "684e87a59b9a9871"
     },
     {
       "id": "srd51:2014:spell:black-tentacles",
@@ -1083,6 +1148,11 @@
       "light": "26c69939c3b22cce"
     },
     {
+      "id": "srd51:2014:spell:branding-smite",
+      "dark": "1993666c4d399396",
+      "light": "31cecc33c6cc31cc"
+    },
+    {
       "id": "srd51:2014:spell:burning-hands",
       "dark": "451d78c11f62cc1f",
       "light": "6a62958d98b1a74d"
@@ -1111,6 +1181,16 @@
       "id": "srd51:2014:spell:chill-touch",
       "dark": "419d3a1b39687a9c",
       "light": "32c6c639c637c558"
+    },
+    {
+      "id": "srd51:2014:spell:circle-of-death",
+      "dark": "4ccb33306b9e8c66",
+      "light": "2ee0e19b90c8cf3c"
+    },
+    {
+      "id": "srd51:2014:spell:clairvoyance",
+      "dark": "1a3279e3612cc76c",
+      "light": "65c6869c98999d33"
     },
     {
       "id": "srd51:2014:spell:cloudkill",

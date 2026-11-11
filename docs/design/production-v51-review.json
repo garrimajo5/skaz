@@ -1,0 +1,96 @@
+{
+  "accepted": [
+    {
+      "id": "srd51:2014:monster:black-dragon-wyrmling",
+      "sha256": "5b0d73b328ac0d324c84ffa6890493275d0de61087fba88dc2adcec15f59f513",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1170713,
+      "review": "Original anatomy and browser contact sheet reviewed on Polaris, Coal and Atlas at 32/40 px, including grayscale circular crops. Wyrmlings differ by pose, head profile, wing shape and materials. Black and blue framing corrected before acceptance; silver upright versus white crouching remains distinguishable without color."
+    },
+    {
+      "id": "srd51:2014:monster:blue-dragon-wyrmling",
+      "sha256": "89bab23fe796168eca02bafd3c4efebbbb946af6bbfb8c302fea8fc00eee6e85",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1223567,
+      "review": "Original anatomy and browser contact sheet reviewed on Polaris, Coal and Atlas at 32/40 px, including grayscale circular crops. Wyrmlings differ by pose, head profile, wing shape and materials. Black and blue framing corrected before acceptance; silver upright versus white crouching remains distinguishable without color."
+    },
+    {
+      "id": "srd51:2014:monster:brass-dragon-wyrmling",
+      "sha256": "0f6171e1c5d0905bffd61648fe51c7500b01d1f9444f90f7970e5ebd9ebdf8d2",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 815397,
+      "review": "Original anatomy and browser contact sheet reviewed on Polaris, Coal and Atlas at 32/40 px, including grayscale circular crops. Wyrmlings differ by pose, head profile, wing shape and materials. Black and blue framing corrected before acceptance; silver upright versus white crouching remains distinguishable without color."
+    },
+    {
+      "id": "srd51:2014:monster:bronze-dragon-wyrmling",
+      "sha256": "076fbc9b0b71fa3173d8f9fa6a85af5db89e1b1482fa31081fe76c384f3c2e05",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1069667,
+      "review": "Original anatomy and browser contact sheet reviewed on Polaris, Coal and Atlas at 32/40 px, including grayscale circular crops. Wyrmlings differ by pose, head profile, wing shape and materials. Black and blue framing corrected before acceptance; silver upright versus white crouching remains distinguishable without color."
+    },
+    {
+      "id": "srd51:2014:monster:copper-dragon-wyrmling",
+      "sha256": "70a03ed5f1dacd8e4ffd1ffe3fba4029d86eacbeb27e6d51f31fbb9dc83e8e7c",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1068296,
+      "review": "Original anatomy and browser contact sheet reviewed on Polaris, Coal and Atlas at 32/40 px, including grayscale circular crops. Wyrmlings differ by pose, head profile, wing shape and materials. Black and blue framing corrected before acceptance; silver upright versus white crouching remains distinguishable without color."
+    },
+    {
+      "id": "srd51:2014:monster:gold-dragon-wyrmling",
+      "sha256": "c7ed4ea584db086848e25f3e6875f6ef0edb562e4cb502e681d9b5ace0de3e88",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1114152,
+      "review": "Original anatomy and browser contact sheet reviewed on Polaris, Coal and Atlas at 32/40 px, including grayscale circular crops. Wyrmlings differ by pose, head profile, wing shape and materials. Black and blue framing corrected before acceptance; silver upright versus white crouching remains distinguishable without color."
+    },
+    {
+      "id": "srd51:2014:monster:green-dragon-wyrmling",
+      "sha256": "47112e7ddb81b9e8d56df5c706e2e10302153426c61a0f8426fb4fe9750b37b3",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1189583,
+      "review": "Original anatomy and browser contact sheet reviewed on Polaris, Coal and Atlas at 32/40 px, including grayscale circular crops. Wyrmlings differ by pose, head profile, wing shape and materials. Black and blue framing corrected before acceptance; silver upright versus white crouching remains distinguishable without color."
+    },
+    {
+      "id": "srd51:2014:monster:red-dragon-wyrmling",
+      "sha256": "de16d44eae5be21578df1c343c46efd1db6b59e65f122eefa9e955b6493a78f3",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1089431,
+      "review": "Original anatomy and browser contact sheet reviewed on Polaris, Coal and Atlas at 32/40 px, including grayscale circular crops. Wyrmlings differ by pose, head profile, wing shape and materials. Black and blue framing corrected before acceptance; silver upright versus white crouching remains distinguishable without color."
+    },
+    {
+      "id": "srd51:2014:monster:silver-dragon-wyrmling",
+      "sha256": "b0fdc2a49f5ffebc107a3d74ed3311af6b3a3181fd06611f87c3539a0382666b",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1047870,
+      "review": "Original anatomy and browser contact sheet reviewed on Polaris, Coal and Atlas at 32/40 px, including grayscale circular crops. Wyrmlings differ by pose, head profile, wing shape and materials. Black and blue framing corrected before acceptance; silver upright versus white crouching remains distinguishable without color."
+    },
+    {
+      "id": "srd51:2014:monster:white-dragon-wyrmling",
+      "sha256": "dd8e5271bdbcc42bb5d184c273eb8c09a96af7e83d2714d7bc9118a85c0009a2",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1191964,
+      "review": "Original anatomy and browser contact sheet reviewed on Polaris, Coal and Atlas at 32/40 px, including grayscale circular crops. Wyrmlings differ by pose, head profile, wing shape and materials. Black and blue framing corrected before acceptance; silver upright versus white crouching remains distinguishable without color."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "srd51:2014:monster:black-dragon-wyrmling",
+      "sourcePath": "data/art-production-v51/black-dragon-wyrmling-candidate-1.png",
+      "reason": "Insufficient padding near wing/frame; regenerated with wider transparent margins."
+    },
+    {
+      "id": "srd51:2014:monster:blue-dragon-wyrmling",
+      "sourcePath": "data/art-production-v51/blue-dragon-wyrmling-candidate-1.png",
+      "reason": "Insufficient padding near wing/frame; regenerated with wider transparent margins."
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "accepted": [
+    {
+      "id": "srd51:2014:spell:arcane-sword",
+      "sha256": "5039e70f90326901b9d131976d2131d35834cbe3375eeca8543c8deeb849a475",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1273613,
+      "review": "Original and browser contact sheet reviewed in Polaris, Coal and Atlas at 32/40 px and grayscale circle. Force sword is distinct from steel/radiant blades; astral silver cord, curse hand, death ring and scrying mirror remain recognizable. Corrected radiant sword margins and replaced modern-looking clairvoyance candidate."
+    },
+    {
+      "id": "srd51:2014:spell:astral-projection",
+      "sha256": "8cc4f191bf004b0ca8f88f1dd05c648934e75080ee72941adf2c6a7b0465a340",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1183506,
+      "review": "Original and browser contact sheet reviewed in Polaris, Coal and Atlas at 32/40 px and grayscale circle. Force sword is distinct from steel/radiant blades; astral silver cord, curse hand, death ring and scrying mirror remain recognizable. Corrected radiant sword margins and replaced modern-looking clairvoyance candidate."
+    },
+    {
+      "id": "srd51:2014:spell:bestow-curse",
+      "sha256": "d5eb0acd0559cc7ccfad6a88a30c2b4a333da36a840d8dd743940ace1d9aec08",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 991034,
+      "review": "Original and browser contact sheet reviewed in Polaris, Coal and Atlas at 32/40 px and grayscale circle. Force sword is distinct from steel/radiant blades; astral silver cord, curse hand, death ring and scrying mirror remain recognizable. Corrected radiant sword margins and replaced modern-looking clairvoyance candidate."
+    },
+    {
+      "id": "srd51:2014:spell:branding-smite",
+      "sha256": "c28c6658f439698e0485787a040fab092c1438059310ef6ab652a8b9aacb076b",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1393754,
+      "review": "Original and browser contact sheet reviewed in Polaris, Coal and Atlas at 32/40 px and grayscale circle. Force sword is distinct from steel/radiant blades; astral silver cord, curse hand, death ring and scrying mirror remain recognizable. Corrected radiant sword margins and replaced modern-looking clairvoyance candidate."
+    },
+    {
+      "id": "srd51:2014:spell:circle-of-death",
+      "sha256": "70b8e07e42204af0b4e51cb1c809136f49ba51fcc2e0a12cdb0a2e25bb7af250",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 814945,
+      "review": "Original and browser contact sheet reviewed in Polaris, Coal and Atlas at 32/40 px and grayscale circle. Force sword is distinct from steel/radiant blades; astral silver cord, curse hand, death ring and scrying mirror remain recognizable. Corrected radiant sword margins and replaced modern-looking clairvoyance candidate."
+    },
+    {
+      "id": "srd51:2014:spell:clairvoyance",
+      "sha256": "3bd7e345ecfaae2614a7749ad65119e5ea20c2cc161f29cb9af280ac593e18d1",
+      "width": 1263,
+      "height": 1246,
+      "transparentPixels": 1005566,
+      "review": "Original and browser contact sheet reviewed in Polaris, Coal and Atlas at 32/40 px and grayscale circle. Force sword is distinct from steel/radiant blades; astral silver cord, curse hand, death ring and scrying mirror remain recognizable. Corrected radiant sword margins and replaced modern-looking clairvoyance candidate."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "srd51:2014:spell:branding-smite",
+      "sourcePath": "data/art-production-v52/branding-smite-candidate-1.png",
+      "reason": "Radiant ray too near frame; padding corrected."
+    },
+    {
+      "id": "srd51:2014:spell:clairvoyance",
+      "sourcePath": "data/art-production-v52/clairvoyance-candidate-1.png",
+      "reason": "Concentric arcs resembled a modern Wi-Fi pictogram; regenerated as a fantasy scrying mirror."
+    }
+  ]
+}
