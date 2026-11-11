@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-11",
+  "release": "898f6fb",
+  "acceptedArt": 265,
+  "availablePng": 530,
+  "environment": "Desktop IAB, viewport 820x1180; not physical tablet",
+  "fixture": "scripts/art-load-fixture.mjs",
+  "origin": "http://127.0.0.1:4249",
+  "scenario": "New origin play screen, then reload same tab. Both visible 96px images loaded.",
+  "measurement": "Server response body bytes, excluding HTTP/TLS overhead; no latency/FPS/offline claim",
+  "first": {
+    "requests": 55,
+    "bodyBytes": 885468,
+    "groups": {
+      "shell": {
+        "requests": 49,
+        "bodyBytes": 747685
+      },
+      "api": {
+        "requests": 4,
+        "bodyBytes": 118265
+      },
+      "art": {
+        "requests": 2,
+        "bodyBytes": 19518
+      }
+    }
+  },
+  "repeat": {
+    "requests": 52,
+    "bodyBytes": 865902,
+    "groups": {
+      "shell": {
+        "requests": 48,
+        "bodyBytes": 747637
+      },
+      "api": {
+        "requests": 4,
+        "bodyBytes": 118265
+      },
+      "art": {
+        "requests": 0,
+        "bodyBytes": 0
+      }
+    }
+  }
+}
