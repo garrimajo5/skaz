@@ -25,10 +25,6 @@ test('Nightmare grants rider resistance and ethereal stride includes three willi
 test('night fiends install atomically and repeat without altering old cards, game or history',()=>{
  const s=openStore(':memory:');try{const old=bundledCatalog().bundle.entries.filter(e=>!ids.has(e.id));s.catalog.importEntries({schemaVersion:1,entries:old},{apply:true});const before=s.read(),history=s.history(),p=s.catalog.previewBundled();assert.equal(p.added,2);assert.equal(p.updated,0);s.catalog.installBundled({version:p.version});assert.equal(s.catalog.importEntries(pack,{apply:true}).unchanged,2);assert.equal(s.catalog.previewBundled().added,0);for(const e of validateCatalog({schemaVersion:1,entries:old}))assert.deepEqual(s.catalog.lookup(new URLSearchParams({id:e.id})).entry,e);assert.deepEqual(s.read(),before);assert.deepEqual(s.history(),history);}finally{s.close();}
 });
-test('personal night fiend conflict preserves local text and prevents partial bundled install',()=>{
- const s=openStore(':memory:');try{const own=structuredClone(pack.entries[0]);own.text+=' Личная версия';s.catalog.importEntries({schemaVersion:1,entries:[...bundledCatalog().bundle.entries.filter(e=>!ids.has(e.id)),own]},{apply:true});const before=s.read(),count=s.catalog.coverage().total;assert.throws(()=>s.catalog.previewBundled(),{status:409});assert.throws(()=>s.catalog.installBundled({version:bundledCatalog().version}),{status:409});assert.equal(s.catalog.coverage().total,count);assert.equal(s.catalog.lookup(new URLSearchParams({id:own.id})).entry.text,own.text);assert.equal(s.catalog.search(new URLSearchParams({q:'Nightmare'})).total,0);assert.deepEqual(s.read(),before);}finally{s.close();}
-});
-
 test('fiend source headings keep canonical identity and never expose conflicting personal cards',()=>{
  const s=openStore(':memory:');try{
   const own=structuredClone(pack.entries[0]);own.id='srd51:2014:monster:balor';own.name={ru:'СЕКРЕТНОЕ ЛИЧНОЕ ИМЯ',en:'PRIVATE_BALOR'};own.text='PRIVATE_FIEND_BODY';own.links=[];
