@@ -1,3 +1,4 @@
+# Requires skaz_static zone from nginx.conf.example (100r/s).
 # Isolated synthetic fixture ONLY. This file is not installed by deployment.
 # Default binding is loopback: it does not open a public test service.
 # Substitute __PUBLIC_HOST__ with the existing certificate's exact IP/domain.
@@ -32,10 +33,10 @@ server {
         add_header X-Content-Type-Options nosniff always;
         return 403 '{"error":"Неверный логин или пароль"}';
     }
-    # Queue the initial static burst at the SAME 10r/s rate. API/login
+    # Static requests have an independent burst budget. API/login
     # retain their existing burst=30 policy; authentication stays inherited.
     location ~ ^/(?:[a-z0-9-]+\.(?:js|css)|fonts/[a-z0-9-]+\.woff2)$ {
-        limit_req zone=skaz_requests burst=80;
+        limit_req zone=skaz_static burst=160 nodelay;
         proxy_pass http://127.0.0.1:4177;
         proxy_set_header Host 127.0.0.1:4177;
         proxy_set_header Authorization "";
