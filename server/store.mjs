@@ -1,3 +1,5 @@
+import {buildAdvancementChange,validateAdvancementCommand,validateAdvancementSnapshot,buildResourceBinding,validateResourceBindingCommand} from './class-advancement.mjs';
+import {checkAdvancementCompatibility,setupAdvancement,readAdvancement,persistAdvancement} from './class-advancement-store.mjs';
 import {validateResourceCommand,applyResourceCommand} from './resource-operations.mjs';
 import {setupResourceHistory,recordResource,inverseResource,historyDetail,independentResourcesSince,resourceReceipt} from './resource-history.mjs';
 import {setupCharacterSheets,readCharacterSheet,validateSheetCommand,saveCharacterSheet,validateCounterCommand,changeCharacterCounter} from './character-sheet.mjs';
@@ -23,9 +25,11 @@ import { validateChargeCommand, changeCharges, setupInventory, validateInventory
 import { setupSessions, validateSession, startSession, listSessions, readSession } from './sessions.mjs';
 import { migrateEntities, readEntities, writeEntities, joinState, contextIds, createGame, selectGame, listGames } from './entities.mjs';
 
-export function openStore(filename) {
+export function openStore(filename, {classAdvancement=false}={}) {
+  if(typeof classAdvancement!=='boolean')throw new AppError(422,'Неверный режим повышения уровня');
   if (filename !== ':memory:') mkdirSync(path.dirname(filename), { recursive: true });
   const db = new DatabaseSync(filename);
+  try{checkAdvancementCompatibility(db,{enabled:classAdvancement});}catch(error){db.close();throw error;}
   db.exec('PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON; PRAGMA busy_timeout=5000;');
   db.exec(`
     CREATE TABLE IF NOT EXISTS workspace (
@@ -52,6 +56,7 @@ export function openStore(filename) {
   setupSpellbook(db);
   setupCharacterStats(db);
   setupCharacterSheets(db);
+  if(classAdvancement)try{setupAdvancement(db);}catch(error){db.close();throw error;}
   setupResourceHistory(db);
   setupQuests(db);
   setupPlaces(db);
@@ -70,6 +75,7 @@ export function openStore(filename) {
       spellbook:readSpellbook(db,context.character.id),
       characterStats: readCharacterStats(db,context.character.id),
       characterSheet: readCharacterSheet(db,context.character.id),
+      ...(classAdvancement?{advancement:readAdvancement(db,context.character.id)}:{}),
       state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
   }
   function exportActive(version = 2) {
@@ -79,6 +85,8 @@ export function openStore(filename) {
     db.exec('BEGIN');
     try {
       const current = read();
+      if(current.advancement&&version<13)throw new AppError(409,'Повышение уровня требует экспорт v13 или полную SQLite-копию');
+      if(current.advancement)validateAdvancementSnapshot(current.advancement,current.characterSheet,current.characterStats,current.spellbook);
       if(!personalArt&&db.prepare("SELECT 1 FROM sqlite_master WHERE type='table' AND name='personal_art_versions'").get()){
         const hasArt=db.prepare(`SELECT 1 FROM personal_art_versions v WHERE character_id=? ${artOwner?'AND user_id=?':''} AND master IS NOT NULL AND revision=(SELECT max(n.revision) FROM personal_art_versions n WHERE n.user_id=v.user_id AND n.character_id=v.character_id AND n.catalog_id=v.catalog_id) LIMIT 1`).get(current.context.characterId,...(artOwner?[artOwner]:[]));
         if(hasArt)throw new AppError(409,'Личные изображения требуют экспорт игры с изображениями');
@@ -90,7 +98,7 @@ export function openStore(filename) {
       const quests = readQuests(db, current.context.campaignId);
       const places = readPlaces(db, current.context.campaignId);
       const proposals = readProposals(db, current.context);
-      if (![2,3,4,5,6,7,8,9,10,11,12].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if (![2,3,4,5,6,7,8,9,10,11,12,13].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
       if(version<12&&(current.state.concentrationChecks!==undefined||current.state.deathSaves!==undefined))throw new AppError(409,'Здоровье и проверки требуют экспорт v12');
       if(version<11&&current.state.tempHp!==undefined)throw new AppError(409,'Временные хиты требуют экспорт v11');
       if(version<10&&current.characterSheet&&['spellcasting','saveProficiencies'].some(key=>Object.hasOwn(current.characterSheet,key)))throw new AppError(409,'Настройки заклинаний требуют экспорт v10 или SQLite backup');
@@ -123,6 +131,7 @@ export function openStore(filename) {
         state: current.state, session: current.session,
         ...(version>=8?{characterStats:current.characterStats}:{}),
         ...(version>=9?{characterSheet:current.characterSheet}:{}),
+        ...(version>=13?{advancement:current.advancement??null}:{}),
         inventory: inventory.map(({ catalogId, quantity, chargeCounts }) => ({ catalogId, quantity, ...(version >= 7 && chargeCounts ? { chargeCounts } : {}) })),
         ...(version >= 3 ? { spellbook: spellbook.map(({ catalogId, status }) => ({ catalogId, status })) } : {}),
         ...(version >= 4 ? { quests: quests.map(({ id, campaignId, createdSessionId, importedFrom, title, description, status, steps }) => ({ origin: importedFrom || { campaignId, questId: id, sessionId: createdSessionId }, quest: { title, description, status, steps } })) } : {}),
@@ -257,9 +266,30 @@ export function openStore(filename) {
       }, 'quest-save');
     },
     changeCharacterCounter:request=>{const payload=validateCounterCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'character-sheet-counter',expectedRevision:request.expectedRevision,payload})).digest('hex');return mutate(request,hash,'Изменение счётчика класса',()=>{changeCharacterCounter(db,payload,request.mutationId,read().context.characterId);return read().state;},'character-sheet-counter');},
+    bindClassResources:request=>{
+      if(!classAdvancement)throw new AppError(403,'Повышение уровня ещё не включено');
+      const payload=validateResourceBindingCommand(request);
+      const hash=createHash('sha256').update(JSON.stringify({operation:'class-resource-binding',payload})).digest('hex');
+      return mutate(request,hash,'Подключение ресурсов класса',()=>{
+        const change=buildResourceBinding(read(),payload);
+        persistAdvancement(db,change,request.mutationId,payload.characterId);
+        return change.state;
+      },'class-resource-binding');
+    },
+    advanceCharacter:request=>{
+      if(!classAdvancement)throw new AppError(403,'Повышение уровня ещё не включено');
+      const payload=validateAdvancementCommand(request);
+      const hash=createHash('sha256').update(JSON.stringify({operation:'class-advancement',payload})).digest('hex');
+      return mutate(request,hash,'Повышение уровня персонажа',()=>{
+        const change=buildAdvancementChange(read(),payload);
+        persistAdvancement(db,change,request.mutationId,payload.characterId);
+        writeEntities(db,change.state,viewId);
+        return change.state;
+      },'class-advancement');
+    },
     saveCharacterSheet:request=>{
       const payload=validateSheetCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'character-sheet',expectedRevision:request.expectedRevision,payload})).digest('hex');
-      return mutate(request,hash,'Ручной класс и счётчики',()=>{saveCharacterSheet(db,payload,request.mutationId,read().context.characterId);return read().state;},'character-sheet');
+      return mutate(request,hash,'Ручной класс и счётчики',()=>{const current=read();if(current.advancement&&(!payload.sheet||payload.sheet.level!==current.characterSheet.level||payload.sheet.className!==current.characterSheet.className))throw new AppError(409,'Класс и уровень связаны с историей повышения');saveCharacterSheet(db,payload,request.mutationId,current.context.characterId);return read().state;},'character-sheet');
     },
     saveCharacterStats: request => {
       const payload=validateStatsCommand(request);
@@ -341,6 +371,7 @@ export function openStore(filename) {
       if(withArt&&!personalArt)throw new AppError(403,'Перенос личных изображений не включён');
       const parsed=withArt?validateGameArtPackage(request.file):null;
       const payload = parsed?.game??validateTransfer(request.file);
+      if(payload.advancement&&!classAdvancement)throw new AppError(403,'Перенос повышения уровня ещё не включён');
       const hash = createHash('sha256').update(JSON.stringify({ operation: 'import-active', expectedRevision: request.expectedRevision, payload,...(withArt?{personalArt:request.file.personalArt}:{}) })).digest('hex');
       return mutate(request, hash, 'Импорт игры с инвентарём', () => {
         importTransfer(db, payload, request.mutationId, viewId);

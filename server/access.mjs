@@ -209,7 +209,7 @@ export function createUserReader(db, access, userId, clientViewId, createView, g
   for (const method of ['search','coverage','spellInventory','creatureInventory','lookup']) result.catalog[method]=(...args)=>read(()=>catalog[method](...args));
   for (const method of ['importEntries','reviewedImport','previewBundled','installBundled']) result.catalog[method]=disabled;
   // Never leak a raw store method by spreading it into a scoped capability.
-  for (const method of ['undoResource','changeResource','update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','saveCharacterStats','saveCharacterSheet','changeCharacterCounter','changeCharges','addInventory','removeInventory','undoInventory','history','backup','close','forView','forUser']) result[method]=disabled;
+  for (const method of ['bindClassResources','advanceCharacter','undoResource','changeResource','update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','saveCharacterStats','saveCharacterSheet','changeCharacterCounter','changeCharges','addInventory','removeInventory','undoInventory','history','backup','close','forView','forUser']) result[method]=disabled;
   return Object.freeze({...result,catalog:Object.freeze(result.catalog)});
 }
 
@@ -268,7 +268,7 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
       db.exec('COMMIT');return inventory;
     } catch(error) {db.exec('ROLLBACK');throw error;}
   };
-  const methods=['undoResource','changeResource','update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','saveCharacterStats','saveCharacterSheet','changeCharacterCounter','changeCharges','addInventory','removeInventory','undoInventory'];
+  const methods=['bindClassResources','advanceCharacter','undoResource','changeResource','update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','saveCharacterStats','saveCharacterSheet','changeCharacterCounter','changeCharges','addInventory','removeInventory','undoInventory'];
   for (const method of methods) result[method]=request=>{
     const mutationView=createView(viewId,()=>{},event=>{
       // Revocation is checked inside BEGIN IMMEDIATE, not merely at dispatch.
