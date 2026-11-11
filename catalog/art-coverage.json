@@ -17,7 +17,7 @@
     },
     "monster": {
       "total": 204,
-      "accepted": 102
+      "accepted": 106
     }
   },
   "statuses": {
@@ -103,6 +103,7 @@
       "srd51:2014:monster:ancient-silver-dragon",
       "srd51:2014:monster:ancient-white-dragon",
       "srd51:2014:monster:animated-armor",
+      "srd51:2014:monster:ankheg",
       "srd51:2014:monster:ape",
       "srd51:2014:monster:archmage",
       "srd51:2014:monster:assassin",
@@ -112,8 +113,11 @@
       "srd51:2014:monster:badger",
       "srd51:2014:monster:bandit",
       "srd51:2014:monster:bandit-captain",
+      "srd51:2014:monster:basilisk",
       "srd51:2014:monster:bat",
       "srd51:2014:monster:berserker",
+      "srd51:2014:monster:black-pudding",
+      "srd51:2014:monster:blink-dog",
       "srd51:2014:monster:brown-bear",
       "srd51:2014:monster:bugbear",
       "srd51:2014:monster:camel",
@@ -268,15 +272,11 @@
     "placeholder": []
   },
   "missing": [
-    "srd51:2014:monster:ankheg",
     "srd51:2014:monster:azer",
     "srd51:2014:monster:balor",
     "srd51:2014:monster:barbed-devil",
-    "srd51:2014:monster:basilisk",
     "srd51:2014:monster:bearded-devil",
     "srd51:2014:monster:black-dragon-wyrmling",
-    "srd51:2014:monster:black-pudding",
-    "srd51:2014:monster:blink-dog",
     "srd51:2014:monster:blue-dragon-wyrmling",
     "srd51:2014:monster:bone-devil",
     "srd51:2014:monster:brass-dragon-wyrmling",
@@ -610,15 +610,11 @@
     "srd51:2014:spell:word-of-recall"
   ],
   "uncovered": [
-    "srd51:2014:monster:ankheg",
     "srd51:2014:monster:azer",
     "srd51:2014:monster:balor",
     "srd51:2014:monster:barbed-devil",
-    "srd51:2014:monster:basilisk",
     "srd51:2014:monster:bearded-devil",
     "srd51:2014:monster:black-dragon-wyrmling",
-    "srd51:2014:monster:black-pudding",
-    "srd51:2014:monster:blink-dog",
     "srd51:2014:monster:blue-dragon-wyrmling",
     "srd51:2014:monster:bone-devil",
     "srd51:2014:monster:brass-dragon-wyrmling",

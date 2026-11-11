@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 240,
+  "count": 244,
   "pairs": [
     {
       "ids": [
@@ -478,6 +478,11 @@
       "light": "62b3b00fcc53a94b"
     },
     {
+      "id": "srd51:2014:monster:ankheg",
+      "dark": "420f3ff03896634b",
+      "light": "3fd0c10b946ec53c"
+    },
+    {
       "id": "srd51:2014:monster:ape",
       "dark": "460e38f1239f73a1",
       "light": "6fe4965aa8199938"
@@ -523,6 +528,11 @@
       "light": "6be5c62e941ad819"
     },
     {
+      "id": "srd51:2014:monster:basilisk",
+      "dark": "403b3fb535c038cb",
+      "light": "7eb1914aca2d0d3c"
+    },
+    {
       "id": "srd51:2014:monster:bat",
       "dark": "4676383933ce8c96",
       "light": "4676383933ce8c96"
@@ -531,6 +541,16 @@
       "id": "srd51:2014:monster:berserker",
       "dark": "511b3fe52c3e5890",
       "light": "6fa496c289119b3b"
+    },
+    {
+      "id": "srd51:2014:monster:black-pudding",
+      "dark": "440c3bb3b7f2c80e",
+      "light": "2ec390785f2725d4"
+    },
+    {
+      "id": "srd51:2014:monster:blink-dog",
+      "dark": "4f73323468ce2ccc",
+      "light": "349cc94f9663c332"
     },
     {
       "id": "srd51:2014:monster:brown-bear",

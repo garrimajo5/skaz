@@ -10561,6 +10561,182 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:monster:ankheg",
+      "contentSha256": "6f95daf2073b379a85ef90aed18c6a4c167f188dae4b010399ff56d5aa2b2cfd",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 46dc64b79967793cf4b61881c08a106fe0a34ce90a5fc20dd030a468b8bab244",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "46dc64b79967793cf4b61881c08a106fe0a34ce90a5fc20dd030a468b8bab244",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v46.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ankheg-original-dbb6a3661a623f29.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 245499,
+          "sha256": "dbb6a3661a623f29954ccc8d15fc5104eb64107cb9d62b8c72df8a7483c9e293",
+          "derivedFrom": "46dc64b79967793cf4b61881c08a106fe0a34ce90a5fc20dd030a468b8bab244",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ankheg-thumbnail-063b7568887f7660.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 17275,
+          "sha256": "063b7568887f7660b5c22cfd9c4d0de829b0d5fbfca40c8b1c2c9bcab447bdf3",
+          "derivedFrom": "46dc64b79967793cf4b61881c08a106fe0a34ce90a5fc20dd030a468b8bab244",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:basilisk",
+      "contentSha256": "ed908c7a68d0ab5a05d164fc8c94c89e845c2945d24638250146e776390d238f",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 6572028f8615d23cfa568183eda4f23341538677f60669b3a7744bd2fa395657",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "6572028f8615d23cfa568183eda4f23341538677f60669b3a7744bd2fa395657",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v46.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/basilisk-original-a65ff3fea0dca8d7.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 242834,
+          "sha256": "a65ff3fea0dca8d72f48347f5aed0b36e6bc36fe3b52ad4eed8174b487da9b76",
+          "derivedFrom": "6572028f8615d23cfa568183eda4f23341538677f60669b3a7744bd2fa395657",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/basilisk-thumbnail-c0974b50024c01e0.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16991,
+          "sha256": "c0974b50024c01e0e96ca15c9c4c82210d6ce38545d38a4fc9d07ea3c71ac304",
+          "derivedFrom": "6572028f8615d23cfa568183eda4f23341538677f60669b3a7744bd2fa395657",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:black-pudding",
+      "contentSha256": "1ce25cb58c83fcfab67a2e772ea92d9ce1729b93b1a82a52ac4a181968772a61",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 bfb3a6b9e0496b7e75f896e316d14b5725dc145bce23b9e31782c3082781d879",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "bfb3a6b9e0496b7e75f896e316d14b5725dc145bce23b9e31782c3082781d879",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v46.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/black-pudding-original-bcf8c8190273983c.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 133801,
+          "sha256": "bcf8c8190273983cb2849986792bf2b13498d13398173646a0ab47644623282c",
+          "derivedFrom": "bfb3a6b9e0496b7e75f896e316d14b5725dc145bce23b9e31782c3082781d879",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/black-pudding-thumbnail-18c73e0e94033cc7.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10229,
+          "sha256": "18c73e0e94033cc7284dc36e96db4336212609308c058486ea8f8bb80a514653",
+          "derivedFrom": "bfb3a6b9e0496b7e75f896e316d14b5725dc145bce23b9e31782c3082781d879",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:blink-dog",
+      "contentSha256": "578c83e30842365826647810666fa7b50ba68831b35e9670eb774c95deb519f3",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 742a216469c711a2c69694a5dac80e47e850686a76669bc7bfaa1415d2772a11",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "742a216469c711a2c69694a5dac80e47e850686a76669bc7bfaa1415d2772a11",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v46.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/blink-dog-original-25e82b368f4ed1f2.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 182165,
+          "sha256": "25e82b368f4ed1f2499571febb12f2f6caa2dd4ba1422edee20a6ba4bab609a1",
+          "derivedFrom": "742a216469c711a2c69694a5dac80e47e850686a76669bc7bfaa1415d2772a11",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/blink-dog-thumbnail-0f95930c64936b92.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 12838,
+          "sha256": "0f95930c64936b92c7b24d0f1b37644bc8ee9ecc96701593adb5b78cf38854df",
+          "derivedFrom": "742a216469c711a2c69694a5dac80e47e850686a76669bc7bfaa1415d2772a11",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }
