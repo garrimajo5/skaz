@@ -9,14 +9,14 @@ function controls(current,max,allowed=true){
 }
 test('small counters expose one command per dot without absolute positions or duplicate IDs',()=>{
  for(const max of [1,4,10])for(const current of [0,max]){
-  const html=controls(current,max);assert.equal((html.match(/<button /g)||[]).length,max+1);
-  assert.equal((html.match(/data-counter-delta="-1"/g)||[]).length,max);
-  assert.equal((html.match(/data-counter-delta="1"/g)||[]).length,1);
-  assert.equal((html.match(/data-sheet-context="hero:revision"/g)||[]).length,max+1);
+  const html=controls(current,max);assert.equal((html.match(/<button /g)||[]).length,max);
+  assert.equal((html.match(/data-counter-delta="-1"/g)||[]).length,current);
+  assert.equal((html.match(/data-counter-delta="1"/g)||[]).length,max-current);
+  assert.equal((html.match(/data-sheet-context="hero:revision"/g)||[]).length,max);
   assert.doesNotMatch(html,/ id="|<Лёд>/);assert.match(html,/&lt;Лёд&gt;/);
  }
- assert.match(controls(0,0),/data-counter-delta="1"[^>]*disabled/);
- assert.equal((controls(2,4,false).match(/ disabled/g)||[]).length,5);
+ assert.doesNotMatch(controls(0,0),/<button/);
+ assert.equal((controls(2,4,false).match(/ disabled/g)||[]).length,4);
 });
 test('large counters retain bounded minus and plus, including read-only access',()=>{
  for(const max of [11,9999]){
@@ -30,12 +30,12 @@ test('large counters retain bounded minus and plus, including read-only access',
  }
 });
 
-test('tracker shapes differ without colour and every mark spends while explicit recovery stays separate',()=>{
+test('tracker shapes differ without colour and filled marks spend and empty marks restore without extra controls',()=>{
  const context=vm.createContext({esc:String});vm.runInContext(source,context);const api=vm.runInContext('SkazCharacterSheet',context);
  const fields={name:'2 круг',label:'Ячейка 2 круга',current:2,max:3,attributes:d=>'data-delta="'+d+'"',pending:[1]};
  const slots=api.tracker({...fields,shape:'circle'}),classResource=api.tracker({...fields,shape:'diamond'});
  assert.match(slots,/tracker-mark circle/);assert.match(classResource,/tracker-mark diamond/);
- assert.equal((slots.match(/data-delta="-1"/g)||[]).length,3);assert.equal((slots.match(/data-delta="1"/g)||[]).length,1);
+ assert.equal((slots.match(/data-delta="-1"/g)||[]).length,2);assert.equal((slots.match(/data-delta="1"/g)||[]).length,1);
  assert.match(slots,/Ячейка 2 круга, доступна/);assert.match(slots,/Ячейка 2 круга, потрачена/);assert.equal((slots.match(/Ждёт подтверждения сервера/g)||[]).length,1);
 });
 

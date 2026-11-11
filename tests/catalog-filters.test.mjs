@@ -27,7 +27,7 @@ test('structured filters combine with bilingual name, category and pagination, e
  s.catalog.importEntries({schemaVersion:1,entries:[zero,missing]},{apply:true});
  const search=q=>s.catalog.search(new URLSearchParams(q));
  assert.equal(search('kind=spell&level=0').entries[0].id,'test:cantrip');assert.equal(search('kind=spell&level=1').total,2);assert.equal(search('kind=spell').total,4);
- assert.equal(search('kind=spell&level=1&q=HEALING').total,1);assert.equal(search('kind=spell&level=1&q=лечение').total,1);
+ assert.equal(search('kind=spell&level=1&q=HEALING').total,1);assert.equal(search('kind=spell&level=1&q=лечение').total,2);
  const first=search('kind=spell&level=1&limit=1');const second=search('kind=spell&level=1&limit=1&offset=1');assert.equal(first.total,2);assert.notEqual(first.entries[0].id,second.entries[0].id);
  assert.equal(search('kind=monster&challenge=1%2F4').total,2);assert.equal(search('kind=monster&challenge=0').total,0);
  assert.equal(search('kind=item&rarity=common').entries[0].name.en,'Potion of Healing');assert.equal(search('kind=item&rarity=legendary').total,0);

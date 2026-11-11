@@ -365,3 +365,8 @@ test('category chips preserve the latest unsent query and drop incompatible deta
  const h=harness();h.draft('q',' shield ');h.draft('school','illusion');h.click('',{catalogKind:'monster'});assert.match(h.requests[0].url,/q=shield/);assert.match(h.requests[0].url,/kind=monster/);assert.doesNotMatch(h.requests[0].url,/school/);assert.match(h.view(),/data-catalog-kind="monster" aria-pressed="true"/);
  const count=h.requests.length;h.click('',{catalogKind:'unknown'});assert.equal(h.requests.length,count);assert.match(h.view(),/data-catalog-kind="monster" aria-pressed="true"/);
 });
+
+test('empty catalog offers preview even inside a filtered category, distinct from no matches',async()=>{
+ const h=harness();h.submit('огонь',{kind:'spell'});respond(h.requests[0],{entries:[],total:0});respond(h.requests[1],{total:0});await settle();assert.match(h.region.innerHTML,/Справочник ещё не установлен/);assert.doesNotMatch(h.region.innerHTML,/Ничего не найдено/);h.click('catalog-install-empty');assert.equal(h.requests[2].url,'/api/catalog/bundled');assert.notEqual(h.requests[2].options?.method,'POST');
+ const installed=harness();installed.submit('неттакогослова',{kind:'spell'});respond(installed.requests[0],{entries:[],total:0});respond(installed.requests[1],coverage);await settle();assert.match(installed.region.innerHTML,/Ничего не найдено/);assert.doesNotMatch(installed.region.innerHTML,/catalog-install-empty/);
+});

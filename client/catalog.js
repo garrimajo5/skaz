@@ -59,6 +59,7 @@ const SkazCatalog = (() => {
   function results() {
     if (status === 'loading' || status === 'idle') return '<p class="empty">Загружаем каталог…</p>';
     if (status === 'error') return '<div class="empty"><h2>Каталог недоступен</h2><p>Проверь, что локальный сервер запущен. Поиск сохранён — можно повторить запрос.</p><button id="catalog-retry">Повторить</button></div>';
+    if(coverage?.total===0)return '<div class="empty"><h2>Справочник ещё не установлен</h2><p>Установи проверенную подборку D&amp;D 2014: заклинания, существа и предметы SRD 5.1 (CC BY 4.0). Точный состав и количество записей — в предпросмотре.</p><button id="catalog-install-empty" class="primary">Установить подборку</button></div>';
     if(homeMode)return homeResults();
     if (!result?.entries.length) return `<div class="empty"><h2>${query || kind ? 'Ничего не найдено' : 'Каталог пока пуст'}</h2><p>${query || kind ? 'Попробуй другие слова, поиск по описаниям или все категории.' : 'Добавь справочные ссылки или личные материалы. Демо-заклинания доступны отдельно.'}</p></div>`;
     const pages=bottom=>`<nav class="catalog-pages" aria-label="${bottom?'Страницы каталога внизу':'Страницы каталога'}"><button id="catalog-prev${bottom?'-bottom':''}" ${offset === 0 ? 'disabled' : ''}>← Назад</button><span>${Math.floor(offset/limit)+1} / ${Math.ceil(result.total/limit)}</span><button id="catalog-next${bottom?'-bottom':''}" ${offset + limit >= result.total ? 'disabled' : ''}>Далее →</button></nav>`;
@@ -303,7 +304,7 @@ const SkazCatalog = (() => {
     if(button.dataset.inventoryRead)readInventoryEntry(button.dataset.inventoryRead);
     if(button.id==='inventory-return'&&returnToInventory&&inventoryData){++detailSerial;returnToInventory=false;paintInventory();}
     if(inventoryData && inventoryVisible(inventorySerial) && ['inventory-prev','inventory-next'].includes(button.id)){inventoryOffset=Math.max(0,inventoryOffset+(button.id==='inventory-next'?20:-20));paintInventory(true);}
-    if(button.id==='catalog-bundled')previewBundled();
+    if(button.id==='catalog-bundled'||button.id==='catalog-install-empty')previewBundled();
     if(button.id==='bundled-done')closeModal();
     if (button.id === 'catalog-help') SkazCatalogImport.open();
   });
