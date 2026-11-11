@@ -648,8 +648,8 @@ test('inventory filters reset for a new hero, clamp shortened pages, and stale h
  const make=i=>({catalogId:'item:'+i,quantity:1,entry:{name:{ru:'Кольцо '+i,en:'Ring '+i},source:{title:'Source',version:'1'},item:{attunement:false}}});
  const h=harness(memory(),memory(),async url=>response(url==='/api/workspace'?current:{...current,entries:Array.from({length:count},(_,i)=>make(i))}));
  await h.api.boot();await h.api.inventory();h.get('#inventory-next').onclick();h.get('#inventory-next').onclick();assert.match(h.dialog(),/21–21 из 21/);
- count=2;await h.api.inventory();assert.match(h.dialog(),/1–2 из 2/);
- h.get('#inventory-query').value='no match';h.get('#inventory-attunement').value='';h.get('#inventory-search').onsubmit({preventDefault(){}});assert.match(h.dialog(),/По этим условиям ничего не найдено/);assert.match(h.dialog(),/0–0 из 0/);
+ count=2;await h.api.inventory();assert.match(h.dialog(),/1–2 из 2/);assert.match(h.dialog(),/class="inventory-pages" hidden/);assert.match(h.dialog(),/class="inventory-search" hidden/);
+ h.get('#inventory-query').value='no match';h.get('#inventory-attunement').value='';h.get('#inventory-search').onsubmit({preventDefault(){}});assert.match(h.dialog(),/По этим условиям ничего не найдено/);assert.match(h.dialog(),/0–0 из 0/);assert.doesNotMatch(h.dialog(),/class="inventory-search" hidden/);
  const stale=h.get('#inventory-reset').onclick;h.api.addInventory(inventoryEntry);const form=h.dialog();stale();assert.equal(h.dialog(),form);
  current=payload(1,'second');await h.api.boot();await h.api.inventory();assert.match(h.dialog(),/1–2 из 2/);assert.doesNotMatch(h.dialog(),/value="no match"/);
  const old=h.get('#inventory-search').onsubmit;current=payload(2,'third');await h.api.boot();const before=h.dialog();old({preventDefault(){}});assert.equal(h.dialog(),before);assert.match(h.messages.at(-1),/Игра изменилась/);
@@ -1068,7 +1068,7 @@ test('inventory page prioritizes consumables and charges while actions retain or
  const entries=[make('armor','Адамантовый доспех',{type:'armor'}),make('potion','Зелье лечения',{type:'potion'}),make('wand','Волшебная палочка',{type:'wand',charges:{max:7}})];
  const h=harness(memory(),memory(),async url=>response(url==='/api/inventory'?{...payload(0),entries}:payload(0)));
  await h.api.boot();h.setPage('inventory');await h.api.inventory();
- assert.equal(h.dialog(),'');assert.match(h.pageHtml(),/<h1 id="inventory-view"/);
+ assert.equal(h.dialog(),'');assert.match(h.pageHtml(),/<h1 id="inventory-view"/);assert.match(h.pageHtml(),/class="inventory-pages" hidden/);assert.match(h.pageHtml(),/<option value="required"/);
  assert.ok(h.pageHtml().indexOf('Волшебная палочка')<h.pageHtml().indexOf('Зелье лечения'));
  assert.ok(h.pageHtml().indexOf('Зелье лечения')<h.pageHtml().indexOf('Адамантовый доспех'));
  assert.match(h.pageHtml(),/data-inventory-read="2"/);

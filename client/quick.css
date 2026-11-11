@@ -289,3 +289,7 @@ input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{b
 }
 
 .tracker-mark{width:26px;height:26px}.tracker-mark.diamond{width:20px;height:20px}
+
+/* Keep keyboard focus, suppress only pointer/programmatic heading outlines. */
+h1[tabindex="-1"]:focus:not(:focus-visible),h2[tabindex="-1"]:focus:not(:focus-visible){outline:none}
+.inventory-pages[hidden],.inventory-search[hidden]{display:none}
