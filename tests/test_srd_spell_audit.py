@@ -73,3 +73,12 @@ class RareHeaders(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+class SplitPdfWords(unittest.TestCase):
+    def test_pinned_header_text_run_splits_are_repaired(self):
+        for school in ['transmutatio n', 'necromanc y']:
+            h=parse('Ward 1st-level '+school+' Casting Time: 1 action Range: Touch Components: V Duration: Concentration, up t o 1 min ute', 'Ward')
+            self.assertEqual(h['duration'],'up to 1 minute')
+            self.assertTrue(h['concentration'])
+        with self.assertRaises(ValueError):
+            parse('Ward 1st-level unknown school Casting Time: 1 action Range: Touch Components: V Duration: indefinite', 'Ward')

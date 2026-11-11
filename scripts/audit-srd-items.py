@@ -21,6 +21,7 @@ TYPES = {'Wondrous item': 'wondrous', 'Armor': 'armor', 'Weapon': 'weapon',
 
 def header(text, name):
     text, name = normalize(text), normalize(name)
+    text = re.sub(r"\breq uires attunement\b", "requires attunement", text)
     war_mage = re.fullmatch(r'Wand of the War Mage, \+([123])', name)
     if war_mage:
         heading = re.search(r'Wand of the War Mage, \+1, \+2, or \+3 Wand, (.*?) \(requires attunement by a spellcaster\) While holding this wand,', text)
@@ -54,6 +55,12 @@ def header(text, name):
               'attunement': match[3] is not None}
     if match[3]:
         result['requirementEn'] = match[3].strip()
+    if name == 'Scarab of Protection':
+        section = tail.split('Scimitar of Speed', 1)[0]
+        charges = re.search(r'\bThe scarab has (\d+) charges\.', section)
+        if not charges:
+            raise ValueError('Missing Scarab charge definition')
+        result['chargeMaximum'] = int(charges[1])
     if result['type'] == 'wand':
         charges = re.match(r' (?:This|The) wand has (\d+) charges\b', tail)
         if not charges:
@@ -126,7 +133,7 @@ def main():
         except ValueError as error:
             failures.append({'id': card['id'], 'error': str(error)})
     print(json.dumps({'checked': len(cards), 'failures': failures,
-                      'scope': 'Type, rarity, attunement, healing formulas, wand charge maximum and Wonder table ranges only; effects and recharge need manual review.'}, ensure_ascii=False, indent=2))
+                      'scope': 'Type, rarity, attunement, healing formulas, wand/Scarab charge maximum and Wonder table ranges only; effects and recharge need manual review.'}, ensure_ascii=False, indent=2))
     if failures:
         raise SystemExit(1)
 

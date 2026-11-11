@@ -76,3 +76,11 @@ class ItemAuditTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+class SplitAttunement(unittest.TestCase):
+    def test_pinned_scarab_attunement_split_still_requires_attunement(self):
+        value=header('Scarab of Protection Wondrous item, legendary (req uires attunement) If you hold this beetle. The scarab has 12 charges.', 'Scarab of Protection')
+        self.assertTrue(value['attunement'])
+        self.assertEqual(value['chargeMaximum'],12)
+        with self.assertRaises(ValueError):
+            header('Scarab of Protection Wondrous item, legendary (unknown requirement) If you hold this beetle.', 'Scarab of Protection')

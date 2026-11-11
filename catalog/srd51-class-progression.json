@@ -1,0 +1,3610 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "Base class progression tables only. Feature descriptions, subclasses and choices are not complete. Artificer is outside SRD 5.1.",
+  "source": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "usage": "cc-by-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "changes": "Tables extracted and structured; Russian class names added. No official translation claimed."
+  },
+  "classes": [
+    {
+      "id": "srd51:2014:class:barbarian",
+      "slug": "barbarian",
+      "name": {
+        "ru": "Варвар",
+        "en": "Barbarian"
+      },
+      "hitDie": 12,
+      "spellcastingAbility": null,
+      "subclassLevel": 3,
+      "sourcePage": 8,
+      "levels": [
+        {
+          "level": 1,
+          "proficiency": 2,
+          "rages": 2,
+          "rageDamage": 2,
+          "featuresEn": [
+            "Rage",
+            "Unarmored Defense"
+          ]
+        },
+        {
+          "level": 2,
+          "proficiency": 2,
+          "rages": 2,
+          "rageDamage": 2,
+          "featuresEn": [
+            "Reckless Attack",
+            "Danger Sense"
+          ]
+        },
+        {
+          "level": 3,
+          "proficiency": 2,
+          "rages": 3,
+          "rageDamage": 2,
+          "featuresEn": [
+            "Primal Path"
+          ]
+        },
+        {
+          "level": 4,
+          "proficiency": 2,
+          "rages": 3,
+          "rageDamage": 2,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 5,
+          "proficiency": 3,
+          "rages": 3,
+          "rageDamage": 2,
+          "featuresEn": [
+            "Extra Attack",
+            "Fast Movement"
+          ]
+        },
+        {
+          "level": 6,
+          "proficiency": 3,
+          "rages": 4,
+          "rageDamage": 2,
+          "featuresEn": [
+            "Path feature"
+          ]
+        },
+        {
+          "level": 7,
+          "proficiency": 3,
+          "rages": 4,
+          "rageDamage": 2,
+          "featuresEn": [
+            "Feral Instinct"
+          ]
+        },
+        {
+          "level": 8,
+          "proficiency": 3,
+          "rages": 4,
+          "rageDamage": 2,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 9,
+          "proficiency": 4,
+          "rages": 4,
+          "rageDamage": 3,
+          "featuresEn": [
+            "Brutal Critical (1 die)"
+          ]
+        },
+        {
+          "level": 10,
+          "proficiency": 4,
+          "rages": 4,
+          "rageDamage": 3,
+          "featuresEn": [
+            "Path feature"
+          ]
+        },
+        {
+          "level": 11,
+          "proficiency": 4,
+          "rages": 4,
+          "rageDamage": 3,
+          "featuresEn": [
+            "Relentless Rage"
+          ]
+        },
+        {
+          "level": 12,
+          "proficiency": 4,
+          "rages": 5,
+          "rageDamage": 3,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 13,
+          "proficiency": 5,
+          "rages": 5,
+          "rageDamage": 3,
+          "featuresEn": [
+            "Brutal Critical (2 dice)"
+          ]
+        },
+        {
+          "level": 14,
+          "proficiency": 5,
+          "rages": 5,
+          "rageDamage": 3,
+          "featuresEn": [
+            "Path feature"
+          ]
+        },
+        {
+          "level": 15,
+          "proficiency": 5,
+          "rages": 5,
+          "rageDamage": 3,
+          "featuresEn": [
+            "Persistent Rage"
+          ]
+        },
+        {
+          "level": 16,
+          "proficiency": 5,
+          "rages": 5,
+          "rageDamage": 4,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 17,
+          "proficiency": 6,
+          "rages": 6,
+          "rageDamage": 4,
+          "featuresEn": [
+            "Brutal Critical (3 dice)"
+          ]
+        },
+        {
+          "level": 18,
+          "proficiency": 6,
+          "rages": 6,
+          "rageDamage": 4,
+          "featuresEn": [
+            "Indomitable Might"
+          ]
+        },
+        {
+          "level": 19,
+          "proficiency": 6,
+          "rages": 6,
+          "rageDamage": 4,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 20,
+          "proficiency": 6,
+          "rages": null,
+          "rageDamage": 4,
+          "featuresEn": [
+            "Primal Champion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:class:bard",
+      "slug": "bard",
+      "name": {
+        "ru": "Бард",
+        "en": "Bard"
+      },
+      "hitDie": 8,
+      "spellcastingAbility": "cha",
+      "subclassLevel": 3,
+      "sourcePage": 11,
+      "levels": [
+        {
+          "level": 1,
+          "proficiency": 2,
+          "cantrips": 2,
+          "spellsKnown": 4,
+          "spellSlots": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Spellcasting",
+            "Bardic Inspiration (d6)"
+          ]
+        },
+        {
+          "level": 2,
+          "proficiency": 2,
+          "cantrips": 2,
+          "spellsKnown": 5,
+          "spellSlots": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Jack of All Trades",
+            "Song of Rest (d6)"
+          ]
+        },
+        {
+          "level": 3,
+          "proficiency": 2,
+          "cantrips": 2,
+          "spellsKnown": 6,
+          "spellSlots": [
+            4,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Bard College",
+            "Expertise"
+          ]
+        },
+        {
+          "level": 4,
+          "proficiency": 2,
+          "cantrips": 3,
+          "spellsKnown": 7,
+          "spellSlots": [
+            4,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 5,
+          "proficiency": 3,
+          "cantrips": 3,
+          "spellsKnown": 8,
+          "spellSlots": [
+            4,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Bardic Inspiration (d8)",
+            "Font of Inspiration"
+          ]
+        },
+        {
+          "level": 6,
+          "proficiency": 3,
+          "cantrips": 3,
+          "spellsKnown": 9,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Countercharm",
+            "Bard College feature"
+          ]
+        },
+        {
+          "level": 7,
+          "proficiency": 3,
+          "cantrips": 3,
+          "spellsKnown": 10,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 8,
+          "proficiency": 3,
+          "cantrips": 3,
+          "spellsKnown": 11,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 9,
+          "proficiency": 4,
+          "cantrips": 3,
+          "spellsKnown": 12,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Song of Rest (d8)"
+          ]
+        },
+        {
+          "level": 10,
+          "proficiency": 4,
+          "cantrips": 4,
+          "spellsKnown": 14,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Bardic Inspiration (d10)",
+            "Expertise",
+            "Magical Secrets"
+          ]
+        },
+        {
+          "level": 11,
+          "proficiency": 4,
+          "cantrips": 4,
+          "spellsKnown": 15,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 12,
+          "proficiency": 4,
+          "cantrips": 4,
+          "spellsKnown": 15,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 13,
+          "proficiency": 5,
+          "cantrips": 4,
+          "spellsKnown": 16,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Song of Rest (d10)"
+          ]
+        },
+        {
+          "level": 14,
+          "proficiency": 5,
+          "cantrips": 4,
+          "spellsKnown": 18,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Magical Secrets",
+            "Bard College feature"
+          ]
+        },
+        {
+          "level": 15,
+          "proficiency": 5,
+          "cantrips": 4,
+          "spellsKnown": 19,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            0
+          ],
+          "featuresEn": [
+            "Bardic Inspiration (d12)"
+          ]
+        },
+        {
+          "level": 16,
+          "proficiency": 5,
+          "cantrips": 4,
+          "spellsKnown": 19,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 17,
+          "proficiency": 6,
+          "cantrips": 4,
+          "spellsKnown": 20,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Song of Rest (d12)"
+          ]
+        },
+        {
+          "level": 18,
+          "proficiency": 6,
+          "cantrips": 4,
+          "spellsKnown": 22,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Magical Secrets"
+          ]
+        },
+        {
+          "level": 19,
+          "proficiency": 6,
+          "cantrips": 4,
+          "spellsKnown": 22,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 20,
+          "proficiency": 6,
+          "cantrips": 4,
+          "spellsKnown": 22,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            2,
+            2,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Superior Inspiration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:class:cleric",
+      "slug": "cleric",
+      "name": {
+        "ru": "Жрец",
+        "en": "Cleric"
+      },
+      "hitDie": 8,
+      "spellcastingAbility": "wis",
+      "subclassLevel": 1,
+      "sourcePage": 15,
+      "levels": [
+        {
+          "level": 1,
+          "proficiency": 2,
+          "cantrips": 3,
+          "spellSlots": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Spellcasting",
+            "Divine Domain"
+          ]
+        },
+        {
+          "level": 2,
+          "proficiency": 2,
+          "cantrips": 3,
+          "spellSlots": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Channel Divinity (1/rest)",
+            "Divine Domain feature"
+          ]
+        },
+        {
+          "level": 3,
+          "proficiency": 2,
+          "cantrips": 3,
+          "spellSlots": [
+            4,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 4,
+          "proficiency": 2,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 5,
+          "proficiency": 3,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Destroy Undead (CR 1/2)"
+          ]
+        },
+        {
+          "level": 6,
+          "proficiency": 3,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Channel Divinity (2/rest)",
+            "Divine Domain feature"
+          ]
+        },
+        {
+          "level": 7,
+          "proficiency": 3,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 8,
+          "proficiency": 3,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement",
+            "Destroy Undead (CR 1)",
+            "Divine Domain feature"
+          ]
+        },
+        {
+          "level": 9,
+          "proficiency": 4,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 10,
+          "proficiency": 4,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Divine Intervention"
+          ]
+        },
+        {
+          "level": 11,
+          "proficiency": 4,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Destroy Undead (CR 2)"
+          ]
+        },
+        {
+          "level": 12,
+          "proficiency": 4,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 13,
+          "proficiency": 5,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 14,
+          "proficiency": 5,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Destroy Undead (CR 3)"
+          ]
+        },
+        {
+          "level": 15,
+          "proficiency": 5,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 16,
+          "proficiency": 5,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 17,
+          "proficiency": 6,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Destroy Undead (CR 4)",
+            "Divine Domain feature"
+          ]
+        },
+        {
+          "level": 18,
+          "proficiency": 6,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Channel Divinity (3/rest)"
+          ]
+        },
+        {
+          "level": 19,
+          "proficiency": 6,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 20,
+          "proficiency": 6,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            2,
+            2,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Divine Intervention improvement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:class:druid",
+      "slug": "druid",
+      "name": {
+        "ru": "Друид",
+        "en": "Druid"
+      },
+      "hitDie": 8,
+      "spellcastingAbility": "wis",
+      "subclassLevel": 2,
+      "sourcePage": 19,
+      "levels": [
+        {
+          "level": 1,
+          "proficiency": 2,
+          "cantrips": 2,
+          "spellSlots": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Druidic",
+            "Spellcasting"
+          ]
+        },
+        {
+          "level": 2,
+          "proficiency": 2,
+          "cantrips": 2,
+          "spellSlots": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Wild Shape",
+            "Druid Circle"
+          ]
+        },
+        {
+          "level": 3,
+          "proficiency": 2,
+          "cantrips": 2,
+          "spellSlots": [
+            4,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 4,
+          "proficiency": 2,
+          "cantrips": 3,
+          "spellSlots": [
+            4,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Wild Shape improvement",
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 5,
+          "proficiency": 3,
+          "cantrips": 3,
+          "spellSlots": [
+            4,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 6,
+          "proficiency": 3,
+          "cantrips": 3,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Druid Circle feature"
+          ]
+        },
+        {
+          "level": 7,
+          "proficiency": 3,
+          "cantrips": 3,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 8,
+          "proficiency": 3,
+          "cantrips": 3,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Wild Shape improvement",
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 9,
+          "proficiency": 4,
+          "cantrips": 3,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 10,
+          "proficiency": 4,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Druid Circle feature"
+          ]
+        },
+        {
+          "level": 11,
+          "proficiency": 4,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 12,
+          "proficiency": 4,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 13,
+          "proficiency": 5,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 14,
+          "proficiency": 5,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Druid Circle feature"
+          ]
+        },
+        {
+          "level": 15,
+          "proficiency": 5,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 16,
+          "proficiency": 5,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 17,
+          "proficiency": 6,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 18,
+          "proficiency": 6,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Timeless Body",
+            "Beast Spells"
+          ]
+        },
+        {
+          "level": 19,
+          "proficiency": 6,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 20,
+          "proficiency": 6,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            2,
+            2,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Archdruid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:class:fighter",
+      "slug": "fighter",
+      "name": {
+        "ru": "Воин",
+        "en": "Fighter"
+      },
+      "hitDie": 10,
+      "spellcastingAbility": null,
+      "subclassLevel": 3,
+      "sourcePage": 24,
+      "levels": [
+        {
+          "level": 1,
+          "proficiency": 2,
+          "featuresEn": [
+            "Fighting Style",
+            "Second Wind"
+          ]
+        },
+        {
+          "level": 2,
+          "proficiency": 2,
+          "featuresEn": [
+            "Action Surge (one use)"
+          ]
+        },
+        {
+          "level": 3,
+          "proficiency": 2,
+          "featuresEn": [
+            "Martial Archetype"
+          ]
+        },
+        {
+          "level": 4,
+          "proficiency": 2,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 5,
+          "proficiency": 3,
+          "featuresEn": [
+            "Extra Attack"
+          ]
+        },
+        {
+          "level": 6,
+          "proficiency": 3,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 7,
+          "proficiency": 3,
+          "featuresEn": [
+            "Martial Archetype feature"
+          ]
+        },
+        {
+          "level": 8,
+          "proficiency": 3,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 9,
+          "proficiency": 4,
+          "featuresEn": [
+            "Indomitable (one use)"
+          ]
+        },
+        {
+          "level": 10,
+          "proficiency": 4,
+          "featuresEn": [
+            "Martial Archetype feature"
+          ]
+        },
+        {
+          "level": 11,
+          "proficiency": 4,
+          "featuresEn": [
+            "Extra Attack (2)"
+          ]
+        },
+        {
+          "level": 12,
+          "proficiency": 4,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 13,
+          "proficiency": 5,
+          "featuresEn": [
+            "Indomitable (two uses)"
+          ]
+        },
+        {
+          "level": 14,
+          "proficiency": 5,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 15,
+          "proficiency": 5,
+          "featuresEn": [
+            "Martial Archetype feature"
+          ]
+        },
+        {
+          "level": 16,
+          "proficiency": 5,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 17,
+          "proficiency": 6,
+          "featuresEn": [
+            "Action Surge (two uses)",
+            "Indomitable (three uses)"
+          ]
+        },
+        {
+          "level": 18,
+          "proficiency": 6,
+          "featuresEn": [
+            "Martial Archetype feature"
+          ]
+        },
+        {
+          "level": 19,
+          "proficiency": 6,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 20,
+          "proficiency": 6,
+          "featuresEn": [
+            "Extra Attack (3)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:class:monk",
+      "slug": "monk",
+      "name": {
+        "ru": "Монах",
+        "en": "Monk"
+      },
+      "hitDie": 8,
+      "spellcastingAbility": null,
+      "subclassLevel": 3,
+      "sourcePage": 26,
+      "levels": [
+        {
+          "level": 1,
+          "proficiency": 2,
+          "martialArts": "1d4",
+          "kiPoints": 0,
+          "unarmoredMovement": 0,
+          "featuresEn": [
+            "Unarmored Defense",
+            "Martial Arts"
+          ]
+        },
+        {
+          "level": 2,
+          "proficiency": 2,
+          "martialArts": "1d4",
+          "kiPoints": 2,
+          "unarmoredMovement": 10,
+          "featuresEn": [
+            "Ki",
+            "Unarmored Movement"
+          ]
+        },
+        {
+          "level": 3,
+          "proficiency": 2,
+          "martialArts": "1d4",
+          "kiPoints": 3,
+          "unarmoredMovement": 10,
+          "featuresEn": [
+            "Monastic Tradition",
+            "Deflect Missiles"
+          ]
+        },
+        {
+          "level": 4,
+          "proficiency": 2,
+          "martialArts": "1d4",
+          "kiPoints": 4,
+          "unarmoredMovement": 10,
+          "featuresEn": [
+            "Ability Score Improvement",
+            "Slow Fall"
+          ]
+        },
+        {
+          "level": 5,
+          "proficiency": 3,
+          "martialArts": "1d6",
+          "kiPoints": 5,
+          "unarmoredMovement": 10,
+          "featuresEn": [
+            "Extra Attack",
+            "Stunning Strike"
+          ]
+        },
+        {
+          "level": 6,
+          "proficiency": 3,
+          "martialArts": "1d6",
+          "kiPoints": 6,
+          "unarmoredMovement": 15,
+          "featuresEn": [
+            "Ki-Empowered Strikes",
+            "Monastic Tradition feature"
+          ]
+        },
+        {
+          "level": 7,
+          "proficiency": 3,
+          "martialArts": "1d6",
+          "kiPoints": 7,
+          "unarmoredMovement": 15,
+          "featuresEn": [
+            "Evasion",
+            "Stillness of Mind"
+          ]
+        },
+        {
+          "level": 8,
+          "proficiency": 3,
+          "martialArts": "1d6",
+          "kiPoints": 8,
+          "unarmoredMovement": 15,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 9,
+          "proficiency": 4,
+          "martialArts": "1d6",
+          "kiPoints": 9,
+          "unarmoredMovement": 15,
+          "featuresEn": [
+            "Unarmored Movement improvement"
+          ]
+        },
+        {
+          "level": 10,
+          "proficiency": 4,
+          "martialArts": "1d6",
+          "kiPoints": 10,
+          "unarmoredMovement": 20,
+          "featuresEn": [
+            "Purity of Body"
+          ]
+        },
+        {
+          "level": 11,
+          "proficiency": 4,
+          "martialArts": "1d8",
+          "kiPoints": 11,
+          "unarmoredMovement": 20,
+          "featuresEn": [
+            "Monastic Tradition feature"
+          ]
+        },
+        {
+          "level": 12,
+          "proficiency": 4,
+          "martialArts": "1d8",
+          "kiPoints": 12,
+          "unarmoredMovement": 20,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 13,
+          "proficiency": 5,
+          "martialArts": "1d8",
+          "kiPoints": 13,
+          "unarmoredMovement": 20,
+          "featuresEn": [
+            "Tongue of the Sun and Moon"
+          ]
+        },
+        {
+          "level": 14,
+          "proficiency": 5,
+          "martialArts": "1d8",
+          "kiPoints": 14,
+          "unarmoredMovement": 25,
+          "featuresEn": [
+            "Diamond Soul"
+          ]
+        },
+        {
+          "level": 15,
+          "proficiency": 5,
+          "martialArts": "1d8",
+          "kiPoints": 15,
+          "unarmoredMovement": 25,
+          "featuresEn": [
+            "Timeless Body"
+          ]
+        },
+        {
+          "level": 16,
+          "proficiency": 5,
+          "martialArts": "1d8",
+          "kiPoints": 16,
+          "unarmoredMovement": 25,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 17,
+          "proficiency": 6,
+          "martialArts": "1d10",
+          "kiPoints": 17,
+          "unarmoredMovement": 25,
+          "featuresEn": [
+            "Monastic Tradition feature"
+          ]
+        },
+        {
+          "level": 18,
+          "proficiency": 6,
+          "martialArts": "1d10",
+          "kiPoints": 18,
+          "unarmoredMovement": 30,
+          "featuresEn": [
+            "Empty Body"
+          ]
+        },
+        {
+          "level": 19,
+          "proficiency": 6,
+          "martialArts": "1d10",
+          "kiPoints": 19,
+          "unarmoredMovement": 30,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 20,
+          "proficiency": 6,
+          "martialArts": "1d10",
+          "kiPoints": 20,
+          "unarmoredMovement": 30,
+          "featuresEn": [
+            "Perfect Self"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:class:paladin",
+      "slug": "paladin",
+      "name": {
+        "ru": "Паладин",
+        "en": "Paladin"
+      },
+      "hitDie": 10,
+      "spellcastingAbility": "cha",
+      "subclassLevel": 3,
+      "sourcePage": 30,
+      "levels": [
+        {
+          "level": 1,
+          "proficiency": 2,
+          "spellSlots": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Divine Sense",
+            "Lay on Hands"
+          ]
+        },
+        {
+          "level": 2,
+          "proficiency": 2,
+          "spellSlots": [
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Fighting Style",
+            "Spellcasting",
+            "Divine Smite"
+          ]
+        },
+        {
+          "level": 3,
+          "proficiency": 2,
+          "spellSlots": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Divine Health",
+            "Sacred Oath"
+          ]
+        },
+        {
+          "level": 4,
+          "proficiency": 2,
+          "spellSlots": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 5,
+          "proficiency": 3,
+          "spellSlots": [
+            4,
+            2,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Extra Attack"
+          ]
+        },
+        {
+          "level": 6,
+          "proficiency": 3,
+          "spellSlots": [
+            4,
+            2,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Aura of Protection"
+          ]
+        },
+        {
+          "level": 7,
+          "proficiency": 3,
+          "spellSlots": [
+            4,
+            3,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Sacred Oath feature"
+          ]
+        },
+        {
+          "level": 8,
+          "proficiency": 3,
+          "spellSlots": [
+            4,
+            3,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 9,
+          "proficiency": 4,
+          "spellSlots": [
+            4,
+            3,
+            2,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 10,
+          "proficiency": 4,
+          "spellSlots": [
+            4,
+            3,
+            2,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Aura of Courage"
+          ]
+        },
+        {
+          "level": 11,
+          "proficiency": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Improved Divine Smite"
+          ]
+        },
+        {
+          "level": 12,
+          "proficiency": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 13,
+          "proficiency": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            1,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 14,
+          "proficiency": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            1,
+            0
+          ],
+          "featuresEn": [
+            "Cleansing Touch"
+          ]
+        },
+        {
+          "level": 15,
+          "proficiency": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            2,
+            0
+          ],
+          "featuresEn": [
+            "Sacred Oath feature"
+          ]
+        },
+        {
+          "level": 16,
+          "proficiency": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            2,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 17,
+          "proficiency": 6,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            1
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 18,
+          "proficiency": 6,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            1
+          ],
+          "featuresEn": [
+            "Aura improvements"
+          ]
+        },
+        {
+          "level": 19,
+          "proficiency": 6,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 20,
+          "proficiency": 6,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2
+          ],
+          "featuresEn": [
+            "Sacred Oath feature"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:class:ranger",
+      "slug": "ranger",
+      "name": {
+        "ru": "Следопыт",
+        "en": "Ranger"
+      },
+      "hitDie": 10,
+      "spellcastingAbility": "wis",
+      "subclassLevel": 3,
+      "sourcePage": 35,
+      "levels": [
+        {
+          "level": 1,
+          "proficiency": 2,
+          "spellsKnown": 0,
+          "spellSlots": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Favored Enemy",
+            "Natural Explorer"
+          ]
+        },
+        {
+          "level": 2,
+          "proficiency": 2,
+          "spellsKnown": 2,
+          "spellSlots": [
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Fighting Style",
+            "Spellcasting"
+          ]
+        },
+        {
+          "level": 3,
+          "proficiency": 2,
+          "spellsKnown": 3,
+          "spellSlots": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ranger Archetype",
+            "Primeval Awareness"
+          ]
+        },
+        {
+          "level": 4,
+          "proficiency": 2,
+          "spellsKnown": 3,
+          "spellSlots": [
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 5,
+          "proficiency": 3,
+          "spellsKnown": 4,
+          "spellSlots": [
+            4,
+            2,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Extra Attack"
+          ]
+        },
+        {
+          "level": 6,
+          "proficiency": 3,
+          "spellsKnown": 4,
+          "spellSlots": [
+            4,
+            2,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Favored Enemy and Natural Explorer improvements"
+          ]
+        },
+        {
+          "level": 7,
+          "proficiency": 3,
+          "spellsKnown": 5,
+          "spellSlots": [
+            4,
+            3,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ranger Archetype feature"
+          ]
+        },
+        {
+          "level": 8,
+          "proficiency": 3,
+          "spellsKnown": 5,
+          "spellSlots": [
+            4,
+            3,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement",
+            "Land `s Stride"
+          ]
+        },
+        {
+          "level": 9,
+          "proficiency": 4,
+          "spellsKnown": 6,
+          "spellSlots": [
+            4,
+            3,
+            2,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 10,
+          "proficiency": 4,
+          "spellsKnown": 6,
+          "spellSlots": [
+            4,
+            3,
+            2,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Natural Explorer improvement",
+            "Hide in Plain Sight"
+          ]
+        },
+        {
+          "level": 11,
+          "proficiency": 4,
+          "spellsKnown": 7,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ranger Archetype feature"
+          ]
+        },
+        {
+          "level": 12,
+          "proficiency": 4,
+          "spellsKnown": 7,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 13,
+          "proficiency": 5,
+          "spellsKnown": 8,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            1,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 14,
+          "proficiency": 5,
+          "spellsKnown": 8,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            1,
+            0
+          ],
+          "featuresEn": [
+            "Favored Enemy improvement",
+            "Vanish"
+          ]
+        },
+        {
+          "level": 15,
+          "proficiency": 5,
+          "spellsKnown": 9,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            2,
+            0
+          ],
+          "featuresEn": [
+            "Ranger Archetype feature"
+          ]
+        },
+        {
+          "level": 16,
+          "proficiency": 5,
+          "spellsKnown": 9,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            2,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 17,
+          "proficiency": 6,
+          "spellsKnown": 10,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            1
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 18,
+          "proficiency": 6,
+          "spellsKnown": 10,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            1
+          ],
+          "featuresEn": [
+            "Feral Senses"
+          ]
+        },
+        {
+          "level": 19,
+          "proficiency": 6,
+          "spellsKnown": 11,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 20,
+          "proficiency": 6,
+          "spellsKnown": 11,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2
+          ],
+          "featuresEn": [
+            "Foe Slayer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:class:rogue",
+      "slug": "rogue",
+      "name": {
+        "ru": "Плут",
+        "en": "Rogue"
+      },
+      "hitDie": 8,
+      "spellcastingAbility": null,
+      "subclassLevel": 3,
+      "sourcePage": 38,
+      "levels": [
+        {
+          "level": 1,
+          "proficiency": 2,
+          "sneakAttack": "1d6",
+          "featuresEn": [
+            "Expertise",
+            "Sneak Attack",
+            "Thieves` Cant"
+          ]
+        },
+        {
+          "level": 2,
+          "proficiency": 2,
+          "sneakAttack": "1d6",
+          "featuresEn": [
+            "Cunning Action"
+          ]
+        },
+        {
+          "level": 3,
+          "proficiency": 2,
+          "sneakAttack": "2d6",
+          "featuresEn": [
+            "Roguish Archetype"
+          ]
+        },
+        {
+          "level": 4,
+          "proficiency": 2,
+          "sneakAttack": "2d6",
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 5,
+          "proficiency": 3,
+          "sneakAttack": "3d6",
+          "featuresEn": [
+            "Uncanny Dodge"
+          ]
+        },
+        {
+          "level": 6,
+          "proficiency": 3,
+          "sneakAttack": "3d6",
+          "featuresEn": [
+            "Expertise"
+          ]
+        },
+        {
+          "level": 7,
+          "proficiency": 3,
+          "sneakAttack": "4d6",
+          "featuresEn": [
+            "Evasion"
+          ]
+        },
+        {
+          "level": 8,
+          "proficiency": 3,
+          "sneakAttack": "4d6",
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 9,
+          "proficiency": 4,
+          "sneakAttack": "5d6",
+          "featuresEn": [
+            "Roguish Archetype feature"
+          ]
+        },
+        {
+          "level": 10,
+          "proficiency": 4,
+          "sneakAttack": "5d6",
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 11,
+          "proficiency": 4,
+          "sneakAttack": "6d6",
+          "featuresEn": [
+            "Reliable Talent"
+          ]
+        },
+        {
+          "level": 12,
+          "proficiency": 4,
+          "sneakAttack": "6d6",
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 13,
+          "proficiency": 5,
+          "sneakAttack": "7d6",
+          "featuresEn": [
+            "Roguish Archetype feature"
+          ]
+        },
+        {
+          "level": 14,
+          "proficiency": 5,
+          "sneakAttack": "7d6",
+          "featuresEn": [
+            "Blindsense"
+          ]
+        },
+        {
+          "level": 15,
+          "proficiency": 5,
+          "sneakAttack": "8d6",
+          "featuresEn": [
+            "Slippery Mind"
+          ]
+        },
+        {
+          "level": 16,
+          "proficiency": 5,
+          "sneakAttack": "8d6",
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 17,
+          "proficiency": 6,
+          "sneakAttack": "9d6",
+          "featuresEn": [
+            "Roguish Archetype feature"
+          ]
+        },
+        {
+          "level": 18,
+          "proficiency": 6,
+          "sneakAttack": "9d6",
+          "featuresEn": [
+            "Elusive"
+          ]
+        },
+        {
+          "level": 19,
+          "proficiency": 6,
+          "sneakAttack": "10d6",
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 20,
+          "proficiency": 6,
+          "sneakAttack": "10d6",
+          "featuresEn": [
+            "Stroke of Luck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:class:sorcerer",
+      "slug": "sorcerer",
+      "name": {
+        "ru": "Чародей",
+        "en": "Sorcerer"
+      },
+      "hitDie": 6,
+      "spellcastingAbility": "cha",
+      "subclassLevel": 1,
+      "sourcePage": 42,
+      "levels": [
+        {
+          "level": 1,
+          "proficiency": 2,
+          "sorceryPoints": 0,
+          "cantrips": 4,
+          "spellsKnown": 2,
+          "spellSlots": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Spellcasting",
+            "Sorcerous Origin"
+          ]
+        },
+        {
+          "level": 2,
+          "proficiency": 2,
+          "sorceryPoints": 2,
+          "cantrips": 4,
+          "spellsKnown": 3,
+          "spellSlots": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Font of Magic"
+          ]
+        },
+        {
+          "level": 3,
+          "proficiency": 2,
+          "sorceryPoints": 3,
+          "cantrips": 4,
+          "spellsKnown": 4,
+          "spellSlots": [
+            4,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Metamagic"
+          ]
+        },
+        {
+          "level": 4,
+          "proficiency": 2,
+          "sorceryPoints": 4,
+          "cantrips": 5,
+          "spellsKnown": 5,
+          "spellSlots": [
+            4,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 5,
+          "proficiency": 3,
+          "sorceryPoints": 5,
+          "cantrips": 5,
+          "spellsKnown": 6,
+          "spellSlots": [
+            4,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 6,
+          "proficiency": 3,
+          "sorceryPoints": 6,
+          "cantrips": 5,
+          "spellsKnown": 7,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Sorcerous Origin feature"
+          ]
+        },
+        {
+          "level": 7,
+          "proficiency": 3,
+          "sorceryPoints": 7,
+          "cantrips": 5,
+          "spellsKnown": 8,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 8,
+          "proficiency": 3,
+          "sorceryPoints": 8,
+          "cantrips": 5,
+          "spellsKnown": 9,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 9,
+          "proficiency": 4,
+          "sorceryPoints": 9,
+          "cantrips": 5,
+          "spellsKnown": 10,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 10,
+          "proficiency": 4,
+          "sorceryPoints": 10,
+          "cantrips": 6,
+          "spellsKnown": 11,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Metamagic"
+          ]
+        },
+        {
+          "level": 11,
+          "proficiency": 4,
+          "sorceryPoints": 11,
+          "cantrips": 6,
+          "spellsKnown": 12,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 12,
+          "proficiency": 4,
+          "sorceryPoints": 12,
+          "cantrips": 6,
+          "spellsKnown": 12,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 13,
+          "proficiency": 5,
+          "sorceryPoints": 13,
+          "cantrips": 6,
+          "spellsKnown": 13,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 14,
+          "proficiency": 5,
+          "sorceryPoints": 14,
+          "cantrips": 6,
+          "spellsKnown": 13,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Sorcerous Origin feature"
+          ]
+        },
+        {
+          "level": 15,
+          "proficiency": 5,
+          "sorceryPoints": 15,
+          "cantrips": 6,
+          "spellsKnown": 14,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 16,
+          "proficiency": 5,
+          "sorceryPoints": 16,
+          "cantrips": 6,
+          "spellsKnown": 14,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 17,
+          "proficiency": 6,
+          "sorceryPoints": 17,
+          "cantrips": 6,
+          "spellsKnown": 15,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Metamagic"
+          ]
+        },
+        {
+          "level": 18,
+          "proficiency": 6,
+          "sorceryPoints": 18,
+          "cantrips": 6,
+          "spellsKnown": 15,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Sorcerous Origin feature"
+          ]
+        },
+        {
+          "level": 19,
+          "proficiency": 6,
+          "sorceryPoints": 19,
+          "cantrips": 6,
+          "spellsKnown": 15,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 20,
+          "proficiency": 6,
+          "sorceryPoints": 20,
+          "cantrips": 6,
+          "spellsKnown": 15,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            2,
+            2,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Sorcerous Restoration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:class:warlock",
+      "slug": "warlock",
+      "name": {
+        "ru": "Колдун",
+        "en": "Warlock"
+      },
+      "hitDie": 8,
+      "spellcastingAbility": "cha",
+      "subclassLevel": 1,
+      "sourcePage": 46,
+      "levels": [
+        {
+          "level": 1,
+          "proficiency": 2,
+          "cantrips": 2,
+          "spellsKnown": 2,
+          "pactSlots": 1,
+          "pactSlotLevel": 1,
+          "invocationsKnown": 0,
+          "featuresEn": [
+            "Otherworldly Patron",
+            "Pact Magic"
+          ]
+        },
+        {
+          "level": 2,
+          "proficiency": 2,
+          "cantrips": 2,
+          "spellsKnown": 3,
+          "pactSlots": 2,
+          "pactSlotLevel": 1,
+          "invocationsKnown": 2,
+          "featuresEn": [
+            "Eldritch Invocations"
+          ]
+        },
+        {
+          "level": 3,
+          "proficiency": 2,
+          "cantrips": 2,
+          "spellsKnown": 4,
+          "pactSlots": 2,
+          "pactSlotLevel": 2,
+          "invocationsKnown": 2,
+          "featuresEn": [
+            "Pact Boon"
+          ]
+        },
+        {
+          "level": 4,
+          "proficiency": 2,
+          "cantrips": 3,
+          "spellsKnown": 5,
+          "pactSlots": 2,
+          "pactSlotLevel": 2,
+          "invocationsKnown": 2,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 5,
+          "proficiency": 3,
+          "cantrips": 3,
+          "spellsKnown": 6,
+          "pactSlots": 2,
+          "pactSlotLevel": 3,
+          "invocationsKnown": 3,
+          "featuresEn": []
+        },
+        {
+          "level": 6,
+          "proficiency": 3,
+          "cantrips": 3,
+          "spellsKnown": 7,
+          "pactSlots": 2,
+          "pactSlotLevel": 3,
+          "invocationsKnown": 3,
+          "featuresEn": [
+            "Otherworldly Patron feature"
+          ]
+        },
+        {
+          "level": 7,
+          "proficiency": 3,
+          "cantrips": 3,
+          "spellsKnown": 8,
+          "pactSlots": 2,
+          "pactSlotLevel": 4,
+          "invocationsKnown": 4,
+          "featuresEn": []
+        },
+        {
+          "level": 8,
+          "proficiency": 3,
+          "cantrips": 3,
+          "spellsKnown": 9,
+          "pactSlots": 2,
+          "pactSlotLevel": 4,
+          "invocationsKnown": 4,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 9,
+          "proficiency": 4,
+          "cantrips": 3,
+          "spellsKnown": 10,
+          "pactSlots": 2,
+          "pactSlotLevel": 5,
+          "invocationsKnown": 5,
+          "featuresEn": []
+        },
+        {
+          "level": 10,
+          "proficiency": 4,
+          "cantrips": 4,
+          "spellsKnown": 10,
+          "pactSlots": 2,
+          "pactSlotLevel": 5,
+          "invocationsKnown": 5,
+          "featuresEn": [
+            "Otherworldly Patron feature"
+          ]
+        },
+        {
+          "level": 11,
+          "proficiency": 4,
+          "cantrips": 4,
+          "spellsKnown": 11,
+          "pactSlots": 3,
+          "pactSlotLevel": 5,
+          "invocationsKnown": 5,
+          "featuresEn": [
+            "Mystic Arcanum (6th level)"
+          ]
+        },
+        {
+          "level": 12,
+          "proficiency": 4,
+          "cantrips": 4,
+          "spellsKnown": 11,
+          "pactSlots": 3,
+          "pactSlotLevel": 5,
+          "invocationsKnown": 6,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 13,
+          "proficiency": 5,
+          "cantrips": 4,
+          "spellsKnown": 12,
+          "pactSlots": 3,
+          "pactSlotLevel": 5,
+          "invocationsKnown": 6,
+          "featuresEn": [
+            "Mystic Arcanum (7th level)"
+          ]
+        },
+        {
+          "level": 14,
+          "proficiency": 5,
+          "cantrips": 4,
+          "spellsKnown": 12,
+          "pactSlots": 3,
+          "pactSlotLevel": 5,
+          "invocationsKnown": 6,
+          "featuresEn": [
+            "Otherworldly Patron feature"
+          ]
+        },
+        {
+          "level": 15,
+          "proficiency": 5,
+          "cantrips": 4,
+          "spellsKnown": 13,
+          "pactSlots": 3,
+          "pactSlotLevel": 5,
+          "invocationsKnown": 7,
+          "featuresEn": [
+            "Mystic Arcanum (8th level)"
+          ]
+        },
+        {
+          "level": 16,
+          "proficiency": 5,
+          "cantrips": 4,
+          "spellsKnown": 13,
+          "pactSlots": 3,
+          "pactSlotLevel": 5,
+          "invocationsKnown": 7,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 17,
+          "proficiency": 6,
+          "cantrips": 4,
+          "spellsKnown": 14,
+          "pactSlots": 4,
+          "pactSlotLevel": 5,
+          "invocationsKnown": 7,
+          "featuresEn": [
+            "Mystic Arcanum (9th level)"
+          ]
+        },
+        {
+          "level": 18,
+          "proficiency": 6,
+          "cantrips": 4,
+          "spellsKnown": 14,
+          "pactSlots": 4,
+          "pactSlotLevel": 5,
+          "invocationsKnown": 8,
+          "featuresEn": []
+        },
+        {
+          "level": 19,
+          "proficiency": 6,
+          "cantrips": 4,
+          "spellsKnown": 15,
+          "pactSlots": 4,
+          "pactSlotLevel": 5,
+          "invocationsKnown": 8,
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 20,
+          "proficiency": 6,
+          "cantrips": 4,
+          "spellsKnown": 15,
+          "pactSlots": 4,
+          "pactSlotLevel": 5,
+          "invocationsKnown": 8,
+          "featuresEn": [
+            "Eldritch Master"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "srd51:2014:class:wizard",
+      "slug": "wizard",
+      "name": {
+        "ru": "Волшебник",
+        "en": "Wizard"
+      },
+      "hitDie": 6,
+      "spellcastingAbility": "int",
+      "subclassLevel": 2,
+      "sourcePage": 52,
+      "levels": [
+        {
+          "level": 1,
+          "proficiency": 2,
+          "cantrips": 3,
+          "spellSlots": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Spellcasting",
+            "Arcane Recovery"
+          ]
+        },
+        {
+          "level": 2,
+          "proficiency": 2,
+          "cantrips": 3,
+          "spellSlots": [
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Arcane Tradition"
+          ]
+        },
+        {
+          "level": 3,
+          "proficiency": 2,
+          "cantrips": 3,
+          "spellSlots": [
+            4,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 4,
+          "proficiency": 2,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 5,
+          "proficiency": 3,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 6,
+          "proficiency": 3,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Arcane Tradition feature"
+          ]
+        },
+        {
+          "level": 7,
+          "proficiency": 3,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 8,
+          "proficiency": 3,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 9,
+          "proficiency": 4,
+          "cantrips": 4,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 10,
+          "proficiency": 4,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Arcane Tradition feature"
+          ]
+        },
+        {
+          "level": 11,
+          "proficiency": 4,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 12,
+          "proficiency": 4,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            0,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 13,
+          "proficiency": 5,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 14,
+          "proficiency": 5,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            0,
+            0
+          ],
+          "featuresEn": [
+            "Arcane Tradition feature"
+          ]
+        },
+        {
+          "level": 15,
+          "proficiency": 5,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            0
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 16,
+          "proficiency": 5,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            0
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 17,
+          "proficiency": 6,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": []
+        },
+        {
+          "level": 18,
+          "proficiency": 6,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Spell Mastery"
+          ]
+        },
+        {
+          "level": 19,
+          "proficiency": 6,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            2,
+            1,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Ability Score Improvement"
+          ]
+        },
+        {
+          "level": 20,
+          "proficiency": 6,
+          "cantrips": 5,
+          "spellSlots": [
+            4,
+            3,
+            3,
+            3,
+            3,
+            2,
+            2,
+            1,
+            1
+          ],
+          "featuresEn": [
+            "Signature Spell"
+          ]
+        }
+      ]
+    }
+  ]
+}

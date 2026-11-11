@@ -20,6 +20,10 @@ def normalize(text):
 
 
 def source_header(text, name):
+    # Repair only observed text-run splits in the pinned PDF, not arbitrary words.
+    text = normalize(text)
+    for split, word in [("transmutatio n", "transmutation"), ("necromanc y", "necromancy"), ("min ute", "minute"), ("up t o", "up to")]:
+        text = re.sub(r"\b" + split + r"\b", word, text)
     # Match a heading followed by edition metadata, not a mention in another spell.
     title = re.escape(normalize(name))
     match = re.search(title + r'\s+(?:(?:[1-9](?:st|nd|rd|th)\W*level\s+\w+)|(?:\w+\s+cantrip))\s*(\(ritual\))?\s*Casting Time:\s*([^:]*?)\s*Range:\s*([^:]*?)\s*Components?:\s*([VSM](?:\s*,\s*[VSM])*)(?:\s*\([^()]*\))?\s*Duration:\s*(Concentration,?\s*)?(Instantaneous|Until dispelled(?: or triggered)?|Special|(?:up to\s+)?(?:\d+|one)\s+(?:round|minute|hour|day)s?)', normalize(text), re.I)

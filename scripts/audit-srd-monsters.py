@@ -29,7 +29,7 @@ def source_fields_equal(expected,declared):
 
 def statistics(text, name):
     # The pinned PDF encodes some hyphens as ASCII + soft hyphen + U+2010.
-    clean = lambda value: re.sub(r'[-\u00ad\u2010\u2011]+', '-', normalize(value))
+    clean = lambda value: re.sub(r'[-\u00ad\u2010\u2011]+', '-', normalize(value).replace('ft .','ft.'))
     text = clean(text)
     heading = re.search(re.escape(clean(name)) + r'\s+(' + SIZES + r')\s+(' + TYPES + r')\b', text)
     if not heading:
@@ -79,7 +79,8 @@ def spellcasting_levels(text,name):
     rows=[]
     for i,mark in enumerate(marks):
         level=int(mark[1]) if mark[1] else 0
-        names=listing[1][mark.end():marks[i+1].start() if i+1<len(marks) else len(listing[1])].strip().split(', ')
+        names=listing[1][mark.end():marks[i+1].start() if i+1<len(marks) else len(listing[1])].strip().split(',')
+        names=[value.strip() for value in names]
         if not names or any(not value or not re.fullmatch(r"[a-z][a-z '’-]+",value) for value in names):raise ValueError('Unsupported spell name for '+name)
         rows.append({'level':level,'slots':int(mark[2]) if mark[2] else None,'spellIds':['srd51:2014:spell:'+value.replace(' ','-') for value in names]})
     if len({row['level'] for row in rows})!=len(rows):raise ValueError('Duplicate spell level for '+name)
@@ -109,7 +110,7 @@ def check_spellcasting_inventory(pages,manifest,cards,spells):
 
 
 def innate_spellcasting(text,name):
-    text=normalize(text)
+    text=normalize(text).replace("Charism a", "Charisma")
     start=re.search(re.escape(name)+r'\s+(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',text)
     if not start:raise ValueError('Missing innate caster heading')
     body=text[start.end():]
@@ -121,7 +122,8 @@ def innate_spellcasting(text,name):
     if not marks or marks[0].start()!=0:raise ValueError('Unsupported innate frequency')
     groups=[]
     for i,mark in enumerate(marks):
-        names=caster[4][mark.end():marks[i+1].start() if i+1<len(marks) else len(caster[4])].strip().split(', ')
+        names=caster[4][mark.end():marks[i+1].start() if i+1<len(marks) else len(caster[4])].strip().split(',')
+        names=[value.strip() for value in names]
         spells=[]
         for name_text in names:
             target='self' if name_text.endswith(' (self only)') else None
@@ -134,7 +136,7 @@ def innate_spellcasting(text,name):
 
 
 def innate_spell_attack_bonus(text,name):
-    text=normalize(text)
+    text=normalize(text).replace("Charism a", "Charisma")
     heading=re.search(re.escape(name)+r'\s+(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',text)
     if not heading:raise ValueError('Missing innate attack caster')
     body=text[heading.end():]
@@ -362,8 +364,16 @@ def check_type_inventory(pages, manifest, cards, expected_types=('fey', 'plant')
     return result
 
 
-def melee_weapon_attack(text,creature,name):
+def normalize_attack_text(text):
     text=normalize(text)
+    # Observed text-run splits only. In particular, never merge arbitrary digits.
+    for split,word in [('ft .','ft.'),('dam age','damage'),('da mage','damage'),('d amage','damage'),('pi ercing','piercing'),('A ttack','Attack'),('reach 2 0 ft.','reach 20 ft.')]:
+        text=text.replace(split,word)
+    return text
+
+
+def melee_weapon_attack(text,creature,name):
+    text=normalize_attack_text(text)
     heading=re.search(re.escape(creature)+r'\s+(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',text)
     if not heading:raise ValueError('Missing melee creature')
     body=text[heading.end():]
@@ -378,7 +388,7 @@ def melee_weapon_attack(text,creature,name):
 
 
 def melee_additional_damage(text,creature,name):
-    text=normalize(text)
+    text=normalize_attack_text(text)
     heading=re.search(re.escape(creature)+r'\s+(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',text)
     if not heading:raise ValueError('Missing additional-damage creature')
     body=text[heading.end():]
@@ -432,7 +442,10 @@ def check_melee_weapon_inventory(pages,manifest,cards):
 
 def dragon_breath(text,creature,name):
     text=re.sub(r'[-\u00ad\u2010\u2011]+','-',normalize(text))
-    text=re.sub(r'(?<=\d)-\s+foot\b','-foot',text)
+    text=re.sub(r'(?<=\d)\s*-\s*foot\b','-foot',text)
+    text=text.replace('minute .','minute.')
+    for split,word in [('dama ge','damage'),('sa ve','save'),('fir e','fire'),('fail ed','failed'),('exhale s','exhales'),('exha les','exhales'),('t aking','taking'),('Rech arge','Recharge'),('crea ture','creature'),('min ute','minute'),('tur n','turn'),('th e','the'),('thr ow','throw'),('minute','minute')]:
+        text=re.sub(r'\b'+split+r'\b',word,text)
     heading=re.search(re.escape(creature)+r'\s+(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',text)
     if not heading:raise ValueError('Missing breath creature')
     body=text[heading.end():]
@@ -442,15 +455,15 @@ def dragon_breath(text,creature,name):
     # Only inherit it from the explicit parent in this same statblock.
     named=list(re.finditer(r'(?<![a-zA-Z])'+re.escape(name)+r'\. The dragon exhales ',body))
     if named:
-        parents=list(re.finditer(r'Breath Weapons \(Recharge ([1-6])[–-]([1-6])\)\. The dragon uses one of the following breath weapons[.:]\s*',body))
+        parents=list(re.finditer(r'Breath Weapons \(Recharge ([1-6])\s*[–-]\s*([1-6])\)\. The dragon uses one of the following breath weapons[.:]\s*',body))
         if len(named)!=1 or len(parents)!=1 or parents[0].end()>named[0].start():
             raise ValueError('Missing, duplicate or misplaced shared breath recharge')
         parent=parents[0];action=named[0]
         if re.search(r'\(Recharge ',body[parent.end():action.start()]):
             raise ValueError('Ambiguous shared breath recharge')
         body=body[:action.start()]+name+' (Recharge '+parent[1]+'–'+parent[2]+'). The dragon exhales '+body[action.end():]
-    pattern=(re.escape(name)+r' \(Recharge ([1-6])[–-]([1-6])\)\. The (?:dragon turtle|dragon) exhales [^.]*? in an? '
-             r'(\d+)-foot (line|cone)(?: that is (\d+) feet wide)?\. Each creature in that (?:line|area) must make a DC (\d+) '
+    pattern=(re.escape(name)+r' \(Recharge ([1-6])\s*[–-]\s*([1-6])\)\. The (?:dragon turtle|dragon) exhales [^.]*? in an? '
+             r'(\d+)\s*-foot (line|cone)(?: that is (\d+) feet wide)?\. Each creature in that (?:line|area) must make a DC (\d+) '
              r'(Dexterity|Constitution) saving throw, taking (\d+) \((\d+d\d+(?: [+-] \d+)?)\) ([a-z]+) damage on a failed save, '
              r'or half as much damage on a successful one\.')
     found=list(re.finditer(pattern,body))
@@ -461,8 +474,18 @@ def dragon_breath(text,creature,name):
             'saveAbility':{'Dexterity':'dex','Constitution':'con'}[match[7]],'saveDC':int(match[6]),'averageDamage':int(match[8]),'damageDice':match[9],'damageType':match[10]}
 
 
-def adult_dragon_legendary(text,creature):
+def normalize_dragon_prose(text):
     text=normalize(text)
+    # Whitespace between PDF text runs is not a rules change. Numeric tokens and
+    # whole clauses are never repaired or inferred.
+    words=['alignment','any','for','repeat','turns','it','legendary','Legendary','Actions','choosing','turn','and','dragon','makes','form','its','proficiencies','minute','the','throw','creature','frightened','successful','immune','Presence','Frightful','itself','saving','effect','resistance','Resistance']
+    for word in words:
+        text=re.sub(r'\b'+r'\s*'.join(word)+r'\b',word,text)
+    return re.sub(r'\s+([.,])',r'\1',text)
+
+
+def adult_dragon_legendary(text,creature):
+    text=normalize_dragon_prose(text)
     heading=re.search(re.escape(creature)+r'\s+(?:Huge|Gargantuan) dragon\b',text)
     if not heading:raise ValueError('Missing adult dragon heading')
     body=text[heading.end():]
@@ -507,7 +530,7 @@ def check_adult_legendary_inventory(pages,manifest,cards):
 
 
 def dragon_change_shape(text,creature):
-    text=normalize(text)
+    text=normalize_dragon_prose(text)
     heading=re.search(re.escape(creature)+r'\s+(?:Huge|Gargantuan) dragon\b',text)
     if not heading:raise ValueError('Missing shapechanging dragon heading')
     body=text[heading.end():]
@@ -551,7 +574,7 @@ def check_change_shape_inventory(pages,manifest,cards):
 
 def metallic_traits(text,creature):
     """Selected saves, skills and defenses declared by the ten metallic age blocks."""
-    text=normalize(text)
+    text=normalize(text).replace("C ha", "Cha").replace("dark vision", "darkvision").replace("darkv ision", "darkvision")
     heading=re.search(re.escape(creature)+r'\s+(?:'+SIZES+r')\s+dragon\b',text)
     if not heading:raise ValueError('Missing metallic trait creature')
     body=text[heading.end():]
@@ -607,13 +630,16 @@ def check_metallic_trait_inventory(pages,manifest,cards):
 def dragon_secondary_breath(text,creature,name):
     """Parse the five explicit SRD metallic control breaths, not spell effects."""
     text=re.sub(r'[-\u00ad\u2010\u2011]+','-',normalize(text))
-    text=re.sub(r'(?<=\d)-\s+foot\b','-foot',text)
+    text=re.sub(r'(?<=\d)\s*-\s*foot\b','-foot',text)
+    text=text.replace('minute .','minute.')
+    for split,word in [('dama ge','damage'),('sa ve','save'),('fir e','fire'),('fail ed','failed'),('exhale s','exhales'),('exha les','exhales'),('t aking','taking'),('Rech arge','Recharge'),('crea ture','creature'),('min ute','minute'),('tur n','turn'),('th e','the'),('thr ow','throw'),('minute','minute')]:
+        text=re.sub(r'\b'+split+r'\b',word,text)
     heading=re.search(re.escape(creature)+r'\s+(?:'+SIZES+r')\s+(?:'+TYPES+r')\b',text)
     if not heading:raise ValueError('Missing secondary breath creature')
     body=text[heading.end():]
     next_block=re.search(r'\b(?:'+SIZES+r')\s+(?:'+TYPES+r')\b[^.]*? Armor Class \d+',body)
     if next_block:body=body[:next_block.start()]
-    parents=list(re.finditer(r'Breath Weapons \(Recharge ([1-6])[–-]([1-6])\)\. The dragon uses one of the following breath weapons[.:]\s*',body))
+    parents=list(re.finditer(r'Breath Weapons \(Recharge ([1-6])\s*[–-]\s*([1-6])\)\. The dragon uses one of the following breath weapons[.:]\s*',body))
     actions=list(re.finditer(r'(?<![a-zA-Z])'+re.escape(name)+r'\. The dragon exhales ',body))
     if len(parents)!=1 or len(actions)!=1 or parents[0].end()>actions[0].start():
         raise ValueError('Missing or ambiguous secondary breath parent/action')

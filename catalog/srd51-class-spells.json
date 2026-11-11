@@ -1,0 +1,3915 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "sourceUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+  "sourceSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+  "scope": "SRD 5.1 base class spell lists only; subclass, feat, race and optional expanded lists excluded. Attribution is in srd51-class-progression.json.",
+  "classes": {
+    "bard": [
+      {
+        "spellId": "srd51:2014:spell:dancing-lights",
+        "level": 0,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:light",
+        "level": 0,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:mage-hand",
+        "level": 0,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:mending",
+        "level": 0,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:message",
+        "level": 0,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:minor-illusion",
+        "level": 0,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:prestidigitation",
+        "level": 0,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:true-strike",
+        "level": 0,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:vicious-mockery",
+        "level": 0,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:animal-friendship",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:bane",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:charm-person",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:comprehend-languages",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:cure-wounds",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-magic",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:disguise-self",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:faerie-fire",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:feather-fall",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:healing-word",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:heroism",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:hideous-laughter",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:identify",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:illusory-script",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:longstrider",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:silent-image",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:sleep",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:speak-with-animals",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:thunderwave",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:unseen-servant",
+        "level": 1,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:animal-messenger",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:blindness-deafness",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:calm-emotions",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-thoughts",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:enhance-ability",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:enthrall",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:heat-metal",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:hold-person",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:invisibility",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:knock",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:lesser-restoration",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-animals-or-plants",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-object",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:magic-mouth",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:see-invisibility",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:shatter",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:silence",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:suggestion",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:zone-of-truth",
+        "level": 2,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:bestow-curse",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:clairvoyance",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:dispel-magic",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:fear",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:glyph-of-warding",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:hypnotic-pattern",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:major-image",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:nondetection",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:plant-growth",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:sending",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:speak-with-dead",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:speak-with-plants",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:stinking-cloud",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:tiny-hut",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:tongues",
+        "level": 3,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:compulsion",
+        "level": 4,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:confusion",
+        "level": 4,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:dimension-door",
+        "level": 4,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:freedom-of-movement",
+        "level": 4,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:greater-invisibility",
+        "level": 4,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:hallucinatory-terrain",
+        "level": 4,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-creature",
+        "level": 4,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:polymorph",
+        "level": 4,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:animate-objects",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:awaken",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:dominate-person",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:dream",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:geas",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:greater-restoration",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:hold-monster",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:legend-lore",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:mass-cure-wounds",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:mislead",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:modify-memory",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:planar-binding",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:raise-dead",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:scrying",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:seeming",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:teleportation-circle",
+        "level": 5,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:eyebite",
+        "level": 6,
+        "sourcePage": 105
+      },
+      {
+        "spellId": "srd51:2014:spell:find-the-path",
+        "level": 6,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:guards-and-wards",
+        "level": 6,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:irresistible-dance",
+        "level": 6,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:mass-suggestion",
+        "level": 6,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:programmed-illusion",
+        "level": 6,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:true-seeing",
+        "level": 6,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:arcane-sword",
+        "level": 7,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:etherealness",
+        "level": 7,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:forcecage",
+        "level": 7,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:magnificent-mansion",
+        "level": 7,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:mirage-arcane",
+        "level": 7,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:project-image",
+        "level": 7,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:regenerate",
+        "level": 7,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:resurrection",
+        "level": 7,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:symbol",
+        "level": 7,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:teleport",
+        "level": 7,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:dominate-monster",
+        "level": 8,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:feeblemind",
+        "level": 8,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:glibness",
+        "level": 8,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:mind-blank",
+        "level": 8,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:power-word-stun",
+        "level": 8,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:foresight",
+        "level": 9,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:power-word-kill",
+        "level": 9,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:true-polymorph",
+        "level": 9,
+        "sourcePage": 106
+      }
+    ],
+    "cleric": [
+      {
+        "spellId": "srd51:2014:spell:guidance",
+        "level": 0,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:light",
+        "level": 0,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:mending",
+        "level": 0,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:resistance",
+        "level": 0,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:sacred-flame",
+        "level": 0,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:spare-the-dying",
+        "level": 0,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:thaumaturgy",
+        "level": 0,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:bane",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:bless",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:command",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:create-or-destroy-water",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:cure-wounds",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-evil-and-good",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-magic",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-poison-and-disease",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:guiding-bolt",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:healing-word",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:inflict-wounds",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:protection-from-evil-and-good",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:purify-food-and-drink",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:sanctuary",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:shield-of-faith",
+        "level": 1,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:aid",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:augury",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:blindness-deafness",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:calm-emotions",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:continual-flame",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:enhance-ability",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:find-traps",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:gentle-repose",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:hold-person",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:lesser-restoration",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-object",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:prayer-of-healing",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:protection-from-poison",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:silence",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:spiritual-weapon",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:warding-bond",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:zone-of-truth",
+        "level": 2,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:animate-dead",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:beacon-of-hope",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:bestow-curse",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:clairvoyance",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:create-food-and-water",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:daylight",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:dispel-magic",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:glyph-of-warding",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:magic-circle",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:mass-healing-word",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:meld-into-stone",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:protection-from-energy",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:remove-curse",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:revivify",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:sending",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:speak-with-dead",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:spirit-guardians",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:tongues",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:water-walk",
+        "level": 3,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:banishment",
+        "level": 4,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:control-water",
+        "level": 4,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:death-ward",
+        "level": 4,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:divination",
+        "level": 4,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:freedom-of-movement",
+        "level": 4,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:guardian-of-faith",
+        "level": 4,
+        "sourcePage": 106
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-creature",
+        "level": 4,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:stone-shape",
+        "level": 4,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:commune",
+        "level": 5,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:contagion",
+        "level": 5,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:dispel-evil-and-good",
+        "level": 5,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:flame-strike",
+        "level": 5,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:geas",
+        "level": 5,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:greater-restoration",
+        "level": 5,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:hallow",
+        "level": 5,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:insect-plague",
+        "level": 5,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:legend-lore",
+        "level": 5,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:mass-cure-wounds",
+        "level": 5,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:planar-binding",
+        "level": 5,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:raise-dead",
+        "level": 5,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:scrying",
+        "level": 5,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:blade-barrier",
+        "level": 6,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:create-undead",
+        "level": 6,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:find-the-path",
+        "level": 6,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:forbiddance",
+        "level": 6,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:harm",
+        "level": 6,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:heal",
+        "level": 6,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:heroes-feast",
+        "level": 6,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:planar-ally",
+        "level": 6,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:true-seeing",
+        "level": 6,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:word-of-recall",
+        "level": 6,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:conjure-celestial",
+        "level": 7,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:divine-word",
+        "level": 7,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:etherealness",
+        "level": 7,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:fire-storm",
+        "level": 7,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:plane-shift",
+        "level": 7,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:regenerate",
+        "level": 7,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:resurrection",
+        "level": 7,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:symbol",
+        "level": 7,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:antimagic-field",
+        "level": 8,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:control-weather",
+        "level": 8,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:earthquake",
+        "level": 8,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:holy-aura",
+        "level": 8,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:astral-projection",
+        "level": 9,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:gate",
+        "level": 9,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:mass-heal",
+        "level": 9,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:true-resurrection",
+        "level": 9,
+        "sourcePage": 107
+      }
+    ],
+    "druid": [
+      {
+        "spellId": "srd51:2014:spell:druidcraft",
+        "level": 0,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:guidance",
+        "level": 0,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:mending",
+        "level": 0,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:poison-spray",
+        "level": 0,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:produce-flame",
+        "level": 0,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:resistance",
+        "level": 0,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:shillelagh",
+        "level": 0,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:animal-friendship",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:charm-person",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:create-or-destroy-water",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:cure-wounds",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-magic",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-poison-and-disease",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:entangle",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:faerie-fire",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:fog-cloud",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:goodberry",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:healing-word",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:jump",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:longstrider",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:purify-food-and-drink",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:speak-with-animals",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:thunderwave",
+        "level": 1,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:animal-messenger",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:barkskin",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:darkvision",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:enhance-ability",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:find-traps",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:flame-blade",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:flaming-sphere",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:gust-of-wind",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:heat-metal",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:hold-person",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:lesser-restoration",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-animals-or-plants",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-object",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:moonbeam",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:pass-without-trace",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:protection-from-poison",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:spike-growth",
+        "level": 2,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:call-lightning",
+        "level": 3,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:conjure-animals",
+        "level": 3,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:daylight",
+        "level": 3,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:dispel-magic",
+        "level": 3,
+        "sourcePage": 107
+      },
+      {
+        "spellId": "srd51:2014:spell:meld-into-stone",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:plant-growth",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:protection-from-energy",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:sleet-storm",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:speak-with-plants",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:water-breathing",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:water-walk",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:wind-wall",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:blight",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:confusion",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:conjure-minor-elementals",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:conjure-woodland-beings",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:control-water",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:dominate-beast",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:freedom-of-movement",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:giant-insect",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:hallucinatory-terrain",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:ice-storm",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-creature",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:polymorph",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:stone-shape",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:stoneskin",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:wall-of-fire",
+        "level": 4,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:antilife-shell",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:awaken",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:commune-with-nature",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:conjure-elemental",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:contagion",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:geas",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:greater-restoration",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:insect-plague",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:mass-cure-wounds",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:planar-binding",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:reincarnate",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:scrying",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:tree-stride",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:wall-of-stone",
+        "level": 5,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:conjure-fey",
+        "level": 6,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:find-the-path",
+        "level": 6,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:heal",
+        "level": 6,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:heroes-feast",
+        "level": 6,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:move-earth",
+        "level": 6,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:sunbeam",
+        "level": 6,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:transport-via-plants",
+        "level": 6,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:wall-of-thorns",
+        "level": 6,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:wind-walk",
+        "level": 6,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:fire-storm",
+        "level": 7,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:mirage-arcane",
+        "level": 7,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:plane-shift",
+        "level": 7,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:regenerate",
+        "level": 7,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:reverse-gravity",
+        "level": 7,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:animal-shapes",
+        "level": 8,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:antipathy-sympathy",
+        "level": 8,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:control-weather",
+        "level": 8,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:earthquake",
+        "level": 8,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:feeblemind",
+        "level": 8,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:sunburst",
+        "level": 8,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:foresight",
+        "level": 9,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:shapechange",
+        "level": 9,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:storm-of-vengeance",
+        "level": 9,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:true-resurrection",
+        "level": 9,
+        "sourcePage": 108
+      }
+    ],
+    "paladin": [
+      {
+        "spellId": "srd51:2014:spell:bless",
+        "level": 1,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:command",
+        "level": 1,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:cure-wounds",
+        "level": 1,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-evil-and-good",
+        "level": 1,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-magic",
+        "level": 1,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-poison-and-disease",
+        "level": 1,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:divine-favor",
+        "level": 1,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:heroism",
+        "level": 1,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:protection-from-evil-and-good",
+        "level": 1,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:purify-food-and-drink",
+        "level": 1,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:shield-of-faith",
+        "level": 1,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:aid",
+        "level": 2,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:branding-smite",
+        "level": 2,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:find-steed",
+        "level": 2,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:lesser-restoration",
+        "level": 2,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-object",
+        "level": 2,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:magic-weapon",
+        "level": 2,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:protection-from-poison",
+        "level": 2,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:zone-of-truth",
+        "level": 2,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:create-food-and-water",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:daylight",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:dispel-magic",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:magic-circle",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:remove-curse",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:revivify",
+        "level": 3,
+        "sourcePage": 108
+      },
+      {
+        "spellId": "srd51:2014:spell:banishment",
+        "level": 4,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:death-ward",
+        "level": 4,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-creature",
+        "level": 4,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:dispel-evil-and-good",
+        "level": 5,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:geas",
+        "level": 5,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:raise-dead",
+        "level": 5,
+        "sourcePage": 109
+      }
+    ],
+    "ranger": [
+      {
+        "spellId": "srd51:2014:spell:alarm",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:animal-friendship",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:cure-wounds",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-magic",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-poison-and-disease",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:fog-cloud",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:goodberry",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:hunters-mark",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:jump",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:longstrider",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:speak-with-animals",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:animal-messenger",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:barkskin",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:darkvision",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:find-traps",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:lesser-restoration",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-animals-or-plants",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-object",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:pass-without-trace",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:protection-from-poison",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:silence",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:spike-growth",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:conjure-animals",
+        "level": 3,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:daylight",
+        "level": 3,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:nondetection",
+        "level": 3,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:plant-growth",
+        "level": 3,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:protection-from-energy",
+        "level": 3,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:speak-with-plants",
+        "level": 3,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:water-breathing",
+        "level": 3,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:water-walk",
+        "level": 3,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:wind-wall",
+        "level": 3,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:conjure-woodland-beings",
+        "level": 4,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:freedom-of-movement",
+        "level": 4,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-creature",
+        "level": 4,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:stoneskin",
+        "level": 4,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:commune-with-nature",
+        "level": 5,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:tree-stride",
+        "level": 5,
+        "sourcePage": 109
+      }
+    ],
+    "sorcerer": [
+      {
+        "spellId": "srd51:2014:spell:acid-splash",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:chill-touch",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:dancing-lights",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:fire-bolt",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:light",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:mage-hand",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:mending",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:message",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:minor-illusion",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:poison-spray",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:prestidigitation",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:ray-of-frost",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:shocking-grasp",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:true-strike",
+        "level": 0,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:burning-hands",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:charm-person",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:color-spray",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:comprehend-languages",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-magic",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:disguise-self",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:expeditious-retreat",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:false-life",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:feather-fall",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:fog-cloud",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:jump",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:mage-armor",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:magic-missile",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:shield",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:silent-image",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:sleep",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:thunderwave",
+        "level": 1,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:alter-self",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:blindness-deafness",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:blur",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:darkness",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:darkvision",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-thoughts",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:enhance-ability",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:enlarge-reduce",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:gust-of-wind",
+        "level": 2,
+        "sourcePage": 109
+      },
+      {
+        "spellId": "srd51:2014:spell:hold-person",
+        "level": 2,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:invisibility",
+        "level": 2,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:knock",
+        "level": 2,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:levitate",
+        "level": 2,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:mirror-image",
+        "level": 2,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:misty-step",
+        "level": 2,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:scorching-ray",
+        "level": 2,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:see-invisibility",
+        "level": 2,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:shatter",
+        "level": 2,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:spider-climb",
+        "level": 2,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:suggestion",
+        "level": 2,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:web",
+        "level": 2,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:blink",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:clairvoyance",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:counterspell",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:daylight",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:dispel-magic",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:fear",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:fireball",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:fly",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:gaseous-form",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:haste",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:hypnotic-pattern",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:lightning-bolt",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:major-image",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:protection-from-energy",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:sleet-storm",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:slow",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:stinking-cloud",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:tongues",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:water-breathing",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:water-walk",
+        "level": 3,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:banishment",
+        "level": 4,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:blight",
+        "level": 4,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:confusion",
+        "level": 4,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:dimension-door",
+        "level": 4,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:dominate-beast",
+        "level": 4,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:greater-invisibility",
+        "level": 4,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:ice-storm",
+        "level": 4,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:polymorph",
+        "level": 4,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:stoneskin",
+        "level": 4,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:wall-of-fire",
+        "level": 4,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:animate-objects",
+        "level": 5,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:cloudkill",
+        "level": 5,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:cone-of-cold",
+        "level": 5,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:creation",
+        "level": 5,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:dominate-person",
+        "level": 5,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:hold-monster",
+        "level": 5,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:insect-plague",
+        "level": 5,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:seeming",
+        "level": 5,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:telekinesis",
+        "level": 5,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:teleportation-circle",
+        "level": 5,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:wall-of-stone",
+        "level": 5,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:chain-lightning",
+        "level": 6,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:circle-of-death",
+        "level": 6,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:disintegrate",
+        "level": 6,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:eyebite",
+        "level": 6,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:globe-of-invulnerability",
+        "level": 6,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:mass-suggestion",
+        "level": 6,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:move-earth",
+        "level": 6,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:sunbeam",
+        "level": 6,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:true-seeing",
+        "level": 6,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:delayed-blast-fireball",
+        "level": 7,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:etherealness",
+        "level": 7,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:finger-of-death",
+        "level": 7,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:fire-storm",
+        "level": 7,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:plane-shift",
+        "level": 7,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:prismatic-spray",
+        "level": 7,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:reverse-gravity",
+        "level": 7,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:teleport",
+        "level": 7,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:dominate-monster",
+        "level": 8,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:earthquake",
+        "level": 8,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:incendiary-cloud",
+        "level": 8,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:power-word-stun",
+        "level": 8,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:sunburst",
+        "level": 8,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:gate",
+        "level": 9,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:meteor-swarm",
+        "level": 9,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:power-word-kill",
+        "level": 9,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:time-stop",
+        "level": 9,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:wish",
+        "level": 9,
+        "sourcePage": 110
+      }
+    ],
+    "warlock": [
+      {
+        "spellId": "srd51:2014:spell:chill-touch",
+        "level": 0,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:eldritch-blast",
+        "level": 0,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:mage-hand",
+        "level": 0,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:minor-illusion",
+        "level": 0,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:poison-spray",
+        "level": 0,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:prestidigitation",
+        "level": 0,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:true-strike",
+        "level": 0,
+        "sourcePage": 110
+      },
+      {
+        "spellId": "srd51:2014:spell:charm-person",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:comprehend-languages",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:expeditious-retreat",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:hellish-rebuke",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:illusory-script",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:protection-from-evil-and-good",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:unseen-servant",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:darkness",
+        "level": 2,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:enthrall",
+        "level": 2,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:hold-person",
+        "level": 2,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:invisibility",
+        "level": 2,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:mirror-image",
+        "level": 2,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:misty-step",
+        "level": 2,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:ray-of-enfeeblement",
+        "level": 2,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:shatter",
+        "level": 2,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:spider-climb",
+        "level": 2,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:suggestion",
+        "level": 2,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:counterspell",
+        "level": 3,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:dispel-magic",
+        "level": 3,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:fear",
+        "level": 3,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:fly",
+        "level": 3,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:gaseous-form",
+        "level": 3,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:hypnotic-pattern",
+        "level": 3,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:magic-circle",
+        "level": 3,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:major-image",
+        "level": 3,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:remove-curse",
+        "level": 3,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:tongues",
+        "level": 3,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:vampiric-touch",
+        "level": 3,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:banishment",
+        "level": 4,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:blight",
+        "level": 4,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:dimension-door",
+        "level": 4,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:hallucinatory-terrain",
+        "level": 4,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:contact-other-plane",
+        "level": 5,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:dream",
+        "level": 5,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:hold-monster",
+        "level": 5,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:scrying",
+        "level": 5,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:circle-of-death",
+        "level": 6,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:conjure-fey",
+        "level": 6,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:create-undead",
+        "level": 6,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:eyebite",
+        "level": 6,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:flesh-to-stone",
+        "level": 6,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:mass-suggestion",
+        "level": 6,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:true-seeing",
+        "level": 6,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:etherealness",
+        "level": 7,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:finger-of-death",
+        "level": 7,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:forcecage",
+        "level": 7,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:plane-shift",
+        "level": 7,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:demiplane",
+        "level": 8,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:dominate-monster",
+        "level": 8,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:feeblemind",
+        "level": 8,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:glibness",
+        "level": 8,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:power-word-stun",
+        "level": 8,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:astral-projection",
+        "level": 9,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:foresight",
+        "level": 9,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:imprisonment",
+        "level": 9,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:power-word-kill",
+        "level": 9,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:true-polymorph",
+        "level": 9,
+        "sourcePage": 111
+      }
+    ],
+    "wizard": [
+      {
+        "spellId": "srd51:2014:spell:acid-splash",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:chill-touch",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:dancing-lights",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:fire-bolt",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:light",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:mage-hand",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:mending",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:message",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:minor-illusion",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:poison-spray",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:prestidigitation",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:ray-of-frost",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:shocking-grasp",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:true-strike",
+        "level": 0,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:alarm",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:burning-hands",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:charm-person",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:color-spray",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:comprehend-languages",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-magic",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:disguise-self",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:expeditious-retreat",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:false-life",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:feather-fall",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:find-familiar",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:floating-disk",
+        "level": 1,
+        "sourcePage": 111
+      },
+      {
+        "spellId": "srd51:2014:spell:fog-cloud",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:grease",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:hideous-laughter",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:identify",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:illusory-script",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:jump",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:longstrider",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:mage-armor",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:magic-missile",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:protection-from-evil-and-good",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:shield",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:silent-image",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:sleep",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:thunderwave",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:unseen-servant",
+        "level": 1,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:acid-arrow",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:alter-self",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:arcane-lock",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:arcanists-magic-aura",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:blindness-deafness",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:blur",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:continual-flame",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:darkness",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:darkvision",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:detect-thoughts",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:enlarge-reduce",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:flaming-sphere",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:gentle-repose",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:gust-of-wind",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:hold-person",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:invisibility",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:knock",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:levitate",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-object",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:magic-mouth",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:magic-weapon",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:mirror-image",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:misty-step",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:ray-of-enfeeblement",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:rope-trick",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:scorching-ray",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:see-invisibility",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:shatter",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:spider-climb",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:suggestion",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:web",
+        "level": 2,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:animate-dead",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:bestow-curse",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:blink",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:clairvoyance",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:counterspell",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:dispel-magic",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:fear",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:fireball",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:fly",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:gaseous-form",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:glyph-of-warding",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:haste",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:hypnotic-pattern",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:lightning-bolt",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:magic-circle",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:major-image",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:nondetection",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:phantom-steed",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:protection-from-energy",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:remove-curse",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:sending",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:sleet-storm",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:slow",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:stinking-cloud",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:tiny-hut",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:tongues",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:vampiric-touch",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:water-breathing",
+        "level": 3,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:arcane-eye",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:banishment",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:black-tentacles",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:blight",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:confusion",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:conjure-minor-elementals",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:control-water",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:dimension-door",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:fabricate",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:faithful-hound",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:fire-shield",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:greater-invisibility",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:hallucinatory-terrain",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:ice-storm",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:locate-creature",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:phantasmal-killer",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:polymorph",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:private-sanctum",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:resilient-sphere",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:secret-chest",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:stone-shape",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:stoneskin",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:wall-of-fire",
+        "level": 4,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:animate-objects",
+        "level": 5,
+        "sourcePage": 112
+      },
+      {
+        "spellId": "srd51:2014:spell:arcane-hand",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:cloudkill",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:cone-of-cold",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:conjure-elemental",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:contact-other-plane",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:creation",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:dominate-person",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:dream",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:geas",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:hold-monster",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:legend-lore",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:mislead",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:modify-memory",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:passwall",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:planar-binding",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:scrying",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:seeming",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:telekinesis",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:telepathic-bond",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:teleportation-circle",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:wall-of-force",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:wall-of-stone",
+        "level": 5,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:chain-lightning",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:circle-of-death",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:contingency",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:create-undead",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:disintegrate",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:eyebite",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:flesh-to-stone",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:freezing-sphere",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:globe-of-invulnerability",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:guards-and-wards",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:instant-summons",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:irresistible-dance",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:magic-jar",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:mass-suggestion",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:move-earth",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:programmed-illusion",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:sunbeam",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:true-seeing",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:wall-of-ice",
+        "level": 6,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:arcane-sword",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:delayed-blast-fireball",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:etherealness",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:finger-of-death",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:forcecage",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:magnificent-mansion",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:mirage-arcane",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:plane-shift",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:prismatic-spray",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:project-image",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:reverse-gravity",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:sequester",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:simulacrum",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:symbol",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:teleport",
+        "level": 7,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:antimagic-field",
+        "level": 8,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:antipathy-sympathy",
+        "level": 8,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:clone",
+        "level": 8,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:control-weather",
+        "level": 8,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:demiplane",
+        "level": 8,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:dominate-monster",
+        "level": 8,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:feeblemind",
+        "level": 8,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:incendiary-cloud",
+        "level": 8,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:maze",
+        "level": 8,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:mind-blank",
+        "level": 8,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:power-word-stun",
+        "level": 8,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:sunburst",
+        "level": 8,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:astral-projection",
+        "level": 9,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:foresight",
+        "level": 9,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:gate",
+        "level": 9,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:imprisonment",
+        "level": 9,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:meteor-swarm",
+        "level": 9,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:power-word-kill",
+        "level": 9,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:prismatic-wall",
+        "level": 9,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:shapechange",
+        "level": 9,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:time-stop",
+        "level": 9,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:true-polymorph",
+        "level": 9,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:weird",
+        "level": 9,
+        "sourcePage": 113
+      },
+      {
+        "spellId": "srd51:2014:spell:wish",
+        "level": 9,
+        "sourcePage": 113
+      }
+    ]
+  }
+}

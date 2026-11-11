@@ -38,7 +38,7 @@ class MonsterAuditTests(unittest.TestCase):
         source='Adult Bronze Dragon Huge dragon, lawful good Armor Class 19 Actions '+action
         self.assertTrue(m['dragon_change_shape'](source,'Adult Bronze Dragon'))
         self.assertTrue(m['dragon_change_shape'](source.replace('Adult Bronze Dragon Huge','Ancient Bronze Dragon Gargantuan'),'Ancient Bronze Dragon'))
-        root=Path(__file__).resolve().parents[1];full=json.loads((root/'catalog/srd51-metallic-adults.coverage.json').read_text());manifest={**full,'entries':full['entries'][1:2],'changeShapeChecks':full['changeShapeChecks'][1:2]};card=json.loads((root/'catalog/srd51-metallic-adults.json').read_text())['entries'][1]
+        root=Path(__file__).resolve().parents[1];full=json.loads((root/'catalog/srd51-metallic-adults.coverage.json').read_text(encoding='utf-8'));manifest={**full,'entries':full['entries'][1:2],'changeShapeChecks':full['changeShapeChecks'][1:2]};card=json.loads((root/'catalog/srd51-metallic-adults.json').read_text(encoding='utf-8'))['entries'][1]
         self.assertEqual(m['check_change_shape_inventory']({294:source},manifest,[card]),1)
         for changed in [source.replace('no higher than its own','higher than its own'),source.replace('if it dies','if it is unconscious'),source.replace('hit points, Hit Dice,','hit points,'),source.replace('absorbed or borne','discarded'),source.replace('except any class features or legendary actions','including any class features or legendary actions'),source+action]:
             with self.assertRaises(ValueError):m['dragon_change_shape'](changed,'Adult Bronze Dragon')
@@ -77,7 +77,10 @@ class MonsterAuditTests(unittest.TestCase):
         source="Adult Black Dragon Huge dragon, chaotic evil Armor Class 19 Legendary Resistance (3/Day). If the dragon fails a saving throw, it can choose to succeed instead. Actions Frightful Presence. Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours. Legendary Actions The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn. Detect. The dragon makes a Wisdom (Perception) check. Tail Attack. The dragon makes a tail attack. Wing Attack (Costs 2 Actions). The dragon beats its wings. Each creature within 10 feet of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed."
         expected={'resistancePerDay':3,'fearRange':120,'fearSaveDC':16,'fearMinutes':1,'fearImmunityHours':24,'legendaryActions':3,'wingCost':2,'wingRadius':10,'wingSaveDC':19,'wingAverageDamage':13,'wingDamageDice':'2d6 + 6'}
         self.assertEqual(m['adult_dragon_legendary'](source,'Adult Black Dragon'),expected)
-        root=Path(__file__).resolve().parents[1];full=json.loads((root/'catalog/srd51-chromatic-adults.coverage.json').read_text());manifest={**full,'entries':full['entries'][:1],'legendaryChecks':full['legendaryChecks'][:1]};card=json.loads((root/'catalog/srd51-chromatic-adults.json').read_text())['entries'][0]
+        split=source.replace('choosing','ch oosing').replace('turns','turn s').replace('for it','fo r i t').replace('legendary','l egendary')
+        self.assertEqual(m['adult_dragon_legendary'](split,'Adult Black Dragon'),expected)
+        with self.assertRaises(ValueError):m['adult_dragon_legendary'](split.replace('120 feet','12 0 feet'),'Adult Black Dragon')
+        root=Path(__file__).resolve().parents[1];full=json.loads((root/'catalog/srd51-chromatic-adults.coverage.json').read_text(encoding='utf-8'));manifest={**full,'entries':full['entries'][:1],'legendaryChecks':full['legendaryChecks'][:1]};card=json.loads((root/'catalog/srd51-chromatic-adults.json').read_text(encoding='utf-8'))['entries'][0]
         pages={281:source,282:''};self.assertEqual(m['check_adult_legendary_inventory'](pages,manifest,[card]),1)
         for key,val in [('resistancePerDay',2),('fearRange',60),('fearSaveDC',17),('fearMinutes',2),('fearMinutes',True),('fearMinutes',1.0),('fearImmunityHours',12),('legendaryActions',2),('wingCost',1),('wingRadius',15),('wingSaveDC',20),('wingAverageDamage',14),('wingDamageDice','2d8 + 6')]:
             wrong=copy.deepcopy(manifest);wrong['legendaryChecks'][0]['legendary'][key]=val
@@ -93,6 +96,7 @@ class MonsterAuditTests(unittest.TestCase):
         m=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
         source=BASE.replace('Large beast','Large dragon').replace('Senses passive Perception 10 Languages —','Saving Throws Dex +3, Con +7, Wis +4, Cha +6 Skills Insight +4, Perception +7, Stealth +3 Damage Immunities lightning Senses blindsight 30 ft., darkvision 120 ft., passive Perception 17 Languages Common, Draconic')+' Amphibious. The dragon can breathe air and water. Actions'
         value=m['metallic_traits'](source,'Beast')
+        self.assertEqual(m['metallic_traits'](source.replace('Cha','C ha').replace('darkvision','dark vision'),'Beast'),value)
         self.assertEqual(value,{'savingThrows':{'dex':3,'con':7,'wis':4,'cha':6},'skills':{'insight':4,'perception':7,'stealth':3},'damageImmunities':['lightning'],'senses':{'blindsight':30,'darkvision':120,'passivePerception':17},'languages':['Common','Draconic'],'amphibious':True})
         manifest={'sourceSha256':m['SHA256'],'entries':[{'id':'source:beast','nameEn':'Beast','pages':[295]}],'traitChecks':[{'monsterId':'source:beast','nameEn':'Beast','traits':value}]}
         card={'id':'source:beast','text':'Спасброски Ловкости +3, Телосложения +7, Мудрости +4, Харизмы +6. Навыки: Проницательность +4, Восприятие +7, Скрытность +3. Иммунитет к электрическому урону. Слепое зрение 30 футов, тёмное зрение 120 футов, пассивное Восприятие 17. Языки: Общий, Драконий. Амфибия: дышит воздухом и водой.'}
@@ -570,3 +574,39 @@ class MonsterAuditTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+class PreparedSpellWhitespace(unittest.TestCase):
+    def test_spaces_before_commas_do_not_become_id_suffixes(self):
+        parse=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))['spellcasting_levels']
+        rows=parse('Lich Medium undead following wizard spells prepared: Cantrips (at will): mage hand , light 1st level (4 slots): shield , detect magic Actions', 'Lich')
+        self.assertEqual(rows[0]['spellIds'],['srd51:2014:spell:mage-hand','srd51:2014:spell:light'])
+        self.assertEqual(rows[1]['spellIds'],['srd51:2014:spell:shield','srd51:2014:spell:detect-magic'])
+
+
+class InnatePdfSplit(unittest.TestCase):
+    def test_split_charisma_keeps_dc_attack_and_precomma_spells(self):
+        text='Rakshasa Medium fiend Innate Spellcasting. Its spellcasting ability is Charism a (spell save DC 18, +10 to hit with spell attacks). It casts the following spells, requiring no material components: At will: detect thoughts , mage hand Actions'
+        audit=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        result=audit['innate_spellcasting'](text,'Rakshasa')
+        self.assertEqual(result['ability'],'cha')
+        self.assertEqual(result['saveDC'],18)
+        self.assertEqual(audit['innate_spell_attack_bonus'](text,'Rakshasa'),10)
+        self.assertEqual(result['groups'][0]['spells'][0]['id'],'srd51:2014:spell:detect-thoughts')
+
+class DamagePdfSplit(unittest.TestCase):
+    def test_split_damage_retains_additional_damage_numbers(self):
+        audit=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        text='Balor Huge fiend Longsword. Melee Weapon Attack: +14 to hit, reach 10 ft., one target. Hit: 21 (3d8 + 8) slashing damage plus 13 (3d8) lightning d amage.'
+        self.assertEqual(audit['melee_additional_damage'](text,'Balor','Longsword'),[{'averageDamage':13,'damageDice':'3d8','damageType':'lightning'}])
+
+class DragonSpacing(unittest.TestCase):
+    def test_reach_damage_and_recharge_splits_do_not_change_numeric_values(self):
+        audit=runpy.run_path(str(Path(__file__).resolve().parents[1]/'scripts/audit-srd-monsters.py'))
+        attack='Dragon Huge dragon Tail. Melee Weapon A ttack: +15 to hit, reach 2 0 ft ., one target. Hit: 17 (2d8 + 8) bludgeoning dam age.'
+        row=audit['melee_weapon_attack'](attack,'Dragon','Tail')
+        self.assertEqual(row['reach'],20);self.assertEqual(row['averageDamage'],17)
+        with self.assertRaises(ValueError):
+            audit['melee_weapon_attack'](attack.replace('2 0','2 5'),'Dragon','Tail')
+        breath='Dragon Huge dragon Poison Breath (Rech arge 5 – 6). The dragon exhale s gas in a 15 - foot cone. Each creature in that area must make a DC 11 Constitution saving throw, t aking 21 (6d6) poison dama ge on a failed sa ve, or half as much damage on a successful one.'
+        row=audit['dragon_breath'](breath,'Dragon','Poison Breath')
+        self.assertEqual(row['length'],15);self.assertEqual(row['recharge'],[5,6]);self.assertEqual(row['averageDamage'],21)
