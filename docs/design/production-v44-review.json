@@ -1,0 +1,83 @@
+{
+  "accepted": [
+    {
+      "id": "srd51:2014:monster:ancient-black-dragon",
+      "sha256": "26631220350e7c7b1d97770483c6443a6712d9317c8bb5fd50cf7f51e522b434",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 808616,
+      "review": "Original reviewed; browser 32/40 px and grayscale circular crops on Polaris, Coal, Atlas passed. Distinct horn and head silhouettes. White background haze removed using built-in edit; prompt recorded separately."
+    },
+    {
+      "id": "srd51:2014:monster:ancient-blue-dragon",
+      "sha256": "a6341c91d7517de740e6d45cf579a75f483aa8b0a212551a4a037c53307ad192",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 688652,
+      "review": "Original reviewed; browser 32/40 px and grayscale circular crops on Polaris, Coal, Atlas passed. Distinct horn and head silhouettes. White background haze removed using built-in edit; prompt recorded separately."
+    },
+    {
+      "id": "srd51:2014:monster:ancient-green-dragon",
+      "sha256": "78c9dcd13685eabed6e58d8e3322e446475610bddf9d7cbac66c670ff2d5464e",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 844289,
+      "review": "Original reviewed; browser 32/40 px and grayscale circular crops on Polaris, Coal, Atlas passed. Distinct horn and head silhouettes. White background haze removed using built-in edit; prompt recorded separately."
+    },
+    {
+      "id": "srd51:2014:monster:ancient-white-dragon",
+      "sha256": "8432297addd7657328868ab022b2d4da1998dead43065b4102fbe2c02d9b9b9e",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 869897,
+      "review": "Original reviewed; browser 32/40 px and grayscale circular crops on Polaris, Coal, Atlas passed. Distinct horn and head silhouettes. White background haze removed using built-in edit; prompt recorded separately."
+    },
+    {
+      "id": "srd51:2014:monster:ancient-brass-dragon",
+      "sha256": "c60f4365170cd364320390c2dbd6602e0bdc3dcaf00e63a61edfc501be53aa4b",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 921444,
+      "review": "Original reviewed; browser 32/40 px and grayscale circular crops on Polaris, Coal, Atlas passed. Distinct horn and head silhouettes. White background haze removed using built-in edit; prompt recorded separately."
+    },
+    {
+      "id": "srd51:2014:monster:ancient-bronze-dragon",
+      "sha256": "edf67cff0f1e31743e00927952dc4f5b48391287ec79899e24b1d61310081de2",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 857591,
+      "review": "Original reviewed; browser 32/40 px and grayscale circular crops on Polaris, Coal, Atlas passed. Distinct horn and head silhouettes. White background haze removed using built-in edit; prompt recorded separately."
+    },
+    {
+      "id": "srd51:2014:monster:ancient-copper-dragon",
+      "sha256": "faed21ceb557136468ef684766246bf99d3c1d6bc04c080c373c0fc6ef212b5d",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 840236,
+      "review": "Original reviewed; browser 32/40 px and grayscale circular crops on Polaris, Coal, Atlas passed. Distinct horn and head silhouettes. White background haze removed using built-in edit; prompt recorded separately."
+    },
+    {
+      "id": "srd51:2014:monster:ancient-silver-dragon",
+      "sha256": "dbf15144cc67a6939d6ace80ffd5e63f59ee183981d4c9b7ec8fea57b9d540dd",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 897191,
+      "review": "Original reviewed; browser 32/40 px and grayscale circular crops on Polaris, Coal, Atlas passed. Distinct horn and head silhouettes. White background haze removed using built-in edit; prompt recorded separately."
+    },
+    {
+      "id": "srd51:2014:monster:ancient-gold-dragon",
+      "sha256": "9fec3d859638d76515cf5577326aac2cd072f841bb744dde8f40981552aad5ad",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 850873,
+      "review": "Original reviewed; browser 32/40 px and grayscale circular crops on Polaris, Coal, Atlas passed. Distinct horn and head silhouettes. White background haze removed using built-in edit; prompt recorded separately."
+    }
+  ],
+  "rejected": [
+    {
+      "sourcePath": "data/art-production-v44/ancient-white-dragon-rejected.png",
+      "sha256": "796295fe28dbb35b3a558dea7cb2475264de93060d9ceb08880068e604a57a7a",
+      "reason": "Broad grey background haze; replaced by transparent built-in edit."
+    }
+  ]
+}

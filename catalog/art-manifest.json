@@ -9725,6 +9725,402 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:monster:ancient-black-dragon",
+      "contentSha256": "306103bd7be2d47945533c93a0f73e8c890129411e2aae8264e85813dab31e7e",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 26631220350e7c7b1d97770483c6443a6712d9317c8bb5fd50cf7f51e522b434",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "26631220350e7c7b1d97770483c6443a6712d9317c8bb5fd50cf7f51e522b434",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v44.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ancient-black-dragon-original-9c31943da2ba8c01.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 208278,
+          "sha256": "9c31943da2ba8c013e8948ad2fe47c921d76c0f28655bd479cacb72f43aea8dc",
+          "derivedFrom": "26631220350e7c7b1d97770483c6443a6712d9317c8bb5fd50cf7f51e522b434",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ancient-black-dragon-thumbnail-b8e973d930bf433d.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 14978,
+          "sha256": "b8e973d930bf433d36c25d957c61cd1f90a52916bac986d2c235ac36ad964f71",
+          "derivedFrom": "26631220350e7c7b1d97770483c6443a6712d9317c8bb5fd50cf7f51e522b434",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ancient-blue-dragon",
+      "contentSha256": "9ad4349312e66663c10618f81b0d8a7efb098aa486d02f73e31d78ec6e573b58",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 a6341c91d7517de740e6d45cf579a75f483aa8b0a212551a4a037c53307ad192",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "a6341c91d7517de740e6d45cf579a75f483aa8b0a212551a4a037c53307ad192",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v44.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ancient-blue-dragon-original-51a9eadd82bd9ce2.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 276394,
+          "sha256": "51a9eadd82bd9ce2c3646ed3a0b05d572e0fca0869b4685027f0cec5bb8198b6",
+          "derivedFrom": "a6341c91d7517de740e6d45cf579a75f483aa8b0a212551a4a037c53307ad192",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ancient-blue-dragon-thumbnail-7a15ede5301865eb.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 18812,
+          "sha256": "7a15ede5301865eb614d3da3374c61d51f70da2c58c6785485dd309c1474ee3d",
+          "derivedFrom": "a6341c91d7517de740e6d45cf579a75f483aa8b0a212551a4a037c53307ad192",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ancient-green-dragon",
+      "contentSha256": "a0547540841b6f7e22c346274924fa9556d54ee9b46ce4b01a7a0620247bf0a7",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 78c9dcd13685eabed6e58d8e3322e446475610bddf9d7cbac66c670ff2d5464e",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "78c9dcd13685eabed6e58d8e3322e446475610bddf9d7cbac66c670ff2d5464e",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v44.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ancient-green-dragon-original-887da8dd9c94a31d.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 220416,
+          "sha256": "887da8dd9c94a31d7c067c224cb290cc4519ab09a5f0f8504aedd25e241c3be2",
+          "derivedFrom": "78c9dcd13685eabed6e58d8e3322e446475610bddf9d7cbac66c670ff2d5464e",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ancient-green-dragon-thumbnail-b412e9444415fcb1.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 15226,
+          "sha256": "b412e9444415fcb1c1f1df41021dcd6bc418d796ef12f44d69c39ba5dbd00ae3",
+          "derivedFrom": "78c9dcd13685eabed6e58d8e3322e446475610bddf9d7cbac66c670ff2d5464e",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ancient-white-dragon",
+      "contentSha256": "6dbf2c508c0a71b22e47b9ce32d608205e824f72aaf72aeb1364e1a4a5e064d7",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 8432297addd7657328868ab022b2d4da1998dead43065b4102fbe2c02d9b9b9e",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "8432297addd7657328868ab022b2d4da1998dead43065b4102fbe2c02d9b9b9e",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v44.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ancient-white-dragon-original-2237e1e7ba5c9cf1.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 217787,
+          "sha256": "2237e1e7ba5c9cf1feb7dcb8b8e9f0a09dc363da64c0d77d673e65866fc82886",
+          "derivedFrom": "8432297addd7657328868ab022b2d4da1998dead43065b4102fbe2c02d9b9b9e",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ancient-white-dragon-thumbnail-e776ca8456186ea8.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 14960,
+          "sha256": "e776ca8456186ea821539f5d0b60d66236eb05e7b9ca28f538c88541d2da678a",
+          "derivedFrom": "8432297addd7657328868ab022b2d4da1998dead43065b4102fbe2c02d9b9b9e",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ancient-brass-dragon",
+      "contentSha256": "bf1e8135062fdac8a82de1f59186db919d6f34d5371db3e8356d13f80f850eb5",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 c60f4365170cd364320390c2dbd6602e0bdc3dcaf00e63a61edfc501be53aa4b",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "c60f4365170cd364320390c2dbd6602e0bdc3dcaf00e63a61edfc501be53aa4b",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v44.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ancient-brass-dragon-original-7ce660f89947e8da.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 207264,
+          "sha256": "7ce660f89947e8dab323485adcd0a7074c7c093c3ef6da97462639df989412f7",
+          "derivedFrom": "c60f4365170cd364320390c2dbd6602e0bdc3dcaf00e63a61edfc501be53aa4b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ancient-brass-dragon-thumbnail-57d9fbd91595b4ab.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 14224,
+          "sha256": "57d9fbd91595b4ab245bd9a81376cb96a1188a3593b65fb6d2bbe637918baee2",
+          "derivedFrom": "c60f4365170cd364320390c2dbd6602e0bdc3dcaf00e63a61edfc501be53aa4b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ancient-bronze-dragon",
+      "contentSha256": "6769f2b7ed1ad4894124d41242c8c953267c5c877e032c915643999a264d0e9a",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 edf67cff0f1e31743e00927952dc4f5b48391287ec79899e24b1d61310081de2",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "edf67cff0f1e31743e00927952dc4f5b48391287ec79899e24b1d61310081de2",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v44.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ancient-bronze-dragon-original-1b15dc0639f0d726.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 219792,
+          "sha256": "1b15dc0639f0d726e8798c11c0375b4bc947ef41dfcf2b8c135bf5f0631ca064",
+          "derivedFrom": "edf67cff0f1e31743e00927952dc4f5b48391287ec79899e24b1d61310081de2",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ancient-bronze-dragon-thumbnail-2947f3b4cc0cf302.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 15240,
+          "sha256": "2947f3b4cc0cf30268da34947b759358cda879c0447a601f9db13db61a52d484",
+          "derivedFrom": "edf67cff0f1e31743e00927952dc4f5b48391287ec79899e24b1d61310081de2",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ancient-copper-dragon",
+      "contentSha256": "cd375ede52096cf896ee0cf3b7794063520a69fe01e71d9e3c9a514b3c56ffa2",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 faed21ceb557136468ef684766246bf99d3c1d6bc04c080c373c0fc6ef212b5d",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "faed21ceb557136468ef684766246bf99d3c1d6bc04c080c373c0fc6ef212b5d",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v44.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ancient-copper-dragon-original-52adedddeb6789a2.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 234176,
+          "sha256": "52adedddeb6789a2e10c22a65158348b0f1562e3162476ef335ef2148a190aca",
+          "derivedFrom": "faed21ceb557136468ef684766246bf99d3c1d6bc04c080c373c0fc6ef212b5d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ancient-copper-dragon-thumbnail-980e3385e5d3967a.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 15918,
+          "sha256": "980e3385e5d3967a44dc932143944d3df9f7ebe92ada11a33508f8357c6951bb",
+          "derivedFrom": "faed21ceb557136468ef684766246bf99d3c1d6bc04c080c373c0fc6ef212b5d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ancient-silver-dragon",
+      "contentSha256": "01bc2f741349055137f5141852800bd27d1d415f9394089fc27d6a42d242ba8c",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 dbf15144cc67a6939d6ace80ffd5e63f59ee183981d4c9b7ec8fea57b9d540dd",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "dbf15144cc67a6939d6ace80ffd5e63f59ee183981d4c9b7ec8fea57b9d540dd",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v44.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ancient-silver-dragon-original-669c39d82d9048f2.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 217038,
+          "sha256": "669c39d82d9048f2e9bc4a1361165c50b4201bf5ef50e945bb4a77479112a36d",
+          "derivedFrom": "dbf15144cc67a6939d6ace80ffd5e63f59ee183981d4c9b7ec8fea57b9d540dd",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ancient-silver-dragon-thumbnail-8311d8edfcc1cac5.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 14941,
+          "sha256": "8311d8edfcc1cac5af5b064fc41fa285b4d137c200d7a7e10778bd812ba79431",
+          "derivedFrom": "dbf15144cc67a6939d6ace80ffd5e63f59ee183981d4c9b7ec8fea57b9d540dd",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ancient-gold-dragon",
+      "contentSha256": "f32353c7279bb889a1af17c690c33c179e557b881efc9a8e5761e00da5b88080",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 9fec3d859638d76515cf5577326aac2cd072f841bb744dde8f40981552aad5ad",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "9fec3d859638d76515cf5577326aac2cd072f841bb744dde8f40981552aad5ad",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v44.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ancient-gold-dragon-original-5db7ff7bf36ff217.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 241401,
+          "sha256": "5db7ff7bf36ff217e47669508ffdb375daef03e338f8f2557c8c9956accba5a2",
+          "derivedFrom": "9fec3d859638d76515cf5577326aac2cd072f841bb744dde8f40981552aad5ad",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ancient-gold-dragon-thumbnail-f7e0f639a0d7b5de.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 17204,
+          "sha256": "f7e0f639a0d7b5de788e7e0168b3afe04598ab0a32fd995ad48e2d0eafbb59a7",
+          "derivedFrom": "9fec3d859638d76515cf5577326aac2cd072f841bb744dde8f40981552aad5ad",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }

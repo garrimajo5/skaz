@@ -17,7 +17,7 @@
     },
     "monster": {
       "total": 204,
-      "accepted": 83
+      "accepted": 92
     }
   },
   "statuses": {
@@ -92,7 +92,16 @@
       "srd51:2014:monster:adult-silver-dragon",
       "srd51:2014:monster:adult-white-dragon",
       "srd51:2014:monster:air-elemental",
+      "srd51:2014:monster:ancient-black-dragon",
+      "srd51:2014:monster:ancient-blue-dragon",
+      "srd51:2014:monster:ancient-brass-dragon",
+      "srd51:2014:monster:ancient-bronze-dragon",
+      "srd51:2014:monster:ancient-copper-dragon",
+      "srd51:2014:monster:ancient-gold-dragon",
+      "srd51:2014:monster:ancient-green-dragon",
       "srd51:2014:monster:ancient-red-dragon",
+      "srd51:2014:monster:ancient-silver-dragon",
+      "srd51:2014:monster:ancient-white-dragon",
       "srd51:2014:monster:animated-armor",
       "srd51:2014:monster:ape",
       "srd51:2014:monster:archmage",
@@ -249,15 +258,6 @@
     "placeholder": []
   },
   "missing": [
-    "srd51:2014:monster:ancient-black-dragon",
-    "srd51:2014:monster:ancient-blue-dragon",
-    "srd51:2014:monster:ancient-brass-dragon",
-    "srd51:2014:monster:ancient-bronze-dragon",
-    "srd51:2014:monster:ancient-copper-dragon",
-    "srd51:2014:monster:ancient-gold-dragon",
-    "srd51:2014:monster:ancient-green-dragon",
-    "srd51:2014:monster:ancient-silver-dragon",
-    "srd51:2014:monster:ancient-white-dragon",
     "srd51:2014:monster:ankheg",
     "srd51:2014:monster:azer",
     "srd51:2014:monster:balor",
@@ -610,15 +610,6 @@
     "srd51:2014:spell:word-of-recall"
   ],
   "uncovered": [
-    "srd51:2014:monster:ancient-black-dragon",
-    "srd51:2014:monster:ancient-blue-dragon",
-    "srd51:2014:monster:ancient-brass-dragon",
-    "srd51:2014:monster:ancient-bronze-dragon",
-    "srd51:2014:monster:ancient-copper-dragon",
-    "srd51:2014:monster:ancient-gold-dragon",
-    "srd51:2014:monster:ancient-green-dragon",
-    "srd51:2014:monster:ancient-silver-dragon",
-    "srd51:2014:monster:ancient-white-dragon",
     "srd51:2014:monster:ankheg",
     "srd51:2014:monster:azer",
     "srd51:2014:monster:balor",

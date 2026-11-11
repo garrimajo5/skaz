@@ -45,3 +45,5 @@ test('export checks exact source and current context; files never fall back to a
 test('parallel actions are blocked and destruction aborts requests without applying late response',async()=>{
  let resolve;const api=fixture(()=>new Promise(r=>resolve=r));const pending=api.prepare(file(base));await new Promise(r=>setImmediate(r));await assert.rejects(api.exportPackage(),/Дождись/);api.destroy();resolve(Response.json(state));await assert.rejects(pending,/закрыт/);
 });
+
+test('truncated JSON response has readable error and retains exactly the same import for retry',async()=>{let lose=true;const bodies=[];const api=fixture(async(url,o)=>{if(url==='/api/workspace')return Response.json(state);bodies.push(o.body);if(lose){lose=false;return new Response('{');}return Response.json({...state,revision:8,replayed:true});});await api.prepare(file(base));await assert.rejects(api.importPrepared(),/Ответ сервера неполный или повреждён/);assert.equal(api.pending,true);assert.equal((await api.retry()).replayed,true);assert.equal(bodies[0],bodies[1]);assert.equal(api.pending,false);api.destroy();});

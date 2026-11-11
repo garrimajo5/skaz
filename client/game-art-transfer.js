@@ -23,7 +23,7 @@ const SkazGameArtTransfer=(()=>{
    if(Number(response.headers.get('Content-Length'))>maxBytes+4096){await response.body?.cancel();throw Error('Слишком большой ответ переноса.');}
    const reader=response.body?.getReader();if(!reader)throw Error('Пустой ответ переноса.');let size=0;const chunks=[];
    try{for(;;){const {done,value}=await reader.read();check();if(done)break;size+=value.byteLength;if(size>maxBytes+4096)throw Error('Слишком большой ответ переноса.');chunks.push(value);}}catch(error){await reader.cancel().catch(()=>{});throw error;}finally{reader.releaseLock();}
-   const data=JSON.parse(await new Blob(chunks).text());check();if(!response.ok)throw Object.assign(Error(data.error||'Не удалось перенести игру.'),{status:response.status});return data;
+   let data;try{data=JSON.parse(await new Blob(chunks).text());}catch{throw Error('Ответ сервера неполный или повреждён.');}check();if(!response.ok)throw Object.assign(Error(data.error||'Не удалось перенести игру.'),{status:response.status});return data;
   }
   const commands=SkazPersonalArtCommand.create({newId,send:async body=>state(await call('/api/import/game-with-art',body))});
   async function exclusive(fn){check();if(busy)throw Error('Дождись завершения переноса.');busy=true;try{return await fn();}finally{busy=false;}}
