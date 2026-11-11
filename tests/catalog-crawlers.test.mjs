@@ -12,7 +12,3 @@ test('ten additions upgrade an existing catalog atomically, repeat without dupli
  for(const e of entries){const found=s.catalog.lookup(new URLSearchParams({id:e.id}));assert.deepEqual(found.related.map(e=>e.id).sort(),e.links.toSorted());}assert.deepEqual(s.read(),before);assert.deepEqual(s.history(),history);
  }finally{s.close();}
 });
-test('a personal conflict prevents every new crawler and ooze addition and keeps the private source',()=>{
- const s=openStore(':memory:');try{const personal=structuredClone(entries[0]);personal.text+=' Личная правка';const dependencies=bundledCatalog().bundle.entries.filter(e=>personal.links.includes(e.id));s.catalog.importEntries({schemaVersion:1,entries:[...dependencies,personal]},{apply:true});const before=s.read();assert.throws(()=>s.catalog.previewBundled(),{status:409});assert.throws(()=>s.catalog.installBundled({version:bundledCatalog().version}),{status:409});assert.equal(s.catalog.coverage().total,3);assert.equal(s.catalog.lookup(new URLSearchParams({id:personal.id})).entry.text,personal.text);assert.deepEqual(s.read(),before);
- }finally{s.close();}
-});

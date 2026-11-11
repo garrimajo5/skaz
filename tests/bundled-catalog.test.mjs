@@ -15,14 +15,49 @@ test('bundled preview is read-only and installation is complete, repeatable and 
   assert.throws(()=>store.catalog.installBundled({version:'old'}),{status:409});assert.throws(()=>store.catalog.installBundled({...request,path:'../other'}),{status:422});
  }finally{store.close();}
 });
-test('conflict prevents every bundled addition and preserves installed personal materials',()=>{
- const store=openStore(':memory:');try{
-  const {bundle,version}=bundledCatalog(),existing=structuredClone(bundle.entries[0]);existing.name.ru+=' — личная версия';
-  store.catalog.importEntries({schemaVersion:1,entries:[existing]},{apply:true});
-  const before=store.catalog.search();assert.throws(()=>store.catalog.previewBundled(),{status:409});assert.throws(()=>store.catalog.installBundled({version}),{status:409});
-  assert.deepEqual(store.catalog.search(),before);assert.equal(store.catalog.coverage().total,1);
- }finally{store.close();}
-});
+// Import conflicts use the same path for every creature pack. Keep the contract
+// here; pack tests cover source content, links, installation and scoped access.
+for (const field of ['name', 'text']) {
+ test(`bundled ${field} conflict preserves every installed card and blocks all additions`, () => {
+  const store = openStore(':memory:');
+  try {
+   const {bundle, version} = bundledCatalog();
+   // Exercise an early conflict and a later, linked monster conflict.
+   const source = field === 'name' ? bundle.entries[0] : bundle.entries.findLast(entry => entry.monster);
+   const personal = structuredClone(source);
+   if (field === 'name') personal.name.ru += ' — личная версия';
+   else personal.text += ' Личная правка';
+
+   const byId = new Map(bundle.entries.map(entry => [entry.id, entry]));
+   const installed = new Map([[personal.id, personal]]);
+   const pending = [...personal.links];
+   while (pending.length) {
+    const id = pending.pop();
+    if (installed.has(id)) continue;
+    const dependency = byId.get(id);
+    assert.ok(dependency, `Missing fixture dependency: ${id}`);
+    installed.set(id, dependency);
+    pending.push(...dependency.links);
+   }
+   store.catalog.importEntries({schemaVersion:1, entries:[...installed.values()]}, {apply:true});
+   const lookup = id => store.catalog.lookup(new URLSearchParams({id})).entry;
+   const before = [...installed.keys()].map(lookup);
+   const missing = bundle.entries.filter(entry => !installed.has(entry.id));
+   assert.ok(missing.length > 0);
+   const game = store.read(), history = store.history();
+
+   for (const operation of [() => store.catalog.previewBundled(), () => store.catalog.installBundled({version})]) {
+    assert.throws(operation, {status:409});
+    assert.equal(store.catalog.coverage().total, installed.size);
+    assert.deepEqual([...installed.keys()].map(lookup), before);
+    // Check every missing ID, not a search page that could hide partial writes.
+    for (const entry of missing) assert.throws(() => lookup(entry.id), {status:404});
+    assert.deepEqual(store.read(), game);
+    assert.deepEqual(store.history(), history);
+   }
+  } finally { store.close(); }
+ });
+}
 test('bundled HTTP install requires app headers and a reviewed version, handles replay without new keys',async t=>{
  const store=openStore(':memory:'),app=createApp(store);await new Promise(r=>app.listen(0,'127.0.0.1',r));t.after(async()=>{await new Promise(r=>app.close(r));store.close();});
  const url=`http://127.0.0.1:${app.address().port}/api/catalog/bundled`,preview=await fetch(url).then(r=>r.json()),body=JSON.stringify({version:preview.version}),headers={'Content-Type':'application/json','X-Skaz-Client':'local-v1'};
