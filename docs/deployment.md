@@ -1,3 +1,17 @@
+# Обновление Nginx ce18fda — 12.11.2026
+
+Код приложения остаётся0afdfd1. Статические JS/CSS/шрифты теперь
+используют отдельную зону skaz_static100r/s, burst160 nodelay.
+Прежняя очередь10r/s заменена; API/вход, Basic и cookie не ослаблены.
+nginx -t и reload прошли; nginx/skaz active. HTTPS-проверка входа,
+Origin, экспортаv12,287 артов и точных клиентских файлов прошла.
+Копия: /var/backups/skaz/skaz-2026-11-11T22-24-19-453Z.sqlite.
+Репетиция: /var/backups/skaz/rehearsal-static-parallel-20261112.sqlite,
+40 прежних таблиц и три новые на копии, оригинал не менялся.
+Откат Nginx: /etc/nginx/skaz-before-parallel-20261112.conf →
+/etc/nginx/sites-available/skaz, затем nginx -t и reload nginx.
+CSS альбомной формы ещё не выпущен. Флаги по-прежнему выключены.
+
 # Текущий выпуск — 0afdfd1, 12.11.2026
 
 Production-v50–v52:22 оригинальных арта,287/580, осталось293.

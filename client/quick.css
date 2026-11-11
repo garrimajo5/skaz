@@ -265,3 +265,7 @@ button:disabled:hover{filter:none;transform:none;border-color:var(--muted)}
 body{--control-line:var(--muted);--ok:var(--green);--danger:var(--red)}
 input:not([type=checkbox]):not([type=radio]),textarea,select{border-color:var(--control-line);border-radius:var(--radius-control)}
 input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{border-color:var(--danger)}
+
+/* Keep advancement content inside its dialog, including short landscapes. */
+#dialog:has(#class-advancement-host){margin:auto;width:min(760px,calc(100% - 24px));max-width:760px;max-height:calc(100dvh - 24px);border-radius:var(--radius-dialog,16px)}
+#dialog-content:has(#class-advancement-host){max-height:calc(100dvh - 26px);overscroll-behavior:contain}
