@@ -11265,6 +11265,270 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:monster:azer",
+      "contentSha256": "fe10cb8002833513135b03ac5597e79da5e9744423e6f5a287aa71a1cb2bd2a7",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 1136e22a9e0fe3b3bf03f7b715b76d6fe595ba7e68e6d917808ea8b4286598a6",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "1136e22a9e0fe3b3bf03f7b715b76d6fe595ba7e68e6d917808ea8b4286598a6",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v48.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/azer-original-8203e3b8fcebff7b.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 273113,
+          "sha256": "8203e3b8fcebff7b54e01bdfa796503ba9e92db5ac1c819a931be62d017c3ff8",
+          "derivedFrom": "1136e22a9e0fe3b3bf03f7b715b76d6fe595ba7e68e6d917808ea8b4286598a6",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/azer-thumbnail-30fdbd6987df4e9d.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 19652,
+          "sha256": "30fdbd6987df4e9de527bb71d88b0cd0cdc9fbc9a0f5f181b81b50d4b14d5d66",
+          "derivedFrom": "1136e22a9e0fe3b3bf03f7b715b76d6fe595ba7e68e6d917808ea8b4286598a6",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:chuul",
+      "contentSha256": "cac48902eb40c074b9a8b2e79a6cdb6ccbd7e10daef16f00a2b2077df25f6c1e",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 b328bec2b12a5697545c761ddf14d813d902807fe9a0543d478c4a5954b72afb",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "b328bec2b12a5697545c761ddf14d813d902807fe9a0543d478c4a5954b72afb",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v48.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/chuul-original-086f994bc2fa1877.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 261902,
+          "sha256": "086f994bc2fa187704152ab865309a75322db12a4b542b5d0e01a515dccfc343",
+          "derivedFrom": "b328bec2b12a5697545c761ddf14d813d902807fe9a0543d478c4a5954b72afb",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/chuul-thumbnail-2b0b16af1cb6abac.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 18472,
+          "sha256": "2b0b16af1cb6abac789b3985f82766153cc78f0a2fc211d952d1eb516e046aaa",
+          "derivedFrom": "b328bec2b12a5697545c761ddf14d813d902807fe9a0543d478c4a5954b72afb",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:cloaker",
+      "contentSha256": "85eadbef0cb9f7da3a3a346ba2156c576233ff89517f69a176c7f0dc50b1c62e",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 6be58bea61c703765c3f2b1fc0b3d1297afa6fa274a5edb25d60e3dfc67a5a40",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "6be58bea61c703765c3f2b1fc0b3d1297afa6fa274a5edb25d60e3dfc67a5a40",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v48.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/cloaker-original-f6389b5f7b067ba4.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 161779,
+          "sha256": "f6389b5f7b067ba459341dce1d3e0b3dbdb2b5fb3212ff5f494a925667d973bf",
+          "derivedFrom": "6be58bea61c703765c3f2b1fc0b3d1297afa6fa274a5edb25d60e3dfc67a5a40",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/cloaker-thumbnail-434485d45f409dfa.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 12224,
+          "sha256": "434485d45f409dfa98af2b661805342da326ca41618790af0723bb51f57d1396",
+          "derivedFrom": "6be58bea61c703765c3f2b1fc0b3d1297afa6fa274a5edb25d60e3dfc67a5a40",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:couatl",
+      "contentSha256": "3290813b185aa4cf01babcebbce356309b7cd308496c147cfb237b5defe40d62",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 214941f67d86330ba9fa5f1f0a12a49dbcda7a8dd6cd5adb901e0b78f7f33ed7",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "214941f67d86330ba9fa5f1f0a12a49dbcda7a8dd6cd5adb901e0b78f7f33ed7",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v48.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/couatl-original-a4368773b41dcbf7.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 322982,
+          "sha256": "a4368773b41dcbf728a2f2c4e393f0ffb0bc3a1493434cc628720d1232b96aeb",
+          "derivedFrom": "214941f67d86330ba9fa5f1f0a12a49dbcda7a8dd6cd5adb901e0b78f7f33ed7",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/couatl-thumbnail-3f90c620f63fbc95.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 22426,
+          "sha256": "3f90c620f63fbc953e1f81eebe21483b6dbfc4e7603cf20ae096a5390cda3902",
+          "derivedFrom": "214941f67d86330ba9fa5f1f0a12a49dbcda7a8dd6cd5adb901e0b78f7f33ed7",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:dryad",
+      "contentSha256": "c6c22fcd337dabc211ee2bcf17949c55c16a92f2c47690c4d7bb8729f568fe17",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 a1e15255a55c41a3ed55f3e283b1a283e546ccd51908c436cae458b92a54e9eb",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "a1e15255a55c41a3ed55f3e283b1a283e546ccd51908c436cae458b92a54e9eb",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v48.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/dryad-original-3006120edb2ceff8.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 267839,
+          "sha256": "3006120edb2ceff8ba3d47a6a2518f26a6232dd79e468e210da9bbfd84934795",
+          "derivedFrom": "a1e15255a55c41a3ed55f3e283b1a283e546ccd51908c436cae458b92a54e9eb",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/dryad-thumbnail-0eb13d3c7003ebd8.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 19197,
+          "sha256": "0eb13d3c7003ebd80cf58b51966ffa5fe2d9be1c4932811717aa491aca809058",
+          "derivedFrom": "a1e15255a55c41a3ed55f3e283b1a283e546ccd51908c436cae458b92a54e9eb",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ettercap",
+      "contentSha256": "9e4338a6ae1e3406a268720c7c08689fbc6de41ed272abee6ca9083eb5a8e004",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 bb6072768b2b22c2c304603d307adb8d15970065e46e55c6bdbad2b3ed0bbeb5",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "bb6072768b2b22c2c304603d307adb8d15970065e46e55c6bdbad2b3ed0bbeb5",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v48.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/monsters/ettercap-original-34ef41c78940a059.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 254460,
+          "sha256": "34ef41c78940a059dd1daf74f771443e17d4d74238431a1043c9cbd92cf3cd88",
+          "derivedFrom": "bb6072768b2b22c2c304603d307adb8d15970065e46e55c6bdbad2b3ed0bbeb5",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/monsters/ettercap-thumbnail-e5ee0e718e6768cf.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 19003,
+          "sha256": "e5ee0e718e6768cf2fd522ca7af8b2d7f528e8222390b7fe48421e5d694a6e1e",
+          "derivedFrom": "bb6072768b2b22c2c304603d307adb8d15970065e46e55c6bdbad2b3ed0bbeb5",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 256,
+  "count": 262,
   "pairs": [
     {
       "ids": [
@@ -508,6 +508,11 @@
       "light": "624ba5b6d646c23a"
     },
     {
+      "id": "srd51:2014:monster:azer",
+      "dark": "470f3ef0383935a1",
+      "light": "6ac09587954ad26f"
+    },
+    {
       "id": "srd51:2014:monster:baboon",
       "dark": "460f38712fe46237",
       "light": "6cd0921bc54fc53c"
@@ -573,9 +578,19 @@
       "light": "434b38f23ff0311c"
     },
     {
+      "id": "srd51:2014:monster:chuul",
+      "dark": "406162851fcf1f5e",
+      "light": "3f94d97ac124d231"
+    },
+    {
       "id": "srd51:2014:monster:clay-golem",
       "dark": "500e1dfd61233766",
       "light": "6de5da0abc508a0f"
+    },
+    {
+      "id": "srd51:2014:monster:cloaker",
+      "dark": "44c63f1b60f1d386",
+      "light": "6a73d0949d8ba478"
     },
     {
       "id": "srd51:2014:monster:cloud-giant",
@@ -586,6 +601,11 @@
       "id": "srd51:2014:monster:commoner",
       "dark": "414f3fcc3c986439",
       "light": "3ca5c3c2960fc91b"
+    },
+    {
+      "id": "srd51:2014:monster:couatl",
+      "dark": "41f40c073f9a69cd",
+      "light": "7adba184c56d8691"
     },
     {
       "id": "srd51:2014:monster:crab",
@@ -613,6 +633,11 @@
       "light": "7ef4838f92880dca"
     },
     {
+      "id": "srd51:2014:monster:dryad",
+      "dark": "40792f8e3cf83139",
+      "light": "3cc5c4c2960fc37a"
+    },
+    {
       "id": "srd51:2014:monster:earth-elemental",
       "dark": "454f0ef870303b73",
       "light": "6ab4a41fc36b9138"
@@ -626,6 +651,11 @@
       "id": "srd51:2014:monster:elk",
       "dark": "5217616a1e920fed",
       "light": "29da9ee4c361f049"
+    },
+    {
+      "id": "srd51:2014:monster:ettercap",
+      "dark": "409b1f3c2c7165f2",
+      "light": "3ec4e11ad62d923c"
     },
     {
       "id": "srd51:2014:monster:ettin",
