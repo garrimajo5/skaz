@@ -82,3 +82,39 @@ test('fixture rejects a symlink in place of its own database before opening the 
  const {unlink}=await import('node:fs/promises');await unlink(path.join(folder,'fixture.sqlite'));await symlink(target,path.join(folder,'fixture.sqlite'));
  await assert.rejects(serveAuthFixture(folder,0),/обычные файлы/);assert.equal(await readFile(target,'utf8'),'private target');
 });
+
+test('advancement fixture uses real cookies, preserves seeded provenance and isolates the player',async t=>{
+ const folder=await directory(),origin='https://fixture.example:8443';
+ await prepareAuthFixture(folder,origin,{classAdvancement:true});
+ const fixture=await serveAuthFixture(folder,0);t.after(()=>fixture.close());
+ const users=JSON.parse(await readFile(path.join(folder,credentialName),'utf8')).credentials;
+ const url='http://127.0.0.1:'+fixture.server.address().port;
+ const request=(route,{user,cookie,body}={})=>fetch(url+route,{method:body?'POST':'GET',headers:{Origin:origin,'X-Skaz-Client':'local-v1','X-Skaz-View':'advancement-auth-qa',...(user?{'X-Skaz-Identity':user.id}:{}),...(cookie?{Cookie:cookie}:{}),...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});
+ const sessions=[];
+ for(const user of users.slice(0,2)){const r=await request('/api/auth/login',{body:{login:user.login,password:user.password}});assert.equal(r.status,200);assert.match(r.headers.get('set-cookie'),/Secure; HttpOnly; SameSite=Strict/);sessions.push({user,cookie:r.headers.get('set-cookie').split(';')[0]});}
+ const [owner,player]=sessions;
+ assert.equal((await request('/api/class-advancement/classes')).status,401);
+ const own=await(await request('/api/workspace',owner)).json(),other=await(await request('/api/workspace',player)).json();
+ assert.equal(own.characterSheet.level,4);assert.equal(own.advancement.events.length,1);assert.equal(own.state.maxHp,42);assert.equal(own.state.hp,12);
+ assert.equal(other.characterSheet.level,2);assert.equal(other.advancement,null);assert.notEqual(own.context.characterId,other.context.characterId);
+ const file=await(await request('/api/export/active-v13',owner)).json();assert.deepEqual(file.advancement,own.advancement);
+ const plan=await(await request('/api/class-advancement/plan?classId=fighter',owner)).json();
+ const command={mutationId:randomUUID(),expectedRevision:own.revision,characterId:own.context.characterId,classId:'fighter',fromLevel:4,hpMethod:'fixed',hpRoll:null,choices:{},reviewedFeatures:plan.plan.requiresFeatureReview};
+ assert.equal((await request('/api/class-advancement/apply',{...player,body:command})).status,409);
+ const applied=await request('/api/class-advancement/apply',{...owner,body:command});assert.equal(applied.status,200);const result=await applied.json();assert.equal(result.characterSheet.level,5);assert.equal(result.advancement.events.length,2);assert.equal(result.state.hp,12);
+ assert.equal((await(await request('/api/class-advancement/apply',{...owner,body:command})).json()).replayed,true);
+ const {revision:playerRevision,updatedAt:playerTime,...playerState}=await(await request('/api/workspace',player)).json();
+ const {revision:beforeRevision,updatedAt:beforeTime,...beforePlayer}=other;
+ assert.deepEqual(playerState,beforePlayer);assert.equal(playerRevision,beforeRevision+1); // Shared campaign revision, isolated character data.
+ assert.equal((await request('/api/auth/logout',{...owner,body:{}})).status,200);
+ assert.equal((await request('/api/class-advancement/apply',{...owner,body:command})).status,401);
+});
+
+test('fixture capability cannot be enabled by changing only its manifest',async()=>{
+ const folder=await directory();await prepareAuthFixture(folder,'https://fixture.example');
+ const file=path.join(folder,'fixture.json'),manifest=JSON.parse(await readFile(file,'utf8'));
+ manifest.kind+='-advancement';await writeFile(file,JSON.stringify(manifest));
+ const database=path.join(folder,'fixture.sqlite'),before=await readFile(database);
+ await assert.rejects(serveAuthFixture(folder,0),/База не принадлежит/);assert.deepEqual(await readFile(database),before);
+ const invalid=await directory();await assert.rejects(prepareAuthFixture(invalid,'https://fixture.example',{classAdvancement:'true'}));await assert.rejects(stat(invalid),{code:'ENOENT'});
+});

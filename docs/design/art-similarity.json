@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 265,
+  "count": 271,
   "pairs": [
     {
       "ids": [
@@ -1003,6 +1003,11 @@
       "light": "656cc793188f61cc"
     },
     {
+      "id": "srd51:2014:spell:arcane-hand",
+      "dark": "43307e972d6858e5",
+      "light": "3e8dc16ad2b78912"
+    },
+    {
       "id": "srd51:2014:spell:arcane-lock",
       "dark": "423f3cc9c9983167",
       "light": "69c1a667c61e929c"
@@ -1013,6 +1018,11 @@
       "light": "36c991964f62c93c"
     },
     {
+      "id": "srd51:2014:spell:augury",
+      "dark": "514b3fb03c344be4",
+      "light": "2fb4cc42da3c914e"
+    },
+    {
       "id": "srd51:2014:spell:awaken",
       "dark": "4e96316c31c3ce3c",
       "light": "61699e92992c63c7"
@@ -1021,6 +1031,11 @@
       "id": "srd51:2014:spell:bane",
       "dark": "04b735e76c4d4358",
       "light": "6b489eb0a4b2b32d"
+    },
+    {
+      "id": "srd51:2014:spell:banishment",
+      "dark": "15cc3233e2cc6ccd",
+      "light": "6d33cdcc1b11d232"
     },
     {
       "id": "srd51:2014:spell:barkskin",
@@ -1038,6 +1053,11 @@
       "light": "7cc3864ca47a139b"
     },
     {
+      "id": "srd51:2014:spell:blade-barrier",
+      "dark": "153a6ec1698f924e",
+      "light": "3b52e5efc5101c61"
+    },
+    {
       "id": "srd51:2014:spell:bless",
       "dark": "413d699634c336ec",
       "light": "3fc236699235c833"
@@ -1046,6 +1066,16 @@
       "id": "srd51:2014:spell:blight",
       "dark": "13972492d86367ec",
       "light": "6c60cb6d279c9193"
+    },
+    {
+      "id": "srd51:2014:spell:blindness-deafness",
+      "dark": "1a934d9b796460cd",
+      "light": "381bc4919f66cc9c"
+    },
+    {
+      "id": "srd51:2014:spell:blink",
+      "dark": "1a6b6c90657b6692",
+      "light": "33e2c60ed839c33c"
     },
     {
       "id": "srd51:2014:spell:blur",
