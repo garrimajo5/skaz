@@ -1,4 +1,5 @@
 import Health from '../client/health.js';
+import Conditions from '../client/conditions.js';
 export const seed = {
   hp: 28, maxHp: 38, gold: 124, slots: { 1: 3, 2: 2, 3: 1 }, inspiration: 3,
   accepted: [], dismissed: [], journal: [], notes: [], mapNotes: [], checks: {},
@@ -25,7 +26,8 @@ function list(value, max, label) {
 }
 
 export function validateState(input) {
-  keys(input, [...Object.keys(seed),'tempHp','concentrationChecks','deathSaves'], 'состояние');
+  keys(input, [...Object.keys(seed),'tempHp','concentrationChecks','deathSaves','conditions'], 'состояние');
+  if(input.conditions!==undefined)try{Conditions.validate(input.conditions);}catch(error){fail(error.message);}
   if(input.deathSaves!==undefined)try{Health.deathState(input.hp,input.deathSaves);}catch(error){fail(error.message);}
   if(input.concentrationChecks!==undefined){
     list(input.concentrationChecks,100,'проверки концентрации');const ids=new Set();

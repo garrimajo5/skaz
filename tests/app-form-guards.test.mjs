@@ -3,6 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFile} from 'node:fs/promises';
+const conditionsSource=await readFile(new URL('../client/conditions.js',import.meta.url),'utf8');
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/app.js',import.meta.url),'utf8');
 function harness(){
@@ -11,7 +12,7 @@ function harness(){
  const context=vm.createContext({structuredClone,URL,Blob,location:{protocol:'http:',hash:'#hero'},history:{replaceState(){}},localStorage:{getItem:()=>null},setTimeout:()=>0,clearTimeout(){},
   document:{body:{dataset:{}},querySelector:get,querySelectorAll:()=>[],getElementById:id=>id==='blocked-form-message'?(elements.get('#'+id)||null):get('#'+id),createElement:()=>({setAttribute(){},scrollIntoView(){}}),addEventListener:(key,fn)=>handlers[key]=fn},window:{addEventListener(){},scrollTo(){}},
   SkazStorage:{preference:()=> 'polar',paint(){},boot(){},setTheme(){},sessionTitle:()=>'',sessionDate:()=>'',contextKey:()=> 'same',snapshotKey:()=> 'same:'+revision,editable:()=>editable,commit:async(state,label)=>{writes.push({state:structuredClone(state),label});revision++;return {state};}},SkazEvents:{pendingCount:()=>0}
- });vm.runInContext(healthSource,context);vm.runInContext(sheetSource,context);vm.runInContext(source,context);
+ });vm.runInContext(conditionsSource,context);vm.runInContext(healthSource,context);vm.runInContext(sheetSource,context);vm.runInContext(source,context);
  return {get,writes,block:()=>editable=false,run:code=>vm.runInContext(code,context),state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset,classList:{contains:()=>false}})}})};
 }
 
@@ -208,4 +209,16 @@ test('manual concentration end clears pending questions and its one undo restore
 test('zero health replaces ordinary damage with named death state and a touch-sized saves dialog',()=>{
  const h=harness();h.run("state.hp=0;state.deathSaves={successes:1,failures:2,status:'dying'}");const html=h.run('healthVitals()');assert.match(html,/Без сознания/);assert.match(html,/Успехи ●○○ · Провалы ●●○/);assert.doesNotMatch(html,/data-health="damage"/);h.run('deathDialog()');assert.match(h.get('#dialog-content').innerHTML,/Натуральная 20/);assert.match(h.get('#dialog-content').innerHTML,/Критический урон/);
  h.run("state.deathSaves={successes:0,failures:3,status:'dead'}");assert.match(h.run('healthVitals()'),/data-health="heal" disabled/);h.run('hpDialog(true)');assert.match(h.get('#toast').innerHTML,/не воскрешает/);
+});
+
+test('conditions form preserves manual resources and renders explicit condition chips',async()=>{
+ const h=harness(),before=h.state();h.run("document.querySelectorAll=selector=>selector==='#conditions-form input:checked'?[{value:'poisoned'},{value:'prone'}]:[]");h.click('quick-conditions');h.get('#condition-exhaustion').value='2';await h.get('#conditions-form').onsubmit({preventDefault(){}});await new Promise(r=>setImmediate(r));
+ assert.equal(h.writes.length,1);assert.deepEqual(h.state().conditions,{active:['poisoned','prone'],exhaustion:2});assert.equal(h.state().hp,before.hp);assert.deepEqual(h.state().slots,before.slots);assert.equal(h.state().concentration,before.concentration);
+ await h.get('#undo').onclick();assert.deepEqual(h.state().conditions,{active:[],exhaustion:0});assert.equal(h.state().hp,before.hp);
+ assert.equal(h.run('conditionChips()'),'');assert.match(h.get('#dialog-content').innerHTML,/не применяются автоматически/);
+});
+
+test('conditions form cannot submit across revision changes or after write permission disappears',async()=>{
+ const h=harness();h.click('quick-conditions');h.get('#condition-exhaustion').value='2';h.run("SkazStorage.snapshotKey=()=> 'changed'");await h.get('#conditions-form').onsubmit({preventDefault(){}});assert.equal(h.writes.length,0);assert.match(h.get('#conditions-error').textContent,/Игра изменилась/);assert.equal(h.get('#condition-exhaustion').value,'2');
+ const blocked=harness();blocked.click('quick-conditions');blocked.block();await blocked.get('#conditions-form').onsubmit({preventDefault(){}});assert.equal(blocked.writes.length,0);
 });

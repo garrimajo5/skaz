@@ -124,3 +124,11 @@ test('binding audit failure rolls back counters and ownership; changed retry can
  db.exec('DROP TRIGGER fail_binding_receipt');const bound=s.bindClassResources(q);assert.equal(bound.advancement.resources.length,1);assert.equal(s.bindClassResources(q).replayed,true);
  assert.throws(()=>s.bindClassResources({...q,create:[...q.create,'class-fighter-action-surge']}),{status:409});assert.equal(s.read().advancement.resources.length,1);assert.deepEqual(s.read().state,before.state);
 });
+
+test('v14 keeps conditions alongside a nonempty advancement ledger and permits the next level',()=>{
+ const a=openStore(':memory:',{classAdvancement:true}),b=openStore(':memory:',{classAdvancement:true});try{
+ prepare(a,'cleric');a.advanceCharacter(command(a));a.update({mutationId:randomUUID(),expectedRevision:a.read().revision,label:'Manual conditions',state:{...a.read().state,conditions:{active:['poisoned'],exhaustion:2}}});
+ const file=a.exportActive(14),before=a.read();b.importActive({mutationId:randomUUID(),expectedRevision:0,destination:'new-campaign',file});assert.deepEqual(b.read().advancement,before.advancement);assert.deepEqual(b.read().state.conditions,before.state.conditions);
+ const next=b.advanceCharacter(command(b));assert.equal(next.characterSheet.level,3);assert.deepEqual(next.state.conditions,before.state.conditions);assert.equal(next.state.hp,before.state.hp);
+ }finally{a.close();b.close();}
+});

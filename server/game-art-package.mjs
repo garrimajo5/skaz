@@ -7,8 +7,8 @@ const fail=message=>{throw new AppError(422,message);};
 export const gameArtPackageMaxBytes=64*1024*1024;
 export function validateGameArtPackage(value){
  const keys=['app','schemaVersion','ruleset','game','personalArt'];
- if(!value||typeof value!=='object'||Array.isArray(value)||Object.keys(value).length!==keys.length||keys.some(k=>!Object.hasOwn(value,k))||value.app!=='skaz-game-with-art'||![1,2].includes(value.schemaVersion)||value.ruleset!=='5e-2014')fail('Нужен пакет игры с личными изображениями СКАЗ v1 или v2.');
- if(value.game?.schemaVersion!==(value.schemaVersion===1?12:13))fail('Версия игры не соответствует версии пакета изображений.');
+ if(!value||typeof value!=='object'||Array.isArray(value)||Object.keys(value).length!==keys.length||keys.some(k=>!Object.hasOwn(value,k))||value.app!=='skaz-game-with-art'||![1,2,3].includes(value.schemaVersion)||value.ruleset!=='5e-2014')fail('Нужен пакет игры с личными изображениями СКАЗ v1, v2 или v3.');
+ if(value.game?.schemaVersion!==(value.schemaVersion===1?12:value.schemaVersion===2?13:14))fail('Версия игры не соответствует версии пакета изображений.');
  if(Buffer.byteLength(JSON.stringify(value))>gameArtPackageMaxBytes)fail('Слишком большой пакет игры с изображениями.');
  const game=validateTransfer(value.game),art=validatePersonalArtTransfer(value.personalArt),ids=new Set(game.entries.map(e=>e.id));
  if(art.some(entry=>!ids.has(entry.catalogId)))fail('В пакете отсутствует запись каталога личного изображения.');
@@ -16,7 +16,7 @@ export function validateGameArtPackage(value){
 }
 export function gameArtPackage(game,personalArt,{lookup}={}){
  // Clone inputs so filling a dependency closure never modifies the caller's export.
- const result={app:'skaz-game-with-art',schemaVersion:game.schemaVersion===13?2:1,ruleset:'5e-2014',game:structuredClone(game),personalArt:structuredClone(personalArt)};
+ const result={app:'skaz-game-with-art',schemaVersion:game.schemaVersion===14?3:game.schemaVersion===13?2:1,ruleset:'5e-2014',game:structuredClone(game),personalArt:structuredClone(personalArt)};
  const normalized=validateTransfer(result.game),art=validatePersonalArtTransfer(result.personalArt);
  const entries=new Map(normalized.entries.map(entry=>[entry.id,entry]));
  const pending=art.map(entry=>entry.catalogId);

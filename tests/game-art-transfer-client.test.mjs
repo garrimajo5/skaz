@@ -58,3 +58,10 @@ test('v2 preparation preserves advancement and rejects cross-version or missing-
  assert.equal(calls,0);await api.prepare(file(bundle));await api.importPrepared();
  assert.equal(sent.file.schemaVersion,2);assert.equal(sent.file.game.schemaVersion,13);assert.equal(sent.file.game.advancement,null);api.destroy();
 });
+
+test('v3 client import retains v14 conditions and rejects mismatched envelope before requests',async()=>{
+ const db=openStore(':memory:');const original=db.read();db.update({mutationId:'conditions-package',expectedRevision:original.revision,label:'Conditions',state:{...original.state,conditions:{active:['prone'],exhaustion:3}}});const bundle=gameArtPackage(db.exportActive(14),personalArtTransfer([]));db.close();
+ let calls=0,sent;const api=fixture(async(url,o)=>{calls++;if(url==='/api/workspace')return Response.json(state);sent=JSON.parse(o.body);return Response.json({...state,revision:8});});
+ for(const change of [b=>b.schemaVersion=2,b=>b.game.schemaVersion=13,b=>delete b.game.advancement]){const bad=structuredClone(bundle);change(bad);await assert.rejects(api.prepare(file(bad)));}assert.equal(calls,0);
+ await api.prepare(file(bundle));await api.importPrepared();assert.deepEqual(sent.file.game.state.conditions,{active:['prone'],exhaustion:3});assert.equal(sent.file.schemaVersion,3);api.destroy();
+});

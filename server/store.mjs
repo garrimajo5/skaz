@@ -89,6 +89,8 @@ export function openStore(filename, {classAdvancement=false}={}) {
     db.exec('BEGIN');
     try {
       const current = read();
+      if(withArt&&current.state.conditions!==undefined)version=14;
+      if(current.state.conditions!==undefined&&version<14)throw new AppError(409,'Состояния требуют экспорт v14');
       if(current.advancement&&version<13)throw new AppError(409,'Повышение уровня требует экспорт v13 или полную SQLite-копию');
       if(current.advancement)validateAdvancementSnapshot(current.advancement,current.characterSheet,current.characterStats,current.spellbook);
       if(!personalArt&&db.prepare("SELECT 1 FROM sqlite_master WHERE type='table' AND name='personal_art_versions'").get()){
@@ -102,7 +104,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
       const quests = readQuests(db, current.context.campaignId);
       const places = readPlaces(db, current.context.campaignId);
       const proposals = readProposals(db, current.context);
-      if (![2,3,4,5,6,7,8,9,10,11,12,13].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if (![2,3,4,5,6,7,8,9,10,11,12,13,14].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
       if(version<12&&(current.state.concentrationChecks!==undefined||current.state.deathSaves!==undefined))throw new AppError(409,'Здоровье и проверки требуют экспорт v12');
       if(version<11&&current.state.tempHp!==undefined)throw new AppError(409,'Временные хиты требуют экспорт v11');
       if(version<10&&current.characterSheet&&['spellcasting','saveProficiencies','spellLearning'].some(key=>Object.hasOwn(current.characterSheet,key)))throw new AppError(409,'Настройки заклинаний требуют экспорт v10 или SQLite backup');
@@ -152,7 +154,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
     const next = validateState(request.state);
     const { expectedRevision, label } = request;
     const hash = createHash('sha256').update(JSON.stringify({ expectedRevision, label, state: next })).digest('hex');
-    return mutate(request, hash, label, () => {const current=read();if(current.state.deathSaves!==undefined&&next.deathSaves===undefined)throw new AppError(409,'Обнови страницу: отсутствуют спасброски от смерти');if(current.state.concentrationChecks!==undefined&&next.concentrationChecks===undefined)throw new AppError(409,'Обнови страницу: отсутствуют проверки концентрации');if(current.state.tempHp!==undefined&&next.tempHp===undefined)throw new AppError(409,'Обнови страницу: отсутствуют временные хиты');if(current.characterSheet&&(JSON.stringify(current.state.slots)!==JSON.stringify(next.slots)||current.state.inspiration!==next.inspiration))throw new AppError(409,'Счётчики собственного класса изменяются в ручном листе');writeEntities(db, next, viewId); return next; });
+    return mutate(request, hash, label, () => {const current=read();if(current.state.conditions!==undefined&&next.conditions===undefined)throw new AppError(409,'Обнови страницу: отсутствуют состояния персонажа');if(current.state.deathSaves!==undefined&&next.deathSaves===undefined)throw new AppError(409,'Обнови страницу: отсутствуют спасброски от смерти');if(current.state.concentrationChecks!==undefined&&next.concentrationChecks===undefined)throw new AppError(409,'Обнови страницу: отсутствуют проверки концентрации');if(current.state.tempHp!==undefined&&next.tempHp===undefined)throw new AppError(409,'Обнови страницу: отсутствуют временные хиты');if(current.characterSheet&&(JSON.stringify(current.state.slots)!==JSON.stringify(next.slots)||current.state.inspiration!==next.inspiration))throw new AppError(409,'Счётчики собственного класса изменяются в ручном листе');writeEntities(db, next, viewId); return next; });
   }
   function mutate(request, hash, label, apply, operation, allowStale, afterAuthorization) {
     const { mutationId, expectedRevision } = request;

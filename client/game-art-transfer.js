@@ -3,9 +3,9 @@ const SkazGameArtTransfer=(()=>{
  const maxBytes=64*1024*1024;
  function preview(value){
   const game=value?.game,art=value?.personalArt;
-  if(value?.app!=='skaz-game-with-art'||![1,2].includes(value.schemaVersion)||value.ruleset!=='5e-2014'||game?.app!=='skaz-active'||game.schemaVersion!==(value.schemaVersion===1?12:13)||game.ruleset!=='5e-2014'||art?.app!=='skaz-personal-art'||art.schemaVersion!==1||art.scope!=='personal-character'||art.ruleset!=='5e-2014')throw Error('Нужен пакет игры с изображениями СКАЗ v1 или v2 (D&D 2014).');
+  if(value?.app!=='skaz-game-with-art'||![1,2,3].includes(value.schemaVersion)||value.ruleset!=='5e-2014'||game?.app!=='skaz-active'||game.schemaVersion!==(value.schemaVersion===1?12:value.schemaVersion===2?13:14)||game.ruleset!=='5e-2014'||art?.app!=='skaz-personal-art'||art.schemaVersion!==1||art.scope!=='personal-character'||art.ruleset!=='5e-2014')throw Error('Нужен пакет игры с изображениями СКАЗ v1, v2 или v3 (D&D 2014).');
   if(typeof game.state?.profile?.name!=='string'||typeof game.state?.profile?.campaign!=='string'||!Array.isArray(game.inventory)||!Array.isArray(game.spellbook)||!Array.isArray(game.catalog?.entries)||!Array.isArray(art.entries)||art.entries.length>1000)throw Error('В пакете отсутствуют сведения об игре или изображениях.');
-  if(value.schemaVersion===2&&!Object.hasOwn(game,'advancement'))throw Error('В пакете отсутствует история повышения.');
+  if(value.schemaVersion>=2&&!Object.hasOwn(game,'advancement'))throw Error('В пакете отсутствует история повышения.');
   const ids=new Set(game.catalog.entries.map(e=>e.id)),seen=new Set();let bytes=0;
   for(const e of art.entries){
    if(typeof e.catalogId!=='string'||!ids.has(e.catalogId)||seen.has(e.catalogId)||typeof e.sha256!=='string'||!/^[a-f0-9]{64}$/.test(e.sha256)||typeof e.png!=='string'||!e.png.length||e.png.length%4||!/^[A-Za-z0-9+/]*={0,2}$/.test(e.png))throw Error('Неверная связь или описание личного изображения.');

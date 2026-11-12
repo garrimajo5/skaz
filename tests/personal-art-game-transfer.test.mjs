@@ -136,3 +136,19 @@ test('v2 transfers advancement and artwork together, and late image failure roll
  assert.deepEqual(w.personalArt.read(imported.context.characterId,catalogId,'master').file.bytes,Buffer.from(bundle.personalArt.entries[0].png,'base64'));
  const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);assert.equal(w.exportActive('with-art').schemaVersion,2);
 });
+
+test('v3 transfers conditions, advancement and artwork atomically with a replayable receipt',t=>{
+ const f=fixture(t,{classAdvancement:true}),w=f.writer;
+ const command=extra=>({mutationId:randomUUID(),expectedRevision:w.read().revision,characterId:w.read().context.characterId,...extra});
+ w.saveCharacterSheet(command({sheet:{ruleset:'5e-2014',ancestry:'',className:'fighter',subclass:'',level:1,counters:[]}}));
+ w.saveCharacterStats(command({stats:structuredClone(templateStats)}));
+ w.bindClassResources(command({classId:'fighter',bindings:[],create:['class-fighter-second-wind']}));
+ w.update({mutationId:randomUUID(),expectedRevision:w.read().revision,label:'Conditions',state:{...w.read().state,conditions:{active:['prone'],exhaustion:1}}});
+ const before=w.read(),bundle=w.exportActive('with-art');assert.equal(bundle.schemaVersion,3);assert.equal(bundle.game.schemaVersion,14);
+ const request={mutationId:randomUUID(),expectedRevision:before.revision,destination:'new-campaign',file:bundle},original=counts(f.db);
+ f.db.exec("CREATE TRIGGER fail_combined_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'late artwork failed');END");
+ assert.throws(()=>w.importActive(request),/late artwork failed/);assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);assert.equal(f.db.prepare('SELECT count(*) AS n FROM character_advancement').get().n,1);
+ f.db.exec('DROP TRIGGER fail_combined_art');const imported=w.importActive(request);assert.deepEqual(imported.state.conditions,before.state.conditions);assert.deepEqual(imported.advancement,before.advancement);assert.notEqual(imported.context.characterId,before.context.characterId);
+ assert.deepEqual(w.personalArt.read(imported.context.characterId,catalogId,'master').file.bytes,Buffer.from(bundle.personalArt.entries[0].png,'base64'));
+ const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);assert.equal(w.exportActive('with-art').schemaVersion,3);
+});

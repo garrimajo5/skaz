@@ -356,3 +356,16 @@ body[data-page="play"] #dialog::backdrop{backdrop-filter:none}
  body[data-page="play"] .shell main{padding-top:12px!important}
  .play-screen{gap:4px}.play-screen h2{margin-bottom:4px}.play-stats{row-gap:4px}
 }
+
+/* Manual condition markers stay labelled and keyboard/touch reachable. */
+.quick-state .quick-conditions{display:flex;flex-wrap:wrap;gap:4px;grid-column:1/-1;max-height:100px;overflow-y:auto;min-width:0}
+.quick-state .quick-conditions button{font-size:14px;min-height:44px;color:var(--text);border-color:var(--warn);white-space:normal}
+.condition-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px}
+.condition-options label{display:flex;align-items:center;gap:8px;min-height:44px;font-size:16px;overflow-wrap:anywhere}
+.condition-options input{width:20px;height:20px;flex:0 0 auto}
+#conditions-form .dialog-actions{position:sticky;bottom:0;background:var(--panel);padding-block:8px}
+@media(max-width:999px),(max-height:599px),(orientation:portrait){.quick-state .quick-conditions{flex:1 0 100%;max-height:96px}.quick-state .quick-conditions button{padding:4px 8px}}
+.condition-options{min-width:0;margin:0;padding:8px 12px;border:1px solid var(--line);border-radius:var(--radius-s)}
+.condition-options label{margin:0;color:var(--text)}
+.condition-options input{min-height:20px;margin:0;padding:0}
+@media(max-width:480px){.condition-options{grid-template-columns:minmax(0,1fr)}.condition-options label{overflow-wrap:normal}}
