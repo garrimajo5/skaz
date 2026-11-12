@@ -1,0 +1,267 @@
+{
+  "batch": "production-v57",
+  "entries": [
+    {
+      "id": "srd51:2014:monster:adult-gold-dragon",
+      "sourcePath": "data/art-production-v57/adult-gold-dragon.png",
+      "sourceSha256": "e5cebf3f6dfba2c94738b3a924f615176c77269eb4c2838f611fe2d17ca80842",
+      "brief": "Edit target: the supplied original SKAZ adult gold dragon portrait. Create a replacement fantasy bestiary UI portrait, square transparent PNG. Preserve its warm metallic gold overlapping scales, intelligent adult dragon eye, paired swept-back horns, cheek fins and two flowing whiskers, painterly realistic fantasy handbook style, no text or frame. Correct the framing: the broad adult head and muzzle must dominate the central 65 percent of the canvas width, with a short powerful neck, much bigger than in the reference. Compact the silhouette by bending the horns gently back and keeping whiskers closer to the jaw so the whole silhouette fits with 10 percent safety margins. Three-quarter view, facing left. Head must read strongly in a 40px circle and grayscale; strong jaw planes, warm highlights and muted cool shadow. Do not clip horns or whiskers, no long narrow bust, no tiny head, no extra heads or limbs, no background, no UI symbols. Keep species identity and adult maturity; this is an original project artwork revision, not an age change.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 3,
+      "previous": {
+        "id": "srd51:2014:monster:adult-gold-dragon",
+        "contentSha256": "064092873e9d679d17971b5c60f8b797368c9f72c066a40f35e5545e9d61f412",
+        "status": "accepted",
+        "version": 2,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-12; SHA256 eb0d87012af38dcf301c5b768e1ce8d682076bf520e640e86b2a3cd971eefba9",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-12",
+          "originalSha256": "eb0d87012af38dcf301c5b768e1ce8d682076bf520e640e86b2a3cd971eefba9",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "Issue #53 silhouette revision. Source, previous version and visual review recorded in production-v56.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/monsters/adult-gold-dragon-original-2aea82366a1c4557.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 75967,
+            "sha256": "2aea82366a1c455744d422689e7f577d6f658d458177592c9fce84e05d4da978",
+            "derivedFrom": "eb0d87012af38dcf301c5b768e1ce8d682076bf520e640e86b2a3cd971eefba9",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/monsters/adult-gold-dragon-thumbnail-3229af9d115dc9a2.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 5840,
+            "sha256": "3229af9d115dc9a23a7ff4c1115ebba98917c1665a7c3e8d4c258b6ff6e74eee",
+            "derivedFrom": "eb0d87012af38dcf301c5b768e1ce8d682076bf520e640e86b2a3cd971eefba9",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Silver young torso versus ancient broad head; adult gold enlarged. Spell silhouettes distinct. Continual Flame clipped first attempt rejected and regenerated."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:young-silver-dragon",
+      "sourcePath": "data/art-production-v57/young-silver-dragon.png",
+      "sourceSha256": "b58927ed307162f99026375568289c38f6dd783b140f731bae781e4af6ddf235",
+      "brief": "Edit target: supplied SKAZ young silver dragon portrait. Original fantasy handbook painterly illustration for a 2014 bestiary. Preserve silver-metallic scales, slender pointed face, smooth flowing swept-back crest and youthful alert eyes. Change framing to a distinct YOUNG age silhouette: show the entire long slender neck, upper chest and shoulders plus both folded wing roots, head smaller relative to the body, lively three-quarter pose facing left, delicate narrow jaw, low unweathered crest, no old heavy brows or giant adult horns. Head, neck and upper torso together form a compact readable silhouette centered with generous 12 percent transparent margins. Not a full-body hatchling, not a close-up ancient head. Soft warm key light and cool neutral shadows, muted silver materials, detailed but clear at 40px grayscale circle. No text, no frame, no glow, no background, no limbs cut at odd joints. Transparent square PNG.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:monster:young-silver-dragon",
+        "contentSha256": "ee82ce2db12cb7c3365f1253c156a6892bf5cdc1722bcbf3c90d59f253423af4",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-11; SHA256 b202fc5e543a55300b1b0682cebb282542f0a4eff27185dab0cfa95341bde5a7",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-11",
+          "originalSha256": "b202fc5e543a55300b1b0682cebb282542f0a4eff27185dab0cfa95341bde5a7",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v45.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/monsters/young-silver-dragon-original-16477d06c9ca80dc.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 148579,
+            "sha256": "16477d06c9ca80dc750ce1fa19f26ced1c39833ac943929d791cdf250c374203",
+            "derivedFrom": "b202fc5e543a55300b1b0682cebb282542f0a4eff27185dab0cfa95341bde5a7",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/monsters/young-silver-dragon-thumbnail-e9f1061c6ff2653d.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 10891,
+            "sha256": "e9f1061c6ff2653dfebfc6ffac54d6c8c4eec7e8d25a54bf8546689186d58f33",
+            "derivedFrom": "b202fc5e543a55300b1b0682cebb282542f0a4eff27185dab0cfa95341bde5a7",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Silver young torso versus ancient broad head; adult gold enlarged. Spell silhouettes distinct. Continual Flame clipped first attempt rejected and regenerated."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:ancient-silver-dragon",
+      "sourcePath": "data/art-production-v57/ancient-silver-dragon.png",
+      "sourceSha256": "4a8c1daa19debaaaeb1bb0f2fd2ef3e7423d8c4608003e3f3e7464db45bab855",
+      "brief": "Edit target: supplied SKAZ ancient silver dragon portrait. Preserve species silver metallic scales, smooth swept crest, paired curved horns, wise ancient eye and painterly fantasy handbook style. Create a distinct ancient-age portrait: massive broad weathered head dominating image, three-quarter near-frontal view turned slightly right, heavy layered brows and wide powerful jaw, very short neck. Entire head and horns inside generous 12 percent transparent margins, compact silhouette, no clipped tips. Clearly differs from a slender young dragon upper torso. Warm key light cool muted shadows, readable grayscale at 32 and 40px. No text, no frame, no background, no extra head, no excessive glow. Transparent square PNG.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:monster:ancient-silver-dragon",
+        "contentSha256": "01bc2f741349055137f5141852800bd27d1d415f9394089fc27d6a42d242ba8c",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-11; SHA256 dbf15144cc67a6939d6ace80ffd5e63f59ee183981d4c9b7ec8fea57b9d540dd",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-11",
+          "originalSha256": "dbf15144cc67a6939d6ace80ffd5e63f59ee183981d4c9b7ec8fea57b9d540dd",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v44.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/monsters/ancient-silver-dragon-original-669c39d82d9048f2.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 217038,
+            "sha256": "669c39d82d9048f2e9bc4a1361165c50b4201bf5ef50e945bb4a77479112a36d",
+            "derivedFrom": "dbf15144cc67a6939d6ace80ffd5e63f59ee183981d4c9b7ec8fea57b9d540dd",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/monsters/ancient-silver-dragon-thumbnail-8311d8edfcc1cac5.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 14941,
+            "sha256": "8311d8edfcc1cac5af5b064fc41fa285b4d137c200d7a7e10778bd812ba79431",
+            "derivedFrom": "dbf15144cc67a6939d6ace80ffd5e63f59ee183981d4c9b7ec8fea57b9d540dd",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Silver young torso versus ancient broad head; adult gold enlarged. Spell silhouettes distinct. Continual Flame clipped first attempt rejected and regenerated."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:continual-flame",
+      "sourcePath": "data/art-production-v57/continual-flame.png",
+      "sourceSha256": "71b0674d5fb280f21c7992e70a85617f6dfb08ebe72295816b97766bf8f91ab5",
+      "brief": "Original SKAZ D&D 2014 spell illustration: Continual Flame. One compact bronze handheld sconce with a broad steady golden-orange magical flame emerging above its clean unburnt metal cup. No fuel, no wood, no smoke or sparks, no melting metal: this is light without heat. Painterly fantasy handbook materials, sculpted bold shapes, warm key light cool shadows, clear dark contours. Isolated object fills central 70 percent, generous transparent margins, square transparent PNG, readable at 32px and grayscale. No text, symbols, border, numbers, background, scenery, hand or character.",
+      "revision": "Edit supplied Continual Flame spell illustration only to correct framing. Preserve bronze sconce, clean intact metal and gold flame painterly style. The flame tip currently touches top edge: redraw whole flame with its tip fully visible. Reduce total object to occupy central 72 percent of square canvas height, leave at least14 percent completely transparent margin on ALL sides. Shorten handle to keep flame and cup large enough at32px. No crop, smoke, burning fuel, text, borders or scenery. Transparent PNG.",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Silver young torso versus ancient broad head; adult gold enlarged. Spell silhouettes distinct. Continual Flame clipped first attempt rejected and regenerated."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:darkvision",
+      "sourcePath": "data/art-production-v57/darkvision.png",
+      "sourceSha256": "ff8138d4d6287eb574f16db31c396c10db1859630afc7ae2361e06ba5e5210fc",
+      "brief": "Original SKAZ D&D 2014 Darkvision spell illustration. One large alert natural humanoid eye framed by a compact sweeping crescent of dark slate shadow. Clear pale silver iris and dark pupil, subtle stone arch reflected in iris in GRAYSCALE to convey seeing in darkness. No eye beams, no radiant light cast outward, no extra eyes, no moon object, no text. Painterly fantasy handbook look, broad clear forms and dark defining contours, warm eyelid highlights and cool gray shadows. Central70 percent square canvas, all edges inside15 percent transparent margins. True transparent PNG, no background, no frame, no tiny decorative particles. Recognizable eye silhouette at32px and grayscale.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Silver young torso versus ancient broad head; adult gold enlarged. Spell silhouettes distinct. Continual Flame clipped first attempt rejected and regenerated."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:find-familiar",
+      "sourcePath": "data/art-production-v57/find-familiar.png",
+      "sourceSha256": "102cd0ac681b6ed8bb88a4fd219f0d77bc4ed241e1803ee7a02eb0fc8eda9a73",
+      "brief": "Original SKAZ D&D2014 Find Familiar spell icon. A single small calm tawny owl spirit materializes above a compact bronze incense brazier. Owl with two folded wings and two feet, recognizable round face, subtle pale magical contour at base, one broad curling smoke ribbon connects bowl to owl. Not attacking, no weapons, no multiple creatures. Painterly fantasy handbook style with warm bronze highlights cool shadows, broad sculpted forms, clear contours and restrained effects. Compact centered70 percent composition with generous transparent margins, square PNG. Readable at32px and grayscale. No letters, runes, UI frame, background, floor or scenery.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Silver young torso versus ancient broad head; adult gold enlarged. Spell silhouettes distinct. Continual Flame clipped first attempt rejected and regenerated."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:disguise-self",
+      "sourcePath": "data/art-production-v57/disguise-self.png",
+      "sourceSha256": "a67f64516977b444bcfeced42947d5101d1f7b5eaaa557949890b27f09a54f82",
+      "brief": "Original SKAZ D&D2014 Disguise Self spell icon. One simple human head in three-quarter profile, left half a plain warm-skinned traveler's face, right half a slightly offset translucent pale illusion face with different nose and hair outline, suggesting an appearance laid over the same head. Calm neutral expression, two matching ordinary human silhouettes, no monster transformation, no theater mask prop, no extra eyes on one face. A single broad muted violet translucent edge separates illusion from real face. Painterly fantasy handbook style broad bold forms warm highlights cool shadows. Compact centered head occupying70 percent of square canvas, short neck only, generous transparent margins. True transparent PNG, readable at32px and grayscale. No text, runes, border, scenery, weapons, armor or clothing details.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Silver young torso versus ancient broad head; adult gold enlarged. Spell silhouettes distinct. Continual Flame clipped first attempt rejected and regenerated."
+      }
+    }
+  ]
+}

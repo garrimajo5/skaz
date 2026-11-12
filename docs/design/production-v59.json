@@ -1,0 +1,233 @@
+{
+  "batch": "production-v59",
+  "entries": [
+    {
+      "id": "srd51:2014:spell:inflict-wounds",
+      "sourcePath": "data/art-production-v59/inflict-wounds.png",
+      "sourceSha256": "0c1e9c01beaabaa4c33caff953e0f7a1d6bfabc094a81dba688810fc5be5241e",
+      "brief": "Original SKAZ D&D2014 Inflict Wounds spell icon. One living human hand palm outward reaching in a touch gesture, dark violet-black necrotic energy clinging closely around fingertips and palm in three broad wisps. No projectile, ice, lightning, skull, blood, wounds or undead hand. Clear contact-magic symbol. Painterly fantasy handbook strong dark outlines broad sculpted forms warm skin highlights cool violet shadows, restrained glow. Compact central70 percent square,15 percent transparent margin all around, readable32px grayscale. No text, runes, numbers, frame or background. Transparent PNG.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Twelve level-one spells. Hunter mark haze removed; shield and sound-wave contours strengthened after Atlas grayscale review; Jump compacted to avoid circular clipping. Final revisions reviewed in all three themes."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:shield-of-faith",
+      "sourcePath": "data/art-production-v59/shield-of-faith.png",
+      "sourceSha256": "96c1f3e796f575481198792162b5403b48c3608d7ab3f958b4f6b637d46ebae8",
+      "brief": "Original SKAZ D&D2014 Shield of Faith spell icon. A small rolled parchment at base projects a translucent warm gold heater-shield silhouette above it. Shield is clearly magical light with a simple bright central ridge, no solid metal equipment, no cross, no lettering on parchment, no full bubble or invulnerability. Broad painterly fantasy handbook forms warm ivory and gold, cool muted shadows, dark defined contours. Compact central70 percent square,15 percent transparent margins, recognizable32px grayscale. No words, numbers, runes, frame or background. Transparent PNG.",
+      "revision": "Edit supplied Shield of Faith icon for legibility on ivory background at32px grayscale. Preserve magical gold shield rising from parchment, no metal object. Add a strong darker bronze-gold painted contour around the shield silhouette and deepen internal amber shadow planes, reduce diffuse pale glow by70 percent. Keep luminous center but clearly bounded edges even grayscale. Keep scroll dark rolled ends. Compact all elements within imaginary circle radius40 percent canvas, no drawn circle. Transparent PNG, no text or symbols.",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Twelve level-one spells. Hunter mark haze removed; shield and sound-wave contours strengthened after Atlas grayscale review; Jump compacted to avoid circular clipping. Final revisions reviewed in all three themes."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:sleep",
+      "sourcePath": "data/art-production-v59/sleep.png",
+      "sourceSha256": "893e1d85174391649d60e754d098d73172854deb3076d3c38cafd1ccd3ba9766",
+      "brief": "Original SKAZ D&D2014 Sleep spell icon. A peaceful human head in side view resting on one folded hand, eyes fully closed, a single gentle arc of pale lavender sand curling above brow. No moon, bed, death, injury, magical attack or lettering. Painterly fantasy handbook broad sculpted forms warm skin light cool shadows crisp dark contours, compact resting silhouette. Central70 percent square canvas generous15 percent transparent margins, readable32px grayscale. No Z letters, text, runes, border, background or scenery. Transparent PNG.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Twelve level-one spells. Hunter mark haze removed; shield and sound-wave contours strengthened after Atlas grayscale review; Jump compacted to avoid circular clipping. Final revisions reviewed in all three themes."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:thunderwave",
+      "sourcePath": "data/art-production-v59/thunderwave.png",
+      "sourceSha256": "3de7a4d84f109327f8975dfac730f1970be9ca014687079c83a796486ff13177",
+      "brief": "Original SKAZ D&D2014 Thunderwave spell icon. A broad pale blue-white pressure wave with three thick concentric expanding arcs pushes a small loose stone and one plain wooden cup outward. Clear sound shockwave, NO lightning bolts, electric sparks, storm clouds or fire. Compact radial fan silhouette, caster not shown. Painterly fantasy handbook sculpted shapes crisp slate contours cool gray-blue wave warm brown cup. Central70 percent square composition generous15 percent transparent margins, clear32px grayscale. No text, numbers, symbols, frame or background. Transparent PNG.",
+      "revision": "Edit supplied Thunderwave icon. Preserve three expanding sound-pressure arcs pushing loose stone and wooden cup. Improve32px grayscale legibility on ivory: add clear medium-dark slate-blue painted contours to leading edges of all3 arcs and deepen alternating shadow bands. Reduce uniform pale fill and diffuse glow; sound waves remain transparent airy pressure, not water, lightning or ice. Keep compact central70 percent canvas within circle radius40 percent. No background text or frame. Transparent PNG.",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Twelve level-one spells. Hunter mark haze removed; shield and sound-wave contours strengthened after Atlas grayscale review; Jump compacted to avoid circular clipping. Final revisions reviewed in all three themes."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:floating-disk",
+      "sourcePath": "data/art-production-v59/floating-disk.png",
+      "sourceSha256": "63c409e5a1435d4ca162228f245ffa2ef9e0a0a9f12da7cfd5efb51a6747b8ae",
+      "brief": "Original SKAZ D&D2014 Floating Disk spell icon. A thin horizontal oval disk of translucent blue force seen in three-quarter view supports one compact brown leather travel chest. Visible empty transparent space below disk, two short soft vertical wisps suggest hovering. Disk is flat not a bowl or shield, no rider, no wheels, no wings. Painterly fantasy handbook broad sculpted material forms warm chest highlights cool disk shadows strong dark contours. Central70 percent square with15 percent transparent margins, clear32px grayscale. No letters, runes, frame, ground or background. Transparent PNG.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Twelve level-one spells. Hunter mark haze removed; shield and sound-wave contours strengthened after Atlas grayscale review; Jump compacted to avoid circular clipping. Final revisions reviewed in all three themes."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:fog-cloud",
+      "sourcePath": "data/art-production-v59/fog-cloud.png",
+      "sourceSha256": "795ffe974156048322870ee1365fec37936d5aab40e848e78f75ab1daea1e58b",
+      "brief": "Original SKAZ D&D2014 Fog Cloud spell icon. One dense compact rolling bank of cool gray-white mist hides most of a small plain dark doorway silhouette; only top of arch faintly visible through fog. Broad layered cloudy curls, no rain, thunder, poison green, fire, monster or face. Painterly fantasy handbook soft mist planes with strong slate-gray outer contour for light-background readability, warm edge light cool shadows. Central70 percent square silhouette,15 percent transparent margin. Clear32px grayscale. No text, symbols, border, surrounding landscape or solid background. Transparent PNG.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Twelve level-one spells. Hunter mark haze removed; shield and sound-wave contours strengthened after Atlas grayscale review; Jump compacted to avoid circular clipping. Final revisions reviewed in all three themes."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:goodberry",
+      "sourcePath": "data/art-production-v59/goodberry.png",
+      "sourceSha256": "fadc9118e4041edc56829cb2fdd1187795630f1733e5886ce8bab7423cdb064a",
+      "brief": "Original SKAZ D&D2014 Goodberry spell icon. Exactly three plump deep red berries nestled in one cupped living hand with two broad fresh green mistletoe leaves, tiny restrained warm amber glints inside berries suggest nourishing magic. Clearly edible fruit, no poison, bottle, heart, cross or resurrection. Painterly fantasy handbook bold sculpted berries leatherlike skin natural warm highlights cool shadows dark clear contour. Compact central70 percent square,15 percent transparent margins, recognizable32px grayscale. No text, numbers, runes, frame or background. Transparent PNG.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Twelve level-one spells. Hunter mark haze removed; shield and sound-wave contours strengthened after Atlas grayscale review; Jump compacted to avoid circular clipping. Final revisions reviewed in all three themes."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:grease",
+      "sourcePath": "data/art-production-v59/grease.png",
+      "sourceSha256": "1b39ac8dc7251e3662657d628b1cf7b2fdfcafd1242337f8bd74f2b91ad7d1b2",
+      "brief": "Original SKAZ D&D2014 Grease spell icon. One ordinary leather boot slipping sideways on a compact glossy amber puddle of grease, heel raised and sole skidding with two curved motion marks. Only one boot, no person, no fire or explosion: grease is slippery terrain. Painterly fantasy handbook broad sculpted forms crisp dark outline warm brown leather highlights cool shadows, puddle thick reflective organic shape. Central70 percent square silhouette with15 percent transparent margins, readable32px grayscale. No text, runes, arrows, border, ground plane or background. Transparent PNG.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Twelve level-one spells. Hunter mark haze removed; shield and sound-wave contours strengthened after Atlas grayscale review; Jump compacted to avoid circular clipping. Final revisions reviewed in all three themes."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:hideous-laughter",
+      "sourcePath": "data/art-production-v59/hideous-laughter.png",
+      "sourceSha256": "026005a34b56b332b98cc6d359396f9c01a1f7504133378aa3f80443bd605b2f",
+      "brief": "Original SKAZ D&D2014 Hideous Laughter spell icon. A compact ordinary human upper-body figure doubled over uncontrollable laughter, eyes squeezed shut, mouth laughing, both hands clutching belly, shoulder tilted as if losing balance. One soft violet curling ribbon around head suggests enchantment. No clown, jester hat, skull, weapon or injury. Painterly fantasy handbook broad sculpted warm skin and muted teal clothing, crisp dark contours warm highlights cool shadows. Central70 percent square,15 percent transparent margins, recognizable32px grayscale. No text, HA letters, runes, frame, ground or background. Transparent PNG.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Twelve level-one spells. Hunter mark haze removed; shield and sound-wave contours strengthened after Atlas grayscale review; Jump compacted to avoid circular clipping. Final revisions reviewed in all three themes."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:hunters-mark",
+      "sourcePath": "data/art-production-v59/hunters-mark.png",
+      "sourceSha256": "c387ad40e82541e10733339461685f39cf2c29fef5fae1348d592c4d9accef66",
+      "brief": "Original SKAZ D&D2014 Hunter's Mark spell icon. A single dark deer head silhouette with modest branching antlers, a restrained amber targeting ring centered around its shoulder/neck, one visible large hoofprint beneath suggests tracking prey. Not a summoned animal, no arrow impact, wound or magic beam. Painterly fantasy handbook bold sculpted brown and muted gold forms crisp dark contours warm highlights cool shadows. Compact central70 percent square,15 percent transparent safety margin, readable32px grayscale. No text, numbers, runes, frame, forest or background. Transparent PNG.",
+      "revision": "Edit supplied Hunter's Mark icon: remove all diffuse background glow, smoke and colored haze, especially above the antlers. Preserve deer head, antlers, golden targeting ring and hoofprint. Compact the design, place hoofprint next to lower neck rather than far below, smaller antlers, total silhouette entirely inside central70 percent canvas and imaginary circle radius40 percent. Transparent clean background, no clipped antlers, no frame. Preserve painterly brown gold materials and crisp contours. This is marking and tracking prey, not summoning.",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Twelve level-one spells. Hunter mark haze removed; shield and sound-wave contours strengthened after Atlas grayscale review; Jump compacted to avoid circular clipping. Final revisions reviewed in all three themes."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:illusory-script",
+      "sourcePath": "data/art-production-v59/illusory-script.png",
+      "sourceSha256": "9ea8b253dd23cf05ef1987d3effcbfe715f5cf05472bbaf4471c806afee614da",
+      "brief": "Original SKAZ D&D2014 Illusory Script spell icon. A small open ivory parchment scroll with a dark feather quill laid diagonally; above its surface floats a translucent lavender duplicate of the same scroll slightly offset, suggesting a hidden second message. On both sheets only three broad abstract ink strokes, NOT actual letters, words or readable text. Painterly fantasy handbook material texture bold sculpted forms warm parchment light cool shadows crisp dark contour. Central70 percent square compact silhouette,15 percent transparent margin all sides, readable32px grayscale. No runes, numbers, border, table or background. Transparent PNG.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Twelve level-one spells. Hunter mark haze removed; shield and sound-wave contours strengthened after Atlas grayscale review; Jump compacted to avoid circular clipping. Final revisions reviewed in all three themes."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:jump",
+      "sourcePath": "data/art-production-v59/jump.png",
+      "sourceSha256": "327472ab0a3473ca84fc22f4231e90cecb256a2a6175cd181178a794a57d416c",
+      "brief": "Original SKAZ D&D2014 Jump spell icon. A small plain leather-shod human figure in a powerful tucked-knee leap across a short gap between two tiny stone ledges, one broad curved amber motion arc below traces a jump trajectory. Figure has ordinary limbs no wings, no flight, no teleportation. Compact silhouette with body diagonally rising, clear bent legs, ledges only small support marks not a landscape. Painterly fantasy handbook bold sculpted shapes warm highlights cool slate shadows crisp contour. Central70 percent square with15 percent transparent margins, readable32px grayscale. No text, numbers, runes or frame. Transparent PNG.",
+      "revision": "Edit supplied Jump spell icon framing. Preserve leaping human figure, bent legs, motion arc and two tiny stone ledges. Bring ledges closer together directly beneath the figure and shorten the vertical gap. Scale the entire composition into central65 percent of square canvas so every hand and ledge stays inside an imaginary circle radius40 percent canvas. No drawn circle. Clear compact jumping silhouette, no wings, flight or extra limbs. Preserve painterly warm brown and slate materials. Transparent PNG no text border background.",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Reviewed in local IAB:32/40px, grayscale circular thumbnails, Polaris/Coal/Atlas. Twelve level-one spells. Hunter mark haze removed; shield and sound-wave contours strengthened after Atlas grayscale review; Jump compacted to avoid circular clipping. Final revisions reviewed in all three themes."
+      }
+    }
+  ]
+}
