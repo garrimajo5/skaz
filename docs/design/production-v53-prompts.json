@@ -1,0 +1,28 @@
+{
+  "batch": "production-v53",
+  "entries": [
+    {
+      "slug": "color-spray",
+      "kind": "spell",
+      "prompt": "Use case: stylized-concept. One original square painterly fantasy spell icon for SKAZ D&D 2014, broad sculpted painted forms, crisp dark defining edges, warm highlights, readable at 32px on ivory and charcoal. Central 70% of canvas with generous transparent margins. True transparent background. No text, lettering, runes, borders, watermark, scenery, floor, tiny particles, diffuse bloom. A compact fan of five broad luminous rainbow ribbons bursting from a small cupped gloved hand, saturated red gold green cyan violet, strong arc silhouette. One hand only, no stars, no text or eye."
+    },
+    {
+      "slug": "commune",
+      "kind": "spell",
+      "prompt": "Use case: stylized-concept. One original square painterly fantasy spell icon for SKAZ D&D 2014, broad sculpted painted forms, crisp dark defining edges, warm highlights, readable at 32px on ivory and charcoal. Central 70% of canvas with generous transparent margins. True transparent background. No text, lettering, runes, borders, watermark, scenery, floor, tiny particles, diffuse bloom. Two cupped bronze-toned hands presenting a simple golden sun-shaped medallion, above it one descending warm white ray of divine light. Compact vertical communication-with-deity emblem, no letters or written religious symbols, no extra fingers."
+    },
+    {
+      "slug": "commune-with-nature",
+      "kind": "spell",
+      "prompt": "Use case: stylized-concept. One original square painterly fantasy spell icon for SKAZ D&D 2014, broad sculpted painted forms, crisp dark defining edges, warm highlights, readable at 32px on ivory and charcoal. Central 70% of canvas with generous transparent margins. True transparent background. No text, lettering, runes, borders, watermark, scenery, floor, tiny particles, diffuse bloom. One ancient oak leaf cradling a small earthen globe with a single sturdy tree rooted on it, an amber ring gently encircles the globe to suggest understanding nature. Compact green earth gold palette, not a landscape."
+    }
+  ],
+  "corrections": [
+    {
+      "slug": "commune",
+      "candidate": "data/art-production-v53/commune-candidate-1.png",
+      "prompt": "Keep this exact painterly fantasy Commune icon, the two cupped hands, golden sun medallion and descending ray. Add generous fully transparent padding by shrinking the whole existing illustration to fit entirely within the central 72 percent of the square; ensure the ray top and both wrists have at least 12 percent clear transparent margin. Do not change anatomy, colors or materials. True transparent background, no text.",
+      "status": "Source reviewed; derivatives and browser acceptance pending"
+    }
+  ]
+}

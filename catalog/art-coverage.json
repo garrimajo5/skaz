@@ -5,7 +5,7 @@
   "counts": {
     "spell": {
       "total": 319,
-      "accepted": 105
+      "accepted": 108
     },
     "item": {
       "total": 56,
@@ -247,7 +247,10 @@
       "srd51:2014:spell:circle-of-death",
       "srd51:2014:spell:clairvoyance",
       "srd51:2014:spell:cloudkill",
+      "srd51:2014:spell:color-spray",
       "srd51:2014:spell:command",
+      "srd51:2014:spell:commune",
+      "srd51:2014:spell:commune-with-nature",
       "srd51:2014:spell:comprehend-languages",
       "srd51:2014:spell:cone-of-cold",
       "srd51:2014:spell:conjure-animals",
@@ -395,9 +398,6 @@
     "srd51:2014:monster:will-o-wisp",
     "srd51:2014:monster:wyvern",
     "srd51:2014:spell:clone",
-    "srd51:2014:spell:color-spray",
-    "srd51:2014:spell:commune",
-    "srd51:2014:spell:commune-with-nature",
     "srd51:2014:spell:compulsion",
     "srd51:2014:spell:confusion",
     "srd51:2014:spell:conjure-celestial",
@@ -690,9 +690,6 @@
     "srd51:2014:monster:will-o-wisp",
     "srd51:2014:monster:wyvern",
     "srd51:2014:spell:clone",
-    "srd51:2014:spell:color-spray",
-    "srd51:2014:spell:commune",
-    "srd51:2014:spell:commune-with-nature",
     "srd51:2014:spell:compulsion",
     "srd51:2014:spell:confusion",
     "srd51:2014:spell:conjure-celestial",

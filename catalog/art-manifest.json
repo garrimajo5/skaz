@@ -12629,6 +12629,138 @@
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
+    },
+    {
+      "id": "srd51:2014:spell:color-spray",
+      "contentSha256": "4e0edb287f93f32c053688b36a3aa3a80ef93b3cebd23e2f0ebbbf3dc4e35ef4",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 ab7e496c03539d78c2f84c483253e15d2b7eabe8b678cb38bd97c9a634d07f1f",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "ab7e496c03539d78c2f84c483253e15d2b7eabe8b678cb38bd97c9a634d07f1f",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v53.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/color-spray-original-c287aea69e694a65.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 157230,
+          "sha256": "c287aea69e694a6558b137686254c9074c87505bfe2751d5f1add4924e66ce4b",
+          "derivedFrom": "ab7e496c03539d78c2f84c483253e15d2b7eabe8b678cb38bd97c9a634d07f1f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/color-spray-thumbnail-e319e2680dfa4311.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11744,
+          "sha256": "e319e2680dfa4311a7a44d3928c2994c53a4f9751c16c807bbb8de9b429c2912",
+          "derivedFrom": "ab7e496c03539d78c2f84c483253e15d2b7eabe8b678cb38bd97c9a634d07f1f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:commune",
+      "contentSha256": "840a56a9b53e4347fb893fd0354706b39a0e6f0e4694d9c7eab5d272f10232a7",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 5c70a3caa9941ceac64bc4ec9f559b2bc3a1cb0761e536e64e8f0733525d299f",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "5c70a3caa9941ceac64bc4ec9f559b2bc3a1cb0761e536e64e8f0733525d299f",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v53.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/commune-original-281b8cce346b47f1.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 84694,
+          "sha256": "281b8cce346b47f15b84ee9126115247f38a246921b327e881ce59573dd780bc",
+          "derivedFrom": "5c70a3caa9941ceac64bc4ec9f559b2bc3a1cb0761e536e64e8f0733525d299f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/commune-thumbnail-a95ab921d757d9de.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 6664,
+          "sha256": "a95ab921d757d9defaf78679a2761f7802dda8cf4de06e9affd180c75a9bf106",
+          "derivedFrom": "5c70a3caa9941ceac64bc4ec9f559b2bc3a1cb0761e536e64e8f0733525d299f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:commune-with-nature",
+      "contentSha256": "7b177c9e8c57a8319ecd80cd1fd2ce443ad42654b8ff46bdbdb1609b8e6818cd",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-11; SHA256 3bfa91a2a90896db8f3ad557b24b8884d921c7a057ad69de46e7e93d3db7b2d0",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-11",
+        "originalSha256": "3bfa91a2a90896db8f3ad557b24b8884d921c7a057ad69de46e7e93d3db7b2d0",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v53.json."
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/commune-with-nature-original-bab70fbd6ce80b3a.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 209603,
+          "sha256": "bab70fbd6ce80b3aee18e03cae3d769d02ce647037904f491e8878a2d83d4051",
+          "derivedFrom": "3bfa91a2a90896db8f3ad557b24b8884d921c7a057ad69de46e7e93d3db7b2d0",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/commune-with-nature-thumbnail-386f2fb20ad66dd0.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 14797,
+          "sha256": "386f2fb20ad66dd0f7271718a59743a6a5b1fcd12a159cc6ae1fbf68ef524cfb",
+          "derivedFrom": "3bfa91a2a90896db8f3ad557b24b8884d921c7a057ad69de46e7e93d3db7b2d0",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      }
     }
   ]
 }

@@ -3,15 +3,14 @@
   "ruleset": "5e-2014",
   "basis": "Порядок производства по кругу заклинания и опасности существа; не телеметрия частоты. Только проверенные accepted считаются покрытием.",
   "total": 580,
-  "accepted": 287,
+  "accepted": 290,
   "queues": [
     {
       "id": "spell-0-3",
       "label": "Заговоры и заклинания 1–3 кругов",
       "total": 169,
-      "accepted": 82,
+      "accepted": 83,
       "remaining": [
-        "srd51:2014:spell:color-spray",
         "srd51:2014:spell:continual-flame",
         "srd51:2014:spell:create-food-and-water",
         "srd51:2014:spell:create-or-destroy-water",
@@ -104,10 +103,8 @@
       "id": "spell-4-5",
       "label": "Заклинания 4–5 кругов",
       "total": 68,
-      "accepted": 13,
+      "accepted": 15,
       "remaining": [
-        "srd51:2014:spell:commune",
-        "srd51:2014:spell:commune-with-nature",
         "srd51:2014:spell:compulsion",
         "srd51:2014:spell:confusion",
         "srd51:2014:spell:conjure-elemental",

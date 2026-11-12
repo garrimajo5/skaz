@@ -1,0 +1,29 @@
+{
+  "batch": "production-v53",
+  "entries": [
+    {
+      "id": "srd51:2014:spell:color-spray",
+      "sourcePath": "data/art-production-v53/color-spray.png",
+      "sourceSha256": "ab7e496c03539d78c2f84c483253e15d2b7eabe8b678cb38bd97c9a634d07f1f",
+      "brief": "Use case: stylized-concept. One original square painterly fantasy spell icon for SKAZ D&D 2014, broad sculpted painted forms, crisp dark defining edges, warm highlights, readable at 32px on ivory and charcoal. Central 70% of canvas with generous transparent margins. True transparent background. No text, lettering, runes, borders, watermark, scenery, floor, tiny particles, diffuse bloom. A compact fan of five broad luminous rainbow ribbons bursting from a small cupped gloved hand, saturated red gold green cyan violet, strong arc silhouette. One hand only, no stars, no text or eye.",
+      "method": "built-in image_gen",
+      "date": "2026-11-11"
+    },
+    {
+      "id": "srd51:2014:spell:commune",
+      "sourcePath": "data/art-production-v53/commune.png",
+      "sourceSha256": "5c70a3caa9941ceac64bc4ec9f559b2bc3a1cb0761e536e64e8f0733525d299f",
+      "brief": "Use case: stylized-concept. One original square painterly fantasy spell icon for SKAZ D&D 2014, broad sculpted painted forms, crisp dark defining edges, warm highlights, readable at 32px on ivory and charcoal. Central 70% of canvas with generous transparent margins. True transparent background. No text, lettering, runes, borders, watermark, scenery, floor, tiny particles, diffuse bloom. Two cupped bronze-toned hands presenting a simple golden sun-shaped medallion, above it one descending warm white ray of divine light. Compact vertical communication-with-deity emblem, no letters or written religious symbols, no extra fingers.",
+      "method": "built-in image_gen",
+      "date": "2026-11-11"
+    },
+    {
+      "id": "srd51:2014:spell:commune-with-nature",
+      "sourcePath": "data/art-production-v53/commune-with-nature.png",
+      "sourceSha256": "3bfa91a2a90896db8f3ad557b24b8884d921c7a057ad69de46e7e93d3db7b2d0",
+      "brief": "Use case: stylized-concept. One original square painterly fantasy spell icon for SKAZ D&D 2014, broad sculpted painted forms, crisp dark defining edges, warm highlights, readable at 32px on ivory and charcoal. Central 70% of canvas with generous transparent margins. True transparent background. No text, lettering, runes, borders, watermark, scenery, floor, tiny particles, diffuse bloom. One ancient oak leaf cradling a small earthen globe with a single sturdy tree rooted on it, an amber ring gently encircles the globe to suggest understanding nature. Compact green earth gold palette, not a landscape.",
+      "method": "built-in image_gen",
+      "date": "2026-11-11"
+    }
+  ]
+}

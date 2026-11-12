@@ -1,0 +1,36 @@
+{
+  "accepted": [
+    {
+      "id": "srd51:2014:spell:color-spray",
+      "sha256": "ab7e496c03539d78c2f84c483253e15d2b7eabe8b678cb38bd97c9a634d07f1f",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1067378,
+      "review": "Reviewed original and browser contact sheet in Polaris, Coal and Atlas at 32/40 px and grayscale circle. Rainbow fan, cupped hands with divine medallion, and tree/globe/leaf silhouettes remain distinct. Corrected Commune keeps transparent margins. Accepted 2026-11-12; original generation 2026-11-11."
+    },
+    {
+      "id": "srd51:2014:spell:commune",
+      "sha256": "5c70a3caa9941ceac64bc4ec9f559b2bc3a1cb0761e536e64e8f0733525d299f",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 1312899,
+      "review": "Reviewed original and browser contact sheet in Polaris, Coal and Atlas at 32/40 px and grayscale circle. Rainbow fan, cupped hands with divine medallion, and tree/globe/leaf silhouettes remain distinct. Corrected Commune keeps transparent margins. Accepted 2026-11-12; original generation 2026-11-11."
+    },
+    {
+      "id": "srd51:2014:spell:commune-with-nature",
+      "sha256": "3bfa91a2a90896db8f3ad557b24b8884d921c7a057ad69de46e7e93d3db7b2d0",
+      "width": 1254,
+      "height": 1254,
+      "transparentPixels": 900566,
+      "review": "Reviewed original and browser contact sheet in Polaris, Coal and Atlas at 32/40 px and grayscale circle. Rainbow fan, cupped hands with divine medallion, and tree/globe/leaf silhouettes remain distinct. Corrected Commune keeps transparent margins. Accepted 2026-11-12; original generation 2026-11-11."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "srd51:2014:spell:commune",
+      "sourcePath": "data/art-production-v53/commune-candidate-1.png",
+      "sha256": "cc1ca0d34f65d2a10261df693d54d5362930b5eb902af6a6459d73a34acd0689",
+      "reason": "Initial ray and wrists lacked margin; corrected by the built-in generator before acceptance."
+    }
+  ]
+}
