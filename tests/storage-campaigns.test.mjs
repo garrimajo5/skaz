@@ -4,6 +4,7 @@ import vm from 'node:vm';
 import { readFile } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
 import { seed } from '../server/state.mjs';
+const conditionsSource=await readFile(new URL('../client/conditions.js',import.meta.url),'utf8');
 const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source = await readFile(new URL('../client/storage.js', import.meta.url), 'utf8');
 const queueSource=(await readFile(new URL('../client/health.js',import.meta.url),'utf8'))+'\n'+await readFile(new URL('../client/resource-queue.js',import.meta.url),'utf8');
@@ -19,7 +20,7 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
     SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-queued-undo]' ? [get('queued-undo-button')] : selector === '[data-resource-undo]' ? [get('resource-undo-button')] : selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>{dialog=html;get('dialog').open=true;}, closeModal() {dialog='';get('dialog').open=false;}, toast: (value,undo,options) => {messages.push(value);messageOptions.push(options);},
   });
   if(withQueue)vm.runInContext(queueSource,context);
-  vm.runInContext(sheetSource,context);
+  vm.runInContext(conditionsSource,context);vm.runInContext(sheetSource,context);
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   return { api: vm.runInContext('SkazStorage', context), get, messages, messageOptions, archiveCalls, references, downloads, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
     click: (id,dataset={},disabled=false) => handlers.click({ target: { closest: () => ({ id,dataset,disabled }) } }),
@@ -1149,4 +1150,16 @@ test('learning policy and legacy spell marks survive offline resource queue relo
  const book=await h.api.spellbookData();assert.equal(book.spellLearning,spellLearning);
  assert.equal(book.entries[0].status,'prepared');assert.equal(h.api.pendingCount(),1);
  }
+});
+
+test('v14 preview names manual conditions before confirmation and rejects invalid markers without writes',async()=>{
+ const {openStore}=await import('../server/store.mjs');const s=openStore(':memory:');s.update({mutationId:randomUUID(),expectedRevision:0,label:'Synthetic',state:{...s.read().state,conditions:{active:['poisoned'],exhaustion:2}}});const file=s.exportActive(14);s.close();
+ const calls=[],h=harness(memory(),memory(),async(url,options)=>{if(url==='/api/workspace')return response(payload(0));calls.push(JSON.parse(options.body));return response(payload(1));});await h.api.boot();h.api.settings();
+ const invalid=structuredClone(file);invalid.state.conditions.exhaustion=7;await h.get('#import-state').onchange({target:{files:[{size:1000,text:async()=>JSON.stringify(invalid)}]}});assert.equal(calls.length,0);assert.match(h.messages.at(-1),/отметки/);
+ await h.get('#import-state').onchange({target:{files:[{size:1000,text:async()=>JSON.stringify(file)}]}});assert.match(h.dialog(),/Ручные состояния: Отравлен, Истощение 2/);assert.match(h.dialog(),/не применяются автоматически/);assert.equal(calls.length,0);await h.get('#confirm-active-import').onclick();assert.deepEqual(calls[0].file.state.conditions,file.state.conditions);
+});
+
+test('conditions select v14 download even without enabled advancement',async()=>{
+ const current={...payload(4),state:{...seed,conditions:{active:['prone'],exhaustion:0}}},routes=[];
+ const h=harness(memory(),memory(),async url=>{routes.push(url);return response(url==='/api/workspace'?current:{app:'skaz-active',schemaVersion:14,source:{context:current.context,revision:4},characterStats:null,characterSheet:null,advancement:null});});await h.api.boot();h.api.settings();await h.get('#export-active').onclick();assert.ok(routes.includes('/api/export/active-v14'));assert.deepEqual(h.downloads,['skaz-active-v14.json']);
 });

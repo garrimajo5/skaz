@@ -6,13 +6,15 @@ const SkazGameArtTransfer=(()=>{
   if(value?.app!=='skaz-game-with-art'||![1,2,3].includes(value.schemaVersion)||value.ruleset!=='5e-2014'||game?.app!=='skaz-active'||game.schemaVersion!==(value.schemaVersion===1?12:value.schemaVersion===2?13:14)||game.ruleset!=='5e-2014'||art?.app!=='skaz-personal-art'||art.schemaVersion!==1||art.scope!=='personal-character'||art.ruleset!=='5e-2014')throw Error('Нужен пакет игры с изображениями СКАЗ v1, v2 или v3 (D&D 2014).');
   if(typeof game.state?.profile?.name!=='string'||typeof game.state?.profile?.campaign!=='string'||!Array.isArray(game.inventory)||!Array.isArray(game.spellbook)||!Array.isArray(game.catalog?.entries)||!Array.isArray(art.entries)||art.entries.length>1000)throw Error('В пакете отсутствуют сведения об игре или изображениях.');
   if(value.schemaVersion>=2&&!Object.hasOwn(game,'advancement'))throw Error('В пакете отсутствует история повышения.');
+  if(game.schemaVersion<14&&game.state.conditions!==undefined)throw Error('Состояния требуют формат v14.');
+  const conditions=game.state.conditions===undefined?[]:SkazConditions.names(game.state.conditions);
   const ids=new Set(game.catalog.entries.map(e=>e.id)),seen=new Set();let bytes=0;
   for(const e of art.entries){
    if(typeof e.catalogId!=='string'||!ids.has(e.catalogId)||seen.has(e.catalogId)||typeof e.sha256!=='string'||!/^[a-f0-9]{64}$/.test(e.sha256)||typeof e.png!=='string'||!e.png.length||e.png.length%4||!/^[A-Za-z0-9+/]*={0,2}$/.test(e.png))throw Error('Неверная связь или описание личного изображения.');
    const size=e.png.length/4*3-(e.png.endsWith('==')?2:e.png.endsWith('=')?1:0);bytes+=size;
    if(size>4*1024*1024||bytes>32*1024*1024)throw Error('Превышен размер личных изображений.');seen.add(e.catalogId);
   }
-  return {name:game.state.profile.name,campaign:game.state.profile.campaign,images:art.entries.length,imageBytes:bytes,items:game.inventory.length,spells:game.spellbook.length};
+  return {conditions,name:game.state.profile.name,campaign:game.state.profile.campaign,images:art.entries.length,imageBytes:bytes,items:game.inventory.length,spells:game.spellbook.length};
  }
  function create({identity,viewId,request=(...args)=>fetch(...args),newId=()=>crypto.randomUUID()}){
   if(![identity,viewId].every(v=>typeof v==='string'&&v.length))throw Error('Нужны пользователь и окно игры.');

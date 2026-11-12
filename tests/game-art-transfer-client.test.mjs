@@ -10,7 +10,7 @@ const state={revision:7,context:{campaignId:'campaign',characterId:'hero',sessio
 const file=value=>new Blob([JSON.stringify(value)],{type:'application/json'});
 function fixture(request){
  const context=vm.createContext({Blob,AbortController,AbortSignal,crypto:{randomUUID:()=> 'fixed-id'}});
- for(const name of ['personal-art-command','game-art-transfer'])vm.runInContext(readFileSync(new URL('../client/'+name+'.js',import.meta.url),'utf8'),context);
+ for(const name of ['conditions','personal-art-command','game-art-transfer'])vm.runInContext(readFileSync(new URL('../client/'+name+'.js',import.meta.url),'utf8'),context);
  context.request=request;return vm.runInContext("SkazGameArtTransfer.create({identity:'alice',viewId:'window',request})",context);
 }
 test('lost import response retains byte-identical RAM command and blocks replacement/export until retry',async()=>{
@@ -63,5 +63,10 @@ test('v3 client import retains v14 conditions and rejects mismatched envelope be
  const db=openStore(':memory:');const original=db.read();db.update({mutationId:'conditions-package',expectedRevision:original.revision,label:'Conditions',state:{...original.state,conditions:{active:['prone'],exhaustion:3}}});const bundle=gameArtPackage(db.exportActive(14),personalArtTransfer([]));db.close();
  let calls=0,sent;const api=fixture(async(url,o)=>{calls++;if(url==='/api/workspace')return Response.json(state);sent=JSON.parse(o.body);return Response.json({...state,revision:8});});
  for(const change of [b=>b.schemaVersion=2,b=>b.game.schemaVersion=13,b=>delete b.game.advancement]){const bad=structuredClone(bundle);change(bad);await assert.rejects(api.prepare(file(bad)));}assert.equal(calls,0);
- await api.prepare(file(bundle));await api.importPrepared();assert.deepEqual(sent.file.game.state.conditions,{active:['prone'],exhaustion:3});assert.equal(sent.file.schemaVersion,3);api.destroy();
+ const summary=await api.prepare(file(bundle));assert.deepEqual(Array.from(summary.conditions),['Сбит с ног','Истощение 3']);await api.importPrepared();assert.deepEqual(sent.file.game.state.conditions,{active:['prone'],exhaustion:3});assert.equal(sent.file.schemaVersion,3);api.destroy();
+});
+
+test('v3 invalid manual markers fail preview without contacting the server',async()=>{
+ const db=openStore(':memory:');const bundle=gameArtPackage(db.exportActive(14),personalArtTransfer([]));db.close();let calls=0;const api=fixture(async()=>{calls++;return Response.json(state);});
+ for(const conditions of [{active:['unknown'],exhaustion:0},{active:['prone','prone'],exhaustion:0},{active:[],exhaustion:7}]){const bad=structuredClone(bundle);bad.game.state.conditions=conditions;await assert.rejects(api.prepare(file(bad)),/отметки/);}assert.equal(calls,0);api.destroy();
 });
