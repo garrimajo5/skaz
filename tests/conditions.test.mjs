@@ -43,3 +43,13 @@ test('v14 HTTP export and import protect writes and retain manual conditions',as
  const transfer={mutationId:randomUUID(),expectedRevision:s.read().revision,destination:'new-campaign',file};assert.equal((await fetch(origin+'/api/import/active',{method:'POST',headers,body:JSON.stringify(transfer)})).status,200);assert.deepEqual(s.read().state.conditions,marks);
  }finally{app.closeAllConnections();await new Promise(r=>app.close(r));s.close();}
 });
+import{DatabaseSync}from'node:sqlite';
+test('condition writes roll back with audit and SQLite backup preserves per-character isolation',async()=>{
+ const dir=mkdtempSync(join(tmpdir(),'skaz-condition-backup-')),file=join(dir,'game.sqlite'),backup=join(dir,'backup.sqlite'),s=openStore(file),db=new DatabaseSync(file);let restored;
+ try{
+ const before=s.read(),cmd=request(s);db.exec("CREATE TRIGGER fail_conditions BEFORE INSERT ON changes BEGIN SELECT RAISE(ABORT,'condition audit failed');END");assert.throws(()=>s.update(cmd),/condition audit failed/);assert.deepEqual(s.read(),before);assert.equal(s.history().length,0);db.exec('DROP TRIGGER fail_conditions');s.update(cmd);
+ const first=s.read(),second=s.createCharacter({mutationId:randomUUID(),expectedRevision:first.revision,campaignId:first.context.campaignId,characterId:randomUUID(),template:'bard5-demo',profile:{name:'Second synthetic',tagline:''}});assert.equal(second.state.conditions,undefined);s.update(request(s,{active:['blinded'],exhaustion:0}));
+ s.selectContext({mutationId:randomUUID(),expectedRevision:s.read().revision,context:first.context});assert.deepEqual(s.read().state.conditions,marks);
+ await s.backup(backup);restored=openStore(backup);assert.deepEqual(restored.read().state.conditions,marks);assert.equal(restored.campaigns()[0].characters.length,2);restored.selectContext({mutationId:randomUUID(),expectedRevision:restored.read().revision,context:second.context});assert.deepEqual(restored.read().state.conditions,{active:['blinded'],exhaustion:0});assert.deepEqual(s.read().state.conditions,marks);
+ }finally{restored?.close();db.close();s.close();rmSync(dir,{recursive:true,force:true});}
+});
