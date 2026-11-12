@@ -1,0 +1,47 @@
+{
+  "batch": "production-v56",
+  "entries": [
+    {
+      "slug": "adult-bronze-dragon",
+      "kind": "monster",
+      "prompt": "One original square painterly fantasy bestiary portrait for SKAZ, D&D 2014. Head and short neck only; broad sculpted painted forms, crisp dark edges, soft warm highlights, restrained saturation. Strong distinctive anatomical silhouette readable at 40 pixels and in grayscale. No body, wings, scenery, lettering, frames, logos, smoke or breath weapon. True transparent background. Entire subject including horn tips fits in central 70 percent with at least 15 percent fully transparent margin on all sides. Adult bronze dragon, dignified THREE QUARTER RIGHT view with broad bronze angular muzzle, bold swept-back fluted cheek fins and several long parallel horns sweeping straight backward into a comb silhouette, copper-bronze scales, turquoise eye. Elongated forehead. Not forward-curling horns, not a nose horn."
+    },
+    {
+      "slug": "adult-copper-dragon",
+      "kind": "monster",
+      "prompt": "One original square painterly fantasy bestiary portrait for SKAZ, D&D 2014. Head and short neck only; broad sculpted painted forms, crisp dark edges, soft warm highlights, restrained saturation. Strong distinctive anatomical silhouette readable at 40 pixels and in grayscale. No body, wings, scenery, lettering, frames, logos, smoke or breath weapon. True transparent background. Entire subject including horn tips fits in central 70 percent with at least 15 percent fully transparent margin on all sides. Adult copper dragon in near FRONT view looking slightly down. Short broad angular wedge face with huge brow plates jutting sideways over the eyes, two short backward spikes, cheeks spreading into layered plate frills. Copper red metallic scales with green patina edges. Wide V-shaped lower head silhouette, mischievous expression. No broad continuous brass shield, no curled horns, no nose horn."
+    },
+    {
+      "slug": "adult-gold-dragon",
+      "kind": "monster",
+      "prompt": "One original square painterly fantasy bestiary portrait for SKAZ, D&D 2014. Head and short neck only; broad sculpted painted forms, crisp dark edges, soft warm highlights, restrained saturation. Strong distinctive anatomical silhouette readable at 40 pixels and in grayscale. No body, wings, scenery, lettering, frames, logos, smoke or breath weapon. True transparent background. Entire subject including horn tips fits in central 70 percent with at least 15 percent fully transparent margin on all sides. Adult gold dragon in elegant LEFT THREE QUARTER view, long narrow regal face, two long sweeping pointed horns angled upward and backward, long thick golden whisker tendrils curving down either side of the jaw. Warm golden scales, amber eye. Elongated tapering neck. Whiskers and paired tall horns define silhouette, not a short round head."
+    },
+    {
+      "slug": "adult-green-dragon",
+      "kind": "monster",
+      "prompt": "One original square painterly fantasy bestiary portrait for SKAZ, D&D 2014. Head and short neck only; broad sculpted painted forms, crisp dark edges, soft warm highlights, restrained saturation. Strong distinctive anatomical silhouette readable at 40 pixels and in grayscale. No body, wings, scenery, lettering, frames, logos, smoke or breath weapon. True transparent background. Entire subject including horn tips fits in central 70 percent with at least 15 percent fully transparent margin on all sides. Adult green dragon in RIGHT SIDE PROFILE, long sharp snout, very tall continuous curved sail-like spined crest starting above the crown and extending down the neck. Deep forest green scales and yellow eye, pronounced curved chin. The single high swept crest silhouette is dominant, no giant nasal horn, no curled horns."
+    },
+    {
+      "slug": "adult-red-dragon",
+      "kind": "monster",
+      "prompt": "One original square painterly fantasy bestiary portrait for SKAZ, D&D 2014. Head and short neck only; broad sculpted painted forms, crisp dark edges, soft warm highlights, restrained saturation. Strong distinctive anatomical silhouette readable at 40 pixels and in grayscale. No body, wings, scenery, lettering, frames, logos, smoke or breath weapon. True transparent background. Entire subject including horn tips fits in central 70 percent with at least 15 percent fully transparent margin on all sides. Adult red dragon in strong THREE QUARTER FRONT view, powerful heavy wedge-shaped muzzle, two huge straight swept-back pale horns rising high from the skull, pronounced layered spiky cheek ridges and thick muscular neck. Deep crimson scales, amber eye. Massive horns form an open V silhouette, no curling horns and no whiskers."
+    },
+    {
+      "slug": "adult-silver-dragon",
+      "kind": "monster",
+      "prompt": "One original square painterly fantasy bestiary portrait for SKAZ, D&D 2014. Head and short neck only; broad sculpted painted forms, crisp dark edges, soft warm highlights, restrained saturation. Strong distinctive anatomical silhouette readable at 40 pixels and in grayscale. No body, wings, scenery, lettering, frames, logos, smoke or breath weapon. True transparent background. Entire subject including horn tips fits in central 70 percent with at least 15 percent fully transparent margin on all sides. Adult silver dragon in clean LEFT SIDE PROFILE, tall broad smooth silver head frill like a gently curved fan crest, blunt elegant face, fine triangular ears at side of skull, light silver metallic scales and cool blue eye. Single uninterrupted tall swept fan silhouette from crown along neck, without green dragon's toothlike spikes. No whiskers, no giant nose horn."
+    },
+    {
+      "slug": "adult-white-dragon",
+      "kind": "monster",
+      "prompt": "One original square painterly fantasy bestiary portrait for SKAZ, D&D 2014. Head and short neck only; broad sculpted painted forms, crisp dark edges, soft warm highlights, restrained saturation. Strong distinctive anatomical silhouette readable at 40 pixels and in grayscale. No body, wings, scenery, lettering, frames, logos, smoke or breath weapon. True transparent background. Entire subject including horn tips fits in central 70 percent with at least 15 percent fully transparent margin on all sides. Adult white dragon in low forward THREE QUARTER RIGHT view. Very short wide blunt crocodilian face, low flat skull, compact backward pointing icy plate crest, thick stubby neck, tiny recessed horns, frosty ivory scales with blue gray shadows and icy blue eye. Squat horizontal silhouette, unlike tall horned or crested dragons. No giant horns, no whiskers."
+    }
+  ],
+  "corrections": [
+    {
+      "slug": "adult-gold-dragon",
+      "prompt": "Padding-only correction. Preserve this exact gold dragon portrait, anatomy, long horns, two long curved whiskers, colors and painting. Uniformly shrink the entire subject, including every whisker and both horn tips, to fit inside the central 70 percent of the square. At least 15 percent fully transparent margin on ALL FOUR sides, especially above horns and below whisker ends. Do not crop or truncate any anatomy. No new details or background. True transparent background.",
+      "rejectedSource": "data/art-production-v56/adult-gold-dragon-candidate-1.png"
+    }
+  ]
+}

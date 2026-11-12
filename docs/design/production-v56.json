@@ -1,0 +1,425 @@
+{
+  "batch": "production-v56",
+  "entries": [
+    {
+      "id": "srd51:2014:monster:adult-bronze-dragon",
+      "sourcePath": "data/art-production-v56/adult-bronze-dragon.png",
+      "sourceSha256": "b71172e8d5eb2f9c3bb66a382fb3c040dc8ec54b7cc385157a59eb7e6f066795",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:monster:adult-bronze-dragon",
+        "contentSha256": "c61d3695933c1efdb0c5a9401e3805497dc9a33fce85946baeac8fd33906e4f6",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-10; SHA256 d97ace338a531d240f72861bc2b875883403d0174965d2cb9ebfc1bc56db8531",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-10",
+          "originalSha256": "d97ace338a531d240f72861bc2b875883403d0174965d2cb9ebfc1bc56db8531",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v43.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/monsters/adult-bronze-dragon-original-f2d7dc9cf3725aef.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 226383,
+            "sha256": "f2d7dc9cf3725aefff3c7b2941159cfdba1ccae36d601413490c1dcf13be7fbf",
+            "derivedFrom": "d97ace338a531d240f72861bc2b875883403d0174965d2cb9ebfc1bc56db8531",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/monsters/adult-bronze-dragon-thumbnail-f502b9831fb5a602.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 16143,
+            "sha256": "f502b9831fb5a602ba3112c79751a97a2e06716ab427bc525f5e9c9b7254209f",
+            "derivedFrom": "d97ace338a531d240f72861bc2b875883403d0174965d2cb9ebfc1bc56db8531",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "32/40px: ten distinct adult silhouettes reviewed together; broad comb, brow plates, whiskers, spined crest, tall paired horns, smooth fan and squat head; no clipping. Three themes reviewed in local browser."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:adult-copper-dragon",
+      "sourcePath": "data/art-production-v56/adult-copper-dragon.png",
+      "sourceSha256": "7c7c6de23dfa5a899586c95ed984141d4fe72b41f8be8d254700f1f179e3c4b5",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:monster:adult-copper-dragon",
+        "contentSha256": "2be84689878f4637b9775f8fb0231299d50f6e2ae40a6c2c23babc8a2e4a60fb",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-10; SHA256 b59ab272e742bb6edb2aa3c095ee0d7e29336fdcefc86cb6e073bd17c40e3ee3",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-10",
+          "originalSha256": "b59ab272e742bb6edb2aa3c095ee0d7e29336fdcefc86cb6e073bd17c40e3ee3",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v43.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/monsters/adult-copper-dragon-original-d8681a84bc4f664b.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 248758,
+            "sha256": "d8681a84bc4f664b09c38ad4891ff1d779113cb5e333f4934199a602c99db1e4",
+            "derivedFrom": "b59ab272e742bb6edb2aa3c095ee0d7e29336fdcefc86cb6e073bd17c40e3ee3",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/monsters/adult-copper-dragon-thumbnail-d1580905d9876f69.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 17653,
+            "sha256": "d1580905d9876f6905622d53d40c3f0054e928ea20e5f80acf21feb85d4b30bf",
+            "derivedFrom": "b59ab272e742bb6edb2aa3c095ee0d7e29336fdcefc86cb6e073bd17c40e3ee3",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "32/40px: ten distinct adult silhouettes reviewed together; broad comb, brow plates, whiskers, spined crest, tall paired horns, smooth fan and squat head; no clipping. Three themes reviewed in local browser."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:adult-gold-dragon",
+      "sourcePath": "data/art-production-v56/adult-gold-dragon.png",
+      "sourceSha256": "eb0d87012af38dcf301c5b768e1ce8d682076bf520e640e86b2a3cd971eefba9",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:monster:adult-gold-dragon",
+        "contentSha256": "064092873e9d679d17971b5c60f8b797368c9f72c066a40f35e5545e9d61f412",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-10; SHA256 4604d297f93709bf3e29bc4be5ac1fa936edb05fb829a12d034d968c84aaa30f",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-10",
+          "originalSha256": "4604d297f93709bf3e29bc4be5ac1fa936edb05fb829a12d034d968c84aaa30f",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v43.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/monsters/adult-gold-dragon-original-f6fff3ff24975d4a.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 209422,
+            "sha256": "f6fff3ff24975d4a33ea646c9f2e4ce129e293ab4837df7522e3a382cc14e595",
+            "derivedFrom": "4604d297f93709bf3e29bc4be5ac1fa936edb05fb829a12d034d968c84aaa30f",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/monsters/adult-gold-dragon-thumbnail-7aae7a439a5f4092.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 15350,
+            "sha256": "7aae7a439a5f40923ff9371ff2716170da7e2358a16e631ea8a33a8323e25041",
+            "derivedFrom": "4604d297f93709bf3e29bc4be5ac1fa936edb05fb829a12d034d968c84aaa30f",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "32/40px: ten distinct adult silhouettes reviewed together; broad comb, brow plates, whiskers, spined crest, tall paired horns, smooth fan and squat head; no clipping. Three themes reviewed in local browser."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:adult-green-dragon",
+      "sourcePath": "data/art-production-v56/adult-green-dragon.png",
+      "sourceSha256": "a60afa1b3445f0149941cc20d387acf344c37894f32f1f25e7d2b61b80bf4b4a",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:monster:adult-green-dragon",
+        "contentSha256": "7b196108d0113523f7fdb38574b97bad2304c47e7c1ee3e637e2b3448122e578",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-10; SHA256 a5d15e14946b634bbfd4fc238ea1e76d1433f69332760947dd904d1dc2a460ff",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-10",
+          "originalSha256": "a5d15e14946b634bbfd4fc238ea1e76d1433f69332760947dd904d1dc2a460ff",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/monsters/adult-green-dragon-original-4cd66df02bd5a868.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 204708,
+            "sha256": "4cd66df02bd5a8686ea9e8f2f1459401b72ced177ffb46ab38c9f023583b12da",
+            "derivedFrom": "a5d15e14946b634bbfd4fc238ea1e76d1433f69332760947dd904d1dc2a460ff",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/monsters/adult-green-dragon-thumbnail-75f69251d3286f23.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 13992,
+            "sha256": "75f69251d3286f23222059d162ed59bfd0748d1ddbe274e3a95cef90387f7659",
+            "derivedFrom": "a5d15e14946b634bbfd4fc238ea1e76d1433f69332760947dd904d1dc2a460ff",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "32/40px: ten distinct adult silhouettes reviewed together; broad comb, brow plates, whiskers, spined crest, tall paired horns, smooth fan and squat head; no clipping. Three themes reviewed in local browser."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:adult-red-dragon",
+      "sourcePath": "data/art-production-v56/adult-red-dragon.png",
+      "sourceSha256": "34c09b1224bc12b74c96f571b0da52130b76fe02b56d46aa44f9c42f39a50ce9",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:monster:adult-red-dragon",
+        "contentSha256": "1a94da3becf98e9310d11c6c979072674574b0fddd55328e79d516fb7e1f23a9",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-10; SHA256 564ad660deadae3f9071228c06ccf61afb448f22c4561dc6b4a0daa40208dabd",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-10",
+          "originalSha256": "564ad660deadae3f9071228c06ccf61afb448f22c4561dc6b4a0daa40208dabd",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/monsters/adult-red-dragon-original-2d4b3817620a9c61.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 288422,
+            "sha256": "2d4b3817620a9c610421846a4cf847ed08d781b9aaa88e7dc88750fd486d932d",
+            "derivedFrom": "564ad660deadae3f9071228c06ccf61afb448f22c4561dc6b4a0daa40208dabd",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/monsters/adult-red-dragon-thumbnail-ed0ebc96dcc2888a.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 20110,
+            "sha256": "ed0ebc96dcc2888a09c01a0b1651eb925a202121073ed888f498cfece7a15e2e",
+            "derivedFrom": "564ad660deadae3f9071228c06ccf61afb448f22c4561dc6b4a0daa40208dabd",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "32/40px: ten distinct adult silhouettes reviewed together; broad comb, brow plates, whiskers, spined crest, tall paired horns, smooth fan and squat head; no clipping. Three themes reviewed in local browser."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:adult-silver-dragon",
+      "sourcePath": "data/art-production-v56/adult-silver-dragon.png",
+      "sourceSha256": "eae929451afab36391fac43aaa7cbee4ac9f1c77a10209033d1c4cea6c65c807",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:monster:adult-silver-dragon",
+        "contentSha256": "2f05d0db0d87ad9f9d52de855123b1f58fec43716cf8aff76a233352e60727c7",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-10; SHA256 dd85ce43ea6cf07efdd17cc1e476bf54e7a3c9e138d45fe219caea500140ea56",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-10",
+          "originalSha256": "dd85ce43ea6cf07efdd17cc1e476bf54e7a3c9e138d45fe219caea500140ea56",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v43.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/monsters/adult-silver-dragon-original-4a8d2220420fd152.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 197701,
+            "sha256": "4a8d2220420fd152bd40c23688ef3bd37c98b925f27782ddbc0f22c6abf716fc",
+            "derivedFrom": "dd85ce43ea6cf07efdd17cc1e476bf54e7a3c9e138d45fe219caea500140ea56",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/monsters/adult-silver-dragon-thumbnail-83c67425d6f2f21a.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 14573,
+            "sha256": "83c67425d6f2f21ac45d6d72164e19d2c9158bdd313561d96d41e46079d4d16e",
+            "derivedFrom": "dd85ce43ea6cf07efdd17cc1e476bf54e7a3c9e138d45fe219caea500140ea56",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "32/40px: ten distinct adult silhouettes reviewed together; broad comb, brow plates, whiskers, spined crest, tall paired horns, smooth fan and squat head; no clipping. Three themes reviewed in local browser."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:adult-white-dragon",
+      "sourcePath": "data/art-production-v56/adult-white-dragon.png",
+      "sourceSha256": "e2f48a8a4a540bb8ca76fb2cd01cabd96152a0cd817b72454c15a3a2cf8e9ac7",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:monster:adult-white-dragon",
+        "contentSha256": "ab1557a74cd2df62ff8a98f1c83753cb45daa8514b2b67edba8eec13f45b6b60",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-10; SHA256 d54e3f9c30ea08ce5ddd74cec4297bb713f781865e7e92fad23c9ed9e31558bc",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-10",
+          "originalSha256": "d54e3f9c30ea08ce5ddd74cec4297bb713f781865e7e92fad23c9ed9e31558bc",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/monsters/adult-white-dragon-original-692e59fba10fad7a.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 201128,
+            "sha256": "692e59fba10fad7aa74078f8288d240aebededc797e72dd0f837d4fd8a96fc8b",
+            "derivedFrom": "d54e3f9c30ea08ce5ddd74cec4297bb713f781865e7e92fad23c9ed9e31558bc",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/monsters/adult-white-dragon-thumbnail-1bc46a47d25f6025.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 14237,
+            "sha256": "1bc46a47d25f602566df0d08d63fe8e524ed5c6313f7c3a202cd7d4a9e2feadd",
+            "derivedFrom": "d54e3f9c30ea08ce5ddd74cec4297bb713f781865e7e92fad23c9ed9e31558bc",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "32/40px: ten distinct adult silhouettes reviewed together; broad comb, brow plates, whiskers, spined crest, tall paired horns, smooth fan and squat head; no clipping. Three themes reviewed in local browser."
+      }
+    }
+  ]
+}
