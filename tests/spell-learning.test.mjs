@@ -40,3 +40,26 @@ test('store exposes policy without migrating spell marks or transfer format',()=
  s.saveCharacterSheet(cmd({sheet:null}));assert.equal(s.read().spellLearning,'known');
  }finally{s.close();}
 });
+
+test('manual learning choice survives transfer and rejects unsupported values and old exports',()=>{
+ const s=openStore(':memory:');try{
+ const base={ruleset:'5e-2014',ancestry:'',className:'Мой класс',subclass:'',level:1,counters:[]};
+ const cmd=sheet=>({mutationId:randomUUID(),expectedRevision:s.read().revision,characterId:s.read().context.characterId,sheet});
+ for(const spellLearning of ['known','prepared','spellbook',null]){
+ s.saveCharacterSheet(cmd({...base,spellLearning}));assert.equal(s.read().spellLearning,spellLearning);
+ assert.equal(s.exportActive(12).characterSheet.spellLearning,spellLearning);
+ assert.throws(()=>s.exportActive(9),{status:409});
+ }
+ const before=s.read();assert.throws(()=>s.saveCharacterSheet(cmd({...base,spellLearning:'automatic'})),{status:422});assert.deepEqual(s.read(),before);
+ }finally{s.close();}
+});
+
+test('old sheet editor cannot silently erase an explicit learning choice',()=>{
+ const s=openStore(':memory:');try{
+ const base={ruleset:'5e-2014',ancestry:'',className:'Мой класс',subclass:'',level:1,counters:[]};
+ const cmd=sheet=>({mutationId:randomUUID(),expectedRevision:s.read().revision,characterId:s.read().context.characterId,sheet});
+ s.saveCharacterSheet(cmd({...base,spellLearning:'known'}));const before=s.read();
+ assert.throws(()=>s.saveCharacterSheet(cmd(base)),{status:409});assert.deepEqual(s.read(),before);
+ s.saveCharacterSheet(cmd({...base,spellLearning:null}));assert.equal(s.read().spellLearning,null);
+ }finally{s.close();}
+});

@@ -2,6 +2,7 @@ import {AppError} from './state.mjs';
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(k=>Object.hasOwn(value,k));
 const fail=message=>{throw new AppError(422,message);};
 const label=(value,empty=false)=>{if(typeof value!=='string'||value.length>80||(!empty&&!value.trim()))fail('Нужно название до 80 символов');return value.trim();};
+function validateLearning(value){if(![null,'known','prepared','spellbook'].includes(value))fail('Неверная модель изучения заклинаний');return value;}
 function validateSaves(value){if(!Array.isArray(value)||value.length>6||new Set(value).size!==value.length||value.some(id=>!['str','dex','con','int','wis','cha'].includes(id)))fail('Неверные владения спасбросками');return [...value];}
 function validateCasting(value){
  if(value===null)return null;
@@ -11,7 +12,7 @@ function validateCasting(value){
  return {ability:value.ability,dcOverride:value.dcOverride,attackOverride:value.attackOverride};
 }
 export function validateCharacterSheet(value){
- if(!exact(value,['ruleset','ancestry','className','subclass','level','counters',...(Object.hasOwn(value||{},'spellcasting')?['spellcasting']:[]),...(Object.hasOwn(value||{},'saveProficiencies')?['saveProficiencies']:[])])||value.ruleset!=='5e-2014')fail('Нужен ручной лист D&D 2014');
+ if(!exact(value,['ruleset','ancestry','className','subclass','level','counters',...(Object.hasOwn(value||{},'spellLearning')?['spellLearning']:[]),...(Object.hasOwn(value||{},'spellcasting')?['spellcasting']:[]),...(Object.hasOwn(value||{},'saveProficiencies')?['saveProficiencies']:[])])||value.ruleset!=='5e-2014')fail('Нужен ручной лист D&D 2014');
  if(!Number.isSafeInteger(value.level)||value.level<1||value.level>20)fail('Уровень: целое число 1–20');
  if(!Array.isArray(value.counters)||value.counters.length>20)fail('Не более 20 счётчиков');
  const ids=new Set(),names=new Set();
@@ -21,7 +22,7 @@ export function validateCharacterSheet(value){
   if(!Number.isSafeInteger(counter.max)||counter.max<0||counter.max>9999||!Number.isSafeInteger(counter.current)||counter.current<0||counter.current>counter.max)fail('Остаток счётчика: целое от 0 до максимума, максимум до 9999');
   return {id:counter.id,name,current:counter.current,max:counter.max};
  });
- return {ruleset:'5e-2014',ancestry:label(value.ancestry,true),className:label(value.className),subclass:label(value.subclass,true),level:value.level,counters,...(Object.hasOwn(value,'spellcasting')?{spellcasting:validateCasting(value.spellcasting)}:{}),...(Object.hasOwn(value,'saveProficiencies')?{saveProficiencies:validateSaves(value.saveProficiencies)}:{})};
+ return {ruleset:'5e-2014',ancestry:label(value.ancestry,true),className:label(value.className),subclass:label(value.subclass,true),level:value.level,counters,...(Object.hasOwn(value,'spellLearning')?{spellLearning:validateLearning(value.spellLearning)}:{}),...(Object.hasOwn(value,'spellcasting')?{spellcasting:validateCasting(value.spellcasting)}:{}),...(Object.hasOwn(value,'saveProficiencies')?{saveProficiencies:validateSaves(value.saveProficiencies)}:{})};
 }
 export function setupCharacterSheets(db){db.exec(`CREATE TABLE IF NOT EXISTS character_sheets(character_id TEXT PRIMARY KEY REFERENCES characters(id),sheet_json TEXT NOT NULL);
  CREATE TABLE IF NOT EXISTS character_sheet_changes(mutation_id TEXT PRIMARY KEY REFERENCES changes(mutation_id) DEFERRABLE INITIALLY DEFERRED,character_id TEXT NOT NULL REFERENCES characters(id),before_json TEXT NOT NULL,after_json TEXT NOT NULL)`);}

@@ -73,7 +73,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
     const session = readSession(db, context.session.id);
     const characterSheet = readCharacterSheet(db, context.character.id);
     const advancement = classAdvancement ? readAdvancement(db, context.character.id) : null;
-    const spellLearning = advancement ? spellLearningMode({classId:advancement.classId}) : characterSheet ? null : spellLearningMode({classId:"bard"});
+    const spellLearning = advancement ? spellLearningMode({classId:advancement.classId}) : characterSheet ? spellLearningMode({manual:true,selectedMode:characterSheet.spellLearning}) : spellLearningMode({classId:"bard"});
     return { schemaVersion: 1, revision: context.revision, updatedAt: context.updatedAt, context: contextIds(context),
       session: { name: session.name, playedOn: session.playedOn }, sessionNumber: session.number,
       spellbook:readSpellbook(db,context.character.id),
@@ -105,7 +105,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
       if (![2,3,4,5,6,7,8,9,10,11,12,13].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
       if(version<12&&(current.state.concentrationChecks!==undefined||current.state.deathSaves!==undefined))throw new AppError(409,'Здоровье и проверки требуют экспорт v12');
       if(version<11&&current.state.tempHp!==undefined)throw new AppError(409,'Временные хиты требуют экспорт v11');
-      if(version<10&&current.characterSheet&&['spellcasting','saveProficiencies'].some(key=>Object.hasOwn(current.characterSheet,key)))throw new AppError(409,'Настройки заклинаний требуют экспорт v10 или SQLite backup');
+      if(version<10&&current.characterSheet&&['spellcasting','saveProficiencies','spellLearning'].some(key=>Object.hasOwn(current.characterSheet,key)))throw new AppError(409,'Настройки заклинаний требуют экспорт v10 или SQLite backup');
       if(version<9&&current.characterSheet!==null)throw new AppError(409,'Собственный класс и счётчики требуют экспорт v9 или SQLite backup');
       if (version < 8 && current.characterStats!==null) throw new AppError(409,'Ручные характеристики требуют экспорт v8 или SQLite backup');
       if (version < 7 && inventory.some(item => item.chargeCounts)) throw new AppError(409, 'Остатки зарядов требуют экспорт v7 или SQLite backup');
@@ -293,7 +293,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
     },
     saveCharacterSheet:request=>{
       const payload=validateSheetCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'character-sheet',expectedRevision:request.expectedRevision,payload})).digest('hex');
-      return mutate(request,hash,'Ручной класс и счётчики',()=>{const current=read();if(current.advancement&&(!payload.sheet||payload.sheet.level!==current.characterSheet.level||payload.sheet.className!==current.characterSheet.className))throw new AppError(409,'Класс и уровень связаны с историей повышения');saveCharacterSheet(db,payload,request.mutationId,current.context.characterId);return read().state;},'character-sheet');
+      return mutate(request,hash,'Ручной класс и счётчики',()=>{const current=read();if(payload.sheet&&current.characterSheet?.spellLearning!=null&&!Object.hasOwn(payload.sheet,'spellLearning'))throw new AppError(409,'Обнови страницу: отсутствует выбор модели заклинаний');if(current.advancement&&(!payload.sheet||payload.sheet.level!==current.characterSheet.level||payload.sheet.className!==current.characterSheet.className))throw new AppError(409,'Класс и уровень связаны с историей повышения');saveCharacterSheet(db,payload,request.mutationId,current.context.characterId);return read().state;},'character-sheet');
     },
     saveCharacterStats: request => {
       const payload=validateStatsCommand(request);

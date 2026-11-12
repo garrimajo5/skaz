@@ -21,7 +21,7 @@ export function validateTransfer(file) {
   if (typeof file.exportedAt !== 'string' || file.exportedAt.length > 40 || !Number.isFinite(Date.parse(file.exportedAt))) fail('Неверная дата экспорта');
   exact(file.source, ['revision','context']); exact(file.source.context, ['campaignId','characterId','sessionId']);
   if (!Number.isSafeInteger(file.source.revision) || file.source.revision < 0 || Object.values(file.source.context).some(id => typeof id !== 'string' || !/^[a-zA-Z0-9-]{1,80}$/.test(id))) fail('Неверные сведения об исходной игре');
-  if(file.schemaVersion<10&&file.characterSheet&&['spellcasting','saveProficiencies'].some(key=>Object.hasOwn(file.characterSheet,key)))fail('Настройки заклинаний требуют формат v10');
+  if(file.schemaVersion<10&&file.characterSheet&&['spellcasting','saveProficiencies','spellLearning'].some(key=>Object.hasOwn(file.characterSheet,key)))fail('Настройки заклинаний требуют формат v10');
   const characterSheet=file.schemaVersion>=9?(file.characterSheet===null?null:validateCharacterSheet(file.characterSheet)):undefined;
   const characterStats=file.schemaVersion>=8?(file.characterStats===null?null:validateCharacterStats(file.characterStats)):undefined;
   if(file.schemaVersion<12&&(file.state?.concentrationChecks!==undefined||file.state?.deathSaves!==undefined))fail('Проверки концентрации требуют формат v12');

@@ -45,7 +45,7 @@ test('personal ritual and concentration filters intersect and do not treat unkno
 
 test('book groups circles before name and keeps inline descriptions escaped',async()=>{
  const h=harness();h.view();h.tasks.shift()();const a=item(2),b=item(1),c=item(0);a.entry.text='<script>unsafe</script>';h.requests[0].resolve({entries:[a,b,c]});await settle();
- const html=h.region.innerHTML;assert.ok(html.indexOf('Заклинание 0')<html.indexOf('Заклинание 1'));assert.ok(html.indexOf('Заклинание 1')<html.indexOf('Заклинание 2'));assert.match(html,/Заговоры/);assert.match(html,/book-description/);assert.match(html,/&lt;script&gt;/);assert.doesNotMatch(html,/<script>|\[object Object\]/);assert.match(html,/60 фт/);
+ const html=h.region.innerHTML;assert.ok(html.indexOf('Заклинание 0')<html.indexOf('Заклинание 1'));assert.ok(html.indexOf('Заклинание 1')<html.indexOf('Заклинание 2'));assert.match(html,/Заговоры/);assert.match(html,/entry-primary/);assert.doesNotMatch(html,/<details|Читать и изменить/);assert.doesNotMatch(html,/<script>|\[object Object\]/);assert.match(html,/60 фт/);
 });
 
 
