@@ -13993,6 +13993,1590 @@
         "by": "Codex, delegated visual and technical acceptance",
         "evidence": "Source, exact prompts, previous versions and browser review: docs/design/production-v59.json and qa/production-v59-atlas.png."
       }
+    },
+    {
+      "id": "srd51:2014:spell:create-food-and-water",
+      "contentSha256": "5af76c9210a85e9db993ef2e411d455ee5bee24d9d8d6590bfc693934af775f3",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 c490b07932ce1078679f83eb95108f1efae8ac8002c49e4df35972149a283c5b",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "c490b07932ce1078679f83eb95108f1efae8ac8002c49e4df35972149a283c5b",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/create-food-and-water-original-6a6f31de056e69af.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 151220,
+          "sha256": "6a6f31de056e69af8aef7dcea1be8b034e64931a7cbdaac89a3f60cb1bef463a",
+          "derivedFrom": "c490b07932ce1078679f83eb95108f1efae8ac8002c49e4df35972149a283c5b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/create-food-and-water-thumbnail-f7676c31c7642643.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11100,
+          "sha256": "f7676c31c76426430d196e3ecc576b4e1c62e6dc0b0944dbc905039e65edc499",
+          "derivedFrom": "c490b07932ce1078679f83eb95108f1efae8ac8002c49e4df35972149a283c5b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v60.json; docs/design/qa/production-v60-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:enthrall",
+      "contentSha256": "e5c0d59a3f8bab6801097816eb1825f2f99b78b3f2fc2dfba8a59369915f172d",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 7dc7297f1a88a8075842b4c2f8864bb4994602be81e5a1173fc7261d9306ca27",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "7dc7297f1a88a8075842b4c2f8864bb4994602be81e5a1173fc7261d9306ca27",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/enthrall-original-bfa9021576ff877c.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 137330,
+          "sha256": "bfa9021576ff877c7be15fcd1bd663fbaad0815574db5c267a0c968aa43b5f7f",
+          "derivedFrom": "7dc7297f1a88a8075842b4c2f8864bb4994602be81e5a1173fc7261d9306ca27",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/enthrall-thumbnail-2071e1f07c201f7d.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10299,
+          "sha256": "2071e1f07c201f7d825d64efaa818fa401221ceee2f8dee11cbf0373758fac4a",
+          "derivedFrom": "7dc7297f1a88a8075842b4c2f8864bb4994602be81e5a1173fc7261d9306ca27",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v60.json; docs/design/qa/production-v60-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:enhance-ability",
+      "contentSha256": "272d8ec6e6357f536f2b28c78451f4bb8bebc01362ebb24f9dc07de0cfb3adc7",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 50b034cd8fed09d0c7907b6affe815fe94ae169eb2b832de3260501e54724331",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "50b034cd8fed09d0c7907b6affe815fe94ae169eb2b832de3260501e54724331",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/enhance-ability-original-917bca77a63a8647.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 215753,
+          "sha256": "917bca77a63a8647deeb684c01751e26d4245637ea06b6b41182b61d84d8e4dc",
+          "derivedFrom": "50b034cd8fed09d0c7907b6affe815fe94ae169eb2b832de3260501e54724331",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/enhance-ability-thumbnail-fe1204c0a02ceacf.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 15302,
+          "sha256": "fe1204c0a02ceacf5269f2068be8e6ede0cc30754eea8692e9c056a714c38406",
+          "derivedFrom": "50b034cd8fed09d0c7907b6affe815fe94ae169eb2b832de3260501e54724331",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v60.json; docs/design/qa/production-v60-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:enlarge-reduce",
+      "contentSha256": "0f20f2ebef6e38da8252d02bdcc3ee8751809431227f650292dd2bec1709cf22",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 892970f6696e76a5115ccd80bce9dd4563156e7ae998412f30374a12ec370bdd",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "892970f6696e76a5115ccd80bce9dd4563156e7ae998412f30374a12ec370bdd",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/enlarge-reduce-original-31bc3a849b73e7f0.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 99191,
+          "sha256": "31bc3a849b73e7f0223ebebfcbd696c0ec96de6b065f32b51ce7b91d22126ff2",
+          "derivedFrom": "892970f6696e76a5115ccd80bce9dd4563156e7ae998412f30374a12ec370bdd",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/enlarge-reduce-thumbnail-ffb3141bd922c9b5.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 7579,
+          "sha256": "ffb3141bd922c9b56a8a1082eb7451581a0f089d0df09d07cecf97dc3d0e1ad1",
+          "derivedFrom": "892970f6696e76a5115ccd80bce9dd4563156e7ae998412f30374a12ec370bdd",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v60.json; docs/design/qa/production-v60-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:find-steed",
+      "contentSha256": "a31a451cbd3e915ddabb7efd7f134cb812ca60b90008598b20eea3786e334098",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 5c8e397d47e042e4af43d12d21550ab36754861e286667c35e63041794c543ac",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "5c8e397d47e042e4af43d12d21550ab36754861e286667c35e63041794c543ac",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/find-steed-original-f0a7c0d9590ddf3e.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 80214,
+          "sha256": "f0a7c0d9590ddf3e362dda3f4b62f29da13adf48d8f6c399a824b1f602ee22bb",
+          "derivedFrom": "5c8e397d47e042e4af43d12d21550ab36754861e286667c35e63041794c543ac",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/find-steed-thumbnail-22842c53aaba81f7.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 5828,
+          "sha256": "22842c53aaba81f7005aafede778484b110f42cd6ac0dddb54d90886b425ad84",
+          "derivedFrom": "5c8e397d47e042e4af43d12d21550ab36754861e286667c35e63041794c543ac",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v60.json; docs/design/qa/production-v60-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:find-traps",
+      "contentSha256": "7c9aae924f259fa4a7443231dd081552f1326ae9bee95ee9b7149cae7ace0e50",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 131bfd25c3e06ec60293932b720c658687567cf89268b33bc341e5b676cb3bea",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "131bfd25c3e06ec60293932b720c658687567cf89268b33bc341e5b676cb3bea",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/find-traps-original-c92a4d1534f62f1e.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 212425,
+          "sha256": "c92a4d1534f62f1e3aa1e577c7585548ffd4d3c5ed81fdfcc5067d8fa9cfc057",
+          "derivedFrom": "131bfd25c3e06ec60293932b720c658687567cf89268b33bc341e5b676cb3bea",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/find-traps-thumbnail-d3dca6ebdb6d6868.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 15240,
+          "sha256": "d3dca6ebdb6d686856f0e3b8a6eeaba23fb4d21c664d4f6bcaf18b4b8539c696",
+          "derivedFrom": "131bfd25c3e06ec60293932b720c658687567cf89268b33bc341e5b676cb3bea",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v60.json; docs/design/qa/production-v60-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:flame-blade",
+      "contentSha256": "5295c87643667e0d17c5492090b341154dbd0ff78b65cd05048ef4923bc83ccd",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 71a70f1e18dc691c7e68c0ce7bd220aa0a68f297f18926cea51ed15babbba33e",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "71a70f1e18dc691c7e68c0ce7bd220aa0a68f297f18926cea51ed15babbba33e",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/flame-blade-original-1e94f59ace2e7a3e.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 78258,
+          "sha256": "1e94f59ace2e7a3e0829e87943bc5a70bcb028eaeeec6100ae681e507f20fff2",
+          "derivedFrom": "71a70f1e18dc691c7e68c0ce7bd220aa0a68f297f18926cea51ed15babbba33e",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/flame-blade-thumbnail-60111616106aed43.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 5991,
+          "sha256": "60111616106aed43412af3ebc98c666039488fd534f17f03b390094850c6cb88",
+          "derivedFrom": "71a70f1e18dc691c7e68c0ce7bd220aa0a68f297f18926cea51ed15babbba33e",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v60.json; docs/design/qa/production-v60-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:flaming-sphere",
+      "contentSha256": "f589332bdf9c9c0e8bca876e73e13f04c0677e50187602034a14cd1a0ef2996b",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 1117907790dfb17d4b2909112a1144159dcf93e36235176d62d69abae354c076",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "1117907790dfb17d4b2909112a1144159dcf93e36235176d62d69abae354c076",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/flaming-sphere-original-fe2a9cb03db42d84.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 132251,
+          "sha256": "fe2a9cb03db42d846f2e0caaabb28548f6031e262f3e55231c9fab4f663ef3db",
+          "derivedFrom": "1117907790dfb17d4b2909112a1144159dcf93e36235176d62d69abae354c076",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/flaming-sphere-thumbnail-2415e53ff2a3c8ef.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9550,
+          "sha256": "2415e53ff2a3c8efda97df93b7bf6513be6089267b6e3f2209cc8942fbde95b8",
+          "derivedFrom": "1117907790dfb17d4b2909112a1144159dcf93e36235176d62d69abae354c076",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v60.json; docs/design/qa/production-v60-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:gaseous-form",
+      "contentSha256": "92642e201b0aa7c01bf2690e83edb4b51456bad9c4281ac08e59982000403343",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 58988a4f198e750227005695dfcd2e86f2de3e2d03c37798912a769cb6b0cce3",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "58988a4f198e750227005695dfcd2e86f2de3e2d03c37798912a769cb6b0cce3",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/gaseous-form-original-defc62d889010d89.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 209934,
+          "sha256": "defc62d889010d899daf6a10081fda89226e5b9b110354d94d825cce04b30200",
+          "derivedFrom": "58988a4f198e750227005695dfcd2e86f2de3e2d03c37798912a769cb6b0cce3",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/gaseous-form-thumbnail-38bc2b89820c615b.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16620,
+          "sha256": "38bc2b89820c615b275dd1a5e26257c0f8828cd0790bbc5f1832019f5545badc",
+          "derivedFrom": "58988a4f198e750227005695dfcd2e86f2de3e2d03c37798912a769cb6b0cce3",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v60.json; docs/design/qa/production-v60-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:gentle-repose",
+      "contentSha256": "5ff9e35d927efce095de28cb01ef9f272b48f889a052e6e72bdd5fe4f675ec7c",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 553cfb7f2a47386af99c3f8243dce38c2c2d0db563d27230573ea4f60effe3e8",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "553cfb7f2a47386af99c3f8243dce38c2c2d0db563d27230573ea4f60effe3e8",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/gentle-repose-original-ac7b144734896b51.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 226045,
+          "sha256": "ac7b144734896b51e247397a2a02f3b58696e28caef480e9cef22dbeb9fbc853",
+          "derivedFrom": "553cfb7f2a47386af99c3f8243dce38c2c2d0db563d27230573ea4f60effe3e8",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/gentle-repose-thumbnail-b1a5e4d0bdabbec9.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 15490,
+          "sha256": "b1a5e4d0bdabbec93d04d467a8e974c596b87050304b0acb01440cc609482385",
+          "derivedFrom": "553cfb7f2a47386af99c3f8243dce38c2c2d0db563d27230573ea4f60effe3e8",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v60.json; docs/design/qa/production-v60-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:glyph-of-warding",
+      "contentSha256": "d1e68948d91c024cf4908d141278034d5913cd4a718d5fb57e0fb5e9260f4b4f",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 bcc291a391ee784847a617f14d189e5479b731e7f1cb2ac036a4ad7631a24982",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "bcc291a391ee784847a617f14d189e5479b731e7f1cb2ac036a4ad7631a24982",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/glyph-of-warding-original-d6740b8e7107d606.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 156646,
+          "sha256": "d6740b8e7107d606c2900c32f607767ad9bb9dba4ee8a0e57fb25511d48a44e9",
+          "derivedFrom": "bcc291a391ee784847a617f14d189e5479b731e7f1cb2ac036a4ad7631a24982",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/glyph-of-warding-thumbnail-e02a920d0e91c161.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10754,
+          "sha256": "e02a920d0e91c16192b1737aa29c58e241a6cb89959f9dfa53b1d641a7bdb906",
+          "derivedFrom": "bcc291a391ee784847a617f14d189e5479b731e7f1cb2ac036a4ad7631a24982",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v60.json; docs/design/qa/production-v60-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:gust-of-wind",
+      "contentSha256": "5672db0940dfeb9b467ec800b444f71cda9dd21454c16dc9fd5a79f4ed2a3b0f",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 b0f42c07f6f977c641cd38e2ea05cf1c08fae450821d0749090ba80969e59321",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "b0f42c07f6f977c641cd38e2ea05cf1c08fae450821d0749090ba80969e59321",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/gust-of-wind-original-0b4a31787cae426d.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 113351,
+          "sha256": "0b4a31787cae426d6669b76c3ea8b21cbb60892190a4ecb76c1c18764b652f79",
+          "derivedFrom": "b0f42c07f6f977c641cd38e2ea05cf1c08fae450821d0749090ba80969e59321",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/gust-of-wind-thumbnail-6458d98b6f1f9f9b.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9014,
+          "sha256": "6458d98b6f1f9f9be78cda17b113969d867b0c8b2a0be8f850b3c0584362a149",
+          "derivedFrom": "b0f42c07f6f977c641cd38e2ea05cf1c08fae450821d0749090ba80969e59321",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v60.json; docs/design/qa/production-v60-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:heat-metal",
+      "contentSha256": "4f08993382ad6910669b8273037153af68d1e5f614790f45ac2667d069d0a8ca",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 96fb412d88e1c211854b4d1110573540cc0947b8d6039c3f804d15f8bb091527",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "96fb412d88e1c211854b4d1110573540cc0947b8d6039c3f804d15f8bb091527",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/heat-metal-original-95213ba5288b4d1d.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 146570,
+          "sha256": "95213ba5288b4d1d3a0a5613b8f3aa9dffcdd1e0e66b1f5a8cef65c35edf2ba5",
+          "derivedFrom": "96fb412d88e1c211854b4d1110573540cc0947b8d6039c3f804d15f8bb091527",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/heat-metal-thumbnail-aa200b016ae28c30.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10689,
+          "sha256": "aa200b016ae28c30c89b4629ce6781dcde2cbda284ae7bb3cbbbeb48558d845a",
+          "derivedFrom": "96fb412d88e1c211854b4d1110573540cc0947b8d6039c3f804d15f8bb091527",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v61.json; docs/design/qa/production-v61-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:hypnotic-pattern",
+      "contentSha256": "297e446d9ba55a1b505637e1ce01a3a98a09bd18a66d5feee786cba73c6c5100",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 1d9902892fc8679d4dde9451c2f72c78a987d4277727624a3e9051b81839fb6e",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "1d9902892fc8679d4dde9451c2f72c78a987d4277727624a3e9051b81839fb6e",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/hypnotic-pattern-original-f7789d7089a48c0c.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 200390,
+          "sha256": "f7789d7089a48c0cb526767aed0a0b3dfb529a957255faa628be584635b76469",
+          "derivedFrom": "1d9902892fc8679d4dde9451c2f72c78a987d4277727624a3e9051b81839fb6e",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/hypnotic-pattern-thumbnail-6d7b564de44916a2.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13802,
+          "sha256": "6d7b564de44916a2e78d2267b15e267725bd05aa282d1108cf7f78f6defbb72c",
+          "derivedFrom": "1d9902892fc8679d4dde9451c2f72c78a987d4277727624a3e9051b81839fb6e",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v61.json; docs/design/qa/production-v61-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:knock",
+      "contentSha256": "5ecf2f1afe7795d91aa6afd9469b780e93514b1ff89c546efbb226f2f327a11a",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 7aeda95088bd86d40cc725b81aa10cf139fcd23f0b642faa0bb7c7816ad570a6",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "7aeda95088bd86d40cc725b81aa10cf139fcd23f0b642faa0bb7c7816ad570a6",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/knock-original-896ef059564642a1.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 186674,
+          "sha256": "896ef059564642a18bfeba63ceb367d91f37d50c4cf6c0a6c937382416d3ea88",
+          "derivedFrom": "7aeda95088bd86d40cc725b81aa10cf139fcd23f0b642faa0bb7c7816ad570a6",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/knock-thumbnail-ceea662d916631e0.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13743,
+          "sha256": "ceea662d916631e0f50e8f83b618614dce87d5449bf4484ed771de3af56572a2",
+          "derivedFrom": "7aeda95088bd86d40cc725b81aa10cf139fcd23f0b642faa0bb7c7816ad570a6",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v61.json; docs/design/qa/production-v61-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:lesser-restoration",
+      "contentSha256": "644c772cc41cca6d617c0862ee9764e42a96113298ce8cc22bc8ce0657181ec7",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 aeb8b1b81abea5420c1d30bba87004ffe7e24c1d6b256ae9564844dd3f9de40d",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "aeb8b1b81abea5420c1d30bba87004ffe7e24c1d6b256ae9564844dd3f9de40d",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/lesser-restoration-original-56c235a63f939ed7.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 170921,
+          "sha256": "56c235a63f939ed70a7658a29caf88cb262f0ee3b22adf3520cd14faf32942dd",
+          "derivedFrom": "aeb8b1b81abea5420c1d30bba87004ffe7e24c1d6b256ae9564844dd3f9de40d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/lesser-restoration-thumbnail-0d98540aed9b1645.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13020,
+          "sha256": "0d98540aed9b164515ec3c5c375df3f62dd798a795c824ae9caa7955d27c614f",
+          "derivedFrom": "aeb8b1b81abea5420c1d30bba87004ffe7e24c1d6b256ae9564844dd3f9de40d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v61.json; docs/design/qa/production-v61-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:lightning-bolt",
+      "contentSha256": "bd9e38c66880c1621313fc5313c90a4c8583d6ad91270701b55c6fd45b73e644",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 74a713054e5eb36dd5398736860e7180314c2c36de4376d7e6144c84c027ccab",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "74a713054e5eb36dd5398736860e7180314c2c36de4376d7e6144c84c027ccab",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/lightning-bolt-original-3e3e7373543b5b91.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 101845,
+          "sha256": "3e3e7373543b5b912112cffcdc67c38cee48fa3a7cd11093f4e6da93d3aa179a",
+          "derivedFrom": "74a713054e5eb36dd5398736860e7180314c2c36de4376d7e6144c84c027ccab",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/lightning-bolt-thumbnail-c3f5f9609956321e.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 7875,
+          "sha256": "c3f5f9609956321e0a21f9b7a9665dcfab01ae6a1329bca91b8a71a1c6625322",
+          "derivedFrom": "74a713054e5eb36dd5398736860e7180314c2c36de4376d7e6144c84c027ccab",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v61.json; docs/design/qa/production-v61-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:locate-object",
+      "contentSha256": "34011f33978ee0d408ac6df557a317044e7676a9641a8afd22664b0cf0ad0422",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 c5986613d4099b6988747b3884131f7d962687a3f73c49a6a69251863225434a",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "c5986613d4099b6988747b3884131f7d962687a3f73c49a6a69251863225434a",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/locate-object-original-0cfa062abe34dc59.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 122413,
+          "sha256": "0cfa062abe34dc59cbbfcbaebe52664c8ff97c498c27892ec9cc5ee0a6799342",
+          "derivedFrom": "c5986613d4099b6988747b3884131f7d962687a3f73c49a6a69251863225434a",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/locate-object-thumbnail-e675439aa050ca54.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9119,
+          "sha256": "e675439aa050ca540889f329ef61dba6b2e6441a95ab4e49ffc9eeb8fc952ce7",
+          "derivedFrom": "c5986613d4099b6988747b3884131f7d962687a3f73c49a6a69251863225434a",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v61.json; docs/design/qa/production-v61-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:longstrider",
+      "contentSha256": "486eb1a2d08a016d6042a884da0d342b316fbe86d886f3b549a42865d09a7a35",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 8c73c43389509dd1cd53b12084030ad072c1543be6260440017297678e786f5d",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "8c73c43389509dd1cd53b12084030ad072c1543be6260440017297678e786f5d",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/longstrider-original-93bf92bc13fb0771.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 154489,
+          "sha256": "93bf92bc13fb077154de3cc4f16afb0e3504e07efda4b685f2ef4180834dd673",
+          "derivedFrom": "8c73c43389509dd1cd53b12084030ad072c1543be6260440017297678e786f5d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/longstrider-thumbnail-4676031fdc18df44.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11456,
+          "sha256": "4676031fdc18df4491d972545120232eac5e10a65bd0c933443f41dc1989e908",
+          "derivedFrom": "8c73c43389509dd1cd53b12084030ad072c1543be6260440017297678e786f5d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v61.json; docs/design/qa/production-v61-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:mage-armor",
+      "contentSha256": "94e375df71fc1bd28dfb358ccce46affe7c06748d373ace93ab13537f552b3c1",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 43dabd3f46001d61c20b3ce4cf2c6c76bb6359697a12e7e3da8de9e95a3bc75d",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "43dabd3f46001d61c20b3ce4cf2c6c76bb6359697a12e7e3da8de9e95a3bc75d",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/mage-armor-original-46aa9fd87d89feab.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 227702,
+          "sha256": "46aa9fd87d89feabb956f58c04f76c933981ae26c8f9bf982f9660a4437d0a6d",
+          "derivedFrom": "43dabd3f46001d61c20b3ce4cf2c6c76bb6359697a12e7e3da8de9e95a3bc75d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/mage-armor-thumbnail-247eeccd8decbe24.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 16127,
+          "sha256": "247eeccd8decbe2461b0d6b88b9247d58c78f4f5fb51e2ae96a2bee4f04706e1",
+          "derivedFrom": "43dabd3f46001d61c20b3ce4cf2c6c76bb6359697a12e7e3da8de9e95a3bc75d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v61.json; docs/design/qa/production-v61-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:magic-mouth",
+      "contentSha256": "94cc13e0d512574481226475d650d48acb017261a7c8bba6c5b16c3095e29e76",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 7cdc1be3a1d32385db628c3c30ba01931e2bb24b8a868e940de731212a81ac5c",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "7cdc1be3a1d32385db628c3c30ba01931e2bb24b8a868e940de731212a81ac5c",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/magic-mouth-original-325d80636dd851a8.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 119368,
+          "sha256": "325d80636dd851a8d63c33497591a1df5cd72384ea053c6cf57945a0a602dde8",
+          "derivedFrom": "7cdc1be3a1d32385db628c3c30ba01931e2bb24b8a868e940de731212a81ac5c",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/magic-mouth-thumbnail-3eeb26cc3da0025b.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 8489,
+          "sha256": "3eeb26cc3da0025b92bde76a74edf88eccb02bd0bd003d9d70954428e61a36f6",
+          "derivedFrom": "7cdc1be3a1d32385db628c3c30ba01931e2bb24b8a868e940de731212a81ac5c",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v61.json; docs/design/qa/production-v61-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:magic-weapon",
+      "contentSha256": "6f12f2bb66908ddf469d4ebfbfd2149ed0cd6d51db8f0971304b5f75dd4e6eb3",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 abca65d199eab813586b884e75a5c46dd831bf44d37b0a572c3ae7134aac8a1b",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "abca65d199eab813586b884e75a5c46dd831bf44d37b0a572c3ae7134aac8a1b",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/magic-weapon-original-bd3d835321208ade.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 85451,
+          "sha256": "bd3d835321208ade7f7d70790325ba575b63b446c9bc958b023a3b785ef2a721",
+          "derivedFrom": "abca65d199eab813586b884e75a5c46dd831bf44d37b0a572c3ae7134aac8a1b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/magic-weapon-thumbnail-e9baf081e3ebf227.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 6371,
+          "sha256": "e9baf081e3ebf22770b0c63eff407746985abd739f748135c930b6a7cd6e7ce3",
+          "derivedFrom": "abca65d199eab813586b884e75a5c46dd831bf44d37b0a572c3ae7134aac8a1b",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v61.json; docs/design/qa/production-v61-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:major-image",
+      "contentSha256": "0ddc0dd6a11eee2b897f18e0ae40cd395c162b8f15b679f0b9f7d6cc558880c2",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 882e02a2032d452ba8f47bc66049b1cfcee0933b5069ea97dfbd4f70bdf97f65",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "882e02a2032d452ba8f47bc66049b1cfcee0933b5069ea97dfbd4f70bdf97f65",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/major-image-original-039dc7c73c0a7303.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 109070,
+          "sha256": "039dc7c73c0a730363f2ab56c99c6673a521c3c3b32e9c77b7210c8f3668074d",
+          "derivedFrom": "882e02a2032d452ba8f47bc66049b1cfcee0933b5069ea97dfbd4f70bdf97f65",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/major-image-thumbnail-53b84ab8b7efc3cc.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 7829,
+          "sha256": "53b84ab8b7efc3ccbce704d6a04acf51a47ee2311efbdbe9fe7069a3651c07bf",
+          "derivedFrom": "882e02a2032d452ba8f47bc66049b1cfcee0933b5069ea97dfbd4f70bdf97f65",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v61.json; docs/design/qa/production-v61-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:mass-healing-word",
+      "contentSha256": "3c1a3fb53e6385ed497ab0752059c592681f714678e44ccfba3ff9ca43f0335d",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 30954812ea1d1ba046d7a7fc52a4e3f3b0be913bf26073ac23071e8a432d1228",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "30954812ea1d1ba046d7a7fc52a4e3f3b0be913bf26073ac23071e8a432d1228",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/mass-healing-word-original-0d88ac2aaabc1c97.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 208976,
+          "sha256": "0d88ac2aaabc1c97f6acac8391743fc4708ca7da78ea370ed87dd897e0eb5c08",
+          "derivedFrom": "30954812ea1d1ba046d7a7fc52a4e3f3b0be913bf26073ac23071e8a432d1228",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/mass-healing-word-thumbnail-f22f52518556d660.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 14757,
+          "sha256": "f22f52518556d660dfc204c4d8b2ac2e253832781c20b8131ebe496d0b0ccc93",
+          "derivedFrom": "30954812ea1d1ba046d7a7fc52a4e3f3b0be913bf26073ac23071e8a432d1228",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v61.json; docs/design/qa/production-v61-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:meld-into-stone",
+      "contentSha256": "d2a79d6bd4b26fead33935b0115ae6a0362d5bc1bd376856aee2846ceee15dc4",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 e3d76f455bab45c37df9c347caa973b553510b06775eb8f0de6ad5e3b0d5bc9d",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "e3d76f455bab45c37df9c347caa973b553510b06775eb8f0de6ad5e3b0d5bc9d",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/meld-into-stone-original-fd94f063785323cf.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 163552,
+          "sha256": "fd94f063785323cf03ff11eb8e12895df12efa4e66973f6c74060a54ca5a5871",
+          "derivedFrom": "e3d76f455bab45c37df9c347caa973b553510b06775eb8f0de6ad5e3b0d5bc9d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/meld-into-stone-thumbnail-a1990deb77a06e49.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11242,
+          "sha256": "a1990deb77a06e49333dcf25d0993a61d8a8ce00ad086969bd5899426029c2bf",
+          "derivedFrom": "e3d76f455bab45c37df9c347caa973b553510b06775eb8f0de6ad5e3b0d5bc9d",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v62.json; docs/design/qa/production-v62-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:moonbeam",
+      "contentSha256": "c77902b28d7599da9d5ccacc8982068fe812b3e7256d85ba4584ed966e289705",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 e1a7ee6ca4fe1570d1727216a070b59506a27d4d833f79d8a739fe3efff1c58f",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "e1a7ee6ca4fe1570d1727216a070b59506a27d4d833f79d8a739fe3efff1c58f",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/moonbeam-original-bc07dfa09137b029.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 89982,
+          "sha256": "bc07dfa09137b02909e28a331e28bb7a1869a7d6a564900bf6351fd6308ff46b",
+          "derivedFrom": "e1a7ee6ca4fe1570d1727216a070b59506a27d4d833f79d8a739fe3efff1c58f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/moonbeam-thumbnail-b32dfa0cdfa7fc20.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 6721,
+          "sha256": "b32dfa0cdfa7fc2098a5da73d127489e6f5c257c5b115c6d1ef5607418eb63cb",
+          "derivedFrom": "e1a7ee6ca4fe1570d1727216a070b59506a27d4d833f79d8a739fe3efff1c58f",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v62.json; docs/design/qa/production-v62-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:pass-without-trace",
+      "contentSha256": "1e32c406629d5988ad7ea2247f3872c33799923e9626928ec927ec79fc54345e",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 7339547217e93a239c894440af846acd3b458f1a01557cf1a656b094a4ee0b15",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "7339547217e93a239c894440af846acd3b458f1a01557cf1a656b094a4ee0b15",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/pass-without-trace-original-9af7e3377393df9b.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 129062,
+          "sha256": "9af7e3377393df9b8c3ab3600405f3ff6f1480e4edc907d3e62c683cb7ab4356",
+          "derivedFrom": "7339547217e93a239c894440af846acd3b458f1a01557cf1a656b094a4ee0b15",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/pass-without-trace-thumbnail-bec059efb0b529ac.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9469,
+          "sha256": "bec059efb0b529ac61dc5f007e8c7b5d85b0fb6982988bfb7e443a99e6968cf8",
+          "derivedFrom": "7339547217e93a239c894440af846acd3b458f1a01557cf1a656b094a4ee0b15",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v62.json; docs/design/qa/production-v62-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:phantom-steed",
+      "contentSha256": "673750dbbba00cb1c90ab29e5bf6286f5e1081b7a9cbf7ebf32b643103e8ed17",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 9ec90e4f0f52cf0a5f8154fa55b22eab0bb2f737d029beaf9a4c9fa0ddf0e4a9",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "9ec90e4f0f52cf0a5f8154fa55b22eab0bb2f737d029beaf9a4c9fa0ddf0e4a9",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/phantom-steed-original-1841800da6be488e.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 140164,
+          "sha256": "1841800da6be488e8d4edc9eaddab0baa0f72727773f1d7ef2d946ffd78abac6",
+          "derivedFrom": "9ec90e4f0f52cf0a5f8154fa55b22eab0bb2f737d029beaf9a4c9fa0ddf0e4a9",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/phantom-steed-thumbnail-52fe6505be941218.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10377,
+          "sha256": "52fe6505be941218fa1262b353aeb2cc8bf329815f580271c5302de79fe058e7",
+          "derivedFrom": "9ec90e4f0f52cf0a5f8154fa55b22eab0bb2f737d029beaf9a4c9fa0ddf0e4a9",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v62.json; docs/design/qa/production-v62-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:plant-growth",
+      "contentSha256": "90a7783bad0522a609d10cbbaa0069c5a59cf2f0ee9fe7a63903a0c718c202d2",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 a2b819fef6a46d184dbc49779bc1b6b8ae66146f2631c53e27d29e649d577cbd",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "a2b819fef6a46d184dbc49779bc1b6b8ae66146f2631c53e27d29e649d577cbd",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/plant-growth-original-65984977895f987a.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 159689,
+          "sha256": "65984977895f987a9e29d6fec25f9ea0fe8df98f0e6b39108b073a43691fce7a",
+          "derivedFrom": "a2b819fef6a46d184dbc49779bc1b6b8ae66146f2631c53e27d29e649d577cbd",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/plant-growth-thumbnail-c3a4ab1438013ed3.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11673,
+          "sha256": "c3a4ab1438013ed3c597bab6f3ac2f915dfbd41da3e550ab7cf78ada75b526be",
+          "derivedFrom": "a2b819fef6a46d184dbc49779bc1b6b8ae66146f2631c53e27d29e649d577cbd",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v62.json; docs/design/qa/production-v62-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:prayer-of-healing",
+      "contentSha256": "d2865309d8c37a322e9cffdb06cb8c3b579a74014ba007be1a6933e76325f0b7",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 f1cd14eb0c876bcc76abbe1069bd0f3239bd2df136609c524dec7d37aa79342a",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "f1cd14eb0c876bcc76abbe1069bd0f3239bd2df136609c524dec7d37aa79342a",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/prayer-of-healing-original-69f5b0107ba36df6.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 121783,
+          "sha256": "69f5b0107ba36df6266df51e0f95380ccfec605f101bac3c83bcfd65a331cd58",
+          "derivedFrom": "f1cd14eb0c876bcc76abbe1069bd0f3239bd2df136609c524dec7d37aa79342a",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/prayer-of-healing-thumbnail-e917f97c064223a2.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9133,
+          "sha256": "e917f97c064223a2cf5ac4db0bf58464f83b6cee9b13a3e47fbe7abd563a782c",
+          "derivedFrom": "f1cd14eb0c876bcc76abbe1069bd0f3239bd2df136609c524dec7d37aa79342a",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v62.json; docs/design/qa/production-v62-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:protection-from-evil-and-good",
+      "contentSha256": "5aef5743d7292f8606fb9d62fb69364fe0a2702489c8b82cd9d217e67b656e35",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 1699b68e8636ad4c16e1c2f2e4c20feaf69451a34332872ed8ceeb1075ae7920",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "1699b68e8636ad4c16e1c2f2e4c20feaf69451a34332872ed8ceeb1075ae7920",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/protection-from-evil-and-good-original-955de6f26f195264.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 174115,
+          "sha256": "955de6f26f195264def0ca3b598e00589cede1291aa642d83bda41d3413c9750",
+          "derivedFrom": "1699b68e8636ad4c16e1c2f2e4c20feaf69451a34332872ed8ceeb1075ae7920",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/protection-from-evil-and-good-thumbnail-87e7cb9e286b364b.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 13032,
+          "sha256": "87e7cb9e286b364b86a9933116bb2ed34ec975066985494543573a36da4c3d40",
+          "derivedFrom": "1699b68e8636ad4c16e1c2f2e4c20feaf69451a34332872ed8ceeb1075ae7920",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v63.json; docs/design/qa/production-v63-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:protection-from-poison",
+      "contentSha256": "85dfd74caf240fe3608262dd3496db4c0e20633b82d2976b0b4c02798e91d835",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 ab806833549b02f6eb5a5d54a930598a386c6dc3c2103f8a5fbcfd9637cf1160",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "ab806833549b02f6eb5a5d54a930598a386c6dc3c2103f8a5fbcfd9637cf1160",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/protection-from-poison-original-3706c4be3591788e.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 107230,
+          "sha256": "3706c4be3591788e0fd1d8684f28143d2c52a227260c4d23e6660e5e34905756",
+          "derivedFrom": "ab806833549b02f6eb5a5d54a930598a386c6dc3c2103f8a5fbcfd9637cf1160",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/protection-from-poison-thumbnail-743da3498b0cc9b5.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 7693,
+          "sha256": "743da3498b0cc9b5cf56523644f945a35fa49e99e1372009545aab7066c95807",
+          "derivedFrom": "ab806833549b02f6eb5a5d54a930598a386c6dc3c2103f8a5fbcfd9637cf1160",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v63.json; docs/design/qa/production-v63-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:purify-food-and-drink",
+      "contentSha256": "0d6ac03e13670984b1c94ddf00f3b261247c8ecd8de234bed4195439dd57c15f",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 2cd7c96fa8385dec1592e6b5d150cc88ed0743e61963646c17da079b6ca7e912",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "2cd7c96fa8385dec1592e6b5d150cc88ed0743e61963646c17da079b6ca7e912",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/purify-food-and-drink-original-9251f76025810fa3.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 156845,
+          "sha256": "9251f76025810fa33a362f58fda338a05a4bef4bd24a78ef26a887fc18d1b5b2",
+          "derivedFrom": "2cd7c96fa8385dec1592e6b5d150cc88ed0743e61963646c17da079b6ca7e912",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/purify-food-and-drink-thumbnail-108d8df01a311869.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 11213,
+          "sha256": "108d8df01a3118693e7e4d9c94ba3a1d61fd6f1c647e37494dafd14a9fefa4f4",
+          "derivedFrom": "2cd7c96fa8385dec1592e6b5d150cc88ed0743e61963646c17da079b6ca7e912",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v63.json; docs/design/qa/production-v63-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:ray-of-enfeeblement",
+      "contentSha256": "a318239d8b28e0845a722dd51f93e2156166e8134aa087a3fcd182621e377180",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 f0511955190b14cfaf5c017eb9a8cf10b7a1b73bf292d9c911c35182ea12fefa",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "f0511955190b14cfaf5c017eb9a8cf10b7a1b73bf292d9c911c35182ea12fefa",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/ray-of-enfeeblement-original-75640827da957050.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 86509,
+          "sha256": "75640827da957050478e7968b46f8805f1c5d15b576ce7b3f90be747a8f38ca7",
+          "derivedFrom": "f0511955190b14cfaf5c017eb9a8cf10b7a1b73bf292d9c911c35182ea12fefa",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/ray-of-enfeeblement-thumbnail-10ef876141ed63dc.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 6221,
+          "sha256": "10ef876141ed63dcd8f99d6b5e0472495a09b3b7fc2eccb9d5307d877c46fb9a",
+          "derivedFrom": "f0511955190b14cfaf5c017eb9a8cf10b7a1b73bf292d9c911c35182ea12fefa",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v63.json; docs/design/qa/production-v63-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:remove-curse",
+      "contentSha256": "0b9947af5e1560e8fdc8c48620d3f2fba924f710166121b7b1e11002ded25366",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 f692a7b7d70c487b0d7e079eacdb78af15ac03a7d9e5eda0cfae58d451dbf5bc",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "f692a7b7d70c487b0d7e079eacdb78af15ac03a7d9e5eda0cfae58d451dbf5bc",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/remove-curse-original-3d1edb2fefb94e34.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 136038,
+          "sha256": "3d1edb2fefb94e349db598f5761788ca8468f4ad23fc012ffad9307d08d46e54",
+          "derivedFrom": "f692a7b7d70c487b0d7e079eacdb78af15ac03a7d9e5eda0cfae58d451dbf5bc",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/remove-curse-thumbnail-98bd0a8857bd30a9.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 10059,
+          "sha256": "98bd0a8857bd30a9057fda1647714c4778e044d2c16791b3c8dd8020b2fcb530",
+          "derivedFrom": "f692a7b7d70c487b0d7e079eacdb78af15ac03a7d9e5eda0cfae58d451dbf5bc",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v63.json; docs/design/qa/production-v63-atlas.png"
+      }
+    },
+    {
+      "id": "srd51:2014:spell:revivify",
+      "contentSha256": "2414b7bcd606814fd7bb7783439f8ed59f1d1210f0b900d3efe04875bfe5ffe8",
+      "status": "accepted",
+      "version": 1,
+      "crop": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "provenance": {
+        "method": "generated",
+        "author": "SKAZ; OpenAI built-in image generator",
+        "source": "Original generation 2026-11-12; SHA256 5b512f3b11a67a1156024099f9000735dc8a5c3529146317ebfc4da87d3de0e1",
+        "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+        "attribution": "SKAZ visual library",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "5b512f3b11a67a1156024099f9000735dc8a5c3529146317ebfc4da87d3de0e1",
+        "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+      },
+      "files": {
+        "original": {
+          "path": "assets/art/spells/revivify-original-1ea5be6dfc4ff2a2.png",
+          "width": 384,
+          "height": 384,
+          "bytes": 129424,
+          "sha256": "1ea5be6dfc4ff2a2a45850862f9deb24bffb11f8c6367f7df2d56ded25a75453",
+          "derivedFrom": "5b512f3b11a67a1156024099f9000735dc8a5c3529146317ebfc4da87d3de0e1",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        },
+        "thumbnail": {
+          "path": "assets/art/spells/revivify-thumbnail-3ab982e0425df354.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 9177,
+          "sha256": "3ab982e0425df354e59b25bc35d039a9ae4d9553c07c5dfbda4a386fcfbbc3aa",
+          "derivedFrom": "5b512f3b11a67a1156024099f9000735dc8a5c3529146317ebfc4da87d3de0e1",
+          "recipe": "skaz-rgba-area-premultiplied-v1"
+        }
+      },
+      "review": {
+        "by": "Codex, delegated visual and technical acceptance",
+        "evidence": "docs/design/production-v63.json; docs/design/qa/production-v63-atlas.png"
+      }
     }
   ]
 }
