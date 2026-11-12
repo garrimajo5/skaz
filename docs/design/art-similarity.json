@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 354,
+  "count": 400,
   "pairs": [
     {
       "ids": [
@@ -1212,9 +1212,19 @@
       "light": "3e9db44ac1619734"
     },
     {
+      "id": "srd51:2014:spell:compulsion",
+      "dark": "40c32f3d3b981d1e",
+      "light": "2f3ed8dac023e2c1"
+    },
+    {
       "id": "srd51:2014:spell:cone-of-cold",
       "dark": "051f78c13f621772",
       "light": "6a70974e9c09ca9e"
+    },
+    {
+      "id": "srd51:2014:spell:confusion",
+      "dark": "5993252e32d06eb3",
+      "light": "3d98c3e09d8fc069"
     },
     {
       "id": "srd51:2014:spell:conjure-animals",
@@ -1222,9 +1232,39 @@
       "light": "391994e646c76969"
     },
     {
+      "id": "srd51:2014:spell:conjure-elemental",
+      "dark": "405b0b3d7b12f0d6",
+      "light": "2e85d4d2893c9b69"
+    },
+    {
+      "id": "srd51:2014:spell:conjure-minor-elementals",
+      "dark": "133b6c6c6a94a5ca",
+      "light": "3cc1c33ec43b3b24"
+    },
+    {
+      "id": "srd51:2014:spell:conjure-woodland-beings",
+      "dark": "31350f4a6ae0b575",
+      "light": "6ec49353983966a5"
+    },
+    {
+      "id": "srd51:2014:spell:contact-other-plane",
+      "dark": "46c43f3fb878c380",
+      "light": "696b96c44631395b"
+    },
+    {
+      "id": "srd51:2014:spell:contagion",
+      "dark": "05604a1727cf3bc7",
+      "light": "3a97e5e83033c23c"
+    },
+    {
       "id": "srd51:2014:spell:continual-flame",
       "dark": "19993676cecd3130",
       "light": "33ccce3319992363"
+    },
+    {
+      "id": "srd51:2014:spell:control-water",
+      "dark": "05656b1b7b9e34c0",
+      "light": "3ec0c027c33fd03d"
     },
     {
       "id": "srd51:2014:spell:counterspell",
@@ -1240,6 +1280,11 @@
       "id": "srd51:2014:spell:create-or-destroy-water",
       "dark": "4b663c9c6c733138",
       "light": "3c8ee261c33ccd62"
+    },
+    {
+      "id": "srd51:2014:spell:creation",
+      "dark": "16e4693b94c4c93b",
+      "light": "3c8ec3704e6f6498"
     },
     {
       "id": "srd51:2014:spell:cure-wounds",
@@ -1292,14 +1337,29 @@
       "light": "3d4ed2688b91ce1a"
     },
     {
+      "id": "srd51:2014:spell:dimension-door",
+      "dark": "46e36b1e721c3499",
+      "light": "6c3e91c29669d263"
+    },
+    {
       "id": "srd51:2014:spell:disguise-self",
       "dark": "13b06d6b62692ccd",
       "light": "3c2ff0e0c3c2cb86"
     },
     {
+      "id": "srd51:2014:spell:dispel-evil-and-good",
+      "dark": "0c3363ceb58d6a52",
+      "light": "37ccc8311e73e18c"
+    },
+    {
       "id": "srd51:2014:spell:dispel-magic",
       "dark": "46703c9f8dc17358",
       "light": "34cbd134cf329839"
+    },
+    {
+      "id": "srd51:2014:spell:divination",
+      "dark": "4a93333c6ce5c70c",
+      "light": "64cec6249a9239db"
     },
     {
       "id": "srd51:2014:spell:divine-favor",
@@ -1310,6 +1370,16 @@
       "id": "srd51:2014:spell:dominate-beast",
       "dark": "516468e1075e1d9f",
       "light": "2fc29d18e069d26e"
+    },
+    {
+      "id": "srd51:2014:spell:dominate-person",
+      "dark": "48e6650f3f313299",
+      "light": "359fd260c0c3cd65"
+    },
+    {
+      "id": "srd51:2014:spell:dream",
+      "dark": "181a67a56e65399a",
+      "light": "3fc0c31f9430d26b"
     },
     {
       "id": "srd51:2014:spell:druidcraft",
@@ -1347,9 +1417,19 @@
       "light": "66b699494a93316e"
     },
     {
+      "id": "srd51:2014:spell:fabricate",
+      "dark": "143763cc1f70634e",
+      "light": "6bc89536c09db694"
+    },
+    {
       "id": "srd51:2014:spell:faerie-fire",
       "dark": "4d38326633d36ccc",
       "light": "33c3cccc2c30b3c7"
+    },
+    {
+      "id": "srd51:2014:spell:faithful-hound",
+      "dark": "5b3961cf36c02de0",
+      "light": "66c69831c31bd23b"
     },
     {
       "id": "srd51:2014:spell:false-life",
@@ -1392,6 +1472,11 @@
       "light": "6b4a9e3461cf1c64"
     },
     {
+      "id": "srd51:2014:spell:fire-shield",
+      "dark": "502e2eb62cc9f03d",
+      "light": "3968c4a7c2592fa6"
+    },
+    {
       "id": "srd51:2014:spell:fireball",
       "dark": "13986c673cd2c33c",
       "light": "6a6b8585e19a98e3"
@@ -1400,6 +1485,11 @@
       "id": "srd51:2014:spell:flame-blade",
       "dark": "1eb2654d9992e62c",
       "light": "31c6ce31674c38c7"
+    },
+    {
+      "id": "srd51:2014:spell:flame-strike",
+      "dark": "4f19319234d66765",
+      "light": "2cb89b1ec14bc62e"
     },
     {
       "id": "srd51:2014:spell:flaming-sphere",
@@ -1422,14 +1512,29 @@
       "light": "6be0951ad22bcae4"
     },
     {
+      "id": "srd51:2014:spell:freedom-of-movement",
+      "dark": "0c1837cb32f64b87",
+      "light": "66a6c93c901b9cd9"
+    },
+    {
       "id": "srd51:2014:spell:gaseous-form",
       "dark": "0909649cb3e73b3a",
       "light": "33339bcecc186cc8"
     },
     {
+      "id": "srd51:2014:spell:geas",
+      "dark": "12b63c7961ca2e0f",
+      "light": "66dac08d9d615c36"
+    },
+    {
       "id": "srd51:2014:spell:gentle-repose",
       "dark": "506b6fb530c2b326",
       "light": "3ce4c30b993dd134"
+    },
+    {
+      "id": "srd51:2014:spell:giant-insect",
+      "dark": "111d6ae269ce1fe0",
+      "light": "69c2943d37a59196"
     },
     {
       "id": "srd51:2014:spell:glyph-of-warding",
@@ -1445,6 +1550,21 @@
       "id": "srd51:2014:spell:grease",
       "dark": "453c32916ec7355a",
       "light": "32b2c56b9c9acb90"
+    },
+    {
+      "id": "srd51:2014:spell:greater-invisibility",
+      "dark": "11356dcb1a72d296",
+      "light": "6ccb9a34e5893343"
+    },
+    {
+      "id": "srd51:2014:spell:greater-restoration",
+      "dark": "471e70699ae226ec",
+      "light": "38c39634e419f32e"
+    },
+    {
+      "id": "srd51:2014:spell:guardian-of-faith",
+      "dark": "19cc6431b3c76639",
+      "light": "318ec6719866cd93"
     },
     {
       "id": "srd51:2014:spell:guidance",
@@ -1737,6 +1857,11 @@
       "light": "664d49939b969c26"
     },
     {
+      "id": "srd51:2014:spell:rope-trick",
+      "dark": "5b24269b2d6c93c3",
+      "light": "31cfcc3893c33c64"
+    },
+    {
       "id": "srd51:2014:spell:sacred-flame",
       "dark": "4c38639b30cf3399",
       "light": "32c78a6c9332cd33"
@@ -1747,9 +1872,24 @@
       "light": "6ac3c8d29e3c342d"
     },
     {
+      "id": "srd51:2014:spell:scorching-ray",
+      "dark": "436f3c983993664c",
+      "light": "3d90c26e846fcab4"
+    },
+    {
+      "id": "srd51:2014:spell:see-invisibility",
+      "dark": "4a2c2c93e23d9bc6",
+      "light": "39c6d21f4f613096"
+    },
+    {
       "id": "srd51:2014:spell:sending",
       "dark": "651c35e30ecb7b20",
       "light": "1ed05a0ff124a6ba"
+    },
+    {
+      "id": "srd51:2014:spell:shatter",
+      "dark": "5b3134c666cc9b38",
+      "light": "64c69239cb322ccf"
     },
     {
       "id": "srd51:2014:spell:shield",
@@ -1772,9 +1912,29 @@
       "light": "3aced1cc8764c8b2"
     },
     {
+      "id": "srd51:2014:spell:silence",
+      "dark": "4e643193c6cccd66",
+      "light": "64c69b392cce2366"
+    },
+    {
+      "id": "srd51:2014:spell:silent-image",
+      "dark": "4f18656c32e7cb18",
+      "light": "30c79a9dcd3866c1"
+    },
+    {
       "id": "srd51:2014:spell:sleep",
       "dark": "1a3d68c26d13f2cc",
       "light": "6bc0851fd8789b29"
+    },
+    {
+      "id": "srd51:2014:spell:sleet-storm",
+      "dark": "4f6d309a74e3c60c",
+      "light": "65c692199b696d86"
+    },
+    {
+      "id": "srd51:2014:spell:slow",
+      "dark": "5963361c61c39f1c",
+      "light": "359cc3c79e306169"
     },
     {
       "id": "srd51:2014:spell:spare-the-dying",
@@ -1787,6 +1947,46 @@
       "light": "1e79e1860b391e55"
     },
     {
+      "id": "srd51:2014:spell:speak-with-dead",
+      "dark": "4f263099c3c69e39",
+      "light": "30c2cb3c36c3699e"
+    },
+    {
+      "id": "srd51:2014:spell:speak-with-plants",
+      "dark": "12366d4938c4977b",
+      "light": "6ec4913b87336ac4"
+    },
+    {
+      "id": "srd51:2014:spell:spider-climb",
+      "dark": "12336d8ccd31399e",
+      "light": "6d89d33232cc6639"
+    },
+    {
+      "id": "srd51:2014:spell:spike-growth",
+      "dark": "463c39c3764e8479",
+      "light": "3dc3c63c91d14b86"
+    },
+    {
+      "id": "srd51:2014:spell:spirit-guardians",
+      "dark": "1b382cc3e61e9acc",
+      "light": "65c3923c69e1649b"
+    },
+    {
+      "id": "srd51:2014:spell:spiritual-weapon",
+      "dark": "5b92342de6c39839",
+      "light": "2439cbc63b3964c3"
+    },
+    {
+      "id": "srd51:2014:spell:stinking-cloud",
+      "dark": "199b316d66c69839",
+      "light": "316dce92386cc393"
+    },
+    {
+      "id": "srd51:2014:spell:suggestion",
+      "dark": "4ec6301893739ece",
+      "light": "3139cec53c1e6698"
+    },
+    {
       "id": "srd51:2014:spell:thaumaturgy",
       "dark": "44857a3e3b72348d",
       "light": "3bc3e09cc431cc3e"
@@ -1795,6 +1995,11 @@
       "id": "srd51:2014:spell:thunderwave",
       "dark": "126c69d3c73c1ac3",
       "light": "659696693993494d"
+    },
+    {
+      "id": "srd51:2014:spell:tiny-hut",
+      "dark": "5b6c2493d34cdc31",
+      "light": "34c6cb3938c42e9b"
     },
     {
       "id": "srd51:2014:spell:tongues",
@@ -1817,6 +2022,11 @@
       "light": "39b0c44f4b917b38"
     },
     {
+      "id": "srd51:2014:spell:vampiric-touch",
+      "dark": "1b6c649ac1b64dc9",
+      "light": "659296671b4c64b3"
+    },
+    {
       "id": "srd51:2014:spell:vicious-mockery",
       "dark": "40c33e36797a34cc",
       "light": "37e4c1d887931e31"
@@ -1825,6 +2035,26 @@
       "id": "srd51:2014:spell:warding-bond",
       "dark": "543739c80f6874c7",
       "light": "79ca96b5a423da18"
+    },
+    {
+      "id": "srd51:2014:spell:water-breathing",
+      "dark": "1a986d6930e7969c",
+      "light": "3cc3c33c997260d3"
+    },
+    {
+      "id": "srd51:2014:spell:water-walk",
+      "dark": "4e64319b7c64c639",
+      "light": "319bce64339b3134"
+    },
+    {
+      "id": "srd51:2014:spell:web",
+      "dark": "44683a9e9d65e079",
+      "light": "3b95c46ae2181f87"
+    },
+    {
+      "id": "srd51:2014:spell:wind-wall",
+      "dark": "4c1933c732e6ce38",
+      "light": "32c7cc38c93931c7"
     },
     {
       "id": "srd51:2014:spell:zone-of-truth",

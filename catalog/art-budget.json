@@ -3,29 +3,29 @@
   "measurement": "in-process delivered PNG bytes; not browser network or offline cache",
   "encoder": "1.3.2.1-motley-456ae73",
   "recipe": "skaz-rgba-area-premultiplied-v1",
-  "acceptedCount": 354,
-  "selectedCount": 354,
+  "acceptedCount": 400,
+  "selectedCount": 400,
   "summary": {
     "thumbnail": {
-      "count": 354,
-      "totalBytes": 4684800,
+      "count": 400,
+      "totalBytes": 5207757,
       "maxBytes": 24576,
-      "p95Bytes": 20747,
+      "p95Bytes": 20600,
       "limitBytes": 32768
     },
     "card": {
-      "count": 354,
-      "totalBytes": 65081380,
+      "count": 400,
+      "totalBytes": 72415017,
       "maxBytes": 359979,
-      "p95Bytes": 296547,
+      "p95Bytes": 295163,
       "limitBytes": 393216
     }
   },
-  "uniqueFiles": 708,
-  "uniqueBytes": 69766180,
+  "uniqueFiles": 800,
+  "uniqueBytes": 77622774,
   "serverCache": {
-    "files": 102,
-    "bytes": 8177613,
+    "files": 112,
+    "bytes": 8331651,
     "limit": 8388608
   },
   "violations": [],
@@ -3481,6 +3481,21 @@
       }
     },
     {
+      "id": "srd51:2014:spell:compulsion",
+      "files": {
+        "thumbnail": {
+          "bytes": 14265,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 195892,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:cone-of-cold",
       "files": {
         "thumbnail": {
@@ -3490,6 +3505,21 @@
         },
         "card": {
           "bytes": 232966,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:confusion",
+      "files": {
+        "thumbnail": {
+          "bytes": 16587,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 236705,
           "width": 384,
           "height": 384
         }
@@ -3511,6 +3541,81 @@
       }
     },
     {
+      "id": "srd51:2014:spell:conjure-elemental",
+      "files": {
+        "thumbnail": {
+          "bytes": 19346,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 277013,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:conjure-minor-elementals",
+      "files": {
+        "thumbnail": {
+          "bytes": 15798,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 225733,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:conjure-woodland-beings",
+      "files": {
+        "thumbnail": {
+          "bytes": 17688,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 252465,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:contact-other-plane",
+      "files": {
+        "thumbnail": {
+          "bytes": 10832,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 153180,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:contagion",
+      "files": {
+        "thumbnail": {
+          "bytes": 14671,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 193344,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:continual-flame",
       "files": {
         "thumbnail": {
@@ -3520,6 +3625,21 @@
         },
         "card": {
           "bytes": 68798,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:control-water",
+      "files": {
+        "thumbnail": {
+          "bytes": 17775,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 255192,
           "width": 384,
           "height": 384
         }
@@ -3565,6 +3685,21 @@
         },
         "card": {
           "bytes": 137105,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:creation",
+      "files": {
+        "thumbnail": {
+          "bytes": 10702,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 151110,
           "width": 384,
           "height": 384
         }
@@ -3721,6 +3856,21 @@
       }
     },
     {
+      "id": "srd51:2014:spell:dimension-door",
+      "files": {
+        "thumbnail": {
+          "bytes": 15089,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 221809,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:disguise-self",
       "files": {
         "thumbnail": {
@@ -3736,6 +3886,21 @@
       }
     },
     {
+      "id": "srd51:2014:spell:dispel-evil-and-good",
+      "files": {
+        "thumbnail": {
+          "bytes": 9901,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 129625,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:dispel-magic",
       "files": {
         "thumbnail": {
@@ -3745,6 +3910,21 @@
         },
         "card": {
           "bytes": 144314,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:divination",
+      "files": {
+        "thumbnail": {
+          "bytes": 9666,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 132182,
           "width": 384,
           "height": 384
         }
@@ -3775,6 +3955,36 @@
         },
         "card": {
           "bytes": 230852,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:dominate-person",
+      "files": {
+        "thumbnail": {
+          "bytes": 13417,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 179198,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:dream",
+      "files": {
+        "thumbnail": {
+          "bytes": 15586,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 214699,
           "width": 384,
           "height": 384
         }
@@ -3886,6 +4096,21 @@
       }
     },
     {
+      "id": "srd51:2014:spell:fabricate",
+      "files": {
+        "thumbnail": {
+          "bytes": 11341,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 159570,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:faerie-fire",
       "files": {
         "thumbnail": {
@@ -3895,6 +4120,21 @@
         },
         "card": {
           "bytes": 71857,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:faithful-hound",
+      "files": {
+        "thumbnail": {
+          "bytes": 10308,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 147490,
           "width": 384,
           "height": 384
         }
@@ -4021,6 +4261,21 @@
       }
     },
     {
+      "id": "srd51:2014:spell:fire-shield",
+      "files": {
+        "thumbnail": {
+          "bytes": 17077,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 244376,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:fireball",
       "files": {
         "thumbnail": {
@@ -4045,6 +4300,21 @@
         },
         "card": {
           "bytes": 77535,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:flame-strike",
+      "files": {
+        "thumbnail": {
+          "bytes": 15324,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 226007,
           "width": 384,
           "height": 384
         }
@@ -4111,6 +4381,21 @@
       }
     },
     {
+      "id": "srd51:2014:spell:freedom-of-movement",
+      "files": {
+        "thumbnail": {
+          "bytes": 16687,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 218050,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:gaseous-form",
       "files": {
         "thumbnail": {
@@ -4126,6 +4411,21 @@
       }
     },
     {
+      "id": "srd51:2014:spell:geas",
+      "files": {
+        "thumbnail": {
+          "bytes": 12746,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 179517,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:gentle-repose",
       "files": {
         "thumbnail": {
@@ -4135,6 +4435,21 @@
         },
         "card": {
           "bytes": 225085,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:giant-insect",
+      "files": {
+        "thumbnail": {
+          "bytes": 15052,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 212502,
           "width": 384,
           "height": 384
         }
@@ -4180,6 +4495,51 @@
         },
         "card": {
           "bytes": 168076,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:greater-invisibility",
+      "files": {
+        "thumbnail": {
+          "bytes": 10941,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 149402,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:greater-restoration",
+      "files": {
+        "thumbnail": {
+          "bytes": 12239,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 171607,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:guardian-of-faith",
+      "files": {
+        "thumbnail": {
+          "bytes": 9603,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 136653,
           "width": 384,
           "height": 384
         }
@@ -5056,6 +5416,21 @@
       }
     },
     {
+      "id": "srd51:2014:spell:rope-trick",
+      "files": {
+        "thumbnail": {
+          "bytes": 6938,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 99870,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:sacred-flame",
       "files": {
         "thumbnail": {
@@ -5086,6 +5461,36 @@
       }
     },
     {
+      "id": "srd51:2014:spell:scorching-ray",
+      "files": {
+        "thumbnail": {
+          "bytes": 11366,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 152997,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:see-invisibility",
+      "files": {
+        "thumbnail": {
+          "bytes": 9443,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 136912,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:sending",
       "files": {
         "thumbnail": {
@@ -5095,6 +5500,21 @@
         },
         "card": {
           "bytes": 109317,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:shatter",
+      "files": {
+        "thumbnail": {
+          "bytes": 9323,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 130873,
           "width": 384,
           "height": 384
         }
@@ -5161,6 +5581,36 @@
       }
     },
     {
+      "id": "srd51:2014:spell:silence",
+      "files": {
+        "thumbnail": {
+          "bytes": 6569,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 87188,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:silent-image",
+      "files": {
+        "thumbnail": {
+          "bytes": 9616,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 135506,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:sleep",
       "files": {
         "thumbnail": {
@@ -5170,6 +5620,36 @@
         },
         "card": {
           "bytes": 210746,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:sleet-storm",
+      "files": {
+        "thumbnail": {
+          "bytes": 9556,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 134056,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:slow",
+      "files": {
+        "thumbnail": {
+          "bytes": 9991,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 142427,
           "width": 384,
           "height": 384
         }
@@ -5206,6 +5686,126 @@
       }
     },
     {
+      "id": "srd51:2014:spell:speak-with-dead",
+      "files": {
+        "thumbnail": {
+          "bytes": 6818,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 94044,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:speak-with-plants",
+      "files": {
+        "thumbnail": {
+          "bytes": 11697,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 166385,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:spider-climb",
+      "files": {
+        "thumbnail": {
+          "bytes": 8627,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 126224,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:spike-growth",
+      "files": {
+        "thumbnail": {
+          "bytes": 9123,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 129926,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:spirit-guardians",
+      "files": {
+        "thumbnail": {
+          "bytes": 9184,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 132620,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:spiritual-weapon",
+      "files": {
+        "thumbnail": {
+          "bytes": 7076,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 99432,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:stinking-cloud",
+      "files": {
+        "thumbnail": {
+          "bytes": 7037,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 94476,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:suggestion",
+      "files": {
+        "thumbnail": {
+          "bytes": 7598,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 108597,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:thaumaturgy",
       "files": {
         "thumbnail": {
@@ -5230,6 +5830,21 @@
         },
         "card": {
           "bytes": 152109,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:tiny-hut",
+      "files": {
+        "thumbnail": {
+          "bytes": 7688,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 109645,
           "width": 384,
           "height": 384
         }
@@ -5296,6 +5911,21 @@
       }
     },
     {
+      "id": "srd51:2014:spell:vampiric-touch",
+      "files": {
+        "thumbnail": {
+          "bytes": 7795,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 105754,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
       "id": "srd51:2014:spell:vicious-mockery",
       "files": {
         "thumbnail": {
@@ -5320,6 +5950,66 @@
         },
         "card": {
           "bytes": 129440,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:water-breathing",
+      "files": {
+        "thumbnail": {
+          "bytes": 10817,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 157070,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:water-walk",
+      "files": {
+        "thumbnail": {
+          "bytes": 5569,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 77459,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:web",
+      "files": {
+        "thumbnail": {
+          "bytes": 9629,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 126670,
+          "width": 384,
+          "height": 384
+        }
+      }
+    },
+    {
+      "id": "srd51:2014:spell:wind-wall",
+      "files": {
+        "thumbnail": {
+          "bytes": 8856,
+          "width": 96,
+          "height": 96
+        },
+        "card": {
+          "bytes": 122185,
           "width": 384,
           "height": 384
         }
