@@ -325,3 +325,15 @@ body[data-page="play"] #dialog::backdrop{backdrop-filter:none}
 .play-consumables .play-item>.play-row strong{overflow:visible;text-overflow:clip}
 .play-consumables .play-item>.play-row>span:last-child{grid-column:1/-1}
 .play-consumables .play-item>[data-play-charges]{justify-self:start;min-height:44px}
+
+/* Short landscape must override the compact wrapped panel above. */
+@media(max-height:500px) and (orientation:landscape){
+ .quick-state{flex-wrap:nowrap;align-items:center;overflow-x:auto;overflow-y:hidden;max-height:86px;gap:12px}
+ .quick-state>*{flex:0 0 auto;max-width:none}
+ .quick-state .quick-vitals{flex:0 0 auto;flex-wrap:nowrap}
+ .quick-state .quick-concentration-row{flex:0 0 170px;width:170px}
+ .quick-state .quick-extras{flex-wrap:nowrap}
+ .quick-state .quick-resources{width:max-content;flex:0 0 auto!important}
+ .quick-state .resource-controls{width:max-content;max-width:none;flex-wrap:nowrap}
+ .quick-state .resource-dots{flex-wrap:nowrap}
+}

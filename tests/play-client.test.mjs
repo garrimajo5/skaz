@@ -115,3 +115,12 @@ test('known policy includes learned leveled spells while prepared policy exclude
  else assert.doesNotMatch(html,/learned-only/);
  }
 });
+
+test('empty known spell list offers adding known spells, prepared policies keep preparation',async()=>{
+ for(const spellLearning of ['known','prepared','spellbook',null]){
+  const h=harness({spellLearning});await loaded(h);const html=h.get('play-content').innerHTML;
+  assert.match(html,spellLearning==='known'?/Добавить известные заклинания/:/Подготовить заклинания/);
+  if(spellLearning==='known')assert.doesNotMatch(html,/Подготовить/);
+  await h.click('',{playPrepare:'spells'});assert.equal(h.page(),'spells');
+ }
+});

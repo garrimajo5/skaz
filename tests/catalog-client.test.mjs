@@ -4,23 +4,23 @@ import vm from 'node:vm';
 import { readFile } from 'node:fs/promises';
 const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source = await readFile(new URL('../client/catalog.js', import.meta.url), 'utf8');
-function harness(protocol = 'http:', home=false, memory=new Map()) {
+function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning=null) {
   let snapshotKey='hero:0',userId='user-a';
   const handlers = {}, requests = [], tasks = [], additions = [];
-  const movement=[];
+  const movement=[], marks=[], spellControls=Object.fromEntries(['catalog-known','catalog-prepared','catalog-book-status'].map(id=>[id,{}]));
   const region = { parentElement:{open:false}, innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
   let dialog = '', isOpen=true;const messages=[],typeRegion={innerHTML:'',querySelector:()=>null};
   const context = vm.createContext({
     localStorage:{getItem:key=>memory.get(key)||null,setItem:(key,value)=>memory.set(key,value)},SkazAccount:{get userId(){return userId;}},setTimeout, clearTimeout, location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
     queueMicrotask: task => tasks.push(task),
     fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
-    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region, querySelector: () => null },
+    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => spellControls[id]|| (id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region), querySelector: () => null },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
-    toast:message=>messages.push(message),render:()=>{}, modal: html => dialog = html, SkazStorage: { ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
+    toast:message=>messages.push(message),render:()=>{}, modal: html => dialog = html, SkazStorage: { spellLearningMode:()=>spellLearning,can:()=>true,setSpell:async(...args)=>marks.push(args), ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
+  return { marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>isOpen=false, otherModal:()=>dialog='<h2>Other</h2>',
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
@@ -376,4 +376,21 @@ test('setup hints offer no writes, reject stale hero responses and never infer e
  const fresh=h.offerSetup('inventory-catalog-setup');respond(h.requests[1],{total:0});await fresh;assert.match(h.region.innerHTML,/catalog-install-empty/);assert.equal(h.requests.some(r=>r.options?.method==='POST'),false);
  h.region.innerHTML='';const failed=h.offerSetup('inventory-catalog-setup');h.requests[2].resolve({ok:false});await failed;assert.equal(h.region.innerHTML,'');
  const installed=h.offerSetup('spell-catalog-setup');respond(h.requests[3],{total:633});await installed;assert.equal(h.region.innerHTML,'');
+});
+
+
+test('catalog known policy has one add action and treats legacy prepared as known',async()=>{
+ for(const policy of ['known','prepared','spellbook'])for(const existing of [undefined,'known','prepared']){
+  const h=harness('http:',true,new Map(),policy);h.submit('shield');
+  respond(h.requests[0],{entries:[{...entry,id:'shield',kind:'spell'}],total:1});respond(h.requests[1],coverage);await settle();h.detail();
+  if(policy==='known'){assert.match(h.dialog(),/Добавить в известные/);assert.doesNotMatch(h.dialog(),/Подготовить|id="catalog-prepared"/);}
+  else assert.match(h.dialog(),/Подготовить/);
+  h.requests.find(r=>r.book).resolve({entries:existing?[{catalogId:'shield',status:existing}]:[]});await settle();
+  if(policy==='known'){
+   assert.equal(h.spellControls['catalog-known'].disabled,!!existing);
+   assert.equal(h.spellControls['catalog-book-status'].textContent,existing?'В книге · Известно':'Ещё не в книге');
+   if(!existing){await h.spellControls['catalog-known'].onclick();assert.equal(h.marks[0][1],'known');}
+   assert.equal(h.spellControls['catalog-prepared'].onclick,undefined);
+  }else assert.equal(h.spellControls['catalog-prepared'].disabled,existing==='prepared');
+ }
 });

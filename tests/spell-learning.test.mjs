@@ -63,3 +63,22 @@ test('old sheet editor cannot silently erase an explicit learning choice',()=>{
  s.saveCharacterSheet(cmd({...base,spellLearning:null}));assert.equal(s.read().spellLearning,null);
  }finally{s.close();}
 });
+
+test('learning policy round-trip preserves marks and counters, rejects malformed imports atomically',()=>{
+ for(const spellLearning of ['known','prepared','spellbook',null]){
+  const a=openStore(':memory:'),b=openStore(':memory:');try{
+   a.catalog.installBundled({version:a.catalog.previewBundled().version});
+   const command=extra=>({mutationId:randomUUID(),expectedRevision:a.read().revision,characterId:a.read().context.characterId,...extra});
+   a.setSpell(command({catalogId:'srd51:2014:spell:shield',status:'prepared'}));
+   const sheet={ruleset:'5e-2014',ancestry:'',className:'Вымышленный маг',subclass:'',level:3,spellLearning,counters:[{id:'spell-slots',name:'Ячейки',current:1,max:3}]};
+   a.saveCharacterSheet(command({sheet}));
+   const file=a.exportActive(12),request={mutationId:randomUUID(),expectedRevision:b.read().revision,destination:'new-campaign',file};
+   b.importActive(request);
+   assert.equal(b.read().spellLearning,spellLearning);assert.deepEqual(b.read().characterSheet,sheet);
+   assert.equal(b.spellbook().entries[0].status,'prepared');assert.equal(b.importActive(request).replayed,true);
+   const invalid=structuredClone(file);invalid.characterSheet.spellLearning='automatic';const before=b.read();
+   assert.throws(()=>b.importActive({...request,mutationId:randomUUID(),expectedRevision:before.revision,file:invalid}),{status:422});
+   assert.deepEqual(b.read(),before);
+  }finally{a.close();b.close();}
+ }
+});
