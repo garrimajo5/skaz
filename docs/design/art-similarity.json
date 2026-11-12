@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 287,
+  "count": 354,
   "pairs": [
     {
       "ids": [
@@ -44,17 +44,6 @@
       ],
       "distance": {
         "dark": 10,
-        "light": 10
-      },
-      "review": "required"
-    },
-    {
-      "ids": [
-        "srd51:2014:monster:ancient-green-dragon",
-        "srd51:2014:monster:ancient-silver-dragon"
-      ],
-      "distance": {
-        "dark": 8,
         "light": 10
       },
       "review": "required"
@@ -369,53 +358,53 @@
     },
     {
       "id": "srd51:2014:monster:adult-black-dragon",
-      "dark": "46b06b1c79676ce0",
-      "light": "6aca95c59e30951e"
+      "dark": "47933a4e3139c897",
+      "light": "306ccf908e43396f"
     },
     {
       "id": "srd51:2014:monster:adult-blue-dragon",
-      "dark": "45312f0e32c6edc3",
-      "light": "6e8b90b4b169c366"
+      "dark": "50622f9de7c0b962",
+      "light": "6d9c92633824cf9a"
     },
     {
       "id": "srd51:2014:monster:adult-brass-dragon",
-      "dark": "43363a6d6cd23cc4",
-      "light": "3ccac790870dda5a"
+      "dark": "19a62e4fe491ca47",
+      "light": "394bc6b44f0b3964"
     },
     {
       "id": "srd51:2014:monster:adult-bronze-dragon",
-      "dark": "13647a6925963ec6",
-      "light": "3c92c794ca69c137"
+      "dark": "0d66689db69b48a5",
+      "light": "309f87e24b25345e"
     },
     {
       "id": "srd51:2014:monster:adult-copper-dragon",
-      "dark": "436c3c693cf2392c",
-      "light": "3d94cf92c24bc15a"
+      "dark": "4c333e4cb1ccd3c4",
+      "light": "3e8fd0b04b323966"
     },
     {
       "id": "srd51:2014:monster:adult-gold-dragon",
-      "dark": "4b24396d64b239ce",
-      "light": "3192cf9ada6dc02c"
+      "dark": "16312c7961c73e4e",
+      "light": "69c7941c93b4d133"
     },
     {
       "id": "srd51:2014:monster:adult-green-dragon",
-      "dark": "5b663b2d24b26166",
-      "light": "30ccc6929e6b9d98"
+      "dark": "4c736cb433c9259c",
+      "light": "38c1c35cccb4ce63"
     },
     {
       "id": "srd51:2014:monster:adult-red-dragon",
-      "dark": "512e3f1d3cf00b70",
-      "light": "6bc487c2d61f901d"
+      "dark": "4266693939ce9687",
+      "light": "3ccbc33ce130cd32"
     },
     {
       "id": "srd51:2014:monster:adult-silver-dragon",
-      "dark": "4f38386c669239e3",
-      "light": "3093c792cb699639"
+      "dark": "16336b69658e1ec4",
+      "light": "69ce943d1af0c11b"
     },
     {
       "id": "srd51:2014:monster:adult-white-dragon",
-      "dark": "433c3c613496339f",
-      "light": "3d92c18fc6699c34"
+      "dark": "45727e8590cacb35",
+      "light": "3e81c06e0fb434db"
     },
     {
       "id": "srd51:2014:monster:air-elemental",
@@ -464,8 +453,8 @@
     },
     {
       "id": "srd51:2014:monster:ancient-silver-dragon",
-      "dark": "432c3e6d349369c3",
-      "light": "38c3c19ecb39946c"
+      "dark": "504f6ba43c7034db",
+      "light": "3a92c15e966dca49"
     },
     {
       "id": "srd51:2014:monster:ancient-white-dragon",
@@ -969,8 +958,8 @@
     },
     {
       "id": "srd51:2014:monster:young-silver-dragon",
-      "dark": "4f313c3163ce38c6",
-      "light": "649a92cd1930db37"
+      "dark": "4c3931c239b1e3ce",
+      "light": "64c29b6d936ccc31"
     },
     {
       "id": "srd51:2014:monster:young-white-dragon",
@@ -1198,9 +1187,24 @@
       "light": "6ec4851f923bc2e4"
     },
     {
+      "id": "srd51:2014:spell:color-spray",
+      "dark": "079c7863cf9887b0",
+      "light": "3f60869fc898b10f"
+    },
+    {
       "id": "srd51:2014:spell:command",
       "dark": "61e03c3c1acfc792",
       "light": "1a25c3eabd32a9c8"
+    },
+    {
+      "id": "srd51:2014:spell:commune",
+      "dark": "18cc67b3264c9b36",
+      "light": "31cecb39ccb308cc"
+    },
+    {
+      "id": "srd51:2014:spell:commune-with-nature",
+      "dark": "501a3fc0796563b6",
+      "light": "2dc4c03d965a9d71"
     },
     {
       "id": "srd51:2014:spell:comprehend-languages",
@@ -1218,9 +1222,24 @@
       "light": "391994e646c76969"
     },
     {
+      "id": "srd51:2014:spell:continual-flame",
+      "dark": "19993676cecd3130",
+      "light": "33ccce3319992363"
+    },
+    {
       "id": "srd51:2014:spell:counterspell",
       "dark": "4c1c31e31f70663e",
       "light": "3be08e18e90ff903"
+    },
+    {
+      "id": "srd51:2014:spell:create-food-and-water",
+      "dark": "4b3870c62e799336",
+      "light": "64c79a38c12f6f24"
+    },
+    {
+      "id": "srd51:2014:spell:create-or-destroy-water",
+      "dark": "4b663c9c6c733138",
+      "light": "3c8ee261c33ccd62"
     },
     {
       "id": "srd51:2014:spell:cure-wounds",
@@ -1238,6 +1257,11 @@
       "light": "6ac6973c9e2109d3"
     },
     {
+      "id": "srd51:2014:spell:darkvision",
+      "dark": "15246bcb6c39b496",
+      "light": "3b98d083c3358f66"
+    },
+    {
       "id": "srd51:2014:spell:daylight",
       "dark": "43c73d383438d363",
       "light": "6fc7903aca9819c3"
@@ -1248,14 +1272,29 @@
       "light": "7ae785181ac3d13c"
     },
     {
+      "id": "srd51:2014:spell:detect-evil-and-good",
+      "dark": "418d3a726e0d69ce",
+      "light": "6a92956d5b946c92"
+    },
+    {
       "id": "srd51:2014:spell:detect-magic",
       "dark": "4ec72c3c399b9131",
       "light": "666de49493319a1b"
     },
     {
+      "id": "srd51:2014:spell:detect-poison-and-disease",
+      "dark": "50ca2d3f7034cbb1",
+      "light": "3934c2d317cbb458"
+    },
+    {
       "id": "srd51:2014:spell:detect-thoughts",
       "dark": "40c567525acdbcb4",
       "light": "3d4ed2688b91ce1a"
+    },
+    {
+      "id": "srd51:2014:spell:disguise-self",
+      "dark": "13b06d6b62692ccd",
+      "light": "3c2ff0e0c3c2cb86"
     },
     {
       "id": "srd51:2014:spell:dispel-magic",
@@ -1283,14 +1322,34 @@
       "light": "3fe09e15e401e33c"
     },
     {
+      "id": "srd51:2014:spell:enhance-ability",
+      "dark": "1b3b71c32e60672c",
+      "light": "64c4cb39933e9863"
+    },
+    {
+      "id": "srd51:2014:spell:enlarge-reduce",
+      "dark": "139c6ce3931e92cc",
+      "light": "6ce3931c4bc26c33"
+    },
+    {
       "id": "srd51:2014:spell:entangle",
       "dark": "434f3ee07c143578",
       "light": "69b1931b8668daa5"
     },
     {
+      "id": "srd51:2014:spell:enthrall",
+      "dark": "42692db6b0c9c3c7",
+      "light": "3992c66dce343893"
+    },
+    {
+      "id": "srd51:2014:spell:expeditious-retreat",
+      "dark": "51192ec6b13cce93",
+      "light": "66b699494a93316e"
+    },
+    {
       "id": "srd51:2014:spell:faerie-fire",
-      "dark": "402d3e7869c76627",
-      "light": "36c2c10f9c78cb3a"
+      "dark": "4d38326633d36ccc",
+      "light": "33c3cccc2c30b3c7"
     },
     {
       "id": "srd51:2014:spell:false-life",
@@ -1313,6 +1372,21 @@
       "light": "6d4a81b48f729cc3"
     },
     {
+      "id": "srd51:2014:spell:find-familiar",
+      "dark": "199b316c32f364b2",
+      "light": "333cc6cfce309861"
+    },
+    {
+      "id": "srd51:2014:spell:find-steed",
+      "dark": "193164cec6799974",
+      "light": "3266ce99316666c6"
+    },
+    {
+      "id": "srd51:2014:spell:find-traps",
+      "dark": "131a38f44dc965c7",
+      "light": "6dc5c74e943c1a38"
+    },
+    {
       "id": "srd51:2014:spell:fire-bolt",
       "dark": "14b5696bda92b624",
       "light": "6b4a9e3461cf1c64"
@@ -1323,14 +1397,69 @@
       "light": "6a6b8585e19a98e3"
     },
     {
+      "id": "srd51:2014:spell:flame-blade",
+      "dark": "1eb2654d9992e62c",
+      "light": "31c6ce31674c38c7"
+    },
+    {
+      "id": "srd51:2014:spell:flaming-sphere",
+      "dark": "4f3930e3c686996c",
+      "light": "34ce933ccc333893"
+    },
+    {
+      "id": "srd51:2014:spell:floating-disk",
+      "dark": "434d3eb4a44bc3b4",
+      "light": "3c31c38e2ccc687b"
+    },
+    {
       "id": "srd51:2014:spell:fly",
       "dark": "12356dda644d93b4",
       "light": "3e60c99fb02738e2"
     },
     {
+      "id": "srd51:2014:spell:fog-cloud",
+      "dark": "400e2fb93173338f",
+      "light": "6be0951ad22bcae4"
+    },
+    {
+      "id": "srd51:2014:spell:gaseous-form",
+      "dark": "0909649cb3e73b3a",
+      "light": "33339bcecc186cc8"
+    },
+    {
+      "id": "srd51:2014:spell:gentle-repose",
+      "dark": "506b6fb530c2b326",
+      "light": "3ce4c30b993dd134"
+    },
+    {
+      "id": "srd51:2014:spell:glyph-of-warding",
+      "dark": "43d83c373469c393",
+      "light": "3c87d2688f346d92"
+    },
+    {
+      "id": "srd51:2014:spell:goodberry",
+      "dark": "40b73fca30618f63",
+      "light": "3f6a9487c132e638"
+    },
+    {
+      "id": "srd51:2014:spell:grease",
+      "dark": "453c32916ec7355a",
+      "light": "32b2c56b9c9acb90"
+    },
+    {
       "id": "srd51:2014:spell:guidance",
       "dark": "153d78e2469e30e3",
       "light": "6ac2952bf02d94b5"
+    },
+    {
+      "id": "srd51:2014:spell:guiding-bolt",
+      "dark": "1364649b1c4ec7d3",
+      "light": "6f9b866cd270190b"
+    },
+    {
+      "id": "srd51:2014:spell:gust-of-wind",
+      "dark": "422f3fd0c12d3b32",
+      "light": "6dd890262bd86c6d"
     },
     {
       "id": "srd51:2014:spell:haste",
@@ -1343,9 +1472,39 @@
       "light": "3ff0c00e432f3d70"
     },
     {
+      "id": "srd51:2014:spell:heat-metal",
+      "dark": "4e33614c18e7679a",
+      "light": "39cc9696c939c625"
+    },
+    {
+      "id": "srd51:2014:spell:hellish-rebuke",
+      "dark": "12362dc531db669c",
+      "light": "39c1c42e923ccf71"
+    },
+    {
+      "id": "srd51:2014:spell:heroism",
+      "dark": "439e2d6930e32735",
+      "light": "3dc2c60f9036cb78"
+    },
+    {
+      "id": "srd51:2014:spell:hideous-laughter",
+      "dark": "436e6ab1359b303c",
+      "light": "3c9a931fca658760"
+    },
+    {
       "id": "srd51:2014:spell:hold-person",
       "dark": "490f76b10e6c65b1",
       "light": "38b4c74bc6929e1c"
+    },
+    {
+      "id": "srd51:2014:spell:hunters-mark",
+      "dark": "193066cf6c319b6c",
+      "light": "66ce9930ccce3493"
+    },
+    {
+      "id": "srd51:2014:spell:hypnotic-pattern",
+      "dark": "444f3bb461d33439",
+      "light": "6ce1961ac96d9a1c"
     },
     {
       "id": "srd51:2014:spell:identify",
@@ -1353,9 +1512,34 @@
       "light": "68c2c31db5ad8d34"
     },
     {
+      "id": "srd51:2014:spell:illusory-script",
+      "dark": "43373ee02dccc81b",
+      "light": "69d0876dda16b431"
+    },
+    {
+      "id": "srd51:2014:spell:inflict-wounds",
+      "dark": "4c332693a46c3ba7",
+      "light": "3cc5c149cb969c72"
+    },
+    {
       "id": "srd51:2014:spell:invisibility",
       "dark": "441e39e133e56786",
       "light": "3be4c61ec81bc139"
+    },
+    {
+      "id": "srd51:2014:spell:jump",
+      "dark": "1b9866663993ce4c",
+      "light": "64679998a3399a66"
+    },
+    {
+      "id": "srd51:2014:spell:knock",
+      "dark": "472d7aca34343333",
+      "light": "3cc28325cbdccd34"
+    },
+    {
+      "id": "srd51:2014:spell:lesser-restoration",
+      "dark": "44383f9fb3663032",
+      "light": "3b87c06806bdcb1b"
     },
     {
       "id": "srd51:2014:spell:levitate",
@@ -1368,9 +1552,29 @@
       "light": "2dc2922fcb34cb32"
     },
     {
+      "id": "srd51:2014:spell:lightning-bolt",
+      "dark": "433834c69f719996",
+      "light": "3cc39b38e01c676c"
+    },
+    {
       "id": "srd51:2014:spell:locate-animals-or-plants",
       "dark": "413535db2ec873c2",
       "light": "3ecada25b434910f"
+    },
+    {
+      "id": "srd51:2014:spell:locate-object",
+      "dark": "54f10a0f6fd93384",
+      "light": "2a0cf4f10366ccf9"
+    },
+    {
+      "id": "srd51:2014:spell:longstrider",
+      "dark": "11596ea6346bc71c",
+      "light": "6ea4914b9fb07883"
+    },
+    {
+      "id": "srd51:2014:spell:mage-armor",
+      "dark": "46933b6b3cc9e184",
+      "light": "3ec39027cb9ccb18"
     },
     {
       "id": "srd51:2014:spell:mage-hand",
@@ -1386,6 +1590,31 @@
       "id": "srd51:2014:spell:magic-missile",
       "dark": "14946b6bc70fcc98",
       "light": "6969969638f03267"
+    },
+    {
+      "id": "srd51:2014:spell:magic-mouth",
+      "dark": "4d3d30e2a71dc872",
+      "light": "34c3cb3c6cd034c7"
+    },
+    {
+      "id": "srd51:2014:spell:magic-weapon",
+      "dark": "4e3073ce98734758",
+      "light": "614f98b2e62435c7"
+    },
+    {
+      "id": "srd51:2014:spell:major-image",
+      "dark": "4f3866c6386dcc92",
+      "light": "31e79818c7b2346d"
+    },
+    {
+      "id": "srd51:2014:spell:mass-healing-word",
+      "dark": "052e7ab16649a5ce",
+      "light": "3bc6c42bc43c93b4"
+    },
+    {
+      "id": "srd51:2014:spell:meld-into-stone",
+      "dark": "1b1c2d6364b696c9",
+      "light": "35c7c33c9c6019a7"
     },
     {
       "id": "srd51:2014:spell:mending",
@@ -1413,9 +1642,29 @@
       "light": "38c3c73ce39e8630"
     },
     {
+      "id": "srd51:2014:spell:moonbeam",
+      "dark": "4c66679931993366",
+      "light": "339b8cc6ce648939"
+    },
+    {
       "id": "srd51:2014:spell:nondetection",
       "dark": "47c53c3ae0f183c6",
       "light": "6bce953cca1268e1"
+    },
+    {
+      "id": "srd51:2014:spell:pass-without-trace",
+      "dark": "123a69c5346bce2d",
+      "light": "64c79238c99633e3"
+    },
+    {
+      "id": "srd51:2014:spell:phantom-steed",
+      "dark": "1a92303d65e69b4d",
+      "light": "6464cbc698996793"
+    },
+    {
+      "id": "srd51:2014:spell:plant-growth",
+      "dark": "13333ccc64e7c718",
+      "light": "34cfc3349b303cc3"
     },
     {
       "id": "srd51:2014:spell:poison-spray",
@@ -1426,6 +1675,11 @@
       "id": "srd51:2014:spell:polymorph",
       "dark": "149d73616b66464e",
       "light": "6a628c9de133b196"
+    },
+    {
+      "id": "srd51:2014:spell:prayer-of-healing",
+      "dark": "4e3833c73cc3833c",
+      "light": "26c3992dc33c6d92"
     },
     {
       "id": "srd51:2014:spell:prestidigitation",
@@ -1443,9 +1697,44 @@
       "light": "3bc09437e5296378"
     },
     {
+      "id": "srd51:2014:spell:protection-from-evil-and-good",
+      "dark": "593772c10fcc7033",
+      "light": "78c2853cd2734d6a"
+    },
+    {
+      "id": "srd51:2014:spell:protection-from-poison",
+      "dark": "4ec1323f91ccce23",
+      "light": "39cec6312c4f32b2"
+    },
+    {
+      "id": "srd51:2014:spell:purify-food-and-drink",
+      "dark": "4f9430696b9293b6",
+      "light": "349acf659992311b"
+    },
+    {
+      "id": "srd51:2014:spell:ray-of-enfeeblement",
+      "dark": "1b9967641cb39b18",
+      "light": "65c59ab2672931c6"
+    },
+    {
       "id": "srd51:2014:spell:ray-of-frost",
       "dark": "136d659249669379",
       "light": "6c969a6db2592c92"
+    },
+    {
+      "id": "srd51:2014:spell:remove-curse",
+      "dark": "4c64349f47f8d0d1",
+      "light": "3d96c369946d1e24"
+    },
+    {
+      "id": "srd51:2014:spell:resistance",
+      "dark": "493936c61d61669e",
+      "light": "3cc3c23cc93663ca"
+    },
+    {
+      "id": "srd51:2014:spell:revivify",
+      "dark": "4c933339316d6c66",
+      "light": "664d49939b969c26"
     },
     {
       "id": "srd51:2014:spell:sacred-flame",
@@ -1468,14 +1757,44 @@
       "light": "69a5ca369458b6d8"
     },
     {
+      "id": "srd51:2014:spell:shield-of-faith",
+      "dark": "19c66639c7c3983c",
+      "light": "316cce936d3c30c6"
+    },
+    {
+      "id": "srd51:2014:spell:shillelagh",
+      "dark": "4f9931662c26cf98",
+      "light": "61679c9ac36c38c3"
+    },
+    {
       "id": "srd51:2014:spell:shocking-grasp",
       "dark": "45b02f98786b9666",
       "light": "3aced1cc8764c8b2"
     },
     {
+      "id": "srd51:2014:spell:sleep",
+      "dark": "1a3d68c26d13f2cc",
+      "light": "6bc0851fd8789b29"
+    },
+    {
+      "id": "srd51:2014:spell:spare-the-dying",
+      "dark": "40f8620e1f87cdcb",
+      "light": "3ec785e8e0176278"
+    },
+    {
       "id": "srd51:2014:spell:speak-with-animals",
       "dark": "65c21b3d96c6a1c3",
       "light": "1e79e1860b391e55"
+    },
+    {
+      "id": "srd51:2014:spell:thaumaturgy",
+      "dark": "44857a3e3b72348d",
+      "light": "3bc3e09cc431cc3e"
+    },
+    {
+      "id": "srd51:2014:spell:thunderwave",
+      "dark": "126c69d3c73c1ac3",
+      "light": "659696693993494d"
     },
     {
       "id": "srd51:2014:spell:tongues",
@@ -1486,6 +1805,11 @@
       "id": "srd51:2014:spell:true-polymorph",
       "dark": "119f62669ce16b4a",
       "light": "6e60959de11e9097"
+    },
+    {
+      "id": "srd51:2014:spell:true-strike",
+      "dark": "4e3833c78c31b396",
+      "light": "30c7cc38e39c2de1"
     },
     {
       "id": "srd51:2014:spell:unseen-servant",
