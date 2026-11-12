@@ -14,6 +14,9 @@ test('conditions survive restart and exact retry; stale or old clients cannot ov
  assert.throws(()=>s.update({...cmd,mutationId:randomUUID()}),{status:409});
  const missing=request(s);delete missing.state.conditions;assert.throws(()=>s.update(missing),{status:409});
  s.close();s=openStore(path);assert.deepEqual(s.read().state.conditions,marks);assert.equal(s.update(cmd).revision,result.revision);
+ const hp=s.read(),hit={mutationId:randomUUID(),expectedRevision:hp.revision,context:hp.context,resource:{kind:'hp'},delta:-1,before:hp.state.hp,maximum:hp.state.maxHp};s.changeResource(hit);assert.deepEqual(s.read().state.conditions,marks);assert.equal(s.read().state.hp,hp.state.hp-1);
+ s.undoResource({mutationId:randomUUID(),expectedRevision:s.read().revision,characterId:hp.context.characterId,targetMutationId:hit.mutationId});assert.deepEqual(s.read().state.conditions,marks);assert.equal(s.read().state.hp,hp.state.hp);
+ const slot=s.read();s.changeResource({mutationId:randomUUID(),expectedRevision:slot.revision,context:slot.context,resource:{kind:'slot',level:1},delta:-1,before:slot.state.slots[1],maximum:4});assert.deepEqual(s.read().state.conditions,marks);
  s.update(request(s,{active:[],exhaustion:0}));assert.deepEqual(s.read().state.conditions,{active:[],exhaustion:0});
  }finally{s.close();rmSync(dir,{recursive:true,force:true});}
 });
