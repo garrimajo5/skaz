@@ -1128,3 +1128,9 @@ test('active v12 download accepts current export and rejects older schema withou
 test('enabled advancement downloads v13 without confusing schema version with game revision',async()=>{
  for(const valid of [true,false]){const routes=[],h=harness(memory(),memory(),async url=>{routes.push(url);return response(url==='/api/workspace'?payload(5):{app:'skaz-active',schemaVersion:13,source:{context:payload(5).context,revision:5},characterStats:null,characterSheet:null,...(valid?{advancement:null}:{})});});h.advancementEnabled();await h.api.boot();h.api.settings();await h.get('#export-active').onclick();assert.ok(routes.includes('/api/export/active-v13'));assert.deepEqual(h.downloads,valid?['skaz-active-v13.json']:[]);if(!valid)assert.match(h.messages.at(-1),/история повышения/);}
 });
+
+test('session header uses confirmed sequence for unnamed sessions and preserves supplied names',async()=>{
+ let current={...payload(0),session:{name:null,playedOn:null},sessionNumber:3};
+ const h=harness(memory(),memory(),async()=>response(current));await h.api.boot();assert.equal(h.api.sessionTitle(),'Сессия 3');
+ current={...current,session:{name:'Маяк',playedOn:'2026-11-12'}};await h.api.boot();assert.equal(h.api.sessionTitle(),'Маяк');
+});

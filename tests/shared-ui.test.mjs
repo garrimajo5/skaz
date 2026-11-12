@@ -10,8 +10,8 @@ const metadataSource=storage.slice(storage.indexOf('  function inventoryRowMetad
 test('collapsed inventory metadata distinguishes zero and unknown charges per unit and bounds long stacks',()=>{
  const c=vm.createContext({esc:String});vm.runInContext(metadataSource,c);const metadata=vm.runInContext('inventoryRowMetadata',c);
  const text=metadata({quantity:4,chargeCounts:[0,null,7,2],entry:{item:{attunement:true,charges:{max:7}}}});
- assert.equal(text,'Требует настройки · Заряды: 0/7 · ?/7 · 7/7 · ещё 1');
- const html=row({name:{ru:'Палочка'},metadata:text});assert.match(html.match(/<summary>([\s\S]*?)<\/summary>/)[1],/0\/7 · \?\/7 · 7\/7/);
+ assert.equal(text,'Требует настройки · Заряды: 0/7 · укажи остаток · 7/7 · ещё 1');
+ const html=row({name:{ru:'Палочка'},metadata:text});assert.match(html.match(/<summary>([\s\S]*?)<\/summary>/)[1],/0\/7 · укажи остаток · 7\/7/);
  assert.equal(metadata({quantity:1,entry:{}}),'Требование настройки не указано');
 });
 test('imported names, descriptions and badge cannot introduce active markup into shared rows',()=>{

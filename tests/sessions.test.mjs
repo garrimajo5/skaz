@@ -103,3 +103,11 @@ test('session HTTP endpoints return metadata and archives and require protected 
   assert.equal((await fetch(base + '/api/sessions/missing')).status, 404);
   assert.equal((await fetch(base + '/api/campaigns/missing/sessions')).status, 404);
 });
+
+test('unnamed sessions have campaign-local display numbers without changing transfer metadata',()=>{
+ const s=openStore(':memory:');try{
+  const initial=s.read();assert.equal(initial.sessionNumber,1);assert.equal(initial.session.name,null);
+  const next=s.startSession(cmd(initial.revision,{session:details}));assert.equal(next.sessionNumber,2);
+  assert.deepEqual(s.exportActive(12).session,details);assert.equal(s.session(initial.context.sessionId).number,1);
+ }finally{s.close();}
+});

@@ -44,7 +44,7 @@ export function listSessions(db, campaignId) {
 }
 
 export function readSession(db, id) {
-  const row = db.prepare(`SELECT s.id, s.campaign_id AS campaignId, s.data_json, d.name,
+  const row = db.prepare(`SELECT s.id, s.campaign_id AS campaignId, s.data_json, (SELECT count(*) FROM sessions previous WHERE previous.campaign_id=s.campaign_id AND previous.rowid<=s.rowid) AS number, d.name,
     d.played_on AS playedOn, coalesce(d.archived,0) AS archived FROM sessions s
     LEFT JOIN session_details d ON d.session_id=s.id WHERE s.id=?`).get(id);
   if (!row) throw new AppError(404, 'Сессия не найдена');

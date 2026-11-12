@@ -293,3 +293,35 @@ input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{b
 /* Keep keyboard focus, suppress only pointer/programmatic heading outlines. */
 h1[tabindex="-1"]:focus:not(:focus-visible),h2[tabindex="-1"]:focus:not(:focus-visible){outline:none}
 .inventory-pages[hidden],.inventory-search[hidden]{display:none}
+
+.play-casting-controls{display:flex;align-items:center;gap:4px;flex:none}
+.play-cast-levels{display:flex;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.play-cast-levels button{min-width:44px;min-height:44px;border:0;border-radius:0;padding:4px;font-size:14px}
+.play-cast-levels button[aria-pressed=true],#play-cast-form button[aria-pressed=true]{background:var(--accent);color:var(--ink)}
+#play-cast-form fieldset{display:flex;gap:6px;flex-wrap:wrap;margin-block:12px}
+#play-cast-form fieldset button{min-width:44px;min-height:44px}
+body[data-page="play"] #dialog::backdrop{backdrop-filter:none}
+@media(max-width:650px){.play-spell-action:has(.play-cast-levels){height:auto;min-height:94px;flex-wrap:wrap}.play-spell-action:has(.play-cast-levels)>.play-spell-row{flex-basis:100%}.play-spell-action:has(.play-cast-levels)>.play-casting-controls{margin-left:auto}}
+/* Spell text stays readable beside the explicit casting controls. */
+.play-spell-action{height:auto;min-height:50px;border-bottom:1px solid var(--line);gap:6px}
+.play-screen .play-spell-row{height:auto;max-height:none;min-height:50px;background:transparent;border:0;border-radius:0;padding:4px 0}
+.play-spell-copy strong,.play-spell-copy small{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere}
+.play-spell-copy small{line-height:16px}
+.play-spells{container-type:inline-size}
+@container(max-width:410px){.play-spell-action:has(.play-cast-levels){flex-wrap:wrap}.play-spell-action:has(.play-cast-levels)>.play-spell-row{flex-basis:100%}.play-spell-action:has(.play-cast-levels)>.play-casting-controls{margin-left:auto}}
+.quick-state .quick-vitals button{font-size:16px;font-weight:600}
+@media(min-width:1000px) and (min-height:600px) and (orientation:landscape){
+ body[data-page="play"] #play-content{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}
+ body[data-page="play"] .shell main{margin-left:248px;padding-inline:16px!important}
+ body[data-page="play"] .quick-state{width:248px;bottom:auto;max-height:calc(100dvh - 56px)}
+ body[data-page="play"] .quick-extras{margin-top:0}
+ body[data-page="play"] #toast{left:352px;max-width:calc(100vw - 376px)}
+ .play-action-heading{margin:6px 0 2px}
+}
+.play-item{flex-wrap:wrap}.play-item>.play-row{flex-wrap:wrap}.play-item>.play-row strong{white-space:normal}.play-item>.play-row span{white-space:normal;flex-shrink:1}
+.play-spells .play-list{gap:0}.play-spell-action{min-height:44px}.play-screen .play-spell-row{min-height:44px;padding-block:2px}
+.play-consumables .play-item{display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
+.play-consumables .play-item>.play-row{display:grid;grid-template-columns:32px minmax(0,1fr)}
+.play-consumables .play-item>.play-row strong{overflow:visible;text-overflow:clip}
+.play-consumables .play-item>.play-row>span:last-child{grid-column:1/-1}
+.play-consumables .play-item>[data-play-charges]{justify-self:start;min-height:44px}

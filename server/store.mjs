@@ -71,7 +71,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
     const context = readEntities(db, viewId);
     const session = readSession(db, context.session.id);
     return { schemaVersion: 1, revision: context.revision, updatedAt: context.updatedAt, context: contextIds(context),
-      session: { name: session.name, playedOn: session.playedOn },
+      session: { name: session.name, playedOn: session.playedOn }, sessionNumber: session.number,
       spellbook:readSpellbook(db,context.character.id),
       characterStats: readCharacterStats(db,context.character.id),
       characterSheet: readCharacterSheet(db,context.character.id),
