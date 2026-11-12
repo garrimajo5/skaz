@@ -1,3 +1,4 @@
+import {spellLearningMode} from './spell-learning.mjs';
 import {buildAdvancementChange,validateAdvancementCommand,validateAdvancementSnapshot,buildResourceBinding,validateResourceBindingCommand} from './class-advancement.mjs';
 import {checkAdvancementCompatibility,setupAdvancement,readAdvancement,persistAdvancement} from './class-advancement-store.mjs';
 import {validateResourceCommand,applyResourceCommand} from './resource-operations.mjs';
@@ -70,12 +71,15 @@ export function openStore(filename, {classAdvancement=false}={}) {
     authorize();
     const context = readEntities(db, viewId);
     const session = readSession(db, context.session.id);
+    const characterSheet = readCharacterSheet(db, context.character.id);
+    const advancement = classAdvancement ? readAdvancement(db, context.character.id) : null;
+    const spellLearning = advancement ? spellLearningMode({classId:advancement.classId}) : characterSheet ? null : spellLearningMode({classId:"bard"});
     return { schemaVersion: 1, revision: context.revision, updatedAt: context.updatedAt, context: contextIds(context),
       session: { name: session.name, playedOn: session.playedOn }, sessionNumber: session.number,
       spellbook:readSpellbook(db,context.character.id),
       characterStats: readCharacterStats(db,context.character.id),
-      characterSheet: readCharacterSheet(db,context.character.id),
-      ...(classAdvancement?{advancement:readAdvancement(db,context.character.id)}:{}),
+      characterSheet, spellLearning,
+      ...(classAdvancement?{advancement}:{}),
       state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
   }
   function exportActive(version = 2) {
@@ -299,7 +303,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
         return read().state;
       },'character-stats');
     },
-    spellbook: () => { const current = read(); return { revision: current.revision, context: current.context, entries: readSpellbook(db, current.context.characterId) }; },
+    spellbook: () => { const current = read(); return { revision: current.revision, context: current.context, spellLearning:current.spellLearning, entries: readSpellbook(db, current.context.characterId) }; },
     setSpell: request => {
       const payload = validateSpellCommand(request);
       const hash = createHash('sha256').update(JSON.stringify({ operation: 'spell-set', expectedRevision: request.expectedRevision, payload })).digest('hex');

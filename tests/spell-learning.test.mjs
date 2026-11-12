@@ -24,3 +24,19 @@ test('prepared and spellbook casters retain preparation behavior',()=>{
  assert.throws(()=>spellPresentation('remove','known'));
  assert.throws(()=>spellPresentation('known','invented'));
 });
+import {openStore} from '../server/store.mjs';
+import {randomUUID} from 'node:crypto';
+test('store exposes policy without migrating spell marks or transfer format',()=>{
+ const s=openStore(':memory:');try{
+ assert.equal(s.read().spellLearning,'known');assert.equal(s.spellbook().spellLearning,'known');
+ s.catalog.installBundled({version:s.catalog.previewBundled().version});
+ const cmd=extra=>({mutationId:randomUUID(),expectedRevision:s.read().revision,characterId:s.read().context.characterId,...extra});
+ s.setSpell(cmd({catalogId:'srd51:2014:spell:light',status:'prepared'}));
+ assert.equal(s.spellbook().entries[0].status,'prepared');
+ const transfer=s.exportActive(12);assert.equal(Object.hasOwn(transfer,'spellLearning'),false);
+ s.saveCharacterSheet(cmd({sheet:{ruleset:'5e-2014',ancestry:'',className:'Бард',subclass:'',level:5,counters:[]}}));
+ assert.equal(s.read().spellLearning,null);assert.equal(s.spellbook().spellLearning,null);
+ assert.equal(s.spellbook().entries[0].status,'prepared');
+ s.saveCharacterSheet(cmd({sheet:null}));assert.equal(s.read().spellLearning,'known');
+ }finally{s.close();}
+});
