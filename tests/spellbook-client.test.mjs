@@ -54,3 +54,13 @@ test('book starts with prepared spells, explicit scope changes retain query and 
  h.click('',{bookScope:'all'});h.view();h.search('Magic 2','all');assert.match(h.region.innerHTML,/Заклинание 2/);h.click('',{bookScope:'prepared'});h.view();h.search('Magic 2','prepared');assert.match(h.region.innerHTML,/Заклинания не найдены/);
  h.click('personal-spell-reset');assert.match(h.view(),/data-book-scope="prepared" aria-pressed="true"/);assert.match(h.view(),/book-row/);assert.doesNotMatch(h.view(),/catalog-card/);
 });
+
+test('known caster book merges legacy prepared and known without rewriting edit status',async()=>{
+ const h=harness(true);h.view();h.tasks.shift()();h.requests[0].resolve({spellLearning:'known',entries:[item(0),item(1)]});await settle();
+ assert.match(h.region.innerHTML,/Заклинание 0/);assert.match(h.region.innerHTML,/Заклинание 1/);
+ const html=h.view();assert.doesNotMatch(html,/Подготовлено|подготовка|Изучено/);assert.match(html,/Известно/);
+ h.click('',{personalSpell:'spell:1'});assert.equal(h.edits[0][1],'prepared');
+ h.click('personal-spell-reset');assert.match(h.view(),/data-book-scope="known" aria-pressed="true"/);
+ h.setKey('cleric:0');h.view();h.tasks.shift()();h.requests[1].resolve({spellLearning:'prepared',entries:[item(0),item(1)]});await settle();
+ assert.match(h.view(),/Подготовлено/);assert.doesNotMatch(h.region.innerHTML,/Заклинание 0/);
+});
