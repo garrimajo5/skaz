@@ -27,8 +27,9 @@ const SkazArt=(()=>{
  function markup(entry,role='thumbnail'){
   if(!entry?.id||!['spell','item','artifact','monster'].includes(entry.kind))return '';
   const size=role==='card'?'card':'thumbnail';
-  const symbol=entry.kind==='spell'?'✧':entry.kind==='monster'?'♞':'▣';
-  return `<span class="skaz-art skaz-art-${size}" data-skaz-art="${escape(entry.id)}" data-art-role="${size}" aria-hidden="true"><span class="skaz-art-fallback">${symbol}</span></span>`;
+  const schools=['abjuration','conjuration','divination','enchantment','evocation','illusion','necromancy','transmutation'];
+  const icon=entry.kind==='spell'?'school-'+(schools.includes(entry.spell?.school)?entry.spell.school:'unknown'):entry.kind==='monster'?'monster':'bag';
+  return `<span class="skaz-art skaz-art-${size}" data-skaz-art="${escape(entry.id)}" data-art-role="${size}" aria-hidden="true"><span class="skaz-art-fallback"><span data-ui-icon="${icon}"></span></span></span>`;
  }
  async function hydrate(node){
   const generation=cacheGeneration;let renderVersion=renderGeneration;

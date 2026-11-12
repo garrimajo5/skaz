@@ -1,0 +1,185 @@
+{
+  "batch": "production-v55",
+  "entries": [
+    {
+      "id": "srd51:2014:monster:adult-black-dragon",
+      "sourcePath": "data/art-production-v55/adult-black-dragon.png",
+      "sourceSha256": "d03aaa39ab17b5b4e09dd770e627c063022601ea968d2cfa4edd453e54eced31",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:monster:adult-black-dragon",
+        "contentSha256": "f2e0bf2f031e7d4ab7360d1011282df84d6eb976e3bdcc6b6f99f26bcfe4ab52",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-10; SHA256 d90563d2e8e6d3e7831f60ad7d1565278e6376da5f40a1b1e6633b851375490f",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-10",
+          "originalSha256": "d90563d2e8e6d3e7831f60ad7d1565278e6376da5f40a1b1e6633b851375490f",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/monsters/adult-black-dragon-original-64da10ace69fff02.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 229107,
+            "sha256": "64da10ace69fff0261cda21bcba82439b7a0b44702dddec732db0027e75f1f8c",
+            "derivedFrom": "d90563d2e8e6d3e7831f60ad7d1565278e6376da5f40a1b1e6633b851375490f",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/monsters/adult-black-dragon-thumbnail-c1ffcee6e96fa824.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 16600,
+            "sha256": "c1ffcee6e96fa8242b77128e18d21921bae543bc2d726690c9320b6846c2df2f",
+            "derivedFrom": "d90563d2e8e6d3e7831f60ad7d1565278e6376da5f40a1b1e6633b851375490f",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "32/40px: distinct forward-curl horns, single nasal horn, broad head shield; no clipping. Three themes reviewed in local browser."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:adult-blue-dragon",
+      "sourcePath": "data/art-production-v55/adult-blue-dragon.png",
+      "sourceSha256": "ed207e32ae5b37cadb11f59ae9414bca8891395aeec2eac1cafdcdbb58cf4146",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:monster:adult-blue-dragon",
+        "contentSha256": "354fcc0e22446b798cdccdf82fbe8d7e44933783adaff7260caa76960d8fb0fd",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-10; SHA256 698e74cf0b19990f55495f00e4970da918e071e2c300cf0618659f676928fda8",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-10",
+          "originalSha256": "698e74cf0b19990f55495f00e4970da918e071e2c300cf0618659f676928fda8",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/monsters/adult-blue-dragon-original-a6cadcb569c6299e.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 230846,
+            "sha256": "a6cadcb569c6299efffcc125e8db11640493edc98f0f1934f857af0fcc3ea972",
+            "derivedFrom": "698e74cf0b19990f55495f00e4970da918e071e2c300cf0618659f676928fda8",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/monsters/adult-blue-dragon-thumbnail-d76f0843c0c73630.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 16136,
+            "sha256": "d76f0843c0c73630803c1adc1e2b86cebcc9b69b4cc6fcd51f7a1fdbd0ccb9e0",
+            "derivedFrom": "698e74cf0b19990f55495f00e4970da918e071e2c300cf0618659f676928fda8",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "32/40px: distinct forward-curl horns, single nasal horn, broad head shield; no clipping. Three themes reviewed in local browser."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:adult-brass-dragon",
+      "sourcePath": "data/art-production-v55/adult-brass-dragon.png",
+      "sourceSha256": "6c46c400df71694a9b497ebf47d54cc51fbfb7602b60a757bcb9db1508bd0f5f",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:monster:adult-brass-dragon",
+        "contentSha256": "3534e35585a5de9e6a12faea8a5bf92f2e6005fd8efc963551cbb83af28b2e71",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-10; SHA256 9aad82d228d1118593138a4b532de29b97e407addd9a2bc560a842d679fb2b5f",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-10",
+          "originalSha256": "9aad82d228d1118593138a4b532de29b97e407addd9a2bc560a842d679fb2b5f",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v43.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/monsters/adult-brass-dragon-original-8f68d5834e85876e.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 243517,
+            "sha256": "8f68d5834e85876e48a6bf8c9556de5ac50dfdcbee72b82155c467fdb4ad42cb",
+            "derivedFrom": "9aad82d228d1118593138a4b532de29b97e407addd9a2bc560a842d679fb2b5f",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/monsters/adult-brass-dragon-thumbnail-283023b8b520183d.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 17224,
+            "sha256": "283023b8b520183d9f2c2d063a59b50065a9dd7cb179e70aa6ccbcf7defa6bba",
+            "derivedFrom": "9aad82d228d1118593138a4b532de29b97e407addd9a2bc560a842d679fb2b5f",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "32/40px: distinct forward-curl horns, single nasal horn, broad head shield; no clipping. Three themes reviewed in local browser."
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "batch": "production-v54",
+  "entries": [
+    {
+      "id": "srd51:2014:spell:faerie-fire",
+      "sourcePath": "data/art-production-v54/faerie-fire.png",
+      "sourceSha256": "6072bc15478169b97349cd090a5dbdbbcf5bc05a38bdf11405f6bd44258ea6a3",
+      "method": "built-in image_gen",
+      "date": "2026-11-12",
+      "brief": "Anonymous unarmed figure in plain tunic, no armor or weapons, clear lavender/ice-blue faerie outline. Entire subject within central 70 percent on true transparent background. Painterly broad forms, readable at 32/40px.",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:spell:faerie-fire",
+        "contentSha256": "8f60494d65bc294e9a89ca11e034bea7263ac1686df29263b59267fe80ca3015",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-09; SHA256 f670912e5c0f1020d42d827f2c6a986f478353105396e3cec081146780a2ca5e",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-09",
+          "originalSha256": "f670912e5c0f1020d42d827f2c6a986f478353105396e3cec081146780a2ca5e",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v39.json."
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/spells/faerie-fire-original-b64d1cbeccd7688c.png",
+            "width": 384,
+            "height": 384,
+            "bytes": 188947,
+            "sha256": "b64d1cbeccd7688c3600e66e00c6a54af8ec743e014fb58082331b465b5e0ff4",
+            "derivedFrom": "f670912e5c0f1020d42d827f2c6a986f478353105396e3cec081146780a2ca5e",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/spells/faerie-fire-thumbnail-21843cbb362ba693.png",
+            "width": 96,
+            "height": 96,
+            "bytes": 14486,
+            "sha256": "21843cbb362ba6932e93241be9042ee56ee12c1a33e049443a0b267f84602450",
+            "derivedFrom": "f670912e5c0f1020d42d827f2c6a986f478353105396e3cec081146780a2ca5e",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        }
+      },
+      "review": {
+        "sourcePath": "data/art-production-v54/faerie-fire.png",
+        "sha256": "6072bc15478169b97349cd090a5dbdbbcf5bc05a38bdf11405f6bd44258ea6a3",
+        "width": 1254,
+        "height": 1254,
+        "transparentPixels": 1351146,
+        "alphaBounds": {
+          "minX": 392,
+          "minY": 215,
+          "maxX": 842,
+          "maxY": 1063
+        },
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "First candidate had insufficient upper/lower margin; built-in edit corrected it. No mechanical weapon or armor implication."
+      },
+      "rejectedCandidate": "data/art-production-v54/faerie-fire-candidate-1.png"
+    }
+  ]
+}

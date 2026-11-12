@@ -8058,7 +8058,7 @@
       "id": "srd51:2014:spell:faerie-fire",
       "contentSha256": "8f60494d65bc294e9a89ca11e034bea7263ac1686df29263b59267fe80ca3015",
       "status": "accepted",
-      "version": 1,
+      "version": 2,
       "crop": {
         "x": 0.5,
         "y": 0.5
@@ -8066,34 +8066,34 @@
       "provenance": {
         "method": "generated",
         "author": "SKAZ; OpenAI built-in image generator",
-        "source": "Original generation 2026-11-09; SHA256 f670912e5c0f1020d42d827f2c6a986f478353105396e3cec081146780a2ca5e",
+        "source": "Original generation and padding correction 2026-11-12; SHA256 6072bc15478169b97349cd090a5dbdbbcf5bc05a38bdf11405f6bd44258ea6a3",
         "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-09; no third-party reference artwork",
         "attribution": "SKAZ visual library",
-        "reviewedBy": "Codex under user authorization of 2026-11-09",
-        "originalSha256": "f670912e5c0f1020d42d827f2c6a986f478353105396e3cec081146780a2ca5e",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "6072bc15478169b97349cd090a5dbdbbcf5bc05a38bdf11405f6bd44258ea6a3",
         "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
       },
       "review": {
         "by": "Codex, delegated visual and technical acceptance",
-        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v39.json."
+        "evidence": "Issue #53: removed armor and weapons; anonymous figure outlined by faerie light. Original and 32/40 px grayscale circles reviewed on three themes. Source and prior v1 recorded in production-v54.json."
       },
       "files": {
         "original": {
-          "path": "assets/art/spells/faerie-fire-original-b64d1cbeccd7688c.png",
+          "path": "assets/art/spells/faerie-fire-original-ebf86582d2c9236f.png",
           "width": 384,
           "height": 384,
-          "bytes": 188947,
-          "sha256": "b64d1cbeccd7688c3600e66e00c6a54af8ec743e014fb58082331b465b5e0ff4",
-          "derivedFrom": "f670912e5c0f1020d42d827f2c6a986f478353105396e3cec081146780a2ca5e",
+          "bytes": 73254,
+          "sha256": "ebf86582d2c9236f045117601f9b2ce5111020924394741a1afa6aa400fe9401",
+          "derivedFrom": "6072bc15478169b97349cd090a5dbdbbcf5bc05a38bdf11405f6bd44258ea6a3",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         },
         "thumbnail": {
-          "path": "assets/art/spells/faerie-fire-thumbnail-21843cbb362ba693.png",
+          "path": "assets/art/spells/faerie-fire-thumbnail-6a1f0535d309b547.png",
           "width": 96,
           "height": 96,
-          "bytes": 14486,
-          "sha256": "21843cbb362ba6932e93241be9042ee56ee12c1a33e049443a0b267f84602450",
-          "derivedFrom": "f670912e5c0f1020d42d827f2c6a986f478353105396e3cec081146780a2ca5e",
+          "bytes": 5727,
+          "sha256": "6a1f0535d309b547fd296cd897969460c02ef4a45479eec9fc01df9dfc776a04",
+          "derivedFrom": "6072bc15478169b97349cd090a5dbdbbcf5bc05a38bdf11405f6bd44258ea6a3",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
@@ -8806,7 +8806,7 @@
       "id": "srd51:2014:monster:adult-black-dragon",
       "contentSha256": "f2e0bf2f031e7d4ab7360d1011282df84d6eb976e3bdcc6b6f99f26bcfe4ab52",
       "status": "accepted",
-      "version": 1,
+      "version": 2,
       "crop": {
         "x": 0.5,
         "y": 0.5
@@ -8814,34 +8814,34 @@
       "provenance": {
         "method": "generated",
         "author": "SKAZ; OpenAI built-in image generator",
-        "source": "Original generation 2026-11-10; SHA256 d90563d2e8e6d3e7831f60ad7d1565278e6376da5f40a1b1e6633b851375490f",
+        "source": "Original generation 2026-11-12; SHA256 d03aaa39ab17b5b4e09dd770e627c063022601ea968d2cfa4edd453e54eced31",
         "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
         "attribution": "SKAZ visual library",
-        "reviewedBy": "Codex under user authorization of 2026-11-10",
-        "originalSha256": "d90563d2e8e6d3e7831f60ad7d1565278e6376da5f40a1b1e6633b851375490f",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "d03aaa39ab17b5b4e09dd770e627c063022601ea968d2cfa4edd453e54eced31",
         "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
       },
       "review": {
         "by": "Codex, delegated visual and technical acceptance",
-        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+        "evidence": "Issue #53 silhouette revision. Source, previous version and visual review recorded in production-v55.json."
       },
       "files": {
         "original": {
-          "path": "assets/art/monsters/adult-black-dragon-original-64da10ace69fff02.png",
+          "path": "assets/art/monsters/adult-black-dragon-original-e7eab4d3c6d591f9.png",
           "width": 384,
           "height": 384,
-          "bytes": 229107,
-          "sha256": "64da10ace69fff0261cda21bcba82439b7a0b44702dddec732db0027e75f1f8c",
-          "derivedFrom": "d90563d2e8e6d3e7831f60ad7d1565278e6376da5f40a1b1e6633b851375490f",
+          "bytes": 148142,
+          "sha256": "e7eab4d3c6d591f9da2abb56521ddc11bf2b320151abc27bce54b7329c167a73",
+          "derivedFrom": "d03aaa39ab17b5b4e09dd770e627c063022601ea968d2cfa4edd453e54eced31",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         },
         "thumbnail": {
-          "path": "assets/art/monsters/adult-black-dragon-thumbnail-c1ffcee6e96fa824.png",
+          "path": "assets/art/monsters/adult-black-dragon-thumbnail-b0322f6f4bab8851.png",
           "width": 96,
           "height": 96,
-          "bytes": 16600,
-          "sha256": "c1ffcee6e96fa8242b77128e18d21921bae543bc2d726690c9320b6846c2df2f",
-          "derivedFrom": "d90563d2e8e6d3e7831f60ad7d1565278e6376da5f40a1b1e6633b851375490f",
+          "bytes": 10775,
+          "sha256": "b0322f6f4bab8851d3208ee0b6191b3fe0c0ec5506f9f56f0f3a00c41383c07e",
+          "derivedFrom": "d03aaa39ab17b5b4e09dd770e627c063022601ea968d2cfa4edd453e54eced31",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
@@ -8850,7 +8850,7 @@
       "id": "srd51:2014:monster:adult-blue-dragon",
       "contentSha256": "354fcc0e22446b798cdccdf82fbe8d7e44933783adaff7260caa76960d8fb0fd",
       "status": "accepted",
-      "version": 1,
+      "version": 2,
       "crop": {
         "x": 0.5,
         "y": 0.5
@@ -8858,34 +8858,34 @@
       "provenance": {
         "method": "generated",
         "author": "SKAZ; OpenAI built-in image generator",
-        "source": "Original generation 2026-11-10; SHA256 698e74cf0b19990f55495f00e4970da918e071e2c300cf0618659f676928fda8",
+        "source": "Original generation 2026-11-12; SHA256 ed207e32ae5b37cadb11f59ae9414bca8891395aeec2eac1cafdcdbb58cf4146",
         "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
         "attribution": "SKAZ visual library",
-        "reviewedBy": "Codex under user authorization of 2026-11-10",
-        "originalSha256": "698e74cf0b19990f55495f00e4970da918e071e2c300cf0618659f676928fda8",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "ed207e32ae5b37cadb11f59ae9414bca8891395aeec2eac1cafdcdbb58cf4146",
         "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
       },
       "review": {
         "by": "Codex, delegated visual and technical acceptance",
-        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v42.json."
+        "evidence": "Issue #53 silhouette revision. Source, previous version and visual review recorded in production-v55.json."
       },
       "files": {
         "original": {
-          "path": "assets/art/monsters/adult-blue-dragon-original-a6cadcb569c6299e.png",
+          "path": "assets/art/monsters/adult-blue-dragon-original-354495c492965efd.png",
           "width": 384,
           "height": 384,
-          "bytes": 230846,
-          "sha256": "a6cadcb569c6299efffcc125e8db11640493edc98f0f1934f857af0fcc3ea972",
-          "derivedFrom": "698e74cf0b19990f55495f00e4970da918e071e2c300cf0618659f676928fda8",
+          "bytes": 129586,
+          "sha256": "354495c492965efd534d940a5d9c36bebc91a0d01942f9e33c2558668f3c355b",
+          "derivedFrom": "ed207e32ae5b37cadb11f59ae9414bca8891395aeec2eac1cafdcdbb58cf4146",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         },
         "thumbnail": {
-          "path": "assets/art/monsters/adult-blue-dragon-thumbnail-d76f0843c0c73630.png",
+          "path": "assets/art/monsters/adult-blue-dragon-thumbnail-eeeed29e9694cab1.png",
           "width": 96,
           "height": 96,
-          "bytes": 16136,
-          "sha256": "d76f0843c0c73630803c1adc1e2b86cebcc9b69b4cc6fcd51f7a1fdbd0ccb9e0",
-          "derivedFrom": "698e74cf0b19990f55495f00e4970da918e071e2c300cf0618659f676928fda8",
+          "bytes": 8991,
+          "sha256": "eeeed29e9694cab1d90541eb26f42aa0fbf62d94e47e591d854aa5d90915663c",
+          "derivedFrom": "ed207e32ae5b37cadb11f59ae9414bca8891395aeec2eac1cafdcdbb58cf4146",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }
@@ -9422,7 +9422,7 @@
       "id": "srd51:2014:monster:adult-brass-dragon",
       "contentSha256": "3534e35585a5de9e6a12faea8a5bf92f2e6005fd8efc963551cbb83af28b2e71",
       "status": "accepted",
-      "version": 1,
+      "version": 2,
       "crop": {
         "x": 0.5,
         "y": 0.5
@@ -9430,34 +9430,34 @@
       "provenance": {
         "method": "generated",
         "author": "SKAZ; OpenAI built-in image generator",
-        "source": "Original generation 2026-11-10; SHA256 9aad82d228d1118593138a4b532de29b97e407addd9a2bc560a842d679fb2b5f",
+        "source": "Original generation 2026-11-12; SHA256 6c46c400df71694a9b497ebf47d54cc51fbfb7602b60a757bcb9db1508bd0f5f",
         "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-10; no third-party reference artwork",
         "attribution": "SKAZ visual library",
-        "reviewedBy": "Codex under user authorization of 2026-11-10",
-        "originalSha256": "9aad82d228d1118593138a4b532de29b97e407addd9a2bc560a842d679fb2b5f",
+        "reviewedBy": "Codex under user authorization of 2026-11-12",
+        "originalSha256": "6c46c400df71694a9b497ebf47d54cc51fbfb7602b60a757bcb9db1508bd0f5f",
         "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
       },
       "review": {
         "by": "Codex, delegated visual and technical acceptance",
-        "evidence": "User authorized all remaining production and self-acceptance in agreed style. Reviewed original silhouette and materials; strict source hash and PNG derivatives validated. See docs/design/production-v43.json."
+        "evidence": "Issue #53 silhouette revision. Source, previous version and visual review recorded in production-v55.json."
       },
       "files": {
         "original": {
-          "path": "assets/art/monsters/adult-brass-dragon-original-8f68d5834e85876e.png",
+          "path": "assets/art/monsters/adult-brass-dragon-original-e65cf02793c3c9c9.png",
           "width": 384,
           "height": 384,
-          "bytes": 243517,
-          "sha256": "8f68d5834e85876e48a6bf8c9556de5ac50dfdcbee72b82155c467fdb4ad42cb",
-          "derivedFrom": "9aad82d228d1118593138a4b532de29b97e407addd9a2bc560a842d679fb2b5f",
+          "bytes": 167275,
+          "sha256": "e65cf02793c3c9c9d81b80370ff34f440023521915d0051254a29f7b3e627daa",
+          "derivedFrom": "6c46c400df71694a9b497ebf47d54cc51fbfb7602b60a757bcb9db1508bd0f5f",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         },
         "thumbnail": {
-          "path": "assets/art/monsters/adult-brass-dragon-thumbnail-283023b8b520183d.png",
+          "path": "assets/art/monsters/adult-brass-dragon-thumbnail-dbe481eb62461725.png",
           "width": 96,
           "height": 96,
-          "bytes": 17224,
-          "sha256": "283023b8b520183d9f2c2d063a59b50065a9dd7cb179e70aa6ccbcf7defa6bba",
-          "derivedFrom": "9aad82d228d1118593138a4b532de29b97e407addd9a2bc560a842d679fb2b5f",
+          "bytes": 11608,
+          "sha256": "dbe481eb6246172500d9cd57e012cebf88de8dd7f4d2055f4826638bf37cb1b2",
+          "derivedFrom": "6c46c400df71694a9b497ebf47d54cc51fbfb7602b60a757bcb9db1508bd0f5f",
           "recipe": "skaz-rgba-area-premultiplied-v1"
         }
       }

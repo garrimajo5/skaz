@@ -84,3 +84,9 @@ test('failed private read cannot show stale common art and scope refresh drops l
  const denied=harness(index,'http:',null,null,async()=>{throw Error('Denied');});const n=denied.node();denied.scan();denied.visible(n);await settle();assert.equal(n.children.length,0);assert.equal(denied.requests.length,0);
  let finish;const h=harness(index,'http:',null,null,()=>new Promise(r=>finish=r));const node=h.node();h.scan();h.visible(node);await settle();h.api.refreshPrivate();finish({size:12});await settle();assert.equal(node.children.length,0);
 });
+test('spell fallback uses its school without trusting imported markup, including missing/failed art',()=>{
+ const h=harness();const schools=['abjuration','conjuration','divination','enchantment','evocation','illusion','necromancy','transmutation'];
+ for(const school of schools){const html=h.api.markup({id:'missing-"<',kind:'spell',spell:{school}});assert.ok(html.includes('data-ui-icon="school-'+school+'"'));assert.ok(html.includes('missing-&quot;&lt;'));assert.match(html,/aria-hidden="true"/);assert.doesNotMatch(html,/<img/);}
+ for(const school of [null,'<script>','constructor'])assert.match(h.api.markup({id:'missing',kind:'spell',spell:{school}}),/school-unknown/);
+ assert.match(h.api.markup({id:'beast',kind:'monster'}),/data-ui-icon="monster"/);
+});
