@@ -1134,3 +1134,19 @@ test('session header uses confirmed sequence for unnamed sessions and preserves 
  const h=harness(memory(),memory(),async()=>response(current));await h.api.boot();assert.equal(h.api.sessionTitle(),'Сессия 3');
  current={...current,session:{name:'Маяк',playedOn:'2026-11-12'}};await h.api.boot();assert.equal(h.api.sessionTitle(),'Маяк');
 });
+
+test('learning policy and legacy spell marks survive offline resource queue reload',async()=>{
+ for(const spellLearning of ['known','prepared','spellbook',null]){
+ const local=memory(),session=memory();let offline=false;
+ const entry={catalogId:'spell-light',status:'prepared',entry:{id:'spell-light',kind:'spell',name:{ru:'Свет'}}};
+ const fetch=async()=>{if(offline)throw Error('offline');return response({...payload(0),spellLearning,spellbook:[entry]});};
+ let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();
+ assert.equal(h.api.spellLearningMode(),spellLearning);offline=true;
+ h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();
+ assert.equal(h.api.pendingCount(),1);
+ h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();
+ assert.equal(h.api.spellLearningMode(),spellLearning);
+ const book=await h.api.spellbookData();assert.equal(book.spellLearning,spellLearning);
+ assert.equal(book.entries[0].status,'prepared');assert.equal(h.api.pendingCount(),1);
+ }
+});
