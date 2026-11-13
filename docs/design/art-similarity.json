@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 567,
+  "count": 580,
   "pairs": [
     {
       "ids": [
@@ -672,6 +672,11 @@
       "light": "6af4a5909596878e"
     },
     {
+      "id": "srd51:2014:monster:dragon-turtle",
+      "dark": "160d2db972e24ad6",
+      "light": "2ee4c55b821fb11a"
+    },
+    {
       "id": "srd51:2014:monster:dretch",
       "dark": "414a2fb57e269398",
       "light": "3ea5c25a8d66c90b"
@@ -700,6 +705,11 @@
       "id": "srd51:2014:monster:elk",
       "dark": "5217616a1e920fed",
       "light": "29da9ee4c361f049"
+    },
+    {
+      "id": "srd51:2014:monster:erinyes",
+      "dark": "115a6d3c526f266c",
+      "light": "3fb2a585c24be858"
     },
     {
       "id": "srd51:2014:monster:ettercap",
@@ -862,6 +872,16 @@
       "light": "334eccb1ce0b8cb8"
     },
     {
+      "id": "srd51:2014:monster:horned-devil",
+      "dark": "4178378e5b872c95",
+      "light": "3f83f034c04a9fca"
+    },
+    {
+      "id": "srd51:2014:monster:ice-devil",
+      "dark": "054e72adf0324bf1",
+      "light": "38b3cc44cbce343a"
+    },
+    {
       "id": "srd51:2014:monster:imp",
       "dark": "44d43f2b61f194a5",
       "light": "3b29ccf0960e2979"
@@ -887,6 +907,11 @@
       "light": "2fe4921bcde02785"
     },
     {
+      "id": "srd51:2014:monster:lich",
+      "dark": "455c3ac372a7325a",
+      "light": "3eb0c14f946ec83c"
+    },
+    {
       "id": "srd51:2014:monster:lizard",
       "dark": "52973f64c9c84a53",
       "light": "2f68c09f3233a53c"
@@ -900,6 +925,11 @@
       "id": "srd51:2014:monster:mage",
       "dark": "494f3f7021397233",
       "light": "3fc44a2c948bcd3c"
+    },
+    {
+      "id": "srd51:2014:monster:marilith",
+      "dark": "4c3332463bc71dc6",
+      "light": "36c38cdbc62cf02c"
     },
     {
       "id": "srd51:2014:monster:mastiff",
@@ -925,6 +955,16 @@
       "id": "srd51:2014:monster:mummy",
       "dark": "4c1e09e134be75e1",
       "light": "6ab0940fdb5b8236"
+    },
+    {
+      "id": "srd51:2014:monster:mummy-lord",
+      "dark": "590a37e56eb16192",
+      "light": "27e4d20a8d5e8e1d"
+    },
+    {
+      "id": "srd51:2014:monster:nalfeshnee",
+      "dark": "1199676f58566c26",
+      "light": "3872e444828de7dd"
     },
     {
       "id": "srd51:2014:monster:night-hag",
@@ -992,6 +1032,16 @@
       "light": "6c64909b3b6d6466"
     },
     {
+      "id": "srd51:2014:monster:pit-fiend",
+      "dark": "5072238d2ed27cd9",
+      "light": "7acca98d85728672"
+    },
+    {
+      "id": "srd51:2014:monster:planetar",
+      "dark": "4067163a0f9d7acc",
+      "light": "6aa7b458c598c24f"
+    },
+    {
       "id": "srd51:2014:monster:poisonous-snake",
       "dark": "441e3bf1302d6e65",
       "light": "6be1854eec4a911b"
@@ -1020,6 +1070,11 @@
       "id": "srd51:2014:monster:quipper",
       "dark": "5ed2292f9270499b",
       "light": "3b39d0d20fcf3424"
+    },
+    {
+      "id": "srd51:2014:monster:rakshasa",
+      "dark": "596c3cb338e36630",
+      "light": "3bd4d24b8d4ec039"
     },
     {
       "id": "srd51:2014:monster:rat",
@@ -1112,6 +1167,11 @@
       "light": "6ac48d1ad21ab93e"
     },
     {
+      "id": "srd51:2014:monster:solar",
+      "dark": "51f0422b3f052f8f",
+      "light": "3bc2c40f9839d22f"
+    },
+    {
       "id": "srd51:2014:monster:specter",
       "dark": "4d963d6961386e1a",
       "light": "3362c2931fe58d8c"
@@ -1175,6 +1235,11 @@
       "id": "srd51:2014:monster:unicorn",
       "dark": "433b34e063976acc",
       "light": "3cc3c91e9259936c"
+    },
+    {
+      "id": "srd51:2014:monster:vampire",
+      "dark": "194964b36b6436ea",
+      "light": "3ee4c30fd4648a0f"
     },
     {
       "id": "srd51:2014:monster:vampire-spawn",

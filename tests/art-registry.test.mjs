@@ -12,12 +12,13 @@ return {base,entries,item,manifest:{schemaVersion:1,ruleset:'5e-2014',entries:[i
 test('inventory preserves every artwork identity, edition and source; generated report is reproducible',()=>{
 const entries=inventory();assert.equal(entries.length,580);assert.deepEqual(Object.fromEntries(['spell','item','artifact','monster'].map(k=>[k,entries.filter(e=>e.kind===k).length])),{spell:319,item:56,artifact:1,monster:204});
 assert.deepEqual(entries,JSON.parse(readFileSync(new URL('../catalog/art-inventory.json',import.meta.url))));
-const m=JSON.parse(readFileSync(new URL('../catalog/art-manifest.json',import.meta.url))),r=validate(m);assert.deepEqual(r,JSON.parse(readFileSync(new URL('../catalog/art-coverage.json',import.meta.url))));assert.equal(r.complete,false);assert.equal(r.uncovered.length,580-m.entries.filter(e=>e.status==='accepted').length);
+const m=JSON.parse(readFileSync(new URL('../catalog/art-manifest.json',import.meta.url))),r=validate(m);assert.deepEqual(r,JSON.parse(readFileSync(new URL('../catalog/art-coverage.json',import.meta.url))));assert.equal(r.complete,true);assert.deepEqual(r.errors,[]);assert.deepEqual(r.uncovered,[]);assert.equal(r.statuses.accepted.length,entries.length);
 const e={...entries[0]};assert.throws(()=>inventory([e,e]),/Duplicate/);assert.throws(()=>inventory([{...e,ruleset:'5e-2024'}]),/edition/);
 });
 test('new catalog IDs are missing; pilot/draft/placeholder never count as accepted',t=>{
 const f=fixture(t);for(const status of ['pilot','draft','placeholder']){f.item.status=status;const r=validate(f.manifest,f.entries,f.base);assert.equal(r.statuses[status].length,1);assert.equal(r.uncovered.length,2);assert.equal(r.missing.length,1);assert.equal(r.complete,false);assert.deepEqual(r.errors,[]);}
 f.item.status='accepted';assert.equal(validate(f.manifest,f.entries.slice(0,1),f.base).complete,true);
+const expanded=validate(f.manifest,f.entries,f.base);assert.equal(expanded.complete,false);assert.equal(expanded.uncovered.length,1);assert.equal(expanded.missing.length,1);assert.equal(expanded.statuses.accepted.length,1);
 });
 test('stale snapshots, duplicate IDs and reused original artwork fail explicitly',t=>{
 const f=fixture(t);f.manifest.entries.push(structuredClone(f.item));assert.match(validate(f.manifest,f.entries,f.base).errors[0].error,/Duplicate/);

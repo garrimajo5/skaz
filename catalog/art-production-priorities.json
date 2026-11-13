@@ -3,7 +3,7 @@
   "ruleset": "5e-2014",
   "basis": "Порядок производства по кругу заклинания и опасности существа; не телеметрия частоты. Только проверенные accepted считаются покрытием.",
   "total": 580,
-  "accepted": 567,
+  "accepted": 580,
   "queues": [
     {
       "id": "spell-0-3",
@@ -44,22 +44,8 @@
       "id": "monster-11-plus",
       "label": "Существа: опасность выше 10",
       "total": 37,
-      "accepted": 24,
-      "remaining": [
-        "srd51:2014:monster:dragon-turtle",
-        "srd51:2014:monster:erinyes",
-        "srd51:2014:monster:horned-devil",
-        "srd51:2014:monster:ice-devil",
-        "srd51:2014:monster:lich",
-        "srd51:2014:monster:marilith",
-        "srd51:2014:monster:mummy-lord",
-        "srd51:2014:monster:nalfeshnee",
-        "srd51:2014:monster:pit-fiend",
-        "srd51:2014:monster:planetar",
-        "srd51:2014:monster:rakshasa",
-        "srd51:2014:monster:solar",
-        "srd51:2014:monster:vampire"
-      ]
+      "accepted": 37,
+      "remaining": []
     },
     {
       "id": "item-artifact",
