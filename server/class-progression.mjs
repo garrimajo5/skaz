@@ -1,3 +1,4 @@
+import {classFeatureDetails} from './class-features.mjs';
 import {readFileSync} from 'node:fs';
 const data=JSON.parse(readFileSync(new URL('../catalog/srd51-class-progression.json',import.meta.url),'utf8'));
 const classes=new Map(data.classes.map(c=>[c.slug,c]));
@@ -6,6 +7,13 @@ export function classProgression(slug,level){
  integer(level,1,20,'Уровень должен быть от 1 до 20');
  const c=classes.get(slug);if(!c)throw new Error('Класс пока не поддерживается: '+slug);
  return structuredClone({...c,levels:undefined,progression:c.levels[level-1]});
+}
+export function classFeatureReference(classId,level){
+ classProgression(classId,level); // Validate both class and level before collecting help.
+ const keys=classes.get(classId).levels.slice(0,level).flatMap(row=>row.featuresEn);
+ const latest=new Map();
+ for(const detail of classFeatureDetails(classId,keys))if(detail.id)latest.set(detail.id,detail);
+ return [...latest.values()];
 }
 export function classList(){return data.classes.map(c=>({id:c.id,slug:c.slug,name:{...c.name}}));}
 
@@ -52,8 +60,10 @@ export function previewClassLevel({classId,fromLevel,toLevel,constitution,previo
   proficiency:{before:a.proficiency,after:b.proficiency},
   automaticTableValues:{before:a,after:b},
   choices,
+  featureDetails:classFeatureDetails(classId,b.featuresEn),
+  priorFeatureDetails:classFeatureReference(classId,fromLevel),
   requiresFeatureReview:b.featuresEn.filter(f=>f!=='Ability Score Improvement'),
-  limitations:['Только один класс; без мультикласса и дополнительных правил.','Подклассы и тексты умений ещё не реализованы. Табличное значение не означает применение умения.','Этот модуль строит предпросмотр и не изменяет игру, текущие хиты или ресурсы.']};
+  limitations:['Только один класс; без мультикласса и дополнительных правил.','Полные подклассы и описания всех классов ещё не подключены. Пояснение или табличное значение не означает применение умения.','Этот модуль строит предпросмотр и не изменяет игру, текущие хиты или ресурсы.']};
 }
 
 // Used only for resources already explicitly managed by class progression.

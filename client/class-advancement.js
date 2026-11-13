@@ -1,8 +1,22 @@
-// Isolated advancement editor. Not mounted by the production shell yet.
+// Advancement editor shared by the main application and disposable QA fixtures.
 const SkazClassAdvancement=(()=>{
  const titles={'ability-score-improvement-or-feat':'Повышение характеристик','cantrips':'Новые заговоры','known-spells':'Новые заклинания','spellbook-spells':'Записи в книге','magical-secrets':'Магические тайны','mystic-arcanum':'Таинственный арканум'};
+ // Display labels do not decide whether an optional choice is supported.
+ const choiceNames={'subclass':'Подкласс','expertise':'Компетентность','fighting-style':'Боевой стиль','metamagic':'Метамагия','invocations':'Таинственные воззвания','pact-boon':'Предмет договора','favored-enemy-and-language':'Избранный враг и язык','favored-terrain':'Избранная местность','spell-mastery':'Мастерство заклинаний','signature-spells':'Фирменные заклинания'};
  const abilityNames={str:'Сила',dex:'Ловкость',con:'Телосложение',int:'Интеллект',wis:'Мудрость',cha:'Харизма'};
  function el(tag,text,parent){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(parent)parent.append(e);return e;}
+ function renderFeatureHelp(parent,info,feature){
+      const details=el('details',undefined,parent);
+      el('summary',info?.name||feature,details);
+      el('p',info?.text||'Описание этого умения пока не подключено. Проверь правила отдельно.',details);
+      if(info?.status==='unsupported')el('p','Правила этого умения пока не подключены полностью.',details);
+      if(Number.isSafeInteger(info?.sourcePage)&&info.sourcePage>0){
+       const link=el('a','Источник: SRD 5.1, стр. '+info.sourcePage,details);
+       link.href='https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page='+info.sourcePage;
+       link.target='_blank';link.rel='noopener noreferrer';
+       if(info.source?.attribution){const license=el('details',undefined,details);el('summary','Лицензия и авторство',license);el('p',info.source.attribution,license);}
+      }
+ }
  async function mount(root,{load,preview,send,onSaved=()=>{},newId=()=>crypto.randomUUID()}){
   let closed=false,pending=null,pendingKind='advance',candidate=null,running=false,epoch=0;
   const status=el('p','Загружаю героя…',root);status.setAttribute('role','status');status.setAttribute('aria-live','polite');
@@ -18,6 +32,12 @@ const SkazClassAdvancement=(()=>{
    form.replaceChildren();invalidate();
    el('h2',data.className+': '+data.fromLevel+' → '+(data.fromLevel+1),form);
    el('p','Повысятся максимальные хиты и выбранные данные. Текущие хиты не восстанавливаются. Ручные счётчики не присваиваются автоматически.',form);
+   if(data.plan.priorFeatureDetails?.length){
+    const reference=el('details',undefined,form);
+    el('summary','Справка по умениям до уровня '+data.fromLevel,reference);
+    el('p','Доступные пояснения по таблице выбранного класса. Прошлые выборы здесь не определяются; эффекты не включаются автоматически.',reference);
+    for(const info of data.plan.priorFeatureDetails)renderFeatureHelp(reference,info,info.key);
+   }
    if(data.resourceSetup?.length){
     const fs=el('fieldset',undefined,form);el('legend','Подключить ресурсы класса',fs);
     el('p','Выбери, какие ресурсы вести автоматически. Привязка сохраняет остаток ручного счётчика; новый счётчик создаётся полным. Это отдельное подтверждение до повышения.',fs);
@@ -36,7 +56,7 @@ const SkazClassAdvancement=(()=>{
    const controls=new Map();let blocked=false;
    for(const choice of data.plan.choices){
     if(!choice.required&&!titles[choice.kind])continue;
-    const fs=el('fieldset',undefined,form);el('legend',(titles[choice.kind]||choice.kind)+' — выбрать '+choice.count,fs);
+    const fs=el('fieldset',undefined,form);el('legend',(titles[choice.kind]||choiceNames[choice.kind]||choice.kind)+' — выбрать '+choice.count,fs);
     if(choice.kind==='ability-score-improvement-or-feat'){
      el('p','Распредели 2 пункта. Не выше 20. Выбор черты ещё не подключён.',fs);const fields={};
      for(const [key,name]of Object.entries(abilityNames)){const l=el('label',name+' ('+data.abilities[key]+')',fs),n=el('input',undefined,l);n.type='number';n.min='0';n.max=String(Math.max(0,Math.min(2,20-data.abilities[key])));n.value='0';n.setAttribute('aria-label',name+': прибавка');fields[key]=n;}
@@ -52,7 +72,12 @@ const SkazClassAdvancement=(()=>{
     }else{blocked=true;el('p','Этот обязательный выбор пока не подключён. Повышение не будет сохранено.',fs);}
    }
    const reviews=[];
-   if(data.plan.requiresFeatureReview.length){const fs=el('fieldset',undefined,form);el('legend','Новые умения: ручная проверка',fs);el('p','Эффекты этих умений ещё не применяются автоматически. Отметка подтверждает только проверку правил.',fs);for(const feature of data.plan.requiresFeatureReview){const l=el('label',undefined,fs),box=el('input',undefined,l);box.type='checkbox';el('span','Проверил: '+feature,l);reviews.push({feature,box});}}
+   if(data.plan.requiresFeatureReview.length){const fs=el('fieldset',undefined,form);el('legend','Новые умения: ручная проверка',fs);el('p','Эффекты этих умений ещё не применяются автоматически. Отметка подтверждает только проверку правил.',fs);for(const feature of data.plan.requiresFeatureReview){
+      const info=data.plan.featureDetails?.find(item=>item.key===feature);
+      renderFeatureHelp(fs,info,feature);
+      const l=el('label',undefined,fs),box=el('input',undefined,l);box.type='checkbox';
+      el('span','Проверил: '+(info?.name||feature),l);reviews.push({feature,box});
+     }}
    status.textContent=blocked?'Есть неподдерживаемый обязательный выбор. Сохранение недоступно.':'Выбери изменения и проверь итог до сохранения.';check.disabled=blocked;
    check.onclick=async()=>{
     if(running||pending||blocked||closed)return;running=true;lock(true);invalidate();

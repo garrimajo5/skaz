@@ -58,3 +58,46 @@ test('binding committed before a failed refresh offers reload, never a second mu
  walk(e.root).find(n=>n.tagName==='select').value='create';await e.button('Подключить выбранные ресурсы').onclick();assert.match(e.status(),/Ресурсы сохранены/);assert.equal(e.button('Повторить сохранение').hidden,true);assert.equal(e.button('Сверить состояние и начать заново').hidden,false);
  await e.button('Сверить состояние и начать заново').onclick();assert.equal(loads,3);assert.equal(sends,1);assert.equal(e.button('Проверить повышение').disabled,false);
 });
+
+test('translated feature help renders as text but sends original receipt key',async()=>{
+ const e=environment();let command;
+ const name='<img src=x onerror=bad> Дополнительная атака';
+ await e.mount(e.root,{load:async()=>({...data(),plan:{choices:[],requiresFeatureReview:['Extra Attack'],featureDetails:[{key:'Extra Attack',name,text:'Две атаки за действие.',sourcePage:25,source:{attribution:'CC-BY attribution'}}]}}),preview:async body=>{command=body;return summary();},send:async()=>saved()});
+ assert.equal(walk(e.root).find(n=>n.tagName==='summary').textContent,name);
+ assert.equal(walk(e.root).filter(n=>n.tagName==='img').length,0);
+ assert.match(walk(e.root).find(n=>n.tagName==='a').href,/#page=25$/);
+ walk(e.root).find(n=>n.type==='checkbox').checked=true;
+ await e.button('Проверить повышение').onclick();
+ assert.deepEqual(Array.from(command.reviewedFeatures),['Extra Attack']);
+});
+test('missing feature description remains visible with manual review and no invented rules',async()=>{
+ const e=environment();await e.mount(e.root,{load:async()=>({...data(),plan:{choices:[],requiresFeatureReview:['Unknown feature']}}),preview:async()=>summary(),send:async()=>saved()});
+ assert.equal(walk(e.root).find(n=>n.tagName==='summary').textContent,'Unknown feature');
+ assert.ok(walk(e.root).some(n=>n.textContent.includes('Описание этого умения пока не подключено')));
+ assert.equal(walk(e.root).filter(n=>n.tagName==='a').length,0);
+});
+
+test('two feature confirmations remain independent even when descriptions are expanded',async()=>{
+ const e=environment();let command;
+ const keys=['Reckless Attack','Danger Sense'];
+ await e.mount(e.root,{load:async()=>({...data(),plan:{choices:[],requiresFeatureReview:keys,featureDetails:keys.map((key,i)=>({key,name:['Безрассудная атака','Чувство опасности'][i],text:'Условия применения вручную.'}))}}),preview:async body=>{command=body;return summary();},send:async()=>saved()});
+ const boxes=walk(e.root).filter(n=>n.type==='checkbox');boxes[0].checked=true;
+ await e.button('Проверить повышение').onclick();assert.deepEqual(Array.from(command.reviewedFeatures),['Reckless Attack']);
+ boxes[1].checked=true;boxes[1].emit('change');assert.equal(e.button('Подтвердить повышение').hidden,true);
+ await e.button('Проверить повышение').onclick();assert.deepEqual(Array.from(command.reviewedFeatures),keys);
+});
+
+test('prior feature reference is read-only and never adds receipt confirmations',async()=>{
+ const e=environment();let command;await e.mount(e.root,{load:async()=>({...data(),plan:{choices:[],requiresFeatureReview:[],priorFeatureDetails:[{key:'Second Wind',name:'Второе дыхание',text:'Бонусное действие.'}]}}),preview:async body=>{command=body;return summary();},send:async()=>saved()});
+ assert.ok(walk(e.root).some(n=>n.textContent==='Справка по умениям до уровня 4'));
+ assert.ok(walk(e.root).some(n=>n.textContent==='Второе дыхание'));
+ assert.equal(walk(e.root).filter(n=>n.type==='checkbox').length,0);
+ await e.button('Проверить повышение').onclick();assert.equal(command.reviewedFeatures.length,0);
+});
+
+test('unsupported choices have readable titles without enabling unsupported optional controls',async()=>{
+ const e=environment();await e.mount(e.root,{load:async()=>({...data(),plan:{requiresFeatureReview:[],choices:[{id:'wizard:18:spell-mastery',kind:'spell-mastery',count:2,required:true}]}}),preview:async()=>{throw Error('must remain blocked');},send:async()=>saved()});
+ assert.ok(walk(e.root).some(n=>n.textContent==='Мастерство заклинаний — выбрать 2'));assert.equal(e.button('Проверить повышение').disabled,true);
+ const f=environment();await f.mount(f.root,{load:async()=>({...data(),plan:{requiresFeatureReview:[],choices:[{id:'warlock:4:replace-invocation',kind:'replace-invocation',count:1,required:false}]}}),preview:async()=>summary(),send:async()=>saved()});
+ assert.equal(f.button('Проверить повышение').disabled,false);assert.ok(!walk(f.root).some(n=>n.textContent.includes('replace-invocation')));
+});

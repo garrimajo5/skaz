@@ -53,3 +53,17 @@ test('enabled authenticated shell serves every advancement module and disabled m
  }
  assert.doesNotMatch(await(await disabled.request('/')).text(),/data-class-advancement="enabled"/);
 });
+
+test('HTTP class help is read-only and translated labels cannot replace stable receipt keys',async t=>{
+ const f=await fixture(t),before=f.store.read();
+ const response=await f.request(prefix+'plan?classId=fighter');assert.equal(response.status,200);const {plan}=await response.json();
+ assert.deepEqual(f.store.read(),before);
+ assert.equal(plan.featureDetails.find(d=>d.key==='Action Surge (one use)').name,'Всплеск действий');
+ assert.ok(plan.priorFeatureDetails.some(d=>d.key==='Second Wind'));
+ const q=f.command({classId:'fighter',fromLevel:1,hpMethod:'fixed',hpRoll:null,choices:{},reviewedFeatures:['Всплеск действий']});
+ assert.equal((await f.request(prefix+'preview',q)).status,422);assert.deepEqual(f.store.read(),before);
+ q.reviewedFeatures=['Action Surge (one use)'];assert.equal((await f.request(prefix+'apply',q)).status,200);
+ const exported=await (await f.request('/api/export/active-v13')).json();
+ assert.deepEqual(exported.advancement.events[0].featuresReviewed,['Action Surge (one use)']);
+ assert.ok(!JSON.stringify(exported.advancement).includes('featureDetails'));
+});

@@ -1,0 +1,3386 @@
+[
+  {
+    "fields": [
+      {
+        "background": "rgb(32, 51, 75)",
+        "border": "rgb(48, 67, 92)",
+        "edge": 1.515,
+        "fill": 1.19,
+        "id": "",
+        "label": "SELECT",
+        "pass": false,
+        "tag": "SELECT",
+        "target": 3
+      },
+      {
+        "background": "rgb(32, 51, 75)",
+        "border": "rgb(48, 67, 92)",
+        "edge": 1.515,
+        "fill": 1.19,
+        "id": "",
+        "label": "SELECT",
+        "pass": false,
+        "tag": "SELECT",
+        "target": 3
+      }
+    ],
+    "focus": {
+      "id": "",
+      "manual": [],
+      "offset": "2px",
+      "outline": "rgb(140, 226, 210)",
+      "pass": true,
+      "ratio": 10.128,
+      "tag": "SUMMARY",
+      "target": 3,
+      "visible": true,
+      "width": "2px"
+    },
+    "placeholders": [],
+    "rows": [
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "28px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Повышение уровня · 2014",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "H2",
+        "target": 3
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(159, 179, 202)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "id": "",
+        "label": "Выбери изменения и проверь итог до сохранения.",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.11,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "28px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Варвар: 1 → 2",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "H2",
+        "target": 3
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(159, 179, 202)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "id": "",
+        "label": "Повысятся максимальные хиты и выбранные данные. Текущие хиты не восстанавливаются. Ручные счётчики не присваиваются авто",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.11,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Справка по умениям до уровня 1",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(159, 179, 202)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "id": "",
+        "label": "Доступные пояснения по таблице выбранного класса. Прошлые выборы здесь не определяются; эффекты не включаются автоматиче",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.11,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Ярость",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(159, 179, 202)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "id": "",
+        "label": "Бонусным действием в свой ход можно впасть в ярость на 1 минуту. Без тяжёлого доспеха она даёт преимущество проверкам и ",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.11,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(140, 226, 210)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          140,
+          226,
+          210,
+          1
+        ],
+        "id": "",
+        "label": "Источник: SRD 5.1, стр. 8",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.128,
+        "tag": "A",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Лицензия и авторство",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(159, 179, 202)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "id": "",
+        "label": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and ava",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.11,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Защита без доспехов",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(159, 179, 202)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "id": "",
+        "label": "Если не носишь доспех, КД равен 10 + модификатор Ловкости + модификатор Телосложения. Щит допускается. Это альтернативны",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.11,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(140, 226, 210)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          140,
+          226,
+          210,
+          1
+        ],
+        "id": "",
+        "label": "Источник: SRD 5.1, стр. 8",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.128,
+        "tag": "A",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Лицензия и авторство",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(159, 179, 202)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "id": "",
+        "label": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and ava",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.11,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Подключить ресурсы класса",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "LEGEND",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(159, 179, 202)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "id": "",
+        "label": "Выбери, какие ресурсы вести автоматически. Привязка сохраняет остаток ручного счётчика; новый счётчик создаётся полным. ",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.11,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "advancement-resource",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Ярость (максимум 2)",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "LABEL",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          32,
+          51,
+          75,
+          1
+        ],
+        "background": "rgb(32, 51, 75)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "SELECT",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 11.577,
+        "tag": "SELECT",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          32,
+          51,
+          75,
+          1
+        ],
+        "background": "rgb(32, 51, 75)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Подключить выбранные ресурсы",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 11.577,
+        "tag": "BUTTON",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Хиты за уровень",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "LABEL",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          32,
+          51,
+          75,
+          1
+        ],
+        "background": "rgb(32, 51, 75)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "SELECT",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 11.577,
+        "tag": "SELECT",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Новые умения: ручная проверка",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "LEGEND",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(159, 179, 202)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "id": "",
+        "label": "Эффекты этих умений ещё не применяются автоматически. Отметка подтверждает только проверку правил.",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.11,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Безрассудная атака",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(159, 179, 202)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "id": "",
+        "label": "При первой атаке в свой ход можно выбрать безрассудную атаку: рукопашные атаки оружием через Силу в этот ход получают пр",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.11,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(140, 226, 210)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          140,
+          226,
+          210,
+          1
+        ],
+        "id": "",
+        "label": "Источник: SRD 5.1, стр. 9",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.128,
+        "tag": "A",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Лицензия и авторство",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(159, 179, 202)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "id": "",
+        "label": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and ava",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.11,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          32,
+          51,
+          75,
+          1
+        ],
+        "background": "rgb(32, 51, 75)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "INPUT",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 11.577,
+        "tag": "INPUT",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Проверил: Безрассудная атака",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "SPAN",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Чувство опасности",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(159, 179, 202)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "id": "",
+        "label": "С 2-го уровня получаешь преимущество спасброскам Ловкости против видимых эффектов, например ловушек и заклинаний. Оно не",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.11,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(140, 226, 210)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          140,
+          226,
+          210,
+          1
+        ],
+        "id": "",
+        "label": "Источник: SRD 5.1, стр. 9",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.128,
+        "tag": "A",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Лицензия и авторство",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(159, 179, 202)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          159,
+          179,
+          202,
+          1
+        ],
+        "id": "",
+        "label": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and ava",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.11,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          32,
+          51,
+          75,
+          1
+        ],
+        "background": "rgb(32, 51, 75)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "INPUT",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 11.577,
+        "tag": "INPUT",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          23,
+          38,
+          58,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Проверил: Чувство опасности",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.782,
+        "tag": "SPAN",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          32,
+          51,
+          75,
+          1
+        ],
+        "background": "rgb(32, 51, 75)",
+        "className": "",
+        "color": "rgb(237, 244, 252)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          237,
+          244,
+          252,
+          1
+        ],
+        "id": "",
+        "label": "Проверить повышение",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 11.577,
+        "tag": "BUTTON",
+        "target": 4.5
+      }
+    ],
+    "scope": "Rendered DOM text, shown placeholders and focus outline; flat compositing including ancestor opacity; gradients/filters require manual review; field boundaries; synthetic data only",
+    "theme": "polar",
+    "url": "#hero",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    }
+  },
+  {
+    "fields": [
+      {
+        "background": "rgb(38, 44, 40)",
+        "border": "rgb(52, 60, 53)",
+        "edge": 1.416,
+        "fill": 1.132,
+        "id": "",
+        "label": "SELECT",
+        "pass": false,
+        "tag": "SELECT",
+        "target": 3
+      },
+      {
+        "background": "rgb(38, 44, 40)",
+        "border": "rgb(52, 60, 53)",
+        "edge": 1.416,
+        "fill": 1.132,
+        "id": "",
+        "label": "SELECT",
+        "pass": false,
+        "tag": "SELECT",
+        "target": 3
+      }
+    ],
+    "focus": {
+      "id": "",
+      "manual": [],
+      "offset": "2px",
+      "outline": "rgb(217, 188, 124)",
+      "pass": true,
+      "ratio": 8.783,
+      "tag": "SUMMARY",
+      "target": 3,
+      "visible": true,
+      "width": "2px"
+    },
+    "placeholders": [],
+    "rows": [
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "28px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Повышение уровня · 2014",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "H2",
+        "target": 3
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(164, 175, 166)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "id": "",
+        "label": "Выбери изменения и проверь итог до сохранения.",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.113,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "28px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Варвар: 1 → 2",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "H2",
+        "target": 3
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(164, 175, 166)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "id": "",
+        "label": "Повысятся максимальные хиты и выбранные данные. Текущие хиты не восстанавливаются. Ручные счётчики не присваиваются авто",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.113,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Справка по умениям до уровня 1",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(164, 175, 166)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "id": "",
+        "label": "Доступные пояснения по таблице выбранного класса. Прошлые выборы здесь не определяются; эффекты не включаются автоматиче",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.113,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Ярость",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(164, 175, 166)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "id": "",
+        "label": "Бонусным действием в свой ход можно впасть в ярость на 1 минуту. Без тяжёлого доспеха она даёт преимущество проверкам и ",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.113,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(217, 188, 124)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          217,
+          188,
+          124,
+          1
+        ],
+        "id": "",
+        "label": "Источник: SRD 5.1, стр. 8",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 8.783,
+        "tag": "A",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Лицензия и авторство",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(164, 175, 166)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "id": "",
+        "label": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and ava",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.113,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Защита без доспехов",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(164, 175, 166)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "id": "",
+        "label": "Если не носишь доспех, КД равен 10 + модификатор Ловкости + модификатор Телосложения. Щит допускается. Это альтернативны",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.113,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(217, 188, 124)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          217,
+          188,
+          124,
+          1
+        ],
+        "id": "",
+        "label": "Источник: SRD 5.1, стр. 8",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 8.783,
+        "tag": "A",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Лицензия и авторство",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(164, 175, 166)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "id": "",
+        "label": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and ava",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.113,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Подключить ресурсы класса",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "LEGEND",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(164, 175, 166)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "id": "",
+        "label": "Выбери, какие ресурсы вести автоматически. Привязка сохраняет остаток ручного счётчика; новый счётчик создаётся полным. ",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.113,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "advancement-resource",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Ярость (максимум 2)",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "LABEL",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          38,
+          44,
+          40,
+          1
+        ],
+        "background": "rgb(38, 44, 40)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "SELECT",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 12.215,
+        "tag": "SELECT",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          38,
+          44,
+          40,
+          1
+        ],
+        "background": "rgb(38, 44, 40)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Подключить выбранные ресурсы",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 12.215,
+        "tag": "BUTTON",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Хиты за уровень",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "LABEL",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          38,
+          44,
+          40,
+          1
+        ],
+        "background": "rgb(38, 44, 40)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "SELECT",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 12.215,
+        "tag": "SELECT",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Новые умения: ручная проверка",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "LEGEND",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(164, 175, 166)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "id": "",
+        "label": "Эффекты этих умений ещё не применяются автоматически. Отметка подтверждает только проверку правил.",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.113,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Безрассудная атака",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(164, 175, 166)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "id": "",
+        "label": "При первой атаке в свой ход можно выбрать безрассудную атаку: рукопашные атаки оружием через Силу в этот ход получают пр",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.113,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(217, 188, 124)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          217,
+          188,
+          124,
+          1
+        ],
+        "id": "",
+        "label": "Источник: SRD 5.1, стр. 9",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 8.783,
+        "tag": "A",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Лицензия и авторство",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(164, 175, 166)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "id": "",
+        "label": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and ava",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.113,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          38,
+          44,
+          40,
+          1
+        ],
+        "background": "rgb(38, 44, 40)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "INPUT",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 12.215,
+        "tag": "INPUT",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Проверил: Безрассудная атака",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "SPAN",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Чувство опасности",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(164, 175, 166)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "id": "",
+        "label": "С 2-го уровня получаешь преимущество спасброскам Ловкости против видимых эффектов, например ловушек и заклинаний. Оно не",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.113,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(217, 188, 124)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          217,
+          188,
+          124,
+          1
+        ],
+        "id": "",
+        "label": "Источник: SRD 5.1, стр. 9",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 8.783,
+        "tag": "A",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Лицензия и авторство",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(164, 175, 166)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          164,
+          175,
+          166,
+          1
+        ],
+        "id": "",
+        "label": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and ava",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 7.113,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          38,
+          44,
+          40,
+          1
+        ],
+        "background": "rgb(38, 44, 40)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "INPUT",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 12.215,
+        "tag": "INPUT",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          29,
+          34,
+          32,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Проверил: Чувство опасности",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 13.823,
+        "tag": "SPAN",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          38,
+          44,
+          40,
+          1
+        ],
+        "background": "rgb(38, 44, 40)",
+        "className": "",
+        "color": "rgb(238, 238, 229)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          238,
+          238,
+          229,
+          1
+        ],
+        "id": "",
+        "label": "Проверить повышение",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 12.215,
+        "tag": "BUTTON",
+        "target": 4.5
+      }
+    ],
+    "scope": "Rendered DOM text, shown placeholders and focus outline; flat compositing including ancestor opacity; gradients/filters require manual review; field boundaries; synthetic data only",
+    "theme": "coal",
+    "url": "#hero",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    }
+  },
+  {
+    "fields": [
+      {
+        "background": "rgb(232, 229, 217)",
+        "border": "rgb(213, 212, 197)",
+        "edge": 1.405,
+        "fill": 1.187,
+        "id": "",
+        "label": "SELECT",
+        "pass": false,
+        "tag": "SELECT",
+        "target": 3
+      },
+      {
+        "background": "rgb(232, 229, 217)",
+        "border": "rgb(213, 212, 197)",
+        "edge": 1.405,
+        "fill": 1.187,
+        "id": "",
+        "label": "SELECT",
+        "pass": false,
+        "tag": "SELECT",
+        "target": 3
+      }
+    ],
+    "focus": {
+      "id": "",
+      "manual": [],
+      "offset": "2px",
+      "outline": "rgb(70, 109, 84)",
+      "pass": true,
+      "ratio": 5.523,
+      "tag": "SUMMARY",
+      "target": 3,
+      "visible": true,
+      "width": "2px"
+    },
+    "placeholders": [],
+    "rows": [
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "28px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Повышение уровня · 2014",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "H2",
+        "target": 3
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(82, 102, 91)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "id": "",
+        "label": "Выбери изменения и проверь итог до сохранения.",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.791,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "28px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Варвар: 1 → 2",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "H2",
+        "target": 3
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(82, 102, 91)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "id": "",
+        "label": "Повысятся максимальные хиты и выбранные данные. Текущие хиты не восстанавливаются. Ручные счётчики не присваиваются авто",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.791,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Справка по умениям до уровня 1",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(82, 102, 91)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "id": "",
+        "label": "Доступные пояснения по таблице выбранного класса. Прошлые выборы здесь не определяются; эффекты не включаются автоматиче",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.791,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Ярость",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(82, 102, 91)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "id": "",
+        "label": "Бонусным действием в свой ход можно впасть в ярость на 1 минуту. Без тяжёлого доспеха она даёт преимущество проверкам и ",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.791,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(70, 109, 84)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          70,
+          109,
+          84,
+          1
+        ],
+        "id": "",
+        "label": "Источник: SRD 5.1, стр. 8",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.523,
+        "tag": "A",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Лицензия и авторство",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(82, 102, 91)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "id": "",
+        "label": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and ava",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.791,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Защита без доспехов",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(82, 102, 91)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "id": "",
+        "label": "Если не носишь доспех, КД равен 10 + модификатор Ловкости + модификатор Телосложения. Щит допускается. Это альтернативны",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.791,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(70, 109, 84)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          70,
+          109,
+          84,
+          1
+        ],
+        "id": "",
+        "label": "Источник: SRD 5.1, стр. 8",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.523,
+        "tag": "A",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Лицензия и авторство",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(82, 102, 91)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "id": "",
+        "label": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and ava",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.791,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Подключить ресурсы класса",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "LEGEND",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(82, 102, 91)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "id": "",
+        "label": "Выбери, какие ресурсы вести автоматически. Привязка сохраняет остаток ручного счётчика; новый счётчик создаётся полным. ",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.791,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "advancement-resource",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Ярость (максимум 2)",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "LABEL",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          232,
+          229,
+          217,
+          1
+        ],
+        "background": "rgb(232, 229, 217)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "SELECT",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 8.993,
+        "tag": "SELECT",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          232,
+          229,
+          217,
+          1
+        ],
+        "background": "rgb(232, 229, 217)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Подключить выбранные ресурсы",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 8.993,
+        "tag": "BUTTON",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Хиты за уровень",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "LABEL",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          232,
+          229,
+          217,
+          1
+        ],
+        "background": "rgb(232, 229, 217)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "SELECT",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 8.993,
+        "tag": "SELECT",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Новые умения: ручная проверка",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "LEGEND",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(82, 102, 91)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "id": "",
+        "label": "Эффекты этих умений ещё не применяются автоматически. Отметка подтверждает только проверку правил.",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.791,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Безрассудная атака",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(82, 102, 91)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "id": "",
+        "label": "При первой атаке в свой ход можно выбрать безрассудную атаку: рукопашные атаки оружием через Силу в этот ход получают пр",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.791,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(70, 109, 84)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          70,
+          109,
+          84,
+          1
+        ],
+        "id": "",
+        "label": "Источник: SRD 5.1, стр. 9",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.523,
+        "tag": "A",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Лицензия и авторство",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(82, 102, 91)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "id": "",
+        "label": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and ava",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.791,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          232,
+          229,
+          217,
+          1
+        ],
+        "background": "rgb(232, 229, 217)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "INPUT",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 8.993,
+        "tag": "INPUT",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Проверил: Безрассудная атака",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "SPAN",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Чувство опасности",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(82, 102, 91)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "id": "",
+        "label": "С 2-го уровня получаешь преимущество спасброскам Ловкости против видимых эффектов, например ловушек и заклинаний. Оно не",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.791,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(70, 109, 84)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          70,
+          109,
+          84,
+          1
+        ],
+        "id": "",
+        "label": "Источник: SRD 5.1, стр. 9",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.523,
+        "tag": "A",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Лицензия и авторство",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "SUMMARY",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(82, 102, 91)",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "foreground": [
+          82,
+          102,
+          91,
+          1
+        ],
+        "id": "",
+        "label": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and ava",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 5.791,
+        "tag": "P",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          232,
+          229,
+          217,
+          1
+        ],
+        "background": "rgb(232, 229, 217)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "INPUT",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 8.993,
+        "tag": "INPUT",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          250,
+          248,
+          240,
+          1
+        ],
+        "background": "rgba(0, 0, 0, 0)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Проверил: Чувство опасности",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 10.673,
+        "tag": "SPAN",
+        "target": 4.5
+      },
+      {
+        "backdrop": [
+          232,
+          229,
+          217,
+          1
+        ],
+        "background": "rgb(232, 229, 217)",
+        "className": "",
+        "color": "rgb(38, 63, 56)",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "foreground": [
+          38,
+          63,
+          56,
+          1
+        ],
+        "id": "",
+        "label": "Проверить повышение",
+        "manual": [],
+        "opacity": "1",
+        "pass": true,
+        "ratio": 8.993,
+        "tag": "BUTTON",
+        "target": 4.5
+      }
+    ],
+    "scope": "Rendered DOM text, shown placeholders and focus outline; flat compositing including ancestor opacity; gradients/filters require manual review; field boundaries; synthetic data only",
+    "theme": "atlas",
+    "url": "#hero",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    }
+  }
+]
