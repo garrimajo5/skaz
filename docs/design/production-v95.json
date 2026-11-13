@@ -1,0 +1,119 @@
+{
+  "batch": "production-v95",
+  "entries": [
+    {
+      "id": "srd51:2014:monster:veteran",
+      "sourcePath": "data/art-production-v95/veteran.png",
+      "sourceSha256": "661996b7695691478e95104598aa595204dcb7b9c6b2ec2f414ac7b70bfe471b",
+      "brief": "Original SKAZ fantasy bestiary illustration, mature painterly realism, strong compact silhouette legible at32px, balanced material highlights on navy and cream themes, transparent background, generous clear margins, no text or frame, no rectangular haze.  Seasoned adult human veteran soldier, weathered face, short graying beard, well-maintained splint armor over mail, longsword held upright beside shoulder, calm watchful expression, head and torso portrait. No royal insignia or magic. All extremities fully inside frame with 8 percent transparent margin.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six monster motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:violet-fungus",
+      "sourcePath": "data/art-production-v95/violet-fungus.png",
+      "sourceSha256": "d8dcd724c52e0fe429827e8d8cbfccd188cd351850cffea0fed0d3c5ec40a95a",
+      "brief": "Original SKAZ fantasy bestiary illustration, mature painterly realism, strong compact silhouette legible at32px, balanced material highlights on navy and cream themes, transparent background, generous clear margins, no text or frame, no rectangular haze.  One violet fungus monster: a thick purple mushroom with several long flexible fleshy tendrils curling outward from its stalk, irregular dark violet cap, rootlike feet. No human face no eyes. Compact complete silhouette. All extremities fully inside frame with 8 percent transparent margin.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1302,
+        "height": 1208,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six monster motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:warhorse",
+      "sourcePath": "data/art-production-v95/warhorse.png",
+      "sourceSha256": "b3694db0a5e80a697117a2c93bfb70f5b889f9754d7596b57e16647e73fad3e1",
+      "brief": "Original SKAZ fantasy bestiary illustration, mature painterly realism, strong compact silhouette legible at32px, balanced material highlights on navy and cream themes, transparent background, generous clear margins, no text or frame, no rectangular haze.  Powerful muscular dark steel-gray warhorse, heavy arched neck and alert ears, simple leather bridle, braided black mane, head and chest portrait, no metal armor, no wings or horn. Natural horse anatomy. All extremities fully inside frame with 8 percent transparent margin.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1278,
+        "height": 1230,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six monster motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:warhorse-skeleton",
+      "sourcePath": "data/art-production-v95/warhorse-skeleton.png",
+      "sourceSha256": "11cc624f2bc7912fb0384f17fbf87149748d606feb3d9c259091e570125d9082",
+      "brief": "Original SKAZ fantasy bestiary painterly realism, isolated head and chest of an undead WARHORSE SKELETON. Anatomically accurate equine skull with long nasal bone, large empty eye sockets and horse teeth, cervical vertebrae, shoulder bones and ribcage. NO ears at all, NO bone ears, NO horns, no antlers, no skin, no mane. Only dry bones and a few loose remnants of simple faded cloth horse barding. Clear compact portrait at32px, neutral ivory bones modeled with gray shadows, transparent background, no ground or fog, entire skull and neck inside generous margins.",
+      "revision": "Replaced rejected source 5aca9ca1-8de8-4911-9cbc-a24d79acf004: corrected anatomy or removed unwanted haze.",
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six monster motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:weasel",
+      "sourcePath": "data/art-production-v95/weasel.png",
+      "sourceSha256": "7bee529555bab8c03a8ce5310d9adbe0b9449bc24760f3ba866e3e5975a5370b",
+      "brief": "SKAZ bestiary portrait, a realistic natural brown weasel sitting upright, close-up HEAD AND CHEST ONLY, tiny round ears, long narrow mustelid face, alert black eyes, pink nose, white throat. Mature hand-painted fantasy natural history illustration matching a medieval bestiary. Crisp fur outline. A single isolated animal portrait cutout on a fully transparent background. No full body, no tail, no fog, no halo, no glow, no shadow behind animal, no vignette, no floor. Centered small portrait with generous margins. Gray shadows model white throat so it reads on cream UI. No accessories or text.",
+      "revision": "Replaced rejected source 7c5203bd-d749-4128-9131-d565780ebef2: corrected anatomy or removed unwanted haze. Background extraction edit of99d70e31-aca0-431a-8caf-efba101e3ab4 with prompt recorded in weasel-background-edit. Prior edit retained haze; changed to upright portrait.",
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1295,
+        "height": 1214,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six monster motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:monster:wight",
+      "sourcePath": "data/art-production-v95/wight.png",
+      "sourceSha256": "18a2af0bcd16546986db3c30864873b0156da8f5b06c22fb1beb51a289451a2d",
+      "brief": "Original SKAZ fantasy bestiary illustration, mature painterly realism, strong compact silhouette legible at32px, balanced material highlights on navy and cream themes, transparent background, generous clear margins, no text or frame, no rectangular haze.  Undead wight warrior with gaunt gray corpse face, pale cold eyes, long ragged ash-gray hair, worn studded leather armor, old longsword and longbow visible at shoulder, head-and-torso portrait. No crown, no skeletal face, no glowing magical weapon, no gore. All extremities fully inside frame with 8 percent transparent margin.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1261,
+        "height": 1247,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six monster motifs checked against 2014 catalog descriptions."
+      }
+    }
+  ]
+}

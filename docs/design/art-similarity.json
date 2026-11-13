@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 525,
+  "count": 567,
   "pairs": [
     {
       "ids": [
@@ -512,6 +512,11 @@
       "light": "7ac5845ec09bd163"
     },
     {
+      "id": "srd51:2014:monster:balor",
+      "dark": "41f4760f2bf0c1ac",
+      "light": "3c4bc9b487077a4a"
+    },
+    {
       "id": "srd51:2014:monster:bandit",
       "dark": "490f33642ed8399b",
       "light": "490f33642ed8399b"
@@ -567,6 +572,11 @@
       "light": "61b99a6666cd3930"
     },
     {
+      "id": "srd51:2014:monster:bone-devil",
+      "dark": "49c166373b3b9c84",
+      "light": "3e38c7c1d1c46a3a"
+    },
+    {
       "id": "srd51:2014:monster:brass-dragon-wyrmling",
       "dark": "074e780d3d373b30",
       "light": "78919732c64acdc9"
@@ -595,6 +605,11 @@
       "id": "srd51:2014:monster:cat",
       "dark": "434b38f23ff0311c",
       "light": "434b38f23ff0311c"
+    },
+    {
+      "id": "srd51:2014:monster:chain-devil",
+      "dark": "4cc828b763cb3e34",
+      "light": "3687db7a8c50d88a"
     },
     {
       "id": "srd51:2014:monster:chuul",
@@ -645,6 +660,11 @@
       "id": "srd51:2014:monster:cultist",
       "dark": "410f763c18f911af",
       "light": "2df583169c0bf90a"
+    },
+    {
+      "id": "srd51:2014:monster:deva",
+      "dark": "146449ba6fd933a4",
+      "light": "3ee7e132c418c32e"
     },
     {
       "id": "srd51:2014:monster:dire-wolf",
@@ -762,6 +782,11 @@
       "light": "6ee4851a9e1ec961"
     },
     {
+      "id": "srd51:2014:monster:glabrezu",
+      "dark": "49f06e1333ce314e",
+      "light": "3297c4e8996493e3"
+    },
+    {
       "id": "srd51:2014:monster:gladiator",
       "dark": "41493db24fbc7096",
       "light": "72b4c3689447d86d"
@@ -815,6 +840,11 @@
       "id": "srd51:2014:monster:hell-hound",
       "dark": "430f2fe42ec11d93",
       "light": "3df0c36f9403d04b"
+    },
+    {
+      "id": "srd51:2014:monster:hezrou",
+      "dark": "514e2ea97d7206b1",
+      "light": "3ff0c4568a0ff80c"
     },
     {
       "id": "srd51:2014:monster:hill-giant",
@@ -932,6 +962,11 @@
       "light": "3ea5944af070c71b"
     },
     {
+      "id": "srd51:2014:monster:oni",
+      "dark": "1058696927a677ce",
+      "light": "2eb78418d878817f"
+    },
+    {
       "id": "srd51:2014:monster:orc",
       "dark": "432f15707a063ef2",
       "light": "7af0b207a14bc32d"
@@ -972,6 +1007,26 @@
       "light": "31a1ca8796dacd19"
     },
     {
+      "id": "srd51:2014:monster:pseudodragon",
+      "dark": "13f23e0dc9f19096",
+      "light": "3c0cc9f170966e6c"
+    },
+    {
+      "id": "srd51:2014:monster:quasit",
+      "dark": "16947163666f68d2",
+      "light": "60638f9c9990b72d"
+    },
+    {
+      "id": "srd51:2014:monster:quipper",
+      "dark": "5ed2292f9270499b",
+      "light": "3b39d0d20fcf3424"
+    },
+    {
+      "id": "srd51:2014:monster:rat",
+      "dark": "429e3c689397d8cc",
+      "light": "3d61c39f2e683131"
+    },
+    {
       "id": "srd51:2014:monster:raven",
       "dark": "65d41f4ed8611e64",
       "light": "65d41f4ed8611e64"
@@ -987,9 +1042,64 @@
       "light": "38d1a50a8e9ed6a6"
     },
     {
+      "id": "srd51:2014:monster:riding-horse",
+      "dark": "50366b692de06fc2",
+      "light": "2dc18c9ed80d969b"
+    },
+    {
+      "id": "srd51:2014:monster:roper",
+      "dark": "093d64c733c615d3",
+      "light": "34c3cf38816cd933"
+    },
+    {
+      "id": "srd51:2014:monster:rug-of-smothering",
+      "dark": "4b4971962ea6926b",
+      "light": "31348ed2d3cd6991"
+    },
+    {
       "id": "srd51:2014:monster:rust-monster",
       "dark": "15b670e3ca4859b5",
       "light": "6ac89b393596b249"
+    },
+    {
+      "id": "srd51:2014:monster:satyr",
+      "dark": "406d3ea4d39325ce",
+      "light": "3993d14b852ecea4"
+    },
+    {
+      "id": "srd51:2014:monster:scout",
+      "dark": "105969b637e076e4",
+      "light": "3aa1c27a8c4f871e"
+    },
+    {
+      "id": "srd51:2014:monster:sea-hag",
+      "dark": "531b38e965642774",
+      "light": "2fe0c306962ed23d"
+    },
+    {
+      "id": "srd51:2014:monster:sea-horse",
+      "dark": "4ccc673132ce3365",
+      "light": "327699ccc931cc99"
+    },
+    {
+      "id": "srd51:2014:monster:shadow",
+      "dark": "58db3b1db1606323",
+      "light": "3324ccc68b999c5e"
+    },
+    {
+      "id": "srd51:2014:monster:shambling-mound",
+      "dark": "459c7a79286366c6",
+      "light": "7ce38516db38c21c"
+    },
+    {
+      "id": "srd51:2014:monster:shield-guardian",
+      "dark": "51cc661b2e357895",
+      "light": "2f3384f4d24e918d"
+    },
+    {
+      "id": "srd51:2014:monster:shrieker",
+      "dark": "0db37b4c34f36484",
+      "light": "326e8490cf1b9be8"
     },
     {
       "id": "srd51:2014:monster:silver-dragon-wyrmling",
@@ -1000,6 +1110,26 @@
       "id": "srd51:2014:monster:skeleton",
       "dark": "4c0f1ef03c397166",
       "light": "6ac48d1ad21ab93e"
+    },
+    {
+      "id": "srd51:2014:monster:specter",
+      "dark": "4d963d6961386e1a",
+      "light": "3362c2931fe58d8c"
+    },
+    {
+      "id": "srd51:2014:monster:spider",
+      "dark": "46cf393090cb6e6c",
+      "light": "3130cecf663099d3"
+    },
+    {
+      "id": "srd51:2014:monster:sprite",
+      "dark": "11b564393c6cfa4a",
+      "light": "73669b86c9538691"
+    },
+    {
+      "id": "srd51:2014:monster:spy",
+      "dark": "4c1d71f326e62c1c",
+      "light": "2dd2931fc80dca9c"
     },
     {
       "id": "srd51:2014:monster:stone-giant",
@@ -1017,14 +1147,89 @@
       "light": "6eb4c1038b5fd05c"
     },
     {
+      "id": "srd51:2014:monster:succubus-incubus",
+      "dark": "19cc6ab3256632ad",
+      "light": "3ba5e411945a9b0f"
+    },
+    {
+      "id": "srd51:2014:monster:thug",
+      "dark": "195b7ba442f426ac",
+      "light": "6ee2a41d9938c34e"
+    },
+    {
+      "id": "srd51:2014:monster:treant",
+      "dark": "41982b6e6c4b2d9d",
+      "light": "3f33d4c2c3b4c24a"
+    },
+    {
+      "id": "srd51:2014:monster:tribal-warrior",
+      "dark": "50582cf543b26767",
+      "light": "3fb1c24acd1cc24b"
+    },
+    {
+      "id": "srd51:2014:monster:troll",
+      "dark": "40163be9747b6925",
+      "light": "3de1c4168b05de9a"
+    },
+    {
+      "id": "srd51:2014:monster:unicorn",
+      "dark": "433b34e063976acc",
+      "light": "3cc3c91e9259936c"
+    },
+    {
+      "id": "srd51:2014:monster:vampire-spawn",
+      "dark": "121f7cc02df3833c",
+      "light": "6ae0850fdc3cda34"
+    },
+    {
+      "id": "srd51:2014:monster:veteran",
+      "dark": "1d4a6d94336669b4",
+      "light": "3eb0871bf849c516"
+    },
+    {
+      "id": "srd51:2014:monster:violet-fungus",
+      "dark": "18973659616d69c6",
+      "light": "736ac08796949e6c"
+    },
+    {
+      "id": "srd51:2014:monster:vrock",
+      "dark": "458c16773950e62f",
+      "light": "7bf8802791d64687"
+    },
+    {
+      "id": "srd51:2014:monster:warhorse",
+      "dark": "1e3439cb6db4924c",
+      "light": "6cc3c79ed2389530"
+    },
+    {
+      "id": "srd51:2014:monster:warhorse-skeleton",
+      "dark": "42363bcb6d2c34c9",
+      "light": "37c3c43e90d9cb30"
+    },
+    {
       "id": "srd51:2014:monster:water-elemental",
       "dark": "405b0fad3cd269ac",
       "light": "6794c0d28b2d96ce"
     },
     {
+      "id": "srd51:2014:monster:weasel",
+      "dark": "4c3333cc649b9b2c",
+      "light": "3467cf989a313163"
+    },
+    {
       "id": "srd51:2014:monster:white-dragon-wyrmling",
       "dark": "46372dc89633e10f",
       "light": "39d9d62665583cc1"
+    },
+    {
+      "id": "srd51:2014:monster:wight",
+      "dark": "411c69b632e726f2",
+      "light": "2fd6c20fd84a842f"
+    },
+    {
+      "id": "srd51:2014:monster:will-o-wisp",
+      "dark": "193173cb9624c9b3",
+      "light": "30c6ce3c49733789"
     },
     {
       "id": "srd51:2014:monster:wolf",
@@ -1035,6 +1240,11 @@
       "id": "srd51:2014:monster:wraith",
       "dark": "444e1cb1716736cd",
       "light": "66c6961ad9b14c1b"
+    },
+    {
+      "id": "srd51:2014:monster:wyvern",
+      "dark": "40cf3fb0d04935f4",
+      "light": "3233c945269e4af3"
     },
     {
       "id": "srd51:2014:monster:young-black-dragon",
