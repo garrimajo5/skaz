@@ -3,7 +3,7 @@
   "ruleset": "5e-2014",
   "basis": "Порядок производства по кругу заклинания и опасности существа; не телеметрия частоты. Только проверенные accepted считаются покрытием.",
   "total": 580,
-  "accepted": 519,
+  "accepted": 525,
   "queues": [
     {
       "id": "spell-0-3",
@@ -30,14 +30,8 @@
       "id": "monster-0-5",
       "label": "Существа: опасность 0–5",
       "total": 137,
-      "accepted": 100,
+      "accepted": 106,
       "remaining": [
-        "srd51:2014:monster:ochre-jelly",
-        "srd51:2014:monster:ogre-zombie",
-        "srd51:2014:monster:otyugh",
-        "srd51:2014:monster:pegasus",
-        "srd51:2014:monster:phase-spider",
-        "srd51:2014:monster:pony",
         "srd51:2014:monster:pseudodragon",
         "srd51:2014:monster:quasit",
         "srd51:2014:monster:quipper",

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 519,
+  "count": 525,
   "pairs": [
     {
       "ids": [
@@ -912,6 +912,11 @@
       "light": "3fa3c24b853ec20b"
     },
     {
+      "id": "srd51:2014:monster:ochre-jelly",
+      "dark": "113e3cc14b4bb636",
+      "light": "6bc0c02fb4b469cd"
+    },
+    {
       "id": "srd51:2014:monster:octopus",
       "dark": "414703a63ebd3e1c",
       "light": "3eb0b14bc94b884f"
@@ -922,9 +927,19 @@
       "light": "3eb4b850c34be50e"
     },
     {
+      "id": "srd51:2014:monster:ogre-zombie",
+      "dark": "504939f1072e67bc",
+      "light": "3ea5944af070c71b"
+    },
+    {
       "id": "srd51:2014:monster:orc",
       "dark": "432f15707a063ef2",
       "light": "7af0b207a14bc32d"
+    },
+    {
+      "id": "srd51:2014:monster:otyugh",
+      "dark": "486b7d100bca5f35",
+      "light": "2fc4c27ef443e04a"
     },
     {
       "id": "srd51:2014:monster:owl",
@@ -932,9 +947,24 @@
       "light": "39c1971a941cd62f"
     },
     {
+      "id": "srd51:2014:monster:pegasus",
+      "dark": "11523abb6f65e412",
+      "light": "2ee4c4199bb71998"
+    },
+    {
+      "id": "srd51:2014:monster:phase-spider",
+      "dark": "50993f65c4c63a39",
+      "light": "6c64909b3b6d6466"
+    },
+    {
       "id": "srd51:2014:monster:poisonous-snake",
       "dark": "441e3bf1302d6e65",
       "light": "6be1854eec4a911b"
+    },
+    {
+      "id": "srd51:2014:monster:pony",
+      "dark": "169e38e131c3636b",
+      "light": "64c3ce3c923d9233"
     },
     {
       "id": "srd51:2014:monster:priest",
