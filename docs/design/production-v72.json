@@ -1,0 +1,119 @@
+{
+  "batch": "production-v72",
+  "entries": [
+    {
+      "id": "srd51:2014:spell:planar-binding",
+      "sourcePath": "data/art-production-v72/planar-binding.png",
+      "sourceSha256": "7900d93acea1ac28fdb2df4c82476a072e0736871fc1c4671aaaa41607e226e9",
+      "brief": "Original SKAZ fantasy reference-book spell illustration, D&D 2014. Painterly realistic materials, mature restrained palette, one clear bold motif readable at32px, composition centered in75% with wide transparent margin, no text/UI/border, no cartoon. Transparent background. An imposing flame elemental bowing toward a glowing precious gemstone with a luminous golden oath-thread linking them. Symbol of compelled service, not a cage or physical trap; no summoning portal.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1536,
+        "height": 1024,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six spell motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:private-sanctum",
+      "sourcePath": "data/art-production-v72/private-sanctum.png",
+      "sourceSha256": "754f63b1d85888d7cbca82fcd7903eb94720c0e41fd5a0445032646e3cdf7658",
+      "brief": "Original SKAZ fantasy reference-book spell illustration, D&D 2014. Painterly realistic materials, mature restrained palette, one clear bold motif readable at32px, composition centered in75% with wide transparent margin, no text/UI/border, no cartoon. Transparent background. A compact secluded stone chamber enveloped by dark violet mist forming a clearly cubic magical boundary, a small golden lamp inside. Privacy and exclusion, opaque boundary, no holy shrine.",
+      "revision": "Improve this spell icon for legibility at32px on dark and light backgrounds. Preserve the secluded cubic room, lamp and opaque purple privacy boundary. Make the cube edges substantially brighter muted lavender with clear medium-value planes, enlarge warm lamp moderately, reduce diffuse external fog. Keep restrained painterly style, no text, transparent background, generous margins.",
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1536,
+        "height": 1024,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six spell motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:raise-dead",
+      "sourcePath": "data/art-production-v72/raise-dead.png",
+      "sourceSha256": "da393713a6f828408c61b40af3e84a16e772bc8a7b63459021effe5ddfa17a17",
+      "brief": "Original SKAZ fantasy reference-book spell illustration, D&D 2014. Painterly realistic materials, mature restrained palette, one clear bold motif readable at32px, composition centered in75% with wide transparent margin, no text/UI/border, no cartoon. Transparent background. A fully clothed adult resting on a stone bier gently reopening eyes as warm golden life-light from a diamond touches their chest. Peaceful return to life, intact body, no undead, no gore.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1536,
+        "height": 1024,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six spell motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:reincarnate",
+      "sourcePath": "data/art-production-v72/reincarnate.png",
+      "sourceSha256": "9c2e7aa975e403071aea165d5baea843896aa94df55baffe26d4bbe6b3ea1174",
+      "brief": "Original SKAZ fantasy reference-book spell illustration, D&D 2014. Painterly realistic materials, mature restrained palette, one clear bold motif readable at32px, composition centered in75% with wide transparent margin, no text/UI/border, no cartoon. Transparent background. A luminous human soul silhouette flowing into a newly forming adult elven figure wrapped in green leaves and modest cloth, two small oil jars below. New living body and nature magic, no corpse or gore.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1216,
+        "height": 1293,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six spell motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:resilient-sphere",
+      "sourcePath": "data/art-production-v72/resilient-sphere.png",
+      "sourceSha256": "3e5bafcda791dd4dcf46b0db54021fda940761d4daaa009298379a96288d8c88",
+      "brief": "Original SKAZ fantasy reference-book spell illustration, D&D 2014. Painterly realistic materials, mature restrained palette, one clear bold motif readable at32px, composition centered in75% with wide transparent margin, no text/UI/border, no cartoon. Transparent background. A small adventurer crouched comfortably inside a perfectly round translucent blue-gold force sphere, clear thick luminous boundary and air within; whole sphere visible, no cracks or attacks.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six spell motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:scrying",
+      "sourcePath": "data/art-production-v72/scrying.png",
+      "sourceSha256": "4fab3fc1733e60e7cd7ebcfdc56637fd1f35a3fdfb3f931084c07bb0c145cb2c",
+      "brief": "Original SKAZ fantasy reference-book spell illustration, D&D 2014. Painterly realistic materials, mature restrained palette, one clear bold motif readable at32px, composition centered in75% with wide transparent margin, no text/UI/border, no cartoon. Transparent background. A polished silver scrying mirror on an ornate stand, its dark reflective surface reveals a tiny distant traveler and landscape, subtle blue magical glow. Distinct mirror shape, not crystal ball.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1312,
+        "height": 1199,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six spell motifs checked against 2014 catalog descriptions."
+      }
+    }
+  ]
+}

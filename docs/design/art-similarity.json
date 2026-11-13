@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 400,
+  "count": 435,
   "pairs": [
     {
       "ids": [
@@ -1182,6 +1182,11 @@
       "light": "65c6869c98999d33"
     },
     {
+      "id": "srd51:2014:spell:clone",
+      "dark": "4b303c66b3cd4f24",
+      "light": "33cfc36c0c99cc23"
+    },
+    {
       "id": "srd51:2014:spell:cloudkill",
       "dark": "40cf3f3930736686",
       "light": "6ec4851f923bc2e4"
@@ -1232,9 +1237,19 @@
       "light": "391994e646c76969"
     },
     {
+      "id": "srd51:2014:spell:conjure-celestial",
+      "dark": "43b13c4e2e92c765",
+      "light": "3b2ec6e14c4b3392"
+    },
+    {
       "id": "srd51:2014:spell:conjure-elemental",
       "dark": "405b0b3d7b12f0d6",
       "light": "2e85d4d2893c9b69"
+    },
+    {
+      "id": "srd51:2014:spell:conjure-fey",
+      "dark": "133424e7585a735b",
+      "light": "616bda31878c8da5"
     },
     {
       "id": "srd51:2014:spell:conjure-minor-elementals",
@@ -1257,6 +1272,11 @@
       "light": "3a97e5e83033c23c"
     },
     {
+      "id": "srd51:2014:spell:contingency",
+      "dark": "4c4e33b422b2bd93",
+      "light": "33b1cc18ccc633ec"
+    },
+    {
       "id": "srd51:2014:spell:continual-flame",
       "dark": "19993676cecd3130",
       "light": "33ccce3319992363"
@@ -1265,6 +1285,11 @@
       "id": "srd51:2014:spell:control-water",
       "dark": "05656b1b7b9e34c0",
       "light": "3ec0c027c33fd03d"
+    },
+    {
+      "id": "srd51:2014:spell:control-weather",
+      "dark": "1e91796c61a79698",
+      "light": "3846c793c63839c7"
     },
     {
       "id": "srd51:2014:spell:counterspell",
@@ -1280,6 +1305,11 @@
       "id": "srd51:2014:spell:create-or-destroy-water",
       "dark": "4b663c9c6c733138",
       "light": "3c8ee261c33ccd62"
+    },
+    {
+      "id": "srd51:2014:spell:create-undead",
+      "dark": "446f2f623a9135b4",
+      "light": "3b90d09cc768c26f"
     },
     {
       "id": "srd51:2014:spell:creation",
@@ -1582,6 +1612,16 @@
       "light": "6dd890262bd86c6d"
     },
     {
+      "id": "srd51:2014:spell:hallow",
+      "dark": "482d37d22e4f903b",
+      "light": "32c2cf3d90c32ce6"
+    },
+    {
+      "id": "srd51:2014:spell:hallucinatory-terrain",
+      "dark": "050e7ab1975ec82d",
+      "light": "7891874e68a537d2"
+    },
+    {
       "id": "srd51:2014:spell:haste",
       "dark": "413e3eb5614b8635",
       "light": "6625995a9e916396"
@@ -1612,6 +1652,11 @@
       "light": "3c9a931fca658760"
     },
     {
+      "id": "srd51:2014:spell:hold-monster",
+      "dark": "141b6be46b8c7c49",
+      "light": "6be4d41c90d38736"
+    },
+    {
       "id": "srd51:2014:spell:hold-person",
       "dark": "490f76b10e6c65b1",
       "light": "38b4c74bc6929e1c"
@@ -1625,6 +1670,11 @@
       "id": "srd51:2014:spell:hypnotic-pattern",
       "dark": "444f3bb461d33439",
       "light": "6ce1961ac96d9a1c"
+    },
+    {
+      "id": "srd51:2014:spell:ice-storm",
+      "dark": "473330cc6bd82d69",
+      "light": "7a328786954dcb0e"
     },
     {
       "id": "srd51:2014:spell:identify",
@@ -1642,6 +1692,11 @@
       "light": "3cc5c149cb969c72"
     },
     {
+      "id": "srd51:2014:spell:insect-plague",
+      "dark": "0e8e2c79a3319b8e",
+      "light": "3131c3c66ccb713c"
+    },
+    {
       "id": "srd51:2014:spell:invisibility",
       "dark": "441e39e133e56786",
       "light": "3be4c61ec81bc139"
@@ -1655,6 +1710,11 @@
       "id": "srd51:2014:spell:knock",
       "dark": "472d7aca34343333",
       "light": "3cc28325cbdccd34"
+    },
+    {
+      "id": "srd51:2014:spell:legend-lore",
+      "dark": "4a1c3c2c6df169c6",
+      "light": "34e3c3c20c3d93ce"
     },
     {
       "id": "srd51:2014:spell:lesser-restoration",
@@ -1680,6 +1740,11 @@
       "id": "srd51:2014:spell:locate-animals-or-plants",
       "dark": "413535db2ec873c2",
       "light": "3ecada25b434910f"
+    },
+    {
+      "id": "srd51:2014:spell:locate-creature",
+      "dark": "172660d9c96b96b4",
+      "light": "3c98c16f36b469c8"
     },
     {
       "id": "srd51:2014:spell:locate-object",
@@ -1727,6 +1792,11 @@
       "light": "31e79818c7b2346d"
     },
     {
+      "id": "srd51:2014:spell:mass-cure-wounds",
+      "dark": "05697a96ae68c19b",
+      "light": "3ecac01595346fc9"
+    },
+    {
       "id": "srd51:2014:spell:mass-healing-word",
       "dark": "052e7ab16649a5ce",
       "light": "3bc6c42bc43c93b4"
@@ -1757,9 +1827,19 @@
       "light": "2ed2b565c20dd03d"
     },
     {
+      "id": "srd51:2014:spell:mislead",
+      "dark": "16966a68296bd1f1",
+      "light": "3261c11fced80e8f"
+    },
+    {
       "id": "srd51:2014:spell:misty-step",
       "dark": "463c69c19f6069cb",
       "light": "38c3c73ce39e8630"
+    },
+    {
+      "id": "srd51:2014:spell:modify-memory",
+      "dark": "11976a7824c97337",
+      "light": "384bc4358f94d93a"
     },
     {
       "id": "srd51:2014:spell:moonbeam",
@@ -1777,9 +1857,24 @@
       "light": "64c79238c99633e3"
     },
     {
+      "id": "srd51:2014:spell:passwall",
+      "dark": "11332ecc6963c6e6",
+      "light": "6b63848c95b13e66"
+    },
+    {
+      "id": "srd51:2014:spell:phantasmal-killer",
+      "dark": "15b75a92784333c9",
+      "light": "2be0c41f9cb4d998"
+    },
+    {
       "id": "srd51:2014:spell:phantom-steed",
       "dark": "1a92303d65e69b4d",
       "light": "6464cbc698996793"
+    },
+    {
+      "id": "srd51:2014:spell:planar-binding",
+      "dark": "41493eb6616bc64d",
+      "light": "38b2c14db66c39b2"
     },
     {
       "id": "srd51:2014:spell:plant-growth",
@@ -1807,6 +1902,11 @@
       "light": "32cccb653426ce3a"
     },
     {
+      "id": "srd51:2014:spell:private-sanctum",
+      "dark": "4e93312ce63393c6",
+      "light": "2471d3c66c9b316c"
+    },
+    {
       "id": "srd51:2014:spell:produce-flame",
       "dark": "493c63c2b62dc972",
       "light": "3ec3942dc830e59b"
@@ -1832,6 +1932,11 @@
       "light": "349acf659992311b"
     },
     {
+      "id": "srd51:2014:spell:raise-dead",
+      "dark": "493936e659c9843e",
+      "light": "3d90c36f94b06b85"
+    },
+    {
       "id": "srd51:2014:spell:ray-of-enfeeblement",
       "dark": "1b9967641cb39b18",
       "light": "65c59ab2672931c6"
@@ -1842,9 +1947,19 @@
       "light": "6c969a6db2592c92"
     },
     {
+      "id": "srd51:2014:spell:reincarnate",
+      "dark": "43e1613d3e1e0cc7",
+      "light": "64969ec9c8f3c238"
+    },
+    {
       "id": "srd51:2014:spell:remove-curse",
       "dark": "4c64349f47f8d0d1",
       "light": "3d96c369946d1e24"
+    },
+    {
+      "id": "srd51:2014:spell:resilient-sphere",
+      "dark": "10db4f343c3331c7",
+      "light": "3acbc5248e139bc3"
     },
     {
       "id": "srd51:2014:spell:resistance",
@@ -1877,9 +1992,24 @@
       "light": "3d90c26e846fcab4"
     },
     {
+      "id": "srd51:2014:spell:scrying",
+      "dark": "1b862c6c339c669b",
+      "light": "3164c7969cc9cc35"
+    },
+    {
+      "id": "srd51:2014:spell:secret-chest",
+      "dark": "01967e5f3428e1d5",
+      "light": "3a1c80e2cd67c92f"
+    },
+    {
       "id": "srd51:2014:spell:see-invisibility",
       "dark": "4a2c2c93e23d9bc6",
       "light": "39c6d21f4f613096"
+    },
+    {
+      "id": "srd51:2014:spell:seeming",
+      "dark": "11676eba6ad07898",
+      "light": "3ac8d41e8527e571"
     },
     {
       "id": "srd51:2014:spell:sending",
@@ -1982,9 +2112,34 @@
       "light": "316dce92386cc393"
     },
     {
+      "id": "srd51:2014:spell:stone-shape",
+      "dark": "44cd79321b9f8564",
+      "light": "3fb2c0cde4721b81"
+    },
+    {
+      "id": "srd51:2014:spell:stoneskin",
+      "dark": "05b972ce5a622f61",
+      "light": "6e4e99b38519c29a"
+    },
+    {
       "id": "srd51:2014:spell:suggestion",
       "dark": "4ec6301893739ece",
       "light": "3139cec53c1e6698"
+    },
+    {
+      "id": "srd51:2014:spell:telekinesis",
+      "dark": "4b9e6869386465e5",
+      "light": "3cc19796c433789c"
+    },
+    {
+      "id": "srd51:2014:spell:telepathic-bond",
+      "dark": "174c78a564d37a85",
+      "light": "3bb3801e9a6cc4ce"
+    },
+    {
+      "id": "srd51:2014:spell:teleportation-circle",
+      "dark": "11636e9cb173c30e",
+      "light": "3ba3c45c0a292fd6"
     },
     {
       "id": "srd51:2014:spell:thaumaturgy",
@@ -2005,6 +2160,11 @@
       "id": "srd51:2014:spell:tongues",
       "dark": "70f20f2c0dc3f0e9",
       "light": "4a40a197873c5ef6"
+    },
+    {
+      "id": "srd51:2014:spell:tree-stride",
+      "dark": "44393bc6346b939c",
+      "light": "3f32c48dc8646f32"
     },
     {
       "id": "srd51:2014:spell:true-polymorph",
@@ -2030,6 +2190,21 @@
       "id": "srd51:2014:spell:vicious-mockery",
       "dark": "40c33e36797a34cc",
       "light": "37e4c1d887931e31"
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-fire",
+      "dark": "502f6ed0316f943c",
+      "light": "3ae6c091b92b6e94"
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-force",
+      "dark": "4dcc3233cd6e9491",
+      "light": "3232cdc932866b73"
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-stone",
+      "dark": "14156bfac541963e",
+      "light": "7eea81143ea96ac2"
     },
     {
       "id": "srd51:2014:spell:warding-bond",

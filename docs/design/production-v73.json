@@ -1,0 +1,100 @@
+{
+  "batch": "production-v73",
+  "entries": [
+    {
+      "id": "srd51:2014:spell:secret-chest",
+      "sourcePath": "data/art-production-v73/secret-chest.png",
+      "sourceSha256": "9d4d1f5ed0dbdc9d3d32b52132713c455f066e0f1108ebd278995e96a1aa8f6f",
+      "brief": "Original SKAZ fantasy reference-book D&D2014 spell illustration, realistic painterly materials, restrained palette, bold distinct single motif readable32px, centered with15% transparent margins, no text or UI or frame. Transparent background. An ornate large treasure chest fading into pale ethereal violet mist behind a tiny solid identical chest replica in foreground. Two matching chests different size, no treasure spilling.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1312,
+        "height": 1199,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Five spell motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:seeming",
+      "sourcePath": "data/art-production-v73/seeming.png",
+      "sourceSha256": "33d3c56de4f5d4f28acf6dc09fc7a66df465a06b97a3970d1774dd0ecf98a865",
+      "brief": "Original SKAZ fantasy reference-book D&D2014 spell illustration, realistic painterly materials, restrained palette, bold distinct single motif readable32px, centered with15% transparent margins, no text or UI or frame. Transparent background. Three adventurers in a compact group with translucent illusionary alternative clothes and faces overlaying their normal figures. Same limbs and humanoid forms, no animal transformation.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1312,
+        "height": 1199,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Five spell motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:stone-shape",
+      "sourcePath": "data/art-production-v73/stone-shape.png",
+      "sourceSha256": "602aa2db9d02c1ecc0a9637c218566af05d1970e0b3b03479085e9215d341335",
+      "brief": "Original SKAZ fantasy reference-book D&D2014 spell illustration, realistic painterly materials, restrained palette, bold distinct single motif readable32px, centered with15% transparent margins, no text or UI or frame. Transparent background. Two craftsman hands shaping solid grey stone into a curved arch as if soft clay, rough stone merging into smooth sculpted surface. No tools, no exploding rubble.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1536,
+        "height": 1024,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Five spell motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:stoneskin",
+      "sourcePath": "data/art-production-v73/stoneskin.png",
+      "sourceSha256": "47d456f9531a61506ec67572cb2168e54de2c1b22d0beb1b0316d67d0f6a48ad",
+      "brief": "Original SKAZ fantasy reference-book D&D2014 spell illustration, realistic painterly materials, restrained palette, bold distinct single motif readable32px, centered with15% transparent margins, no text or UI or frame. Transparent background. A strong living forearm and clenched fist with skin becoming textured granite, natural stone plates following anatomy, diamond dust glint. No full petrified statue.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1312,
+        "height": 1199,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Five spell motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:telekinesis",
+      "sourcePath": "data/art-production-v73/telekinesis.png",
+      "sourceSha256": "53ac71862585c302822aaa830bbde2e682f6cd0a73d365d1cc0ac329bc7bc628",
+      "brief": "Original SKAZ fantasy reference-book D&D2014 spell illustration, realistic painterly materials, restrained palette, bold distinct single motif readable32px, centered with15% transparent margins, no text or UI or frame. Transparent background. A mage open hand below a heavy stone block floating unsupported in blue-violet magical force, obvious gap and levitation. One target only, no physical ropes.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Five spell motifs checked against 2014 catalog descriptions."
+      }
+    }
+  ]
+}
