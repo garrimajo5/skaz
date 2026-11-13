@@ -369,3 +369,14 @@ body[data-page="play"] #dialog::backdrop{backdrop-filter:none}
 .condition-options label{margin:0;color:var(--text)}
 .condition-options input{min-height:20px;margin:0;padding:0}
 @media(max-width:480px){.condition-options{grid-template-columns:minmax(0,1fr)}.condition-options label{overflow-wrap:normal}}
+/* The game drawer is narrow independently of the browser viewport. Keep art
+   out of the facts grid and avoid stacking dialog/content padding. */
+@media(min-width:700px){
+  body[data-page="play"] #dialog:has(#catalog-detail-title){padding:0}
+  body[data-page="play"] #dialog:has(#catalog-detail-title) #dialog-content{height:100%;max-height:100%;padding:48px 24px 24px}
+  body[data-page="play"] #dialog:has(#catalog-detail-title) .skaz-art-card{width:96px;height:96px;margin-left:12px}
+
+}
+
+#dialog:has(.skaz-art-card) .catalog-facts{clear:both}
+@media(max-width:420px){#dialog .catalog-facts dl{grid-template-columns:1fr}}

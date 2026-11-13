@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-13",
+  "device": "Desktop IAB Chromium",
+  "origin": "http://127.0.0.1:4322",
+  "acceptedArtworks": 580,
+  "pngFiles": 1160,
+  "fixture": "scripts/art-load-fixture.mjs",
+  "first": {
+    "requests": 57,
+    "bodyBytes": 1045564,
+    "groups": {
+      "shell": {
+        "requests": 51,
+        "bodyBytes": 775966
+      },
+      "api": {
+        "requests": 4,
+        "bodyBytes": 250080
+      },
+      "art": {
+        "requests": 2,
+        "bodyBytes": 19518
+      }
+    }
+  },
+  "repeat": {
+    "requests": 54,
+    "bodyBytes": 1025998,
+    "groups": {
+      "shell": {
+        "requests": 50,
+        "bodyBytes": 775918
+      },
+      "api": {
+        "requests": 4,
+        "bodyBytes": 250080
+      },
+      "art": {
+        "requests": 0,
+        "bodyBytes": 0
+      }
+    }
+  },
+  "openFireballCard": {
+    "requests": 1,
+    "bodyBytes": 167333,
+    "groups": {
+      "shell": {
+        "requests": 0,
+        "bodyBytes": 0
+      },
+      "api": {
+        "requests": 0,
+        "bodyBytes": 0
+      },
+      "art": {
+        "requests": 1,
+        "bodyBytes": 167333
+      }
+    }
+  },
+  "limitations": [
+    "Counts response bodies, excludes HTTP/TLS overhead and production compression",
+    "Not Android or physical iPad",
+    "Not cold offline startup",
+    "Measured before drawer CSS correction"
+  ]
+}
