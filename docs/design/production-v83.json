@@ -1,0 +1,163 @@
+{
+  "batch": "production-v83",
+  "entries": [
+    {
+      "id": "srd51:2014:spell:prismatic-wall",
+      "sourcePath": "data/art-production-v83/prismatic-wall.png",
+      "sourceSha256": "5cbd81346682827f4e0565bc7917909f6e16a8e277a0b2dba3c485df7338d79a",
+      "brief": "Original SKAZ D&D2014 fantasy reference-book spell illustration. Mature painterly realism, restrained natural colors, strong compact silhouette readable at32px on both dark navy and cream backgrounds, generous transparent margins. Single centered motif, no text, no UI, no border, no cartoon, no noisy scene. Prismatic Wall: upright opaque slab of seven parallel luminous sheets red orange yellow green blue indigo violet, slight oblique view shows layered depth, compact rectangular silhouette above a small stone plinth, no hand, no fan rays, no text.",
+      "revision": "Edit ONLY the attached selected illustration. Preserve its exact artistic concept: seven upright overlapping rectangular monochrome magical sheets, front red, then orange, yellow, green, blue, indigo, violet. Preserve horizontal top/bottom edges, vertical sides, the front red full face and the receding up-right arrangement, crystalline glow and fine crossing magical veins. Make ONLY these changes: 1) compress the depth spacing so the seven layers are tightly touching face-to-face, like a compact stack of seven colored glass plates, NOT a spread-out exploded diagram. Reduce each successive up-right offset substantially, while retaining a clearly visible narrow continuous top-and-right border of each of the six rear colors. There must remain exactly seven distinct countable layers. The front sheet remains entirely red; do not replace it with rainbow stripes or a gradient. 2) REMOVE EVERY loose gemstone, rock, crystal fragment, ground particle and all ground fog below/around the sheets. Nothing beneath them, no pedestal or floor. Clean transparent background with only a subtle thin glow attached to the sheet edges. No detached debris. Do not rotate into a new viewpoint, do not turn into a solid rainbow-striped slab. Keep generous transparent margins, no text.\r\n",
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 2,
+      "previous": {
+        "id": "srd51:2014:spell:prismatic-wall",
+        "contentSha256": "825ac4d953460a5e3779cf55ab8b6bd38242b1129303c5c58cac65769fff3a75",
+        "status": "accepted",
+        "version": 1,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "provenance": {
+          "method": "generated",
+          "author": "SKAZ; OpenAI built-in image generator",
+          "source": "Original generation 2026-11-13; SHA256 cd6b1c978deac51803bf55605ba526110fae78d6c67830ad760365aef44007b6",
+          "usage": "Original generated SKAZ artwork; authorized autonomous production and acceptance 2026-11-11; no third-party reference artwork",
+          "attribution": "SKAZ visual library",
+          "reviewedBy": "Codex under user authorization of 2026-11-13",
+          "originalSha256": "cd6b1c978deac51803bf55605ba526110fae78d6c67830ad760365aef44007b6",
+          "derivation": "Normalized 384 px delivery master; unchanged generator source retained locally"
+        },
+        "files": {
+          "original": {
+            "path": "assets/art/spells/prismatic-wall-original-4afb879f137ce1b6.png",
+            "width": 384,
+            "height": 351,
+            "bytes": 188074,
+            "sha256": "4afb879f137ce1b6548540cc1211bae843c7f79de000bcce80cb8b813f8989ed",
+            "derivedFrom": "cd6b1c978deac51803bf55605ba526110fae78d6c67830ad760365aef44007b6",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          },
+          "thumbnail": {
+            "path": "assets/art/spells/prismatic-wall-thumbnail-78591fd61b77f0fb.png",
+            "width": 96,
+            "height": 88,
+            "bytes": 12764,
+            "sha256": "78591fd61b77f0fb065977edfd402befb47ef217847a2e1435b4166547582627",
+            "derivedFrom": "cd6b1c978deac51803bf55605ba526110fae78d6c67830ad760365aef44007b6",
+            "recipe": "skaz-rgba-area-premultiplied-v1"
+          }
+        },
+        "review": {
+          "by": "Codex, delegated visual and technical acceptance",
+          "evidence": "docs/design/production-v83.json; docs/design/qa/production-v83-atlas.png"
+        }
+      },
+      "review": {
+        "width": 1312,
+        "height": 1199,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Final compact seven monochrome layers accepted by user. Rechecked32/40px, grayscale circle and Polaris/Coal/Atlas in IAB.",
+        "userAccepted": true
+      }
+    },
+    {
+      "id": "srd51:2014:spell:programmed-illusion",
+      "sourcePath": "data/art-production-v83/programmed-illusion.png",
+      "sourceSha256": "4fb41a98e94aad54953cd50d5b7a34e7547ba868bcac4e481a53b29b0b144dbc",
+      "brief": "Original SKAZ D&D2014 fantasy reference-book spell illustration. Mature painterly realism, restrained natural colors, strong compact silhouette readable at32px on both dark navy and cream backgrounds, generous transparent margins. Single centered motif, no text, no UI, no border, no cartoon, no noisy scene. Programmed Illusion: a translucent silver theatrical knight apparition appearing as a small brass door bell swings, one ghostlike figure and one clear trigger bell above jade dust. Mature magical illusion, no clock interface, no text.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1199,
+        "height": 1312,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six spell motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:project-image",
+      "sourcePath": "data/art-production-v83/project-image.png",
+      "sourceSha256": "6aa4adafac482ec9db176853a5c12aa069b2916e29fc780f5c414097ff0406c6",
+      "brief": "Original SKAZ D&D2014 fantasy reference-book spell illustration. Mature painterly realism, restrained natural colors, strong compact silhouette readable at32px on both dark navy and cream backgrounds, generous transparent margins. Single centered motif, no text, no UI, no border, no cartoon, no noisy scene. Project Image: one robed mage bust and a matching translucent pale-blue duplicate offset to the right, the duplicate has an open eye and raised listening hand. A tiny wooden figurine between them. Strong two-profile silhouette, no text.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1536,
+        "height": 1024,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six spell motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:regenerate",
+      "sourcePath": "data/art-production-v83/regenerate.png",
+      "sourceSha256": "357df83d5726e5bd8378ef7ec31aa2c9a59878781d6b8cebb61e1350240dc04d",
+      "brief": "Original SKAZ D&D2014 fantasy reference-book spell illustration. Mature painterly realism, restrained natural colors, strong compact silhouette readable at32px on both dark navy and cream backgrounds, generous transparent margins. Single centered motif, no text, no UI, no border, no cartoon, no noisy scene. Regenerate: close-up of a living armored forearm with a whole new hand forming from warm golden threads, restored fingers clean and anatomically correct, no wound or gore; small prayer wheel below. Compact hand silhouette on transparent background.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1269,
+        "height": 1240,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six spell motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:resurrection",
+      "sourcePath": "data/art-production-v83/resurrection.png",
+      "sourceSha256": "7eb4943ba133d76f5286f8e14d4274d15a560e6b18ec16568b0fe5fdb573567b",
+      "brief": "Original SKAZ D&D2014 fantasy reference-book spell illustration. Mature painterly realism, restrained natural colors, strong compact silhouette readable at32px on both dark navy and cream backgrounds, generous transparent margins. Single centered motif, no text, no UI, no border, no cartoon, no noisy scene. Resurrection: pale resting adult warrior head and shoulders rising from a folded burial cloth, healer hand touching forehead, one bright diamond breaking into gold light overhead, eyes gently opening, no gore, compact composition.",
+      "revision": null,
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1312,
+        "height": 1199,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six spell motifs checked against 2014 catalog descriptions."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:reverse-gravity",
+      "sourcePath": "data/art-production-v83/reverse-gravity.png",
+      "sourceSha256": "a634106f2f4e2c8bc4889fb5e42b2245a537b3ec4122d71c32740e8639469980",
+      "brief": "Original SKAZ D&D2014 fantasy reference-book spell illustration. Mature painterly realism, restrained natural colors, strong compact silhouette readable at32px on both dark navy and cream backgrounds, generous transparent margins. Single centered motif, no text, no UI, no border, no cartoon, no noisy scene. Reverse Gravity: one startled adventurer falling upward upside down alongside a wooden stool and loose stones, torn small ground island below. Clear inverted figure and floating objects, no wings, compact vertical arrangement, no text.",
+      "revision": "Original SKAZ D&D2014 fantasy reference-book spell illustration. Mature painterly realism, restrained natural colors, strong compact silhouette readable at32px on both dark navy and cream backgrounds, generous transparent margins. Single centered motif, no text, no UI, no border, no cartoon, no noisy scene. Reverse Gravity: single LARGE upside-down adventurer, curled compactly with knees bent upward and open hands below head, pale shirt and bronze leather armor, floating upward beside one small inverted wooden stool. No ground island, no scattered stones, compact nearly square composition, figure occupies85 percent, clearly inverted face, strong light outline, no wings or text.",
+      "method": "built-in image_gen",
+      "date": "2026-11-13",
+      "version": 1,
+      "previous": null,
+      "review": {
+        "width": 1254,
+        "height": 1254,
+        "accepted": true,
+        "threeThemes": true,
+        "grayscaleCircle": true,
+        "notes": "Local IAB32/40px, grayscale circle, Polaris/Coal/Atlas. Six spell motifs checked against 2014 catalog descriptions."
+      }
+    }
+  ]
+}

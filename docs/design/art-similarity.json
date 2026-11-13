@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "method": "63-bit DCT pHash; 32px alpha composite on black and white; maximum distance 10 on BOTH",
   "purpose": "Candidates for human comparison only; not duplicate detection, mechanical validation or acceptance",
-  "count": 477,
+  "count": 519,
   "pairs": [
     {
       "ids": [
@@ -522,6 +522,11 @@
       "light": "6be5c62e941ad819"
     },
     {
+      "id": "srd51:2014:monster:barbed-devil",
+      "dark": "591b36e02fe43ab0",
+      "light": "2684cf7c922ad54b"
+    },
+    {
       "id": "srd51:2014:monster:basilisk",
       "dark": "403b3fb535c038cb",
       "light": "7eb1914aca2d0d3c"
@@ -530,6 +535,11 @@
       "id": "srd51:2014:monster:bat",
       "dark": "4676383933ce8c96",
       "light": "4676383933ce8c96"
+    },
+    {
+      "id": "srd51:2014:monster:bearded-devil",
+      "dark": "50483de7273f26d0",
+      "light": "2fd6ca18d04bd139"
     },
     {
       "id": "srd51:2014:monster:berserker",
@@ -642,6 +652,11 @@
       "light": "6af4a5909596878e"
     },
     {
+      "id": "srd51:2014:monster:dretch",
+      "dark": "414a2fb57e269398",
+      "light": "3ea5c25a8d66c90b"
+    },
+    {
       "id": "srd51:2014:monster:druid",
       "dark": "450f3e7c33313863",
       "light": "7ef4838f92880dca"
@@ -717,6 +732,11 @@
       "light": "6bc2943d869d9ad0"
     },
     {
+      "id": "srd51:2014:monster:ghast",
+      "dark": "400b3ef464957bf0",
+      "light": "2fe5c41e92589d19"
+    },
+    {
       "id": "srd51:2014:monster:ghost",
       "dark": "4c8f3cf03158e2b5",
       "light": "25e6932fd8930cca"
@@ -737,6 +757,16 @@
       "light": "66989b6ccc33a4a6"
     },
     {
+      "id": "srd51:2014:monster:gibbering-mouther",
+      "dark": "411e3bb124e56766",
+      "light": "6ee4851a9e1ec961"
+    },
+    {
+      "id": "srd51:2014:monster:gladiator",
+      "dark": "41493db24fbc7096",
+      "light": "72b4c3689447d86d"
+    },
+    {
       "id": "srd51:2014:monster:gnoll",
       "dark": "541e31694fb948f2",
       "light": "2be1d2e6e4129d94"
@@ -752,9 +782,19 @@
       "light": "6dc4d23b9292644f"
     },
     {
+      "id": "srd51:2014:monster:gray-ooze",
+      "dark": "501a3be1676cd893",
+      "light": "62c4851b9ab36f4c"
+    },
+    {
       "id": "srd51:2014:monster:green-dragon-wyrmling",
       "dark": "43633c1d9bb0c26b",
       "light": "3c9cc363634d3c94"
+    },
+    {
+      "id": "srd51:2014:monster:green-hag",
+      "dark": "111b1ee965ad78c4",
+      "light": "6bb1c407c75e906c"
     },
     {
       "id": "srd51:2014:monster:guard",
@@ -772,6 +812,11 @@
       "light": "476d30986cb671c3"
     },
     {
+      "id": "srd51:2014:monster:hell-hound",
+      "dark": "430f2fe42ec11d93",
+      "light": "3df0c36f9403d04b"
+    },
+    {
       "id": "srd51:2014:monster:hill-giant",
       "dark": "411d3ff07a426687",
       "light": "6ad09517872d9c78"
@@ -780,6 +825,16 @@
       "id": "srd51:2014:monster:hobgoblin",
       "dark": "400f37e00fbc7a35",
       "light": "3da4c247b64ae11e"
+    },
+    {
+      "id": "srd51:2014:monster:homunculus",
+      "dark": "19933b4f24a4664f",
+      "light": "334eccb1ce0b8cb8"
+    },
+    {
+      "id": "srd51:2014:monster:imp",
+      "dark": "44d43f2b61f194a5",
+      "light": "3b29ccf0960e2979"
     },
     {
       "id": "srd51:2014:monster:iron-golem",
@@ -797,9 +852,19 @@
       "light": "31928e4fd32dc472"
     },
     {
+      "id": "srd51:2014:monster:lemure",
+      "dark": "410e3df166239e5c",
+      "light": "2fe4921bcde02785"
+    },
+    {
       "id": "srd51:2014:monster:lizard",
       "dark": "52973f64c9c84a53",
       "light": "2f68c09f3233a53c"
+    },
+    {
+      "id": "srd51:2014:monster:lizardfolk",
+      "dark": "1c5a2ba176df6284",
+      "light": "68a7d65e88289778"
     },
     {
       "id": "srd51:2014:monster:mage",
@@ -820,6 +885,31 @@
       "id": "srd51:2014:monster:minotaur",
       "dark": "40255e782b0f5fd2",
       "light": "7ed5830bd458a12d"
+    },
+    {
+      "id": "srd51:2014:monster:minotaur-skeleton",
+      "dark": "4c2c73d0712f2f98",
+      "light": "3fd3c42d9472c360"
+    },
+    {
+      "id": "srd51:2014:monster:mummy",
+      "dark": "4c1e09e134be75e1",
+      "light": "6ab0940fdb5b8236"
+    },
+    {
+      "id": "srd51:2014:monster:night-hag",
+      "dark": "103b38e127ed5b86",
+      "light": "6be5c60f941c915a"
+    },
+    {
+      "id": "srd51:2014:monster:nightmare",
+      "dark": "404b1f9c68b473f1",
+      "light": "3fe4c24a911bcc1e"
+    },
+    {
+      "id": "srd51:2014:monster:noble",
+      "dark": "584d3eb163672694",
+      "light": "3fa3c24b853ec20b"
     },
     {
       "id": "srd51:2014:monster:octopus",
@@ -2112,6 +2202,11 @@
       "light": "6af0950f74904d7a"
     },
     {
+      "id": "srd51:2014:spell:prismatic-wall",
+      "dark": "528f2d7096cbc22e",
+      "light": "3cc3c33c3cc13cc3"
+    },
+    {
       "id": "srd51:2014:spell:private-sanctum",
       "dark": "4e93312ce63393c6",
       "light": "2471d3c66c9b316c"
@@ -2120,6 +2215,16 @@
       "id": "srd51:2014:spell:produce-flame",
       "dark": "493c63c2b62dc972",
       "light": "3ec3942dc830e59b"
+    },
+    {
+      "id": "srd51:2014:spell:programmed-illusion",
+      "dark": "4f3c30d33dc4628e",
+      "light": "36cdcd3c909a98b2"
+    },
+    {
+      "id": "srd51:2014:spell:project-image",
+      "dark": "11736e8c4e699572",
+      "light": "3ff8c006d1e32ae8"
     },
     {
       "id": "srd51:2014:spell:protection-from-energy",
@@ -2157,6 +2262,11 @@
       "light": "6c969a6db2592c92"
     },
     {
+      "id": "srd51:2014:spell:regenerate",
+      "dark": "59973f60664e9c30",
+      "light": "2e68c017b9e16e78"
+    },
+    {
       "id": "srd51:2014:spell:reincarnate",
       "dark": "43e1613d3e1e0cc7",
       "light": "64969ec9c8f3c238"
@@ -2175,6 +2285,16 @@
       "id": "srd51:2014:spell:resistance",
       "dark": "493936c61d61669e",
       "light": "3cc3c23cc93663ca"
+    },
+    {
+      "id": "srd51:2014:spell:resurrection",
+      "dark": "153d6bc26687b492",
+      "light": "7ac2853fd0694b34"
+    },
+    {
+      "id": "srd51:2014:spell:reverse-gravity",
+      "dark": "402d3fd0636dd1d2",
+      "light": "3372c18d95b44e6a"
     },
     {
       "id": "srd51:2014:spell:revivify",
@@ -2227,6 +2347,16 @@
       "light": "1ed05a0ff124a6ba"
     },
     {
+      "id": "srd51:2014:spell:sequester",
+      "dark": "42cc2d32d0e4cfda",
+      "light": "3c6dc3923c4de132"
+    },
+    {
+      "id": "srd51:2014:spell:shapechange",
+      "dark": "199d2f4a68ce703c",
+      "light": "3dc0c2358f689fe0"
+    },
+    {
       "id": "srd51:2014:spell:shatter",
       "dark": "5b3134c666cc9b38",
       "light": "64c69239cb322ccf"
@@ -2260,6 +2390,11 @@
       "id": "srd51:2014:spell:silent-image",
       "dark": "4f18656c32e7cb18",
       "light": "30c79a9dcd3866c1"
+    },
+    {
+      "id": "srd51:2014:spell:simulacrum",
+      "dark": "10726fa569c3689d",
+      "light": "3cb0c01ec767c7c1"
     },
     {
       "id": "srd51:2014:spell:sleep",
@@ -2332,9 +2467,29 @@
       "light": "6e4e99b38519c29a"
     },
     {
+      "id": "srd51:2014:spell:storm-of-vengeance",
+      "dark": "133a3ac969c464e7",
+      "light": "2de6c4ce9b38d830"
+    },
+    {
       "id": "srd51:2014:spell:suggestion",
       "dark": "4ec6301893739ece",
       "light": "3139cec53c1e6698"
+    },
+    {
+      "id": "srd51:2014:spell:sunbeam",
+      "dark": "4c1f33e18e9e7061",
+      "light": "3de1c21e60c11ff2"
+    },
+    {
+      "id": "srd51:2014:spell:sunburst",
+      "dark": "4fcb3034cbd30c8d",
+      "light": "3474c3d30ccd3374"
+    },
+    {
+      "id": "srd51:2014:spell:symbol",
+      "dark": "43db2c6d3032c367",
+      "light": "3136c74b2c94736c"
     },
     {
       "id": "srd51:2014:spell:telekinesis",
@@ -2345,6 +2500,11 @@
       "id": "srd51:2014:spell:telepathic-bond",
       "dark": "174c78a564d37a85",
       "light": "3bb3801e9a6cc4ce"
+    },
+    {
+      "id": "srd51:2014:spell:teleport",
+      "dark": "433634c96bce8d34",
+      "light": "3c49c3963636c9c9"
     },
     {
       "id": "srd51:2014:spell:teleportation-circle",
@@ -2362,6 +2522,11 @@
       "light": "659696693993494d"
     },
     {
+      "id": "srd51:2014:spell:time-stop",
+      "dark": "446c3a9f793a24b2",
+      "light": "3ed1c00fc33ccf30"
+    },
+    {
       "id": "srd51:2014:spell:tiny-hut",
       "dark": "5b6c2493d34cdc31",
       "light": "34c6cb3938c42e9b"
@@ -2372,6 +2537,11 @@
       "light": "4a40a197873c5ef6"
     },
     {
+      "id": "srd51:2014:spell:transport-via-plants",
+      "dark": "46b979c6272b9834",
+      "light": "3b70c48bc9442fb9"
+    },
+    {
       "id": "srd51:2014:spell:tree-stride",
       "dark": "44393bc6346b939c",
       "light": "3f32c48dc8646f32"
@@ -2380,6 +2550,16 @@
       "id": "srd51:2014:spell:true-polymorph",
       "dark": "119f62669ce16b4a",
       "light": "6e60959de11e9097"
+    },
+    {
+      "id": "srd51:2014:spell:true-resurrection",
+      "dark": "4d393c4c33926673",
+      "light": "30cbe38c3c6cc33c"
+    },
+    {
+      "id": "srd51:2014:spell:true-seeing",
+      "dark": "139e6cc1b427c29e",
+      "light": "3c61c79f48383dc1"
     },
     {
       "id": "srd51:2014:spell:true-strike",
@@ -2412,9 +2592,19 @@
       "light": "3232cdc932866b73"
     },
     {
+      "id": "srd51:2014:spell:wall-of-ice",
+      "dark": "14306bcf9ec6e429",
+      "light": "3f8fc07038980fc7"
+    },
+    {
       "id": "srd51:2014:spell:wall-of-stone",
       "dark": "14156bfac541963e",
       "light": "7eea81143ea96ac2"
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-thorns",
+      "dark": "531b3d6929a22ee4",
+      "light": "3dc4c20fc37b942c"
     },
     {
       "id": "srd51:2014:spell:warding-bond",
@@ -2437,9 +2627,29 @@
       "light": "3b95c46ae2181f87"
     },
     {
+      "id": "srd51:2014:spell:weird",
+      "dark": "10b62f336d0c69cd",
+      "light": "3eccc02b83f4c3a3"
+    },
+    {
+      "id": "srd51:2014:spell:wind-walk",
+      "dark": "40973f68c135cd8b",
+      "light": "6969d69636da3064"
+    },
+    {
       "id": "srd51:2014:spell:wind-wall",
       "dark": "4c1933c732e6ce38",
       "light": "32c7cc38c93931c7"
+    },
+    {
+      "id": "srd51:2014:spell:wish",
+      "dark": "154a6ea536663b91",
+      "light": "3bb0f043816fd52a"
+    },
+    {
+      "id": "srd51:2014:spell:word-of-recall",
+      "dark": "123e2ce16dc229cf",
+      "light": "6badc55a979690a0"
     },
     {
       "id": "srd51:2014:spell:zone-of-truth",
