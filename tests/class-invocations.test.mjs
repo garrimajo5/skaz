@@ -26,4 +26,3 @@ test('invalid facts cannot silently grant options and returned data cannot mutat
  assert.deepEqual(find(2,'armor-of-shadows',{knownInvocations:['armor-of-shadows']}).reasons,['already-known']);
  const rows=get(2);rows[0].reasons.length=0;rows[0].text='corrupt';assert.ok(get(2)[0].reasons.length);assert.notEqual(get(2)[0].text,'corrupt');
 });
-
