@@ -3,7 +3,7 @@ import {hunterChoiceAt,validateHunterSelection,validateHunterHistory} from './cl
 import {readFileSync} from 'node:fs';
 import {classProgression,previewClassLevel} from './class-progression.mjs';
 const data=JSON.parse(readFileSync(new URL('../catalog/srd51-subclass-reference.json',import.meta.url),'utf8'));
-const supported=new Set(['barbarian-berserker','fighter-champion','rogue-thief','monk-open-hand','wizard-evocation','ranger-hunter']);
+const supported=new Set(['barbarian-berserker','fighter-champion','rogue-thief','monk-open-hand','wizard-evocation','ranger-hunter','paladin-devotion']);
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(k=>Object.hasOwn(value,k));
 export function subclassDescription(id){const s=data.subclasses.find(o=>o.id===id);if(!s)throw new Error('Неизвестный подкласс SRD');return {...structuredClone(s),source:structuredClone(data.source),...(id==='ranger-hunter'?{additionalChoice:hunterChoiceAt(3)}:{})};}
 export function advancementSubclassOptions(classId,level){

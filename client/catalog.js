@@ -168,11 +168,11 @@ const SkazCatalog = (() => {
       const key=SkazStorage.snapshotKey();
       SkazStorage.spellbookData().then(book=>{
         if(!detailVisible(token)||key!==SkazStorage.snapshotKey())return;
-        const existing=book.entries.find(item=>item.catalogId===entry.id)?.status;
-        document.getElementById('catalog-book-status').textContent=knownCaster&&existing?'В книге · Известно':existing==='prepared'?'В книге · Подготовлено':existing==='known'?'В книге · Изучено':'Ещё не в книге';
+        const owned=book.entries.find(item=>item.catalogId===entry.id),existing=owned?.status,alwaysPrepared=owned?.alwaysPrepared===true;
+        document.getElementById('catalog-book-status').textContent=alwaysPrepared?'Постоянно подготовлено умением класса · вне обычного предела подготовки':knownCaster&&existing?'В книге · Известно':existing==='prepared'?'В книге · Подготовлено':existing==='known'?'В книге · Изучено':'Ещё не в книге';
         for(const [id,mark] of (knownCaster?[['catalog-known','known']]:[['catalog-known','known'],['catalog-prepared','prepared']])){
-          const button=document.getElementById(id);button.disabled=(knownCaster?!!existing:existing===mark)||!SkazStorage.can('character');
-          button.onclick=async()=>{button.disabled=true;try{await SkazStorage.setSpell(entry,mark,key);}catch(error){if(detailVisible(token)){document.getElementById('catalog-book-status').textContent=error.message;button.disabled=false;}}};
+          const button=document.getElementById(id);button.disabled=alwaysPrepared||(knownCaster?!!existing:existing===mark)||!SkazStorage.can('character');
+          button.onclick=async()=>{if(alwaysPrepared)return;button.disabled=true;try{await SkazStorage.setSpell(entry,mark,key);}catch(error){if(detailVisible(token)){document.getElementById('catalog-book-status').textContent=error.message;button.disabled=false;}}};
         }
       }).catch(()=>{if(detailVisible(token))document.getElementById('catalog-book-status').textContent='Книга недоступна. Повторно открой карточку после подключения.';});
     }

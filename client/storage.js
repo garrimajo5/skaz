@@ -43,8 +43,9 @@ const SkazStorage = (() => {
   }
   const permissionKeys=['character','shared','manageCampaign','catalog','newCampaign','select','import','history','export','members'];
   const individual=()=>typeof SkazAccount!=='undefined' && Boolean(SkazAccount.userId);
-  let spellLearning=null;
+  let spellLearning=null,alwaysPreparedIds=new Set();
   function adoptPermissions(payload){
+    alwaysPreparedIds=new Set(payload.alwaysPreparedSpellIds||(payload.advancement?.subclassSpells||[]).map(o=>o.catalogId));
     spellLearning=["known","prepared","spellbook"].includes(payload.spellLearning)?payload.spellLearning:null;
     const p=payload.permissions;
     if(p===undefined){if(individual())throw new Error('Сервер не подтвердил права доступа');permissions=null;return;}
@@ -592,6 +593,7 @@ const SkazStorage = (() => {
     const key = JSON.stringify(activeContext), version = revision, characterId = activeContext.characterId;
     let sourceLink='';
     try{const source=new URL(entry.source.url);if(['https:','http:'].includes(source.protocol)&&!source.username&&!source.password)sourceLink=`<p><a href="${esc(source.href)}" target="_blank" rel="noopener noreferrer">Открыть первоисточник ↗</a></p>`;}catch{}
+    if(alwaysPreparedIds.has(entry.id)){modal(`<h2 tabindex="-1" autofocus>${esc(entry.name.ru)}</h2>${typeof SkazArt!=='undefined'?SkazArt.markup(entry,'card'):''}<p>Постоянно подготовлено умением класса. Не входит в обычный предел подготовки; снять подготовку или удалить нельзя. Применение учитывай по правилам своего умения.</p><p class="session-text">${esc(entry.text||'')}</p><p>${esc(entry.source.title)} · ${esc(entry.source.version)}</p><p>${esc(entry.source.terms)}</p>${sourceLink}${entry.source.attribution?`<p>${esc(entry.source.attribution)}</p><p>${esc(entry.source.changes)}</p>`:''}`);if(typeof SkazPersonalArtCards!=='undefined')SkazPersonalArtCards.mount($('#dialog-content'),entry);return;}
     modal(`<div class="overline">${esc(state.profile.name)}</div><h2 tabindex="-1" autofocus>${esc(entry.name.ru)}</h2>${typeof SkazArt!=='undefined'?SkazArt.markup(entry,'card'):''}<p>Ручная отметка; ячейки и эффекты не меняются. ${selected ? "Удаление убирает запись только из списка персонажа." : "Выбери отметку и добавь заклинание в свою книгу."}</p><form id="spellbook-form"><label for="spellbook-status">Отметка</label><select id="spellbook-status">${spellLearning==='known'?'<option value="known" selected>Известно</option>':`<option value="known" ${selected === 'known' ? 'selected' : ''}>Изучено</option><option value="prepared" ${selected === 'prepared' ? 'selected' : ''}>Подготовлено</option>`}${selected ? '<option value="remove">Убрать из моего списка</option>' : ''}</select><button type="submit" class="primary">${selected ? "Сохранить отметку" : "Добавить в книгу"}</button></form><p class="session-text">${esc(entry.text || 'Сохранена только справочная ссылка; текста нет.')}</p><p>${esc(entry.source.title)} · ${esc(entry.source.version)}</p><p>${esc(entry.source.terms)}</p>${sourceLink}${entry.source.attribution ? `<p>${esc(entry.source.attribution)}</p><p>${esc(entry.source.changes)}</p>` : ''}`);
     if(typeof SkazPersonalArtCards!=='undefined')SkazPersonalArtCards.mount($('#dialog-content'),entry);
     $('#spellbook-form').onsubmit = async event => {

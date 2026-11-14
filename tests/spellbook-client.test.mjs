@@ -64,3 +64,7 @@ test('known caster book merges legacy prepared and known without rewriting edit 
  h.setKey('cleric:0');h.view();h.tasks.shift()();h.requests[1].resolve({spellLearning:'prepared',entries:[item(0),item(1)]});await settle();
  assert.match(h.view(),/Подготовлено/);assert.doesNotMatch(h.region.innerHTML,/Заклинание 0/);
 });
+
+test('always-prepared spell badge remains visible in the prepared book',async()=>{
+ const h=harness(true);h.view();h.tasks.shift()();h.requests[0].resolve({spellLearning:'prepared',entries:[{...item(1),alwaysPrepared:true},item(3)]});await settle();assert.match(h.region.innerHTML,/Постоянно подготовлено/);assert.match(h.region.innerHTML,/Заклинание 1/);assert.match(h.region.innerHTML,/Заклинание 3/);
+});

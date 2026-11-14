@@ -24,6 +24,7 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   return { api: vm.runInContext('SkazStorage', context), get, messages, messageOptions, archiveCalls, references, downloads, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
     click: (id,dataset={},disabled=false) => handlers.click({ target: { closest: () => ({ id,dataset,disabled }) } }),
+    installArt:(art,cards)=>{context.SkazArt=art;context.SkazPersonalArtCards=cards;},
     advancementEnabled:()=>{context.document.body={dataset:{classAdvancement:'enabled'}};},
     visible: value => {context.document.visibilityState=value;return handlers.visibilitychange();},
     state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),
@@ -1162,4 +1163,12 @@ test('v14 preview names manual conditions before confirmation and rejects invali
 test('conditions select v14 download even without enabled advancement',async()=>{
  const current={...payload(4),state:{...seed,conditions:{active:['prone'],exhaustion:0}}},routes=[];
  const h=harness(memory(),memory(),async url=>{routes.push(url);return response(url==='/api/workspace'?current:{app:'skaz-active',schemaVersion:14,source:{context:current.context,revision:4},characterStats:null,characterSheet:null,advancement:null});});await h.api.boot();h.api.settings();await h.get('#export-active').onclick();assert.ok(routes.includes('/api/export/active-v14'));assert.deepEqual(h.downloads,['skaz-active-v14.json']);
+});
+
+test('oath spell details are read-only and protection is cleared on a different hero',async()=>{
+ let other=false;const calls=[],h=harness(memory(),memory(),async(url,options={})=>{calls.push({url,options});return response({...payload(other?2:1,other?'second':'first'),spellLearning:'prepared',...(other?{}:{advancement:{subclassSpells:[{catalogId:'oath-spell'}]}})});});await h.api.boot();const entry={id:'oath-spell',kind:'spell',name:{ru:'Обряд'},text:'Текст',source:{url:'https://example.invalid/source',title:'Fixture',version:'1',terms:'Fixture'}};h.api.editSpell(entry,'prepared');assert.match(h.dialog(),/Постоянно подготовлено умением класса/);assert.doesNotMatch(h.dialog(),/id="spellbook-form"|value="remove"/);assert.equal(calls.filter(c=>c.options.method==='POST').length,0);other=true;await h.api.refreshAfterAdvancement();h.api.editSpell(entry,'known');assert.match(h.dialog(),/id="spellbook-form"/);assert.match(h.dialog(),/value="remove"/);
+});
+
+test('signature permanent preparation retains card artwork, personal art mount and source terms without offering book mutation',async()=>{
+ const h=harness(memory(),memory(),async()=>response({...payload(1),alwaysPreparedSpellIds:['signature-spell']})),mounted=[];h.installArt({markup:entry=>'<div data-art="'+entry.id+'"></div>'},{sweep(){},mount:(root,entry)=>mounted.push(entry.id)});await h.api.boot();h.api.editSpell({id:'signature-spell',kind:'spell',name:{ru:'Фирменное'},text:'Rules',source:{url:'https://example.invalid/source',title:'SRD 5.1',version:'2014',terms:'CC BY 4.0',attribution:'Wizards of the Coast',changes:'Translation'}},'prepared');assert.match(h.dialog(),/data-art="signature-spell"/);assert.deepEqual(mounted,['signature-spell']);assert.match(h.dialog(),/CC BY 4.0/);assert.match(h.dialog(),/Wizards of the Coast/);assert.doesNotMatch(h.dialog(),/id="spellbook-form"|value="remove"/);
 });

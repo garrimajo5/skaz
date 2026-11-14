@@ -1,3 +1,5 @@
+import {wizardCommand} from './fixtures/wizard-commands.mjs';
+import {rangerCommand} from './fixtures/ranger-commands.mjs';
 // Full application on disposable memory only; never accepts a database path.
 import {openStore} from '../server/store.mjs';
 import {createApp} from '../server/app.mjs';
@@ -12,7 +14,7 @@ const args=new Map();for(const arg of process.argv.slice(2)){
 }
 const port=Number(args.get('port')||4245),scenario=args.get('scenario')||'original';
 if(!Number.isInteger(port)||port<1024||port>65535)throw Error('Invalid fixture port');
-const scenarios={original:[['fighter',3],['wizard',2],['cleric',1]],'class-choices':[['paladin',1],['ranger',1],['sorcerer',2]],'unknown-metamagic':[['sorcerer',9]],'warlock-choices':[['warlock',1]],'unknown-invocations':[['warlock',4]],'subclass-choices':[['fighter',2],['barbarian',2],['rogue',2],['monk',2],['wizard',1],['ranger',2]],'champion-style':[['fighter',2]],'wizard-mastery':[['wizard',1]]};
+const scenarios={original:[['fighter',3],['wizard',2],['cleric',1]],'class-choices':[['paladin',1],['ranger',1],['sorcerer',2]],'unknown-metamagic':[['sorcerer',9]],'warlock-choices':[['warlock',1]],'unknown-invocations':[['warlock',4]],'subclass-choices':[['fighter',2],['barbarian',2],['rogue',2],['monk',2],['wizard',1],['ranger',2]],'champion-style':[['fighter',2]],'wizard-mastery':[['wizard',1]],'ranger-six':[['ranger',1]],'ranger-ten':[['ranger',1]],'ranger-fourteen':[['ranger',1]],'devotion':[['paladin',2]],'wizard-signature':[['wizard',1]]};
 if(!Object.hasOwn(scenarios,scenario))throw Error('Unknown fixture scenario');
 const heroes=scenarios[scenario],store=openStore(':memory:',{classAdvancement:true});
 store.catalog.installBundled({version:store.catalog.previewBundled().version});
@@ -40,6 +42,8 @@ if(['champion-style','wizard-mastery'].includes(scenario)){
   store.advanceCharacter(command(store,{classId,fromLevel,hpMethod:'fixed',hpRoll:null,choices,reviewedFeatures:plan.requiresFeatureReview}));
  }
 }
+if(scenario.startsWith('ranger-')){const target={'ranger-six':5,'ranger-ten':9,'ranger-fourteen':13}[scenario];while(store.read().characterSheet.level<target)store.advanceCharacter(rangerCommand(store));}
+if(scenario==='wizard-signature')while(store.read().characterSheet.level<19)store.advanceCharacter(wizardCommand(store));
 const app=createApp(store,{classAdvancement:true});let lost=false;
 app.prependListener('request',(req,res)=>{
  if(process.argv.includes('--lose-response')&&req.url==='/api/class-advancement/apply'&&req.method==='POST'&&!lost){const end=res.end;res.end=function(chunk,...args){if(res.statusCode===200){lost=true;return end.call(this,'{',...args);}return end.call(this,chunk,...args);};}

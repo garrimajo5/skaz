@@ -10,7 +10,7 @@ const get=id=>data.subclasses.find(s=>s.id===id);
 test('twelve SRD subclass references have unique class-bound parents and licensed level-specific features',()=>{
  assert.equal(data.schemaVersion,1);assert.equal(data.ruleset,'5e-2014');assert.equal(data.source.sha256,base.source.sha256);assert.equal(data.source.attribution,base.source.attribution);assert.equal(data.source.usage,'cc-by-4.0');
  assert.equal(data.subclasses.length,12);assert.equal(new Set(data.subclasses.map(s=>s.classId)).size,12);const ids=new Set();
- for(const s of data.subclasses){assert.equal(s.status,'reference-only');assert.ok(!ids.has(s.id));ids.add(s.id);const parent=base.features.find(f=>f.id===s.parentId);assert.equal(parent.classId,s.classId);assert.equal(parent.status,['fighter','barbarian','rogue','monk','wizard','ranger'].includes(s.classId)?'choice':'unsupported');assert.ok(s.features.length>=4);const keys=new Set();
+ for(const s of data.subclasses){assert.equal(s.status,'reference-only');assert.ok(!ids.has(s.id));ids.add(s.id);const parent=base.features.find(f=>f.id===s.parentId);assert.equal(parent.classId,s.classId);assert.equal(parent.status,['fighter','barbarian','rogue','monk','wizard','ranger','paladin'].includes(s.classId)?'choice':'unsupported');assert.ok(s.features.length>=4);const keys=new Set();
   for(const f of s.features){assert.ok(!keys.has(f.key));keys.add(f.key);assert.ok(Number.isInteger(f.level)&&f.level>=classProgression(s.classId,1).subclassLevel&&f.level<=20);assert.ok(Number.isInteger(f.sourcePage)&&f.sourcePage>=s.sourcePage&&f.sourcePage<=s.sourcePage+2);assert.ok(f.text.length>60);}
  }
  assert.equal(data.subclasses.reduce((n,s)=>n+s.features.length,0),58);

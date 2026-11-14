@@ -61,12 +61,12 @@ test('prior reference excludes future features and collapses repeated improvemen
  assert.throws(()=>classFeatureReference('fighter',0));assert.throws(()=>classFeatureReference('unknown',5));
 });
 
-test('wizard summaries cover table keys and preserve blocked high-level spell choices',()=>{
+test('wizard summaries cover table keys and require explicit high-level spell choices',()=>{
  for(let level=1;level<=20;level++)for(const d of classFeatureDetails('wizard',classProgression('wizard',level).progression.featuresEn))assert.ok(d.id,d.key);
  assert.equal(classFeatureDetails('wizard',['Signature Spell'])[0].id,'wizard-signature-spells');
  for(const [from,kind]of [[17,'spell-mastery'],[19,'signature-spells']]){
   const p=previewClassLevel({classId:'wizard',fromLevel:from,toLevel:from+1,constitution:14});assert.ok(p.choices.some(c=>c.kind===kind&&c.required));
-  assert.ok(p.featureDetails.some(d=>d.status===(kind==='spell-mastery'?'choice':'unsupported')));
+  assert.ok(p.featureDetails.some(d=>d.status==='choice'));
  }
 });
 

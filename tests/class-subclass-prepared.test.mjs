@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {subclassPreparedSource,subclassPreparedOrigins,validateSubclassPreparedOrigins,validateSubclassPreparedBook} from '../server/class-subclass-prepared.mjs';
+test('Devotion origins use class thresholds and require a complete canonical prepared spellbook',()=>{
+ for(const [level,count]of [[3,2],[4,2],[5,4],[9,6],[13,8],[17,10],[20,10]]){const origins=subclassPreparedOrigins('paladin','paladin-devotion',level),context={classId:'paladin',subclass:{id:'paladin-devotion'},level};assert.equal(origins.length,count);assert.deepEqual(validateSubclassPreparedOrigins(origins,context),origins);const book=origins.map(o=>({catalogId:o.catalogId,status:'prepared',entry:subclassPreparedSource(o.catalogId)}));assert.doesNotThrow(()=>validateSubclassPreparedBook(origins,book));book[0].status='known';assert.throws(()=>validateSubclassPreparedBook(origins,book));book[0].status='prepared';book[0].entry.name.ru='forged';assert.throws(()=>validateSubclassPreparedBook(origins,book));const forged=structuredClone(origins);forged[0].acquiredLevel=1;assert.throws(()=>validateSubclassPreparedOrigins(forged,context));}
+ assert.throws(()=>subclassPreparedOrigins('cleric','cleric-life',3));assert.throws(()=>subclassPreparedOrigins('paladin','paladin-devotion',2));
+});
