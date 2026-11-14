@@ -31,3 +31,10 @@ export function planRangerEnemyTypeChoice({classId,level,typeId,previousTypeIds}
  if(!allowed.has(typeId)||previousTypeIds.includes(typeId))throw new Error('Выбери новый тип врага из SRD; гуманоиды не выбираются целым типом');
  return {ruleset:'5e-2014',classId,level,choiceId:'ranger:'+level+':favored-enemy-and-language',sourcePage:35,typeId,confirmedPrevious:[...previousTypeIds].sort(),language:null,requiresLanguageReview:true,applied:false};
 }
+
+export function validateRangerEnemyTypePlan(value){
+ if(!value||typeof value!=='object'||Array.isArray(value))throw new Error('Нужен план выбора избранного врага');
+ const expected=planRangerEnemyTypeChoice({classId:value.classId,level:value.level,typeId:value.typeId,previousTypeIds:value.confirmedPrevious});
+ if(!isDeepStrictEqual(value,expected))throw new Error('План врага изменён; язык и применение не подтверждены');
+ return expected;
+}

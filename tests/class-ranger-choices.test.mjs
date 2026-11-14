@@ -23,3 +23,10 @@ test('favored enemy offers13 SRD types but never all humanoids or an inferred la
  const select=(level,typeId,previousTypeIds=[],classId='ranger')=>planRangerEnemyTypeChoice({classId,level,typeId,previousTypeIds});assert.deepEqual(select(14,'dragons',['beasts','undead']).confirmedPrevious,['beasts','undead']);assert.equal(select(6,'undead',['beasts']).choiceId,'ranger:6:favored-enemy-and-language');
  for(const args of [[1,'humanoids'],[1,'human'],[6,'dragons'],[6,'beasts',['beasts']],[14,'dragons',['beasts','beasts']],[10,'dragons',['beasts']],[1,'dragons',[],'fighter'],[6,'dragons',['unknown']]])assert.throws(()=>select(...args));
 });
+
+import {validateRangerEnemyTypePlan} from '../server/class-ranger-choices.mjs';
+test('enemy planning cannot be forged into a language grant or completed rules review',()=>{
+ const valid=planRangerEnemyTypeChoice({classId:'ranger',level:6,typeId:'dragons',previousTypeIds:['beasts']});
+ for(const edit of [v=>v.language='Draconic',v=>v.requiresLanguageReview=false,v=>v.applied=true,v=>v.sourcePage=36,v=>v.choiceId='ranger:14:favored-enemy-and-language',v=>v.granted=true]){const bad=structuredClone(valid);edit(bad);assert.throws(()=>validateRangerEnemyTypePlan(bad));}
+ assert.deepEqual(validateRangerEnemyTypePlan(valid),valid);assert.throws(()=>validateRangerEnemyTypePlan(null));
+});
