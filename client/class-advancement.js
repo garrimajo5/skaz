@@ -19,11 +19,33 @@ const SkazClassAdvancement=(()=>{
        if(info.source?.attribution){const license=el('details',undefined,details);el('summary','Лицензия и авторство',license);el('p',info.source.attribution,license);}
       }
  }
+ function ritualPicker(parent,data){
+  const root=el('div',undefined,parent);root.hidden=true;
+  el('p','Книга древних тайн: выбери два разных ритуала первого круга. Они сохранятся отдельно, без права обычного сотворения и без расхода ячеек; применение ритуалов учитывается вручную.',root);
+  const count=el('p','Выбрано 0 из 2',root);count.setAttribute('aria-live','polite');const boxes=[];
+  for(const spell of data.ritualOptions||[]){const label=el('label',undefined,root),box=el('input',undefined,label);box.type='checkbox';box.value=spell.id;el('span',spell.name.ru+' / '+spell.name.en,label);boxes.push(box);box.addEventListener('change',()=>count.textContent='Выбрано '+boxes.filter(b=>b.checked).length+' из 2');}
+  return {root,read:()=>boxes.filter(b=>b.checked).map(b=>b.value)};
+ }
+ function invocationName(data,choiceId,value){
+  const id=typeof value==='string'?value:value.id;
+  const name=data.invocationOptions?.[choiceId]?.find(o=>o.id===id)?.name||id;
+  return name+(typeof value==='object'?' (ритуалы: '+value.rituals.map(id=>data.ritualOptions?.find(o=>o.id===id)?.name.ru||id).join('; ')+')':'');
+ }
  function renderChosenChanges(parent,data,command){
   for(const choice of data.plan.choices){
    const selected=command.choices[choice.id];if(selected===undefined)continue;
    if(choice.kind==='ability-score-improvement-or-feat'){
     for(const [key,name]of Object.entries(abilityNames)){const delta=selected.increases[key];if(delta>0)el('p',name+': '+data.abilities[key]+' → '+(data.abilities[key]+delta)+'.',parent);}
+    }else if(choice.kind==='pact-boon'){
+    el('p','Дар договора: '+(data.pactOptions?.find(o=>o.id===selected.id)?.name||selected.id)+'. Создание оружия, фамильяр и условия применения учитываются вручную.',parent);
+    if(selected.id==='tome')el('p','Заговоры Гримуара: '+selected.cantrips.map(id=>data.pactCantrips?.find(o=>o.spellId===id)?.name?.ru||id).join('; ')+'.',parent);
+    if(selected.id==='chain')el('p','Поиск фамильяра добавится в личную книгу без дубликата.',parent);
+   }else if(choice.kind==='replace-invocation'){
+    const from=data.selectedInvocations?.find(o=>o.id===selected.remove)?.name||selected.remove,to=invocationName(data,choice.id,selected.add);
+    el('p','Замена воззвания: '+from+' → '+to+'. Прежний выбор останется в истории.',parent);
+   }else if(choice.kind==='invocations'){
+    const names=selected.map(value=>invocationName(data,choice.id,value));
+    el('p','Воззвания: '+names.join('; ')+'. Эффекты и применение учитываются вручную.',parent);
    }else if(choice.kind==='metamagic'){
     const names=selected.map(id=>data.metamagicOptions?.[choice.id]?.find(s=>s.id===id)?.name||id);
     el('p','Метамагия: '+names.join('; ')+'. Применение и расход очков учитывай вручную.',parent);
@@ -49,8 +71,15 @@ const SkazClassAdvancement=(()=>{
   async function refresh(){
    const mark=++epoch;const data=await load();if(closed||mark!==epoch)return;
    form.replaceChildren();invalidate();
-   el('h2',data.className+': '+data.fromLevel+' → '+(data.fromLevel+1),form);
-   el('p','Повысятся максимальные хиты и выбранные данные. Текущие хиты не восстанавливаются. Ручные счётчики не присваиваются автоматически.',form);
+   el('h2',data.className+': '+data.fromLevel+(data.atMaximum?'':' → '+(data.fromLevel+1)),form);
+   if(!data.atMaximum)el('p','Повысятся максимальные хиты и выбранные данные. Текущие хиты не восстанавливаются. Ручные счётчики не присваиваются автоматически.',form);
+   if(data.selectedPact)el('p','Сохранённый дар: '+(data.pactOptions?.find(o=>o.id===data.selectedPact.id)?.name||data.selectedPact.id)+'. Создание оружия, фамильяр и условия применения учитываются вручную.',form);
+   if(data.selectedPact?.spellNames?.length)el('p','Заклинания дара вне обычного лимита: '+data.selectedPact.spellNames.join('; ')+'. Условия применения проверяй по описанию дара.',form);
+   if(data.selectedInvocations?.length){
+    const section=el('section',undefined,form);el('h3','Сохранённые воззвания',section);
+    for(const option of data.selectedInvocations){renderFeatureHelp(section,option,option.key);if(option.ritualNames?.length)el('p','Выбранные ритуалы: '+option.ritualNames.join('; ')+'. Только ритуальное применение с книгой; обычное сотворение этим выбором не предоставляется.',section);}
+    el('p','Выбор сохранён. Эффекты, навыки и применение заклинаний учитываются вручную.',section);
+   }
    if(data.selectedMetamagic?.length){
     const section=el('section',undefined,form);el('h3','Сохранённая Метамагия',section);
     for(const option of data.selectedMetamagic)el('p',option.text,section);
@@ -67,6 +96,7 @@ const SkazClassAdvancement=(()=>{
     el('p','Доступные пояснения по таблице выбранного класса. Прошлые выборы здесь не определяются; эффекты не включаются автоматически.',reference);
     for(const info of data.plan.priorFeatureDetails)renderFeatureHelp(reference,info,info.key);
    }
+   if(data.atMaximum){status.textContent='Достигнут максимальный уровень 20. Здесь можно прочитать сохранённые выборы и справку; изменения не выполняются.';check.hidden=true;return;}
    if(data.resourceSetup?.length){
     const fs=el('fieldset',undefined,form);el('legend','Подключить ресурсы класса',fs);
     el('p','Выбери, какие ресурсы вести автоматически. Привязка сохраняет остаток ручного счётчика; новый счётчик создаётся полным. Это отдельное подтверждение до повышения.',fs);
@@ -84,12 +114,46 @@ const SkazClassAdvancement=(()=>{
    const rollLabel=el('label','Результат броска',form),roll=el('input',undefined,rollLabel);roll.type='number';roll.min='1';roll.max=String(data.hitDie);roll.name='hpRoll';rollLabel.hidden=true;method.addEventListener('change',()=>rollLabel.hidden=method.value!=='roll');
    const controls=new Map();let blocked=false;
    for(const choice of data.plan.choices){
-    if(!choice.required&&!titles[choice.kind]){if(optionalNotices[choice.kind])el('p',optionalNotices[choice.kind],form);continue;}
+    if(!choice.required&&!titles[choice.kind]&&!(choice.kind==='replace-invocation'&&data.invocationOptions?.[choice.id]&&data.selectedInvocations?.length)){if(optionalNotices[choice.kind])el('p',optionalNotices[choice.kind],form);continue;}
     const fs=el('fieldset',undefined,form);el('legend',(titles[choice.kind]||choiceNames[choice.kind]||choice.kind)+' — выбрать '+choice.count,fs);
     if(choice.kind==='ability-score-improvement-or-feat'){
      el('p','Распредели 2 пункта. Не выше 20. Выбор черты ещё не подключён.',fs);const fields={};
      for(const [key,name]of Object.entries(abilityNames)){const l=el('label',name+' ('+data.abilities[key]+')',fs),n=el('input',undefined,l);n.type='number';n.min='0';n.max=String(Math.max(0,Math.min(2,20-data.abilities[key])));n.value='0';n.setAttribute('aria-label',name+': прибавка');fields[key]=n;}
      controls.set(choice.id,()=>({increases:Object.fromEntries(Object.entries(fields).map(([k,n])=>[k,n.value===''?null:Number(n.value)]))}));
+    }else if(choice.kind==='pact-boon'&&data.pactOptions?.length){
+     const label=el('label','Дар договора',fs),select=el('select',undefined,label);select.name=choice.id;
+     const blank=el('option','Выбери дар…',select);blank.value='';select.value='';
+     for(const option of data.pactOptions){const o=el('option',option.name+(option.supported?'':' — пока недоступен'),select);o.value=option.id;o.disabled=!option.supported;el('p',option.name+' — '+option.text,fs);}
+     const tome=el('div',undefined,fs);tome.hidden=true;el('p','Три заговора Гримуара, вне обычного числа известных',tome);const rows=[];
+     const count=el('p','Выбрано 0 из 3',tome);count.setAttribute('aria-live','polite');
+     for(const spell of data.pactCantrips||[]){const label=el('label',undefined,tome),box=el('input',undefined,label);box.type='checkbox';box.value=spell.spellId;el('span',spell.name.ru+' / '+spell.name.en,label);rows.push(box);box.addEventListener('change',()=>count.textContent='Выбрано '+rows.filter(r=>r.checked).length+' из 3');}
+     select.addEventListener('change',()=>{tome.hidden=select.value!=='tome';});
+     controls.set(choice.id,()=>({id:select.value,cantrips:select.value==='tome'?rows.filter(r=>r.checked).map(r=>r.value):[]}));
+    }else if(choice.kind==='replace-invocation'&&data.invocationOptions?.[choice.id]){
+     el('p','Необязательно: замени одно сохранённое воззвание. Оставь оба поля пустыми, чтобы сохранить прежний выбор. Эффекты меняются вручную. Требования проверяются вместе с выбранным даром договора и новыми заговорами.',fs);
+     const selects={};for(const [key,title,options]of [['remove','Заменить воззвание',data.selectedInvocations],['add','Новое воззвание',data.invocationOptions[choice.id].filter(o=>o.eligible)]]){
+      const label=el('label',title,fs),select=el('select',undefined,label);select.name=choice.id+':'+key;const blank=el('option','Не заменять',select);blank.value='';select.value='';
+      for(const option of options){const o=el('option',option.name,select);o.value=option.id;}selects[key]=select;
+     }
+     const help=el('p','Замена не выбрана.',fs);selects.add.addEventListener('change',()=>help.textContent=data.invocationOptions[choice.id].find(o=>o.id===selects.add.value)?.text||'Замена не выбрана.');
+     const rituals=ritualPicker(fs,data);selects.add.addEventListener('change',()=>rituals.root.hidden=selects.add.value!=='book-of-ancient-secrets');
+     controls.set(choice.id,()=>!selects.remove.value&&!selects.add.value?undefined:{remove:selects.remove.value,add:selects.add.value==='book-of-ancient-secrets'?{id:selects.add.value,rituals:rituals.read()}:selects.add.value});
+    }else if(choice.kind==='invocations'&&data.invocationOptions?.[choice.id]?.length){
+     el('p','Выбери '+choice.count+' разных воззвания. Сохраняется выбор; эффекты и применение остаются ручными. Требования договора и Мистического заряда проверяются по итоговому выбору этого повышения.',fs);
+     const count=el('p','Выбрано 0 из '+choice.count,fs);count.setAttribute('aria-live','polite');const rows=[];
+     const searchLabel=el('label','Найти воззвание',fs),search=el('input',undefined,searchLabel);search.type='search';
+     const list=el('div',undefined,fs);list.className='advancement-spells';const searchRows=[];
+     const reasonNames={'warlock-level':'нужен больший уровень колдуна','pact':'нужен подтверждённый дар договора','eldritch-blast':'нужен Мистический заряд в личной книге','already-known':'уже изучено','additional-choice':'нужен отдельный выбор ритуалов, пока не подключён'};
+     for(const option of data.invocationOptions[choice.id]){
+      const wrapper=el('div',undefined,list);let checkbox=null;
+      if(option.eligible){const label=el('label',undefined,wrapper),box=el('input',undefined,label);checkbox=box;box.type='checkbox';box.value=option.id;el('span',option.name,label);rows.push(box);box.addEventListener('change',()=>count.textContent='Выбрано '+rows.filter(r=>r.checked).length+' из '+choice.count);}
+      else el('p',option.name+' — '+option.reasons.map(r=>reasonNames[r]||r).join('; ')+'.',wrapper);
+      renderFeatureHelp(wrapper,option,option.key);searchRows.push({wrapper,checkbox,text:(option.name+' '+option.text).toLocaleLowerCase('ru')});
+     }
+     search.addEventListener('input',()=>{const q=search.value.trim().toLocaleLowerCase('ru');for(const row of searchRows)row.wrapper.hidden=!row.checkbox?.checked&&!row.text.includes(q);});
+     const rituals=ritualPicker(fs,data);
+     for(const row of rows)row.addEventListener('change',()=>rituals.root.hidden=!rows.some(r=>r.checked&&r.value==='book-of-ancient-secrets'));
+     controls.set(choice.id,()=>rows.filter(r=>r.checked).map(r=>r.value==='book-of-ancient-secrets'?{id:r.value,rituals:rituals.read()}:r.value));
     }else if(choice.kind==='metamagic'&&data.metamagicOptions?.[choice.id]?.length){
      el('p','Выбери '+choice.count+' разных варианта. Сохраняется выбор, а применение к заклинанию и расход очков остаются ручными.',fs);
      const count=el('p','Выбрано 0 из '+choice.count,fs);count.setAttribute('aria-live','polite');const rows=[];
@@ -127,7 +191,7 @@ const SkazClassAdvancement=(()=>{
    status.textContent=blocked?'Есть неподдерживаемый обязательный выбор. Сохранение недоступно.':'Выбери изменения и проверь итог до сохранения.';check.disabled=blocked;
    check.onclick=async()=>{
     if(running||pending||blocked||closed)return;running=true;lock(true);invalidate();
-    const command={expectedRevision:data.revision,characterId:data.characterId,classId:data.classId,fromLevel:data.fromLevel,hpMethod:method.value,hpRoll:method.value==='roll'&&roll.value!==''?Number(roll.value):null,choices:Object.fromEntries([...controls].map(([id,read])=>[id,read()])),reviewedFeatures:reviews.filter(r=>r.box.checked).map(r=>r.feature)};
+    const command={expectedRevision:data.revision,characterId:data.characterId,classId:data.classId,fromLevel:data.fromLevel,hpMethod:method.value,hpRoll:method.value==='roll'&&roll.value!==''?Number(roll.value):null,choices:Object.fromEntries([...controls].map(([id,read])=>[id,read()]).filter(([,value])=>value!==undefined)),reviewedFeatures:reviews.filter(r=>r.box.checked).map(r=>r.feature)};
     try{const result=await preview({...command,mutationId:newId()});if(closed)return;candidate=command;el('p','Максимум хитов: '+data.maxHp+' → '+(data.maxHp+result.hitPoints.maximumDelta)+'. Текущие: '+data.hp+'.',summary);el('p','Бонус мастерства: +'+result.proficiency.before+' → +'+result.proficiency.after+'.',summary);renderChosenChanges(summary,data,command);for(const resource of result.newResources)el('p','Новый ресурс: '+resource.name+' — '+resource.max+'.',summary);if(result.unmanagedResources.length)el('p','Существующие ручные ресурсы не изменятся. Их максимумы нужно сверить отдельно.',summary);apply.hidden=false;status.textContent='Итог проверен. Подтверди повышение.';}catch(e){if(!closed)status.textContent=e.message;}finally{running=false;if(!closed)lock(false);}
    };
   }

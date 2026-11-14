@@ -98,7 +98,7 @@ export function validateTransfer(file) {
       origins.add(key); return normalized;
     });
   }
-  const advancement=file.schemaVersion>=13?validateAdvancementSnapshot(file.advancement,characterSheet,characterStats,spellbook):undefined;
+  const advancement=file.schemaVersion>=13?validateAdvancementSnapshot(file.advancement,characterSheet,characterStats,spellbook,id=>byId.get(id)):undefined;
   // Preserve the normalized v2 payload and its existing mutation hashes.
   return { state, session, inventory, ...(advancement!==undefined?{advancement}:{}), ...(characterSheet!==undefined?{characterSheet}:{}), ...(characterStats!==undefined?{characterStats}:{}), ...(proposals ? { proposals } : {}), ...(places ? { places } : {}), ...(quests ? { quests } : {}), ...(spellbook ? { spellbook } : {}), entries: entries.sort((a,b) => a.id.localeCompare(b.id, 'en')) };
 }

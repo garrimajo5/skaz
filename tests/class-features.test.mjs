@@ -111,9 +111,9 @@ test('all twelve tables have help while unsupported class choices remain explici
  assert.ok(!classFeatureReference('sorcerer',19).some(f=>f.id==='sorcerer-restoration'));
 });
 
-test('invocation references have unique source keys and never become automatic choices',()=>{
+test('invocation reference disclosure stays read-only while explicit choices are supported',()=>{
  const f=classFeatureDetails('warlock',['Eldritch Invocations'])[0];
- assert.equal(f.status,'unsupported');assert.equal(f.referenceOptions.length,32);
+ assert.equal(f.status,'choice');assert.equal(f.referenceOptions.length,32);assert.match(f.text,/учитываются вручную/);
  assert.equal(new Set(f.referenceOptions.map(o=>o.key)).size,32);
  for(const o of f.referenceOptions){assert.ok([48,49,50].includes(o.sourcePage));assert.ok(o.name.includes(o.key));assert.ok(o.text.length>30);}
  f.referenceOptions[0].text='changed';assert.notEqual(classFeatureDetails('warlock',['Eldritch Invocations'])[0].referenceOptions[0].text,'changed');

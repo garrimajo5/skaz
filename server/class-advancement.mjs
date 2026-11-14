@@ -1,3 +1,6 @@
+import {validateInvocationSpellSources} from './class-invocation-sources.mjs';
+import {validatePactChoice} from './class-pacts.mjs';
+import {buildInvocationEvent,validateInvocationHistory,invocationDescription,ELDRITCH_BLAST_ID} from './class-invocations.mjs';
 import {validateMetamagicChoice} from './class-metamagic.mjs';
 import {validateFightingStyleChoice} from './class-fighting-styles.mjs';
 import {createHash} from 'node:crypto';
@@ -30,7 +33,7 @@ export function validateAdvancementCommand(input){
 
 export function validateAdvancementLedger(value){
  if(value===null)return null;
- if(!exact(value,['version','ruleset','classId','baselineLevel','level','binding','events','resources','spells',...(value?.version>=2?['styles']:[]),...(value?.version===3?['metamagic']:[])])||![1,2,3].includes(value.version)||value.ruleset!=='5e-2014')fail(422,'Неверное происхождение повышения');
+ if(!exact(value,['version','ruleset','classId','baselineLevel','level','binding','events','resources','spells',...(value?.version>=2?['styles']:[]),...(value?.version>=3?['metamagic']:[]),...(value?.version===4?['invocations','pact']:[])])||![1,2,3,4].includes(value.version)||value.ruleset!=='5e-2014')fail(422,'Неверное происхождение повышения');
  checkedClass(value.classId,value.level);
  if(!Number.isSafeInteger(value.baselineLevel)||value.baselineLevel<1||value.baselineLevel>value.level||!Array.isArray(value.events)||value.events.length!==value.level-value.baselineLevel)fail(422,'Неполная последовательность уровней');
  if(value.binding!==null&&(!exact(value.binding,['mutationId','requestHash'])||!id(value.binding.mutationId)||!/^[a-f0-9]{64}$/.test(value.binding.requestHash)))fail(422,'Неверное подключение ресурсов');
@@ -62,6 +65,7 @@ export function validateAdvancementLedger(value){
  }
  for(const event of value.events){
   const choices=previewClassLevel({classId:value.classId,fromLevel:event.level-1,toLevel:event.level,constitution:10}).choices;
+  if(value.version<4&&choices.some(c=>c.kind==='invocations'))fail(422,'История воззваний требует версию 4');
   if(value.version<3&&choices.some(c=>c.kind==='metamagic'))fail(422,'История Метамагии требует версию 3');
   if(value.version===1&&choices.some(c=>c.kind==='fighting-style'))fail(422,'История боевого стиля требует версию 2');
   for(const choice of choices)if(spellKinds.has(choice.kind)&&(choiceCounts.get(choice.id)||0)!==choice.count)fail(422,'В происхождении отсутствует часть выбранных заклинаний');
@@ -92,6 +96,10 @@ export function validateAdvancementLedger(value){
   }
   if(checkedCount!==value.metamagic.length)fail(422,'Метамагия не соответствует истории уровней');
  }
+ if(value.version===4){
+  if(value.classId!=='warlock'||value.styles.length||!Array.isArray(value.metamagic)||value.metamagic.length)fail(422,'Неверный класс истории воззваний');
+  try{validateInvocationHistory(value.invocations,value);}catch(error){fail(422,error.message);}
+ }
  return structuredClone(value);
 }
 
@@ -111,7 +119,7 @@ function build(current,request){
  for(const key of Object.keys(request.choices))if(!choices.has(key))fail(422,'Выбор не относится к этому уровню');
  for(const choice of choices.values()){
   if(!Object.hasOwn(request.choices,choice.id)){if(choice.required)fail(422,'Не завершён выбор: '+choice.kind);continue;}
-  if(!spellKinds.has(choice.kind)&&choice.kind!=='ability-score-improvement-or-feat'&&choice.kind!=='fighting-style'&&choice.kind!=='metamagic')fail(422,'Этот выбор ещё не поддерживается: '+choice.kind);
+  if(!spellKinds.has(choice.kind)&&choice.kind!=='ability-score-improvement-or-feat'&&choice.kind!=='fighting-style'&&choice.kind!=='metamagic'&&choice.kind!=='invocations'&&choice.kind!=='replace-invocation'&&choice.kind!=='pact-boon')fail(422,'Этот выбор ещё не поддерживается: '+choice.kind);
  }
  let abilities=stats.abilities;
  for(const choice of choices.values())if(choice.kind==='ability-score-improvement-or-feat'){
@@ -133,11 +141,22 @@ function build(current,request){
  }
  const known=(current.spellbook||[]).map(s=>s.catalogId);
  if(new Set(known).size!==known.length)fail(422,'Повторные заклинания в книге');
- if(ledger.spells.some(s=>!known.includes(s.catalogId)))fail(409,'Полученное при повышении заклинание удалено вручную; нужна сверка');
+ if(ledger.spells.some(s=>!known.includes(s.catalogId))||(ledger.pact?.spells||[]).some(id=>!known.includes(id)))fail(409,'Полученное при повышении заклинание удалено вручную; нужна сверка');
  const additions=[];
  for(const choice of choices.values())if(spellKinds.has(choice.kind)&&Object.hasOwn(request.choices,choice.id)){
   const selected=validateSpellChoice(plan,choice.id,request.choices[choice.id],{knownIds:[...known,...additions]});
   for(const catalogId of selected){additions.push(catalogId);ledger.spells.push({catalogId,acquiredLevel:plan.toLevel,choiceId:choice.id});}
+ }
+ if(choices.has('warlock:'+plan.toLevel+':pact-boon')){
+  if(ledger.version!==4)fail(422,'Для дара договора нужна подтверждённая история воззваний');
+  ledger.pact=validatePactChoice(plan,request.choices['warlock:'+plan.toLevel+':pact-boon']);
+  for(const catalogId of ledger.pact.spells)if(!known.includes(catalogId)&&!additions.includes(catalogId))additions.push(catalogId);
+ }
+ if(request.classId==='warlock'&&(ledger.version===4||choices.has('warlock:'+plan.toLevel+':invocations')||Object.hasOwn(request.choices,'warlock:'+plan.toLevel+':replace-invocation'))){
+  const knownInvocations=ledger.version===4?validateInvocationHistory(ledger.invocations,{...ledger,pact:plan.fromLevel<3?null:ledger.pact}):[];
+  const record=buildInvocationEvent({fromLevel:plan.fromLevel,toLevel:plan.toLevel,knownInvocations,selected:request.choices['warlock:'+plan.toLevel+':invocations']||[],replacement:request.choices['warlock:'+plan.toLevel+':replace-invocation']??null,hasEldritchBlast:[...known,...additions].includes(ELDRITCH_BLAST_ID),pact:ledger.pact?.id??null});
+  if(ledger.version<4){ledger.version=4;ledger.styles=[];ledger.metamagic=[];ledger.invocations=[];ledger.pact=null;}
+  ledger.invocations.push(record);
  }
  // Existing manual counters are never adopted, even when their names match.
  const oldMaxima=new Map(classResourceMaximums(request.classId,plan.fromLevel,stats.abilities).map(r=>[r.id,r]));
@@ -168,7 +187,7 @@ function build(current,request){
   summary:{fromLevel:plan.fromLevel,toLevel:plan.toLevel,hitPoints:plan.hitPoints,proficiency:plan.proficiency,newResources,featuresReviewed:[...request.reviewedFeatures],unmanagedResources:maxima.filter(r=>oldMaxima.has(r.id)&&!managed.has(r.id)).map(r=>r.id)}};
 }
 // Check transferred/current provenance against its actual hero, never just names.
-export function validateAdvancementSnapshot(ledger,sheet,stats,spellbook){
+export function validateAdvancementSnapshot(ledger,sheet,stats,spellbook,lookup){
  const value=validateAdvancementLedger(ledger);if(!value)return null;
  const s=validateCharacterSheet(sheet),a=validateCharacterStats(stats);
  if(s.level!==value.level)fail(422,'Уровень не соответствует истории повышения');
@@ -179,6 +198,12 @@ export function validateAdvancementSnapshot(ledger,sheet,stats,spellbook){
  }
  const known=new Set((spellbook||[]).map(s=>s.catalogId));
  if(value.spells.some(s=>!known.has(s.catalogId)))fail(422,'В книге отсутствует полученное при повышении заклинание');
+ if(value.version===4){
+  validateInvocationSpellSources(value,spellbook||[],lookup);
+  const active=validateInvocationHistory(value.invocations,value);
+  if((value.pact?.spells||[]).some(id=>!known.has(id)))fail(422,'В книге отсутствует заклинание дара договора');
+  if(active.some(id=>invocationDescription(id).eldritchBlast)&&!known.has(ELDRITCH_BLAST_ID))fail(422,'Для воззвания в книге отсутствует Мистический заряд');
+ }
  return value;
 }
 

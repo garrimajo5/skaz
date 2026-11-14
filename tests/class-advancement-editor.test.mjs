@@ -1,20 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import vm from 'node:vm';
-import {readFileSync} from 'node:fs';
-// Tiny DOM adapter only for lifecycle/transport races; visual and native input
-// behavior are checked separately in the browser and on Android.
-class Element{
- constructor(tag){this.tagName=tag;this.children=[];this.listeners={};this.textContent='';this.value='';this.hidden=false;this.disabled=false;}
- append(e){this.children.push(e);e.parent=this;}
- replaceChildren(...children){this.children=[];for(const e of children)this.append(e);}
- setAttribute(k,v){this[k]=v;}
- addEventListener(k,fn){(this.listeners[k]??=[]).push(fn);}
- querySelectorAll(selector){const tags=selector.split(',');return walk(this).filter(e=>tags.includes(e.tagName));}
- emit(type){for(const fn of this.listeners[type]||[])fn({preventDefault(){}});this.parent?.emit(type);}
-}
-const walk=root=>root.children.flatMap(e=>[e,...walk(e)]);
-function environment(){const root=new Element('div'),ctx=vm.createContext({document:{createElement:tag=>new Element(tag)},crypto:{randomUUID:()=> 'mutation-ui-test'}});vm.runInContext(readFileSync(new URL('../client/class-advancement.js',import.meta.url),'utf8')+';globalThis.editor=SkazClassAdvancement;',ctx);return {root,mount:ctx.editor.mount,button:text=>walk(root).find(e=>e.tagName==='button'&&e.textContent===text),status:()=>root.children[0].textContent};}
+import {walk,environment} from './helpers/advancement-dom.mjs';
 const data=()=>({revision:2,characterId:'fixture-character',classId:'fighter',className:'Воин',fromLevel:4,abilities:{str:10,dex:10,con:14,int:10,wis:10,cha:10},hp:7,maxHp:20,hitDie:10,plan:{choices:[],requiresFeatureReview:[]},options:{}});
 const summary=()=>({hitPoints:{maximumDelta:8},proficiency:{before:2,after:3},newResources:[],unmanagedResources:[]});
 const saved=()=>({characterSheet:{level:5},state:{maxHp:28}});
@@ -182,4 +168,50 @@ test('metamagic multi-selection counts, invalidates preview and retries unchange
 test('unknown prior metamagic explains its block and never silently initializes selections',async()=>{
  const e=environment(),id='sorcerer:10:metamagic';await e.mount(e.root,{load:async()=>({...data(),plan:{requiresFeatureReview:[],choices:[{id,kind:'metamagic',count:1,required:true}]},metamagicOptions:{},choiceNotices:{[id]:'Прежние варианты не подтверждены.'}}),preview:async()=>{throw Error('must not preview');},send:async()=>saved()});
  assert.equal(e.button('Проверить повышение').disabled,true);assert.ok(walk(e.root).some(n=>n.textContent==='Прежние варианты не подтверждены.'));assert.equal(walk(e.root).filter(n=>n.type==='checkbox').length,0);
+});
+
+test('invocation form excludes unavailable choices, names preview and retries exact selected IDs',async()=>{
+ const e=environment(),key='warlock:2:invocations',sent=[];
+ await e.mount(e.root,{load:async()=>({...data(),plan:{requiresFeatureReview:[],choices:[{id:key,kind:'invocations',count:2,required:true}]},invocationOptions:{[key]:[{id:'armor-of-shadows',name:'Доспех теней',text:'Описание.',eligible:true},{id:'devils-sight',name:'Дьявольское зрение',text:'Описание.',eligible:true},{id:'chains-of-carceri',name:'Цепи Карцери',text:'Описание.',eligible:false,reasons:['warlock-level','pact']}]}}),preview:async q=>{if(q.choices[key].length!==2)throw Error('Нужны два');return summary();},send:async body=>{sent.push(body);if(sent.length===1)throw Error('Lost');return saved();}});
+ const boxes=walk(e.root).filter(n=>n.type==='checkbox');assert.equal(boxes.length,2);boxes[0].checked=true;boxes[0].emit('change');await e.button('Проверить повышение').onclick();assert.equal(e.button('Подтвердить повышение').hidden,true);
+ boxes[1].checked=true;boxes[1].emit('change');await e.button('Проверить повышение').onclick();assert.ok(walk(e.root).some(n=>n.textContent.startsWith('Воззвания: Доспех теней; Дьявольское зрение.')));await e.button('Подтвердить повышение').onclick();await e.button('Повторить сохранение').onclick();assert.equal(sent[0],sent[1]);assert.deepEqual(JSON.parse(sent[0]).choices[key],['armor-of-shadows','devils-sight']);
+});
+test('optional invocation replacement omits empty choice and partial input never bypasses server validation',async()=>{
+ const e=environment(),id='warlock:4:replace-invocation',commands=[];
+ await e.mount(e.root,{load:async()=>({...data(),plan:{requiresFeatureReview:[],choices:[{id,kind:'replace-invocation',count:1,required:false}]},selectedInvocations:[{id:'armor-of-shadows',name:'Доспех теней',text:'Старое.'}],invocationOptions:{[id]:[{id:'eldritch-sight',name:'Мистическое зрение',text:'Новое.',eligible:true}]}}),preview:async q=>{commands.push(q);if(q.choices[id]&&(!q.choices[id].add||!q.choices[id].remove))throw Error('Выбери обе стороны замены');return summary();},send:async()=>saved()});
+ await e.button('Проверить повышение').onclick();assert.deepEqual(Object.keys(commands[0].choices),[]);
+ const remove=walk(e.root).find(n=>n.name===id+':remove'),add=walk(e.root).find(n=>n.name===id+':add');remove.value='armor-of-shadows';remove.emit('change');await e.button('Проверить повышение').onclick();assert.equal(e.button('Подтвердить повышение').hidden,true);
+ add.value='eldritch-sight';add.emit('change');await e.button('Проверить повышение').onclick();assert.ok(walk(e.root).some(n=>n.textContent.startsWith('Замена воззвания: Доспех теней → Мистическое зрение.')));
+});
+test('tome grants require explicit three cantrips and switching pact excludes hidden selections',async()=>{
+ const e=environment(),id='warlock:3:pact-boon',commands=[];
+ await e.mount(e.root,{load:async()=>({...data(),plan:{requiresFeatureReview:[],choices:[{id,kind:'pact-boon',count:1,required:true}]},pactOptions:[{id:'tome',name:'Гримуар',text:'Книга.',supported:true},{id:'chain',name:'Цепь',text:'Фамильяр.',supported:true}],pactCantrips:['one','two','three'].map(spellId=>({spellId,name:{ru:spellId,en:spellId}}))}),preview:async q=>{commands.push(q);return summary();},send:async()=>saved()});
+ const select=walk(e.root).find(n=>n.name===id);assert.equal(select.value,'');select.value='tome';select.emit('change');for(const box of walk(e.root).filter(n=>n.type==='checkbox'))box.checked=true;
+ await e.button('Проверить повышение').onclick();assert.deepEqual([...commands[0].choices[id].cantrips],['one','two','three']);assert.ok(walk(e.root).some(n=>n.textContent==='Заговоры Гримуара: one; two; three.'));
+ select.value='chain';select.emit('change');assert.equal(e.button('Подтвердить повышение').hidden,true);await e.button('Проверить повышение').onclick();assert.equal(commands[1].choices[id].cantrips.length,0);
+});
+
+test('level twenty keeps saved choices and rules readable without presenting mutation controls',async()=>{
+ const e=environment();let mutations=0;
+ await e.mount(e.root,{load:async()=>({...data(),atMaximum:true,fromLevel:20,className:'Колдун',selectedInvocations:[{id:'book-of-ancient-secrets',name:'Книга древних тайн',text:'Ритуальная книга.',ritualNames:['Сигнал тревоги','Опознание']}],selectedPact:{id:'tome'},pactOptions:[{id:'tome',name:'Договор гримуара'}],plan:{choices:[],requiresFeatureReview:[],priorFeatureDetails:[{name:'Таинственный мастер',text:'Описание.',sourcePage:48}]}}),preview:async()=>{mutations++;},send:async()=>{mutations++;}});
+ assert.ok(walk(e.root).some(n=>n.textContent==='Колдун: 20'));assert.ok(walk(e.root).some(n=>n.textContent.startsWith('Выбранные ритуалы: Сигнал тревоги; Опознание.')));assert.match(e.status(),/максимальный уровень 20/);assert.equal(e.button('Проверить повышение').hidden,true);assert.equal(e.button('Подтвердить повышение').hidden,true);assert.equal(walk(e.root).filter(n=>['input','select'].includes(n.tagName)).length,0);assert.equal(mutations,0);
+});
+
+test('invocation search keeps checked choices visible and never drops them from the command',async()=>{
+ const e=environment(),id='warlock:2:invocations';let submitted;
+ await e.mount(e.root,{load:async()=>({...data(),plan:{requiresFeatureReview:[],choices:[{id,kind:'invocations',count:2,required:true}]},invocationOptions:{[id]:[{id:'armor-of-shadows',name:'Доспех теней',text:'Доспехи мага.',eligible:true},{id:'devils-sight',name:'Дьявольское зрение',text:'Темнота.',eligible:true},{id:'beast-speech',name:'Речь зверей',text:'Животные.',eligible:true}]}}),preview:async q=>{submitted=q;return summary();},send:async()=>saved()});
+ const box=walk(e.root).find(n=>n.value==='armor-of-shadows');box.checked=true;box.emit('change');const search=walk(e.root).find(n=>n.type==='search');search.value='зрение';search.emit('input');
+ const rows=walk(e.root).find(n=>n.className==='advancement-spells').children;assert.equal(rows[0].hidden,false);assert.equal(rows[1].hidden,false);assert.equal(rows[2].hidden,true);
+ const other=walk(e.root).find(n=>n.value==='devils-sight');other.checked=true;other.emit('change');await e.button('Проверить повышение').onclick();assert.deepEqual([...submitted.choices[id]],['armor-of-shadows','devils-sight']);
+});
+
+test('new invocation carries its ritual choices, and deselecting it excludes hidden rituals',async()=>{
+ const e=environment(),id='warlock:5:invocations',commands=[];
+ await e.mount(e.root,{load:async()=>({...data(),fromLevel:4,plan:{requiresFeatureReview:[],choices:[{id,kind:'invocations',count:1,required:true}]},invocationOptions:{[id]:[{id:'book-of-ancient-secrets',name:'Книга древних тайн',text:'Ритуалы.',eligible:true},{id:'eldritch-sight',name:'Мистическое зрение',text:'Магия.',eligible:true}]},ritualOptions:[{id:'alarm',name:{ru:'Сигнал тревоги',en:'Alarm'}},{id:'identify',name:{ru:'Опознание',en:'Identify'}}]}),preview:async q=>{commands.push(q);return summary();},send:async()=>saved()});
+ const book=walk(e.root).find(n=>n.type==='checkbox'&&n.value==='book-of-ancient-secrets'),alarm=walk(e.root).find(n=>n.value==='alarm'),identify=walk(e.root).find(n=>n.value==='identify');
+ assert.equal(alarm.parent.parent.hidden,true);book.checked=true;book.emit('change');assert.equal(alarm.parent.parent.hidden,false);
+ alarm.checked=true;identify.checked=true;alarm.emit('change');identify.emit('change');await e.button('Проверить повышение').onclick();
+ assert.deepEqual(JSON.parse(JSON.stringify(commands[0].choices[id])),[{id:'book-of-ancient-secrets',rituals:['alarm','identify']}]);assert.ok(walk(e.root).some(n=>n.textContent.includes('ритуалы: Сигнал тревоги; Опознание')));
+ book.checked=false;book.emit('change');assert.equal(alarm.parent.parent.hidden,true);assert.equal(e.button('Подтвердить повышение').hidden,true);
+ const other=walk(e.root).find(n=>n.value==='eldritch-sight');other.checked=true;other.emit('change');await e.button('Проверить повышение').onclick();assert.deepEqual([...commands[1].choices[id]],['eldritch-sight']);
 });

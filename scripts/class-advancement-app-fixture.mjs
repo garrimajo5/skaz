@@ -11,7 +11,7 @@ const args=new Map();for(const arg of process.argv.slice(2)){
 }
 const port=Number(args.get('port')||4245),scenario=args.get('scenario')||'original';
 if(!Number.isInteger(port)||port<1024||port>65535)throw Error('Invalid fixture port');
-const scenarios={original:[['fighter',3],['wizard',2],['cleric',1]],'class-choices':[['paladin',1],['ranger',1],['sorcerer',2]],'unknown-metamagic':[['sorcerer',9]]};
+const scenarios={original:[['fighter',3],['wizard',2],['cleric',1]],'class-choices':[['paladin',1],['ranger',1],['sorcerer',2]],'unknown-metamagic':[['sorcerer',9]],'warlock-choices':[['warlock',1]],'unknown-invocations':[['warlock',4]]};
 if(!Object.hasOwn(scenarios,scenario))throw Error('Unknown fixture scenario');
 const heroes=scenarios[scenario],store=openStore(':memory:',{classAdvancement:true});
 store.catalog.installBundled({version:store.catalog.previewBundled().version});

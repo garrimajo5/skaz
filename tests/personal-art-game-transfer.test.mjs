@@ -155,18 +155,19 @@ test('v3 transfers conditions, advancement and artwork atomically with a replaya
 });
 
 
-test('new style and metamagic histories travel with personal PNGs and conditions without partial import',t=>{
- for(const classId of ['paladin','sorcerer']){
-  const f=fixture(t,{classAdvancement:true}),w=f.writer,level=classId==='paladin'?1:2;
+test('new style, metamagic and invocation histories travel with personal PNGs and conditions without partial import',t=>{
+ for(const classId of ['paladin','sorcerer','warlock']){
+  const f=fixture(t,{classAdvancement:true}),w=f.writer,level=classId==='sorcerer'?2:1;
   const command=extra=>({mutationId:randomUUID(),expectedRevision:w.read().revision,characterId:w.read().context.characterId,...extra});
   w.saveCharacterSheet(command({sheet:{ruleset:'5e-2014',ancestry:'',className:classId,subclass:'',level,counters:[]}}));w.saveCharacterStats(command({stats:structuredClone(templateStats)}));
   const plan=previewClassLevel({classId,fromLevel:level,toLevel:level+1,constitution:14}),choices={};
   if(classId==='paladin')choices['paladin:2:fighting-style']=['defense'];
+  else if(classId==='warlock'){choices['warlock:2:invocations']=['armor-of-shadows','devils-sight'];choices['warlock:2:known-spells']=spellChoiceOptions('warlock',2,'known-spells',{knownIds:w.read().spellbook.map(e=>e.catalogId)}).slice(0,1).map(o=>o.spellId);}
   else{choices['sorcerer:3:metamagic']=['careful-spell','twinned-spell'];choices['sorcerer:3:known-spells']=spellChoiceOptions('sorcerer',3,'known-spells',{knownIds:w.read().spellbook.map(e=>e.catalogId)}).slice(0,1).map(o=>o.spellId);}
   w.advanceCharacter(command({classId,fromLevel:level,hpMethod:'fixed',hpRoll:null,choices,reviewedFeatures:plan.requiresFeatureReview}));
   w.update({mutationId:randomUUID(),expectedRevision:w.read().revision,label:'Synthetic condition',state:{...w.read().state,conditions:{active:['prone'],exhaustion:1}}});
   const before=w.read(),bundle=w.exportActive('with-art'),request={mutationId:randomUUID(),expectedRevision:before.revision,destination:'new-campaign',file:bundle},original=counts(f.db);
-  assert.equal(bundle.game.advancement.version,classId==='paladin'?2:3);assert.equal(bundle.schemaVersion,3);
+  assert.equal(bundle.game.advancement.version,classId==='paladin'?2:classId==='sorcerer'?3:4);assert.equal(bundle.schemaVersion,3);
   f.db.exec("CREATE TRIGGER reject_new_history_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'new history artwork failed');END");
   assert.throws(()=>w.importActive(request),/new history artwork failed/);assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);assert.equal(f.db.prepare('SELECT count(*) AS n FROM character_advancement').get().n,1);
   f.db.exec('DROP TRIGGER reject_new_history_art');const saved=w.importActive(request);assert.deepEqual(saved.advancement,before.advancement);assert.deepEqual(saved.state.conditions,before.state.conditions);assert.ok(w.personalArt.read(saved.context.characterId,catalogId,'master').file.bytes.equals(Buffer.from(bundle.personalArt.entries[0].png,'base64')),'Imported PNG must equal the exported normalized image');

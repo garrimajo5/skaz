@@ -102,3 +102,27 @@ test('HTTP metamagic preview and save preserve chosen IDs while unknown prior ch
  const baseline=await fixture(t);baseline.store.saveCharacterSheet(baseline.command({sheet:{ruleset:'5e-2014',ancestry:'',className:'sorcerer',subclass:'',level:9,counters:[]}}));baseline.store.catalog.installBundled({version:baseline.store.catalog.previewBundled().version});
  const blocked=await(await baseline.request(prefix+'plan?classId=sorcerer')).json();assert.deepEqual(blocked.metamagicOptions,{});assert.match(blocked.choiceNotices['sorcerer:10:metamagic'],/не подтверждены/);
 });
+
+test('HTTP warlock choices and pact depend on verified facts, retain ritual-only origins, and replay once',async t=>{
+ const f=await fixture(t);f.store.catalog.installBundled({version:f.store.catalog.previewBundled().version});
+ f.store.saveCharacterSheet(f.command({sheet:{ruleset:'5e-2014',ancestry:'',className:'warlock',subclass:'',level:1,counters:[]}}));
+ let view=await(await f.request(prefix+'plan?classId=warlock')).json();assert.equal(view.invocationOptions['warlock:2:invocations'].filter(o=>o.eligible).length,11);
+ let q=f.command({classId:'warlock',fromLevel:1,hpMethod:'fixed',hpRoll:null,choices:{'warlock:2:invocations':['armor-of-shadows','devils-sight'],'warlock:2:known-spells':[view.options['warlock:2:known-spells'][0].spellId]},reviewedFeatures:view.plan.requiresFeatureReview});
+ const before=f.store.read();assert.equal((await f.request(prefix+'preview',q)).status,200);assert.deepEqual(f.store.read(),before);
+ for(const ids of [['agonizing-blast','devils-sight'],['chains-of-carceri','devils-sight'],['armor-of-shadows','armor-of-shadows']])assert.equal((await f.request(prefix+'apply',{...q,choices:{...q.choices,'warlock:2:invocations':ids}})).status,422);
+ assert.deepEqual(f.store.read(),before);assert.equal((await f.request(prefix+'apply',q)).status,200);assert.equal((await(await f.request(prefix+'apply',q)).json()).replayed,true);
+ view=await(await f.request(prefix+'plan?classId=warlock')).json();assert.equal(view.selectedInvocations.length,2);assert.equal(view.pactOptions.length,3);assert.ok(view.pactCantrips.length>=20);
+ const rituals=view.ritualOptions.slice(0,2).map(o=>o.id),cantrips=view.pactCantrips.slice(0,3).map(o=>o.spellId);
+ q=f.command({classId:'warlock',fromLevel:2,hpMethod:'fixed',hpRoll:null,choices:{'warlock:3:pact-boon':{id:'tome',cantrips},'warlock:3:known-spells':[view.options['warlock:3:known-spells'][0].spellId],'warlock:3:replace-invocation':{remove:'armor-of-shadows',add:{id:'book-of-ancient-secrets',rituals}}},reviewedFeatures:view.plan.requiresFeatureReview});
+ const prior=f.store.read();const bad=structuredClone(q);bad.choices['warlock:3:replace-invocation'].add.rituals=[rituals[0],rituals[0]];assert.equal((await f.request(prefix+'apply',bad)).status,422);assert.deepEqual(f.store.read(),prior);
+ const response=await f.request(prefix+'apply',q);assert.equal(response.status,200);const saved=await response.json();assert.equal(saved.advancement.pact.id,'tome');assert.deepEqual(saved.advancement.invocations[1].replacement.add.rituals,rituals);assert.equal((await(await f.request(prefix+'apply',q)).json()).replayed,true);
+ for(const id of cantrips)assert.ok(saved.spellbook.some(o=>o.catalogId===id));for(const id of rituals)assert.equal(saved.spellbook.some(o=>o.catalogId===id),prior.spellbook.some(o=>o.catalogId===id)||q.choices['warlock:3:known-spells'].includes(id));
+ view=await(await f.request(prefix+'plan?classId=warlock')).json();assert.equal(view.selectedInvocations.find(o=>o.id==='book-of-ancient-secrets').ritualNames.length,2);
+ assert.equal((await(await f.request('/api/export/active-v13')).json()).advancement.version,4);
+});
+
+test('HTTP maximum-level reference is read-only while level twenty-one commands remain rejected',async t=>{
+ const f=await fixture(t);f.store.saveCharacterSheet(f.command({sheet:{ruleset:'5e-2014',ancestry:'',className:'warlock',subclass:'',level:20,counters:[]}}));const before=f.store.read();
+ const response=await f.request(prefix+'plan?classId=warlock');assert.equal(response.status,200);const view=await response.json();assert.equal(view.atMaximum,true);assert.equal(view.plan.choices.length,0);assert.ok(view.plan.priorFeatureDetails.some(f=>f.id==='warlock-eldritch-master'));assert.deepEqual(f.store.read(),before);
+ assert.equal((await f.request(prefix+'apply',f.command({classId:'warlock',fromLevel:20,hpMethod:'fixed',hpRoll:null,choices:{},reviewedFeatures:[]}))).status,422);assert.deepEqual(f.store.read(),before);
+});

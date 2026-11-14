@@ -14,13 +14,12 @@ const SkazClassAdvancementShell=(()=>{
   try{
    const info=await transport.classes();if(closed)return;
    if(!info.ready){status.textContent='Сначала сохрани свой класс, уровень и характеристики на листе героя.';return;}
-   if(info.level>=20){status.textContent='Достигнут максимальный уровень 20.';return;}
    status.textContent='Подтверди класс по правилам 2014. Подклассы, черты и мультикласс ещё не автоматизированы; обязательные неподдерживаемые выборы блокируют повышение.';
-   const label=document.createElement('label');label.textContent='Класс для повышения';const select=document.createElement('select');label.append(select);root.append(label);
+   const label=document.createElement('label');label.textContent=info.level>=20?'Класс для просмотра':'Класс для повышения';const select=document.createElement('select');label.append(select);root.append(label);
    const empty=document.createElement('option');empty.value='';empty.textContent='Выбери свой класс';select.append(empty);
    for(const c of info.classes){const o=document.createElement('option');o.value=c.slug;o.textContent=c.name.ru;select.append(o);}
    if(info.classId){select.value=info.classId;select.disabled=true;}
-   const confirm=document.createElement('button');confirm.type='button';confirm.textContent='Продолжить с этим классом';root.append(confirm);
+   const confirm=document.createElement('button');confirm.type='button';confirm.textContent=info.level>=20?'Показать умения':'Продолжить с этим классом';root.append(confirm);
    confirm.onclick=async()=>{
     if(loading||closed)return;if(!select.value){status.textContent='Выбери класс перед продолжением.';return;}
     loading=true;confirm.disabled=true;const classId=select.value;

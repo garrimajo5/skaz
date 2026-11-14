@@ -225,3 +225,77 @@ test('SQLite backups restore both old baseline and v2/v3 histories with exact re
   }finally{s.close();}
  }
 });
+
+import {invocationEligibility,validateInvocationHistory,ELDRITCH_BLAST_ID} from '../server/class-invocations.mjs';
+import {pactCantripOptions,FIND_FAMILIAR_ID} from '../server/class-pacts.mjs';
+function warlockCommand(s,{pact='blade',replace=null}={}){
+ const q=command(s),v=s.read(),level=q.fromLevel+1,known=v.advancement?.version===4?validateInvocationHistory(v.advancement.invocations,v.advancement):[];
+ const pactId=level===3?pact:v.advancement?.pact?.id??null;
+ for(const choice of previewClassLevel({classId:'warlock',fromLevel:q.fromLevel,toLevel:level,constitution:v.characterStats.abilities.con}).choices){if(!choice.required)continue;
+  if(choice.kind==='invocations')q.choices[choice.id]=invocationEligibility({warlockLevel:level,pact:pactId,hasEldritchBlast:v.spellbook.some(o=>o.catalogId===ELDRITCH_BLAST_ID),knownInvocations:known}).filter(o=>o.eligible&&o.id!=='book-of-ancient-secrets').slice(0,choice.count).map(o=>o.id);
+  else if(choice.kind==='pact-boon')q.choices[choice.id]={id:pact,cantrips:pact==='tome'?pactCantripOptions().slice(0,3).map(o=>o.spellId):[]};
+  else if(choice.kind==='ability-score-improvement-or-feat'){const key=Object.keys(v.characterStats.abilities).find(k=>v.characterStats.abilities[k]<=18);q.choices[choice.id]={increases:Object.fromEntries(Object.keys(v.characterStats.abilities).map(k=>[k,k===key?2:0]))};}
+  else q.choices[choice.id]=spellChoiceOptions('warlock',level,choice.kind,{knownIds:v.spellbook.map(o=>o.catalogId)}).slice(0,choice.count).map(o=>o.spellId);
+ }
+ if(replace)q.choices['warlock:'+level+':replace-invocation']=replace;return q;
+}
+test('warlock invocation/pact history survives 1 through 20, exact retry, transfer and resource expenditure',()=>{
+ const s=openStore(':memory:',{classAdvancement:true}),target=openStore(':memory:',{classAdvancement:true});try{
+  prepare(s,'warlock',1);s.catalog.installBundled({version:s.catalog.previewBundled().version});
+  const resource='class-warlock-pact-slots';s.bindClassResources(fields(s,{classId:'warlock',bindings:[],create:[resource]}));s.changeCharacterCounter(fields(s,{counterId:resource,delta:-1}));
+  for(let level=2;level<=20;level++){
+   const q=warlockCommand(s),before=s.read();
+   const saved=s.advanceCharacter(q);assert.equal(saved.characterSheet.level,level);assert.equal(saved.advancement.invocations.length,level-1);assert.equal(validateInvocationHistory(saved.advancement.invocations,saved.advancement).length,level<5?2:level<7?3:level<9?4:level<12?5:level<15?6:level<18?7:8);
+   assert.equal(saved.state.hp,before.state.hp);const counter=saved.characterSheet.counters.find(c=>c.id===resource);assert.equal(counter.max-counter.current,1);assert.equal(s.advanceCharacter(q).replayed,true);
+  }
+  target.importActive({mutationId:randomUUID(),expectedRevision:0,destination:'new-campaign',file:s.exportActive(14)});assert.deepEqual(target.read().advancement,s.read().advancement);assert.deepEqual(target.read().spellbook,s.read().spellbook);
+ }finally{s.close();target.close();}
+});
+test('all three pacts preserve bonus spell origins without duplicate grants and cantrip-dependent replacement uses same-step facts',()=>{
+ for(const pact of ['blade','chain','tome']){const s=openStore(':memory:',{classAdvancement:true}),target=openStore(':memory:',{classAdvancement:true});try{
+  prepare(s,'warlock',1);s.catalog.installBundled({version:s.catalog.previewBundled().version});s.advanceCharacter(warlockCommand(s));
+  const q=warlockCommand(s,{pact});
+  if(pact==='chain')s.setSpell(fields(s,{catalogId:FIND_FAMILIAR_ID,status:'known'}));
+  q.expectedRevision=s.read().revision;
+  if(pact==='tome'){
+   q.choices['warlock:3:pact-boon'].cantrips=[ELDRITCH_BLAST_ID,...pactCantripOptions().filter(o=>o.spellId!==ELDRITCH_BLAST_ID).slice(0,2).map(o=>o.spellId)];
+   q.choices['warlock:3:replace-invocation']={remove:s.read().advancement.invocations[0].added[0].id,add:'agonizing-blast'};
+  }
+  const saved=s.advanceCharacter(q);assert.equal(saved.advancement.pact.id,pact);assert.equal(saved.advancement.pact.spells.length,pact==='blade'?0:pact==='chain'?1:3);
+  for(const id of saved.advancement.pact.spells)assert.equal(saved.spellbook.filter(o=>o.catalogId===id).length,1);
+  assert.equal(s.advanceCharacter(q).replayed,true);
+  const exported=s.exportActive(14);target.importActive({mutationId:randomUUID(),expectedRevision:0,destination:'new-campaign',file:exported});assert.deepEqual(target.read().advancement,saved.advancement);
+  if(pact!=='blade'){
+   const bad=structuredClone(exported);bad.spellbook=bad.spellbook.filter(o=>o.catalogId!==saved.advancement.pact.spells[0]);assert.throws(()=>target.importActive({mutationId:randomUUID(),expectedRevision:target.read().revision,destination:'new-campaign',file:bad}),{status:422});
+  }
+ }finally{s.close();target.close();}}
+});
+test('late invocation write failure rolls back new marker, spells, HP and entire origin; backups preserve retry',async t=>{
+ const file=disk(t,false),s=openStore(file,{classAdvancement:true}),db=new DatabaseSync(file);t.after(()=>{db.close();s.close();rmSync(join(file,'..'),{recursive:true,force:true});});prepare(s,'warlock',1);s.catalog.installBundled({version:s.catalog.previewBundled().version});
+ const q=warlockCommand(s),before=s.read();await s.backup(file+'.before');
+ db.exec("CREATE TRIGGER reject_invocation BEFORE INSERT ON advancement_changes BEGIN SELECT RAISE(ABORT,'late invocation');END");assert.throws(()=>s.advanceCharacter(q),/late invocation/);assert.deepEqual(s.read(),before);assert.equal(db.prepare('SELECT version FROM class_advancement_schema').get().version,1);
+ db.exec('DROP TRIGGER reject_invocation');s.advanceCharacter(q);assert.equal(db.prepare('SELECT version FROM class_advancement_schema').get().version,3);await s.backup(file+'.after');
+ const a=openStore(file+'.before',{classAdvancement:true}),b=openStore(file+'.after',{classAdvancement:true});try{assert.deepEqual(a.read(),before);assert.deepEqual(b.read(),s.read());assert.equal(b.advanceCharacter(q).replayed,true);assert.deepEqual(a.advanceCharacter(q).advancement,b.read().advancement);}finally{a.close();b.close();}
+ assert.equal(db.prepare('PRAGMA integrity_check').get().integrity_check,'ok');assert.equal(db.prepare('PRAGMA foreign_key_check').all().length,0);
+});
+
+test('a forged prerequisite spell snapshot or transferred pact source cannot authorize a class choice',t=>{
+ const file=disk(t,false),s=openStore(file,{classAdvancement:true}),db=new DatabaseSync(file),target=openStore(':memory:',{classAdvancement:true});t.after(()=>{target.close();db.close();s.close();rmSync(join(file,'..'),{recursive:true,force:true});});prepare(s,'warlock',1);s.catalog.installBundled({version:s.catalog.previewBundled().version});
+ s.setSpell(fields(s,{catalogId:ELDRITCH_BLAST_ID,status:'known'}));
+ const original=db.prepare('SELECT entry_json FROM character_spells WHERE catalog_id=?').get(ELDRITCH_BLAST_ID).entry_json,bad=JSON.parse(original);bad.name.ru='Подменённое требование';db.prepare('UPDATE character_spells SET entry_json=? WHERE catalog_id=?').run(JSON.stringify(bad),ELDRITCH_BLAST_ID);
+ const q=warlockCommand(s);q.choices['warlock:2:invocations']=['agonizing-blast','devils-sight'];const before=s.read();assert.throws(()=>s.advanceCharacter(q),{status:422});assert.deepEqual(s.read(),before);assert.equal(db.prepare('SELECT version FROM class_advancement_schema').get().version,1);
+ db.prepare('UPDATE character_spells SET entry_json=? WHERE catalog_id=?').run(original,ELDRITCH_BLAST_ID);s.advanceCharacter(q);s.advanceCharacter(warlockCommand(s,{pact:'chain'}));
+ const exported=s.exportActive(14),familiar=exported.catalog.entries.find(e=>e.id===FIND_FAMILIAR_ID);familiar.name.ru='Подменённый дар';const targetBefore=target.read();assert.throws(()=>target.importActive({mutationId:randomUUID(),expectedRevision:0,destination:'new-campaign',file:exported}),{status:422});assert.deepEqual(target.read(),targetBefore);
+});
+
+test('inactive invocation history cannot bypass startup by lowering its capability marker or stripping origin',t=>{
+ const file=disk(t,false),s=openStore(file,{classAdvancement:true});prepare(s,'warlock',1);s.catalog.installBundled({version:s.catalog.previewBundled().version});s.advanceCharacter(warlockCommand(s));const hero=s.read().context.characterId;
+ s.createCharacter(fields(s,{campaignId:s.read().context.campaignId,characterId:randomUUID(),template:'bard5-demo',profile:{name:'Синтетический другой герой',tagline:''}}));s.close();
+ const db=new DatabaseSync(file);t.after(()=>{db.close();rmSync(join(file,'..'),{recursive:true,force:true});});
+ const raw=db.prepare('SELECT ledger_json FROM character_advancement WHERE character_id=?').get(hero).ledger_json,before=db.prepare('SELECT * FROM workspace').get();
+ for(const marker of [1,2]){db.prepare('UPDATE class_advancement_schema SET version=?').run(marker);assert.throws(()=>openStore(file,{classAdvancement:true}),{status:409});assert.deepEqual(db.prepare('SELECT * FROM workspace').get(),before);}
+ db.exec('UPDATE class_advancement_schema SET version=3');
+ const stripped=JSON.parse(raw);stripped.version=3;delete stripped.invocations;delete stripped.pact;
+ db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(JSON.stringify(stripped),hero);assert.throws(()=>openStore(file,{classAdvancement:true}),{status:409});assert.deepEqual(db.prepare('SELECT * FROM workspace').get(),before);
+ db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(raw,hero);const restored=openStore(file,{classAdvancement:true});try{assert.notEqual(restored.read().context.characterId,hero);}finally{restored.close();}
+});

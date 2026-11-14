@@ -1,3 +1,4 @@
+import {validatePactChoice} from '../server/class-pacts.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {invocationEligibility} from '../server/class-invocations.mjs';
@@ -25,4 +26,26 @@ test('invalid facts cannot silently grant options and returned data cannot mutat
  for(const facts of [{warlockLevel:0},{warlockLevel:21},{warlockLevel:2,pact:'tome'},{warlockLevel:3,pact:'unknown'},{warlockLevel:2,hasEldritchBlast:'yes'},{warlockLevel:2,knownInvocations:['unknown']},{warlockLevel:2,knownInvocations:['armor-of-shadows','armor-of-shadows']}])assert.throws(()=>invocationEligibility(facts));
  assert.deepEqual(find(2,'armor-of-shadows',{knownInvocations:['armor-of-shadows']}).reasons,['already-known']);
  const rows=get(2);rows[0].reasons.length=0;rows[0].text='corrupt';assert.ok(get(2)[0].reasons.length);assert.notEqual(get(2)[0].text,'corrupt');
+});
+
+import {buildInvocationEvent,validateInvocationHistory} from '../server/class-invocations.mjs';
+test('invocation history retains replaced origins and validates each level rather than only final IDs',()=>{
+ const first=buildInvocationEvent({fromLevel:1,toLevel:2,selected:['armor-of-shadows','devils-sight']});
+ const second=buildInvocationEvent({fromLevel:2,toLevel:3,knownInvocations:['armor-of-shadows','devils-sight'],replacement:{remove:'armor-of-shadows',add:'eldritch-sight'}});
+ const records=[first,second];assert.deepEqual(validateInvocationHistory(records,{baselineLevel:1,level:3,pact:validatePactChoice({classId:'warlock',fromLevel:2,toLevel:3},{id:'blade',cantrips:[]})}),['devils-sight','eldritch-sight']);assert.equal(records[0].added[0].id,'armor-of-shadows');
+ for(const edit of [r=>r[1].replacement.remove='unknown',r=>r[1].replacement.add.id='devils-sight',r=>r[1].replacement.add.sourcePage=1,r=>r[1].level=4,r=>r[0].extra=true,r=>r[0].added=[]]){const bad=structuredClone(records);edit(bad);assert.throws(()=>validateInvocationHistory(bad,{baselineLevel:1,level:3,pact:validatePactChoice({classId:'warlock',fromLevel:2,toLevel:3},{id:'blade',cantrips:[]})}));}
+ assert.throws(()=>buildInvocationEvent({fromLevel:4,toLevel:5,selected:['mire-the-mind']}),/историей/);
+ assert.throws(()=>buildInvocationEvent({fromLevel:1,toLevel:2,selected:['armor-of-shadows','armor-of-shadows']}));
+ assert.throws(()=>buildInvocationEvent({fromLevel:2,toLevel:3,knownInvocations:['agonizing-blast','devils-sight']}),/требования/);
+ const removed=buildInvocationEvent({fromLevel:2,toLevel:3,knownInvocations:['agonizing-blast','devils-sight'],replacement:{remove:'agonizing-blast',add:'armor-of-shadows'}});assert.equal(removed.replacement.remove,'agonizing-blast');
+});
+
+import {initialRitualOptions} from '../server/class-rituals.mjs';
+test('Book of Ancient Secrets requires two distinct level-one rituals and preserves them after replacement',()=>{
+ const first=buildInvocationEvent({fromLevel:1,toLevel:2,selected:['armor-of-shadows','devils-sight']}),rituals=initialRitualOptions().slice(0,2).map(o=>o.id),pact=validatePactChoice({classId:'warlock',fromLevel:2,toLevel:3},{id:'tome',cantrips:['srd51:2014:spell:eldritch-blast','srd51:2014:spell:light','srd51:2014:spell:mage-hand']});
+ const replace=selection=>buildInvocationEvent({fromLevel:2,toLevel:3,knownInvocations:['armor-of-shadows','devils-sight'],pact:'tome',replacement:{remove:'armor-of-shadows',add:selection}});
+ for(const selection of ['book-of-ancient-secrets',{id:'book-of-ancient-secrets',rituals:[]},{id:'book-of-ancient-secrets',rituals:[rituals[0],rituals[0]]},{id:'book-of-ancient-secrets',rituals:['srd51:2014:spell:fireball',rituals[0]]},{id:'eldritch-sight',rituals}])assert.throws(()=>replace(selection));
+ const record=replace({id:'book-of-ancient-secrets',rituals}),history=[first,record];assert.deepEqual(validateInvocationHistory(history,{baselineLevel:1,level:3,pact}),['devils-sight','book-of-ancient-secrets']);
+ for(const edit of [h=>delete h[1].replacement.add.rituals,h=>h[1].replacement.add.rituals.push(rituals[0]),h=>h[1].replacement.add.extra=true]){const bad=structuredClone(history);edit(bad);assert.throws(()=>validateInvocationHistory(bad,{baselineLevel:1,level:3,pact}));}
+ const removed=buildInvocationEvent({fromLevel:3,toLevel:4,knownInvocations:['devils-sight','book-of-ancient-secrets'],pact:'tome',replacement:{remove:'book-of-ancient-secrets',add:'eldritch-sight'}});history.push(removed);assert.deepEqual(validateInvocationHistory(history,{baselineLevel:1,level:4,pact}),['devils-sight','eldritch-sight']);assert.deepEqual(history[1].replacement.add.rituals,rituals);
 });

@@ -1,8 +1,8 @@
 import test from 'node:test';import assert from 'node:assert/strict';import vm from 'node:vm';import {readFileSync} from 'node:fs';
 class Element{constructor(tag){this.tagName=tag;this.children=[];this.isConnected=true;this.value='';}append(...items){this.children.push(...items);}replaceChildren(){this.children=[];}setAttribute(){}}
-function fixture({late=false}={}){
+function fixture({late=false,level=3}={}){
  let current={identity:'user',viewId:'window',characterId:'hero',sessionId:'session'},watch,release,options,disposed=0,refreshed=0,reloaded=0,finish;
- const root=new Element('div'),dialog={open:true},transport={classes:()=>late?new Promise(r=>finish=r):Promise.resolve({ready:true,level:3,classId:null,classes:[{slug:'fighter',name:{ru:'Воин'}}]}),plan:async()=>({}),preview:async()=>({}),send:async()=>({}),destroy(){disposed++;}};
+ const root=new Element('div'),dialog={open:true},transport={classes:()=>late?new Promise(r=>finish=r):Promise.resolve({ready:true,level,classId:null,classes:[{slug:'fighter',name:{ru:'Воин'}}]}),plan:async()=>({}),preview:async()=>({}),send:async()=>({}),destroy(){disposed++;}};
  const context=vm.createContext({SkazStorage:{advancementScope:()=>current,refreshAfterAdvancement:async()=>{refreshed++;},reloadAfterArtTransfer:async()=>{reloaded++;dialog.open=false;}},SkazClassAdvancementTransport:{create:()=>transport},SkazPrivateExit:{register:()=>()=>{}},SkazPersonalArtSession:{register:fn=>{release=fn;return ()=>{};}},SkazClassAdvancement:{mount:async(host,o)=>{options=o;return {destroy(){},pending:false};}},MutationObserver:class{constructor(fn){watch=fn;}observe(){}},document:{body:{},createElement:t=>new Element(t),getElementById:id=>id==='dialog'?dialog:root,addEventListener(){}},modal(){},toast(){}});
  vm.runInContext(readFileSync(new URL('../client/class-advancement-shell.js',import.meta.url),'utf8'),context);
  return {api:vm.runInContext('SkazClassAdvancementShell',context),root,dialog,get options(){return options;},get disposed(){return disposed;},get refreshed(){return refreshed;},get reloaded(){return reloaded;},change(){current={...current,characterId:'other'};},close(){dialog.open=false;watch();},sweep:()=>watch(),lock:()=>release(),finish:()=>finish({ready:true,level:3,classes:[]}),async choose(){root.children.find(n=>n.tagName==='label').children[0].value='fighter';await root.children.find(n=>n.tagName==='button').onclick();}};
@@ -17,4 +17,10 @@ test('successful advancement reloads once while changing hero or locking the ses
 });
 test('closing during class loading prevents late controls from reappearing',async()=>{
  const f=fixture({late:true}),work=f.api.open();f.close();f.finish();await work;assert.equal(f.root.children.length,0);assert.equal(f.disposed,1);assert.equal(f.refreshed,0);
+});
+
+test('level twenty shell still opens the read-only class view and cleans up on close',async()=>{
+ const f=fixture({level:20});await f.api.open();
+ assert.ok(f.root.children.some(n=>n.tagName==='button'&&n.textContent==='Показать умения'));
+ await f.choose();assert.ok(f.options);f.close();assert.equal(f.disposed,1);assert.equal(f.refreshed,0);
 });

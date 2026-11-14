@@ -90,3 +90,20 @@ test('metamagic provenance is strict and malformed ledger envelopes return 422',
  const r=buildAdvancementChange(s,q);assert.equal(r.advancement.version,3);assert.deepEqual(r.advancement.styles,[]);assert.equal(r.advancement.metamagic.length,2);assert.deepEqual(r.characterStats,s.characterStats);assert.equal(r.state.hp,s.state.hp);
  for(const change of [l=>l.metamagic.pop(),l=>l.metamagic.push({...l.metamagic[0]}),l=>l.metamagic[0].id='not-a-choice',l=>l.metamagic[0].sourcePage=45,l=>l.metamagic[0].acquiredLevel=10,l=>l.metamagic[0].choiceId='sorcerer:10:metamagic',l=>{l.version=2;delete l.metamagic;},l=>{l.version=1;delete l.metamagic;delete l.styles;}]){const bad=structuredClone(r.advancement);change(bad);assert.throws(()=>validateAdvancementLedger(bad),{status:422});}
 });
+
+test('first invocations are atomic, sourced and cannot be stripped or forged',()=>{
+ const s=hero('warlock',1),q=command(s);q.choices['warlock:2:invocations']=['armor-of-shadows','devils-sight'];q.choices['warlock:2:known-spells']=spellChoiceOptions('warlock',2,'known-spells').slice(0,1).map(x=>x.spellId);
+ const r=buildAdvancementChange(s,q);assert.equal(r.advancement.version,4);assert.deepEqual(r.advancement.invocations[0].added.map(o=>o.id),q.choices['warlock:2:invocations']);assert.deepEqual(r.characterStats,s.characterStats);assert.equal(r.state.hp,s.state.hp);
+ for(const edit of [l=>l.invocations=[],l=>l.invocations[0].added.pop(),l=>l.invocations[0].added[0].sourcePage=1,l=>l.invocations[0].level=3,l=>l.invocations[0].added[0].id='book-of-ancient-secrets',l=>l.classId='wizard',l=>{l.version=3;delete l.invocations;},l=>{l.version=1;delete l.invocations;delete l.styles;delete l.metamagic;}]){const bad=structuredClone(r.advancement);edit(bad);assert.throws(()=>validateAdvancementLedger(bad),{status:422});}
+ const bad={...q,choices:{...q.choices,'warlock:2:invocations':['agonizing-blast','devils-sight']}};assert.throws(()=>buildAdvancementChange(s,bad),{status:422});
+ s.spellbook=[{catalogId:'srd51:2014:spell:eldritch-blast',status:'known'}];assert.equal(buildAdvancementChange(s,bad).advancement.invocations[0].hasEldritchBlast,true);
+ const later=next(s,r),laterQ=command(later);assert.throws(()=>buildAdvancementChange(later,laterQ),/Не завершён/);
+});
+
+test('warlock blade pact and replacement retain former origins without granting weapon or effects',()=>{
+ const initial=hero('warlock',1),q=command(initial);q.choices['warlock:2:invocations']=['armor-of-shadows','devils-sight'];q.choices['warlock:2:known-spells']=spellChoiceOptions('warlock',2,'known-spells').slice(0,1).map(o=>o.spellId);
+ const s=next(initial,buildAdvancementChange(initial,q)),q2=command(s);q2.choices['warlock:3:pact-boon']={id:'blade',cantrips:[]};q2.choices['warlock:3:replace-invocation']={remove:'armor-of-shadows',add:'eldritch-sight'};q2.choices['warlock:3:known-spells']=spellChoiceOptions('warlock',3,'known-spells',{knownIds:s.spellbook.map(o=>o.catalogId)}).slice(0,1).map(o=>o.spellId);
+ const result=buildAdvancementChange(s,q2);assert.equal(result.advancement.pact.id,'blade');assert.equal(result.advancement.invocations[0].added[0].id,'armor-of-shadows');assert.equal(result.advancement.invocations[1].replacement.add.id,'eldritch-sight');assert.equal(result.characterSheet.subclass,'');assert.deepEqual(result.characterStats,s.characterStats);
+ for(const id of ['tome','invented'])assert.throws(()=>buildAdvancementChange(s,{...q2,choices:{...q2.choices,'warlock:3:pact-boon':{id,cantrips:[]}}}),{status:422});
+ for(const edit of [l=>l.pact=null,l=>l.pact.sourcePage=1,l=>l.pact.id='tome',l=>l.pact.acquiredLevel=2]){const bad=structuredClone(result.advancement);edit(bad);assert.throws(()=>validateAdvancementLedger(bad),{status:422});}
+});
