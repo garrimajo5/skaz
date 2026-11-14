@@ -71,3 +71,22 @@ test('overflow of HP or counter count fails without partially changing the input
  const s=hero();s.state.maxHp=999;assert.throws(()=>buildAdvancementChange(s,command(s)),{status:422});assert.equal(s.characterSheet.level,1);
  s.state.maxHp=12;s.characterSheet.counters=Array.from({length:20},(_,i)=>({id:'manual-counter-'+i,name:'Ресурс '+i,current:0,max:1}));assert.throws(()=>buildAdvancementChange(s,command(s)),{status:422});assert.equal(s.characterSheet.counters.length,20);
 });
+
+test('fighting style origin upgrades only the affected ledger and rejects forged or stripped origins',()=>{
+ const s=hero('paladin',1),q=command(s);q.choices['paladin:2:fighting-style']=['defense'];
+ const original=structuredClone(s),r=buildAdvancementChange(s,q);assert.deepEqual(s,original);
+ assert.equal(r.advancement.version,2);assert.equal(r.advancement.styles[0].id,'defense');
+ assert.equal(r.characterStats.armorClass,s.characterStats.armorClass);assert.equal(r.state.hp,s.state.hp);
+ for(const change of [l=>l.styles=[],l=>l.styles.push({...l.styles[0]}),l=>l.styles[0].id='archery',l=>l.styles[0].sourcePage=24,l=>l.styles[0].acquiredLevel=1,l=>{l.version=1;delete l.styles;},l=>l.styles[0].classId='fighter']){
+  const bad=structuredClone(r.advancement);change(bad);assert.throws(()=>validateAdvancementLedger(bad),{status:422});
+ }
+ assert.equal(buildAdvancementChange(hero(),command(hero())).advancement.version,1);
+});
+
+
+test('metamagic provenance is strict and malformed ledger envelopes return 422',()=>{
+ for(const value of [undefined,false,true,0,'invalid',[],{}])assert.throws(()=>validateAdvancementLedger(value),{status:422});
+ const s=hero('sorcerer',2),q=command(s);q.choices['sorcerer:3:metamagic']=['careful-spell','twinned-spell'];q.choices['sorcerer:3:known-spells']=spellChoiceOptions('sorcerer',3,'known-spells').slice(0,1).map(x=>x.spellId);
+ const r=buildAdvancementChange(s,q);assert.equal(r.advancement.version,3);assert.deepEqual(r.advancement.styles,[]);assert.equal(r.advancement.metamagic.length,2);assert.deepEqual(r.characterStats,s.characterStats);assert.equal(r.state.hp,s.state.hp);
+ for(const change of [l=>l.metamagic.pop(),l=>l.metamagic.push({...l.metamagic[0]}),l=>l.metamagic[0].id='not-a-choice',l=>l.metamagic[0].sourcePage=45,l=>l.metamagic[0].acquiredLevel=10,l=>l.metamagic[0].choiceId='sorcerer:10:metamagic',l=>{l.version=2;delete l.metamagic;},l=>{l.version=1;delete l.metamagic;delete l.styles;}]){const bad=structuredClone(r.advancement);change(bad);assert.throws(()=>validateAdvancementLedger(bad),{status:422});}
+});

@@ -67,3 +67,38 @@ test('HTTP class help is read-only and translated labels cannot replace stable r
  assert.deepEqual(exported.advancement.events[0].featuresReviewed,['Action Surge (one use)']);
  assert.ok(!JSON.stringify(exported.advancement).includes('featureDetails'));
 });
+
+
+test('HTTP style choices are class-specific, mandatory, persistent and read-only in previews',async t=>{
+ const f=await fixture(t);
+ f.store.saveCharacterSheet(f.command({sheet:{ruleset:'5e-2014',ancestry:'',className:'paladin',subclass:'',level:1,counters:[]}}));
+ const before=f.store.read(),response=await f.request(prefix+'plan?classId=paladin');assert.equal(response.status,200);const view=await response.json();
+ assert.deepEqual(view.styleOptions['paladin:2:fighting-style'].map(s=>s.id),['defense','dueling','great-weapon-fighting','protection']);
+ assert.equal(view.styleOptions['paladin:2:fighting-style'][0].name,'Оборона');assert.deepEqual(view.selectedStyles,[]);
+ const q=f.command({classId:'paladin',fromLevel:1,hpMethod:'fixed',hpRoll:null,choices:{'paladin:2:fighting-style':['defense']},reviewedFeatures:view.plan.requiresFeatureReview});
+ for(const invalid of [[],['archery'],['Оборона'],['defense','dueling'],null,'defense']){
+  const bad={...q,choices:{'paladin:2:fighting-style':invalid}};
+  assert.equal((await f.request(prefix+'preview',bad)).status,422);assert.equal((await f.request(prefix+'apply',bad)).status,422);assert.deepEqual(f.store.read(),before);
+ }
+ assert.equal((await f.request(prefix+'preview',q)).status,200);assert.deepEqual(f.store.read(),before);
+ const saved=await(await f.request(prefix+'apply',q)).json();assert.equal(saved.characterSheet.level,2);assert.equal(saved.advancement.styles[0].id,'defense');assert.deepEqual(saved.characterStats,before.characterStats);
+ const next=await(await f.request(prefix+'plan?classId=paladin')).json();assert.equal(next.selectedStyles[0].name,'Оборона');assert.deepEqual(next.styleOptions,{});assert.ok(next.plan.choices.some(c=>c.kind==='subclass'));
+ assert.equal((await(await f.request(prefix+'apply',q)).json()).replayed,true);
+ assert.equal((await f.request(prefix+'apply',{...q,choices:{'paladin:2:fighting-style':['dueling']}})).status,409);
+ const exported=await(await f.request('/api/export/active-v13')).json();assert.equal(exported.advancement.version,2);assert.equal(exported.advancement.styles[0].sourcePage,31);
+});
+
+
+test('HTTP metamagic preview and save preserve chosen IDs while unknown prior choices stay blocked',async t=>{
+ const f=await fixture(t);f.store.catalog.installBundled({version:f.store.catalog.previewBundled().version});
+ f.store.saveCharacterSheet(f.command({sheet:{ruleset:'5e-2014',ancestry:'',className:'sorcerer',subclass:'',level:2,counters:[]}}));
+ const view=await(await f.request(prefix+'plan?classId=sorcerer')).json(),key='sorcerer:3:metamagic';assert.equal(view.metamagicOptions[key].length,8);
+ const choices={[key]:['careful-spell','twinned-spell']};for(const c of view.plan.choices)if(c.required&&c.kind!=='metamagic')choices[c.id]=view.options[c.id].slice(0,c.count).map(s=>s.spellId);
+ const q=f.command({classId:'sorcerer',fromLevel:2,hpMethod:'fixed',hpRoll:null,choices,reviewedFeatures:view.plan.requiresFeatureReview}),before=f.store.read();
+ assert.equal((await f.request(prefix+'preview',q)).status,200);assert.deepEqual(f.store.read(),before);
+ assert.equal((await f.request(prefix+'apply',{...q,choices:{...choices,[key]:['careful-spell']}})).status,422);assert.deepEqual(f.store.read(),before);
+ const saved=await(await f.request(prefix+'apply',q)).json();assert.equal(saved.advancement.version,3);assert.equal(saved.advancement.metamagic.length,2);assert.equal((await(await f.request(prefix+'apply',q)).json()).replayed,true);
+ const next=await(await f.request(prefix+'plan?classId=sorcerer')).json();assert.equal(next.selectedMetamagic.length,2);assert.deepEqual(next.metamagicOptions,{});
+ const baseline=await fixture(t);baseline.store.saveCharacterSheet(baseline.command({sheet:{ruleset:'5e-2014',ancestry:'',className:'sorcerer',subclass:'',level:9,counters:[]}}));baseline.store.catalog.installBundled({version:baseline.store.catalog.previewBundled().version});
+ const blocked=await(await baseline.request(prefix+'plan?classId=sorcerer')).json();assert.deepEqual(blocked.metamagicOptions,{});assert.match(blocked.choiceNotices['sorcerer:10:metamagic'],/не подтверждены/);
+});

@@ -10,7 +10,7 @@ const SkazClassAdvancement=(()=>{
       const details=el('details',undefined,parent);
       el('summary',info?.name||feature,details);
       for(const paragraph of (info?.text||'Описание этого умения пока не подключено. Проверь правила отдельно.').split(/\n\s*\n/))el('p',paragraph,details);
-      for(const option of info?.referenceOptions||[])renderFeatureHelp(details,{...option,source:info.source},option.key);
+      for(const option of info?.referenceOptions||[])renderFeatureHelp(details,{...option,source:option.source||info.source},option.key);
       if(info?.status==='unsupported')el('p','Правила этого умения пока не подключены полностью.',details);
       if(Number.isSafeInteger(info?.sourcePage)&&info.sourcePage>0){
        const link=el('a','Источник: SRD 5.1, стр. '+info.sourcePage,details);
@@ -24,6 +24,12 @@ const SkazClassAdvancement=(()=>{
    const selected=command.choices[choice.id];if(selected===undefined)continue;
    if(choice.kind==='ability-score-improvement-or-feat'){
     for(const [key,name]of Object.entries(abilityNames)){const delta=selected.increases[key];if(delta>0)el('p',name+': '+data.abilities[key]+' → '+(data.abilities[key]+delta)+'.',parent);}
+   }else if(choice.kind==='metamagic'){
+    const names=selected.map(id=>data.metamagicOptions?.[choice.id]?.find(s=>s.id===id)?.name||id);
+    el('p','Метамагия: '+names.join('; ')+'. Применение и расход очков учитывай вручную.',parent);
+   }else if(choice.kind==='fighting-style'){
+    const names=selected.map(id=>data.styleOptions?.[choice.id]?.find(s=>s.id===id)?.name||id);
+    el('p','Боевой стиль: '+names.join('; ')+'. Боевые бонусы учитывай вручную.',parent);
    }else if(Array.isArray(selected)){
     const names=selected.map(id=>{const spell=data.options[choice.id]?.find(s=>s.spellId===id);return spell?spell.name.ru+' / '+spell.name.en:id;});
     if(names.length)el('p',(titles[choice.kind]||choiceNames[choice.kind]||choice.kind)+': '+names.join('; ')+'.',parent);
@@ -45,6 +51,16 @@ const SkazClassAdvancement=(()=>{
    form.replaceChildren();invalidate();
    el('h2',data.className+': '+data.fromLevel+' → '+(data.fromLevel+1),form);
    el('p','Повысятся максимальные хиты и выбранные данные. Текущие хиты не восстанавливаются. Ручные счётчики не присваиваются автоматически.',form);
+   if(data.selectedMetamagic?.length){
+    const section=el('section',undefined,form);el('h3','Сохранённая Метамагия',section);
+    for(const option of data.selectedMetamagic)el('p',option.text,section);
+    el('p','Применимость к заклинанию и расход очков чародейства учитываются вручную.',section);
+   }
+   if(data.selectedStyles?.length){
+    const section=el('section',undefined,form);el('h3','Сохранённые боевые стили',section);
+    for(const style of data.selectedStyles)el('p',style.name+' — '+style.text,section);
+    el('p','Боевые бонусы учитываются вручную; мастер не меняет КД, атаки или урон.',section);
+   }
    if(data.plan.priorFeatureDetails?.length){
     const reference=el('details',undefined,form);
     el('summary','Справка по умениям до уровня '+data.fromLevel,reference);
@@ -74,6 +90,23 @@ const SkazClassAdvancement=(()=>{
      el('p','Распредели 2 пункта. Не выше 20. Выбор черты ещё не подключён.',fs);const fields={};
      for(const [key,name]of Object.entries(abilityNames)){const l=el('label',name+' ('+data.abilities[key]+')',fs),n=el('input',undefined,l);n.type='number';n.min='0';n.max=String(Math.max(0,Math.min(2,20-data.abilities[key])));n.value='0';n.setAttribute('aria-label',name+': прибавка');fields[key]=n;}
      controls.set(choice.id,()=>({increases:Object.fromEntries(Object.entries(fields).map(([k,n])=>[k,n.value===''?null:Number(n.value)]))}));
+    }else if(choice.kind==='metamagic'&&data.metamagicOptions?.[choice.id]?.length){
+     el('p','Выбери '+choice.count+' разных варианта. Сохраняется выбор, а применение к заклинанию и расход очков остаются ручными.',fs);
+     const count=el('p','Выбрано 0 из '+choice.count,fs);count.setAttribute('aria-live','polite');const rows=[];
+     for(const option of data.metamagicOptions[choice.id]){
+      const label=el('label',undefined,fs),box=el('input',undefined,label);box.type='checkbox';box.value=option.id;el('span',option.name,label);rows.push(box);
+      renderFeatureHelp(fs,{...option,source:data.plan.featureDetails?.find(f=>f.key==='Metamagic')?.source},option.id);
+      box.addEventListener('change',()=>count.textContent='Выбрано '+rows.filter(r=>r.checked).length+' из '+choice.count);
+     }
+     controls.set(choice.id,()=>rows.filter(r=>r.checked).map(r=>r.value));
+    }else if(choice.kind==='fighting-style'&&data.styleOptions?.[choice.id]?.length){
+     el('p','Выбери один стиль. Его название и происхождение сохранятся. КД, атаки и урон не меняются автоматически — учитывай бонусы вручную.',fs);
+     const label=el('label','Боевой стиль',fs),select=el('select',undefined,label);
+     select.name=choice.id;const empty=el('option','Выбери стиль…',select);empty.value='';select.value='';
+     for(const style of data.styleOptions[choice.id]){const option=el('option',style.name,select);option.value=style.id;}
+     const help=el('p','Стиль ещё не выбран.',fs);help.setAttribute('aria-live','polite');
+     select.addEventListener('change',()=>{help.textContent=data.styleOptions[choice.id].find(s=>s.id===select.value)?.text||'Стиль ещё не выбран.';});
+     controls.set(choice.id,()=>select.value?[select.value]:[]);
     }else if(data.options[choice.id]){
      const searchLabel=el('label','Найти заклинание',fs),search=el('input',undefined,searchLabel);search.type='search';
      const count=el('p','Выбрано 0 из '+choice.count,fs);count.setAttribute('aria-live','polite');
@@ -82,7 +115,7 @@ const SkazClassAdvancement=(()=>{
      search.addEventListener('input',()=>{const q=search.value.trim().toLocaleLowerCase('ru');for(const r of rows)r.l.hidden=!r.box.checked&&!r.search.includes(q);});
      list.addEventListener('change',()=>{const n=rows.filter(r=>r.box.checked).length;count.textContent='Выбрано '+n+' из '+choice.count;});
      controls.set(choice.id,()=>rows.filter(r=>r.box.checked).map(r=>r.box.value));
-    }else{blocked=true;el('p','Этот обязательный выбор пока не подключён. Повышение не будет сохранено.',fs);}
+    }else{blocked=true;el('p',data.choiceNotices?.[choice.id]||'Этот обязательный выбор пока не подключён. Повышение не будет сохранено.',fs);}
    }
    const reviews=[];
    if(data.plan.requiresFeatureReview.length){const fs=el('fieldset',undefined,form);el('legend','Новые умения: ручная проверка',fs);el('p','Эффекты этих умений ещё не применяются автоматически. Отметка подтверждает только проверку правил.',fs);for(const feature of data.plan.requiresFeatureReview){

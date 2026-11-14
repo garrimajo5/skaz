@@ -148,3 +148,38 @@ test('reference options stay read-only and keep their own source pages',async()=
  await e.button('Проверить повышение').onclick();
  assert.deepEqual([...command.reviewedFeatures],['Eldritch Invocations']);assert.deepEqual(Object.keys(command.choices),[]);
 });
+
+
+test('style selection starts empty, previews its name, invalidates edits and replays exact selection',async()=>{
+ const e=environment(),key='paladin:2:fighting-style',sent=[],commands=[];
+ const d={...data(),classId:'paladin',fromLevel:1,plan:{requiresFeatureReview:[],choices:[{id:key,kind:'fighting-style',count:1,required:true}]},styleOptions:{[key]:[{id:'defense',name:'Оборона',text:'При ношении доспеха +1 КД.'},{id:'dueling',name:'Дуэлянт',text:'Бонус к урону.'}]}};
+ await e.mount(e.root,{load:async()=>d,preview:async q=>{commands.push(q);if(q.choices[key].length!==1)throw Error('Выбери стиль');return summary();},send:async body=>{sent.push(body);if(sent.length===1)throw Error('Lost');return saved();}});
+ const select=walk(e.root).find(n=>n.tagName==='select'&&n.name===key);assert.ok(select);assert.equal(select.value,'');
+ await e.button('Проверить повышение').onclick();assert.equal(e.button('Подтвердить повышение').hidden,true);assert.equal(commands[0].choices[key].length,0);
+ select.value='defense';select.emit('change');assert.ok(walk(e.root).some(n=>n.textContent==='При ношении доспеха +1 КД.'));
+ await e.button('Проверить повышение').onclick();assert.ok(walk(e.root).some(n=>n.textContent==='Боевой стиль: Оборона. Боевые бонусы учитывай вручную.'));
+ select.value='dueling';select.emit('change');assert.equal(e.button('Подтвердить повышение').hidden,true);
+ await e.button('Проверить повышение').onclick();await e.button('Подтвердить повышение').onclick();assert.equal(select.disabled,true);
+ await e.button('Повторить сохранение').onclick();assert.equal(sent.length,2);assert.equal(sent[0],sent[1]);assert.deepEqual(JSON.parse(sent[0]).choices[key],['dueling']);
+});
+
+test('saved styles remain visible and do not bypass a later mandatory subclass',async()=>{
+ const e=environment();await e.mount(e.root,{load:async()=>({...data(),selectedStyles:[{id:'defense',name:'Оборона',text:'При ношении доспеха +1 КД.'}],plan:{requiresFeatureReview:[],choices:[{id:'paladin:3:subclass',kind:'subclass',count:1,required:true}]}}),preview:async()=>{throw Error('must remain blocked');},send:async()=>saved()});
+ assert.ok(walk(e.root).some(n=>n.textContent==='Оборона — При ношении доспеха +1 КД.'));assert.equal(e.button('Проверить повышение').disabled,true);
+});
+
+
+test('metamagic multi-selection counts, invalidates preview and retries unchanged after lost response',async()=>{
+ const e=environment(),id='sorcerer:3:metamagic',sent=[];
+ await e.mount(e.root,{load:async()=>({...data(),plan:{requiresFeatureReview:[],choices:[{id,kind:'metamagic',count:2,required:true}]},metamagicOptions:{[id]:[{id:'careful-spell',name:'Осторожное заклинание',text:'Текст первого варианта.'},{id:'twinned-spell',name:'Удвоенное заклинание',text:'Текст второго варианта.'}]}}),preview:async q=>{if(q.choices[id].length!==2)throw Error('Выбери два варианта');return summary();},send:async body=>{sent.push(body);if(sent.length===1)throw Error('Lost');return saved();}});
+ const boxes=walk(e.root).filter(n=>n.type==='checkbox');assert.equal(boxes.length,2);boxes[0].checked=true;boxes[0].emit('change');assert.ok(walk(e.root).some(n=>n.textContent==='Выбрано 1 из 2'));
+ await e.button('Проверить повышение').onclick();assert.equal(e.button('Подтвердить повышение').hidden,true);
+ boxes[1].checked=true;boxes[1].emit('change');await e.button('Проверить повышение').onclick();assert.ok(walk(e.root).some(n=>n.textContent.startsWith('Метамагия: Осторожное заклинание; Удвоенное заклинание.')));
+ boxes[1].checked=false;boxes[1].emit('change');assert.equal(e.button('Подтвердить повышение').hidden,true);
+ boxes[1].checked=true;boxes[1].emit('change');await e.button('Проверить повышение').onclick();await e.button('Подтвердить повышение').onclick();assert.ok(boxes.every(b=>b.disabled));await e.button('Повторить сохранение').onclick();assert.equal(sent[0],sent[1]);assert.deepEqual(JSON.parse(sent[0]).choices[id],['careful-spell','twinned-spell']);
+});
+
+test('unknown prior metamagic explains its block and never silently initializes selections',async()=>{
+ const e=environment(),id='sorcerer:10:metamagic';await e.mount(e.root,{load:async()=>({...data(),plan:{requiresFeatureReview:[],choices:[{id,kind:'metamagic',count:1,required:true}]},metamagicOptions:{},choiceNotices:{[id]:'Прежние варианты не подтверждены.'}}),preview:async()=>{throw Error('must not preview');},send:async()=>saved()});
+ assert.equal(e.button('Проверить повышение').disabled,true);assert.ok(walk(e.root).some(n=>n.textContent==='Прежние варианты не подтверждены.'));assert.equal(walk(e.root).filter(n=>n.type==='checkbox').length,0);
+});

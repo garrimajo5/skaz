@@ -1,3 +1,4 @@
+import {writeAdvancementOrigin} from './class-advancement-store.mjs';
 import {validateAdvancementSnapshot} from './class-advancement.mjs';
 import {validateCharacterSheet,writeCharacterSheet} from './character-sheet.mjs';
 import {validateCharacterStats,writeCharacterStats} from './character-stats.mjs';
@@ -112,7 +113,7 @@ export function importTransfer(db, data, mutationId, viewId) {
   if(data.characterSheet!==undefined)writeCharacterSheet(db,ids.characterId,data.characterSheet);
   if(data.characterStats!==undefined)writeCharacterStats(db,ids.characterId,data.characterStats);
   if(data.advancement){
-    db.prepare('INSERT INTO character_advancement VALUES (?,?)').run(ids.characterId,JSON.stringify(data.advancement));
+    writeAdvancementOrigin(db,ids.characterId,data.advancement);
     db.prepare('INSERT INTO advancement_changes VALUES (?,?,?,?)').run(mutationId,ids.characterId,'null',JSON.stringify(data.advancement));
   }
   db.prepare('INSERT INTO session_details VALUES (?, ?, ?, 0)').run(ids.sessionId, data.session.name, data.session.playedOn);

@@ -1,3 +1,5 @@
+import {validateMetamagicChoice} from './class-metamagic.mjs';
+import {validateFightingStyleChoice} from './class-fighting-styles.mjs';
 import {createHash} from 'node:crypto';
 import {AppError,validateState} from './state.mjs';
 import {validateCharacterSheet} from './character-sheet.mjs';
@@ -28,7 +30,7 @@ export function validateAdvancementCommand(input){
 
 export function validateAdvancementLedger(value){
  if(value===null)return null;
- if(!exact(value,['version','ruleset','classId','baselineLevel','level','binding','events','resources','spells'])||value.version!==1||value.ruleset!=='5e-2014')fail(422,'Неверное происхождение повышения');
+ if(!exact(value,['version','ruleset','classId','baselineLevel','level','binding','events','resources','spells',...(value?.version>=2?['styles']:[]),...(value?.version===3?['metamagic']:[])])||![1,2,3].includes(value.version)||value.ruleset!=='5e-2014')fail(422,'Неверное происхождение повышения');
  checkedClass(value.classId,value.level);
  if(!Number.isSafeInteger(value.baselineLevel)||value.baselineLevel<1||value.baselineLevel>value.level||!Array.isArray(value.events)||value.events.length!==value.level-value.baselineLevel)fail(422,'Неполная последовательность уровней');
  if(value.binding!==null&&(!exact(value.binding,['mutationId','requestHash'])||!id(value.binding.mutationId)||!/^[a-f0-9]{64}$/.test(value.binding.requestHash)))fail(422,'Неверное подключение ресурсов');
@@ -60,7 +62,35 @@ export function validateAdvancementLedger(value){
  }
  for(const event of value.events){
   const choices=previewClassLevel({classId:value.classId,fromLevel:event.level-1,toLevel:event.level,constitution:10}).choices;
+  if(value.version<3&&choices.some(c=>c.kind==='metamagic'))fail(422,'История Метамагии требует версию 3');
+  if(value.version===1&&choices.some(c=>c.kind==='fighting-style'))fail(422,'История боевого стиля требует версию 2');
   for(const choice of choices)if(spellKinds.has(choice.kind)&&(choiceCounts.get(choice.id)||0)!==choice.count)fail(422,'В происхождении отсутствует часть выбранных заклинаний');
+ }
+ if(value.version>=2){
+  if(!Array.isArray(value.styles)||(value.version===2&&value.styles.length<1)||value.styles.length>6)fail(422,'Неверный список источников боевых стилей');
+  const known=[];const counts=new Map();
+  for(const origin of value.styles){
+   if(!exact(origin,['id','ruleset','classId','sourcePage','acquiredLevel','choiceId'])||origin.classId!==value.classId||origin.acquiredLevel<=value.baselineLevel||origin.acquiredLevel>value.level)fail(422,'Неверное происхождение боевого стиля');
+   let checked;try{checked=validateFightingStyleChoice({classId:value.classId,fromLevel:origin.acquiredLevel-1,toLevel:origin.acquiredLevel},origin.choiceId,[origin.id],{knownStyles:known});}catch(error){fail(422,error.message);}
+   if(hash(checked)!==hash(origin))fail(422,'Источник боевого стиля не совпадает с правилами');
+   known.push(origin.id);counts.set(origin.choiceId,(counts.get(origin.choiceId)||0)+1);
+  }
+  for(const event of value.events)for(const choice of previewClassLevel({classId:value.classId,fromLevel:event.level-1,toLevel:event.level,constitution:10}).choices)if(choice.kind==='fighting-style'&&counts.get(choice.id)!==choice.count)fail(422,'В истории отсутствует выбранный боевой стиль');
+ }
+ if(value.version===3){
+  if(!Array.isArray(value.metamagic)||value.metamagic.length<1||value.metamagic.length>4)fail(422,'Неверная история Метамагии');
+  for(const origin of value.metamagic)if(!exact(origin,['id','ruleset','classId','sourcePage','acquiredLevel','choiceId'])||origin.classId!==value.classId||!Number.isSafeInteger(origin.acquiredLevel)||origin.acquiredLevel<=value.baselineLevel||origin.acquiredLevel>value.level)fail(422,'Неверное происхождение Метамагии');
+  const known=[];let checkedCount=0;
+  for(const event of value.events){
+   const plan={classId:value.classId,fromLevel:event.level-1,toLevel:event.level};
+   for(const choice of previewClassLevel({...plan,constitution:10}).choices)if(choice.kind==='metamagic'){
+    const origins=value.metamagic.filter(o=>o.choiceId===choice.id);let checked;
+    try{checked=validateMetamagicChoice(plan,choice.id,origins.map(o=>o.id),{knownOptions:known});}catch(error){fail(422,error.message);}
+    for(const origin of origins)if(hash(origin)!==hash(checked.find(o=>o.id===origin.id)))fail(422,'Источник Метамагии не совпадает с правилами');
+    known.push(...checked.map(o=>o.id));checkedCount+=checked.length;
+   }
+  }
+  if(checkedCount!==value.metamagic.length)fail(422,'Метамагия не соответствует истории уровней');
  }
  return structuredClone(value);
 }
@@ -81,7 +111,7 @@ function build(current,request){
  for(const key of Object.keys(request.choices))if(!choices.has(key))fail(422,'Выбор не относится к этому уровню');
  for(const choice of choices.values()){
   if(!Object.hasOwn(request.choices,choice.id)){if(choice.required)fail(422,'Не завершён выбор: '+choice.kind);continue;}
-  if(!spellKinds.has(choice.kind)&&choice.kind!=='ability-score-improvement-or-feat')fail(422,'Этот выбор ещё не поддерживается: '+choice.kind);
+  if(!spellKinds.has(choice.kind)&&choice.kind!=='ability-score-improvement-or-feat'&&choice.kind!=='fighting-style'&&choice.kind!=='metamagic')fail(422,'Этот выбор ещё не поддерживается: '+choice.kind);
  }
  let abilities=stats.abilities;
  for(const choice of choices.values())if(choice.kind==='ability-score-improvement-or-feat'){
@@ -91,6 +121,16 @@ function build(current,request){
  }
  const plan=previewClassLevel({classId:request.classId,fromLevel:sheet.level,toLevel:sheet.level+1,constitution:abilities.con,previousConstitution:stats.abilities.con,hpMethod:request.hpMethod,hpRoll:request.hpRoll});
  const ledger=previous||{version:1,ruleset:'5e-2014',classId:request.classId,baselineLevel:sheet.level,level:sheet.level,binding:null,events:[],resources:[],spells:[]};
+ for(const choice of choices.values())if(choice.kind==='fighting-style'){
+  const origin=validateFightingStyleChoice(plan,choice.id,request.choices[choice.id],{knownStyles:(ledger.styles||[]).map(s=>s.id)});
+  if(ledger.version===1){ledger.version=2;ledger.styles=[];}
+  ledger.styles.push(origin);
+ }
+ for(const choice of choices.values())if(choice.kind==='metamagic'){
+  const origins=validateMetamagicChoice(plan,choice.id,request.choices[choice.id],{knownOptions:(ledger.metamagic||[]).map(o=>o.id)});
+  if(ledger.version<3){ledger.version=3;ledger.styles??=[];ledger.metamagic=[];}
+  ledger.metamagic.push(...origins);
+ }
  const known=(current.spellbook||[]).map(s=>s.catalogId);
  if(new Set(known).size!==known.length)fail(422,'Повторные заклинания в книге');
  if(ledger.spells.some(s=>!known.includes(s.catalogId)))fail(409,'Полученное при повышении заклинание удалено вручную; нужна сверка');
