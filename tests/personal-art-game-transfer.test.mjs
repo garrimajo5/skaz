@@ -224,3 +224,9 @@ for(const [classId,level,version,preparedCount] of [['cleric',3,10,4],['druid',3
   assert.deepEqual(f.db.prepare('PRAGMA foreign_key_check').all(),[]);
  });
 }
+import {prepareDraconic} from '../scripts/fixtures/draconic-commands.mjs';
+test('Draconic history and metamagic transfer with PNG without replaying HP bonuses',t=>{
+ const f=fixture(t,{classAdvancement:true}),w=f.writer;prepareDraconic(w,3,{installCatalog:false});const before=w.read(),bundle=w.exportActive('with-art'),request={mutationId:randomUUID(),expectedRevision:before.revision,destination:'new-campaign',file:bundle},original=counts(f.db);
+ f.db.exec("CREATE TRIGGER reject_draconic_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'late draconic artwork');END");assert.throws(()=>w.importActive(request),/late draconic artwork/);assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);f.db.exec('DROP TRIGGER reject_draconic_art');
+ const saved=w.importActive(request);assert.deepEqual(saved.advancement,before.advancement);assert.equal(saved.state.maxHp,before.state.maxHp);assert.equal(saved.state.hp,before.state.hp);assert.ok(w.personalArt.read(saved.context.characterId,catalogId,'master').file.bytes.equals(Buffer.from(bundle.personalArt.entries[0].png,'base64')));const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);
+});

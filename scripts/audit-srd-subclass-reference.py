@@ -12,7 +12,7 @@ def normalized(value):
 def ordinal(n):
     return str(n)+('th' if 10 <= n % 100 <= 20 else {1:'st',2:'nd',3:'rd'}.get(n % 10,'th'))
 def audit_reference(data,pages):
-    errors=[];features=0;tables=0;links=0
+    errors=[];features=0;tables=0;links=0;ancestors=0
     def page(number):
         if not isinstance(number,int) or number not in pages:
             raise ValueError('Missing source page: '+str(number))
@@ -24,6 +24,13 @@ def audit_reference(data,pages):
             features+=1
             if normalized(feature['key']) not in page(feature['sourcePage']):
                 errors.append('Feature heading/page: '+subclass['id']+'/'+feature['key'])
+        ancestor_rows=subclass.get('ancestorOptions',[])
+        if subclass['id']=='sorcerer-draconic' and (len(ancestor_rows)!=10 or len({r['id'] for r in ancestor_rows})!=10):
+            errors.append('Draconic ancestry must have ten unique rows')
+        for row in ancestor_rows:
+            ancestors+=1
+            if normalized(row['id']+row['damageType']) not in page(row['sourcePage']):
+                errors.append('Dragon ancestry row: '+row['id'])
         for table in subclass.get('spellTables',[]):
             tables+=1;body=page(table['sourcePage']);heading=normalized(table['sourceHeading'])
             if heading not in body:
@@ -37,8 +44,8 @@ def audit_reference(data,pages):
                 wanted=normalized(ordinal(row['level'])+''.join(names))
                 if wanted not in body:
                     errors.append('Table row: '+subclass['id']+'/'+table['name']+'/'+str(row['level']))
-    return {'subclasses':len(data['subclasses']),'featureHeadings':features,'spellTables':tables,'spellLinks':links,'errors':errors,
-            'scope':'Heading locations and spell-table rows only; not automatic validation of translated rules.'}
+    return {'subclasses':len(data['subclasses']),'featureHeadings':features,'spellTables':tables,'spellLinks':links,'dragonAncestors':ancestors,'errors':errors,
+            'scope':'Heading locations, spell-table and draconic-ancestry rows only; not automatic validation of translated rules.'}
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('pdf',type=Path);parser.add_argument('--catalog',type=Path,default=Path(__file__).resolve().parents[1]/'catalog/srd51-subclass-reference.json');args=parser.parse_args()
     if hashlib.sha256(args.pdf.read_bytes()).hexdigest()!=SHA256:raise SystemExit('Unexpected SRD source hash')
@@ -46,7 +53,7 @@ def main():
     if data['source']['sha256']!=SHA256 or data['ruleset']!='5e-2014':raise SystemExit('Catalog source mismatch')
     from pypdf import PdfReader
     reader=PdfReader(args.pdf)
-    needed={s['sourcePage'] for s in data['subclasses']}|{f['sourcePage'] for s in data['subclasses'] for f in s['features']}|{t['sourcePage'] for s in data['subclasses'] for t in s.get('spellTables',[])}
+    needed={s['sourcePage'] for s in data['subclasses']}|{f['sourcePage'] for s in data['subclasses'] for f in s['features']}|{t['sourcePage'] for s in data['subclasses'] for t in s.get('spellTables',[])}|{r['sourcePage'] for s in data['subclasses'] for r in s.get('ancestorOptions',[])}
     report=audit_reference(data,{n:reader.pages[n-1].extract_text() for n in needed})
     print(json.dumps(report,ensure_ascii=True,indent=2))
     if report['errors']:raise SystemExit(1)

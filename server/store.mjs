@@ -80,7 +80,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
       session: { name: session.name, playedOn: session.playedOn }, sessionNumber: session.number,
       spellbook:readSpellbook(db,context.character.id),
       characterStats: readCharacterStats(db,context.character.id),
-      characterSheet, spellLearning, alwaysPreparedSpellIds:alwaysPreparedOrigins(advancement).map(o=>o.catalogId),unlimitedResources:unlimitedResourceViews(advancement),classGrantedSpellIds:[11,12].includes(advancement?.version)?[advancement.subclass.bonusCantrip.catalogId]:[],
+      characterSheet, spellLearning, alwaysPreparedSpellIds:alwaysPreparedOrigins(advancement).map(o=>o.catalogId),unlimitedResources:unlimitedResourceViews(advancement),classGrantedSpellIds:advancement?.version===13?advancement.spells.map(o=>o.catalogId):[11,12].includes(advancement?.version)?[advancement.subclass.bonusCantrip.catalogId]:[],
       ...(classAdvancement?{advancement}:{}),
       state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
   }
@@ -297,7 +297,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
     },
     saveCharacterSheet:request=>{
       const payload=validateSheetCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'character-sheet',expectedRevision:request.expectedRevision,payload})).digest('hex');
-      return mutate(request,hash,'Ручной класс и счётчики',()=>{const current=read();if(payload.sheet&&current.characterSheet?.spellLearning!=null&&!Object.hasOwn(payload.sheet,'spellLearning'))throw new AppError(409,'Обнови страницу: отсутствует выбор модели заклинаний');if(current.advancement&&(!payload.sheet||payload.sheet.level!==current.characterSheet.level||payload.sheet.className!==current.characterSheet.className||current.advancement.version>=5&&payload.sheet.subclass!==current.characterSheet.subclass))throw new AppError(409,'Класс и уровень связаны с историей повышения');if([9,11,12].includes(current.advancement?.version))validateAdvancementSnapshot(current.advancement,payload.sheet,current.characterStats,current.spellbook);saveCharacterSheet(db,payload,request.mutationId,current.context.characterId);return read().state;},'character-sheet');
+      return mutate(request,hash,'Ручной класс и счётчики',()=>{const current=read();if(payload.sheet&&current.characterSheet?.spellLearning!=null&&!Object.hasOwn(payload.sheet,'spellLearning'))throw new AppError(409,'Обнови страницу: отсутствует выбор модели заклинаний');if(current.advancement&&(!payload.sheet||payload.sheet.level!==current.characterSheet.level||payload.sheet.className!==current.characterSheet.className||current.advancement.version>=5&&payload.sheet.subclass!==current.characterSheet.subclass))throw new AppError(409,'Класс и уровень связаны с историей повышения');if([9,11,12,13].includes(current.advancement?.version))validateAdvancementSnapshot(current.advancement,payload.sheet,current.characterStats,current.spellbook);saveCharacterSheet(db,payload,request.mutationId,current.context.characterId);return read().state;},'character-sheet');
     },
     saveCharacterStats: request => {
       const payload=validateStatsCommand(request);
@@ -313,6 +313,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
       const hash = createHash('sha256').update(JSON.stringify({ operation: 'spell-set', expectedRevision: request.expectedRevision, payload })).digest('hex');
       return mutate(request, hash, 'Изменение списка заклинаний', () => {
         const current=read(),protectedSpell=alwaysPreparedOrigins(current.advancement).some(o=>o.catalogId===payload.catalogId);
+        if(current.advancement?.version===13&&payload.status==='remove'&&current.advancement.spells.some(o=>o.catalogId===payload.catalogId))throw new AppError(409,'Заклинание связано с историей повышения; удаление требует отдельной замены');
         if([11,12].includes(current.advancement?.version)&&current.advancement.subclass.bonusCantrip.catalogId===payload.catalogId&&payload.status==='remove')throw new AppError(409,'Дополнительный заговор Круга Земли связан с историей выбора; удалить его нельзя');
         if(protectedSpell&&payload.status!=='prepared')throw new AppError(409,'Заклинание постоянно подготовлено умением класса; снять подготовку или удалить его нельзя');
         setSpell(db, payload, request.mutationId,current.context.characterId);

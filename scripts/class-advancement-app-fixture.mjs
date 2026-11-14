@@ -1,3 +1,4 @@
+import {prepareDraconic} from './fixtures/draconic-commands.mjs';
 import {divineCommand} from './fixtures/divine-commands.mjs';
 import {wizardCommand} from './fixtures/wizard-commands.mjs';
 import {rangerCommand} from './fixtures/ranger-commands.mjs';
@@ -15,7 +16,7 @@ const args=new Map();for(const arg of process.argv.slice(2)){
 }
 const port=Number(args.get('port')||4245),scenario=args.get('scenario')||'original';
 if(!Number.isInteger(port)||port<1024||port>65535)throw Error('Invalid fixture port');
-const scenarios={original:[['fighter',3],['wizard',2],['cleric',1]],'class-choices':[['paladin',1],['ranger',1],['sorcerer',2]],'unknown-metamagic':[['sorcerer',9]],'warlock-choices':[['warlock',1]],'unknown-invocations':[['warlock',4]],'subclass-choices':[['fighter',2],['barbarian',2],['rogue',2],['monk',2],['wizard',1],['ranger',2]],'champion-style':[['fighter',2]],'wizard-mastery':[['wizard',1]],'ranger-six':[['ranger',1]],'ranger-ten':[['ranger',1]],'ranger-fourteen':[['ranger',1]],'devotion':[['paladin',2]],'wizard-signature':[['wizard',1]],'life-domain':[['cleric',1]],'land-cantrip':[['druid',1]],'land-terrain':[['druid',1]],'archdruid':[['druid',1]]};
+const scenarios={'draconic-confirm':[['sorcerer',1]],'draconic-metamagic':[['sorcerer',1]],original:[['fighter',3],['wizard',2],['cleric',1]],'class-choices':[['paladin',1],['ranger',1],['sorcerer',2]],'unknown-metamagic':[['sorcerer',9]],'warlock-choices':[['warlock',1]],'unknown-invocations':[['warlock',4]],'subclass-choices':[['fighter',2],['barbarian',2],['rogue',2],['monk',2],['wizard',1],['ranger',2]],'champion-style':[['fighter',2]],'wizard-mastery':[['wizard',1]],'ranger-six':[['ranger',1]],'ranger-ten':[['ranger',1]],'ranger-fourteen':[['ranger',1]],'devotion':[['paladin',2]],'wizard-signature':[['wizard',1]],'life-domain':[['cleric',1]],'land-cantrip':[['druid',1]],'land-terrain':[['druid',1]],'archdruid':[['druid',1]]};
 if(!Object.hasOwn(scenarios,scenario))throw Error('Unknown fixture scenario');
 const heroes=scenarios[scenario],store=openStore(':memory:',{classAdvancement:true});
 store.catalog.installBundled({version:store.catalog.previewBundled().version});
@@ -28,6 +29,7 @@ for(const [index,[id,level]]of heroes.entries()){
  view.update(command(view,{label:'Синтетические хиты',state:{...view.read().state,profile:{...view.read().state.profile,name:'RAM '+id},hp:12,maxHp:30}}));
 }
 // Produce provenance through real atomic commands, never fabricate a ledger.
+if(scenario==='draconic-metamagic')prepareDraconic(store,2,{installCatalog:false});
 if(['champion-style','wizard-mastery'].includes(scenario)){
  const classId=scenario==='champion-style'?'fighter':'wizard',target=scenario==='champion-style'?9:17;
  while(store.read().characterSheet.level<target){

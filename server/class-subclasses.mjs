@@ -1,3 +1,4 @@
+import {validateDraconic} from './class-draconic.mjs';
 import {naturalRecoveryOrigin,landCantripOrigin,validateLandChoices,validateLifeConfirmation} from './class-divine-land.mjs';
 import {fightingStyleOptions} from './class-fighting-styles.mjs';
 import {hunterChoiceAt,validateHunterSelection,validateHunterHistory} from './class-hunter.mjs';
@@ -19,6 +20,7 @@ export function validateSubclassChoice(plan,selected){
  return {id:s.id,classId:s.classId,ruleset:'5e-2014',acquiredLevel:plan.toLevel,sourcePage:s.sourcePage,choiceId:plan.classId+':'+plan.toLevel+':subclass',...(s.id==='ranger-hunter'?{options:[validateHunterSelection(3,selected.optionId)]}:{}),...(s.id==='fighter-champion'?{additionalStyle:null}:{}),...(s.id==='druid-land'?{bonusCantrip:landCantripOrigin(selected.cantripId),terrain:null,naturalRecovery:naturalRecoveryOrigin()}:{})};
 }
 export function validateSubclassOrigin(origin,{classId,baselineLevel,level}){
+ if(origin?.id==='sorcerer-draconic')return validateDraconic(origin,{classId,baselineLevel,level});
  if(origin?.id==='cleric-life')return validateLifeConfirmation(origin,{classId,baselineLevel,level});
  const start=classProgression(classId,level).subclassLevel;
  if(start<=baselineLevel||start>level)throw new Error('Подкласс должен быть явно получен в сохранённой истории; прошлый выбор не угадывается');

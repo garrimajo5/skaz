@@ -1,3 +1,4 @@
+import {confirmDraconic} from './class-draconic.mjs';
 import {WILD_SHAPE,wildShapeUnlimited,validateUnlimitedOrigin,validateUnlimitedSheet} from './class-unlimited.mjs';
 import {appendSubclassChoices,lifeConfirmation,landTerrainOrigin,validateLandCantripBook,validateNaturalRecovery} from './class-divine-land.mjs';
 import {wizardSignatureOrigin,validateWizardSignatureOrigin,signatureCounterOrigins,signatureCounterName,validateSignatureCounters} from './class-wizard-signature.mjs';
@@ -42,7 +43,7 @@ export function validateAdvancementCommand(input){
 
 export function validateAdvancementLedger(value){
  if(value===null)return null;
- if(!exact(value,['version','ruleset','classId','baselineLevel','level','binding','events','resources','spells',...(value?.version>=2?['styles']:[]),...(value?.version>=3?['metamagic']:[]),...(value?.version===4?['invocations','pact']:[]),...(value?.version>=5?['subclass']:[]),...([6,9].includes(value?.version)?['wizardChoices']:[]),...(value?.version===7?['rangerChoices']:[]),...([8,10,11,12].includes(value?.version)?['subclassSpells']:[]),...(value?.version===9?['signatureCounters']:[]),...(value?.version===12?['unlimitedResources']:[])])||![1,2,3,4,5,6,7,8,9,10,11,12].includes(value.version)||value.ruleset!=='5e-2014')fail(422,'Неверное происхождение повышения');
+ if(!exact(value,['version','ruleset','classId','baselineLevel','level','binding','events','resources','spells',...(value?.version>=2?['styles']:[]),...(value?.version>=3?['metamagic']:[]),...(value?.version===4?['invocations','pact']:[]),...(value?.version>=5?['subclass']:[]),...([6,9].includes(value?.version)?['wizardChoices']:[]),...(value?.version===7?['rangerChoices']:[]),...([8,10,11,12].includes(value?.version)?['subclassSpells']:[]),...(value?.version===9?['signatureCounters']:[]),...(value?.version===12?['unlimitedResources']:[])])||![1,2,3,4,5,6,7,8,9,10,11,12,13].includes(value.version)||value.ruleset!=='5e-2014')fail(422,'Неверное происхождение повышения');
  checkedClass(value.classId,value.level);
  if(!Number.isSafeInteger(value.baselineLevel)||value.baselineLevel<1||value.baselineLevel>value.level||!Array.isArray(value.events)||value.events.length!==value.level-value.baselineLevel)fail(422,'Неполная последовательность уровней');
  if(value.binding!==null&&(!exact(value.binding,['mutationId','requestHash'])||!id(value.binding.mutationId)||!/^[a-f0-9]{64}$/.test(value.binding.requestHash)))fail(422,'Неверное подключение ресурсов');
@@ -94,8 +95,8 @@ export function validateAdvancementLedger(value){
   }
   for(const event of value.events)for(const choice of previewClassLevel({classId:value.classId,fromLevel:event.level-1,toLevel:event.level,constitution:10}).choices)if(choice.kind==='fighting-style'&&counts.get(choice.id)!==choice.count)fail(422,'В истории отсутствует выбранный боевой стиль');
  }
- if(value.version===3){
-  if(!Array.isArray(value.metamagic)||value.metamagic.length<1||value.metamagic.length>4)fail(422,'Неверная история Метамагии');
+ if([3,13].includes(value.version)){
+  if(!Array.isArray(value.metamagic)||(value.version===3&&value.metamagic.length<1)||value.metamagic.length>4)fail(422,'Неверная история Метамагии');
   for(const origin of value.metamagic)if(!exact(origin,['id','ruleset','classId','sourcePage','acquiredLevel','choiceId'])||origin.classId!==value.classId||!Number.isSafeInteger(origin.acquiredLevel)||origin.acquiredLevel<=value.baselineLevel||origin.acquiredLevel>value.level)fail(422,'Неверное происхождение Метамагии');
   const known=[];let checkedCount=0;
   for(const event of value.events){
@@ -114,7 +115,7 @@ export function validateAdvancementLedger(value){
   try{validateInvocationHistory(value.invocations,value);}catch(error){fail(422,error.message);}
  }
  if(value.version>=5){
-  if(!Array.isArray(value.metamagic)||value.metamagic.length)fail(422,'Неверная история подкласса');
+  if(!Array.isArray(value.metamagic)||(value.version!==13&&value.metamagic.length))fail(422,'Неверная история подкласса');
   try{validateSubclassOrigin(value.subclass,value);}catch(error){fail(422,error.message);}
  }
  if([6,9].includes(value.version)){
@@ -125,6 +126,7 @@ export function validateAdvancementLedger(value){
   if(value.classId!=='ranger'||value.level<6||value.baselineLevel>=6)fail(422,'Неверная история выборов следопыта');
   try{validateRangerHistory(value.rangerChoices,value.level);}catch(error){fail(422,error.message);}
  }
+ if((value.version===13)!==(value.subclass?.id==='sorcerer-draconic'))fail(422,'Драконье наследие требует журнал13');
  if(value.version<8&&value.subclass?.id==='paladin-devotion')fail(422,'Клятва преданности требует журнал8');
  if(value.subclass?.id==='cleric-life'&&value.version!==10||value.subclass?.id==='druid-land'&&![11,12].includes(value.version))fail(422,'Происхождение домена/круга требует совместимый журнал');
  if(value.version===10&&value.subclass?.id!=='cleric-life'||[11,12].includes(value.version)&&value.subclass?.id!=='druid-land')fail(422,'Неверный вид истории домена/круга');
@@ -157,7 +159,7 @@ function build(current,request){
  for(const key of Object.keys(request.choices))if(!choices.has(key))fail(422,'Выбор не относится к этому уровню');
  for(const choice of choices.values()){
   if(!Object.hasOwn(request.choices,choice.id)){if(choice.required)fail(422,'Не завершён выбор: '+choice.kind);continue;}
-  if(!spellKinds.has(choice.kind)&&choice.kind!=='ability-score-improvement-or-feat'&&choice.kind!=='fighting-style'&&choice.kind!=='metamagic'&&choice.kind!=='invocations'&&choice.kind!=='replace-invocation'&&choice.kind!=='pact-boon'&&choice.kind!=='subclass'&&choice.kind!=='hunter-option'&&choice.kind!=='champion-style'&&choice.kind!=='spell-mastery'&&choice.kind!=='favored-enemy-and-language'&&choice.kind!=='favored-terrain'&&choice.kind!=='signature-spells'&&choice.kind!=='confirm-subclass'&&choice.kind!=='land-terrain')fail(422,'Этот выбор ещё не поддерживается: '+choice.kind);
+  if(!spellKinds.has(choice.kind)&&choice.kind!=='ability-score-improvement-or-feat'&&choice.kind!=='fighting-style'&&choice.kind!=='metamagic'&&choice.kind!=='invocations'&&choice.kind!=='replace-invocation'&&choice.kind!=='pact-boon'&&choice.kind!=='subclass'&&choice.kind!=='hunter-option'&&choice.kind!=='champion-style'&&choice.kind!=='spell-mastery'&&choice.kind!=='favored-enemy-and-language'&&choice.kind!=='favored-terrain'&&choice.kind!=='signature-spells'&&choice.kind!=='confirm-subclass'&&choice.kind!=='land-terrain'&&choice.kind!=='confirm-draconic')fail(422,'Этот выбор ещё не поддерживается: '+choice.kind);
  }
  let abilities=stats.abilities;
  for(const choice of choices.values())if(choice.kind==='ability-score-improvement-or-feat'){
@@ -172,6 +174,7 @@ function build(current,request){
   if(sheet.subclass.trim()&&sheet.subclass!==name)fail(409,'В листе уже указан другой подкласс; нужна явная сверка прежней записи');
   ledger.version=5;ledger.styles??=[];ledger.metamagic??=[];ledger.subclass=origin;
  }
+ if(choices.has('sorcerer:2:confirm-draconic')){ledger.version=13;ledger.styles??=[];ledger.metamagic??=[];ledger.subclass=confirmDraconic(request.choices['sorcerer:2:confirm-draconic']);if(sheet.subclass.trim()&&sheet.subclass!==subclassDescription(ledger.subclass.id).name)fail(409,'В листе указано другое наследие; нужна сверка');}
  if(choices.has('cleric:2:confirm-subclass')){if(previous&&previous.level!==1)fail(422,'Нужна отдельная сверка прежнего домена');ledger.version=10;ledger.styles??=[];ledger.metamagic??=[];ledger.subclass=lifeConfirmation(request.choices['cleric:2:confirm-subclass']);const name=subclassDescription(ledger.subclass.id).name;if(sheet.subclass.trim()&&sheet.subclass!==name)fail(409,'В листе указан другой домен; нужна сверка');}
  if(choices.has('druid:3:land-terrain')){const selected=request.choices['druid:3:land-terrain'];if(!exact(selected,['id']))fail(422,'Выбери местность Круга Земли');ledger.subclass.terrain=landTerrainOrigin(selected.id);}
  if(request.classId==='ranger'&&[6,10,14].includes(plan.toLevel)){
@@ -241,6 +244,7 @@ function build(current,request){
   for(const origin of ledger.signatureCounters){const name=signatureCounterName(origin.catalogId);if(counters.some(c=>c.id===origin.counterId||c.name.toLocaleLowerCase('ru')===name.toLocaleLowerCase('ru')))fail(409,'Ручной счётчик совпадает с Фирменным: '+name);counters.push({id:origin.counterId,name,current:1,max:1});newResources.push({id:origin.counterId,name,max:1,recovery:'short-or-long-rest'});}
   signaturePrepared={additions:[],promotions:signature.spellIds.filter(id=>virtualBook.find(row=>row.catalogId===id).status!=='prepared').map(catalogId=>({catalogId})),alreadyPrepared:[]};
  }
+ if(ledger.version===13){plan.hitPoints={...plan.hitPoints,maximumDelta:plan.hitPoints.maximumDelta+1,draconicResilience:1};}
  const maxHp=state.maxHp+plan.hitPoints.maximumDelta;
  // Level advancement does not heal wounds, wake a dying hero, clear checks,
  // restore counters or alter temporary HP. A rest is a separate action.

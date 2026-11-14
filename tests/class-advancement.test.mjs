@@ -39,9 +39,9 @@ test('new resources never silently adopt matching manual names or stable IDs',()
 });
 
 test('managed counters retain spent uses and reject missing or manually changed maxima',()=>{
- const s=hero('sorcerer',1),q=command(s);q.choices['sorcerer:2:known-spells']=spellChoiceOptions('sorcerer',2,'known-spells').slice(0,1).map(s=>s.spellId);
+ const s=hero('sorcerer',1),q=command(s);q.choices['sorcerer:2:confirm-draconic']={id:'sorcerer-draconic',ancestorId:'red',rulesConfirmed:true,baselineHpConfirmed:true};q.choices['sorcerer:2:known-spells']=spellChoiceOptions('sorcerer',2,'known-spells').slice(0,1).map(s=>s.spellId);
  const r=buildAdvancementChange(s,q),s2=next(s,r);assert.equal(r.characterSheet.counters.find(c=>c.id==='class-sorcerer-sorcery').max,2);
- // Sorcerer 2 -> 3 needs metamagic, so use a legitimate later baseline at 4.
+ // Check preservation and conflicts independently using a fighter with confirmed Champion.
  const a=hero('fighter',1),aq=command(a),ar=buildAdvancementChange(a,aq),b=next(a,ar);b.characterSheet.counters.find(c=>c.id==='class-fighter-action-surge').current=0;
  const nextCommand=()=>({...command(b),choices:{'fighter:3:subclass':{id:'fighter-champion'}}});const br=buildAdvancementChange(b,nextCommand());assert.equal(br.characterSheet.counters.find(c=>c.id==='class-fighter-action-surge').current,0);
  b.characterSheet.counters.find(c=>c.id==='class-fighter-action-surge').max=2;assert.throws(()=>buildAdvancementChange(b,nextCommand()),{status:409});
