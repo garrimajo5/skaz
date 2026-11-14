@@ -1,3 +1,4 @@
+import {appendSubclassChoices,landCantripOptions,landTerrainOptions} from './class-divine-land.mjs';
 import {rangerTerrainOptions,rangerEnemyTypeOptions} from './class-ranger-choices.mjs';
 import {wizardAdvancedOptions} from './class-wizard-choices.mjs';
 import {hunterChoiceAt,hunterChoices} from './class-hunter.mjs';
@@ -20,6 +21,7 @@ export function advancementView(current,classId,lookup){
  const level=current.characterSheet.level,atMaximum=level===20;
  const c=classProgression(classId,level),abilities=current.characterStats.abilities;
  const plan=atMaximum?{choices:[],requiresFeatureReview:[],featureDetails:[],priorFeatureDetails:classFeatureReference(classId,level)}:previewClassLevel({classId,fromLevel:level,toLevel:level+1,constitution:abilities.con}),options={};
+ if(!atMaximum)appendSubclassChoices(plan,{...current});
  const hunterOptions={};if(!atMaximum&&current.advancement?.subclass?.id==='ranger-hunter'){const group=hunterChoiceAt(level+1);if(group){plan.choices.push({id:group.choiceId,kind:'hunter-option',count:1,required:true});hunterOptions[group.choiceId]=group;}}
  for(const choice of plan.choices)if(spellKinds.has(choice.kind)){
   const candidates=spellChoiceOptions(classId,level+1,choice.kind,{knownIds:current.spellbook.map(s=>s.catalogId)});
@@ -52,7 +54,7 @@ export function advancementView(current,classId,lookup){
  const pactCantrips=[];
  if(grantsPact)for(const o of pactCantripOptions()){try{const entry=lookup(o.spellId);if(entry?.kind==='spell')pactCantrips.push({...o,name:entry.name});}catch(error){if(error.status!==404)throw error;}}
  const selectedPact=current.advancement?.pact?{...current.advancement.pact,spellNames:current.advancement.pact.spells.map(id=>{try{return lookup(id)?.name?.ru||id;}catch(error){if(error.status!==404)throw error;return id;}})}:null;
- const subclassOptions=atMaximum?[]:advancementSubclassOptions(classId,level+1),selectedSubclass=current.advancement?.version>=5?subclassDescription(current.advancement.subclass.id):null;
+ const subclassOptions=atMaximum?[]:classId==='cleric'&&level===1?[subclassDescription('cleric-life')]:advancementSubclassOptions(classId,level+1),selectedSubclass=current.advancement?.version>=5?subclassDescription(current.advancement.subclass.id):null;
  const championStyles=selectedSubclass?.id==='fighter-champion'?fightingStyleOptions('fighter').map(o=>({...o,...fightingStyleDescription(o.id)})):[];
  if(selectedSubclass?.id==='fighter-champion'&&level===9)plan.choices.push({id:'fighter:10:champion-style',kind:'champion-style',count:1,required:true});
  if(selectedSubclass?.id==='fighter-champion'&&current.advancement.subclass.additionalStyle){const pair=current.advancement.subclass.additionalStyle;selectedSubclass.confirmedStyles=[{...pair.previous,...fightingStyleDescription(pair.previous.id),label:'Подтверждённый прежний стиль'},{...pair.added,...fightingStyleDescription(pair.added.id),label:'Дополнительный стиль на 10-м уровне'}];}
@@ -62,7 +64,8 @@ export function advancementView(current,classId,lookup){
  for(const choice of plan.choices)if(['favored-terrain','favored-enemy-and-language'].includes(choice.kind)&&!rangerReady)choiceNotices[choice.id]='Нужна подтверждённая история подкласса и прежних выборов. Старое прошлое не угадывается.';
  const rangerTerrains=rangerReady?rangerTerrainOptions():[],rangerEnemyTypes=rangerReady?rangerEnemyTypeOptions():[],selectedRangerChoices=current.advancement?.rangerChoices?structuredClone(current.advancement.rangerChoices):null;
  const selectedWizardChoices=(current.advancement?.wizardChoices||[]).map(o=>({...o,spellNames:o.spellIds.map(id=>lookup(id)?.name?.ru||id)}));
+ const landCantrips=classId==='druid'&&level===1?landCantripOptions().filter(o=>!current.spellbook.some(s=>s.catalogId===o.id)):[],landTerrains=selectedSubclass?.id==='druid-land'?landTerrainOptions():[];if(selectedSubclass?.id==='druid-land'){selectedSubclass.selectedCantrip={...current.advancement.subclass.bonusCantrip,name:lookup(current.advancement.subclass.bonusCantrip.catalogId).name};selectedSubclass.selectedTerrain=current.advancement.subclass.terrain?{...current.advancement.subclass.terrain,...landTerrainOptions().find(o=>o.id===current.advancement.subclass.terrain.id)}:null;}
  const counters=current.characterSheet.counters;
- return {rangerTerrains,rangerEnemyTypes,selectedRangerChoices,wizardOptions,selectedWizardChoices,championStyles,hunterOptions,subclassOptions,selectedSubclass,atMaximum,revision:current.revision,characterId:current.context.characterId,classId,className:c.name.ru,fromLevel:level,abilities,hp:current.state.hp,maxHp:current.state.maxHp,hitDie:c.hitDie,plan,options,styleOptions,selectedStyles,metamagicOptions:metaOptions,selectedMetamagic,choiceNotices,invocationOptions,selectedInvocations,pactCantrips,ritualOptions:classId==='warlock'?initialRitualOptions():[],pactOptions:classId==='warlock'&&(!grantsPact||current.advancement?.version===4)?pactOptions():[],selectedPact,
+ return {landCantrips,landTerrains,rangerTerrains,rangerEnemyTypes,selectedRangerChoices,wizardOptions,selectedWizardChoices,championStyles,hunterOptions,subclassOptions,selectedSubclass,atMaximum,revision:current.revision,characterId:current.context.characterId,classId,className:c.name.ru,fromLevel:level,abilities,hp:current.state.hp,maxHp:current.state.maxHp,hitDie:c.hitDie,plan,options,styleOptions,selectedStyles,metamagicOptions:metaOptions,selectedMetamagic,choiceNotices,invocationOptions,selectedInvocations,pactCantrips,ritualOptions:classId==='warlock'?initialRitualOptions():[],pactOptions:classId==='warlock'&&(!grantsPact||current.advancement?.version===4)?pactOptions():[],selectedPact,
  resourceSetup:atMaximum||current.advancement?[]:classResourceMaximums(classId,level,abilities).filter(r=>r.max!==null).map(r=>({...r,canCreate:!counters.some(c=>c.id===r.id||c.name.toLocaleLowerCase('ru')===r.name.toLocaleLowerCase('ru')),counters:counters.filter(c=>c.max===r.max)}))};
 }

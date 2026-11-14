@@ -200,3 +200,27 @@ test('v3 carries Signature20 prepared spells and counters with PNG; late art fai
  const f=fixture(t,{classAdvancement:true}),w=f.writer;prepareWizard(w,19,{installCatalog:false});w.advanceCharacter(wizardCommand(w));const before=w.read(),bundle=w.exportActive('with-art'),request={mutationId:randomUUID(),expectedRevision:before.revision,destination:'new-campaign',file:bundle},original=counts(f.db);assert.equal(bundle.game.advancement.version,9);
  f.db.exec("CREATE TRIGGER reject_signature_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'late signature artwork');END");assert.throws(()=>w.importActive(request),/late signature artwork/);assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);f.db.exec('DROP TRIGGER reject_signature_art');const saved=w.importActive(request);assert.deepEqual(saved.advancement,before.advancement);assert.deepEqual(saved.characterSheet.counters,before.characterSheet.counters);assert.equal(w.spellbook().entries.filter(o=>o.alwaysPrepared).length,2);assert.ok(w.personalArt.read(saved.context.characterId,catalogId,'master').file.bytes.equals(Buffer.from(bundle.personalArt.entries[0].png,'base64')));const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);
 });
+import {prepareDivine} from '../scripts/fixtures/divine-commands.mjs';
+for(const [classId,level,version,preparedCount] of [['cleric',3,10,4],['druid',3,11,2],['druid',20,12,8]]){
+ test(`${classId}${level} divine history, conditions and PNG transfer as one transaction`,t=>{
+  const f=fixture(t,{classAdvancement:true}),w=f.writer;
+  prepareDivine(w,classId,level,{installCatalog:false});
+  w.update({mutationId:randomUUID(),expectedRevision:w.read().revision,label:'Synthetic condition',state:{...w.read().state,conditions:{active:['prone'],exhaustion:1}}});
+  const before=w.read(),bundle=w.exportActive('with-art');
+  assert.equal(bundle.schemaVersion,3);assert.equal(bundle.game.schemaVersion,14);assert.equal(bundle.game.advancement.version,version);
+  const request={mutationId:randomUUID(),expectedRevision:before.revision,destination:'new-campaign',file:bundle},original=counts(f.db);
+  f.db.exec("CREATE TRIGGER reject_divine_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'late divine artwork');END");
+  assert.throws(()=>w.importActive(request),/late divine artwork/);
+  assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);
+  f.db.exec('DROP TRIGGER reject_divine_art');
+  const saved=w.importActive(request);
+  assert.deepEqual(saved.advancement,before.advancement);assert.deepEqual(saved.state.conditions,before.state.conditions);
+  assert.deepEqual(saved.characterSheet.counters,before.characterSheet.counters);
+  assert.deepEqual(saved.unlimitedResources,before.unlimitedResources);
+  assert.deepEqual(saved.classGrantedSpellIds,before.classGrantedSpellIds);
+  assert.equal(w.spellbook().entries.filter(o=>o.alwaysPrepared).length,preparedCount);
+  assert.ok(w.personalArt.read(saved.context.characterId,catalogId,'master').file.bytes.equals(Buffer.from(bundle.personalArt.entries[0].png,'base64')));
+  const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);
+  assert.deepEqual(f.db.prepare('PRAGMA foreign_key_check').all(),[]);
+ });
+}

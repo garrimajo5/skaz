@@ -50,3 +50,7 @@ test('hold recovery emits once on release, suppresses ghost click and cancels sc
  events.pointerdown(event());now=2800;events.pointercancel(event());events.pointerup(event());assert.equal(clicks.length,1);
  button.dataset={tracker:'true',counterId:'manual-counter',counterDelta:'-1'};button.click=()=>clicks.push(button.dataset.counterDelta);events.pointerdown(event());now=3400;events.pointerup(event());assert.deepEqual(clicks,['1','1']);assert.equal(button.dataset.counterDelta,'-1');
 });
+
+test('unlimited class resource is a readable infinity without numeric spending controls',()=>{
+ const context=vm.createContext({esc:String,SkazStorage:{sheet:()=>({counters:[]}),unlimitedResources:()=>[{name:'Дикий облик',unlimited:true}],snapshotKey:()=> 'hero:revision',canResource:()=>true}});vm.runInContext(source,context);const html=vm.runInContext('SkazCharacterSheet.controls()',context);assert.match(html,/Дикий облик/);assert.match(html,/aria-label="Неограниченно">∞/);assert.doesNotMatch(html,/<button|data-counter-delta|9999/);
+});

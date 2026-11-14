@@ -42,10 +42,10 @@ test('managed counters retain spent uses and reject missing or manually changed 
  const s=hero('sorcerer',1),q=command(s);q.choices['sorcerer:2:known-spells']=spellChoiceOptions('sorcerer',2,'known-spells').slice(0,1).map(s=>s.spellId);
  const r=buildAdvancementChange(s,q),s2=next(s,r);assert.equal(r.characterSheet.counters.find(c=>c.id==='class-sorcerer-sorcery').max,2);
  // Sorcerer 2 -> 3 needs metamagic, so use a legitimate later baseline at 4.
- const a=hero('cleric',1),aq=command(a),ar=buildAdvancementChange(a,aq),b=next(a,ar);b.characterSheet.counters.find(c=>c.id==='class-cleric-channel').current=0;
- const br=buildAdvancementChange(b,command(b));assert.equal(br.characterSheet.counters.find(c=>c.id==='class-cleric-channel').current,0);
- b.characterSheet.counters.find(c=>c.id==='class-cleric-channel').max=2;assert.throws(()=>buildAdvancementChange(b,command(b)),{status:409});
- b.characterSheet.counters=[];assert.throws(()=>buildAdvancementChange(b,command(b)),{status:409});
+ const a=hero('fighter',1),aq=command(a),ar=buildAdvancementChange(a,aq),b=next(a,ar);b.characterSheet.counters.find(c=>c.id==='class-fighter-action-surge').current=0;
+ const nextCommand=()=>({...command(b),choices:{'fighter:3:subclass':{id:'fighter-champion'}}});const br=buildAdvancementChange(b,nextCommand());assert.equal(br.characterSheet.counters.find(c=>c.id==='class-fighter-action-surge').current,0);
+ b.characterSheet.counters.find(c=>c.id==='class-fighter-action-surge').max=2;assert.throws(()=>buildAdvancementChange(b,nextCommand()),{status:409});
+ b.characterSheet.counters=[];assert.throws(()=>buildAdvancementChange(b,nextCommand()),{status:409});
 });
 
 test('spell choices are validated, recorded with source, and never duplicate existing spells',()=>{

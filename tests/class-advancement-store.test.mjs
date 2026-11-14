@@ -10,10 +10,11 @@ import {templateStats} from '../server/character-stats.mjs';
 import {previewClassLevel,spellChoiceOptions} from '../server/class-progression.mjs';
 const fields=(s,extra)=>({mutationId:randomUUID(),expectedRevision:s.read().revision,characterId:s.read().context.characterId,...extra});
 function prepare(s,classId='fighter',level=1){
+ if(classId==='cleric')s.catalog.installBundled({version:s.catalog.previewBundled().version});
  s.saveCharacterStats(fields(s,{stats:structuredClone(templateStats)}));
  s.saveCharacterSheet(fields(s,{sheet:{ruleset:'5e-2014',ancestry:'',className:classId,subclass:'',level,counters:[]}}));
 }
-function command(s){const v=s.read(),classId=v.characterSheet.className,fromLevel=v.characterSheet.level;return fields(s,{classId,fromLevel,hpMethod:'fixed',hpRoll:null,choices:{},reviewedFeatures:previewClassLevel({classId,fromLevel,toLevel:fromLevel+1,constitution:v.characterStats.abilities.con}).requiresFeatureReview});}
+function command(s){const v=s.read(),classId=v.characterSheet.className,fromLevel=v.characterSheet.level;return fields(s,{classId,fromLevel,hpMethod:'fixed',hpRoll:null,choices:classId==='cleric'&&fromLevel===1?{'cleric:2:confirm-subclass':{id:'cleric-life',rulesConfirmed:true}}:{},reviewedFeatures:previewClassLevel({classId,fromLevel,toLevel:fromLevel+1,constitution:v.characterStats.abilities.con}).requiresFeatureReview});}
 function disk(t,cleanup=true){const dir=mkdtempSync(join(tmpdir(),'skaz-advancement-'));if(cleanup)t.after(()=>rmSync(dir,{recursive:true,force:true}));return join(dir,'fixture.sqlite');}
 
 test('opt-in persists all character fields and one receipt; retry cannot apply HP twice',t=>{
@@ -60,7 +61,7 @@ test('v13 transfer preserves provenance under a new hero and continues without r
  const a=openStore(':memory:',{classAdvancement:true}),b=openStore(':memory:',{classAdvancement:true}),disabled=openStore(':memory:');try{
   prepare(a,'cleric',1);a.advanceCharacter(command(a));a.changeCharacterCounter(fields(a,{counterId:'class-cleric-channel',delta:-1}));const file=a.exportActive(13),req={mutationId:randomUUID(),expectedRevision:b.read().revision,destination:'new-campaign',file};
   const saved=b.importActive(req);assert.notEqual(saved.context.characterId,a.read().context.characterId);assert.deepEqual(saved.advancement,a.read().advancement);assert.equal(saved.characterSheet.counters.find(c=>c.id==='class-cleric-channel').current,0);assert.equal(b.importActive(req).replayed,true);assert.equal(b.campaigns().length,2);
-  const advanced=b.advanceCharacter(command(b));assert.equal(advanced.characterSheet.level,3);assert.equal(advanced.advancement.events.length,2);assert.equal(advanced.characterSheet.counters.find(c=>c.id==='class-cleric-channel').current,0);
+  b.catalog.installBundled({version:b.catalog.previewBundled().version});const advanced=b.advanceCharacter(command(b));assert.equal(advanced.characterSheet.level,3);assert.equal(advanced.advancement.events.length,2);assert.equal(advanced.characterSheet.counters.find(c=>c.id==='class-cleric-channel').current,0);
   assert.throws(()=>disabled.importActive({...req,expectedRevision:0}),{status:403});assert.equal(disabled.campaigns().length,1);
   const old={...file,schemaVersion:12};assert.throws(()=>b.importActive({...req,mutationId:randomUUID(),expectedRevision:b.read().revision,file:old}),{status:422});
  }finally{a.close();b.close();disabled.close();}
@@ -129,7 +130,7 @@ test('v14 keeps conditions alongside a nonempty advancement ledger and permits t
  const a=openStore(':memory:',{classAdvancement:true}),b=openStore(':memory:',{classAdvancement:true});try{
  prepare(a,'cleric');a.advanceCharacter(command(a));a.update({mutationId:randomUUID(),expectedRevision:a.read().revision,label:'Manual conditions',state:{...a.read().state,conditions:{active:['poisoned'],exhaustion:2}}});
  const file=a.exportActive(14),before=a.read();b.importActive({mutationId:randomUUID(),expectedRevision:0,destination:'new-campaign',file});assert.deepEqual(b.read().advancement,before.advancement);assert.deepEqual(b.read().state.conditions,before.state.conditions);
- const next=b.advanceCharacter(command(b));assert.equal(next.characterSheet.level,3);assert.deepEqual(next.state.conditions,before.state.conditions);assert.equal(next.state.hp,before.state.hp);
+ b.catalog.installBundled({version:b.catalog.previewBundled().version});const next=b.advanceCharacter(command(b));assert.equal(next.characterSheet.level,3);assert.deepEqual(next.state.conditions,before.state.conditions);assert.equal(next.state.hp,before.state.hp);
  }finally{a.close();b.close();}
 });
 

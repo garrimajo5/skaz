@@ -1,3 +1,5 @@
+import {WILD_SHAPE,wildShapeUnlimited,validateUnlimitedOrigin,validateUnlimitedSheet} from './class-unlimited.mjs';
+import {appendSubclassChoices,lifeConfirmation,landTerrainOrigin,validateLandCantripBook,validateNaturalRecovery} from './class-divine-land.mjs';
 import {wizardSignatureOrigin,validateWizardSignatureOrigin,signatureCounterOrigins,signatureCounterName,validateSignatureCounters} from './class-wizard-signature.mjs';
 import {planSubclassSpellUpdates} from './class-subclass-spells.mjs';
 import {alwaysPreparedOrigins,subclassPreparedSource,subclassPreparedOrigins,validateSubclassPreparedOrigins,validateSubclassPreparedBook} from './class-subclass-prepared.mjs';
@@ -40,7 +42,7 @@ export function validateAdvancementCommand(input){
 
 export function validateAdvancementLedger(value){
  if(value===null)return null;
- if(!exact(value,['version','ruleset','classId','baselineLevel','level','binding','events','resources','spells',...(value?.version>=2?['styles']:[]),...(value?.version>=3?['metamagic']:[]),...(value?.version===4?['invocations','pact']:[]),...(value?.version>=5?['subclass']:[]),...([6,9].includes(value?.version)?['wizardChoices']:[]),...(value?.version===7?['rangerChoices']:[]),...(value?.version===8?['subclassSpells']:[]),...(value?.version===9?['signatureCounters']:[])])||![1,2,3,4,5,6,7,8,9].includes(value.version)||value.ruleset!=='5e-2014')fail(422,'Неверное происхождение повышения');
+ if(!exact(value,['version','ruleset','classId','baselineLevel','level','binding','events','resources','spells',...(value?.version>=2?['styles']:[]),...(value?.version>=3?['metamagic']:[]),...(value?.version===4?['invocations','pact']:[]),...(value?.version>=5?['subclass']:[]),...([6,9].includes(value?.version)?['wizardChoices']:[]),...(value?.version===7?['rangerChoices']:[]),...([8,10,11,12].includes(value?.version)?['subclassSpells']:[]),...(value?.version===9?['signatureCounters']:[]),...(value?.version===12?['unlimitedResources']:[])])||![1,2,3,4,5,6,7,8,9,10,11,12].includes(value.version)||value.ruleset!=='5e-2014')fail(422,'Неверное происхождение повышения');
  checkedClass(value.classId,value.level);
  if(!Number.isSafeInteger(value.baselineLevel)||value.baselineLevel<1||value.baselineLevel>value.level||!Array.isArray(value.events)||value.events.length!==value.level-value.baselineLevel)fail(422,'Неполная последовательность уровней');
  if(value.binding!==null&&(!exact(value.binding,['mutationId','requestHash'])||!id(value.binding.mutationId)||!/^[a-f0-9]{64}$/.test(value.binding.requestHash)))fail(422,'Неверное подключение ресурсов');
@@ -124,7 +126,10 @@ export function validateAdvancementLedger(value){
   try{validateRangerHistory(value.rangerChoices,value.level);}catch(error){fail(422,error.message);}
  }
  if(value.version<8&&value.subclass?.id==='paladin-devotion')fail(422,'Клятва преданности требует журнал8');
- if(value.version===8){try{validateSubclassPreparedOrigins(value.subclassSpells,value);}catch(error){fail(422,error.message);}}
+ if(value.subclass?.id==='cleric-life'&&value.version!==10||value.subclass?.id==='druid-land'&&![11,12].includes(value.version))fail(422,'Происхождение домена/круга требует совместимый журнал');
+ if(value.version===10&&value.subclass?.id!=='cleric-life'||[11,12].includes(value.version)&&value.subclass?.id!=='druid-land')fail(422,'Неверный вид истории домена/круга');
+ if([8,10,11,12].includes(value.version)){try{validateSubclassPreparedOrigins(value.subclassSpells,value);}catch(error){fail(422,error.message);}}
+ if(value.version===11&&value.level===20)fail(422,'Друид20 требует историю неограниченного ресурса');if(value.version===12){try{validateUnlimitedOrigin(value);}catch(error){fail(422,error.message);}}
  if(value.version===9){if(value.level!==20)fail(422,'Фирменные заклинания доступны на20уровне');try{validateWizardSignatureOrigin(value.wizardChoices[1]);validateSignatureCounters(value.signatureCounters,value.wizardChoices[1]);}catch(error){fail(422,error.message);}}
  return structuredClone(value);
 }
@@ -140,9 +145,10 @@ function build(current,request){
  const previous=validateAdvancementLedger(current.advancement??null);
  if(previous&&(previous.classId!==request.classId||previous.level!==sheet.level))fail(409,'Происхождение не соответствует классу или уровню листа');
  if(previous?.version>=5&&sheet.subclass!==subclassDescription(previous.subclass.id).name)fail(409,'Подкласс листа изменён вручную; нужна сверка происхождения');
- if(previous?.version===8)validateSubclassPreparedBook(previous.subclassSpells,current.spellbook);
+ if([8,10,11].includes(previous?.version))validateSubclassPreparedBook(previous.subclassSpells,current.spellbook);
  const before=previewClassLevel({classId:request.classId,fromLevel:sheet.level,toLevel:sheet.level+1,constitution:stats.abilities.con,hpMethod:request.hpMethod,hpRoll:request.hpRoll});
  if(request.reviewedFeatures.length!==before.requiresFeatureReview.length||before.requiresFeatureReview.some(f=>!request.reviewedFeatures.includes(f)))fail(422,'Сначала проверь все новые умения: их эффекты пока не применяются автоматически');
+ appendSubclassChoices(before,current);
  const hunter=previous?.subclass?.id==='ranger-hunter'?hunterChoiceAt(sheet.level+1):null;
  if(hunter)before.choices.push({id:hunter.choiceId,kind:'hunter-option',count:1,required:true});
  const champion=previous?.subclass?.id==='fighter-champion'&&sheet.level+1===10;
@@ -151,7 +157,7 @@ function build(current,request){
  for(const key of Object.keys(request.choices))if(!choices.has(key))fail(422,'Выбор не относится к этому уровню');
  for(const choice of choices.values()){
   if(!Object.hasOwn(request.choices,choice.id)){if(choice.required)fail(422,'Не завершён выбор: '+choice.kind);continue;}
-  if(!spellKinds.has(choice.kind)&&choice.kind!=='ability-score-improvement-or-feat'&&choice.kind!=='fighting-style'&&choice.kind!=='metamagic'&&choice.kind!=='invocations'&&choice.kind!=='replace-invocation'&&choice.kind!=='pact-boon'&&choice.kind!=='subclass'&&choice.kind!=='hunter-option'&&choice.kind!=='champion-style'&&choice.kind!=='spell-mastery'&&choice.kind!=='favored-enemy-and-language'&&choice.kind!=='favored-terrain'&&choice.kind!=='signature-spells')fail(422,'Этот выбор ещё не поддерживается: '+choice.kind);
+  if(!spellKinds.has(choice.kind)&&choice.kind!=='ability-score-improvement-or-feat'&&choice.kind!=='fighting-style'&&choice.kind!=='metamagic'&&choice.kind!=='invocations'&&choice.kind!=='replace-invocation'&&choice.kind!=='pact-boon'&&choice.kind!=='subclass'&&choice.kind!=='hunter-option'&&choice.kind!=='champion-style'&&choice.kind!=='spell-mastery'&&choice.kind!=='favored-enemy-and-language'&&choice.kind!=='favored-terrain'&&choice.kind!=='signature-spells'&&choice.kind!=='confirm-subclass'&&choice.kind!=='land-terrain')fail(422,'Этот выбор ещё не поддерживается: '+choice.kind);
  }
  let abilities=stats.abilities;
  for(const choice of choices.values())if(choice.kind==='ability-score-improvement-or-feat'){
@@ -159,13 +165,15 @@ function build(current,request){
   if(!exact(selection,['increases']))fail(422,'Черты пока не поддерживаются; выбери повышение характеристик');
   abilities=applyAbilityScoreChoice(before,abilities,selection.increases);
  }
- const plan=previewClassLevel({classId:request.classId,fromLevel:sheet.level,toLevel:sheet.level+1,constitution:abilities.con,previousConstitution:stats.abilities.con,hpMethod:request.hpMethod,hpRoll:request.hpRoll});
+ const plan=appendSubclassChoices(previewClassLevel({classId:request.classId,fromLevel:sheet.level,toLevel:sheet.level+1,constitution:abilities.con,previousConstitution:stats.abilities.con,hpMethod:request.hpMethod,hpRoll:request.hpRoll}),current);
  const ledger=previous||{version:1,ruleset:'5e-2014',classId:request.classId,baselineLevel:sheet.level,level:sheet.level,binding:null,events:[],resources:[],spells:[]};
  for(const choice of choices.values())if(choice.kind==='subclass'){
   const origin=validateSubclassChoice(plan,request.choices[choice.id]),name=subclassDescription(origin.id).name;
   if(sheet.subclass.trim()&&sheet.subclass!==name)fail(409,'В листе уже указан другой подкласс; нужна явная сверка прежней записи');
   ledger.version=5;ledger.styles??=[];ledger.metamagic??=[];ledger.subclass=origin;
  }
+ if(choices.has('cleric:2:confirm-subclass')){if(previous&&previous.level!==1)fail(422,'Нужна отдельная сверка прежнего домена');ledger.version=10;ledger.styles??=[];ledger.metamagic??=[];ledger.subclass=lifeConfirmation(request.choices['cleric:2:confirm-subclass']);const name=subclassDescription(ledger.subclass.id).name;if(sheet.subclass.trim()&&sheet.subclass!==name)fail(409,'В листе указан другой домен; нужна сверка');}
+ if(choices.has('druid:3:land-terrain')){const selected=request.choices['druid:3:land-terrain'];if(!exact(selected,['id']))fail(422,'Выбери местность Круга Земли');ledger.subclass.terrain=landTerrainOrigin(selected.id);}
  if(request.classId==='ranger'&&[6,10,14].includes(plan.toLevel)){
   if((plan.toLevel===6?ledger.version!==5:ledger.version!==7))fail(422,'Сначала нужна подтверждённая история подкласса и прежних выборов следопыта');
   ledger.rangerChoices=advanceRangerHistory(plan.toLevel,{terrain:request.choices['ranger:'+plan.toLevel+':favored-terrain'],enemy:request.choices['ranger:'+plan.toLevel+':favored-enemy-and-language']},ledger.rangerChoices??null);ledger.version=7;
@@ -218,13 +226,14 @@ function build(current,request){
  const newResources=[];
  for(const resource of maxima){
   const origin=managed.get(resource.id);
-  if(resource.max===null)fail(422,'Неограниченный ресурс требует отдельного интерфейса');
+  if(resource.max===null){if(request.classId!=='druid'||plan.toLevel!==20||previous?.version!==11||resource.id!==WILD_SHAPE||origin?.counterId!==WILD_SHAPE)fail(422,'Неограниченный ресурс требует отдельного интерфейса');const index=counters.findIndex(c=>c.id===origin.counterId);counters.splice(index,1);ledger.unlimitedResources=[wildShapeUnlimited()];ledger.version=12;newResources.push({...resource,unlimited:true});continue;}
   if(origin){const index=counters.findIndex(c=>c.id===origin.counterId);counters[index]=resizeManagedResource(counters[index],resource.max);continue;}
   if(oldMaxima.has(resource.id))continue; // Baseline resources remain manual until explicitly reconciled.
   if(counters.some(c=>c.id===resource.id||c.name.toLocaleLowerCase('ru')===resource.name.toLocaleLowerCase('ru')))fail(409,'Новый ресурс совпадает с ручным: '+resource.name);
   counters.push({id:resource.id,name:resource.name,current:resource.max,max:resource.max});
   ledger.resources.push({resourceId:resource.id,counterId:resource.id,managedFromLevel:plan.toLevel,origin:'level'});newResources.push(resource);
  }
+ if(ledger.subclass?.id==='druid-land'&&plan.toLevel===2){const catalogId=ledger.subclass.bonusCantrip.catalogId;if(current.spellbook.some(s=>s.catalogId===catalogId)||additions.includes(catalogId))fail(422,'Дополнительный заговор уже известен');additions.push(catalogId);const counter={id:ledger.subclass.naturalRecovery.counterId,name:'Естественное восстановление',current:1,max:1};if(counters.some(c=>c.id===counter.id||c.name.toLocaleLowerCase('ru')===counter.name.toLocaleLowerCase('ru')))fail(409,'Ручной счётчик совпадает с Естественным восстановлением');counters.push(counter);newResources.push({...counter,recovery:'long-rest'});}
  let signaturePrepared=null;
  if(choices.has('wizard:20:signature-spells')){
   if(ledger.version!==6)fail(422,'Нужна подтверждённая история Мастерства18 и подкласса');const selected=request.choices['wizard:20:signature-spells'];if(!exact(selected,['spellIds']))fail(422,'Выбери два Фирменных заклинания');
@@ -239,9 +248,9 @@ function build(current,request){
  const nextSheet=validateCharacterSheet({...sheet,subclass:ledger.version>=5?subclassDescription(ledger.subclass.id).name:sheet.subclass,level:plan.toLevel,counters});
  const nextStats=validateCharacterStats({...stats,abilities});
  let preparedSpells=signaturePrepared;
- if(ledger.subclass?.id==='paladin-devotion'){
-  preparedSpells=planSubclassSpellUpdates({classId:request.classId,subclassId:ledger.subclass.id,level:plan.toLevel},current.spellbook||[],subclassPreparedSource);
-  ledger.version=8;ledger.subclassSpells=subclassPreparedOrigins(request.classId,ledger.subclass.id,plan.toLevel);
+ if(['paladin-devotion','cleric-life','druid-land'].includes(ledger.subclass?.id)){
+  preparedSpells=planSubclassSpellUpdates({classId:request.classId,subclassId:ledger.subclass.id,level:plan.toLevel,tableId:ledger.subclass.terrain?.id??null},current.spellbook||[],subclassPreparedSource);
+  ledger.version=ledger.subclass.id==='cleric-life'?10:ledger.subclass.id==='druid-land'?(plan.toLevel===20?12:11):8;ledger.subclassSpells=subclassPreparedOrigins(request.classId,ledger.subclass.id,plan.toLevel,{tableId:ledger.subclass.terrain?.id??null});
  }
  ledger.level=plan.toLevel;ledger.events.push({mutationId:request.mutationId,level:plan.toLevel,requestHash:hash(request),sourcePage:plan.sourcePage,featuresReviewed:[...request.reviewedFeatures]});
  return {state:nextState,characterSheet:nextSheet,characterStats:nextStats,advancement:validateAdvancementLedger(ledger),addSpells:additions,preparedSpells,
@@ -256,11 +265,12 @@ export function validateAdvancementSnapshot(ledger,sheet,stats,spellbook,lookup)
  const maxima=new Map(classResourceMaximums(value.classId,value.level,a.abilities).map(r=>[r.id,r]));
  for(const origin of value.resources){
   const counter=s.counters.find(c=>c.id===origin.counterId),resource=maxima.get(origin.resourceId);
+  if(resource?.max===null&&value.version===12&&origin.resourceId===WILD_SHAPE){try{validateUnlimitedSheet(value,s);}catch(error){fail(422,error.message);}continue;}
   if(!counter||!resource||resource.max!==counter.max)fail(422,'Счётчик не соответствует происхождению');
  }
  const known=new Set((spellbook||[]).map(s=>s.catalogId));
  if(value.spells.some(s=>!known.has(s.catalogId)))fail(422,'В книге отсутствует полученное при повышении заклинание');
- if([8,9].includes(value.version)){try{validateSubclassPreparedBook(alwaysPreparedOrigins(value),spellbook,lookup);}catch(error){fail(422,error.message);}}
+ if([8,9,10,11,12].includes(value.version)){try{validateSubclassPreparedBook(alwaysPreparedOrigins(value),spellbook,lookup);}catch(error){fail(422,error.message);}}
  if([6,9].includes(value.version)){try{validateWizardAdvancedChoice({kind:'mastery',classId:'wizard',level:18,selected:value.wizardChoices[0].spellIds,spellbook:lookup?(spellbook||[]).map(s=>({...s,entry:lookup(s.catalogId)})):spellbook});}catch(error){fail(422,error.message);}}
  if(value.version===4){
   validateInvocationSpellSources(value,spellbook||[],lookup);
@@ -268,6 +278,7 @@ export function validateAdvancementSnapshot(ledger,sheet,stats,spellbook,lookup)
   if((value.pact?.spells||[]).some(id=>!known.has(id)))fail(422,'В книге отсутствует заклинание дара договора');
   if(active.some(id=>invocationDescription(id).eldritchBlast)&&!known.has(ELDRITCH_BLAST_ID))fail(422,'Для воззвания в книге отсутствует Мистический заряд');
  }
+ if([11,12].includes(value.version)){try{validateLandCantripBook(value.subclass,spellbook,lookup);validateNaturalRecovery(value.subclass.naturalRecovery,s.counters);}catch(error){fail(422,error.message);}}
  if(value.version===9){try{validateSignatureCounters(value.signatureCounters,value.wizardChoices[1],s.counters);}catch(error){fail(422,error.message);}}
  return value;
 }

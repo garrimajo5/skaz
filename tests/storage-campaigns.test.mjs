@@ -1172,3 +1172,16 @@ test('oath spell details are read-only and protection is cleared on a different 
 test('signature permanent preparation retains card artwork, personal art mount and source terms without offering book mutation',async()=>{
  const h=harness(memory(),memory(),async()=>response({...payload(1),alwaysPreparedSpellIds:['signature-spell']})),mounted=[];h.installArt({markup:entry=>'<div data-art="'+entry.id+'"></div>'},{sweep(){},mount:(root,entry)=>mounted.push(entry.id)});await h.api.boot();h.api.editSpell({id:'signature-spell',kind:'spell',name:{ru:'Фирменное'},text:'Rules',source:{url:'https://example.invalid/source',title:'SRD 5.1',version:'2014',terms:'CC BY 4.0',attribution:'Wizards of the Coast',changes:'Translation'}},'prepared');assert.match(h.dialog(),/data-art="signature-spell"/);assert.deepEqual(mounted,['signature-spell']);assert.match(h.dialog(),/CC BY 4.0/);assert.match(h.dialog(),/Wizards of the Coast/);assert.doesNotMatch(h.dialog(),/id="spellbook-form"|value="remove"/);
 });
+
+test('class spell protections and unlimited resources survive offline resource projection',async()=>{
+ const local=memory(),session=memory();let offline=false;const fetch=async()=>{if(offline)throw Error('offline');return response({...payload(0),alwaysPreparedSpellIds:['oath'],classGrantedSpellIds:['land-bonus'],unlimitedResources:[{name:'Дикий облик',unlimited:true}]});};let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();offline=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.unlimitedResources()[0].name,'Дикий облик');assert.equal(h.api.pendingCount(),1);assert.equal(JSON.parse([...local.values.values()].find(v=>v.includes('"baseline"'))).baseline.classGrantedSpellIds[0],'land-bonus');
+});
+test('Land bonus stays editable but cannot be removed; another hero clears its protection and infinity',async()=>{
+ let other=false;
+ const h=harness(memory(),memory(),async()=>response({...payload(other?2:1,other?'second':'first'),spellLearning:'prepared',...(other?{}:{classGrantedSpellIds:['land-bonus'],unlimitedResources:[{name:'Дикий облик',unlimited:true}]})}));
+ await h.api.boot();
+ const entry={id:'land-bonus',kind:'spell',name:{ru:'Заговор Земли'},text:'Rules',source:{url:'https://example.invalid/source',title:'Fixture',version:'2014',terms:'Fixture'}};
+ h.api.editSpell(entry,'known');assert.match(h.dialog(),/id="spellbook-form"/);assert.match(h.dialog(),/value="known"/);assert.match(h.dialog(),/value="prepared"/);assert.doesNotMatch(h.dialog(),/value="remove"/);
+ const copy=h.api.unlimitedResources();copy[0].name='Changed';assert.equal(h.api.unlimitedResources()[0].name,'Дикий облик');
+ other=true;await h.api.refreshAfterAdvancement();assert.deepEqual(Array.from(h.api.unlimitedResources()),[]);h.api.editSpell(entry,'known');assert.match(h.dialog(),/value="remove"/);
+});

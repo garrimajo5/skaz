@@ -6,7 +6,7 @@ test('subclass choice rejects cross-class IDs, skipped levels, missing input and
  for(const selected of [null,{},'fighter-champion',{id:'wizard-evocation'},{id:'fighter-champion',extra:true}])assert.throws(()=>validateSubclassChoice(plan,selected));
  assert.throws(()=>validateSubclassChoice({...plan,toLevel:4},{id:'fighter-champion'}));
  assert.throws(()=>validateSubclassChoice({classId:'bard',fromLevel:2,toLevel:3},{id:'bard-lore'}));
- assert.deepEqual(advancementSubclassOptions('druid',2),[]);assert.deepEqual(advancementSubclassOptions('fighter',4),[]);
+ assert.equal(advancementSubclassOptions('druid',2)[0].id,'druid-land');assert.throws(()=>validateSubclassChoice({classId:'druid',fromLevel:1,toLevel:2},{id:'druid-land'}));assert.deepEqual(advancementSubclassOptions('fighter',4),[]);
 });
 test('subclass origins bind source, class and acquisition level and never infer a past selection',()=>{
  const origin=validateSubclassChoice({classId:'fighter',fromLevel:2,toLevel:3},{id:'fighter-champion'}),context={classId:'fighter',baselineLevel:2,level:9};
