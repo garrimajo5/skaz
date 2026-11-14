@@ -16,3 +16,7 @@ test('duplicate enemies, duplicate terrains, missing history and wrong dates can
  for(const change of [v=>v.enemies[0].acquiredLevel=1,v=>v.enemies[1].sourcePage=36,v=>v.enemies[0].rulesConfirmed=false,v=>v.terrains.pop(),v=>v.extra=true]){const bad=structuredClone(six);change(bad);assert.throws(()=>validateRangerHistory(bad,6));}
  assert.throws(()=>advanceRangerHistory(10,{terrain:{id:'coast'}},null));assert.throws(()=>advanceRangerHistory(7,{terrain:{id:'coast'}},six));
 });
+
+test('normalization rejects disguised markup and cannot turn two race names into a distinct pair',()=>{
+ assert.throws(()=>rangerEnemySelection(pair('＜Орк＞','Гоблин')));assert.throws(()=>rangerEnemySelection(enemy('dragons',{mode:'spoken',name:'＜Язык＞'})));assert.throws(()=>rangerEnemySelection(pair('Ｏｒｃ','Orc')));assert.deepEqual(rangerEnemySelection(pair(' Ｏｒｃ ','Goblin')).enemy.races,['Goblin','Orc']);
+});

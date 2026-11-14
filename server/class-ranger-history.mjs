@@ -3,7 +3,7 @@ import {rangerTerrainOptions,rangerEnemyTypeOptions} from './class-ranger-choice
 const terrainIds=new Set(rangerTerrainOptions().map(o=>o.id)),typeIds=new Set(rangerEnemyTypeOptions().map(o=>o.id));
 const exact=(v,keys)=>v&&typeof v==='object'&&!Array.isArray(v)&&Object.keys(v).length===keys.length&&keys.every(k=>Object.hasOwn(v,k));
 const fail=message=>{throw new Error(message);};
-function label(value){if(typeof value!=='string')fail('Нужно название расы или языка');const result=value.normalize('NFKC').trim().replace(/\s+/g,' ');if(!result||result.length>80||/[<>\u0000-\u001f\u007f]/u.test(value))fail('Название должно содержать 1–80 символов без разметки');return result;}
+function label(value){if(typeof value!=='string')fail('Нужно название расы или языка');const result=value.normalize('NFKC').trim().replace(/\s+/g,' ');if(!result||result.length>80||/[<>\u0000-\u001f\u007f]/u.test(value+result))fail('Название должно содержать 1–80 символов без разметки');return result;}
 const key=value=>value.toLocaleLowerCase('ru');
 export function rangerEnemySelection(value){
  if(!exact(value,['enemy','language','rulesConfirmed'])||value.rulesConfirmed!==true)fail('Подтверди две расы или тип врага и соответствие языка правилам вашей игры');
