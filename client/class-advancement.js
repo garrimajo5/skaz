@@ -2,7 +2,7 @@
 const SkazClassAdvancement=(()=>{
  const titles={'ability-score-improvement-or-feat':'Повышение характеристик','cantrips':'Новые заговоры','known-spells':'Новые заклинания','spellbook-spells':'Записи в книге','magical-secrets':'Магические тайны','mystic-arcanum':'Таинственный арканум'};
  // Display labels do not decide whether an optional choice is supported.
- const choiceNames={'subclass':'Подкласс','expertise':'Компетентность','fighting-style':'Боевой стиль','metamagic':'Метамагия','invocations':'Таинственные воззвания','pact-boon':'Предмет договора','favored-enemy-and-language':'Избранный враг и язык','favored-terrain':'Избранная местность','spell-mastery':'Мастерство заклинаний','signature-spells':'Фирменные заклинания'};
+ const choiceNames={'champion-style':'Дополнительный стиль Чемпиона','hunter-option':'Умение Охотника','subclass':'Подкласс','subclass-fighting-style':'Дополнительный боевой стиль','expertise':'Компетентность','fighting-style':'Боевой стиль','metamagic':'Метамагия','invocations':'Таинственные воззвания','pact-boon':'Предмет договора','favored-enemy-and-language':'Избранный враг и язык','favored-terrain':'Избранная местность','spell-mastery':'Мастерство заклинаний','signature-spells':'Фирменные заклинания'};
  const optionalNotices={'replace-known-spell':'При этом повышении правила разрешают заменить одно известное заклинание. Замена в мастере пока недоступна; продолжение сохранит прежние известные заклинания.','replace-invocation':'При этом повышении правила разрешают заменить одно воззвание. Замена в мастере пока недоступна; продолжение не меняет прежний выбор.'};
  const abilityNames={str:'Сила',dex:'Ловкость',con:'Телосложение',int:'Интеллект',wis:'Мудрость',cha:'Харизма'};
  function el(tag,text,parent){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(parent)parent.append(e);return e;}
@@ -34,7 +34,13 @@ const SkazClassAdvancement=(()=>{
  function renderChosenChanges(parent,data,command){
   for(const choice of data.plan.choices){
    const selected=command.choices[choice.id];if(selected===undefined)continue;
-   if(choice.kind==='ability-score-improvement-or-feat'){
+   if(choice.kind==='spell-mastery'){el('p','Мастерство: '+selected.spellIds.map(id=>data.wizardOptions?.[choice.id]?.find(o=>o.id===id)?.name.ru||id).join('; ')+'. Подготовка обязательна; бесплатное сотворение и смена после восьми часов изучения учитываются вручную.',parent);
+   }else if(choice.kind==='champion-style'){const name=id=>data.championStyles?.find(o=>o.id===id)?.name||id;el('p','Прежний стиль: '+name(selected.previousId)+'. Дополнительный стиль: '+name(selected.newId)+'. Старые бонусы не применяются повторно; боевые значения остаются ручными.',parent);
+   }else if(choice.kind==='hunter-option'){el('p','Охотник: '+(data.hunterOptions?.[choice.id]?.options.find(o=>o.id===selected.id)?.name||selected.id)+'. Эффекты учитываются вручную.',parent);
+   }else if(choice.kind==='subclass'){
+    if(selected.optionId)el('p','Умение Охотника: '+(data.subclassOptions?.find(o=>o.id===selected.id)?.additionalChoice?.options.find(o=>o.id===selected.optionId)?.name||selected.optionId)+'.',parent);
+    el('p','Подкласс: '+(data.subclassOptions?.find(o=>o.id===selected.id)?.name||selected.id)+'. Выбор сохраняется; эффекты умений учитываются вручную.',parent);
+   }else if(choice.kind==='ability-score-improvement-or-feat'){
     for(const [key,name]of Object.entries(abilityNames)){const delta=selected.increases[key];if(delta>0)el('p',name+': '+data.abilities[key]+' → '+(data.abilities[key]+delta)+'.',parent);}
     }else if(choice.kind==='pact-boon'){
     el('p','Дар договора: '+(data.pactOptions?.find(o=>o.id===selected.id)?.name||selected.id)+'. Создание оружия, фамильяр и условия применения учитываются вручную.',parent);
@@ -73,6 +79,8 @@ const SkazClassAdvancement=(()=>{
    form.replaceChildren();invalidate();
    el('h2',data.className+': '+data.fromLevel+(data.atMaximum?'':' → '+(data.fromLevel+1)),form);
    if(!data.atMaximum)el('p','Повысятся максимальные хиты и выбранные данные. Текущие хиты не восстанавливаются. Ручные счётчики не присваиваются автоматически.',form);
+   for(const choice of data.selectedWizardChoices||[])el('p','Сохранённое Мастерство заклинаний: '+choice.spellNames.join('; ')+'. Для бесплатного сотворения они должны быть подготовлены. Бесплатное применение и смена после восьми часов изучения пока учитываются вручную.',form);
+   if(data.selectedSubclass){const section=el('section',undefined,form);el('h3','Подтверждённый подкласс: '+data.selectedSubclass.name,section);el('p','Эффекты умений учитываются вручную. Справка не применяет их к листу.',section);for(const option of data.selectedSubclass.confirmedStyles||[])el('p',option.label+': '+option.name+'. '+option.text,section);for(const option of data.selectedSubclass.selectedOptions||[])renderFeatureHelp(section,{...option,source:data.selectedSubclass.source},option.id);for(const feature of data.selectedSubclass.features.filter(f=>f.level<=data.fromLevel))renderFeatureHelp(section,{...feature,source:data.selectedSubclass.source},feature.key);}
    if(data.selectedPact)el('p','Сохранённый дар: '+(data.pactOptions?.find(o=>o.id===data.selectedPact.id)?.name||data.selectedPact.id)+'. Создание оружия, фамильяр и условия применения учитываются вручную.',form);
    if(data.selectedPact?.spellNames?.length)el('p','Заклинания дара вне обычного лимита: '+data.selectedPact.spellNames.join('; ')+'. Условия применения проверяй по описанию дара.',form);
    if(data.selectedInvocations?.length){
@@ -116,7 +124,17 @@ const SkazClassAdvancement=(()=>{
    for(const choice of data.plan.choices){
     if(!choice.required&&!titles[choice.kind]&&!(choice.kind==='replace-invocation'&&data.invocationOptions?.[choice.id]&&data.selectedInvocations?.length)){if(optionalNotices[choice.kind])el('p',optionalNotices[choice.kind],form);continue;}
     const fs=el('fieldset',undefined,form);el('legend',(titles[choice.kind]||choiceNames[choice.kind]||choice.kind)+' — выбрать '+choice.count,fs);
-    if(choice.kind==='ability-score-improvement-or-feat'){
+    if(choice.kind==='subclass'&&data.subclassOptions?.length){
+     const label=el('label','Подтверждённый подкласс',fs),select=el('select',undefined,label);select.name=choice.id;const blank=el('option','Выбери подкласс…',select);blank.value='';select.value='';
+     for(const option of data.subclassOptions){const o=el('option',option.name,select);o.value=option.id;const help=el('details',undefined,fs);el('summary',option.name,help);for(const feature of option.features.filter(f=>f.level===data.fromLevel+1))renderFeatureHelp(help,{...feature,source:option.source},feature.key);}
+     el('p','Будет сохранён явный выбор подкласса. Боевые эффекты, владения и применение умений остаются ручными. Другие варианты и их дополнительные выборы ещё не подключены.',fs);const additional=el('div',undefined,fs);additional.hidden=true;let extra=null;select.addEventListener('change',()=>{additional.replaceChildren();extra=null;const group=data.subclassOptions.find(o=>o.id===select.value)?.additionalChoice;additional.hidden=!group;if(group){const label=el('label',group.name,additional);extra=el('select',undefined,label);extra.name=choice.id+':option';const blank=el('option','Выбери умение…',extra);blank.value='';extra.value='';for(const o of group.options){const row=el('option',o.name,extra);row.value=o.id;el('p',o.name+' — '+o.text,additional);}}});controls.set(choice.id,()=>({id:select.value,...(extra?{optionId:extra.value}:{})}));
+    }else if(choice.kind==='spell-mastery'&&data.wizardOptions?.[choice.id]?.length){
+     el('p','Выбери одно заклинание первого круга и одно второго из книги или одновременно выбранных новых записей. Бесплатное сотворение здесь не включается: подготовка и применение учитываются вручную.',fs);const fields=[];for(const circle of [1,2]){const label=el('label',circle+' круг',fs),select=el('select',undefined,label);select.name=choice.id+':'+circle;const blank=el('option','Выбери заклинание…',select);blank.value='';select.value='';for(const option of data.wizardOptions[choice.id].filter(o=>o.circle===circle)){const row=el('option',option.name.ru+' / '+option.name.en,select);row.value=option.id;}fields.push(select);}controls.set(choice.id,()=>({spellIds:fields.map(f=>f.value)}));
+    }else if(choice.kind==='champion-style'&&data.championStyles?.length){
+     el('p','Сначала явно подтверди уже известный стиль воина. Он не выдаётся заново. Затем выбери другой стиль; КД, атаки и урон остаются ручными.',fs);const selects={};for(const [key,title]of [['previousId','Прежний стиль'],['newId','Дополнительный стиль']]){const label=el('label',title,fs),select=el('select',undefined,label);select.name=choice.id+':'+key;const blank=el('option','Выбери стиль…',select);blank.value='';select.value='';for(const o of data.championStyles){const row=el('option',o.name,select);row.value=o.id;}selects[key]=select;}for(const o of data.championStyles)el('p',o.name+' — '+o.text,fs);controls.set(choice.id,()=>({previousId:selects.previousId.value,newId:selects.newId.value}));
+    }else if(choice.kind==='hunter-option'&&data.hunterOptions?.[choice.id]){
+     const group=data.hunterOptions[choice.id],label=el('label',group.name,fs),select=el('select',undefined,label);select.name=choice.id;const blank=el('option','Выбери умение…',select);blank.value='';select.value='';for(const o of group.options){const row=el('option',o.name,select);row.value=o.id;el('p',o.name+' — '+o.text,fs);}el('p','Сохраняется выбранное умение. Его применение и эффекты учитываются вручную.',fs);controls.set(choice.id,()=>({id:select.value}));
+    }else if(choice.kind==='ability-score-improvement-or-feat'){
      el('p','Распредели 2 пункта. Не выше 20. Выбор черты ещё не подключён.',fs);const fields={};
      for(const [key,name]of Object.entries(abilityNames)){const l=el('label',name+' ('+data.abilities[key]+')',fs),n=el('input',undefined,l);n.type='number';n.min='0';n.max=String(Math.max(0,Math.min(2,20-data.abilities[key])));n.value='0';n.setAttribute('aria-label',name+': прибавка');fields[key]=n;}
      controls.set(choice.id,()=>({increases:Object.fromEntries(Object.entries(fields).map(([k,n])=>[k,n.value===''?null:Number(n.value)]))}));

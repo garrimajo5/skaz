@@ -215,3 +215,36 @@ test('new invocation carries its ritual choices, and deselecting it excludes hid
  book.checked=false;book.emit('change');assert.equal(alarm.parent.parent.hidden,true);assert.equal(e.button('Подтвердить повышение').hidden,true);
  const other=walk(e.root).find(n=>n.value==='eldritch-sight');other.checked=true;other.emit('change');await e.button('Проверить повышение').onclick();assert.deepEqual([...commands[1].choices[id]],['eldritch-sight']);
 });
+
+test('subclass form requires an explicit selection, names the preview and preserves the exact retry',async()=>{
+ const e=environment(),key='fighter:3:subclass',sent=[];const option={id:'fighter-champion',name:'Чемпион',features:[{key:'Improved Critical',name:'Улучшенный критический удар',level:3,text:'Оружие: 19 или 20.',sourcePage:25}]};
+ await e.mount(e.root,{load:async()=>({...data(),fromLevel:2,subclassOptions:[option],plan:{requiresFeatureReview:[],choices:[{id:key,kind:'subclass',count:1,required:true}]}}),preview:async q=>{if(q.choices[key].id!=='fighter-champion')throw Error('Выбери подкласс');return summary();},send:async body=>{sent.push(body);if(sent.length===1)throw Error('Lost');return saved();}});
+ const select=walk(e.root).find(n=>n.name===key);assert.equal(select.value,'');await e.button('Проверить повышение').onclick();assert.equal(e.button('Подтвердить повышение').hidden,true);
+ select.value=option.id;select.emit('change');await e.button('Проверить повышение').onclick();assert.ok(walk(e.root).some(n=>n.textContent.startsWith('Подкласс: Чемпион.')));await e.button('Подтвердить повышение').onclick();await e.button('Повторить сохранение').onclick();assert.equal(sent[0],sent[1]);assert.deepEqual(JSON.parse(sent[0]).choices[key],{id:'fighter-champion'});
+});
+
+test('selected subclass reference hides future abilities and an unsupported additional style blocks mutation',async()=>{
+ const e=environment(),id='fighter:10:subclass-fighting-style';let sends=0;
+ await e.mount(e.root,{load:async()=>({...data(),fromLevel:9,selectedSubclass:{name:'Чемпион',features:[{name:'Атлет',level:7,text:'Полученное умение.'},{name:'Уцелевший',level:18,text:'Будущее умение.'}]},choiceNotices:{[id]:'Нужен подтверждённый первый стиль.'},plan:{requiresFeatureReview:[],choices:[{id,kind:'subclass-fighting-style',count:1,required:true}]}}),preview:async()=>summary(),send:async()=>{sends++;return saved();}});
+ assert.ok(walk(e.root).some(n=>n.textContent==='Атлет'));assert.ok(!walk(e.root).some(n=>n.textContent==='Уцелевший'));assert.equal(e.button('Проверить повышение').disabled,true);await e.button('Проверить повышение').onclick();assert.equal(sends,0);
+});
+
+test('Hunter nested initial choice and later option both require explicit user input and appear in preview',async()=>{
+ const first=environment(),key='ranger:3:subclass',group={name:'Добыча охотника',options:[{id:'colossus-slayer',name:'Убийца колоссов',text:'Раз в ход +1к8.'}]};let initial;
+ await first.mount(first.root,{load:async()=>({...data(),fromLevel:2,subclassOptions:[{id:'ranger-hunter',name:'Охотник',features:[],additionalChoice:group}],plan:{requiresFeatureReview:[],choices:[{id:key,kind:'subclass',count:1,required:true}]}}),preview:async q=>{initial=q;if(q.choices[key].optionId!=='colossus-slayer')throw Error('Выбери добычу');return summary();},send:async()=>saved()});
+ const subclass=walk(first.root).find(n=>n.name===key);subclass.value='ranger-hunter';subclass.emit('change');const choice=walk(first.root).find(n=>n.name===key+':option');assert.equal(choice.value,'');await first.button('Проверить повышение').onclick();assert.equal(first.button('Подтвердить повышение').hidden,true);choice.value='colossus-slayer';choice.emit('change');await first.button('Проверить повышение').onclick();assert.equal(initial.choices[key].optionId,'colossus-slayer');assert.ok(walk(first.root).some(n=>n.textContent==='Умение Охотника: Убийца колоссов.'));
+ const later=environment(),id='ranger:7:defensive-tactics';let next;await later.mount(later.root,{load:async()=>({...data(),fromLevel:6,hunterOptions:{[id]:{name:'Защитная тактика',options:[{id:'steel-will',name:'Стальная воля',text:'Спасброски от испуга.'}]}},plan:{requiresFeatureReview:[],choices:[{id,kind:'hunter-option',count:1,required:true}]}}),preview:async q=>{next=q;return summary();},send:async()=>saved()});const select=walk(later.root).find(n=>n.name===id);assert.equal(select.value,'');select.value='steel-will';select.emit('change');await later.button('Проверить повышение').onclick();assert.equal(next.choices[id].id,'steel-will');assert.ok(walk(later.root).some(n=>n.textContent.startsWith('Охотник: Стальная воля.')));
+});
+
+test('Champion style confirmation starts blank, rejects duplicates and previews old versus new',async()=>{
+ const e=environment(),id='fighter:10:champion-style';let command;
+ await e.mount(e.root,{load:async()=>({...data(),fromLevel:9,championStyles:[{id:'archery',name:'Стрельба',text:'Атаки.'},{id:'defense',name:'Оборона',text:'Доспехи.'}],plan:{requiresFeatureReview:[],choices:[{id,kind:'champion-style',count:1,required:true}]}}),preview:async q=>{command=q;const c=q.choices[id];if(!c.previousId||!c.newId||c.previousId===c.newId)throw Error('Нужны два разных стиля');return summary();},send:async()=>saved()});
+ const previous=walk(e.root).find(n=>n.name===id+':previousId'),added=walk(e.root).find(n=>n.name===id+':newId');assert.equal(previous.value,'');assert.equal(added.value,'');await e.button('Проверить повышение').onclick();assert.equal(e.button('Подтвердить повышение').hidden,true);
+ previous.value='archery';added.value='archery';added.emit('change');await e.button('Проверить повышение').onclick();assert.equal(e.button('Подтвердить повышение').hidden,true);added.value='defense';added.emit('change');await e.button('Проверить повышение').onclick();assert.deepEqual(JSON.parse(JSON.stringify(command.choices[id])),{previousId:'archery',newId:'defense'});assert.ok(walk(e.root).some(n=>n.textContent.startsWith('Прежний стиль: Стрельба. Дополнительный стиль: Оборона.')));
+});
+
+test('wizard mastery selects one spell per circle and distinguishes saved choice from manual free casting',async()=>{
+ const e=environment(),id='wizard:18:spell-mastery';let sent;
+ await e.mount(e.root,{load:async()=>({...data(),fromLevel:17,wizardOptions:{[id]:[{id:'shield',name:{ru:'Щит',en:'Shield'},circle:1},{id:'misty-step',name:{ru:'Туманный шаг',en:'Misty Step'},circle:2}]},plan:{requiresFeatureReview:[],choices:[{id,kind:'spell-mastery',count:2,required:true}]}}),preview:async q=>{sent=q;if(q.choices[id].spellIds.some(v=>!v))throw Error('Выбери оба круга');return summary();},send:async()=>saved()});
+ const first=walk(e.root).find(n=>n.name===id+':1'),second=walk(e.root).find(n=>n.name===id+':2');assert.equal(first.value,'');assert.equal(second.value,'');await e.button('Проверить повышение').onclick();assert.equal(e.button('Подтвердить повышение').hidden,true);first.value='shield';second.value='misty-step';second.emit('change');await e.button('Проверить повышение').onclick();assert.deepEqual([...sent.choices[id].spellIds],['shield','misty-step']);assert.ok(walk(e.root).some(n=>n.textContent.startsWith('Мастерство: Щит; Туманный шаг. Подготовка обязательна;')));
+});

@@ -2,12 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {classFeatureDetails} from '../server/class-features.mjs';
 import {classProgression,previewClassLevel} from '../server/class-progression.mjs';
-test('fighter table keys all have explanations while archetype remains explicitly unsupported',()=>{
+test('fighter table keys all have explanations while archetype offers explicit Champion selection with manual effects',()=>{
  for(let level=1;level<=20;level++){
   const keys=classProgression('fighter',level).progression.featuresEn;
   const details=classFeatureDetails('fighter',keys);
   assert.deepEqual(details.map(d=>d.key),keys);
-  for(const d of details){assert.ok(d.id);assert.ok(d.text.length>60);assert.equal(d.source.usage,'cc-by-4.0');assert.ok([24,25].includes(d.sourcePage));if(d.key.startsWith('Martial Archetype'))assert.equal(d.status,'unsupported');}
+  for(const d of details){assert.ok(d.id);assert.ok(d.text.length>60);assert.equal(d.source.usage,'cc-by-4.0');assert.ok([24,25].includes(d.sourcePage));if(d.key.startsWith('Martial Archetype')){assert.equal(d.status,'choice');assert.match(d.text,/вручную/);};}
  }
 });
 test('description data is isolated and never claims unsupported classes have fighter rules',()=>{
@@ -32,8 +32,8 @@ test('barbarian and rogue tables have class-specific help without promising subc
  const barbarian=classFeatureDetails('barbarian',['Extra Attack'])[0];
  assert.notEqual(barbarian.id,classFeatureDetails('fighter',['Extra Attack'])[0].id);
  assert.ok(!barbarian.text.includes('четыре'));
- for(const key of ['Primal Path','Path feature','Primal Champion'])assert.equal(classFeatureDetails('barbarian',[key])[0].status,'unsupported');
- for(const key of ['Expertise','Roguish Archetype','Roguish Archetype feature'])assert.equal(classFeatureDetails('rogue',[key])[0].status,'unsupported');
+ for(const key of ['Primal Path','Path feature'])assert.equal(classFeatureDetails('barbarian',[key])[0].status,'choice');assert.equal(classFeatureDetails('barbarian',['Primal Champion'])[0].status,'unsupported');
+ for(const key of ['Roguish Archetype','Roguish Archetype feature'])assert.equal(classFeatureDetails('rogue',[key])[0].status,'choice');assert.equal(classFeatureDetails('rogue',['Expertise'])[0].status,'unsupported');
 });
 import {readFileSync} from 'node:fs';
 test('feature catalog has unique stable IDs and class keys, licensed sources and no invented table entries',()=>{
@@ -47,8 +47,8 @@ test('feature catalog has unique stable IDs and class keys, licensed sources and
   for(const key of f.keys){const scoped=f.classId+':'+key;assert.ok(!keys.has(scoped),scoped);keys.add(scoped);assert.ok(tableKeys.has(key),scoped);}
  }
  for(let level=1;level<=20;level++)for(const detail of classFeatureDetails('monk',classProgression('monk',level).progression.featuresEn))assert.ok(detail.id,detail.key);
- assert.equal(classFeatureDetails('monk',['Monastic Tradition'])[0].status,'unsupported');
- assert.equal(classFeatureDetails('monk',['Monastic Tradition feature'])[0].status,'unsupported');
+ assert.equal(classFeatureDetails('monk',['Monastic Tradition'])[0].status,'choice');
+ assert.equal(classFeatureDetails('monk',['Monastic Tradition feature'])[0].status,'choice');
 });
 
 import {classFeatureReference} from '../server/class-progression.mjs';
@@ -66,7 +66,7 @@ test('wizard summaries cover table keys and preserve blocked high-level spell ch
  assert.equal(classFeatureDetails('wizard',['Signature Spell'])[0].id,'wizard-signature-spells');
  for(const [from,kind]of [[17,'spell-mastery'],[19,'signature-spells']]){
   const p=previewClassLevel({classId:'wizard',fromLevel:from,toLevel:from+1,constitution:14});assert.ok(p.choices.some(c=>c.kind===kind&&c.required));
-  assert.ok(p.featureDetails.some(d=>d.status==='unsupported'));
+  assert.ok(p.featureDetails.some(d=>d.status===(kind==='spell-mastery'?'choice':'unsupported')));
  }
 });
 

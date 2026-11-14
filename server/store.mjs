@@ -295,7 +295,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
     },
     saveCharacterSheet:request=>{
       const payload=validateSheetCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'character-sheet',expectedRevision:request.expectedRevision,payload})).digest('hex');
-      return mutate(request,hash,'Ручной класс и счётчики',()=>{const current=read();if(payload.sheet&&current.characterSheet?.spellLearning!=null&&!Object.hasOwn(payload.sheet,'spellLearning'))throw new AppError(409,'Обнови страницу: отсутствует выбор модели заклинаний');if(current.advancement&&(!payload.sheet||payload.sheet.level!==current.characterSheet.level||payload.sheet.className!==current.characterSheet.className))throw new AppError(409,'Класс и уровень связаны с историей повышения');saveCharacterSheet(db,payload,request.mutationId,current.context.characterId);return read().state;},'character-sheet');
+      return mutate(request,hash,'Ручной класс и счётчики',()=>{const current=read();if(payload.sheet&&current.characterSheet?.spellLearning!=null&&!Object.hasOwn(payload.sheet,'spellLearning'))throw new AppError(409,'Обнови страницу: отсутствует выбор модели заклинаний');if(current.advancement&&(!payload.sheet||payload.sheet.level!==current.characterSheet.level||payload.sheet.className!==current.characterSheet.className||current.advancement.version>=5&&payload.sheet.subclass!==current.characterSheet.subclass))throw new AppError(409,'Класс и уровень связаны с историей повышения');saveCharacterSheet(db,payload,request.mutationId,current.context.characterId);return read().state;},'character-sheet');
     },
     saveCharacterStats: request => {
       const payload=validateStatsCommand(request);

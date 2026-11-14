@@ -1,3 +1,6 @@
+import {wizardChoiceOrigin,validateWizardMasteryOrigin,validateWizardAdvancedChoice,wizardSpellSource} from './class-wizard-choices.mjs';
+import {hunterChoiceAt,validateHunterSelection} from './class-hunter.mjs';
+import {validateSubclassChoice,validateSubclassOrigin,subclassDescription,validateChampionStyles} from './class-subclasses.mjs';
 import {validateInvocationSpellSources} from './class-invocation-sources.mjs';
 import {validatePactChoice} from './class-pacts.mjs';
 import {buildInvocationEvent,validateInvocationHistory,invocationDescription,ELDRITCH_BLAST_ID} from './class-invocations.mjs';
@@ -33,7 +36,7 @@ export function validateAdvancementCommand(input){
 
 export function validateAdvancementLedger(value){
  if(value===null)return null;
- if(!exact(value,['version','ruleset','classId','baselineLevel','level','binding','events','resources','spells',...(value?.version>=2?['styles']:[]),...(value?.version>=3?['metamagic']:[]),...(value?.version===4?['invocations','pact']:[])])||![1,2,3,4].includes(value.version)||value.ruleset!=='5e-2014')fail(422,'Неверное происхождение повышения');
+ if(!exact(value,['version','ruleset','classId','baselineLevel','level','binding','events','resources','spells',...(value?.version>=2?['styles']:[]),...(value?.version>=3?['metamagic']:[]),...(value?.version===4?['invocations','pact']:[]),...(value?.version>=5?['subclass']:[]),...(value?.version===6?['wizardChoices']:[])])||![1,2,3,4,5,6].includes(value.version)||value.ruleset!=='5e-2014')fail(422,'Неверное происхождение повышения');
  checkedClass(value.classId,value.level);
  if(!Number.isSafeInteger(value.baselineLevel)||value.baselineLevel<1||value.baselineLevel>value.level||!Array.isArray(value.events)||value.events.length!==value.level-value.baselineLevel)fail(422,'Неполная последовательность уровней');
  if(value.binding!==null&&(!exact(value.binding,['mutationId','requestHash'])||!id(value.binding.mutationId)||!/^[a-f0-9]{64}$/.test(value.binding.requestHash)))fail(422,'Неверное подключение ресурсов');
@@ -65,6 +68,8 @@ export function validateAdvancementLedger(value){
  }
  for(const event of value.events){
   const choices=previewClassLevel({classId:value.classId,fromLevel:event.level-1,toLevel:event.level,constitution:10}).choices;
+  if(value.version<6&&choices.some(c=>c.kind==='spell-mastery'))fail(422,'История Мастерства заклинаний требует версию 6');
+  if(value.version<5&&choices.some(c=>c.kind==='subclass'))fail(422,'История подкласса требует версию 5');
   if(value.version<4&&choices.some(c=>c.kind==='invocations'))fail(422,'История воззваний требует версию 4');
   if(value.version<3&&choices.some(c=>c.kind==='metamagic'))fail(422,'История Метамагии требует версию 3');
   if(value.version===1&&choices.some(c=>c.kind==='fighting-style'))fail(422,'История боевого стиля требует версию 2');
@@ -100,6 +105,14 @@ export function validateAdvancementLedger(value){
   if(value.classId!=='warlock'||value.styles.length||!Array.isArray(value.metamagic)||value.metamagic.length)fail(422,'Неверный класс истории воззваний');
   try{validateInvocationHistory(value.invocations,value);}catch(error){fail(422,error.message);}
  }
+ if(value.version>=5){
+  if(!Array.isArray(value.metamagic)||value.metamagic.length)fail(422,'Неверная история подкласса');
+  try{validateSubclassOrigin(value.subclass,value);}catch(error){fail(422,error.message);}
+ }
+ if(value.version===6){
+  if(value.classId!=='wizard'||value.level<18||value.baselineLevel>=18||!Array.isArray(value.wizardChoices)||value.wizardChoices.length!==1)fail(422,'Неверная история Мастерства заклинаний');
+  try{validateWizardMasteryOrigin(value.wizardChoices[0]);}catch(error){fail(422,error.message);}
+ }
  return structuredClone(value);
 }
 
@@ -113,13 +126,18 @@ function build(current,request){
  if(sheet.level!==request.fromLevel)fail(409,'Текущий уровень изменился');
  const previous=validateAdvancementLedger(current.advancement??null);
  if(previous&&(previous.classId!==request.classId||previous.level!==sheet.level))fail(409,'Происхождение не соответствует классу или уровню листа');
+ if(previous?.version>=5&&sheet.subclass!==subclassDescription(previous.subclass.id).name)fail(409,'Подкласс листа изменён вручную; нужна сверка происхождения');
  const before=previewClassLevel({classId:request.classId,fromLevel:sheet.level,toLevel:sheet.level+1,constitution:stats.abilities.con,hpMethod:request.hpMethod,hpRoll:request.hpRoll});
  if(request.reviewedFeatures.length!==before.requiresFeatureReview.length||before.requiresFeatureReview.some(f=>!request.reviewedFeatures.includes(f)))fail(422,'Сначала проверь все новые умения: их эффекты пока не применяются автоматически');
+ const hunter=previous?.subclass?.id==='ranger-hunter'?hunterChoiceAt(sheet.level+1):null;
+ if(hunter)before.choices.push({id:hunter.choiceId,kind:'hunter-option',count:1,required:true});
+ const champion=previous?.subclass?.id==='fighter-champion'&&sheet.level+1===10;
+ if(champion)before.choices.push({id:'fighter:10:champion-style',kind:'champion-style',count:1,required:true});
  const choices=new Map(before.choices.map(c=>[c.id,c]));
  for(const key of Object.keys(request.choices))if(!choices.has(key))fail(422,'Выбор не относится к этому уровню');
  for(const choice of choices.values()){
   if(!Object.hasOwn(request.choices,choice.id)){if(choice.required)fail(422,'Не завершён выбор: '+choice.kind);continue;}
-  if(!spellKinds.has(choice.kind)&&choice.kind!=='ability-score-improvement-or-feat'&&choice.kind!=='fighting-style'&&choice.kind!=='metamagic'&&choice.kind!=='invocations'&&choice.kind!=='replace-invocation'&&choice.kind!=='pact-boon')fail(422,'Этот выбор ещё не поддерживается: '+choice.kind);
+  if(!spellKinds.has(choice.kind)&&choice.kind!=='ability-score-improvement-or-feat'&&choice.kind!=='fighting-style'&&choice.kind!=='metamagic'&&choice.kind!=='invocations'&&choice.kind!=='replace-invocation'&&choice.kind!=='pact-boon'&&choice.kind!=='subclass'&&choice.kind!=='hunter-option'&&choice.kind!=='champion-style'&&choice.kind!=='spell-mastery')fail(422,'Этот выбор ещё не поддерживается: '+choice.kind);
  }
  let abilities=stats.abilities;
  for(const choice of choices.values())if(choice.kind==='ability-score-improvement-or-feat'){
@@ -129,6 +147,13 @@ function build(current,request){
  }
  const plan=previewClassLevel({classId:request.classId,fromLevel:sheet.level,toLevel:sheet.level+1,constitution:abilities.con,previousConstitution:stats.abilities.con,hpMethod:request.hpMethod,hpRoll:request.hpRoll});
  const ledger=previous||{version:1,ruleset:'5e-2014',classId:request.classId,baselineLevel:sheet.level,level:sheet.level,binding:null,events:[],resources:[],spells:[]};
+ for(const choice of choices.values())if(choice.kind==='subclass'){
+  const origin=validateSubclassChoice(plan,request.choices[choice.id]),name=subclassDescription(origin.id).name;
+  if(sheet.subclass.trim()&&sheet.subclass!==name)fail(409,'В листе уже указан другой подкласс; нужна явная сверка прежней записи');
+  ledger.version=5;ledger.styles??=[];ledger.metamagic??=[];ledger.subclass=origin;
+ }
+ if(champion)ledger.subclass.additionalStyle=validateChampionStyles(request.choices['fighter:10:champion-style']);
+ if(hunter){const selected=request.choices[hunter.choiceId];if(!exact(selected,['id']))fail(422,'Нужно выбрать умение Охотника');ledger.subclass.options.push(validateHunterSelection(plan.toLevel,selected.id));}
  for(const choice of choices.values())if(choice.kind==='fighting-style'){
   const origin=validateFightingStyleChoice(plan,choice.id,request.choices[choice.id],{knownStyles:(ledger.styles||[]).map(s=>s.id)});
   if(ledger.version===1){ledger.version=2;ledger.styles=[];}
@@ -146,6 +171,12 @@ function build(current,request){
  for(const choice of choices.values())if(spellKinds.has(choice.kind)&&Object.hasOwn(request.choices,choice.id)){
   const selected=validateSpellChoice(plan,choice.id,request.choices[choice.id],{knownIds:[...known,...additions]});
   for(const catalogId of selected){additions.push(catalogId);ledger.spells.push({catalogId,acquiredLevel:plan.toLevel,choiceId:choice.id});}
+ }
+ if(choices.has('wizard:18:spell-mastery')){
+  if(ledger.version!==5)fail(422,'Сначала нужна подтверждённая история подкласса волшебника; прошлые выборы не угадываются');
+  const selected=request.choices['wizard:18:spell-mastery'];if(!exact(selected,['spellIds']))fail(422,'Выбери два заклинания Мастерства');
+  const book=[...(current.spellbook||[]),...additions.map(catalogId=>({catalogId,status:'known',entry:wizardSpellSource(catalogId)}))];
+  ledger.wizardChoices=[wizardChoiceOrigin({kind:'mastery',classId:request.classId,level:plan.toLevel,selected:selected.spellIds,spellbook:book})];ledger.version=6;
  }
  if(choices.has('warlock:'+plan.toLevel+':pact-boon')){
   if(ledger.version!==4)fail(422,'Для дара договора нужна подтверждённая история воззваний');
@@ -180,7 +211,7 @@ function build(current,request){
  // Level advancement does not heal wounds, wake a dying hero, clear checks,
  // restore counters or alter temporary HP. A rest is a separate action.
  const nextState=validateState({...state,maxHp});
- const nextSheet=validateCharacterSheet({...sheet,level:plan.toLevel,counters});
+ const nextSheet=validateCharacterSheet({...sheet,subclass:ledger.version>=5?subclassDescription(ledger.subclass.id).name:sheet.subclass,level:plan.toLevel,counters});
  const nextStats=validateCharacterStats({...stats,abilities});
  ledger.level=plan.toLevel;ledger.events.push({mutationId:request.mutationId,level:plan.toLevel,requestHash:hash(request),sourcePage:plan.sourcePage,featuresReviewed:[...request.reviewedFeatures]});
  return {state:nextState,characterSheet:nextSheet,characterStats:nextStats,advancement:validateAdvancementLedger(ledger),addSpells:additions,
@@ -190,6 +221,7 @@ function build(current,request){
 export function validateAdvancementSnapshot(ledger,sheet,stats,spellbook,lookup){
  const value=validateAdvancementLedger(ledger);if(!value)return null;
  const s=validateCharacterSheet(sheet),a=validateCharacterStats(stats);
+ if(value.version>=5&&s.subclass!==subclassDescription(value.subclass.id).name)fail(422,'Подкласс листа не соответствует подтверждённому происхождению');
  if(s.level!==value.level)fail(422,'Уровень не соответствует истории повышения');
  const maxima=new Map(classResourceMaximums(value.classId,value.level,a.abilities).map(r=>[r.id,r]));
  for(const origin of value.resources){
@@ -198,6 +230,7 @@ export function validateAdvancementSnapshot(ledger,sheet,stats,spellbook,lookup)
  }
  const known=new Set((spellbook||[]).map(s=>s.catalogId));
  if(value.spells.some(s=>!known.has(s.catalogId)))fail(422,'В книге отсутствует полученное при повышении заклинание');
+ if(value.version===6){try{validateWizardAdvancedChoice({kind:'mastery',classId:'wizard',level:18,selected:value.wizardChoices[0].spellIds,spellbook:lookup?(spellbook||[]).map(s=>({...s,entry:lookup(s.catalogId)})):spellbook});}catch(error){fail(422,error.message);}}
  if(value.version===4){
   validateInvocationSpellSources(value,spellbook||[],lookup);
   const active=validateInvocationHistory(value.invocations,value);

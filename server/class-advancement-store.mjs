@@ -14,9 +14,9 @@ export function checkAdvancementCompatibility(db,{enabled}){
  if(!present.length)return;
  if(present.length!==tables.length)throw new AppError(409,'Неполная схема повышения уровня; нужна совместимая резервная копия');
  const rows=db.prepare('SELECT id,version FROM class_advancement_schema').all();
- if(rows.length!==1||rows[0].id!==1||![1,2,3].includes(rows[0].version))throw new AppError(409,'Версия повышения уровня не поддерживается');
+ if(rows.length!==1||rows[0].id!==1||![1,2,3,4,5].includes(rows[0].version))throw new AppError(409,'Версия повышения уровня не поддерживается');
  for(const row of db.prepare('SELECT ledger_json FROM character_advancement').iterate()){
-  try{const ledger=validateAdvancementLedger(JSON.parse(row.ledger_json));if(!ledger||rows[0].version<(ledger.version===4?3:ledger.version>1?2:1))throw Error('mismatched capability');}
+  try{const ledger=validateAdvancementLedger(JSON.parse(row.ledger_json));if(!ledger||rows[0].version<(ledger.version===6?5:ledger.version===5?4:ledger.version===4?3:ledger.version>1?2:1))throw Error('mismatched capability');}
   catch{throw new AppError(409,'История повышения повреждена или требует совместимой версии приложения; база не изменена');}
  }
  if(!enabled&&db.prepare('SELECT 1 FROM character_advancement LIMIT 1').get())throw new AppError(409,'База содержит повышение уровня: нужен совместимый режим или резервная копия до включения');
@@ -65,7 +65,7 @@ export function persistAdvancement(db,change,mutationId,characterId){
 // Capability markers prevent older servers from touching unsupported nested histories.
 export function writeAdvancementOrigin(db,characterId,value){
  const ledger=validateAdvancementLedger(value);if(!ledger)throw new AppError(422,'Нужна история повышения');
- const marker=ledger.version===4?3:ledger.version>1?2:1;
+ const marker=ledger.version===6?5:ledger.version===5?4:ledger.version===4?3:ledger.version>1?2:1;
  db.prepare('UPDATE class_advancement_schema SET version=? WHERE id=1 AND version<?').run(marker,marker);
  db.prepare('INSERT INTO character_advancement VALUES (?,?) ON CONFLICT(character_id) DO UPDATE SET ledger_json=excluded.ledger_json').run(characterId,JSON.stringify(ledger));
 }

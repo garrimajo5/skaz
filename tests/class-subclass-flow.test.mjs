@@ -1,0 +1,34 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {randomUUID} from 'node:crypto';
+import {openStore} from '../server/store.mjs';import {createApp} from '../server/app.mjs';import {templateStats} from '../server/character-stats.mjs';import {previewClassLevel,spellChoiceOptions} from '../server/class-progression.mjs';import {environment,walk} from './helpers/advancement-dom.mjs';
+// Real component + cookie API + disposable SQLite; not visual/browser QA.
+for(const scenario of ['hunter','champion','wizard-mastery'])test(scenario+' main editor saves required nested choices, retries lost response and imports complete origin',async t=>{
+ const classId=scenario==='hunter'?'ranger':scenario==='champion'?'fighter':'wizard',store=openStore(':memory:',{classAdvancement:true}),ctx=store.read().context,user='subclass-flow-owner',token='c'.repeat(64);
+ const command=extra=>({mutationId:randomUUID(),expectedRevision:store.read().revision,characterId:ctx.characterId,...extra});
+ store.saveCharacterStats(command({stats:structuredClone(templateStats)}));store.saveCharacterSheet(command({sheet:{ruleset:'5e-2014',ancestry:'',className:classId,subclass:'',level:scenario==='wizard-mastery'?1:2,counters:[]}}));store.catalog.installBundled({version:store.catalog.previewBundled().version});
+ if(scenario!=='hunter')for(let level=scenario==='champion'?3:2;level<=(scenario==='champion'?9:17);level++){
+  const current=store.read(),plan=previewClassLevel({classId,fromLevel:level-1,toLevel:level,constitution:current.characterStats.abilities.con}),choices={};
+  for(const c of plan.choices)if(c.required){if(c.kind==='subclass')choices[c.id]={id:scenario==='champion'?'fighter-champion':'wizard-evocation'};else if(c.kind==='ability-score-improvement-or-feat'){const key=Object.keys(current.characterStats.abilities).find(k=>current.characterStats.abilities[k]<=18);choices[c.id]={increases:Object.fromEntries(Object.keys(current.characterStats.abilities).map(k=>[k,k===key?2:0]))};}else choices[c.id]=spellChoiceOptions(classId,level,c.kind,{knownIds:current.spellbook.map(o=>o.catalogId)}).slice(0,c.count).map(o=>o.spellId);}
+  store.advanceCharacter(command({classId,fromLevel:level-1,hpMethod:'fixed',hpRoll:null,choices,reviewedFeatures:plan.requiresFeatureReview}));
+ }
+ store.access.apply({action:'bootstrap-owner',userId:user,displayName:'Synthetic owner',campaignId:ctx.campaignId,characterId:ctx.characterId});
+ const sessions={login(){},logout(){},authenticate:value=>value===token?user:null,check:value=>value===token?user:null};
+ const app=createApp(store,{classAdvancement:true,sessions,publicOrigin:'https://fixture.invalid',individualWrites:true});let lost=false;
+ app.prependListener('request',(req,res)=>{if(req.method==='POST'&&req.url==='/api/class-advancement/apply'){const end=res.end;res.end=function(body,...args){if(res.statusCode===200&&!lost){lost=true;return end.call(this,'{',...args);}return end.call(this,body,...args);};}});
+ await new Promise(resolve=>app.listen(0,'127.0.0.1',resolve));t.after(async()=>{app.closeAllConnections();await new Promise(resolve=>app.close(resolve));store.close();});
+ const call=async(path,body)=>{const response=await fetch('http://127.0.0.1:'+app.address().port+path,{method:body?'POST':'GET',headers:{Origin:'https://fixture.invalid',cookie:'__Host-skaz-session='+token,'X-Skaz-Identity':user,'X-Skaz-View':'subclass-flow-window','X-Skaz-Client':'local-v1','Content-Type':'application/json'},...(body?{body:typeof body==='string'?body:JSON.stringify(body)}:{})});const data=await response.json();if(!response.ok)throw Error(data.error||'HTTP '+response.status);return data;};
+ const e=environment(),sent=[];const editor=await e.mount(e.root,{newId:randomUUID,load:()=>call('/api/class-advancement/plan?classId='+classId),preview:q=>call('/api/class-advancement/preview',q),send:body=>{sent.push(body);return call('/api/class-advancement/apply',body);}});t.after(()=>editor.destroy());
+ const select=(name,value)=>{const field=walk(e.root).find(n=>n.name===name);assert.ok(field,name);field.value=value;field.emit('change');};
+ if(scenario==='hunter'){
+  select('ranger:3:subclass','ranger-hunter');select('ranger:3:subclass:option','colossus-slayer');
+  const group=walk(e.root).find(n=>n.tagName==='fieldset'&&n.children.some(c=>c.tagName==='legend'&&c.textContent.startsWith('Новые заклинания'))),box=walk(group).find(n=>n.type==='checkbox');box.checked=true;box.emit('change');
+ }else if(scenario==='champion'){select('fighter:10:champion-style:previousId','archery');select('fighter:10:champion-style:newId','defense');}else{
+  const book=store.read().spellbook,one=book.find(o=>o.entry.spell.level===1).catalogId,available=spellChoiceOptions('wizard',18,'spellbook-spells',{knownIds:book.map(o=>o.catalogId)}),two=available.find(o=>o.level===2).spellId,other=available.find(o=>o.spellId!==two).spellId;
+  const group=walk(e.root).find(n=>n.tagName==='fieldset'&&n.children.some(c=>c.tagName==='legend'&&c.textContent.startsWith('Записи в книге')));for(const id of [two,other]){const box=walk(group).find(n=>n.type==='checkbox'&&n.value===id);assert.ok(box,id);box.checked=true;box.emit('change');}
+  select('wizard:18:spell-mastery:1',one);select('wizard:18:spell-mastery:2',two);
+ }
+ const review=walk(e.root).find(n=>n.tagName==='fieldset'&&n.children.some(c=>c.tagName==='legend'&&c.textContent.startsWith('Новые умения')));for(const box of walk(review).filter(n=>n.type==='checkbox')){box.checked=true;box.emit('change');}
+ await e.button('Проверить повышение').onclick();assert.equal(e.button('Подтвердить повышение').hidden,false,e.status());await e.button('Подтвердить повышение').onclick();assert.equal(lost,true);assert.equal(e.button('Повторить сохранение').hidden,false);
+ const file=await call('/api/export/active-v14'),hp=file.state.maxHp;await e.button('Повторить сохранение').onclick();assert.equal(sent[0],sent[1]);assert.equal((await call('/api/export/active-v14')).state.maxHp,hp);
+ const current=await call('/api/workspace'),q={mutationId:randomUUID(),expectedRevision:current.revision,destination:'new-campaign',file};const imported=await call('/api/import/active',q);assert.deepEqual(imported.advancement,file.advancement);assert.equal((await call('/api/import/active',q)).replayed,true);
+ const view=await call('/api/class-advancement/plan?classId='+classId);if(scenario==='hunter')assert.equal(view.selectedSubclass.selectedOptions[0].id,'colossus-slayer');else if(scenario==='champion'){assert.deepEqual(view.selectedSubclass.confirmedStyles.map(s=>s.id),['archery','defense']);assert.equal(imported.advancement.subclass.additionalStyle.previous.confirmedLevel,10);}else{assert.equal(view.selectedWizardChoices[0].spellNames.length,2);assert.equal(imported.advancement.version,6);}
+});

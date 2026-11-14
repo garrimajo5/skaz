@@ -299,3 +299,87 @@ test('inactive invocation history cannot bypass startup by lowering its capabili
  db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(JSON.stringify(stripped),hero);assert.throws(()=>openStore(file,{classAdvancement:true}),{status:409});assert.deepEqual(db.prepare('SELECT * FROM workspace').get(),before);
  db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(raw,hero);const restored=openStore(file,{classAdvancement:true});try{assert.notEqual(restored.read().context.characterId,hero);}finally{restored.close();}
 });
+
+import {subclassDescription} from '../server/class-subclasses.mjs';
+function subclassCommand(s,subclassId){
+ const q=command(s),v=s.read(),plan=previewClassLevel({classId:q.classId,fromLevel:q.fromLevel,toLevel:q.fromLevel+1,constitution:v.characterStats.abilities.con});
+ for(const c of plan.choices){if(!c.required)continue;if(c.kind==='subclass')q.choices[c.id]={id:subclassId};else if(c.kind==='ability-score-improvement-or-feat'){const key=Object.keys(v.characterStats.abilities).find(k=>v.characterStats.abilities[k]<=18);q.choices[c.id]={increases:Object.fromEntries(Object.keys(v.characterStats.abilities).map(k=>[k,k===key?2:0]))};}else q.choices[c.id]=spellChoiceOptions(q.classId,q.fromLevel+1,c.kind,{knownIds:v.spellbook.map(s=>s.catalogId)}).slice(0,c.count).map(o=>o.spellId);}
+ return q;
+}
+test('five explicit subclass choices persist names and origins, retry, transfer and retain manual combat values',()=>{
+ for(const [classId,subclassId,level]of [['fighter','fighter-champion',2],['barbarian','barbarian-berserker',2],['rogue','rogue-thief',2],['monk','monk-open-hand',2],['wizard','wizard-evocation',1]]){
+  const s=openStore(':memory:',{classAdvancement:true}),target=openStore(':memory:',{classAdvancement:true});try{
+   prepare(s,classId,level);if(classId==='wizard')s.catalog.installBundled({version:s.catalog.previewBundled().version});
+   const q=subclassCommand(s,subclassId),before=s.read();const bad=structuredClone(q);bad.choices[classId+':'+(level+1)+':subclass']={id:'paladin-devotion'};assert.throws(()=>s.advanceCharacter(bad),{status:422});assert.deepEqual(s.read(),before);
+   const result=s.advanceCharacter(q);assert.equal(result.advancement.version,5);assert.equal(result.advancement.subclass.id,subclassId);assert.equal(result.characterSheet.subclass,subclassDescription(subclassId).name);assert.deepEqual(result.characterStats,before.characterStats);assert.equal(result.state.hp,before.state.hp);assert.equal(s.advanceCharacter(q).replayed,true);
+   for(const version of [13,14]){const exported=s.exportActive(version);target.importActive({mutationId:randomUUID(),expectedRevision:target.read().revision,destination:'new-campaign',file:exported});assert.deepEqual(target.read().advancement,result.advancement);assert.equal(target.read().characterSheet.subclass,result.characterSheet.subclass);}
+   assert.throws(()=>s.saveCharacterSheet(fields(s,{sheet:{...result.characterSheet,subclass:'Подмена'}})),{status:409});assert.deepEqual(s.read().advancement,result.advancement);
+   const next=s.advanceCharacter(subclassCommand(s,subclassId));assert.equal(next.advancement.subclass.id,subclassId);assert.equal(next.characterSheet.level,level+2);
+  }finally{s.close();target.close();}
+ }
+});
+
+test('subclass late write failure and backup restore preserve marker, hero, spells and exact receipt',async t=>{
+ const file=disk(t,false),s=openStore(file,{classAdvancement:true}),db=new DatabaseSync(file);t.after(()=>{db.close();s.close();rmSync(join(file,'..'),{recursive:true,force:true});});prepare(s,'wizard',1);s.catalog.installBundled({version:s.catalog.previewBundled().version});
+ const q=subclassCommand(s,'wizard-evocation'),before=s.read();await s.backup(file+'.before');
+ db.exec("CREATE TRIGGER reject_subclass BEFORE INSERT ON advancement_changes BEGIN SELECT RAISE(ABORT,'late subclass');END");assert.throws(()=>s.advanceCharacter(q),/late subclass/);assert.deepEqual(s.read(),before);assert.equal(db.prepare('SELECT version FROM class_advancement_schema').get().version,1);
+ db.exec('DROP TRIGGER reject_subclass');s.advanceCharacter(q);assert.equal(db.prepare('SELECT version FROM class_advancement_schema').get().version,4);await s.backup(file+'.after');
+ const a=openStore(file+'.before',{classAdvancement:true}),b=openStore(file+'.after',{classAdvancement:true});try{assert.deepEqual(a.read(),before);assert.deepEqual(b.read(),s.read());assert.equal(b.advanceCharacter(q).replayed,true);}finally{a.close();b.close();}
+ assert.equal(db.prepare('PRAGMA integrity_check').get().integrity_check,'ok');assert.equal(db.prepare('PRAGMA foreign_key_check').all().length,0);
+});
+
+test('champion requires explicit previous and additional styles and then retains provenance through level twenty',()=>{
+ const s=openStore(':memory:',{classAdvancement:true});try{prepare(s,'fighter',2);for(let level=3;level<=9;level++)s.advanceCharacter(subclassCommand(s,'fighter-champion'));
+ const before=s.read(),q=subclassCommand(s,'fighter-champion');assert.throws(()=>s.advanceCharacter(q),/champion-style/);assert.deepEqual(s.read(),before);q.choices['fighter:10:champion-style']={previousId:'archery',newId:'archery'};assert.throws(()=>s.advanceCharacter(q),/два разных/);assert.deepEqual(s.read(),before);q.choices['fighter:10:champion-style'].newId='defense';const at10=s.advanceCharacter(q);assert.deepEqual(at10.characterStats,before.characterStats);assert.equal(at10.advancement.subclass.additionalStyle.previous.confirmedLevel,10);assert.equal(at10.advancement.subclass.additionalStyle.added.id,'defense');assert.equal(s.advanceCharacter(q).replayed,true);for(let level=11;level<=20;level++)s.advanceCharacter(subclassCommand(s,'fighter-champion'));assert.equal(s.read().advancement.level,20);assert.equal(s.read().advancement.subclass.additionalStyle.previous.id,'archery');
+ }finally{s.close();}
+});
+
+test('subclass origins cannot be stripped on import or hidden in an inactive hero behind an old marker',t=>{
+ const file=disk(t,false),s=openStore(file,{classAdvancement:true}),target=openStore(':memory:',{classAdvancement:true});prepare(s,'fighter',2);s.advanceCharacter(subclassCommand(s,'fighter-champion'));const hero=s.read().context.characterId,exported=s.exportActive(13);
+ for(const change of [f=>delete f.advancement.subclass,f=>{f.advancement.version=3;delete f.advancement.subclass;},f=>f.characterSheet.subclass='Вор']){
+  const bad=structuredClone(exported);change(bad);const before=target.read();assert.throws(()=>target.importActive({mutationId:randomUUID(),expectedRevision:before.revision,destination:'new-campaign',file:bad}),{status:422});assert.deepEqual(target.read(),before);
+ }
+ target.close();s.createCharacter(fields(s,{campaignId:s.read().context.campaignId,characterId:randomUUID(),template:'bard5-demo',profile:{name:'Синтетический другой',tagline:''}}));s.close();
+ const db=new DatabaseSync(file);t.after(()=>{db.close();rmSync(join(file,'..'),{recursive:true,force:true});});const before=db.prepare('SELECT * FROM workspace').get();
+ for(const marker of [1,2,3]){db.prepare('UPDATE class_advancement_schema SET version=?').run(marker);assert.throws(()=>openStore(file,{classAdvancement:true}),{status:409});assert.deepEqual(db.prepare('SELECT * FROM workspace').get(),before);}
+ db.exec('UPDATE class_advancement_schema SET version=4');const old=db.prepare('SELECT ledger_json FROM character_advancement WHERE character_id=?').get(hero).ledger_json,corrupt=JSON.parse(old);corrupt.subclass.id='wizard-evocation';db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(JSON.stringify(corrupt),hero);assert.throws(()=>openStore(file,{classAdvancement:true}),{status:409});assert.deepEqual(db.prepare('SELECT * FROM workspace').get(),before);
+ db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(old,hero);const restored=openStore(file,{classAdvancement:true});restored.close();
+});
+
+test('Hunter requires its level-three option and persists it with the subclass, spell and prior fighting style',()=>{
+ const s=openStore(':memory:',{classAdvancement:true}),target=openStore(':memory:',{classAdvancement:true});try{
+  prepare(s,'ranger',1);s.catalog.installBundled({version:s.catalog.previewBundled().version});const first=command(s);first.choices['ranger:2:fighting-style']=['archery'];first.choices['ranger:2:known-spells']=spellChoiceOptions('ranger',2,'known-spells').slice(0,2).map(o=>o.spellId);s.advanceCharacter(first);
+  const q=subclassCommand(s,'ranger-hunter'),before=s.read();assert.throws(()=>s.advanceCharacter(q),{status:422});assert.deepEqual(s.read(),before);
+  q.choices['ranger:3:subclass'].optionId='colossus-slayer';const result=s.advanceCharacter(q);assert.equal(result.advancement.subclass.options[0].id,'colossus-slayer');assert.equal(result.advancement.styles[0].id,'archery');assert.equal(result.characterSheet.subclass,'Охотник');assert.equal(s.advanceCharacter(q).replayed,true);
+  target.importActive({mutationId:randomUUID(),expectedRevision:0,destination:'new-campaign',file:s.exportActive(14)});assert.deepEqual(target.read().advancement,result.advancement);
+  for(const edit of [f=>f.advancement.subclass.options=[],f=>f.advancement.subclass.options[0].id='evasion',f=>f.advancement.subclass.options[0].sourcePage=1]){const file=s.exportActive(14);edit(file);const old=target.read();assert.throws(()=>target.importActive({mutationId:randomUUID(),expectedRevision:old.revision,destination:'new-campaign',file}),{status:422});assert.deepEqual(target.read(),old);}
+  s.advanceCharacter(subclassCommand(s,'ranger-hunter'));s.advanceCharacter(subclassCommand(s,'ranger-hunter'));const at5=s.read();assert.throws(()=>s.advanceCharacter(command(s)),{status:422});assert.deepEqual(s.read(),at5);
+ }finally{s.close();target.close();}
+});
+
+test('wizard mastery commits a same-step book choice at18, retains source at19 and still blocks signature spells at20',()=>{
+ const s=openStore(':memory:',{classAdvancement:true}),target=openStore(':memory:',{classAdvancement:true});try{
+  prepare(s,'wizard',1);s.catalog.installBundled({version:s.catalog.previewBundled().version});for(let level=2;level<=17;level++)s.advanceCharacter(subclassCommand(s,'wizard-evocation'));
+  const before=s.read(),q=command(s),available=spellChoiceOptions('wizard',18,'spellbook-spells',{knownIds:before.spellbook.map(o=>o.catalogId)}),second=available.find(o=>o.level===2);assert.ok(second);const other=available.find(o=>o.spellId!==second.spellId),first=before.spellbook.find(o=>o.entry.spell.level===1).catalogId;
+  q.choices['wizard:18:spellbook-spells']=[second.spellId,other.spellId];q.choices['wizard:18:spell-mastery']={spellIds:[first,second.spellId]};
+  const bad=structuredClone(q);bad.choices['wizard:18:spell-mastery'].spellIds=[first,first];assert.throws(()=>s.advanceCharacter(bad),{status:422});assert.deepEqual(s.read(),before);
+  const result=s.advanceCharacter(q);assert.equal(result.advancement.version,6);assert.deepEqual(result.advancement.wizardChoices[0].spellIds,[first,second.spellId].sort());assert.equal(result.spellbook.find(o=>o.catalogId===second.spellId).status,'known');assert.equal(result.state.hp,before.state.hp);assert.equal(s.advanceCharacter(q).replayed,true);
+  target.importActive({mutationId:randomUUID(),expectedRevision:0,destination:'new-campaign',file:s.exportActive(14)});assert.deepEqual(target.read().advancement,result.advancement);
+  const exported=s.exportActive(14);exported.advancement.version=5;delete exported.advancement.wizardChoices;const targetBefore=target.read();assert.throws(()=>target.importActive({mutationId:randomUUID(),expectedRevision:targetBefore.revision,destination:'new-campaign',file:exported}),{status:422});assert.deepEqual(target.read(),targetBefore);
+  const level19=s.advanceCharacter(subclassCommand(s,'wizard-evocation'));assert.equal(level19.advancement.wizardChoices.length,1);assert.throws(()=>s.advanceCharacter(command(s)),{status:422});assert.equal(s.read().characterSheet.level,19);
+ }finally{s.close();target.close();}
+});
+
+test('mastery late failure rolls back marker five and backup preserves exact retry',async t=>{
+ const file=disk(t,false),s=openStore(file,{classAdvancement:true}),db=new DatabaseSync(file);t.after(()=>{db.close();s.close();rmSync(join(file,'..'),{recursive:true,force:true});});prepare(s,'wizard',1);s.catalog.installBundled({version:s.catalog.previewBundled().version});for(let level=2;level<=17;level++)s.advanceCharacter(subclassCommand(s,'wizard-evocation'));
+ const before=s.read(),q=command(s);q.choices['wizard:18:spellbook-spells']=spellChoiceOptions('wizard',18,'spellbook-spells',{knownIds:before.spellbook.map(row=>row.catalogId)}).slice(0,2).map(row=>row.spellId);q.choices['wizard:18:spell-mastery']={spellIds:[1,2].map(circle=>before.spellbook.find(row=>row.entry.spell.level===circle).catalogId)};
+ await s.backup(file+'.before');db.exec("CREATE TRIGGER reject_mastery BEFORE INSERT ON advancement_changes BEGIN SELECT RAISE(ABORT,'late mastery');END");assert.throws(()=>s.advanceCharacter(q),/late mastery/);assert.deepEqual(s.read(),before);assert.equal(db.prepare('SELECT version FROM class_advancement_schema').get().version,4);
+ db.exec('DROP TRIGGER reject_mastery');s.advanceCharacter(q);assert.equal(db.prepare('SELECT version FROM class_advancement_schema').get().version,5);await s.backup(file+'.after');
+ const a=openStore(file+'.before',{classAdvancement:true}),b=openStore(file+'.after',{classAdvancement:true});try{assert.deepEqual(a.read(),before);assert.deepEqual(b.read(),s.read());assert.equal(b.advanceCharacter(q).replayed,true);}finally{a.close();b.close();}
+ const hero=s.read().context.characterId,raw=db.prepare('SELECT ledger_json FROM character_advancement WHERE character_id=?').get(hero).ledger_json;
+ s.createCharacter(fields(s,{campaignId:s.read().context.campaignId,characterId:randomUUID(),template:'bard5-demo',profile:{name:'Other synthetic hero',tagline:''}}));const untouched=db.prepare('SELECT * FROM workspace').get();
+ for(const marker of [1,2,3,4]){db.prepare('UPDATE class_advancement_schema SET version=?').run(marker);assert.throws(()=>openStore(file,{classAdvancement:true}),{status:409});assert.deepEqual(db.prepare('SELECT * FROM workspace').get(),untouched);}db.exec('UPDATE class_advancement_schema SET version=5');
+ for(const change of [value=>value.wizardChoices[0].sourcePage=54,value=>value.wizardChoices[0].spellIds.reverse(),value=>{value.version=5;delete value.wizardChoices;}]){const corrupt=JSON.parse(raw);change(corrupt);db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(JSON.stringify(corrupt),hero);assert.throws(()=>openStore(file,{classAdvancement:true}),{status:409});assert.deepEqual(db.prepare('SELECT * FROM workspace').get(),untouched);}
+ db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(raw,hero);const reopened=openStore(file,{classAdvancement:true});try{assert.notEqual(reopened.read().context.characterId,hero);}finally{reopened.close();}
+ assert.equal(db.prepare('PRAGMA integrity_check').get().integrity_check,'ok');assert.equal(db.prepare('PRAGMA foreign_key_check').all().length,0);
+});
