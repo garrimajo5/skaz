@@ -3,12 +3,14 @@ const SkazClassAdvancement=(()=>{
  const titles={'ability-score-improvement-or-feat':'Повышение характеристик','cantrips':'Новые заговоры','known-spells':'Новые заклинания','spellbook-spells':'Записи в книге','magical-secrets':'Магические тайны','mystic-arcanum':'Таинственный арканум'};
  // Display labels do not decide whether an optional choice is supported.
  const choiceNames={'subclass':'Подкласс','expertise':'Компетентность','fighting-style':'Боевой стиль','metamagic':'Метамагия','invocations':'Таинственные воззвания','pact-boon':'Предмет договора','favored-enemy-and-language':'Избранный враг и язык','favored-terrain':'Избранная местность','spell-mastery':'Мастерство заклинаний','signature-spells':'Фирменные заклинания'};
+ const optionalNotices={'replace-known-spell':'При этом повышении правила разрешают заменить одно известное заклинание. Замена в мастере пока недоступна; продолжение сохранит прежние известные заклинания.','replace-invocation':'При этом повышении правила разрешают заменить одно воззвание. Замена в мастере пока недоступна; продолжение не меняет прежний выбор.'};
  const abilityNames={str:'Сила',dex:'Ловкость',con:'Телосложение',int:'Интеллект',wis:'Мудрость',cha:'Харизма'};
  function el(tag,text,parent){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(parent)parent.append(e);return e;}
  function renderFeatureHelp(parent,info,feature){
       const details=el('details',undefined,parent);
       el('summary',info?.name||feature,details);
-      el('p',info?.text||'Описание этого умения пока не подключено. Проверь правила отдельно.',details);
+      for(const paragraph of (info?.text||'Описание этого умения пока не подключено. Проверь правила отдельно.').split(/\n\s*\n/))el('p',paragraph,details);
+      for(const option of info?.referenceOptions||[])renderFeatureHelp(details,{...option,source:info.source},option.key);
       if(info?.status==='unsupported')el('p','Правила этого умения пока не подключены полностью.',details);
       if(Number.isSafeInteger(info?.sourcePage)&&info.sourcePage>0){
        const link=el('a','Источник: SRD 5.1, стр. '+info.sourcePage,details);
@@ -16,6 +18,17 @@ const SkazClassAdvancement=(()=>{
        link.target='_blank';link.rel='noopener noreferrer';
        if(info.source?.attribution){const license=el('details',undefined,details);el('summary','Лицензия и авторство',license);el('p',info.source.attribution,license);}
       }
+ }
+ function renderChosenChanges(parent,data,command){
+  for(const choice of data.plan.choices){
+   const selected=command.choices[choice.id];if(selected===undefined)continue;
+   if(choice.kind==='ability-score-improvement-or-feat'){
+    for(const [key,name]of Object.entries(abilityNames)){const delta=selected.increases[key];if(delta>0)el('p',name+': '+data.abilities[key]+' → '+(data.abilities[key]+delta)+'.',parent);}
+   }else if(Array.isArray(selected)){
+    const names=selected.map(id=>{const spell=data.options[choice.id]?.find(s=>s.spellId===id);return spell?spell.name.ru+' / '+spell.name.en:id;});
+    if(names.length)el('p',(titles[choice.kind]||choiceNames[choice.kind]||choice.kind)+': '+names.join('; ')+'.',parent);
+   }
+  }
  }
  async function mount(root,{load,preview,send,onSaved=()=>{},newId=()=>crypto.randomUUID()}){
   let closed=false,pending=null,pendingKind='advance',candidate=null,running=false,epoch=0;
@@ -25,7 +38,7 @@ const SkazClassAdvancement=(()=>{
   const check=el('button','Проверить повышение',actions),apply=el('button','Подтвердить повышение',actions),retry=el('button','Повторить сохранение',actions),reconcile=el('button','Сверить состояние и начать заново',actions);
   apply.hidden=true;retry.hidden=true;reconcile.hidden=true;check.disabled=true;
   function lock(value){for(const field of form.querySelectorAll('input,select,button'))field.disabled=value;check.disabled=value;apply.disabled=value;retry.disabled=running;}
-  function invalidate(){candidate=null;apply.hidden=true;summary.replaceChildren();}
+  function invalidate(){if(candidate&&!running&&!pending)status.textContent='Выбор изменён. Проверь итог ещё раз перед сохранением.';candidate=null;apply.hidden=true;summary.replaceChildren();}
   form.addEventListener('input',invalidate);form.addEventListener('change',invalidate);form.addEventListener('submit',e=>e.preventDefault());
   async function refresh(){
    const mark=++epoch;const data=await load();if(closed||mark!==epoch)return;
@@ -55,7 +68,7 @@ const SkazClassAdvancement=(()=>{
    const rollLabel=el('label','Результат броска',form),roll=el('input',undefined,rollLabel);roll.type='number';roll.min='1';roll.max=String(data.hitDie);roll.name='hpRoll';rollLabel.hidden=true;method.addEventListener('change',()=>rollLabel.hidden=method.value!=='roll');
    const controls=new Map();let blocked=false;
    for(const choice of data.plan.choices){
-    if(!choice.required&&!titles[choice.kind])continue;
+    if(!choice.required&&!titles[choice.kind]){if(optionalNotices[choice.kind])el('p',optionalNotices[choice.kind],form);continue;}
     const fs=el('fieldset',undefined,form);el('legend',(titles[choice.kind]||choiceNames[choice.kind]||choice.kind)+' — выбрать '+choice.count,fs);
     if(choice.kind==='ability-score-improvement-or-feat'){
      el('p','Распредели 2 пункта. Не выше 20. Выбор черты ещё не подключён.',fs);const fields={};
@@ -82,7 +95,7 @@ const SkazClassAdvancement=(()=>{
    check.onclick=async()=>{
     if(running||pending||blocked||closed)return;running=true;lock(true);invalidate();
     const command={expectedRevision:data.revision,characterId:data.characterId,classId:data.classId,fromLevel:data.fromLevel,hpMethod:method.value,hpRoll:method.value==='roll'&&roll.value!==''?Number(roll.value):null,choices:Object.fromEntries([...controls].map(([id,read])=>[id,read()])),reviewedFeatures:reviews.filter(r=>r.box.checked).map(r=>r.feature)};
-    try{const result=await preview({...command,mutationId:newId()});if(closed)return;candidate=command;el('p','Максимум хитов: '+data.maxHp+' → '+(data.maxHp+result.hitPoints.maximumDelta)+'. Текущие: '+data.hp+'.',summary);el('p','Бонус мастерства: +'+result.proficiency.before+' → +'+result.proficiency.after+'.',summary);for(const resource of result.newResources)el('p','Новый ресурс: '+resource.name+' — '+resource.max+'.',summary);if(result.unmanagedResources.length)el('p','Существующие ручные ресурсы не изменятся. Их максимумы нужно сверить отдельно.',summary);apply.hidden=false;status.textContent='Итог проверен. Подтверди повышение.';}catch(e){if(!closed)status.textContent=e.message;}finally{running=false;if(!closed)lock(false);}
+    try{const result=await preview({...command,mutationId:newId()});if(closed)return;candidate=command;el('p','Максимум хитов: '+data.maxHp+' → '+(data.maxHp+result.hitPoints.maximumDelta)+'. Текущие: '+data.hp+'.',summary);el('p','Бонус мастерства: +'+result.proficiency.before+' → +'+result.proficiency.after+'.',summary);renderChosenChanges(summary,data,command);for(const resource of result.newResources)el('p','Новый ресурс: '+resource.name+' — '+resource.max+'.',summary);if(result.unmanagedResources.length)el('p','Существующие ручные ресурсы не изменятся. Их максимумы нужно сверить отдельно.',summary);apply.hidden=false;status.textContent='Итог проверен. Подтверди повышение.';}catch(e){if(!closed)status.textContent=e.message;}finally{running=false;if(!closed)lock(false);}
    };
   }
   async function save(){
