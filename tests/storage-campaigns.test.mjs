@@ -1211,3 +1211,11 @@ test('conditional Champion bonuses are copied, survive offline use, and clear in
  offline=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.classCheckBenefits().bonus,2);
  offline=false;other=true;const live=harness(memory(),memory(),fetch);other=false;await live.api.boot();assert.equal(live.api.classCheckBenefits().bonus,2);other=true;await live.api.refreshAfterAdvancement();assert.equal(live.api.classCheckBenefits(),null);
 });
+
+test('cached spellbook derives permanent preparation from the current hero and retains it offline',async()=>{
+ const local=memory(),session=memory();let offline=false,other=false;
+ const fetch=async()=>{if(offline)throw Error('offline');return response({...payload(other?2:1,other?'second':'first'),spellLearning:'prepared',alwaysPreparedSpellIds:other?[]:['oath'],spellbook:[{catalogId:'oath',status:'prepared'},{catalogId:'ordinary',status:'prepared',alwaysPrepared:true}]});};
+ let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();let book=await h.api.spellbookData();assert.equal(book.entries[0].alwaysPrepared,true);assert.equal(book.entries[1].alwaysPrepared,undefined);book.entries[0].alwaysPrepared=false;assert.equal((await h.api.spellbookData()).entries[0].alwaysPrepared,true);
+ offline=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal((await h.api.spellbookData()).entries[0].alwaysPrepared,true);
+ const fresh=harness(memory(),memory(),fetch,undefined,undefined,true);offline=false;await fresh.api.boot();other=true;await fresh.api.boot();assert.equal((await fresh.api.spellbookData()).entries[0].alwaysPrepared,undefined);
+});

@@ -26,3 +26,15 @@ test('stored mastery origin has exact source, level and stable choice key',()=>{
  const b=book('shield','misty-step'),origin=wizardChoiceOrigin({kind:'mastery',classId:'wizard',level:18,selected:['shield','misty-step'].map(id),spellbook:b});assert.equal(Object.hasOwn(origin,'applied'),false);assert.equal(origin.choiceId,'wizard:18:spell-mastery');assert.deepEqual(validateWizardMasteryOrigin(origin),origin);
  for(const edit of [o=>o.acquiredLevel=17,o=>o.sourcePage=54,o=>o.choiceId='fake',o=>o.ruleset='5e-2024',o=>o.spellIds=['shield','fireball'].map(id),o=>o.extra=true]){const bad=structuredClone(origin);edit(bad);assert.throws(()=>validateWizardMasteryOrigin(bad));}
 });
+
+import {openStore} from '../server/store.mjs';
+import {prepareWizard} from '../scripts/fixtures/wizard-commands.mjs';
+import {advancementView} from '../server/class-advancement-view.mjs';
+test('advanced wizard view distinguishes existing book entries from optional new candidates',()=>{
+ for(const [level,kind] of [[17,'spell-mastery'],[19,'signature-spells']]){
+  const store=openStore(':memory:',{classAdvancement:true});try{
+   const current=prepareWizard(store,level),choice='wizard:'+(level+1)+':'+kind,view=advancementView(current,'wizard',entryId=>catalog.get(entryId)),known=new Set(current.spellbook.map(row=>row.catalogId)),options=view.wizardOptions[choice];
+   assert.ok(options.some(o=>!o.requiresNewSpell));assert.ok(options.some(o=>o.requiresNewSpell));for(const option of options)assert.equal(option.requiresNewSpell,!known.has(option.id));
+  }finally{store.close();}
+ }
+});
