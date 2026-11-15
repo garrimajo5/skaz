@@ -1,0 +1,30 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtempSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {spawn} from 'node:child_process';
+import {createServer} from 'node:net';
+import {setTimeout as delay} from 'node:timers/promises';
+import {openStore} from '../server/store.mjs';
+
+for(const enabled of [false,true])test(`real entry point personal art ${enabled?'opt-in':'default off'} keeps cookie and origin protection`,async t=>{
+ const dir=mkdtempSync(join(tmpdir(),'skaz-entry-art-')),database=join(dir,'game.sqlite'),store=openStore(database),game=store.read();
+ store.access.apply({action:'bootstrap-owner',userId:'entry-art-owner',displayName:'Synthetic',campaignId:game.context.campaignId,characterId:game.context.characterId});
+ await store.authentication().setPassword('entry-art-owner','owner','synthetic entry point password');store.close();
+ const reservation=createServer();await new Promise(r=>reservation.listen(0,'127.0.0.1',r));const port=reservation.address().port;await new Promise(r=>reservation.close(r));
+ const origin='https://entry-art.invalid',base='http://127.0.0.1:'+port;
+ const child=spawn(process.execPath,[fileURLToPath(new URL('../server/index.mjs',import.meta.url))],{env:{...process.env,SKAZ_DB:database,SKAZ_AUTH_MODE:'individual',SKAZ_PUBLIC_ORIGIN:origin,SKAZ_CLASS_ADVANCEMENT:'0',SKAZ_PERSONAL_ART:enabled?'1':'0',PORT:String(port)},stdio:'ignore'});
+ t.after(async()=>{if(child.exitCode===null){const stopped=new Promise(r=>child.once('exit',r));child.kill();await stopped;}rmSync(dir,{recursive:true,force:true});});
+ let ready=false;for(let i=0;i<50;i++){try{const r=await fetch(base+'/',{signal:AbortSignal.timeout(300)});await r.body?.cancel();ready=true;break;}catch{if(child.exitCode!==null)break;await delay(50);}}assert.ok(ready,'real entry starts');
+ const request=(path,options={})=>fetch(base+path,{...options,signal:AbortSignal.timeout(3000)});
+ const anonymous=await request('/api/personal-art/usage?characterId='+encodeURIComponent(game.context.characterId));assert.equal(anonymous.status,401);await anonymous.body?.cancel();
+ const login=await request('/api/auth/login',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json','X-Skaz-Client':'local-v1'},body:JSON.stringify({login:'owner',password:'synthetic entry point password'})});assert.equal(login.status,200);const cookie=login.headers.get('set-cookie').split(';')[0];await login.body?.cancel();
+ const page=await request('/',{headers:{Cookie:cookie}}),html=await page.text();assert.equal(html.includes('data-personal-art="enabled"'),enabled);
+ const identity=html.match(/data-user-id="([a-zA-Z0-9-]{8,80})"/)?.[1];assert.ok(identity);const headers={Cookie:cookie,'X-Skaz-Identity':identity};
+ const usage=await request('/api/personal-art/usage?characterId='+encodeURIComponent(game.context.characterId),{headers});assert.equal(usage.status,enabled?200:404);await usage.body?.cancel();
+ const denied=await request('/api/personal-art/usage?characterId='+encodeURIComponent(game.context.characterId),{headers:{...headers,Origin:'https://other.invalid'}});assert.equal(denied.status,403);await denied.body?.cancel();
+ const out=await request('/api/auth/logout',{method:'POST',headers:{...headers,Origin:origin,'Content-Type':'application/json','X-Skaz-Client':'local-v1'},body:'{}'});assert.equal(out.status,200);await out.body?.cancel();
+ const revoked=await request('/api/personal-art/usage?characterId='+encodeURIComponent(game.context.characterId),{headers});assert.equal(revoked.status,401);await revoked.body?.cancel();
+});
