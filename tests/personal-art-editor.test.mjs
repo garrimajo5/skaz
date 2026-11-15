@@ -53,3 +53,13 @@ test('access failure removes a previously displayed private object URL and requi
 test('session lock clears current private image even if the transport cleanup throws',async()=>{
  const f=fixture({snapshot:async()=>({revision:1,standard:false,blob:new Blob(['private'])}),history:async()=>[],destroy(){throw Error('broken abort');}});await f.editor.initialized;assert.equal(f.issued.length,1);f.lock();assert.deepEqual(f.revoked,f.issued);assert.equal(f.container.children.length,0);await assert.rejects(f.history.onReset(),/закрыт/);
 });
+
+test('empty retry preserves the current private image and does not require reconciliation',async()=>{
+ let revision=1,writes=0;
+ const f=fixture({snapshot:async()=>({revision,standard:false,blob:new Blob(['png'])}),history:async()=>[],change:async body=>{const command=JSON.parse(body);assert.equal(command.expectedRevision,revision);writes++;return {revision:++revision};}});
+ await f.editor.initialized;
+ await assert.rejects(f.history.onRetry(),/Нет команды/);assert.equal(writes,0);assert.deepEqual(f.revoked,[]);assert.equal(f.issued.length,1);
+ await f.history.onReset();assert.equal(writes,1);assert.equal(revision,2);
+ const revoked=f.revoked.length;await assert.rejects(f.history.onRetry(),/Нет команды/);assert.equal(f.revoked.length,revoked);
+ f.editor.destroy();assert.deepEqual(f.revoked,f.issued);
+});

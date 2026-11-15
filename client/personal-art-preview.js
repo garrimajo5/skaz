@@ -31,7 +31,7 @@ const SkazPersonalArtPreview=(()=>{
   section.append(controls);
   const previews=el('div');previews.style.display='flex';previews.style.flexWrap='wrap';previews.style.gap='12px';
   for(const [theme,bg,fg] of [['Полярис','#17263a','#edf4fc'],['Уголь','#1d2220','#eeeee5'],['Атлас','#faf8f0','#263f38']]){
-   const panel=el('div');panel.style.cssText=`background:${bg};color:${fg};padding:12px;border-radius:12px`;panel.append(el('p',theme));
+   const panel=el('div');panel.style.cssText=`background:${bg};color:${fg};padding:12px;border-radius:12px`;const themeLabel=el('p',theme);themeLabel.style.color='inherit';panel.append(themeLabel);
    for(const [size,circle] of [[96,false],[32,false],[40,true]]){const canvas=el('canvas');canvas.width=canvas.height=size*2;canvas.style.width=canvas.style.height=size+'px';canvas.style.verticalAlign='middle';canvas.style.marginRight='8px';if(circle)canvas.style.borderRadius='50%';canvas.setAttribute('aria-label',`${theme}: ${size} пикселей${circle?', круг':''}`);nodes.push({canvas,size,circle});panel.append(canvas);}previews.append(panel);
   }
   section.append(previews);

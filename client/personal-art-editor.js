@@ -47,7 +47,7 @@ const SkazPersonalArtEditor=(()=>{
    load:async()=>{check();try{const entries=await transport.history(binding);check();return entries;}catch(error){if(!closed){release();ready=false;preview.setStatus?.('');caption.textContent='Не удалось проверить доступ к изображению.';}throw error;}},
    onReset:()=>exclusive(()=>change({action:'reset'})),
    onRestore:targetRevision=>exclusive(()=>change({action:'restore',targetRevision})),
-   onRetry:()=>exclusive(async()=>applied(await commands.retry())),
+   onRetry:async()=>{check();if(!commands.pending)throw Error('Нет команды для повтора.');return exclusive(async()=>applied(await commands.retry()));},
    onReconcile:()=>exclusive(async()=>{const state=await snapshot();commands.reconciled();revision=state.revision;ready=true;preview.setStatus?.('Состояние сверено. Выбранный файл и кадр ещё не отправлены.');})
   });
   const initialized=exclusive(async()=>{try{const state=await snapshot();revision=state.revision;ready=true;}catch(error){if(!closed)caption.textContent=error.message;}}).then(()=>{if(ready&&!closed)return history.refresh?.();});

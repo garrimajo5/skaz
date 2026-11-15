@@ -1,3 +1,6 @@
+## Nginx дополнение15.11,22:05МСК
+Установлен deploy/nginx-personal-art.conf.example как /etc/nginx/snippets/skaz-personal-art.conf. Три точных location подключены после personal-login. Резерв конфигурации /etc/nginx/skaz-before-personal-art-20261115.conf. nginx -t/reload и active подтверждены. Проверены HTTPS401 без обоих уровней входа;600KiB достигает личного401; превышение каждого точного лимита даёт413. Соседние и trailing-slash маршруты сохраняют512KiB. Общие ограничения, вход, HTTPS и порты сохранены. Personal-artOFF; установка proxy не означает включение функции. Откат: вернуть сохранённый site-config, nginx -t и reload.
+
 # Текущий runtime — 76728f0, 15.11.2026, 21:37 МСК
 
 Явный opt-in SKAZ_PERSONAL_ART добавлен в production entry, но остаётся OFF.
