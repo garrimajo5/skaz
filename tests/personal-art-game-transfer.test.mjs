@@ -231,7 +231,7 @@ test('Draconic history and metamagic transfer with PNG without replaying HP bonu
  const saved=w.importActive(request);assert.deepEqual(saved.advancement,before.advancement);assert.equal(saved.state.maxHp,before.state.maxHp);assert.equal(saved.state.hp,before.state.hp);assert.ok(w.personalArt.read(saved.context.characterId,catalogId,'master').file.bytes.equals(Buffer.from(bundle.personalArt.entries[0].png,'base64')));const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);
 });
 
-import {prepareFiend} from '../scripts/fixtures/fiend-commands.mjs';
+import {prepareFiend,fiendCommand} from '../scripts/fixtures/fiend-commands.mjs';
 test('Fiend history and pact transfer with PNG atomically',t=>{
  const f=fixture(t,{classAdvancement:true}),w=f.writer;prepareFiend(w,3,{pact:'tome',installCatalog:false});const before=w.read(),bundle=w.exportActive('with-art'),request={mutationId:randomUUID(),expectedRevision:before.revision,destination:'new-campaign',file:bundle},original=counts(f.db);
  f.db.exec("CREATE TRIGGER reject_fiend_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'late fiend artwork');END");assert.throws(()=>w.importActive(request),/late fiend artwork/);assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);f.db.exec('DROP TRIGGER reject_fiend_art');
@@ -257,4 +257,36 @@ test('Rogue Expertise transfer with PNG atomically',t=>{
  const f=fixture(t,{classAdvancement:true}),w=f.writer;prepareRogue(w);w.advanceCharacter(rogueCommand(w));const before=w.read(),bundle=w.exportActive('with-art'),request={mutationId:randomUUID(),expectedRevision:before.revision,destination:'new-campaign',file:bundle},original=counts(f.db);
  f.db.exec("CREATE TRIGGER reject_rogue_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'late rogue artwork');END");assert.throws(()=>w.importActive(request),/late rogue artwork/);assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);f.db.exec('DROP TRIGGER reject_rogue_art');
  const saved=w.importActive(request);assert.deepEqual(saved.advancement,before.advancement);assert.equal(saved.state.maxHp,before.state.maxHp);assert.equal(saved.state.hp,before.state.hp);assert.ok(w.personalArt.read(saved.context.characterId,catalogId,'master').file.bytes.equals(Buffer.from(bundle.personalArt.entries[0].png,'base64')));const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);
+});
+
+test('senior Fiend package retains all events and conditions through reset, restore and a second import',t=>{
+ const f=fixture(t,{classAdvancement:true}),w=f.writer;
+ prepareFiend(w,15,{installCatalog:false});
+ w.update({mutationId:randomUUID(),expectedRevision:w.read().revision,label:'Synthetic conditions',state:{...w.read().state,conditions:{active:['prone'],exhaustion:1}}});
+ const original=w.exportActive('with-art');
+ assert.equal(original.game.advancement.events.length,14);
+ const importFile=file=>w.importActive({mutationId:randomUUID(),expectedRevision:w.read().revision,destination:'new-campaign',file});
+ const first=importFile(original),characterId=first.context.characterId;
+ w.personalArt.change({characterId,catalogId,mutationId:randomUUID(),expectedRevision:1,action:'reset'});
+ const reset=w.exportActive('with-art');assert.equal(reset.personalArt.entries.length,0);
+ assert.deepEqual(reset.game.advancement,original.game.advancement);
+ w.personalArt.change({characterId,catalogId,mutationId:randomUUID(),expectedRevision:2,action:'restore',targetRevision:1});
+ const restored=w.exportActive('with-art');
+ assert.deepEqual(restored.personalArt.entries,original.personalArt.entries);
+ assert.deepEqual(restored.game.advancement,original.game.advancement);
+ assert.deepEqual(restored.game.state.conditions,original.game.state.conditions);
+ const second=importFile(restored);
+ assert.notEqual(second.context.characterId,characterId);
+ assert.deepEqual(second.advancement,original.game.advancement);
+ assert.deepEqual(second.state.conditions,original.game.state.conditions);
+ assert.equal(second.state.hp,original.game.state.hp);assert.equal(second.state.maxHp,original.game.state.maxHp);
+ assert.equal(w.personalArt.read(characterId,catalogId,'master').revision,3);
+ assert.equal(w.personalArt.read(second.context.characterId,catalogId,'master').revision,1);
+ const command=fiendCommand(w);command.choices['warlock:16:ability-score-improvement-or-feat']={increases:{str:0,dex:0,con:2,int:0,wis:0,cha:0}};
+ const improved=w.advanceCharacter(command);
+ assert.equal(improved.characterSheet.level,16);assert.equal(improved.characterStats.abilities.con,16);
+ assert.equal(improved.state.hp,second.state.hp);assert.equal(improved.state.maxHp,second.state.maxHp+23);
+ assert.equal(improved.advancement.events.length,15);assert.deepEqual(improved.state.conditions,second.state.conditions);
+ assert.ok(w.personalArt.read(second.context.characterId,catalogId,'master').file.bytes.equals(Buffer.from(original.personalArt.entries[0].png,'base64')));
+ assert.deepEqual(f.db.prepare('PRAGMA foreign_key_check').all(),[]);
 });
