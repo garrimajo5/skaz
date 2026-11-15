@@ -48,3 +48,24 @@ test('class advancement startup flag is explicit and invalid values fail before 
  const database=fixture(),entry=fileURLToPath(new URL('../server/index.mjs',import.meta.url));
  const result=spawnSync(process.execPath,[entry],{env:{...process.env,SKAZ_DB:database,SKAZ_CLASS_ADVANCEMENT:'yes',SKAZ_AUTH_MODE:'shared'},encoding:'utf8',timeout:5000});assert.equal(result.status,1);assert.equal(existsSync(database),false);
 });
+
+test('personal art requires explicit individual HTTPS startup before any database creation',()=>{
+ assert.equal(startupOptions({database:fixture()}).personalArt,undefined);
+ for(const value of ['',true,'true','yes','2'])assert.throws(()=>startupOptions({database:fixture(),personalArt:value}),/SKAZ_PERSONAL_ART/);
+ assert.throws(()=>startupOptions({database:fixture(),personalArt:'1'}),/индивидуального HTTPS/);
+ assert.throws(()=>startupOptions({database:fixture(),personalArt:'1',mode:'individual'}),/HTTPS/);
+ const entry=fileURLToPath(new URL('../server/index.mjs',import.meta.url));
+ for(const override of [{SKAZ_PERSONAL_ART:'yes'},{SKAZ_PERSONAL_ART:'1'},{SKAZ_PERSONAL_ART:'1',SKAZ_AUTH_MODE:'individual'}]){
+  const database=fixture(),result=spawnSync(process.execPath,[entry],{env:{...process.env,SKAZ_DB:database,SKAZ_AUTH_MODE:'shared',SKAZ_PUBLIC_ORIGIN:'https://example.test',PORT:'4173',...override},encoding:'utf8',timeout:5000});
+  assert.ifError(result.error);assert.equal(result.status,1);assert.equal(existsSync(database),false);
+ }
+});
+
+test('personal art opt-in preserves read-only preflight and does not initialize image tables',async()=>{
+ const database=fixture(),store=openStore(database),game=store.read();
+ store.access.apply({action:'bootstrap-owner',userId:'art-startup-owner',displayName:'Synthetic',campaignId:game.context.campaignId,characterId:game.context.characterId});
+ await store.authentication().setPassword('art-startup-owner','owner','synthetic art startup password');store.close();
+ const before=readFileSync(database),config=startupOptions({database,mode:'individual',origin:'https://example.test',personalArt:'1'});
+ assert.equal(config.personalArt,true);assert.deepEqual(readFileSync(database),before);
+ const db=new DatabaseSync(database,{readOnly:true});assert.equal(db.prepare("SELECT count(*) AS n FROM sqlite_master WHERE name='personal_art_schema'").get().n,0);db.close();
+});
