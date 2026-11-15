@@ -322,3 +322,32 @@ test('level-ten Magical Secrets excludes a cantrip selected through the normal p
  await e.mount(e.root,{load:async()=>({...data(),fromLevel:9,options:{[cantrips]:[spell],[secrets]:[spell]},plan:{requiresFeatureReview:[],choices:[{id:cantrips,kind:'cantrips',count:1,required:true},{id:secrets,kind:'magical-secrets',count:2,required:true}]}}),preview:async()=>summary(),send:async()=>saved()});
  const normal=walk(e.root).find(n=>n.type==='checkbox'&&n.name===cantrips),secret=walk(e.root).find(n=>n.type==='checkbox'&&n.name===secrets);normal.checked=true;normal.emit('change');assert.equal(secret.disabled,true);assert.equal(secret.checked,false);normal.checked=false;normal.emit('change');assert.equal(secret.disabled,false);
 });
+
+test('ranger terrain excludes stored choices and clears a new choice when baseline changes',async()=>{
+ for(const level of [5,9]){
+  const e=environment(),id=`ranger:${level+1}:favored-terrain`;
+  await e.mount(e.root,{load:async()=>({...data(),fromLevel:level,rangerTerrains:rangerTerrainOptions(),selectedRangerChoices:level===9?{terrains:[{id:'forest',acquiredLevel:null},{id:'swamp',acquiredLevel:6}],enemies:[]}:null,plan:{requiresFeatureReview:[],choices:[{id,kind:'favored-terrain',required:true,count:1}]}}),preview:async()=>summary(),send:async()=>saved()});
+  const field=name=>walk(e.root).find(n=>n.name===name),next=field(id+':id'),option=value=>next.children.find(o=>o.value===value);
+  if(level===5){const previous=field(id+':previousId');previous.value='forest';previous.emit('change');assert.equal(option('forest').disabled,true);next.value='swamp';next.emit('change');await e.button('Проверить повышение').onclick();previous.value='swamp';previous.emit('change');assert.equal(next.value,'');assert.equal(option('forest').disabled,false);assert.equal(e.button('Подтвердить повышение').hidden,true);}
+  else{assert.equal(option('forest').disabled,true);assert.equal(option('swamp').disabled,true);assert.equal(option('coast').disabled,false);await e.button('Проверить повышение').onclick();assert.equal(option('forest').disabled,true);}
+ }
+});
+
+test('ranger enemy type excludes prior types but keeps another humanoid pair available',async()=>{
+ for(const level of [5,13]){
+  const e=environment(),id=`ranger:${level+1}:favored-enemy-and-language`;
+  const history={terrains:[],enemies:[{enemy:{kind:'type',id:'beasts'},language:{mode:'none'},acquiredLevel:null},{enemy:{kind:'humanoids',races:['Орки','Гноллы']},language:{mode:'spoken',name:'Орочий'},acquiredLevel:6}]};
+  await e.mount(e.root,{load:async()=>({...data(),fromLevel:level,rangerEnemyTypes:rangerEnemyTypeOptions(),selectedRangerChoices:level===13?history:null,plan:{requiresFeatureReview:[],choices:[{id,kind:'favored-enemy-and-language',required:true,count:1}]}}),preview:async()=>summary(),send:async()=>saved()});
+  const field=name=>walk(e.root).find(n=>n.name===name),next=field(id+':current:enemy'),option=value=>next.children.find(o=>o.value===value);
+  if(level===5){const previous=field(id+':previous:enemy');next.value='beasts';next.emit('change');previous.value='beasts';previous.emit('change');assert.equal(next.value,'');assert.equal(option('beasts').disabled,true);previous.value='humanoids';previous.emit('change');assert.equal(option('beasts').disabled,false);}
+  else assert.equal(option('beasts').disabled,true);
+  assert.equal(option('humanoids').disabled,false);assert.equal(option('dragons').disabled,false);
+ }
+});
+
+test('replacement invocation cannot duplicate the normal new grant and reopens when unchecked',async()=>{
+ const e=environment(),fresh='warlock:15:invocations',replacement='warlock:15:replace-invocation',options=[{id:'witch-sight',name:'Ведьминское зрение',eligible:true,text:''},{id:'devils-sight',name:'Дьявольское зрение',eligible:true,text:''}];
+ await e.mount(e.root,{load:async()=>({...data(),fromLevel:14,selectedInvocations:[{id:'beast-speech',name:'Речь зверей'}],invocationOptions:{[fresh]:options,[replacement]:options},plan:{requiresFeatureReview:[],choices:[{id:fresh,kind:'invocations',count:1,required:true},{id:replacement,kind:'replace-invocation',count:1,required:false}]}}),preview:async()=>summary(),send:async()=>saved()});
+ const next=walk(e.root).find(n=>n.name===replacement+':add'),box=walk(e.root).find(n=>n.type==='checkbox'&&n.value==='witch-sight'),option=next.children.find(o=>o.value==='witch-sight');
+ next.value='witch-sight';next.emit('change');await e.button('Проверить повышение').onclick();box.checked=true;box.emit('change');assert.equal(next.value,'');assert.equal(option.disabled,true);assert.equal(e.button('Подтвердить повышение').hidden,true);assert.equal(next.children.find(o=>o.value==='devils-sight').disabled,false);box.checked=false;box.emit('change');assert.equal(option.disabled,false);assert.equal(next.value,'');
+});

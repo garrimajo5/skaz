@@ -33,7 +33,7 @@ const SkazClassAdvancement=(()=>{
  }
  function rangerEnemyName(data,selection){return selection.enemy.kind==='humanoids'?selection.enemy.races.join(' / '):data.rangerEnemyTypes?.find(o=>o.id===selection.enemy.id)?.name||selection.enemy.id;}
  function rangerEnemyText(data,selection){return rangerEnemyName(data,selection)+(selection.language.mode==='spoken'?'; язык: '+selection.language.name:'; подтверждено: враги не говорят');}
- function rangerEnemyControls(parent,prefix,data,title){
+ function rangerEnemyControls(parent,prefix,data,title,excludedTypes=()=>[]){
   const fs=el('fieldset',undefined,parent);el('legend',title,fs);
   const typeLabel=el('label','Тип врага или две гуманоидные расы',fs),type=el('select',undefined,typeLabel);type.name=prefix+':enemy';
   for(const [value,name]of [['','Выбери врага:'],...data.rangerEnemyTypes.map(o=>[o.id,o.name]),['humanoids','Две гуманоидные расы']]){const option=el('option',name,type);option.value=value;}type.value='';
@@ -41,7 +41,8 @@ const SkazClassAdvancement=(()=>{
   const languageLabel=el('label','Язык, на котором говорят избранные враги',fs),language=el('select',undefined,languageLabel);language.name=prefix+':languageMode';for(const [value,name]of [['','Укажи язык или его отсутствие:'],['spoken','Выбрать один язык врагов'],['none','Эти враги не говорят']]){const option=el('option',name,language);option.value=value;}language.value='';
   const nameLabel=el('label','Название языка',fs),name=el('input',undefined,nameLabel);name.type='text';name.maxLength=80;name.name=prefix+':languageName';nameLabel.hidden=true;language.addEventListener('change',()=>nameLabel.hidden=language.value!=='spoken');
   const confirmLabel=el('label',undefined,fs),confirmed=el('input',undefined,confirmLabel);confirmed.type='checkbox';confirmed.name=prefix+':rulesConfirmed';el('span','Сверил выбор рас и языка с правилами своей игры. Приложение не определяет язык по типу врага.',confirmLabel);
-  return ()=>({enemy:type.value==='humanoids'?{kind:'humanoids',races:inputs.map(input=>input.value)}:{kind:'type',id:type.value},language:language.value==='spoken'?{mode:'spoken',name:name.value}:{mode:language.value},rulesConfirmed:confirmed.checked});
+  const read=()=>({enemy:type.value==='humanoids'?{kind:'humanoids',races:inputs.map(input=>input.value)}:{kind:'type',id:type.value},language:language.value==='spoken'?{mode:'spoken',name:name.value}:{mode:language.value},rulesConfirmed:confirmed.checked});
+  read.update=()=>{const excluded=new Set(excludedTypes());for(const option of type.querySelectorAll('option')){option.disabled=excluded.has(option.value);if(option.disabled&&type.value===option.value)type.value='';}};read.update();return read;
  }
  function renderChosenChanges(parent,data,command){
   for(const choice of data.plan.choices){
@@ -152,7 +153,7 @@ el('p','Подтверждается прежний покровитель Ис�
    const hpLabel=el('label','Хиты за уровень',form),method=el('select',undefined,hpLabel);method.name='hpMethod';
    for(const [value,label]of [['fixed','Среднее значение'],['roll','Мой бросок кости']]){const o=el('option',label,method);o.value=value;}
    const rollLabel=el('label','Результат броска',form),roll=el('input',undefined,rollLabel);roll.type='number';roll.min='1';roll.max=String(data.hitDie);roll.name='hpRoll';rollLabel.hidden=true;method.addEventListener('change',()=>rollLabel.hidden=method.value!=='roll');
-   const controls=new Map(),fiendRows=[],wizardFields=[],invocationFields=[],secretFields=[];let blocked=false,lorePicker=null,loreExpert=null;
+   const controls=new Map(),fiendRows=[],wizardFields=[],invocationFields=[],secretFields=[],rangerUpdates=[];let blocked=false,lorePicker=null,loreExpert=null;
    function updateLoreSkills(){const known=lorePicker?lorePicker.known():[...(data.loreHistory?.baseline.skillIds||[]),...(data.loreHistory?.bonus.skillIds||[])],old=(data.loreHistory?.expertise||[]).flatMap(o=>o.skillIds);if(loreExpert)for(const row of loreExpert.rows){row.disabled=!known.includes(row.value)||old.includes(row.value);row.skillLabel.hidden=row.disabled;if(row.disabled)row.checked=false;}loreExpert?.update();}
    function skillPicker(parent,title,name,count,options=data.loreSkills){const group=el('fieldset',undefined,parent);el('legend',title,group);const counter=el('p','',group);counter.setAttribute('aria-live','polite');const list=el('div',undefined,group);list.className='advancement-spells';const rows=[];const read=()=>rows.filter(r=>r.checked).map(r=>r.value),update=()=>counter.textContent='Выбрано '+read().length+(count?' из '+count:'');for(const option of options){const label=el('label',undefined,list),box=el('input',undefined,label);box.skillLabel=label;box.type='checkbox';box.name=name;box.value=option.id;el('span',option.name,label);rows.push(box);box.addEventListener('change',update);}update();return {rows,read,update,group};}
    for(const choice of data.plan.choices){
@@ -186,8 +187,8 @@ el('p','Подтверждается прежний покровитель Ис�
     }else if(choice.kind==='confirm-subclass'){const label=el('label','Прежний домен первого уровня',fs),select=el('select',undefined,label);select.name=choice.id;const blank=el('option','Подтверди домен…',select);blank.value='';select.value='';for(const o of data.subclassOptions){const option=el('option',o.name,select);option.value=o.id;}const row=el('label',undefined,fs),box=el('input',undefined,row);box.type='checkbox';box.name=choice.id+':confirmed';el('span','Подтверждаю, что на первом уровне был выбран Домен Жизни. Это сверка прежнего выбора, а не новая выдача.',row);for(const feature of data.subclassOptions[0].features.filter(f=>f.level===1))renderFeatureHelp(fs,{...feature,source:data.subclassOptions[0].source},feature.key);controls.set(choice.id,()=>({id:select.value,rulesConfirmed:box.checked===true}));
     }else if(choice.kind==='land-terrain'){const label=el('label','Местность посвящения',fs),select=el('select',undefined,label);select.name=choice.id;const blank=el('option','Выбери одну местность…',select);blank.value='';select.value='';for(const o of data.landTerrains){const option=el('option',o.name,select);option.value=o.id;}el('p','Будут добавляться только заклинания выбранной местности. Они постоянно подготовлены вне обычного предела.',fs);const info=data.selectedSubclass?.features.find(f=>f.key==='Circle Spells');if(info)renderFeatureHelp(fs,{...info,source:data.selectedSubclass.source},info.key);controls.set(choice.id,()=>({id:select.value}));
     }else if(choice.kind==='favored-terrain'&&data.rangerTerrains?.length){
-     const selects={};for(const [key,title]of [...(data.fromLevel===5?[['previousId','Подтверди прежнюю местность']]:[]),['id','Новая местность']]){const label=el('label',title,fs),select=el('select',undefined,label);select.name=choice.id+':'+key;const blank=el('option','Выбери местность:',select);blank.value='';select.value='';for(const option of data.rangerTerrains){const row=el('option',option.name,select);row.value=option.id;}selects[key]=select;}el('p','Прежний выбор не выдаётся повторно. Новая местность должна отличаться от всех прежних.',fs);controls.set(choice.id,()=>Object.fromEntries(Object.entries(selects).map(([key,select])=>[key,select.value])));
-    }else if(choice.kind==='favored-enemy-and-language'&&data.rangerEnemyTypes?.length){const previous=data.fromLevel===5?rangerEnemyControls(fs,choice.id+':previous',data,'Подтверди прежнего врага и язык'):null,current=rangerEnemyControls(fs,choice.id+':current',data,'Новый враг и язык');controls.set(choice.id,()=>({...(previous?{previous:previous()}:{}),current:current()}));
+     const selects={};for(const [key,title]of [...(data.fromLevel===5?[['previousId','Подтверди прежнюю местность']]:[]),['id','Новая местность']]){const label=el('label',title,fs),select=el('select',undefined,label);select.name=choice.id+':'+key;const blank=el('option','Выбери местность:',select);blank.value='';select.value='';for(const option of data.rangerTerrains){const row=el('option',option.name,select);row.value=option.id;}selects[key]=select;}rangerUpdates.push(()=>{const old=new Set([...(data.selectedRangerChoices?.terrains||[]).map(o=>o.id),selects.previousId?.value].filter(Boolean));for(const option of selects.id.querySelectorAll('option')){option.disabled=old.has(option.value);if(option.disabled&&selects.id.value===option.value)selects.id.value='';}});el('p','Прежний выбор не выдаётся повторно. Новая местность должна отличаться от всех прежних.',fs);controls.set(choice.id,()=>Object.fromEntries(Object.entries(selects).map(([key,select])=>[key,select.value])));
+    }else if(choice.kind==='favored-enemy-and-language'&&data.rangerEnemyTypes?.length){const previous=data.fromLevel===5?rangerEnemyControls(fs,choice.id+':previous',data,'Подтверди прежнего врага и язык'):null,current=rangerEnemyControls(fs,choice.id+':current',data,'Новый враг и язык',()=>[...(data.selectedRangerChoices?.enemies||[]).map(o=>o.enemy),previous?.().enemy].filter(o=>o?.kind==='type').map(o=>o.id));rangerUpdates.push(current.update);controls.set(choice.id,()=>({...(previous?{previous:previous()}:{}),current:current()}));
     }else if(choice.kind==='subclass'&&data.subclassOptions?.length){
      const label=el('label','Подтверждённый подкласс',fs),select=el('select',undefined,label);select.name=choice.id;const blank=el('option','Выбери подкласс…',select);blank.value='';select.value='';
      for(const option of data.subclassOptions){const o=el('option',option.name,select);o.value=option.id;const help=el('details',undefined,fs);el('summary',option.name,help);for(const feature of option.features.filter(f=>f.level===data.fromLevel+1))renderFeatureHelp(help,{...feature,source:option.source},feature.key);}
@@ -220,7 +221,7 @@ el('p','Подтверждается прежний покровитель Ис�
       for(const option of options){const o=el('option',option.name,select);o.value=option.id;}selects[key]=select;
      }
      const help=el('p','Замена не выбрана.',fs);selects.add.addEventListener('change',()=>help.textContent=data.invocationOptions[choice.id].find(o=>o.id===selects.add.value)?.text||'Замена не выбрана.');
-     const rituals=ritualPicker(fs,data);selects.add.addEventListener('change',()=>rituals.root.hidden=selects.add.value!=='book-of-ancient-secrets');invocationFields.push({choice,select:selects.add,rituals,help});el('p','Недоступные воззвания требуют выбранного ниже дара договора или нового заговора Мистический заряд.',fs);
+     const rituals=ritualPicker(fs,data);selects.add.addEventListener('change',()=>rituals.root.hidden=selects.add.value!=='book-of-ancient-secrets');invocationFields.push({choice,select:selects.add,rituals,help});el('p','Новое воззвание для замены должно отличаться от выбранных новых воззваний этого повышения. Требования договора и Мистического заряда также сохраняются.',fs);
      controls.set(choice.id,()=>!selects.remove.value&&!selects.add.value?undefined:{remove:selects.remove.value,add:selects.add.value==='book-of-ancient-secrets'?{id:selects.add.value,rituals:rituals.read()}:selects.add.value});
     }else if(choice.kind==='invocations'&&data.invocationOptions?.[choice.id]?.length){
      el('p','Выбери '+choice.count+' разных воззвания. Сохраняется выбор; эффекты и применение остаются ручными. Требования договора и Мистического заряда проверяются по итоговому выбору этого повышения.',fs);
@@ -268,6 +269,7 @@ el('p','Подтверждается прежний покровитель Ис�
    }
    updateLoreSkills();
    updateDependentChoices=()=>{
+    for(const update of rangerUpdates)update();
     const bookChoice=data.plan.choices.find(c=>c.kind==='spellbook-spells'),newIds=new Set(bookChoice?controls.get(bookChoice.id)?.()||[]:[]);
     for(const {fields,choice}of wizardFields)for(const field of fields){
      for(const option of field.querySelectorAll('option')){const source=data.wizardOptions[choice.id].find(o=>o.id===option.value);option.disabled=Boolean(source&&((source.requiresNewSpell&&!newIds.has(source.id))||(choice.kind==='signature-spells'&&fields.some(other=>other!==field&&other.value===source.id))));if(option.disabled&&field.value===option.value)field.value='';}
@@ -277,10 +279,11 @@ el('p','Подтверждается прежний покровитель Ис�
      const pactChoice=data.plan.choices.find(c=>c.kind==='pact-boon'),pact=pactChoice?controls.get(pactChoice.id)?.():data.selectedPact;
      const newCantrips=data.plan.choices.filter(c=>c.kind==='cantrips').flatMap(c=>controls.get(c.id)?.()||[]);
      const hasNewBlast=[...newCantrips,...(pact?.cantrips||[])].includes('srd51:2014:spell:eldritch-blast');
+     const addedInvocations=new Set(data.plan.choices.filter(c=>c.kind==='invocations').flatMap(c=>controls.get(c.id)?.()||[]).map(o=>typeof o==='string'?o:o.id));
      for(const item of invocationFields){
       const sources=data.invocationOptions[item.choice.id];
       for(const field of item.select?item.select.querySelectorAll('option'):item.rows){
-       const source=sources.find(o=>o.id===field.value);field.disabled=Boolean(source&&((source.requiresSelectedPact&&source.pact!==pact?.id)||(source.requiresNewBlast&&!hasNewBlast)));
+       const source=sources.find(o=>o.id===field.value);field.disabled=Boolean(source&&((source.requiresSelectedPact&&source.pact!==pact?.id)||(source.requiresNewBlast&&!hasNewBlast)||(item.select&&addedInvocations.has(source.id))));
        if(field.disabled){if(item.select&&item.select.value===field.value)item.select.value='';else if(!item.select)field.checked=false;}
       }
       if(item.select){item.rituals.root.hidden=item.select.value!=='book-of-ancient-secrets';item.help.textContent=sources.find(o=>o.id===item.select.value)?.text||'Замена не выбрана.';}
