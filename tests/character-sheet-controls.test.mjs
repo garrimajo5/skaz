@@ -62,3 +62,14 @@ test('confirmed Lore skill panel shows calculated ranks and retains the manual f
 test('rogue panel has no Jack of All Trades and tools require a chosen ability',()=>{
  let html='';const context=vm.createContext({esc:String,modal:v=>html=v,SkazStorage:{stats:()=>({abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>({level:6,saveProficiencies:[]}),classSkills:()=>({jackOfAllTrades:false,skills:[{id:'arcana',name:'Магия',ability:'int',rank:'untrained',modifier:1}],tools:{proficiencyBonus:6}})}});vm.runInContext(source,context);vm.runInContext('SkazCharacterSheet.checks()',context);assert.match(html,/ЛОВ · проверка без владения \+2/);assert.match(html,/Магия <strong>\+1<\/strong> · без владения/);assert.doesNotMatch(html,/Мастер на все руки/);assert.match(html,/Бонус владения \+6/);assert.match(html,/характеристики, выбранной для этой проверки/);
 });
+
+test('derived save benefits never double manual proficiency or apply a different level',()=>{
+ let html='',level=15;const context=vm.createContext({esc:String,modal:v=>html=v,SkazStorage:{stats:()=>({abilities:{str:10,dex:10,con:10,int:10,wis:14,cha:10}}),sheet:()=>({level,saveProficiencies:level===15?['wis']:[]}),classSaveBenefits:()=>({level:15,saveProficiencies:['wis']}),classSkills:()=>null}});vm.runInContext(source,context);vm.runInContext('SkazCharacterSheet.checks()',context);assert.match(html,/Спасбросок \+7 ●/);assert.doesNotMatch(html,/Спасбросок \+12/);level=14;vm.runInContext('SkazCharacterSheet.checks()',context);assert.match(html,/Спасбросок \+2<\/p>/);
+});
+test('Reliable Talent is shown only on eligible skills and tools',()=>{
+ let html='';const context=vm.createContext({esc:String,modal:v=>html=v,SkazStorage:{stats:()=>({abilities:{str:10,dex:16,con:10,int:10,wis:10,cha:10}}),sheet:()=>({level:11}),classSkills:()=>({jackOfAllTrades:false,skills:[{name:'Скрытность',ability:'dex',rank:'expertise',modifier:11,minimumD20:10},{name:'Магия',ability:'int',rank:'untrained',modifier:0,minimumD20:null}],tools:{proficiencyBonus:8,minimumD20:10}})}});vm.runInContext(source,context);vm.runInContext('SkazCharacterSheet.checks()',context);assert.match(html,/итог от \+21/);assert.match(html,/Магия <strong>\+0<\/strong> · без владения<\/p>/);assert.match(html,/результат к20 от1 до9 считается10/);
+});
+
+test('Diamond Soul panel names the manual death saving throw bonus',()=>{
+ let html='';const context=vm.createContext({esc:String,modal:v=>html=v,SkazStorage:{stats:()=>({abilities:{str:10,dex:10,con:10,int:10,wis:10,cha:10}}),sheet:()=>({level:14}),classSaveBenefits:()=>({level:14,saveProficiencies:['str','dex','con','int','wis','cha'],deathSaveProficiency:true,origin:{name:'Алмазная душа'}}),classSkills:()=>null}});vm.runInContext(source,context);vm.runInContext('SkazCharacterSheet.checks()',context);assert.match(html,/от смерти также добавь мастерство \+5/);assert.equal((html.match(/Спасбросок \+5 ●/g)||[]).length,6);
+});
