@@ -15,6 +15,3 @@ test('Rogue late failure, backup, inactive provenance and capability downgrade a
  const row=db.prepare('SELECT ledger_json FROM character_advancement WHERE character_id=?').get(hero),bad=JSON.parse(row.ledger_json);bad.rogueSkills.expertise.sourcePage=999;db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(JSON.stringify(bad),hero);assert.throws(()=>openStore(file,{classAdvancement:true}),{status:409});assert.deepEqual(db.prepare('SELECT * FROM workspace').get(),workspace);db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(row.ledger_json,hero);
  const reopened=openStore(file,{classAdvancement:true});reopened.close();assert.deepEqual(db.prepare('PRAGMA foreign_key_check').all(),[]);
 });
-
-
-
