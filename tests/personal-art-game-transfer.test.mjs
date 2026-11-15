@@ -251,3 +251,10 @@ test('Primal Champion and unlimited rage transfer with PNG atomically',t=>{
  f.db.exec("CREATE TRIGGER reject_primal_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'late primal artwork');END");assert.throws(()=>w.importActive(request),/late primal artwork/);assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);f.db.exec('DROP TRIGGER reject_primal_art');
  const saved=w.importActive(request);assert.deepEqual(saved.advancement,before.advancement);assert.equal(saved.state.maxHp,before.state.maxHp);assert.equal(saved.state.hp,before.state.hp);assert.ok(w.personalArt.read(saved.context.characterId,catalogId,'master').file.bytes.equals(Buffer.from(bundle.personalArt.entries[0].png,'base64')));const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);
 });
+
+import {prepareRogue,rogueCommand} from '../scripts/fixtures/rogue-commands.mjs';
+test('Rogue Expertise transfer with PNG atomically',t=>{
+ const f=fixture(t,{classAdvancement:true}),w=f.writer;prepareRogue(w);w.advanceCharacter(rogueCommand(w));const before=w.read(),bundle=w.exportActive('with-art'),request={mutationId:randomUUID(),expectedRevision:before.revision,destination:'new-campaign',file:bundle},original=counts(f.db);
+ f.db.exec("CREATE TRIGGER reject_rogue_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'late rogue artwork');END");assert.throws(()=>w.importActive(request),/late rogue artwork/);assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);f.db.exec('DROP TRIGGER reject_rogue_art');
+ const saved=w.importActive(request);assert.deepEqual(saved.advancement,before.advancement);assert.equal(saved.state.maxHp,before.state.maxHp);assert.equal(saved.state.hp,before.state.hp);assert.ok(w.personalArt.read(saved.context.characterId,catalogId,'master').file.bytes.equals(Buffer.from(bundle.personalArt.entries[0].png,'base64')));const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);
+});

@@ -1,3 +1,4 @@
+import {createRogueExpertise,validateRogueExpertise} from './class-rogue-expertise.mjs';
 import {planPrimalChampion,validatePrimalChampionOrigin} from './class-primal-champion.mjs';
 import {createLoreSkills,advanceLoreSkills,validateLoreSkills} from './class-bard-lore.mjs';
 import {fiendResources,validateFiendResources,validateFiendBook,confirmFiend,fiendSpellOptions,validateFiendSpellChoice,fiendSpellOrigin,validateFiendSpellOrigin} from './class-fiend.mjs';
@@ -46,7 +47,7 @@ export function validateAdvancementCommand(input){
 
 export function validateAdvancementLedger(value){
  if(value===null)return null;
- if(!exact(value,['version','ruleset','classId','baselineLevel','level','binding','events','resources','spells',...(value?.version>=2?['styles']:[]),...(value?.version>=3?['metamagic']:[]),...([4,14].includes(value?.version)?['invocations','pact']:[]),...(value?.version>=5?['subclass']:[]),...([6,9].includes(value?.version)?['wizardChoices']:[]),...(value?.version===7?['rangerChoices']:[]),...([8,10,11,12].includes(value?.version)?['subclassSpells']:[]),...(value?.version===9?['signatureCounters']:[]),...([12,16].includes(value?.version)?['unlimitedResources']:[]),...(value?.version===14?['fiendResources']:[]),...(value?.version===15?['lore']:[]),...(value?.version===16?['primalChampion']:[])])||![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16].includes(value.version)||value.ruleset!=='5e-2014')fail(422,'Неверное происхождение повышения');
+ if(!exact(value,['version','ruleset','classId','baselineLevel','level','binding','events','resources','spells',...(value?.version>=2?['styles']:[]),...(value?.version>=3?['metamagic']:[]),...([4,14].includes(value?.version)?['invocations','pact']:[]),...(value?.version>=5?['subclass']:[]),...([6,9].includes(value?.version)?['wizardChoices']:[]),...(value?.version===7?['rangerChoices']:[]),...([8,10,11,12].includes(value?.version)?['subclassSpells']:[]),...(value?.version===9?['signatureCounters']:[]),...([12,16].includes(value?.version)?['unlimitedResources']:[]),...(value?.version===14?['fiendResources']:[]),...(value?.version===15?['lore']:[]),...(value?.version===16?['primalChampion']:[]),...(value?.version===17?['rogueSkills']:[])])||![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17].includes(value.version)||value.ruleset!=='5e-2014')fail(422,'Неверное происхождение повышения');
  checkedClass(value.classId,value.level);
  if(!Number.isSafeInteger(value.baselineLevel)||value.baselineLevel<1||value.baselineLevel>value.level||!Array.isArray(value.events)||value.events.length!==value.level-value.baselineLevel)fail(422,'Неполная последовательность уровней');
  if(value.binding!==null&&(!exact(value.binding,['mutationId','requestHash'])||!id(value.binding.mutationId)||!/^[a-f0-9]{64}$/.test(value.binding.requestHash)))fail(422,'Неверное подключение ресурсов');
@@ -72,7 +73,7 @@ export function validateAdvancementLedger(value){
   const p={classId:value.classId,fromLevel:s.acquiredLevel-1,toLevel:s.acquiredLevel};
   const choice=previewClassLevel({...p,constitution:10}).choices.find(c=>c.id===s.choiceId);
   if(!choice||!spellKinds.has(choice.kind))fail(422,'Неизвестный источник заклинания');
-  if(value.version===14)try{validateFiendSpellOrigin(s);}catch(error){fail(422,error.message);}
+ if(value.version===14)try{validateFiendSpellOrigin(s);}catch(error){fail(422,error.message);}
   if(!(value.version===14?fiendSpellOptions(s.acquiredLevel,choice.kind):spellChoiceOptions(value.classId,s.acquiredLevel,choice.kind)).some(x=>x.spellId===s.catalogId))fail(422,'Заклинание не соответствует источнику');
   const count=(choiceCounts.get(s.choiceId)||0)+1;if(count>choice.count)fail(422,'Слишком много заклинаний из одного выбора');choiceCounts.set(s.choiceId,count);
   spells.add(s.catalogId);
@@ -131,6 +132,8 @@ export function validateAdvancementLedger(value){
   try{validateRangerHistory(value.rangerChoices,value.level);}catch(error){fail(422,error.message);}
  }
  if(value.version===14)try{validateFiendResources(value.fiendResources,value.level);}catch(error){fail(422,error.message);}
+  if(value.classId==='rogue'&&value.subclass?.id==='rogue-thief'&&value.baselineLevel<6&&value.level>=6&&value.version!==17)fail(422,'Компетентность плута требует журнал17');
+ if(value.version===17){if(value.subclass?.id!=='rogue-thief'||value.baselineLevel>=6)fail(422,'Нужна подтверждённая история плута до шестого уровня');try{validateRogueExpertise(value.rogueSkills,value);}catch(error){fail(422,error.message);}}
  if(value.version===16){if(value.classId!=='barbarian'||value.level!==20||value.subclass?.id!=='barbarian-berserker')fail(422,'Первобытный чемпион требует подтверждённого варвара20');try{validatePrimalChampionOrigin(value.primalChampion);validateUnlimitedOrigin(value);}catch(error){fail(422,error.message);}}
  if(value.classId==='barbarian'&&value.level===20&&value.version!==16)fail(422,'Варвар20 требует журнал16');
  if((value.version===15)!==(value.subclass?.id==='bard-lore'))fail(422,'Коллегия знаний требует журнал15');
@@ -169,7 +172,7 @@ function build(current,request){
  for(const key of Object.keys(request.choices))if(!choices.has(key))fail(422,'Выбор не относится к этому уровню');
  for(const choice of choices.values()){
   if(!Object.hasOwn(request.choices,choice.id)){if(choice.required)fail(422,'Не завершён выбор: '+choice.kind);continue;}
-  if(!spellKinds.has(choice.kind)&&choice.kind!=='ability-score-improvement-or-feat'&&choice.kind!=='fighting-style'&&choice.kind!=='metamagic'&&choice.kind!=='invocations'&&choice.kind!=='replace-invocation'&&choice.kind!=='pact-boon'&&choice.kind!=='subclass'&&choice.kind!=='hunter-option'&&choice.kind!=='champion-style'&&choice.kind!=='spell-mastery'&&choice.kind!=='favored-enemy-and-language'&&choice.kind!=='favored-terrain'&&choice.kind!=='signature-spells'&&choice.kind!=='confirm-subclass'&&choice.kind!=='land-terrain'&&choice.kind!=='confirm-draconic'&&choice.kind!=='confirm-fiend'&&choice.kind!=='lore-skills'&&choice.kind!=='lore-secrets'&&!(choice.kind==='expertise'&&request.classId==='bard'))fail(422,'Этот выбор ещё не поддерживается: '+choice.kind);
+  if(!spellKinds.has(choice.kind)&&choice.kind!=='ability-score-improvement-or-feat'&&choice.kind!=='fighting-style'&&choice.kind!=='metamagic'&&choice.kind!=='invocations'&&choice.kind!=='replace-invocation'&&choice.kind!=='pact-boon'&&choice.kind!=='subclass'&&choice.kind!=='hunter-option'&&choice.kind!=='champion-style'&&choice.kind!=='spell-mastery'&&choice.kind!=='favored-enemy-and-language'&&choice.kind!=='favored-terrain'&&choice.kind!=='signature-spells'&&choice.kind!=='confirm-subclass'&&choice.kind!=='land-terrain'&&choice.kind!=='confirm-draconic'&&choice.kind!=='confirm-fiend'&&choice.kind!=='lore-skills'&&choice.kind!=='lore-secrets'&&!(choice.kind==='expertise'&&['bard','rogue'].includes(request.classId)))fail(422,'Этот выбор ещё не поддерживается: '+choice.kind);
  }
  let abilities=stats.abilities;
  for(const choice of choices.values())if(choice.kind==='ability-score-improvement-or-feat'){
@@ -186,6 +189,7 @@ function build(current,request){
   if(sheet.subclass.trim()&&sheet.subclass!==name)fail(409,'В листе уже указан другой подкласс; нужна явная сверка прежней записи');
   ledger.version=5;ledger.styles??=[];ledger.metamagic??=[];ledger.subclass=origin;
  }
+ if(choices.has('rogue:6:expertise')){if(previous?.version!==5||previous.subclass?.id!=='rogue-thief')fail(422,'Сначала нужна подтверждённая история подкласса плута');ledger.rogueSkills=createRogueExpertise(request.choices['rogue:6:expertise'],{classId:request.classId,fromLevel:sheet.level});ledger.version=17;}
  if(choices.has('bard:3:lore-skills')){if(ledger.subclass?.id!=='bard-lore')fail(422,'Для новых навыков нужна Коллегия знаний');ledger.lore=createLoreSkills(request.choices['bard:3:lore-skills'],request.choices['bard:3:expertise']);ledger.version=15;}
  if(choices.has('bard:10:expertise')){if(ledger.version!==15)fail(422,'Прежние навыки и Компетентность не подтверждены историей');ledger.lore=advanceLoreSkills(ledger.lore,10,request.choices['bard:10:expertise']);}
  if(Object.hasOwn(request.choices,'warlock:2:confirm-fiend')){ledger.version=14;ledger.fiendResources=[];ledger.styles??=[];ledger.metamagic??=[];ledger.invocations??=[];ledger.pact??=null;ledger.subclass=confirmFiend(request.choices['warlock:2:confirm-fiend']);if(sheet.subclass.trim()&&sheet.subclass!==subclassDescription(ledger.subclass.id).name)fail(409,'В листе указан другой покровитель; нужна сверка');}

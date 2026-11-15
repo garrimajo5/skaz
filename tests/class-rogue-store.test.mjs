@@ -1,0 +1,20 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {randomUUID} from 'node:crypto';import {openStore} from '../server/store.mjs';import {prepareRogue,rogueCommand} from '../scripts/fixtures/rogue-commands.mjs';
+test('rogue Expertise persists, repeats exactly and transfers with the hero',()=>{const s=openStore(':memory:',{classAdvancement:true});try{prepareRogue(s);const before=s.read(),q=rogueCommand(s),after=s.advanceCharacter(q);assert.equal(after.advancement.version,17);assert.equal(after.characterSheet.level,6);assert.equal(after.state.hp,before.state.hp);assert.equal(after.classSkills.skills.find(o=>o.id==='stealth').rank,'expertise');assert.equal(s.advanceCharacter(q).replayed,true);const file=s.exportActive(14);const imported=s.importActive({mutationId:randomUUID(),expectedRevision:s.read().revision,destination:'new-campaign',file});assert.deepEqual(imported.classSkills,after.classSkills);assert.deepEqual(imported.advancement,after.advancement);s.advanceCharacter(rogueCommand(s));assert.equal(s.read().advancement.level,7);}finally{s.close();}});
+test('invalid previous or new Expertise is atomic',()=>{const s=openStore(':memory:',{classAdvancement:true});try{prepareRogue(s);const before=s.read();for(const mutate of [c=>c.rulesConfirmed=false,c=>c.newExpertise=['stealth','perception'],c=>c.previousExpertise=['arcana','stealth']]){const q=rogueCommand(s);mutate(q.choices['rogue:6:expertise']);assert.throws(()=>s.advanceCharacter(q));assert.deepEqual(s.read(),before);}}finally{s.close();}});
+
+import {mkdtempSync,rmSync} from 'node:fs';import {tmpdir} from 'node:os';import {join} from 'node:path';import {DatabaseSync} from 'node:sqlite';import {seed} from '../server/state.mjs';
+test('Rogue late failure, backup, inactive provenance and capability downgrade are safe',async t=>{
+ const dir=mkdtempSync(join(tmpdir(),'skaz-rogue-')),file=join(dir,'fixture.sqlite'),s=openStore(file,{classAdvancement:true}),db=new DatabaseSync(file);
+ t.after(()=>{s.close();db.close();rmSync(dir,{recursive:true,force:true});});prepareRogue(s);const before=s.read(),q=rogueCommand(s);
+ await s.backup(join(dir,'before.sqlite'));db.exec("CREATE TRIGGER reject_rogue BEFORE INSERT ON advancement_changes BEGIN SELECT RAISE(ABORT,'late rogue');END");
+ assert.throws(()=>s.advanceCharacter(q),/late rogue/);assert.deepEqual(s.read(),before);assert.equal(db.prepare('SELECT version FROM class_advancement_schema').get().version,4);db.exec('DROP TRIGGER reject_rogue');
+ s.advanceCharacter(q);assert.equal(db.prepare('SELECT version FROM class_advancement_schema').get().version,16);const after=s.read();await s.backup(join(dir,'after.sqlite'));
+ for(const [name,expected]of [['before',before],['after',after]]){const restored=openStore(join(dir,name+'.sqlite'),{classAdvancement:true});try{assert.deepEqual(restored.read(),expected);if(name==='after')assert.equal(restored.advanceCharacter(q).replayed,true);}finally{restored.close();}}
+ const hero=after.context.characterId;s.createCampaign({mutationId:randomUUID(),expectedRevision:s.read().revision,state:structuredClone(seed)});
+ const workspace=db.prepare('SELECT * FROM workspace').get();db.prepare('UPDATE class_advancement_schema SET version=15').run();assert.throws(()=>openStore(file,{classAdvancement:true}),{status:409});db.prepare('UPDATE class_advancement_schema SET version=16').run();
+ const row=db.prepare('SELECT ledger_json FROM character_advancement WHERE character_id=?').get(hero),bad=JSON.parse(row.ledger_json);bad.rogueSkills.expertise.sourcePage=999;db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(JSON.stringify(bad),hero);assert.throws(()=>openStore(file,{classAdvancement:true}),{status:409});assert.deepEqual(db.prepare('SELECT * FROM workspace').get(),workspace);db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(row.ledger_json,hero);
+ const reopened=openStore(file,{classAdvancement:true});reopened.close();assert.deepEqual(db.prepare('PRAGMA foreign_key_check').all(),[]);
+});
+
+
+
