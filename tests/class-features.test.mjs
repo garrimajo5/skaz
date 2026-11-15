@@ -33,7 +33,7 @@ test('barbarian and rogue tables have class-specific help without promising subc
  assert.notEqual(barbarian.id,classFeatureDetails('fighter',['Extra Attack'])[0].id);
  assert.ok(!barbarian.text.includes('четыре'));
  for(const key of ['Primal Path','Path feature'])assert.equal(classFeatureDetails('barbarian',[key])[0].status,'choice');assert.equal(classFeatureDetails('barbarian',['Primal Champion'])[0].status,'manual');
- for(const key of ['Roguish Archetype','Roguish Archetype feature'])assert.equal(classFeatureDetails('rogue',[key])[0].status,'choice');assert.equal(classFeatureDetails('rogue',['Expertise'])[0].status,'unsupported');
+ for(const key of ['Roguish Archetype','Roguish Archetype feature'])assert.equal(classFeatureDetails('rogue',[key])[0].status,'choice');assert.equal(classFeatureDetails('rogue',['Expertise'])[0].status,'choice');
 });
 import {readFileSync} from 'node:fs';
 test('feature catalog has unique stable IDs and class keys, licensed sources and no invented table entries',()=>{

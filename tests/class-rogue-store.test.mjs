@@ -15,3 +15,11 @@ test('Rogue late failure, backup, inactive provenance and capability downgrade a
  const row=db.prepare('SELECT ledger_json FROM character_advancement WHERE character_id=?').get(hero),bad=JSON.parse(row.ledger_json);bad.rogueSkills.expertise.sourcePage=999;db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(JSON.stringify(bad),hero);assert.throws(()=>openStore(file,{classAdvancement:true}),{status:409});assert.deepEqual(db.prepare('SELECT * FROM workspace').get(),workspace);db.prepare('UPDATE character_advancement SET ledger_json=? WHERE character_id=?').run(row.ledger_json,hero);
  const reopened=openStore(file,{classAdvancement:true});reopened.close();assert.deepEqual(db.prepare('PRAGMA foreign_key_check').all(),[]);
 });
+
+test('rogue Expertise stays stable through20 and rejects removed or forged transferred origins',()=>{
+ const s=openStore(':memory:',{classAdvancement:true});try{prepareRogue(s,6);const origin=structuredClone(s.read().advancement.rogueSkills);while(s.read().characterSheet.level<20){s.advanceCharacter(rogueCommand(s));assert.deepEqual(s.read().advancement.rogueSkills,origin);}
+ const final=s.read();assert.equal(final.classSkills.proficiency,6);assert.equal(final.classSkills.tools.proficiencyBonus,12);
+ const file=s.exportActive(14);assert.equal(final.advancement.version,17);
+ for(const mutate of [f=>{f.advancement.version=5;delete f.advancement.rogueSkills;},f=>f.advancement.rogueSkills.baseline.acquiredLevel=1,f=>f.advancement.rogueSkills.expertise.ids=['stealth','thieves-tools']]){const bad=structuredClone(file);mutate(bad);assert.throws(()=>s.importActive({mutationId:randomUUID(),expectedRevision:s.read().revision,destination:'new-campaign',file:bad}));assert.deepEqual(s.read(),final);}
+ }finally{s.close();}
+});
