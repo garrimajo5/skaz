@@ -578,7 +578,7 @@ const SkazStorage = (() => {
     return campaignCommand('inventory-remove',{characterId:activeContext.characterId,catalogId:item.catalogId,quantity:1});
   }
   async function spellbookData() {
-    if(canResource()&&resourceContextMatches()&&resourceQueue?.snapshot?.spellbook)return {revision,context:activeContext,spellLearning:resourceQueue.snapshot.spellLearning??null,entries:structuredClone(resourceQueue.snapshot.spellbook)};
+    if(canResource()&&resourceContextMatches()&&resourceQueue?.snapshot?.spellbook)return {revision,context:activeContext,spellLearning:resourceQueue.snapshot.spellLearning??null,entries:structuredClone(resourceQueue.snapshot.spellbook).map(({alwaysPrepared,...entry})=>alwaysPreparedIds.has(entry.catalogId)?{...entry,alwaysPrepared:true}:entry)};
     if(demo || status!=='ready')throw new Error('Сначала сохрани черновик или подключись к серверу');
     const key=snapshotKey(),data=await request('/api/spellbook');
     if(key!==snapshotKey() || JSON.stringify(data.context)!==JSON.stringify(activeContext) || data.revision!==revision)throw new Error('Игра изменилась. Обнови страницу и открой книгу снова.');

@@ -51,8 +51,8 @@ export function advancementView(current,classId,lookup){
   else choiceNotices[choice.id]='Прежние воззвания не подтверждены полной историей. Мастер не будет угадывать прошлый выбор.';
  }
  for(const rows of Object.values(invocationOptions))for(const row of rows){
-  if(grantsPact&&row.reasons.includes('pact'))row.reasons=row.reasons.filter(r=>r!=='pact');
-  if(mayLearnBlast&&row.reasons.includes('eldritch-blast'))row.reasons=row.reasons.filter(r=>r!=='eldritch-blast');
+  if(grantsPact&&row.reasons.includes('pact')){row.requiresSelectedPact=true;row.reasons=row.reasons.filter(r=>r!=='pact');}
+  if(mayLearnBlast&&row.reasons.includes('eldritch-blast')){row.requiresNewBlast=true;row.reasons=row.reasons.filter(r=>r!=='eldritch-blast');}
   row.eligible=row.reasons.length===0;
  }
  if(grantsPact&&![4,14].includes(current.advancement?.version))choiceNotices['warlock:3:pact-boon']='Прежние воззвания не подтверждены историей. Сначала нужна отдельная сверка прежнего выбора.';
@@ -65,7 +65,7 @@ export function advancementView(current,classId,lookup){
  if(selectedSubclass?.id==='fighter-champion'&&level===9)plan.choices.push({id:'fighter:10:champion-style',kind:'champion-style',count:1,required:true});
  if(selectedSubclass?.id==='fighter-champion'&&current.advancement.subclass.additionalStyle){const pair=current.advancement.subclass.additionalStyle;selectedSubclass.confirmedStyles=[{...pair.previous,...fightingStyleDescription(pair.previous.id),label:'Подтверждённый прежний стиль'},{...pair.added,...fightingStyleDescription(pair.added.id),label:'Дополнительный стиль на 10-м уровне'}];}
  if(selectedSubclass?.id==='ranger-hunter')selectedSubclass.selectedOptions=current.advancement.subclass.options.map(o=>({...o,...hunterChoices(level).flatMap(g=>g.options).find(v=>v.id===o.id)}));
- const wizardOptions={};for(const choice of plan.choices)if(['spell-mastery','signature-spells'].includes(choice.kind)){const signature=choice.kind==='signature-spells';if(current.advancement?.version===(signature?6:5)){const candidates=new Map(current.spellbook.map(o=>[o.catalogId,o]));for(const o of options['wizard:'+(level+1)+':spellbook-spells']||[])if(!candidates.has(o.spellId))candidates.set(o.spellId,{catalogId:o.spellId,status:'known',entry:lookup(o.spellId)});wizardOptions[choice.id]=wizardAdvancedOptions(signature?'signature':'mastery',[...candidates.values()]);}else choiceNotices[choice.id]='Прежний выбор подкласса не подтверждён историей. Нужна отдельная сверка; мастер не будет угадывать его.';}
+ const wizardOptions={};for(const choice of plan.choices)if(['spell-mastery','signature-spells'].includes(choice.kind)){const signature=choice.kind==='signature-spells';if(current.advancement?.version===(signature?6:5)){const candidates=new Map(current.spellbook.map(o=>[o.catalogId,o]));for(const o of options['wizard:'+(level+1)+':spellbook-spells']||[])if(!candidates.has(o.spellId))candidates.set(o.spellId,{catalogId:o.spellId,status:'known',entry:lookup(o.spellId)});wizardOptions[choice.id]=wizardAdvancedOptions(signature?'signature':'mastery',[...candidates.values()]).map(o=>({...o,requiresNewSpell:!current.spellbook.some(row=>row.catalogId===o.id)}));}else choiceNotices[choice.id]='Прежний выбор подкласса не подтверждён историей. Нужна отдельная сверка; мастер не будет угадывать его.';}
  const rangerReady=classId==='ranger'&&(level===5?current.advancement?.version===5:current.advancement?.version===7);
  for(const choice of plan.choices)if(['favored-terrain','favored-enemy-and-language'].includes(choice.kind)&&!rangerReady)choiceNotices[choice.id]='Нужна подтверждённая история подкласса и прежних выборов. Старое прошлое не угадывается.';
  const rangerTerrains=rangerReady?rangerTerrainOptions():[],rangerEnemyTypes=rangerReady?rangerEnemyTypeOptions():[],selectedRangerChoices=current.advancement?.rangerChoices?structuredClone(current.advancement.rangerChoices):null;

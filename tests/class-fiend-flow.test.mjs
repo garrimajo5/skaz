@@ -33,3 +33,11 @@ test('Fiend form gates expanded spells and keeps the exact command after lost co
  await e.button('Повторить сохранение').onclick();assert.equal(sent[0],sent[1]);assert.deepEqual((await call('/api/workspace')).advancement,after.advancement);
  const file=await call('/api/export/active-v14'),imported=await call('/api/import/active',{mutationId:randomUUID(),expectedRevision:after.revision,destination:'new-campaign',file});assert.deepEqual(imported.advancement,after.advancement);assert.deepEqual(imported.spellbook,after.spellbook);
 });
+
+import {advancementView} from '../server/class-advancement-view.mjs';
+test('Fiend plan exposes same-step prerequisites without granting unchosen pact or cantrip',()=>{
+ const store=openStore(':memory:',{classAdvancement:true});try{
+  prepareFiend(store,2);const current=store.read(),view=advancementView(current,'warlock',id=>store.catalog.lookup(new URLSearchParams({id})).entry),rows=view.invocationOptions['warlock:3:replace-invocation'];
+  const tome=rows.find(o=>o.id==='book-of-ancient-secrets'),blast=rows.find(o=>o.id==='agonizing-blast'),chain=rows.find(o=>o.id==='voice-of-the-chain-master');assert.equal(tome.eligible,true);assert.equal(tome.requiresSelectedPact,true);assert.equal(tome.pact,'tome');assert.equal(chain.requiresSelectedPact,true);assert.equal(chain.pact,'chain');assert.equal(blast.requiresNewBlast,true);assert.equal(view.selectedPact,null);assert.deepEqual(store.read().advancement,current.advancement);
+ }finally{store.close();}
+});

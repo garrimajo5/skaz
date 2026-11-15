@@ -271,3 +271,54 @@ test('unknown ranger history remains blocked and saved choices are readable at m
 test('preview announces derived saves and conditional physical checks without claiming manual totals changed',async()=>{
  const e=environment();await e.mount(e.root,{load:async()=>data(),preview:async()=>({...summary(),classSaveBenefits:{origin:{name:'Алмазная душа'},saveProficiencies:['str','dex','con','int','wis','cha'],deathSaveProficiency:true},classCheckBenefits:{origin:{name:'Выдающийся атлет'},bonus:2}}),send:async()=>saved()});await e.button('Проверить повышение').onclick();const text=walk(e.root).map(n=>n.textContent).join(' ');assert.match(text,/Алмазная душа: в спасбросках СИЛ, ЛОВ, ТЕЛ, ИНТ, МДР, ХАР/);assert.match(text,/без повторного бонуса/);assert.match(text,/спасбросках от смерти/);assert.match(text,/бонус \+2 к проверкам СИЛ/);assert.match(text,/ручная инициатива не меняются/);
 });
+
+test('wizard new book selection controls mastery availability and invalidates an obsolete preview',async()=>{
+ const e=environment(),book='wizard:18:spellbook-spells',mastery='wizard:18:spell-mastery';
+ await e.mount(e.root,{load:async()=>({...data(),fromLevel:17,options:{[book]:[{spellId:'blur',name:{ru:'Размытый образ',en:'Blur'},level:2}]},wizardOptions:{[mastery]:[{id:'shield',name:{ru:'Щит',en:'Shield'},circle:1,requiresNewSpell:false},{id:'blur',name:{ru:'Размытый образ',en:'Blur'},circle:2,requiresNewSpell:true}]},plan:{requiresFeatureReview:[],choices:[{id:book,kind:'spellbook-spells',count:1,required:true},{id:mastery,kind:'spell-mastery',count:2,required:true}]}}),preview:async()=>summary(),send:async()=>saved()});
+ const first=walk(e.root).find(n=>n.name===mastery+':1'),second=walk(e.root).find(n=>n.name===mastery+':2'),box=walk(e.root).find(n=>n.type==='checkbox'&&n.value==='blur');
+ const option=second.children.find(n=>n.value==='blur');assert.equal(option.disabled,true);assert.equal(first.children.find(n=>n.value==='shield').disabled,false);
+ box.checked=true;box.emit('change');assert.equal(option.disabled,false);first.value='shield';second.value='blur';second.emit('change');await e.button('Проверить повышение').onclick();assert.equal(e.button('Подтвердить повышение').hidden,false);
+ box.checked=false;box.emit('change');assert.equal(option.disabled,true);assert.equal(second.value,'');assert.equal(e.button('Подтвердить повышение').hidden,true);
+});
+
+test('signature selects exclude the spell chosen in the other field and release it on change',async()=>{
+ const e=environment(),id='wizard:20:signature-spells';await e.mount(e.root,{load:async()=>({...data(),fromLevel:19,wizardOptions:{[id]:['fireball','fly','haste'].map(id=>({id,name:{ru:id,en:id},circle:3,requiresNewSpell:false}))},plan:{requiresFeatureReview:[],choices:[{id,kind:'signature-spells',count:2,required:true}]}}),preview:async()=>summary(),send:async()=>saved()});
+ const first=walk(e.root).find(n=>n.name===id+':1'),second=walk(e.root).find(n=>n.name===id+':2');first.value='fireball';first.emit('change');assert.equal(second.children.find(n=>n.value==='fireball').disabled,true);
+ second.value='fly';second.emit('change');assert.equal(first.children.find(n=>n.value==='fly').disabled,true);first.value='haste';first.emit('change');assert.equal(second.children.find(n=>n.value==='fireball').disabled,false);assert.equal(second.children.find(n=>n.value==='haste').disabled,true);assert.equal(second.value,'fly');
+});
+
+test('champion additional style excludes prior choice and clears selection when prior style changes',async()=>{
+ const e=environment(),id='fighter:10:champion-style';await e.mount(e.root,{load:async()=>({...data(),fromLevel:9,championStyles:['archery','defense','dueling'].map(id=>({id,name:id,text:id})),plan:{requiresFeatureReview:[],choices:[{id,kind:'champion-style',count:1,required:true}]}}),preview:async()=>summary(),send:async()=>saved()});
+ const prior=walk(e.root).find(n=>n.name===id+':previousId'),added=walk(e.root).find(n=>n.name===id+':newId');prior.value='archery';prior.emit('change');assert.equal(added.children.find(n=>n.value==='archery').disabled,true);added.value='defense';added.emit('change');await e.button('Проверить повышение').onclick();assert.equal(e.button('Подтвердить повышение').hidden,false);
+ prior.value='defense';prior.emit('change');assert.equal(added.value,'');assert.equal(added.children.find(n=>n.value==='archery').disabled,false);assert.equal(added.children.find(n=>n.value==='defense').disabled,true);assert.equal(e.button('Подтвердить повышение').hidden,true);
+});
+
+test('invocation replacement follows same-step pact and blast prerequisites and clears stale rituals',async()=>{
+ const e=environment(),pact='warlock:3:pact-boon',replacement='warlock:3:replace-invocation',blast='srd51:2014:spell:eldritch-blast';
+ await e.mount(e.root,{load:async()=>({...data(),fromLevel:2,pactOptions:[{id:'tome',name:'Гримуар',supported:true,text:''},{id:'chain',name:'Цепь',supported:true,text:''}],pactCantrips:[{spellId:blast,name:{ru:'Мистический заряд',en:'Eldritch Blast'}}],ritualOptions:[],selectedInvocations:[{id:'old',name:'Старое'}],invocationOptions:{[replacement]:[{id:'book-of-ancient-secrets',name:'Книга',text:'Ритуалы',eligible:true,pact:'tome',requiresSelectedPact:true},{id:'voice',name:'Голос',text:'Цепь',eligible:true,pact:'chain',requiresSelectedPact:true},{id:'blast',name:'Взрыв',text:'Заряд',eligible:true,requiresNewBlast:true}]},plan:{requiresFeatureReview:[],choices:[{id:replacement,kind:'replace-invocation',count:1,required:false},{id:pact,kind:'pact-boon',count:1,required:true}]}}),preview:async()=>summary(),send:async()=>saved()});
+ const field=name=>walk(e.root).find(n=>n.name===name),select=field(replacement+':add'),remove=field(replacement+':remove'),pactSelect=field(pact),option=id=>select.children.find(n=>n.value===id),box=walk(e.root).find(n=>n.type==='checkbox'&&n.value===blast);
+ assert.ok(walk(e.root).some(n=>n.tagName==='legend'&&n.textContent==='Замена воззвания — необязательно'));assert.equal(option('book-of-ancient-secrets').disabled,true);assert.equal(option('blast').disabled,true);
+ pactSelect.value='tome';pactSelect.emit('change');assert.equal(option('book-of-ancient-secrets').disabled,false);box.checked=true;box.emit('change');assert.equal(option('blast').disabled,false);remove.value='old';select.value='book-of-ancient-secrets';select.emit('change');await e.button('Проверить повышение').onclick();assert.equal(e.button('Подтвердить повышение').hidden,false);
+ pactSelect.value='chain';pactSelect.emit('change');assert.equal(select.value,'');assert.equal(option('book-of-ancient-secrets').disabled,true);assert.equal(option('voice').disabled,false);assert.equal(option('blast').disabled,true);assert.equal(e.button('Подтвердить повышение').hidden,true);
+ pactSelect.value='tome';pactSelect.emit('change');select.value='blast';select.emit('change');box.checked=false;box.emit('change');assert.equal(select.value,'');assert.equal(option('blast').disabled,true);
+});
+
+test('new invocation checkbox follows a new cantrip and retains disabled state after validation',async()=>{
+ const e=environment(),cantrip='warlock:4:cantrips',inv='warlock:4:invocations',blast='srd51:2014:spell:eldritch-blast';
+ await e.mount(e.root,{load:async()=>({...data(),options:{[cantrip]:[{spellId:blast,name:{ru:'Заряд',en:'Blast'},level:0}]},invocationOptions:{[inv]:[{id:'agonizing-blast',name:'Мучительный взрыв',text:'',eligible:true,requiresNewBlast:true}]},plan:{requiresFeatureReview:[],choices:[{id:cantrip,kind:'cantrips',count:1,required:true},{id:inv,kind:'invocations',count:1,required:true}]}}),preview:async()=>{throw Error('Check rejected');},send:async()=>saved()});
+ const spell=walk(e.root).find(n=>n.type==='checkbox'&&n.value===blast),option=walk(e.root).find(n=>n.type==='checkbox'&&n.value==='agonizing-blast');assert.equal(option.disabled,true);await e.button('Проверить повышение').onclick();assert.equal(option.disabled,true);
+ spell.checked=true;spell.emit('change');assert.equal(option.disabled,false);option.checked=true;option.emit('change');spell.checked=false;spell.emit('change');assert.equal(option.disabled,true);assert.equal(option.checked,false);assert.ok(walk(e.root).some(n=>n.textContent==='Выбрано 0 из 1'));
+});
+
+test('additional lore secrets exclude ordinary new spells and reset their count without losing other secrets',async()=>{
+ const e=environment(),normal='bard:6:known-spells',secrets='bard:6:lore-secrets',options=['cure','fireball','counterspell'].map(spellId=>({spellId,name:{ru:spellId,en:spellId},level:1}));
+ await e.mount(e.root,{load:async()=>({...data(),options:{[normal]:options.slice(0,1),[secrets]:options},plan:{requiresFeatureReview:[],choices:[{id:normal,kind:'known-spells',count:1,required:true},{id:secrets,kind:'lore-secrets',count:2,required:true}]}}),preview:async()=>summary(),send:async()=>saved()});
+ const box=(name,value)=>walk(e.root).find(n=>n.type==='checkbox'&&n.name===name&&n.value===value),ordinary=box(normal,'cure'),duplicate=box(secrets,'cure'),other=box(secrets,'fireball');duplicate.checked=true;duplicate.emit('change');other.checked=true;other.emit('change');await e.button('Проверить повышение').onclick();assert.equal(e.button('Подтвердить повышение').hidden,false);
+ ordinary.checked=true;ordinary.emit('change');assert.equal(duplicate.disabled,true);assert.equal(duplicate.checked,false);assert.equal(other.checked,true);assert.equal(e.button('Подтвердить повышение').hidden,true);assert.ok(walk(e.root).some(n=>n.textContent==='Выбрано 1 из 2'));ordinary.checked=false;ordinary.emit('change');assert.equal(duplicate.disabled,false);assert.equal(duplicate.checked,false);
+});
+
+test('level-ten Magical Secrets excludes a cantrip selected through the normal progression',async()=>{
+ const e=environment(),cantrips='bard:10:cantrips',secrets='bard:10:magical-secrets',spell={spellId:'mending',name:{ru:'Починка',en:'Mending'},level:0};
+ await e.mount(e.root,{load:async()=>({...data(),fromLevel:9,options:{[cantrips]:[spell],[secrets]:[spell]},plan:{requiresFeatureReview:[],choices:[{id:cantrips,kind:'cantrips',count:1,required:true},{id:secrets,kind:'magical-secrets',count:2,required:true}]}}),preview:async()=>summary(),send:async()=>saved()});
+ const normal=walk(e.root).find(n=>n.type==='checkbox'&&n.name===cantrips),secret=walk(e.root).find(n=>n.type==='checkbox'&&n.name===secrets);normal.checked=true;normal.emit('change');assert.equal(secret.disabled,true);assert.equal(secret.checked,false);normal.checked=false;normal.emit('change');assert.equal(secret.disabled,false);
+});
