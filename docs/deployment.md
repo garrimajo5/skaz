@@ -1,7 +1,17 @@
+# Текущий runtime — bb2c2be,15.11.2026,22:38МСК
+
+Пакет PR74: исправления empty-retry/контраста личного редактора и низкой карточки справочника. Linux1322/1322,check/build. Android касания/reset/restore/повороты и переход к Описанию после CSS-reload подтверждены. Браузер три темы/контраст/ошибка повтора.
+SHA256 архива:4e6b6eb30db8e3b7be81bf61730731c652e3e02d7f86f0b7f0bb1f5774a1f8af.
+Резерв при остановленной службе:/var/backups/skaz/pre-bb2c2be-20261115.sqlite.
+Отдельная восстановленная копия:/var/backups/skaz/final-rehearsal-bb2c2be.sqlite;43таблицы совпали, integrity/FK,0добавлений. Конфигурация:/etc/skaz-before-bb2c2be-20261115.env.
+Совместимый откат кода:current→/opt/skaz/releases/52731fd и restart skaz; рабочую базу не заменять. Новый прогресс сохранять.
+После переключения skaz/nginx/оба таймера active,NRestarts0. HTTPS/Basic/личнаяSecure-cookie/Origin/exportv13,6точныхCSS/JS,633каталога/580артов подтверждены; проверочный сеанс отозван. Локальные игры не переносились. AdvancementON,personal-artOFF.
+Флаг personal-art не включался: автоматическая проверка отклонила включение до защищённой приёмки; отдельное разрешение на временный acceptance-запуск запрошено. Server-only QA-креды не копировались; запрос на их использование в браузере также ожидает ответа.
+
 ## Nginx дополнение15.11,22:05МСК
 Установлен deploy/nginx-personal-art.conf.example как /etc/nginx/snippets/skaz-personal-art.conf. Три точных location подключены после personal-login. Резерв конфигурации /etc/nginx/skaz-before-personal-art-20261115.conf. nginx -t/reload и active подтверждены. Проверены HTTPS401 без обоих уровней входа;600KiB достигает личного401; превышение каждого точного лимита даёт413. Соседние и trailing-slash маршруты сохраняют512KiB. Общие ограничения, вход, HTTPS и порты сохранены. Personal-artOFF; установка proxy не означает включение функции. Откат: вернуть сохранённый site-config, nginx -t и reload.
 
-# Текущий runtime — 76728f0, 15.11.2026, 21:37 МСК
+# Предыдущий runtime — 76728f0, 15.11.2026, 21:37 МСК
 
 Явный opt-in SKAZ_PERSONAL_ART добавлен в production entry, но остаётся OFF.
 Повышение ON. Nginx/порты/вход/конфигурация не менялись. Каталог633, арт580.
