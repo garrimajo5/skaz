@@ -1,0 +1,2041 @@
+{
+  "fields": [
+    {
+      "background": "rgb(23, 38, 58)",
+      "border": "rgb(159, 179, 202)",
+      "edge": 7.11,
+      "fill": 1,
+      "id": "",
+      "label": "Выбрать PNG",
+      "pass": true,
+      "tag": "INPUT",
+      "target": 3
+    },
+    {
+      "background": "rgb(23, 38, 58)",
+      "border": "rgb(159, 179, 202)",
+      "edge": 7.11,
+      "fill": 1,
+      "id": "",
+      "label": "Масштаб",
+      "pass": true,
+      "tag": "INPUT",
+      "target": 3
+    },
+    {
+      "background": "rgb(23, 38, 58)",
+      "border": "rgb(159, 179, 202)",
+      "edge": 7.11,
+      "fill": 1,
+      "id": "",
+      "label": "По горизонтали",
+      "pass": true,
+      "tag": "INPUT",
+      "target": 3
+    },
+    {
+      "background": "rgb(23, 38, 58)",
+      "border": "rgb(159, 179, 202)",
+      "edge": 7.11,
+      "fill": 1,
+      "id": "",
+      "label": "По вертикали",
+      "pass": true,
+      "tag": "INPUT",
+      "target": 3
+    }
+  ],
+  "focus": {
+    "id": "",
+    "manual": [],
+    "offset": "3px",
+    "outline": "rgb(140, 226, 210)",
+    "pass": true,
+    "ratio": 10.128,
+    "tag": "INPUT",
+    "target": 3,
+    "visible": true,
+    "width": "2px"
+  },
+  "placeholders": [],
+  "rows": [
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "catalog-reader-name",
+      "color": "rgb(140, 226, 210)",
+      "fontSize": "12px",
+      "fontWeight": "500",
+      "foreground": [
+        140,
+        226,
+        210,
+        1
+      ],
+      "id": "",
+      "label": "Щит",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 10.128,
+      "tag": "STRONG",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "В начало",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 11.577,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Описание",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 11.577,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Связи",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 11.577,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Источник",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 11.577,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "catalog-reference-back",
+      "label": "← К поиску",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 11.577,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Просмотр материала не меняет лист и имущество.",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "P",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "overline",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "600",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Заклинания · D&D 2014",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DIV",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "28px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "catalog-detail-title",
+      "label": "Щит",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "H2",
+      "target": 3
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Закрыть редактор изображения",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 11.577,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Сохранённая версия 1: личное изображение.",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "P",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "28px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Личное изображение",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "H2",
+      "target": 3
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Щит · только мой персонаж Элиан Вейл",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "P",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgb(23, 38, 58)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Выбрать PNG",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "INPUT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "PNG до 4 МиБ, до 2048×2048. Файл остаётся в этом окне до сохранения.",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "P",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Кадрирование",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "LEGEND",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Масштаб",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "LABEL",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgb(23, 38, 58)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Масштаб",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "INPUT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "По горизонтали",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "LABEL",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgb(23, 38, 58)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "По горизонтали",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "INPUT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "По вертикали",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "LABEL",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgb(23, 38, 58)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "По вертикали",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "INPUT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Полярис",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "P",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        29,
+        34,
+        32,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Уголь",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.508,
+      "tag": "P",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        250,
+        248,
+        240,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Атлас",
+      "manual": [],
+      "opacity": "1",
+      "pass": false,
+      "ratio": 2.02,
+      "tag": "P",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Сохранить личное изображение",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 5.973,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "28px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "История личного изображения",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "H2",
+      "target": 3
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Только для этого пользователя и персонажа. Предыдущие версии хранятся минимум 30 дней после замены.",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "P",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Твои изображения и история всех персонажей: 0.02 из 32 МиБ; версий 1/1000, привязок 1/1000. Очистка относится только к э",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "P",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Повторить предыдущую команду",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 11.577,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Вернуть стандартное изображение",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 11.577,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Обновить историю",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 11.577,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Очистить истёкшую историю этой карточки",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 11.577,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Сверить состояние и отказаться от ожидающего повтора",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 11.577,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Восстановить версию 1",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 11.577,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Готово.",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "P",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "13px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Shield",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "P",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Характеристики",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "H3",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Уровень",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "1",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Школа",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Ограждение",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Накладывание",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "1 реакция, когда по тебе попадает атака или ты становишься целью Волшебной стрелы",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Дистанция",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "На себя",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Компоненты",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "S, V",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Длительность",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "1 раунд",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Концентрация",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Не нужна",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Ритуал",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Нет",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Справочные данные. Эффекты автоматически не применяются.",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "P",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "catalog-body-title",
+      "label": "Описание",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "H3",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "catalog-text",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Краткое изложение SRD 5.1 (2014).\nУровень 1. Накладывание: 1 реакция, когда по тебе попадает атака или ты становишься це",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DIV",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "catalog-links-title",
+      "label": "Связанные материалы",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "H3",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        32,
+        51,
+        75,
+        1
+      ],
+      "background": "rgb(32, 51, 75)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Волшебная стрела · Magic Missile →",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 11.577,
+      "tag": "BUTTON",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "catalog-source-title",
+      "label": "Источник и версия",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "SUMMARY",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Источник",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "System Reference Document 5.1",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Версия",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "5.1; checked 2026-10-19; skaz level-one combat subset v1",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Использование",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Открытый материал · CC BY 4.0",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Условия, указанные при импорте",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 179.",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Атрибуция",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and ava",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(159, 179, 202)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        159,
+        179,
+        202,
+        1
+      ],
+      "id": "",
+      "label": "Изменения",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 7.11,
+      "tag": "DT",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(237, 244, 252)",
+      "fontSize": "12px",
+      "fontWeight": "400",
+      "foreground": [
+        237,
+        244,
+        252,
+        1
+      ],
+      "id": "",
+      "label": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не оф",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 13.782,
+      "tag": "DD",
+      "target": 4.5
+    },
+    {
+      "backdrop": [
+        23,
+        38,
+        58,
+        1
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "className": "",
+      "color": "rgb(140, 226, 210)",
+      "fontSize": "14px",
+      "fontWeight": "400",
+      "foreground": [
+        140,
+        226,
+        210,
+        1
+      ],
+      "id": "",
+      "label": "Открыть источник ↗",
+      "manual": [],
+      "opacity": "1",
+      "pass": true,
+      "ratio": 10.128,
+      "tag": "A",
+      "target": 4.5
+    }
+  ],
+  "scope": "Rendered DOM text, shown placeholders and focus outline; flat compositing including ancestor opacity; gradients/filters require manual review; field boundaries; synthetic data only",
+  "theme": "polar",
+  "url": "#hero",
+  "viewport": {
+    "height": 720,
+    "width": 1280
+  }
+}
