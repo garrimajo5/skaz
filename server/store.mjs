@@ -1,3 +1,4 @@
+import {classCheckBenefits} from './class-check-benefits.mjs';
 import {classSaveBenefits} from './class-save-benefits.mjs';
 import {rogueSkillView} from './class-rogue-expertise.mjs';
 import {loreSkillView} from './class-bard-lore.mjs';
@@ -85,7 +86,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
       session: { name: session.name, playedOn: session.playedOn }, sessionNumber: session.number,
       spellbook:readSpellbook(db,context.character.id),
       characterStats,
-      characterSheet, spellLearning, classSaveBenefits:classSaveBenefits(advancement),classSkills:advancement?.version===17?rogueSkillView(advancement.rogueSkills,{classId:advancement.classId,level:advancement.level,abilities:characterStats.abilities}):loreSkillView(advancement,characterStats),alwaysPreparedSpellIds:alwaysPreparedOrigins(advancement).map(o=>o.catalogId),unlimitedResources:unlimitedResourceViews(advancement),classGrantedSpellIds:[13,14,15].includes(advancement?.version)?[...new Set([...advancement.spells.map(o=>o.catalogId),...(advancement.version===14?invocationRequiredSpellIds(advancement):[]),...(advancement.version===15?advancement.lore.secrets?.spellIds||[]:[])])]:[11,12].includes(advancement?.version)?[advancement.subclass.bonusCantrip.catalogId]:[],
+      characterSheet, spellLearning, classSaveBenefits:classSaveBenefits(advancement),classCheckBenefits:classCheckBenefits(advancement),classSkills:advancement?.version===17?rogueSkillView(advancement.rogueSkills,{classId:advancement.classId,level:advancement.level,abilities:characterStats.abilities}):loreSkillView(advancement,characterStats),alwaysPreparedSpellIds:alwaysPreparedOrigins(advancement).map(o=>o.catalogId),unlimitedResources:unlimitedResourceViews(advancement),classGrantedSpellIds:[13,14,15].includes(advancement?.version)?[...new Set([...advancement.spells.map(o=>o.catalogId),...(advancement.version===14?invocationRequiredSpellIds(advancement):[]),...(advancement.version===15?advancement.lore.secrets?.spellIds||[]:[])])]:[11,12].includes(advancement?.version)?[advancement.subclass.bonusCantrip.catalogId]:[],
       ...(classAdvancement?{advancement}:{}),
       state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
   }

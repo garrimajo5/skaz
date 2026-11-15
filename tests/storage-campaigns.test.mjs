@@ -1203,3 +1203,11 @@ test('rogue tools and skill provenance survive offline projection without leakin
 test('automatic save origins survive offline projection and clear on another hero',async()=>{
  const local=memory(),session=memory();let offline=false,other=false;const fetch=async()=>{if(offline)throw Error('offline');return response({...payload(other?2:0,other?'other':'first'),...(other?{}:{classSaveBenefits:{classId:'rogue',level:15,saveProficiencies:['wis'],origin:{featureId:'rogue-slippery-mind',acquiredLevel:15}}})});};let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();const copy=h.api.classSaveBenefits();copy.saveProficiencies.push('str');assert.equal(h.api.classSaveBenefits().saveProficiencies.length,1);offline=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.classSaveBenefits().saveProficiencies[0],'wis');offline=false;other=true;const fresh=harness(memory(),memory(),fetch);await fresh.api.boot();assert.equal(fresh.api.classSaveBenefits(),null);
 });
+
+test('conditional Champion bonuses are copied, survive offline use, and clear in the same client on hero switch',async()=>{
+ const local=memory(),session=memory();let offline=false,other=false;
+ const fetch=async()=>{if(offline)throw Error('offline');return response({...payload(other?2:0,other?'other':'first'),...(other?{}:{classCheckBenefits:{classId:'fighter',level:7,bonus:2,untrainedAbilities:['str','dex','con'],origin:{name:'Выдающийся атлет',acquiredLevel:7}}})});};
+ let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();const copy=h.api.classCheckBenefits();copy.bonus=99;copy.untrainedAbilities.push('wis');assert.equal(h.api.classCheckBenefits().bonus,2);assert.equal(h.api.classCheckBenefits().untrainedAbilities.length,3);
+ offline=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.classCheckBenefits().bonus,2);
+ offline=false;other=true;const live=harness(memory(),memory(),fetch);other=false;await live.api.boot();assert.equal(live.api.classCheckBenefits().bonus,2);other=true;await live.api.refreshAfterAdvancement();assert.equal(live.api.classCheckBenefits(),null);
+});

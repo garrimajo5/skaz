@@ -1,3 +1,5 @@
+import {classSaveBenefits} from './class-save-benefits.mjs';
+import {classCheckBenefits} from './class-check-benefits.mjs';
 import {advancementClasses,advancementView} from './class-advancement-view.mjs';
 import {buildAdvancementChange} from './class-advancement.mjs';
 import http from 'node:http';
@@ -118,7 +120,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           if(['/api/class-advancement/preview','/api/class-advancement/apply','/api/class-advancement/bind'].includes(pathname)&&request.method==='POST'){
             if(request.headers['x-skaz-client']!=='local-v1')throw new AppError(403,'Запрос должен исходить из приложения');
             const data=await body(request,32768);
-            if(pathname.endsWith('/preview'))return json(response,200,buildAdvancementChange(view.read(),data).summary);
+            if(pathname.endsWith('/preview')){const change=buildAdvancementChange(view.read(),data);return json(response,200,{...change.summary,classCheckBenefits:classCheckBenefits(change.advancement),classSaveBenefits:classSaveBenefits(change.advancement)});}
             const result=pathname.endsWith('/bind')?view.bindClassResources(data):view.advanceCharacter(data);
             return json(response,200,{...result,...(authenticate?{permissions:view.permissions()}:{})});
           }
