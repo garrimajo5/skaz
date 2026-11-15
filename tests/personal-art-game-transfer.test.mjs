@@ -230,3 +230,24 @@ test('Draconic history and metamagic transfer with PNG without replaying HP bonu
  f.db.exec("CREATE TRIGGER reject_draconic_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'late draconic artwork');END");assert.throws(()=>w.importActive(request),/late draconic artwork/);assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);f.db.exec('DROP TRIGGER reject_draconic_art');
  const saved=w.importActive(request);assert.deepEqual(saved.advancement,before.advancement);assert.equal(saved.state.maxHp,before.state.maxHp);assert.equal(saved.state.hp,before.state.hp);assert.ok(w.personalArt.read(saved.context.characterId,catalogId,'master').file.bytes.equals(Buffer.from(bundle.personalArt.entries[0].png,'base64')));const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);
 });
+
+import {prepareFiend} from '../scripts/fixtures/fiend-commands.mjs';
+test('Fiend history and pact transfer with PNG atomically',t=>{
+ const f=fixture(t,{classAdvancement:true}),w=f.writer;prepareFiend(w,3,{pact:'tome',installCatalog:false});const before=w.read(),bundle=w.exportActive('with-art'),request={mutationId:randomUUID(),expectedRevision:before.revision,destination:'new-campaign',file:bundle},original=counts(f.db);
+ f.db.exec("CREATE TRIGGER reject_fiend_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'late fiend artwork');END");assert.throws(()=>w.importActive(request),/late fiend artwork/);assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);f.db.exec('DROP TRIGGER reject_fiend_art');
+ const saved=w.importActive(request);assert.deepEqual(saved.advancement,before.advancement);assert.equal(saved.state.maxHp,before.state.maxHp);assert.equal(saved.state.hp,before.state.hp);assert.ok(w.personalArt.read(saved.context.characterId,catalogId,'master').file.bytes.equals(Buffer.from(bundle.personalArt.entries[0].png,'base64')));const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);
+});
+
+import {prepareLore} from '../scripts/fixtures/lore-commands.mjs';
+test('Lore skills and extra secrets transfer with PNG atomically',t=>{
+ const f=fixture(t,{classAdvancement:true}),w=f.writer;prepareLore(w,6,{installCatalog:false});const before=w.read(),bundle=w.exportActive('with-art'),request={mutationId:randomUUID(),expectedRevision:before.revision,destination:'new-campaign',file:bundle},original=counts(f.db);
+ f.db.exec("CREATE TRIGGER reject_lore_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'late lore artwork');END");assert.throws(()=>w.importActive(request),/late lore artwork/);assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);f.db.exec('DROP TRIGGER reject_lore_art');
+ const saved=w.importActive(request);assert.deepEqual(saved.advancement,before.advancement);assert.equal(saved.state.maxHp,before.state.maxHp);assert.equal(saved.state.hp,before.state.hp);assert.ok(w.personalArt.read(saved.context.characterId,catalogId,'master').file.bytes.equals(Buffer.from(bundle.personalArt.entries[0].png,'base64')));const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);
+});
+
+import {preparePrimal,primalCommand} from '../scripts/fixtures/primal-commands.mjs';
+test('Primal Champion and unlimited rage transfer with PNG atomically',t=>{
+ const f=fixture(t,{classAdvancement:true}),w=f.writer;preparePrimal(w);w.advanceCharacter(primalCommand(w));const before=w.read(),bundle=w.exportActive('with-art'),request={mutationId:randomUUID(),expectedRevision:before.revision,destination:'new-campaign',file:bundle},original=counts(f.db);
+ f.db.exec("CREATE TRIGGER reject_primal_art BEFORE INSERT ON personal_art_versions BEGIN SELECT RAISE(ABORT,'late primal artwork');END");assert.throws(()=>w.importActive(request),/late primal artwork/);assert.deepEqual(w.read(),before);assert.deepEqual(counts(f.db),original);f.db.exec('DROP TRIGGER reject_primal_art');
+ const saved=w.importActive(request);assert.deepEqual(saved.advancement,before.advancement);assert.equal(saved.state.maxHp,before.state.maxHp);assert.equal(saved.state.hp,before.state.hp);assert.ok(w.personalArt.read(saved.context.characterId,catalogId,'master').file.bytes.equals(Buffer.from(bundle.personalArt.entries[0].png,'base64')));const after=counts(f.db);assert.equal(w.importActive(request).replayed,true);assert.deepEqual(counts(f.db),after);
+});

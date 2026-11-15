@@ -1,3 +1,4 @@
+import {validateFiend} from './class-fiend.mjs';
 import {validateDraconic} from './class-draconic.mjs';
 import {naturalRecoveryOrigin,landCantripOrigin,validateLandChoices,validateLifeConfirmation} from './class-divine-land.mjs';
 import {fightingStyleOptions} from './class-fighting-styles.mjs';
@@ -5,7 +6,7 @@ import {hunterChoiceAt,validateHunterSelection,validateHunterHistory} from './cl
 import {readFileSync} from 'node:fs';
 import {classProgression,previewClassLevel} from './class-progression.mjs';
 const data=JSON.parse(readFileSync(new URL('../catalog/srd51-subclass-reference.json',import.meta.url),'utf8'));
-const supported=new Set(['barbarian-berserker','fighter-champion','rogue-thief','monk-open-hand','wizard-evocation','ranger-hunter','paladin-devotion','cleric-life','druid-land']);
+const supported=new Set(['bard-lore','barbarian-berserker','fighter-champion','rogue-thief','monk-open-hand','wizard-evocation','ranger-hunter','paladin-devotion','cleric-life','druid-land']);
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(k=>Object.hasOwn(value,k));
 export function subclassDescription(id){const s=data.subclasses.find(o=>o.id===id);if(!s)throw new Error('Неизвестный подкласс SRD');return {...structuredClone(s),source:structuredClone(data.source),...(id==='ranger-hunter'?{additionalChoice:hunterChoiceAt(3)}:{})};}
 export function advancementSubclassOptions(classId,level){
@@ -20,6 +21,7 @@ export function validateSubclassChoice(plan,selected){
  return {id:s.id,classId:s.classId,ruleset:'5e-2014',acquiredLevel:plan.toLevel,sourcePage:s.sourcePage,choiceId:plan.classId+':'+plan.toLevel+':subclass',...(s.id==='ranger-hunter'?{options:[validateHunterSelection(3,selected.optionId)]}:{}),...(s.id==='fighter-champion'?{additionalStyle:null}:{}),...(s.id==='druid-land'?{bonusCantrip:landCantripOrigin(selected.cantripId),terrain:null,naturalRecovery:naturalRecoveryOrigin()}:{})};
 }
 export function validateSubclassOrigin(origin,{classId,baselineLevel,level}){
+ if(origin?.id==='warlock-fiend')return validateFiend(origin,{classId,baselineLevel,level});
  if(origin?.id==='sorcerer-draconic')return validateDraconic(origin,{classId,baselineLevel,level});
  if(origin?.id==='cleric-life')return validateLifeConfirmation(origin,{classId,baselineLevel,level});
  const start=classProgression(classId,level).subclassLevel;

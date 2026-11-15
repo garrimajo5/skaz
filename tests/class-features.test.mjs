@@ -32,7 +32,7 @@ test('barbarian and rogue tables have class-specific help without promising subc
  const barbarian=classFeatureDetails('barbarian',['Extra Attack'])[0];
  assert.notEqual(barbarian.id,classFeatureDetails('fighter',['Extra Attack'])[0].id);
  assert.ok(!barbarian.text.includes('четыре'));
- for(const key of ['Primal Path','Path feature'])assert.equal(classFeatureDetails('barbarian',[key])[0].status,'choice');assert.equal(classFeatureDetails('barbarian',['Primal Champion'])[0].status,'unsupported');
+ for(const key of ['Primal Path','Path feature'])assert.equal(classFeatureDetails('barbarian',[key])[0].status,'choice');assert.equal(classFeatureDetails('barbarian',['Primal Champion'])[0].status,'manual');
  for(const key of ['Roguish Archetype','Roguish Archetype feature'])assert.equal(classFeatureDetails('rogue',[key])[0].status,'choice');assert.equal(classFeatureDetails('rogue',['Expertise'])[0].status,'unsupported');
 });
 import {readFileSync} from 'node:fs';
@@ -85,7 +85,7 @@ test('new help does not relax mandatory subclass and expertise choices or duplic
  for(const [classId,from,kinds]of [['bard',2,['subclass','expertise']],['druid',1,['subclass']]]){
   const p=previewClassLevel({classId,fromLevel:from,toLevel:from+1,constitution:14});
   for(const kind of kinds)assert.ok(p.choices.some(c=>c.kind===kind&&c.required));
-  assert.ok(p.featureDetails.some(d=>d.status==='unsupported'));
+  if(classId==='bard')assert.ok(p.featureDetails.filter(d=>['Bard College','Expertise'].includes(d.key)).every(d=>d.status==='choice'));else assert.ok(p.featureDetails.some(d=>d.status==='unsupported'));
  }
  const bard=classFeatureReference('bard',10);assert.equal(bard.filter(d=>d.id==='bard-inspiration').length,1);
  assert.equal(bard.find(d=>d.id==='bard-inspiration').key,'Bardic Inspiration (d10)');

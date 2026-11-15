@@ -1185,3 +1185,13 @@ test('Land bonus stays editable but cannot be removed; another hero clears its p
  const copy=h.api.unlimitedResources();copy[0].name='Changed';assert.equal(h.api.unlimitedResources()[0].name,'Дикий облик');
  other=true;await h.api.refreshAfterAdvancement();assert.deepEqual(Array.from(h.api.unlimitedResources()),[]);h.api.editSpell(entry,'known');assert.match(h.dialog(),/value="remove"/);
 });
+
+test('confirmed class skills survive an offline resource projection and clear on hero switch',async()=>{
+ const local=memory(),session=memory(),skills={classId:'bard',level:3,proficiency:2,skills:[{id:'arcana',name:'Магия',ability:'int',rank:'expertise',modifier:5}],jackOfAllTrades:true};let offline=false,other=false;const fetch=async()=>{if(offline)throw Error('offline');return response({...payload(other?2:0,other?'other':'first'),...(other?{}:{classSkills:skills})});};let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.classSkills().skills[0].modifier,5);const copy=h.api.classSkills();copy.skills[0].modifier=100;assert.equal(h.api.classSkills().skills[0].modifier,5);offline=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.classSkills().skills[0].modifier,5);
+ // Switching uses a fresh synchronized client; pending mutations must remain scoped.
+ offline=false;other=true;const second=harness(memory(),memory(),fetch);await second.api.boot();assert.equal(second.api.classSkills(),null);
+});
+
+test('the same live client discards a previous hero skill profile when the next payload omits it',async()=>{
+ let other=false;const h=harness(memory(),memory(),async()=>response({...payload(other?2:1,other?'second':'first'),...(other?{}:{classSkills:{skills:[{id:'arcana',modifier:5}]}})}));await h.api.boot();assert.equal(h.api.classSkills().skills[0].modifier,5);other=true;await h.api.refreshAfterAdvancement();assert.equal(h.api.classSkills(),null);
+});

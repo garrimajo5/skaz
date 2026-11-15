@@ -24,7 +24,7 @@ test('Draconic form requires both confirmations and keeps the same HP command af
  for(const box of review?walk(review).filter(n=>n.type==='checkbox'):[]){box.checked=true;box.emit('change');}
  // Sorcerer2 also chooses one new known spell.
  const known=walk(e.root).find(n=>n.name==='sorcerer:2:known-spells');
- if(known){known.value=known.children.find(n=>n.value)?.value;known.emit('change');}
+ if(known?.tagName==='select'){known.value=known.children.find(n=>n.value)?.value;known.emit('change');}
  else {const data=await call('/api/class-advancement/plan?classId=sorcerer');const candidate=data.options['sorcerer:2:known-spells'][0].spellId;const box=walk(e.root).find(n=>n.type==='checkbox'&&n.value===candidate);assert.ok(box);box.checked=true;box.emit('change');}
  const check=e.button('Проверить повышение'),apply=e.button('Подтвердить повышение');
  await check.onclick();assert.equal(apply.hidden,true);
