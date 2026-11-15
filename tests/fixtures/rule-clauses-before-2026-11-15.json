@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "srd51:2014:spell:wall-of-force",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Силовая стена",
+        "en": "Wall of Force"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=190",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-five remaining v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 190.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nНевидимая стена толщиной 1/4 дюйма может висеть в воздухе или опираться на поверхность, в любой ориентации: сфера/полусфера радиусом до 10 футов либо десять соединённых панелей 10×10 футов. Если при появлении пересекает пространство существа, выталкивает его на выбранную тобой сторону. Физически непроходима, невосприимчива ко всему урону, не снимается Рассеиванием магии, но мгновенно уничтожается Распадом (Disintegrate). Распространяется и на Эфирный план, блокируя проход там.\nМатериальный компонент: щепотка порошка из прозрачного самоцвета.",
+      "links": [
+        "srd51:2014:mechanic:concentration"
+      ],
+      "spell": {
+        "level": 5,
+        "school": "evocation",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "feet",
+          "feet": 120
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "До 10 минут",
+        "concentration": true,
+        "ritual": false
+      }
+    },
+    {
+      "id": "srd51:2014:spell:globe-of-invulnerability",
+      "ruleset": "5e-2014",
+      "kind": "spell",
+      "name": {
+        "ru": "Сфера неуязвимости",
+        "en": "Globe of Invulnerability"
+      },
+      "source": {
+        "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf#page=149",
+        "title": "System Reference Document 5.1",
+        "version": "5.1; checked 2026-10-19; skaz level-six v1",
+        "usage": "cc-by-4.0",
+        "terms": "CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/legalcode. Страницы 149.",
+        "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+        "changes": "Русские названия и краткое изложение подготовлены для СКАЗ; структура данных преобразована из английского SRD. Это не официальный перевод. Полные правила см. в источнике."
+      },
+      "text": "Краткое изложение SRD 5.1 (2014).\nНеподвижная преграда радиусом 10 футов вокруг места наложения. Заклинания 5-го уровня и ниже, наложенные снаружи, не воздействуют на существ и предметы внутри; внутреннее пространство исключается из их областей. Повышенная ячейка атакующего заклинания не обходит защиту. Ячейка сферы выше 6-го повышает максимальный блокируемый уровень на 1 за уровень.\nМатериальный компонент: стеклянная или хрустальная бусина, разбивающаяся в конце заклинания.",
+      "links": [
+        "srd51:2014:mechanic:concentration"
+      ],
+      "spell": {
+        "level": 6,
+        "school": "abjuration",
+        "castingTime": "1 действие",
+        "range": {
+          "type": "self"
+        },
+        "components": [
+          "M",
+          "S",
+          "V"
+        ],
+        "duration": "До 1 минуты",
+        "concentration": true,
+        "ritual": false
+      }
+    }
+  ]
+}
