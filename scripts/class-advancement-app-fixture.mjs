@@ -20,7 +20,7 @@ const args=new Map();for(const arg of process.argv.slice(2)){
  const match=/^--(port|scenario)=(.+)$/.exec(arg);const key=arg==='--lose-response'?'lose-response':match?.[1];
  if(!key||args.has(key))throw Error('Unknown or repeated fixture argument');args.set(key,match?.[2]??true);
 }
-const port=Number(args.get('port')||4245),scenario=args.get('scenario')||'original';
+const port=Number(args.get('port')||4337),scenario=args.get('scenario')||'original';
 if(!Number.isInteger(port)||port<1024||port>65535)throw Error('Invalid fixture port');
 const scenarios={'monk-diamond':[['monk',2]],'rogue-mind':[['rogue',2]],'champion-athlete':[['fighter',2]],'rogue-expertise':[['rogue',2]],'primal-champion':[['barbarian',2]],'lore-skills':[['bard',2]],'lore-secrets':[['bard',2]],'lore-expertise':[['bard',2]],'fiend-confirm':[['warlock',1]],'fiend-pact':[['warlock',1]],'fiend-luck':[['warlock',1]],'fiend-hell':[['warlock',1]],'draconic-confirm':[['sorcerer',1]],'draconic-metamagic':[['sorcerer',1]],original:[['fighter',3],['wizard',2],['cleric',1]],'class-choices':[['paladin',1],['ranger',1],['sorcerer',2]],'unknown-metamagic':[['sorcerer',9]],'warlock-choices':[['warlock',1]],'unknown-invocations':[['warlock',4]],'subclass-choices':[['fighter',2],['barbarian',2],['rogue',2],['monk',2],['wizard',1],['ranger',2]],'champion-style':[['fighter',2]],'wizard-mastery':[['wizard',1]],'ranger-six':[['ranger',1]],'ranger-ten':[['ranger',1]],'ranger-fourteen':[['ranger',1]],'devotion':[['paladin',2]],'wizard-signature':[['wizard',1]],'life-domain':[['cleric',1]],'land-cantrip':[['druid',1]],'land-terrain':[['druid',1]],'archdruid':[['druid',1]]};
 if(!Object.hasOwn(scenarios,scenario))throw Error('Unknown fixture scenario');
