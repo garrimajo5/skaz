@@ -73,3 +73,10 @@ test('Reliable Talent is shown only on eligible skills and tools',()=>{
 test('Diamond Soul panel names the manual death saving throw bonus',()=>{
  let html='';const context=vm.createContext({esc:String,modal:v=>html=v,SkazStorage:{stats:()=>({abilities:{str:10,dex:10,con:10,int:10,wis:10,cha:10}}),sheet:()=>({level:14}),classSaveBenefits:()=>({level:14,saveProficiencies:['str','dex','con','int','wis','cha'],deathSaveProficiency:true,origin:{name:'Алмазная душа'}}),classSkills:()=>null}});vm.runInContext(source,context);vm.runInContext('SkazCharacterSheet.checks()',context);assert.match(html,/от смерти также добавь мастерство \+5/);assert.equal((html.match(/Спасбросок \+5 ●/g)||[]).length,6);
 });
+
+test('Champion shows a conditional physical check without changing saves, mental checks, or mismatched heroes',()=>{
+ let html='',level=7;const context=vm.createContext({esc:String,modal:v=>html=v,SkazStorage:{stats:()=>({abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>({level,saveProficiencies:['str']}),classSkills:()=>null,classCheckBenefits:()=>({level:7,bonus:2,untrainedAbilities:['str','dex','con'],origin:{name:'Выдающийся атлет'}})}});
+ vm.runInContext(source,context);vm.runInContext('SkazCharacterSheet.checks()',context);
+ assert.match(html,/СИЛ · проверка -1/);assert.match(html,/Без владения · Выдающийся атлет: <strong>\+1/);assert.match(html,/Спасбросок \+2 ●/);assert.match(html,/ИНТ · проверка \+1/);assert.equal((html.match(/Без владения · Выдающийся атлет/g)||[]).length,3);assert.match(html,/Инициатива на листе остаётся ручным итогом/);
+ level=6;vm.runInContext('SkazCharacterSheet.checks()',context);assert.doesNotMatch(html,/Выдающийся атлет/);
+});

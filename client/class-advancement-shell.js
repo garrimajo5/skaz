@@ -14,7 +14,7 @@ const SkazClassAdvancementShell=(()=>{
   try{
    const info=await transport.classes();if(closed)return;
    if(!info.ready){status.textContent='Сначала сохрани свой класс, уровень и характеристики на листе героя.';return;}
-   status.textContent='Подтверди класс по правилам 2014. Подклассы, черты и мультикласс ещё не автоматизированы; обязательные неподдерживаемые выборы блокируют повышение.';
+   status.textContent='Подтверди класс по правилам 2014. Поддерживаются отдельные подклассы SRD; черты, мультикласс и неподдерживаемые обязательные выборы требуют ручной сверки и блокируют повышение.';
    const label=document.createElement('label');label.textContent=info.level>=20?'Класс для просмотра':'Класс для повышения';const select=document.createElement('select');label.append(select);root.append(label);
    const empty=document.createElement('option');empty.value='';empty.textContent='Выбери свой класс';select.append(empty);
    for(const c of info.classes){const o=document.createElement('option');o.value=c.slug;o.textContent=c.name.ru;select.append(o);}
