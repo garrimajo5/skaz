@@ -1,0 +1,479 @@
+{
+  "schemaVersion": 1,
+  "selection": "Purposeful risk sample: reaction triggers, material costs, version differences, geometry, item charges/capacity, monster actions and exceptions. Not random or representative of full rule coverage.",
+  "sources": [
+    {
+      "url": "https://dnd.su/spells/314-wall-of-force/",
+      "file": "spells-314-wall-of-force.html",
+      "rawSha256": "37d26433469ebb2dafc0c456c1a3091bc6b81b84e7ec05aacc835c76eaf22f63",
+      "articleSha256": "c6f9f413dca36b329bcf135cf6926f386bdb9495e135980bc7a94d03bb7da398",
+      "checkedAt": "2026-11-15T17:19:06.561Z"
+    },
+    {
+      "url": "https://dnd.su/spells/342-globe-of-invulnerability/",
+      "file": "spells-342-globe-of-invulnerability.html",
+      "rawSha256": "95e425f6b0c2ffbf8b05fa2af580b16a8e82ac8fbf4876a5c24f71381b66ba3b",
+      "articleSha256": "9c1fc56f209ce8f02b8567698c3e599f4dc585460a3cd48071216fc90b4f048f",
+      "checkedAt": "2026-11-15T17:19:07.316Z"
+    },
+    {
+      "url": "https://dnd.su/spells/354-sanctuary/",
+      "file": "spells-354-sanctuary.html",
+      "rawSha256": "9297342ce40fc3a98d4bc0c5b52099fcb0cbc938bec425ae304a0bf9a971c9a9",
+      "articleSha256": "5596e8457b70838b2ed863f8e702e0debec99b1c448f52f28eda891216607aca",
+      "checkedAt": "2026-11-15T17:19:09.085Z"
+    },
+    {
+      "url": "https://dnd.su/spells/72-animal-friendship/",
+      "file": "spells-72-animal-friendship.html",
+      "rawSha256": "97ef08d84bb73ef42cbb0864d70af156f458a931092ba337d5be21d646f6809e",
+      "articleSha256": "e7bd3aa30c71f9fc24bcc6b542c33006eb1b9badf01b8df0e4195ffb41bd0d05",
+      "checkedAt": "2026-11-15T17:19:10.121Z"
+    },
+    {
+      "url": "https://dnd.su/spells/24-revivify/",
+      "file": "spells-24-revivify.html",
+      "rawSha256": "66772d9c16efa6a6ba6118f3ba15a62531cace1613cebe5f0c7ae6a1f42a720f",
+      "articleSha256": "0fd5e03b2ae37221738b66e0c69b788323dec4c989f0f1e94635ce3859c60bea",
+      "checkedAt": "2026-11-15T17:19:10.909Z"
+    },
+    {
+      "url": "https://dnd.su/spells/70-shield/",
+      "file": "spells-70-shield.html",
+      "rawSha256": "76edca7293a6531ce64f41d9994c5d07cba33a90db51bb33447d985d230a2d9f",
+      "articleSha256": "62609c22a4c4f33396edac0ad87778b299c7dbd9d17875b37389153418c39a6e",
+      "checkedAt": "2026-11-15T17:19:11.570Z"
+    },
+    {
+      "url": "https://dnd.su/spells/125-true-resurrection/",
+      "file": "spells-125-true-resurrection.html",
+      "rawSha256": "39f16e4febd7470c1c82ffe6c18827e36f60fb9321db3c7ffa77bdbe9488d273",
+      "articleSha256": "8f9bd5b3680068bb2a0708b7655b6997aa037a8e5cd38cc9d48bbbe60a7c92d0",
+      "checkedAt": "2026-11-15T17:19:12.307Z"
+    },
+    {
+      "url": "https://dnd.su/items/227-bag-of-holding/",
+      "file": "items-227-bag-of-holding.html",
+      "rawSha256": "c915355b993483165a7b3e159dee2c6b2096ad2e4fbc49c138151f9cd7059686",
+      "articleSha256": "0ae5ac779a6f8bbd74545789b7e57bf96faaf53e4fa6d90685e1a54b284fb1d0",
+      "checkedAt": "2026-11-15T17:19:12.712Z"
+    },
+    {
+      "url": "https://dnd.su/items/171-cloak-of-protection/",
+      "file": "items-171-cloak-of-protection.html",
+      "rawSha256": "146bf42e8faecc5227f5443b84cd0ecd6e269eb762c95f0cff7f390ecfb88597",
+      "articleSha256": "798c9ea71d184c3a880e43c23fae262660e5997eb0677d1f3712438f7b28c348",
+      "checkedAt": "2026-11-15T17:19:13.316Z"
+    },
+    {
+      "url": "https://dnd.su/items/26-wand-of-magic-missiles/",
+      "file": "items-26-wand-of-magic-missiles.html",
+      "rawSha256": "fcad5308b7cbc929bda1f73f31296b7c9766a0eb8c321479e2a46fca29708241",
+      "articleSha256": "c49eaef15166317da6aae60a218287ccf5d6ea98834bd88fa628b1a32919b934",
+      "checkedAt": "2026-11-15T17:19:13.693Z"
+    },
+    {
+      "url": "https://dnd.su/bestiary/4-goblin/",
+      "file": "bestiary-4-goblin.html",
+      "rawSha256": "a62a5f3f1539ce954ddce09c7be56644a223e335c5e0da11d7f94d11393d33a2",
+      "articleSha256": "7eead1bd56a5aaeb53280582a68a7e9f463a790cf6734dce48c9fe951a537ddb",
+      "checkedAt": "2026-11-15T17:19:14.087Z"
+    },
+    {
+      "url": "https://dnd.su/bestiary/9-zombie/",
+      "file": "bestiary-9-zombie.html",
+      "rawSha256": "0529acaad16263f38355d8a6e26f77a5a7dafa682f7035319d9d6cf4aa4f4f9c",
+      "articleSha256": "26c93f8ca98428fe8ea2b9fa1a6e91d432601190ce1e0e241a7f483872f39c0b",
+      "checkedAt": "2026-11-15T17:19:14.430Z"
+    },
+    {
+      "url": "https://dnd.su/bestiary/19-ogre/",
+      "file": "bestiary-19-ogre.html",
+      "rawSha256": "65f84f33c3d8ab4c49e5ea5fdd0fb67880a2b440e6ff384164e01745922b828c",
+      "articleSha256": "9f1d39849426c1440284978ee537c9e2d5d02ce0994e9fe6583896e9b64f87ae",
+      "checkedAt": "2026-11-15T17:19:14.695Z"
+    }
+  ],
+  "clauses": [
+    {
+      "id": "srd51:2014:spell:wall-of-force",
+      "url": "https://dnd.su/spells/314-wall-of-force/",
+      "field": "flat-panels",
+      "fact": "The panel option forms a flat surface; adjacent panels are not an arbitrary folded enclosure.",
+      "patterns": [
+        "плоск[а-яё]* поверхност"
+      ],
+      "sourcePatterns": [
+        "плоскую поверхность"
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-force",
+      "url": "https://dnd.su/spells/314-wall-of-force/",
+      "field": "barrier-exceptions",
+      "fact": "Dispel Magic does not remove it; Disintegrate destroys it; ethereal travel is blocked.",
+      "patterns": [
+        "не снимается Рассеиванием",
+        "уничтожается Распадом",
+        "Эфирный"
+      ],
+      "sourcePatterns": [
+        "рассеивание магии",
+        "распад",
+        "Эфирный"
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:globe-of-invulnerability",
+      "url": "https://dnd.su/spells/342-globe-of-invulnerability/",
+      "field": "targeting",
+      "fact": "Targets inside remain eligible for targeting by blocked spells; those spells have no effect.",
+      "patterns": [
+        "могут выбирать цели внутри",
+        "не воздействуют"
+      ],
+      "sourcePatterns": [
+        "могут быть нацелены"
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:globe-of-invulnerability",
+      "url": "https://dnd.su/spells/342-globe-of-invulnerability/",
+      "field": "slot-vs-level",
+      "fact": "The incoming spell level, not its upcast slot, determines blocking.",
+      "patterns": [
+        "5-го уровня",
+        "Повышенная ячейка.*не обходит",
+        "выше 6-го"
+      ],
+      "sourcePatterns": [
+        "большего уровня",
+        "выше шестого"
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:sanctuary",
+      "url": "https://dnd.su/spells/354-sanctuary/",
+      "field": "damage-termination",
+      "fact": "The site also ends protection when the protected creature deals damage; the pinned SRD does not contain this condition.",
+      "patterns": [
+        "наносит урон другому существу"
+      ],
+      "sourcePatterns": [
+        "наносит урон"
+      ],
+      "gapStatus": "version-difference"
+    },
+    {
+      "id": "srd51:2014:spell:sanctuary",
+      "url": "https://dnd.su/spells/354-sanctuary/",
+      "field": "save-and-area",
+      "fact": "Wisdom save precedes targeted harmful attacks/spells; areas bypass protection.",
+      "patterns": [
+        "спасбросок Мудрости",
+        "другую цель",
+        "Эффекты по области не блокируются"
+      ],
+      "sourcePatterns": [
+        "Мудрости",
+        "на площадь"
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:animal-friendship",
+      "url": "https://dnd.su/spells/72-animal-friendship/",
+      "field": "upcast-target-count",
+      "fact": "One extra beast per slot level above first is explicit on the site; the existing card deliberately leaves the damaged SRD sentence unresolved.",
+      "patterns": [
+        "дополнительн[а-яё]* звер[а-яё]*",
+        "выше 1-го|выше первого"
+      ],
+      "sourcePatterns": [
+        "дополнительного Зверя"
+      ],
+      "gapStatus": "declared-omission"
+    },
+    {
+      "id": "srd51:2014:spell:animal-friendship",
+      "url": "https://dnd.su/spells/72-animal-friendship/",
+      "field": "target-and-break",
+      "fact": "Target must see/hear the caster, Intelligence below four; party damage ends the charm.",
+      "patterns": [
+        "видеть и слышать",
+        "Интеллекте 4",
+        "спасбросок Мудрости",
+        "спутники причиняете.*вред"
+      ],
+      "sourcePatterns": [
+        "видеть и слышать",
+        "Интеллект",
+        "спутников"
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:revivify",
+      "url": "https://dnd.su/spells/24-revivify/",
+      "field": "material-cost",
+      "fact": "Consumed diamonds total 300 gp.",
+      "patterns": [
+        "300 зм, расходуются"
+      ],
+      "sourcePatterns": [
+        "300 зм",
+        "расходуемые"
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:revivify",
+      "url": "https://dnd.su/spells/24-revivify/",
+      "field": "revival-limits",
+      "fact": "One minute, one HP, excludes old age and missing body parts.",
+      "patterns": [
+        "1 хитом",
+        "не более минуты",
+        "старости",
+        "не восстанавливает отсутствующие"
+      ],
+      "sourcePatterns": [
+        "минуты",
+        "1 хитом",
+        "старости"
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:shield",
+      "url": "https://dnd.su/spells/70-shield/",
+      "field": "reaction-trigger",
+      "fact": "Reaction needs an attack hit or being targeted by Magic Missile.",
+      "patterns": [
+        "реакция, когда по тебе попадает атака",
+        "целью Волшебной стрелы"
+      ],
+      "sourcePatterns": [
+        "попадает атака",
+        "целью волшебной"
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:shield",
+      "url": "https://dnd.su/spells/70-shield/",
+      "field": "ac-and-duration",
+      "fact": "AC +5 applies to the triggering attack until the start of the next turn; Magic Missile deals no damage.",
+      "patterns": [
+        "До начала твоего следующего хода",
+        "\\+5 к КД",
+        "вызвавшей реакцию атаки",
+        "не получаешь урон"
+      ],
+      "sourcePatterns": [
+        "начала",
+        "\\+5",
+        "той атаки"
+      ]
+    },
+    {
+      "id": "srd51:2014:spell:true-resurrection",
+      "url": "https://dnd.su/spells/125-true-resurrection/",
+      "field": "undead-restoration",
+      "fact": "The site explicitly restores an undead creature to its non-undead form; the pinned SRD lacks this sentence.",
+      "patterns": [
+        "облик[а-яё]* не-Нежити|нежить.*прежн"
+      ],
+      "sourcePatterns": [
+        "облику не-Нежити"
+      ],
+      "gapStatus": "version-difference"
+    },
+    {
+      "id": "srd51:2014:spell:true-resurrection",
+      "url": "https://dnd.su/spells/125-true-resurrection/",
+      "field": "revival-limits",
+      "fact": "200 years, not old age, free/willing soul, all HP and a replacement body with name and free space within ten feet.",
+      "patterns": [
+        "200 лет",
+        "не от старости",
+        "душа свободна и согласна",
+        "со всеми хитами",
+        "произнеси имя",
+        "свободном месте в 10 футах"
+      ],
+      "sourcePatterns": [
+        "двух сотен",
+        "свободна и согласна",
+        "10 футов"
+      ]
+    },
+    {
+      "id": "srd51:2014:item:bag-of-holding",
+      "url": "https://dnd.su/items/227-bag-of-holding/",
+      "field": "capacity",
+      "fact": "500 lb, 64 cubic feet, bag weight 15 lb; retrieval takes an action.",
+      "patterns": [
+        "500 фунтов",
+        "64 кубических",
+        "15 фунтов",
+        "Достать предмет — действие"
+      ],
+      "sourcePatterns": [
+        "500 фунтов",
+        "64 кубических",
+        "15 фунтов",
+        "действием"
+      ]
+    },
+    {
+      "id": "srd51:2014:item:bag-of-holding",
+      "url": "https://dnd.su/items/227-bag-of-holding/",
+      "field": "air",
+      "fact": "Air duration is ten minutes divided by number of breathing creatures, minimum one minute.",
+      "patterns": [
+        "10 минут, делённых на их число",
+        "минимум 1 минута",
+        "задыхаются"
+      ],
+      "sourcePatterns": [
+        "десяти минутам",
+        "минимум 1 минута"
+      ]
+    },
+    {
+      "id": "srd51:2014:item:bag-of-holding",
+      "url": "https://dnd.su/items/227-bag-of-holding/",
+      "field": "extradimensional",
+      "fact": "Nesting destroys both items and draws creatures within ten feet into a one-way Astral gate.",
+      "patterns": [
+        "уничтожает оба предмета",
+        "односторонние",
+        "10 футов",
+        "Астральный"
+      ],
+      "sourcePatterns": [
+        "оба предмета",
+        "10 футов",
+        "односторонние"
+      ]
+    },
+    {
+      "id": "srd51:2014:item:cloak-of-protection",
+      "url": "https://dnd.su/items/171-cloak-of-protection/",
+      "field": "worn-bonus",
+      "fact": "While worn, grants +1 AC and saves; attunement required.",
+      "patterns": [
+        "требуется настройка",
+        "При ношении",
+        "\\+1 к КД и спасброскам"
+      ],
+      "sourcePatterns": [
+        "настройка",
+        "\\+1",
+        "носите"
+      ]
+    },
+    {
+      "id": "srd51:2014:item:wand-of-magic-missiles",
+      "url": "https://dnd.su/items/26-wand-of-magic-missiles/",
+      "field": "activation",
+      "fact": "Held wand, action, one charge casts first level; extra charges add levels.",
+      "patterns": [
+        "Держа палочку, действием",
+        "За 1 заряд — 1-й уровень",
+        "каждый дополнительный заряд"
+      ],
+      "sourcePatterns": [
+        "держите",
+        "действием",
+        "1-го уровня"
+      ]
+    },
+    {
+      "id": "srd51:2014:item:wand-of-magic-missiles",
+      "url": "https://dnd.su/items/26-wand-of-magic-missiles/",
+      "field": "charges",
+      "fact": "Seven charges, dawn restores 1d6+1; last charge risks destruction on a d20 roll of one.",
+      "patterns": [
+        "7 зарядов",
+        "1d6 \\+ 1",
+        "рассвете",
+        "последнего заряда",
+        "d20: на 1"
+      ],
+      "sourcePatterns": [
+        "7 зарядов",
+        "1к6",
+        "рассвете",
+        "к20"
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:goblin",
+      "url": "https://dnd.su/bestiary/4-goblin/",
+      "field": "bonus-action",
+      "fact": "Nimble Escape is a bonus-action disengage or hide on its own turn.",
+      "patterns": [
+        "в каждый свой ход",
+        "бонусным действием Отойти или Спрятаться"
+      ],
+      "sourcePatterns": [
+        "бонусным действием",
+        "Засада или Отход"
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:goblin",
+      "url": "https://dnd.su/bestiary/4-goblin/",
+      "field": "shortbow",
+      "fact": "Shortbow +4, range 80/320, piercing 1d6+2 (5).",
+      "patterns": [
+        "Короткий лук:.*\\+4.*80/320.*5 \\(1d6 \\+ 2\\), колющий"
+      ],
+      "sourcePatterns": [
+        "80 футов/320",
+        "1к6 \\+ 2"
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:zombie",
+      "url": "https://dnd.su/bestiary/9-zombie/",
+      "field": "fortitude",
+      "fact": "Constitution DC 5+damage at zero HP, leaves one HP; radiant damage and critical hits bypass.",
+      "patterns": [
+        "Телосложения со Сл 5 \\+ полученный урон",
+        "остаётся 1 хит",
+        "излучением и критического"
+      ],
+      "sourcePatterns": [
+        "Сл 5",
+        "излучением",
+        "критического"
+      ]
+    },
+    {
+      "id": "srd51:2014:monster:zombie",
+      "url": "https://dnd.su/bestiary/9-zombie/",
+      "field": "undead-nature",
+      "fact": "The site includes no need for air, food, drink or sleep in its description; absent in the local summary, not established here as a licensed SRD correction.",
+      "patterns": [
+        "не нуж[а-яё]*.*воздух.*ед[аеуы].*пить.*сон"
+      ],
+      "sourcePatterns": [
+        "не нужен воздух"
+      ],
+      "gapStatus": "content-omission"
+    },
+    {
+      "id": "srd51:2014:monster:ogre",
+      "url": "https://dnd.su/bestiary/19-ogre/",
+      "field": "javelin",
+      "fact": "Javelin supports melee and ranged attacks, +6, reach five or range 30/120, piercing 2d6+4 (11).",
+      "patterns": [
+        "Метательное копьё: рукопашная или дальнобойная атака \\+6",
+        "30/120",
+        "11 \\(2d6 \\+ 4\\) колющего"
+      ],
+      "sourcePatterns": [
+        "30 футов/120",
+        "2к6 \\+ 4"
+      ]
+    }
+  ]
+}
