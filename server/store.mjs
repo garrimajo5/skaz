@@ -1,3 +1,9 @@
+import {classSaveBenefits} from './class-save-benefits.mjs';
+import {rogueSkillView} from './class-rogue-expertise.mjs';
+import {loreSkillView} from './class-bard-lore.mjs';
+import {invocationRequiredSpellIds} from './class-invocation-sources.mjs';
+import {unlimitedResourceViews} from './class-unlimited.mjs';
+import {alwaysPreparedOrigins} from './class-subclass-prepared.mjs';
 import {spellLearningMode} from './spell-learning.mjs';
 import {buildAdvancementChange,validateAdvancementCommand,validateAdvancementSnapshot,buildResourceBinding,validateResourceBindingCommand} from './class-advancement.mjs';
 import {checkAdvancementCompatibility,setupAdvancement,readAdvancement,persistAdvancement} from './class-advancement-store.mjs';
@@ -72,13 +78,14 @@ export function openStore(filename, {classAdvancement=false}={}) {
     const context = readEntities(db, viewId);
     const session = readSession(db, context.session.id);
     const characterSheet = readCharacterSheet(db, context.character.id);
+    const characterStats=readCharacterStats(db,context.character.id);
     const advancement = classAdvancement ? readAdvancement(db, context.character.id) : null;
     const spellLearning = advancement ? spellLearningMode({classId:advancement.classId}) : characterSheet ? spellLearningMode({manual:true,selectedMode:characterSheet.spellLearning}) : spellLearningMode({classId:"bard"});
     return { schemaVersion: 1, revision: context.revision, updatedAt: context.updatedAt, context: contextIds(context),
       session: { name: session.name, playedOn: session.playedOn }, sessionNumber: session.number,
       spellbook:readSpellbook(db,context.character.id),
-      characterStats: readCharacterStats(db,context.character.id),
-      characterSheet, spellLearning,
+      characterStats,
+      characterSheet, spellLearning, classSaveBenefits:classSaveBenefits(advancement),classSkills:advancement?.version===17?rogueSkillView(advancement.rogueSkills,{classId:advancement.classId,level:advancement.level,abilities:characterStats.abilities}):loreSkillView(advancement,characterStats),alwaysPreparedSpellIds:alwaysPreparedOrigins(advancement).map(o=>o.catalogId),unlimitedResources:unlimitedResourceViews(advancement),classGrantedSpellIds:[13,14,15].includes(advancement?.version)?[...new Set([...advancement.spells.map(o=>o.catalogId),...(advancement.version===14?invocationRequiredSpellIds(advancement):[]),...(advancement.version===15?advancement.lore.secrets?.spellIds||[]:[])])]:[11,12].includes(advancement?.version)?[advancement.subclass.bonusCantrip.catalogId]:[],
       ...(classAdvancement?{advancement}:{}),
       state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
   }
@@ -295,22 +302,28 @@ export function openStore(filename, {classAdvancement=false}={}) {
     },
     saveCharacterSheet:request=>{
       const payload=validateSheetCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'character-sheet',expectedRevision:request.expectedRevision,payload})).digest('hex');
-      return mutate(request,hash,'Ручной класс и счётчики',()=>{const current=read();if(payload.sheet&&current.characterSheet?.spellLearning!=null&&!Object.hasOwn(payload.sheet,'spellLearning'))throw new AppError(409,'Обнови страницу: отсутствует выбор модели заклинаний');if(current.advancement&&(!payload.sheet||payload.sheet.level!==current.characterSheet.level||payload.sheet.className!==current.characterSheet.className))throw new AppError(409,'Класс и уровень связаны с историей повышения');saveCharacterSheet(db,payload,request.mutationId,current.context.characterId);return read().state;},'character-sheet');
+      return mutate(request,hash,'Ручной класс и счётчики',()=>{const current=read();if(payload.sheet&&current.characterSheet?.spellLearning!=null&&!Object.hasOwn(payload.sheet,'spellLearning'))throw new AppError(409,'Обнови страницу: отсутствует выбор модели заклинаний');if(current.advancement&&(!payload.sheet||payload.sheet.level!==current.characterSheet.level||payload.sheet.className!==current.characterSheet.className||current.advancement.version>=5&&payload.sheet.subclass!==current.characterSheet.subclass))throw new AppError(409,'Класс и уровень связаны с историей повышения');if([9,11,12,13,14,15,16,17].includes(current.advancement?.version))validateAdvancementSnapshot(current.advancement,payload.sheet,current.characterStats,current.spellbook);saveCharacterSheet(db,payload,request.mutationId,current.context.characterId);return read().state;},'character-sheet');
     },
     saveCharacterStats: request => {
       const payload=validateStatsCommand(request);
       const hash=createHash('sha256').update(JSON.stringify({operation:'character-stats',expectedRevision:request.expectedRevision,payload})).digest('hex');
       return mutate(request,hash,'Ручные характеристики персонажа',()=>{
         saveCharacterStats(db,payload,request.mutationId,read().context.characterId);
-        return read().state;
+        const current=read();if([13,14,15,16,17].includes(current.advancement?.version))validateAdvancementSnapshot(current.advancement,current.characterSheet,current.characterStats,current.spellbook);
+        return current.state;
       },'character-stats');
     },
-    spellbook: () => { const current = read(); return { revision: current.revision, context: current.context, spellLearning:current.spellLearning, entries: readSpellbook(db, current.context.characterId) }; },
+    spellbook: () => { const current = read(); return { revision: current.revision, context: current.context, spellLearning:current.spellLearning, entries: readSpellbook(db,current.context.characterId).map(row=>alwaysPreparedOrigins(current.advancement).some(o=>o.catalogId===row.catalogId)?{...row,alwaysPrepared:true}:row) }; },
     setSpell: request => {
       const payload = validateSpellCommand(request);
       const hash = createHash('sha256').update(JSON.stringify({ operation: 'spell-set', expectedRevision: request.expectedRevision, payload })).digest('hex');
       return mutate(request, hash, 'Изменение списка заклинаний', () => {
-        setSpell(db, payload, request.mutationId, read().context.characterId);
+        const current=read(),protectedSpell=alwaysPreparedOrigins(current.advancement).some(o=>o.catalogId===payload.catalogId);
+        if([13,14,15].includes(current.advancement?.version)&&payload.status==='remove'&&current.classGrantedSpellIds.includes(payload.catalogId))throw new AppError(409,'Заклинание связано с историей повышения; удаление требует отдельной замены');
+        if([11,12].includes(current.advancement?.version)&&current.advancement.subclass.bonusCantrip.catalogId===payload.catalogId&&payload.status==='remove')throw new AppError(409,'Дополнительный заговор Круга Земли связан с историей выбора; удалить его нельзя');
+        if(protectedSpell&&payload.status!=='prepared')throw new AppError(409,'Заклинание постоянно подготовлено умением класса; снять подготовку или удалить его нельзя');
+        setSpell(db, payload, request.mutationId,current.context.characterId);
+        if(protectedSpell)validateAdvancementSnapshot(current.advancement,current.characterSheet,current.characterStats,readSpellbook(db,current.context.characterId));
         return read().state;
       }, 'spell-set');
     },

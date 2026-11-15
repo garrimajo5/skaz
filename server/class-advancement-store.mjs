@@ -1,11 +1,15 @@
+import {validateUnlimitedSheet} from './class-unlimited.mjs';
+import {validateLandCantripBook,validateNaturalRecovery} from './class-divine-land.mjs';
+import {validateSignatureCounters} from './class-wizard-signature.mjs';
+import {alwaysPreparedOrigins,validateSubclassPreparedBook} from './class-subclass-prepared.mjs';
 import {validateCatalog} from './catalog.mjs';
 import {isDeepStrictEqual} from 'node:util';
 import {bundledCatalog} from './bundled-catalog.mjs';
 let sharedSpells;
 import {AppError} from './state.mjs';
 import {validateAdvancementLedger,validateAdvancementSnapshot} from './class-advancement.mjs';
-import {saveCharacterSheet} from './character-sheet.mjs';
-import {saveCharacterStats} from './character-stats.mjs';
+import {saveCharacterSheet,readCharacterSheet} from './character-sheet.mjs';
+import {saveCharacterStats,readCharacterStats} from './character-stats.mjs';
 import {readSpellbook} from './spellbook.mjs';
 
 const tables=['class_advancement_schema','character_advancement','advancement_changes'];
@@ -14,9 +18,9 @@ export function checkAdvancementCompatibility(db,{enabled}){
  if(!present.length)return;
  if(present.length!==tables.length)throw new AppError(409,'Неполная схема повышения уровня; нужна совместимая резервная копия');
  const rows=db.prepare('SELECT id,version FROM class_advancement_schema').all();
- if(rows.length!==1||rows[0].id!==1||![1,2,3].includes(rows[0].version))throw new AppError(409,'Версия повышения уровня не поддерживается');
- for(const row of db.prepare('SELECT ledger_json FROM character_advancement').iterate()){
-  try{const ledger=validateAdvancementLedger(JSON.parse(row.ledger_json));if(!ledger||rows[0].version<(ledger.version===4?3:ledger.version>1?2:1))throw Error('mismatched capability');}
+ if(rows.length!==1||rows[0].id!==1||![1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16].includes(rows[0].version))throw new AppError(409,'Версия повышения уровня не поддерживается');
+ for(const row of db.prepare('SELECT character_id,ledger_json FROM character_advancement').iterate()){
+  try{const ledger=validateAdvancementLedger(JSON.parse(row.ledger_json));if(!ledger||rows[0].version<(ledger.version===17?16:ledger.version===16?15:ledger.version===15?14:ledger.version===14?13:ledger.version===13?12:ledger.version===12?11:ledger.version===11?10:ledger.version===10?9:ledger.version===9?8:ledger.version===8?7:ledger.version===7?6:ledger.version===6?5:ledger.version===5?4:ledger.version===4?3:ledger.version>1?2:1))throw Error('mismatched capability');if([8,9,10,11,12].includes(ledger.version))validateSubclassPreparedBook(alwaysPreparedOrigins(ledger),readSpellbook(db,row.character_id));if([11,12].includes(ledger.version)){validateLandCantripBook(ledger.subclass,readSpellbook(db,row.character_id));validateNaturalRecovery(ledger.subclass.naturalRecovery,readCharacterSheet(db,row.character_id)?.counters||[]);}if([13,14,15,16,17].includes(ledger.version))validateAdvancementSnapshot(ledger,readCharacterSheet(db,row.character_id),readCharacterStats(db,row.character_id),readSpellbook(db,row.character_id));if(ledger.version===12)validateUnlimitedSheet(ledger,readCharacterSheet(db,row.character_id));if(ledger.version===9)validateSignatureCounters(ledger.signatureCounters,ledger.wizardChoices[1],readCharacterSheet(db,row.character_id)?.counters||[]);}
   catch{throw new AppError(409,'История повышения повреждена или требует совместимой версии приложения; база не изменена');}
  }
  if(!enabled&&db.prepare('SELECT 1 FROM character_advancement LIMIT 1').get())throw new AppError(409,'База содержит повышение уровня: нужен совместимый режим или резервная копия до включения');
@@ -44,8 +48,8 @@ export function persistAdvancement(db,change,mutationId,characterId){
  if((ledger.events.at(-1)?.mutationId??ledger.binding?.mutationId)!==mutationId)throw new AppError(422,'Происхождение не соответствует команде');
  saveCharacterSheet(db,{characterId,sheet:change.characterSheet},mutationId,characterId);
  saveCharacterStats(db,{characterId,stats:change.characterStats},mutationId,characterId);
+ const beforeSpells=readSpellbook(db,characterId);
  if(change.addSpells.length){
-  const beforeSpells=readSpellbook(db,characterId);
   if(beforeSpells.length+change.addSpells.length>1000)throw new AppError(422,'Не более 1000 заклинаний');
   for(const catalogId of change.addSpells){
    const row=db.prepare('SELECT entry_json FROM catalog_entries WHERE id=?').get(catalogId);
@@ -54,8 +58,15 @@ export function persistAdvancement(db,change,mutationId,characterId){
    if(!entry||!isDeepStrictEqual(sharedSpells.get(catalogId),entry))throw new AppError(409,'Заклинание отсутствует в проверенном каталоге 2014 либо его источник изменён');
    db.prepare('INSERT INTO character_spells VALUES (?,?,?,?)').run(characterId,catalogId,'known',row.entry_json);
   }
-  db.prepare('INSERT INTO spell_changes VALUES (?,?,?,?)').run(mutationId,characterId,JSON.stringify(beforeSpells),JSON.stringify(readSpellbook(db,characterId)));
  }
+ const preparedChanges=change.preparedSpells?[...change.preparedSpells.additions,...change.preparedSpells.promotions]:[];
+ if(beforeSpells.length+change.addSpells.length+(change.preparedSpells?.additions.length||0)>1000)throw new AppError(422,'Не более1000 заклинаний');
+ for(const {catalogId} of preparedChanges){
+  const row=db.prepare('SELECT entry_json FROM catalog_entries WHERE id=?').get(catalogId),entry=row&&JSON.parse(row.entry_json);sharedSpells??=new Map(validateCatalog(bundledCatalog().bundle).filter(e=>e.kind==='spell').map(e=>[e.id,e]));
+  if(!entry||!isDeepStrictEqual(entry,sharedSpells.get(catalogId)))throw new AppError(409,'Установи проверенный источник заклинаний подкласса');
+  db.prepare("INSERT INTO character_spells VALUES (?,?,'prepared',?) ON CONFLICT(character_id,catalog_id) DO UPDATE SET status='prepared'").run(characterId,catalogId,row.entry_json);
+ }
+ if(change.addSpells.length||preparedChanges.length)db.prepare('INSERT INTO spell_changes VALUES (?,?,?,?)').run(mutationId,characterId,JSON.stringify(beforeSpells),JSON.stringify(readSpellbook(db,characterId)));
  validateAdvancementSnapshot(ledger,change.characterSheet,change.characterStats,readSpellbook(db,characterId));
  writeAdvancementOrigin(db,characterId,ledger);
  db.prepare('INSERT INTO advancement_changes VALUES (?,?,?,?)').run(mutationId,characterId,JSON.stringify(before),JSON.stringify(ledger));
@@ -65,7 +76,7 @@ export function persistAdvancement(db,change,mutationId,characterId){
 // Capability markers prevent older servers from touching unsupported nested histories.
 export function writeAdvancementOrigin(db,characterId,value){
  const ledger=validateAdvancementLedger(value);if(!ledger)throw new AppError(422,'Нужна история повышения');
- const marker=ledger.version===4?3:ledger.version>1?2:1;
+ const marker=ledger.version===17?16:ledger.version===16?15:ledger.version===15?14:ledger.version===14?13:ledger.version===13?12:ledger.version===12?11:ledger.version===11?10:ledger.version===10?9:ledger.version===9?8:ledger.version===8?7:ledger.version===7?6:ledger.version===6?5:ledger.version===5?4:ledger.version===4?3:ledger.version>1?2:1;
  db.prepare('UPDATE class_advancement_schema SET version=? WHERE id=1 AND version<?').run(marker,marker);
  db.prepare('INSERT INTO character_advancement VALUES (?,?) ON CONFLICT(character_id) DO UPDATE SET ledger_json=excluded.ledger_json').run(characterId,JSON.stringify(ledger));
 }

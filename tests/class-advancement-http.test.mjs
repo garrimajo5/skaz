@@ -126,3 +126,17 @@ test('HTTP maximum-level reference is read-only while level twenty-one commands 
  const response=await f.request(prefix+'plan?classId=warlock');assert.equal(response.status,200);const view=await response.json();assert.equal(view.atMaximum,true);assert.equal(view.plan.choices.length,0);assert.ok(view.plan.priorFeatureDetails.some(f=>f.id==='warlock-eldritch-master'));assert.deepEqual(f.store.read(),before);
  assert.equal((await f.request(prefix+'apply',f.command({classId:'warlock',fromLevel:20,hpMethod:'fixed',hpRoll:null,choices:{},reviewedFeatures:[]}))).status,422);assert.deepEqual(f.store.read(),before);
 });
+
+test('cookie API confirms subclass explicitly, persists it with spells and rejects forged transfer and readonly writes',async t=>{
+ const f=await fixture(t);f.store.catalog.installBundled({version:f.store.catalog.previewBundled().version});f.store.saveCharacterSheet(f.command({sheet:{ruleset:'5e-2014',ancestry:'',className:'wizard',subclass:'',level:1,counters:[]}}));
+ const v=await(await f.request(prefix+'plan?classId=wizard')).json();assert.deepEqual(v.subclassOptions.map(o=>o.id),['wizard-evocation']);
+ const choices={'wizard:2:subclass':{id:'wizard-evocation'}};for(const c of v.plan.choices)if(c.required&&c.kind!=='subclass')choices[c.id]=v.options[c.id].slice(0,c.count).map(o=>o.spellId);
+ const q=f.command({classId:'wizard',fromLevel:1,hpMethod:'fixed',hpRoll:null,choices,reviewedFeatures:v.plan.requiresFeatureReview}),before=f.store.read();
+ assert.equal((await f.request(prefix+'preview',q)).status,200);assert.deepEqual(f.store.read(),before);
+ const bad=structuredClone(q);bad.choices['wizard:2:subclass']={id:'fighter-champion'};assert.equal((await f.request(prefix+'apply',bad)).status,422);assert.deepEqual(f.store.read(),before);
+ const response=await f.request(prefix+'apply',q);assert.equal(response.status,200);const saved=await response.json();assert.equal(saved.advancement.version,5);assert.equal(saved.characterSheet.subclass,'Школа воплощения');assert.equal((await(await f.request(prefix+'apply',q)).json()).replayed,true);
+ const next=await(await f.request(prefix+'plan?classId=wizard')).json();assert.equal(next.selectedSubclass.id,'wizard-evocation');
+ const exported=await(await f.request('/api/export/active-v13')).json();exported.advancement.subclass.sourcePage=1;
+ const state=f.store.read();assert.equal((await f.request('/api/import/active',{mutationId:randomUUID(),expectedRevision:state.revision,destination:'new-campaign',file:exported})).status,422);assert.deepEqual(f.store.read(),state);
+ const readonly=await fixture(t,{write:false});assert.equal((await readonly.request(prefix+'apply',q)).status,403);f.revoke();assert.equal((await f.request(prefix+'plan?classId=wizard')).status,401);
+});

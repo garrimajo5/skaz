@@ -394,3 +394,7 @@ test('catalog known policy has one add action and treats legacy prepared as know
   }else assert.equal(h.spellControls['catalog-prepared'].disabled,existing==='prepared');
  }
 });
+
+test('catalog cannot demote an always-prepared oath spell even by invoking its disabled handler',async()=>{
+ const h=harness('http:',true,new Map(),'prepared');h.submit('shield');respond(h.requests[0],{entries:[{...entry,id:'shield',kind:'spell'}],total:1});respond(h.requests[1],coverage);await settle();h.detail();h.requests.find(r=>r.book).resolve({entries:[{catalogId:'shield',status:'prepared',alwaysPrepared:true}]});await settle();assert.equal(h.spellControls['catalog-known'].disabled,true);assert.equal(h.spellControls['catalog-prepared'].disabled,true);assert.match(h.spellControls['catalog-book-status'].textContent,/Постоянно подготовлено умением класса/);await h.spellControls['catalog-known'].onclick();assert.equal(h.marks.length,0);
+});

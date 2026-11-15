@@ -24,6 +24,7 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   return { api: vm.runInContext('SkazStorage', context), get, messages, messageOptions, archiveCalls, references, downloads, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
     click: (id,dataset={},disabled=false) => handlers.click({ target: { closest: () => ({ id,dataset,disabled }) } }),
+    installArt:(art,cards)=>{context.SkazArt=art;context.SkazPersonalArtCards=cards;},
     advancementEnabled:()=>{context.document.body={dataset:{classAdvancement:'enabled'}};},
     visible: value => {context.document.visibilityState=value;return handlers.visibilitychange();},
     state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),
@@ -1162,4 +1163,43 @@ test('v14 preview names manual conditions before confirmation and rejects invali
 test('conditions select v14 download even without enabled advancement',async()=>{
  const current={...payload(4),state:{...seed,conditions:{active:['prone'],exhaustion:0}}},routes=[];
  const h=harness(memory(),memory(),async url=>{routes.push(url);return response(url==='/api/workspace'?current:{app:'skaz-active',schemaVersion:14,source:{context:current.context,revision:4},characterStats:null,characterSheet:null,advancement:null});});await h.api.boot();h.api.settings();await h.get('#export-active').onclick();assert.ok(routes.includes('/api/export/active-v14'));assert.deepEqual(h.downloads,['skaz-active-v14.json']);
+});
+
+test('oath spell details are read-only and protection is cleared on a different hero',async()=>{
+ let other=false;const calls=[],h=harness(memory(),memory(),async(url,options={})=>{calls.push({url,options});return response({...payload(other?2:1,other?'second':'first'),spellLearning:'prepared',...(other?{}:{advancement:{subclassSpells:[{catalogId:'oath-spell'}]}})});});await h.api.boot();const entry={id:'oath-spell',kind:'spell',name:{ru:'Обряд'},text:'Текст',source:{url:'https://example.invalid/source',title:'Fixture',version:'1',terms:'Fixture'}};h.api.editSpell(entry,'prepared');assert.match(h.dialog(),/Постоянно подготовлено умением класса/);assert.doesNotMatch(h.dialog(),/id="spellbook-form"|value="remove"/);assert.equal(calls.filter(c=>c.options.method==='POST').length,0);other=true;await h.api.refreshAfterAdvancement();h.api.editSpell(entry,'known');assert.match(h.dialog(),/id="spellbook-form"/);assert.match(h.dialog(),/value="remove"/);
+});
+
+test('signature permanent preparation retains card artwork, personal art mount and source terms without offering book mutation',async()=>{
+ const h=harness(memory(),memory(),async()=>response({...payload(1),alwaysPreparedSpellIds:['signature-spell']})),mounted=[];h.installArt({markup:entry=>'<div data-art="'+entry.id+'"></div>'},{sweep(){},mount:(root,entry)=>mounted.push(entry.id)});await h.api.boot();h.api.editSpell({id:'signature-spell',kind:'spell',name:{ru:'Фирменное'},text:'Rules',source:{url:'https://example.invalid/source',title:'SRD 5.1',version:'2014',terms:'CC BY 4.0',attribution:'Wizards of the Coast',changes:'Translation'}},'prepared');assert.match(h.dialog(),/data-art="signature-spell"/);assert.deepEqual(mounted,['signature-spell']);assert.match(h.dialog(),/CC BY 4.0/);assert.match(h.dialog(),/Wizards of the Coast/);assert.doesNotMatch(h.dialog(),/id="spellbook-form"|value="remove"/);
+});
+
+test('class spell protections and unlimited resources survive offline resource projection',async()=>{
+ const local=memory(),session=memory();let offline=false;const fetch=async()=>{if(offline)throw Error('offline');return response({...payload(0),alwaysPreparedSpellIds:['oath'],classGrantedSpellIds:['land-bonus'],unlimitedResources:[{name:'Дикий облик',unlimited:true}]});};let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();offline=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.unlimitedResources()[0].name,'Дикий облик');assert.equal(h.api.pendingCount(),1);assert.equal(JSON.parse([...local.values.values()].find(v=>v.includes('"baseline"'))).baseline.classGrantedSpellIds[0],'land-bonus');
+});
+test('Land bonus stays editable but cannot be removed; another hero clears its protection and infinity',async()=>{
+ let other=false;
+ const h=harness(memory(),memory(),async()=>response({...payload(other?2:1,other?'second':'first'),spellLearning:'prepared',...(other?{}:{classGrantedSpellIds:['land-bonus'],unlimitedResources:[{name:'Дикий облик',unlimited:true}]})}));
+ await h.api.boot();
+ const entry={id:'land-bonus',kind:'spell',name:{ru:'Заговор Земли'},text:'Rules',source:{url:'https://example.invalid/source',title:'Fixture',version:'2014',terms:'Fixture'}};
+ h.api.editSpell(entry,'known');assert.match(h.dialog(),/id="spellbook-form"/);assert.match(h.dialog(),/value="known"/);assert.match(h.dialog(),/value="prepared"/);assert.doesNotMatch(h.dialog(),/value="remove"/);
+ const copy=h.api.unlimitedResources();copy[0].name='Changed';assert.equal(h.api.unlimitedResources()[0].name,'Дикий облик');
+ other=true;await h.api.refreshAfterAdvancement();assert.deepEqual(Array.from(h.api.unlimitedResources()),[]);h.api.editSpell(entry,'known');assert.match(h.dialog(),/value="remove"/);
+});
+
+test('confirmed class skills survive an offline resource projection and clear on hero switch',async()=>{
+ const local=memory(),session=memory(),skills={classId:'bard',level:3,proficiency:2,skills:[{id:'arcana',name:'Магия',ability:'int',rank:'expertise',modifier:5}],jackOfAllTrades:true};let offline=false,other=false;const fetch=async()=>{if(offline)throw Error('offline');return response({...payload(other?2:0,other?'other':'first'),...(other?{}:{classSkills:skills})});};let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.classSkills().skills[0].modifier,5);const copy=h.api.classSkills();copy.skills[0].modifier=100;assert.equal(h.api.classSkills().skills[0].modifier,5);offline=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.classSkills().skills[0].modifier,5);
+ // Switching uses a fresh synchronized client; pending mutations must remain scoped.
+ offline=false;other=true;const second=harness(memory(),memory(),fetch);await second.api.boot();assert.equal(second.api.classSkills(),null);
+});
+
+test('the same live client discards a previous hero skill profile when the next payload omits it',async()=>{
+ let other=false;const h=harness(memory(),memory(),async()=>response({...payload(other?2:1,other?'second':'first'),...(other?{}:{classSkills:{skills:[{id:'arcana',modifier:5}]}})}));await h.api.boot();assert.equal(h.api.classSkills().skills[0].modifier,5);other=true;await h.api.refreshAfterAdvancement();assert.equal(h.api.classSkills(),null);
+});
+
+test('rogue tools and skill provenance survive offline projection without leaking to another hero',async()=>{
+ const local=memory(),session=memory(),profile={classId:'rogue',level:6,proficiency:3,jackOfAllTrades:false,skills:[{id:'stealth',ability:'dex',rank:'expertise',modifier:9}],tools:{id:'thieves-tools',ability:null,rank:'expertise',proficiencyBonus:6}};let offline=false,other=false;const fetch=async()=>{if(offline)throw Error('offline');return response({...payload(other?2:0,other?'other':'first'),...(other?{}:{classSkills:profile})});};let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();const copy=h.api.classSkills();copy.tools.proficiencyBonus=100;assert.equal(h.api.classSkills().tools.proficiencyBonus,6);offline=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.classSkills().tools.proficiencyBonus,6);assert.equal(h.api.classSkills().jackOfAllTrades,false);offline=false;other=true;const clean=harness(memory(),memory(),fetch);await clean.api.boot();assert.equal(clean.api.classSkills(),null);
+});
+
+test('automatic save origins survive offline projection and clear on another hero',async()=>{
+ const local=memory(),session=memory();let offline=false,other=false;const fetch=async()=>{if(offline)throw Error('offline');return response({...payload(other?2:0,other?'other':'first'),...(other?{}:{classSaveBenefits:{classId:'rogue',level:15,saveProficiencies:['wis'],origin:{featureId:'rogue-slippery-mind',acquiredLevel:15}}})});};let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();const copy=h.api.classSaveBenefits();copy.saveProficiencies.push('str');assert.equal(h.api.classSaveBenefits().saveProficiencies.length,1);offline=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.classSaveBenefits().saveProficiencies[0],'wis');offline=false;other=true;const fresh=harness(memory(),memory(),fetch);await fresh.api.boot();assert.equal(fresh.api.classSaveBenefits(),null);
 });

@@ -24,4 +24,17 @@ class SubclassAuditTests(unittest.TestCase):
   self.assertIn('Table row: test-class/North/3',audit.audit_reference(data,pages)['errors'])
   data,pages=self.fixture();data['spellNames']['spell-a']['en']='Invented Spell'
   self.assertEqual(len(audit.audit_reference(data,pages)['errors']),2)
+ def test_draconic_rows_require_exact_damage_and_page(self):
+  data,pages=self.fixture();data['subclasses'][0]['ancestorOptions']=[{'id':'black','damageType':'acid','sourcePage':1}];pages[1]+='\nBlack Acid'
+  self.assertEqual(audit.audit_reference(data,pages)['dragonAncestors'],1)
+  self.assertEqual(audit.audit_reference(data,pages)['errors'],[])
+  data['subclasses'][0]['ancestorOptions'][0]['damageType']='cold'
+  self.assertIn('Dragon ancestry row: black',audit.audit_reference(data,pages)['errors'])
+  data['subclasses'][0]['ancestorOptions'][0]['damageType']='acid';data['subclasses'][0]['ancestorOptions'][0]['sourcePage']=2
+  self.assertIn('Dragon ancestry row: black',audit.audit_reference(data,pages)['errors'])
+ def test_draconic_missing_or_duplicate_rows_are_not_coverage(self):
+  data,pages=self.fixture();data['subclasses'][0]['id']='sorcerer-draconic'
+  self.assertIn('Draconic ancestry must have ten unique rows',audit.audit_reference(data,pages)['errors'])
+  data['subclasses'][0]['ancestorOptions']=[{'id':'black','damageType':'acid','sourcePage':1}]*10;pages[1]+='\nBlack Acid'
+  self.assertIn('Draconic ancestry must have ten unique rows',audit.audit_reference(data,pages)['errors'])
 if __name__=='__main__':unittest.main()

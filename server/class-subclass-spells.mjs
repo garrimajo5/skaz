@@ -1,3 +1,8 @@
+import {isDeepStrictEqual} from 'node:util';
+import {bundledCatalog} from './bundled-catalog.mjs';
+import {validateCatalog} from './catalog.mjs';
+let validatedSpells;
+const sourceSpells=()=>validatedSpells??=new Map(validateCatalog(bundledCatalog().bundle).filter(e=>e.kind==='spell').map(e=>[e.id,e]));
 import {readFileSync} from 'node:fs';
 import {classProgression} from './class-progression.mjs';
 const data=JSON.parse(readFileSync(new URL('../catalog/srd51-subclass-reference.json',import.meta.url),'utf8'));
@@ -28,4 +33,25 @@ export function previewSubclassSpells({classId,subclassId,level,tableId=null}){
   }
  }
  return {ruleset:data.ruleset,classId,subclassId,level,tableId,tableChoices,alwaysPrepared,expandedChoices,source:structuredClone(data.source),applied:false};
+}
+
+// Produces a reviewable delta only. The eventual transaction must re-read the
+// hero and revalidate these sources; this is never a trusted write payload.
+export function planSubclassSpellUpdates(selection,currentSpells,lookup){
+ const plan=previewSubclassSpells(selection);
+ if(!Array.isArray(currentSpells)||currentSpells.length>1000)throw new Error('Неверная личная книга заклинаний');
+ const current=new Map();
+ for(const spell of currentSpells){if(!spell||typeof spell.catalogId!=='string'||!['known','prepared'].includes(spell.status)||current.has(spell.catalogId))throw new Error('Неверная или повторная запись личной книги');current.set(spell.catalogId,spell);}
+ const additions=[],promotions=[],alreadyPrepared=[],seen=new Set();
+ for(const origin of plan.alwaysPrepared){
+  if(seen.has(origin.catalogId))throw new Error('Повтор в таблице заклинаний подкласса');seen.add(origin.catalogId);
+  const existing=current.get(origin.catalogId),entry=existing?.entry??lookup?.(origin.catalogId);
+  if(!entry||!isDeepStrictEqual(entry,sourceSpells().get(origin.catalogId)))throw new Error('Источник заклинания подкласса не совпадает с проверенным каталогом 2014');
+  const value={catalogId:origin.catalogId,origin:structuredClone(origin)};
+  if(!existing)additions.push({...value,status:'prepared'});
+  else if(existing.status==='known')promotions.push({...value,from:'known',to:'prepared'});
+  else alreadyPrepared.push(value);
+ }
+ if(current.size+additions.length>1000)throw new Error('Не более 1000 заклинаний в личной книге');
+ return {...plan,additions,promotions,alreadyPrepared};
 }
