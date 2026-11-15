@@ -222,10 +222,13 @@ tests/class-advancement-store.test.mjs, tests/class-advancement-editor.test.mjs.
 выбора выхода. После закрытия с попыткой записи лист перечитывается,
 поскольку операция могла сохраниться; сама команда не отправляется снова.
 
-`node scripts/class-advancement-app-fixture.mjs 4245 --lose-response` —
+`node scripts/class-advancement-app-fixture.mjs --port=4337 --lose-response` —
 основная оболочка на RAM-базе, намеренно повреждает один успешный ответ.
-`node scripts/game-art-transfer-fixture.mjs 4246 --advancement` — совместный
-пакет v2. Ни один стенд не открывает пользовательские кампании.
+`node scripts/game-art-transfer-fixture.mjs 4337 --advancement` — совместный
+пакет v2. Стенды запускать последовательно на одном4337. Текущий seed с
+--advancement содержит привязку ресурсов, но не ненулевую историю повышения;
+для проверки переноса новой истории сначала выполнить повышение. Ни один
+стенд не открывает пользовательские кампании.
 Дополнительные тесты: class-advancement-http, class-advancement-transport,
 class-advancement-shell, game-art-transfer-client, personal-art-game-transfer.
 
