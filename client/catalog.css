@@ -75,3 +75,6 @@ dialog:has(#spell-inventory){max-width:760px}
 .entry-primary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
 @media(max-width:600px){.entry-primary{flex-wrap:wrap}.entry-primary .entry-metadata{flex-basis:100%}}
 .entry-primary>.catalog-excerpt{flex-basis:100%;text-align:left;white-space:normal;overflow-wrap:anywhere;margin:4px 0 0}
+
+/* Short landscape screens need the content height; keep 44px touch targets. */
+@media(max-height:500px){.catalog-reader-nav{position:static}.catalog-reader-nav::before{display:none}.catalog-reader-nav~h2,.catalog-reader-nav~h3,.catalog-related h3{scroll-margin-top:16px}}
