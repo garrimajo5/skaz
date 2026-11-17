@@ -127801,8 +127801,129 @@
         "equipment-reference": 1
       },
       "manifest": "catalog/dndsu-barbarian-scope-proposal.json"
+    },
+    {
+      "classUrl": "https://dnd.su/class/91-fighter/",
+      "status": "content-proposal-awaiting-independent-review",
+      "summary": {
+        "base-feature": 8,
+        "subclass": 10,
+        "subclass-feature": 56,
+        "subclass-prerequisite": 1,
+        "choice-index": 1
+      },
+      "manifest": "catalog/dndsu-reviewed-class-proposals.json"
+    },
+    {
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "status": "content-proposal-awaiting-independent-review",
+      "summary": {
+        "base-feature": 8,
+        "subclass": 13,
+        "subclass-feature": 64,
+        "rules-guidance": 2
+      },
+      "manifest": "catalog/dndsu-reviewed-class-proposals.json"
+    },
+    {
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "status": "content-proposal-awaiting-independent-review",
+      "summary": {
+        "base-feature": 11,
+        "subclass": 7,
+        "subclass-feature": 36
+      },
+      "manifest": "catalog/dndsu-reviewed-class-proposals.json"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "status": "content-proposal-awaiting-independent-review",
+      "summary": {
+        "base-feature": 10,
+        "subclass": 14,
+        "subclass-feature": 85
+      },
+      "manifest": "catalog/dndsu-reviewed-class-proposals.json"
+    },
+    {
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "status": "content-proposal-awaiting-independent-review",
+      "summary": {
+        "base-feature": 13,
+        "subclass": 4,
+        "subclass-feature": 26
+      },
+      "manifest": "catalog/dndsu-reviewed-class-proposals.json"
+    },
+    {
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "status": "content-proposal-awaiting-independent-review",
+      "summary": {
+        "base-feature": 9,
+        "subclass": 9,
+        "subclass-feature": 49
+      },
+      "manifest": "catalog/dndsu-reviewed-class-proposals.json"
+    },
+    {
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "status": "content-proposal-awaiting-independent-review",
+      "summary": {
+        "base-feature": 23,
+        "subclass": 10,
+        "subclass-feature": 42,
+        "choice-index": 1
+      },
+      "manifest": "catalog/dndsu-reviewed-class-proposals.json"
+    },
+    {
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "status": "content-proposal-awaiting-independent-review",
+      "summary": {
+        "base-feature": 16,
+        "subclass": 9,
+        "subclass-feature": 45,
+        "oath-guidance": 8
+      },
+      "manifest": "catalog/dndsu-reviewed-class-proposals.json"
+    },
+    {
+      "classUrl": "https://dnd.su/class/99-rogue/",
+      "status": "content-proposal-awaiting-independent-review",
+      "summary": {
+        "base-feature": 14,
+        "subclass": 9,
+        "subclass-feature": 46
+      },
+      "manifest": "catalog/dndsu-reviewed-class-proposals.json"
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "status": "content-proposal-awaiting-independent-review",
+      "summary": {
+        "base-feature": 19,
+        "subclass": 8,
+        "subclass-feature": 42
+      },
+      "manifest": "catalog/dndsu-reviewed-class-proposals.json"
+    },
+    {
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "status": "content-proposal-awaiting-independent-review",
+      "summary": {
+        "base-feature": 9,
+        "subclass": 8,
+        "subclass-feature": 43
+      },
+      "manifest": "catalog/dndsu-reviewed-class-proposals.json"
     }
   ],
+  "classChoiceMetadata": {
+    "status": "partial-choice-metadata-awaiting-review",
+    "groups": 10,
+    "observations": 159,
+    "manifest": "catalog/dndsu-class-choice-metadata.json"
+  },
   "classNavigation": {
     "observedOn": "2026-11-17",
     "pages": 13,
@@ -134556,9 +134677,11 @@
     "catalog/dndsu-additional-discovery.json": "1993815a25f927ba6aa7209d2b46c834b72679651c40d839754ca6a9f6bc112a",
     "catalog/dndsu-equipment-discovery.json": "bc5a113f89cfe16f00d0f94018c67c591c1d3fb9ee0eaf39c7bbc933c006d944",
     "catalog/dndsu-bestiary-variants.json": "f519386b731f4509ec77a2f1f6c4ae70d2d2d6f06f6fe2b661d3b80fbf65bfba",
-    "catalog/dndsu-class-headings.json": "62354b0cd1983debfa2f68a8581841bc405015f2dd86fa6c0b1d9be103808732",
-    "catalog/dndsu-bard-scope-proposal.json": "63b378935649828e198d89b458ee577020d961fa797b06b08e5c92588ec64256",
-    "catalog/dndsu-barbarian-scope-proposal.json": "9cdabca52e971f999ee6d91ff8e8f1057cbbbd6cd28d7e64c8a28e96f2b2cec0"
+    "catalog/dndsu-class-headings.json": "2d8d0f0e30cb3384e3accfc64a51766c7e18fa285a36a433dd7bb4fd5fb17239",
+    "catalog/dndsu-bard-scope-proposal.json": "b606aae829060bb323ee6d05dccab8c005b2353645bdbb4f4fea74ccb1d99780",
+    "catalog/dndsu-barbarian-scope-proposal.json": "17b7eb8c02ac88fcd4a2377d35a34270661e6de54243f5193959b265ba97fc67",
+    "catalog/dndsu-reviewed-class-proposals.json": "f3417d9eff50dfc5b76358e490b150393ce4610039c61daa60a814e98c612ec5",
+    "catalog/dndsu-class-choice-metadata.json": "7c1b343b19f9957c8556fb8efbe0f6aeb6b2e6a64313c73b228e5d2b6f5c48b6"
   },
   "catalogSha256": "4dedd8cdf1f4fe6557460a8cb4ee4dd4911ce7521ac0083a22a524790d566676"
 }
