@@ -26,3 +26,5 @@ test('publisher bibliography does not approve race source scope or invent source
  for(const p of linked){assert.equal(p.inclusion,'needs-source-review');const evidence=b.records.find(x=>x.id===p.bibliographyEvidenceId);assert.equal(evidence.title,p.sourceTitle);assert.equal(evidence.numericDndsuSourceId,null);assert.equal(evidence.scopeDecision,'awaiting-game-designer-review');assert.equal(evidence.reusePermission,'not-established');assert.equal(new URL(evidence.publisherEvidenceUrl).hostname,'marketplace.dndbeyond.com');}
  assert.equal(r.summary.approvedDenominator,null);
 });
+
+test('component evidence remains outside the accepted page denominator',()=>{const r=JSON.parse(readFileSync(new URL('../catalog/scope-register-2014.json',import.meta.url)));assert.equal(r.componentEvidence.length,9);assert.equal(r.componentEvidence.find(e=>e.manifest.endsWith('replicate-item-options.json')).summary.options,49);assert.equal(r.componentEvidence.find(e=>e.manifest.endsWith('class-scope-boundaries.json')).summary.pendingSections,12);assert.equal(r.summary.observedPages,4973);assert.equal(r.summary.approvedDenominator,null);assert.equal(r.summary.fullRulesVerified,0);});

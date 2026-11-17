@@ -1,5 +1,94 @@
 {
   "schemaVersion": 1,
+  "componentEvidence": [
+    {
+      "manifest": "catalog/dndsu-spell-change-proposals.json",
+      "status": "partial-spell-change-policy-proposals",
+      "summary": {
+        "policies": 10,
+        "classLevelReplacement": 4,
+        "longRestPreparation": 5,
+        "optionalCantripReplacement": 1
+      }
+    },
+    {
+      "manifest": "catalog/dndsu-replacement-exceptions.json",
+      "status": "two-reviewed-replacement-exceptions-not-full-replacement-rules",
+      "summary": {
+        "features": 2,
+        "sourceDiscrepancies": 1
+      }
+    },
+    {
+      "manifest": "catalog/dndsu-choice-spell-references.json",
+      "status": "partial-choice-spell-reference-evidence",
+      "summary": {
+        "choices": 87,
+        "choicesWithReferences": 46,
+        "references": 53,
+        "uniqueSpellPages": 40,
+        "unresolvedReferences": 1
+      }
+    },
+    {
+      "manifest": "catalog/dndsu-feature-spell-references.json",
+      "status": "non-table-feature-references-not-spell-grants",
+      "summary": {
+        "classes": 13,
+        "references": 134,
+        "spellPageReferences": 100,
+        "listNavigationReferences": 32,
+        "searchNavigationReferences": 2,
+        "uniqueSpellPages": 62,
+        "blankLabels": 3,
+        "unknownPages": 0,
+        "nameConflicts": 0
+      }
+    },
+    {
+      "manifest": "catalog/dndsu-feature-spell-relations.json",
+      "status": "feature-spell-relationship-proposals-not-runtime-rules",
+      "summary": {
+        "relations": 86,
+        "classifiedReferences": 100,
+        "unclassifiedSpellReferences": 0,
+        "unresolvedSearchLinks": 2,
+        "excludedListLinks": 32
+      }
+    },
+    {
+      "manifest": "catalog/dndsu-replicate-item-options.json",
+      "status": "replicate-item-options-awaiting-review",
+      "summary": {
+        "options": 49,
+        "tableIsExhaustive": false
+      }
+    },
+    {
+      "manifest": "catalog/dndsu-companion-discovery.json",
+      "status": "companion-references-not-runtime-creatures",
+      "summary": {
+        "features": 10,
+        "references": 17,
+        "uniqueCreaturePages": 13,
+        "missingIndexPages": []
+      }
+    },
+    {
+      "manifest": "catalog/dndsu-companion-statblocks.json",
+      "status": "partial-companion-statblock-metadata",
+      "summary": {
+        "pages": 13
+      }
+    },
+    {
+      "manifest": "catalog/dndsu-class-scope-boundaries.json",
+      "status": "explicit-source-section-boundaries-not-full-heading-audit",
+      "summary": {
+        "pendingSections": 12
+      }
+    }
+  ],
   "rulesetTarget": "5e-2014",
   "status": "discovery-not-approved-full-catalog",
   "inputs": {
@@ -127906,7 +127995,7 @@
       "summary": {
         "base-feature": 19,
         "subclass": 8,
-        "subclass-feature": 42
+        "subclass-feature": 43
       },
       "manifest": "catalog/dndsu-reviewed-class-proposals.json"
     },
@@ -134717,12 +134806,21 @@
     "catalog/dndsu-class-headings.json": "2d8d0f0e30cb3384e3accfc64a51766c7e18fa285a36a433dd7bb4fd5fb17239",
     "catalog/dndsu-bard-scope-proposal.json": "b606aae829060bb323ee6d05dccab8c005b2353645bdbb4f4fea74ccb1d99780",
     "catalog/dndsu-barbarian-scope-proposal.json": "17b7eb8c02ac88fcd4a2377d35a34270661e6de54243f5193959b265ba97fc67",
-    "catalog/dndsu-reviewed-class-proposals.json": "f3417d9eff50dfc5b76358e490b150393ce4610039c61daa60a814e98c612ec5",
+    "catalog/dndsu-reviewed-class-proposals.json": "2658cb19e4ad074003ecf60f46190af992c6abb26584455d2455946e061b9c48",
     "catalog/dndsu-class-choice-metadata.json": "c0e205ef1407ac83c625f803242286db9409f7ad466d13cfbebad624a11bb35e",
     "catalog/dndsu-spell-index-metadata.json": "592b147e2e816236c0eeb51b446db770aaccf9592a672102b251c3e8b6eeca1c",
     "catalog/dndsu-subclass-spell-tables.json": "88d7d041bae75130962b1c9ef37e3af321e7f7a4b8af69be4363b7600cc36a61",
     "catalog/dndsu-spell-grant-proposals.json": "8ccab7a4c27a5b9de3612375a8b36a829cac127f8f764e42908a377e86e4819b",
-    "catalog/source-bibliography-evidence.json": "f5ca4401eb4eaf8cf572163844f36dd688d55e4125230944d794dfcdaa28d3b9"
+    "catalog/source-bibliography-evidence.json": "f5ca4401eb4eaf8cf572163844f36dd688d55e4125230944d794dfcdaa28d3b9",
+    "catalog/dndsu-feature-spell-references.json": "47c9d0d9d71d88d488ba83c5b88849188a9fd698513d3955cff8316d054afddc",
+    "catalog/dndsu-feature-spell-relations.json": "e3f701ba81f596454b1e8c67c97f386956346cc861072f38de58f1018f9786ca",
+    "catalog/dndsu-replicate-item-options.json": "81f360b157fdad43f9d2b95e76222095be1df9c4c6daadfe41e9b30b7d802f45",
+    "catalog/dndsu-companion-discovery.json": "e752be74fee14fa504de7166042b8020794e257e9acf921f0162ed5ac91b6c56",
+    "catalog/dndsu-companion-statblocks.json": "32bc3faa9e28cdd749f382a16fae9d6fd74881d7c5e35b6bfa91178e2f810a39",
+    "catalog/dndsu-class-scope-boundaries.json": "ed52aa9acac696a5bb09fc5b0b46cf49eaf960ee8844aee070304965542ea022",
+    "catalog/dndsu-choice-spell-references.json": "13b6d8a35f0b5f0a3d556b61f561c04bcf6d1c0db7737ff97fe3fa3117bc3b14",
+    "catalog/dndsu-replacement-exceptions.json": "db0b4a1d1daba8688f916404fb7e485696b9e58dc776f44068eec355c32d8b81",
+    "catalog/dndsu-spell-change-proposals.json": "65987d5ac4cf2a399b71df5a209322b7a9b149e1ced5746378bb202e5895235e"
   },
   "catalogSha256": "4dedd8cdf1f4fe6557460a8cb4ee4dd4911ce7521ac0083a22a524790d566676"
 }

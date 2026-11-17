@@ -16,3 +16,13 @@ test('current source registry vetoes stale navigation approval for Homebrew book
  sources.find(s=>s.title==="Player's Handbook").group='Homebrew';
  assert.throws(()=>reviewedClassProposals(navigation(),sources),/excluded proposal source/);
 });
+
+test('unanchored TCE primal companion is an optional replacement, not an additional PHB subclass',()=>{
+ const ranger=reviewedClassProposals(navigation(),sources).find(c=>c.classKey==='ranger'),f=ranger.records.find(r=>r.title==='Первичный спутник');assert.ok(f.optionalReplacement);assert.equal(f.parent,'archetype.beast-master');assert.equal(f.sourceBasis,'explicit-supplement-section-source');assert.deepEqual(f.observedInitialLevels,[3]);assert.deepEqual(f.sourceIds,[sources.find(s=>s.title==="Tasha's Cauldron of Everything").sourceId]);assert.equal(ranger.records.find(r=>r.id===f.replacementForObservationId).title,'СПУТНИК СЛЕДОПЫТА');assert.equal(ranger.summary.subclass,8);assert.equal(ranger.summary['subclass-feature'],43);
+});
+test('supplement source or replacement target cannot disappear silently',()=>{
+ const nav=navigation(),page=nav.pages.find(p=>p.url.includes('/97-'));page.headings.find(h=>h.title==='Спутники повелителя зверей').sourceResolution=[];assert.throws(()=>reviewedClassProposals(nav,sources),/supplemental source/);
+ const second=navigation();second.pages.find(p=>p.url.includes('/97-')).headings.find(h=>h.title==='СПУТНИК СЛЕДОПЫТА'&&h.sectionAnchor==='archetype.beast-master').title='Renamed';assert.throws(()=>reviewedClassProposals(second,sources),/replacement target/);
+});
+
+test('excluded supplemental child cannot inherit a permitted parent source',()=>{const nav=navigation();nav.pages.find(p=>p.url.includes('/97-')).headings.find(h=>h.title==='Первичный спутник').inclusion='excluded-homebrew';assert.throws(()=>reviewedClassProposals(nav,sources),/Excluded supplemental feature/);});

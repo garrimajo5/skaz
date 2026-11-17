@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "status": "two-reviewed-replacement-exceptions-not-full-replacement-rules",
+  "summary": {
+    "features": 2,
+    "sourceDiscrepancies": 1
+  },
+  "records": [
+    {
+      "featureId": "scope:fighter:archetype.eldritch-knigh:c1a7c732a16e9073",
+      "classUrl": "https://dnd.su/class/91-fighter/",
+      "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+      "parent": "archetype.eldritch-knigh",
+      "sourceIds": [
+        "102"
+      ],
+      "referenceParagraphSha256": "b763262008d729ecf04e1b26268850032b93c5b638cd03b3a71189a1d3775cf8",
+      "referenceOriginLevels": [
+        3,
+        8,
+        14,
+        20
+      ],
+      "publisherEvidence": {
+        "url": "https://media.wizards.com/2018/dnd/downloads/PH-Errata.pdf",
+        "document": "Errata: Player’s Handbook",
+        "version": "2.0.2",
+        "copyrightYear": 2020,
+        "pdfPage": 1,
+        "reviewedOn": "2026-11-17",
+        "method": "manual-review-of-publisher-PDF",
+        "replacementOriginLevels": [
+          3,
+          8,
+          14,
+          20
+        ],
+        "bookPage": 75
+      },
+      "missingFromReference": [],
+      "unexpectedInReference": [],
+      "status": "matches-publisher-erratum",
+      "proposal": "Track the origin of the replaced spell; current character level alone does not establish the school exception.",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified"
+    },
+    {
+      "featureId": "scope:rogue:archetype.arcane-trickster:c1a7c732a16e9073",
+      "classUrl": "https://dnd.su/class/99-rogue/",
+      "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+      "parent": "archetype.arcane-trickster",
+      "sourceIds": [
+        "102"
+      ],
+      "referenceParagraphSha256": "0304cbaa19547a48a6d330307fdb4fce8924da8d1d6f7ecf5689b79fa47dd0bc",
+      "referenceOriginLevels": [
+        8,
+        14,
+        20
+      ],
+      "publisherEvidence": {
+        "url": "https://media.wizards.com/2018/dnd/downloads/PH-Errata.pdf",
+        "document": "Errata: Player’s Handbook",
+        "version": "2.0.2",
+        "copyrightYear": 2020,
+        "pdfPage": 1,
+        "reviewedOn": "2026-11-17",
+        "method": "manual-review-of-publisher-PDF",
+        "replacementOriginLevels": [
+          3,
+          8,
+          14,
+          20
+        ],
+        "bookPage": 98
+      },
+      "missingFromReference": [
+        3
+      ],
+      "unexpectedInReference": [],
+      "status": "source-discrepancy-needs-review",
+      "proposal": "Track the origin of the replaced spell; current character level alone does not establish the school exception.",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+import {buildSpellChangeProposals} from './catalog-spell-change-proposals.mjs';
+import {buildReplacementExceptionAudit} from './catalog-replacement-exceptions.mjs';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
@@ -10,6 +12,11 @@ import {reviewedSpecs} from './catalog-reviewed-class-proposals.mjs';
 import {classChoiceMetadata} from './catalog-class-choice-metadata.mjs';
 import {subclassSpellTables} from './catalog-subclass-spell-tables.mjs';
 import {spellGrantProposal} from './catalog-spell-grant-proposals.mjs';
+import {buildFeatureReferences} from './catalog-feature-spell-references.mjs';
+import {buildFeatureRelations} from './catalog-feature-spell-relations.mjs';
+import {buildReplicateOptions} from './catalog-replicate-item-options.mjs';
+import {buildCompanionDiscovery} from './catalog-companion-discovery.mjs';
+import {buildChoiceSpellReferences} from './catalog-choice-spell-references.mjs';
 export function compareEvidence(actual,expected,message){
  const strip=value=>Array.isArray(value)?value.map(strip):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).filter(([key])=>key!=='rawSha256').map(([key,value])=>[key,strip(value)])):value;
  assert.deepEqual(strip(actual),strip(expected),message);
@@ -27,7 +34,14 @@ export function verifyClassEvidence(directory){
   for(const key of ['candidateTables','tables','excluded'])assert.deepEqual(parsed[key],expected[key],spec.key+' tables '+key);
   assert.deepEqual(spellGrantProposal(html,parsed.tables),policies.filter(r=>r.classUrl===spec.url),spec.key+' policy evidence');
  }
+ compareEvidence(buildReplacementExceptionAudit(directory),read('dndsu-replacement-exceptions.json'),'Replacement exception evidence changed');
+ compareEvidence(buildSpellChangeProposals(directory),read('dndsu-spell-change-proposals.json'),'Spell change policy evidence changed');
  const choices=classChoiceMetadata(directory,{...nav,pages},sources);compareEvidence(choices,read('dndsu-class-choice-metadata.json'),'Class choice metadata changed');
- return {classes:pages.length,choices:choices.groups.reduce((n,g)=>n+g.records.length,0),spellTables:tables.summary.tables,policies:policies.length,comparison:'all-metadata-and-policy-evidence-except-raw-html-sha'};
+ compareEvidence(buildFeatureReferences(directory),read('dndsu-feature-spell-references.json'),'Feature spell reference evidence changed');
+ compareEvidence(buildFeatureRelations(directory),read('dndsu-feature-spell-relations.json'),'Feature spell relationships changed');
+ compareEvidence(buildReplicateOptions(directory),read('dndsu-replicate-item-options.json'),'Replicate items changed');
+ compareEvidence(buildChoiceSpellReferences(directory),read('dndsu-choice-spell-references.json'),'Choice spell references changed');
+ compareEvidence(buildCompanionDiscovery(directory),read('dndsu-companion-discovery.json'),'Companion references changed');
+ return {featureSpellReferences:read('dndsu-feature-spell-references.json').summary.references,featureSpellRelations:read('dndsu-feature-spell-relations.json').summary.relations,replicateOptions:read('dndsu-replicate-item-options.json').groups.reduce((n,g)=>n+g.options.length,0),companionPages:read('dndsu-companion-discovery.json').summary.uniqueCreaturePages,classes:pages.length,choices:choices.groups.reduce((n,g)=>n+g.records.length,0),spellTables:tables.summary.tables,policies:policies.length,comparison:'all-metadata-and-policy-evidence-except-raw-html-sha'};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){if(!process.argv[2])throw Error('Usage: freshly-fetched-class-directory');console.log(verifyClassEvidence(process.argv[2]));}

@@ -14499,7 +14499,7 @@
       "summary": {
         "base-feature": 19,
         "subclass": 8,
-        "subclass-feature": 42
+        "subclass-feature": 43
       },
       "records": [
         {
@@ -15998,6 +15998,31 @@
           "sourceCompleteness": "not-verified-in-full-text",
           "observedInitialLevels": [
             15
+          ],
+          "levelProgression": "not-verified-by-heading",
+          "fullRules": "unverified",
+          "automation": "not-audited",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope:ranger:archetype.beast-master:supplement:ebb93373a28fa5eb",
+          "canonicalCatalogId": null,
+          "identityStatus": "proposal-observation",
+          "kind": "subclass-feature",
+          "title": "Первичный спутник",
+          "sourceUrl": "https://dnd.su/class/97-ranger/",
+          "headingOrdinal": 65,
+          "parent": "archetype.beast-master",
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-supplement-section-source",
+          "sourceSectionTitle": "Спутники повелителя зверей",
+          "sourceCompleteness": "not-verified-in-full-text",
+          "optionalReplacement": true,
+          "replacementForObservationId": "scope:ranger:archetype.beast-master:82ec36671e3952b5",
+          "observedInitialLevels": [
+            3
           ],
           "levelProgression": "not-verified-by-heading",
           "fullRules": "unverified",

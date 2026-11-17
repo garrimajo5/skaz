@@ -1,0 +1,1689 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-11-17",
+  "status": "partial-companion-statblock-metadata",
+  "records": [
+    {
+      "pageId": "dndsu:bestiary:3989",
+      "name": "Танцующий предмет [Dancing Item]",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceResolution": [
+        {
+          "title": "Tasha's Cauldron of Everything",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "117"
+          ],
+          "status": "source-identified"
+        }
+      ],
+      "sizeType": "Большой или меньшего размера Конструкт, без мировоззрения",
+      "fields": {
+        "armorClass": {
+          "raw": "16 (природный доспех)",
+          "interpretation": "not-evaluated"
+        },
+        "hitPoints": {
+          "raw": "10 + пятикратный уровень барда",
+          "interpretation": "not-evaluated"
+        },
+        "speed": {
+          "raw": "30 футов , летая 30 футов (парит)",
+          "interpretation": "not-evaluated"
+        },
+        "damageImmunities": {
+          "raw": "психическая энергия, яд",
+          "interpretation": "not-evaluated"
+        },
+        "conditionImmunities": {
+          "raw": "отравление, очарование, испуг, истощение",
+          "interpretation": "not-evaluated"
+        },
+        "senses": {
+          "raw": "тёмное зрение 60 футов , пассивное Восприятие 10",
+          "interpretation": "not-evaluated"
+        },
+        "languages": {
+          "raw": "понимает языки, на которых вы говорите",
+          "interpretation": "not-evaluated"
+        },
+        "proficiencyBonus": {
+          "raw": "равен вашему бонусу",
+          "interpretation": "not-evaluated"
+        }
+      },
+      "abilities": [
+        {
+          "name": "Сила",
+          "score": 18,
+          "modifier": 4
+        },
+        {
+          "name": "Ловкость",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Телосложение",
+          "score": 16,
+          "modifier": 3
+        },
+        {
+          "name": "Интеллект",
+          "score": 4,
+          "modifier": -3
+        },
+        {
+          "name": "Мудрость",
+          "score": 10,
+          "modifier": 0
+        },
+        {
+          "name": "Харизма",
+          "score": 6,
+          "modifier": -2
+        }
+      ],
+      "sections": [
+        {
+          "heading": "traits",
+          "kind": "base-statblock",
+          "names": [
+            "Неизменяемая форма",
+            "Безудержный танец"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "fcb6a7e7d12082369f0a746355b5781c9cd51e35e5d0e36028f548bd989d47ba"
+        },
+        {
+          "heading": "Действия",
+          "kind": "base-statblock",
+          "names": [
+            "Наделённый силой удар"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "65c25379bfd1e0170395d309bc11d284a44e28c45a57bff15106820c2f19fbc4"
+        }
+      ],
+      "unknownFields": [],
+      "fullRules": "unverified",
+      "formulaEvaluation": "not-implemented",
+      "automation": "not-applied",
+      "approval": "awaiting-independent-review",
+      "requestedUrl": "https://dnd.su/bestiary/3989-dancing_item/",
+      "finalUrl": "https://dnd.su/bestiary/3989-dancing-item/",
+      "redirects": [
+        {
+          "from": "https://dnd.su/bestiary/3989-dancing_item/",
+          "to": "https://dnd.su/bestiary/3989-dancing-item/",
+          "status": 301
+        }
+      ],
+      "rawSha256": "72ea719bccfeaf08b29f1ef68a039cf18507bd81f86a0775bc62979f89831da1"
+    },
+    {
+      "pageId": "dndsu:bestiary:3987",
+      "name": "Слуга-гомункул [Homunculus servant]",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceResolution": [
+        {
+          "title": "Tasha's Cauldron of Everything",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "117"
+          ],
+          "status": "source-identified"
+        }
+      ],
+      "sizeType": "Крошечный Конструкт",
+      "fields": {
+        "armorClass": {
+          "raw": "13 (природный доспех)",
+          "interpretation": "not-evaluated"
+        },
+        "hitPoints": {
+          "raw": "1 + ваш модификатор Интеллекта + ваш уровень изобретателя (количество костей хитов гомункула [к4] равно уровню изобретателя)",
+          "interpretation": "not-evaluated"
+        },
+        "speed": {
+          "raw": "20 футов , летая 30 футов",
+          "interpretation": "not-evaluated"
+        },
+        "savingThrows": {
+          "raw": "Лов +2 (+БМ)",
+          "interpretation": "not-evaluated"
+        },
+        "skills": {
+          "raw": "Восприятие +0 (+БМ×2), Скрытность +2 (+БМ)",
+          "interpretation": "not-evaluated"
+        },
+        "damageImmunities": {
+          "raw": "яд",
+          "interpretation": "not-evaluated"
+        },
+        "conditionImmunities": {
+          "raw": "отравление, истощение",
+          "interpretation": "not-evaluated"
+        },
+        "senses": {
+          "raw": "тёмное зрение 60 футов , пассивное Восприятие 10 (+БМ×2)",
+          "interpretation": "not-evaluated"
+        },
+        "languages": {
+          "raw": "понимает языки, на которых вы говорите",
+          "interpretation": "not-evaluated"
+        },
+        "proficiencyBonus": {
+          "raw": "равен вашему бонусу",
+          "interpretation": "not-evaluated"
+        }
+      },
+      "abilities": [
+        {
+          "name": "Сила",
+          "score": 4,
+          "modifier": -3
+        },
+        {
+          "name": "Ловкость",
+          "score": 15,
+          "modifier": 2
+        },
+        {
+          "name": "Телосложение",
+          "score": 12,
+          "modifier": 1
+        },
+        {
+          "name": "Интеллект",
+          "score": 10,
+          "modifier": 0
+        },
+        {
+          "name": "Мудрость",
+          "score": 10,
+          "modifier": 0
+        },
+        {
+          "name": "Харизма",
+          "score": 7,
+          "modifier": -2
+        }
+      ],
+      "sections": [
+        {
+          "heading": "traits",
+          "kind": "base-statblock",
+          "names": [
+            "Увёртливость"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "a14a147fdcc94fcc9a56f9a1bf365f0e3502f9624714ed27a0ce9b6b8b2a4f49"
+        },
+        {
+          "heading": "Действия",
+          "kind": "base-statblock",
+          "names": [
+            "Силовой удар"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "b2e3f94d0500d04ec92aff0f5077d5d003b9cc058de14a944f917b25a33b8e51"
+        },
+        {
+          "heading": "Реакции",
+          "kind": "base-statblock",
+          "names": [
+            "Канал магии"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "2c6970adcbe7bf4b122808ac18483e8541f4fdaf34e3eecc163903b6271214b2"
+        },
+        {
+          "heading": "Описание",
+          "kind": "narrative",
+          "names": [],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "332b65acb26b18b67dcc4c4e0f6f2b0e731da0ef89b96eb37acb42cd124c54a0"
+        }
+      ],
+      "unknownFields": [],
+      "fullRules": "unverified",
+      "formulaEvaluation": "not-implemented",
+      "automation": "not-applied",
+      "approval": "awaiting-independent-review",
+      "requestedUrl": "https://dnd.su/bestiary/3987-homunculus_servant/",
+      "finalUrl": "https://dnd.su/bestiary/3987-homunculus-servant/",
+      "redirects": [
+        {
+          "from": "https://dnd.su/bestiary/3987-homunculus_servant/",
+          "to": "https://dnd.su/bestiary/3987-homunculus-servant/",
+          "status": 301
+        }
+      ],
+      "rawSha256": "173c48741b585fbcd158f5f3d4d6ec3ddb21e5eb009c16c666e5b74b826a05ba"
+    },
+    {
+      "pageId": "dndsu:bestiary:3988",
+      "name": "Стальной защитник [Steel Defender]",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceResolution": [
+        {
+          "title": "Tasha's Cauldron of Everything",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "117"
+          ],
+          "status": "source-identified"
+        }
+      ],
+      "sizeType": "Средний Конструкт",
+      "fields": {
+        "armorClass": {
+          "raw": "15 (природный доспех)",
+          "interpretation": "not-evaluated"
+        },
+        "hitPoints": {
+          "raw": "2 + ваш модификатор Интеллекта + пятикратный уровень изобретателя (количество костей хитов защитника [к8] равно уровню изобретателя)",
+          "interpretation": "not-evaluated"
+        },
+        "speed": {
+          "raw": "40 футов",
+          "interpretation": "not-evaluated"
+        },
+        "savingThrows": {
+          "raw": "Лов +1 (+БМ), Тел +2 (+БМ)",
+          "interpretation": "not-evaluated"
+        },
+        "skills": {
+          "raw": "Атлетика +2 (+БМ), Восприятие +0 (+БМ×2)",
+          "interpretation": "not-evaluated"
+        },
+        "damageImmunities": {
+          "raw": "яд",
+          "interpretation": "not-evaluated"
+        },
+        "conditionImmunities": {
+          "raw": "отравление, очарование, истощение",
+          "interpretation": "not-evaluated"
+        },
+        "senses": {
+          "raw": "тёмное зрение 60 футов , пассивное Восприятие 10 (+БМ×2)",
+          "interpretation": "not-evaluated"
+        },
+        "languages": {
+          "raw": "понимает языки, на которых вы говорите",
+          "interpretation": "not-evaluated"
+        },
+        "proficiencyBonus": {
+          "raw": "равен вашему бонусу",
+          "interpretation": "not-evaluated"
+        }
+      },
+      "abilities": [
+        {
+          "name": "Сила",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Ловкость",
+          "score": 12,
+          "modifier": 1
+        },
+        {
+          "name": "Телосложение",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Интеллект",
+          "score": 4,
+          "modifier": -3
+        },
+        {
+          "name": "Мудрость",
+          "score": 10,
+          "modifier": 0
+        },
+        {
+          "name": "Харизма",
+          "score": 6,
+          "modifier": -2
+        }
+      ],
+      "sections": [
+        {
+          "heading": "traits",
+          "kind": "base-statblock",
+          "names": [
+            "Бдительный"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "9a8460390deea861df93b0e148fb9a70bc24a8db2b205e80b4b174190e3b22c7"
+        },
+        {
+          "heading": "Действия",
+          "kind": "base-statblock",
+          "names": [
+            "Исполненный силы удар",
+            "Ремонт (3/день)"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "c929bb761a86e4a0eb09b20afb33b64ceedddabb44b867098875c24ee9f58e6d"
+        },
+        {
+          "heading": "Реакции",
+          "kind": "base-statblock",
+          "names": [
+            "Отражение атаки"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "aae0bf169a54cace91e09a37b3c61c8f5d2cd32c5b9e02e4364a83a2291a4373"
+        }
+      ],
+      "unknownFields": [],
+      "fullRules": "unverified",
+      "formulaEvaluation": "not-implemented",
+      "automation": "not-applied",
+      "approval": "awaiting-independent-review",
+      "requestedUrl": "https://dnd.su/bestiary/3988-steel_defender/",
+      "finalUrl": "https://dnd.su/bestiary/3988-steel-defender/",
+      "redirects": [
+        {
+          "from": "https://dnd.su/bestiary/3988-steel_defender/",
+          "to": "https://dnd.su/bestiary/3988-steel-defender/",
+          "status": 301
+        }
+      ],
+      "rawSha256": "fa567bd1980e245ba923270f87c896a70d1e6148cc0dc94fce784ea7305a53c9"
+    },
+    {
+      "pageId": "dndsu:bestiary:4235",
+      "name": "Дух дикого огня [Wildfire spirit]",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceResolution": [
+        {
+          "title": "Tasha's Cauldron of Everything",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "117"
+          ],
+          "status": "source-identified"
+        }
+      ],
+      "sizeType": "Маленький Элементаль, любое мировоззрение",
+      "fields": {
+        "armorClass": {
+          "raw": "13 (природный доспех)",
+          "interpretation": "not-evaluated"
+        },
+        "hitPoints": {
+          "raw": "5 + пятикратный уровень друида",
+          "interpretation": "not-evaluated"
+        },
+        "speed": {
+          "raw": "30 футов , летая 30 футов (парит)",
+          "interpretation": "not-evaluated"
+        },
+        "damageImmunities": {
+          "raw": "огонь",
+          "interpretation": "not-evaluated"
+        },
+        "conditionImmunities": {
+          "raw": "опутанность, сбивание с ног, захват, очарование, испуг",
+          "interpretation": "not-evaluated"
+        },
+        "senses": {
+          "raw": "тёмное зрение 60 футов , пассивное Восприятие 12",
+          "interpretation": "not-evaluated"
+        },
+        "languages": {
+          "raw": "понимает языки, на которых вы говорите",
+          "interpretation": "not-evaluated"
+        },
+        "proficiencyBonus": {
+          "raw": "равен вашему бонусу",
+          "interpretation": "not-evaluated"
+        }
+      },
+      "abilities": [
+        {
+          "name": "Сила",
+          "score": 10,
+          "modifier": 0
+        },
+        {
+          "name": "Ловкость",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Телосложение",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Интеллект",
+          "score": 13,
+          "modifier": 1
+        },
+        {
+          "name": "Мудрость",
+          "score": 15,
+          "modifier": 2
+        },
+        {
+          "name": "Харизма",
+          "score": 11,
+          "modifier": 0
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Действия",
+          "kind": "base-statblock",
+          "names": [
+            "Огненное семя",
+            "Огненная телепортация"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "4d377e965253d8eccf0397a460dd6b6696a7c6aadbdc013472b51391cd308467"
+        },
+        {
+          "heading": "Описание",
+          "kind": "narrative",
+          "names": [],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "9431886a50a808bbeef25dbb62ca57858c3ddbc9772c5c02759c8009f1159929"
+        }
+      ],
+      "unknownFields": [],
+      "fullRules": "unverified",
+      "formulaEvaluation": "not-implemented",
+      "automation": "not-applied",
+      "approval": "awaiting-independent-review",
+      "requestedUrl": "https://dnd.su/bestiary/4235-wildefire_spirit/",
+      "finalUrl": "https://dnd.su/bestiary/4235-wildfire-spirit/",
+      "redirects": [
+        {
+          "from": "https://dnd.su/bestiary/4235-wildefire_spirit/",
+          "to": "https://dnd.su/bestiary/4235-wildfire-spirit/",
+          "status": 301
+        }
+      ],
+      "rawSha256": "35b52ec089f32a115c91ede16da1100a370ba41e21ed7d9cb83116a134db7e91"
+    },
+    {
+      "pageId": "dndsu:bestiary:4311",
+      "name": "Земной зверь [Beast of the Land]",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceResolution": [
+        {
+          "title": "Tasha's Cauldron of Everything",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "117"
+          ],
+          "status": "source-identified"
+        }
+      ],
+      "sizeType": "Средний Зверь, без мировоззрения",
+      "fields": {
+        "armorClass": {
+          "raw": "13 + бонус мастерства (природный доспех)",
+          "interpretation": "not-evaluated"
+        },
+        "hitPoints": {
+          "raw": "5 + пятикратный уровень следопыта (количество костей хитов (к8) зверя равно вашему уровню следопыта)",
+          "interpretation": "not-evaluated"
+        },
+        "speed": {
+          "raw": "40 футов , лазая 40 футов",
+          "interpretation": "not-evaluated"
+        },
+        "senses": {
+          "raw": "тёмное зрение 60 футов , пассивное Восприятие 12",
+          "interpretation": "not-evaluated"
+        },
+        "languages": {
+          "raw": "понимает языки, на которых вы говорите",
+          "interpretation": "not-evaluated"
+        },
+        "proficiencyBonus": {
+          "raw": "равен вашему бонусу",
+          "interpretation": "not-evaluated"
+        }
+      },
+      "abilities": [
+        {
+          "name": "Сила",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Ловкость",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Телосложение",
+          "score": 15,
+          "modifier": 2
+        },
+        {
+          "name": "Интеллект",
+          "score": 8,
+          "modifier": -1
+        },
+        {
+          "name": "Мудрость",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Харизма",
+          "score": 11,
+          "modifier": 0
+        }
+      ],
+      "sections": [
+        {
+          "heading": "traits",
+          "kind": "base-statblock",
+          "names": [
+            "Атака в броске",
+            "Первичная связь"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "d9123e7219311860c220bb89700925b72f24870eb29374db57257904f72c8530"
+        },
+        {
+          "heading": "Действия",
+          "kind": "base-statblock",
+          "names": [
+            "Растерзание"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "0a16277e6c8bdc17ffbf8268a98fe833ef067670e6c316cf3e0b4afa50a025c9"
+        },
+        {
+          "heading": "Описание",
+          "kind": "narrative",
+          "names": [],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "91b0d50343c4360edf861144a8d46ea15118d75c8b145abea1b8d291c7b4aa13"
+        }
+      ],
+      "unknownFields": [],
+      "fullRules": "unverified",
+      "formulaEvaluation": "not-implemented",
+      "automation": "not-applied",
+      "approval": "awaiting-independent-review",
+      "requestedUrl": "https://dnd.su/bestiary/4311-beast_of_the_land/",
+      "finalUrl": "https://dnd.su/bestiary/4311-beast-of-the-land/",
+      "redirects": [
+        {
+          "from": "https://dnd.su/bestiary/4311-beast_of_the_land/",
+          "to": "https://dnd.su/bestiary/4311-beast-of-the-land/",
+          "status": 301
+        }
+      ],
+      "rawSha256": "45f3ade69ec412c6a0b37d63d2601f12046b46d186b8dd83efdb2c74a1727131"
+    },
+    {
+      "pageId": "dndsu:bestiary:4312",
+      "name": "Морской зверь [Beast of the Sea]",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceResolution": [
+        {
+          "title": "Tasha's Cauldron of Everything",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "117"
+          ],
+          "status": "source-identified"
+        }
+      ],
+      "sizeType": "Средний Зверь, без мировоззрения",
+      "fields": {
+        "armorClass": {
+          "raw": "13 + бонус мастерства (природный доспех)",
+          "interpretation": "not-evaluated"
+        },
+        "hitPoints": {
+          "raw": "5 + пятикратный уровень следопыта (количество костей хитов (к8) зверя равно вашему уровню следопыта)",
+          "interpretation": "not-evaluated"
+        },
+        "speed": {
+          "raw": "5 футов , плавая 60 футов",
+          "interpretation": "not-evaluated"
+        },
+        "senses": {
+          "raw": "тёмное зрение 60 футов , пассивное Восприятие 12",
+          "interpretation": "not-evaluated"
+        },
+        "languages": {
+          "raw": "понимает языки, на которых вы говорите",
+          "interpretation": "not-evaluated"
+        },
+        "proficiencyBonus": {
+          "raw": "равен вашему бонусу",
+          "interpretation": "not-evaluated"
+        }
+      },
+      "abilities": [
+        {
+          "name": "Сила",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Ловкость",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Телосложение",
+          "score": 15,
+          "modifier": 2
+        },
+        {
+          "name": "Интеллект",
+          "score": 8,
+          "modifier": -1
+        },
+        {
+          "name": "Мудрость",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Харизма",
+          "score": 11,
+          "modifier": 0
+        }
+      ],
+      "sections": [
+        {
+          "heading": "traits",
+          "kind": "base-statblock",
+          "names": [
+            "Амфибия",
+            "Первичная связь"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "16404657013d8dca34de3dee34deac6e522cc3b091f3373f66958a1bcbb6d6a3"
+        },
+        {
+          "heading": "Действия",
+          "kind": "base-statblock",
+          "names": [
+            "Опутывающий удар"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "8f20b42a9be20883f5d19fcd5c83b7888390b01f484b6b68dfc9d59c6e77c2c6"
+        },
+        {
+          "heading": "Описание",
+          "kind": "narrative",
+          "names": [],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "91b0d50343c4360edf861144a8d46ea15118d75c8b145abea1b8d291c7b4aa13"
+        }
+      ],
+      "unknownFields": [],
+      "fullRules": "unverified",
+      "formulaEvaluation": "not-implemented",
+      "automation": "not-applied",
+      "approval": "awaiting-independent-review",
+      "requestedUrl": "https://dnd.su/bestiary/4312-beast_of_the_sea/",
+      "finalUrl": "https://dnd.su/bestiary/4312-beast-of-the-sea/",
+      "redirects": [
+        {
+          "from": "https://dnd.su/bestiary/4312-beast_of_the_sea/",
+          "to": "https://dnd.su/bestiary/4312-beast-of-the-sea/",
+          "status": 301
+        }
+      ],
+      "rawSha256": "c6922b3d58e30ab7dcb3941c2de5c96daeef371f614d7dfec14edc0ff899996c"
+    },
+    {
+      "pageId": "dndsu:bestiary:4313",
+      "name": "Небесный зверь [Beast of the Sky]",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceResolution": [
+        {
+          "title": "Tasha's Cauldron of Everything",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "117"
+          ],
+          "status": "source-identified"
+        }
+      ],
+      "sizeType": "Маленький Зверь, без мировоззрения",
+      "fields": {
+        "armorClass": {
+          "raw": "13 + бонус мастерства (природный доспех)",
+          "interpretation": "not-evaluated"
+        },
+        "hitPoints": {
+          "raw": "4 + четырехкратный уровень следопыта (количество костей хитов (к6) зверя равно вашему уровню следопыта)",
+          "interpretation": "not-evaluated"
+        },
+        "speed": {
+          "raw": "10 футов , летая 60 футов",
+          "interpretation": "not-evaluated"
+        },
+        "senses": {
+          "raw": "тёмное зрение 60 футов , пассивное Восприятие 12",
+          "interpretation": "not-evaluated"
+        },
+        "languages": {
+          "raw": "понимает языки, на которых вы говорите",
+          "interpretation": "not-evaluated"
+        },
+        "proficiencyBonus": {
+          "raw": "равен вашему бонусу",
+          "interpretation": "not-evaluated"
+        }
+      },
+      "abilities": [
+        {
+          "name": "Сила",
+          "score": 6,
+          "modifier": -2
+        },
+        {
+          "name": "Ловкость",
+          "score": 16,
+          "modifier": 3
+        },
+        {
+          "name": "Телосложение",
+          "score": 13,
+          "modifier": 1
+        },
+        {
+          "name": "Интеллект",
+          "score": 8,
+          "modifier": -1
+        },
+        {
+          "name": "Мудрость",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Харизма",
+          "score": 11,
+          "modifier": 0
+        }
+      ],
+      "sections": [
+        {
+          "heading": "traits",
+          "kind": "base-statblock",
+          "names": [
+            "Облёт",
+            "Первичная связь"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "1b30afe35dce966e856ea3cce59c7fe980d5dc5321430d319a07803ecce37140"
+        },
+        {
+          "heading": "Действия",
+          "kind": "base-statblock",
+          "names": [
+            "Кромсание"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "5ed9c271d3f3a78d9264618ac6562028a66dad9277b3dc3aee0de6aca2de1647"
+        },
+        {
+          "heading": "Описание",
+          "kind": "narrative",
+          "names": [],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "91b0d50343c4360edf861144a8d46ea15118d75c8b145abea1b8d291c7b4aa13"
+        }
+      ],
+      "unknownFields": [],
+      "fullRules": "unverified",
+      "formulaEvaluation": "not-implemented",
+      "automation": "not-applied",
+      "approval": "awaiting-independent-review",
+      "requestedUrl": "https://dnd.su/bestiary/4313-beast_of_the_sky/",
+      "finalUrl": "https://dnd.su/bestiary/4313-beast-of-the-sky/",
+      "redirects": [
+        {
+          "from": "https://dnd.su/bestiary/4313-beast_of_the_sky/",
+          "to": "https://dnd.su/bestiary/4313-beast-of-the-sky/",
+          "status": 301
+        }
+      ],
+      "rawSha256": "869159371d658d3a7a8715097819d9ee157648887b776e095fd520f70263a897"
+    },
+    {
+      "pageId": "dndsu:bestiary:4842",
+      "name": "Дрейк-компаньон [Drake Companion]",
+      "sourceIds": [
+        "152"
+      ],
+      "sourceResolution": [
+        {
+          "title": "Fizban's Treasury of Dragons",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "152"
+          ],
+          "status": "source-identified"
+        }
+      ],
+      "sizeType": "Маленький Дракон",
+      "fields": {
+        "armorClass": {
+          "raw": "14 + БМ следопыта (природный доспех)",
+          "interpretation": "not-evaluated"
+        },
+        "hitPoints": {
+          "raw": "5 + ваш пятикратный уровень следопыта (количество костей хитов дрейка [к10] равно уровню следопыта)",
+          "interpretation": "not-evaluated"
+        },
+        "speed": {
+          "raw": "40 футов",
+          "interpretation": "not-evaluated"
+        },
+        "savingThrows": {
+          "raw": "Лов +1 (+ БМ), Мдр +2 (+ БМ)",
+          "interpretation": "not-evaluated"
+        },
+        "damageImmunities": {
+          "raw": "определяется выбором в особенности «Сущность дракона»",
+          "interpretation": "not-evaluated"
+        },
+        "senses": {
+          "raw": "тёмное зрение 60 футов , пассивное Восприятие 12",
+          "interpretation": "not-evaluated"
+        },
+        "languages": {
+          "raw": "Драконий",
+          "interpretation": "not-evaluated"
+        },
+        "proficiencyBonus": {
+          "raw": "равен вашему бонусу",
+          "interpretation": "not-evaluated"
+        }
+      },
+      "abilities": [
+        {
+          "name": "Сила",
+          "score": 16,
+          "modifier": 3
+        },
+        {
+          "name": "Ловкость",
+          "score": 12,
+          "modifier": 1
+        },
+        {
+          "name": "Телосложение",
+          "score": 15,
+          "modifier": 2
+        },
+        {
+          "name": "Интеллект",
+          "score": 8,
+          "modifier": -1
+        },
+        {
+          "name": "Мудрость",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Харизма",
+          "score": 8,
+          "modifier": -1
+        }
+      ],
+      "sections": [
+        {
+          "heading": "traits",
+          "kind": "base-statblock",
+          "names": [
+            "Сущность дракона"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "ceea7282fda0cc214b35d4e1869aecff9f0eab472b572ac3fc02e4c49590ea6f"
+        },
+        {
+          "heading": "Действия",
+          "kind": "base-statblock",
+          "names": [
+            "Укус"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "455da68cd89d76ee2c302456093c0fd5aa138a797d40ccf36a3b7d75b2b3a841"
+        },
+        {
+          "heading": "Реакции",
+          "kind": "base-statblock",
+          "names": [
+            "Усиленные удары"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "c95bc55ca6a0c38c9128a150d06d73ecb3049375bbdf569680d9036238da6927"
+        },
+        {
+          "heading": "Описание",
+          "kind": "narrative",
+          "names": [],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "438daafad390f42d1d2f8c8876ec976e227ddc5f632e752b4667a8e4d3e1cf84"
+        }
+      ],
+      "unknownFields": [],
+      "fullRules": "unverified",
+      "formulaEvaluation": "not-implemented",
+      "automation": "not-applied",
+      "approval": "awaiting-independent-review",
+      "requestedUrl": "https://dnd.su/bestiary/4842-drake_companion/",
+      "finalUrl": "https://dnd.su/bestiary/4842-drake-companion/",
+      "redirects": [
+        {
+          "from": "https://dnd.su/bestiary/4842-drake_companion/",
+          "to": "https://dnd.su/bestiary/4842-drake-companion/",
+          "status": 301
+        }
+      ],
+      "rawSha256": "c05399f9e6b8a25c510ad27f8839b2e2deb387d13c32c3f2437fee0a2ad8975d"
+    },
+    {
+      "pageId": "dndsu:bestiary:14130",
+      "name": "Дрейк-компаньон [Drake Companion]",
+      "sourceIds": [
+        "152"
+      ],
+      "sourceResolution": [
+        {
+          "title": "Fizban's Treasury of Dragons",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "152"
+          ],
+          "status": "source-identified"
+        }
+      ],
+      "sizeType": "Средний Дракон",
+      "fields": {
+        "armorClass": {
+          "raw": "14 + БМ следопыта (природный доспех)",
+          "interpretation": "not-evaluated"
+        },
+        "hitPoints": {
+          "raw": "5 + ваш пятикратный уровень следопыта (количество костей хитов дрейка [к10] равно уровню следопыта)",
+          "interpretation": "not-evaluated"
+        },
+        "speed": {
+          "raw": "40 футов , летая 40 футов (если не осёдлан)",
+          "interpretation": "not-evaluated"
+        },
+        "savingThrows": {
+          "raw": "Лов +1 (+ БМ), Мдр +2 (+ БМ)",
+          "interpretation": "not-evaluated"
+        },
+        "damageImmunities": {
+          "raw": "определяется выбором в особенности «Сущность дракона»",
+          "interpretation": "not-evaluated"
+        },
+        "senses": {
+          "raw": "тёмное зрение 60 футов , пассивное Восприятие 12",
+          "interpretation": "not-evaluated"
+        },
+        "languages": {
+          "raw": "Драконий",
+          "interpretation": "not-evaluated"
+        },
+        "proficiencyBonus": {
+          "raw": "равен вашему бонусу",
+          "interpretation": "not-evaluated"
+        }
+      },
+      "abilities": [
+        {
+          "name": "Сила",
+          "score": 16,
+          "modifier": 3
+        },
+        {
+          "name": "Ловкость",
+          "score": 12,
+          "modifier": 1
+        },
+        {
+          "name": "Телосложение",
+          "score": 15,
+          "modifier": 2
+        },
+        {
+          "name": "Интеллект",
+          "score": 8,
+          "modifier": -1
+        },
+        {
+          "name": "Мудрость",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Харизма",
+          "score": 8,
+          "modifier": -1
+        }
+      ],
+      "sections": [
+        {
+          "heading": "traits",
+          "kind": "base-statblock",
+          "names": [
+            "Сущность дракона"
+          ],
+          "emptyNameMarkers": 1,
+          "evidenceTextSha256": "797b4f19c6d7dadb4d4c1970329ccf5b4f460ee796389bad45e9022b1d8813d2"
+        },
+        {
+          "heading": "Действия",
+          "kind": "base-statblock",
+          "names": [
+            "Укус"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "809bb5dc85808b13c53f65041b42f9c1348683194b236813c386b379a744d3f4"
+        },
+        {
+          "heading": "Реакции",
+          "kind": "base-statblock",
+          "names": [
+            "Усиленные удары"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "c95bc55ca6a0c38c9128a150d06d73ecb3049375bbdf569680d9036238da6927"
+        },
+        {
+          "heading": "Описание",
+          "kind": "narrative",
+          "names": [],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "2970bea053f8400845d9a4eeb6b15a711986efa932377ab1d3d0e2874c71aa65"
+        }
+      ],
+      "unknownFields": [],
+      "fullRules": "unverified",
+      "formulaEvaluation": "not-implemented",
+      "automation": "not-applied",
+      "approval": "awaiting-independent-review",
+      "requestedUrl": "https://dnd.su/bestiary/14130-drake_companion/",
+      "finalUrl": "https://dnd.su/bestiary/14130-drake-companion/",
+      "redirects": [
+        {
+          "from": "https://dnd.su/bestiary/14130-drake_companion/",
+          "to": "https://dnd.su/bestiary/14130-drake-companion/",
+          "status": 301
+        }
+      ],
+      "rawSha256": "88c7753328b33e02242e05b549a78ca9ec366da506147ab0f5c2fdb203c75859"
+    },
+    {
+      "pageId": "dndsu:bestiary:14131",
+      "name": "Дрейк-компаньон [Drake Companion]",
+      "sourceIds": [
+        "152"
+      ],
+      "sourceResolution": [
+        {
+          "title": "Fizban's Treasury of Dragons",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "152"
+          ],
+          "status": "source-identified"
+        }
+      ],
+      "sizeType": "Большой Дракон",
+      "fields": {
+        "armorClass": {
+          "raw": "14 + БМ следопыта (природный доспех)",
+          "interpretation": "not-evaluated"
+        },
+        "hitPoints": {
+          "raw": "5 + ваш пятикратный уровень следопыта (количество костей хитов дрейка [к10] равно уровню следопыта)",
+          "interpretation": "not-evaluated"
+        },
+        "speed": {
+          "raw": "40 футов , летая 40 футов",
+          "interpretation": "not-evaluated"
+        },
+        "savingThrows": {
+          "raw": "Лов +1 (+ БМ), Мдр +2 (+ БМ)",
+          "interpretation": "not-evaluated"
+        },
+        "damageImmunities": {
+          "raw": "определяется выбором в особенности «Сущность дракона»",
+          "interpretation": "not-evaluated"
+        },
+        "senses": {
+          "raw": "тёмное зрение 60 футов , пассивное Восприятие 12",
+          "interpretation": "not-evaluated"
+        },
+        "languages": {
+          "raw": "Драконий",
+          "interpretation": "not-evaluated"
+        },
+        "proficiencyBonus": {
+          "raw": "равен вашему бонусу",
+          "interpretation": "not-evaluated"
+        }
+      },
+      "abilities": [
+        {
+          "name": "Сила",
+          "score": 16,
+          "modifier": 3
+        },
+        {
+          "name": "Ловкость",
+          "score": 12,
+          "modifier": 1
+        },
+        {
+          "name": "Телосложение",
+          "score": 15,
+          "modifier": 2
+        },
+        {
+          "name": "Интеллект",
+          "score": 8,
+          "modifier": -1
+        },
+        {
+          "name": "Мудрость",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Харизма",
+          "score": 8,
+          "modifier": -1
+        }
+      ],
+      "sections": [
+        {
+          "heading": "traits",
+          "kind": "base-statblock",
+          "names": [
+            "Сущность дракона"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "8b5b71a692f7db5974a14915e4c81ec5897440618b17a892065571571e8a35bb"
+        },
+        {
+          "heading": "Действия",
+          "kind": "base-statblock",
+          "names": [
+            "Укус"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "339cbe818b8408384bfcd548a89082c2d50de7497fa9b3d4536c5363c3253dc6"
+        },
+        {
+          "heading": "Реакции",
+          "kind": "base-statblock",
+          "names": [
+            "Усиленные удары"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "c95bc55ca6a0c38c9128a150d06d73ecb3049375bbdf569680d9036238da6927"
+        },
+        {
+          "heading": "Описание",
+          "kind": "narrative",
+          "names": [],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "9404506bdb732f1e5d28b0d202db7719a6760372b5743ee49c883ad19a326d47"
+        }
+      ],
+      "unknownFields": [],
+      "fullRules": "unverified",
+      "formulaEvaluation": "not-implemented",
+      "automation": "not-applied",
+      "approval": "awaiting-independent-review",
+      "requestedUrl": "https://dnd.su/bestiary/14131-drake_companion/",
+      "finalUrl": "https://dnd.su/bestiary/14131-drake-companion/",
+      "redirects": [
+        {
+          "from": "https://dnd.su/bestiary/14131-drake_companion/",
+          "to": "https://dnd.su/bestiary/14131-drake-companion/",
+          "status": 301
+        }
+      ],
+      "rawSha256": "3047e776684379e9b14ac15597e86e2eda24859fbecc445977ecc33414ad577a"
+    },
+    {
+      "pageId": "dndsu:bestiary:2017",
+      "name": "Гончая дурного знамения [Hound of Ill Omen]",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceResolution": [
+        {
+          "title": "Xanathar's Guide to Everything",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "109"
+          ],
+          "status": "source-identified"
+        }
+      ],
+      "sizeType": "Средний Монстр, без мировоззрения",
+      "fields": {
+        "armorClass": {
+          "raw": "14 (природный доспех)",
+          "interpretation": "not-evaluated"
+        },
+        "hitPoints": {
+          "raw": "37 ( 5 к 10 + 10 )",
+          "interpretation": "not-evaluated"
+        },
+        "speed": {
+          "raw": "50 футов",
+          "interpretation": "not-evaluated"
+        },
+        "skills": {
+          "raw": "Восприятие +3 , Скрытность +4",
+          "interpretation": "not-evaluated"
+        },
+        "senses": {
+          "raw": "пассивное Восприятие 13",
+          "interpretation": "not-evaluated"
+        },
+        "challenge": {
+          "raw": "1 (200 опыта)",
+          "interpretation": "not-evaluated"
+        },
+        "proficiencyBonus": {
+          "raw": "+2",
+          "interpretation": "not-evaluated"
+        }
+      },
+      "abilities": [
+        {
+          "name": "Сила",
+          "score": 17,
+          "modifier": 3
+        },
+        {
+          "name": "Ловкость",
+          "score": 15,
+          "modifier": 2
+        },
+        {
+          "name": "Телосложение",
+          "score": 15,
+          "modifier": 2
+        },
+        {
+          "name": "Интеллект",
+          "score": 3,
+          "modifier": -4
+        },
+        {
+          "name": "Мудрость",
+          "score": 12,
+          "modifier": 1
+        },
+        {
+          "name": "Харизма",
+          "score": 7,
+          "modifier": -2
+        }
+      ],
+      "sections": [
+        {
+          "heading": "traits",
+          "kind": "base-statblock",
+          "names": [
+            "Острый слух и тонкий нюх",
+            "Тактика стаи",
+            "Особенности теневой гончей"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "324d0026d0fcb8c11e5885ddb01f2a4c80ecc914b1dac82f3d60b7434aec3bd5"
+        },
+        {
+          "heading": "Действия",
+          "kind": "base-statblock",
+          "names": [
+            "Укус"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "e344cae050feb584436c9cbbc0b20d4118d12232a86dab4b24731ee6380e4b03"
+        },
+        {
+          "heading": "Описание",
+          "kind": "narrative",
+          "names": [],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "117a3da904b9f0c749c864916693ddcfd601a4f70cc6a40adccad756599f0fff"
+        }
+      ],
+      "unknownFields": [],
+      "fullRules": "unverified",
+      "formulaEvaluation": "not-implemented",
+      "automation": "not-applied",
+      "approval": "awaiting-independent-review",
+      "requestedUrl": "https://dnd.su/bestiary/2017-hound_of_ill_omen/",
+      "finalUrl": "https://dnd.su/bestiary/2017-hound-of-ill-omen/",
+      "redirects": [
+        {
+          "from": "https://dnd.su/bestiary/2017-hound_of_ill_omen/",
+          "to": "https://dnd.su/bestiary/2017-hound-of-ill-omen/",
+          "status": 301
+        }
+      ],
+      "rawSha256": "59c8f2beb4deb09a424c5471a2b0fb284e7f0e86a9b495bf3688788d3bc3d1a2"
+    },
+    {
+      "pageId": "dndsu:bestiary:297",
+      "name": "Лютый волк [Dire wolf]",
+      "sourceIds": [
+        "102",
+        "103"
+      ],
+      "sourceResolution": [
+        {
+          "title": "Player's Handbook",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "102"
+          ],
+          "status": "source-identified"
+        },
+        {
+          "title": "Monster Manual",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "103"
+          ],
+          "status": "source-identified"
+        }
+      ],
+      "sizeType": "Большой Зверь, без мировоззрения",
+      "fields": {
+        "armorClass": {
+          "raw": "14 (природный доспех)",
+          "interpretation": "not-evaluated"
+        },
+        "hitPoints": {
+          "raw": "37 ( 5 к 10 + 10 )",
+          "interpretation": "not-evaluated"
+        },
+        "speed": {
+          "raw": "50 футов",
+          "interpretation": "not-evaluated"
+        },
+        "skills": {
+          "raw": "Восприятие +3 , Скрытность +4",
+          "interpretation": "not-evaluated"
+        },
+        "senses": {
+          "raw": "пассивное Восприятие 13",
+          "interpretation": "not-evaluated"
+        },
+        "challenge": {
+          "raw": "1 (200 опыта)",
+          "interpretation": "not-evaluated"
+        },
+        "proficiencyBonus": {
+          "raw": "+2",
+          "interpretation": "not-evaluated"
+        },
+        "habitat": {
+          "raw": "лес, холмы",
+          "interpretation": "not-evaluated"
+        }
+      },
+      "abilities": [
+        {
+          "name": "Сила",
+          "score": 17,
+          "modifier": 3
+        },
+        {
+          "name": "Ловкость",
+          "score": 15,
+          "modifier": 2
+        },
+        {
+          "name": "Телосложение",
+          "score": 15,
+          "modifier": 2
+        },
+        {
+          "name": "Интеллект",
+          "score": 3,
+          "modifier": -4
+        },
+        {
+          "name": "Мудрость",
+          "score": 12,
+          "modifier": 1
+        },
+        {
+          "name": "Харизма",
+          "score": 7,
+          "modifier": -2
+        }
+      ],
+      "sections": [
+        {
+          "heading": "traits",
+          "kind": "base-statblock",
+          "names": [
+            "Острый слух и тонкий нюх",
+            "Тактика стаи"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "4dd9e1b8698102475483aa659bd277e140ab1126dd12cca98a391a69c3129896"
+        },
+        {
+          "heading": "Действия",
+          "kind": "base-statblock",
+          "names": [
+            "Укус"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "256878d1f51cce5ca6eac87c31ee0cbe34419e1d6c790c09ec83c87b69d35b5c"
+        }
+      ],
+      "unknownFields": [],
+      "fullRules": "unverified",
+      "formulaEvaluation": "not-implemented",
+      "automation": "not-applied",
+      "approval": "awaiting-independent-review",
+      "requestedUrl": "https://dnd.su/bestiary/297-dire_wolf/",
+      "finalUrl": "https://dnd.su/bestiary/297-dire-wolf/",
+      "redirects": [
+        {
+          "from": "https://dnd.su/bestiary/297-dire_wolf/",
+          "to": "https://dnd.su/bestiary/297-dire-wolf/",
+          "status": 301
+        }
+      ],
+      "rawSha256": "d38c79ebfe8997fc33b913ae040292f8ee6d298c063930415bdda2ce3be3d891"
+    },
+    {
+      "pageId": "dndsu:bestiary:294",
+      "name": "Спектр [Specter]",
+      "sourceIds": [
+        "103"
+      ],
+      "sourceResolution": [
+        {
+          "title": "Monster Manual",
+          "resolutionBasis": "normalized-title",
+          "sourceIds": [
+            "103"
+          ],
+          "status": "source-identified"
+        }
+      ],
+      "sizeType": "Средняя Нежить, хаотично-злая",
+      "fields": {
+        "armorClass": {
+          "raw": "12",
+          "interpretation": "not-evaluated"
+        },
+        "hitPoints": {
+          "raw": "22 ( 5 к 8 )",
+          "interpretation": "not-evaluated"
+        },
+        "speed": {
+          "raw": "0 футов , летая 50 футов (парит)",
+          "interpretation": "not-evaluated"
+        },
+        "damageResistances": {
+          "raw": "звук, кислота, огонь, холод, электричество; дробящий, колющий, рубящий от немагических атак",
+          "interpretation": "not-evaluated"
+        },
+        "damageImmunities": {
+          "raw": "некротическая энергия, яд",
+          "interpretation": "not-evaluated"
+        },
+        "conditionImmunities": {
+          "raw": "сбивание с ног, паралич, очарование, отравление, опутанность, окаменение, истощение, захват, бессознательность",
+          "interpretation": "not-evaluated"
+        },
+        "senses": {
+          "raw": "тёмное зрение 60 футов , пассивное Восприятие 10",
+          "interpretation": "not-evaluated"
+        },
+        "languages": {
+          "raw": "понимает все, известные при жизни, но не говорит",
+          "interpretation": "not-evaluated"
+        },
+        "challenge": {
+          "raw": "1 (200 опыта)",
+          "interpretation": "not-evaluated"
+        },
+        "proficiencyBonus": {
+          "raw": "+2",
+          "interpretation": "not-evaluated"
+        },
+        "habitat": {
+          "raw": "город, подземье",
+          "interpretation": "not-evaluated"
+        }
+      },
+      "abilities": [
+        {
+          "name": "Сила",
+          "score": 1,
+          "modifier": -5
+        },
+        {
+          "name": "Ловкость",
+          "score": 14,
+          "modifier": 2
+        },
+        {
+          "name": "Телосложение",
+          "score": 11,
+          "modifier": 0
+        },
+        {
+          "name": "Интеллект",
+          "score": 10,
+          "modifier": 0
+        },
+        {
+          "name": "Мудрость",
+          "score": 10,
+          "modifier": 0
+        },
+        {
+          "name": "Харизма",
+          "score": 11,
+          "modifier": 0
+        }
+      ],
+      "sections": [
+        {
+          "heading": "traits",
+          "kind": "base-statblock",
+          "names": [
+            "Бестелесное перемещение",
+            "Чувствительность к солнечному свету"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "40dbca2ad7c6c619715d171f04a25a805dfe0540167c58af509dec78d51b57e8"
+        },
+        {
+          "heading": "Действия",
+          "kind": "base-statblock",
+          "names": [
+            "Вытягивание жизни"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "d296c4b651d1e39f10582f55d2107e737d459c061edfb461c14896ad5e4cb048"
+        },
+        {
+          "heading": "Полтергейст",
+          "kind": "variant-statblock",
+          "names": [
+            "Невидимость",
+            "Силовой удар",
+            "Телекинетический рывок"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "e2e9ac9a89f0115c376e0964e4cd571b7fcff2abb3155e40c6d5b9650480ccf5"
+        },
+        {
+          "heading": "Описание",
+          "kind": "narrative",
+          "names": [
+            "Отсутствие искупления",
+            "Неумолимая ненависть",
+            "Обитатели тьмы",
+            "Натура нежити"
+          ],
+          "emptyNameMarkers": 0,
+          "evidenceTextSha256": "6cf909ba6a3e893812952a391ee85aa804ef7e437b28ecfec33ed430e3f0b3c7"
+        }
+      ],
+      "unknownFields": [],
+      "fullRules": "unverified",
+      "formulaEvaluation": "not-implemented",
+      "automation": "not-applied",
+      "approval": "awaiting-independent-review",
+      "requestedUrl": "https://dnd.su/bestiary/294-specter/",
+      "finalUrl": "https://dnd.su/bestiary/294-specter/",
+      "redirects": [],
+      "rawSha256": "e47e1da966f506fb3601620e00019a7ad41f0419646cfeb30d8a96bc1c17946a"
+    }
+  ]
+}

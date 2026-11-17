@@ -1,0 +1,1920 @@
+{
+  "schemaVersion": 1,
+  "status": "partial-choice-spell-reference-evidence",
+  "summary": {
+    "choices": 87,
+    "choicesWithReferences": 46,
+    "references": 53,
+    "uniqueSpellPages": 40,
+    "unresolvedReferences": 1
+  },
+  "records": [
+    {
+      "choiceObservationId": "scope-choice:421941a906af1dce9f29",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ВЕДЬМАЧИЙ ВЗОР",
+      "sourceId": "102",
+      "filterLevel": 15,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "89d848bf527900b012b8b9908b9f5da2e86bd214c298ddc10b35d616a8ed5c29",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:a4fec05f8212b837e7f5",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ВЗОР ДВУХ УМОВ",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "bc435027363eb82c679d1d66522d51612aedf2d97af32184c6a933edc8a7a2c8",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:251f97d23a744c84e883",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ВИДЕНИЯ ДАЛЁКИХ КОРОЛЕВСТВ",
+      "sourceId": "102",
+      "filterLevel": 15,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:151",
+          "url": "https://dnd.su/spells/151-arcane_eye/",
+          "label": "магический глаз [arcane eye]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 4,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "18ef3488e005a32eb5cd0be7a7c755d45780ca84db6eb24ba954de38d6dc8219",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:6f8c68eaba12b8595755",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ВОР ПЯТИ СУДЕБ",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:254",
+          "url": "https://dnd.su/spells/254-bane/",
+          "label": "порча [bane]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "d57e62404f0cb660609e7854e4fe86b02251181ad53fe6b01f7fa127bcf2a062",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:56eb3c4831249463ac7a",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ВОСХОДЯЩИЙ ШАГ",
+      "sourceId": "102",
+      "filterLevel": 9,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:139",
+          "url": "https://dnd.su/spells/139-levitate/",
+          "label": "левитация [levitate]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 2,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "faffdde1ecadb6a86641e8df9804d801bd57c58325b52501bae55b1680c1cbda",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:9dac14c028faab1fcd44",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ГЛАЗА ХРАНИТЕЛЯ РУН",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "0b8a43ea3c7dbfdc104dcd81aa2fc04f4667103968ecfeaf59fce46a2eff0218",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:ca06a9d9117f2ca1409c",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ГЛАС ЦЕПНОГО МАСТЕРА",
+      "sourceId": "102",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-pact": "chain"
+      },
+      "references": [],
+      "evidenceTextSha256": "d0d5a89b5c244693a21379d5dbdb95dc43f0a32feb8075735a75c9effc76c64e",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:aed16f17f05b333567f5",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ДОСПЕХ ТЕНЕЙ",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:60",
+          "url": "https://dnd.su/spells/60-mage_armor/",
+          "label": "доспехи мага [mage armor]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "b52740319454320090becdc50bb2c7056842ee65b4d7de5ddab6d676528eda7b",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:91d109da9ca125223900",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ДЬЯВОЛЬСКИЙ ВЗГЛЯД",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "7aee897474692e398d5d14a3a1c184b1e5c33a60575dc49cebce37b81f5b1b71",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:2e54482c9ddf9d81ef32",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ЖАЖДУЩИЙ КЛИНОК",
+      "sourceId": "102",
+      "filterLevel": 5,
+      "prerequisiteMetadata": {
+        "data-pact": "blade"
+      },
+      "references": [],
+      "evidenceTextSha256": "91de10d8d0166985fe96c90b99f80b1a33049e33855a3df996886ea6d2f70418",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:9a146b669d2dfbff0f65",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ЖИВОТНАЯ РЕЧЬ",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:292",
+          "url": "https://dnd.su/spells/292-speak_with_animals/",
+          "label": "разговор с животными [speak with animals]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "08818ae5fab6290a4f1666694c36c199eafb3257571c259238349a64e5802eba",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:7fa0930dd82a5fef16dc",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ЗАВОРАЖИВАЮЩИЙ ШЁПОТ",
+      "sourceId": "102",
+      "filterLevel": 7,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:278",
+          "url": "https://dnd.su/spells/278-compulsion/",
+          "label": "принуждение [compulsion]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 4,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "1961884b10e7d00cf98cfe126b884e50f0e71d6cd26b13e21d1605a21d0bfe88",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:330135e1439aa982f242",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ЗНАК ДУРНОГО ПРЕДЗНАМЕНОВАНИЯ",
+      "sourceId": "102",
+      "filterLevel": 5,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:285",
+          "url": "https://dnd.su/spells/285-bestow_curse/",
+          "label": "проклятие [bestow curse]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 3,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "eee490fbdb050de88f3796980d291a61497626fa6f45b140972a6b2cb7a82a9b",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:2b10186093a7b697f6ea",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "КНИГА ДРЕВНИХ СЕКРЕТОВ",
+      "sourceId": "102",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-pact": "tome"
+      },
+      "references": [
+        {
+          "kind": "spell-list-navigation",
+          "url": "https://dnd.su/spells/?search=&ritual=2&level=1",
+          "label": "списков заклинаний любых классов",
+          "pageId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "1d9ae819607e8f17d1a1d981816d75504044ff72ca516bbd2387b433033e3b6d",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:ddefa9cb660a7933f8f1",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "МАСКА МНОГИХ ЛИЦ",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:157",
+          "url": "https://dnd.su/spells/157-disguise_self/",
+          "label": "маскировка [disguise self]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "df543fb53855b6e9ad3932ebe8281f175d8856f4abb4057eb263d99cadeebddd",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:a73cded1ced586e64af7",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "МАСТЕР БЕСЧИСЛЕННЫХ ОБЛИКОВ",
+      "sourceId": "102",
+      "filterLevel": 15,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:323",
+          "url": "https://dnd.su/spells/323-alter_self/",
+          "label": "смена обличья [alter self]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 2,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "13d4e813f02a28888594a13bf448620d7a4733e13c555c83a3085c79f1d2b672",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:68b22083d208a182b9fd",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "МИСТИЧЕСКОЕ КОПЬЁ",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:168",
+          "url": "https://dnd.su/spells/168-eldritch_blast/",
+          "label": "мистический заряд [eldritch blast]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 0,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:168",
+          "url": "https://dnd.su/spells/168-eldritch_blast/",
+          "label": "мистический заряд [eldritch blast]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 0,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "00497fa49e74883fc9b5a9d9a6ee03a9f5898829465d2cb5b0d3ce8643eaab5d",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:734235015a3ce4fcf2cc",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "МОГИЛЬНЫЙ ШЁПОТ",
+      "sourceId": "102",
+      "filterLevel": 9,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:293",
+          "url": "https://dnd.su/spells/293-speak_with_dead/",
+          "label": "разговор с мёртвыми [speak with dead]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 3,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "c34ff63f0473d70ed63fa28893fd65279a9ea57886230113cbae0274e921b65a",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:a2cc89661301fd3ef266",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "МОЩЬ ИСЧАДИЯ",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:287",
+          "url": "https://dnd.su/spells/287-false_life/",
+          "label": "псевдожизнь [false life]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "1d7aa4648d34c0ae8511d2beff91049499545e0a4ad7a39c28a2f7fb5d6bdedb",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:50eefba6b75b6aab678c",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "МУЧИТЕЛЬНЫЙ ВЗРЫВ",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:168",
+          "url": "https://dnd.su/spells/168-eldritch_blast/",
+          "label": "мистический заряд [eldritch blast]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 0,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:168",
+          "url": "https://dnd.su/spells/168-eldritch_blast/",
+          "label": "мистический заряд [eldritch blast]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 0,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "974ffb9f2bea178e465cfcbba58477eb7ddec965ff004d727d214bff344cc861",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:418e50ea5249498d3037",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ОБМАНЧИВОЕ ВЛИЯНИЕ",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "49bfe16114cbf1d5cd70c7ea6d899fa2babce400c7a6bb63787f6cbc44d45bb6",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:1d549fd7c26a2ac8f218",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ОДИН СРЕДИ ТЕНЕЙ",
+      "sourceId": "102",
+      "filterLevel": 5,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "2654bd132e8c0e9818764a7ef963568133efadcf9cdfeaa18c08e6d41e90debc",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:42b3457c68dc5e9843a3",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ОТТАЛКИВАЮЩИЙ ЗАРЯД",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:168",
+          "url": "https://dnd.su/spells/168-eldritch_blast/",
+          "label": "мистический заряд [eldritch blast]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 0,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:168",
+          "url": "https://dnd.su/spells/168-eldritch_blast/",
+          "label": "мистическим зарядом [eldritch blast]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 0,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "5ccd61a130eeebdb4e87f0ae93be361619c945adc1f8edbc6e0b1d36ff1bf452",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:6c40170c0df2d8621066",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ПОТУСТОРОННИЙ ПРЫЖОК",
+      "sourceId": "102",
+      "filterLevel": 9,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:286",
+          "url": "https://dnd.su/spells/286-jump/",
+          "label": "прыжок [jump]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "c82d2aebbec61d4d9fc95572ad0d743aa5a3cd9a2f412d99d2646e8dbdc85779",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:5d1d910fe060ff3a702d",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ПЬЮЩИЙ ЖИЗНЬ",
+      "sourceId": "102",
+      "filterLevel": 12,
+      "prerequisiteMetadata": {
+        "data-pact": "blade"
+      },
+      "references": [],
+      "evidenceTextSha256": "cbd3313ffc30e49356d924f37bea511db4169ea8e2b988e02130ba6788112e81",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:9a9be63d2748d06461d8",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "СКУЛЬПТОР ПЛОТИ",
+      "sourceId": "102",
+      "filterLevel": 7,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:260",
+          "url": "https://dnd.su/spells/260-polymorph/",
+          "label": "превращение [polymorph]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 4,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "de01c432d93e4b9767779fa81602261b74bb13926dd3b0ab0d34fafbb6585e17",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:1f426deefe869d7a9e62",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "СЛУГИ ХАОСА",
+      "sourceId": "102",
+      "filterLevel": 9,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:275",
+          "url": "https://dnd.su/spells/275-conjure_elemental/",
+          "label": "призыв элементаля [conjure elemental]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 5,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "7f882f46e1b2eede04400d95290466fcd134742943824e45f4517a4827e4fe2a",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:07d61e387e90d078a3a7",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ТАИНСТВЕННЫЙ ВЗГЛЯД",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:195",
+          "url": "https://dnd.su/spells/195-detect_magic/",
+          "label": "обнаружение магии [detect magic]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "d272df39035404208c86d57a52cb74d27c30c5ab51d9bc46c76304a552646ed8",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:0963fc8e09f66079ba51",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ТРЯСИНА РАЗУМА",
+      "sourceId": "102",
+      "filterLevel": 5,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:83",
+          "url": "https://dnd.su/spells/83-slow/",
+          "label": "замедление [slow]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 3,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "6e06eb3401596b8e53901da27195b55f0e6bb9dd94fe5a9df9fdfe377b4c1d56",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:0121584d37602904cbe6",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ТУМАННЫЕ ВИДЕНИЯ",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:7",
+          "url": "https://dnd.su/spells/7-silent_image/",
+          "label": "безмолвный образ [silent image]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "25b065fed75f23561d112c95f8c6952e020f2c44a601d7b0d9c6eef56244cc36",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:f1eb8eaceaa23afcba80",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "УЖАСАЮЩЕЕ СЛОВО",
+      "sourceId": "102",
+      "filterLevel": 7,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:325",
+          "url": "https://dnd.su/spells/325-confusion/",
+          "label": "смятение [confusion]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 4,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "41aee4ae55ce2c5d5bcdfca8aa6a21707315ce248b3cc28079d88c598eba9432",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:0315eb24edcb54b4e1d3",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "ЦЕПИ КАРЦЕРИ",
+      "sourceId": "102",
+      "filterLevel": 15,
+      "prerequisiteMetadata": {
+        "data-pact": "chain"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:110",
+          "url": "https://dnd.su/spells/110-hold_monster/",
+          "label": "удержание чудовища [hold monster]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 5,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "f003abdc0670de2dff4889b7a1bfcd361b07b873e39c862791460eaacb65ab14",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:9de0d5f86942433871c3",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Аспект луны",
+      "sourceId": "109",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-pact": "tome"
+      },
+      "references": [],
+      "evidenceTextSha256": "169ecadaa3aa8e5e0c5107185fdd2c84e3f0d065df7cffafa95570a375f15fa0",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:8f3b5de4d3ec36bc64f2",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Безжалостное проклятие",
+      "sourceId": "109",
+      "filterLevel": 7,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:312",
+          "url": "https://dnd.su/spells/312-hex/",
+          "label": "сглаз [hex]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:312",
+          "url": "https://dnd.su/spells/312-hex/",
+          "label": "сглаз [hex]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "4f3ec4554a383d84ffcfe8156f3ae992c0261358392b3827dfff25a159b73a4a",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:5d27eb5a4c0b579a9c1d",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Безумное проклятие",
+      "sourceId": "109",
+      "filterLevel": 5,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:312",
+          "url": "https://dnd.su/spells/312-hex/",
+          "label": "сглаз [hex]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:312",
+          "url": "https://dnd.su/spells/312-hex/",
+          "label": "сглаз [hex]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "a9c95619724995f22fad846ce9e392b14af19fcef16b3228a6aa8236af88005b",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:cc71158ddf4564b1eea0",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Гробница Левистуса",
+      "sourceId": "109",
+      "filterLevel": 5,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "124bc663188662940d643bbd916bdf6d0bc1c43f9d8f4bf9c9eb2bba4281a867",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:e7ab059d3d48986ffce6",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Дар вечноживых",
+      "sourceId": "109",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-pact": "chain"
+      },
+      "references": [],
+      "evidenceTextSha256": "4c610611c22b2b4e5e3d8503c6445be7d125cacc314451d66da9545f4be23db3",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:6609e1ab20b8564a03b0",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Дар глубин",
+      "sourceId": "109",
+      "filterLevel": 5,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:235",
+          "url": "https://dnd.su/spells/235-water_breathing/",
+          "label": "подводное дыхание [water breathing]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 3,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "598b8ec99226d5826f499ed0ca75cbf5cb4324bd220a4fade1cd437581709dda",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:06944bb7d76d11120cb4",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Копье Летаргии",
+      "sourceId": "109",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:168",
+          "url": "https://dnd.su/spells/168-eldritch_blast/",
+          "label": "мистический заряд [eldritch blast]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 0,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:168",
+          "url": "https://dnd.su/spells/168-eldritch_blast/",
+          "label": "мистическим зарядом [eldritch blast]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 0,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "e37af9a3684447611b64154a4e5914ba0a2d7ebb2cb5e944d117e7718223757e",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:c39fed14e12106947fcb",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Мистическая кара",
+      "sourceId": "109",
+      "filterLevel": 5,
+      "prerequisiteMetadata": {
+        "data-pact": "blade"
+      },
+      "references": [],
+      "evidenceTextSha256": "e1f4305bb0a3358826b4914554790b1e597459c64364e107cef4b056dd9cf0c6",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:77ed616417877c8c2869",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Плащ мух",
+      "sourceId": "109",
+      "filterLevel": 5,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "58b1afaccff8757c87d978dcce493547ba68b709f866a2fe01b7754a48fa7ab1",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:884b2340b9bde29ba228",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Побег обманщика",
+      "sourceId": "109",
+      "filterLevel": 7,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:308",
+          "url": "https://dnd.su/spells/308-freedom_of_movement/",
+          "label": "свободу перемещения [freedom of movement]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 4,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "d63066d0eeecda64013e1083b512397203d7a13c27f7ecb9fa7a8eb0a8bb37ae",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:dd710ffd864aa4a1debf",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Призрачный взор",
+      "sourceId": "109",
+      "filterLevel": 7,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "df6ae942c2a8e0fe01591d8514683889cb098e57bdee58d41a33f9f91165a5ad",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:67c57acf378e5f9299b8",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Саван теней",
+      "sourceId": "109",
+      "filterLevel": 15,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:183",
+          "url": "https://dnd.su/spells/183-invisibility/",
+          "label": "невидимость [invisibility]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 2,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "18b1370d6f6039cb541e7a60782551b2ec2bc73bad709349d93aee87e837af6f",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:82594760ca2e687978e6",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Улучшенное оружие договора",
+      "sourceId": "109",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-pact": "blade"
+      },
+      "references": [],
+      "evidenceTextSha256": "42af83a749be3a64e882b9cc4e45898f67b6e4d744f5a2b8184e56c9e57f4cd1",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:2dfffc20775c34800f04",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Хватка Хадара",
+      "sourceId": "109",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:168",
+          "url": "https://dnd.su/spells/168-eldritch_blast/",
+          "label": "мистический заряд [eldritch blast]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 0,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:168",
+          "url": "https://dnd.su/spells/168-eldritch_blast/",
+          "label": "мистическим зарядом [eldritch blast]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 0,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "b05b7a3a4e4ee391f97f81cf6b0b76fa5be44df6d93ce15ccd030359605025c0",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:743769c4846f1fc86c3f",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Бессмертный раб",
+      "sourceId": "117",
+      "filterLevel": 5,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:35",
+          "url": "https://dnd.su/spells/35-animate_dead/",
+          "label": "восставший труп [animate dead]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 3,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "7e7e2cd98626664c837f401953e4e593891b0318b8171f878dd159e76d67e121",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:194bfcf55154913630b6",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Дар защитников",
+      "sourceId": "117",
+      "filterLevel": 9,
+      "prerequisiteMetadata": {
+        "data-pact": "tome"
+      },
+      "references": [],
+      "evidenceTextSha256": "b08d7493160aeef681970fe5992c3f5b8e0dd78b09d25da2a99f6263d38d12d5",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:909dc23f19d5012b6576",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Дар мастера цепи",
+      "sourceId": "117",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-pact": "chain"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:248",
+          "url": "https://dnd.su/spells/248-find_familiar/",
+          "label": "поиск фамильяра [find familiar]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "7e426e84b984f16032eebcd6af5474b4202713fed0051082c00d0bf66662462b",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:d19888e4b2d505a93a93",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Защита талисмана",
+      "sourceId": "117",
+      "filterLevel": 7,
+      "prerequisiteMetadata": {
+        "data-pact": "talisman"
+      },
+      "references": [],
+      "evidenceTextSha256": "32fde5cc0bda8ae66febcd42130bbc7f41a0b25c633d21da4f81d2e2fc859d8b",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:fe22844f7a2936449bcb",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Книжник из дали",
+      "sourceId": "117",
+      "filterLevel": 5,
+      "prerequisiteMetadata": {
+        "data-pact": "tome"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:256",
+          "url": "https://dnd.su/spells/256-sending/",
+          "label": "послание [sending]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 3,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "96baa0ae3da0f12a4c07de97dacb0d53425aaae7157cbe39684ee012754886a1",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:17dd8cb43a5d2e03b50c",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Мистический разум",
+      "sourceId": "117",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "8a926c9801152c316a287ef561edac12ed707d369723d4c21d15b212130093c9",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:e74bca7ea4d8da4e59f7",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Порицание талисмана",
+      "sourceId": "117",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-pact": "talisman"
+      },
+      "references": [],
+      "evidenceTextSha256": "6de4c1620f31917e3e06ee8fe75ce5620f84fda3be8cca58f0d7c1ba9cbc2a03",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:cdd2457d892d2cb1f341",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "section": "invocations",
+      "title": "Связь с талисманом",
+      "sourceId": "117",
+      "filterLevel": 12,
+      "prerequisiteMetadata": {
+        "data-pact": "talisman"
+      },
+      "references": [],
+      "evidenceTextSha256": "420604376cc06dca2707fedf113ca4618aef42575052645b913834ed033cf701",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:6afa3d165f02085d18e0",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "ВОЗВРАЩАЮЩЕЕСЯ ОРУЖИЕ",
+      "sourceId": "117",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "b8dcf74f93ef59b11b255defc62f63276ecbe91bfcb258377480b467634e7648",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:0f1c38dfcf60da0c40fb",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "ДВИЖИМЫЙ МАГИЕЙ ДОСПЕХ",
+      "sourceId": "117",
+      "filterLevel": 14,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "fba4245718ddcd36b4c2b6cc860dd9c421e20988569a850373dc8f6981da0c18",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:e8cddae0a8981d6730ac",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "ДОСПЕХ МАГИЧЕСКОЙ СИЛЫ",
+      "sourceId": "117",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "3d102f7366c3f03423845451c0c6a3560b34dd5b51f6045d6e21f94140e1d978",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:633130e7c1cbdf3dab85",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "ДОСПЕХ СОПРОТИВЛЕНИЯ",
+      "sourceId": "117",
+      "filterLevel": 6,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "25e096aa9bb67e19a0bec42b05966bbf18e7db93050d4d5533a7af7599d72f15",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:044d8b3d07714234422d",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "ИЗЛУЧАЮЩЕЕ СВЕТ ОРУЖИЕ",
+      "sourceId": "117",
+      "filterLevel": 6,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "cb70f3eb52c6f9a401a415f95bce7758c7b03ff03df467ef4c0252455db1ecdc",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:7edbbe8034b37bf23475",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "КОЛЬЦО ВОССТАНОВЛЕНИЯ ЗАКЛИНАНИЙ",
+      "sourceId": "117",
+      "filterLevel": 6,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "da19f177368ad82849dcbc7dfed5c4eb81b8dd7a7b2eb0e20bb40c7727411f27",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:b822a76d1032496bc6c4",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "КОПИЯ МАГИЧЕСКОГО ПРЕДМЕТА",
+      "sourceId": "117",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "acebf587070e5ca1254f52a2e0ff7d174b29e9a2868096def6dbd43a5e1de8b8",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:52141eb1141619b3ab8c",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "ОТТАЛКИВАЮЩИЙ ЩИТ",
+      "sourceId": "117",
+      "filterLevel": 6,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "90c66877893574c52e5196a0768e7db9cd088d1a08a5808b35200845a891ae83",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:c6b29f04171629559b74",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "ПОВТОРНЫЙ ВЫСТРЕЛ",
+      "sourceId": "117",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "24203de31c874439be19dbde2bb7db98721b0ee6292d41754b9652b86b9abc5b",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:2574c5ec9aa06f92318d",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "САПОГИ ИЗВИЛИСТОГО ПУТИ",
+      "sourceId": "117",
+      "filterLevel": 6,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "41f6b950e79d8e0dacef287692464d180cbbc1148da90c30e1ccd1fe06929fbc",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:b6f4c17f72279d8f5e54",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "СЛУГА-ГОМУНКУЛ",
+      "sourceId": "117",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:258",
+          "url": "https://dnd.su/spells/258-mending/",
+          "label": "починка [mending]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 0,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "dcae0278e7e8433f94db9e214db0afcd37f873a64828dde68c1b0c2d32e4a42a",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:7915d3cc246b03673c0f",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "УЛУЧШЕННАЯ ЗАЩИТА",
+      "sourceId": "117",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "5df704f662edfe1efca2f8ad8abb36b48153c958d2cb009a6dcdea487b5f9be9",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:8612c9c98bc2932fefaa",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "УЛУЧШЕННАЯ МАГИЧЕСКАЯ ФОКУСИРОВКА",
+      "sourceId": "117",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "2cf223e3e81ff593164c88a7e65cb3e869e8b232a0ff3f7414b5b4ad3e554e5d",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:3b11e70c478464b8a193",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "УЛУЧШЕННОЕ ОРУЖИЕ",
+      "sourceId": "117",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "675797d697001e01258995d62238972e3325fb1d612829aa47bff1c619a1a955",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:6989bd2e15146ae82013",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "УСИЛИТЕЛЬ РАЗУМА",
+      "sourceId": "117",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "922c9b4bcaf9efab1f3ab53d844a7d36e4a6fe7f4bc7f35e2d3baf75f98de97d",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:ef9117db49919f74f6fe",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "section": "infusions",
+      "title": "ШЛЕМ ОСВЕДОМЛЁННОСТИ",
+      "sourceId": "117",
+      "filterLevel": 10,
+      "prerequisiteMetadata": {},
+      "references": [],
+      "evidenceTextSha256": "03a6c95a734e3519daa5bfb06c878ffc38a0fdb1da9a2353fd41c21993e233c4",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:3f3a301138add6ed7436",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Водяной кнут",
+      "sourceId": "102",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-rname": "Водяной кнут"
+      },
+      "references": [],
+      "evidenceTextSha256": "ee274d9b4836dc593bf00abfd3b93e611ff1eae1412598873f2cb4854865f79c",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:c0e1076fa530159fc248",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Гонг на вершине горы",
+      "sourceId": "102",
+      "filterLevel": 6,
+      "prerequisiteMetadata": {
+        "data-rname": "Гонг на вершине горы"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:62",
+          "url": "https://dnd.su/spells/62-shatter/",
+          "label": "дребезги [shatter]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 2,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "2cf3faa37b988dc7f5828611138d2f29017bb8aaeec1d9ad525bc8a116a114a9",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:74d646b9498c69255e90",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Дыхание зимы",
+      "sourceId": "102",
+      "filterLevel": 17,
+      "prerequisiteMetadata": {
+        "data-rname": "Дыхание зимы"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:133",
+          "url": "https://dnd.su/spells/133-cone_of_cold/",
+          "label": "конус холода [cone of cold]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 5,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "abbd44d2eac2fbdb4fffa122f36a9aefaa35a12a629be2ddfedb9319402ef0de",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:cd9780ef776f40043ef2",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Земляной вал",
+      "sourceId": "102",
+      "filterLevel": 17,
+      "prerequisiteMetadata": {
+        "data-rname": "Земляной вал"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:130",
+          "url": "https://dnd.su/spells/130-wall_of_stone/",
+          "label": "каменная стена [wall of stone]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 5,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "82b6bd3ee7ad8a50f80af85cb5fcd94a46dcb08854d5f6c406159693f826d829",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:1f6630fde76856341a7b",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Зубы огненной змеи",
+      "sourceId": "102",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-rname": "Зубы огненной змеи"
+      },
+      "references": [],
+      "evidenceTextSha256": "54757f04df1de40a2190a1c48f779c5d8bdeec1e4651f5d713b43799fe60e403",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:63eae9c6d45bbb4933f5",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Испепеляющий удар",
+      "sourceId": "102",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-rname": "Испепеляющий удар"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:203",
+          "url": "https://dnd.su/spells/203-burning_hands/",
+          "label": "огненные ладони [burning hands]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "9b7ba66f7bf19ca008ac612b8234e1edbeb166a070967401dbb7d1c1b65161ed",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:d0a71e991183062c3bf4",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Кулак четырёх громов",
+      "sourceId": "102",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-rname": "Кулак четырёх громов"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:25",
+          "url": "https://dnd.su/spells/25-thunderwave/",
+          "label": "волна грома [thunderwave]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 1,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "e5f065e3508d8f0fbbb98a2bf7b5b1637e88ad49b55cd6645dcfd746bd5d2b16",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:1c63ee2360f825bd6821",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Натиск штормовых духов",
+      "sourceId": "102",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-rname": "Натиск штормовых духов"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:255",
+          "url": "https://dnd.su/spells/255-gust_of_wind/",
+          "label": "порыв ветра [gust of wind]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 2,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "462daaf53252cbf09ad416314b14944b04c37886b6fede938965606e2daf5159",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:13753396af9f2d7939af",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Несокрушимый воздушный кулак",
+      "sourceId": "102",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-rname": "Несокрушимый воздушный кулак"
+      },
+      "references": [],
+      "evidenceTextSha256": "78d0abc1332e4de00b44f9e60877ac887618bd94f2604a6d2f2f91bcf3fdbb1c",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:32df245359fcc09f27c5",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Объятья северного ветра",
+      "sourceId": "102",
+      "filterLevel": 6,
+      "prerequisiteMetadata": {
+        "data-rname": "Объятья северного ветра"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:356",
+          "url": "https://dnd.su/spells/356-hold_person/",
+          "label": "удержание личности [hold person]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 2,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "f9bce9386a3e555fd336c7719a53aaccb76d2b446e2c0a966ad838586eaf3304",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:3350a01be8135db174cd",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Осёдланный ветер",
+      "sourceId": "102",
+      "filterLevel": 11,
+      "prerequisiteMetadata": {
+        "data-rname": "Осёдланный ветер"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:249",
+          "url": "https://dnd.su/spells/249-fly/",
+          "label": "полёт [fly]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 3,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "ec283a276305be8d0db65601e292e7db66680d462d1722e1c2d282bf59d51c89",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:c166b4087156442e4a52",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Пламя феникса",
+      "sourceId": "102",
+      "filterLevel": 11,
+      "prerequisiteMetadata": {
+        "data-rname": "Пламя феникса"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:205",
+          "url": "https://dnd.su/spells/205-fireball/",
+          "label": "огненный шар [fireball]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 3,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "4ff4a468da0675453a37a141ae6fb56574c8a8f74720002a4e872709ec2b3e52",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:a016535a3d51381846f4",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Прочность вечных гор",
+      "sourceId": "102",
+      "filterLevel": 17,
+      "prerequisiteMetadata": {
+        "data-rname": "Прочность вечных гор"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:129",
+          "url": "https://dnd.su/spells/129-stoneskin/",
+          "label": "каменная кожа [stoneskin]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 4,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "0191255c457305f92ef8eaeceab52f29bab131672fac6fef2887e1cc46d00377",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:229985c4084fa5f2acd9",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Река голодного пламени",
+      "sourceId": "102",
+      "filterLevel": 17,
+      "prerequisiteMetadata": {
+        "data-rname": "Река голодного пламени"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:202",
+          "url": "https://dnd.su/spells/202-wall_of_fire/",
+          "label": "огненная стена [wall of fire]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 4,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "11bfa1c45b9d096564988017f823fa5a921f99f7eb30e824d07994bb4a93d1e1",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:720ed13a5a019fca8236",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Родство со стихией",
+      "sourceId": "102",
+      "filterLevel": 0,
+      "prerequisiteMetadata": {
+        "data-rname": "Родство со стихией"
+      },
+      "references": [],
+      "evidenceTextSha256": "100c758f8b1372d5fcd9de9b72a8c4601ec031815cf0cd4a10ae5b6a63920bce",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:ea1056433ac3cdbf4941",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Туманная стойка",
+      "sourceId": "102",
+      "filterLevel": 11,
+      "prerequisiteMetadata": {
+        "data-rname": "Туманная стойка"
+      },
+      "references": [
+        {
+          "kind": "spell-page",
+          "pageId": "dndsu:spells:41",
+          "url": "https://dnd.su/spells/41-gaseous_form/",
+          "label": "газообразная форма [gaseous form]",
+          "nameEvidence": "index-name-match",
+          "indexSpellLevel": 3,
+          "registryStatus": "observed-in-spell-index",
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "ad0851cbf94a9ffe8fd4d0082c68ce4f7d987b78b1cd19a02a7a3695230d0036",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    },
+    {
+      "choiceObservationId": "scope-choice:2433a488f64c7dd4d601",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "section": "tradition.four-elements",
+      "title": "Формирование текущей реки",
+      "sourceId": "102",
+      "filterLevel": 3,
+      "prerequisiteMetadata": {
+        "data-rname": "Формирование текущей реки"
+      },
+      "references": [],
+      "evidenceTextSha256": "62c64e642466ec93ee038dee085d8bd8401648125475e0f35bf6db58e9e413a3",
+      "relationship": "choice-reference-not-an-automatic-grant",
+      "fullRules": "unverified",
+      "automation": "not-applied"
+    }
+  ]
+}
