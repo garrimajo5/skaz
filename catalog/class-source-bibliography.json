@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "status": "class-bibliographic-evidence-not-scope-or-rights-approval",
+  "summary": {
+    "sourceLabels": 8,
+    "withPrimaryEvidence": 6,
+    "withoutVerifiedPrimaryEvidence": 2
+  },
+  "records": [
+    {
+      "id": "class-bibliography:plane-shift-amonkhet",
+      "referenceTitle": "Plane Shift: Amonkhet",
+      "candidatePublicationTitle": "Plane Shift: Amonkhet",
+      "publisher": "Wizards of the Coast",
+      "publicationKind": "publisher-experimental-supplement",
+      "firstPrinting": "2017-07",
+      "evidence": [
+        {
+          "url": "https://media.wizards.com/2017/downloads/magic/plane-shift_amonkhet.pdf",
+          "location": "title page and Introduction",
+          "method": "indexed-primary-PDF-excerpts",
+          "claim": "Wizards publication dated July 2017; introduction says mechanics are not fully playtested and are not legal in D&D Organized Play."
+        }
+      ],
+      "accessLimitation": "Direct web open exceeded the 13,160,577-byte tool limit; only indexed primary-source passages were inspected.",
+      "reviewQuestion": "Decide whether experimental Plane Shift material belongs to the agreed 2014 catalog; organized-play legality is not itself the project rule.",
+      "checkedOn": "2026-11-17",
+      "numericDndsuSourceId": null,
+      "exactTextVersion": "unverified",
+      "scopeDecision": "awaiting-independent-review",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "class-bibliography:plane-shift-kaladesh",
+      "referenceTitle": "Plane Shift: Kaladesh",
+      "candidatePublicationTitle": "Plane Shift: Kaladesh",
+      "publisher": "Wizards of the Coast",
+      "publicationKind": "publisher-experimental-supplement",
+      "firstPrinting": "2017-02",
+      "evidence": [
+        {
+          "url": "https://media.wizards.com/2017/downloads/magic/Plane-Shift_Kaladesh.pdf",
+          "location": "PDF pages 2,3,9",
+          "method": "primary-PDF-read",
+          "claim": "February 2017 publication; introduction limits playtest/organized-play status; Pyromancer is present."
+        }
+      ],
+      "reviewQuestion": "Decide experimental-source scope; do not infer approval from the publisher alone.",
+      "checkedOn": "2026-11-17",
+      "numericDndsuSourceId": null,
+      "exactTextVersion": "unverified",
+      "scopeDecision": "awaiting-independent-review",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "class-bibliography:taldorei",
+      "referenceTitle": "Tal’Dorei Campaign Guide",
+      "candidatePublicationTitle": "Tal’Dorei Campaign Setting",
+      "publisher": "Green Ronin (original), Darrington Press (Reborn)",
+      "publicationKind": "third-party-sourcebook",
+      "labelMatch": "candidate-title-alias-not-confirmed",
+      "evidence": [
+        {
+          "url": "https://darringtonpress.com/taldorei-campaign-setting-reborn/",
+          "location": "FAQ: differences from original",
+          "method": "publisher-page-read",
+          "claim": "Publisher distinguishes the 2017 Green Ronin original from Reborn and describes revised subclasses in Reborn."
+        }
+      ],
+      "reviewQuestion": "Resolve the dnd.su title alias and original-versus-Reborn version before considering scope.",
+      "checkedOn": "2026-11-17",
+      "numericDndsuSourceId": null,
+      "exactTextVersion": "unverified",
+      "scopeDecision": "awaiting-independent-review",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "class-bibliography:morgrave",
+      "referenceTitle": "Morgrave Miscellany",
+      "candidatePublicationTitle": "Morgrave Miscellany",
+      "publisher": null,
+      "publicationKind": "author-described-unofficial-material",
+      "evidence": [
+        {
+          "url": "https://keith-baker.com/the-morgrave-miscellany/",
+          "location": "article and Keith Baker comment dated 2019-03-19 01:12",
+          "method": "author-page-read",
+          "claim": "Co-author describes the publication and explicitly distinguishes its unofficial status from official Wayfinder material."
+        }
+      ],
+      "reviewQuestion": "Apply the owner prohibition on homebrew/unofficial material; author involvement does not make this an official WotC book.",
+      "checkedOn": "2026-11-17",
+      "numericDndsuSourceId": null,
+      "exactTextVersion": "unverified",
+      "scopeDecision": "awaiting-independent-review",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "class-bibliography:hesperides",
+      "referenceTitle": "Сады Гесперид",
+      "candidatePublicationTitle": null,
+      "publisher": null,
+      "publicationKind": "unresolved",
+      "evidence": [],
+      "accessLimitation": "Search found mirrors but no verified primary author/publisher source; mirrors were not used to certify identity or rights.",
+      "reviewQuestion": "Primary publication, author and version remain unidentified.",
+      "checkedOn": "2026-11-17",
+      "numericDndsuSourceId": null,
+      "exactTextVersion": "unverified",
+      "scopeDecision": "awaiting-independent-review",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "class-bibliography:sprouting-chaos",
+      "referenceTitle": "Sprouting Chaos Player's Companion",
+      "candidatePublicationTitle": null,
+      "publisher": null,
+      "publicationKind": "unresolved",
+      "evidence": [],
+      "accessLimitation": "Search found secondary references and a creator-related Reddit result; direct retrieval returned Cache miss. No primary text/version was certified.",
+      "reviewQuestion": "Verify original author publication and homebrew status without assigning a fabricated dnd.su source ID.",
+      "checkedOn": "2026-11-17",
+      "numericDndsuSourceId": null,
+      "exactTextVersion": "unverified",
+      "scopeDecision": "awaiting-independent-review",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "class-bibliography:odyssey",
+      "referenceTitle": "Odyssey of the Dragonlords",
+      "candidatePublicationTitle": "Odyssey of the Dragonlords",
+      "publisher": "Arcanum Worlds",
+      "publicationKind": "third-party-sourcebook",
+      "evidence": [
+        {
+          "url": "https://arcanumworlds.com/about/",
+          "location": "company history",
+          "method": "publisher-page-read",
+          "claim": "Publisher dates original launch to 2019 and explicitly identifies a later remaster as updated for the 2024 ruleset."
+        }
+      ],
+      "reviewQuestion": "Keep original and 2024 remaster separate; the latter is outside this project ruleset.",
+      "checkedOn": "2026-11-17",
+      "numericDndsuSourceId": null,
+      "exactTextVersion": "unverified",
+      "scopeDecision": "awaiting-independent-review",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "class-bibliography:grim-hollow",
+      "referenceTitle": "Grim Hollow’s The Players Guide",
+      "candidatePublicationTitle": "Grim Hollow: The Player’s Guide",
+      "publisher": "Ghostfire Gaming",
+      "publicationKind": "third-party-sourcebook",
+      "evidence": [
+        {
+          "url": "https://ghostfiregaming.com/product/grim-hollow-the-digital-collection-pdf/",
+          "location": "Player’s Guide entry",
+          "method": "publisher-page-read",
+          "claim": "The product entry explicitly labels the original Player’s Guide as 5E 2014 and mentions later updated core books."
+        }
+      ],
+      "reviewQuestion": "Resolve exact dnd.su text version and third-party scope; do not substitute updated rules with the same title.",
+      "checkedOn": "2026-11-17",
+      "numericDndsuSourceId": null,
+      "exactTextVersion": "unverified",
+      "scopeDecision": "awaiting-independent-review",
+      "reusePermission": "not-established"
+    }
+  ]
+}

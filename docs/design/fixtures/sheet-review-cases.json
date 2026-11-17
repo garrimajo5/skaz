@@ -1,0 +1,186 @@
+{
+  "status": "design-fixtures-not-ocr-benchmark",
+  "ruleset": "5e-2014",
+  "synthetic": true,
+  "cases": [
+    {
+      "id": "single-class",
+      "source": "Имя: Лира\nКласс: Бард 5\nСила 8; Ловкость 14; Телосложение 12; Интеллект 10; Мудрость 13; Харизма 16\nХиты максимум 33; текущие 21; временные 0",
+      "expected": {
+        "name": "Лира",
+        "classes": [
+          {
+            "name": "Бард",
+            "level": 5
+          }
+        ],
+        "abilities": {
+          "str": 8,
+          "dex": 14,
+          "con": 12,
+          "int": 10,
+          "wis": 13,
+          "cha": 16
+        },
+        "hp": {
+          "max": 33,
+          "current": 21,
+          "temp": 0
+        }
+      },
+      "review": []
+    },
+    {
+      "id": "multiclass-pact",
+      "source": "Имя: Кей\nВолшебник 3 / Колдун 2\nОбщий уровень 5\nSpellcasting: 1 — 4, 2 — 2\nPact Magic: 1 — 2",
+      "expected": {
+        "name": "Кей",
+        "classes": [
+          {
+            "name": "Волшебник",
+            "level": 3
+          },
+          {
+            "name": "Колдун",
+            "level": 2
+          }
+        ],
+        "totalLevel": 5,
+        "resourceGroups": [
+          {
+            "label": "Spellcasting",
+            "slots": {
+              "1": 4,
+              "2": 2
+            }
+          },
+          {
+            "label": "Pact Magic",
+            "slots": {
+              "1": 2
+            }
+          }
+        ]
+      },
+      "review": [
+        "Списки известного/подготовленного связываются с источником отдельно; группы ячеек не объединять."
+      ]
+    },
+    {
+      "id": "unknown-hp",
+      "source": "Имя: Рин\nМаксимум хитов: 27\nТекущие хиты: [пусто]\nВременные хиты: 0",
+      "expected": {
+        "name": "Рин",
+        "hp": {
+          "max": 27,
+          "current": null,
+          "temp": 0
+        }
+      },
+      "review": [
+        "Пустое текущее здоровье не равно максимуму и не равно нулю."
+      ]
+    },
+    {
+      "id": "ambiguous-dex",
+      "source": "Имя: Арно\nЛовкость: [плохо читается: 13 или 18]\nМодификатор: +1",
+      "expected": {
+        "name": "Арно",
+        "dex": null,
+        "dexCandidates": [
+          13,
+          18
+        ],
+        "printedModifier": 1
+      },
+      "review": [
+        "Модификатор — подсказка для сверки, не основание молча выбрать13."
+      ]
+    },
+    {
+      "id": "conflicting-pages",
+      "source": "Страница1: Имя Лира; Бард5; максимум хитов33\nСтраница2: Имя Лира; Бард4; максимум хитов27",
+      "expected": {
+        "name": "Лира",
+        "classLevel": null,
+        "hpMax": null
+      },
+      "review": [
+        "Показать оба источника, не выбирать последнюю страницу автоматически."
+      ]
+    },
+    {
+      "id": "unknown-spell",
+      "source": "Заклинания: Healing Word; The Moon Door [рукописная приписка]",
+      "expected": {
+        "spellCandidates": [
+          {
+            "sourceText": "Healing Word",
+            "lookup": "needs-2014-catalog-match"
+          },
+          {
+            "sourceText": "The Moon Door",
+            "lookup": null
+          }
+        ]
+      },
+      "review": [
+        "Не создавать запись общего каталога, не подменять неизвестное похожим заклинанием, хомбрю вне объёма."
+      ]
+    },
+    {
+      "id": "proficiency-mark",
+      "source": "Акробатика: [пустой кружок] +2\nСкрытность: [закрашенный кружок] +4\nВосприятие: [размытая отметка] +3",
+      "expected": {
+        "acrobaticsProficient": false,
+        "stealthProficient": true,
+        "perceptionProficient": null
+      },
+      "review": [
+        "Не выводить владение только из напечатанного итогового бонуса."
+      ]
+    },
+    {
+      "id": "zero-charges",
+      "source": "Жезл: зарядов 0 / 7\nЗелье: количество [пусто]",
+      "expected": {
+        "charges": {
+          "current": 0,
+          "max": 7
+        },
+        "quantity": null
+      },
+      "review": [
+        "Ноль сохраняется; отсутствие количества не означает1."
+      ]
+    },
+    {
+      "id": "same-name",
+      "source": "Имя: Лира\nКласс: Воин2\nВ выбранной кампании уже есть другой персонаж Лира",
+      "expected": {
+        "name": "Лира",
+        "classes": [
+          {
+            "name": "Воин",
+            "level": 2
+          }
+        ],
+        "destination": "new-character-confirmation"
+      },
+      "review": [
+        "Совпадение имени не выбирает существующий профиль для перезаписи."
+      ]
+    },
+    {
+      "id": "unsupported-2024",
+      "source": "D&D 2024 Character Sheet\nWeapon Mastery",
+      "expected": {
+        "ruleset": null,
+        "importAllowed": false
+      },
+      "review": [
+        "Остановить применение, объяснить поддержку2014; не конвертировать правила молча."
+      ]
+    }
+  ]
+}

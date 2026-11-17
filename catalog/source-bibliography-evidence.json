@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-17",
+  "status": "bibliographic-evidence-not-scope-approval",
+  "records": [
+    {
+      "id": "bibliography:one-grung-above",
+      "title": "One Grung Above",
+      "publisher": "Wizards of the Coast",
+      "publisherEvidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00060",
+      "observedContents": "Grung character option",
+      "organizedPlayEvidence": "Product page states not legal for Adventurers League; this is not a catalog exclusion decision.",
+      "originalEraEvidence": null,
+      "exactTextVersion": "unverified",
+      "numericDndsuSourceId": null,
+      "scopeDecision": "awaiting-game-designer-review",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "bibliography:locathah-rising",
+      "title": "Locathah Rising",
+      "publisher": "Wizards of the Coast",
+      "publisherEvidenceUrl": "https://marketplace.dndbeyond.com/adventures/SRC-000055",
+      "observedContents": "Locathah character option and adventure",
+      "originalEraEvidence": null,
+      "exactTextVersion": "unverified",
+      "numericDndsuSourceId": null,
+      "scopeDecision": "awaiting-game-designer-review",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "bibliography:the-tortle-package",
+      "title": "The Tortle Package",
+      "publisher": "Wizards of the Coast",
+      "publisherEvidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00028",
+      "observedContents": "Tortle character option and adventure location",
+      "originalEraEvidence": {
+        "observedYear": 2017,
+        "url": "https://media.wizards.com/2017/dnd/downloads/DnDXL2017_Spells.pdf",
+        "page": 1,
+        "claim": "D&D Team announcement names The Tortle Package and its playable tortles."
+      },
+      "exactTextVersion": "unverified",
+      "numericDndsuSourceId": null,
+      "scopeDecision": "awaiting-game-designer-review",
+      "reusePermission": "not-established"
+    }
+  ],
+  "accessLimitations": [
+    {"provider":"Dungeon Masters Guild","observedResult":"403 Forbidden","checkedOn":"2026-11-17","fallback":"Public D&D Beyond publisher product pages; no access bypass attempted."}
+  ]
+}

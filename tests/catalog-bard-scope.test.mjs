@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {bardScope} from '../scripts/catalog-bard-scope.mjs';
+const read=p=>JSON.parse(readFileSync(new URL('../catalog/'+p,import.meta.url)));
+const sources=read('dndsu-source-register.json').sources;
+const page=()=>structuredClone(read('dndsu-class-headings.json').pages.find(p=>p.className==='Бард'));
+test('bard proposal separates class features, subclasses and features without importing homebrew',()=>{const r=bardScope(page(),sources);assert.deepEqual(r.summary,{'base-feature':14,subclass:8,'subclass-feature':35});assert.ok(r.records.every(r=>!r.parent.startsWith('hb.')&&r.fullRules==='unverified'));assert.equal(r.excluded.length,1);assert.equal(r.excluded[0].title,'Истории духов');assert.ok(r.records.some(r=>r.title==='Истории с того света'));});
+test('optional bard features retain TCE provenance and do not certify repeated advancement levels',()=>{const r=bardScope(page(),sources),tce=sources.find(s=>s.title==="Tasha's Cauldron of Everything").sourceId;const features=r.records.filter(r=>r.sourceBasis==='explicit-option-TCE-marker');assert.equal(features.length,3);assert.ok(features.every(f=>f.sourceIds[0]===tce&&f.levelProgression==='not-verified-by-heading'));});
+test('missing source evidence aborts proposal instead of assigning PHB',()=>{const p=page();p.headings.find(h=>h.anchors.includes('college.swords')).sourceResolution=[];assert.throws(()=>bardScope(p,sources),/Unresolved/);const q=page();q.headings.find(h=>h.anchors.includes('feature.extra-spells')).optionalSourceTags=[];assert.throws(()=>bardScope(q,sources),/Missing optional/);});
+test('same feature title in two subclasses keeps separate IDs',()=>{const r=bardScope(page(),sources),f=r.records.filter(r=>r.title==='ДОПОЛНИТЕЛЬНАЯ АТАКА');assert.equal(f.length,2);assert.notEqual(f[0].id,f[1].id);});
+test('renamed base-section markup cannot silently produce a subclass-only proposal',()=>{const p=page();p.headings.find(h=>h.level===2&&h.anchors.includes('class-features')).anchors=['unexpected-layout'];assert.throws(()=>bardScope(p,sources),/Missing base feature section/);});

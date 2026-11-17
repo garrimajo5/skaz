@@ -2,6 +2,8 @@ const SkazCatalog = (() => {
   const names = { mechanic: 'Механики', spell: 'Заклинания', monster: 'Бестиарий', item: 'Предметы', artifact: 'Артефакты' };
   let query = '', searchScope='name', kind = '', offset = 0, result = null, coverage = null, status = 'idle', serial = 0;
   const limit = 20;
+  let cardLayout='cards';
+  const layoutControl=()=>`<div class="catalog-layout" role="group" aria-label="Вид справочника"><button data-catalog-layout="cards" aria-pressed="${cardLayout==='cards'}">Карточки</button><button data-catalog-layout="list" aria-pressed="${cardLayout==='list'}">Список</button></div>`;
   let ownerKey='',homeMode=false,homeGroups=[],homeDirty=false;
   const owner=()=>JSON.stringify([typeof SkazAccount==='undefined'?'local':SkazAccount.userId||'local',SkazStorage.contextKey?.()||'local']);
   const snapshot=()=>owner()+':'+(SkazStorage.snapshotKey?.()||'');
@@ -52,7 +54,7 @@ const SkazCatalog = (() => {
       <form id="catalog-search" class="catalog-search"><h1>Справочник</h1><label>Название или ключевые слова<input name="q" type="search" maxlength="200" placeholder="Например, Spellcasting" value="${escape(draft.q)}"></label><input type="hidden" name="kind" value="${escape(draft.kind)}"><details class="catalog-about"><summary>О каталоге 2014</summary><div class="notice"><b>Каталог пополняется</b><p>${coverage ? `В базе: ${coverage.total}. Справочных ссылок: ${coverage.referenceOnly}, личных записей: ${coverage.personal}, CC BY 4.0: ${coverage.openlyLicensed || 0}.` : 'Полнота базы пока не подтверждена.'} Предметы и артефакты можно добавить в инвентарь из карточки.${scopeText()}</p></div>
       <div class="catalog-tools" aria-label="Наполнение каталога"><button type="button" id="catalog-bundled">Проверенная подборка 2014</button><button type="button" id="catalog-help">Личный импорт</button><button type="button" id="catalog-inventory">Охват заклинаний SRD</button></div>
       </details><details class="catalog-filters"><summary>Фильтры</summary><label class="catalog-text-toggle"><input type="checkbox" name="scope" value="text" ${draft.scope==='text'?'checked':''}>И в описаниях</label><div id="catalog-specific" class="catalog-specific">${filterControl(draft.kind,draft[filterKeys[draft.kind]]||'',draft)}</div></details><div class="catalog-search-actions"><button type="submit" class="primary">Найти</button><button type="button" id="catalog-reset">Сбросить фильтры</button></div></form><div class="catalog-kinds" aria-label="Категория">${[['','Все'],...Object.entries(names)].map(([key,label])=>`<button data-catalog-kind="${key}" aria-pressed="${draft.kind===key}">${label}</button>`).join('')}</div>
-      <div id="catalog-results" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div>
+      ${layoutControl()}<div id="catalog-results" aria-live="polite" aria-busy="${status === 'loading'}">${results()}</div>
       <div class="catalog-footer"><p>В разделе магии доступны личный список из каталога и отдельные демонстрационные заклинания.</p><button data-page="spells">К моей магии →</button></div>
     </section>`;
   }
@@ -75,10 +77,43 @@ const SkazCatalog = (() => {
     if(homeMode)return homeResults();
     if (!result?.entries.length) return `<div class="empty"><h2>${query || kind ? 'Ничего не найдено' : 'Каталог пока пуст'}</h2><p>${query || kind ? 'Попробуй другие слова, поиск по описаниям или все категории.' : 'Добавь справочные ссылки или личные материалы. Демо-заклинания доступны отдельно.'}</p></div>`;
     const pages=bottom=>`<nav class="catalog-pages" aria-label="${bottom?'Страницы каталога внизу':'Страницы каталога'}"><button id="catalog-prev${bottom?'-bottom':''}" ${offset === 0 ? 'disabled' : ''}>← Назад</button><span>${Math.floor(offset/limit)+1} / ${Math.ceil(result.total/limit)}</span><button id="catalog-next${bottom?'-bottom':''}" ${offset + limit >= result.total ? 'disabled' : ''}>Далее →</button></nav>`;
-    return `<p class="catalog-count" id="catalog-result-heading" tabindex="-1">Найдено: ${result.total} · ${offset + 1}–${offset + result.entries.length}</p><div class="catalog-grid">${result.entries.map((entry,index)=>row(entry,index)).join('')}</div>${result.total>limit?pages(true):''}`;
+    return `<p class="catalog-count" id="catalog-result-heading" tabindex="-1">Найдено: ${result.total} · ${offset + 1}–${offset + result.entries.length}</p><div class="catalog-grid catalog-view-${cardLayout}">${result.entries.map((entry,index)=>row(entry,index)).join('')}</div>${result.total>limit?pages(true):''}`;
   }
-  function row(entry,index){return SkazUI.entryRow({entry,name:entry.name,metadata:cardSummary(entry),description:entry.text,preview:searchExcerpt(entry),className:"catalog-card catalog-row",primary:{attribute:"data-catalog-entry",value:index},actions:`<button data-catalog-entry="${index}" aria-label="Открыть: ${escape(entry.name.ru)}">Читать</button>`});}
-  function homeResults(){let index=0;return '<p class="catalog-count">Мои материалы и последние открытия этого персонажа. Для полного списка выбери категорию.</p>'+homeGroups.map(group=>'<section class="catalog-home-group"><h2>'+group.title+'</h2><div class="catalog-grid">'+(group.entries.length?group.entries.map(entry=>row(entry,index++)).join(''):'<p class="small">'+group.empty+'</p>')+'</div></section>').join('');}
+  function tileData(entry){
+    const facts=[],tags=[];let subtitle=names[entry.kind]||'Справочник',effect='';
+    const present=value=>value!==undefined&&value!==null&&value!=='';
+    const add=(label,value)=>facts.push([label,present(value)?String(value):'Не указано']);
+    if(entry.spell){const s=entry.spell;
+      subtitle=(s.level===0?'Заговор':Number.isInteger(s.level)?s.level+' круг':'Круг не указан')+' · '+(schools[s.school]||'Школа не указана');
+      add('Накладывание',s.castingTime);
+      add('Дистанция',s.range?.type==='feet'&&present(s.range.feet)?s.range.feet+' фт':({self:'На себя',touch:'Касание',sight:'Видимость',unlimited:'Не ограничена',special:'Особая'}[s.range?.type]));
+      add('Длительность',s.duration);add('Компоненты',Array.isArray(s.components)?s.components.join(', '):null);
+      if(s.concentration)tags.push('Концентрация');if(s.ritual)tags.push('Ритуал');
+      effect=typeof SkazSpellFacts!=='undefined'?SkazSpellFacts.summary(entry)||'':'';
+    }else if(entry.monster){const m=entry.monster;
+      subtitle=[monsterSizes[m.size]||m.size,monsterTypes[m.type]||m.type].filter(present).join(' · ')||'Существо';
+      add('Опасность',m.challenge);add('Класс доспеха',m.armorClass);add('Хиты (базовые)',m.hitPoints);
+      const movement={walk:'Ходьба',fly:'Полёт',swim:'Плавание',climb:'Лазание',burrow:'Рытьё'};
+      add('Скорость',Object.entries(movement).filter(([key])=>present(m.speed?.[key])).map(([key,label])=>label+' '+m.speed[key]+' фт').join(' · '));
+    }else if(entry.item||entry.artifact){const i=entry.item||entry.artifact;
+      subtitle=(entry.kind==='artifact'?'Артефакт · ':'')+(itemTypes[i.type]||i.type||'Предмет');
+      if(entry.kind!=='artifact')add('Редкость',rarityLabels[i.rarity]||i.rarity);
+      add('Настройка',i.attunement===true?'Требуется':i.attunement===false?'Не требуется':null);
+      if(i.attunementRequirement)add('Кем настраивается',i.attunementRequirement);
+      if(i.healing){const h=i.healing;add('Восстанавливает',h.diceCount+'к'+h.diceSides+(h.bonus?' + '+h.bonus:'')+' хитов');}
+      if(i.charges){add('Максимум зарядов',i.charges.max);add('Восстановление',i.charges.recharge);}
+    }
+    if(!facts.length)tags.push('Характеристики не импортированы');
+    return {subtitle,facts,tags,effect};
+  }
+  function row(entry,index){
+    if(cardLayout==='cards'&&['spell','monster','item','artifact'].includes(entry.kind)){
+      const {subtitle,facts,tags,effect}=tileData(entry);
+      return `<article class="catalog-tile"><button class="catalog-tile-open" data-catalog-entry="${index}" aria-label="Открыть: ${escape(entry.name.ru)}" aria-describedby="catalog-tile-type-${index} catalog-tile-tags-${index}${facts.length?` catalog-tile-facts-${index}`:''}${effect?` catalog-tile-effect-${index}`:''}"><span class="catalog-tile-heading">${typeof SkazArt!=='undefined'?SkazArt.markup(entry,'thumbnail'):''}<span><strong>${escape(entry.name.ru)}</strong><small>${escape(entry.name.en||'')}</small><span class="catalog-tile-school" id="catalog-tile-type-${index}">${escape(subtitle)}</span></span></span>${facts.length?`<span class="catalog-tile-facts" id="catalog-tile-facts-${index}">${facts.map(([label,value])=>`<span class="catalog-tile-fact"><small>${escape(label)}</small><span>${escape(value)}</span></span>`).join('')}</span>`:''}${effect?`<span class="catalog-tile-effect" id="catalog-tile-effect-${index}">${escape(effect)}</span>`:''}<span class="catalog-tile-tags" id="catalog-tile-tags-${index}">${tags.map(tag=>`<span>${escape(tag)}</span>`).join('')}</span>${searchExcerpt(entry)}<span class="catalog-tile-read">Описание и правила →</span></button></article>`;
+    }
+    return SkazUI.entryRow({entry,name:entry.name,metadata:cardSummary(entry),description:entry.text,preview:searchExcerpt(entry),className:"catalog-card catalog-row",primary:{attribute:"data-catalog-entry",value:index},actions:`<button data-catalog-entry="${index}" aria-label="Открыть: ${escape(entry.name.ru)}">Читать</button>`});
+  }
+  function homeResults(){let index=0;return '<p class="catalog-count">Мои материалы и последние открытия этого персонажа. Для полного списка выбери категорию.</p>'+homeGroups.map(group=>'<section class="catalog-home-group"><h2>'+group.title+'</h2><div class="catalog-grid catalog-view-'+cardLayout+'">'+(group.entries.length?group.entries.map(entry=>row(entry,index++)).join(''):'<p class="small">'+group.empty+'</p>')+'</div></section>').join('');}
   function searchExcerpt(entry) {
     if(searchScope!=='text'||!query||!entry.text)return '';
     const body=entry.text,match=body.toLocaleLowerCase('ru').indexOf(query.toLocaleLowerCase('ru'));
@@ -292,6 +327,7 @@ const SkazCatalog = (() => {
   document.addEventListener('change',rememberSearch);
   document.addEventListener('click', event => {
     const button = event.target.closest('button'); if (!button) return;
+    if(['cards','list'].includes(button.dataset.catalogLayout)){cardLayout=button.dataset.catalogLayout;const region=document.getElementById('catalog-results');if(region)region.innerHTML=results();document.querySelectorAll('[data-catalog-layout]').forEach(control=>control.setAttribute('aria-pressed',String(control.dataset.catalogLayout===cardLayout)));return;}
     if(Object.hasOwn(button.dataset,'catalogKind')){clearTimeout(searchTimer);const next=button.dataset.catalogKind;if(next&&!Object.hasOwn(names,next))return;kind=next;query=(searchDraft?.q??query).trim();searchScope=searchDraft?.scope??searchScope;detailFilter='';extraFilters={};searchDraft=null;offset=0;render();load();return;}
     if (button.hasAttribute('data-catalog-entry')) details(Number(button.dataset.catalogEntry));
     if(button.dataset.catalogRelated)openRelated(button.dataset.catalogRelated);
