@@ -1,3 +1,7 @@
+import {buildChoicePrerequisites} from './catalog-choice-prerequisites.mjs';
+import {buildChoiceLearning} from './catalog-choice-learning.mjs';
+import {buildInvocationPolicies} from './catalog-invocation-spell-policies.mjs';
+import {buildInfusionEffects} from './catalog-infusion-effects.mjs';
 import {buildSpellChangeProposals} from './catalog-spell-change-proposals.mjs';
 import {buildReplacementExceptionAudit} from './catalog-replacement-exceptions.mjs';
 import {readFileSync} from 'node:fs';
@@ -36,6 +40,10 @@ export function verifyClassEvidence(directory){
  }
  compareEvidence(buildReplacementExceptionAudit(directory),read('dndsu-replacement-exceptions.json'),'Replacement exception evidence changed');
  compareEvidence(buildSpellChangeProposals(directory),read('dndsu-spell-change-proposals.json'),'Spell change policy evidence changed');
+ compareEvidence(buildChoicePrerequisites(directory),read('dndsu-choice-prerequisites.json'),'choicePrereqs evidence changed');
+ compareEvidence(buildChoiceLearning(directory),read('dndsu-choice-learning.json'),'choiceLearning evidence changed');
+ compareEvidence(buildInvocationPolicies(directory),read('dndsu-invocation-spell-policies.json'),'invocationPolicies evidence changed');
+ compareEvidence(buildInfusionEffects(directory),read('dndsu-infusion-effects.json'),'infusionEffects evidence changed');
  const choices=classChoiceMetadata(directory,{...nav,pages},sources);compareEvidence(choices,read('dndsu-class-choice-metadata.json'),'Class choice metadata changed');
  compareEvidence(buildFeatureReferences(directory),read('dndsu-feature-spell-references.json'),'Feature spell reference evidence changed');
  compareEvidence(buildFeatureRelations(directory),read('dndsu-feature-spell-relations.json'),'Feature spell relationships changed');

@@ -28,6 +28,10 @@ export function reproductionCases(evidenceDirectory,classDirectory,date,companio
   ['catalog-choice-spell-references.mjs',[classDirectory],'dndsu-choice-spell-references.json'],
   ['catalog-replacement-exceptions.mjs',[classDirectory],'dndsu-replacement-exceptions.json'],
   ['catalog-spell-change-proposals.mjs',[classDirectory],'dndsu-spell-change-proposals.json'],
+  ['catalog-choice-prerequisites.mjs',[classDirectory],'dndsu-choice-prerequisites.json'],
+  ['catalog-choice-learning.mjs',[classDirectory],'dndsu-choice-learning.json'],
+  ['catalog-invocation-spell-policies.mjs',[classDirectory],'dndsu-invocation-spell-policies.json'],
+  ['catalog-infusion-effects.mjs',[classDirectory],'dndsu-infusion-effects.json'],
   ['catalog-scope-register.mjs',[],'scope-register-2014.json']
  ];
 }

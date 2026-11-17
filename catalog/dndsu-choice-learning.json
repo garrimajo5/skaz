@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "status": "choice-capacity-and-lifecycle-proposals",
+  "summary": {
+    "classes": 2,
+    "levelRows": 40,
+    "ruleProposals": 4,
+    "existingWarlockSrdCapacity": "matches-all-twenty-levels"
+  },
+  "tables": [
+    {
+      "classKey": "warlock",
+      "levels": [
+        {
+          "classLevel": 1,
+          "knownChoices": 0,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 2,
+          "knownChoices": 2,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 3,
+          "knownChoices": 2,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 4,
+          "knownChoices": 2,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 5,
+          "knownChoices": 3,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 6,
+          "knownChoices": 3,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 7,
+          "knownChoices": 4,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 8,
+          "knownChoices": 4,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 9,
+          "knownChoices": 5,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 10,
+          "knownChoices": 5,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 11,
+          "knownChoices": 5,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 12,
+          "knownChoices": 6,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 13,
+          "knownChoices": 6,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 14,
+          "knownChoices": 6,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 15,
+          "knownChoices": 7,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 16,
+          "knownChoices": 7,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 17,
+          "knownChoices": 7,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 18,
+          "knownChoices": 8,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 19,
+          "knownChoices": 8,
+          "activeInfusedItems": null
+        },
+        {
+          "classLevel": 20,
+          "knownChoices": 8,
+          "activeInfusedItems": null
+        }
+      ],
+      "evidenceTextSha256": "2d1a6e20c9c8c15c79e679691f9114d4eec84adcaec7afa1b5a2954018066874",
+      "interpretation": "class-level-not-total-character-level",
+      "sourceId": "102"
+    },
+    {
+      "classKey": "artificer",
+      "levels": [
+        {
+          "classLevel": 1,
+          "knownChoices": 0,
+          "activeInfusedItems": 0
+        },
+        {
+          "classLevel": 2,
+          "knownChoices": 4,
+          "activeInfusedItems": 2
+        },
+        {
+          "classLevel": 3,
+          "knownChoices": 4,
+          "activeInfusedItems": 2
+        },
+        {
+          "classLevel": 4,
+          "knownChoices": 4,
+          "activeInfusedItems": 2
+        },
+        {
+          "classLevel": 5,
+          "knownChoices": 4,
+          "activeInfusedItems": 2
+        },
+        {
+          "classLevel": 6,
+          "knownChoices": 6,
+          "activeInfusedItems": 3
+        },
+        {
+          "classLevel": 7,
+          "knownChoices": 6,
+          "activeInfusedItems": 3
+        },
+        {
+          "classLevel": 8,
+          "knownChoices": 6,
+          "activeInfusedItems": 3
+        },
+        {
+          "classLevel": 9,
+          "knownChoices": 6,
+          "activeInfusedItems": 3
+        },
+        {
+          "classLevel": 10,
+          "knownChoices": 8,
+          "activeInfusedItems": 4
+        },
+        {
+          "classLevel": 11,
+          "knownChoices": 8,
+          "activeInfusedItems": 4
+        },
+        {
+          "classLevel": 12,
+          "knownChoices": 8,
+          "activeInfusedItems": 4
+        },
+        {
+          "classLevel": 13,
+          "knownChoices": 8,
+          "activeInfusedItems": 4
+        },
+        {
+          "classLevel": 14,
+          "knownChoices": 10,
+          "activeInfusedItems": 5
+        },
+        {
+          "classLevel": 15,
+          "knownChoices": 10,
+          "activeInfusedItems": 5
+        },
+        {
+          "classLevel": 16,
+          "knownChoices": 10,
+          "activeInfusedItems": 5
+        },
+        {
+          "classLevel": 17,
+          "knownChoices": 10,
+          "activeInfusedItems": 5
+        },
+        {
+          "classLevel": 18,
+          "knownChoices": 12,
+          "activeInfusedItems": 6
+        },
+        {
+          "classLevel": 19,
+          "knownChoices": 12,
+          "activeInfusedItems": 6
+        },
+        {
+          "classLevel": 20,
+          "knownChoices": 12,
+          "activeInfusedItems": 6
+        }
+      ],
+      "evidenceTextSha256": "989abac6d6ca76785ca80c0fb04d7cb249f6623be32ce0ff13e67835fe1d5601",
+      "interpretation": "class-level-not-total-character-level",
+      "sourceId": "117"
+    }
+  ],
+  "records": [
+    {
+      "key": "warlock-invocation-learning",
+      "sourceId": "102",
+      "evidence": [
+        "315da8dec7b6ebeedce3c0a1c350bcdd1a8949a4219b60af08e002e75cb6c70b",
+        "32e14f1204076455582342184283e5f57e75b959a0d9433d71fa05b7d7ba81c9"
+      ],
+      "accessClassLevel": 2,
+      "initialChoices": 2,
+      "replacement": {
+        "trigger": "gain-level-in-this-class",
+        "maximumChoices": 1,
+        "optional": true,
+        "requiresNewChoiceEligibility": true
+      },
+      "levelPrerequisitesUse": "warlock-class-level",
+      "repeatLearning": "not-reviewed",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "full-conditions-and-edge-cases",
+        "multiclass-interactions",
+        "independent-review"
+      ],
+      "featureObservationId": "scope:warlock:class-features:feature.eldritch-invocations"
+    },
+    {
+      "key": "artificer-infusion-learning",
+      "sourceId": "117",
+      "evidence": [
+        "41de644ea0509288f1e00b1dc9a48fcc2b6513af4131cb5c18b65325178e26e2",
+        "21fd67c59c6bd88b768a3be0aef80ff19084aba4ec7583ce451d1baa664e0908"
+      ],
+      "accessClassLevel": 2,
+      "initialChoices": 4,
+      "replacement": {
+        "trigger": "gain-level-in-this-class",
+        "maximumChoices": 1,
+        "optional": true
+      },
+      "repeatLearning": "only-when-description-explicitly-allows",
+      "repeatableChoiceManifest": "catalog/dndsu-replicate-item-options.json",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "full-conditions-and-edge-cases",
+        "multiclass-interactions",
+        "independent-review"
+      ],
+      "featureObservationId": "scope:artificer:class-features:feature.infuse-item"
+    },
+    {
+      "key": "artificer-infusion-lifecycle",
+      "sourceId": "117",
+      "evidence": [
+        "41de644ea0509288f1e00b1dc9a48fcc2b6513af4131cb5c18b65325178e26e2"
+      ],
+      "applyTrigger": "end-long-rest",
+      "requiresTouch": true,
+      "targetMustBeNonmagical": true,
+      "activeLimit": "class-capacity-table",
+      "objectsPerLearnedInfusion": 1,
+      "infusionsPerObject": 1,
+      "overflow": "end-oldest-before-new-infusion",
+      "onForgetInfusion": "end-linked-infusion",
+      "onDeathDelay": {
+        "unit": "days",
+        "formula": "max(1,intelligence-modifier)"
+      },
+      "containerEnds": "contents-appear-around-container",
+      "immediateAttunement": "allowed-if-required-when-infusing",
+      "laterAttunement": "normal-process",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "full-conditions-and-edge-cases",
+        "multiclass-interactions",
+        "independent-review"
+      ],
+      "featureObservationId": "scope:artificer:class-features:feature.infuse-item"
+    },
+    {
+      "key": "warlock-eldritch-versatility",
+      "sourceId": "117",
+      "evidence": [
+        "4802d7690f49cfe08570ec2d3d30b392e70b06c46a7c3bb2f4e1bf0a9519aa98"
+      ],
+      "optionalFeature": true,
+      "trigger": "gain-ability-score-improvement-in-warlock",
+      "maximumAlternatives": 1,
+      "alternatives": [
+        {
+          "kind": "replace-cantrip",
+          "origin": "pact-magic",
+          "spellList": "warlock"
+        },
+        {
+          "kind": "replace-pact-boon"
+        },
+        {
+          "kind": "replace-mystic-arcanum",
+          "minimumWarlockLevel": 12,
+          "sameSpellLevel": true,
+          "spellList": "warlock"
+        }
+      ],
+      "invalidatedInvocations": "immediately-replace-each-with-eligible-choice",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "full-conditions-and-edge-cases",
+        "multiclass-interactions",
+        "independent-review"
+      ],
+      "featureObservationId": "scope:warlock:class-features:feature.eldritch-versatility"
+    }
+  ]
+}

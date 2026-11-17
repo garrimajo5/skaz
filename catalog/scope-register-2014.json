@@ -2,6 +2,66 @@
   "schemaVersion": 1,
   "componentEvidence": [
     {
+      "manifest": "catalog/dndsu-choice-prerequisites.json",
+      "status": "choice-prerequisite-proposals-not-eligibility-engine",
+      "summary": {
+        "choices": 70,
+        "explicitClassLevels": 37,
+        "pactPrerequisites": 15,
+        "alternativePrerequisites": 2,
+        "itemClauses": 15
+      }
+    },
+    {
+      "manifest": "catalog/dndsu-choice-learning.json",
+      "status": "choice-capacity-and-lifecycle-proposals",
+      "summary": {
+        "classes": 2,
+        "levelRows": 40,
+        "ruleProposals": 4,
+        "existingWarlockSrdCapacity": "matches-all-twenty-levels"
+      }
+    },
+    {
+      "manifest": "catalog/dndsu-invocation-spell-policies.json",
+      "status": "spell-linked-invocation-policy-proposals",
+      "summary": {
+        "choices": 33,
+        "referenceOccurrences": 40,
+        "byMode": {
+          "at-will-no-slot": 12,
+          "once-per-long-rest-with-pact-slot": 7,
+          "once-per-long-rest-no-slot": 3,
+          "modify-existing-eldritch-blast": 5,
+          "curse-triggered-effect-not-spell-grant": 2,
+          "ritual-book-access": 1,
+          "per-target-long-rest-no-slot": 1,
+          "book-named-target-no-slot": 1,
+          "modify-existing-familiar": 1
+        }
+      }
+    },
+    {
+      "manifest": "catalog/dndsu-infusion-effects.json",
+      "status": "partial-infusion-effect-proposals",
+      "summary": {
+        "choices": 16,
+        "chargePools": 4,
+        "dawnUseLimits": 1,
+        "levelScalingBonuses": 3,
+        "referenceOnly": 2
+      }
+    },
+    {
+      "manifest": "catalog/class-source-bibliography.json",
+      "status": "class-bibliographic-evidence-not-scope-or-rights-approval",
+      "summary": {
+        "sourceLabels": 8,
+        "withPrimaryEvidence": 6,
+        "withoutVerifiedPrimaryEvidence": 2
+      }
+    },
+    {
       "manifest": "catalog/dndsu-spell-change-proposals.json",
       "status": "partial-spell-change-policy-proposals",
       "summary": {
@@ -134817,10 +134877,15 @@
     "catalog/dndsu-replicate-item-options.json": "81f360b157fdad43f9d2b95e76222095be1df9c4c6daadfe41e9b30b7d802f45",
     "catalog/dndsu-companion-discovery.json": "e752be74fee14fa504de7166042b8020794e257e9acf921f0162ed5ac91b6c56",
     "catalog/dndsu-companion-statblocks.json": "32bc3faa9e28cdd749f382a16fae9d6fd74881d7c5e35b6bfa91178e2f810a39",
-    "catalog/dndsu-class-scope-boundaries.json": "ed52aa9acac696a5bb09fc5b0b46cf49eaf960ee8844aee070304965542ea022",
+    "catalog/dndsu-class-scope-boundaries.json": "b5c3aa0af6d96ab3405885ca05dc6ba5817845becbeacc6628867920c7da6eaa",
     "catalog/dndsu-choice-spell-references.json": "13b6d8a35f0b5f0a3d556b61f561c04bcf6d1c0db7737ff97fe3fa3117bc3b14",
     "catalog/dndsu-replacement-exceptions.json": "db0b4a1d1daba8688f916404fb7e485696b9e58dc776f44068eec355c32d8b81",
-    "catalog/dndsu-spell-change-proposals.json": "65987d5ac4cf2a399b71df5a209322b7a9b149e1ced5746378bb202e5895235e"
+    "catalog/dndsu-spell-change-proposals.json": "65987d5ac4cf2a399b71df5a209322b7a9b149e1ced5746378bb202e5895235e",
+    "catalog/dndsu-choice-prerequisites.json": "c219752ad0f17d8100a5e0e5f474b6dafa731e31e409fb0e1f576ac8e85a56af",
+    "catalog/dndsu-choice-learning.json": "4288b0b9e70833c4deba7790d6d1fc5e493855bca7f9a8796e8960868eb112ba",
+    "catalog/dndsu-invocation-spell-policies.json": "5b7c21ab40fedbdcb3a22d6bd3e2a901357d6571b41738217d7bd7fffbbbed14",
+    "catalog/dndsu-infusion-effects.json": "25596b68900a247b45e7e4f645e57f6cd9510778e37d3030dbd37a6dc9e16180",
+    "catalog/class-source-bibliography.json": "464e1d25d76ed36b76a774017d7029a272e8bba17d2bf969dcb4a631ee6bd1fe"
   },
   "catalogSha256": "4dedd8cdf1f4fe6557460a8cb4ee4dd4911ce7521ac0083a22a524790d566676"
 }
