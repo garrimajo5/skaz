@@ -14,7 +14,7 @@ function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning
     localStorage:{getItem:key=>memory.get(key)||null,setItem:(key,value)=>memory.set(key,value)},SkazAccount:{get userId(){return userId;}},setTimeout, clearTimeout, location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
     queueMicrotask: task => tasks.push(task),
     fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
-    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => spellControls[id]|| (id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region), querySelector: () => null },
+    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => spellControls[id]|| (id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region), querySelector: () => null, querySelectorAll:()=>[] },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
     toast:message=>messages.push(message),render:()=>{}, modal: html => dialog = html, SkazStorage: { spellLearningMode:()=>spellLearning,can:()=>true,setSpell:async(...args)=>marks.push(args), ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
@@ -52,7 +52,7 @@ test('catalog cards expose useful safe summaries without opening a dialog or app
  {...entry,kind:'item',item:{type:'ring',rarity:'rare',attunement:false}},
  {...entry,mechanic:{category:'<img onerror=bad>',effects:[]}}];
  respond(h.requests[0],{entries:cards,total:4});respond(h.requests[1],coverage);await settle();
- for(const value of ['5 ур','Ритуал','Концентрация','КД 15','Хиты 90','Без настройки','Редкий'])assert.ok(h.region.innerHTML.includes(value));
+ for(const value of ['5 круг','Ритуал','Концентрация','Класс доспеха','>15<','Хиты (базовые)','>90<','Не требуется','Редкий'])assert.ok(h.region.innerHTML.includes(value));
  assert.match(h.region.innerHTML,/&lt;img onerror=bad&gt;/);assert.doesNotMatch(h.region.innerHTML,/<img/);assert.equal(h.dialog(),'');assert.equal(h.additions.length,0);
 });
 
@@ -398,3 +398,28 @@ test('catalog known policy has one add action and treats legacy prepared as know
 test('catalog cannot demote an always-prepared oath spell even by invoking its disabled handler',async()=>{
  const h=harness('http:',true,new Map(),'prepared');h.submit('shield');respond(h.requests[0],{entries:[{...entry,id:'shield',kind:'spell'}],total:1});respond(h.requests[1],coverage);await settle();h.detail();h.requests.find(r=>r.book).resolve({entries:[{catalogId:'shield',status:'prepared',alwaysPrepared:true}]});await settle();assert.equal(h.spellControls['catalog-known'].disabled,true);assert.equal(h.spellControls['catalog-prepared'].disabled,true);assert.match(h.spellControls['catalog-book-status'].textContent,/Постоянно подготовлено умением класса/);await h.spellControls['catalog-known'].onclick();assert.equal(h.marks.length,0);
 });
+
+ test('switching cards and list preserves results and query without fetching or mutating',async()=>{
+ const h=harness();h.submit('needle',{kind:'spell'});const spell={...entry,kind:'spell',spell:{level:0,castingTime:'1 реакция, когда <опасность>',duration:'До 1 минуты',components:['V','S'],concentration:true}};
+ respond(h.requests[0],{entries:[spell],total:1});respond(h.requests[1],coverage);await settle();
+ assert.match(h.region.innerHTML,/catalog-tile/);assert.match(h.region.innerHTML,/Заговор/);assert.match(h.region.innerHTML,/Не указано/);assert.match(h.region.innerHTML,/&lt;опасность&gt;/);assert.match(h.region.innerHTML,/V, S/);
+ const count=h.requests.length;h.click('',{catalogLayout:'list'});assert.doesNotMatch(h.region.innerHTML,/catalog-tile-open/);assert.match(h.region.innerHTML,/catalog-view-list/);
+ h.click('',{catalogLayout:'cards'});assert.match(h.region.innerHTML,/catalog-tile-open/);assert.equal(h.requests.length,count);assert.match(h.view(),/value="needle"/);assert.equal(h.additions.length,0);
+ });
+
+ test('creature cards preserve zero movement and fractional challenge without inventing missing fields',async()=>{
+ const h=harness();h.submit('',{kind:'monster'});const creature={...entry,kind:'monster',monster:{size:'tiny',type:'beast',challenge:'1/8',armorClass:0,hitPoints:1,speed:{walk:0,fly:60}}};
+ respond(h.requests[0],{entries:[creature,{...entry,kind:'monster',monster:{type:'<script>bad</script>'}}],total:2});respond(h.requests[1],coverage);await settle();
+ for(const text of ['Крошечный · Зверь','1/8','>0<','Ходьба 0 фт · Полёт 60 фт','Не указано','&lt;script&gt;bad&lt;/script&gt;'])assert.ok(h.region.innerHTML.includes(text),text);
+ assert.doesNotMatch(h.region.innerHTML,/<script>|undefined|NaN/);assert.equal(h.additions.length,0);
+ });
+ test('item cards separate reference maximum from instance balance and render only supplied fields',async()=>{
+ const h=harness();h.submit('',{kind:'item'});const entries=[
+ {...entry,kind:'item',item:{type:'potion',rarity:'common',attunement:false,healing:{diceCount:2,diceSides:4,bonus:0}}},
+ {...entry,kind:'item',item:{type:'staff',rarity:'rare',attunement:true,attunementRequirement:'маг <условие>',charges:{max:7,recharge:'На рассвете <бросок>'}}},
+ {...entry,kind:'artifact',artifact:{type:'weapon',attunement:true}},
+ {...entry,kind:'item',item:undefined,source:{usage:'reference-only'}}];
+ respond(h.requests[0],{entries,total:4});respond(h.requests[1],coverage);await settle();
+ for(const text of ['2к4 хитов','Максимум зарядов','>7<','На рассвете &lt;бросок&gt;','маг &lt;условие&gt;','Артефакт · Оружие','Характеристики не импортированы'])assert.ok(h.region.innerHTML.includes(text),text);
+ assert.doesNotMatch(h.region.innerHTML,/Осталось|undefined|NaN|>0<|<условие>/);assert.equal(h.additions.length,0);
+ });
