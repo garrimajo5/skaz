@@ -1,0 +1,1469 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-11-17",
+  "classUrl": "https://dnd.su/class/87-barbarian/",
+  "inputPageSha256": "41cf6317ae335a583f4a35e728f2e39b3ddeccc553783c2b174d34e6ec021eb7",
+  "status": "content-proposal-awaiting-independent-review",
+  "summary": {
+    "base-feature": 16,
+    "subclass": 9,
+    "subclass-feature": 40,
+    "subclass-prerequisite": 1,
+    "equipment-reference": 1
+  },
+  "records": [
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.unarmored-defence",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "ЗАЩИТА БЕЗ ДОСПЕХОВ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.unarmored-defence",
+      "headingOrdinal": 18,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        1
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.rage",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "ЯРОСТЬ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.rage",
+      "headingOrdinal": 19,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        1
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.reckless-attack",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "БЕЗРАССУДНАЯ АТАКА",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.reckless-attack",
+      "headingOrdinal": 20,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        2
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.danger-sense",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "ЧУВСТВО ОПАСНОСТИ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.danger-sense",
+      "headingOrdinal": 21,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        2
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.primal-path",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "ПУТЬ ДИКОСТИ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.primal-path",
+      "headingOrdinal": 22,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.primal-knowledge",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "Первобытное знание",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.primal-knowledge",
+      "headingOrdinal": 23,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-option-TCE-marker",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.ASI",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "УВЕЛИЧЕНИЕ ХАРАКТЕРИСТИК",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.ASI",
+      "headingOrdinal": 24,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        4
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.fast-movement",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "БЫСТРОЕ ПЕРЕДВИЖЕНИЕ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.fast-movement",
+      "headingOrdinal": 25,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        5
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.extra-attack",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "ДОПОЛНИТЕЛЬНАЯ АТАКА",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.extra-attack",
+      "headingOrdinal": 26,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        5
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.feral-instinct",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "ДИКИЙ ИНСТИНКТ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.feral-instinct",
+      "headingOrdinal": 27,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        7
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.instinctive-pounce",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "Инстинктивный бросок",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.instinctive-pounce",
+      "headingOrdinal": 28,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-option-TCE-marker",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        7
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.brutal-critical",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "СИЛЬНЫЙ КРИТИЧЕСКИЙ УДАР",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.brutal-critical",
+      "headingOrdinal": 29,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        9
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.relentless-rage",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "НЕПРЕКЛОННАЯ ЯРОСТЬ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.relentless-rage",
+      "headingOrdinal": 30,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        11
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.persistent-rage",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "НЕПРЕРЫВНАЯ ЯРОСТЬ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.persistent-rage",
+      "headingOrdinal": 31,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        15
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.indomitable-might",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "НЕУКРОТИМАЯ МОЩЬ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.indomitable-might",
+      "headingOrdinal": 32,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        18
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:klassovye_umeniya:feature.primal-champion",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "ДИКИЙ ЧЕМПИОН",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#feature.primal-champion",
+      "headingOrdinal": 33,
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        20
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.berserker:primal.berserker",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Путь берсерка",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.berserker",
+      "headingOrdinal": 35,
+      "parent": "primal.berserker",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.berserker:6c431b8e9f0622db",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "БЕШЕНСТВО",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.berserker",
+      "headingOrdinal": 36,
+      "parent": "primal.berserker",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.berserker:dba9b7b608afbae0",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "БЕЗДУМНАЯ ЯРОСТЬ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.berserker",
+      "headingOrdinal": 37,
+      "parent": "primal.berserker",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.berserker:fe19f9fb24c0d41f",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ПУГАЮЩЕЕ ПРИСУТСТВИЕ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.berserker",
+      "headingOrdinal": 38,
+      "parent": "primal.berserker",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        10
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.berserker:85f6e9d72234c814",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ОТВЕТНЫЙ УДАР",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.berserker",
+      "headingOrdinal": 39,
+      "parent": "primal.berserker",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.totem-warrior:primal.totem-warrior",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Путь тотемного воина",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.totem-warrior",
+      "headingOrdinal": 40,
+      "parent": "primal.totem-warrior",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.totem-warrior:41746d2e813f0a75",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ИСКАТЕЛЬ ДУХОВ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.totem-warrior",
+      "headingOrdinal": 41,
+      "parent": "primal.totem-warrior",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.totem-warrior:c03d3c0caa283531",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ТОТЕМНЫЙ ДУХ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.totem-warrior",
+      "headingOrdinal": 42,
+      "parent": "primal.totem-warrior",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.totem-warrior:6ec03114de2bcc10",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "АСПЕКТ ЗВЕРЯ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.totem-warrior",
+      "headingOrdinal": 43,
+      "parent": "primal.totem-warrior",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.totem-warrior:e7076eaefd57516a",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ГУЛЯЮЩИЙ С ДУХАМИ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.totem-warrior",
+      "headingOrdinal": 44,
+      "parent": "primal.totem-warrior",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        10
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.totem-warrior:b737fd086284e331",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ГАРМОНИЯ ТОТЕМА",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.totem-warrior",
+      "headingOrdinal": 45,
+      "parent": "primal.totem-warrior",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.battlerager:primal.battlerager",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Путь бушующего в бою",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.battlerager",
+      "headingOrdinal": 46,
+      "parent": "primal.battlerager",
+      "sourceIds": [
+        "108"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.battlerager:e0b08daa5b127f72",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-prerequisite",
+      "title": "ОГРАНИЧЕНИЕ: ТОЛЬКО ДЛЯ ДВАРФОВ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.battlerager",
+      "headingOrdinal": 47,
+      "parent": "primal.battlerager",
+      "sourceIds": [
+        "108"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.battlerager:0df40cb0b6dbaa01",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "БРОНЯ БУШУЮЩЕГО В БОЮ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.battlerager",
+      "headingOrdinal": 48,
+      "parent": "primal.battlerager",
+      "sourceIds": [
+        "108"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.battlerager:ab05a6ddae3265a9",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ПОЛНОЕ БЕЗРАССУДСТВО",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.battlerager",
+      "headingOrdinal": 49,
+      "parent": "primal.battlerager",
+      "sourceIds": [
+        "108"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.battlerager:6b07ba3111090349",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "НАЛЁТ БУШУЮЩЕГО В БОЮ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.battlerager",
+      "headingOrdinal": 50,
+      "parent": "primal.battlerager",
+      "sourceIds": [
+        "108"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        10
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.battlerager:56d6d3e35eeea580",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ШИПОВАННАЯ РАСПЛАТА",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.battlerager",
+      "headingOrdinal": 51,
+      "parent": "primal.battlerager",
+      "sourceIds": [
+        "108"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.battlerager:cd995618721ff13b",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "equipment-reference",
+      "title": "Шипованный доспех",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.battlerager",
+      "headingOrdinal": 52,
+      "parent": "primal.battlerager",
+      "sourceIds": [
+        "108"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.storm-herald:primal.storm-herald",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Путь буревестника",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.storm-herald",
+      "headingOrdinal": 53,
+      "parent": "primal.storm-herald",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.storm-herald:42ffb8bdafe72a68",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "АУРА БУРИ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.storm-herald",
+      "headingOrdinal": 54,
+      "parent": "primal.storm-herald",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.storm-herald:9c84a7a3bfbe0c08",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ДУША БУРИ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.storm-herald",
+      "headingOrdinal": 55,
+      "parent": "primal.storm-herald",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.storm-herald:b0d9144ea4188b3e",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ОГРАЖДАЮЩАЯ БУРЯ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.storm-herald",
+      "headingOrdinal": 56,
+      "parent": "primal.storm-herald",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        10
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.storm-herald:9f7b0b32f2ade048",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "НЕИСТОВСТВО БУРИ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.storm-herald",
+      "headingOrdinal": 57,
+      "parent": "primal.storm-herald",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.ancestral-guardian:primal.ancestral-guardian",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Путь предка-хранителя",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.ancestral-guardian",
+      "headingOrdinal": 58,
+      "parent": "primal.ancestral-guardian",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.ancestral-guardian:28c9e30ec53cf8df",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ДРЕВНИЕ ЗАЩИТНИКИ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.ancestral-guardian",
+      "headingOrdinal": 59,
+      "parent": "primal.ancestral-guardian",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.ancestral-guardian:ede7772edc072085",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ЩИТ ПРЕДКОВ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.ancestral-guardian",
+      "headingOrdinal": 60,
+      "parent": "primal.ancestral-guardian",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.ancestral-guardian:faa5b3c215743566",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "СОВЕТ ПРЕДКОВ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.ancestral-guardian",
+      "headingOrdinal": 61,
+      "parent": "primal.ancestral-guardian",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        10
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.ancestral-guardian:f7843f1ce01e550c",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "МСТИТЕЛЬНЫЕ ПРЕДКИ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.ancestral-guardian",
+      "headingOrdinal": 62,
+      "parent": "primal.ancestral-guardian",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.zealot:primal.zealot",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Путь фанатика",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.zealot",
+      "headingOrdinal": 63,
+      "parent": "primal.zealot",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.zealot:806db8284d9780a1",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "БОЖЕСТВЕННЫЙ ГНЕВ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.zealot",
+      "headingOrdinal": 64,
+      "parent": "primal.zealot",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.zealot:7a15a31ebc66b4a0",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ВОИН БОГОВ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.zealot",
+      "headingOrdinal": 65,
+      "parent": "primal.zealot",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.zealot:d238c512b8c3f95a",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "КОНЦЕНТРАЦИЯ ФАНАТИКА",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.zealot",
+      "headingOrdinal": 66,
+      "parent": "primal.zealot",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.zealot:c5fc8d423d34a35c",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ФАНАТИЧНОЕ ПРИСУТСТВИЕ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.zealot",
+      "headingOrdinal": 67,
+      "parent": "primal.zealot",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        10
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.zealot:847041fac200d6d3",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ЯРОСТЬ ПРЕВЫШЕ СМЕРТИ",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.zealot",
+      "headingOrdinal": 68,
+      "parent": "primal.zealot",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.wild-magic:primal.wild-magic",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Путь дикой магии",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.wild-magic",
+      "headingOrdinal": 69,
+      "parent": "primal.wild-magic",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.wild-magic:211ac406918d23e1",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Магическая осведомлённость",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.wild-magic",
+      "headingOrdinal": 70,
+      "parent": "primal.wild-magic",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.wild-magic:95feeb1c80c10343",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Всплеск дикости",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.wild-magic",
+      "headingOrdinal": 71,
+      "parent": "primal.wild-magic",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.wild-magic:882b074e6b815010",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Поддерживающая магия",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.wild-magic",
+      "headingOrdinal": 73,
+      "parent": "primal.wild-magic",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.wild-magic:3f7b3fc5adeca895",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Нестабильная отдача",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.wild-magic",
+      "headingOrdinal": 74,
+      "parent": "primal.wild-magic",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        10
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.wild-magic:149bc15310ae8727",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Контролируемый всплеск",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.wild-magic",
+      "headingOrdinal": 75,
+      "parent": "primal.wild-magic",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.beast:primal.beast",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Путь зверя",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.beast",
+      "headingOrdinal": 76,
+      "parent": "primal.beast",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.beast:527127e5881c7f57",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Форма зверя",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.beast",
+      "headingOrdinal": 78,
+      "parent": "primal.beast",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.beast:277b069be24b9377",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Звериная душа",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.beast",
+      "headingOrdinal": 79,
+      "parent": "primal.beast",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.beast:f37fea1d2ff5dee1",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Заразная ярость",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.beast",
+      "headingOrdinal": 80,
+      "parent": "primal.beast",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        10
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.beast:57b9511392735fa2",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Зов охоты",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.beast",
+      "headingOrdinal": 81,
+      "parent": "primal.beast",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.giant:primal.giant",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Путь великана",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.giant",
+      "headingOrdinal": 82,
+      "parent": "primal.giant",
+      "sourceIds": [
+        "198"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.giant:80eddd947f9e7145",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Сила великана",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.giant",
+      "headingOrdinal": 83,
+      "parent": "primal.giant",
+      "sourceIds": [
+        "198"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.giant:ce25c26df24bb671",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Великанье разрушение",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.giant",
+      "headingOrdinal": 84,
+      "parent": "primal.giant",
+      "sourceIds": [
+        "198"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.giant:giant.feature.elemental-cleaver",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Стихийный тесак",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#giant.feature.elemental-cleaver",
+      "headingOrdinal": 85,
+      "parent": "primal.giant",
+      "sourceIds": [
+        "198"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.giant:ebaceaf577cc5212",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Пробуждение мощи",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.giant",
+      "headingOrdinal": 86,
+      "parent": "primal.giant",
+      "sourceIds": [
+        "198"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        10
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:barbarian:primal.giant:792e1783dd000bad",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Демиург-колосс",
+      "sourceUrl": "https://dnd.su/class/87-barbarian/#primal.giant",
+      "headingOrdinal": 87,
+      "parent": "primal.giant",
+      "sourceIds": [
+        "198"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    }
+  ],
+  "excluded": []
+}

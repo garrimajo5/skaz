@@ -1,0 +1,1263 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-11-17",
+  "classUrl": "https://dnd.su/class/88-bard/",
+  "inputPageSha256": "c28e13801103bbfab03ebd9c42a6280492df81ed2137fb114becc9a5b356b610",
+  "status": "content-proposal-awaiting-independent-review",
+  "summary": {
+    "base-feature": 14,
+    "subclass": 8,
+    "subclass-feature": 35
+  },
+  "records": [
+    {
+      "id": "scope:bard:class-features:feature.spellcasting",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.spellcasting",
+      "headingOrdinal": 20,
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:class-features:feature.extra-spells",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "Дополнительные заклинания барда",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.extra-spells",
+      "headingOrdinal": 27,
+      "parent": "class-features",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-option-TCE-marker",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        1
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:class-features:feature.bardic-inspiration",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "ВДОХНОВЕНИЕ БАРДА",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.bardic-inspiration",
+      "headingOrdinal": 29,
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        1
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:class-features:feature.jack-of-all-trades",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "МАСТЕР НА ВСЕ РУКИ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.jack-of-all-trades",
+      "headingOrdinal": 30,
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        2
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:class-features:feature.song-of-rest",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "ПЕСНЬ ОТДЫХА",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.song-of-rest",
+      "headingOrdinal": 31,
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        2
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:class-features:feature.magical-inspiration",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "Магическое вдохновение",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.magical-inspiration",
+      "headingOrdinal": 32,
+      "parent": "class-features",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-option-TCE-marker",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        2
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:class-features:feature.bard-college",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "КОЛЛЕГИЯ БАРДОВ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.bard-college",
+      "headingOrdinal": 33,
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:class-features:feature.expertise",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "КОМПЕТЕНТНОСТЬ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.expertise",
+      "headingOrdinal": 34,
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:class-features:feature.ASI",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "УВЕЛИЧЕНИЕ ХАРАКТЕРИСТИК",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.ASI",
+      "headingOrdinal": 35,
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        4
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:class-features:feature.bardic-versatility",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "Многогранность барда",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.bardic-versatility",
+      "headingOrdinal": 36,
+      "parent": "class-features",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-option-TCE-marker",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        4
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:class-features:feature.font-of-inspiration",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "ИСТОЧНИК ВДОХНОВЕНИЯ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.font-of-inspiration",
+      "headingOrdinal": 37,
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        5
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:class-features:feature.countercharm",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "КОНТРОЧАРОВАНИЕ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.countercharm",
+      "headingOrdinal": 38,
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:class-features:feature.magical-secrets",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "ТАЙНЫ МАГИИ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.magical-secrets",
+      "headingOrdinal": 39,
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        10
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:class-features:feature.superior-inspiration",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "ПРЕВОСХОДНОЕ ВДОХНОВЕНИЕ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#feature.superior-inspiration",
+      "headingOrdinal": 40,
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        20
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.valor:college.valor",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Коллегия доблести",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.valor",
+      "headingOrdinal": 42,
+      "parent": "college.valor",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.valor:84af3f7fb94f5f8f",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ДОПОЛНИТЕЛЬНЫЕ НАВЫКИ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.valor",
+      "headingOrdinal": 43,
+      "parent": "college.valor",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.valor:120098ab11746654",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "БОЕВОЕ ВДОХНОВЕНИЕ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.valor",
+      "headingOrdinal": 44,
+      "parent": "college.valor",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.valor:9ede3ebb1d19609a",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ДОПОЛНИТЕЛЬНАЯ АТАКА",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.valor",
+      "headingOrdinal": 45,
+      "parent": "college.valor",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.valor:8a857c5098564f46",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "БОЕВАЯ МАГИЯ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.valor",
+      "headingOrdinal": 46,
+      "parent": "college.valor",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.lore:college.lore",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Коллегия знаний",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.lore",
+      "headingOrdinal": 47,
+      "parent": "college.lore",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.lore:84af3f7fb94f5f8f",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ДОПОЛНИТЕЛЬНЫЕ НАВЫКИ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.lore",
+      "headingOrdinal": 48,
+      "parent": "college.lore",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.lore:4fed1a99eadb6fb9",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ОСТРОЕ СЛОВЦО",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.lore",
+      "headingOrdinal": 49,
+      "parent": "college.lore",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.lore:2ad368def580967f",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ДОПОЛНИТЕЛЬНЫЕ ТАЙНЫ МАГИИ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.lore",
+      "headingOrdinal": 50,
+      "parent": "college.lore",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.lore:b6d6ebcb277cf6f3",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "НЕПРЕВЗОЙДЁННЫЙ НАВЫК",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.lore",
+      "headingOrdinal": 51,
+      "parent": "college.lore",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.swords:college.swords",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Коллегия мечей",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.swords",
+      "headingOrdinal": 52,
+      "parent": "college.swords",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.swords:9dcc28f4dacc18e7",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "БОЕВОЙ СТИЛЬ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.swords",
+      "headingOrdinal": 53,
+      "parent": "college.swords",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.swords:c117e6dd5eed579a",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ДОПОЛНИТЕЛЬНЫЕ ВЛАДЕНИЯ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.swords",
+      "headingOrdinal": 54,
+      "parent": "college.swords",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.swords:7222aeb59604beab",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "росчерк КЛИНКа",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.swords",
+      "headingOrdinal": 55,
+      "parent": "college.swords",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.swords:9ede3ebb1d19609a",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ДОПОЛНИТЕЛЬНАЯ АТАКА",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.swords",
+      "headingOrdinal": 56,
+      "parent": "college.swords",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.swords:4973db1338dc2ff7",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "МАСТЕРСКий Росчерк",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.swords",
+      "headingOrdinal": 57,
+      "parent": "college.swords",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.glamour:college.glamour",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Коллегия очарования",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.glamour",
+      "headingOrdinal": 58,
+      "parent": "college.glamour",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.glamour:6773a930cb03ff5e",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ЗАВОРАЖИВАЮЩЕЕ ВЫСТУПЛЕНИЕ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.glamour",
+      "headingOrdinal": 59,
+      "parent": "college.glamour",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.glamour:adc7c9b968684ef1",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "МАНТИЯ ВДОХНОВЕНИЯ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.glamour",
+      "headingOrdinal": 60,
+      "parent": "college.glamour",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.glamour:ab3cf517c33f675c",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "МАНТИЯ ВЕЛИЧИЯ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.glamour",
+      "headingOrdinal": 61,
+      "parent": "college.glamour",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.glamour:c7b90c97fbc8ab6a",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "НЕСОКРУШИМОЕ ВЕЛИЧИЕ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.glamour",
+      "headingOrdinal": 62,
+      "parent": "college.glamour",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.whispers:college.whispers",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Коллегия шёпотов",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.whispers",
+      "headingOrdinal": 63,
+      "parent": "college.whispers",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.whispers:838e5ac8924f9711",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ПСИХИЧЕСКИЕ КЛИНКИ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.whispers",
+      "headingOrdinal": 64,
+      "parent": "college.whispers",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.whispers:b16eb4345928db55",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "СЛОВА УЖАСА",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.whispers",
+      "headingOrdinal": 65,
+      "parent": "college.whispers",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.whispers:e26a77fbbf39084f",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "МАНТИЯ ШЁПОТОВ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.whispers",
+      "headingOrdinal": 66,
+      "parent": "college.whispers",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.whispers:14299c822bffdb88",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "ЗНАНИЕ ТЕНИ",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.whispers",
+      "headingOrdinal": 67,
+      "parent": "college.whispers",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.eloquence:college.eloquence",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Коллегия красноречия",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.eloquence",
+      "headingOrdinal": 68,
+      "parent": "college.eloquence",
+      "sourceIds": [
+        "117",
+        "121"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.eloquence:753dc99aea6f1e4a",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Златоуст",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.eloquence",
+      "headingOrdinal": 69,
+      "parent": "college.eloquence",
+      "sourceIds": [
+        "117",
+        "121"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.eloquence:54998442a6807380",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Тревожащие слова",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.eloquence",
+      "headingOrdinal": 70,
+      "parent": "college.eloquence",
+      "sourceIds": [
+        "117",
+        "121"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.eloquence:6bb66cad80fdbc4d",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Неисчерпаемое вдохновение",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.eloquence",
+      "headingOrdinal": 71,
+      "parent": "college.eloquence",
+      "sourceIds": [
+        "117",
+        "121"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.eloquence:69cefa2da537ac12",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Универсальная речь",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.eloquence",
+      "headingOrdinal": 72,
+      "parent": "college.eloquence",
+      "sourceIds": [
+        "117",
+        "121"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.eloquence:09b9e4bde74d43d1",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Заразительное вдохновение",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.eloquence",
+      "headingOrdinal": 73,
+      "parent": "college.eloquence",
+      "sourceIds": [
+        "117",
+        "121"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.creation:college.creation",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Коллегия созидания",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.creation",
+      "headingOrdinal": 74,
+      "parent": "college.creation",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.creation:24062de0674e2046",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Частица потенциала",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.creation",
+      "headingOrdinal": 75,
+      "parent": "college.creation",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.creation:2c0573017f55d8de",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Созидательное выступление",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.creation",
+      "headingOrdinal": 76,
+      "parent": "college.creation",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.creation:62f5250dcb5e8418",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Оживляющее выступление",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.creation",
+      "headingOrdinal": 77,
+      "parent": "college.creation",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.creation:8e66250b32fc5ab9",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Крещендо созидания",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.creation",
+      "headingOrdinal": 78,
+      "parent": "college.creation",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.spirits:college.spirits",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass",
+      "title": "Коллегия духов",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.spirits",
+      "headingOrdinal": 79,
+      "parent": "college.spirits",
+      "sourceIds": [
+        "125"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.spirits:cdcf9bf90e719210",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Направляющий шёпот",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.spirits",
+      "headingOrdinal": 80,
+      "parent": "college.spirits",
+      "sourceIds": [
+        "125"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.spirits:67f44113ccc574f6",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Спиритическая фокусировка",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.spirits",
+      "headingOrdinal": 81,
+      "parent": "college.spirits",
+      "sourceIds": [
+        "125"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.spirits:19553e3d2ea2d525",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Истории с того света",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.spirits",
+      "headingOrdinal": 82,
+      "parent": "college.spirits",
+      "sourceIds": [
+        "125"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        3
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.spirits:03693f4be220536c",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Спиритический сеанс",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.spirits",
+      "headingOrdinal": 85,
+      "parent": "college.spirits",
+      "sourceIds": [
+        "125"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        6
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    {
+      "id": "scope:bard:college.spirits:dea507570e9f341c",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "subclass-feature",
+      "title": "Мистическая связь",
+      "sourceUrl": "https://dnd.su/class/88-bard/#college.spirits",
+      "headingOrdinal": 86,
+      "parent": "college.spirits",
+      "sourceIds": [
+        "125"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [
+        14
+      ],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    }
+  ],
+  "excluded": [
+    {
+      "ordinal": 84,
+      "title": "Истории духов",
+      "reason": "Storytelling guidance, not a separate class feature; Spirit Tales table remains part of Tales from Beyond"
+    }
+  ]
+}

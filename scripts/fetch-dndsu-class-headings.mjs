@@ -1,0 +1,4 @@
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+const directory=process.argv[2];if(!directory)throw Error('Output directory required');mkdirSync(directory,{recursive:true});
+const classes=JSON.parse(readFileSync(new URL('../catalog/dndsu-class-discovery.json',import.meta.url))).rows.filter(r=>r.group==='classes');
+for(const c of classes){const u=new URL(c.url);if(u.origin!=='https://dnd.su'||!/^\/class\/\d+-[a-z0-9_-]+\/$/.test(u.pathname))throw Error('Unexpected class URL');const r=await fetch(u,{redirect:'error',signal:AbortSignal.timeout(30000)});if(!r.ok||!r.headers.get('content-type')?.includes('text/html'))throw Error('Unexpected class response');const html=await r.text();if(Buffer.byteLength(html)>8*1024*1024)throw Error('Oversized class page');writeFileSync(directory+'/class-'+u.pathname.match(/\d+/)[0]+'.html',html);console.log(c.en);}

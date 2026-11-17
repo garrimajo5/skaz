@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {barbarianScope} from '../scripts/catalog-barbarian-scope.mjs';
+const read=p=>JSON.parse(readFileSync(new URL('../catalog/'+p,import.meta.url)));
+const sources=read('dndsu-source-register.json').sources;
+const page=()=>structuredClone(read('dndsu-class-headings.json').pages.find(p=>p.className==='Варвар'));
+test('barbarian includes Giant path and keeps restriction and equipment distinct from features',()=>{const r=barbarianScope(page(),sources);assert.deepEqual(r.summary,{'base-feature':16,subclass:9,'subclass-feature':40,'subclass-prerequisite':1,'equipment-reference':1});const giant=r.records.find(x=>x.kind==='subclass'&&x.parent==='primal.giant');assert.ok(giant.sourceIds.includes(sources.find(x=>x.title==='Bigby Presents: Glory of the Giants').sourceId));assert.ok(r.records.some(x=>x.kind==='subclass-prerequisite'&&x.parent==='primal.battlerager'));});
+test('barbarian optional TCE features retain separate provenance',()=>{const r=barbarianScope(page(),sources);assert.equal(r.records.filter(x=>x.sourceBasis==='explicit-option-TCE-marker').length,2);assert.ok(r.records.every(x=>x.sourceCompleteness==='not-verified-in-full-text'&&x.levelProgression==='not-verified-by-heading'));});
+test('missing late-2014 subclass source cannot silently become PHB',()=>{const p=page();p.headings.find(h=>h.anchors.includes('primal.giant')).sourceResolution=[];assert.throws(()=>barbarianScope(p,sources),/Unresolved/);});
