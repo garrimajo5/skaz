@@ -1,0 +1,933 @@
+{
+  "schemaVersion": 1,
+  "status": "spell-linked-invocation-policy-proposals",
+  "summary": {
+    "choices": 33,
+    "referenceOccurrences": 40,
+    "byMode": {
+      "at-will-no-slot": 12,
+      "once-per-long-rest-with-pact-slot": 7,
+      "once-per-long-rest-no-slot": 3,
+      "modify-existing-eldritch-blast": 5,
+      "curse-triggered-effect-not-spell-grant": 2,
+      "ritual-book-access": 1,
+      "per-target-long-rest-no-slot": 1,
+      "book-named-target-no-slot": 1,
+      "modify-existing-familiar": 1
+    }
+  },
+  "records": [
+    {
+      "choiceObservationId": "scope-choice:251f97d23a744c84e883",
+      "title": "ВИДЕНИЯ ДАЛЁКИХ КОРОЛЕВСТВ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:151"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "at-will-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": null,
+        "slotCost": "none",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "18ef3488e005a32eb5cd0be7a7c755d45780ca84db6eb24ba954de38d6dc8219",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:56eb3c4831249463ac7a",
+      "title": "ВОСХОДЯЩИЙ ШАГ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:139"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "at-will-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": null,
+        "slotCost": "none",
+        "materialComponentOverride": "waived",
+        "targetOverride": "self-only"
+      },
+      "evidenceTextSha256": "faffdde1ecadb6a86641e8df9804d801bd57c58325b52501bae55b1680c1cbda",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:aed16f17f05b333567f5",
+      "title": "ДОСПЕХ ТЕНЕЙ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:60"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "at-will-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": null,
+        "slotCost": "none",
+        "materialComponentOverride": "waived",
+        "targetOverride": "self-only"
+      },
+      "evidenceTextSha256": "b52740319454320090becdc50bb2c7056842ee65b4d7de5ddab6d676528eda7b",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:9a146b669d2dfbff0f65",
+      "title": "ЖИВОТНАЯ РЕЧЬ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:292"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "at-will-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": null,
+        "slotCost": "none",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "08818ae5fab6290a4f1666694c36c199eafb3257571c259238349a64e5802eba",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:ddefa9cb660a7933f8f1",
+      "title": "МАСКА МНОГИХ ЛИЦ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:157"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "at-will-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": null,
+        "slotCost": "none",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "df543fb53855b6e9ad3932ebe8281f175d8856f4abb4057eb263d99cadeebddd",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:a73cded1ced586e64af7",
+      "title": "МАСТЕР БЕСЧИСЛЕННЫХ ОБЛИКОВ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:323"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "at-will-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": null,
+        "slotCost": "none",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "13d4e813f02a28888594a13bf448620d7a4733e13c555c83a3085c79f1d2b672",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:734235015a3ce4fcf2cc",
+      "title": "МОГИЛЬНЫЙ ШЁПОТ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:293"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "at-will-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": null,
+        "slotCost": "none",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "c34ff63f0473d70ed63fa28893fd65279a9ea57886230113cbae0274e921b65a",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:a2cc89661301fd3ef266",
+      "title": "МОЩЬ ИСЧАДИЯ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:287"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "at-will-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": null,
+        "slotCost": "none",
+        "materialComponentOverride": "waived",
+        "targetOverride": "self-only",
+        "spellLevelOverride": 1
+      },
+      "evidenceTextSha256": "1d7aa4648d34c0ae8511d2beff91049499545e0a4ad7a39c28a2f7fb5d6bdedb",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:6c40170c0df2d8621066",
+      "title": "ПОТУСТОРОННИЙ ПРЫЖОК",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:286"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "at-will-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": null,
+        "slotCost": "none",
+        "materialComponentOverride": "waived",
+        "targetOverride": "self-only"
+      },
+      "evidenceTextSha256": "c82d2aebbec61d4d9fc95572ad0d743aa5a3cd9a2f412d99d2646e8dbdc85779",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:07d61e387e90d078a3a7",
+      "title": "ТАИНСТВЕННЫЙ ВЗГЛЯД",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:195"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "at-will-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": null,
+        "slotCost": "none",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "d272df39035404208c86d57a52cb74d27c30c5ab51d9bc46c76304a552646ed8",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:0121584d37602904cbe6",
+      "title": "ТУМАННЫЕ ВИДЕНИЯ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:7"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "at-will-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": null,
+        "slotCost": "none",
+        "materialComponentOverride": "waived",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "25b065fed75f23561d112c95f8c6952e020f2c44a601d7b0d9c6eef56244cc36",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:67c57acf378e5f9299b8",
+      "title": "Саван теней",
+      "sourceId": "109",
+      "spellPageIds": [
+        "dndsu:spells:183"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "at-will-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": null,
+        "slotCost": "none",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "18b1370d6f6039cb541e7a60782551b2ec2bc73bad709349d93aee87e837af6f",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:6f8c68eaba12b8595755",
+      "title": "ВОР ПЯТИ СУДЕБ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:254"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "once-per-long-rest-with-pact-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": 1,
+        "recharge": "long-rest",
+        "slotCost": "one-warlock-pact-slot",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "d57e62404f0cb660609e7854e4fe86b02251181ad53fe6b01f7fa127bcf2a062",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:7fa0930dd82a5fef16dc",
+      "title": "ЗАВОРАЖИВАЮЩИЙ ШЁПОТ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:278"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "once-per-long-rest-with-pact-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": 1,
+        "recharge": "long-rest",
+        "slotCost": "one-warlock-pact-slot",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "1961884b10e7d00cf98cfe126b884e50f0e71d6cd26b13e21d1605a21d0bfe88",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:330135e1439aa982f242",
+      "title": "ЗНАК ДУРНОГО ПРЕДЗНАМЕНОВАНИЯ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:285"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "once-per-long-rest-with-pact-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": 1,
+        "recharge": "long-rest",
+        "slotCost": "one-warlock-pact-slot",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "eee490fbdb050de88f3796980d291a61497626fa6f45b140972a6b2cb7a82a9b",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:9a9be63d2748d06461d8",
+      "title": "СКУЛЬПТОР ПЛОТИ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:260"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "once-per-long-rest-with-pact-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": 1,
+        "recharge": "long-rest",
+        "slotCost": "one-warlock-pact-slot",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "de01c432d93e4b9767779fa81602261b74bb13926dd3b0ab0d34fafbb6585e17",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:1f426deefe869d7a9e62",
+      "title": "СЛУГИ ХАОСА",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:275"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "once-per-long-rest-with-pact-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": 1,
+        "recharge": "long-rest",
+        "slotCost": "one-warlock-pact-slot",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "7f882f46e1b2eede04400d95290466fcd134742943824e45f4517a4827e4fe2a",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:0963fc8e09f66079ba51",
+      "title": "ТРЯСИНА РАЗУМА",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:83"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "once-per-long-rest-with-pact-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": 1,
+        "recharge": "long-rest",
+        "slotCost": "one-warlock-pact-slot",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "6e06eb3401596b8e53901da27195b55f0e6bb9dd94fe5a9df9fdfe377b4c1d56",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:f1eb8eaceaa23afcba80",
+      "title": "УЖАСАЮЩЕЕ СЛОВО",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:325"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "once-per-long-rest-with-pact-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": 1,
+        "recharge": "long-rest",
+        "slotCost": "one-warlock-pact-slot",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "41aee4ae55ce2c5d5bcdfca8aa6a21707315ce248b3cc28079d88c598eba9432",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:6609e1ab20b8564a03b0",
+      "title": "Дар глубин",
+      "sourceId": "109",
+      "spellPageIds": [
+        "dndsu:spells:235"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "once-per-long-rest-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": 1,
+        "recharge": "long-rest",
+        "slotCost": "none",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "598b8ec99226d5826f499ed0ca75cbf5cb4324bd220a4fade1cd437581709dda",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:884b2340b9bde29ba228",
+      "title": "Побег обманщика",
+      "sourceId": "109",
+      "spellPageIds": [
+        "dndsu:spells:308"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "once-per-long-rest-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": 1,
+        "recharge": "long-rest",
+        "slotCost": "none",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "self-only"
+      },
+      "evidenceTextSha256": "d63066d0eeecda64013e1083b512397203d7a13c27f7ecb9fa7a8eb0a8bb37ae",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:743769c4846f1fc86c3f",
+      "title": "Бессмертный раб",
+      "sourceId": "117",
+      "spellPageIds": [
+        "dndsu:spells:35"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "once-per-long-rest-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "useLimit": 1,
+        "recharge": "long-rest",
+        "slotCost": "none",
+        "materialComponentOverride": "not-stated",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "7e7e2cd98626664c837f401953e4e593891b0318b8171f878dd159e76d67e121",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:68b22083d208a182b9fd",
+      "title": "МИСТИЧЕСКОЕ КОПЬЁ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:168"
+      ],
+      "referenceCount": 2,
+      "policy": {
+        "mode": "modify-existing-eldritch-blast",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "requiredSpell": "eldritch-blast",
+        "limit": "see-complete-effect-rule"
+      },
+      "evidenceTextSha256": "00497fa49e74883fc9b5a9d9a6ee03a9f5898829465d2cb5b0d3ce8643eaab5d",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:50eefba6b75b6aab678c",
+      "title": "МУЧИТЕЛЬНЫЙ ВЗРЫВ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:168"
+      ],
+      "referenceCount": 2,
+      "policy": {
+        "mode": "modify-existing-eldritch-blast",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "requiredSpell": "eldritch-blast",
+        "limit": "see-complete-effect-rule"
+      },
+      "evidenceTextSha256": "974ffb9f2bea178e465cfcbba58477eb7ddec965ff004d727d214bff344cc861",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:42b3457c68dc5e9843a3",
+      "title": "ОТТАЛКИВАЮЩИЙ ЗАРЯД",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:168"
+      ],
+      "referenceCount": 2,
+      "policy": {
+        "mode": "modify-existing-eldritch-blast",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "requiredSpell": "eldritch-blast",
+        "limit": "see-complete-effect-rule"
+      },
+      "evidenceTextSha256": "5ccd61a130eeebdb4e87f0ae93be361619c945adc1f8edbc6e0b1d36ff1bf452",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:06944bb7d76d11120cb4",
+      "title": "Копье Летаргии",
+      "sourceId": "109",
+      "spellPageIds": [
+        "dndsu:spells:168"
+      ],
+      "referenceCount": 2,
+      "policy": {
+        "mode": "modify-existing-eldritch-blast",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "requiredSpell": "eldritch-blast",
+        "limit": "once-on-each-of-your-turns"
+      },
+      "evidenceTextSha256": "e37af9a3684447611b64154a4e5914ba0a2d7ebb2cb5e944d117e7718223757e",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:2dfffc20775c34800f04",
+      "title": "Хватка Хадара",
+      "sourceId": "109",
+      "spellPageIds": [
+        "dndsu:spells:168"
+      ],
+      "referenceCount": 2,
+      "policy": {
+        "mode": "modify-existing-eldritch-blast",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "requiredSpell": "eldritch-blast",
+        "limit": "once-on-each-of-your-turns"
+      },
+      "evidenceTextSha256": "b05b7a3a4e4ee391f97f81cf6b0b76fa5be44df6d93ce15ccd030359605025c0",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:8f3b5de4d3ec36bc64f2",
+      "title": "Безжалостное проклятие",
+      "sourceId": "109",
+      "spellPageIds": [
+        "dndsu:spells:312"
+      ],
+      "referenceCount": 2,
+      "policy": {
+        "mode": "curse-triggered-effect-not-spell-grant",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "action": "bonus-action",
+        "requiresVisibleCursedTarget": true,
+        "curseSource": "hex-or-qualifying-warlock-feature"
+      },
+      "evidenceTextSha256": "4f3ec4554a383d84ffcfe8156f3ae992c0261358392b3827dfff25a159b73a4a",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:5d27eb5a4c0b579a9c1d",
+      "title": "Безумное проклятие",
+      "sourceId": "109",
+      "spellPageIds": [
+        "dndsu:spells:312"
+      ],
+      "referenceCount": 2,
+      "policy": {
+        "mode": "curse-triggered-effect-not-spell-grant",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "action": "bonus-action",
+        "requiresVisibleCursedTarget": true,
+        "curseSource": "hex-or-qualifying-warlock-feature"
+      },
+      "evidenceTextSha256": "a9c95619724995f22fad846ce9e392b14af19fcef16b3228a6aa8236af88005b",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:2b10186093a7b697f6ea",
+      "title": "КНИГА ДРЕВНИХ СЕКРЕТОВ",
+      "sourceId": "102",
+      "spellPageIds": [],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "ritual-book-access",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "initialSelection": {
+          "count": 2,
+          "spellLevel": 1,
+          "requiresRitualTag": true,
+          "classLists": "any"
+        },
+        "requiresBookInHand": true,
+        "normalCasting": "requires-other-source-of-knowledge",
+        "knownWarlockRitualsAlsoAllowed": true,
+        "copying": {
+          "maximumSpellLevel": "ceil(warlock-level/2)",
+          "hoursPerSpellLevel": 2,
+          "gpPerSpellLevel": 50,
+          "requiresFoundSpell": true
+        }
+      },
+      "evidenceTextSha256": "1d9ae819607e8f17d1a1d981816d75504044ff72ca516bbd2387b433033e3b6d",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:0315eb24edcb54b4e1d3",
+      "title": "ЦЕПИ КАРЦЕРИ",
+      "sourceId": "102",
+      "spellPageIds": [
+        "dndsu:spells:110"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "per-target-long-rest-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "globalUseLimit": null,
+        "perTargetUseLimit": 1,
+        "recharge": "long-rest",
+        "slotCost": "none",
+        "targetTypes": [
+          "fiend",
+          "celestial",
+          "elemental"
+        ],
+        "materialComponentOverride": "waived",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "f003abdc0670de2dff4889b7a1bfcd361b07b873e39c862791460eaacb65ab14",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:fe22844f7a2936449bcb",
+      "title": "Книжник из дали",
+      "sourceId": "117",
+      "spellPageIds": [
+        "dndsu:spells:256"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "book-named-target-no-slot",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "slotCost": "none",
+        "targetRegistry": "names-in-book-of-shadows",
+        "nameCapacity": "proficiency-bonus",
+        "registerAction": "target-writes-with-owner-permission",
+        "messageRequiresWriting": true,
+        "useLimit": "no-counted-limit-stated",
+        "materialComponentOverride": "waived",
+        "targetOverride": "not-stated"
+      },
+      "evidenceTextSha256": "96baa0ae3da0f12a4c07de97dacb0d53425aaae7157cbe39684ee012754886a1",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:909dc23f19d5012b6576",
+      "title": "Дар мастера цепи",
+      "sourceId": "117",
+      "spellPageIds": [
+        "dndsu:spells:248"
+      ],
+      "referenceCount": 1,
+      "policy": {
+        "mode": "modify-existing-familiar",
+        "knownSpellListGrant": false,
+        "fullSpellRules": "inherit-only-after-independent-rule-review",
+        "movementChoice": [
+          "fly",
+          "swim"
+        ],
+        "movementSpeedFeet": 40,
+        "usesCasterSpellSaveDc": true
+      },
+      "evidenceTextSha256": "7e426e84b984f16032eebcd6af5474b4202713fed0051082c00d0bf66662462b",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-effect-conditions-and-durations",
+        "spell-rule-version-and-costs",
+        "character-choice-eligibility"
+      ]
+    }
+  ]
+}

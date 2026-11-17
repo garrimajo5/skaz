@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 1,
+  "status": "companion-references-not-runtime-creatures",
+  "summary": {
+    "features": 10,
+    "references": 17,
+    "uniqueCreaturePages": 13,
+    "missingIndexPages": []
+  },
+  "records": [
+    {
+      "classUrl": "https://dnd.su/class/88-bard/",
+      "featureId": "scope:bard:college.creation:62f5250dcb5e8418",
+      "featureTitle": "Оживляющее выступление",
+      "parent": "college.creation",
+      "sourceIds": [
+        "117"
+      ],
+      "relationship": "animated-item-statblock",
+      "optionalReplacement": false,
+      "references": [
+        {
+          "pageId": "dndsu:bestiary:3989",
+          "url": "https://dnd.su/bestiary/3989-dancing_item/",
+          "label": "танцующий предмет [dancing Item]",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "117"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "165960982ae4586e3dd7bf56c6d81edbfff6912603856a693dfadb5e4c6a9ba2",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-statblock-and-scaling",
+        "feature-specific-modifications",
+        "commands-costs-and-replacement-conditions"
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "featureId": "scope-choice:b6f4c17f72279d8f5e54",
+      "featureTitle": "СЛУГА-ГОМУНКУЛ",
+      "parent": "infusions",
+      "sourceIds": [
+        "117"
+      ],
+      "relationship": "infusion-servant-statblock",
+      "optionalReplacement": false,
+      "references": [
+        {
+          "pageId": "dndsu:bestiary:3987",
+          "url": "https://dnd.su/bestiary/3987-homunculus_servant/",
+          "label": "Слуга-гомункул",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "117"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "4daa7f329201cef1ea25d6cdc005863c841d03e363f2f2323eb02e465dc58ef3",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-statblock-and-scaling",
+        "feature-specific-modifications",
+        "commands-costs-and-replacement-conditions"
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "featureId": "scope:artificer:specialist.battlesmith:c4961367422c09fe",
+      "featureTitle": "СТАЛЬНОЙ ЗАЩИТНИК",
+      "parent": "specialist.battlesmith",
+      "sourceIds": [
+        "117"
+      ],
+      "relationship": "defender-statblock",
+      "optionalReplacement": false,
+      "references": [
+        {
+          "pageId": "dndsu:bestiary:3988",
+          "url": "https://dnd.su/bestiary/3988-steel_defender/",
+          "label": "стальным защитником [steel defender]",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "117"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "6795b2613b6912fd0aaba56f6e703af6f785ff65b1d51465384b3f9427baf402",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-statblock-and-scaling",
+        "feature-specific-modifications",
+        "commands-costs-and-replacement-conditions"
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "featureId": "scope:druid:circle.wildfire:e8e9c67d699e4de3",
+      "featureTitle": "Призыв духа дикого огня",
+      "parent": "circle.wildfire",
+      "sourceIds": [
+        "117"
+      ],
+      "relationship": "summoned-spirit-statblock",
+      "optionalReplacement": false,
+      "references": [
+        {
+          "pageId": "dndsu:bestiary:4235",
+          "url": "https://dnd.su/bestiary/4235-wildefire_spirit/",
+          "label": "дух дикого огня [wildfire spirit]",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "117"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "296d4227c5972515a7c3a29893b0bd4bd94bd98967b4b7f390d21b751881fe69",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-statblock-and-scaling",
+        "feature-specific-modifications",
+        "commands-costs-and-replacement-conditions"
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "featureId": "scope:ranger:archetype.beast-master:supplement:ebb93373a28fa5eb",
+      "featureTitle": "Первичный спутник",
+      "parent": "archetype.beast-master",
+      "sourceIds": [
+        "117"
+      ],
+      "relationship": "choose-one-replacement-companion",
+      "optionalReplacement": true,
+      "replacementForObservationId": "scope:ranger:archetype.beast-master:82ec36671e3952b5",
+      "references": [
+        {
+          "pageId": "dndsu:bestiary:4311",
+          "url": "https://dnd.su/bestiary/4311-beast_of_the_land/",
+          "label": "земной зверь",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "117"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "pageId": "dndsu:bestiary:4312",
+          "url": "https://dnd.su/bestiary/4312-beast_of_the_sea/",
+          "label": "морской зверь",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "117"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "pageId": "dndsu:bestiary:4313",
+          "url": "https://dnd.su/bestiary/4313-beast_of_the_sky/",
+          "label": "небесный зверь",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "117"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "83ddb351719757e68aaaa0cb6c7bbb3a2842f2c650c32d134f0825b53019a12b",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-statblock-and-scaling",
+        "feature-specific-modifications",
+        "commands-costs-and-replacement-conditions"
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "featureId": "scope:ranger:archetype.drakewarden:b3fc29bca7cc0581",
+      "featureTitle": "Дрейк-компаньон",
+      "parent": "archetype.drakewarden",
+      "sourceIds": [
+        "152"
+      ],
+      "relationship": "initial-drake-statblock",
+      "optionalReplacement": false,
+      "references": [
+        {
+          "pageId": "dndsu:bestiary:4842",
+          "url": "https://dnd.su/bestiary/4842-drake_companion/",
+          "label": "Дрейка-компаньона",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "152"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "9837f11534596709c9b72bbb1e2b69890dffa5fd7325e029cd2f481ecefb4607",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-statblock-and-scaling",
+        "feature-specific-modifications",
+        "commands-costs-and-replacement-conditions"
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "featureId": "scope:ranger:archetype.drakewarden:c1bb27119896067b",
+      "featureTitle": "Единство клыков и чешуи",
+      "parent": "archetype.drakewarden",
+      "sourceIds": [
+        "152"
+      ],
+      "relationship": "later-drake-statblock-reference",
+      "optionalReplacement": false,
+      "references": [
+        {
+          "pageId": "dndsu:bestiary:14130",
+          "url": "https://dnd.su/bestiary/14130-drake_companion/",
+          "label": "дрейком",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "152"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "a450b5270550788317ce4429251323885c30816ae78f0a42313272c9cb567b38",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-statblock-and-scaling",
+        "feature-specific-modifications",
+        "commands-costs-and-replacement-conditions"
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "featureId": "scope:ranger:archetype.drakewarden:449ad7cfdf402587",
+      "featureTitle": "Превосходная связь",
+      "parent": "archetype.drakewarden",
+      "sourceIds": [
+        "152"
+      ],
+      "relationship": "later-drake-statblock-reference",
+      "optionalReplacement": false,
+      "references": [
+        {
+          "pageId": "dndsu:bestiary:14131",
+          "url": "https://dnd.su/bestiary/14131-drake_companion/",
+          "label": "дрейк",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "152"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "359938ff82f1159f2944f74507ba7becd67296e44dc14f7933ab238429c5f181",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-statblock-and-scaling",
+        "feature-specific-modifications",
+        "commands-costs-and-replacement-conditions"
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "featureId": "scope:sorcerer:origin.shadow:83b2be5a06061adf",
+      "featureTitle": "ГОНЧАЯ ДУРНОГО ЗНАМЕНИЯ",
+      "parent": "origin.shadow",
+      "sourceIds": [
+        "109"
+      ],
+      "relationship": "hound-and-base-wolf-references",
+      "optionalReplacement": false,
+      "references": [
+        {
+          "pageId": "dndsu:bestiary:2017",
+          "url": "https://dnd.su/bestiary/2017-hound_of_ill_omen/",
+          "label": "гончую дурного знамения [hound of ill omen]",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "109"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "pageId": "dndsu:bestiary:297",
+          "url": "https://dnd.su/bestiary/297-dire_wolf/",
+          "label": "лютого волка [dire wolf]",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "102",
+            "103"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "3a453dcb216fe6f0981806ec436edeefd2ff36d619529cbef6081974d91c44e5",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-statblock-and-scaling",
+        "feature-specific-modifications",
+        "commands-costs-and-replacement-conditions"
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "featureId": "scope:warlock:patron.hexblade:ac6826811dde9f2d",
+      "featureTitle": "ПРОКЛЯТЫЙ СПЕКТР",
+      "parent": "patron.hexblade",
+      "sourceIds": [
+        "109"
+      ],
+      "relationship": "base-specter-with-feature-modifications",
+      "optionalReplacement": false,
+      "references": [
+        {
+          "pageId": "dndsu:bestiary:294",
+          "url": "https://dnd.su/bestiary/294-specter/",
+          "label": "спектра [specter]",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "103"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "pageId": "dndsu:bestiary:294",
+          "url": "https://dnd.su/bestiary/294-specter/",
+          "label": "спектр [specter]",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "103"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "pageId": "dndsu:bestiary:294",
+          "url": "https://dnd.su/bestiary/294-specter/",
+          "label": "спектра [specter]",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "103"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "pageId": "dndsu:bestiary:294",
+          "url": "https://dnd.su/bestiary/294-specter/",
+          "label": "Спектр [specter]",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "103"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        },
+        {
+          "pageId": "dndsu:bestiary:294",
+          "url": "https://dnd.su/bestiary/294-specter/",
+          "label": "спектра [specter]",
+          "indexStatus": "observed-in-bestiary-index",
+          "indexSourceIds": [
+            "103"
+          ],
+          "canonicalCatalogId": null,
+          "fullRules": "unverified"
+        }
+      ],
+      "evidenceTextSha256": "89bf7fb621adf927778b70a0db9e0944f7026249a1c4a992b551076033e4535a",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-statblock-and-scaling",
+        "feature-specific-modifications",
+        "commands-costs-and-replacement-conditions"
+      ]
+    }
+  ]
+}
