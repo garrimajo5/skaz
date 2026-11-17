@@ -105,7 +105,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:22b64f813d6ff2507401",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:aed16f17f05b333567f5",
@@ -149,7 +157,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:4267112c15b7d09fc2c2",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:9a146b669d2dfbff0f65",
@@ -207,7 +223,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:dad10438d3dbd103bc8c",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:ddefa9cb660a7933f8f1",
@@ -363,7 +387,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:4267112c15b7d09fc2c2",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:9a9be63d2748d06461d8",
@@ -463,7 +495,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:22b64f813d6ff2507401",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:9de0d5f86942433871c3",
@@ -479,7 +519,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:dad10438d3dbd103bc8c",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:8f3b5de4d3ec36bc64f2",
@@ -537,7 +585,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:22b64f813d6ff2507401",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:6609e1ab20b8564a03b0",
@@ -581,7 +637,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:4267112c15b7d09fc2c2",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:77ed616417877c8c2869",
@@ -653,7 +717,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:4267112c15b7d09fc2c2",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:2dfffc20775c34800f04",
@@ -697,7 +769,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:dad10438d3dbd103bc8c",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:909dc23f19d5012b6576",
@@ -713,7 +793,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:22b64f813d6ff2507401",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:d19888e4b2d505a93a93",
@@ -729,7 +817,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:3d8e3254aa5a6ff91f5e",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:fe22844f7a2936449bcb",
@@ -745,7 +841,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:dad10438d3dbd103bc8c",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:17dd8cb43a5d2e03b50c",
@@ -775,7 +879,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:3d8e3254aa5a6ff91f5e",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         },
         {
           "id": "scope-choice:cdd2457d892d2cb1f341",
@@ -791,7 +903,15 @@
           "canonicalCatalogId": null,
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
-          "inclusion": "proposed-2014-awaiting-review"
+          "inclusion": "proposed-2014-awaiting-review",
+          "prerequisiteReferences": [
+            {
+              "kind": "pact-boon",
+              "observationId": "scope-choice:3d8e3254aa5a6ff91f5e",
+              "evidence": "data-pact-filter",
+              "completeness": "partial-prerequisite-evidence"
+            }
+          ]
         }
       ]
     },
@@ -1310,6 +1430,7 @@
         {
           "id": "scope-choice:f07820dd6005f795ee40",
           "title": "Дуэлянт",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/91-fighter/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1324,6 +1445,7 @@
         {
           "id": "scope-choice:0c82f13de49264518223",
           "title": "Защита",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/91-fighter/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1338,6 +1460,7 @@
         {
           "id": "scope-choice:f701a44ed2d592218409",
           "title": "Оборона",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/91-fighter/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1352,6 +1475,7 @@
         {
           "id": "scope-choice:84b7e10436e9b8875bd2",
           "title": "Сражение большим оружием",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/91-fighter/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1366,6 +1490,7 @@
         {
           "id": "scope-choice:9b00ba4106dbad988798",
           "title": "Сражение двумя оружиями",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/91-fighter/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1380,6 +1505,7 @@
         {
           "id": "scope-choice:428b60ee32d1ecff4ff8",
           "title": "Стрельба",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/91-fighter/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1394,6 +1520,7 @@
         {
           "id": "scope-choice:411028d53942fdd1fcef",
           "title": "Перехват",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/91-fighter/",
           "section": "feature.fighting-style",
           "sourceId": "117",
@@ -1408,6 +1535,9 @@
         {
           "id": "scope-choice:89d900faa96a3269556d",
           "title": "Превосходная техника",
+          "sourceAnchors": [
+            "style.superficial-technique"
+          ],
           "classUrl": "https://dnd.su/class/91-fighter/",
           "section": "feature.fighting-style",
           "sourceId": "117",
@@ -1422,6 +1552,7 @@
         {
           "id": "scope-choice:eda2b781444bdc273919",
           "title": "Сражение вслепую",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/91-fighter/",
           "section": "feature.fighting-style",
           "sourceId": "117",
@@ -1436,6 +1567,7 @@
         {
           "id": "scope-choice:aa983573680d997042a1",
           "title": "Сражение голыми руками",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/91-fighter/",
           "section": "feature.fighting-style",
           "sourceId": "117",
@@ -1450,6 +1582,7 @@
         {
           "id": "scope-choice:8b3eafaca22a3b984402",
           "title": "Сражение метательным оружием",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/91-fighter/",
           "section": "feature.fighting-style",
           "sourceId": "117",
@@ -1470,6 +1603,7 @@
         {
           "id": "scope-choice:9abaa8f2d2d8e8ed19cd",
           "title": "Дуэлянт",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/94-paladin/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1484,6 +1618,7 @@
         {
           "id": "scope-choice:9e7a3f67217e6391446c",
           "title": "Защита",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/94-paladin/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1498,6 +1633,7 @@
         {
           "id": "scope-choice:0bae6c50324ce5bc847e",
           "title": "Оборона",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/94-paladin/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1512,6 +1648,7 @@
         {
           "id": "scope-choice:ecafaa0743a0a8b7eef1",
           "title": "Сражение большим оружием",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/94-paladin/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1526,6 +1663,9 @@
         {
           "id": "scope-choice:f60fc299ca4f850f57c7",
           "title": "Благословенный воин",
+          "sourceAnchors": [
+            "feature.TCE-fighting-styles"
+          ],
           "classUrl": "https://dnd.su/class/94-paladin/",
           "section": "feature.fighting-style",
           "sourceId": "117",
@@ -1540,6 +1680,7 @@
         {
           "id": "scope-choice:2abeef787f654d120c46",
           "title": "Перехват",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/94-paladin/",
           "section": "feature.fighting-style",
           "sourceId": "117",
@@ -1554,6 +1695,7 @@
         {
           "id": "scope-choice:ce19feaccafd90fa0d42",
           "title": "Сражение вслепую",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/94-paladin/",
           "section": "feature.fighting-style",
           "sourceId": "117",
@@ -1574,6 +1716,9 @@
         {
           "id": "scope-choice:6ec412e32147e3d923e0",
           "title": "Дуэлянт",
+          "sourceAnchors": [
+            "fighting-style.dueling"
+          ],
           "classUrl": "https://dnd.su/class/97-ranger/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1588,6 +1733,7 @@
         {
           "id": "scope-choice:912eb583ef78417ca62b",
           "title": "Оборона",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/97-ranger/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1602,6 +1748,7 @@
         {
           "id": "scope-choice:955ccdc093322e33152b",
           "title": "Сражение двумя оружиями",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/97-ranger/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1616,6 +1763,9 @@
         {
           "id": "scope-choice:e5cc73403bbbc546dd16",
           "title": "Стрельба",
+          "sourceAnchors": [
+            "fighting-style.archery"
+          ],
           "classUrl": "https://dnd.su/class/97-ranger/",
           "section": "feature.fighting-style",
           "sourceId": "102",
@@ -1630,6 +1780,7 @@
         {
           "id": "scope-choice:c37f0639cb9fa6f8e6bb",
           "title": "Сражение вслепую",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/97-ranger/",
           "section": "feature.fighting-style",
           "sourceId": "117",
@@ -1644,6 +1795,7 @@
         {
           "id": "scope-choice:33258732b404f0aac5d5",
           "title": "Воин-друид",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/97-ranger/",
           "section": "feature.fighting-style",
           "sourceId": "117",
@@ -1658,6 +1810,7 @@
         {
           "id": "scope-choice:1d1a6e897eb786d28649",
           "title": "Сражение метательным оружием",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/97-ranger/",
           "section": "feature.fighting-style",
           "sourceId": "117",
@@ -1678,6 +1831,7 @@
         {
           "id": "scope-choice:7c459da180635393af3e",
           "title": "Аккуратное заклинание",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/101-sorcerer/",
           "section": "feature.metamagic",
           "sourceId": "102",
@@ -1692,6 +1846,7 @@
         {
           "id": "scope-choice:bd9972612d09aa6be4c3",
           "title": "Далёкое заклинание",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/101-sorcerer/",
           "section": "feature.metamagic",
           "sourceId": "102",
@@ -1706,6 +1861,7 @@
         {
           "id": "scope-choice:b1d0aff90aad32c81a94",
           "title": "Непреодолимое заклинание",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/101-sorcerer/",
           "section": "feature.metamagic",
           "sourceId": "102",
@@ -1720,6 +1876,7 @@
         {
           "id": "scope-choice:5668801f9a0d15e643a9",
           "title": "Неуловимое заклинание",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/101-sorcerer/",
           "section": "feature.metamagic",
           "sourceId": "102",
@@ -1734,6 +1891,7 @@
         {
           "id": "scope-choice:15f428f544ebd584430d",
           "title": "Продлённое заклинание",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/101-sorcerer/",
           "section": "feature.metamagic",
           "sourceId": "102",
@@ -1748,6 +1906,9 @@
         {
           "id": "scope-choice:e0b309d4d4295b1f8d66",
           "title": "Удвоенное заклинание",
+          "sourceAnchors": [
+            "metamagic.double"
+          ],
           "classUrl": "https://dnd.su/class/101-sorcerer/",
           "section": "feature.metamagic",
           "sourceId": "102",
@@ -1762,6 +1923,9 @@
         {
           "id": "scope-choice:85e46cd75bbd3e102dec",
           "title": "Усиленное заклинание",
+          "sourceAnchors": [
+            "metamagic.fast"
+          ],
           "classUrl": "https://dnd.su/class/101-sorcerer/",
           "section": "feature.metamagic",
           "sourceId": "102",
@@ -1776,6 +1940,7 @@
         {
           "id": "scope-choice:1ee24ccb5909ad7c4102",
           "title": "Ускоренное заклинание",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/101-sorcerer/",
           "section": "feature.metamagic",
           "sourceId": "102",
@@ -1790,6 +1955,9 @@
         {
           "id": "scope-choice:1bf381dd4141bf2aafe7",
           "title": "Ищущее заклинание",
+          "sourceAnchors": [
+            "feature.metamagic-options"
+          ],
           "classUrl": "https://dnd.su/class/101-sorcerer/",
           "section": "feature.metamagic",
           "sourceId": "117",
@@ -1804,10 +1972,85 @@
         {
           "id": "scope-choice:ce4a0dfdd4d703cdc490",
           "title": "Преобразованное заклинание",
+          "sourceAnchors": [],
           "classUrl": "https://dnd.su/class/101-sorcerer/",
           "section": "feature.metamagic",
           "sourceId": "117",
           "sourceBasis": "explicit-optional-heading",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        }
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "rawSha256": "eec2a9b70c847113ef82030bbe35be7fbdaf8a10d02589938ccc4780750129b8",
+      "records": [
+        {
+          "id": "scope-choice:dad10438d3dbd103bc8c",
+          "title": "Договор гримуара",
+          "sourceAnchors": [
+            "pact.tome"
+          ],
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "section": "feature.pact-boon",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:4267112c15b7d09fc2c2",
+          "title": "Договор клинка",
+          "sourceAnchors": [
+            "pact.blade"
+          ],
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "section": "feature.pact-boon",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:3d8e3254aa5a6ff91f5e",
+          "title": "Договор талисмана",
+          "sourceAnchors": [
+            "pact.talisman"
+          ],
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "section": "feature.pact-boon",
+          "sourceId": "117",
+          "sourceBasis": "explicit-optional-heading",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:22b64f813d6ff2507401",
+          "title": "Договор цепи",
+          "sourceAnchors": [
+            "pact.chain"
+          ],
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "section": "feature.pact-boon",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
           "filterLevel": null,
           "prerequisiteMetadata": {},
           "canonicalCatalogId": null,
@@ -2380,6 +2623,501 @@
           "fullRules": "unverified",
           "eligibility": "not-computed-from-filter",
           "inclusion": "proposed-2014-awaiting-review"
+        }
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/87-barbarian/",
+      "rawSha256": "41cf6317ae335a583f4a35e728f2e39b3ddeccc553783c2b174d34e6ec021eb7",
+      "records": [
+        {
+          "id": "scope-choice:7493fff01220481aeec5",
+          "title": "Волк",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "totem-spirit",
+          "featureHeading": "ТОТЕМНЫЙ ДУХ",
+          "observedInitialLevel": 3,
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:f78c70a2beea2a1ed070",
+          "title": "Медведь",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "totem-spirit",
+          "featureHeading": "ТОТЕМНЫЙ ДУХ",
+          "observedInitialLevel": 3,
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:fc9c5a9d9914bc0368b0",
+          "title": "Орёл",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "totem-spirit",
+          "featureHeading": "ТОТЕМНЫЙ ДУХ",
+          "observedInitialLevel": 3,
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:6b0818134683cda02146",
+          "title": "Лось",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "totem-spirit",
+          "featureHeading": "ТОТЕМНЫЙ ДУХ",
+          "observedInitialLevel": 3,
+          "sourceId": "108",
+          "sourceBasis": "explicit-inline-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:8a50c785ad8f0f6879af",
+          "title": "Тигр",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "totem-spirit",
+          "featureHeading": "ТОТЕМНЫЙ ДУХ",
+          "observedInitialLevel": 3,
+          "sourceId": "108",
+          "sourceBasis": "explicit-inline-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        }
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/87-barbarian/",
+      "rawSha256": "41cf6317ae335a583f4a35e728f2e39b3ddeccc553783c2b174d34e6ec021eb7",
+      "records": [
+        {
+          "id": "scope-choice:486440a23583ed451e02",
+          "title": "Волк",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "aspect-of-beast",
+          "featureHeading": "АСПЕКТ ЗВЕРЯ",
+          "observedInitialLevel": 6,
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:00ac58f54f15f9a01f5c",
+          "title": "Медведь",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "aspect-of-beast",
+          "featureHeading": "АСПЕКТ ЗВЕРЯ",
+          "observedInitialLevel": 6,
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:2b59dd1e2a02afa0421d",
+          "title": "Орёл",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "aspect-of-beast",
+          "featureHeading": "АСПЕКТ ЗВЕРЯ",
+          "observedInitialLevel": 6,
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:adf7c0935bff991ae451",
+          "title": "Лось",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "aspect-of-beast",
+          "featureHeading": "АСПЕКТ ЗВЕРЯ",
+          "observedInitialLevel": 6,
+          "sourceId": "108",
+          "sourceBasis": "explicit-inline-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:3ae3e6da4851d25ab888",
+          "title": "Тигр",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "aspect-of-beast",
+          "featureHeading": "АСПЕКТ ЗВЕРЯ",
+          "observedInitialLevel": 6,
+          "sourceId": "108",
+          "sourceBasis": "explicit-inline-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        }
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/87-barbarian/",
+      "rawSha256": "41cf6317ae335a583f4a35e728f2e39b3ddeccc553783c2b174d34e6ec021eb7",
+      "records": [
+        {
+          "id": "scope-choice:3219cef713eb0798ebc4",
+          "title": "Волк",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "totemic-attunement",
+          "featureHeading": "ГАРМОНИЯ ТОТЕМА",
+          "observedInitialLevel": 14,
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:b0e0abcd36afcff35dd4",
+          "title": "Медведь",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "totemic-attunement",
+          "featureHeading": "ГАРМОНИЯ ТОТЕМА",
+          "observedInitialLevel": 14,
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:7d3957ef42c413578ae0",
+          "title": "Орёл",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "totemic-attunement",
+          "featureHeading": "ГАРМОНИЯ ТОТЕМА",
+          "observedInitialLevel": 14,
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:4e9f253d3467e09aea60",
+          "title": "Лось",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "totemic-attunement",
+          "featureHeading": "ГАРМОНИЯ ТОТЕМА",
+          "observedInitialLevel": 14,
+          "sourceId": "108",
+          "sourceBasis": "explicit-inline-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        },
+        {
+          "id": "scope-choice:bdec9fffd8002a6277e2",
+          "title": "Тигр",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "section": "primal.totem-warrior",
+          "choiceKey": "totemic-attunement",
+          "featureHeading": "ГАРМОНИЯ ТОТЕМА",
+          "observedInitialLevel": 14,
+          "sourceId": "108",
+          "sourceBasis": "explicit-inline-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {},
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review"
+        }
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "rawSha256": "b401206c3c379c72d4f3cc50bb3c5c2e2902cc8b43578b75d2b293075d187ac7",
+      "records": [
+        {
+          "id": "scope-choice:6992f5850c6fa26a27ff",
+          "title": "Сокрушитель орд",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "section": "archetype.hunter",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {
+            "observedLabel": "Сокрушитель орд"
+          },
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review",
+          "featureHeading": "ДОБЫЧА ОХОТНИКА",
+          "observedInitialLevel": 3
+        },
+        {
+          "id": "scope-choice:1e52aeb42ffa7d8dbd4d",
+          "title": "Убийца великанов",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "section": "archetype.hunter",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {
+            "observedLabel": "Убийца великанов"
+          },
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review",
+          "featureHeading": "ДОБЫЧА ОХОТНИКА",
+          "observedInitialLevel": 3
+        },
+        {
+          "id": "scope-choice:25a3f92a976882bd7957",
+          "title": "Убийца колоссов",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "section": "archetype.hunter",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {
+            "observedLabel": "Убийца колоссов"
+          },
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review",
+          "featureHeading": "ДОБЫЧА ОХОТНИКА",
+          "observedInitialLevel": 3
+        }
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "rawSha256": "b401206c3c379c72d4f3cc50bb3c5c2e2902cc8b43578b75d2b293075d187ac7",
+      "records": [
+        {
+          "id": "scope-choice:d2e3a75f7f900351add6",
+          "title": "Защита от мультиатаки",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "section": "archetype.hunter",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {
+            "observedLabel": "Защита от мультиатаки"
+          },
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review",
+          "featureHeading": "ОБОРОНИТЕЛЬНАЯ ТАКТИКА",
+          "observedInitialLevel": 7
+        },
+        {
+          "id": "scope-choice:d68c0173321df65576c1",
+          "title": "Побег от орды",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "section": "archetype.hunter",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {
+            "observedLabel": "Побег от орды"
+          },
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review",
+          "featureHeading": "ОБОРОНИТЕЛЬНАЯ ТАКТИКА",
+          "observedInitialLevel": 7
+        },
+        {
+          "id": "scope-choice:a655543d941258426812",
+          "title": "Стальная воля",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "section": "archetype.hunter",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {
+            "observedLabel": "Стальная воля"
+          },
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review",
+          "featureHeading": "ОБОРОНИТЕЛЬНАЯ ТАКТИКА",
+          "observedInitialLevel": 7
+        }
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "rawSha256": "b401206c3c379c72d4f3cc50bb3c5c2e2902cc8b43578b75d2b293075d187ac7",
+      "records": [
+        {
+          "id": "scope-choice:5e08e06b018327c9d72c",
+          "title": "Вихревая атака",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "section": "archetype.hunter",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {
+            "observedLabel": "Вихревая атака"
+          },
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review",
+          "featureHeading": "МУЛЬТИАТАКА",
+          "observedInitialLevel": 11
+        },
+        {
+          "id": "scope-choice:99aa92a8be4ee0be735c",
+          "title": "Залп",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "section": "archetype.hunter",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {
+            "observedLabel": "Залп"
+          },
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review",
+          "featureHeading": "МУЛЬТИАТАКА",
+          "observedInitialLevel": 11
+        }
+      ]
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "rawSha256": "b401206c3c379c72d4f3cc50bb3c5c2e2902cc8b43578b75d2b293075d187ac7",
+      "records": [
+        {
+          "id": "scope-choice:19c49b7b3d60ce4b817e",
+          "title": "Невероятное уклонение",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "section": "archetype.hunter",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {
+            "observedLabel": "Невероятное уклонение"
+          },
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review",
+          "featureHeading": "УЛУЧШЕННАЯ ЗАЩИТА ОХОТНИКА",
+          "observedInitialLevel": 15
+        },
+        {
+          "id": "scope-choice:bd7bf38879f6d8242159",
+          "title": "Стоять против течения",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "section": "archetype.hunter",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {
+            "observedLabel": "Стоять против течения"
+          },
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review",
+          "featureHeading": "УЛУЧШЕННАЯ ЗАЩИТА ОХОТНИКА",
+          "observedInitialLevel": 15
+        },
+        {
+          "id": "scope-choice:47152e5be10ff2cbf9f8",
+          "title": "Увёртливость",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "section": "archetype.hunter",
+          "sourceId": "102",
+          "sourceBasis": "base-class-page-source",
+          "filterLevel": null,
+          "prerequisiteMetadata": {
+            "observedLabel": "Увёртливость"
+          },
+          "canonicalCatalogId": null,
+          "fullRules": "unverified",
+          "eligibility": "not-computed-from-filter",
+          "inclusion": "proposed-2014-awaiting-review",
+          "featureHeading": "УЛУЧШЕННАЯ ЗАЩИТА ОХОТНИКА",
+          "observedInitialLevel": 15
         }
       ]
     }

@@ -8,6 +8,7 @@ export async function fetchPublicHtml(url,{fetchImpl=fetch,maxBytes=16*1024*1024
  if(!size)throw Error('Empty evidence response');return Buffer.concat(chunks);
 }
 export const evidenceJobs=[
+ {file:'source-spell-index.html',url:'https://dnd.su/piece/spells/index-list/'},
  ...['feats','backgrounds','race'].map(s=>({file:'source-'+s+'.html',url:'https://dnd.su/'+s+'/'})),
  ...['inventory','mechanics'].map(s=>({file:'source-'+s+'.html',url:'https://dnd.su/articles/'+s+'/'})),
  ...['classic','multiverse'].map(v=>({file:'bestiary-'+v+'.html',url:'https://dnd.su/piece/bestiary/index-list/?content='+v})),

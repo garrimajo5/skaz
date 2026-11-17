@@ -16,6 +16,9 @@ export function reproductionCases(evidenceDirectory,classDirectory,date){
   ['catalog-barbarian-scope.mjs',[],'dndsu-barbarian-scope-proposal.json'],
   ['catalog-reviewed-class-proposals.mjs',[],'dndsu-reviewed-class-proposals.json'],
   ['catalog-class-choice-metadata.mjs',[classDirectory],'dndsu-class-choice-metadata.json'],
+  ['catalog-spell-index-metadata.mjs',[join(evidenceDirectory,'source-spell-index.html'),date],'dndsu-spell-index-metadata.json'],
+  ['catalog-subclass-spell-tables.mjs',[classDirectory],'dndsu-subclass-spell-tables.json'],
+  ['catalog-spell-grant-proposals.mjs',[classDirectory],'dndsu-spell-grant-proposals.json'],
   ['catalog-scope-register.mjs',[],'scope-register-2014.json']
  ];
 }

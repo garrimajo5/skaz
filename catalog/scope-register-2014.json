@@ -112769,7 +112769,8 @@
         "automation": "not-audited",
         "art": "not-applicable-before-match"
       },
-      "reusePermission": "not-established-for-reference-text"
+      "reusePermission": "not-established-for-reference-text",
+      "bibliographyEvidenceId": "bibliography:one-grung-above"
     },
     {
       "id": "dndsu:race:170",
@@ -112983,7 +112984,8 @@
         "automation": "not-audited",
         "art": "not-applicable-before-match"
       },
-      "reusePermission": "not-established-for-reference-text"
+      "reusePermission": "not-established-for-reference-text",
+      "bibliographyEvidenceId": "bibliography:locathah-rising"
     },
     {
       "id": "dndsu:race:179",
@@ -113101,7 +113103,8 @@
         "automation": "not-audited",
         "art": "not-applicable-before-match"
       },
-      "reusePermission": "not-established-for-reference-text"
+      "reusePermission": "not-established-for-reference-text",
+      "bibliographyEvidenceId": "bibliography:the-tortle-package"
     },
     {
       "id": "dndsu:race:185",
@@ -127918,10 +127921,44 @@
       "manifest": "catalog/dndsu-reviewed-class-proposals.json"
     }
   ],
+  "bibliographyEvidence": {
+    "status": "bibliographic-evidence-not-scope-approval",
+    "records": 3,
+    "manifest": "catalog/source-bibliography-evidence.json"
+  },
+  "spellIndexMetadata": {
+    "observedOn": "2026-11-17",
+    "records": 524,
+    "status": "index-fields-not-full-rules",
+    "manifest": "catalog/dndsu-spell-index-metadata.json"
+  },
+  "subclassSpellTables": {
+    "summary": {
+      "classes": 13,
+      "tables": 57,
+      "rows": 280,
+      "spellReferences": 557,
+      "excludedTables": 109,
+      "namedSpellReferences": 556,
+      "blankSpellReferences": 1,
+      "uniqueSpellPages": 210,
+      "missingIndexReferences": 0,
+      "labelFormatIssues": 2,
+      "nameConflicts": 0,
+      "levelConflicts": 0
+    },
+    "status": "subclass-spell-table-observations-awaiting-review",
+    "manifest": "catalog/dndsu-subclass-spell-tables.json"
+  },
+  "spellGrantPolicyProposals": {
+    "records": 50,
+    "status": "content-policy-proposal-not-runtime-rules",
+    "manifest": "catalog/dndsu-spell-grant-proposals.json"
+  },
   "classChoiceMetadata": {
     "status": "partial-choice-metadata-awaiting-review",
-    "groups": 10,
-    "observations": 159,
+    "groups": 18,
+    "observations": 189,
     "manifest": "catalog/dndsu-class-choice-metadata.json"
   },
   "classNavigation": {
@@ -134681,7 +134718,11 @@
     "catalog/dndsu-bard-scope-proposal.json": "b606aae829060bb323ee6d05dccab8c005b2353645bdbb4f4fea74ccb1d99780",
     "catalog/dndsu-barbarian-scope-proposal.json": "17b7eb8c02ac88fcd4a2377d35a34270661e6de54243f5193959b265ba97fc67",
     "catalog/dndsu-reviewed-class-proposals.json": "f3417d9eff50dfc5b76358e490b150393ce4610039c61daa60a814e98c612ec5",
-    "catalog/dndsu-class-choice-metadata.json": "7c1b343b19f9957c8556fb8efbe0f6aeb6b2e6a64313c73b228e5d2b6f5c48b6"
+    "catalog/dndsu-class-choice-metadata.json": "c0e205ef1407ac83c625f803242286db9409f7ad466d13cfbebad624a11bb35e",
+    "catalog/dndsu-spell-index-metadata.json": "592b147e2e816236c0eeb51b446db770aaccf9592a672102b251c3e8b6eeca1c",
+    "catalog/dndsu-subclass-spell-tables.json": "88d7d041bae75130962b1c9ef37e3af321e7f7a4b8af69be4363b7600cc36a61",
+    "catalog/dndsu-spell-grant-proposals.json": "8ccab7a4c27a5b9de3612375a8b36a829cac127f8f764e42908a377e86e4819b",
+    "catalog/source-bibliography-evidence.json": "f5ca4401eb4eaf8cf572163844f36dd688d55e4125230944d794dfcdaa28d3b9"
   },
   "catalogSha256": "4dedd8cdf1f4fe6557460a8cb4ee4dd4911ce7521ac0083a22a524790d566676"
 }
