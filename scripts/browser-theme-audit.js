@@ -17,7 +17,7 @@ function auditSkazTheme(){
    rows.push({tag:e.tagName,id:e.id,className:e.className,label:label.slice(0,120),color:s.color,background:s.backgroundColor,opacity:s.opacity,fontSize:s.fontSize,fontWeight:s.fontWeight,foreground:fg.color,backdrop:bg.color,target,ratio:Number(ratio(fg.color,bg.color).toFixed(3)),manual:[...new Set([...fg.manual,...bg.manual])],pass:fg.manual.length||bg.manual.length?null:ratio(fg.color,bg.color)>=target});
   }catch(error){rows.push({tag:e.tagName,id:e.id,label:label.slice(0,120),manual:[error.message],pass:null});}
  }
- const fields=[...scope.querySelectorAll('input:not([type=checkbox]):not([type=radio]),textarea,select')].filter(visible).map(e=>{const s=getComputedStyle(e),parent=paint(e.parentElement,[0,0,0,0]),own=paint(e,[0,0,0,0]),border=paint(e,rgba(s.borderTopColor));const edge=ratio(border.color,parent.color),fill=ratio(own.color,parent.color);return {tag:e.tagName,id:e.id,label:e.getAttribute('aria-label')||e.placeholder||e.tagName,border:s.borderTopColor,background:s.backgroundColor,edge:Number(edge.toFixed(3)),fill:Number(fill.toFixed(3)),target:3,pass:parent.manual.length||own.manual.length||border.manual.length?null:Math.max(edge,fill)>=3};});
+ const fields=[...scope.querySelectorAll('input:not([type=checkbox]):not([type=radio]),textarea,select')].filter(visible).map(e=>{const s=getComputedStyle(e),parent=paint(e.parentElement,[0,0,0,0]),own=paint(e,[0,0,0,0]),border=paint(e,rgba(s.borderTopColor));const edge=ratio(border.color,parent.color),fill=ratio(own.color,parent.color);return {tag:e.tagName,id:e.id,label:e.getAttribute('aria-label')||e.placeholder||e.tagName,border:s.borderTopColor,background:s.backgroundColor,edge:Number(edge.toFixed(3)),fill:Number(fill.toFixed(3)),target:3,borderWidth:s.borderTopWidth,borderStyle:s.borderTopStyle,pass:parent.manual.length||own.manual.length||border.manual.length?null:Math.max(Number.parseFloat(s.borderTopWidth)>0&&!'none hidden'.split(' ').includes(s.borderTopStyle)?edge:1,fill)>=3};});
  const placeholders=[...scope.querySelectorAll('input[placeholder],textarea[placeholder]')].filter(e=>visible(e)&&e.matches(':placeholder-shown')).map(e=>{
   try{const s=getComputedStyle(e,'::placeholder'),color=rgba(s.color);color[3]*=Number(s.opacity);const fg=paint(e,color),bg=paint(e,[0,0,0,0]),manual=[...new Set([...fg.manual,...bg.manual])],value=ratio(fg.color,bg.color);
    // Unsupported pseudo-element effects must not be silently certified.
@@ -37,5 +37,21 @@ function auditSkazTheme(){
    }catch(error){Object.assign(focus,{manual:[error.message],pass:null});}
   }
  }
- return {theme:document.body.dataset.theme,url:location.hash,viewport:{width:innerWidth,height:innerHeight},scope:'Rendered DOM text, shown placeholders and focus outline; flat compositing including ancestor opacity; gradients/filters require manual review; field boundaries; synthetic data only',rows,fields,placeholders,focus};
+ const controls=[...scope.querySelectorAll('button,[role="button"],[aria-selected],[aria-current],input[type="checkbox"],input[type="radio"]')].filter(visible).map(e=>{
+  const s=getComputedStyle(e),parent=paint(e.parentElement,[0,0,0,0]),own=paint(e,[0,0,0,0]),border=paint(e,rgba(s.borderTopColor)),manual=[...new Set([...parent.manual,...own.manual,...border.manual])];
+  const native=['checkbox','radio'].includes(e.type);if(native)manual.push('native control pixels');
+  return {tag:e.tagName,id:e.id,className:e.className,label:e.getAttribute('aria-label')||e.textContent?.trim().slice(0,120)||'',disabled:Boolean(e.disabled)||e.getAttribute('aria-disabled')==='true',pressed:e.getAttribute('aria-pressed'),selected:e.getAttribute('aria-selected'),current:e.getAttribute('aria-current'),border:s.borderTopColor,borderWidth:s.borderTopWidth,borderStyle:s.borderTopStyle,background:s.backgroundColor,opacity:s.opacity,edge:Number(ratio(border.color,parent.color).toFixed(3)),fill:Number(ratio(own.color,parent.color).toFixed(3)),manual,classification:'informational: labelled button boundaries may be decorative; selected marker requires explicit review'};
+ });
+ const resourceMarks=[...scope.querySelectorAll('.tracker-mark')].filter(visible).map(e=>{
+  const s=getComputedStyle(e),bg=paint(e.parentElement,[0,0,0,0]),edge=paint(e,rgba(s.borderTopColor)),fill=paint(e,rgba(s.backgroundColor)),manual=[...new Set([...bg.manual,...edge.manual,...fill.manual])];
+  const edgeRatio=ratio(edge.color,bg.color),fillRatio=ratio(fill.color,bg.color),drawn=Number.parseFloat(s.borderTopWidth)>0&&!['none','hidden'].includes(s.borderTopStyle),value=Math.max(drawn?edgeRatio:1,fillRatio);
+  return {label:e.parentElement?.getAttribute('aria-label')||'',className:e.className,border:s.borderTopColor,background:s.backgroundColor,borderWidth:s.borderTopWidth,borderStyle:s.borderTopStyle,foreground:edge.color,backdrop:bg.color,edge:Number(edgeRatio.toFixed(3)),fill:Number(fillRatio.toFixed(3)),target:3,manual,pass:manual.length?null:value>=3};
+ });
+ const icons=[...scope.querySelectorAll('svg')].filter(visible).map(e=>{
+  const s=getComputedStyle(e),fg=paint(e,rgba(s.color)),bg=paint(e,[0,0,0,0]),manual=[...new Set([...fg.manual,...bg.manual])];
+  const shapes=[...e.querySelectorAll('path,circle,rect,line,polyline,polygon,ellipse')];
+  if(!shapes.length||shapes.some(n=>{const t=getComputedStyle(n);return (t.stroke!=='none'&&t.stroke!==s.color)||(t.fill!=='none'&&t.fill!==s.color)||Number(t.opacity)!==1||Number(t.strokeOpacity)!==1||Number(t.fillOpacity)!==1;}))manual.push('icon paint differs from currentColor or empty SVG');
+  const value=ratio(fg.color,bg.color);return {label:e.getAttribute('aria-label')||e.parentElement?.getAttribute('aria-label')||'',className:e.getAttribute('class'),color:s.color,foreground:fg.color,backdrop:bg.color,ratio:Number(value.toFixed(3)),target:3,manual,pass:manual.length?null:value>=3};
+ });
+ return {theme:document.body.dataset.theme,url:location.hash,viewport:{width:innerWidth,height:innerHeight},scope:'Rendered DOM text, shown placeholders and focus outline; flat compositing including ancestor opacity; gradients/filters require manual review; field boundaries; synthetic data only',rows,fields,placeholders,focus,controls,icons,resourceMarks};
 }
