@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "planIssue": 79,
+  "runId": null,
+  "commit": null,
+  "release": null,
+  "startedAt": null,
+  "endedAt": null,
+  "executor": null,
+  "device": {
+    "id": null,
+    "kind": null,
+    "model": null,
+    "osVersion": null,
+    "browser": null,
+    "browserVersion": null,
+    "viewport": null,
+    "orientation": null,
+    "displayMode": null
+  },
+  "data": "synthetic",
+  "ownerAuthorization": null,
+  "results": [],
+  "review": {
+    "qa": null,
+    "gameDesigner": null,
+    "planner": null,
+    "owner": null
+  }
+}
