@@ -19,7 +19,7 @@ export function createThemeStateFixture(){
      if(pathname==='/_qa/report'){
       if(reports.length>=100){res.writeHead(429).end();return;}
       if(!value||!Array.isArray(value.rows)||!['polar','coal','atlas'].includes(value.theme)){res.writeHead(400).end();return;}
-      reports.push({sequence:reports.length+1,mode,...value});
+      reports.push({...value,sequence:reports.length+1,mode});
      }else if(pathname==='/_qa/mode'&&['normal','pending','conflict'].includes(value.mode)){
       mode=value.mode;for(const release of waiting)release();waiting.clear();
      }else{res.writeHead(400).end();return;}
