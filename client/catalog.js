@@ -79,12 +79,40 @@ const SkazCatalog = (() => {
     const pages=bottom=>`<nav class="catalog-pages" aria-label="${bottom?'Страницы каталога внизу':'Страницы каталога'}"><button id="catalog-prev${bottom?'-bottom':''}" ${offset === 0 ? 'disabled' : ''}>← Назад</button><span>${Math.floor(offset/limit)+1} / ${Math.ceil(result.total/limit)}</span><button id="catalog-next${bottom?'-bottom':''}" ${offset + limit >= result.total ? 'disabled' : ''}>Далее →</button></nav>`;
     return `<p class="catalog-count" id="catalog-result-heading" tabindex="-1">Найдено: ${result.total} · ${offset + 1}–${offset + result.entries.length}</p><div class="catalog-grid catalog-view-${cardLayout}">${result.entries.map((entry,index)=>row(entry,index)).join('')}</div>${result.total>limit?pages(true):''}`;
   }
-  function row(entry,index){if(cardLayout==='cards'&&entry.spell){const s=entry.spell;
- const range=s.range?.type==='feet'?s.range.feet+' фт':({self:'На себя',touch:'Касание',sight:'Видимость',unlimited:'Не ограничена',special:'Особая'}[s.range?.type]||'Не указана');
- const effect=typeof SkazSpellFacts!=='undefined'?SkazSpellFacts.summary(entry):null;
- const fact=(label,value)=>`<span class="catalog-tile-fact"><small>${label}</small><span>${escape(value||'Не указано')}</span></span>`;
- return `<article class="catalog-tile"><button class="catalog-tile-open" data-catalog-entry="${index}" aria-label="Открыть: ${escape(entry.name.ru)}"><span class="catalog-tile-heading">${typeof SkazArt!=='undefined'?SkazArt.markup(entry,'card'):''}<span><strong>${escape(entry.name.ru)}</strong><small>${escape(entry.name.en||'')}</small><span class="catalog-tile-school">${s.level===0?'Заговор':Number.isInteger(s.level)?s.level+' круг':'Круг не указан'} · ${escape(schools[s.school]||'Школа не указана')}</span></span></span><span class="catalog-tile-facts">${fact('Накладывание',s.castingTime)}${fact('Дистанция',range)}${fact('Длительность',s.duration)}${fact('Компоненты',Array.isArray(s.components)?s.components.join(', '):null)}</span>${effect?`<span class="catalog-tile-effect">${escape(effect)}</span>`:''}<span class="catalog-tile-tags">${s.concentration?'<span>Концентрация</span>':''}${s.ritual?'<span>Ритуал</span>':''}</span>${searchExcerpt(entry)}<span class="catalog-tile-read">Описание и правила →</span></button></article>`;
- }return SkazUI.entryRow({entry,name:entry.name,metadata:cardSummary(entry),description:entry.text,preview:searchExcerpt(entry),className:"catalog-card catalog-row",primary:{attribute:"data-catalog-entry",value:index},actions:`<button data-catalog-entry="${index}" aria-label="Открыть: ${escape(entry.name.ru)}">Читать</button>`});}
+  function tileData(entry){
+    const facts=[],tags=[];let subtitle=names[entry.kind]||'Справочник',effect='';
+    const present=value=>value!==undefined&&value!==null&&value!=='';
+    const add=(label,value)=>facts.push([label,present(value)?String(value):'Не указано']);
+    if(entry.spell){const s=entry.spell;
+      subtitle=(s.level===0?'Заговор':Number.isInteger(s.level)?s.level+' круг':'Круг не указан')+' · '+(schools[s.school]||'Школа не указана');
+      add('Накладывание',s.castingTime);
+      add('Дистанция',s.range?.type==='feet'&&present(s.range.feet)?s.range.feet+' фт':({self:'На себя',touch:'Касание',sight:'Видимость',unlimited:'Не ограничена',special:'Особая'}[s.range?.type]));
+      add('Длительность',s.duration);add('Компоненты',Array.isArray(s.components)?s.components.join(', '):null);
+      if(s.concentration)tags.push('Концентрация');if(s.ritual)tags.push('Ритуал');
+      effect=typeof SkazSpellFacts!=='undefined'?SkazSpellFacts.summary(entry)||'':'';
+    }else if(entry.monster){const m=entry.monster;
+      subtitle=[monsterSizes[m.size]||m.size,monsterTypes[m.type]||m.type].filter(present).join(' · ')||'Существо';
+      add('Опасность',m.challenge);add('Класс доспеха',m.armorClass);add('Хиты (базовые)',m.hitPoints);
+      const movement={walk:'Ходьба',fly:'Полёт',swim:'Плавание',climb:'Лазание',burrow:'Рытьё'};
+      add('Скорость',Object.entries(movement).filter(([key])=>present(m.speed?.[key])).map(([key,label])=>label+' '+m.speed[key]+' фт').join(' · '));
+    }else if(entry.item||entry.artifact){const i=entry.item||entry.artifact;
+      subtitle=(entry.kind==='artifact'?'Артефакт · ':'')+(itemTypes[i.type]||i.type||'Предмет');
+      if(entry.kind!=='artifact')add('Редкость',rarityLabels[i.rarity]||i.rarity);
+      add('Настройка',i.attunement===true?'Требуется':i.attunement===false?'Не требуется':null);
+      if(i.attunementRequirement)add('Кем настраивается',i.attunementRequirement);
+      if(i.healing){const h=i.healing;add('Восстанавливает',h.diceCount+'к'+h.diceSides+(h.bonus?' + '+h.bonus:'')+' хитов');}
+      if(i.charges){add('Максимум зарядов',i.charges.max);add('Восстановление',i.charges.recharge);}
+    }
+    if(!facts.length)tags.push('Характеристики не импортированы');
+    return {subtitle,facts,tags,effect};
+  }
+  function row(entry,index){
+    if(cardLayout==='cards'&&['spell','monster','item','artifact'].includes(entry.kind)){
+      const {subtitle,facts,tags,effect}=tileData(entry);
+      return `<article class="catalog-tile"><button class="catalog-tile-open" data-catalog-entry="${index}" aria-label="Открыть: ${escape(entry.name.ru)}" aria-describedby="catalog-tile-type-${index} catalog-tile-tags-${index}${facts.length?` catalog-tile-facts-${index}`:''}${effect?` catalog-tile-effect-${index}`:''}"><span class="catalog-tile-heading">${typeof SkazArt!=='undefined'?SkazArt.markup(entry,'thumbnail'):''}<span><strong>${escape(entry.name.ru)}</strong><small>${escape(entry.name.en||'')}</small><span class="catalog-tile-school" id="catalog-tile-type-${index}">${escape(subtitle)}</span></span></span>${facts.length?`<span class="catalog-tile-facts" id="catalog-tile-facts-${index}">${facts.map(([label,value])=>`<span class="catalog-tile-fact"><small>${escape(label)}</small><span>${escape(value)}</span></span>`).join('')}</span>`:''}${effect?`<span class="catalog-tile-effect" id="catalog-tile-effect-${index}">${escape(effect)}</span>`:''}<span class="catalog-tile-tags" id="catalog-tile-tags-${index}">${tags.map(tag=>`<span>${escape(tag)}</span>`).join('')}</span>${searchExcerpt(entry)}<span class="catalog-tile-read">Описание и правила →</span></button></article>`;
+    }
+    return SkazUI.entryRow({entry,name:entry.name,metadata:cardSummary(entry),description:entry.text,preview:searchExcerpt(entry),className:"catalog-card catalog-row",primary:{attribute:"data-catalog-entry",value:index},actions:`<button data-catalog-entry="${index}" aria-label="Открыть: ${escape(entry.name.ru)}">Читать</button>`});
+  }
   function homeResults(){let index=0;return '<p class="catalog-count">Мои материалы и последние открытия этого персонажа. Для полного списка выбери категорию.</p>'+homeGroups.map(group=>'<section class="catalog-home-group"><h2>'+group.title+'</h2><div class="catalog-grid catalog-view-'+cardLayout+'">'+(group.entries.length?group.entries.map(entry=>row(entry,index++)).join(''):'<p class="small">'+group.empty+'</p>')+'</div></section>').join('');}
   function searchExcerpt(entry) {
     if(searchScope!=='text'||!query||!entry.text)return '';
