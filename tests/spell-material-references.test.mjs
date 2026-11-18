@@ -6,7 +6,7 @@ import {createApp} from '../server/app.mjs';
 import {bundledCatalog} from '../server/bundled-catalog.mjs';
 import {validateCatalog} from '../server/catalog.mjs';
 import {spellMaterialReferences,catalogWithMaterialReferences} from '../server/spell-material-references.mjs';
-const entries=validateCatalog(bundledCatalog().bundle),identify=entries.find(e=>e.name.en==='Identify'),alarm=entries.find(e=>e.name.en==='Fire Shield');
+const entries=validateCatalog(bundledCatalog().bundle),identify=entries.find(e=>e.name.en==='Identify'),nonMaterial=entries.find(e=>e.name.en==='Magic Missile');
 const command=(store,fields)=>({mutationId:randomUUID(),expectedRevision:store.read().revision,...fields});
 async function fixture(t,{authenticated=false,modified=false}={}){
  const store=openStore(':memory:');const p=store.catalog.previewBundled();if(!modified)store.catalog.installBundled({version:p.version});else store.catalog.importEntries({schemaVersion:1,entries:[{...identify,text:identify.text+' Личное исключение'}]},{apply:true});
@@ -17,7 +17,7 @@ async function fixture(t,{authenticated=false,modified=false}={}){
  return {store,base:'http://127.0.0.1:'+server.address().port,context};
 }
 test('material references require exact entry content and never mutate it',()=>{
- const before=structuredClone(identify);const result=spellMaterialReferences([identify,alarm]);assert.equal(result.length,1);assert.equal(result[0].materials.consumption.kind,'retained');assert.deepEqual(identify,before);
+ const before=structuredClone(identify);const result=spellMaterialReferences([identify,nonMaterial]);assert.equal(result.length,1);assert.equal(result[0].materials.consumption.kind,'retained');assert.deepEqual(identify,before);
  result[0].materials.price.text='changed';assert.match(spellMaterialReferences([identify])[0].materials.price.text,/100/);
  for(const change of [e=>e.text+=' override',e=>e.source.version='personal',e=>e.spell.components=['V'],e=>e.kind='item',e=>e.ruleset='5e-2024']){const e=structuredClone(identify);change(e);assert.deepEqual(spellMaterialReferences([e]),[]);}
 });
@@ -27,7 +27,7 @@ test('catalog envelope is opt-in, limited to visible page and preserves base ent
  const detailed=await fetch(base+'/api/catalog?q=Identify&includeMaterials=1').then(r=>r.json());assert.equal(detailed.materialReferences.length,1);const{materialReferences,...rest}=detailed;assert.deepEqual(rest,plain);
  const page=await fetch(base+'/api/catalog?kind=spell&limit=1&offset=0&includeMaterials=1').then(r=>r.json());assert.ok(page.materialReferences.every(r=>page.entries.some(e=>e.id===r.catalogId)));assert.ok(page.materialReferences.length<=1);
  const card=await fetch(base+'/api/catalog/entry?id='+encodeURIComponent(identify.id)+'&includeMaterials=1').then(r=>r.json());assert.deepEqual(card.entry,identify);assert.equal(card.materialReferences[0].catalogId,identify.id);
- const unknown=await fetch(base+'/api/catalog/entry?id='+encodeURIComponent(alarm.id)+'&includeMaterials=1').then(r=>r.json());assert.deepEqual(unknown.materialReferences,[]);
+ const unknown=await fetch(base+'/api/catalog/entry?id='+encodeURIComponent(nonMaterial.id)+'&includeMaterials=1').then(r=>r.json());assert.deepEqual(unknown.materialReferences,[]);
  for(const q of ['includeMaterials=0','includeMaterials=1&includeMaterials=1','includeMaterials=true','includeMaterials=1&unknown=x'])assert.equal((await fetch(base+'/api/catalog?'+q)).status,400);
  assert.deepEqual(store.read(),before);assert.deepEqual(store.history(),history);
 });
@@ -52,12 +52,12 @@ test('reference reads preserve export format and round-trip catalog data',async 
 import {readFileSync} from 'node:fs';
 import {readReviewedMaterialSet,loadReviewedMaterialSet} from '../server/spell-material-references.mjs';
 test('a later unreviewed proposal revision cannot silently enter the API',()=>{
- const raw=readFileSync(new URL('../catalog/spell-materials.proposal.json',import.meta.url),'utf8');assert.equal(readReviewedMaterialSet(raw).entries.length,104);assert.equal(readReviewedMaterialSet(raw.replaceAll('\r\n','\n').replaceAll('\n','\r\n')).entries.length,104);
+ const raw=readFileSync(new URL('../catalog/spell-materials.proposal.json',import.meta.url),'utf8');assert.equal(readReviewedMaterialSet(raw).entries.length,184);assert.equal(readReviewedMaterialSet(raw.replaceAll('\r\n','\n').replaceAll('\n','\r\n')).entries.length,184);
  const changed=JSON.parse(raw);changed.entries[0].materials.consumption.text='Unreviewed new claim';assert.equal(readReviewedMaterialSet(JSON.stringify(changed)),null);assert.equal(readReviewedMaterialSet('{broken'),null);
 });
 
 test('unreadable material source fails closed without preventing ordinary catalog startup',()=>{
  for(const code of ['ENOENT','EACCES'])assert.equal(loadReviewedMaterialSet(()=>{throw Object.assign(new Error('unavailable'),{code});}),null);
  assert.equal(loadReviewedMaterialSet(()=>'{broken'),null);
- assert.equal(loadReviewedMaterialSet().entries.length,104);
+ assert.equal(loadReviewedMaterialSet().entries.length,184);
 });

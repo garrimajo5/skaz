@@ -9,7 +9,7 @@ const catalog=validateCatalog(bundledCatalog().bundle);
 const proposal=JSON.parse(readFileSync(new URL('../catalog/spell-materials.proposal.json',import.meta.url),'utf8'));
 const names=['Alarm','Aid','Bless','Light','Mending','Message','Minor Illusion','Resistance'];
 test('eight accepted additions are active without inventing prices or changing catalog entries',()=>{
- assert.equal(validateMaterialProposal(proposal,catalog).reviewed,104);
+ assert.equal(validateMaterialProposal(proposal,catalog).reviewed,184);
  const entries=catalog.filter(e=>names.includes(e.name.en));assert.equal(entries.length,8);
  const before=structuredClone(entries),references=spellMaterialReferences(entries);assert.equal(references.length,8);assert.deepEqual(entries,before);
  for(const row of references){assert.equal(row.materials.price.kind,'not-stated');assert.equal(Object.hasOwn(row.materials.price,'text'),false);assert.equal(row.materials.consumption.kind,'retained');assert.equal(row.source.materialRulePage,102);}

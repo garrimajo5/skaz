@@ -7,7 +7,7 @@ import {validateMaterialProposal} from '../scripts/spell-materials-contract.mjs'
 import {spellMaterialReferences} from '../server/spell-material-references.mjs';
 const catalog=validateCatalog(bundledCatalog().bundle),proposal=JSON.parse(readFileSync(new URL('../catalog/spell-materials.proposal.json',import.meta.url),'utf8')),candidate={...proposal,entries:proposal.entries.filter(e=>["Animate Dead","Clairvoyance","Fear","Fly","Gaseous Form","Glyph of Warding","Haste","Hypnotic Pattern","Lightning Bolt","Magic Circle","Major Image","Nondetection"].includes(e.name.en))};
 test('twelve third-level candidates are available as checked references',()=>{
- assert.equal(validateMaterialProposal(proposal,catalog).reviewed,104);assert.equal(spellMaterialReferences(catalog.filter(e=>candidate.entries.some(r=>r.id===e.id))).length,12);
+ assert.equal(validateMaterialProposal(proposal,catalog).reviewed,184);assert.equal(spellMaterialReferences(catalog.filter(e=>candidate.entries.some(r=>r.id===e.id))).length,12);
 });
 test('priced focuses and consumed materials preserve distinct amounts and usage',()=>{
  const row=name=>candidate.entries.find(e=>e.name.en===name).materials;
