@@ -10,7 +10,7 @@ const candidate=JSON.parse(readFileSync(new URL('../catalog/spell-materials.prop
 const names=['Shillelagh','Animal Friendship','Bane','Comprehend Languages','Create or Destroy Water','Detect Poison and Disease','Color Spray','False Life','Shield of Faith','Sleep'];
 const reviewed=candidate.entries.filter(e=>names.includes(e.name.en));
 test('ten low-level material additions are active and pinned',()=>{
- assert.equal(validateMaterialProposal(candidate,catalog).reviewed,42);
+ assert.equal(validateMaterialProposal(candidate,catalog).reviewed,104);
  const entries=catalog.filter(e=>reviewed.some(row=>row.id===e.id));assert.equal(entries.length,10);
  assert.equal(spellMaterialReferences(entries).length,10);assert.deepEqual(spellMaterialReferences(entries.map(e=>({...e,text:e.text+' Personal'}))),[]);
  assert.ok(reviewed.every(row=>row.materials.price.kind==='not-stated'&&!Object.hasOwn(row.materials.price,'text')));
