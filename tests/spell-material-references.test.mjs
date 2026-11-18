@@ -6,7 +6,7 @@ import {createApp} from '../server/app.mjs';
 import {bundledCatalog} from '../server/bundled-catalog.mjs';
 import {validateCatalog} from '../server/catalog.mjs';
 import {spellMaterialReferences,catalogWithMaterialReferences} from '../server/spell-material-references.mjs';
-const entries=validateCatalog(bundledCatalog().bundle),identify=entries.find(e=>e.name.en==='Identify'),alarm=entries.find(e=>e.name.en==='Animal Friendship');
+const entries=validateCatalog(bundledCatalog().bundle),identify=entries.find(e=>e.name.en==='Identify'),alarm=entries.find(e=>e.name.en==='Web');
 const command=(store,fields)=>({mutationId:randomUUID(),expectedRevision:store.read().revision,...fields});
 async function fixture(t,{authenticated=false,modified=false}={}){
  const store=openStore(':memory:');const p=store.catalog.previewBundled();if(!modified)store.catalog.installBundled({version:p.version});else store.catalog.importEntries({schemaVersion:1,entries:[{...identify,text:identify.text+' Личное исключение'}]},{apply:true});
@@ -52,12 +52,12 @@ test('reference reads preserve export format and round-trip catalog data',async 
 import {readFileSync} from 'node:fs';
 import {readReviewedMaterialSet,loadReviewedMaterialSet} from '../server/spell-material-references.mjs';
 test('a later unreviewed proposal revision cannot silently enter the API',()=>{
- const raw=readFileSync(new URL('../catalog/spell-materials.proposal.json',import.meta.url),'utf8');assert.equal(readReviewedMaterialSet(raw).entries.length,20);assert.equal(readReviewedMaterialSet(raw.replaceAll('\r\n','\n').replaceAll('\n','\r\n')).entries.length,20);
+ const raw=readFileSync(new URL('../catalog/spell-materials.proposal.json',import.meta.url),'utf8');assert.equal(readReviewedMaterialSet(raw).entries.length,42);assert.equal(readReviewedMaterialSet(raw.replaceAll('\r\n','\n').replaceAll('\n','\r\n')).entries.length,42);
  const changed=JSON.parse(raw);changed.entries[0].materials.consumption.text='Unreviewed new claim';assert.equal(readReviewedMaterialSet(JSON.stringify(changed)),null);assert.equal(readReviewedMaterialSet('{broken'),null);
 });
 
 test('unreadable material source fails closed without preventing ordinary catalog startup',()=>{
  for(const code of ['ENOENT','EACCES'])assert.equal(loadReviewedMaterialSet(()=>{throw Object.assign(new Error('unavailable'),{code});}),null);
  assert.equal(loadReviewedMaterialSet(()=>'{broken'),null);
- assert.equal(loadReviewedMaterialSet().entries.length,20);
+ assert.equal(loadReviewedMaterialSet().entries.length,42);
 });
