@@ -28,7 +28,7 @@ function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
     draft:(name,value)=>handlers.input({target:{name,value,checked:name==='scope'&&value==='text',form:{id:'catalog-search'}}}),
     changeKind:value=>handlers.change({target:{name:'kind',value,form:{id:'catalog-search'}}}),
-    detail: () => handlers.click({ target: { closest: () => ({ hasAttribute: () => true, dataset: { catalogEntry: '0' } }) } }),
+    detail: (index=0) => handlers.click({ target: { closest: () => ({ hasAttribute: () => true, dataset: { catalogEntry: String(index) } }) } }),
   };
 }
 const settle = () => new Promise(resolve => setImmediate(resolve));
@@ -498,4 +498,41 @@ test('late book updates retain result heading and pagination focus without scrol
   h.requests.find(r=>r.book).resolve({entries:[{catalogId:'shield',status:'known'}]});await settle();
   assert.equal(h.movement.length,1,id);assert.equal(h.movement[0][0],'focus-id',id);assert.equal(h.movement[0][1],id);assert.equal(h.movement[0][2].preventScroll,true,id);assert.equal(h.activeId(),id);
  }
+});
+const materialSpell={...entry,id:'material:one',kind:'spell',ruleset:'5e-2014',spell:{level:1,school:'divination',castingTime:'1 минута',range:{type:'touch'},duration:'Мгновенная',components:['V','S','M']}};
+const materialReference={catalogId:'material:one',materials:{description:'Жемчужина <проверка>',price:{kind:'stated',text:'100 зм'},consumption:{kind:'retained',text:'Не расходуется при накладывании.'},note:'Согласование не блокирует действие.'},source:{url:'https://example.test/srd#page=100'}};
+test('material cards show supplied price and consumption separately and preserve original entries',async()=>{
+ const h=harness();h.submit('materials',{kind:'spell'});assert.match(h.requests[0].url,/includeMaterials=1/);
+ const original=JSON.stringify(materialSpell);respond(h.requests[0],{entries:[materialSpell],total:1,materialReferences:[materialReference]});respond(h.requests[1],coverage);await settle();
+ assert.match(h.region.innerHTML,/100 зм/);assert.match(h.region.innerHTML,/Сохраняется/);h.detail();assert.match(h.dialog(),/Не расходуется при накладывании/);assert.match(h.dialog(),/Жемчужина &lt;проверка&gt;/);assert.match(h.dialog(),/Источник материальных условий/);assert.equal(JSON.stringify(materialSpell),original);assert.equal(h.additions.length,0);
+});
+test('unreviewed same-ID replacement cannot reuse another response material reference',async()=>{
+ const h=harness();h.submit('first',{kind:'spell'});respond(h.requests[0],{entries:[materialSpell],total:1,materialReferences:[materialReference]});respond(h.requests[1],coverage);await settle();
+ h.submit('personal',{kind:'spell'});respond(h.requests[2],{entries:[{...materialSpell,text:'Личное исключение'}],total:1,materialReferences:[]});respond(h.requests[3],coverage);await settle();
+ assert.doesNotMatch(h.region.innerHTML,/100 зм|Сохраняется/);assert.match(h.region.innerHTML,/Стоимость не уточнена/);h.detail();assert.match(h.dialog(),/Расход не уточнён/);assert.match(h.dialog(),/catalog-add-spell/);
+});
+test('late material response cannot replace a newer search',async()=>{
+ const h=harness();h.submit('old',{kind:'spell'});h.submit('new',{kind:'spell'});
+ respond(h.requests[2],{entries:[{...materialSpell,name:{ru:'Новая',en:'New'}}],total:1,materialReferences:[]});respond(h.requests[3],coverage);await settle();
+ respond(h.requests[0],{entries:[materialSpell],total:1,materialReferences:[materialReference]});respond(h.requests[1],coverage);await settle();assert.match(h.region.innerHTML,/Новая/);assert.doesNotMatch(h.region.innerHTML,/100 зм/);
+});
+test('partial and conditional expense remain explicit and unsafe reference URLs are not linked',async()=>{
+ for(const [kind,label] of [['partial','Частичный расход'],['conditional','Расход по условию']]){
+  const h=harness();h.submit('condition',{kind:'spell'});respond(h.requests[0],{entries:[materialSpell],total:1,materialReferences:[{...materialReference,source:{url:'javascript:alert(1)'},materials:{...materialReference.materials,price:{kind:'not-stated'},consumption:{kind,text:'Расходуется только при <условии>'}}}]});respond(h.requests[1],coverage);await settle();
+  assert.match(h.region.innerHTML,new RegExp(label));assert.match(h.region.innerHTML,/Цена в правиле не указана/);h.detail();assert.match(h.dialog(),/Расходуется только при &lt;условии&gt;/);assert.doesNotMatch(h.dialog(),/href="javascript/);
+ }
+});
+test('recent material reference and unloaded book snapshot are distinct until exact-content lookup',async()=>{
+ for(const changed of [false,true]){
+  const memory=new Map([['skaz-catalog-recent-v1:'+JSON.stringify(['user-a','hero']),JSON.stringify([materialSpell.id])]]),h=harness('http:',true,memory);
+  h.submit('');h.requests[0].resolve({entries:[{catalogId:materialSpell.id,status:'known',entry:{...materialSpell,...(changed?{text:'Личное исключение'}:{})}}]});respond(h.requests[1],coverage);respond(h.requests[2],{entry:materialSpell,materialReferences:[materialReference]});await settle();
+  assert.match(h.region.innerHTML,/100 зм/);assert.match(h.region.innerHTML,/Справка не загружена/);assert.doesNotMatch(h.region.innerHTML,/Стоимость не уточнена/);
+  h.detail(1);assert.match(h.dialog(),/catalog-material-load/);h.click('catalog-material-load');const req=h.requests.findLast(r=>r.url.startsWith('/api/catalog/entry?'));respond(req,{entry:materialSpell,materialReferences:[materialReference]});await settle();
+  if(changed){assert.match(h.region.outerHTML,/этой версии ещё не проверены/);assert.doesNotMatch(h.region.outerHTML,/100 зм/);}else{assert.match(h.region.outerHTML,/100 зм/);assert.match(h.region.outerHTML,/Не расходуется/);}
+  assert.equal(h.additions.length,0);assert.equal(h.marks.length,0);
+ }
+});
+test('on-demand material failure permits retry and late lookup cannot update another hero',async()=>{
+ const h=harness('http:',true);h.submit('');h.requests[0].resolve({entries:[{entry:materialSpell,catalogId:materialSpell.id,status:'known'}]});respond(h.requests[1],coverage);await settle();h.detail();h.click('catalog-material-load');h.requests.findLast(r=>r.url.startsWith('/api/catalog/entry?')).reject(new Error('offline'));await settle();assert.match(h.region.textContent,/Можно повторить/);assert.equal(h.region.disabled,false);
+ h.click('catalog-material-load');const pending=h.requests.findLast(r=>r.url.startsWith('/api/catalog/entry?'));h.setOwner('other:1');respond(pending,{entry:materialSpell,materialReferences:[materialReference]});await settle();assert.equal(h.region.outerHTML,undefined);
 });
