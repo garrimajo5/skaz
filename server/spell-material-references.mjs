@@ -2,7 +2,7 @@ import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import {AppError} from './state.mjs';
 // Independently reviewed subset. Never merged into stored/exported catalog entries.
-export const reviewedMaterialSetSha256='0b74d392f8e281719f17fea773b1587c5d7134d7875c3e94f3755e0a4e5bae97';
+export const reviewedMaterialSetSha256='aa200a3b92e3fb4ce1e81a8aa10f6489d9be776ca1bece59df5af4d3654742aa';
 export function readReviewedMaterialSet(text){
  try{const normalized=text.replaceAll('\r\n','\n');if(createHash('sha256').update(normalized).digest('hex')!==reviewedMaterialSetSha256)return null;return JSON.parse(normalized);}catch{return null;}
 }
