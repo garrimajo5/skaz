@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "kind": "spell-material-reference-proposal",
+  "ruleset": "5e-2014",
+  "status": "review",
+  "source": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "changes": "Русское изложение материальных условий и структурирование для СКАЗ; не официальный перевод. Не устанавливается в каталог.",
+    "materialRulePage": 102
+  },
+  "scope": {
+    "catalogSpellCount": 319,
+    "reviewedCount": 13,
+    "complete": false
+  },
+  "entries": [
+    {
+      "id": "srd51:2014:spell:antimagic-field",
+      "name": {
+        "ru": "Преграда магии",
+        "en": "Antimagic Field"
+      },
+      "entrySha256": "e4909f01a79926f9db24d5a751173fc70a179ac795db8abd66d29290bb00db49",
+      "sourcePages": [
+        117
+      ],
+      "sourceBodySha256": "30371b7e382ff82ef1a0ab203c440de14913397494f07e9d0286401e3534d653",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка железного порошка или железных опилок.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Порошок и опилки — альтернативы; расход ячейки подавленного заклинания не означает расход этого материала."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:antipathy-sympathy",
+      "name": {
+        "ru": "Антипатия/симпатия",
+        "en": "Antipathy/Sympathy"
+      },
+      "entrySha256": "d20dec3d107bb5039d16544cc65f271d50853ddc0e369d7a475bff70605a4e1f",
+      "sourcePages": [
+        117,
+        118
+      ],
+      "sourceBodySha256": "12e1920e92722e5f777b9a235379456c2dcd3c3bb5103730312721ae84fe4b93",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Для антипатии — кусочек квасцов, пропитанный уксусом; для симпатии — капля мёда.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Компонент выбирается по эффекту; два варианта не требуются одновременно."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:control-weather",
+      "name": {
+        "ru": "Управление погодой",
+        "en": "Control Weather"
+      },
+      "entrySha256": "bcbb0b2f3979f168a10ba40973ce4f1f033a36b9bfe979305152fc9f18d8c27a",
+      "sourcePages": [
+        131
+      ],
+      "sourceBodySha256": "a6c98722e0fb82f01806eee0d6b4009837c235b5221a5b234953857cbd453c24",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Горящие благовония и кусочки земли и дерева, смешанные с водой.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Сохранены горение благовоний и подготовка смеси; специальный расход заклинанием не указан, обычное горение продолжается."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:earthquake",
+      "name": {
+        "ru": "Землетрясение",
+        "en": "Earthquake"
+      },
+      "entrySha256": "461b760b1d78becab715a7fe8999fa3a18b9044974fa8a5f0928a6326b9f8c92",
+      "sourcePages": [
+        139
+      ],
+      "sourceBodySha256": "76a01884d5b0ca02c90456eeb970687492768f043ac68aae38320564b55862f5",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка земли, кусочек камня и комок глины.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В перечне указаны все три компонента без отдельной цены."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:feeblemind",
+      "name": {
+        "ru": "Слабоумие",
+        "en": "Feeblemind"
+      },
+      "entrySha256": "d7f9ca1a67d4b3d3fcfa4690ead4a624c954073c7e943fc8a172bd38038254a8",
+      "sourcePages": [
+        142
+      ],
+      "sourceBodySha256": "dc48f9172cefc1ec123041c41941ad35d14c9d5737909fcb6cf88c52a1903ca9",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Горсть глиняных, хрустальных, стеклянных или минеральных шариков.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Материалы шариков перечислены как альтернативы, а не как обязательные четыре набора."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:holy-aura",
+      "name": {
+        "ru": "Святая аура",
+        "en": "Holy Aura"
+      },
+      "entrySha256": "4428fffe4ab21f86b23bd153e8505a1a4cbff3d72d65905e37662bc5ed8f6074",
+      "sourcePages": [
+        155
+      ],
+      "sourceBodySha256": "1d66dd1f807d901b9e897896d79b7dcb91b9251736b990ee9591eb0b992214aa",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Крошечный реликварий со священной реликвией, например лоскутом одежды святого или кусочком пергамента религиозного текста.",
+        "price": {
+          "kind": "stated",
+          "text": "Реликварий — не менее 1000 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Цена относится к реликварию; наличие священной реликвии внутри остаётся отдельным условием."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:sunburst",
+      "name": {
+        "ru": "Солнечный ожог",
+        "en": "Sunburst"
+      },
+      "entrySha256": "0fa1f63065eba8964408ca782a768ae55e7b3bdf974bbd33f5b6bafa73014f8b",
+      "sourcePages": [
+        184
+      ],
+      "sourceBodySha256": "c21ee2fb69c4c972ba2f977fcef4ef05245751b4b06fe0fde1fe3a98c5edc9bd",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Огонь и кусочек солнечного камня.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Оба компонента указаны вместе; отсутствие специального расхода не отменяет обычного горения."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:foresight",
+      "name": {
+        "ru": "Предвидение",
+        "en": "Foresight"
+      },
+      "entrySha256": "87872c96c1c9c09b7519a9d685c82b62d0ae2d95c7147439a39e327eccd44bb6",
+      "sourcePages": [
+        147
+      ],
+      "sourceBodySha256": "05c7d60665e9c85c1439de8249f1a71d219242327a382a7912fe63be062f76dd",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Перо колибри.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Источник называет именно колибри; отдельная цена не установлена."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:gate",
+      "name": {
+        "ru": "Врата",
+        "en": "Gate"
+      },
+      "entrySha256": "79babaee30dc21bf1a75be2c59d13450ed567a00c3a3d5d98c446f01cd919a4d",
+      "sourcePages": [
+        148
+      ],
+      "sourceBodySha256": "1a19764b1d0d3dc030d2570a7b391b9ec252e9facd0d0a91efb796f01043d92a",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Алмаз.",
+        "price": {
+          "kind": "stated",
+          "text": "Алмаз — не менее 5000 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Алмаз имеет указанную цену, но его расход заклинанием не указан."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:imprisonment",
+      "name": {
+        "ru": "Заточение",
+        "en": "Imprisonment"
+      },
+      "entrySha256": "6e1d9834633332d3d80d2521769dc69d600ba2d062052b204cbd169a0e32f1a9",
+      "sourcePages": [
+        156,
+        157
+      ],
+      "sourceBodySha256": "b5811e7cfdb432d1e4fe843845cac56200cc072b005c6d450376019b48ae2532",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Изображение цели на пергаменте или вырезанная статуэтка цели, а также особый компонент выбранного варианта: погребение — маленький мифриловый шар; цепи — тонкая цепь из драгоценного металла; ограждённая тюрьма — нефритовая миниатюра тюрьмы; миниатюрное заточение — большой прозрачный драгоценный камень, например корунд, алмаз или рубин; сон — редкие снотворные травы.",
+        "price": {
+          "kind": "stated",
+          "text": "Особый компонент — не менее 500 зм за каждую Кость Хитов цели."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Цена зависит от числа Костей Хитов цели, а не текущих хитов. Один особый компонент поддерживает только одну тюрьму: повторное использование освобождает предыдущую цель."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:shapechange",
+      "name": {
+        "ru": "Изменение формы",
+        "en": "Shapechange"
+      },
+      "entrySha256": "34c0dc435365e1159d5aac7ca335cb36ef774021970d84d6832984b4ac7796dd",
+      "sourcePages": [
+        178
+      ],
+      "sourceBodySha256": "7a094d992fa776f4962f578008ea8834759dd4fff78820872f492d18a1e57e80",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Нефритовый обруч, который надевают на голову до наложения заклинания.",
+        "price": {
+          "kind": "stated",
+          "text": "Нефритовый обруч — не менее 1500 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Сохранено требование надеть обруч перед наложением; специальный расход не указан."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:true-polymorph",
+      "name": {
+        "ru": "Истинное превращение",
+        "en": "True Polymorph"
+      },
+      "entrySha256": "71ce3803c136066af5c9e91e947b62e606bb59f53713f0e1b6ab926af18de715",
+      "sourcePages": [
+        188
+      ],
+      "sourceBodySha256": "08ff83b8e3d2008240a96c14b707e43b41502828fbf83ae4148b88a1c4d04462",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Капля ртути, немного гуммиарабика и струйка дыма.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В перечне указаны все три компонента; предмет-цель не заменяет их."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:true-resurrection",
+      "name": {
+        "ru": "Истинное воскрешение",
+        "en": "True Resurrection"
+      },
+      "entrySha256": "3f455bda0a386b28919bc122f932edd0d3f5e44626728407742f90b01d6bc3d4",
+      "sourcePages": [
+        189
+      ],
+      "sourceBodySha256": "463a46e5b383def10fc367a7271a5abf943a18f1696e182b17785b961413532b",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Немного святой воды и алмазы.",
+        "price": {
+          "kind": "stated",
+          "text": "Алмазы общей стоимостью не менее 25000 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует святую воду и алмазы."
+        },
+        "note": "Источник допускает алмазы во множественном числе; указанная стоимость относится к алмазам вместе, не к каждому отдельно."
+      }
+    }
+  ]
+}
