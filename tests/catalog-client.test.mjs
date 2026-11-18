@@ -9,19 +9,20 @@ function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning
   const handlers = {}, requests = [], tasks = [], additions = [];
   const movement=[], marks=[], spellControls=Object.fromEntries(['catalog-known','catalog-prepared','catalog-book-status'].map(id=>[id,{}]));
   const region = { parentElement:{open:false}, innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
+  const focusTargets=new Map();
   let dialog = '', isOpen=false;const messages=[],typeRegion={innerHTML:'',querySelector:()=>null};
   const closeHandlers=[];
   const context = vm.createContext({
     localStorage:{getItem:key=>memory.get(key)||null,setItem:(key,value)=>memory.set(key,value)},SkazAccount:{get userId(){return userId;}},setTimeout, clearTimeout, location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
     queueMicrotask: task => tasks.push(task),
     fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
-    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => spellControls[id]|| (id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen,addEventListener:(_,fn)=>closeHandlers.push(fn)}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region), querySelector: selector => selector.startsWith('[data-catalog-entry=')?{focus:()=>movement.push(['focus-card',selector])}:null, querySelectorAll:()=>[] },
+    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => focusTargets.get(id)||spellControls[id]|| (id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen,addEventListener:(_,fn)=>closeHandlers.push(fn)}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region), querySelector: selector => selector.startsWith('[data-catalog-entry=')?{focus:()=>movement.push(['focus-card',selector])}:null, querySelectorAll:()=>[] },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
     toast:message=>messages.push(message),render:()=>{}, modal: html => {isOpen=true;dialog=html;}, SkazStorage: { spellLearningMode:()=>spellLearning,can:()=>true,setSpell:async(...args)=>marks.push(args), ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { focusId:id=>{context.document.activeElement={id};}, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
+  return { focusId:id=>{const target={id,focus:options=>{context.document.activeElement=target;movement.push(['focus-id',id,options]);}};focusTargets.set(id,target);context.document.activeElement={id};}, activeId:()=>context.document.activeElement?.id, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>{isOpen=false;closeHandlers.splice(0).forEach(fn=>fn());}, otherModal:()=>{isOpen=true;dialog='<h2>Other</h2>'},
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
@@ -495,6 +496,6 @@ test('late book updates retain result heading and pagination focus without scrol
   respond(h.requests[0],{entries:[{...entry,id:'shield',kind:'spell',spell:{level:1,components:['V']}}],total:41});respond(h.requests[1],coverage);await settle();
   h.focusId(id);h.movement.length=0;
   h.requests.find(r=>r.book).resolve({entries:[{catalogId:'shield',status:'known'}]});await settle();
-  assert.equal(h.movement.length,1,id);assert.equal(h.movement[0][0],'focus',id);assert.equal(h.movement[0][1].preventScroll,true,id);
+  assert.equal(h.movement.length,1,id);assert.equal(h.movement[0][0],'focus-id',id);assert.equal(h.movement[0][1],id);assert.equal(h.movement[0][2].preventScroll,true,id);assert.equal(h.activeId(),id);
  }
 });
