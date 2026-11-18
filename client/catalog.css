@@ -92,3 +92,10 @@ dialog:has(#spell-inventory){max-width:760px}
 
 .catalog-tile-effect{font-size:14px;line-height:1.5;color:var(--text)}
 .catalog .catalog-grid.catalog-view-cards{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}.catalog .catalog-view-list{grid-template-columns:1fr}
+
+/* Spell identity and personal state stay distinct from reference facts. */
+.catalog-tile-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;width:100%}
+.catalog-tile-level{font-size:14px;font-weight:700;color:var(--accent);border:1px solid var(--line);border-radius:var(--radius-s);padding:6px 10px}
+.catalog-tile-owned{font-size:13px;font-weight:600;color:var(--text);background:var(--raised);border-radius:var(--radius-s);padding:6px 10px}
+.catalog-tile-components,.catalog-book-note{font-size:13px;line-height:1.5;color:var(--muted)}
+.catalog-tile-components{border-top:1px solid var(--line);padding-top:10px}

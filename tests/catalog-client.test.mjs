@@ -9,19 +9,21 @@ function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning
   const handlers = {}, requests = [], tasks = [], additions = [];
   const movement=[], marks=[], spellControls=Object.fromEntries(['catalog-known','catalog-prepared','catalog-book-status'].map(id=>[id,{}]));
   const region = { parentElement:{open:false}, innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
-  let dialog = '', isOpen=true;const messages=[],typeRegion={innerHTML:'',querySelector:()=>null};
+  const focusTargets=new Map();
+  let dialog = '', isOpen=false;const messages=[],typeRegion={innerHTML:'',querySelector:()=>null};
+  const closeHandlers=[];
   const context = vm.createContext({
     localStorage:{getItem:key=>memory.get(key)||null,setItem:(key,value)=>memory.set(key,value)},SkazAccount:{get userId(){return userId;}},setTimeout, clearTimeout, location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
     queueMicrotask: task => tasks.push(task),
     fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
-    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => spellControls[id]|| (id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region), querySelector: () => null, querySelectorAll:()=>[] },
+    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => focusTargets.get(id)||spellControls[id]|| (id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen,addEventListener:(_,fn)=>closeHandlers.push(fn)}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region), querySelector: selector => selector.startsWith('[data-catalog-entry=')?{focus:()=>movement.push(['focus-card',selector])}:null, querySelectorAll:()=>[] },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
-    toast:message=>messages.push(message),render:()=>{}, modal: html => dialog = html, SkazStorage: { spellLearningMode:()=>spellLearning,can:()=>true,setSpell:async(...args)=>marks.push(args), ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
+    toast:message=>messages.push(message),render:()=>{}, modal: html => {isOpen=true;dialog=html;}, SkazStorage: { spellLearningMode:()=>spellLearning,can:()=>true,setSpell:async(...args)=>marks.push(args), ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
-    click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>isOpen=false, otherModal:()=>dialog='<h2>Other</h2>',
+  return { focusId:id=>{const target={id,focus:options=>{context.document.activeElement=target;movement.push(['focus-id',id,options]);}};focusTargets.set(id,target);context.document.activeElement={id};}, activeId:()=>context.document.activeElement?.id, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
+    click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>{isOpen=false;closeHandlers.splice(0).forEach(fn=>fn());}, otherModal:()=>{isOpen=true;dialog='<h2>Other</h2>'},
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
     draft:(name,value)=>handlers.input({target:{name,value,checked:name==='scope'&&value==='text',form:{id:'catalog-search'}}}),
@@ -68,6 +70,7 @@ test('bottom pagination preserves search, guards boundaries and duplicate clicks
 test('paging cannot steal focus from an open dialog or from a superseding search',async()=>{
  for(const mode of ['dialog','new-search']){
  const h=harness();h.submit('');respond(h.requests[0],{entries:[entry],total:21});respond(h.requests[1],coverage);await settle();h.click('catalog-next-bottom');
+ if(mode==='dialog')h.otherModal();
  if(mode==='new-search'){h.close();h.submit('new');respond(h.requests[4],{entries:[entry],total:1});respond(h.requests[5],coverage);await settle();}
  respond(h.requests[2],{entries:[entry],total:21});respond(h.requests[3],coverage);await settle();assert.equal(h.movement.length,0);
  }
@@ -423,3 +426,76 @@ test('catalog cannot demote an always-prepared oath spell even by invoking its d
  for(const text of ['2к4 хитов','Максимум зарядов','>7<','На рассвете &lt;бросок&gt;','маг &lt;условие&gt;','Артефакт · Оружие','Характеристики не импортированы'])assert.ok(h.region.innerHTML.includes(text),text);
  assert.doesNotMatch(h.region.innerHTML,/Осталось|undefined|NaN|>0<|<условие>/);assert.equal(h.additions.length,0);
  });
+
+test('spell cards explain components and level without inventing material prices or consumption',async()=>{
+ const h=harness();h.submit('materials',{kind:'spell'});respond(h.requests[0],{entries:[{...entry,id:'material-spell',kind:'spell',spell:{level:0,components:['V','S','M']}}],total:1});respond(h.requests[1],coverage);await settle();
+ assert.match(h.region.innerHTML,/catalog-tile-level[^>]*>Заговор/);
+ assert.match(h.region.innerHTML,/V — голос · S — жесты · M — материалы/);
+ assert.match(h.region.innerHTML,/Материалы, стоимость и расход — в описании или источнике/);
+ assert.doesNotMatch(h.region.innerHTML,/бесплат|не расход|\d+ зм/);
+ assert.match(h.region.innerHTML,/aria-describedby="[^"]*catalog-tile-level-0[^"]*catalog-tile-components-0/);
+});
+
+test('personal card marks distinguish preparation and class learning without altering spells',async()=>{
+ for(const [mode,label] of [['known','Известно'],['spellbook','В книге'],['prepared','Изучено']]){
+  const h=harness('http:',true,new Map(),mode);h.submit('mark',{kind:'spell'});
+  const spell=id=>({...entry,id,kind:'spell',spell:{level:1,components:['V']}});
+  respond(h.requests[0],{entries:['a','b','c','d'].map(spell),total:4});respond(h.requests[1],coverage);await settle();
+  assert.match(h.region.innerHTML,/catalog-tile-open/);assert.doesNotMatch(h.region.innerHTML,/catalog-tile-owned/);
+  h.requests.find(r=>r.book).resolve({entries:[{catalogId:'a',status:'known'},{catalogId:'b',status:'prepared'},{catalogId:'c',status:'prepared',alwaysPrepared:true}]});await settle();
+  for(const mark of [label,mode==='known'?'Известно':'Подготовлено','Постоянно подготовлено'])assert.ok(h.region.innerHTML.includes(mark),mark);
+  assert.doesNotMatch(h.region.innerHTML,/id="catalog-tile-owned-3"/);assert.equal(h.marks.length,0);
+ }
+});
+
+test('book failure leaves reference cards usable and late personal replies cannot cross hero or revision',async()=>{
+ const h=harness('http:',true);const spell={...entry,id:'shield',kind:'spell',spell:{level:1,components:['V'],range:{type:'self'}}};
+ const deliver=()=>{const recent=h.requests.filter(r=>!r.book).slice(-2);respond(recent[0],{entries:[spell],total:1});respond(recent[1],coverage);};
+ h.submit('shield',{kind:'spell'});deliver();await settle();const old=h.requests.find(r=>r.book);
+ h.setOwner('hero:2');h.submit('shield',{kind:'spell'});deliver();await settle();
+ old.resolve({entries:[{catalogId:'shield',status:'prepared'}]});await settle();assert.doesNotMatch(h.region.innerHTML,/catalog-tile-owned/);
+ h.requests.filter(r=>r.book).at(-1).reject(new Error('Unavailable'));await settle();
+ assert.match(h.region.innerHTML,/Личные отметки не загрузились/);assert.match(h.region.innerHTML,/catalog-tile-open/);assert.doesNotMatch(h.region.innerHTML,/Каталог недоступен|Ещё не в книге/);
+ h.submit('shield',{kind:'spell'});deliver();await settle();const next=h.requests.filter(r=>r.book).at(-1);
+ h.setOwner('other:0','user-b');h.view();next.resolve({entries:[{catalogId:'shield',status:'prepared'}]});await settle();assert.doesNotMatch(h.region.innerHTML,/catalog-tile-owned/);
+});
+
+
+test('late book marks retain keyboard focus and share an in-flight request with the reader',async()=>{
+ const h=harness('http:',true);h.submit('shield',{kind:'spell'});
+ respond(h.requests[0],{entries:[{...entry,id:'shield',kind:'spell',spell:{level:1,components:['V'],range:{type:'self'}}}],total:1});respond(h.requests[1],coverage);await settle();
+ h.detail();assert.equal(h.requests.filter(r=>r.book).length,1);
+ h.close();h.focusCard(0);h.requests.find(r=>r.book).resolve({entries:[{catalogId:'shield',status:'prepared'}]});await settle();
+ assert.ok(h.movement.some(([action,selector])=>action==='focus-card'&&selector==='[data-catalog-entry="0"]'));
+ assert.match(h.region.innerHTML,/Подготовлено/);assert.equal(h.marks.length,0);
+});
+
+
+test('late personal marks do not detach the native dialog opener before closing',async()=>{
+ const h=harness('http:',true);h.submit('shield',{kind:'spell'});
+ respond(h.requests[0],{entries:[{...entry,id:'shield',kind:'spell',spell:{level:1,components:['V'],range:{type:'self'}}}],total:1});respond(h.requests[1],coverage);await settle();
+ h.detail();h.requests.find(r=>r.book).resolve({entries:[{catalogId:'shield',status:'prepared'}]});await settle();
+ assert.doesNotMatch(h.region.innerHTML,/catalog-tile-owned/);
+ h.focusCard(0);h.close();assert.match(h.region.innerHTML,/catalog-tile-owned/);
+ assert.ok(h.movement.some(([action])=>action==='focus-card'));
+});
+
+
+test('reference-only spells retain personal marks with valid description targets and unknown level',async()=>{
+ const h=harness('http:',true);h.submit('reference',{kind:'spell'});
+ respond(h.requests[0],{entries:[{...entry,id:'reference-spell',kind:'spell'}],total:1});respond(h.requests[1],coverage);await settle();
+ h.requests.find(r=>r.book).resolve({entries:[{catalogId:'reference-spell',status:'known'}]});await settle();
+ assert.match(h.region.innerHTML,/Круг не указан/);assert.match(h.region.innerHTML,/Характеристики не импортированы/);
+ assert.match(h.region.innerHTML,/id="catalog-tile-owned-0">Изучено/);assert.match(h.region.innerHTML,/id="catalog-tile-level-0"/);
+ assert.doesNotMatch(h.region.innerHTML,/undefined|NaN/);
+});
+
+test('late book updates retain result heading and pagination focus without scrolling',async()=>{
+ for(const id of ['catalog-result-heading','catalog-prev','catalog-next','catalog-prev-bottom','catalog-next-bottom']){
+  const h=harness('http:',true);h.submit('shield',{kind:'spell'});
+  respond(h.requests[0],{entries:[{...entry,id:'shield',kind:'spell',spell:{level:1,components:['V']}}],total:41});respond(h.requests[1],coverage);await settle();
+  h.focusId(id);h.movement.length=0;
+  h.requests.find(r=>r.book).resolve({entries:[{catalogId:'shield',status:'known'}]});await settle();
+  assert.equal(h.movement.length,1,id);assert.equal(h.movement[0][0],'focus-id',id);assert.equal(h.movement[0][1],id);assert.equal(h.movement[0][2].preventScroll,true,id);assert.equal(h.activeId(),id);
+ }
+});
