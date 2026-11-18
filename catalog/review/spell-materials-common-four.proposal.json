@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "kind": "spell-material-reference-proposal",
+  "ruleset": "5e-2014",
+  "status": "review",
+  "source": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "changes": "Русское изложение материальных условий и структурирование для СКАЗ; не официальный перевод. Не устанавливается в каталог.",
+    "materialRulePage": 102
+  },
+  "scope": {
+    "catalogSpellCount": 319,
+    "reviewedCount": 4,
+    "complete": false
+  },
+  "entries": [
+    {
+      "id": "srd51:2014:spell:alarm",
+      "name": {
+        "ru": "Сигнал тревоги",
+        "en": "Alarm"
+      },
+      "entrySha256": "b52c70f14440c0b613b5f4398c8ef17fc9cc6f7738da70604f7210b240dfa34b",
+      "sourcePages": [
+        114
+      ],
+      "sourceBodySha256": "adf66ef49c2fb376092f1db435b8fc25567eeebacf4c3e4dc903b606d96f3281",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Крошечный колокольчик и кусочек тонкой серебряной проволоки.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В списке компонентов указаны колокольчик и проволока; стоимость серебряной проволоки здесь не задана."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:aid",
+      "name": {
+        "ru": "Помощь",
+        "en": "Aid"
+      },
+      "entrySha256": "65a39597d36141ab9a523503e5d8c9697f3d57b81e6750ae51a368e6fd945fd5",
+      "sourcePages": [
+        114
+      ],
+      "sourceBodySha256": "c50b7d8972b7212e9f191bfc5f028d68210f9864e6420a52ccf2436c3826c7db",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Крошечная полоска белой ткани.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Размер указан как крошечный; цена и масса в правиле не заданы."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:bless",
+      "name": {
+        "ru": "Благословение",
+        "en": "Bless"
+      },
+      "entrySha256": "dda12b7cb05ebfb500b8a6d87b7520fe56ad0ef190db6f504e2b7067a79be288",
+      "sourcePages": [
+        122
+      ],
+      "sourceBodySha256": "77244a583d88cb38ce5aa9721356bf0cb5ea8d2973305e124e3e9fd865a5db8b",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Небольшое количество святой воды для окропления.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Правило не задаёт цену или объём воды и не указывает её расход. Не приравнивать компонент к целому флакону из инвентаря."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:light",
+      "name": {
+        "ru": "Свет",
+        "en": "Light"
+      },
+      "entrySha256": "327364acd10bd2bc4c972ea8954adfed760e20a54673660f0b317b377b0c29c6",
+      "sourcePages": [
+        159
+      ],
+      "sourceBodySha256": "94e6444a77c3e27a3505ee7a088f2678a747d8fe9435d65c08308223d11574e0",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Светлячок или фосфоресцирующий мох.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В списке компонентов указана одна из альтернатив: светлячок или мох. Оба одновременно не перечислены."
+      }
+    }
+  ]
+}
