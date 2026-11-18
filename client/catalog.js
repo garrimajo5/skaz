@@ -423,7 +423,13 @@ const SkazCatalog = (() => {
       const id=button.dataset.catalogSection;
       if(['catalog-detail-title','catalog-body-title','catalog-material-title','catalog-links-title','catalog-source-title'].includes(id)){
         const target=document.getElementById(id);
-        if(target){if(id==='catalog-source-title')target.parentElement.open=true;target.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:'instant'});}
+        if(target){
+          if(id==='catalog-source-title')target.parentElement.open=true;
+          const nav=document.querySelector('#dialog .catalog-reader-nav');
+          // Measure at each jump: wrapping, zoom and orientation can change the sticky panel.
+          if(nav)target.style.scrollMarginTop=(getComputedStyle(nav).position==='sticky'?nav.getBoundingClientRect().height+(parseFloat(getComputedStyle(nav.parentElement).paddingTop)||0)+16:16)+'px';
+          target.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:'instant'});
+        }
       }
     }
     if(button.id==='catalog-material-load'){void loadMaterialDetails();return;}

@@ -5,24 +5,24 @@ import { readFile } from 'node:fs/promises';
 const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source = await readFile(new URL('../client/catalog.js', import.meta.url), 'utf8');
 function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning=null) {
-  let snapshotKey='hero:0',userId='user-a';
+  let snapshotKey='hero:0',userId='user-a';let readerHeight=0,readerPosition='sticky';const readerNav={parentElement:{},getBoundingClientRect:()=>({height:readerHeight})};
   const handlers = {}, requests = [], tasks = [], additions = [];
   const movement=[], marks=[], spellControls=Object.fromEntries(['catalog-known','catalog-prepared','catalog-book-status'].map(id=>[id,{}]));
-  const region = { parentElement:{open:false}, innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
+  const region = { style:{}, parentElement:{open:false}, innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
   const focusTargets=new Map();
   let dialog = '', isOpen=false;const messages=[],typeRegion={innerHTML:'',querySelector:()=>null};
   const closeHandlers=[];
   const context = vm.createContext({
     localStorage:{getItem:key=>memory.get(key)||null,setItem:(key,value)=>memory.set(key,value)},SkazAccount:{get userId(){return userId;}},setTimeout, clearTimeout, location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
-    queueMicrotask: task => tasks.push(task),
+    queueMicrotask: task => tasks.push(task),getComputedStyle:element=>element===readerNav?{position:readerPosition}:{paddingTop:'48px'},
     fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
-    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => focusTargets.get(id)||spellControls[id]|| (id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen,addEventListener:(_,fn)=>closeHandlers.push(fn)}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region), querySelector: selector => selector.startsWith('[data-catalog-entry=')?{focus:()=>movement.push(['focus-card',selector])}:null, querySelectorAll:()=>[] },
+    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => focusTargets.get(id)||spellControls[id]|| (id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen,addEventListener:(_,fn)=>closeHandlers.push(fn)}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region), querySelector: selector => selector==='#dialog .catalog-reader-nav'?readerNav:selector.startsWith('[data-catalog-entry=')?{focus:()=>movement.push(['focus-card',selector])}:null, querySelectorAll:()=>[] },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
     toast:message=>messages.push(message),render:()=>{}, modal: html => {isOpen=true;dialog=html;}, SkazStorage: { spellLearningMode:()=>spellLearning,can:()=>true,setSpell:async(...args)=>marks.push(args), ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { focusId:id=>{const target={id,focus:options=>{context.document.activeElement=target;movement.push(['focus-id',id,options]);}};focusTargets.set(id,target);context.document.activeElement={id};}, activeId:()=>context.document.activeElement?.id, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
+  return { readerSize:(height,position='sticky')=>{readerHeight=height;readerPosition=position;},focusId:id=>{const target={id,focus:options=>{context.document.activeElement=target;movement.push(['focus-id',id,options]);}};focusTargets.set(id,target);context.document.activeElement={id};}, activeId:()=>context.document.activeElement?.id, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>{isOpen=false;closeHandlers.splice(0).forEach(fn=>fn());}, otherModal:()=>{isOpen=true;dialog='<h2>Other</h2>'},
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
@@ -535,4 +535,11 @@ test('recent material reference and unloaded book snapshot are distinct until ex
 test('on-demand material failure permits retry and late lookup cannot update another hero',async()=>{
  const h=harness('http:',true);h.submit('');h.requests[0].resolve({entries:[{entry:materialSpell,catalogId:materialSpell.id,status:'known'}]});respond(h.requests[1],coverage);await settle();h.detail();h.click('catalog-material-load');h.requests.findLast(r=>r.url.startsWith('/api/catalog/entry?')).reject(new Error('offline'));await settle();assert.match(h.region.textContent,/Можно повторить/);assert.equal(h.region.disabled,false);
  h.click('catalog-material-load');const pending=h.requests.findLast(r=>r.url.startsWith('/api/catalog/entry?'));h.setOwner('other:1');respond(pending,{entry:materialSpell,materialReferences:[materialReference]});await settle();assert.equal(h.region.outerHTML,undefined);
+});
+test('reader headings clear the measured sticky panel after wrapping or rotation',async()=>{
+ const h=harness();h.submit('');respond(h.requests[0],{entries:[entry],total:1});respond(h.requests[1],coverage);await settle();h.detail();
+ h.readerSize(232);h.click('',{catalogSection:'catalog-body-title'});assert.equal(h.region.style.scrollMarginTop,'296px');
+ h.readerSize(112);h.click('',{catalogSection:'catalog-source-title'});assert.equal(h.region.style.scrollMarginTop,'176px');assert.equal(h.region.parentElement.open,true);
+ h.readerSize(232,'static');h.click('',{catalogSection:'catalog-detail-title'});assert.equal(h.region.style.scrollMarginTop,'16px');
+ assert.equal(h.requests.length,2);assert.equal(h.additions.length,0);
 });
