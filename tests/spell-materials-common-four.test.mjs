@@ -5,13 +5,23 @@ import {bundledCatalog} from '../server/bundled-catalog.mjs';
 import {validateCatalog} from '../server/catalog.mjs';
 import {validateMaterialProposal} from '../scripts/spell-materials-contract.mjs';
 import {spellMaterialReferences} from '../server/spell-material-references.mjs';
-const catalog=validateCatalog(bundledCatalog().bundle),ids=new Set();
-for(const name of ['common-four','cantrip-four']){
- const candidate=JSON.parse(readFileSync(new URL('../catalog/review/spell-materials-'+name+'.proposal.json',import.meta.url),'utf8'));
- test(name+' content candidate is valid, unique and remains separate from active references',()=>{
-  assert.equal(validateMaterialProposal(candidate,catalog).reviewed,4);
-  for(const row of candidate.entries){assert.equal(ids.has(row.id),false);ids.add(row.id);}
-  const entries=catalog.filter(e=>candidate.entries.some(row=>row.id===e.id));assert.equal(entries.length,4);assert.deepEqual(spellMaterialReferences(entries),[]);
-  assert.ok(candidate.entries.every(row=>row.materials.price.kind==='not-stated'&&!Object.hasOwn(row.materials.price,'text')));
- });
-}
+const catalog=validateCatalog(bundledCatalog().bundle);
+const proposal=JSON.parse(readFileSync(new URL('../catalog/spell-materials.proposal.json',import.meta.url),'utf8'));
+const names=['Alarm','Aid','Bless','Light','Mending','Message','Minor Illusion','Resistance'];
+test('eight accepted additions are active without inventing prices or changing catalog entries',()=>{
+ assert.equal(validateMaterialProposal(proposal,catalog).reviewed,20);
+ const entries=catalog.filter(e=>names.includes(e.name.en));assert.equal(entries.length,8);
+ const before=structuredClone(entries),references=spellMaterialReferences(entries);assert.equal(references.length,8);assert.deepEqual(entries,before);
+ for(const row of references){assert.equal(row.materials.price.kind,'not-stated');assert.equal(Object.hasOwn(row.materials.price,'text'),false);assert.equal(row.materials.consumption.kind,'retained');assert.equal(row.source.materialRulePage,102);}
+ const changed=entries.map(e=>({...e,text:e.text+' Personal variation'}));assert.deepEqual(spellMaterialReferences(changed),[]);
+});
+test('component alternatives and quantities survive integration',()=>{
+ const row=name=>proposal.entries.find(e=>e.name.en===name).materials;
+ assert.match(row('Alarm').description,/колокольчик.*проволок/);
+ assert.match(row('Light').description,/или/);
+ assert.match(row('Mending').description,/[Дд]ва/);
+ assert.match(row('Message').description,/[Кк]оротк/);
+ assert.doesNotMatch(row('Message').description,/фут|30|0[,.]3/);
+ assert.match(row('Resistance').description,/[Мм]иниатюр/);
+ assert.doesNotMatch(row('Bless').description,/флакон/);
+});
