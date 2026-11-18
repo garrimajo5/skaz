@@ -1,0 +1,385 @@
+{
+  "schemaVersion": 1,
+  "kind": "spell-material-reference-proposal",
+  "ruleset": "5e-2014",
+  "status": "review",
+  "source": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "changes": "Русское изложение материальных условий и структурирование для СКАЗ; не официальный перевод. Не устанавливается в каталог.",
+    "materialRulePage": 102
+  },
+  "scope": {
+    "catalogSpellCount": 319,
+    "reviewedCount": 15,
+    "complete": false
+  },
+  "entries": [
+    {
+      "id": "srd51:2014:spell:acid-arrow",
+      "name": {
+        "ru": "Кислотная стрела",
+        "en": "Acid Arrow"
+      },
+      "entrySha256": "3b879466735a5063165bf413f92f9a670794a7e332a360785348385c43acdb9a",
+      "sourcePages": [
+        114
+      ],
+      "sourceBodySha256": "12097cef67b031872cc83d08d019080d8a22de60125f9649cb3594911e172667",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Растёртый в порошок лист ревеня и желудок гадюки.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В списке указаны оба материала. Кислота появляется как эффект; отдельный флакон кислоты не добавляется в компоненты."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:animal-messenger",
+      "name": {
+        "ru": "Почтовое животное",
+        "en": "Animal Messenger"
+      },
+      "entrySha256": "600c9a1d65f016e99c843cab31643e70c45a452665965b967aeca9dbc328665c",
+      "sourcePages": [
+        115
+      ],
+      "sourceBodySha256": "67c1f650b62cc99cdbedfd2f0c5c0ada2a0536b4ce039f3d2ef533e9788a8f04",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Кусочек еды.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Вес, цена и обязательное скармливание компонента в правиле не указаны."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:arcane-lock",
+      "name": {
+        "ru": "Волшебный замок",
+        "en": "Arcane Lock"
+      },
+      "entrySha256": "f7993e56e090a08e8268aa63b2b7e1451799724c8e60098702e91b46265a722a",
+      "sourcePages": [
+        118,
+        119
+      ],
+      "sourceBodySha256": "8b8e6ad16e498bba1c2ab0e62f713dbc60c8c49ee269bfeb1b5304756b051bad",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Золотая пыль.",
+        "price": {
+          "kind": "stated",
+          "text": "Золотая пыль — не менее 25 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует золотую пыль."
+        },
+        "note": "Указанная стоимость относится к золотой пыли; дверь, окно или другой запираемый объект являются целью заклинания."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:arcanists-magic-aura",
+      "name": {
+        "ru": "Магическая аура арканиста",
+        "en": "Arcanist’s Magic Aura"
+      },
+      "entrySha256": "9cab49e2a884c84dc4bedf790901bef72a24ba1579bc0ea8c68f53d862cf44a5",
+      "sourcePages": [
+        119
+      ],
+      "sourceBodySha256": "cdcb39e802d58b23e0e523b8ba3385308001e1647deb2fbd689cf6519a2547fe",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Небольшой квадратный кусочек шёлка.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Числовые размеры и цена не указаны. Повторение заклинания 30 дней не означает явно установленного расхода шёлка."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:augury",
+      "name": {
+        "ru": "Гадание",
+        "en": "Augury"
+      },
+      "entrySha256": "4a0608baa88f7dada6a28fb6674572604c0eecf03f76d415208a1aa47c2db916",
+      "sourcePages": [
+        120
+      ],
+      "sourceBodySha256": "a868909feef8f4a90554932355f44c00ede0101582adc6a4857c928adeb075be",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Особо помеченные палочки, кости или подобные предметы для гадания.",
+        "price": {
+          "kind": "stated",
+          "text": "Гадальные принадлежности — не менее 25 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Стоимость указана для гадальных принадлежностей, без отдельной цены каждой палочки или кости. В полном описании приведены примеры способов гадания."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:barkskin",
+      "name": {
+        "ru": "Дубовая кора",
+        "en": "Barkskin"
+      },
+      "entrySha256": "71ef435cf3e7f49434e36ea2fc0492d51240a0769ec97b652df186b8ff1687ae",
+      "sourcePages": [
+        121
+      ],
+      "sourceBodySha256": "2fb1cda715ecfa7c235343ea27c892253e44f6d8466aa2db627673693a1d879c",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Пригоршня дубовой коры.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Указана дубовая кора; числовая масса не задана."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:darkness",
+      "name": {
+        "ru": "Тьма",
+        "en": "Darkness"
+      },
+      "entrySha256": "27788864975b606420296624ef495a54ee86339c7b01712bb15c7387871da407",
+      "sourcePages": [
+        133
+      ],
+      "sourceBodySha256": "c16eea0b74484b882433767c175f901be506863939748c6963cd0db09c03efbd",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Мех летучей мыши и капля смолы или кусочек угля.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Мех указан вместе с одной из альтернатив: смолой или углём. Это не три одновременно перечисленных обязательных материала."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:darkvision",
+      "name": {
+        "ru": "Тёмное зрение",
+        "en": "Darkvision"
+      },
+      "entrySha256": "faaeb9f3b844352ec5334665c253a2a73d4bedd21b644f4c6ffd1340dccf8bd8",
+      "sourcePages": [
+        133
+      ],
+      "sourceBodySha256": "1e8a83c9cbd6f2c6091650027a69ba553f4299642766b68af28bffbbc450b116",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка сушёной моркови или агат.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Указаны альтернативы. Минимальная стоимость агата в этом заклинании не установлена."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:detect-thoughts",
+      "name": {
+        "ru": "Обнаружение мыслей",
+        "en": "Detect Thoughts"
+      },
+      "entrySha256": "fab60ba7eb3134871f999f29fbeded47c670cb845eb28908ffbda54fd66f9e47",
+      "sourcePages": [
+        135
+      ],
+      "sourceBodySha256": "7f7ef98027c45262595a8827040ae9983cf50e8b8202b321789409b3a8666bcf",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Медная монета.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Монета указана как компонент; отдельного порога стоимости сверх её номинала правило не задаёт. Расход монеты не указан."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:enhance-ability",
+      "name": {
+        "ru": "Улучшение характеристики",
+        "en": "Enhance Ability"
+      },
+      "entrySha256": "bb364b13f63f87080bf56b0088f4fcf9a2869d0725d5238224325cbdd4947641",
+      "sourcePages": [
+        139
+      ],
+      "sourceBodySha256": "05a5aca299ed2ba5cc9841df5876ba2021995da61b5dd9aa6d9c22cae335316e",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Мех или перо зверя.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Указаны альтернативы, а не оба материала одновременно; конкретный вид зверя не задан."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:enlarge-reduce",
+      "name": {
+        "ru": "Увеличение/Уменьшение",
+        "en": "Enlarge/Reduce"
+      },
+      "entrySha256": "eedf4e7b994e65d9c90ebd3e253201c35cfe5a5d4992d8f06a4b3acb4a30cf52",
+      "sourcePages": [
+        140
+      ],
+      "sourceBodySha256": "b0e767b72ba3c49744c6dc2beab57e3818af595545d81a9678b72ff93b9c08a3",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка железного порошка.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Изменение размера и веса цели не означает изменения количества требуемого материала."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:flame-blade",
+      "name": {
+        "ru": "Огненный клинок",
+        "en": "Flame Blade"
+      },
+      "entrySha256": "492b5e10775777b8f2327f367b686782e4ae590c9c5157f0bbc4e524f3a845a6",
+      "sourcePages": [
+        145
+      ],
+      "sourceBodySha256": "dedfacd7f046dd70905702260ed681e7556952cd9da0deaa36c79f9d54779f60",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Лист сумаха.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Огненный клинок является эффектом заклинания; обычный скимитар не указан среди компонентов."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:flaming-sphere",
+      "name": {
+        "ru": "Пылающий шар",
+        "en": "Flaming Sphere"
+      },
+      "entrySha256": "c058ede9bd9088b5c35f102a13c29cb8cae3b76ee10178b56fc537dad6f55cb8",
+      "sourcePages": [
+        145
+      ],
+      "sourceBodySha256": "881570e6b42ad864f10d99451614e30479371c3eab8d8c349bb5f17fdace2b49",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Немного животного жира, щепотка серы и небольшое количество железного порошка.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В списке указаны все три материала; числовые массы не заданы."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:gentle-repose",
+      "name": {
+        "ru": "Нетленные останки",
+        "en": "Gentle Repose"
+      },
+      "entrySha256": "8ff919e8b6c3b7022640f1fd71745176df55b4790d3729bfa7be5fb78aa38b01",
+      "sourcePages": [
+        148,
+        149
+      ],
+      "sourceBodySha256": "1d8c286c599d74b7d822acc62db0d41bcc4d2916a722ef365e0fbc236a9baef2",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка соли и по одной медной монете на каждом глазу трупа.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Расход не указан. Монеты должны оставаться на глазах трупа всё время действия заклинания."
+        },
+        "note": "Монеты должны оставаться на глазах всё время действия — 10 дней. Правило не фиксирует универсальное число глаз и не называет монеты расходуемыми."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:gust-of-wind",
+      "name": {
+        "ru": "Порыв ветра",
+        "en": "Gust of Wind"
+      },
+      "entrySha256": "64e07bfdc7826316347f65190c106b9e246fcac266a70a5d1e401cea59408054",
+      "sourcePages": [
+        152
+      ],
+      "sourceBodySha256": "7397751cc831d338956bfbef030945521b701d7ccd80e5d50866d970e02ff265",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Семя бобового растения.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Размеры ветровой области не относятся к размеру компонента."
+      }
+    }
+  ]
+}
