@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "kind": "spell-material-reference-proposal",
+  "ruleset": "5e-2014",
+  "status": "review",
+  "source": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "changes": "Русское изложение материальных условий и структурирование для СКАЗ; не официальный перевод. Не устанавливается в каталог.",
+    "materialRulePage": 102
+  },
+  "scope": {
+    "catalogSpellCount": 319,
+    "reviewedCount": 12,
+    "complete": false
+  },
+  "entries": [
+    {
+      "id": "srd51:2014:spell:animate-dead",
+      "name": {
+        "ru": "Восставший труп",
+        "en": "Animate Dead"
+      },
+      "entrySha256": "984ffd5c0f7c6c7767dd2a3c03c8a57f8c7845f41ee117e2a118347a081d7cff",
+      "sourcePages": [
+        115,
+        116
+      ],
+      "sourceBodySha256": "280c1a2a0c91b41afb9ce1905f6d6958a0691617ddd899731c0f81185efeba7a",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Капля крови, кусочек плоти и щепотка костной пыли.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Указаны все три материала. Труп или куча костей для создания нежити — отдельная цель эффекта, не замена перечню компонентов."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:clairvoyance",
+      "name": {
+        "ru": "Ясновидение",
+        "en": "Clairvoyance"
+      },
+      "entrySha256": "a02c29b8eeb5be66352b9a80b1c318b932f51d7dd55461ee12b0314ae4d81182",
+      "sourcePages": [
+        124,
+        125
+      ],
+      "sourceBodySha256": "bb01508a9fcf00866ea32b601d07bbdbab341dd0be246c4942af7424af1809de",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Фокусировка: украшенный драгоценностями рог для слуха или стеклянный глаз для зрения.",
+        "price": {
+          "kind": "stated",
+          "text": "Фокусировка — не менее 100 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Тип названной фокусировки связан с выбранным чувством; её стоимость задана отдельно от обычной классовой фокусировки. Сам текст эффекта позволяет действием переключаться между зрением и слухом."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:fear",
+      "name": {
+        "ru": "Ужас",
+        "en": "Fear"
+      },
+      "entrySha256": "5ca82baa5839e94d786920fba45a05db7312195fbb2fa3af413468eea6f979f6",
+      "sourcePages": [
+        142
+      ],
+      "sourceBodySha256": "506cc37c69da5b5ff402ed2992b32ae8b8ff73f8bcea0bad864b170fc54d815f",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Белое перо или сердце курицы.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Указаны альтернативы, а не оба материала одновременно."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:fly",
+      "name": {
+        "ru": "Полёт",
+        "en": "Fly"
+      },
+      "entrySha256": "d02cf8a4d29615b7ca4ace1e1109b60eb2964124611e7ec643ce7b52fc7b8f9a",
+      "sourcePages": [
+        146
+      ],
+      "sourceBodySha256": "ead18dbb0004eddeeab7735c5487982aaca68ad35fd15896668953a17ce72176",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Перо из крыла любой птицы.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Указано именно перо крыла; конкретный вид птицы и цена не заданы."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:gaseous-form",
+      "name": {
+        "ru": "Газообразная форма",
+        "en": "Gaseous Form"
+      },
+      "entrySha256": "92642e201b0aa7c01bf2690e83edb4b51456bad9c4281ac08e59982000403343",
+      "sourcePages": [
+        148
+      ],
+      "sourceBodySha256": "d31e1c4dcee48043a19e58f3676d0233473bd7bf5bc0f5c771a3850a2ea7c092",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Кусочек марли и струйка дыма.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В списке указаны оба материала; количественный объём дыма не задан."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:glyph-of-warding",
+      "name": {
+        "ru": "Охранная руна",
+        "en": "Glyph of Warding"
+      },
+      "entrySha256": "d1e68948d91c024cf4908d141278034d5913cd4a718d5fb57e0fb5e9260f4b4f",
+      "sourcePages": [
+        149,
+        150
+      ],
+      "sourceBodySha256": "a4d5fcea88de416b58dc584a57e05b4a3651d2726048928423e17b71a0e66c59",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Благовония и алмазный порошок.",
+        "price": {
+          "kind": "stated",
+          "text": "Алмазный порошок — не менее 200 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует указанные материальные компоненты."
+        },
+        "note": "Поверхность или закрываемый предмет для глифа — объект эффекта. Материалы хранимого в глифе другого заклинания этой справкой не заменяются."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:haste",
+      "name": {
+        "ru": "Ускорение",
+        "en": "Haste"
+      },
+      "entrySha256": "717df76dd751d31ebb891ec3369a90e64a97809e4510753e75e07ab600995c2e",
+      "sourcePages": [
+        153
+      ],
+      "sourceBodySha256": "e9d4788832097efc5c99f226b3ab327a12f2fe1eca9bb4d53e478acf09c461f1",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Стружка корня солодки.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Числовая масса и цена не заданы."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:hypnotic-pattern",
+      "name": {
+        "ru": "Гипнотический узор",
+        "en": "Hypnotic Pattern"
+      },
+      "entrySha256": "be795d76ea91c127f23e49c8aa06e74db4fae1172f0022612c59dd9c1186b3ad",
+      "sourcePages": [
+        155
+      ],
+      "sourceBodySha256": "6e8ba8ef2a03c3202c9a37d48c37bbbb86d24660eb97377e231922e41665a4e2",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Тлеющая палочка благовоний или хрустальный флакон, наполненный фосфоресцирующим веществом.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Указаны альтернативы. Текст называет тлеющую палочку, но не устанавливает отдельного расхода компонента самим заклинанием."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:lightning-bolt",
+      "name": {
+        "ru": "Молния",
+        "en": "Lightning Bolt"
+      },
+      "entrySha256": "bd9e38c66880c1621313fc5313c90a4c8583d6ad91270701b55c6fd45b73e644",
+      "sourcePages": [
+        159
+      ],
+      "sourceBodySha256": "482b74060a806d330dc12f623ffea2534ce83994dad9c180aa1aca3988699c99",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Немного меха и стержень из янтаря, хрусталя или стекла.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Мех указан вместе со стержнем из одного из трёх материалов. Три стержня одновременно не перечислены как обязательные."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:magic-circle",
+      "name": {
+        "ru": "Магический круг",
+        "en": "Magic Circle"
+      },
+      "entrySha256": "62cbc419f27e35e37e87f28bb296ade930095f62faab3c84ab476070973f3440",
+      "sourcePages": [
+        160
+      ],
+      "sourceBodySha256": "4d97b64645f939109e74c625aed8fa5e208f64cee3da8d79032c5507d17310fe",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Святая вода или порошок серебра и железа.",
+        "price": {
+          "kind": "stated",
+          "text": "Материалы — не менее 100 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует выбранные материалы."
+        },
+        "note": "Указаны альтернативы: святая вода либо оба металла в порошке. Объём флакона святой воды и масса порошков не заданы."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:major-image",
+      "name": {
+        "ru": "Большой образ",
+        "en": "Major Image"
+      },
+      "entrySha256": "0ddc0dd6a11eee2b897f18e0ae40cd395c162b8f15b679f0b9f7d6cc558880c2",
+      "sourcePages": [
+        162
+      ],
+      "sourceBodySha256": "33ec9765be1a3603ba6b89eda1f0d333dd9d7fe512f04f8f6aab03f462c96e4b",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Кусочек овечьей шерсти.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Размер и длительность иллюзии не задают количество компонента."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:nondetection",
+      "name": {
+        "ru": "Необнаружимость",
+        "en": "Nondetection"
+      },
+      "entrySha256": "b20457d3ceee600d9e7cc5745b710b95592d6a07c99bb0ff956a8f6ff9abb473",
+      "sourcePages": [
+        167
+      ],
+      "sourceBodySha256": "85f362c9a40ced6d0cbd8927c1fbf8fc151e1d168da64ef67cc6a784bdee9ed5",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка алмазного порошка, которым посыпают цель.",
+        "price": {
+          "kind": "stated",
+          "text": "Алмазный порошок — 25 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует алмазный порошок."
+        },
+        "note": "Сохранено действие с материалом и указанная стоимость; формулировка источника — 25 зм, без добавления слов «не менее»."
+      }
+    }
+  ]
+}
