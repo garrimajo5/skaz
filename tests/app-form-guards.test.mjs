@@ -222,3 +222,12 @@ test('conditions form cannot submit across revision changes or after write permi
  const h=harness();h.click('quick-conditions');h.get('#condition-exhaustion').value='2';h.run("SkazStorage.snapshotKey=()=> 'changed'");await h.get('#conditions-form').onsubmit({preventDefault(){}});assert.equal(h.writes.length,0);assert.match(h.get('#conditions-error').textContent,/Игра изменилась/);assert.equal(h.get('#condition-exhaustion').value,'2');
  const blocked=harness();blocked.click('quick-conditions');blocked.block();await blocked.get('#conditions-form').onsubmit({preventDefault(){}});assert.equal(blocked.writes.length,0);
 });
+
+
+test('temporary HP has a decorative shield and accessible amount without changing ordinary health',()=>{
+ const h=harness();h.run('state.hp=12;state.maxHp=30;state.tempHp=7');
+ const html=h.run('healthVitals()');assert.match(html,/aria-label="Хиты: 12 из 30; временные хиты: 7"/);
+ assert.match(html,/data-ui-icon="shield" aria-hidden="true"/);assert.match(html,/\+7 временных/);
+ h.run('state.tempHp=0');const empty=h.run('healthVitals()');assert.doesNotMatch(empty,/temp-hp-chip|data-ui-icon="shield"|временные хиты/);assert.match(empty,/Хиты: 12 из 30/);
+ h.run("state.hp=0;state.tempHp=7;state.deathSaves={successes:0,failures:0,status:'dying'}");const down=h.run('healthVitals()');assert.match(down,/Без сознания/);assert.match(down,/\+7 временных/);assert.match(down,/Хиты: 0 из 30; временные хиты: 7/);
+});

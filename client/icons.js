@@ -1,6 +1,7 @@
 // Local, decorative UI symbols. Imported text can never select arbitrary SVG markup.
 const SkazIcons=(()=>{
  const shapes={
+ "shield": '<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6z"/>',
  "backspace": '<path d="M9 5h12v14H9L2 12zM12 9l6 6M18 9l-6 6"/>',
  "play": "<path d=\"m12 3 9 6v6l-9 6-9-6V9zM3 9l9 6 9-6M12 15v6M12 3v6\"/>",
  "magic": "<path d=\"m4 20 12-12m-2-2 4 4M5 3v4M3 5h4M19 15v6M16 18h6M12 2v3\"/>",
