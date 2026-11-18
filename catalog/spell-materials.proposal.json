@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 1,
+  "kind": "spell-material-reference-proposal",
+  "ruleset": "5e-2014",
+  "status": "review",
+  "source": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "changes": "Русское изложение материальных условий и структурирование для СКАЗ; не официальный перевод. Не устанавливается в каталог.",
+    "materialRulePage": 102
+  },
+  "scope": {
+    "catalogSpellCount": 319,
+    "reviewedCount": 12,
+    "complete": false
+  },
+  "entries": [
+    {
+      "id": "srd51:2014:spell:identify",
+      "name": {
+        "ru": "Опознание",
+        "en": "Identify"
+      },
+      "entrySha256": "772c188c0110aed52a3cdfbead56ceb13856e924c1a6574f8067b2bc523e04be",
+      "sourcePages": [
+        155,
+        156
+      ],
+      "sourceBodySha256": "7125216db4404fcf4fe61f3969a17c49ed81d4de98fcda0e5effff14faf0942e",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Жемчужина и перо совы.",
+        "price": {
+          "kind": "stated",
+          "text": "Жемчужина стоимостью не менее 100 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Компоненты не расходуются."
+        },
+        "note": "Цена указана для жемчужины; стоимость пера здесь не задана."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:feather-fall",
+      "name": {
+        "ru": "Падение пёрышком",
+        "en": "Feather Fall"
+      },
+      "entrySha256": "dd5e015ce18cfb6a9b812cc1fc7858749e272aa054f3826fc00d58129c65b126",
+      "sourcePages": [
+        142
+      ],
+      "sourceBodySha256": "aad2bd7f2846f7c56b4e69fc72cf4a87a799566ffddd291581291d36c687f1d2",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Маленькое перо или немного пуха.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Компонент не расходуется."
+        },
+        "note": "Можно использовать маленькое перо или пух."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:fireball",
+      "name": {
+        "ru": "Огненный шар",
+        "en": "Fireball"
+      },
+      "entrySha256": "d94495ee0983d7feeb335539a33229d6dcb893dc276ce4a7f3bba6964d39f87e",
+      "sourcePages": [
+        144
+      ],
+      "sourceBodySha256": "ea30455d7864602b604d3b294d0910984630c1db41b8fd1850dead12d28d913c",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Крошечный шарик гуано летучей мыши и сера.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Компоненты не расходуются."
+        },
+        "note": "Нужны оба материала: гуано и сера."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:find-familiar",
+      "name": {
+        "ru": "Поиск фамильяра",
+        "en": "Find Familiar"
+      },
+      "entrySha256": "e0dd694f82829cd9392cc488fdd4818149c20a7113cbf255d369efd49559d7d6",
+      "sourcePages": [
+        143
+      ],
+      "sourceBodySha256": "13f0be67c96fc58ec0cb5346d28b190a0f76bfa974251cb0d230fb276263dec9",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Уголь, благовония и травы; их сжигают в латунной жаровне.",
+        "price": {
+          "kind": "stated",
+          "text": "Уголь, благовония и травы общей стоимостью 10 зм."
+        },
+        "consumption": {
+          "kind": "partial",
+          "text": "Расходуются уголь, благовония и травы; жаровня остаётся."
+        },
+        "note": "Для сжигания нужна латунная жаровня; её цена в этом правиле не указана."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:continual-flame",
+      "name": {
+        "ru": "Вечный огонь",
+        "en": "Continual Flame"
+      },
+      "entrySha256": "0d3f4a34cc2de65a054701d8b20858404dbf9159c719693015769ed9f5976672",
+      "sourcePages": [
+        130
+      ],
+      "sourceBodySha256": "25bb18277763479ad76cdf1183e084c368346b8a3da593e9472e373c244bcb9a",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Рубиновая пыль.",
+        "price": {
+          "kind": "stated",
+          "text": "Рубиновая пыль стоимостью 50 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Пыль расходуется при накладывании."
+        },
+        "note": "Длительность эффекта не отменяет расход компонента."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:revivify",
+      "name": {
+        "ru": "Возрождение",
+        "en": "Revivify"
+      },
+      "entrySha256": "2414b7bcd606814fd7bb7783439f8ed59f1d1210f0b900d3efe04875bfe5ffe8",
+      "sourcePages": [
+        175,
+        176
+      ],
+      "sourceBodySha256": "d5e56df1822abb7564e3041d5157c0466aa0e1d741ae1e5f083f9c562fde1503",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Алмазы.",
+        "price": {
+          "kind": "stated",
+          "text": "Алмазы общей стоимостью 300 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Алмазы расходуются при накладывании."
+        },
+        "note": "Можно использовать несколько алмазов указанной общей стоимостью."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:stoneskin",
+      "name": {
+        "ru": "Каменная кожа",
+        "en": "Stoneskin"
+      },
+      "entrySha256": "9c00559751e302d8903f363214e1dcc62b8a128a58a365c4c09d60442f5be812",
+      "sourcePages": [
+        183
+      ],
+      "sourceBodySha256": "e6a0ce21f213f9352e86537472724262694fe08cfae64112bf1f2d0e9e7409e7",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Алмазная пыль.",
+        "price": {
+          "kind": "stated",
+          "text": "Алмазная пыль стоимостью 100 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Пыль расходуется при накладывании."
+        },
+        "note": "Концентрация не влияет на уже израсходованный компонент."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:protection-from-evil-and-good",
+      "name": {
+        "ru": "Защита от добра и зла",
+        "en": "Protection from Evil and Good"
+      },
+      "entrySha256": "25eddbb1b6f76288337528cea21021e666cd383193427925b77b40b1356854ec",
+      "sourcePages": [
+        173
+      ],
+      "sourceBodySha256": "bbb82ec3047ad2e18c46c8bc74c21011080efcfaf36833802b6ffe66bfa1d52c",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Святая вода либо порошок серебра и железа.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Выбранный материал расходуется при накладывании."
+        },
+        "note": "Правило не указывает количество и цену; нельзя подставлять цену целой фляги."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:warding-bond",
+      "name": {
+        "ru": "Охраняющая связь",
+        "en": "Warding Bond"
+      },
+      "entrySha256": "94c8791144047c5107c6dbfec320a48fc514b7118d10eefce0b4aa6b845dd749",
+      "sourcePages": [
+        191
+      ],
+      "sourceBodySha256": "b33c6451fb5fd87022d5bacb926cf7541c8cb4642c043daf567c2846ac72f973",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Два платиновых кольца: по одному у заклинателя и цели.",
+        "price": {
+          "kind": "stated",
+          "text": "Каждое из двух колец — не менее 50 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Кольца не расходуются; оба нужно носить всё время действия."
+        },
+        "note": "Кольца должны оставаться на заклинателе и цели всё время действия."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:clone",
+      "name": {
+        "ru": "Клон",
+        "en": "Clone"
+      },
+      "entrySha256": "d7915dbbbefa45264c82550c7f59c2ca331f35dc30fa6637e5cf17d4a4e5c3de",
+      "sourcePages": [
+        125
+      ],
+      "sourceBodySha256": "41fe219f7683cbecac0764de136793d5176b2cbbc5046ed5b09f665f150bc325",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Алмаз, не менее кубического дюйма плоти цели и закрывающийся сосуд для существа Среднего размера.",
+        "price": {
+          "kind": "stated",
+          "text": "Алмаз — не менее 1 000 зм; сосуд — не менее 2 000 зм."
+        },
+        "consumption": {
+          "kind": "partial",
+          "text": "Алмаз и плоть расходуются; сосуд остаётся."
+        },
+        "note": "Сосуд должен закрываться и вмещать существо Среднего размера."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:instant-summons",
+      "name": {
+        "ru": "Мгновенные призывы",
+        "en": "Instant Summons"
+      },
+      "entrySha256": "eab1f510bbe8a0f6e56377913ba8b818086362d243be46932e31f2015c3b71ce",
+      "sourcePages": [
+        157
+      ],
+      "sourceBodySha256": "a4eeea4f1ab95706074d80b07217ae0883b3491d1d8f3addd39b8e2ec82380b2",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Сапфир; для каждого нового накладывания нужен другой камень.",
+        "price": {
+          "kind": "stated",
+          "text": "Сапфир стоимостью 1 000 зм."
+        },
+        "consumption": {
+          "kind": "conditional",
+          "text": "Сапфир раздавливают позже, действием при попытке призвать предмет."
+        },
+        "note": "Камень расходуется и если предмет удерживает или несёт другое существо; вместо переноса получается информация."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:astral-projection",
+      "name": {
+        "ru": "Астральная проекция",
+        "en": "Astral Projection"
+      },
+      "entrySha256": "f239939c7013141da9e8a6b88ebcf7cd6f0b3d7996b9ee412e5a85f31b57d1f4",
+      "sourcePages": [
+        119,
+        120
+      ],
+      "sourceBodySha256": "a144bb1b0011a5bbbe510b142cbedbae6f1b32009d76c050c34b773829592e0e",
+      "checkedOn": "2026-11-18",
+      "materials": {
+        "description": "Для каждого затронутого существа — гиацинт и украшенный резьбой серебряный брусок.",
+        "price": {
+          "kind": "stated",
+          "text": "На каждое существо: гиацинт ≥ 1 000 зм и серебряный брусок ≥ 100 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Оба компонента для каждого существа расходуются."
+        },
+        "note": "Компоненты подготавливаются отдельно для каждого затронутого существа."
+      }
+    }
+  ]
+}
