@@ -6,7 +6,10 @@ export const reviewedMaterialSetSha256='16f691e189b6fad283d043960fe4ace458950198
 export function readReviewedMaterialSet(text){
  try{const normalized=text.replaceAll('\r\n','\n');if(createHash('sha256').update(normalized).digest('hex')!==reviewedMaterialSetSha256)return null;return JSON.parse(normalized);}catch{return null;}
 }
-const proposal=readReviewedMaterialSet(readFileSync(new URL('../catalog/spell-materials.proposal.json',import.meta.url),'utf8'));
+export function loadReviewedMaterialSet(read=readFileSync){
+ try{return readReviewedMaterialSet(read(new URL('../catalog/spell-materials.proposal.json',import.meta.url),'utf8'));}catch{return null;}
+}
+const proposal=loadReviewedMaterialSet();
 const references=new Map((proposal?.entries||[]).map(row=>[row.id,row]));
 const hash=entry=>createHash('sha256').update(JSON.stringify(entry)).digest('hex');
 export function spellMaterialReferences(entries){

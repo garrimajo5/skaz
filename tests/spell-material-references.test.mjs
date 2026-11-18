@@ -50,8 +50,14 @@ test('reference reads preserve export format and round-trip catalog data',async 
 });
 
 import {readFileSync} from 'node:fs';
-import {readReviewedMaterialSet} from '../server/spell-material-references.mjs';
+import {readReviewedMaterialSet,loadReviewedMaterialSet} from '../server/spell-material-references.mjs';
 test('a later unreviewed proposal revision cannot silently enter the API',()=>{
- const raw=readFileSync(new URL('../catalog/spell-materials.proposal.json',import.meta.url),'utf8');assert.equal(readReviewedMaterialSet(raw).entries.length,12);assert.equal(readReviewedMaterialSet(raw.replaceAll('\n','\r\n')).entries.length,12);
+ const raw=readFileSync(new URL('../catalog/spell-materials.proposal.json',import.meta.url),'utf8');assert.equal(readReviewedMaterialSet(raw).entries.length,12);assert.equal(readReviewedMaterialSet(raw.replaceAll('\r\n','\n').replaceAll('\n','\r\n')).entries.length,12);
  const changed=JSON.parse(raw);changed.entries[0].materials.consumption.text='Unreviewed new claim';assert.equal(readReviewedMaterialSet(JSON.stringify(changed)),null);assert.equal(readReviewedMaterialSet('{broken'),null);
+});
+
+test('unreadable material source fails closed without preventing ordinary catalog startup',()=>{
+ for(const code of ['ENOENT','EACCES'])assert.equal(loadReviewedMaterialSet(()=>{throw Object.assign(new Error('unavailable'),{code});}),null);
+ assert.equal(loadReviewedMaterialSet(()=>'{broken'),null);
+ assert.equal(loadReviewedMaterialSet().entries.length,12);
 });
