@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "kind": "spell-material-reference-proposal",
+  "ruleset": "5e-2014",
+  "status": "review",
+  "source": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "changes": "Русское изложение материальных условий и структурирование для СКАЗ; не официальный перевод. Не устанавливается в каталог.",
+    "materialRulePage": 102
+  },
+  "scope": {
+    "catalogSpellCount": 319,
+    "reviewedCount": 13,
+    "complete": false
+  },
+  "entries": [
+    {
+      "id": "srd51:2014:spell:dispel-evil-and-good",
+      "name": {
+        "ru": "Рассеивание зла и добра",
+        "en": "Dispel Evil and Good"
+      },
+      "entrySha256": "f565ee3deb49c2fa65c75c66120d3793b31be0c31c8d302e3c4bfa5b33caef80",
+      "sourcePages": [
+        136
+      ],
+      "sourceBodySha256": "83ea5fd0d82de3d61f32e71ae34df3e05f14c19cd52d804c1ec72204a26ea8d9",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Святая вода или порошки серебра и железа.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Варианты: святая вода либо серебро вместе с железом; цена не установлена."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:dream",
+      "name": {
+        "ru": "Сновидение",
+        "en": "Dream"
+      },
+      "entrySha256": "a6e02ccde1329a8405bc3d3b08c108929e59abb6faf57b2fbbcbe2645dc5e423",
+      "sourcePages": [
+        138
+      ],
+      "sourceBodySha256": "04898621f0d3cef926d6deb1c6305419051b0f2a88751cb578744dd3adbf6489",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Горсть песка, немного чернил и писчее перо, выщипанное у спящей птицы.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "При наличии части тела, волос или ногтей цели она совершает спасбросок от кошмара с помехой. Эти связи не заменяют перечисленные компоненты и не являются обязательными для каждого наложения."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:flame-strike",
+      "name": {
+        "ru": "Небесный огонь",
+        "en": "Flame Strike"
+      },
+      "entrySha256": "a5695148bca874f5118b66b198c24c07fcd9e358feb3029f40d6ca52f3c960f8",
+      "sourcePages": [
+        145
+      ],
+      "sourceBodySha256": "699b36afe9132108e02817ff35599b0e840b228118bd50526e33abc24d27ff23",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка серы.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Выбор типа увеличиваемого урона при повышении круга не меняет компонент."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:hallow",
+      "name": {
+        "ru": "Святилище",
+        "en": "Hallow"
+      },
+      "entrySha256": "aff7041c6d90fec1f9e5b4ba02e466e2de3458a59d8519c04c711e0476fd1857",
+      "sourcePages": [
+        152
+      ],
+      "sourceBodySha256": "e9295687102c97b7c3bb9ea3c3d5e3b4cb3492bab54934dcbfb7be8fce2d2687",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Травы, масла и благовония.",
+        "price": {
+          "kind": "stated",
+          "text": "Травы, масла и благовония вместе — не менее 1000 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует травы, масла и благовония."
+        },
+        "note": "Минимальная цена относится ко всему перечисленному набору вместе."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:hold-monster",
+      "name": {
+        "ru": "Удержание чудовища",
+        "en": "Hold Monster"
+      },
+      "entrySha256": "ccf35bf1f6cfca05782d7e60109351012f778feea7ac2cccf78d26aa2a52ac29",
+      "sourcePages": [
+        154
+      ],
+      "sourceBodySha256": "64bb8bc1351a261b59f5a2ba83727d375acfaafc297febd489487ae30234035f",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Маленький прямой кусочек железа.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Повышение круга добавляет цели; отдельного увеличения числа компонентов источник не задаёт."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:insect-plague",
+      "name": {
+        "ru": "Нашествие насекомых",
+        "en": "Insect Plague"
+      },
+      "entrySha256": "7dc04cec039e5473ad3476f9bafc3b0327efd43576cf2a28aa93cf34c15b511e",
+      "sourcePages": [
+        157
+      ],
+      "sourceBodySha256": "757aa9e75052609f9931495ebd47e550c672af026d3076c5a48cdd1585d6eebb",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Несколько крупинок сахара, несколько зёрен и немного жира.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В перечне указаны все три компонента, а не их альтернативы."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:legend-lore",
+      "name": {
+        "ru": "Знание легенд",
+        "en": "Legend Lore"
+      },
+      "entrySha256": "11be6e25a6394f12b44612221d6890fb96e92cce246e8cc66b3919a84397ff55",
+      "sourcePages": [
+        158
+      ],
+      "sourceBodySha256": "422ec9d1a66919110375f87e942f216ae247993949f89b88a4d37b1eb8355256",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Благовония и четыре полоски слоновой кости.",
+        "price": {
+          "kind": "stated",
+          "text": "Благовония — не менее 250 зм; каждая из четырёх полосок слоновой кости — не менее 50 зм."
+        },
+        "consumption": {
+          "kind": "partial",
+          "text": "Благовония расходуются; расход полосок слоновой кости не указан."
+        },
+        "note": "Минимум 50 зм относится к каждой из четырёх полосок; расход прямо указан только для благовоний."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:passwall",
+      "name": {
+        "ru": "Проход сквозь стену",
+        "en": "Passwall"
+      },
+      "entrySha256": "5e1831b61d240d478340038754e6394e18db46c35de6135c77fb26fd3f9bac74",
+      "sourcePages": [
+        167
+      ],
+      "sourceBodySha256": "003cbcde1e1dc997fd418124f375d7a652361bcc953418fe8d88bbddaecb35c2",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка семян кунжута.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Размер прохода не определяет количество семян."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:planar-binding",
+      "name": {
+        "ru": "Планарные узы",
+        "en": "Planar Binding"
+      },
+      "entrySha256": "9ce55288d05a3d13996ed65df7a4f6bc46450e9faea4e0e5854fc6e137f161e3",
+      "sourcePages": [
+        168
+      ],
+      "sourceBodySha256": "960e9bf8758b775e18ba3b779e504c1c9b55f0e2b12671ad75dac47b36413dae",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Драгоценный камень.",
+        "price": {
+          "kind": "stated",
+          "text": "Драгоценный камень — не менее 1000 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует драгоценный камень."
+        },
+        "note": "Источник не ограничивает камень алмазом; повышение круга меняет длительность, а не его цену."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:reincarnate",
+      "name": {
+        "ru": "Реинкарнация",
+        "en": "Reincarnate"
+      },
+      "entrySha256": "b8b79a32e678271d894ff41e8643a43b0adfc002ad39dfca20ba6211b9ec0815",
+      "sourcePages": [
+        174
+      ],
+      "sourceBodySha256": "67e5fb9a48cd1892f423affaedead9bb4c8f06c77b4ca2ede1f8d4b83cddaf66",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Редкие масла и мази.",
+        "price": {
+          "kind": "stated",
+          "text": "Редкие масла и мази вместе — не менее 1000 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует масла и мази."
+        },
+        "note": "Минимальная цена относится к маслам и мазям вместе; тело или его часть является целью касания, а не заменой компонентов."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:scrying",
+      "name": {
+        "ru": "Наблюдение",
+        "en": "Scrying"
+      },
+      "entrySha256": "f22f6da3215f34a79095cde08406c8744ebaa1b7dfc27060c5566d60ad4b30b0",
+      "sourcePages": [
+        176,
+        177
+      ],
+      "sourceBodySha256": "3c6c3b13286cdbe2ee0b335ca86736e404f0602e22d12b2554e7b3ba768c9894",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Фокусировка, например хрустальный шар, серебряное зеркало или чаша, наполненная святой водой.",
+        "price": {
+          "kind": "stated",
+          "text": "Фокусировка — не менее 1000 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Это примеры фокусировки, не требование собрать их вместе. Изображение, вещь или часть тела цели отдельно изменяют спасбросок и не обязательны для каждого наложения."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-force",
+      "name": {
+        "ru": "Силовая стена",
+        "en": "Wall of Force"
+      },
+      "entrySha256": "47bf9ee1f5ae0fe75ae69154f216e72dc0651805530cd313719a0e9922ecac2a",
+      "sourcePages": [
+        190
+      ],
+      "sourceBodySha256": "d5627abdcbd4dc57853064573ec67029b76e212ec96cc62bbbdb1654074bd4f3",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка порошка, полученного измельчением прозрачного драгоценного камня.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Камень измельчают для подготовки порошка; источник не устанавливает его минимальную цену и не указывает расход порошка заклинанием."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-stone",
+      "name": {
+        "ru": "Каменная стена",
+        "en": "Wall of Stone"
+      },
+      "entrySha256": "e5d5099e01f957135ba7b90613bd719a841989d3352c6dc83dd51a556a3c6ae8",
+      "sourcePages": [
+        190,
+        191
+      ],
+      "sourceBodySha256": "7dd5d5804d33bfb18684b8d3882ddcd546ee239f6fd41cdb4dace275c1c3ed4d",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Маленький кусочек гранита.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Размер и число панелей стены не задают размер или количество гранита-компонента."
+      }
+    }
+  ]
+}

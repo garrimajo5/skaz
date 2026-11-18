@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "kind": "spell-material-reference-proposal",
+  "ruleset": "5e-2014",
+  "status": "review",
+  "source": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "changes": "Русское изложение материальных условий и структурирование для СКАЗ; не официальный перевод. Не устанавливается в каталог.",
+    "materialRulePage": 102
+  },
+  "scope": {
+    "catalogSpellCount": 319,
+    "reviewedCount": 10,
+    "complete": false
+  },
+  "entries": [
+    {
+      "id": "srd51:2014:spell:commune",
+      "name": {
+        "ru": "Общение",
+        "en": "Commune"
+      },
+      "entrySha256": "840a56a9b53e4347fb893fd0354706b39a0e6f0e4694d9c7eab5d272f10232a7",
+      "sourcePages": [
+        126
+      ],
+      "sourceBodySha256": "ad4c48615ce85077ba2e6050c909a33d7440baadf76bcc89cbf698a13d6ec9c5",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Благовония и флакон святой или нечестивой воды.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Благовония нужны вместе с одним из двух вариантов воды."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:greater-restoration",
+      "name": {
+        "ru": "Высшее восстановление",
+        "en": "Greater Restoration"
+      },
+      "entrySha256": "61a09cb068c7370837f4a053d4528c101840cf4e3bd381b80458eaf751296bcf",
+      "sourcePages": [
+        150
+      ],
+      "sourceBodySha256": "355937f555179b036e1e0e4d71288255bc035233d6e29c88ef7f6bdddac69f7c",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Алмазный порошок.",
+        "price": {
+          "kind": "stated",
+          "text": "Алмазный порошок — не менее 100 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует алмазный порошок."
+        },
+        "note": "Стоимость относится к порошку; это не требование целого алмаза."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:raise-dead",
+      "name": {
+        "ru": "Оживление",
+        "en": "Raise Dead"
+      },
+      "entrySha256": "f98af731fbdb59facb16ee1fed8a5ab1fa9e896a9b379aea543bccdafaa94847",
+      "sourcePages": [
+        173
+      ],
+      "sourceBodySha256": "910afbd39de9fd394a71137df023bfc0d863a762477ca135eff78d5c8d5f17c4",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Алмаз.",
+        "price": {
+          "kind": "stated",
+          "text": "Алмаз — не менее 500 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует алмаз."
+        },
+        "note": "В источнике указан один алмаз, а не набор камней общей стоимости."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:telepathic-bond",
+      "name": {
+        "ru": "Телепатическая связь",
+        "en": "Telepathic Bond"
+      },
+      "entrySha256": "0d0de88408ae2af670af7114977c6e89a54977fad9448f6b9d4de43025e20e1e",
+      "sourcePages": [
+        185
+      ],
+      "sourceBodySha256": "e010020201340d2600b196146a8ce7c7295e0652bb7a4ce1736198c0b3637908",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Кусочки яичной скорлупы от двух разных видов существ.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Требуются два разных вида; число связываемых участников не задаёт число видов скорлупы."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:teleportation-circle",
+      "name": {
+        "ru": "Круг телепортации",
+        "en": "Teleportation Circle"
+      },
+      "entrySha256": "8dd37b7216b0da6f3ff2efbc3a364fd1aae8fd28bc313e8a5ef1110a01ce2a86",
+      "sourcePages": [
+        186,
+        187
+      ],
+      "sourceBodySha256": "2885bbb2b6be3e75ec4bbb656d1a75c2ed85fc00231a04397075d1e7397232ed",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Редкие мелки и чернила с добавлением драгоценных камней.",
+        "price": {
+          "kind": "stated",
+          "text": "Материалы — 50 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует мелки и чернила."
+        },
+        "note": "Цена 50 зм относится к указанным материалам вместе. Повторные наложения для постоянного круга не отменяют расход каждого наложения."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:arcane-hand",
+      "name": {
+        "ru": "Волшебная рука",
+        "en": "Arcane Hand"
+      },
+      "entrySha256": "8a8fc054d578321e06908d67b941eb655ffde5470275019ec762efc53bf1bba0",
+      "sourcePages": [
+        118
+      ],
+      "sourceBodySha256": "d0eef01cb8788aa4697ca1ed0ebcd3509b9bae2ea667959213968b987c5c10fe",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Яичная скорлупа и перчатка из змеиной кожи.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В перечне указаны оба компонента; параметры созданной руки не определяют размер перчатки."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:awaken",
+      "name": {
+        "ru": "Пробуждение разума",
+        "en": "Awaken"
+      },
+      "entrySha256": "fd869efcd0ae486621a426b0db812fda09c7d4058b1baf952f61af622aacf4bb",
+      "sourcePages": [
+        120
+      ],
+      "sourceBodySha256": "23a8605710ef16c47c07f2371acef9766700d6d9367e0dffd02f775d607c4fed",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Агат.",
+        "price": {
+          "kind": "stated",
+          "text": "Агат — не менее 1000 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует агат."
+        },
+        "note": "Во время накладывания в камне проводят магические пути; стоимость относится к агату."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:cone-of-cold",
+      "name": {
+        "ru": "Конус холода",
+        "en": "Cone of Cold"
+      },
+      "entrySha256": "adc07b59f9c2c54e1df71e1768f77b8ee80a219e6660cac2ccc3917fdd339193",
+      "sourcePages": [
+        127
+      ],
+      "sourceBodySha256": "ce60132809587f58529648b0964f4fac54caab95f02e09c85f10fe42c7d01f06",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Маленький конус из хрусталя или стекла.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Материалы конуса альтернативны; размер области эффекта не является размером компонента."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:conjure-elemental",
+      "name": {
+        "ru": "Призыв элементаля",
+        "en": "Conjure Elemental"
+      },
+      "entrySha256": "20d16f66ef9b5f9823fc800b49851b0645296ddeee9f7ffb99b8c80a5a1d7b50",
+      "sourcePages": [
+        128
+      ],
+      "sourceBodySha256": "44e7b77289b3da449a654c4716e8bfe9dc954426b9f7d1b93d8e57b91cea5ae2",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Для воздуха — горящие благовония; для земли — мягкая глина; для огня — сера и фосфор; для воды — вода и песок.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Выбор набора зависит от стихии; внутри огненного и водного наборов требуются оба материала. Отсутствие специального расхода не отменяет обычного горения благовоний."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:creation",
+      "name": {
+        "ru": "Сотворение",
+        "en": "Creation"
+      },
+      "entrySha256": "330ec9599108aa80b2633fb8c7c052304a45fe603578ebe8f419dbbcd1622b50",
+      "sourcePages": [
+        132
+      ],
+      "sourceBodySha256": "02541f6fea86cd59314b0906f59b3d649705fc00444e37182ea3da0ac0d1da0f",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Крошечный кусочек вещества того же типа, что и создаваемый предмет.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Источник предупреждает: использование вещества, созданного этим заклинанием, как материального компонента другого заклинания приводит к неудаче того заклинания. Это справочное правило, а не автоматический запрет ручного действия."
+      }
+    }
+  ]
+}

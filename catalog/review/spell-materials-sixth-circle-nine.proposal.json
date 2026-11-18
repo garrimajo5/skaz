@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "kind": "spell-material-reference-proposal",
+  "ruleset": "5e-2014",
+  "status": "review",
+  "source": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "changes": "Русское изложение материальных условий и структурирование для СКАЗ; не официальный перевод. Не устанавливается в каталог.",
+    "materialRulePage": 102
+  },
+  "scope": {
+    "catalogSpellCount": 319,
+    "reviewedCount": 9,
+    "complete": false
+  },
+  "entries": [
+    {
+      "id": "srd51:2014:spell:chain-lightning",
+      "name": {
+        "ru": "Цепная молния",
+        "en": "Chain Lightning"
+      },
+      "entrySha256": "406eb8164093b366d6ce84fbef2a77cab531d863bdb1287200b2a70cc49c2976",
+      "sourcePages": [
+        124
+      ],
+      "sourceBodySha256": "f63b99fc9fb5b7c9f3ce6e488db2f537b892f214159b7cae1dc5cd1a3c2ed17b",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Немного меха; кусочек янтаря, стекло или хрустальный стержень; и три серебряные булавки.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Альтернативы относятся к средней части перечня. Три булавки указаны независимо от числа дополнительных целей при повышении круга."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:circle-of-death",
+      "name": {
+        "ru": "Круг смерти",
+        "en": "Circle of Death"
+      },
+      "entrySha256": "7bc2e6a1ed482e68d5d02da6fb2ae98b0e6bb22463d9340ff6d1b05ff29827a5",
+      "sourcePages": [
+        124
+      ],
+      "sourceBodySha256": "6a90df151ec2804516c1c951c7a8b66787030d693a4c143dcb93bd51c4119cea",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Порошок измельчённой чёрной жемчужины.",
+        "price": {
+          "kind": "stated",
+          "text": "Чёрная жемчужина для порошка — не менее 500 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Измельчение жемчужины подготавливает компонент; расход порошка самим заклинанием не указан."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:contingency",
+      "name": {
+        "ru": "Предосторожность",
+        "en": "Contingency"
+      },
+      "entrySha256": "216d91599c721fea539d48a88bfdc51191b10826c6616102fc1b1437277078a4",
+      "sourcePages": [
+        130
+      ],
+      "sourceBodySha256": "d508bca4d0cea80bb0111105b623d66535323db49b0bb6deea38ae023c272a65",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Изображающая вас статуэтка из слоновой кости, украшенная драгоценными камнями.",
+        "price": {
+          "kind": "stated",
+          "text": "Украшенная камнями статуэтка — не менее 1500 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Статуэтка должна оставаться при вас: если компонент больше не при вас, эффект заканчивается. Условия второго, отложенного заклинания этой справкой не заменяются."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:create-undead",
+      "name": {
+        "ru": "Создание нежити",
+        "en": "Create Undead"
+      },
+      "entrySha256": "56fed087a6a07cde28fe9178c4aeeb2ffcbe89011f0228e42c083111688a0ce7",
+      "sourcePages": [
+        132
+      ],
+      "sourceBodySha256": "b10750272bf81bb77c523d1c904a61b027d39e2c400fc3795234a1fcff129b0b",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Один глиняный горшок с могильной землёй, один глиняный горшок с солоноватой водой и по одному чёрному ониксу на каждый труп.",
+        "price": {
+          "kind": "stated",
+          "text": "Каждый чёрный оникс — 150 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Количество ониксов относится к трупам; источник не задаёт отдельную цену горшков и не указывает расход камней."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:disintegrate",
+      "name": {
+        "ru": "Распад",
+        "en": "Disintegrate"
+      },
+      "entrySha256": "0c85f123998de3b6becfa9a01cbc8205764306effe850cb46a381e15f9edcb53",
+      "sourcePages": [
+        135,
+        136
+      ],
+      "sourceBodySha256": "8bf0e6675cc320e50b3a1fa14c8cd72e27017f03ddb856e90ac9570cf1d0d9cc",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Магнитный камень и щепотка пыли.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Оба компонента перечислены вместе; пыль результата эффекта не является обязательной исходной пылью."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:find-the-path",
+      "name": {
+        "ru": "Поиск пути",
+        "en": "Find the Path"
+      },
+      "entrySha256": "e53b4b19d5f9c26fa22dd3d00aac2d1036ec94ff59dd7c658254af7e56ca4299",
+      "sourcePages": [
+        143,
+        144
+      ],
+      "sourceBodySha256": "e2156799d573f74333b03ac7465c01cf88818478788af87e715be46e7810d77b",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Набор инструментов для гадания — например кости, палочки слоновой кости, карты, зубы или резные руны — и предмет из искомого места.",
+        "price": {
+          "kind": "stated",
+          "text": "Набор инструментов для гадания — 100 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Цена относится к набору инструментов; предмет из искомого места указан отдельно без цены."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:flesh-to-stone",
+      "name": {
+        "ru": "Плоть в камень",
+        "en": "Flesh to Stone"
+      },
+      "entrySha256": "ab371e7325705efe8d19095a4f761f45f646ec7e173cb49297ad322b8d2aba5e",
+      "sourcePages": [
+        145,
+        146
+      ],
+      "sourceBodySha256": "898eb36fb9b300166006be73b568c665d1b18bfe9d9341a63338a462e5d7a5c7",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка извести, вода и земля.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В перечне указаны известь, вода и земля; известь не означает плод лайма."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:forbiddance",
+      "name": {
+        "ru": "Запрет",
+        "en": "Forbiddance"
+      },
+      "entrySha256": "fb4430f23e789ade5419b2ec6559a388726b98004e4bdf090e9780c89dbbc195",
+      "sourcePages": [
+        146
+      ],
+      "sourceBodySha256": "6dede55995840ae3a9e80d75ed76d5a8c5f78594bb5d183597ef57ca2e86e221",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Немного святой воды, редкие благовония и порошок рубина.",
+        "price": {
+          "kind": "stated",
+          "text": "Порошок рубина — не менее 1000 зм."
+        },
+        "consumption": {
+          "kind": "conditional",
+          "text": "Компоненты расходуются на последнем наложении последовательности из 30 ежедневных наложений в одном месте; обычное одиночное наложение не указывает расход."
+        },
+        "note": "При ежедневном наложении в одном месте 30 дней эффект становится постоянным до рассеивания; именно последнее наложение расходует компоненты."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:freezing-sphere",
+      "name": {
+        "ru": "Ледяная сфера",
+        "en": "Freezing Sphere"
+      },
+      "entrySha256": "306105e0cf816835ffe9d50fe97148de7b750342c6e678d3ba8b31878166a462",
+      "sourcePages": [
+        147,
+        148
+      ],
+      "sourceBodySha256": "bf8591189204ab5dcc5cb0864fdc019f0d74c7b6e241480121387e77a23bc474",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Маленькая хрустальная сфера.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Созданный шар холода можно отложить или бросить; это эффект, а не указание, что хрустальный компонент взрывается или расходуется."
+      }
+    }
+  ]
+}

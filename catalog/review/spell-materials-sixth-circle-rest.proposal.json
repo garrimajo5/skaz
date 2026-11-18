@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "kind": "spell-material-reference-proposal",
+  "ruleset": "5e-2014",
+  "status": "review",
+  "source": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "changes": "Русское изложение материальных условий и структурирование для СКАЗ; не официальный перевод. Не устанавливается в каталог.",
+    "materialRulePage": 102
+  },
+  "scope": {
+    "catalogSpellCount": 319,
+    "reviewedCount": 12,
+    "complete": false
+  },
+  "entries": [
+    {
+      "id": "srd51:2014:spell:globe-of-invulnerability",
+      "name": {
+        "ru": "Сфера неуязвимости",
+        "en": "Globe of Invulnerability"
+      },
+      "entrySha256": "355b92d32f1baedaae6b366f9686a05ea477ff111ecc3755b5e3d28bedc2d94c",
+      "sourcePages": [
+        149
+      ],
+      "sourceBodySha256": "d8bb215372f72d1a897671119e4ea59c36acec9a3a5d7e17ea503e5dee339fef",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Стеклянная или хрустальная бусина.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Бусина разбивается, когда заклинание заканчивается."
+        },
+        "note": "Время разрушения прямо указано: окончание заклинания, а не начало наложения."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:guards-and-wards",
+      "name": {
+        "ru": "Стражи и печати",
+        "en": "Guards and Wards"
+      },
+      "entrySha256": "97240992700a0e1d3abaae94554230ef70a6cf05fbb35f493b74281dad8f711e",
+      "sourcePages": [
+        151
+      ],
+      "sourceBodySha256": "505ab99b83bcd4c118c350c330058aa6a9ed5d0cf7bbf0fa7464bfd44c655516",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Горящие благовония, немного серы и масла, узловатая верёвочка, немного крови бурого увальня (umber hulk) и маленький серебряный стержень.",
+        "price": {
+          "kind": "stated",
+          "text": "Серебряный стержень — не менее 10 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Цена относится только к серебряному стержню. Отсутствие специального расхода не отменяет обычного горения благовоний."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:heroes-feast",
+      "name": {
+        "ru": "Пир героев",
+        "en": "Heroes’ Feast"
+      },
+      "entrySha256": "208198a15add61a75a3d3978e4ba50bcb0f886919bbfa21257d6a776dd4af9a5",
+      "sourcePages": [
+        154
+      ],
+      "sourceBodySha256": "5bf3966fe1d0f3ab9269fc0271b4dfa5a2f2d720ef469d0355731f3e48443200",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Инкрустированная драгоценными камнями чаша.",
+        "price": {
+          "kind": "stated",
+          "text": "Инкрустированная чаша — не менее 1000 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует чашу."
+        },
+        "note": "Расходуется чаша-компонент; час поедания пира относится к созданному эффекту."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:magic-jar",
+      "name": {
+        "ru": "Волшебный сосуд",
+        "en": "Magic Jar"
+      },
+      "entrySha256": "7171ee90792e877eca21cbf48aa3ff57c7af1168b38d98b584331dd66fbb720f",
+      "sourcePages": [
+        160,
+        161
+      ],
+      "sourceBodySha256": "efbd9c457f48813adf8f8acf2b0dbd126318c378453ceb20e14e98bfd6cb9b13",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Драгоценный камень, кристалл, реликварий или другое декоративное вместилище.",
+        "price": {
+          "kind": "stated",
+          "text": "Выбранное вместилище — не менее 500 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Вместилище уничтожается при окончании заклинания, а не расходуется при начале наложения."
+        },
+        "note": "Вместилище используется в течение эффекта и уничтожается, когда заклинание заканчивается. Его преждевременное уничтожение также запускает последствия возвращения душ по полному описанию."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:mass-suggestion",
+      "name": {
+        "ru": "Массовое внушение",
+        "en": "Mass Suggestion"
+      },
+      "entrySha256": "ce423e1627c5728746babb89ada6b31275c3a23455c2bb33857579d7d5f623ec",
+      "sourcePages": [
+        163
+      ],
+      "sourceBodySha256": "af28f1799345cf43cb2e12fcb76aeefdef9ce6fa8d868033c66140d513a05bb4",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Язык змеи и либо кусочек медовых сот, либо капля сладкого масла.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Язык указан вместе с одной из двух альтернатив; число целей не задаёт отдельный набор на каждую."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:move-earth",
+      "name": {
+        "ru": "Движение земли",
+        "en": "Move Earth"
+      },
+      "entrySha256": "13a514aabcb1033aa8b51c884f7a4d491e8b5b971d799d32d45ec7b4ddf66e9a",
+      "sourcePages": [
+        166,
+        167
+      ],
+      "sourceBodySha256": "5906cf3bec6f1589eca131c44dba5cfd4209101f7b0d41bcdcb74ca2e371123c",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Железный клинок и маленький мешочек со смесью глины, суглинка и песка.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В мешочке указана смесь всех трёх видов грунта; это не выбор одного из них."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:programmed-illusion",
+      "name": {
+        "ru": "Запрограммированная иллюзия",
+        "en": "Programmed Illusion"
+      },
+      "entrySha256": "3463edb0d368b292f7f9f8ac6ab100f74770b9d732b59a897fa26188c513f6d2",
+      "sourcePages": [
+        172
+      ],
+      "sourceBodySha256": "19ace974454b15918da8c51b87ede541221db2d41b2c0adb4b62e4e3832fe8cd",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Немного овечьей шерсти и нефритовый порошок.",
+        "price": {
+          "kind": "stated",
+          "text": "Нефритовый порошок — не менее 25 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Цена относится к нефритовому порошку; расход не указан ни для него, ни для шерсти."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:sunbeam",
+      "name": {
+        "ru": "Солнечный луч",
+        "en": "Sunbeam"
+      },
+      "entrySha256": "fcc99878f1066c0ec2a24405f1f38da9b5cd95512d3f4d5f5fdf20cf512328e9",
+      "sourcePages": [
+        184
+      ],
+      "sourceBodySha256": "48a9973a0ad9a4138f9acbc5c78980e6158c5b8969fb729934d8dbec77b4b0d0",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Увеличительное стекло.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Цена компонента источником не установлена."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:true-seeing",
+      "name": {
+        "ru": "Истинное зрение",
+        "en": "True Seeing"
+      },
+      "entrySha256": "6f657cb66c9b925b494655486e08f15ff42c9f782cd6ae40416ce62419cbbab9",
+      "sourcePages": [
+        189
+      ],
+      "sourceBodySha256": "627c24a60d5e27640cbde76fa1fb86e6afa5167f40fa7b570665b0bcaeb4c979",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Мазь для глаз из грибного порошка, шафрана и жира.",
+        "price": {
+          "kind": "stated",
+          "text": "Мазь для глаз — 25 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует мазь."
+        },
+        "note": "Цена относится к готовой мази, а не отдельно к каждому ингредиенту."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-ice",
+      "name": {
+        "ru": "Ледяная стена",
+        "en": "Wall of Ice"
+      },
+      "entrySha256": "0cd6d40b9aeb31d4e16dfd34ab410940ad96fca672032e831a1d448713777ef9",
+      "sourcePages": [
+        190
+      ],
+      "sourceBodySha256": "42ad175ba050818c18362934ea9929cb389ecfd3797257f0130b34db0114daac",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Маленький кусочек кварца.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Размеры стены не задают размеры кварцевого компонента."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-thorns",
+      "name": {
+        "ru": "Стена шипов",
+        "en": "Wall of Thorns"
+      },
+      "entrySha256": "e44a39f5754eee27471e1bd1ad71894fa5a895f9215caeb3db1606d6d01bc6d8",
+      "sourcePages": [
+        191
+      ],
+      "sourceBodySha256": "82ce42d3741a14687315d3b27ead5e903db6a603d66a5da9bf58d0b2df6f23ca",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Горсть шипов.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Форма стены и повышение круга не изменяют указанный перечень компонентов."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:wind-walk",
+      "name": {
+        "ru": "Хождение по ветру",
+        "en": "Wind Walk"
+      },
+      "entrySha256": "b82f735129dbc842dbfe6596a8b358678cc98b1290fe04bfb05f9b12e7e1d8df",
+      "sourcePages": [
+        192
+      ],
+      "sourceBodySha256": "900b541390c279a2e70112b07be691a629294501cd24034e6e85f56b87746450",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Огонь и святая вода.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Источник указывает оба компонента без отдельной цены и специального расхода; это не отменяет обычного горения."
+      }
+    }
+  ]
+}

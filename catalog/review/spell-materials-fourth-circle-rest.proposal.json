@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "kind": "spell-material-reference-proposal",
+  "ruleset": "5e-2014",
+  "status": "review",
+  "source": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "changes": "Русское изложение материальных условий и структурирование для СКАЗ; не официальный перевод. Не устанавливается в каталог.",
+    "materialRulePage": 102
+  },
+  "scope": {
+    "catalogSpellCount": 319,
+    "reviewedCount": 11,
+    "complete": false
+  },
+  "entries": [
+    {
+      "id": "srd51:2014:spell:fire-shield",
+      "name": {
+        "ru": "Огненный щит",
+        "en": "Fire Shield"
+      },
+      "entrySha256": "502db087345e8a0b68b8261a05a520db4c4016d8520b9bb222562b2ba1770fbb",
+      "sourcePages": [
+        144
+      ],
+      "sourceBodySha256": "7c0e964d5b9f899b455f88bc96f98eebe2abcf99b9ec9decc403dd361bf1295c",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Кусочек фосфора или светлячок.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Достаточно одного из двух перечисленных компонентов; выбор тёплого или холодного щита не задаёт отдельный материал."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:freedom-of-movement",
+      "name": {
+        "ru": "Свобода перемещения",
+        "en": "Freedom of Movement"
+      },
+      "entrySha256": "46c2f4d162537ae5ed44b8ed243bb7303aa8cd805c0000b88faac4046e2fb4ac",
+      "sourcePages": [
+        147
+      ],
+      "sourceBodySha256": "bcfdfef32e88fd340b51f1c79c03d565bf7ed87fb20a14cd57d0b82fe1396a41",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Кожаный ремешок, повязанный вокруг руки или подобной конечности.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Сохранено требование повязать ремешок; длина и цена не установлены."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:hallucinatory-terrain",
+      "name": {
+        "ru": "Мираж местности",
+        "en": "Hallucinatory Terrain"
+      },
+      "entrySha256": "d4cb49e20e28ff8e5d6f9160143ef493e365fc9bfa8016e53d9a49d33f2b41ee",
+      "sourcePages": [
+        152,
+        153
+      ],
+      "sourceBodySha256": "fd51914371e183a2663113cf9b177adc160923554117cd04b56a77456def3c39",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Камень, веточка и кусочек зелёного растения.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В перечне указаны все три компонента."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:ice-storm",
+      "name": {
+        "ru": "Град",
+        "en": "Ice Storm"
+      },
+      "entrySha256": "816d95b3a588631ce6cdcdb944412dc8ea5adfce08737471cc9a1d9742be0d3d",
+      "sourcePages": [
+        155
+      ],
+      "sourceBodySha256": "fa97569ed26256b9b5222d89fe20ec904e51f00fb877a1d8b5a361f41c2312cf",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка пыли и несколько капель воды.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Оба материала нужны вместе; повышение круга меняет урон, а не количество компонентов."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:locate-creature",
+      "name": {
+        "ru": "Поиск существа",
+        "en": "Locate Creature"
+      },
+      "entrySha256": "739a0b734510c3eb0c8618aa73082b35f8eab78b9dad6f7a96010a845aecb9c9",
+      "sourcePages": [
+        159
+      ],
+      "sourceBodySha256": "0ec6f94f3bf21df5f0e998358b16a4970cd4a453ec855230456b6461ee507187",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Немного шерсти ищейки (bloodhound).",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Порода указана в источнике; шерсть разыскиваемого существа не требуется."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:polymorph",
+      "name": {
+        "ru": "Превращение",
+        "en": "Polymorph"
+      },
+      "entrySha256": "b57333d661c40571ecefb6e6804ed0c933e228d24b6958ef0ac3411597ec6fd4",
+      "sourcePages": [
+        169
+      ],
+      "sourceBodySha256": "aa3d51341380549b3eb55dd27bf44614e93dd437c55a877cbe4ce6d46cf7e807",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Кокон гусеницы.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Компонент не заменён существом или материалом выбранного облика."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:private-sanctum",
+      "name": {
+        "ru": "Личное святилище",
+        "en": "Private Sanctum"
+      },
+      "entrySha256": "106d0121866bf616381f9c6e1c414920272aa08a8c187fa2db70ea6f460f5fc3",
+      "sourcePages": [
+        171,
+        172
+      ],
+      "sourceBodySha256": "62e6f9f2eb8388e323b8665b822f50466802f06289a10daee00c30282d23ac55",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Тонкий лист свинца, кусочек непрозрачного стекла, комок хлопка или ткани и порошок хризолита.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Хлопок и ткань — альтернативы только одного компонента; свинец, стекло и хризолит нужны вместе с ним."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:resilient-sphere",
+      "name": {
+        "ru": "Упругая сфера",
+        "en": "Resilient Sphere"
+      },
+      "entrySha256": "6cffe2e892cd56debb1a5c720a77c0402574aa9fb9b02aa83ac0cd958599d486",
+      "sourcePages": [
+        175
+      ],
+      "sourceBodySha256": "b3ce04f69cd7fe3df4c6a9c9773f516bc247e976bf7b22f42335344b22d3fcb0",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Полусфера прозрачного хрусталя и соответствующая ей полусфера гуммиарабика.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В перечне указаны обе полусферы; размеры сферы эффекта не задают размер этих компонентов."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:secret-chest",
+      "name": {
+        "ru": "Тайный сундук",
+        "en": "Secret Chest"
+      },
+      "entrySha256": "fe1292bb644f5b07073d936574d3a44457bbd889c01a9f600a712671afc9a263",
+      "sourcePages": [
+        177
+      ],
+      "sourceBodySha256": "97d1108e588cc1f9e07b21b9eb7d0c4de43eb83f822e75d1ef82adc666cf1fe2",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Изысканный сундук размером 3 × 2 × 2 фута из редких материалов и его Крошечная копия из тех же материалов.",
+        "price": {
+          "kind": "stated",
+          "text": "Сундук — не менее 5000 зм; Крошечная копия — не менее 50 зм."
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Сундук скрывается на Эфирном плане, а не расходуется. Копия нужна для возвращения; её уничтожение завершает эффект. Оставшийся на Эфирном плане сундук при окончании эффекта безвозвратно теряется."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:stone-shape",
+      "name": {
+        "ru": "Изменение формы камня",
+        "en": "Stone Shape"
+      },
+      "entrySha256": "9e91c856e70914a704b5d8ffd1128fe618199aba5efec5c45d98dd513f764e4e",
+      "sourcePages": [
+        183
+      ],
+      "sourceBodySha256": "28c141fa4914fda1cb4a3781cd70fe8fd5e2be50b2182403d45ee40abae0d7c6",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Мягкая глина, грубо вылепленная в желаемую форму каменного предмета.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Подготовка формы компонента обязательна по тексту; размер затрагиваемого камня не задан как размер глины."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:wall-of-fire",
+      "name": {
+        "ru": "Огненная стена",
+        "en": "Wall of Fire"
+      },
+      "entrySha256": "79c8d67d79bdc8e511b4494e30299b152929e77d106696d083671c280e780161",
+      "sourcePages": [
+        190
+      ],
+      "sourceBodySha256": "477cedad1b103db13b58aae7fa7960b61f561b364a055f6d9d3e0476fbcaf73f",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Маленький кусочек фосфора.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Светлячок не указан как альтернатива для этого заклинания."
+      }
+    }
+  ]
+}

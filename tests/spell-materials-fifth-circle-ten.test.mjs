@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {bundledCatalog} from '../server/bundled-catalog.mjs';import {validateCatalog} from '../server/catalog.mjs';import {validateMaterialProposal} from '../scripts/spell-materials-contract.mjs';import {spellMaterialReferences} from '../server/spell-material-references.mjs';
+const catalog=validateCatalog(bundledCatalog().bundle),candidate=JSON.parse(fs.readFileSync(new URL('../catalog/review/spell-materials-fifth-circle-ten.proposal.json',import.meta.url)));
+test('ten fifth-level reviews remain separate from active data',()=>{assert.equal(validateMaterialProposal(candidate,catalog).reviewed,10);assert.deepEqual(spellMaterialReferences(catalog.filter(e=>candidate.entries.some(r=>r.id===e.id))),[]);});
+test('consumed prices, species and elemental alternatives stay explicit',()=>{const row=n=>candidate.entries.find(e=>e.name.en===n).materials;
+ for(const [n,c] of [['Greater Restoration',100],['Raise Dead',500],['Awaken',1000],['Teleportation Circle',50]]){assert.equal(row(n).consumption.kind,'consumed');assert.ok(row(n).price.text.includes(String(c)));}
+ assert.doesNotMatch(row('Teleportation Circle').price.text,/не менее/);assert.match(row('Telepathic Bond').description,/двух разных видов/);assert.match(row('Conjure Elemental').description,/сера и фосфор.*вода и песок/);assert.match(row('Creation').note,/не автоматический запрет/);
+});
