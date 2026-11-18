@@ -32,8 +32,11 @@ const SkazCatalog = (() => {
     const update=()=>{
       if(requestId!==serial||key!==snapshot())return;
       const focused=document.activeElement?.dataset?.catalogEntry;
+      const focusedId=document.activeElement?.id;
+      const restoreId=['catalog-result-heading','catalog-prev','catalog-next','catalog-prev-bottom','catalog-next-bottom'].includes(focusedId)?focusedId:null;
       refresh();
-      if(focused!==undefined&&/^\d+$/.test(focused))document.querySelector('[data-catalog-entry="'+focused+'"]')?.focus({preventScroll:true});
+      if(restoreId)document.getElementById(restoreId)?.focus({preventScroll:true});
+      else if(focused!==undefined&&/^\d+$/.test(focused))document.querySelector('[data-catalog-entry="'+focused+'"]')?.focus({preventScroll:true});
     };
     // Keep the native dialog opener attached until it restores keyboard focus.
     const dialog=document.getElementById('dialog');

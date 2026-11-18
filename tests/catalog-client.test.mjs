@@ -21,7 +21,7 @@ function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning
   });
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
+  return { focusId:id=>{context.document.activeElement={id};}, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>{isOpen=false;closeHandlers.splice(0).forEach(fn=>fn());}, otherModal:()=>{isOpen=true;dialog='<h2>Other</h2>'},
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
@@ -487,4 +487,14 @@ test('reference-only spells retain personal marks with valid description targets
  assert.match(h.region.innerHTML,/Круг не указан/);assert.match(h.region.innerHTML,/Характеристики не импортированы/);
  assert.match(h.region.innerHTML,/id="catalog-tile-owned-0">Изучено/);assert.match(h.region.innerHTML,/id="catalog-tile-level-0"/);
  assert.doesNotMatch(h.region.innerHTML,/undefined|NaN/);
+});
+
+test('late book updates retain result heading and pagination focus without scrolling',async()=>{
+ for(const id of ['catalog-result-heading','catalog-prev','catalog-next','catalog-prev-bottom','catalog-next-bottom']){
+  const h=harness('http:',true);h.submit('shield',{kind:'spell'});
+  respond(h.requests[0],{entries:[{...entry,id:'shield',kind:'spell',spell:{level:1,components:['V']}}],total:41});respond(h.requests[1],coverage);await settle();
+  h.focusId(id);h.movement.length=0;
+  h.requests.find(r=>r.book).resolve({entries:[{catalogId:'shield',status:'known'}]});await settle();
+  assert.equal(h.movement.length,1,id);assert.equal(h.movement[0][0],'focus',id);assert.equal(h.movement[0][1].preventScroll,true,id);
+ }
 });
