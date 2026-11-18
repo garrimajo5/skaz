@@ -13,7 +13,7 @@
   },
   "scope": {
     "catalogSpellCount": 319,
-    "reviewedCount": 20,
+    "reviewedCount": 42,
     "complete": false
   },
   "entries": [
@@ -508,6 +508,536 @@
           "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
         },
         "note": "Это миниатюрный компонент; не подставлять цену или вес обычного плаща из инвентаря."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:shillelagh",
+      "name": {
+        "ru": "Дубинка",
+        "en": "Shillelagh"
+      },
+      "entrySha256": "3f27349d88475890f72af15fbcd1ab4ef7e200a25b6f32a8230e0c30c6439e7f",
+      "sourcePages": [
+        179
+      ],
+      "sourceBodySha256": "5c744aadee455a85c0efea70d4490e9a1125500c528ce0a6d662e7eadba9d84a",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Омела, лист клевера и дубинка или боевой посох.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В списке указаны омела и лист клевера, а также одно из двух оружий. Заклинание изменяет удерживаемое деревянное оружие; цена оружия здесь не установлена."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:animal-friendship",
+      "name": {
+        "ru": "Дружба с животными",
+        "en": "Animal Friendship"
+      },
+      "entrySha256": "926220aad96f365cbcffe043a50b7b0bfadcc8befbe16f780a45f6c6663cc7f4",
+      "sourcePages": [
+        115
+      ],
+      "sourceBodySha256": "91307bfe270a15527a6048a47c8385835cefdd6625d71389f5b64f3d16fbdb46",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Кусочек еды.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Количество указано как кусочек, без веса и цены. Текст не говорит, что компонент расходуется или обязательно скармливается зверю."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:bane",
+      "name": {
+        "ru": "Порча",
+        "en": "Bane"
+      },
+      "entrySha256": "6e825541ca986a066454fb61ace2ab1feb6eb34066ffa8af5de233bca64f339a",
+      "sourcePages": [
+        120
+      ],
+      "sourceBodySha256": "9f8e41ca3c969c5fa23de8cfa74afd2ac27761fb84bf9e21514d12c2a4c7af36",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Капля крови.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Принадлежность крови конкретному существу, её получение и цена в этом правиле не указаны."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:comprehend-languages",
+      "name": {
+        "ru": "Понимание языков",
+        "en": "Comprehend Languages"
+      },
+      "entrySha256": "e69d3785daa6efedb80da41dfb7de07b5a104efcc08fe77ec2342d6fa4713ba5",
+      "sourcePages": [
+        126
+      ],
+      "sourceBodySha256": "b433ada17c11625394563bdcc30e3868e4b1fac6c7384384efdcab260c3891f6",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка сажи и соли.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В списке указаны оба материала: сажа и соль. Числовая масса не задана."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:create-or-destroy-water",
+      "name": {
+        "ru": "Сотворение или уничтожение воды",
+        "en": "Create or Destroy Water"
+      },
+      "entrySha256": "d836133f3aa404b46a05797bff6f065a673bfe8ffe35ea5e180018db0ce96fd9",
+      "sourcePages": [
+        132
+      ],
+      "sourceBodySha256": "aade3ec09916eba17f89a29d10240024666c238582c61a70f7931f38ca4eadd6",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Капля воды при создании воды или несколько песчинок при её уничтожении.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Материал зависит от выбранного эффекта. Объём созданной или уничтоженной воды в описании эффекта не является объёмом компонента."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:detect-poison-and-disease",
+      "name": {
+        "ru": "Обнаружение яда и болезней",
+        "en": "Detect Poison and Disease"
+      },
+      "entrySha256": "76eb4b12471501bf73d8891e3c86d4e56b9d672215a85777dd0257d2501e5ac9",
+      "sourcePages": [
+        134
+      ],
+      "sourceBodySha256": "d82bce92b839d90e8051377dc6d23df3ecf7090c88012f9d255cb516901cb133",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Лист тиса.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Указан лист, без массы и цены. Дистанции обнаружения и толщины преград не относятся к размеру материала."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:color-spray",
+      "name": {
+        "ru": "Сверкающие брызги",
+        "en": "Color Spray"
+      },
+      "entrySha256": "ce36d4c895a653358c18c7292b7a92e9af5482f3ba41d7dee8f5a82192801493",
+      "sourcePages": [
+        125
+      ],
+      "sourceBodySha256": "194f69468411a06389193017a60af00185ba8ff8036a4e4e60ca4ffde6886691",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка порошка или песка, окрашенного в красный, жёлтый и синий цвета.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Порошок и песок — альтернативы; перечислены все три цвета. Числовая масса не указана."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:false-life",
+      "name": {
+        "ru": "Псевдожизнь",
+        "en": "False Life"
+      },
+      "entrySha256": "bbfceb325286efc08da1ffd13345ea57bd26a963f72d0e0824c48d72752e8c74",
+      "sourcePages": [
+        142
+      ],
+      "sourceBodySha256": "10117047fa4d74a5f7da3baae273d7d6a442062965149316df9add8b63b31b8b",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Небольшое количество алкоголя или дистиллированного спиртного.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В списке указаны альтернативы без числового объёма и цены; правило не требует выпить компонент."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:shield-of-faith",
+      "name": {
+        "ru": "Щит веры",
+        "en": "Shield of Faith"
+      },
+      "entrySha256": "43f8d8c5255fe521adbe4d03d74bf1ae9285a7af141876514d73c544630bc949",
+      "sourcePages": [
+        179
+      ],
+      "sourceBodySha256": "7091270714877c7db15a8272a8aaab9d85ce322461b98eaed90781301bf81927",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Небольшой пергамент с записанным на нём отрывком священного текста.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Размер пергамента и содержание священного текста численно или дословно не установлены."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:sleep",
+      "name": {
+        "ru": "Усыпление",
+        "en": "Sleep"
+      },
+      "entrySha256": "77d44a1294063856427a781f076e3d160769a3ac6663c544e1a1a70a6839edc8",
+      "sourcePages": [
+        180
+      ],
+      "sourceBodySha256": "067850ef1ae7f569cbdc378bd2f2bfc2fd6a8c4fef6e55d4d6d09f314575acd4",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка мелкого песка, лепестки розы или сверчок.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В списке перечислены альтернативные материалы; все одновременно не перечислены как обязательный набор."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:dancing-lights",
+      "name": {
+        "ru": "Пляшущие огоньки",
+        "en": "Dancing Lights"
+      },
+      "entrySha256": "5c658dc84a939e0a3423c095e37cfc064ff59f238607488efaa82626d0cbde8c",
+      "sourcePages": [
+        133
+      ],
+      "sourceBodySha256": "b28332e0e290615b000bc1c7d528ff6dedcbae15446d3fcaa89ebb563a26908e",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Немного фосфора, кусочек древесины wychwood или светлячок.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Перечислены три альтернативы. Название древесины сохранено как в источнике (wychwood), без подмены неизвестным русским названием."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:floating-disk",
+      "name": {
+        "ru": "Парящий диск",
+        "en": "Floating Disk"
+      },
+      "entrySha256": "9c6f4a4cd7972467a3122c3bd7b694cf22c8d13e2fe347bf502c2c236d97cca6",
+      "sourcePages": [
+        146
+      ],
+      "sourceBodySha256": "a7c06a515dc072476fb9fac438c11f6015d2cfc635145ba5369576ceb1792be3",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Капля ртути.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Диаметр, толщина и грузоподъёмность диска описывают эффект, а не количество материала."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:goodberry",
+      "name": {
+        "ru": "Чудо-ягоды",
+        "en": "Goodberry"
+      },
+      "entrySha256": "36a0b08ab06937a618f7e109fc76a57589d9f628e7f958a304f595f6bcc62bbf",
+      "sourcePages": [
+        150
+      ],
+      "sourceBodySha256": "6186787c35fccddf287187e11f38e4b72a0a4fb7f5cb89d55876438aa597d496",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Веточка омелы.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Ягоды создаются эффектом заклинания; это не исходный материальный компонент. Их поедание не означает расход веточки."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:grease",
+      "name": {
+        "ru": "Скольжение",
+        "en": "Grease"
+      },
+      "entrySha256": "43b36d0a3f04451ee51ea9d0781cd496ab568d6f356cf28512f55d56e269989b",
+      "sourcePages": [
+        150
+      ],
+      "sourceBodySha256": "c80fa0422835ffbaf30aadf37fc865685dc22390e40454603e0075be3f5717f4",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Немного свиной шкуры или сливочного масла.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Указаны альтернативы. Площадь появившегося жира не задаёт количество исходного компонента."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:hideous-laughter",
+      "name": {
+        "ru": "Жуткий смех",
+        "en": "Hideous Laughter"
+      },
+      "entrySha256": "44f626ee161c68eece4d9995b03b87592578ce9f19da6c080eadc39e49e3ddbd",
+      "sourcePages": [
+        154
+      ],
+      "sourceBodySha256": "b6d0b34b66ad59e36adef60c372fe41c3ef2dc1c76ebe8093dabc9bb51c03bc7",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Крошечные пирожные и перо, которым машут в воздухе.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В списке указаны оба материала; действие с пером сохранено. Число пирожных и их цена не заданы."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:illusory-script",
+      "name": {
+        "ru": "Иллюзорное письмо",
+        "en": "Illusory Script"
+      },
+      "entrySha256": "ca232ec3289e77d23fc3e8ca8306f21bb2ec04a63e2cd00deb9593b566222ebd",
+      "sourcePages": [
+        156
+      ],
+      "sourceBodySha256": "cadfe135a2a4c6be387264d5dd4fe105e62932d1236397b5cdb13739e8ba7522",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Чернила на основе свинца.",
+        "price": {
+          "kind": "stated",
+          "text": "Чернила — не менее 10 зм."
+        },
+        "consumption": {
+          "kind": "consumed",
+          "text": "Заклинание расходует чернила."
+        },
+        "note": "В описании также указан подходящий материал для письма — пергамент, бумага или другая поверхность. Цена 10 зм относится к чернилам, а не к поверхности."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:jump",
+      "name": {
+        "ru": "Прыжок",
+        "en": "Jump"
+      },
+      "entrySha256": "7a032537c04ca1582ae37deddc6b4f12b1a20811f31c1f5191f2eca1127c220b",
+      "sourcePages": [
+        158
+      ],
+      "sourceBodySha256": "d8d5d53456121af372995212da0fafbf65285038f189e6791721194a6dd22eee",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Задняя лапка кузнечика.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Указана именно задняя лапка, без массы и цены."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:longstrider",
+      "name": {
+        "ru": "Скороход",
+        "en": "Longstrider"
+      },
+      "entrySha256": "e34815a49007451325aa9fcc5c049b3140748cc2d6fc62570bcf3dac456a0407",
+      "sourcePages": [
+        160
+      ],
+      "sourceBodySha256": "d51b90670b0eccae1f297cd1da5633d052aa31940a1458cc439ee446e7781e0a",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Щепотка земли.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Прибавка скорости и число целей описывают эффект, не количество компонента."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:mage-armor",
+      "name": {
+        "ru": "Доспехи мага",
+        "en": "Mage Armor"
+      },
+      "entrySha256": "24cba4ac65921c4f63e20649929d6268f04f74a4a2927f2b2edba0a0cbbecf02",
+      "sourcePages": [
+        160
+      ],
+      "sourceBodySha256": "dad56b679158ca4d2c4da34b37b52b060909e51e35ab4dde91aa08c1f120b98c",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Кусочек выделанной кожи.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Компонент не является комплектом кожаного доспеха; цена доспеха не подставляется."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:sanctuary",
+      "name": {
+        "ru": "Убежище",
+        "en": "Sanctuary"
+      },
+      "entrySha256": "c94bed5038e613b4c03b4db8008ec49425014fad3dba8f482a20194b4fa2763a",
+      "sourcePages": [
+        176
+      ],
+      "sourceBodySha256": "8ae6e71ca0e0b9a6d20266411524a94d39e1d1f03aa4aac1b58ac97978600c15",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Маленькое серебряное зеркальце.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Размер указан качественно, без цены. Стоимость другого зеркала из списка снаряжения не переносится автоматически."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:silent-image",
+      "name": {
+        "ru": "Безмолвный образ",
+        "en": "Silent Image"
+      },
+      "entrySha256": "fa464c41852911390a45659d228b6b8f36666bea3ebd1d1822d6bff0f13db97c",
+      "sourcePages": [
+        179,
+        180
+      ],
+      "sourceBodySha256": "e1f4012a98c8188d0e2a996b1be427f1150c3c7a6a08c9b5abc78478e4eb24b3",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Кусочек овечьей шерсти.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "Размер иллюзии не является размером материального компонента."
+      }
+    },
+    {
+      "id": "srd51:2014:spell:unseen-servant",
+      "name": {
+        "ru": "Невидимый слуга",
+        "en": "Unseen Servant"
+      },
+      "entrySha256": "014ace68d133b9d0d5790c0e461f1ba3912f7cb16d7cbc030bd285f20c94c2c6",
+      "sourcePages": [
+        189
+      ],
+      "sourceBodySha256": "7b31ebded0875950e50753036c78db117990115e9aab359815970540c373686c",
+      "checkedOn": "2026-11-19",
+      "materials": {
+        "description": "Кусочек бечёвки и немного дерева.",
+        "price": {
+          "kind": "not-stated"
+        },
+        "consumption": {
+          "kind": "retained",
+          "text": "Правило не указывает расход компонентов; применяется общее правило материальных компонентов."
+        },
+        "note": "В списке указаны оба материала, без числовых размеров и цены."
       }
     }
   ]
