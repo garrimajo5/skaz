@@ -102,3 +102,5 @@ dialog:has(#spell-inventory){max-width:760px}
 
 /* Match the sticky 56px header in the large landscape shell (quick.css). */
 @media(min-width:1000px) and (min-height:600px) and (orientation:landscape){#catalog-result-heading{scroll-margin-top:76px}}
+
+.catalog-tile-fact-material{grid-column:1/-1}.catalog-material-details{margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:var(--radius-s);overflow-wrap:anywhere}.catalog-material-details h3{scroll-margin-top:204px}.catalog-material-details p,.catalog-material-details .catalog-meta{font-size:14px;line-height:1.6}
