@@ -7,7 +7,7 @@ import {validateMaterialProposal} from '../scripts/spell-materials-contract.mjs'
 import {spellMaterialReferences} from '../server/spell-material-references.mjs';
 const catalog=validateCatalog(bundledCatalog().bundle),proposal=JSON.parse(readFileSync(new URL('../catalog/spell-materials.proposal.json',import.meta.url),'utf8')),candidate={...proposal,entries:proposal.entries.filter(e=>["Acid Arrow","Animal Messenger","Arcane Lock","Arcanist’s Magic Aura","Augury","Barkskin","Darkness","Darkvision","Detect Thoughts","Enhance Ability","Enlarge/Reduce","Flame Blade","Flaming Sphere","Gentle Repose","Gust of Wind"].includes(e.name.en))};
 test('fifteen second-level material candidates preserve active provenance',()=>{
- assert.equal(validateMaterialProposal(proposal,catalog).reviewed,104);const entries=catalog.filter(e=>candidate.entries.some(r=>r.id===e.id));assert.equal(entries.length,15);assert.equal(spellMaterialReferences(entries).length,15);assert.deepEqual(spellMaterialReferences(entries.map(e=>({...e,text:e.text+' Personal'}))),[]);
+ assert.equal(validateMaterialProposal(proposal,catalog).reviewed,184);const entries=catalog.filter(e=>candidate.entries.some(r=>r.id===e.id));assert.equal(entries.length,15);assert.equal(spellMaterialReferences(entries).length,15);assert.deepEqual(spellMaterialReferences(entries.map(e=>({...e,text:e.text+' Personal'}))),[]);
 });
 test('priced dust, reusable divination tokens and persistent eye coins remain distinct',()=>{
  const row=name=>candidate.entries.find(e=>e.name.en===name).materials;

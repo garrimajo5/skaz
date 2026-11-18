@@ -7,7 +7,7 @@ import {validateMaterialProposal,validateMaterials} from '../scripts/spell-mater
 const proposal=JSON.parse(readFileSync(new URL('../catalog/spell-materials.proposal.json',import.meta.url)));
 const catalog=validateCatalog(bundledCatalog().bundle);
 test('material review stays partial and outside installed catalog',()=>{
- const result=validateMaterialProposal(proposal,catalog);assert.equal(result.reviewed,104);assert.equal(result.total,319);assert.equal(result.remaining,215);assert.equal(result.installed,false);assert.equal(result.sourceBodiesCompared,false);
+ const result=validateMaterialProposal(proposal,catalog);assert.equal(result.reviewed,184);assert.equal(result.total,319);assert.equal(result.remaining,135);assert.equal(result.installed,false);assert.equal(result.sourceBodiesCompared,false);
  assert.ok(catalog.filter(e=>e.kind==='spell').every(e=>!Object.hasOwn(e.spell,'materials')));
 });
 test('source, identity and edited personal entries cannot inherit reviewed material conditions',()=>{
@@ -45,7 +45,7 @@ test('material view distinguishes unknown from unstated and preserves partial co
 test('read-only fixture serves art and fonts but rejects mutations and unrelated files',async()=>{
  const server=createSpellMaterialsFixture();await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port;
  try{
-  const response=await fetch(origin+'/examples.json');assert.equal(response.status,200);const examples=await response.json();assert.equal(examples.length,105);assert.equal(examples.filter(e=>e.materials).length,104);
+  const response=await fetch(origin+'/examples.json');assert.equal(response.status,200);const examples=await response.json();assert.equal(examples.length,185);assert.equal(examples.filter(e=>e.materials).length,184);
   for(const e of examples){const image=await fetch(origin+'/'+e.art);assert.equal(image.status,200);assert.equal(Buffer.from(await image.arrayBuffer()).subarray(0,8).toString('hex'),'89504e470d0a1a0a');}
   const font=await fetch(origin+'/fonts/inter-400-800-cyrillic.woff2');assert.equal(font.status,200);assert.equal(Buffer.from(await font.arrayBuffer()).subarray(0,4).toString(),'wOF2');
   assert.equal((await fetch(origin+'/examples.json',{method:'POST',body:'{}'})).status,405);

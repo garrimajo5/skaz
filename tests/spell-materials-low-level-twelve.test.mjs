@@ -10,7 +10,7 @@ const candidate=read('spell-materials.proposal.json');
 const names=['Dancing Lights','Floating Disk','Goodberry','Grease','Hideous Laughter','Illusory Script','Jump','Longstrider','Mage Armor','Sanctuary','Silent Image','Unseen Servant'];
 const reviewed=candidate.entries.filter(e=>names.includes(e.name.en));
 test('twelve remaining low-level additions are active',()=>{
- assert.equal(validateMaterialProposal(candidate,catalog).reviewed,104);
+ assert.equal(validateMaterialProposal(candidate,catalog).reviewed,184);
  assert.equal(spellMaterialReferences(catalog.filter(e=>reviewed.some(r=>r.id===e.id))).length,12);
  const ink=candidate.entries.find(e=>e.name.en==='Illusory Script').materials;
  assert.equal(ink.price.kind,'stated');assert.match(ink.price.text,/не менее 10/);assert.equal(ink.consumption.kind,'consumed');
