@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {equipmentRows} from '../scripts/catalog-equipment-discovery.mjs';
+const header='<tr><td>Предмет</td><td>Стоимость</td><td>Вес</td><td>Предмет</td><td>Стоимость</td><td>Вес</td></tr>';
+const body='<tr><td>Игральные кости</td><td>1 см</td><td>—</td><td colspan="3">Группа инструментов</td></tr><tr><td>Лира</td><td>30 зм</td><td>2 фнт.</td><td>Флейта</td><td>2 зм</td><td>1 фнт.</td></tr>';
+const table=(rows=body)=>'<table>'+header+rows+'</table>';
+const article=(content=table())=>'<div class="card__body new-article"><li><strong>Источники:</strong> «<span>Book A</span>», «<span>Book B</span>»</li>'+content+'</div><div class="card__footer"></div>';
+const url='https://dnd.su/articles/inventory/100-tools/';
+test('two-column equipment table enumerates both halves but excludes section headings',()=>{const r=equipmentRows(article(),url);assert.deepEqual(r.records.map(x=>x.name),['Игральные кости','Лира','Флейта']);assert.deepEqual(r.records[0].sourceTitles,['Book A','Book B']);assert.equal(r.records[0].canonicalCatalogId,null);});
+test('comment tables and prose are outside equipment inventory',()=>{const r=equipmentRows(article()+table('<tr><td>Comment item</td><td>1 зм</td><td>1</td></tr>'),url);assert.equal(r.records.length,3);assert.ok(!JSON.stringify(r).includes('Comment'));});
+test('source and article boundaries are required',()=>{assert.throws(()=>equipmentRows(table(),url),/boundary/);assert.throws(()=>equipmentRows(article().replace('<strong>Источники:</strong>','Other'),url),/source/);});
+test('renumbering rows does not change observation identity',()=>{const first=equipmentRows(article(),url).records;const changed=equipmentRows(article(table(body.replace('<td>Лира</td>','<td>  Лира </td>'))),url).records;assert.deepEqual(first.map(x=>x.observationId),changed.map(x=>x.observationId));});
+test('duplicate names and non-price columns fail closed',()=>{assert.throws(()=>equipmentRows(article(table(body+body)),url),/Duplicate/);assert.throws(()=>equipmentRows(article(table(body.replace('30 зм','not a price'))),url),/price/);});

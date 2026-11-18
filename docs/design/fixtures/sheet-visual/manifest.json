@@ -1,0 +1,1023 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "status": "original-visual-design-samples-not-ocr-benchmark",
+  "ruleset": "5e-2014",
+  "generator": "scripts/build-sheet-visual-fixtures.py",
+  "generatorSha256": "643b963371c31d293ae3fded4aa6a315e1efe946db7c9bc2b662a69326b9f62c",
+  "semanticSourceSha256": "db57ee5001f60048a261e9ba257c949d38066a8110ae1adb74210ada48711821",
+  "fontSha256": "c9b76220a5be42ead4733611e417cd65c5fd8aeaa33eb56576ac378a37d130a1",
+  "regionCoordinates": "Canonical upright PNG pixels; rotate JPEG to upright before mapping. PDF uses proportional A4 coordinates.",
+  "sourceLicense": "Original project QA layouts; no external sheet or personal data copied",
+  "cases": [
+    {
+      "id": "single-class",
+      "expected": {
+        "name": "Лира",
+        "classes": [
+          {
+            "name": "Бард",
+            "level": 5
+          }
+        ],
+        "abilities": {
+          "str": 8,
+          "dex": 14,
+          "con": 12,
+          "int": 10,
+          "wis": 13,
+          "cha": 16
+        },
+        "hp": {
+          "max": 33,
+          "current": 21,
+          "temp": 0
+        }
+      },
+      "review": [],
+      "assets": [
+        {
+          "file": "single-class-1.png",
+          "kind": "png",
+          "sha256": "556fbfd8799edfc707b5f27c087126fbc9ee3c16e51db91e5918c1725dd14450",
+          "bytes": 65672,
+          "width": 1240,
+          "height": 1754,
+          "page": 1
+        },
+        {
+          "file": "single-class-text.pdf",
+          "kind": "text-pdf",
+          "sha256": "d1a66e2fae0ebc7f6d0f0c247acb6243123013a4b7a6e9d1a43e235a90a93ce3",
+          "bytes": 49004,
+          "pages": 1
+        },
+        {
+          "file": "single-class-scan.pdf",
+          "kind": "image-pdf",
+          "sha256": "f92f87f106b27fc9268b4c92d926729b090bf0331f8fb7952f6599ce493e93cd",
+          "bytes": 68473,
+          "pages": 1
+        },
+        {
+          "file": "single-class-rotated.jpg",
+          "kind": "jpeg-rotated",
+          "sha256": "b0a7f9986c5c6e0901dfd2416e3e4b2a59084da84093c96081e0a4a480091691",
+          "bytes": 145884,
+          "width": 1754,
+          "height": 1240,
+          "rotationToUprightClockwise": 90
+        }
+      ],
+      "regions": [
+        {
+          "field": "name",
+          "page": 1,
+          "box": [
+            560,
+            240,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "classes",
+          "page": 1,
+          "box": [
+            560,
+            356,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "abilities.str",
+          "page": 1,
+          "box": [
+            560,
+            472,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "abilities.dex",
+          "page": 1,
+          "box": [
+            560,
+            588,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "abilities.con",
+          "page": 1,
+          "box": [
+            560,
+            704,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "abilities.int",
+          "page": 1,
+          "box": [
+            560,
+            820,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "abilities.wis",
+          "page": 1,
+          "box": [
+            560,
+            936,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "abilities.cha",
+          "page": 1,
+          "box": [
+            560,
+            1052,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "hp.max",
+          "page": 1,
+          "box": [
+            560,
+            1168,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "hp.current",
+          "page": 1,
+          "box": [
+            560,
+            1284,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "hp.temp",
+          "page": 1,
+          "box": [
+            560,
+            1400,
+            590,
+            60
+          ],
+          "blank": false
+        }
+      ]
+    },
+    {
+      "id": "multiclass-pact",
+      "expected": {
+        "name": "Кей",
+        "classes": [
+          {
+            "name": "Волшебник",
+            "level": 3
+          },
+          {
+            "name": "Колдун",
+            "level": 2
+          }
+        ],
+        "totalLevel": 5,
+        "resourceGroups": [
+          {
+            "label": "Spellcasting",
+            "slots": {
+              "1": 4,
+              "2": 2
+            }
+          },
+          {
+            "label": "Pact Magic",
+            "slots": {
+              "1": 2
+            }
+          }
+        ]
+      },
+      "review": [
+        "Списки известного/подготовленного связываются с источником отдельно; группы ячеек не объединять."
+      ],
+      "assets": [
+        {
+          "file": "multiclass-pact-1.png",
+          "kind": "png",
+          "sha256": "de63672708c8ff1e5c374233831814c0edacc494bc93874083607813887f7278",
+          "bytes": 52815,
+          "width": 1240,
+          "height": 1754,
+          "page": 1
+        }
+      ],
+      "regions": [
+        {
+          "field": "name",
+          "page": 1,
+          "box": [
+            560,
+            240,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "classes",
+          "page": 1,
+          "box": [
+            560,
+            356,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "totalLevel",
+          "page": 1,
+          "box": [
+            560,
+            472,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "resourceGroups.0",
+          "page": 1,
+          "box": [
+            560,
+            588,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "resourceGroups.1",
+          "page": 1,
+          "box": [
+            560,
+            704,
+            590,
+            60
+          ],
+          "blank": false
+        }
+      ]
+    },
+    {
+      "id": "unknown-hp",
+      "expected": {
+        "name": "Рин",
+        "hp": {
+          "max": 27,
+          "current": null,
+          "temp": 0
+        }
+      },
+      "review": [
+        "Пустое текущее здоровье не равно максимуму и не равно нулю."
+      ],
+      "assets": [
+        {
+          "file": "unknown-hp-1.png",
+          "kind": "png",
+          "sha256": "4f6589dfcd8f0f6942967a1ab18ef810d1b80583d720d6674f1c21cd6b4e62a4",
+          "bytes": 43777,
+          "width": 1240,
+          "height": 1754,
+          "page": 1
+        }
+      ],
+      "regions": [
+        {
+          "field": "name",
+          "page": 1,
+          "box": [
+            560,
+            240,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "hp.max",
+          "page": 1,
+          "box": [
+            560,
+            356,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "hp.current",
+          "page": 1,
+          "box": [
+            560,
+            472,
+            590,
+            60
+          ],
+          "blank": true
+        },
+        {
+          "field": "hp.temp",
+          "page": 1,
+          "box": [
+            560,
+            588,
+            590,
+            60
+          ],
+          "blank": false
+        }
+      ]
+    },
+    {
+      "id": "ambiguous-dex",
+      "expected": {
+        "name": "Арно",
+        "dex": null,
+        "dexCandidates": [
+          13,
+          18
+        ],
+        "printedModifier": 1
+      },
+      "review": [
+        "Модификатор — подсказка для сверки, не основание молча выбрать13."
+      ],
+      "assets": [
+        {
+          "file": "ambiguous-dex-1.png",
+          "kind": "png",
+          "sha256": "79e0ae4f2093c952c1e3782723a9d4690934b50382433ddaec13ffe6a9e82d48",
+          "bytes": 42308,
+          "width": 1240,
+          "height": 1754,
+          "page": 1
+        }
+      ],
+      "regions": [
+        {
+          "field": "name",
+          "page": 1,
+          "box": [
+            560,
+            240,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "dex",
+          "page": 1,
+          "box": [
+            560,
+            356,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "printedModifier",
+          "page": 1,
+          "box": [
+            560,
+            472,
+            590,
+            60
+          ],
+          "blank": false
+        }
+      ]
+    },
+    {
+      "id": "conflicting-pages",
+      "expected": {
+        "name": "Лира",
+        "classLevel": null,
+        "hpMax": null
+      },
+      "review": [
+        "Показать оба источника, не выбирать последнюю страницу автоматически."
+      ],
+      "assets": [
+        {
+          "file": "conflicting-pages-1.png",
+          "kind": "png",
+          "sha256": "51f462de183209240ad5e9d1028cd9d7802260e75b8b21baa4cf574bc162a685",
+          "bytes": 44837,
+          "width": 1240,
+          "height": 1754,
+          "page": 1
+        },
+        {
+          "file": "conflicting-pages-2.png",
+          "kind": "png",
+          "sha256": "829f236b5f137886176d0de6da76d0e81c05bdea0cb809e8ef63ba4821ab9d6d",
+          "bytes": 45141,
+          "width": 1240,
+          "height": 1754,
+          "page": 2
+        },
+        {
+          "file": "conflicting-pages.pdf",
+          "kind": "text-pdf",
+          "sha256": "ef26fcbf563f12742e9024ddd8afebb66951e69bc7ef2926b4c4860d8b9a38cf",
+          "bytes": 48837,
+          "pages": 2
+        }
+      ],
+      "regions": [
+        {
+          "field": "name",
+          "page": 1,
+          "box": [
+            560,
+            240,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "classLevel",
+          "page": 1,
+          "box": [
+            560,
+            356,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "hpMax",
+          "page": 1,
+          "box": [
+            560,
+            472,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "name",
+          "page": 2,
+          "box": [
+            560,
+            240,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "classLevel",
+          "page": 2,
+          "box": [
+            560,
+            356,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "hpMax",
+          "page": 2,
+          "box": [
+            560,
+            472,
+            590,
+            60
+          ],
+          "blank": false
+        }
+      ]
+    },
+    {
+      "id": "unknown-spell",
+      "expected": {
+        "spellCandidates": [
+          {
+            "sourceText": "Healing Word",
+            "lookup": "needs-2014-catalog-match"
+          },
+          {
+            "sourceText": "The Moon Door",
+            "lookup": null
+          }
+        ]
+      },
+      "review": [
+        "Не создавать запись общего каталога, не подменять неизвестное похожим заклинанием, хомбрю вне объёма."
+      ],
+      "assets": [
+        {
+          "file": "unknown-spell-1.png",
+          "kind": "png",
+          "sha256": "d9317344cbe6fa391c9fba015785ae20ef9ccaa6859eaffbd0c299d8d5c536b1",
+          "bytes": 48458,
+          "width": 1240,
+          "height": 1754,
+          "page": 1
+        }
+      ],
+      "regions": [
+        {
+          "field": "spellCandidates.0",
+          "page": 1,
+          "box": [
+            560,
+            240,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "spellCandidates.1",
+          "page": 1,
+          "box": [
+            560,
+            356,
+            590,
+            60
+          ],
+          "blank": false
+        }
+      ]
+    },
+    {
+      "id": "proficiency-mark",
+      "expected": {
+        "acrobaticsProficient": false,
+        "stealthProficient": true,
+        "perceptionProficient": null
+      },
+      "review": [
+        "Не выводить владение только из напечатанного итогового бонуса."
+      ],
+      "assets": [
+        {
+          "file": "proficiency-mark-1.png",
+          "kind": "png",
+          "sha256": "a8b853f64166d74e5f05f91bd3d6087418691adcad47979cb0abbf0a0c753ea6",
+          "bytes": 44382,
+          "width": 1240,
+          "height": 1754,
+          "page": 1
+        }
+      ],
+      "regions": [
+        {
+          "field": "acrobaticsProficient",
+          "page": 1,
+          "box": [
+            540,
+            240,
+            90,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "stealthProficient",
+          "page": 1,
+          "box": [
+            540,
+            356,
+            90,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "perceptionProficient",
+          "page": 1,
+          "box": [
+            540,
+            472,
+            90,
+            60
+          ],
+          "blank": false
+        }
+      ]
+    },
+    {
+      "id": "zero-charges",
+      "expected": {
+        "charges": {
+          "current": 0,
+          "max": 7
+        },
+        "quantity": null
+      },
+      "review": [
+        "Ноль сохраняется; отсутствие количества не означает1."
+      ],
+      "assets": [
+        {
+          "file": "zero-charges-1.png",
+          "kind": "png",
+          "sha256": "20203d19887f193d2de9f2080860a42041cd168282ffd344f09fada8d4affe8c",
+          "bytes": 40131,
+          "width": 1240,
+          "height": 1754,
+          "page": 1
+        }
+      ],
+      "regions": [
+        {
+          "field": "charges",
+          "page": 1,
+          "box": [
+            560,
+            240,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "quantity",
+          "page": 1,
+          "box": [
+            560,
+            356,
+            590,
+            60
+          ],
+          "blank": true
+        }
+      ]
+    },
+    {
+      "id": "same-name",
+      "expected": {
+        "name": "Лира",
+        "classes": [
+          {
+            "name": "Воин",
+            "level": 2
+          }
+        ],
+        "destination": "new-character-confirmation"
+      },
+      "review": [
+        "Совпадение имени не выбирает существующий профиль для перезаписи."
+      ],
+      "assets": [
+        {
+          "file": "same-name-1.png",
+          "kind": "png",
+          "sha256": "cad243165d3f4b03cde276eb17ef5b98c95ce2123901bc4921148cf456c6cab0",
+          "bytes": 39703,
+          "width": 1240,
+          "height": 1754,
+          "page": 1
+        }
+      ],
+      "regions": [
+        {
+          "field": "name",
+          "page": 1,
+          "box": [
+            560,
+            240,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "classes",
+          "page": 1,
+          "box": [
+            560,
+            356,
+            590,
+            60
+          ],
+          "blank": false
+        }
+      ],
+      "context": {
+        "existingCharacterName": "Лира",
+        "expectedAction": "new-character-confirmation"
+      }
+    },
+    {
+      "id": "unsupported-2024",
+      "expected": {
+        "ruleset": null,
+        "importAllowed": false
+      },
+      "review": [
+        "Остановить применение, объяснить поддержку2014; не конвертировать правила молча."
+      ],
+      "assets": [
+        {
+          "file": "unsupported-2024-1.png",
+          "kind": "png",
+          "sha256": "6a9a005e155efb73540c59963d0d5634b7c4f3a7ce9343b651c802cbc06abfd7",
+          "bytes": 47549,
+          "width": 1240,
+          "height": 1754,
+          "page": 1
+        }
+      ],
+      "regions": [
+        {
+          "field": "ruleset",
+          "page": 1,
+          "box": [
+            560,
+            240,
+            590,
+            60
+          ],
+          "blank": false
+        },
+        {
+          "field": "feature",
+          "page": 1,
+          "box": [
+            560,
+            356,
+            590,
+            60
+          ],
+          "blank": false
+        }
+      ]
+    }
+  ],
+  "extraCases": [
+    {
+      "id": "english-two-column",
+      "expected": {
+        "name": "Lyra",
+        "classes": [
+          {
+            "name": "Bard",
+            "level": 5
+          }
+        ],
+        "abilities": {
+          "str": 8,
+          "dex": 14,
+          "con": 12,
+          "int": 10,
+          "wis": 13,
+          "cha": 16
+        },
+        "hp": {
+          "max": 33,
+          "current": 21,
+          "temp": 0
+        },
+        "armorClass": 13,
+        "initiative": 2,
+        "spellSaveDC": 14
+      },
+      "regions": [
+        {
+          "field": "name",
+          "page": 1,
+          "box": [
+            85,
+            260,
+            490,
+            65
+          ],
+          "blank": false
+        },
+        {
+          "field": "classes",
+          "page": 1,
+          "box": [
+            665,
+            260,
+            490,
+            65
+          ],
+          "blank": false
+        },
+        {
+          "field": "abilities.str",
+          "page": 1,
+          "box": [
+            85,
+            410,
+            490,
+            65
+          ],
+          "blank": false
+        },
+        {
+          "field": "abilities.dex",
+          "page": 1,
+          "box": [
+            665,
+            410,
+            490,
+            65
+          ],
+          "blank": false
+        },
+        {
+          "field": "abilities.con",
+          "page": 1,
+          "box": [
+            85,
+            560,
+            490,
+            65
+          ],
+          "blank": false
+        },
+        {
+          "field": "abilities.int",
+          "page": 1,
+          "box": [
+            665,
+            560,
+            490,
+            65
+          ],
+          "blank": false
+        },
+        {
+          "field": "abilities.wis",
+          "page": 1,
+          "box": [
+            85,
+            710,
+            490,
+            65
+          ],
+          "blank": false
+        },
+        {
+          "field": "abilities.cha",
+          "page": 1,
+          "box": [
+            665,
+            710,
+            490,
+            65
+          ],
+          "blank": false
+        },
+        {
+          "field": "hp.max",
+          "page": 1,
+          "box": [
+            85,
+            860,
+            490,
+            65
+          ],
+          "blank": false
+        },
+        {
+          "field": "hp.current",
+          "page": 1,
+          "box": [
+            665,
+            860,
+            490,
+            65
+          ],
+          "blank": false
+        },
+        {
+          "field": "hp.temp",
+          "page": 1,
+          "box": [
+            85,
+            1010,
+            490,
+            65
+          ],
+          "blank": false
+        },
+        {
+          "field": "armorClass",
+          "page": 1,
+          "box": [
+            665,
+            1010,
+            490,
+            65
+          ],
+          "blank": false
+        },
+        {
+          "field": "initiative",
+          "page": 1,
+          "box": [
+            85,
+            1160,
+            490,
+            65
+          ],
+          "blank": false
+        },
+        {
+          "field": "spellSaveDC",
+          "page": 1,
+          "box": [
+            665,
+            1160,
+            490,
+            65
+          ],
+          "blank": false
+        }
+      ],
+      "assets": [
+        {
+          "file": "english-two-column.png",
+          "kind": "png",
+          "sha256": "43d9c86242ed4b23c07fbc2e233841643e92de704a2c916c7ef02d6a75d71ecd",
+          "bytes": 73002,
+          "width": 1240,
+          "height": 1754,
+          "page": 1
+        },
+        {
+          "file": "english-two-column.pdf",
+          "kind": "text-pdf",
+          "sha256": "338c8f948ef348095725019d9a7595ad39d1e643390035073efbfdc3795cce82",
+          "bytes": 41914,
+          "pages": 1
+        }
+      ],
+      "review": [
+        "English labels and two-column reading order; not proof of a legal complete character build"
+      ]
+    }
+  ],
+  "qualityCase": {
+    "id": "insufficient-quality",
+    "asset": {
+      "file": "insufficient-quality.jpg",
+      "kind": "jpeg-degraded",
+      "sha256": "df744c858b5ad18b258c4dd38853d3d539057c461e976740586eb655444a9a04",
+      "bytes": 40490,
+      "width": 1240,
+      "height": 1754
+    },
+    "expectedAction": "request-better-source-or-manual-entry",
+    "expectedValues": null,
+    "mustNot": "report confident values from semantic fixture without reading the actual asset"
+  },
+  "coverageLimits": [
+    "Original sparse layouts, not representative of all commercial/official sheets",
+    "No real camera photo, handwriting corpus, encryption, corruption or decompression-bomb fixture",
+    "No OCR engine has run; expected ambiguity is a UX review requirement",
+    "Formats and thresholds await backend/game-designer agreement"
+  ]
+}

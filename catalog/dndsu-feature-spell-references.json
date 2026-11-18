@@ -1,0 +1,4132 @@
+{
+  "schemaVersion": 1,
+  "status": "non-table-feature-references-not-spell-grants",
+  "summary": {
+    "classes": 13,
+    "references": 134,
+    "spellPageReferences": 100,
+    "listNavigationReferences": 32,
+    "searchNavigationReferences": 2,
+    "uniqueSpellPages": 62,
+    "blankLabels": 3,
+    "unknownPages": 0,
+    "nameConflicts": 0
+  },
+  "classes": [
+    {
+      "classUrl": "https://dnd.su/class/88-bard/",
+      "records": [
+        {
+          "id": "feature-spell-ref:2241c826381a8c2bd7f3",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/88-bard/",
+          "featureId": "scope:bard:class-features:feature.spellcasting",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 20,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&class=12",
+            "label": "заклинания барда",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "8bbe365d71be1a9809d238d86adbfe4f2d3722866e4549f715736f25f55ab94b",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:07962c79c6a223aeaabb",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/88-bard/",
+          "featureId": "scope:bard:class-features:feature.spellcasting",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Заговоры (заклинания 0-го уровня)",
+          "contextOrdinal": 21,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0&class=12",
+            "label": "заговора",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "e648e3d146416ac1af2a57e33b815b96c0c6de7011cbff9710290bc8f8420f54",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:479143687d723ad2a8e2",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/88-bard/",
+          "featureId": "scope:bard:class-features:feature.spellcasting",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Ячейки заклинаний",
+          "contextOrdinal": 22,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:145",
+            "url": "https://dnd.su/spells/145-cure_wounds/",
+            "label": "лечение ран [cure wounds]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "76f0021d1b7c0f8cfbd4dfbb244474ad3a7ae1f0f5df43466c23f456d2c5d1a4",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:5bd05c15921afc7cb05c",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/88-bard/",
+          "featureId": "scope:bard:class-features:feature.extra-spells",
+          "featureTitle": "Дополнительные заклинания барда",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Дополнительные заклинания барда",
+          "contextOrdinal": 27,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [
+            "TCE"
+          ],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&class=33",
+            "label": "следующем списке",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "4b9ca8bb200bc86495cda7247a6b5c61b1cee7c36785fb07db38a75f18e8ad4a",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:ce1bdb8cf8081a3d71af",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/88-bard/",
+          "featureId": "scope:bard:college.glamour:ab3cf517c33f675c",
+          "featureTitle": "МАНТИЯ ВЕЛИЧИЯ",
+          "parent": "college.glamour",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "МАНТИЯ ВЕЛИЧИЯ",
+          "contextOrdinal": 61,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:276",
+            "url": "https://dnd.su/spells/276-command/",
+            "label": "приказ [command]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "05f2e9baf32c2ef0c46e773eec199fd78e96f3c6a919f8aacea38e5ebd29ce36",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:db83b388651b7f807474",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/88-bard/",
+          "featureId": "scope:bard:college.glamour:ab3cf517c33f675c",
+          "featureTitle": "МАНТИЯ ВЕЛИЧИЯ",
+          "parent": "college.glamour",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "МАНТИЯ ВЕЛИЧИЯ",
+          "contextOrdinal": 61,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:276",
+            "url": "https://dnd.su/spells/276-command/",
+            "label": "приказ [command]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "05f2e9baf32c2ef0c46e773eec199fd78e96f3c6a919f8aacea38e5ebd29ce36",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:cc1a270aea97e86930c4",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/88-bard/",
+          "featureId": "scope:bard:college.glamour:ab3cf517c33f675c",
+          "featureTitle": "МАНТИЯ ВЕЛИЧИЯ",
+          "parent": "college.glamour",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "МАНТИЯ ВЕЛИЧИЯ",
+          "contextOrdinal": 61,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:276",
+            "url": "https://dnd.su/spells/276-command/",
+            "label": "приказ [command]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "2c193c39b6a9b37ac333c069482df31206d0e9ecde1bd38217c5fe7dc6cca9c3",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:eafa6542c20047e33e05",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/88-bard/",
+          "featureId": "scope:bard:college.spirits:cdcf9bf90e719210",
+          "featureTitle": "Направляющий шёпот",
+          "parent": "college.spirits",
+          "featureSourceIds": [
+            "125"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Направляющий шёпот",
+          "contextOrdinal": 80,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:105",
+            "url": "https://dnd.su/spells/105-guidance/",
+            "label": "указание [guidance]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "1251b2a35c64359844832b4775ef85fa38bf8f0b95d8d98a289a52c1a8bc1366",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        }
+      ],
+      "rawSha256": "c28e13801103bbfab03ebd9c42a6280492df81ed2137fb114becc9a5b356b610"
+    },
+    {
+      "classUrl": "https://dnd.su/class/87-barbarian/",
+      "records": [
+        {
+          "id": "feature-spell-ref:f3246d9cb39ef5f1cf54",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "featureId": "scope:barbarian:primal.totem-warrior:41746d2e813f0a75",
+          "featureTitle": "ИСКАТЕЛЬ ДУХОВ",
+          "parent": "primal.totem-warrior",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСКАТЕЛЬ ДУХОВ",
+          "contextOrdinal": 41,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:76",
+            "url": "https://dnd.su/spells/76-beast_sense/",
+            "label": "животные чувства [beast sense]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "f7654d231ecdbf56756d678701f67f5eba4b2be14325c2ee29062c1b7ad8514e",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:50e3533a3dad528f61fb",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "featureId": "scope:barbarian:primal.totem-warrior:41746d2e813f0a75",
+          "featureTitle": "ИСКАТЕЛЬ ДУХОВ",
+          "parent": "primal.totem-warrior",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСКАТЕЛЬ ДУХОВ",
+          "contextOrdinal": 41,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:292",
+            "url": "https://dnd.su/spells/292-speak_with_animals/",
+            "label": "разговор с животными [speak with animals]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "f7654d231ecdbf56756d678701f67f5eba4b2be14325c2ee29062c1b7ad8514e",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:e3f720748f68240cb838",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "featureId": "scope:barbarian:primal.totem-warrior:e7076eaefd57516a",
+          "featureTitle": "ГУЛЯЮЩИЙ С ДУХАМИ",
+          "parent": "primal.totem-warrior",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ГУЛЯЮЩИЙ С ДУХАМИ",
+          "contextOrdinal": 44,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:199",
+            "url": "https://dnd.su/spells/199-commune_with_nature/",
+            "label": "общение с природой [commune with nature]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 5,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "7dba450eab63cff009eb834cafaa83cacd28a67ba49c9a17529a3e72c88dc439",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:aea8e59f46981265d7fb",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "featureId": "scope:barbarian:primal.ancestral-guardian:faa5b3c215743566",
+          "featureTitle": "СОВЕТ ПРЕДКОВ",
+          "parent": "primal.ancestral-guardian",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "СОВЕТ ПРЕДКОВ",
+          "contextOrdinal": 61,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:40",
+            "url": "https://dnd.su/spells/40-augury/",
+            "label": "",
+            "nameEvidence": "empty-label",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "efb2a4d7e7fdffb3a655faeeddfb6e2fb8271b2555d30761cd5a6564e0e58904",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:aacbb48f8c85e5176266",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "featureId": "scope:barbarian:primal.ancestral-guardian:faa5b3c215743566",
+          "featureTitle": "СОВЕТ ПРЕДКОВ",
+          "parent": "primal.ancestral-guardian",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "СОВЕТ ПРЕДКОВ",
+          "contextOrdinal": 61,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:40",
+            "url": "https://dnd.su/spells/40-augury/",
+            "label": "гадание [augury]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "efb2a4d7e7fdffb3a655faeeddfb6e2fb8271b2555d30761cd5a6564e0e58904",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:06fb1498139fb760d196",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "featureId": "scope:barbarian:primal.ancestral-guardian:faa5b3c215743566",
+          "featureTitle": "СОВЕТ ПРЕДКОВ",
+          "parent": "primal.ancestral-guardian",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "СОВЕТ ПРЕДКОВ",
+          "contextOrdinal": 61,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:238",
+            "url": "https://dnd.su/spells/238-clairvoyance/",
+            "label": "подсматривание [clairvoyance]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "efb2a4d7e7fdffb3a655faeeddfb6e2fb8271b2555d30761cd5a6564e0e58904",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:d9c3cfa54245b347f870",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "featureId": "scope:barbarian:primal.ancestral-guardian:faa5b3c215743566",
+          "featureTitle": "СОВЕТ ПРЕДКОВ",
+          "parent": "primal.ancestral-guardian",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "СОВЕТ ПРЕДКОВ",
+          "contextOrdinal": 61,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:238",
+            "url": "https://dnd.su/spells/238-clairvoyance/",
+            "label": "",
+            "nameEvidence": "empty-label",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "efb2a4d7e7fdffb3a655faeeddfb6e2fb8271b2555d30761cd5a6564e0e58904",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:849f352a14f153e4f481",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "featureId": "scope:barbarian:primal.ancestral-guardian:faa5b3c215743566",
+          "featureTitle": "СОВЕТ ПРЕДКОВ",
+          "parent": "primal.ancestral-guardian",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "СОВЕТ ПРЕДКОВ",
+          "contextOrdinal": 61,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:238",
+            "url": "https://dnd.su/spells/238-clairvoyance/",
+            "label": "подсматривания [clairvoyance]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "6fdc013961dfdc90c6dbdf8a7294f2dc20c392ae5b95be0449adb41bd5f82408",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:d69391e0d24316f17efa",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "featureId": "scope:barbarian:primal.zealot:7a15a31ebc66b4a0",
+          "featureTitle": "ВОИН БОГОВ",
+          "parent": "primal.zealot",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ВОИН БОГОВ",
+          "contextOrdinal": 65,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:208",
+            "url": "https://dnd.su/spells/208-raise_dead/",
+            "label": "оживление [raise dead]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 5,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "31ed78a6180fb6498c5460c9a8cc1611aab0f9fd370b0b70b0d67e2cc1fba39c",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:98e54692f91fc451eca0",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "featureId": "scope:barbarian:primal.giant:80eddd947f9e7145",
+          "featureTitle": "Сила великана",
+          "parent": "primal.giant",
+          "featureSourceIds": [
+            "198"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Сила великана",
+          "contextOrdinal": 83,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:123",
+            "url": "https://dnd.su/spells/123-druidcraft/",
+            "label": "искусство друидов [druidcraft]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "a04dbd33c2c26562317071d69365da040e3c188ac061efa3cdd6b976cc984561",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:ecf135eeca83a81a14e0",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/87-barbarian/",
+          "featureId": "scope:barbarian:primal.giant:80eddd947f9e7145",
+          "featureTitle": "Сила великана",
+          "parent": "primal.giant",
+          "featureSourceIds": [
+            "198"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Сила великана",
+          "contextOrdinal": 83,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:80",
+            "url": "https://dnd.su/spells/80-thaumaturgy/",
+            "label": "чудотворство [thaumaturgy]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "a04dbd33c2c26562317071d69365da040e3c188ac061efa3cdd6b976cc984561",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        }
+      ],
+      "rawSha256": "41cf6317ae335a583f4a35e728f2e39b3ddeccc553783c2b174d34e6ec021eb7"
+    },
+    {
+      "classUrl": "https://dnd.su/class/91-fighter/",
+      "records": [
+        {
+          "id": "feature-spell-ref:7ffdde2e3091a52faba4",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/91-fighter/",
+          "featureId": "scope:fighter:archetype.eldritch-knigh:c1a7c732a16e9073",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "archetype.eldritch-knigh",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 49,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0%7C1%7C2%7C3%7C4&school=&class=21%7C40&concentration=&source=",
+            "label": "список заклинаний волшебника",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "75ba886f0a462bec4a2274648cb4c8b2781762099db6e78f6f573bc65a4d92b2",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:1180ef51d818ef9c66a6",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/91-fighter/",
+          "featureId": "scope:fighter:archetype.eldritch-knigh:c1a7c732a16e9073",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "archetype.eldritch-knigh",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 49,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0&school=&class=21&source=",
+            "label": "заговора",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "5c18632226aeafd57e96485beeaad35d1c4d5dc8a3f9fdb7a2ffca02e576f34d",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:8e8239f209a7efd9769a",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/91-fighter/",
+          "featureId": "scope:fighter:archetype.eldritch-knigh:c1a7c732a16e9073",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "archetype.eldritch-knigh",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 49,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:70",
+            "url": "https://dnd.su/spells/70-shield/",
+            "label": "щит [shield]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "f5302414bfd5bbb1e48dd0381892c7c8adf8a38df3dcc1aa48a5707ee81352f1",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:9c48fd8d7ce1b7483815",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/91-fighter/",
+          "featureId": "scope:fighter:archetype.eldritch-knigh:c1a7c732a16e9073",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "archetype.eldritch-knigh",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 49,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=1&school=&class=21&source=",
+            "label": "заклинания",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "ba6dcd0893bd7dcef84dd10c888d316ea19e53323204379e506dbaf1edebe5c6",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:561bf9abc299cbf8a8ea",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/91-fighter/",
+          "featureId": "scope:fighter:archetype.arcane-archer:231dd55471909fc4",
+          "featureTitle": "ЗНАНИЯ МИСТИЧЕСКОГО ЛУЧНИКА",
+          "parent": "archetype.arcane-archer",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ЗНАНИЯ МИСТИЧЕСКОГО ЛУЧНИКА",
+          "contextOrdinal": 76,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:91",
+            "url": "https://dnd.su/spells/91-prestidigitation/",
+            "label": "фокусы [prestidigitation]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "7ac48ae7f59c22e1fa77c0bb7dd0621dea6d04727d3db3f7f5f343fc573aabbc",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:430580c2a66c077956e1",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/91-fighter/",
+          "featureId": "scope:fighter:archetype.arcane-archer:231dd55471909fc4",
+          "featureTitle": "ЗНАНИЯ МИСТИЧЕСКОГО ЛУЧНИКА",
+          "parent": "archetype.arcane-archer",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ЗНАНИЯ МИСТИЧЕСКОГО ЛУЧНИКА",
+          "contextOrdinal": 76,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:123",
+            "url": "https://dnd.su/spells/123-druidcraft/",
+            "label": "искусство друидов [druidcraft]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "7ac48ae7f59c22e1fa77c0bb7dd0621dea6d04727d3db3f7f5f343fc573aabbc",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:3d62f6200fe9bf4f52cd",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/91-fighter/",
+          "featureId": "scope:fighter:archetype.psi-warrior:7e631a0c562ecc88",
+          "featureTitle": "Мастер телекинеза",
+          "parent": "archetype.psi-warrior",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Мастер телекинеза",
+          "contextOrdinal": 102,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:344",
+            "url": "https://dnd.su/spells/344-telekinesis/",
+            "label": "телекинез [telekinesis]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 5,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "02acc8b3933158a41702f841885816b3114676aa7bfeaa949b502945c293bfd3",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        }
+      ],
+      "rawSha256": "6dc77fd52bab9fe2afd06e51998e975aceb4fdf41138efbfd650d7f1664adf2c"
+    },
+    {
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "records": [
+        {
+          "id": "feature-spell-ref:3f2e5f164d1d5be0792b",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:class-features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Использование заклинаний",
+          "contextOrdinal": 19,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&class=21",
+            "label": "заклинания волшебника",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "1f7d20a09fd8eb15c2cd4d110e7d003a3e37d522f0e4404b6aa74ac1b8b16fbf",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:366bfbdb5ec76e13eaad",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:class-features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Заговоры (заклинания 0-го уровня)",
+          "contextOrdinal": 20,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0&class=21",
+            "label": "заговора",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "ab296c31fa677a9389ef96218a03e66afdc23d6e0552903d0976636713477241",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:229a72df7c4db0d115c5",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:tradition.illusion:377df2c61029d4b2",
+          "featureTitle": "УЛУЧШЕННАЯ МАЛАЯ ИЛЛЮЗИЯ",
+          "parent": "tradition.illusion",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "УЛУЧШЕННАЯ МАЛАЯ ИЛЛЮЗИЯ",
+          "contextOrdinal": 50,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:154",
+            "url": "https://dnd.su/spells/154-minor_illusion/",
+            "label": "малая иллюзия [minor illusion]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "94f5e41b0e711b292106dd4c1b11334fd193ed68efefca26ca6b15c6acd1b7ad",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:ae8e6762d822dc3bbff0",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:tradition.illusion:377df2c61029d4b2",
+          "featureTitle": "УЛУЧШЕННАЯ МАЛАЯ ИЛЛЮЗИЯ",
+          "parent": "tradition.illusion",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "УЛУЧШЕННАЯ МАЛАЯ ИЛЛЮЗИЯ",
+          "contextOrdinal": 50,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:154",
+            "url": "https://dnd.su/spells/154-minor_illusion/",
+            "label": "малая иллюзия [minor illusion]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "0c528234ac64ee26fa2ce7390f787f74e43c17dde543d3054187e98a8827fc2f",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:6773d533e1351189b348",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:tradition.necromancy:cb10ec73cff0b0d9",
+          "featureTitle": "НЕЖИВЫЕ РАБЫ",
+          "parent": "tradition.necromancy",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "НЕЖИВЫЕ РАБЫ",
+          "contextOrdinal": 57,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:35",
+            "url": "https://dnd.su/spells/35-animate_dead/",
+            "label": "восставший труп [animate dead]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "902c6607a291e90c7c56e3c3c65fb2f7c976eacff01e5e7c1a96224252db6c2b",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:c28ba3af4aab061cea50",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:tradition.necromancy:cb10ec73cff0b0d9",
+          "featureTitle": "НЕЖИВЫЕ РАБЫ",
+          "parent": "tradition.necromancy",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "НЕЖИВЫЕ РАБЫ",
+          "contextOrdinal": 57,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:35",
+            "url": "https://dnd.su/spells/35-animate_dead/",
+            "label": "восставший труп [animate dead]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "902c6607a291e90c7c56e3c3c65fb2f7c976eacff01e5e7c1a96224252db6c2b",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:17831ec770160660031d",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:tradition.abjuration:640bf162984be4c7",
+          "featureTitle": "УЛУЧШЕННОЕ ОГРАЖДЕНИЕ",
+          "parent": "tradition.abjuration",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "УЛУЧШЕННОЕ ОГРАЖДЕНИЕ",
+          "contextOrdinal": 64,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:132",
+            "url": "https://dnd.su/spells/132-counterspell/",
+            "label": "контрзаклинание [counterspell]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "cf42d6e2e2024d14fcd5c496c152755cd5f9a5af2e01e21fc54056f1f6f0e3cd",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:865b72da114bfdb6122f",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:tradition.abjuration:640bf162984be4c7",
+          "featureTitle": "УЛУЧШЕННОЕ ОГРАЖДЕНИЕ",
+          "parent": "tradition.abjuration",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "УЛУЧШЕННОЕ ОГРАЖДЕНИЕ",
+          "contextOrdinal": 64,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:301",
+            "url": "https://dnd.su/spells/301-dispel_magic/",
+            "label": "рассеивание магии [dispel magic]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "cf42d6e2e2024d14fcd5c496c152755cd5f9a5af2e01e21fc54056f1f6f0e3cd",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:c188c70de49a1b351aae",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:tradition.transmutation:b89a31c5f9da1f76",
+          "featureTitle": "ПЕРЕВЁРТЫШ",
+          "parent": "tradition.transmutation",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ПЕРЕВЁРТЫШ",
+          "contextOrdinal": 76,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:260",
+            "url": "https://dnd.su/spells/260-polymorph/",
+            "label": "превращение [polymorph]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 4,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "f22c828b2b87252a6ba6c3d7aeecd8212253ade281b72972344f503a73c7eab5",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:f8728ec5ee297a4f7012",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:tradition.transmutation:b89a31c5f9da1f76",
+          "featureTitle": "ПЕРЕВЁРТЫШ",
+          "parent": "tradition.transmutation",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ПЕРЕВЁРТЫШ",
+          "contextOrdinal": 76,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:260",
+            "url": "https://dnd.su/spells/260-polymorph/",
+            "label": "превращение [polymorph]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 4,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "f22c828b2b87252a6ba6c3d7aeecd8212253ade281b72972344f503a73c7eab5",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:721b8d7b1f1a2bf8cbb4",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:tradition.transmutation:743f0ddcddf2028f",
+          "featureTitle": "ГЕНИЙ ПРЕОБРАЗОВАНИЯ",
+          "parent": "tradition.transmutation",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ГЕНИЙ ПРЕОБРАЗОВАНИЯ",
+          "contextOrdinal": 77,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:208",
+            "url": "https://dnd.su/spells/208-raise_dead/",
+            "label": "оживление [raise dead]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 5,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "c5a6556b81b83b4abb8d116e7e2179caf761ac70ed0cb0606a18517d86936d72",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:b28ac4ab9455b2d9aacc",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:tradition.war-magic:b9a41e75d2926ba1",
+          "featureTitle": "ВСПЛЕСК МОЩИ",
+          "parent": "tradition.war-magic",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ВСПЛЕСК МОЩИ",
+          "contextOrdinal": 87,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:301",
+            "url": "https://dnd.su/spells/301-dispel_magic/",
+            "label": "рассеивание магии [dispel magic]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "a3024734fbdd303445947cbb84966f648baaa49cd39d0ce1adf77873832df6d3",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:7a05ab067c8cb0f3f7e0",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:tradition.war-magic:b9a41e75d2926ba1",
+          "featureTitle": "ВСПЛЕСК МОЩИ",
+          "parent": "tradition.war-magic",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ВСПЛЕСК МОЩИ",
+          "contextOrdinal": 87,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:132",
+            "url": "https://dnd.su/spells/132-counterspell/",
+            "label": "контрзаклинание [counterspell]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "a3024734fbdd303445947cbb84966f648baaa49cd39d0ce1adf77873832df6d3",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:617c5145dcfc89e3dd03",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/105-wizard/",
+          "featureId": "scope:wizard:tradition.scribes:b7778f2c9af8fdb1",
+          "featureTitle": "Пробуждение разума",
+          "parent": "tradition.scribes",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Пробуждение разума",
+          "contextOrdinal": 106,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:301",
+            "url": "https://dnd.su/spells/301-dispel_magic/",
+            "label": "рассеивание магии [dispel magic]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "13a893df475158e65e725f6a53f42ae7acc0b1e9847637269e6b6c31c3d3f1bb",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        }
+      ],
+      "rawSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1"
+    },
+    {
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "records": [
+        {
+          "id": "feature-spell-ref:1d6811eeaa991ae3e36c",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:class-features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Использование заклинаний",
+          "contextOrdinal": 20,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&class=22",
+            "label": "заклинания друида",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "34b293234cd5d8782c6c4c2b8a431cd0fde3168eefce91a9d4aa8605c8df8e32",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:505d76d6d510e4ff0f08",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:class-features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Заговоры (заклинания 0-го уровня)",
+          "contextOrdinal": 21,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0&class=22",
+            "label": "заговора",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "81d3b7ec974506b232dfdad4d94f8081abae8806eeafe6551629703c37e3c932",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:ac271b770fd5c689d83d",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:class-features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Подготовка и сотворение заклинаний",
+          "contextOrdinal": 22,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:145",
+            "url": "https://dnd.su/spells/145-cure_wounds/",
+            "label": "лечение ран [cure wounds]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "d845d5e208bfbfe37133d974e306beb4a2a059d9da642304b92ede6e03961a0a",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:c1473e811cbb1270532f",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:class-features:feature.wild-shape",
+          "featureTitle": "Дикий облик",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Облик ЗВЕРЯ",
+          "contextOrdinal": 29,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:272",
+            "url": "https://dnd.su/spells/272-call_lightning/",
+            "label": "призыв молнии [call lightning]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "96485b8c8b5b21fd5e66515703ddfc64cc334db245541299622c7bc495cb5313",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:ea579f1a0c943db559fd",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:class-features:feature.wild-companion",
+          "featureTitle": "Дикий спутник",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Дикий спутник",
+          "contextOrdinal": 41,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [
+            "TCE"
+          ],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:248",
+            "url": "https://dnd.su/spells/248-find_familiar/",
+            "label": "поиск фамильяра [find familiar]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "f1527fe303bd768d9b53991bac628ae1bbce5877174a5832ca5ad4ca199643d4",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:ca7ece1a638936e52f76",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:circle.land:d7d178d2a1045412",
+          "featureTitle": "ТРОПАМИ ЗЕМЛИ",
+          "parent": "circle.land",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ТРОПАМИ ЗЕМЛИ",
+          "contextOrdinal": 54,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:211",
+            "url": "https://dnd.su/spells/211-entangle/",
+            "label": "опутывание [entangle]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "8e263d31b6e61dd58f7fbde2eb126632bd47cc38b49c9ab9e9731cfd9f235534",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:a84f011001e6a2142854",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:circle.moon:9a552a7cba2f1db9",
+          "featureTitle": "ТЫСЯЧА ЛИЦ",
+          "parent": "circle.moon",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ТЫСЯЧА ЛИЦ",
+          "contextOrdinal": 70,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:323",
+            "url": "https://dnd.su/spells/323-alter_self/",
+            "label": "смена обличья [alter self]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "b79742ae29821caee501d910f1ef9329ea583983ded3062786ce86fa9f185fab",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:fdf4a54b926d2d2ddee1",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:circle.shepherd:6773a1ae4698b858",
+          "featureTitle": "ВЕРНЫЕ ПРИЗВАННЫЕ",
+          "parent": "circle.shepherd",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ВЕРНЫЕ ПРИЗВАННЫЕ",
+          "contextOrdinal": 76,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:267",
+            "url": "https://dnd.su/spells/267-conjure_animals/",
+            "label": "призыв животных [conjure animals]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "4f96e8ba05daf6670011af03b62e8350cc5a071a6a8c6db137b084fb18c36cfa",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:77b0770cce4c3c394d7c",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:circle.dreams:d33593f1bf53c005",
+          "featureTitle": "СТРАННИК ВО СНАХ",
+          "parent": "circle.dreams",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "СТРАННИК ВО СНАХ",
+          "contextOrdinal": 81,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:19",
+            "url": "https://dnd.su/spells/19-dream/",
+            "label": "вещий сон [dream]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 5,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "cb5ab7ade8c16a477a63764b9a7640f9de0a0957ce9bc0009086fe3314ea0102",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:9a7ede63bf081b0d8220",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:circle.dreams:d33593f1bf53c005",
+          "featureTitle": "СТРАННИК ВО СНАХ",
+          "parent": "circle.dreams",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "СТРАННИК ВО СНАХ",
+          "contextOrdinal": 81,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:176",
+            "url": "https://dnd.su/spells/176-scrying/",
+            "label": "наблюдение [scrying]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 5,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "cb5ab7ade8c16a477a63764b9a7640f9de0a0957ce9bc0009086fe3314ea0102",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:c5296c34d8db3a4dea9f",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:circle.dreams:d33593f1bf53c005",
+          "featureTitle": "СТРАННИК ВО СНАХ",
+          "parent": "circle.dreams",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "СТРАННИК ВО СНАХ",
+          "contextOrdinal": 81,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-search-navigation",
+            "url": "https://dnd.su/spells/?search=%D0%9A%D1%80%D1%83%D0%B3+%D1%82%D0%B5%D0%BB%D0%B5%D0%BF%D0%BE%D1%80%D1%82%D0%B0%D1%86%D0%B8%D0%B8&level=&school=&class=&concentration=&source=",
+            "label": "круг телепортации [teleportation circle]",
+            "pageId": null,
+            "search": "Круг телепортации",
+            "candidatePageIds": [
+              "dndsu:spells:137"
+            ],
+            "identityResolution": "unresolved-search-not-page-identity",
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "cb5ab7ade8c16a477a63764b9a7640f9de0a0957ce9bc0009086fe3314ea0102",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:890f6fd06958353be392",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:circle.dreams:d33593f1bf53c005",
+          "featureTitle": "СТРАННИК ВО СНАХ",
+          "parent": "circle.dreams",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "СТРАННИК ВО СНАХ",
+          "contextOrdinal": 81,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-search-navigation",
+            "url": "https://dnd.su/spells/?search=%D0%9A%D1%80%D1%83%D0%B3+%D1%82%D0%B5%D0%BB%D0%B5%D0%BF%D0%BE%D1%80%D1%82%D0%B0%D1%86%D0%B8%D0%B8&level=&school=&class=&concentration=&source=",
+            "label": "круг телепортации [teleportation circle]",
+            "pageId": null,
+            "search": "Круг телепортации",
+            "candidatePageIds": [
+              "dndsu:spells:137"
+            ],
+            "identityResolution": "unresolved-search-not-page-identity",
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "a9469835df0dadbcef88d1a97b4df0beb3a1a4c7aff11c49e80a66c66aa7ad68",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:47c97734cd8014a37a1f",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:circle.stars:50610a6955a94258",
+          "featureTitle": "Звёздная карта",
+          "parent": "circle.stars",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Звёздная карта",
+          "contextOrdinal": 90,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:105",
+            "url": "https://dnd.su/spells/105-guidance/",
+            "label": "указание [guidance]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "422c2f265fe0550bbebbd2cb08f9d98c68e66e3ed4be37e77e5e0fc1fb87fb65",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:a8cdcf451e0e9ae79ec6",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:circle.stars:50610a6955a94258",
+          "featureTitle": "Звёздная карта",
+          "parent": "circle.stars",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Звёздная карта",
+          "contextOrdinal": 90,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:178",
+            "url": "https://dnd.su/spells/178-guiding_bolt/",
+            "label": "направляющий снаряд [guiding bolt]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "422c2f265fe0550bbebbd2cb08f9d98c68e66e3ed4be37e77e5e0fc1fb87fb65",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:363b09a01c9912abfe21",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:circle.stars:50610a6955a94258",
+          "featureTitle": "Звёздная карта",
+          "parent": "circle.stars",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Звёздная карта",
+          "contextOrdinal": 90,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:178",
+            "url": "https://dnd.su/spells/178-guiding_bolt/",
+            "label": "направляющий снаряд [guiding bolt]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "422c2f265fe0550bbebbd2cb08f9d98c68e66e3ed4be37e77e5e0fc1fb87fb65",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:84853c65a94d306688e5",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/90-druid/",
+          "featureId": "scope:druid:circle.spores:d899bb01a20fec24",
+          "featureTitle": "Заклинания круга",
+          "parent": "circle.spores",
+          "featureSourceIds": [
+            "117",
+            "112"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Заклинания круга",
+          "contextOrdinal": 97,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:140",
+            "url": "https://dnd.su/spells/140-chill_touch/",
+            "label": "леденящее прикосновение [chill touch]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "801a85a521b1c9ded8244f089f5c3410f724a95b5735f2e15d79b93b6f58fb47",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        }
+      ],
+      "rawSha256": "c11dc88330902eab631ebba22c374c8e466be46ed2366203691d924f12dd8234"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "records": [
+        {
+          "id": "feature-spell-ref:7f155a7f7de825ec4184",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/89-cleric/",
+          "featureId": "scope:cleric:features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Использование заклинаний",
+          "contextOrdinal": 19,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=&school=&class=13&concentration=&source=102%7C107%7C108%7C109%7C112%7C114%7C115%7C116%7C117%7C118",
+            "label": "заклинания жреца",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "5c0c68d09aa774a5f319d4cd4d8cf25b760983fd1aa04ad12e6113920c58c3b0",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:7477b8c6d7a17f5f72e4",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/89-cleric/",
+          "featureId": "scope:cleric:features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Заговоры (заклинания 0-го уровня)",
+          "contextOrdinal": 20,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0&school=&class=13&concentration=&source=",
+            "label": "заговора",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "117f5a348a402397c9099523d780ff02407202e36805d010eca2b2c6a4c8a329",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:795521c743fd1fb27f5e",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/89-cleric/",
+          "featureId": "scope:cleric:features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Подготовка и сотворение заклинаний",
+          "contextOrdinal": 21,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:145",
+            "url": "https://dnd.su/spells/145-cure_wounds/",
+            "label": "лечение ран [cure wounds]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "12df5a039a7ae881f73aa6c999b5d4dfbe2dd1a35e2dd1c8387f20ec64cd7087",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:cec556ea2090cdba4fc9",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/89-cleric/",
+          "featureId": "scope:cleric:domain.knowledge:794436634d5c6445",
+          "featureTitle": "БОЖЕСТВЕННЫЙ КАНАЛ: ЧТЕНИЕ МЫСЛЕЙ",
+          "parent": "domain.knowledge",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "БОЖЕСТВЕННЫЙ КАНАЛ: ЧТЕНИЕ МЫСЛЕЙ",
+          "contextOrdinal": 65,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:23",
+            "url": "https://dnd.su/spells/23-suggestion/",
+            "label": "внушение [suggestion]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "b73e02e935175fba34d5bb872aa1c5b138b8daa2196997f3013df4a4afb5da84",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:2b00f94d9e6fdfd43e08",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/89-cleric/",
+          "featureId": "scope:cleric:domain.nature:8d0fa19150a448f7",
+          "featureTitle": "ПОСЛУШНИК ПРИРОДЫ",
+          "parent": "domain.nature",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ПОСЛУШНИК ПРИРОДЫ",
+          "contextOrdinal": 77,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0&class=22",
+            "label": "заговор друида",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "990bfe3a0898fb84bc54f4933915ec7b8d3b9fa727f710b33e449d28aa250b2d",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:f5028a21244fcb557cf7",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/89-cleric/",
+          "featureId": "scope:cleric:domain.light:9a8055f33dc2e556",
+          "featureTitle": "ДОПОЛНИТЕЛЬНЫЙ ЗАГОВОР",
+          "parent": "domain.light",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ДОПОЛНИТЕЛЬНЫЙ ЗАГОВОР",
+          "contextOrdinal": 85,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:307",
+            "url": "https://dnd.su/spells/307-light/",
+            "label": "свет [light]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "249919d8068ed2883270a728e2ef84938633a8043b9197620f51050fe04731c7",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:df8df4fff4002bc6d886",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/89-cleric/",
+          "featureId": "scope:cleric:domain.arcana:3740f7f1911cd756",
+          "featureTitle": "НАЧИНАЮЩИЙ МАГ",
+          "parent": "domain.arcana",
+          "featureSourceIds": [
+            "108"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "НАЧИНАЮЩИЙ МАГ",
+          "contextOrdinal": 101,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0&class=21",
+            "label": "волшебника",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "18cb3a985ae381f80f9de7c1311226ccb3c5a150b5a34140de759496ace55e7e",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:d05c2110bfcd6b5b3e06",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/89-cleric/",
+          "featureId": "scope:cleric:domain.arcana:b8b55c993101683d",
+          "featureTitle": "БОЖЕСТВЕННЫЙ КАНАЛ: ОГРАЖДЕНИЕ МАГИЕЙ",
+          "parent": "domain.arcana",
+          "featureSourceIds": [
+            "108"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "БОЖЕСТВЕННЫЙ КАНАЛ: ОГРАЖДЕНИЕ МАГИЕЙ",
+          "contextOrdinal": 102,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:116",
+            "url": "https://dnd.su/spells/116-banishment/",
+            "label": "изгнание [banishment]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 4,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "e791d1acf4d4f9981ef9c7cc39f0d57b67b67e2e58b306362396c13b3c05d578",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:9f39a715e9480db9304d",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/89-cleric/",
+          "featureId": "scope:cleric:domain.grave:ed7fd0c3b017a74c",
+          "featureTitle": "КРУГ СМЕРТИ",
+          "parent": "domain.grave",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "КРУГ СМЕРТИ",
+          "contextOrdinal": 117,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:94",
+            "url": "https://dnd.su/spells/94-spare_the_dying/",
+            "label": "уход за умирающим [spare the dying]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "cca07ee4796d6b3c6a7d8850bf84c8c1501fbad043d82fab7d1d37c997053fa8",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        }
+      ],
+      "rawSha256": "40f972b8d332c60b2fde307742a53f1ba24ae4f0d30992e166894990aab60a21"
+    },
+    {
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "records": [
+        {
+          "id": "feature-spell-ref:7bf6946b331b14756e1a",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/137-artificer/",
+          "featureId": "scope:artificer:class-features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Использование заклинаний",
+          "contextOrdinal": 12,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&class=23",
+            "label": "заклинания изобретателя",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "55ccd2f2ebc4107920590d698fcf06210099a846e55ac1d05f1a004240eb356a",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:82f904ff0ae5f8fbea4b",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/137-artificer/",
+          "featureId": "scope:artificer:class-features:feature.spell-storing-item",
+          "featureTitle": "ХРАНЯЩИЙ ЗАКЛИНАНИЯ ПРЕДМЕТ",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ХРАНЯЩИЙ ЗАКЛИНАНИЯ ПРЕДМЕТ",
+          "contextOrdinal": 28,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=1%7C2&class=23&casttime=action&sortBy=school",
+            "label": "заклинание 1-го или 2-го уровня",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "c44d1b0541f62f1aec90d08dadc50e8e4e359656aba8f61afc3711cbd05783a9",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:8beb666e0bf8ce03c82b",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/137-artificer/",
+          "featureId": "scope:artificer:specialist.alchemist:9bd72d7a38200834",
+          "featureTitle": "ВОССТАНАВЛИВАЮЩИЕ РЕАГЕНТЫ",
+          "parent": "specialist.alchemist",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ВОССТАНАВЛИВАЮЩИЕ РЕАГЕНТЫ",
+          "contextOrdinal": 57,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:155",
+            "url": "https://dnd.su/spells/155-lesser_restoration/",
+            "label": "малое восстановление [lesser restoration]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "b57fc5bce641294d7d5cf966c667483405159b9afbb3d767da655de137e74299",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:0aa55689fbf1b1000518",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/137-artificer/",
+          "featureId": "scope:artificer:specialist.alchemist:5ab794c7564d4100",
+          "featureTitle": "ХИМИЧЕСКОЕ МАСТЕРСТВО",
+          "parent": "specialist.alchemist",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ХИМИЧЕСКОЕ МАСТЕРСТВО",
+          "contextOrdinal": 58,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:39",
+            "url": "https://dnd.su/spells/39-greater_restoration/",
+            "label": "высшее восстановление [greater restoration]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 5,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "10d7e8f10fbd731ade117f551b6679b0a6bf27af1fafec82b717b42949a271c0",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:50baa3c52ef7232c6d71",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/137-artificer/",
+          "featureId": "scope:artificer:specialist.alchemist:5ab794c7564d4100",
+          "featureTitle": "ХИМИЧЕСКОЕ МАСТЕРСТВО",
+          "parent": "specialist.alchemist",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ХИМИЧЕСКОЕ МАСТЕРСТВО",
+          "contextOrdinal": 58,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:250",
+            "url": "https://dnd.su/spells/250-heal/",
+            "label": "полное исцеление [heal]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 6,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "10d7e8f10fbd731ade117f551b6679b0a6bf27af1fafec82b717b42949a271c0",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:1d860f819d4fec12a8c5",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/137-artificer/",
+          "featureId": "scope:artificer:specialist.artillerist:ebdbc64cc9764ce7",
+          "featureTitle": "МИСТИЧЕСКАЯ ПУШКА",
+          "parent": "specialist.artillerist",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "МИСТИЧЕСКАЯ ПУШКА",
+          "contextOrdinal": 63,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:258",
+            "url": "https://dnd.su/spells/258-mending/",
+            "label": "починка [mending]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "05d481255d502e1ec5497cfd0c0a684a86f58870600c8df5a1d43fc9059fc511",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:dd1837db10791e3122a1",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/137-artificer/",
+          "featureId": "scope:artificer:specialist.battlesmith:c4961367422c09fe",
+          "featureTitle": "СТАЛЬНОЙ ЗАЩИТНИК",
+          "parent": "specialist.battlesmith",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "СТАЛЬНОЙ ЗАЩИТНИК",
+          "contextOrdinal": 73,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:258",
+            "url": "https://dnd.su/spells/258-mending/",
+            "label": "починка [mending]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "cb7aee790b976ca09f961f63b6ef69e656d2507c86750252323ac357e2fd8db5",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        }
+      ],
+      "rawSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7"
+    },
+    {
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "records": [
+        {
+          "id": "feature-spell-ref:48e17f8fea8dd837f414",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "featureId": "scope:warlock:class-features:feature.pact-magic",
+          "featureTitle": "МАГИЯ ДОГОВОРА",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "МАГИЯ ДОГОВОРА",
+          "contextOrdinal": 20,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&class=20",
+            "label": "заклинания колдуна",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "64894ab72aa33abad9d50a1c477c02a88034198916604ec4f1cc30f72146d263",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:08b6b3c48a91a0ddde69",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "featureId": "scope:warlock:class-features:feature.pact-magic",
+          "featureTitle": "МАГИЯ ДОГОВОРА",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Заговоры (заклинания 0-го уровня)",
+          "contextOrdinal": 21,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0&class=20",
+            "label": "заговора",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "b4fe0b9c10fac634095acc2b6063153cebac137356cdeda7a15f8cdc0222d9f2",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:6a8872813ddfcf143777",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "featureId": "scope:warlock:class-features:feature.pact-magic",
+          "featureTitle": "МАГИЯ ДОГОВОРА",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Ячейки заклинаний",
+          "contextOrdinal": 22,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:15",
+            "url": "https://dnd.su/spells/15-witch_bolt/",
+            "label": "ведьмин снаряд [witch bolt]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "811ef714d10658c92257c9698a4b9de2be789fe5974e8bd22fb9ce2a144a0f67",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:7f7082698a92037ebbf8",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "featureId": "scope:warlock:class-features:feature.pact-boon",
+          "featureTitle": "ПРЕДМЕТ ДОГОВОРА",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Договор гримуара",
+          "contextOrdinal": 29,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0",
+            "label": "списков любых классов",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "4912dd9f99f93f7aa8d21d543122d1ac3550f3c7750bb3cc755907ebcb0e20aa",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:0c3804c71c537deb0073",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "featureId": "scope:warlock:class-features:feature.pact-boon",
+          "featureTitle": "ПРЕДМЕТ ДОГОВОРА",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Договор цепи",
+          "contextOrdinal": 32,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:248",
+            "url": "https://dnd.su/spells/248-find_familiar/",
+            "label": "поиск фамильяра [find familiar]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "a6a88237a82ceff1ce219252d90582a0ab65252726e452f5e2d7de0b29d6cb19",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:65c97d8dce7a7eacdf14",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "featureId": "scope:warlock:patron.great-old-one:193c4066ee25278a",
+          "featureTitle": "СОЗДАТЬ РАБА",
+          "parent": "patron.great-old-one",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "СОЗДАТЬ РАБА",
+          "contextOrdinal": 114,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:326",
+            "url": "https://dnd.su/spells/326-remove_curse/",
+            "label": "снятие проклятья [remove curse]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "99e4a1958b8585032bd67e4d3c1f9d3c25607c68860f6cad31fb660c8c22f85d",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:e86587993dbffcab44b9",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "featureId": "scope:warlock:patron.undying:11b0471c9b728415",
+          "featureTitle": "СРЕДИ МЁРТВЫХ",
+          "parent": "patron.undying",
+          "featureSourceIds": [
+            "108"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "СРЕДИ МЁРТВЫХ",
+          "contextOrdinal": 117,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:94",
+            "url": "https://dnd.su/spells/94-spare_the_dying/",
+            "label": "уход за умирающим [spare the dying]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "c7fd1d6495b10d98d80f75cebb8525897dc761eab8c91b1ba1a36619f3bd062f",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:2782f9fe4a1fd2fd9db1",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "featureId": "scope:warlock:patron.undying:11b0471c9b728415",
+          "featureTitle": "СРЕДИ МЁРТВЫХ",
+          "parent": "patron.undying",
+          "featureSourceIds": [
+            "108"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "СРЕДИ МЁРТВЫХ",
+          "contextOrdinal": 117,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:205",
+            "url": "https://dnd.su/spells/205-fireball/",
+            "label": "огненного шара [fireball]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "bd8e69f74ea195cdf0f20121fa3059a551dfcd64267a72cfb261f506d4f8a27b",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:000fcaafe3daaae33507",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "featureId": "scope:warlock:patron.undying:322da55287508c58",
+          "featureTitle": "ОТРИНУВ СМЕРТЬ",
+          "parent": "patron.undying",
+          "featureSourceIds": [
+            "108"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ОТРИНУВ СМЕРТЬ",
+          "contextOrdinal": 118,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:94",
+            "url": "https://dnd.su/spells/94-spare_the_dying/",
+            "label": "уход за умирающим [spare the dying]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "acb161bacb8d0ba4d8887c56124281125738af7a6eedd1b5d4afa1b1b9148227",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:7412f1ad3052c878d313",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "featureId": "scope:warlock:patron.celestial:c6dfb1a1a9f6a02b",
+          "featureTitle": "ДОПОЛНИТЕЛЬНЫЕ ЗАГОВОРЫ",
+          "parent": "patron.celestial",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ДОПОЛНИТЕЛЬНЫЕ ЗАГОВОРЫ",
+          "contextOrdinal": 130,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:307",
+            "url": "https://dnd.su/spells/307-light/",
+            "label": "свет [light]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "7e685922e4322152a75ce78872d7f8628ea5372d836786ebc03ac703de6b3882",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:b7b73f91d71c4c1a4e6c",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "featureId": "scope:warlock:patron.celestial:c6dfb1a1a9f6a02b",
+          "featureTitle": "ДОПОЛНИТЕЛЬНЫЕ ЗАГОВОРЫ",
+          "parent": "patron.celestial",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ДОПОЛНИТЕЛЬНЫЕ ЗАГОВОРЫ",
+          "contextOrdinal": 130,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:311",
+            "url": "https://dnd.su/spells/311-sacred_flame/",
+            "label": "священное пламя [sacred flame]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "7e685922e4322152a75ce78872d7f8628ea5372d836786ebc03ac703de6b3882",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:209e3d3decd5c955888b",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/104-warlock/",
+          "featureId": "scope:warlock:patron.fathomless:5285f5439b7f7f4f",
+          "featureTitle": "Опутывающие щупальца",
+          "parent": "patron.fathomless",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Опутывающие щупальца",
+          "contextOrdinal": 142,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:67",
+            "url": "https://dnd.su/spells/67-evard_s_black_tentackles/",
+            "label": "Эвардовы чёрные щупальца [Evard’s black tentackles]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 4,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "b80ed36e1282449511dc8b4717ff433c01ccb66c73b2c4158595fba601619bc6",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        }
+      ],
+      "rawSha256": "eec2a9b70c847113ef82030bbe35be7fbdaf8a10d02589938ccc4780750129b8"
+    },
+    {
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "records": [
+        {
+          "id": "feature-spell-ref:007b8b25ca367f8d48ff",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/93-monk/",
+          "featureId": "scope:monk:class-features:feature.evasion",
+          "featureTitle": "Увёртливость",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Увёртливость",
+          "contextOrdinal": 37,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:205",
+            "url": "https://dnd.su/spells/205-fireball/",
+            "label": "огненный шар [fireball]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "894d3fec02b5160a2ab812920ca657e659e921f51d0aee616971abf11b8dc4d7",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:6d04de60775ac68032bb",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/93-monk/",
+          "featureId": "scope:monk:class-features:feature.empty-body",
+          "featureTitle": "Пустое тело",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Пустое тело",
+          "contextOrdinal": 43,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:284",
+            "url": "https://dnd.su/spells/284-astral_projection/",
+            "label": "проекция в астрал [astral projection]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 9,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "ebcdeb096224ddf2ec0d68a4f71c975dcae9b0d2702daf39a16ea3d6fe57ef19",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:f3d2b2e863a0b1fbdd4f",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/93-monk/",
+          "featureId": "scope:monk:tradition.open-hand:be28a36d982e5ce9",
+          "featureTitle": "УМИРОТВОРЕНИЕ",
+          "parent": "tradition.open-hand",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "УМИРОТВОРЕНИЕ",
+          "contextOrdinal": 50,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:354",
+            "url": "https://dnd.su/spells/354-sanctuary/",
+            "label": "убежище [sanctuary]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "a786ad46ff406450781bd65ddfb5ac6db141ebb3fa7fa5c850e9aecc39cad025",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:40aa6675374cce8e2693",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/93-monk/",
+          "featureId": "scope:monk:tradition.shadow:db3017dacf9cc559",
+          "featureTitle": "ТЕХНИКА ТЕНИ",
+          "parent": "tradition.shadow",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ТЕХНИКА ТЕНИ",
+          "contextOrdinal": 53,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:8",
+            "url": "https://dnd.su/spells/8-pass_without_trace/",
+            "label": "бесследное передвижение [pass without trace]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "4927a5938b87610e58986cd1a35ae2ac467aec6e6b296032993bf61d5553d6dd",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:1d278e327fb49753ae04",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/93-monk/",
+          "featureId": "scope:monk:tradition.shadow:db3017dacf9cc559",
+          "featureTitle": "ТЕХНИКА ТЕНИ",
+          "parent": "tradition.shadow",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ТЕХНИКА ТЕНИ",
+          "contextOrdinal": 53,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:368",
+            "url": "https://dnd.su/spells/368-darkvision/",
+            "label": "тёмное зрение [darkvision]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "4927a5938b87610e58986cd1a35ae2ac467aec6e6b296032993bf61d5553d6dd",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:c25cb7cff232fdf94e21",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/93-monk/",
+          "featureId": "scope:monk:tradition.shadow:db3017dacf9cc559",
+          "featureTitle": "ТЕХНИКА ТЕНИ",
+          "parent": "tradition.shadow",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ТЕХНИКА ТЕНИ",
+          "contextOrdinal": 53,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:349",
+            "url": "https://dnd.su/spells/349-silence/",
+            "label": "тишину [silence]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "4927a5938b87610e58986cd1a35ae2ac467aec6e6b296032993bf61d5553d6dd",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:14f4cff0bf41fe86d5f3",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/93-monk/",
+          "featureId": "scope:monk:tradition.shadow:db3017dacf9cc559",
+          "featureTitle": "ТЕХНИКА ТЕНИ",
+          "parent": "tradition.shadow",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ТЕХНИКА ТЕНИ",
+          "contextOrdinal": 53,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:353",
+            "url": "https://dnd.su/spells/353-darkness/",
+            "label": "тьму [darkness]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "4927a5938b87610e58986cd1a35ae2ac467aec6e6b296032993bf61d5553d6dd",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:5d305d86d27a123419b5",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/93-monk/",
+          "featureId": "scope:monk:tradition.shadow:db3017dacf9cc559",
+          "featureTitle": "ТЕХНИКА ТЕНИ",
+          "parent": "tradition.shadow",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ТЕХНИКА ТЕНИ",
+          "contextOrdinal": 53,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:154",
+            "url": "https://dnd.su/spells/154-minor_illusion/",
+            "label": "малая иллюзия [minor illusion]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "4927a5938b87610e58986cd1a35ae2ac467aec6e6b296032993bf61d5553d6dd",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:2a77102d0e50a318f84b",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/93-monk/",
+          "featureId": "scope:monk:tradition.four-elements:9f08f83b8dbdb130",
+          "featureTitle": "АДЕПТ СТИХИЙ",
+          "parent": "tradition.four-elements",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "АДЕПТ СТИХИЙ",
+          "contextOrdinal": 58,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:203",
+            "url": "https://dnd.su/spells/203-burning_hands/",
+            "label": "огненные ладони [burning hands]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "1a9b72eb8617b08f5a648c6ea0c068a8520fed9d76d7f2545178631d6585559d",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:b81b43d194573dd280b3",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/93-monk/",
+          "featureId": "scope:monk:tradition.four-elements:9f08f83b8dbdb130",
+          "featureTitle": "АДЕПТ СТИХИЙ",
+          "parent": "tradition.four-elements",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "АДЕПТ СТИХИЙ",
+          "contextOrdinal": 58,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:203",
+            "url": "https://dnd.su/spells/203-burning_hands/",
+            "label": "огненные ладони [burning hands]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "1a9b72eb8617b08f5a648c6ea0c068a8520fed9d76d7f2545178631d6585559d",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:49767ede41cd2d37f893",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/93-monk/",
+          "featureId": "scope:monk:tradition.sun-soul:3f581e7c9f011240",
+          "featureTitle": "УДАР ПЫЛАЮЩЕЙ ДУГИ",
+          "parent": "tradition.sun-soul",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "УДАР ПЫЛАЮЩЕЙ ДУГИ",
+          "contextOrdinal": 79,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:203",
+            "url": "https://dnd.su/spells/203-burning_hands/",
+            "label": "огненные ладони [burning hands]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "f0a7e80fba1870fdb950813d05b5d873b84af8fdf400c5561f0d2ecdf2047378",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:597c8486aa7b6279fb1a",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/93-monk/",
+          "featureId": "scope:monk:tradition.sun-soul:3f581e7c9f011240",
+          "featureTitle": "УДАР ПЫЛАЮЩЕЙ ДУГИ",
+          "parent": "tradition.sun-soul",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "УДАР ПЫЛАЮЩЕЙ ДУГИ",
+          "contextOrdinal": 79,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:203",
+            "url": "https://dnd.su/spells/203-burning_hands/",
+            "label": "огненные ладони [burning hands]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "7dc0dc3c54fc58d71eb20152b43f94c79ad3d6ac70d37cfbd62408878fce2efe",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        }
+      ],
+      "rawSha256": "2b612207090d1867b691a6e98cff91809791c1e37af87177ed850b2f204925af"
+    },
+    {
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "records": [
+        {
+          "id": "feature-spell-ref:f4f2af05460998d0e414",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/94-paladin/",
+          "featureId": "scope:paladin:klassovye_umeniya:feature.divine-sense",
+          "featureTitle": "БОЖЕСТВЕННОЕ ЧУВСТВО",
+          "parent": "klassovye_umeniya",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "БОЖЕСТВЕННОЕ ЧУВСТВО",
+          "contextOrdinal": 21,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:310",
+            "url": "https://dnd.su/spells/310-hallow/",
+            "label": "святилище [hallow]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 5,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "8886e7558ed8bc7c2731a47bb0fc60adca1c340fc3e2106b57215a801d808430",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:8def93086e84a8fa3cd1",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/94-paladin/",
+          "featureId": "scope:paladin:klassovye_umeniya:feature.fighting-style",
+          "featureTitle": "Боевой стиль",
+          "parent": "klassovye_umeniya",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Благословенный воин",
+          "contextOrdinal": 28,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [
+            "TCE"
+          ],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0&class=13",
+            "label": "заговора",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "db1d948db457c333fe9380428003c6b1c6fef4065d838e382be5c38b18a6e7b3",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:b53dbd53274193465b8b",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/94-paladin/",
+          "featureId": "scope:paladin:klassovye_umeniya:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "klassovye_umeniya",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Использование заклинаний",
+          "contextOrdinal": 31,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&class=16",
+            "label": "заклинания паладина",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "955f67a511502d484f1de059905c302e66309a471bfbcbd9ccfc166011066afe",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:5441ccfad6d3585c8cca",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/94-paladin/",
+          "featureId": "scope:paladin:klassovye_umeniya:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "klassovye_umeniya",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Подготовка и сотворение заклинаний",
+          "contextOrdinal": 32,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:145",
+            "url": "https://dnd.su/spells/145-cure_wounds/",
+            "label": "лечение ран [cure wounds]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "d5f7572bcc6010aaff15aa563b33cd16f6b96b7fcdf2ef1ea5841b37985006da",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:0c4a2a60d0120e95bb53",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/94-paladin/",
+          "featureId": "scope:paladin:oath.devotion:5c89ad6ec082d4de",
+          "featureTitle": "ЧИСТОТА ДУХА",
+          "parent": "oath.devotion",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ЧИСТОТА ДУХА",
+          "contextOrdinal": 57,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:99",
+            "url": "https://dnd.su/spells/99-protection_from_evil_and_good/",
+            "label": "защита от зла и добра [protection from evil and good]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "3c373511a9460428a70ef12f983284ae603763002b03b12cf275c5ead164dd68",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        }
+      ],
+      "rawSha256": "5802adccedb2ac003c15a63abe5bce228a5a825e0d558580dc26bf0e92352541"
+    },
+    {
+      "classUrl": "https://dnd.su/class/99-rogue/",
+      "records": [
+        {
+          "id": "feature-spell-ref:4e643f8a28e1b6831a39",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/99-rogue/",
+          "featureId": "scope:rogue:class-features:feature.evasion",
+          "featureTitle": "УВЁРТЛИВОСТЬ",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "УВЁРТЛИВОСТЬ",
+          "contextOrdinal": 27,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:49",
+            "url": "https://dnd.su/spells/49-ice_storm/",
+            "label": "град [ice storm]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 4,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "778d72040a17371b9ea4eaacb12bdbc1514d15e53ca0301de5f619c163a2ae42",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:359bd445ce3c913ad456",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/99-rogue/",
+          "featureId": "scope:rogue:archetype.arcane-trickster:c1a7c732a16e9073",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "archetype.arcane-trickster",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 47,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0&school=&class=21&concentration=&source=",
+            "label": "заговора",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "08f60d69def1c42d613246d7e443e8c2372f5eea743df9430a1a1215a38d3541",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:8af06bee3b1e8bfc5c10",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/99-rogue/",
+          "featureId": "scope:rogue:archetype.arcane-trickster:c1a7c732a16e9073",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "archetype.arcane-trickster",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 47,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:26",
+            "url": "https://dnd.su/spells/26-mage_hand/",
+            "label": "волшебная рука [mage hand]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "08f60d69def1c42d613246d7e443e8c2372f5eea743df9430a1a1215a38d3541",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:f5d6ca04ad4467ee77fc",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/99-rogue/",
+          "featureId": "scope:rogue:archetype.arcane-trickster:c1a7c732a16e9073",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "archetype.arcane-trickster",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 47,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:221",
+            "url": "https://dnd.su/spells/221-charm_person/",
+            "label": "очарование личности [charm person]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "5afb4c6708d045fa1293aeb4f20bc45b3079f0218e51fef294153b2ef436ba57",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:5b874173d9b987c3573b",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/99-rogue/",
+          "featureId": "scope:rogue:archetype.arcane-trickster:c1a7c732a16e9073",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "archetype.arcane-trickster",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 47,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=1&class=21",
+            "label": "заклинания",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "df2ea84c13f12781c4badbf1c7d347ac263ba7103530bd85749c45c0b6904b1b",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:00af958260bc8502dab7",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/99-rogue/",
+          "featureId": "scope:rogue:archetype.arcane-trickster:c1a7c732a16e9073",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "archetype.arcane-trickster",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 47,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=1&school=3&class=21",
+            "label": "Иллюзий",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "df2ea84c13f12781c4badbf1c7d347ac263ba7103530bd85749c45c0b6904b1b",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:6937f297995ddfdd2111",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/99-rogue/",
+          "featureId": "scope:rogue:archetype.arcane-trickster:c1a7c732a16e9073",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "archetype.arcane-trickster",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 47,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=1&school=6&class=21",
+            "label": "Очарования",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "df2ea84c13f12781c4badbf1c7d347ac263ba7103530bd85749c45c0b6904b1b",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:c3f6ac81e5651b54ae23",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/99-rogue/",
+          "featureId": "scope:rogue:archetype.arcane-trickster:c1a7c732a16e9073",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "archetype.arcane-trickster",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 47,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=1%7C2%7C3%7C4&class=21",
+            "label": "заклинания",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "0304cbaa19547a48a6d330307fdb4fce8924da8d1d6f7ecf5689b79fa47dd0bc",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:12987ada07a1bfb8e9ef",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/99-rogue/",
+          "featureId": "scope:rogue:archetype.arcane-trickster:c1a7c732a16e9073",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "archetype.arcane-trickster",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 47,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=1%7C2%7C3%7C4&school=3&class=21",
+            "label": "Иллюзии",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "0304cbaa19547a48a6d330307fdb4fce8924da8d1d6f7ecf5689b79fa47dd0bc",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:6b6168ce21c0dd1b8487",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/99-rogue/",
+          "featureId": "scope:rogue:archetype.arcane-trickster:c1a7c732a16e9073",
+          "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "parent": "archetype.arcane-trickster",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+          "contextOrdinal": 47,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=1%7C2%7C3%7C4&school=6&class=21",
+            "label": "Очарования",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "0304cbaa19547a48a6d330307fdb4fce8924da8d1d6f7ecf5689b79fa47dd0bc",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:25c33325e18ba7851252",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/99-rogue/",
+          "featureId": "scope:rogue:archetype.arcane-trickster:67160eb7550cecc9",
+          "featureTitle": "УЛУЧШЕННАЯ ВОЛШЕБНАЯ РУКА",
+          "parent": "archetype.arcane-trickster",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "УЛУЧШЕННАЯ ВОЛШЕБНАЯ РУКА",
+          "contextOrdinal": 48,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:26",
+            "url": "https://dnd.su/spells/26-mage_hand/",
+            "label": "волшебная рука [mage hand]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "29dbc498aa8df34c29b048242877bb67558ae8eae214928e1140e8c40d61e955",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        }
+      ],
+      "rawSha256": "eb7bbf3d2f7826bf84464cc31824cf045908d4c3b50e05656d95bdab6ec99f25"
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "records": [
+        {
+          "id": "feature-spell-ref:eb9453498b08985689ab",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "featureId": "scope:ranger:class-features:feature.fighting-style",
+          "featureTitle": "Боевой стиль",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Воин-друид",
+          "contextOrdinal": 32,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [
+            "TCE"
+          ],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0&class=22",
+            "label": "заговора",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "8efb0a598951570a8e9fed36d910aaf0146bffa6658c4b38578a242b3029f4d3",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:66e285f19e0369508a90",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "featureId": "scope:ranger:class-features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Использование заклинаний",
+          "contextOrdinal": 34,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=&school=&class=17&concentration=&source=",
+            "label": "заклинания следопыта",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "8d19396c840414c70faf2c66b3dc297d0d1c13f0a997bdb1c09cdd2ef1d8d6fe",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:7935352866746bb3b694",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "featureId": "scope:ranger:class-features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Ячейки заклинаний",
+          "contextOrdinal": 35,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:72",
+            "url": "https://dnd.su/spells/72-animal_friendship/",
+            "label": "дружба с животными [animal friendship]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "20a0dd511731a1396a8a784930ccfdc6bc66b0b8c81fe3165498d7cf196b0bd3",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:9ffbe45f23896ee1a854",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "featureId": "scope:ranger:class-features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Ячейки заклинаний",
+          "contextOrdinal": 35,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:72",
+            "url": "https://dnd.su/spells/72-animal_friendship/",
+            "label": "дружба с животными [animal friendship]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "20a0dd511731a1396a8a784930ccfdc6bc66b0b8c81fe3165498d7cf196b0bd3",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:ad804497efe5b104d1f1",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "featureId": "scope:ranger:class-features:feature.lands-stride",
+          "featureTitle": "ТРОПАМИ ЗЕМЛИ",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ТРОПАМИ ЗЕМЛИ",
+          "contextOrdinal": 47,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:211",
+            "url": "https://dnd.su/spells/211-entangle/",
+            "label": "опутывание [entangle]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "63f913632d92e6c18ed238b22f9ddbd1e80754ee502be2b4ec0eaededc9e73aa",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:b42e5c61d6bc91a1e939",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "featureId": "scope:ranger:archetype.hunter:e57a3e1cd100a6e8",
+          "featureTitle": "УЛУЧШЕННАЯ ЗАЩИТА ОХОТНИКА",
+          "parent": "archetype.hunter",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "УЛУЧШЕННАЯ ЗАЩИТА ОХОТНИКА",
+          "contextOrdinal": 58,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:175",
+            "url": "https://dnd.su/spells/175-lightning_bolt/",
+            "label": "молния [lightning bolt]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "97353f158771cab5af918bf3b9f85595ac683123dfaa110758c63479f49a5a3c",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:276c3eb8d5aac7db3896",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "featureId": "scope:ranger:archetype.horizon-walker:9c576f85be783cf8",
+          "featureTitle": "ЭФИРНЫЙ ШАГ",
+          "parent": "archetype.horizon-walker",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ЭФИРНЫЙ ШАГ",
+          "contextOrdinal": 70,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:64",
+            "url": "https://dnd.su/spells/64-etherealness/",
+            "label": "эфирность [etherealness]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 7,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "d2bd7b440c346406e9c0aef2e845ae00b774331b8450cace0c02b5082c2b2b1b",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:e32a369792a83622a686",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "featureId": "scope:ranger:archetype.fey-wanderer:9852ce532995b93e",
+          "featureTitle": "Подкрепление фей",
+          "parent": "archetype.fey-wanderer",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Подкрепление фей",
+          "contextOrdinal": 94,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:3070",
+            "url": "https://dnd.su/spells/3070-summon_fey/",
+            "label": "призыв духа феи [summon fey]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 3,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "4f15b7a6ba73c8492c8ca1fdc0fc0000bceb22b0ef2d0e7ccad13acfeaf1dcbb",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:e5e3f06fa5b93bb648bf",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "featureId": "scope:ranger:archetype.fey-wanderer:9b8636dd0059ec03",
+          "featureTitle": "Туманный странник",
+          "parent": "archetype.fey-wanderer",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Туманный странник",
+          "contextOrdinal": 95,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:352",
+            "url": "https://dnd.su/spells/352-misty_step/",
+            "label": "туманный шаг [misty step]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "abaaab68b33bf2e143e9caf049a21c03fb99b0b043fd605dcf30d162aefa2330",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:6e72c174bb72576bee69",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "featureId": "scope:ranger:archetype.fey-wanderer:9b8636dd0059ec03",
+          "featureTitle": "Туманный странник",
+          "parent": "archetype.fey-wanderer",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Туманный странник",
+          "contextOrdinal": 95,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:352",
+            "url": "https://dnd.su/spells/352-misty_step/",
+            "label": "туманный шаг [misty step]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "d5ccb068eec98d76e9e2adbf08d729b83cc5df0b84de1db5d5297d0e908c80e3",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:9ab892897e374da631df",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "featureId": "scope:ranger:archetype.swarmkeeper:228fd73ac0c51e3d",
+          "featureTitle": "Магия хранителя роя",
+          "parent": "archetype.swarmkeeper",
+          "featureSourceIds": [
+            "117"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Магия хранителя роя",
+          "contextOrdinal": 99,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:26",
+            "url": "https://dnd.su/spells/26-mage_hand/",
+            "label": "волшебная рука [mage hand]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "37c4ba3380546b27b33501569cd9428af389ecd36289ad0401e2c7213bcf0cc6",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:13da155234c68fac5184",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "featureId": "scope:ranger:archetype.drakewarden:deb5c5799141bb01",
+          "featureTitle": "Драконий дар",
+          "parent": "archetype.drakewarden",
+          "featureSourceIds": [
+            "152"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Драконий дар",
+          "contextOrdinal": 107,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:80",
+            "url": "https://dnd.su/spells/80-thaumaturgy/",
+            "label": "чудотворство [thaumaturgy]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "f1d48c8b60781e2dbd262de588d796c1481a8911bd7eb997b82fed67b9d618b0",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:16da9626b44deca0a1a2",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/97-ranger/",
+          "featureId": "scope:ranger:archetype.drakewarden:deb5c5799141bb01",
+          "featureTitle": "Драконий дар",
+          "parent": "archetype.drakewarden",
+          "featureSourceIds": [
+            "152"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Драконий дар",
+          "contextOrdinal": 107,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:80",
+            "url": "https://dnd.su/spells/80-thaumaturgy/",
+            "label": "",
+            "nameEvidence": "empty-label",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "f1d48c8b60781e2dbd262de588d796c1481a8911bd7eb997b82fed67b9d618b0",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        }
+      ],
+      "rawSha256": "b401206c3c379c72d4f3cc50bb3c5c2e2902cc8b43578b75d2b293075d187ac7"
+    },
+    {
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "records": [
+        {
+          "id": "feature-spell-ref:4a1c1c97dfcb83258cb9",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/101-sorcerer/",
+          "featureId": "scope:sorcerer:class-features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Использование заклинаний",
+          "contextOrdinal": 22,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=&school=&class=19&concentration=&source=",
+            "label": "заклинания чародея",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "9c3cdaa86b6174aed989f58c9c03d8283034373feab7ff2cac894532dd255290",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:e392682a711a8c3334af",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/101-sorcerer/",
+          "featureId": "scope:sorcerer:class-features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Заговоры (заклинания 0-го уровня)",
+          "contextOrdinal": 23,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-list-navigation",
+            "url": "https://dnd.su/spells/?search=&level=0&school=&class=19&concentration=&source=",
+            "label": "заговора",
+            "pageId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "4e4b37dd5ac8a356a6a6e15ad89f20d5ab8b586c81b5c4b9c1d206fe2e90cf03",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:c101ecd7ee45d0644bf5",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/101-sorcerer/",
+          "featureId": "scope:sorcerer:class-features:feature.spellcasting",
+          "featureTitle": "Использование заклинаний",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Ячейки заклинаний",
+          "contextOrdinal": 24,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:203",
+            "url": "https://dnd.su/spells/203-burning_hands/",
+            "label": "огненные ладони [burning hands]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "b8dd00284b68c0271e235cfd8b7e92574302f2fb87d2682665e9304da3d62102",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:92117f8190c2e4843057",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/101-sorcerer/",
+          "featureId": "scope:sorcerer:class-features:feature.metamagic",
+          "featureTitle": "Метамагия",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Удвоенное заклинание",
+          "contextOrdinal": 39,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:27",
+            "url": "https://dnd.su/spells/27-magic_missile/",
+            "label": "волшебная стрела [magic missile]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "d295c3b23fb8043b8444996e1a9ed096cd9bd62a71df098f4ac7d0f412ad3315",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:5666fc6fdf2b21f169bb",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/101-sorcerer/",
+          "featureId": "scope:sorcerer:class-features:feature.metamagic",
+          "featureTitle": "Метамагия",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Удвоенное заклинание",
+          "contextOrdinal": 39,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:225",
+            "url": "https://dnd.su/spells/225-scorching_ray/",
+            "label": "палящий луч [scorching ray]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "d295c3b23fb8043b8444996e1a9ed096cd9bd62a71df098f4ac7d0f412ad3315",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:79995fc6b22eb598bb93",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/101-sorcerer/",
+          "featureId": "scope:sorcerer:class-features:feature.metamagic",
+          "featureTitle": "Метамагия",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Удвоенное заклинание",
+          "contextOrdinal": 39,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:149",
+            "url": "https://dnd.su/spells/149-ray_of_frost/",
+            "label": "луч холода [ray of frost]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "d295c3b23fb8043b8444996e1a9ed096cd9bd62a71df098f4ac7d0f412ad3315",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:740278ac0832e124b41c",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/101-sorcerer/",
+          "featureId": "scope:sorcerer:class-features:feature.metamagic",
+          "featureTitle": "Метамагия",
+          "parent": "class-features",
+          "featureSourceIds": [
+            "102"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Удвоенное заклинание",
+          "contextOrdinal": 39,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:86",
+            "url": "https://dnd.su/spells/86-chromatic_orb/",
+            "label": "цветной шарик [chromatic orb]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 1,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "d295c3b23fb8043b8444996e1a9ed096cd9bd62a71df098f4ac7d0f412ad3315",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:165aca55efe27f50c9e9",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/101-sorcerer/",
+          "featureId": "scope:sorcerer:origin.shadow:7679969aee61d121",
+          "featureTitle": "ГЛАЗА ТЬМЫ",
+          "parent": "origin.shadow",
+          "featureSourceIds": [
+            "109"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "ГЛАЗА ТЬМЫ",
+          "contextOrdinal": 71,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:353",
+            "url": "https://dnd.su/spells/353-darkness/",
+            "label": "тьма [darkness]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 2,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "62dc0faaa1b9ad7cd4f37ac3dcece3387a96a4e18e29e97f1b05b1c2a214d704",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        },
+        {
+          "id": "feature-spell-ref:a96f718e46114a941988",
+          "identityStatus": "occurrence-observation-not-canonical",
+          "classUrl": "https://dnd.su/class/101-sorcerer/",
+          "featureId": "scope:sorcerer:origin.lunar-sorcery:8c997dde93c38649",
+          "featureTitle": "Лунный Огонь",
+          "parent": "origin.lunar-sorcery",
+          "featureSourceIds": [
+            "183"
+          ],
+          "sourceBasis": "containing-feature-not-certification-of-link-rule",
+          "contextHeading": "Лунный Огонь",
+          "contextOrdinal": 103,
+          "contextExplicitSourceIds": [],
+          "contextOptionalSourceTags": [],
+          "reference": {
+            "kind": "spell-page",
+            "pageId": "dndsu:spells:311",
+            "url": "https://dnd.su/spells/311-sacred_flame/",
+            "label": "священное пламя [sacred flame]",
+            "nameEvidence": "index-name-match",
+            "indexSpellLevel": 0,
+            "registryStatus": "observed-in-spell-index",
+            "canonicalCatalogId": null,
+            "fullRules": "unverified"
+          },
+          "evidenceTextSha256": "a86ac2709145f4508a723b2e9c470e5221f1cad2343b55e7a049bfbffcc1f700",
+          "relationship": "unclassified-reference-not-a-grant",
+          "fullRules": "unverified",
+          "automation": "not-applied"
+        }
+      ],
+      "rawSha256": "043713e7e994523e2fce783280e788e24da198a0d301b155f673c980a7c986d3"
+    }
+  ]
+}

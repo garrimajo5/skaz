@@ -1,0 +1,930 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-11-17",
+  "basis": "Public source selector metadata only; no permission to reproduce text inferred",
+  "observations": [
+    {
+      "section": "spells",
+      "url": "https://dnd.su/spells/",
+      "rawSha256": "9730e2821d0f6d38106d5c4cfc30fd9aa94c196dead733e1dd24eb1e919b158b"
+    },
+    {
+      "section": "bestiary",
+      "url": "https://dnd.su/bestiary/",
+      "rawSha256": "2b00b2dc84cb39205e02c77ff0c21f5c2da3e8db1e9c7ea0a60a381e4caffd9b"
+    },
+    {
+      "section": "items",
+      "url": "https://dnd.su/items/",
+      "rawSha256": "37d2f6a4aa71fc34a8eec732088ecd8157af4c3b23fbeda8d98aa7ba58386205"
+    }
+  ],
+  "sources": [
+    {
+      "id": "dndsu:source:101",
+      "sourceId": "101",
+      "title": "Dungeon Master's Guide",
+      "group": "Core",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:102",
+      "sourceId": "102",
+      "title": "Player's Handbook",
+      "group": "Core",
+      "observedSections": [
+        "spells",
+        "bestiary"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:103",
+      "sourceId": "103",
+      "title": "Monster Manual",
+      "group": "Core",
+      "observedSections": [
+        "bestiary"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:105",
+      "sourceId": "105",
+      "title": "Hoard of the Dragon Queen",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:106",
+      "sourceId": "106",
+      "title": "The Rise of Tiamat",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:107",
+      "sourceId": "107",
+      "title": "Princes of the Apocalypse",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "spells",
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:108",
+      "sourceId": "108",
+      "title": "Sword Coast Adventurer's Guide",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "spells"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:109",
+      "sourceId": "109",
+      "title": "Xanathar's Guide to Everything",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "spells",
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:110",
+      "sourceId": "110",
+      "title": "Lost Mine of Phandelver",
+      "group": "Adventures, softcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:111",
+      "sourceId": "111",
+      "title": "Volo's guide to monsters",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:112",
+      "sourceId": "112",
+      "title": "Guildmasters' guide to Ravnica",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "spells",
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:113",
+      "sourceId": "113",
+      "title": "Mordenkainen's Tome of Foes",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:114",
+      "sourceId": "114",
+      "title": "Tomb of Annihilation",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:115",
+      "sourceId": "115",
+      "title": "Acquisition Incorporated",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "spells",
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:116",
+      "sourceId": "116",
+      "title": "Explorer's Guide to Wildemount",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "spells",
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:117",
+      "sourceId": "117",
+      "title": "Tasha's Cauldron of Everything",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "spells",
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:119",
+      "sourceId": "119",
+      "title": "Eberron: Rising from the Last War",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:120",
+      "sourceId": "120",
+      "title": "Icewind Dale: Rime of the Frostmaiden",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "spells",
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:121",
+      "sourceId": "121",
+      "title": "Mythic Odysseys of Theros",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:122",
+      "sourceId": "122",
+      "title": "Candlekeep Mysteries",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:123",
+      "sourceId": "123",
+      "title": "Hunt for the Thessalhydra",
+      "group": "Adventures, softcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:124",
+      "sourceId": "124",
+      "title": "Curse of Strahd",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:125",
+      "sourceId": "125",
+      "title": "Van Richten's Guide to Ravenloft",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:126",
+      "sourceId": "126",
+      "title": "Baldur's Gate: Descent Into Avernus",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:127",
+      "sourceId": "127",
+      "title": "Essentials Kit: Divine Contention",
+      "group": "Adventures, softcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:128",
+      "sourceId": "128",
+      "title": "Ghosts of Saltmarsh",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:129",
+      "sourceId": "129",
+      "title": "Out of the Abyss",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:130",
+      "sourceId": "130",
+      "title": "The Lost Dungeon of Rickedness: Big Rick Energy",
+      "group": "Adventures, softcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:131",
+      "sourceId": "131",
+      "title": "Essentials Kit: Sleeping Dragon's Wake",
+      "group": "Adventures, softcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:132",
+      "sourceId": "132",
+      "title": "Storm King's Thunder",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:133",
+      "sourceId": "133",
+      "title": "Tales from the Yawning Portal",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:134",
+      "sourceId": "134",
+      "title": "Waterdeep: Dragon Heist",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:135",
+      "sourceId": "135",
+      "title": "Waterdeep: Dungeon of the Mad Mage",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:151",
+      "sourceId": "151",
+      "title": "The Wild Beyond The Witchlight: A Feywild Adventure",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:152",
+      "sourceId": "152",
+      "title": "Fizban's Treasury of Dragons",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "spells",
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:153",
+      "sourceId": "153",
+      "title": "Lost Laboratory of Kwalish",
+      "group": "Adventurers League",
+      "observedSections": [
+        "spells",
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:155",
+      "sourceId": "155",
+      "title": "Strixhaven: A Curriculum of Chaos",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "spells",
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:156",
+      "sourceId": "156",
+      "title": "Midgard Heroes Handbook",
+      "group": "Homebrew",
+      "observedSections": [
+        "spells"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:157",
+      "sourceId": "157",
+      "title": "Essentials Kit: Dragon of Icespire peak",
+      "group": "Adventures, softcovers",
+      "observedSections": [
+        "bestiary"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:158",
+      "sourceId": "158",
+      "title": "Mordenkainen Presents: Monsters of the Multiverse",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "bestiary"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:159",
+      "sourceId": "159",
+      "title": "Critical Role: Call of the Netherdeep",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:160",
+      "sourceId": "160",
+      "title": "Spelljammer: Adventures in Space",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "spells",
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:161",
+      "sourceId": "161",
+      "title": "Infernal Machine Rebuild",
+      "group": "Adventures, softcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:167",
+      "sourceId": "167",
+      "title": "Essentials Kit: Storm Lord's Wrath",
+      "group": "Adventures, softcovers",
+      "observedSections": [
+        "bestiary"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:169",
+      "sourceId": "169",
+      "title": "Adventurers League",
+      "group": "Adventurers League",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:171",
+      "sourceId": "171",
+      "title": "Journeys through the Radiant Citadel",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:174",
+      "sourceId": "174",
+      "title": "The Vecna Dossier",
+      "group": "Supplements",
+      "observedSections": [
+        "bestiary"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:179",
+      "sourceId": "179",
+      "title": "laserllama",
+      "group": "Homebrew",
+      "observedSections": [
+        "spells"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:180",
+      "sourceId": "180",
+      "title": "Saltmarsh Encounters",
+      "group": "Adventurers League",
+      "observedSections": [
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:183",
+      "sourceId": "183",
+      "title": "Dragonlance: Shadow of the Dragon Queen",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:187",
+      "sourceId": "187",
+      "title": "Monstrous Compendium Vol 1: Spelljammer Creatures",
+      "group": "Supplements",
+      "observedSections": [
+        "bestiary"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:188",
+      "sourceId": "188",
+      "title": "Monstrous Compendium Vol 2: Dragonlance Creatures",
+      "group": "Supplements",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:189",
+      "sourceId": "189",
+      "title": "Keys from the Golden Vault",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:190",
+      "sourceId": "190",
+      "title": "Valda's Spire of Secrets",
+      "group": "Homebrew",
+      "observedSections": [
+        "spells"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:191",
+      "sourceId": "191",
+      "title": "Honor among Thieves",
+      "group": "Supplements",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:194",
+      "sourceId": "194",
+      "title": "Misplaced Monsters: Volume One",
+      "group": "Supplements",
+      "observedSections": [
+        "bestiary"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:197",
+      "sourceId": "197",
+      "title": "Giants of the Star Forge",
+      "group": "Adventures, softcovers",
+      "observedSections": [
+        "bestiary"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:198",
+      "sourceId": "198",
+      "title": "Bigby Presents: Glory of the Giants",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:199",
+      "sourceId": "199",
+      "title": "Monstrous Compendium Vol 3: Minecraft Creatures",
+      "group": "Supplements",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:202",
+      "sourceId": "202",
+      "title": "Phandelver and Below: The Shattered Obelisk",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:205",
+      "sourceId": "205",
+      "title": "Planescape: Adventures in the Multiverse",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "spells",
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:206",
+      "sourceId": "206",
+      "title": "Mordenkainen's Fiendish Folio Vol 1",
+      "group": "Supplements",
+      "observedSections": [
+        "bestiary"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:207",
+      "sourceId": "207",
+      "title": "The Book of Many Things",
+      "group": "Sourcebooks",
+      "observedSections": [
+        "spells",
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:208",
+      "sourceId": "208",
+      "title": "Adventure Atlas: The Mortuary",
+      "group": "Supplements",
+      "observedSections": [
+        "bestiary"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:210",
+      "sourceId": "210",
+      "title": "Ryoko's guide to the yokai realms",
+      "group": "Homebrew",
+      "observedSections": [
+        "spells"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:213",
+      "sourceId": "213",
+      "title": "Descent into the Lost Caverns of Tsojcanth",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:214",
+      "sourceId": "214",
+      "title": "Vecna: Eve of Ruin",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:218",
+      "sourceId": "218",
+      "title": "Quest from the Infinite Staircase",
+      "group": "Adventures, hardcovers",
+      "observedSections": [
+        "bestiary",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:219",
+      "sourceId": "219",
+      "title": "Monstrous Compendium Vol. Four: Eldraine Creatures",
+      "group": "Supplements",
+      "observedSections": [
+        "bestiary"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:source:310",
+      "sourceId": "310",
+      "title": "Spark of Alastas",
+      "group": "Homebrew",
+      "observedSections": [
+        "spells",
+        "items"
+      ],
+      "editionEvidence": "listed-on-5e14-official-index",
+      "scope": "candidate-2014",
+      "reusePermission": "not-established"
+    }
+  ]
+}

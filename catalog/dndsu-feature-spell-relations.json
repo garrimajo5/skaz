@@ -1,0 +1,2093 @@
+{
+  "schemaVersion": 1,
+  "status": "feature-spell-relationship-proposals-not-runtime-rules",
+  "summary": {
+    "relations": 86,
+    "classifiedReferences": 100,
+    "unclassifiedSpellReferences": 0,
+    "unresolvedSearchLinks": 2,
+    "excludedListLinks": 32
+  },
+  "records": [
+    {
+      "id": "feature-spell-relation:ced9748481cfcce6ef5e",
+      "classUrl": "https://dnd.su/class/88-bard/",
+      "featureId": "scope:bard:class-features:feature.spellcasting",
+      "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:145",
+      "referenceIds": [
+        "feature-spell-ref:479143687d723ad2a8e2"
+      ],
+      "relationship": "example-not-grant",
+      "evidenceTextSha256": "74687439b7b7c542c1823e3b9e1044d287c2bac062b978359c159dd16888148b",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:1506b11e415a668cec2f",
+      "classUrl": "https://dnd.su/class/88-bard/",
+      "featureId": "scope:bard:college.glamour:ab3cf517c33f675c",
+      "featureTitle": "МАНТИЯ ВЕЛИЧИЯ",
+      "parent": "college.glamour",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:276",
+      "referenceIds": [
+        "feature-spell-ref:ce1bdb8cf8081a3d71af",
+        "feature-spell-ref:db83b388651b7f807474",
+        "feature-spell-ref:cc1a270aea97e86930c4"
+      ],
+      "relationship": "feature-casting-not-known-grant",
+      "evidenceTextSha256": "6607ab3df4c6af51b85d051467433916a0c4383c169bc3841813170acb2073c1",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:2321a08315cad7dad060",
+      "classUrl": "https://dnd.su/class/88-bard/",
+      "featureId": "scope:bard:college.spirits:cdcf9bf90e719210",
+      "featureTitle": "Направляющий шёпот",
+      "parent": "college.spirits",
+      "sourceIds": [
+        "125"
+      ],
+      "spellPageId": "dndsu:spells:105",
+      "referenceIds": [
+        "feature-spell-ref:eafa6542c20047e33e05"
+      ],
+      "relationship": "learned-cantrip",
+      "evidenceTextSha256": "edcd124dc5a1244f718d0211516b30ead3d6c9be89984bf9b993f66fe528cc6a",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:d116cc7c545a3573ee89",
+      "classUrl": "https://dnd.su/class/87-barbarian/",
+      "featureId": "scope:barbarian:primal.totem-warrior:41746d2e813f0a75",
+      "featureTitle": "ИСКАТЕЛЬ ДУХОВ",
+      "parent": "primal.totem-warrior",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:76",
+      "referenceIds": [
+        "feature-spell-ref:f3246d9cb39ef5f1cf54"
+      ],
+      "relationship": "ritual-only-access",
+      "evidenceTextSha256": "7fae010dbd88f227be3c2d7189a28040f238fecd92dcf12ffd4da9b7f317d625",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:a9b2accbded45fd2fbb0",
+      "classUrl": "https://dnd.su/class/87-barbarian/",
+      "featureId": "scope:barbarian:primal.totem-warrior:41746d2e813f0a75",
+      "featureTitle": "ИСКАТЕЛЬ ДУХОВ",
+      "parent": "primal.totem-warrior",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:292",
+      "referenceIds": [
+        "feature-spell-ref:50e3533a3dad528f61fb"
+      ],
+      "relationship": "ritual-only-access",
+      "evidenceTextSha256": "7fae010dbd88f227be3c2d7189a28040f238fecd92dcf12ffd4da9b7f317d625",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:7e67a0f53d1c2d97765f",
+      "classUrl": "https://dnd.su/class/87-barbarian/",
+      "featureId": "scope:barbarian:primal.totem-warrior:e7076eaefd57516a",
+      "featureTitle": "ГУЛЯЮЩИЙ С ДУХАМИ",
+      "parent": "primal.totem-warrior",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:199",
+      "referenceIds": [
+        "feature-spell-ref:e3f720748f68240cb838"
+      ],
+      "relationship": "ritual-access-not-known-grant",
+      "evidenceTextSha256": "841278cc7fb5ea3bd45f9bc370798115bd755e0b1312328f78c25092c9aa9830",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:e7cddc72f016eac790de",
+      "classUrl": "https://dnd.su/class/87-barbarian/",
+      "featureId": "scope:barbarian:primal.ancestral-guardian:faa5b3c215743566",
+      "featureTitle": "СОВЕТ ПРЕДКОВ",
+      "parent": "primal.ancestral-guardian",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:40",
+      "referenceIds": [
+        "feature-spell-ref:aea8e59f46981265d7fb",
+        "feature-spell-ref:aacbb48f8c85e5176266"
+      ],
+      "relationship": "feature-casting-choice",
+      "evidenceTextSha256": "e4fab072ce5c46b889194e0f004cf9415471860816fb16dfcfef9370c916f4cb",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:9ec4e806a1d5a5822635",
+      "classUrl": "https://dnd.su/class/87-barbarian/",
+      "featureId": "scope:barbarian:primal.ancestral-guardian:faa5b3c215743566",
+      "featureTitle": "СОВЕТ ПРЕДКОВ",
+      "parent": "primal.ancestral-guardian",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:238",
+      "referenceIds": [
+        "feature-spell-ref:06fb1498139fb760d196",
+        "feature-spell-ref:d9c3cfa54245b347f870",
+        "feature-spell-ref:849f352a14f153e4f481"
+      ],
+      "relationship": "feature-casting-choice",
+      "evidenceTextSha256": "e4fab072ce5c46b889194e0f004cf9415471860816fb16dfcfef9370c916f4cb",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:29940fad8d4eb9ff5077",
+      "classUrl": "https://dnd.su/class/87-barbarian/",
+      "featureId": "scope:barbarian:primal.zealot:7a15a31ebc66b4a0",
+      "featureTitle": "ВОИН БОГОВ",
+      "parent": "primal.zealot",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:208",
+      "referenceIds": [
+        "feature-spell-ref:d69391e0d24316f17efa"
+      ],
+      "relationship": "beneficiary-effect-not-grant",
+      "evidenceTextSha256": "b4a2acf78bceb2802a2fd8477599165f6169e294e2ce40d48abb426eba96cbe9",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:8093591787ded089ec15",
+      "classUrl": "https://dnd.su/class/87-barbarian/",
+      "featureId": "scope:barbarian:primal.giant:80eddd947f9e7145",
+      "featureTitle": "Сила великана",
+      "parent": "primal.giant",
+      "sourceIds": [
+        "198"
+      ],
+      "spellPageId": "dndsu:spells:123",
+      "referenceIds": [
+        "feature-spell-ref:98e54692f91fc451eca0"
+      ],
+      "relationship": "choose-one-cantrip",
+      "evidenceTextSha256": "5e6dc0fa33bc50b778a7e29e96f37d11e8f1e6d6085059a4de4ab14c2b0c7739",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:43bd80529bfbd17df628",
+      "classUrl": "https://dnd.su/class/87-barbarian/",
+      "featureId": "scope:barbarian:primal.giant:80eddd947f9e7145",
+      "featureTitle": "Сила великана",
+      "parent": "primal.giant",
+      "sourceIds": [
+        "198"
+      ],
+      "spellPageId": "dndsu:spells:80",
+      "referenceIds": [
+        "feature-spell-ref:ecf135eeca83a81a14e0"
+      ],
+      "relationship": "choose-one-cantrip",
+      "evidenceTextSha256": "5e6dc0fa33bc50b778a7e29e96f37d11e8f1e6d6085059a4de4ab14c2b0c7739",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:dc867b95bbf37d6d1f29",
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "featureId": "scope:wizard:tradition.illusion:377df2c61029d4b2",
+      "featureTitle": "УЛУЧШЕННАЯ МАЛАЯ ИЛЛЮЗИЯ",
+      "parent": "tradition.illusion",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:154",
+      "referenceIds": [
+        "feature-spell-ref:229a72df7c4db0d115c5",
+        "feature-spell-ref:ae8e6762d822dc3bbff0"
+      ],
+      "relationship": "learn-cantrip-with-known-replacement-choice",
+      "evidenceTextSha256": "d1391d6268e1cd8b3c3f3df8302e29ef67bb384d3a3a1b2fa8693994f792f707",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:da027191d6f06f4772f4",
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "featureId": "scope:wizard:tradition.necromancy:cb10ec73cff0b0d9",
+      "featureTitle": "НЕЖИВЫЕ РАБЫ",
+      "parent": "tradition.necromancy",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:35",
+      "referenceIds": [
+        "feature-spell-ref:6773d533e1351189b348",
+        "feature-spell-ref:c28ba3af4aab061cea50"
+      ],
+      "relationship": "spellbook-add-if-absent",
+      "evidenceTextSha256": "5743f9ca36dde6bbb4a1b4c842e66d52ac5da3c3b5aca3a796af1cf6c179cc58",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:1a6e8fe7626ecae69715",
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "featureId": "scope:wizard:tradition.abjuration:640bf162984be4c7",
+      "featureTitle": "УЛУЧШЕННОЕ ОГРАЖДЕНИЕ",
+      "parent": "tradition.abjuration",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:132",
+      "referenceIds": [
+        "feature-spell-ref:17831ec770160660031d"
+      ],
+      "relationship": "modifies-existing-casting-not-grant",
+      "evidenceTextSha256": "a6c193f234ebc6c8a5376de5a0ca065707c838ad0acbc179fcbfec997c6faa7b",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:f74b6738e309c22f50e9",
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "featureId": "scope:wizard:tradition.abjuration:640bf162984be4c7",
+      "featureTitle": "УЛУЧШЕННОЕ ОГРАЖДЕНИЕ",
+      "parent": "tradition.abjuration",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:301",
+      "referenceIds": [
+        "feature-spell-ref:865b72da114bfdb6122f"
+      ],
+      "relationship": "modifies-existing-casting-not-grant",
+      "evidenceTextSha256": "a6c193f234ebc6c8a5376de5a0ca065707c838ad0acbc179fcbfec997c6faa7b",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:839c8834da0fdca90d49",
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "featureId": "scope:wizard:tradition.transmutation:b89a31c5f9da1f76",
+      "featureTitle": "ПЕРЕВЁРТЫШ",
+      "parent": "tradition.transmutation",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:260",
+      "referenceIds": [
+        "feature-spell-ref:c188c70de49a1b351aae",
+        "feature-spell-ref:f8728ec5ee297a4f7012"
+      ],
+      "relationship": "spellbook-add-if-absent-with-special-casting",
+      "evidenceTextSha256": "dc9afb076adbcf091a076d1827c554ef96c05a1abc2b6567a8d6515ee7434566",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:ed59d0a661d7e2d1079b",
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "featureId": "scope:wizard:tradition.transmutation:743f0ddcddf2028f",
+      "featureTitle": "ГЕНИЙ ПРЕОБРАЗОВАНИЯ",
+      "parent": "tradition.transmutation",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:208",
+      "referenceIds": [
+        "feature-spell-ref:721b8d7b1f1a2bf8cbb4"
+      ],
+      "relationship": "feature-casting-not-spellbook-grant",
+      "evidenceTextSha256": "0bd2196211505e2fb88553090403f17101de1de04ff347690b3cce1f3df95c8a",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:d900cc7775def6a53bbc",
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "featureId": "scope:wizard:tradition.war-magic:b9a41e75d2926ba1",
+      "featureTitle": "ВСПЛЕСК МОЩИ",
+      "parent": "tradition.war-magic",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:301",
+      "referenceIds": [
+        "feature-spell-ref:b28ac4ab9455b2d9aacc"
+      ],
+      "relationship": "existing-casting-trigger-not-grant",
+      "evidenceTextSha256": "10c3454dec638867ca01f79a047667596fb8ed4682d44ba165ee2b287111563b",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:178b2613471aaecf55f1",
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "featureId": "scope:wizard:tradition.war-magic:b9a41e75d2926ba1",
+      "featureTitle": "ВСПЛЕСК МОЩИ",
+      "parent": "tradition.war-magic",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:132",
+      "referenceIds": [
+        "feature-spell-ref:7a05ab067c8cb0f3f7e0"
+      ],
+      "relationship": "existing-casting-trigger-not-grant",
+      "evidenceTextSha256": "10c3454dec638867ca01f79a047667596fb8ed4682d44ba165ee2b287111563b",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:272a84430cb507c00582",
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "featureId": "scope:wizard:tradition.scribes:b7778f2c9af8fdb1",
+      "featureTitle": "Пробуждение разума",
+      "parent": "tradition.scribes",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:301",
+      "referenceIds": [
+        "feature-spell-ref:617c5145dcfc89e3dd03"
+      ],
+      "relationship": "countermeasure-not-grant",
+      "evidenceTextSha256": "bc6d074bcb665dd7750eda1d7623c6a6ac750a4b8cacf7553f56f0ba2b955ad4",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:b52574ddd0d52003ce87",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "featureId": "scope:warlock:class-features:feature.pact-magic",
+      "featureTitle": "МАГИЯ ДОГОВОРА",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:15",
+      "referenceIds": [
+        "feature-spell-ref:6a8872813ddfcf143777"
+      ],
+      "relationship": "example-not-grant",
+      "evidenceTextSha256": "15cff7f2facecfa42dc186e26130e3564751d1d5fc9e3ef9cfd13d41b1f372cf",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:23aa64425bf2458e9cdf",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "featureId": "scope:warlock:class-features:feature.pact-boon",
+      "featureTitle": "ПРЕДМЕТ ДОГОВОРА",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:248",
+      "referenceIds": [
+        "feature-spell-ref:0c3804c71c537deb0073"
+      ],
+      "relationship": "learned-if-pact-chain-selected",
+      "evidenceTextSha256": "880e51f0e6fe958ab880be3347fb296a5f1c649b1493acaf02977181e6365814",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:11108561c53a6c159b46",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "featureId": "scope:warlock:patron.great-old-one:193c4066ee25278a",
+      "featureTitle": "СОЗДАТЬ РАБА",
+      "parent": "patron.great-old-one",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:326",
+      "referenceIds": [
+        "feature-spell-ref:65c97d8dce7a7eacdf14"
+      ],
+      "relationship": "countermeasure-not-grant",
+      "evidenceTextSha256": "494bcfe66d2b5d6e9897fd19b67ef5a6400d348d45eab2ac1fc2904110757449",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:8da8deda4ff5023699a9",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "featureId": "scope:warlock:patron.undying:11b0471c9b728415",
+      "featureTitle": "СРЕДИ МЁРТВЫХ",
+      "parent": "patron.undying",
+      "sourceIds": [
+        "108"
+      ],
+      "spellPageId": "dndsu:spells:94",
+      "referenceIds": [
+        "feature-spell-ref:e86587993dbffcab44b9"
+      ],
+      "relationship": "learned-cantrip",
+      "evidenceTextSha256": "c60888e66a5ccbd6e6598e58968d25e8363dd15a53e0ad54f98faa5994f1df83",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:86025134cee02db24bad",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "featureId": "scope:warlock:patron.undying:11b0471c9b728415",
+      "featureTitle": "СРЕДИ МЁРТВЫХ",
+      "parent": "patron.undying",
+      "sourceIds": [
+        "108"
+      ],
+      "spellPageId": "dndsu:spells:205",
+      "referenceIds": [
+        "feature-spell-ref:2782f9fe4a1fd2fd9db1"
+      ],
+      "relationship": "example-not-grant",
+      "evidenceTextSha256": "c60888e66a5ccbd6e6598e58968d25e8363dd15a53e0ad54f98faa5994f1df83",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:a5ea77d1b7a6f8f6005b",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "featureId": "scope:warlock:patron.undying:322da55287508c58",
+      "featureTitle": "ОТРИНУВ СМЕРТЬ",
+      "parent": "patron.undying",
+      "sourceIds": [
+        "108"
+      ],
+      "spellPageId": "dndsu:spells:94",
+      "referenceIds": [
+        "feature-spell-ref:000fcaafe3daaae33507"
+      ],
+      "relationship": "existing-casting-trigger-not-grant",
+      "evidenceTextSha256": "7ebb4ee5770ad58bc00e67222ea7599f7f208fc86fcc9e08e12f2a09814aeba7",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:f312d65dd434237cc5a7",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "featureId": "scope:warlock:patron.celestial:c6dfb1a1a9f6a02b",
+      "featureTitle": "ДОПОЛНИТЕЛЬНЫЕ ЗАГОВОРЫ",
+      "parent": "patron.celestial",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:307",
+      "referenceIds": [
+        "feature-spell-ref:7412f1ad3052c878d313"
+      ],
+      "relationship": "learned-cantrip",
+      "evidenceTextSha256": "65990a97026d3ccc573ce026f60d6200a9406a8e8d97cdd4947095508dae13b6",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:8a14add3b543684228db",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "featureId": "scope:warlock:patron.celestial:c6dfb1a1a9f6a02b",
+      "featureTitle": "ДОПОЛНИТЕЛЬНЫЕ ЗАГОВОРЫ",
+      "parent": "patron.celestial",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:311",
+      "referenceIds": [
+        "feature-spell-ref:b7b73f91d71c4c1a4e6c"
+      ],
+      "relationship": "learned-cantrip",
+      "evidenceTextSha256": "65990a97026d3ccc573ce026f60d6200a9406a8e8d97cdd4947095508dae13b6",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:5cd3669195ef6efc9ca7",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "featureId": "scope:warlock:patron.fathomless:5285f5439b7f7f4f",
+      "featureTitle": "Опутывающие щупальца",
+      "parent": "patron.fathomless",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:67",
+      "referenceIds": [
+        "feature-spell-ref:209e3d3decd5c955888b"
+      ],
+      "relationship": "learned-spell-with-special-casting",
+      "evidenceTextSha256": "a7b819c59102b75425b7c0aef7011e09f75f064037a566e2cfa98a89f38fd264",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:fa7d9099e56a2509d144",
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "featureId": "scope:druid:class-features:feature.spellcasting",
+      "featureTitle": "Использование заклинаний",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:145",
+      "referenceIds": [
+        "feature-spell-ref:ac271b770fd5c689d83d"
+      ],
+      "relationship": "example-not-grant",
+      "evidenceTextSha256": "9e1821ab539527fedec9ed0a61daa1f7181c0f51964dc26a3b32452802e06e67",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:cbd048e333a809146354",
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "featureId": "scope:druid:class-features:feature.wild-shape",
+      "featureTitle": "Дикий облик",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:272",
+      "referenceIds": [
+        "feature-spell-ref:c1473e811cbb1270532f"
+      ],
+      "relationship": "existing-casting-interaction-not-grant",
+      "evidenceTextSha256": "991176543b50fbcc778f22afed137e36f0cd6bc37701c3b46f1a35d2ca9baf52",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:4cc7b1abd733dee818be",
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "featureId": "scope:druid:class-features:feature.wild-companion",
+      "featureTitle": "Дикий спутник",
+      "parent": "class-features",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:248",
+      "referenceIds": [
+        "feature-spell-ref:ea579f1a0c943db559fd"
+      ],
+      "relationship": "feature-casting-not-known-grant",
+      "evidenceTextSha256": "88f542913959a4a7201fa14e91691453ad6c47467faba6d7020d26d22d9af7ad",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:b0a691d3463bc758d387",
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "featureId": "scope:druid:circle.land:d7d178d2a1045412",
+      "featureTitle": "ТРОПАМИ ЗЕМЛИ",
+      "parent": "circle.land",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:211",
+      "referenceIds": [
+        "feature-spell-ref:ca7ece1a638936e52f76"
+      ],
+      "relationship": "defence-example-not-grant",
+      "evidenceTextSha256": "6964473db6f08786eacfc0b53951c35b5b4572ea13b4b7afe555239c3760d53c",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:b049742a5af9880274d6",
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "featureId": "scope:druid:circle.moon:9a552a7cba2f1db9",
+      "featureTitle": "ТЫСЯЧА ЛИЦ",
+      "parent": "circle.moon",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:323",
+      "referenceIds": [
+        "feature-spell-ref:a84f011001e6a2142854"
+      ],
+      "relationship": "unlimited-feature-casting-not-known-grant",
+      "evidenceTextSha256": "efa4eef9d372a9c82c3acf345c05a8b8f86843e02c1fe7279fafd7345c21698a",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:3db62b4c0ab6c307fdab",
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "featureId": "scope:druid:circle.shepherd:6773a1ae4698b858",
+      "featureTitle": "ВЕРНЫЕ ПРИЗВАННЫЕ",
+      "parent": "circle.shepherd",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:267",
+      "referenceIds": [
+        "feature-spell-ref:fdf4a54b926d2d2ddee1"
+      ],
+      "relationship": "triggered-effect-as-spell-not-known-grant",
+      "evidenceTextSha256": "9a9391d0f503c10655b6eb48b2780b06b5f941b9d2535d5fd804d8423a64171c",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:ca586db7a5a0f3642b60",
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "featureId": "scope:druid:circle.dreams:d33593f1bf53c005",
+      "featureTitle": "СТРАННИК ВО СНАХ",
+      "parent": "circle.dreams",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:19",
+      "referenceIds": [
+        "feature-spell-ref:77b0770cce4c3c394d7c"
+      ],
+      "relationship": "feature-casting-choice",
+      "evidenceTextSha256": "13778731460d530b19a9a8371525864b6afc7dd76f8e077e44026cc7fb9811a9",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:096c55effaecfb12a6f1",
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "featureId": "scope:druid:circle.dreams:d33593f1bf53c005",
+      "featureTitle": "СТРАННИК ВО СНАХ",
+      "parent": "circle.dreams",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:176",
+      "referenceIds": [
+        "feature-spell-ref:9a7ede63bf081b0d8220"
+      ],
+      "relationship": "feature-casting-choice",
+      "evidenceTextSha256": "13778731460d530b19a9a8371525864b6afc7dd76f8e077e44026cc7fb9811a9",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:b3547da58cf323ac0f8e",
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "featureId": "scope:druid:circle.stars:50610a6955a94258",
+      "featureTitle": "Звёздная карта",
+      "parent": "circle.stars",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:105",
+      "referenceIds": [
+        "feature-spell-ref:47c97734cd8014a37a1f"
+      ],
+      "relationship": "learned-cantrip-while-holding-map",
+      "evidenceTextSha256": "a183767f10da7dc24ed6ac0d634e26ab25f08c61916cc43c90e144eb51eaaf4c",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:c48a4df0dda2e8c96084",
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "featureId": "scope:druid:circle.stars:50610a6955a94258",
+      "featureTitle": "Звёздная карта",
+      "parent": "circle.stars",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:178",
+      "referenceIds": [
+        "feature-spell-ref:a8cdcf451e0e9ae79ec6",
+        "feature-spell-ref:363b09a01c9912abfe21"
+      ],
+      "relationship": "always-prepared-while-holding-map-with-special-casting",
+      "evidenceTextSha256": "a183767f10da7dc24ed6ac0d634e26ab25f08c61916cc43c90e144eb51eaaf4c",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:bf89e5895e780d40b622",
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "featureId": "scope:druid:circle.spores:d899bb01a20fec24",
+      "featureTitle": "Заклинания круга",
+      "parent": "circle.spores",
+      "sourceIds": [
+        "117",
+        "112"
+      ],
+      "spellPageId": "dndsu:spells:140",
+      "referenceIds": [
+        "feature-spell-ref:84853c65a94d306688e5"
+      ],
+      "relationship": "learned-cantrip",
+      "evidenceTextSha256": "db4995603e401f2ab630343376d75f4cecf9aed10c3c5b470e9c8e5a684cc79d",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:e15908166198f6a92f9f",
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "featureId": "scope:cleric:features:feature.spellcasting",
+      "featureTitle": "Использование заклинаний",
+      "parent": "features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:145",
+      "referenceIds": [
+        "feature-spell-ref:795521c743fd1fb27f5e"
+      ],
+      "relationship": "example-not-grant",
+      "evidenceTextSha256": "6674d3222bbc3694e720c67b613a7699363423076a3b5ece514a0f3b47cf5515",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:591ccf2914e965bbcfff",
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "featureId": "scope:cleric:domain.knowledge:794436634d5c6445",
+      "featureTitle": "БОЖЕСТВЕННЫЙ КАНАЛ: ЧТЕНИЕ МЫСЛЕЙ",
+      "parent": "domain.knowledge",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:23",
+      "referenceIds": [
+        "feature-spell-ref:cec556ea2090cdba4fc9"
+      ],
+      "relationship": "feature-casting-not-known-grant",
+      "evidenceTextSha256": "044de0f0ec6c528501c625ab21274a7a7c712eeed651f52d06bf55e4962e2bb9",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:b94d15023f1ec7ff3553",
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "featureId": "scope:cleric:domain.light:9a8055f33dc2e556",
+      "featureTitle": "ДОПОЛНИТЕЛЬНЫЙ ЗАГОВОР",
+      "parent": "domain.light",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:307",
+      "referenceIds": [
+        "feature-spell-ref:f5028a21244fcb557cf7"
+      ],
+      "relationship": "learned-cantrip-if-absent",
+      "evidenceTextSha256": "019f64beb9a87cf782572204d9288e0ac4dd176300f660d64e78d89326fc282c",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:045f558db59f454f8fd7",
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "featureId": "scope:cleric:domain.arcana:b8b55c993101683d",
+      "featureTitle": "БОЖЕСТВЕННЫЙ КАНАЛ: ОГРАЖДЕНИЕ МАГИЕЙ",
+      "parent": "domain.arcana",
+      "sourceIds": [
+        "108"
+      ],
+      "spellPageId": "dndsu:spells:116",
+      "referenceIds": [
+        "feature-spell-ref:d05c2110bfcd6b5b3e06"
+      ],
+      "relationship": "effect-as-spell-not-known-grant",
+      "evidenceTextSha256": "d0ea5ff0403de22895b8750c7533975b848910ab8fce431fc946909b700f0bae",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:55171f06be12939ddfb1",
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "featureId": "scope:cleric:domain.grave:ed7fd0c3b017a74c",
+      "featureTitle": "КРУГ СМЕРТИ",
+      "parent": "domain.grave",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:94",
+      "referenceIds": [
+        "feature-spell-ref:9f39a715e9480db9304d"
+      ],
+      "relationship": "learned-cantrip-with-modified-casting",
+      "evidenceTextSha256": "a06887938d6df7aaf7a39a9bba1d557050fe7b25639ad24103810d77e5ffa64d",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:da2e68597d8c9876fb3e",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "featureId": "scope:artificer:specialist.alchemist:9bd72d7a38200834",
+      "featureTitle": "ВОССТАНАВЛИВАЮЩИЕ РЕАГЕНТЫ",
+      "parent": "specialist.alchemist",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:155",
+      "referenceIds": [
+        "feature-spell-ref:8beb666e0bf8ce03c82b"
+      ],
+      "relationship": "feature-casting-without-preparation",
+      "evidenceTextSha256": "b57fc5bce641294d7d5cf966c667483405159b9afbb3d767da655de137e74299",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:da75f8bacf45327b16d7",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "featureId": "scope:artificer:specialist.alchemist:5ab794c7564d4100",
+      "featureTitle": "ХИМИЧЕСКОЕ МАСТЕРСТВО",
+      "parent": "specialist.alchemist",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:39",
+      "referenceIds": [
+        "feature-spell-ref:0aa55689fbf1b1000518"
+      ],
+      "relationship": "feature-casting-without-preparation",
+      "evidenceTextSha256": "10d7e8f10fbd731ade117f551b6679b0a6bf27af1fafec82b717b42949a271c0",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:df0535894a6d9a9233de",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "featureId": "scope:artificer:specialist.alchemist:5ab794c7564d4100",
+      "featureTitle": "ХИМИЧЕСКОЕ МАСТЕРСТВО",
+      "parent": "specialist.alchemist",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:250",
+      "referenceIds": [
+        "feature-spell-ref:50baa3c52ef7232c6d71"
+      ],
+      "relationship": "feature-casting-without-preparation",
+      "evidenceTextSha256": "10d7e8f10fbd731ade117f551b6679b0a6bf27af1fafec82b717b42949a271c0",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:9643a6da5f0e3fdf7d79",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "featureId": "scope:artificer:specialist.artillerist:ebdbc64cc9764ce7",
+      "featureTitle": "МИСТИЧЕСКАЯ ПУШКА",
+      "parent": "specialist.artillerist",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:258",
+      "referenceIds": [
+        "feature-spell-ref:1d860f819d4fec12a8c5"
+      ],
+      "relationship": "repair-interaction-not-grant",
+      "evidenceTextSha256": "f65723646aaa81f9ee8c6cf0b40c8ddc9bf0478ec6562e2822b9e6d3bc162fc9",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:10db9196b7edf030ae5f",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "featureId": "scope:artificer:specialist.battlesmith:c4961367422c09fe",
+      "featureTitle": "СТАЛЬНОЙ ЗАЩИТНИК",
+      "parent": "specialist.battlesmith",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:258",
+      "referenceIds": [
+        "feature-spell-ref:dd1837db10791e3122a1"
+      ],
+      "relationship": "repair-interaction-not-grant",
+      "evidenceTextSha256": "6795b2613b6912fd0aaba56f6e703af6f785ff65b1d51465384b3f9427baf402",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:ac3ad15a816525fb4eee",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "featureId": "scope:monk:class-features:feature.evasion",
+      "featureTitle": "Увёртливость",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:205",
+      "referenceIds": [
+        "feature-spell-ref:007b8b25ca367f8d48ff"
+      ],
+      "relationship": "defence-example-not-grant",
+      "evidenceTextSha256": "778ad03fa7f621132d8813af285b6a0df83ee7b5c9b14a3ef0e3d6eeae803378",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:55934c27dbb91be5741e",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "featureId": "scope:monk:class-features:feature.empty-body",
+      "featureTitle": "Пустое тело",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:284",
+      "referenceIds": [
+        "feature-spell-ref:6d04de60775ac68032bb"
+      ],
+      "relationship": "feature-casting-not-known-grant",
+      "evidenceTextSha256": "d027de5f9176e88e66cbea3b6420b0836d891961d1388ec1b6e39f11a0e75e19",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:b93d6e54c956edca1e83",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "featureId": "scope:monk:tradition.open-hand:be28a36d982e5ce9",
+      "featureTitle": "УМИРОТВОРЕНИЕ",
+      "parent": "tradition.open-hand",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:354",
+      "referenceIds": [
+        "feature-spell-ref:f3d2b2e863a0b1fbdd4f"
+      ],
+      "relationship": "effect-as-spell-not-known-grant",
+      "evidenceTextSha256": "13cd27f4db13589f6c2a975ba8358b300cb46b0afb892499ee72a24ead0ec574",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:32d94f3dc7fe9bc23b7f",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "featureId": "scope:monk:tradition.shadow:db3017dacf9cc559",
+      "featureTitle": "ТЕХНИКА ТЕНИ",
+      "parent": "tradition.shadow",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:8",
+      "referenceIds": [
+        "feature-spell-ref:40aa6675374cce8e2693"
+      ],
+      "relationship": "feature-casting-choice",
+      "evidenceTextSha256": "b6f615030101cfd8350e6fe6178c324e91cb30fb6ddfdfd138e55667595d6fa1",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:b23d1ea15c65b6b878a9",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "featureId": "scope:monk:tradition.shadow:db3017dacf9cc559",
+      "featureTitle": "ТЕХНИКА ТЕНИ",
+      "parent": "tradition.shadow",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:368",
+      "referenceIds": [
+        "feature-spell-ref:1d278e327fb49753ae04"
+      ],
+      "relationship": "feature-casting-choice",
+      "evidenceTextSha256": "b6f615030101cfd8350e6fe6178c324e91cb30fb6ddfdfd138e55667595d6fa1",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:11c254a1853f8cdabd3b",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "featureId": "scope:monk:tradition.shadow:db3017dacf9cc559",
+      "featureTitle": "ТЕХНИКА ТЕНИ",
+      "parent": "tradition.shadow",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:349",
+      "referenceIds": [
+        "feature-spell-ref:c25cb7cff232fdf94e21"
+      ],
+      "relationship": "feature-casting-choice",
+      "evidenceTextSha256": "b6f615030101cfd8350e6fe6178c324e91cb30fb6ddfdfd138e55667595d6fa1",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:8a12a5f657cd978dea65",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "featureId": "scope:monk:tradition.shadow:db3017dacf9cc559",
+      "featureTitle": "ТЕХНИКА ТЕНИ",
+      "parent": "tradition.shadow",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:353",
+      "referenceIds": [
+        "feature-spell-ref:14f4cff0bf41fe86d5f3"
+      ],
+      "relationship": "feature-casting-choice",
+      "evidenceTextSha256": "b6f615030101cfd8350e6fe6178c324e91cb30fb6ddfdfd138e55667595d6fa1",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:5080d50b21cde15ca37e",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "featureId": "scope:monk:tradition.shadow:db3017dacf9cc559",
+      "featureTitle": "ТЕХНИКА ТЕНИ",
+      "parent": "tradition.shadow",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:154",
+      "referenceIds": [
+        "feature-spell-ref:5d305d86d27a123419b5"
+      ],
+      "relationship": "learned-cantrip-if-absent",
+      "evidenceTextSha256": "b6f615030101cfd8350e6fe6178c324e91cb30fb6ddfdfd138e55667595d6fa1",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:29e31ebcd6848cdd9499",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "featureId": "scope:monk:tradition.sun-soul:3f581e7c9f011240",
+      "featureTitle": "УДАР ПЫЛАЮЩЕЙ ДУГИ",
+      "parent": "tradition.sun-soul",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:203",
+      "referenceIds": [
+        "feature-spell-ref:49767ede41cd2d37f893",
+        "feature-spell-ref:597c8486aa7b6279fb1a"
+      ],
+      "relationship": "feature-casting-not-known-grant",
+      "evidenceTextSha256": "dbf0ff84392f65417ff1ece3f99a009f30afb15be7e2568e25d9aa3349436432",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:0a5162f770d0a57fa139",
+      "classUrl": "https://dnd.su/class/91-fighter/",
+      "featureId": "scope:fighter:archetype.eldritch-knigh:c1a7c732a16e9073",
+      "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+      "parent": "archetype.eldritch-knigh",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:70",
+      "referenceIds": [
+        "feature-spell-ref:8e8239f209a7efd9769a"
+      ],
+      "relationship": "example-not-grant",
+      "evidenceTextSha256": "7c02316c5fcd7e1c0e2d9108725f1b089641bf5c3b9eb88f4dc9083a3e3e8b50",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:0d10631225f05fb6d12a",
+      "classUrl": "https://dnd.su/class/91-fighter/",
+      "featureId": "scope:fighter:archetype.arcane-archer:231dd55471909fc4",
+      "featureTitle": "ЗНАНИЯ МИСТИЧЕСКОГО ЛУЧНИКА",
+      "parent": "archetype.arcane-archer",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:91",
+      "referenceIds": [
+        "feature-spell-ref:561bf9abc299cbf8a8ea"
+      ],
+      "relationship": "choose-one-cantrip",
+      "evidenceTextSha256": "5415f77c24701c33fabb664007d8dc6564707adecc06d3e3842783e593245692",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:81a78d532cf9aa911c1c",
+      "classUrl": "https://dnd.su/class/91-fighter/",
+      "featureId": "scope:fighter:archetype.arcane-archer:231dd55471909fc4",
+      "featureTitle": "ЗНАНИЯ МИСТИЧЕСКОГО ЛУЧНИКА",
+      "parent": "archetype.arcane-archer",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:123",
+      "referenceIds": [
+        "feature-spell-ref:430580c2a66c077956e1"
+      ],
+      "relationship": "choose-one-cantrip",
+      "evidenceTextSha256": "5415f77c24701c33fabb664007d8dc6564707adecc06d3e3842783e593245692",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:19f3688e36f19cb1ab66",
+      "classUrl": "https://dnd.su/class/91-fighter/",
+      "featureId": "scope:fighter:archetype.psi-warrior:7e631a0c562ecc88",
+      "featureTitle": "Мастер телекинеза",
+      "parent": "archetype.psi-warrior",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:344",
+      "referenceIds": [
+        "feature-spell-ref:3d62f6200fe9bf4f52cd"
+      ],
+      "relationship": "feature-casting-not-known-grant",
+      "evidenceTextSha256": "3746badb11b698e2837a936ef990e13dbbd7945f64682f963194992a7abbd561",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:291a34976ab8d0d94d63",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "featureId": "scope:monk:tradition.four-elements:9f08f83b8dbdb130",
+      "featureTitle": "АДЕПТ СТИХИЙ",
+      "parent": "tradition.four-elements",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:203",
+      "referenceIds": [
+        "feature-spell-ref:2a77102d0e50a318f84b",
+        "feature-spell-ref:b81b43d194573dd280b3"
+      ],
+      "relationship": "choice-casting-example-not-automatic-grant",
+      "evidenceTextSha256": "0b0a1742f576ac5431df7346bc5f44b93b6f0d824d2abc9e05e66cbe99c7fccd",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:191831ba669be71ca1a7",
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "featureId": "scope:paladin:klassovye_umeniya:feature.divine-sense",
+      "featureTitle": "БОЖЕСТВЕННОЕ ЧУВСТВО",
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:310",
+      "referenceIds": [
+        "feature-spell-ref:f4f2af05460998d0e414"
+      ],
+      "relationship": "detection-example-not-grant",
+      "evidenceTextSha256": "7ba945599ecca090809e25fbc7b04a4733affa7755437e3d921146cd92ea5d69",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:8a323adf8dd951971916",
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "featureId": "scope:paladin:klassovye_umeniya:feature.spellcasting",
+      "featureTitle": "Использование заклинаний",
+      "parent": "klassovye_umeniya",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:145",
+      "referenceIds": [
+        "feature-spell-ref:5441ccfad6d3585c8cca"
+      ],
+      "relationship": "example-not-grant",
+      "evidenceTextSha256": "5cc9e79e8a6dcd7d8b31bc3006b7c0bc1ba771cff692c4cdb98014a4e4384402",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:afd0a9483faa79df0625",
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "featureId": "scope:paladin:oath.devotion:5c89ad6ec082d4de",
+      "featureTitle": "ЧИСТОТА ДУХА",
+      "parent": "oath.devotion",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:99",
+      "referenceIds": [
+        "feature-spell-ref:0c4a2a60d0120e95bb53"
+      ],
+      "relationship": "permanent-effect-not-known-grant",
+      "evidenceTextSha256": "330bba12f4087e48b72d851192d16cbdbe6182ac5c47da090725de6be233da65",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:cf85bc1070d334889e18",
+      "classUrl": "https://dnd.su/class/99-rogue/",
+      "featureId": "scope:rogue:class-features:feature.evasion",
+      "featureTitle": "УВЁРТЛИВОСТЬ",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:49",
+      "referenceIds": [
+        "feature-spell-ref:4e643f8a28e1b6831a39"
+      ],
+      "relationship": "defence-example-not-grant",
+      "evidenceTextSha256": "14bbaa63054656fb1b132e2a36a4d09d8db3c4bb9a40d141a1e3b0805bdf0b67",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:a1131213af568c65972e",
+      "classUrl": "https://dnd.su/class/99-rogue/",
+      "featureId": "scope:rogue:archetype.arcane-trickster:c1a7c732a16e9073",
+      "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+      "parent": "archetype.arcane-trickster",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:26",
+      "referenceIds": [
+        "feature-spell-ref:8af06bee3b1e8bfc5c10"
+      ],
+      "relationship": "learned-cantrip",
+      "evidenceTextSha256": "ec0eba6e40f1d965f4c46e1f3f4889b1b58af27b05d2899d91a8a0f2008cbb8c",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:be0afe9f6a7399b1dc02",
+      "classUrl": "https://dnd.su/class/99-rogue/",
+      "featureId": "scope:rogue:archetype.arcane-trickster:c1a7c732a16e9073",
+      "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+      "parent": "archetype.arcane-trickster",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:221",
+      "referenceIds": [
+        "feature-spell-ref:f5d6ca04ad4467ee77fc"
+      ],
+      "relationship": "example-not-grant",
+      "evidenceTextSha256": "ec0eba6e40f1d965f4c46e1f3f4889b1b58af27b05d2899d91a8a0f2008cbb8c",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:1faab0b9daa6b99f6a53",
+      "classUrl": "https://dnd.su/class/99-rogue/",
+      "featureId": "scope:rogue:archetype.arcane-trickster:67160eb7550cecc9",
+      "featureTitle": "УЛУЧШЕННАЯ ВОЛШЕБНАЯ РУКА",
+      "parent": "archetype.arcane-trickster",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:26",
+      "referenceIds": [
+        "feature-spell-ref:25c33325e18ba7851252"
+      ],
+      "relationship": "modifies-existing-casting-not-grant",
+      "evidenceTextSha256": "dadf5dc8de26b9744db672a8edb7c96a133e29417659659e2c9c358cb35cbd4e",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:8dd0f9e3215aef560964",
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "featureId": "scope:ranger:class-features:feature.spellcasting",
+      "featureTitle": "Использование заклинаний",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:72",
+      "referenceIds": [
+        "feature-spell-ref:7935352866746bb3b694",
+        "feature-spell-ref:9ffbe45f23896ee1a854"
+      ],
+      "relationship": "example-not-grant",
+      "evidenceTextSha256": "f14227d490dc0cf8371af1b9e56d64f6156590779d55ac8fceccfb01fc2a892b",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:a51564c899ba49c64908",
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "featureId": "scope:ranger:class-features:feature.lands-stride",
+      "featureTitle": "ТРОПАМИ ЗЕМЛИ",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:211",
+      "referenceIds": [
+        "feature-spell-ref:ad804497efe5b104d1f1"
+      ],
+      "relationship": "defence-example-not-grant",
+      "evidenceTextSha256": "ea316c03b4330cac3c86e08b68b859c7c9900cd1f2c5ce5e2085842f3665325d",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:4f2aa7ad88007311765a",
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "featureId": "scope:ranger:archetype.hunter:e57a3e1cd100a6e8",
+      "featureTitle": "УЛУЧШЕННАЯ ЗАЩИТА ОХОТНИКА",
+      "parent": "archetype.hunter",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:175",
+      "referenceIds": [
+        "feature-spell-ref:b42e5c61d6bc91a1e939"
+      ],
+      "relationship": "defence-example-not-grant",
+      "evidenceTextSha256": "97353f158771cab5af918bf3b9f85595ac683123dfaa110758c63479f49a5a3c",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:c38160960b69dd6a6123",
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "featureId": "scope:ranger:archetype.horizon-walker:9c576f85be783cf8",
+      "featureTitle": "ЭФИРНЫЙ ШАГ",
+      "parent": "archetype.horizon-walker",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:64",
+      "referenceIds": [
+        "feature-spell-ref:276c3eb8d5aac7db3896"
+      ],
+      "relationship": "feature-casting-not-known-grant",
+      "evidenceTextSha256": "1de8600f573f5bad49abc301d2b78e36a68a71203400425b22e72bea55707c11",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:4b588ff17d0ed61cba22",
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "featureId": "scope:ranger:archetype.fey-wanderer:9852ce532995b93e",
+      "featureTitle": "Подкрепление фей",
+      "parent": "archetype.fey-wanderer",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:3070",
+      "referenceIds": [
+        "feature-spell-ref:e32a369792a83622a686"
+      ],
+      "relationship": "learned-spell-with-special-casting",
+      "evidenceTextSha256": "7396c9c8023ae21a2a6a1529d4412ca489d3b3390d7ac3b92760b6dc6ba5562f",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:eec8e2f6eed96585b06d",
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "featureId": "scope:ranger:archetype.fey-wanderer:9b8636dd0059ec03",
+      "featureTitle": "Туманный странник",
+      "parent": "archetype.fey-wanderer",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:352",
+      "referenceIds": [
+        "feature-spell-ref:e5e3f06fa5b93bb648bf",
+        "feature-spell-ref:6e72c174bb72576bee69"
+      ],
+      "relationship": "feature-casting-with-modified-target",
+      "evidenceTextSha256": "16f808f9f0049c60a68e2b0a383d75922f29ae8a32157b1ea8833f8f452e9225",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:329ad4d8dad33be0fda0",
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "featureId": "scope:ranger:archetype.swarmkeeper:228fd73ac0c51e3d",
+      "featureTitle": "Магия хранителя роя",
+      "parent": "archetype.swarmkeeper",
+      "sourceIds": [
+        "117"
+      ],
+      "spellPageId": "dndsu:spells:26",
+      "referenceIds": [
+        "feature-spell-ref:9ab892897e374da631df"
+      ],
+      "relationship": "learned-cantrip-if-absent",
+      "evidenceTextSha256": "46b624056ac667751545e83bf1c042c6fecc648a82f5d07d3f99c6f9914a567c",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:f875bfbcc5322096196a",
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "featureId": "scope:ranger:archetype.drakewarden:deb5c5799141bb01",
+      "featureTitle": "Драконий дар",
+      "parent": "archetype.drakewarden",
+      "sourceIds": [
+        "152"
+      ],
+      "spellPageId": "dndsu:spells:80",
+      "referenceIds": [
+        "feature-spell-ref:13da155234c68fac5184",
+        "feature-spell-ref:16da9626b44deca0a1a2"
+      ],
+      "relationship": "learned-cantrip",
+      "evidenceTextSha256": "f1d48c8b60781e2dbd262de588d796c1481a8911bd7eb997b82fed67b9d618b0",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:9d5c6bb4e2923544df3a",
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "featureId": "scope:sorcerer:class-features:feature.spellcasting",
+      "featureTitle": "Использование заклинаний",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:203",
+      "referenceIds": [
+        "feature-spell-ref:c101ecd7ee45d0644bf5"
+      ],
+      "relationship": "example-not-grant",
+      "evidenceTextSha256": "13782d9f33f2583934573ab7ac164371335201ad081b9d1beca9ba0bc90fe34f",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:9f288d91bcada866fbca",
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "featureId": "scope:sorcerer:class-features:feature.metamagic",
+      "featureTitle": "Метамагия",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:27",
+      "referenceIds": [
+        "feature-spell-ref:92117f8190c2e4843057"
+      ],
+      "relationship": "metamagic-example-not-grant",
+      "evidenceTextSha256": "e4a4241587151d75ea1e6bcabdfd9aa19bdca38f83df3f46481613e0e91ae3d4",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:82c86b33dc49edff07df",
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "featureId": "scope:sorcerer:class-features:feature.metamagic",
+      "featureTitle": "Метамагия",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:225",
+      "referenceIds": [
+        "feature-spell-ref:5666fc6fdf2b21f169bb"
+      ],
+      "relationship": "metamagic-example-not-grant",
+      "evidenceTextSha256": "e4a4241587151d75ea1e6bcabdfd9aa19bdca38f83df3f46481613e0e91ae3d4",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:4a3ee9331e181c612346",
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "featureId": "scope:sorcerer:class-features:feature.metamagic",
+      "featureTitle": "Метамагия",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:149",
+      "referenceIds": [
+        "feature-spell-ref:79995fc6b22eb598bb93"
+      ],
+      "relationship": "metamagic-example-not-grant",
+      "evidenceTextSha256": "e4a4241587151d75ea1e6bcabdfd9aa19bdca38f83df3f46481613e0e91ae3d4",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:cd4e9ed85b9995f1322e",
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "featureId": "scope:sorcerer:class-features:feature.metamagic",
+      "featureTitle": "Метамагия",
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "spellPageId": "dndsu:spells:86",
+      "referenceIds": [
+        "feature-spell-ref:740278ac0832e124b41c"
+      ],
+      "relationship": "metamagic-example-not-grant",
+      "evidenceTextSha256": "e4a4241587151d75ea1e6bcabdfd9aa19bdca38f83df3f46481613e0e91ae3d4",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:63db73489cf03e5e3db0",
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "featureId": "scope:sorcerer:origin.shadow:7679969aee61d121",
+      "featureTitle": "ГЛАЗА ТЬМЫ",
+      "parent": "origin.shadow",
+      "sourceIds": [
+        "109"
+      ],
+      "spellPageId": "dndsu:spells:353",
+      "referenceIds": [
+        "feature-spell-ref:165aca55efe27f50c9e9"
+      ],
+      "relationship": "learned-spell-at-level-three-with-special-casting",
+      "evidenceTextSha256": "9bdf3d14151cc3e5cad56b6ad4d7055243e7ecf1932a1c8a015e156ba1e721a9",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    },
+    {
+      "id": "feature-spell-relation:de0591c4b14e8e4c8c86",
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "featureId": "scope:sorcerer:origin.lunar-sorcery:8c997dde93c38649",
+      "featureTitle": "Лунный Огонь",
+      "parent": "origin.lunar-sorcery",
+      "sourceIds": [
+        "183"
+      ],
+      "spellPageId": "dndsu:spells:311",
+      "referenceIds": [
+        "feature-spell-ref:a96f718e46114a941988"
+      ],
+      "relationship": "learned-cantrip-with-modified-target",
+      "evidenceTextSha256": "e6eb526d679b96628de5ea6aedb2c6823908aa0acc4a8797ae01f867848260bb",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-costs-and-exceptions",
+        "subclass-and-choice-eligibility",
+        "interaction-with-table-grants"
+      ]
+    }
+  ],
+  "unclassified": []
+}

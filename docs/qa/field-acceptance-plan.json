@@ -1,0 +1,690 @@
+{
+  "schemaVersion": 1,
+  "issue": 79,
+  "status": "owner-device-scope-confirmed-awaiting-independent-plan-review",
+  "ruleset": "5e-2014",
+  "ownerDecision": {
+    "date": "2026-11-17",
+    "source": "explicit owner replies in project chat",
+    "physicalMvpDevice": "Xiaomi Pad 6",
+    "minimumFieldActiveSeconds": 7200,
+    "ipadSafari": "post-MVP",
+    "fullOwnerSession": "still required independently of minimum device test duration",
+    "osVersion": null,
+    "browserVersion": null
+  },
+  "devices": [
+    {
+      "id": "desktop",
+      "kind": "browser",
+      "browser": "Chromium",
+      "physical": false,
+      "dimensions": [
+        "1180x820",
+        "820x1180",
+        "1024x768"
+      ],
+      "availability": "tool-dependent"
+    },
+    {
+      "id": "android-phone",
+      "kind": "emulator",
+      "browser": "Chrome",
+      "physical": false,
+      "dimensions": [
+        "phone-portrait",
+        "phone-landscape"
+      ],
+      "availability": "shared Pixel_8 only :25–:55; verify occupancy"
+    },
+    {
+      "id": "android-tablet-layout",
+      "kind": "emulator",
+      "browser": "Chrome",
+      "physical": false,
+      "dimensions": [
+        "tablet-portrait",
+        "tablet-landscape"
+      ],
+      "availability": "layout emulation, not physical tablet evidence"
+    },
+    {
+      "id": "ipad",
+      "kind": "physical",
+      "browser": "Safari",
+      "physical": true,
+      "dimensions": [
+        "portrait",
+        "landscape",
+        "split50"
+      ],
+      "availability": "post-MVP; not supplied"
+    },
+    {
+      "id": "owner-device",
+      "kind": "physical",
+      "browser": null,
+      "physical": true,
+      "dimensions": [
+        "owner-selected"
+      ],
+      "availability": "Xiaomi Pad 6 confirmed; other devices not assumed"
+    },
+    {
+      "id": "xiaomi-pad6",
+      "kind": "physical",
+      "browser": null,
+      "physical": true,
+      "dimensions": [
+        "portrait",
+        "landscape"
+      ],
+      "availability": "confirmed-by-owner",
+      "osVersion": null,
+      "browserVersion": null
+    }
+  ],
+  "themes": [
+    "polaris",
+    "coal",
+    "atlas"
+  ],
+  "cases": [
+    {
+      "id": "NET-10",
+      "issues": [
+        1
+      ],
+      "title": "Ten queued mutations and exact replay",
+      "targets": [
+        "desktop",
+        "android-phone",
+        "xiaomi-pad6"
+      ],
+      "expected": "After reconnect: hp27, slot1=3, slot2=2; ten distinct mutation IDs recorded once; repeat delivery adds no records",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {
+        "baselineLoaded": true,
+        "mutationCount": 10
+      },
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "NET-CONFLICT",
+      "issues": [
+        1,
+        15
+      ],
+      "title": "Absolute edit conflict preserves queued commands",
+      "targets": [
+        "desktop",
+        "xiaomi-pad6"
+      ],
+      "expected": "Conflict is explained; commands retained; no silent overwrite or double application",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "NET-STATUS",
+      "issues": [
+        1,
+        11
+      ],
+      "title": "Pending/error/saved distinguishable",
+      "targets": [
+        "desktop",
+        "android-phone",
+        "xiaomi-pad6"
+      ],
+      "expected": "Text+visual states remain readable in all themes, not colour alone",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "IPAD-BACKGROUND",
+      "issues": [
+        1,
+        15
+      ],
+      "title": "Pending queue after actual Safari background/sleep",
+      "targets": [
+        "ipad"
+      ],
+      "expected": "Record whether OS suspended/reloaded page; queue and context survive observed event without duplicates",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {
+        "backgroundObservation": true
+      },
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "post-MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "LAYOUT-PANEL",
+      "issues": [
+        11
+      ],
+      "title": "Panel never covers required content",
+      "targets": [
+        "desktop",
+        "android-phone",
+        "android-tablet-layout",
+        "xiaomi-pad6"
+      ],
+      "expected": "Each supported screen last actionable row reachable; navigation/health visible; both orientations and themes",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "PLAY-2H",
+      "issues": [
+        12
+      ],
+      "title": "At least two hours real player session",
+      "targets": [
+        "owner-device"
+      ],
+      "expected": "Record usability and workarounds throughout; no claim from short scripted QA",
+      "minSeconds": 7200,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "owner-real-session",
+      "method": "owner-session",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "FIELD-2H",
+      "issues": [
+        15,
+        16
+      ],
+      "title": "At least two hours physical Xiaomi Pad 6 field session",
+      "targets": [
+        "xiaomi-pad6"
+      ],
+      "expected": "Record at least two active hours, breaks separately; owner replaced historical six-hour hardware criterion17Nov2026",
+      "minSeconds": 7200,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "field-session",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "IPAD-SPLIT",
+      "issues": [
+        15
+      ],
+      "title": "Safari Split View 50/50",
+      "targets": [
+        "ipad"
+      ],
+      "expected": "No unreachable controls or horizontal page overflow; record actual CSS viewport",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "post-MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "KEYBOARD",
+      "issues": [
+        15
+      ],
+      "title": "On-screen keyboard and numeric input",
+      "targets": [
+        "android-phone",
+        "xiaomi-pad6"
+      ],
+      "expected": "Focused field and save/cancel remain reachable; typed values correct; no accidental submit",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "IPAD-HOME",
+      "issues": [
+        15
+      ],
+      "title": "Home-screen web app and safe areas",
+      "targets": [
+        "ipad"
+      ],
+      "expected": "Record installation mode; bottom controls clear home indicator/browser chrome; portrait and landscape",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "post-MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "NET-30",
+      "issues": [
+        15
+      ],
+      "title": "Actual Wi-Fi interruption 30 seconds",
+      "targets": [
+        "xiaomi-pad6"
+      ],
+      "expected": "Continue permitted queued operations, restore connection, verify server history once; only target tablet connection with owner control, never disable shared network",
+      "minSeconds": 30,
+      "maxTaskSeconds": null,
+      "requires": {
+        "networkMethod": "physical-wifi",
+        "outageSeconds": 30
+      },
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "elapsed"
+    },
+    {
+      "id": "NET-300",
+      "issues": [
+        15
+      ],
+      "title": "Actual Wi-Fi interruption five minutes",
+      "targets": [
+        "xiaomi-pad6"
+      ],
+      "expected": "Same integrity after five minutes; reload distinguished from warm page; no cold-offline promise; only target tablet connection with owner control, never disable shared network",
+      "minSeconds": 300,
+      "maxTaskSeconds": null,
+      "requires": {
+        "networkMethod": "physical-wifi",
+        "outageSeconds": 300
+      },
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "elapsed"
+    },
+    {
+      "id": "ACTION-DAMAGE",
+      "issues": [
+        15
+      ],
+      "title": "Damage12 and result preview",
+      "targets": [
+        "desktop",
+        "android-phone",
+        "xiaomi-pad6"
+      ],
+      "expected": "Synthetic hp40→28; number and action shown before commit; time and taps recorded",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "ACTION-HEAL",
+      "issues": [
+        15
+      ],
+      "title": "Healing spell and slot accounting",
+      "targets": [
+        "desktop",
+        "xiaomi-pad6"
+      ],
+      "expected": "Track slot and chosen healing separately unless accepted atomic path exists; manual workaround reported, not counted as full automation",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "ACTION-SEARCH",
+      "issues": [
+        15
+      ],
+      "title": "Find Shield and return to play",
+      "targets": [
+        "desktop",
+        "android-phone",
+        "xiaomi-pad6"
+      ],
+      "expected": "Correct2014 rule and previous context/scroll retained; time/taps/errors recorded",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "ACTION-POTION",
+      "issues": [
+        15
+      ],
+      "title": "Consume healing potion",
+      "targets": [
+        "desktop",
+        "xiaomi-pad6"
+      ],
+      "expected": "Quantity and rolled healing accounted once; manual sequence recorded as limitation if no combined action",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "ACTION-NOTE",
+      "issues": [
+        15
+      ],
+      "title": "Write a short NPC phrase",
+      "targets": [
+        "desktop",
+        "android-phone",
+        "xiaomi-pad6"
+      ],
+      "expected": "From prompt to persisted note within10seconds; keyboard behaviour and retry included",
+      "minSeconds": 0,
+      "maxTaskSeconds": 10,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "ACTION-QUEST",
+      "issues": [
+        15
+      ],
+      "title": "Update quest step",
+      "targets": [
+        "desktop",
+        "xiaomi-pad6"
+      ],
+      "expected": "Correct quest and step persisted, no unrelated changes",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "ACTION-UNDO",
+      "issues": [
+        15
+      ],
+      "title": "Undo after two minutes",
+      "targets": [
+        "desktop",
+        "xiaomi-pad6"
+      ],
+      "expected": "Nonconflicting action restored once; conflicting later write refuses safely",
+      "minSeconds": 120,
+      "maxTaskSeconds": null,
+      "requires": {
+        "delaySinceTargetSeconds": 120
+      },
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "elapsed"
+    },
+    {
+      "id": "ACTION-CONCENTRATION",
+      "issues": [
+        15
+      ],
+      "title": "Start, replace, lose concentration",
+      "targets": [
+        "desktop",
+        "android-phone",
+        "xiaomi-pad6"
+      ],
+      "expected": "No unconfirmed replacement; damage check and explicit result; replay/undo preserve correct state",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "DATA-LOAD",
+      "issues": [
+        15
+      ],
+      "title": "Representative loaded fixture",
+      "targets": [
+        "desktop",
+        "android-tablet-layout",
+        "xiaomi-pad6"
+      ],
+      "expected": "At least30 inventory items,20spells,50journal entries,10quests,15places; no real campaign copied",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {
+        "inventoryItems": 30,
+        "spells": 20,
+        "journalEntries": 50,
+        "quests": 10,
+        "places": 15
+      },
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "DATA-MANUAL",
+      "issues": [
+        15
+      ],
+      "title": "Non-bard manual sheet counters",
+      "targets": [
+        "desktop",
+        "xiaomi-pad6"
+      ],
+      "expected": "No bard defaults overwrite custom counters; unknown recovery remains manual",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "ACCESS",
+      "issues": [
+        15
+      ],
+      "title": "Closed server identities and roles",
+      "targets": [
+        "desktop",
+        "xiaomi-pad6"
+      ],
+      "expected": "Owner/player permissions and denial tested only with synthetic identities; no credentials in evidence",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "TABS",
+      "issues": [
+        15
+      ],
+      "title": "Two tabs conflict during play",
+      "targets": [
+        "desktop",
+        "xiaomi-pad6"
+      ],
+      "expected": "Correct context/revision, explicit conflict, no silent overwrite",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "ICONS",
+      "issues": [
+        55
+      ],
+      "title": "SVG appearance and accessible labels",
+      "targets": [
+        "desktop",
+        "android-phone",
+        "xiaomi-pad6"
+      ],
+      "expected": "Android physical tablet and phone rendering, text labels, no font-dependent emoji navigation; Safari comparison deferred",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "MVP-PEOPLE",
+      "issues": [
+        79,
+        91
+      ],
+      "title": "Campaign characters and last known whereabouts",
+      "targets": [
+        "desktop",
+        "xiaomi-pad6"
+      ],
+      "expected": "After M3 release: facts/assumptions, last encounter, links and unknown values; not-run until dependency satisfied",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "ANDROID-SLEEP",
+      "issues": [
+        1,
+        15
+      ],
+      "title": "Android tablet sleep/background with pending queue",
+      "targets": [
+        "xiaomi-pad6"
+      ],
+      "expected": "Record actual background/sleep and whether page reloaded; replay exactly once after recovery",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {
+        "backgroundObservation": true
+      },
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "ANDROID-CHROME",
+      "issues": [
+        15
+      ],
+      "title": "Physical Android browser chrome/safe area in both orientations",
+      "targets": [
+        "xiaomi-pad6"
+      ],
+      "expected": "Record browser/OS versions, viewport and keyboard; controls remain reachable",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "IPAD-LAYOUT",
+      "issues": [
+        11
+      ],
+      "title": "iPad: обе ориентации и отсутствие перекрытия",
+      "targets": [
+        "ipad"
+      ],
+      "expected": "Each supported screen last actionable row reachable; navigation/health visible; both orientations and themes",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "post-MVP",
+      "durationBasis": "active"
+    },
+    {
+      "id": "IPAD-ICONS",
+      "issues": [
+        55
+      ],
+      "title": "Safari/iPad: сравнение значков с Chromium/Android",
+      "targets": [
+        "ipad"
+      ],
+      "expected": "After MVP: capture physical Safari/iPad and Chromium/Android at matching UI state; compare SVG shapes and accessible labels, not emoji/font substitutes. Record differences explicitly.",
+      "minSeconds": 0,
+      "maxTaskSeconds": null,
+      "requires": {},
+      "data": "synthetic",
+      "method": "observed-interaction",
+      "phase": "post-MVP",
+      "durationBasis": "active"
+    }
+  ]
+}
