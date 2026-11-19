@@ -45,6 +45,7 @@ export function applyNumericSourcePolicy(sourceRegister, scope, bibliography) {
     disposition: evidence.has(source.sourceId) ? dispositions.get(evidence.get(source.sourceId).publicationKind) : 'not-reviewed-by-this-audit',
     evidenceUrl: evidence.get(source.sourceId)?.evidenceUrl ?? null,
     editionEvidenceUrl: evidence.get(source.sourceId)?.editionEvidenceUrl ?? null,
+    ...(evidence.get(source.sourceId)?.redistributionRestriction ? { redistributionRestriction: evidence.get(source.sourceId).redistributionRestriction } : {}),
     exactTextVersion: 'unverified', reusePermission: 'not-established',
   }));
   return {

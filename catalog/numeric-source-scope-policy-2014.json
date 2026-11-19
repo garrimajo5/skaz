@@ -7,7 +7,7 @@
   "complete": false,
   "summary": {
     "observedSources": 70,
-    "reviewedSources": 48,
+    "reviewedSources": 49,
     "observedPages": 4973,
     "affectedPages": 15,
     "excludedPages": 15,
@@ -598,9 +598,10 @@
       "sourceId": "199",
       "observedTitle": "Monstrous Compendium Vol 3: Minecraft Creatures",
       "originalScope": "candidate-2014",
-      "disposition": "not-reviewed-by-this-audit",
-      "evidenceUrl": null,
-      "editionEvidenceUrl": null,
+      "disposition": "eligible-publication-records-need-review",
+      "evidenceUrl": "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/software/Minecraft-Monstrous-Compendium.pdf",
+      "editionEvidenceUrl": "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/software/Minecraft-Monstrous-Compendium-revised.pdf",
+      "redistributionRestriction": "Source limits use to personal noncommercial use and prohibits redistribution; no permission for the common catalog is established.",
       "exactTextVersion": "unverified",
       "reusePermission": "not-established"
     },
@@ -930,6 +931,6 @@
   "inputSha256": {
     "catalog/dndsu-source-register.json": "109868b7dbc77b2168d4dfec77166cf9cff4c8b55b9fff9ea3ccbdbbe899a42f",
     "catalog/scope-register-2014.json": "2d8f5f7f964ae42619de9e8e06d3969b2b087e2b58c8dfc2ace98edf6243f339",
-    "catalog/numeric-source-publisher-evidence.json": "ccbc2cb39c54b7f83131c7ed950fdbaa2f1b505590c0791496a23823c7559ff7"
+    "catalog/numeric-source-publisher-evidence.json": "dd6329b2009e0597471ccb542e0eec987b2efab936c4ab1b89cd5210287d7eba"
   }
 }
