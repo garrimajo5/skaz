@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "status": "partial-primary-evidence-not-attribution-acceptance",
+  "checkedOn": "2026-11-19",
+  "sourceId": "169",
+  "complete": false,
+  "reusePermission": "not-established",
+  "publications": [
+    {
+      "id": "DDHC-TOA-3",
+      "title": "Beasts of the Jungle Rot",
+      "publisherStatus": "needs-publisher-status-review",
+      "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+      "evidenceLocator": "Public sample PDF page1 / printed page2; twelve descriptive headings, not a complete creature inventory",
+      "indexEvidenceUrl": "https://media.wizards.com/2021/dnd/downloads/DDAL_Forgotten_Realms_Adventure_Index_v11.0.pdf",
+      "indexLocator": "PDF page14: DDHC-TOA-3 Beasts of Jungle Rot; advertises37 creatures",
+      "authorEvidenceUrl": "https://worldbuilderblog.me/2017/09/14/guild-adept-releases-tomb-of-annihilation/",
+      "note": "Author announcement identifies collaboration by James Introcaso and Ruty Rutenberg in the Guild Adept program. AL index inclusion and access to a sample do not settle publisher status or redistribution permission. Product page returned403; sample is public.",
+      "units": [
+        {
+          "name": "Archelon",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceLocator": "PDF page1 / printed page2"
+        },
+        {
+          "name": "Brachiosaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceLocator": "PDF page1 / printed page2"
+        },
+        {
+          "name": "Dilophosaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceLocator": "PDF page1 / printed page2"
+        },
+        {
+          "name": "Giganotosaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceLocator": "PDF page1 / printed page2"
+        },
+        {
+          "name": "Mosasaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceLocator": "PDF page1 / printed page2"
+        },
+        {
+          "name": "Nemicolopterus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceLocator": "PDF page1 / printed page2"
+        },
+        {
+          "name": "Pachycephalosaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceLocator": "PDF page1 / printed page2"
+        },
+        {
+          "name": "Sarcosuchus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceLocator": "PDF page1 / printed page2"
+        },
+        {
+          "name": "Therizinosaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceLocator": "PDF page1 / printed page2"
+        },
+        {
+          "name": "Titanosaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceLocator": "PDF page1 / printed page2"
+        },
+        {
+          "name": "Troodon",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceLocator": "PDF page1 / printed page2"
+        },
+        {
+          "name": "Zealoraptor",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceLocator": "PDF page1 / printed page2"
+        }
+      ]
+    },
+    {
+      "id": "DDAL05-18",
+      "title": "The Mysterious Isle",
+      "publisherStatus": "official-al-index-entry-needs-publication-review",
+      "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/204803-sample.pdf",
+      "evidenceLocator": "Sample PDF pages1–3 / printed pages2–4; footer and story background",
+      "indexEvidenceUrl": "https://media.wizards.com/2021/dnd/downloads/DDAL_Forgotten_Realms_Adventure_Index_v11.0.pdf",
+      "indexLocator": "PDF page12: DDAL05-18",
+      "note": "Preview introduction has a conflicting adventure title; preserve the footer code and official index identity without silently correcting the preview. Mention of an artifact is not its complete rules entry.",
+      "units": [
+        {
+          "name": "The Eye of Xxiphu",
+          "section": "items",
+          "kind": "named-object-in-prose",
+          "evidenceLocator": "Sample PDF page3 / printed page4, Adventure Background; initial article normalized explicitly for the observed title"
+        }
+      ]
+    },
+    {
+      "id": "DDAL05-19",
+      "title": "The Eye of Xxiphu",
+      "publisherStatus": "official-al-index-entry-needs-publication-review",
+      "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/204805-sample.pdf",
+      "evidenceLocator": "Sample PDF page3 / printed page4, Adventure Background",
+      "indexEvidenceUrl": "https://media.wizards.com/2021/dnd/downloads/DDAL_Forgotten_Realms_Adventure_Index_v11.0.pdf",
+      "indexLocator": "PDF page12: DDAL05-19",
+      "note": "The named artifact appears in two connected adventures; neither mention proves the exact item rules or a unique origin.",
+      "units": [
+        {
+          "name": "The Eye of Xxiphu",
+          "section": "items",
+          "kind": "named-object-in-prose",
+          "evidenceLocator": "Sample PDF page3 / printed page4, Adventure Background; initial article normalized explicitly for the observed title"
+        }
+      ]
+    },
+    {
+      "id": "DDAL04-09",
+      "title": "The Tempter",
+      "publisherStatus": "wotc-copyright-2016-publication",
+      "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/184342-sample.pdf",
+      "evidenceLocator": "Sample PDF page1: title, Adventure Code DDAL04-09, version1.0, WotC2016 copyright",
+      "note": "The footer uses DDEX4-09; preserve this discrepancy. Sample does not expose the four target creature entries, so no identity mappings are asserted.",
+      "units": []
+    },
+    {
+      "id": "DDAL05-01",
+      "title": "Treasure of the Broken Hoard",
+      "publisherStatus": "wotc-copyright-2016-publication",
+      "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/189132-sample.pdf",
+      "evidenceLocator": "Sample PDF page1: title, DDAL05-01, version1.0, WotC2016 copyright",
+      "note": "The public preview confirms publication metadata, not the three target creature entries. No identity mappings are asserted.",
+      "units": []
+    }
+  ]
+}

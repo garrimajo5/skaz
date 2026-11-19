@@ -11,12 +11,12 @@
       "excluded-by-reviewed-source-policy": 6,
       "mixed-excluded-and-other-sources": 0,
       "needs-source-identification": 3,
-      "needs-publication-review": 24,
+      "needs-publication-review": 0,
       "needs-publication-identification": 45,
       "needs-reference-scope-review": 0,
-      "ready-for-version-and-rights-review": 4814
+      "ready-for-version-and-rights-review": 4838
     },
-    "pendingPublicationSourceIds": 5
+    "pendingPublicationSourceIds": 1
   },
   "limitations": [
     "Every page is routed exactly once; a page is not necessarily one catalog entity.",
@@ -123,32 +123,7 @@
       "dndsu:race:178",
       "dndsu:race:184"
     ],
-    "needs-publication-review": [
-      "dndsu:bestiary:8019",
-      "dndsu:bestiary:8020",
-      "dndsu:bestiary:8021",
-      "dndsu:bestiary:8023",
-      "dndsu:bestiary:8024",
-      "dndsu:bestiary:8025",
-      "dndsu:bestiary:8027",
-      "dndsu:bestiary:8028",
-      "dndsu:bestiary:8029",
-      "dndsu:bestiary:8030",
-      "dndsu:bestiary:8031",
-      "dndsu:bestiary:8041",
-      "dndsu:bestiary:8042",
-      "dndsu:bestiary:8043",
-      "dndsu:bestiary:8044",
-      "dndsu:bestiary:8045",
-      "dndsu:bestiary:8047",
-      "dndsu:bestiary:8048",
-      "dndsu:bestiary:8049",
-      "dndsu:bestiary:8050",
-      "dndsu:items:2363",
-      "dndsu:items:2364",
-      "dndsu:items:2395",
-      "dndsu:items:2396"
-    ],
+    "needs-publication-review": [],
     "needs-publication-identification": [
       "dndsu:bestiary:14170",
       "dndsu:bestiary:14171",
@@ -3046,11 +3021,31 @@
       "dndsu:bestiary:8014",
       "dndsu:bestiary:8016",
       "dndsu:bestiary:8017",
+      "dndsu:bestiary:8019",
+      "dndsu:bestiary:8020",
+      "dndsu:bestiary:8021",
       "dndsu:bestiary:8022",
+      "dndsu:bestiary:8023",
+      "dndsu:bestiary:8024",
+      "dndsu:bestiary:8025",
+      "dndsu:bestiary:8027",
+      "dndsu:bestiary:8028",
+      "dndsu:bestiary:8029",
+      "dndsu:bestiary:8030",
+      "dndsu:bestiary:8031",
       "dndsu:bestiary:8033",
       "dndsu:bestiary:8034",
       "dndsu:bestiary:8035",
       "dndsu:bestiary:8040",
+      "dndsu:bestiary:8041",
+      "dndsu:bestiary:8042",
+      "dndsu:bestiary:8043",
+      "dndsu:bestiary:8044",
+      "dndsu:bestiary:8045",
+      "dndsu:bestiary:8047",
+      "dndsu:bestiary:8048",
+      "dndsu:bestiary:8049",
+      "dndsu:bestiary:8050",
       "dndsu:bestiary:8055",
       "dndsu:bestiary:8056",
       "dndsu:bestiary:8057",
@@ -3909,6 +3904,8 @@
       "dndsu:items:2360",
       "dndsu:items:2361",
       "dndsu:items:2362",
+      "dndsu:items:2363",
+      "dndsu:items:2364",
       "dndsu:items:2365",
       "dndsu:items:2366",
       "dndsu:items:2367",
@@ -3942,6 +3939,8 @@
       "dndsu:items:2392",
       "dndsu:items:2393",
       "dndsu:items:2394",
+      "dndsu:items:2395",
+      "dndsu:items:2396",
       "dndsu:items:2397",
       "dndsu:items:2398",
       "dndsu:items:2399",
@@ -5020,34 +5019,10 @@
       "observedTitle": "Adventurers League",
       "status": "identify-publications-within-source-group",
       "pageReferences": 45
-    },
-    {
-      "sourceId": "130",
-      "observedTitle": "The Lost Dungeon of Rickedness: Big Rick Energy",
-      "status": "publication-not-reviewed",
-      "pageReferences": 10
-    },
-    {
-      "sourceId": "127",
-      "observedTitle": "Essentials Kit: Divine Contention",
-      "status": "publication-not-reviewed",
-      "pageReferences": 8
-    },
-    {
-      "sourceId": "131",
-      "observedTitle": "Essentials Kit: Sleeping Dragon's Wake",
-      "status": "publication-not-reviewed",
-      "pageReferences": 7
-    },
-    {
-      "sourceId": "167",
-      "observedTitle": "Essentials Kit: Storm Lord's Wrath",
-      "status": "publication-not-reviewed",
-      "pageReferences": 7
     }
   ],
   "inputSha256": {
-    "catalog/scope-register-2014.json": "2d8f5f7f964ae42619de9e8e06d3969b2b087e2b58c8dfc2ace98edf6243f339",
-    "catalog/numeric-source-scope-policy-2014.json": "d1530f34b6a1236739430616869da864921a30228cf0cfb3799d333ed49503ba"
+    "catalog/scope-register-2014.json": "d16b65c44f622b70f685aa391687375df13e627267367b50a58d0bd3307e25dd",
+    "catalog/numeric-source-scope-policy-2014.json": "ce75eb44870453079c36e7189e29f193cbacfee66035c9ba896bca34b2d85734"
   }
 }

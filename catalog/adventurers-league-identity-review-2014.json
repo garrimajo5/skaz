@@ -1,0 +1,911 @@
+{
+  "schemaVersion": 1,
+  "status": "grouped-source-candidates-not-attribution-acceptance",
+  "sourceId": "169",
+  "approvedDenominator": null,
+  "complete": false,
+  "summary": {
+    "publicationsWithMetadata": 5,
+    "observedPages": 45,
+    "primaryNamedUnits": 14,
+    "byStatus": {
+      "needs-primary-unit-evidence": 31,
+      "primary-name-candidate-needs-identity-review": 11,
+      "duplicate-observation-name-needs-identity-review": 2,
+      "multiple-publications-need-version-review": 1
+    }
+  },
+  "unitsWithoutObservation": [],
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:14170",
+      "observedName": "Cursed hill giant",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:14171",
+      "observedName": "Swarm of cursed goblins",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:14172",
+      "observedName": "Greed mote",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:20454",
+      "observedName": "Mirror Golem",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:20456",
+      "observedName": "Swarm of Сreeping Сoins",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:20481",
+      "observedName": "Skeletal Bull",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:20482",
+      "observedName": "Reflection Guardian",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5962",
+      "observedName": "Archelon",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "primary-name-candidate-needs-identity-review",
+      "duplicateObservationName": false,
+      "candidates": [
+        {
+          "publicationId": "DDHC-TOA-3",
+          "publicationTitle": "Beasts of the Jungle Rot",
+          "publisherStatus": "needs-publisher-status-review",
+          "name": "Archelon",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+          "evidenceLocator": "PDF page1 / printed page2",
+          "observationIds": [
+            "dndsu:bestiary:5962"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5963",
+      "observedName": "Brachiosaurus",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "primary-name-candidate-needs-identity-review",
+      "duplicateObservationName": false,
+      "candidates": [
+        {
+          "publicationId": "DDHC-TOA-3",
+          "publicationTitle": "Beasts of the Jungle Rot",
+          "publisherStatus": "needs-publisher-status-review",
+          "name": "Brachiosaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+          "evidenceLocator": "PDF page1 / printed page2",
+          "observationIds": [
+            "dndsu:bestiary:5963"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5965",
+      "observedName": "Dilophosaurus",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "primary-name-candidate-needs-identity-review",
+      "duplicateObservationName": false,
+      "candidates": [
+        {
+          "publicationId": "DDHC-TOA-3",
+          "publicationTitle": "Beasts of the Jungle Rot",
+          "publisherStatus": "needs-publisher-status-review",
+          "name": "Dilophosaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+          "evidenceLocator": "PDF page1 / printed page2",
+          "observationIds": [
+            "dndsu:bestiary:5965"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5966",
+      "observedName": "Giganotosaurus",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "primary-name-candidate-needs-identity-review",
+      "duplicateObservationName": false,
+      "candidates": [
+        {
+          "publicationId": "DDHC-TOA-3",
+          "publicationTitle": "Beasts of the Jungle Rot",
+          "publisherStatus": "needs-publisher-status-review",
+          "name": "Giganotosaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+          "evidenceLocator": "PDF page1 / printed page2",
+          "observationIds": [
+            "dndsu:bestiary:5966"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5967",
+      "observedName": "Zealoraptor",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "primary-name-candidate-needs-identity-review",
+      "duplicateObservationName": false,
+      "candidates": [
+        {
+          "publicationId": "DDHC-TOA-3",
+          "publicationTitle": "Beasts of the Jungle Rot",
+          "publisherStatus": "needs-publisher-status-review",
+          "name": "Zealoraptor",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+          "evidenceLocator": "PDF page1 / printed page2",
+          "observationIds": [
+            "dndsu:bestiary:5967"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5970",
+      "observedName": "Mosasaurus",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "primary-name-candidate-needs-identity-review",
+      "duplicateObservationName": false,
+      "candidates": [
+        {
+          "publicationId": "DDHC-TOA-3",
+          "publicationTitle": "Beasts of the Jungle Rot",
+          "publisherStatus": "needs-publisher-status-review",
+          "name": "Mosasaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+          "evidenceLocator": "PDF page1 / printed page2",
+          "observationIds": [
+            "dndsu:bestiary:5970"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5971",
+      "observedName": "Nemicolopterus",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "primary-name-candidate-needs-identity-review",
+      "duplicateObservationName": false,
+      "candidates": [
+        {
+          "publicationId": "DDHC-TOA-3",
+          "publicationTitle": "Beasts of the Jungle Rot",
+          "publisherStatus": "needs-publisher-status-review",
+          "name": "Nemicolopterus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+          "evidenceLocator": "PDF page1 / printed page2",
+          "observationIds": [
+            "dndsu:bestiary:5971"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5972",
+      "observedName": "Swarm of Nemicolopterus",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5973",
+      "observedName": "Pachycephalosaurus",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "primary-name-candidate-needs-identity-review",
+      "duplicateObservationName": false,
+      "candidates": [
+        {
+          "publicationId": "DDHC-TOA-3",
+          "publicationTitle": "Beasts of the Jungle Rot",
+          "publisherStatus": "needs-publisher-status-review",
+          "name": "Pachycephalosaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+          "evidenceLocator": "PDF page1 / printed page2",
+          "observationIds": [
+            "dndsu:bestiary:5973"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5974",
+      "observedName": "Sarcosuchus",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "primary-name-candidate-needs-identity-review",
+      "duplicateObservationName": false,
+      "candidates": [
+        {
+          "publicationId": "DDHC-TOA-3",
+          "publicationTitle": "Beasts of the Jungle Rot",
+          "publisherStatus": "needs-publisher-status-review",
+          "name": "Sarcosuchus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+          "evidenceLocator": "PDF page1 / printed page2",
+          "observationIds": [
+            "dndsu:bestiary:5974"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5975",
+      "observedName": "Therizinosaurus",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "primary-name-candidate-needs-identity-review",
+      "duplicateObservationName": false,
+      "candidates": [
+        {
+          "publicationId": "DDHC-TOA-3",
+          "publicationTitle": "Beasts of the Jungle Rot",
+          "publisherStatus": "needs-publisher-status-review",
+          "name": "Therizinosaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+          "evidenceLocator": "PDF page1 / printed page2",
+          "observationIds": [
+            "dndsu:bestiary:5975"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5976",
+      "observedName": "Titanosaurus",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "primary-name-candidate-needs-identity-review",
+      "duplicateObservationName": false,
+      "candidates": [
+        {
+          "publicationId": "DDHC-TOA-3",
+          "publicationTitle": "Beasts of the Jungle Rot",
+          "publisherStatus": "needs-publisher-status-review",
+          "name": "Titanosaurus",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+          "evidenceLocator": "PDF page1 / printed page2",
+          "observationIds": [
+            "dndsu:bestiary:5976"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5977",
+      "observedName": "Troodon",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "duplicate-observation-name-needs-identity-review",
+      "duplicateObservationName": true,
+      "candidates": [
+        {
+          "publicationId": "DDHC-TOA-3",
+          "publicationTitle": "Beasts of the Jungle Rot",
+          "publisherStatus": "needs-publisher-status-review",
+          "name": "Troodon",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+          "evidenceLocator": "PDF page1 / printed page2",
+          "observationIds": [
+            "dndsu:bestiary:5977",
+            "dndsu:bestiary:6005"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5979",
+      "observedName": "Allosaurus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5980",
+      "observedName": "Archelon Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5981",
+      "observedName": "Brachiosaurus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5982",
+      "observedName": "Brontosaurus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5983",
+      "observedName": "Velociraptor Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5985",
+      "observedName": "Deinonychus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5987",
+      "observedName": "Dimetrodon Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5988",
+      "observedName": "Dilophosaurus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5989",
+      "observedName": "Hadrosaurus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5990",
+      "observedName": "Giganotosaurus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5991",
+      "observedName": "Zealoraptor Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5992",
+      "observedName": "Quetzalcoatlus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5993",
+      "observedName": "Mosasaurus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5995",
+      "observedName": "Nemicolopterus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5996",
+      "observedName": "Swarm of Nemicolopterus Zombies",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5997",
+      "observedName": "Pachycephalosaurus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5998",
+      "observedName": "Pteranodon Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:5999",
+      "observedName": "Plesiosaurus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:6000",
+      "observedName": "Sarcosuchus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:6001",
+      "observedName": "Stegosaurus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:6002",
+      "observedName": "Therizinosaurus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:6003",
+      "observedName": "Titanosaurus Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:6004",
+      "observedName": "Triceratops Zombie",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "needs-primary-unit-evidence",
+      "duplicateObservationName": false,
+      "candidates": [],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:6005",
+      "observedName": "Troodon",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "duplicate-observation-name-needs-identity-review",
+      "duplicateObservationName": true,
+      "candidates": [
+        {
+          "publicationId": "DDHC-TOA-3",
+          "publicationTitle": "Beasts of the Jungle Rot",
+          "publisherStatus": "needs-publisher-status-review",
+          "name": "Troodon",
+          "section": "bestiary",
+          "kind": "descriptive-heading",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+          "evidenceLocator": "PDF page1 / printed page2",
+          "observationIds": [
+            "dndsu:bestiary:5977",
+            "dndsu:bestiary:6005"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:items:7633",
+      "observedName": "The Eye of Xxiphu",
+      "originalSourceIds": [
+        "169"
+      ],
+      "status": "multiple-publications-need-version-review",
+      "duplicateObservationName": false,
+      "candidates": [
+        {
+          "publicationId": "DDAL05-18",
+          "publicationTitle": "The Mysterious Isle",
+          "publisherStatus": "official-al-index-entry-needs-publication-review",
+          "name": "The Eye of Xxiphu",
+          "section": "items",
+          "kind": "named-object-in-prose",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/204803-sample.pdf",
+          "evidenceLocator": "Sample PDF page3 / printed page4, Adventure Background; initial article normalized explicitly for the observed title",
+          "observationIds": [
+            "dndsu:items:7633"
+          ]
+        },
+        {
+          "publicationId": "DDAL05-19",
+          "publicationTitle": "The Eye of Xxiphu",
+          "publisherStatus": "official-al-index-entry-needs-publication-review",
+          "name": "The Eye of Xxiphu",
+          "section": "items",
+          "kind": "named-object-in-prose",
+          "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/204805-sample.pdf",
+          "evidenceLocator": "Sample PDF page3 / printed page4, Adventure Background; initial article normalized explicitly for the observed title",
+          "observationIds": [
+            "dndsu:items:7633"
+          ]
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    }
+  ],
+  "inputSha256": {
+    "catalog/adventurers-league-publication-candidates-2014.json": "8d6e9d68159bf1fde71e881ed8dcb3e56a62ff17583a13e1ceecc06df2a9d9c8",
+    "catalog/scope-register-2014.json": "d16b65c44f622b70f685aa391687375df13e627267367b50a58d0bd3307e25dd"
+  }
+}

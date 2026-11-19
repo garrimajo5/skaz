@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "status": "service-conditions-proposal-not-runtime-content",
+  "ruleset": "5e-2014",
+  "source": {
+    "title": "System Reference Document 5.1",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "pages": [
+      74
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0"
+  },
+  "approvedDenominator": null,
+  "complete": false,
+  "accepted": false,
+  "services": [
+    {
+      "observationId": "srd51:2014:equipment-observation:coach-between-towns",
+      "nameEn": "Coach cab, between towns",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3,
+        "currency": "cp"
+      },
+      "pricedUnit": "mile"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:coach-within-city",
+      "nameEn": "Coach cab, within a city",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "cp"
+      },
+      "pricedUnit": "not-specified-in-table"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:hireling-skilled",
+      "nameEn": "Hireling, skilled",
+      "pricing": {
+        "mode": "minimum",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "pricedUnit": "day",
+      "pricingEvidence": {
+        "sourcePage": 74,
+        "locator": "Services, paragraph immediately after the pay table",
+        "interpretation": "The listed skilled-hireling pay is a minimum; expert hirelings may demand more.",
+        "correctedOn": "2026-11-19",
+        "previousMode": "fixed"
+      }
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:hireling-untrained",
+      "nameEn": "Hireling, untrained",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "sp"
+      },
+      "pricedUnit": "day"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:messenger",
+      "nameEn": "Messenger",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "cp"
+      },
+      "pricedUnit": "mile"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:road-or-gate-toll",
+      "nameEn": "Road or gate toll",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "cp"
+      },
+      "pricedUnit": "not-specified-in-table"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:ships-passage",
+      "nameEn": "Ship’s passage",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "sp"
+      },
+      "pricedUnit": "mile"
+    }
+  ],
+  "conditions": [
+    {
+      "id": "skilled-hirelings",
+      "summaryRu": "Квалифицированный наёмник выполняет работу, требующую владения оружием, инструментом или навыком: например, наёмный воин, ремесленник или писец. Указанные 2 зм в день — минимальная оплата, эксперт может потребовать больше."
+    },
+    {
+      "id": "untrained-hirelings",
+      "summaryRu": "Неквалифицированных работников нанимают для простых задач без особого навыка: например, переноски грузов или уборки."
+    },
+    {
+      "id": "other-services",
+      "summaryRu": "Таблица содержит лишь основные услуги. Можно нанять специалиста для отдельного поручения; опасная или экспертная работа не получает автоматически обычную ставку. Долгосрочный договор со слугами и управляющими может включать жильё как часть вознаграждения."
+    }
+  ],
+  "spellcastingServices": {
+    "proposedUnitId": "srd51:2014:mechanic:spellcasting-services",
+    "sourceLocator": "Spellcasting Services, page74",
+    "normalRate": null,
+    "ordinaryHirelingRateApplies": false,
+    "illustrativeQuote": {
+      "spellLevels": [
+        1,
+        2
+      ],
+      "commonSpellsOnly": true,
+      "examples": [
+        "cure wounds",
+        "identify"
+      ],
+      "low": 10,
+      "high": 50,
+      "currency": "gp",
+      "expensiveMaterialComponents": "additional",
+      "bindingMinimum": false,
+      "bindingMaximum": false
+    },
+    "summaryRu": "Заклинатели не относятся к обычным наёмникам; установленного тарифа нет. В городе или посёлке сравнительно легко найти распространённое заклинание 1–2 круга: примерная плата может составить 10–50 зм плюс стоимость дорогих материальных компонентов. Чем выше круг, тем сложнее найти исполнителя и тем дороже услуга. Для высоких кругов может понадобиться большой город, университет или значительный храм. Вместо денег заклинатель может попросить услугу, например опасное поручение.",
+    "automaticPurchase": false,
+    "accepted": false
+  },
+  "applicationBoundary": "Reference and future warning inputs only: no forced price, currency deduction, guaranteed availability or prohibition of personal arrangements."
+}

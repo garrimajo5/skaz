@@ -1342,13 +1342,20 @@
       "recordType": "service",
       "sourcePage": 74,
       "pricing": {
-        "mode": "fixed",
+        "mode": "minimum",
         "amount": 2,
         "currency": "gp"
       },
       "canonicalCatalogId": null,
       "fullRules": "unverified",
-      "pricedUnit": "day"
+      "pricedUnit": "day",
+      "pricingEvidence": {
+        "sourcePage": 74,
+        "locator": "Services, paragraph immediately after the pay table",
+        "interpretation": "The listed skilled-hireling pay is a minimum; expert hirelings may demand more.",
+        "correctedOn": "2026-11-19",
+        "previousMode": "fixed"
+      }
     },
     {
       "observationId": "srd51:2014:equipment-observation:hireling-untrained",
