@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-19",
+  "ruleset": "5e-2014",
+  "sourceId": "101",
+  "accepted": false,
+  "complete": false,
+  "automaticPatch": false,
+  "approvedDenominator": null,
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "d16b65c44f622b70f685aa391687375df13e627267367b50a58d0bd3307e25dd"
+  },
+  "status": "appendix-xp-table-corrections-not-full-monsters",
+  "primaryEvidence": {
+    "url": "https://media.wizards.com/2021/dnd/downloads/DMG-Errata.pdf",
+    "version": "3.0; copyright2021",
+    "sha256": "257679dba5ab5f1d6656b9bc508ad82a5a053ea49d57dbeee6e88a5fe01d6afb",
+    "pdfPage": 2,
+    "reusePermission": "not-established",
+    "section": "Appendix B / Monsters by Environment"
+  },
+  "records": [
+    {
+      "primaryName": "Ancient Black Dragon",
+      "primaryPreviousTableXp": 27500,
+      "primaryCorrectedTableXp": 33000,
+      "observationId": "dndsu:bestiary:95",
+      "observedName": "Ancient black dragon",
+      "observedSourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/95-ancient-black-dragon/",
+      "observedCurrentXp": 33000,
+      "observedCurrentChallengeRating": 21,
+      "comparisonStatus": "selected-xp-matches-corrected-table",
+      "canonicalId": null,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false
+    },
+    {
+      "primaryName": "Ancient Blue Dragon",
+      "primaryPreviousTableXp": 32500,
+      "primaryCorrectedTableXp": 50000,
+      "observationId": "dndsu:bestiary:99",
+      "observedName": "Ancient blue dragon",
+      "observedSourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/99-ancient-blue-dragon/",
+      "observedCurrentXp": 50000,
+      "observedCurrentChallengeRating": 23,
+      "comparisonStatus": "selected-xp-matches-corrected-table",
+      "canonicalId": null,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false
+    },
+    {
+      "primaryName": "Ancient Brass Dragon",
+      "primaryPreviousTableXp": 24500,
+      "primaryCorrectedTableXp": 25000,
+      "observationId": "dndsu:bestiary:115",
+      "observedName": "Ancient brass dragon",
+      "observedSourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/115-ancient-brass-dragon/",
+      "observedCurrentXp": 25000,
+      "observedCurrentChallengeRating": 20,
+      "comparisonStatus": "selected-xp-matches-corrected-table",
+      "canonicalId": null,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false
+    },
+    {
+      "primaryName": "Ancient Bronze Dragon",
+      "primaryPreviousTableXp": 30000,
+      "primaryCorrectedTableXp": 41000,
+      "observationId": "dndsu:bestiary:119",
+      "observedName": "Ancient bronze dragon",
+      "observedSourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/119-ancient-bronze-dragon/",
+      "observedCurrentXp": 41000,
+      "observedCurrentChallengeRating": 22,
+      "comparisonStatus": "selected-xp-matches-corrected-table",
+      "canonicalId": null,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false
+    },
+    {
+      "primaryName": "Ancient Copper Dragon",
+      "primaryPreviousTableXp": 27500,
+      "primaryCorrectedTableXp": 33000,
+      "observationId": "dndsu:bestiary:123",
+      "observedName": "Ancient copper dragon",
+      "observedSourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/123-ancient-copper-dragon/",
+      "observedCurrentXp": 33000,
+      "observedCurrentChallengeRating": 21,
+      "comparisonStatus": "selected-xp-matches-corrected-table",
+      "canonicalId": null,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false
+    },
+    {
+      "primaryName": "Ancient Gold Dragon",
+      "primaryPreviousTableXp": 36500,
+      "primaryCorrectedTableXp": 62000,
+      "observationId": "dndsu:bestiary:127",
+      "observedName": "Ancient gold dragon",
+      "observedSourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/127-ancient-gold-dragon/",
+      "observedCurrentXp": 62000,
+      "observedCurrentChallengeRating": 24,
+      "comparisonStatus": "selected-xp-matches-corrected-table",
+      "canonicalId": null,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false
+    },
+    {
+      "primaryName": "Ancient Green Dragon",
+      "primaryPreviousTableXp": 30000,
+      "primaryCorrectedTableXp": 41000,
+      "observationId": "dndsu:bestiary:100",
+      "observedName": "Ancient green dragon",
+      "observedSourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/100-ancient-green-dragon/",
+      "observedCurrentXp": 41000,
+      "observedCurrentChallengeRating": 22,
+      "comparisonStatus": "selected-xp-matches-corrected-table",
+      "canonicalId": null,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false
+    },
+    {
+      "primaryName": "Ancient Red Dragon",
+      "primaryPreviousTableXp": 36500,
+      "primaryCorrectedTableXp": 62000,
+      "observationId": "dndsu:bestiary:107",
+      "observedName": "Ancient red dragon",
+      "observedSourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/107-ancient-red-dragon/",
+      "observedCurrentXp": 62000,
+      "observedCurrentChallengeRating": 24,
+      "comparisonStatus": "selected-xp-matches-corrected-table",
+      "canonicalId": null,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false
+    },
+    {
+      "primaryName": "Ancient Silver Dragon",
+      "primaryPreviousTableXp": 32500,
+      "primaryCorrectedTableXp": 50000,
+      "observationId": "dndsu:bestiary:131",
+      "observedName": "Ancient silver dragon",
+      "observedSourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/131-ancient-silver-dragon/",
+      "observedCurrentXp": 50000,
+      "observedCurrentChallengeRating": 23,
+      "comparisonStatus": "selected-xp-matches-corrected-table",
+      "canonicalId": null,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false
+    },
+    {
+      "primaryName": "Ancient White Dragon",
+      "primaryPreviousTableXp": 24500,
+      "primaryCorrectedTableXp": 25000,
+      "observationId": "dndsu:bestiary:111",
+      "observedName": "Ancient white dragon",
+      "observedSourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/111-ancient-white-dragon/",
+      "observedCurrentXp": 25000,
+      "observedCurrentChallengeRating": 20,
+      "comparisonStatus": "selected-xp-matches-corrected-table",
+      "canonicalId": null,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false
+    }
+  ],
+  "limits": [
+    "The correction belongs to the DMG Appendix B table, not an instruction to reattribute MM observations to DMG.",
+    "Old table XP is a historical corrected value, not the observed current secondary XP.",
+    "Challenge ratings are secondary observations only; the primary table does not establish or change them.",
+    "Full monster versions, translation rights, encounter budgets and automatic rewards are not accepted."
+  ]
+}

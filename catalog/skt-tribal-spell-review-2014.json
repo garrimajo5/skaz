@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "status": "diagnostic-reconstruction-not-canonical-spell-lists",
+  "accepted": false,
+  "summary": {
+    "tribes": 11,
+    "observedSpellEntries": 33,
+    "candidateSpellEntries": 24,
+    "primaryClaimEntries": 22,
+    "tribesWithCountConflict": [
+      "Black Lion",
+      "Gray Wolf"
+    ]
+  },
+  "unresolvedChoice": "Do not choose a spell to remove merely to meet the advertised count.",
+  "rows": [
+    {
+      "tribe": "Black Lion",
+      "observedSpellCount": 4,
+      "candidateSpells": [
+        "chill touch",
+        "feign death",
+        "revivify"
+      ],
+      "candidateSpellCount": 3,
+      "countMatchesPrimaryClaim": false,
+      "primaryOverrides": {},
+      "status": "count-conflict-needs-primary-list",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticDeletion": false,
+      "automaticLearn": false
+    },
+    {
+      "tribe": "Black Raven",
+      "observedSpellCount": 3,
+      "candidateSpells": [
+        "animal messenger",
+        "polymorph"
+      ],
+      "candidateSpellCount": 2,
+      "countMatchesPrimaryClaim": true,
+      "primaryOverrides": {
+        "polymorph": {
+          "target": "self only; raven only"
+        }
+      },
+      "status": "count-matches-only-full-primary-list-unverified",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticDeletion": false,
+      "automaticLearn": false
+    },
+    {
+      "tribe": "Blue Bear",
+      "observedSpellCount": 2,
+      "candidateSpells": [
+        "enhance ability",
+        "heroism"
+      ],
+      "candidateSpellCount": 2,
+      "countMatchesPrimaryClaim": true,
+      "primaryOverrides": {},
+      "status": "count-matches-only-full-primary-list-unverified",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticDeletion": false,
+      "automaticLearn": false
+    },
+    {
+      "tribe": "Elk",
+      "observedSpellCount": 3,
+      "candidateSpells": [
+        "find steed",
+        "haste"
+      ],
+      "candidateSpellCount": 2,
+      "countMatchesPrimaryClaim": true,
+      "primaryOverrides": {
+        "find steed": {
+          "castingTime": "1 action",
+          "form": "elk only"
+        }
+      },
+      "status": "count-matches-only-full-primary-list-unverified",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticDeletion": false,
+      "automaticLearn": false
+    },
+    {
+      "tribe": "Gray Wolf",
+      "observedSpellCount": 3,
+      "candidateSpells": [
+        "beast sense",
+        "moonbeam",
+        "speak with animals"
+      ],
+      "candidateSpellCount": 3,
+      "countMatchesPrimaryClaim": false,
+      "primaryOverrides": {},
+      "status": "count-conflict-needs-primary-list",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticDeletion": false,
+      "automaticLearn": false
+    },
+    {
+      "tribe": "Great Worm",
+      "observedSpellCount": 3,
+      "candidateSpells": [
+        "crusader’s mantle",
+        "hypnotic pattern"
+      ],
+      "candidateSpellCount": 2,
+      "countMatchesPrimaryClaim": true,
+      "primaryOverrides": {},
+      "status": "count-matches-only-full-primary-list-unverified",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticDeletion": false,
+      "automaticLearn": false
+    },
+    {
+      "tribe": "Griffon",
+      "observedSpellCount": 2,
+      "candidateSpells": [
+        "beast sense",
+        "fly"
+      ],
+      "candidateSpellCount": 2,
+      "countMatchesPrimaryClaim": true,
+      "primaryOverrides": {
+        "beast sense": {
+          "target": "birds only"
+        }
+      },
+      "status": "count-matches-only-full-primary-list-unverified",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticDeletion": false,
+      "automaticLearn": false
+    },
+    {
+      "tribe": "Sky Pony",
+      "observedSpellCount": 3,
+      "candidateSpells": [
+        "gust of wind",
+        "witch bolt"
+      ],
+      "candidateSpellCount": 2,
+      "countMatchesPrimaryClaim": true,
+      "primaryOverrides": {},
+      "status": "count-matches-only-full-primary-list-unverified",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticDeletion": false,
+      "automaticLearn": false
+    },
+    {
+      "tribe": "Red Tiger",
+      "observedSpellCount": 3,
+      "candidateSpells": [
+        "enhance ability",
+        "jump"
+      ],
+      "candidateSpellCount": 2,
+      "countMatchesPrimaryClaim": true,
+      "primaryOverrides": {},
+      "status": "count-matches-only-full-primary-list-unverified",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticDeletion": false,
+      "automaticLearn": false
+    },
+    {
+      "tribe": "Thunderbeast",
+      "observedSpellCount": 3,
+      "candidateSpells": [
+        "enhance ability",
+        "pass without trace"
+      ],
+      "candidateSpellCount": 2,
+      "countMatchesPrimaryClaim": true,
+      "primaryOverrides": {},
+      "status": "count-matches-only-full-primary-list-unverified",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticDeletion": false,
+      "automaticLearn": false
+    },
+    {
+      "tribe": "Tree Ghost",
+      "observedSpellCount": 4,
+      "candidateSpells": [
+        "barkskin",
+        "speak with plants"
+      ],
+      "candidateSpellCount": 2,
+      "countMatchesPrimaryClaim": true,
+      "primaryOverrides": {},
+      "status": "count-matches-only-full-primary-list-unverified",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticDeletion": false,
+      "automaticLearn": false
+    }
+  ],
+  "inputSha256": {
+    "catalog/skt-tribal-spell-reconstruction-2014.json": "fe5b764231db620c8fd8dc893eed6c98b44af958e514933e1e9455877c981207"
+  }
+}
