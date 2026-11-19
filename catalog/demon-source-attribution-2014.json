@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "status": "overlapping-source-attribution-evidence-not-identity-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "automaticMerge": false,
+  "groups": [
+    {
+      "name": "Juiblex",
+      "indexCapture": "juiblex-index",
+      "indexUrl": "https://www.dndbeyond.com/monsters?filter-search=Juiblex",
+      "rows": [
+        {
+          "digitalName": "Juiblex",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17416-juiblex",
+          "displayedSource": "Out of the Abyss",
+          "legacyBadge": true,
+          "candidateObservationId": "dndsu:bestiary:1752",
+          "sourceIdOfPrimaryListing": "129",
+          "observedSourceIds": [
+            "113",
+            "129"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/1752-juiblex/",
+          "readUrl": "https://dnd.su/bestiary/1752-juiblex/",
+          "observedSourcePlaques": [
+            "Mordenkainen's Tome of Foes",
+            "Out of the Abyss"
+          ],
+          "fullPrimaryStatBlockRead": false,
+          "cardAccess": {
+            "status": "redirect-to-marketplace",
+            "resolvedUrl": "https://marketplace.dndbeyond.com/category/SRC-00009"
+          },
+          "canonicalId": null,
+          "identityAccepted": false
+        },
+        {
+          "digitalName": "Juiblex",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560853-juiblex",
+          "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+          "legacyBadge": false,
+          "candidateObservationId": "dndsu:bestiary:6595",
+          "sourceIdOfPrimaryListing": "158",
+          "observedSourceIds": [
+            "158",
+            "129"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/6595-juiblex/",
+          "readUrl": "https://dnd.su/multiverse/bestiary/6595-juiblex/",
+          "observedSourcePlaques": [
+            "Mordenkainen Presents: Monsters of the Multiverse",
+            "Out of the Abyss"
+          ],
+          "fullPrimaryStatBlockRead": false,
+          "cardAccess": {
+            "status": "redirect-to-marketplace",
+            "resolvedUrl": "https://marketplace.dndbeyond.com/category/mordenkainen-presents-monsters-of-the-multiverse"
+          },
+          "canonicalId": null,
+          "identityAccepted": false
+        }
+      ],
+      "decision": "keep-distinct-primary-version-candidates",
+      "remaining": "Equivalence of MTF and OotA text and meaning of shared OotA plaque on MPMM secondary card remain unverified."
+    },
+    {
+      "name": "Zuggtmoy",
+      "indexCapture": "zuggtmoy-index",
+      "indexUrl": "https://www.dndbeyond.com/monsters?filter-search=Zuggtmoy",
+      "rows": [
+        {
+          "digitalName": "Zuggtmoy",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17419-zuggtmoy",
+          "displayedSource": "Out of the Abyss",
+          "legacyBadge": true,
+          "candidateObservationId": "dndsu:bestiary:4910",
+          "sourceIdOfPrimaryListing": "129",
+          "observedSourceIds": [
+            "113",
+            "129"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/4910-zuggtmoy/",
+          "readUrl": "https://dnd.su/bestiary/4910-zuggtmoy/",
+          "observedSourcePlaques": [
+            "Mordenkainen's Tome of Foes",
+            "Out of the Abyss"
+          ],
+          "fullPrimaryStatBlockRead": false,
+          "cardAccess": {
+            "status": "redirect-to-marketplace",
+            "resolvedUrl": "https://marketplace.dndbeyond.com/category/SRC-00009"
+          },
+          "canonicalId": null,
+          "identityAccepted": false
+        },
+        {
+          "digitalName": "Zuggtmoy",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2560977-zuggtmoy",
+          "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+          "legacyBadge": false,
+          "candidateObservationId": "dndsu:bestiary:6594",
+          "sourceIdOfPrimaryListing": "158",
+          "observedSourceIds": [
+            "158",
+            "129"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/6594-zuggtmoy/",
+          "readUrl": "https://dnd.su/multiverse/bestiary/6594-zuggtmoy/",
+          "observedSourcePlaques": [
+            "Mordenkainen Presents: Monsters of the Multiverse",
+            "Out of the Abyss"
+          ],
+          "fullPrimaryStatBlockRead": false,
+          "cardAccess": {
+            "status": "redirect-to-marketplace",
+            "resolvedUrl": "https://marketplace.dndbeyond.com/category/mordenkainen-presents-monsters-of-the-multiverse"
+          },
+          "canonicalId": null,
+          "identityAccepted": false
+        }
+      ],
+      "decision": "keep-distinct-primary-version-candidates",
+      "remaining": "Equivalence of MTF and OotA text and meaning of shared OotA plaque on MPMM secondary card remain unverified."
+    }
+  ],
+  "captures": [
+    {
+      "key": "juiblex-index",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=Juiblex",
+      "resolvedUrl": "https://www.dndbeyond.com/monsters?filter-search=Juiblex",
+      "sha256": "f48d122f4a0ab5b2c21915928664ca0068a8e1efc6b8f8140ca54299bceeaec6"
+    },
+    {
+      "key": "zuggtmoy-index",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=Zuggtmoy",
+      "resolvedUrl": "https://www.dndbeyond.com/monsters?filter-search=Zuggtmoy",
+      "sha256": "629460bce5d1d82660cfa29215538fe6ead91c115798762070e20fd30fc97500"
+    },
+    {
+      "key": "1752",
+      "url": "https://dnd.su/bestiary/1752-juiblex/",
+      "resolvedUrl": "https://dnd.su/bestiary/1752-juiblex/",
+      "sha256": "c04ac99245965dedd5192b263ccb4cf986d0f5415f00677545c614411db63cd4"
+    },
+    {
+      "key": "4910",
+      "url": "https://dnd.su/bestiary/4910-zuggtmoy/",
+      "resolvedUrl": "https://dnd.su/bestiary/4910-zuggtmoy/",
+      "sha256": "db1ef98b37332119f3503443d687c536a453a638aaf9ce4bcc6da3aa57c9c68f"
+    },
+    {
+      "key": "6595",
+      "url": "https://dnd.su/multiverse/bestiary/6595-juiblex/",
+      "resolvedUrl": "https://dnd.su/multiverse/bestiary/6595-juiblex/",
+      "sha256": "f82db0872efbc1f86828e4c3e77c369bffa41e4a73ed17832ff22f78cf05545f"
+    },
+    {
+      "key": "6594",
+      "url": "https://dnd.su/multiverse/bestiary/6594-zuggtmoy/",
+      "resolvedUrl": "https://dnd.su/multiverse/bestiary/6594-zuggtmoy/",
+      "sha256": "ae81f6ce7d31148cda9250f278e93428666d65837ee6c4698605e5154c6324a1"
+    }
+  ],
+  "limitations": [
+    "Source129 shared by secondary cards is not proof of identical rules.",
+    "Official index explicitly separates legacy OotA and MPMM digital records.",
+    "Four index records are not a newly approved denominator.",
+    "No source IDs are removed; MTF/OotA equivalence remains open.",
+    "Full primary stat blocks redirect to marketplace and were not read.",
+    "Raw HTML, personal data and copyrighted rule bodies are not included."
+  ]
+}

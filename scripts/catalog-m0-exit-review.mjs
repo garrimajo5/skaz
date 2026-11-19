@@ -2,10 +2,11 @@ import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {buildSourceReviewQueue} from './catalog-source-review-queue.mjs';
+import {buildNamedSourceReview} from './catalog-named-source-review.mjs';
 import {reviewObservedNames} from './catalog-observed-name-review.mjs';
 const excluded=new Set(['excluded-by-reference-scope','excluded-by-reviewed-source-policy']);
-export function buildM0ExitReview(scope,policy,nameReview,backgroundProposals){
- const queue=buildSourceReviewQueue(scope,policy);
+export function buildM0ExitReview(scope,policy,nameReview,backgroundProposals,namedSourceEvidence){
+ const queue=namedSourceEvidence===undefined?buildSourceReviewQueue(scope,policy):buildNamedSourceReview(scope,policy,namedSourceEvidence.bibliography,namedSourceEvidence.policy);
  const regenerated=reviewObservedNames(scope);
  for(const key of ['duplicateNameGroups','missingEnglishNameIds','scriptDiagnostics'])if(JSON.stringify(regenerated[key])!==JSON.stringify(nameReview[key]))throw Error('Name diagnosis stale or incomplete');
  const proposalMap=new Map();for(const row of backgroundProposals.records){if(proposalMap.has(row.observationId)||row.accepted!==false||row.canonicalId!==null)throw Error('Invalid background proposal');proposalMap.set(row.observationId,row);}
