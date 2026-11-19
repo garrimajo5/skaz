@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "status": "primary-name-evidence-not-runtime-identity-acceptance",
+  "checkedOn": "2026-11-19",
+  "complete": false,
+  "approvedDenominator": null,
+  "limits": [
+    "Public indexes verify names and source labels, not full stat blocks or version equivalence.",
+    "Names remain research proposals; existing observation IDs and names are unchanged.",
+    "A family page can contain variants; variants do not receive invented runtime IDs.",
+    "Evidence is metadata only; no permission to redistribute copyrighted rules or artwork is inferred."
+  ],
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:13077",
+      "observedName": "Сranium rat squeaker swarm",
+      "sourceId": "205",
+      "candidateName": "Cranium Rat Squeaker Swarm",
+      "evidence": [
+        {
+          "url": "https://www.dndbeyond.com/monsters?page=35",
+          "locator": "Cranium Rat Squeaker Swarm — Planescape: Adventures in the Multiverse",
+          "kind": "official-monster-index"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "proposal": "correct-mixed-script-name-after-identity-review",
+      "access": {
+        "url": "https://www.dndbeyond.com/monsters/3883523-cranium-rat-squeaker-swarm",
+        "result": "redirect-to-product-page",
+        "destination": "https://marketplace.dndbeyond.com/category/planescape-adventures-in-the-multiverse",
+        "fullStatBlockRead": false
+      }
+    },
+    {
+      "observationId": "dndsu:bestiary:568",
+      "observedName": "Nilbog,goblin гоблин",
+      "sourceId": "111",
+      "candidateName": "Nilbog",
+      "evidence": [
+        {
+          "url": "https://www.dndbeyond.com/monsters?filter-cr-min=3&filter-environment=9&filter-search=&filter-type=0&page=19",
+          "locator": "Nilbog (Legacy) — Volo's Guide to Monsters",
+          "kind": "official-monster-index"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "proposal": "separate-display-name-from-appended-goblin-tags",
+      "mustRemainDistinctFrom": [
+        "dndsu:bestiary:6883"
+      ],
+      "access": {
+        "url": "https://www.dndbeyond.com/monsters/17292-nilbog",
+        "result": "redirect-to-legacy-information",
+        "destination": "https://www.dndbeyond.com/legacy",
+        "fullStatBlockRead": false
+      }
+    },
+    {
+      "observationId": "dndsu:bestiary:6883",
+      "observedName": "Nilbog,goblin гоблин",
+      "sourceId": "158",
+      "candidateName": "Nilbog",
+      "evidence": [
+        {
+          "url": "https://www.dndbeyond.com/monsters?filter-cr-min=3&filter-environment=9&filter-search=&filter-type=0&page=19",
+          "locator": "Nilbog — Mordenkainen Presents: Monsters of the Multiverse",
+          "kind": "official-monster-index"
+        },
+        {
+          "url": "https://www.dndbeyond.com/sources/dnd/motm",
+          "locator": "Bestiary / N / Nilbog",
+          "kind": "official-contents"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "proposal": "separate-display-name-from-appended-goblin-tags",
+      "mustRemainDistinctFrom": [
+        "dndsu:bestiary:568"
+      ],
+      "access": {
+        "url": "https://www.dndbeyond.com/monsters/2560889-nilbog",
+        "result": "redirect-to-product-page",
+        "destination": "https://marketplace.dndbeyond.com/category/mordenkainen-presents-monsters-of-the-multiverse",
+        "fullStatBlockRead": false
+      }
+    },
+    {
+      "observationId": "dndsu:items:6459",
+      "observedName": "Prehistoric Figurines of Wondrous Power,Pyrite Pleisosarus Пиритовый плезиозавр Carnelian Triceratops Сердоликий трицератопс  Яшмовый Тираннозавр Рекс Jasper Tyrannosaurus Rex Kyanite Pteranodon Кианитовый птеранодон",
+      "sourceId": "198",
+      "candidateName": "Prehistoric Figurines of Wondrous Power",
+      "evidence": [
+        {
+          "url": "https://www.dndbeyond.com/posts/1548-preview-5-primordial-magic-items-from-bigby",
+          "locator": "Prehistoric Figurines of Wondrous Power: family heading and four named gemstone variants",
+          "kind": "official-preview-article"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "proposal": "separate-family-name-and-variant-labels-after-identity-review",
+      "unitKind": "family-with-variants",
+      "variants": [
+        {
+          "name": "Carnelian Triceratops",
+          "rarity": "very rare"
+        },
+        {
+          "name": "Jasper Tyrannosaurus Rex",
+          "rarity": "legendary"
+        },
+        {
+          "name": "Kyanite Pteranodon",
+          "rarity": "rare"
+        },
+        {
+          "name": "Pyrite Plesiosaurus",
+          "rarity": "uncommon"
+        }
+      ],
+      "unverified": [
+        "Full transformation duration and recharge for each variant",
+        "Canonical variant IDs and relationship to existing runtime items"
+      ]
+    },
+    {
+      "observationId": "dndsu:bestiary:17367",
+      "observedName": "Needle Spawn",
+      "sourceId": "206",
+      "candidateName": "Needle Spawn",
+      "evidence": [
+        {
+          "url": "https://www.dndbeyond.com/monsters?page=115",
+          "locator": "Needle Spawn — Mordenkainen's Fiendish Folio Volume 1 (separate listing from Needle Lord)",
+          "kind": "official-monster-index"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "proposal": "retain-name-and-review-contents-heading-relation",
+      "unverified": [
+        "Relationship between preview Contents heading Needlefolk (printed page 15) and this digital unit",
+        "Difference between 18 named Contents entries and advertised 17 monsters"
+      ],
+      "access": {
+        "url": "https://www.dndbeyond.com/monsters/589001-needle-spawn",
+        "result": "redirect-to-product-page",
+        "destination": "https://marketplace.dndbeyond.com/category/SRC-00057",
+        "fullStatBlockRead": false
+      }
+    }
+  ]
+}

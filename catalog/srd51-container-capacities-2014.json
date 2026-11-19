@@ -1,0 +1,289 @@
+{
+  "schemaVersion": 1,
+  "status": "container-capacity-proposal-not-runtime-content",
+  "ruleset": "5e-2014",
+  "source": {
+    "title": "System Reference Document 5.1",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "pages": [
+      69,
+      70
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0"
+  },
+  "inputSha256": {
+    "catalog/equipment-identity-reconciliation.json": "13db28eeec21cf57430f119b6228f90245f87fad2c5d4689ce182275d5924f97"
+  },
+  "complete": false,
+  "accepted": false,
+  "approvedDenominator": null,
+  "applicationBoundary": {
+    "capacityDeviation": "warn-and-allow-manual-override",
+    "automaticInventoryMove": false,
+    "automaticCarryWeightChange": false,
+    "automaticCapacityConversion": false
+  },
+  "limits": [
+    "Original capacities and units are retained; no conversion of liquid volume into mass.",
+    "Paired volume/weight dimensions are not additive, nor are alternative liquid/solid contents.",
+    "Capacity does not establish physical fit, current contents or the character carrying limit."
+  ],
+  "records": [
+    {
+      "candidateItemId": "srd51:2014:item:backpack",
+      "nameEn": "Backpack",
+      "sourcePage": 69,
+      "sourceCapacity": "1 cubic foot/30 pounds of gear",
+      "dimensions": [
+        {
+          "amount": 1,
+          "unit": "cubic-foot",
+          "content": "gear"
+        },
+        {
+          "amount": 30,
+          "unit": "pound",
+          "content": "gear"
+        }
+      ],
+      "relationship": "paired-volume-and-weight",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:barrel",
+      "nameEn": "Barrel",
+      "sourcePage": 69,
+      "sourceCapacity": "40 gallons liquid, 4 cubic feet solid",
+      "dimensions": [
+        {
+          "amount": 40,
+          "unit": "gallon",
+          "content": "liquid"
+        },
+        {
+          "amount": 4,
+          "unit": "cubic-foot",
+          "content": "solid"
+        }
+      ],
+      "relationship": "alternative-content",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:basket",
+      "nameEn": "Basket",
+      "sourcePage": 69,
+      "sourceCapacity": "2 cubic feet/40 pounds of gear",
+      "dimensions": [
+        {
+          "amount": 2,
+          "unit": "cubic-foot",
+          "content": "gear"
+        },
+        {
+          "amount": 40,
+          "unit": "pound",
+          "content": "gear"
+        }
+      ],
+      "relationship": "paired-volume-and-weight",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:glass-bottle",
+      "nameEn": "Bottle",
+      "sourcePage": 69,
+      "sourceCapacity": "1½ pints liquid",
+      "dimensions": [
+        {
+          "amount": 1.5,
+          "unit": "pint",
+          "content": "liquid"
+        }
+      ],
+      "relationship": "single",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:bucket",
+      "nameEn": "Bucket",
+      "sourcePage": 69,
+      "sourceCapacity": "3 gallons liquid, 1/2 cubic foot solid",
+      "dimensions": [
+        {
+          "amount": 3,
+          "unit": "gallon",
+          "content": "liquid"
+        },
+        {
+          "amount": 0.5,
+          "unit": "cubic-foot",
+          "content": "solid"
+        }
+      ],
+      "relationship": "alternative-content",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:chest",
+      "nameEn": "Chest",
+      "sourcePage": 69,
+      "sourceCapacity": "12 cubic feet/300 pounds of gear",
+      "dimensions": [
+        {
+          "amount": 12,
+          "unit": "cubic-foot",
+          "content": "gear"
+        },
+        {
+          "amount": 300,
+          "unit": "pound",
+          "content": "gear"
+        }
+      ],
+      "relationship": "paired-volume-and-weight",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:flask-or-tankard",
+      "nameEn": "Flask or tankard",
+      "sourcePage": 70,
+      "sourceCapacity": "1 pint liquid",
+      "dimensions": [
+        {
+          "amount": 1,
+          "unit": "pint",
+          "content": "liquid"
+        }
+      ],
+      "relationship": "single",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:jug-or-pitcher",
+      "nameEn": "Jug or pitcher",
+      "sourcePage": 70,
+      "sourceCapacity": "1 gallon liquid",
+      "dimensions": [
+        {
+          "amount": 1,
+          "unit": "gallon",
+          "content": "liquid"
+        }
+      ],
+      "relationship": "single",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:iron-pot",
+      "nameEn": "Pot, iron",
+      "sourcePage": 70,
+      "sourceCapacity": "1 gallon liquid",
+      "dimensions": [
+        {
+          "amount": 1,
+          "unit": "gallon",
+          "content": "liquid"
+        }
+      ],
+      "relationship": "single",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:pouch",
+      "nameEn": "Pouch",
+      "sourcePage": 70,
+      "sourceCapacity": "1/5 cubic foot/6 pounds of gear",
+      "dimensions": [
+        {
+          "amount": 0.2,
+          "unit": "cubic-foot",
+          "content": "gear"
+        },
+        {
+          "amount": 6,
+          "unit": "pound",
+          "content": "gear"
+        }
+      ],
+      "relationship": "paired-volume-and-weight",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:sack",
+      "nameEn": "Sack",
+      "sourcePage": 70,
+      "sourceCapacity": "1 cubic foot/30 pounds of gear",
+      "dimensions": [
+        {
+          "amount": 1,
+          "unit": "cubic-foot",
+          "content": "gear"
+        },
+        {
+          "amount": 30,
+          "unit": "pound",
+          "content": "gear"
+        }
+      ],
+      "relationship": "paired-volume-and-weight",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:vial",
+      "nameEn": "Vial",
+      "sourcePage": 70,
+      "sourceCapacity": "4 ounces liquid",
+      "dimensions": [
+        {
+          "amount": 4,
+          "unit": "fluid-ounce",
+          "content": "liquid"
+        }
+      ],
+      "relationship": "single",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:waterskin",
+      "nameEn": "Waterskin",
+      "sourcePage": 70,
+      "sourceCapacity": "4 pints liquid",
+      "dimensions": [
+        {
+          "amount": 4,
+          "unit": "pint",
+          "content": "liquid"
+        }
+      ],
+      "relationship": "single",
+      "accepted": false,
+      "runtimeImported": false
+    }
+  ],
+  "backpackExterior": {
+    "candidateItemId": "srd51:2014:item:backpack",
+    "sourcePage": 70,
+    "summaryRu": "Снаружи рюкзака можно закреплять вещи, например спальник или свёрнутую верёвку. Это не отдельный числовой лимит и не отмена веса предметов.",
+    "examples": [
+      "bedroll",
+      "coil-of-rope"
+    ],
+    "additionalNumericCapacity": null,
+    "itemsWeightless": false
+  }
+}
