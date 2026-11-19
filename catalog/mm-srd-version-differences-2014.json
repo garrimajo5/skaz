@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-19",
+  "rulesEdition": "5e-2014",
+  "status": "primary-source-version-differences",
+  "automaticPatch": false,
+  "complete": false,
+  "accepted": false,
+  "sources": {
+    "srd": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "version": "5.1; CC BY 4.0"
+    },
+    "mm": {
+      "url": "https://media.wizards.com/2018/dnd/downloads/MM-Errata.pdf",
+      "sha256": "94b0049fb762872fba6510f1d6c234de946d962a5ce3f1c15e18e050266410fb",
+      "version": "2.0; copyright2018",
+      "reusePermission": "not-established-for-reference-text"
+    }
+  },
+  "inputSha256": {
+    "catalog/srd51-npc-roles.json": "b0dbad02646568867f4d2426d3fc4eb7ef72ce180efa6fbc893d5e4ad8e0a26d",
+    "catalog/srd51-undead-rulers.json": "cd1afd5a93f41bc88be74bbd4800cfc1e5354e2e13f4edcba7728f9ac043db84"
+  },
+  "records": [
+    {
+      "name": "Priest",
+      "catalogPath": "catalog/srd51-npc-roles.json",
+      "existingId": "srd51:2014:monster:priest",
+      "srdPage": 401,
+      "mmErrataPdfPage": 2,
+      "mmBookPage": 348,
+      "srdFields": {
+        "speedFeet": 25,
+        "religionBonus": 4
+      },
+      "existingFields": {
+        "speedFeet": 25,
+        "religionBonus": 4
+      },
+      "mmErrataFields": {
+        "speedFeet": 30,
+        "religionBonus": 5
+      },
+      "comparison": "existing-matches-declared-srd-source-differs-from-mm-errata",
+      "automaticPatch": false,
+      "fullStatBlockCompared": false
+    },
+    {
+      "name": "Lich",
+      "catalogPath": "catalog/srd51-undead-rulers.json",
+      "existingId": "srd51:2014:monster:lich",
+      "srdPage": 325,
+      "mmErrataPdfPage": 2,
+      "mmBookPage": 202,
+      "srdFields": {
+        "arcanaBonus": 18
+      },
+      "existingFields": {
+        "arcanaBonus": 18
+      },
+      "mmErrataFields": {
+        "arcanaBonus": 19
+      },
+      "comparison": "existing-matches-declared-srd-source-differs-from-mm-errata",
+      "automaticPatch": false,
+      "fullStatBlockCompared": false
+    }
+  ],
+  "nextStep": "Choose and label source versions explicitly before any application change; retain existing SRD IDs and attribution. These three differences do not establish full stat-block equivalence."
+}

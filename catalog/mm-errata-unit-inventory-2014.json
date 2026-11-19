@@ -1,0 +1,597 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-19",
+  "status": "errata-heading-inventory-not-book-inventory",
+  "sourceId": "103",
+  "rulesEdition": "5e-2014",
+  "accepted": false,
+  "completeBookInventory": false,
+  "approvedDenominator": null,
+  "primaryEvidence": {
+    "url": "https://media.wizards.com/2018/dnd/downloads/MM-Errata.pdf",
+    "version": "2.0; copyright2018",
+    "sha256": "94b0049fb762872fba6510f1d6c234de946d962a5ce3f1c15e18e050266410fb",
+    "publisher": "Wizards of the Coast",
+    "reusePermission": "not-established-for-reference-text"
+  },
+  "scope": "Only Monsters A to Z headings, excluding Global and Introduction. Headings are correction units, not necessarily creatures.",
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "d16b65c44f622b70f685aa391687375df13e627267367b50a58d0bd3307e25dd"
+  },
+  "summary": {
+    "correctionHeadings": 80,
+    "namedStatBlockHeadings": 75,
+    "namedVariantHeadings": 1,
+    "nonIndividualUnits": 4
+  },
+  "explicitNameCandidates": [
+    {
+      "primaryName": "Vampire, Spellcaster",
+      "observationId": "dndsu:bestiary:5634",
+      "observedName": "Vampire Spellcaster",
+      "reason": "Comma omitted in observed name; candidate only, selected fields and full version not yet compared."
+    }
+  ],
+  "records": [
+    {
+      "primaryName": "Aarakocra",
+      "bookPageLabel": "12",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Acolyte",
+      "bookPageLabel": "342",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Adult Blue Dracolich",
+      "bookPageLabel": "84",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Adult Brass Dragon",
+      "bookPageLabel": "105",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Ancient Black Dragon",
+      "bookPageLabel": "87",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Ancient Blue Dragon",
+      "bookPageLabel": "90",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Ancient Brass Dragon",
+      "bookPageLabel": "104",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Ancient Bronze Dragon",
+      "bookPageLabel": "107",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Ancient Copper Dragon",
+      "bookPageLabel": "110",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Ancient Gold Dragon",
+      "bookPageLabel": "113",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Ancient Green Dragon",
+      "bookPageLabel": "93",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Ancient Red Dragon",
+      "bookPageLabel": "97",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Ancient Silver Dragon",
+      "bookPageLabel": "116",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Ancient White Dragon",
+      "bookPageLabel": "100",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Ankheg",
+      "bookPageLabel": "21",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Assassin",
+      "bookPageLabel": "343",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Banshee",
+      "bookPageLabel": "23",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Barlgura",
+      "bookPageLabel": "56",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Beholder Zombie",
+      "bookPageLabel": "316",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Black Bear",
+      "bookPageLabel": "318",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Brown Bear",
+      "bookPageLabel": "319",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Cloud Giant",
+      "bookPageLabel": "154",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Cult Fanatic",
+      "bookPageLabel": "345",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Demilich",
+      "bookPageLabel": "48",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Death Knight",
+      "bookPageLabel": "47",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Deva",
+      "bookPageLabel": "16",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Diseased Giant Rat",
+      "bookPageLabel": "327",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Doppelganger",
+      "bookPageLabel": "82",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Dragon Turtle",
+      "bookPageLabel": "119",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Drider",
+      "bookPageLabel": "120",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Drow Elite Warrior",
+      "bookPageLabel": "128",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Druid",
+      "bookPageLabel": "346",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Efreeti",
+      "bookPageLabel": "145",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Elephant",
+      "bookPageLabel": "322",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Empyrean",
+      "bookPageLabel": "130",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Ettercap",
+      "bookPageLabel": "131",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Flameskull",
+      "bookPageLabel": "134",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Flying Sword",
+      "bookPageLabel": "20",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Ghost",
+      "bookPageLabel": "147",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Gith",
+      "bookPageLabel": "159",
+      "pdfPage": 1,
+      "unitKind": "lore-correction",
+      "accepted": false
+    },
+    {
+      "primaryName": "Goblin Boss",
+      "bookPageLabel": "166",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Gold Dragon Wyrmling",
+      "bookPageLabel": "115",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Gray Slaad",
+      "bookPageLabel": "277",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Grell",
+      "bookPageLabel": "172",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Gynosphinx",
+      "bookPageLabel": "282",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Guard",
+      "bookPageLabel": "347",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Half-Dragon",
+      "bookPageLabel": "180",
+      "pdfPage": 1,
+      "unitKind": "template-and-example-correction",
+      "accepted": false
+    },
+    {
+      "primaryName": "Harpy",
+      "bookPageLabel": "181",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Hook Horror",
+      "bookPageLabel": "189",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Horned Devil",
+      "bookPageLabel": "74",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Intellect Devourer",
+      "bookPageLabel": "191",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Kenku",
+      "bookPageLabel": "194",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Kraken",
+      "bookPageLabel": "197",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Kuo-toa Archpriest",
+      "bookPageLabel": "200",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Lich",
+      "bookPageLabel": "202",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Lycanthropes",
+      "bookPageLabel": "207",
+      "pdfPage": 2,
+      "unitKind": "player-template-rule",
+      "accepted": false
+    },
+    {
+      "primaryName": "Magmin",
+      "bookPageLabel": "212",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Merrow",
+      "bookPageLabel": "219",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Monodrone",
+      "bookPageLabel": "224",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Night Hag",
+      "bookPageLabel": "178",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Noble",
+      "bookPageLabel": "348",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Orc War Chief",
+      "bookPageLabel": "246",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Otyugh",
+      "bookPageLabel": "248",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Priest",
+      "bookPageLabel": "348",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Purple Worm",
+      "bookPageLabel": "255",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Quaggoth",
+      "bookPageLabel": "256",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Rakshasa",
+      "bookPageLabel": "257",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Revenant",
+      "bookPageLabel": "259",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Riding Horse",
+      "bookPageLabel": "336",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Solar",
+      "bookPageLabel": "18",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Swarm of X",
+      "bookPageLabel": "337–39",
+      "pdfPage": 2,
+      "unitKind": "stat-block-family",
+      "accepted": false
+    },
+    {
+      "primaryName": "Thri-kreen",
+      "bookPageLabel": "288",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Troll",
+      "bookPageLabel": "291",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Vampire, Spellcaster",
+      "bookPageLabel": "298",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block-variant",
+      "accepted": false
+    },
+    {
+      "primaryName": "Veteran",
+      "bookPageLabel": "350",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Warhorse",
+      "bookPageLabel": "340",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Water Elemental",
+      "bookPageLabel": "125",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Werewolf",
+      "bookPageLabel": "211",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Will-o’-Wisp",
+      "bookPageLabel": "301",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    },
+    {
+      "primaryName": "Young Brass Dragon",
+      "bookPageLabel": "105",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false
+    }
+  ]
+}
