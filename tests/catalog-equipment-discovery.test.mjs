@@ -11,3 +11,17 @@ test('comment tables and prose are outside equipment inventory',()=>{const r=equ
 test('source and article boundaries are required',()=>{assert.throws(()=>equipmentRows(table(),url),/boundary/);assert.throws(()=>equipmentRows(article().replace('<strong>Источники:</strong>','Other'),url),/source/);});
 test('renumbering rows does not change observation identity',()=>{const first=equipmentRows(article(),url).records;const changed=equipmentRows(article(table(body.replace('<td>Лира</td>','<td>  Лира </td>'))),url).records;assert.deepEqual(first.map(x=>x.observationId),changed.map(x=>x.observationId));});
 test('duplicate names and non-price columns fail closed',()=>{assert.throws(()=>equipmentRows(article(table(body+body)),url),/Duplicate/);assert.throws(()=>equipmentRows(article(table(body.replace('30 зм','not a price'))),url),/price/);});
+
+test('source heading without identifiable publication is rejected before accepting rows',()=>{
+ for(const value of ['', '<span> </span>', '<span>&nbsp;</span>', 'Unmarked publication']){
+  const html=article().replace('«<span>Book A</span>», «<span>Book B</span>»',value);
+  assert.throws(()=>equipmentRows(html,url),/Empty equipment source evidence/);
+ }
+});
+test('repeated source badges do not duplicate provenance and each row owns its list',()=>{
+ const html=article().replace('<span>Book B</span>','<span>Book A</span>');
+ const {records}=equipmentRows(html,url);
+ assert.deepEqual(records[0].sourceTitles,['Book A']);
+ records[0].sourceTitles.push('Local edit');
+ assert.deepEqual(records[1].sourceTitles,['Book A']);
+});
