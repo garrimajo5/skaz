@@ -1,0 +1,447 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "decisionDate": "2026-11-19",
+    "basis": "owner-official-wotc-2014-only",
+    "experimental": false,
+    "thirdParty": false,
+    "personalExceptions": "allowed-outside-common-catalog"
+  },
+  "coverage": "twelve-explicit-source-sections-only-not-full-catalog",
+  "approvedDenominator": null,
+  "summary": {
+    "sections": 12,
+    "byDisposition": {
+      "excluded-experimental": 5,
+      "excluded-third-party": 4,
+      "excluded-unofficial": 1,
+      "needs-official-source-evidence": 2
+    }
+  },
+  "records": [
+    {
+      "observation": {
+        "bibliographyEvidenceIds": [
+          "class-bibliography:plane-shift-amonkhet"
+        ],
+        "classUrl": "https://dnd.su/class/89-cleric/",
+        "headingOrdinal": 156,
+        "title": "Окетра: Домен сплочённости",
+        "anchors": [
+          "ps.oketra"
+        ],
+        "sourceResolution": [
+          {
+            "title": "Plane Shift: Amonkhet",
+            "resolutionBasis": "normalized-title",
+            "sourceIds": [],
+            "status": "unresolved-source"
+          }
+        ],
+        "status": "needs-source-and-scope-decision",
+        "approvedInclusion": null,
+        "fullRules": "unverified"
+      },
+      "disposition": "excluded-experimental",
+      "evidence": [
+        {
+          "id": "class-bibliography:plane-shift-amonkhet",
+          "publicationKind": "publisher-experimental-supplement",
+          "disposition": "excluded-experimental"
+        }
+      ],
+      "included": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observation": {
+        "bibliographyEvidenceIds": [
+          "class-bibliography:plane-shift-amonkhet"
+        ],
+        "classUrl": "https://dnd.su/class/89-cleric/",
+        "headingOrdinal": 164,
+        "title": "Ронас: Домен силы",
+        "anchors": [
+          "ps.ronas"
+        ],
+        "sourceResolution": [
+          {
+            "title": "Plane Shift: Amonkhet",
+            "resolutionBasis": "normalized-title",
+            "sourceIds": [],
+            "status": "unresolved-source"
+          }
+        ],
+        "status": "needs-source-and-scope-decision",
+        "approvedInclusion": null,
+        "fullRules": "unverified"
+      },
+      "disposition": "excluded-experimental",
+      "evidence": [
+        {
+          "id": "class-bibliography:plane-shift-amonkhet",
+          "publicationKind": "publisher-experimental-supplement",
+          "disposition": "excluded-experimental"
+        }
+      ],
+      "included": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observation": {
+        "bibliographyEvidenceIds": [
+          "class-bibliography:plane-shift-amonkhet"
+        ],
+        "classUrl": "https://dnd.su/class/89-cleric/",
+        "headingOrdinal": 172,
+        "title": "Бонту: Домен амбиций",
+        "anchors": [
+          "ps.bontu"
+        ],
+        "sourceResolution": [
+          {
+            "title": "Plane Shift: Amonkhet",
+            "resolutionBasis": "normalized-title",
+            "sourceIds": [],
+            "status": "unresolved-source"
+          }
+        ],
+        "status": "needs-source-and-scope-decision",
+        "approvedInclusion": null,
+        "fullRules": "unverified"
+      },
+      "disposition": "excluded-experimental",
+      "evidence": [
+        {
+          "id": "class-bibliography:plane-shift-amonkhet",
+          "publicationKind": "publisher-experimental-supplement",
+          "disposition": "excluded-experimental"
+        }
+      ],
+      "included": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observation": {
+        "bibliographyEvidenceIds": [
+          "class-bibliography:plane-shift-amonkhet"
+        ],
+        "classUrl": "https://dnd.su/class/89-cleric/",
+        "headingOrdinal": 179,
+        "title": "Хазорет: Домен рвения",
+        "anchors": [
+          "ps.hazoret"
+        ],
+        "sourceResolution": [
+          {
+            "title": "Plane Shift: Amonkhet",
+            "resolutionBasis": "normalized-title",
+            "sourceIds": [],
+            "status": "unresolved-source"
+          }
+        ],
+        "status": "needs-source-and-scope-decision",
+        "approvedInclusion": null,
+        "fullRules": "unverified"
+      },
+      "disposition": "excluded-experimental",
+      "evidence": [
+        {
+          "id": "class-bibliography:plane-shift-amonkhet",
+          "publicationKind": "publisher-experimental-supplement",
+          "disposition": "excluded-experimental"
+        }
+      ],
+      "included": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observation": {
+        "bibliographyEvidenceIds": [
+          "class-bibliography:plane-shift-kaladesh"
+        ],
+        "classUrl": "https://dnd.su/class/101-sorcerer/",
+        "headingOrdinal": 110,
+        "title": "Пиромант",
+        "anchors": [
+          "piromant"
+        ],
+        "sourceResolution": [
+          {
+            "title": "Plane Shift: Kaladesh",
+            "resolutionBasis": "normalized-title",
+            "sourceIds": [],
+            "status": "unresolved-source"
+          }
+        ],
+        "status": "needs-source-and-scope-decision",
+        "approvedInclusion": null,
+        "fullRules": "unverified"
+      },
+      "disposition": "excluded-experimental",
+      "evidence": [
+        {
+          "id": "class-bibliography:plane-shift-kaladesh",
+          "publicationKind": "publisher-experimental-supplement",
+          "disposition": "excluded-experimental"
+        }
+      ],
+      "included": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observation": {
+        "bibliographyEvidenceIds": [
+          "class-bibliography:taldorei"
+        ],
+        "classUrl": "https://dnd.su/class/101-sorcerer/",
+        "headingOrdinal": 157,
+        "title": "Дитя рун",
+        "anchors": [
+          "ditya_run"
+        ],
+        "sourceResolution": [
+          {
+            "title": "Tal’Dorei Campaign Guide",
+            "resolutionBasis": "normalized-title",
+            "sourceIds": [],
+            "status": "unresolved-source"
+          }
+        ],
+        "status": "needs-source-and-scope-decision",
+        "approvedInclusion": null,
+        "fullRules": "unverified"
+      },
+      "disposition": "excluded-third-party",
+      "evidence": [
+        {
+          "id": "class-bibliography:taldorei",
+          "publicationKind": "third-party-sourcebook",
+          "disposition": "excluded-third-party"
+        }
+      ],
+      "included": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observation": {
+        "bibliographyEvidenceIds": [
+          "class-bibliography:morgrave"
+        ],
+        "classUrl": "https://dnd.su/class/101-sorcerer/",
+        "headingOrdinal": 164,
+        "title": "Искра прародителя",
+        "anchors": [
+          "iskra_praroditelya"
+        ],
+        "sourceResolution": [
+          {
+            "title": "Morgrave Miscellany",
+            "resolutionBasis": "normalized-title",
+            "sourceIds": [],
+            "status": "unresolved-source"
+          }
+        ],
+        "status": "needs-source-and-scope-decision",
+        "approvedInclusion": null,
+        "fullRules": "unverified"
+      },
+      "disposition": "excluded-unofficial",
+      "evidence": [
+        {
+          "id": "class-bibliography:morgrave",
+          "publicationKind": "author-described-unofficial-material",
+          "disposition": "excluded-unofficial"
+        }
+      ],
+      "included": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observation": {
+        "bibliographyEvidenceIds": [
+          "class-bibliography:hesperides"
+        ],
+        "classUrl": "https://dnd.su/class/101-sorcerer/",
+        "headingOrdinal": 170,
+        "title": "Зелёная кровь",
+        "anchors": [
+          "zeljonaya_krov"
+        ],
+        "sourceResolution": [
+          {
+            "title": "Сады Гесперид",
+            "resolutionBasis": "normalized-title",
+            "sourceIds": [],
+            "status": "unresolved-source"
+          }
+        ],
+        "status": "needs-source-and-scope-decision",
+        "approvedInclusion": null,
+        "fullRules": "unverified"
+      },
+      "disposition": "needs-official-source-evidence",
+      "evidence": [
+        {
+          "id": "class-bibliography:hesperides",
+          "publicationKind": "unresolved",
+          "disposition": "needs-official-source-evidence"
+        }
+      ],
+      "included": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observation": {
+        "bibliographyEvidenceIds": [
+          "class-bibliography:sprouting-chaos"
+        ],
+        "classUrl": "https://dnd.su/class/101-sorcerer/",
+        "headingOrdinal": 180,
+        "title": "Отмеченный порчей",
+        "anchors": [
+          "otmechennyj_porchej"
+        ],
+        "sourceResolution": [
+          {
+            "title": "Sprouting Chaos Player's Companion",
+            "resolutionBasis": "normalized-title",
+            "sourceIds": [],
+            "status": "unresolved-source"
+          }
+        ],
+        "status": "needs-source-and-scope-decision",
+        "approvedInclusion": null,
+        "fullRules": "unverified"
+      },
+      "disposition": "needs-official-source-evidence",
+      "evidence": [
+        {
+          "id": "class-bibliography:sprouting-chaos",
+          "publicationKind": "unresolved",
+          "disposition": "needs-official-source-evidence"
+        }
+      ],
+      "included": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observation": {
+        "bibliographyEvidenceIds": [
+          "class-bibliography:odyssey"
+        ],
+        "classUrl": "https://dnd.su/class/101-sorcerer/",
+        "headingOrdinal": 186,
+        "title": "Полубог",
+        "anchors": [
+          "polubog"
+        ],
+        "sourceResolution": [
+          {
+            "title": "Odyssey of the Dragonlords",
+            "resolutionBasis": "normalized-title",
+            "sourceIds": [],
+            "status": "unresolved-source"
+          }
+        ],
+        "status": "needs-source-and-scope-decision",
+        "approvedInclusion": null,
+        "fullRules": "unverified"
+      },
+      "disposition": "excluded-third-party",
+      "evidence": [
+        {
+          "id": "class-bibliography:odyssey",
+          "publicationKind": "third-party-sourcebook",
+          "disposition": "excluded-third-party"
+        }
+      ],
+      "included": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observation": {
+        "bibliographyEvidenceIds": [
+          "class-bibliography:grim-hollow"
+        ],
+        "classUrl": "https://dnd.su/class/101-sorcerer/",
+        "headingOrdinal": 193,
+        "title": "Преследуемый",
+        "anchors": [
+          "presleduyemiy"
+        ],
+        "sourceResolution": [
+          {
+            "title": "Grim Hollow’s The Players Guide",
+            "resolutionBasis": "normalized-title",
+            "sourceIds": [],
+            "status": "unresolved-source"
+          }
+        ],
+        "status": "needs-source-and-scope-decision",
+        "approvedInclusion": null,
+        "fullRules": "unverified"
+      },
+      "disposition": "excluded-third-party",
+      "evidence": [
+        {
+          "id": "class-bibliography:grim-hollow",
+          "publicationKind": "third-party-sourcebook",
+          "disposition": "excluded-third-party"
+        }
+      ],
+      "included": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observation": {
+        "bibliographyEvidenceIds": [
+          "class-bibliography:grim-hollow"
+        ],
+        "classUrl": "https://dnd.su/class/101-sorcerer/",
+        "headingOrdinal": 202,
+        "title": "Проклятый род",
+        "anchors": [
+          "proklyatiy_rod"
+        ],
+        "sourceResolution": [
+          {
+            "title": "Grim Hollow’s The Players Guide",
+            "resolutionBasis": "normalized-title",
+            "sourceIds": [],
+            "status": "unresolved-source"
+          }
+        ],
+        "status": "needs-source-and-scope-decision",
+        "approvedInclusion": null,
+        "fullRules": "unverified"
+      },
+      "disposition": "excluded-third-party",
+      "evidence": [
+        {
+          "id": "class-bibliography:grim-hollow",
+          "publicationKind": "third-party-sourcebook",
+          "disposition": "excluded-third-party"
+        }
+      ],
+      "included": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    }
+  ],
+  "inputSha256": {
+    "catalog/dndsu-class-scope-boundaries.json": "b5c3aa0af6d96ab3405885ca05dc6ba5817845becbeacc6628867920c7da6eaa",
+    "catalog/class-source-bibliography.json": "464e1d25d76ed36b76a774017d7029a272e8bba17d2bf969dcb4a631ee6bd1fe"
+  }
+}
