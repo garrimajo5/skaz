@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "status": "publication-inventory-for-review-not-runtime-content",
+  "checkedOn": "2026-11-19",
+  "sourceId": "206",
+  "section": "bestiary",
+  "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/296621-sample.pdf",
+  "evidenceLocator": "Preview PDF page 1; printed page 2, Contents and Monsters by Challenge Rating",
+  "publisherMetadata": {
+    "url": "https://marketplace.dndbeyond.com/category/SRC-00057",
+    "advertisedMonsterCount": 17
+  },
+  "limits": [
+    "Contents establish named units only; full rules and current digital versions are not verified.",
+    "A same-name page under another source is a candidate, not a proven missing record or equivalent version.",
+    "No copyrighted prose, stat blocks or illustrations are included."
+  ],
+  "units": [
+    {
+      "id": "wotc:mffv1:contents:assassin-bug",
+      "name": "Assassin Bug",
+      "printedPage": 4,
+      "reviewCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13620",
+          "reason": "Observed English name is Assasin Bug; spelling candidate only, not an automatic rename."
+        }
+      ]
+    },
+    {
+      "id": "wotc:mffv1:contents:blindheim",
+      "name": "Blindheim",
+      "printedPage": 5
+    },
+    {
+      "id": "wotc:mffv1:contents:crab-folk",
+      "name": "Crab Folk",
+      "printedPage": 6
+    },
+    {
+      "id": "wotc:mffv1:contents:dire-corby",
+      "name": "Dire Corby",
+      "printedPage": 7
+    },
+    {
+      "id": "wotc:mffv1:contents:eye-of-fear-and-flame",
+      "name": "Eye of Fear and Flame",
+      "printedPage": 8
+    },
+    {
+      "id": "wotc:mffv1:contents:forlarren",
+      "name": "Forlarren",
+      "printedPage": 9
+    },
+    {
+      "id": "wotc:mffv1:contents:giant-fog",
+      "name": "Giant, Fog",
+      "printedPage": 10
+    },
+    {
+      "id": "wotc:mffv1:contents:jermlaine",
+      "name": "Jermlaine",
+      "printedPage": 11
+    },
+    {
+      "id": "wotc:mffv1:contents:khargra",
+      "name": "Khargra",
+      "printedPage": 12
+    },
+    {
+      "id": "wotc:mffv1:contents:killmoulis",
+      "name": "Killmoulis",
+      "printedPage": 13
+    },
+    {
+      "id": "wotc:mffv1:contents:mite",
+      "name": "Mite",
+      "printedPage": 14
+    },
+    {
+      "id": "wotc:mffv1:contents:needlefolk",
+      "name": "Needlefolk",
+      "printedPage": 15,
+      "reviewCandidates": [
+        {
+          "observationId": "dndsu:bestiary:17367",
+          "reason": "Observed Needle Spawn may be a different version or heading; preview contents alone cannot establish equivalence."
+        }
+      ]
+    },
+    {
+      "id": "wotc:mffv1:contents:needle-lord",
+      "name": "Needle Lord",
+      "printedPage": 16
+    },
+    {
+      "id": "wotc:mffv1:contents:norker",
+      "name": "Norker",
+      "printedPage": 17
+    },
+    {
+      "id": "wotc:mffv1:contents:norker-war-leader",
+      "name": "Norker War Leader",
+      "printedPage": 17
+    },
+    {
+      "id": "wotc:mffv1:contents:screaming-devilkin",
+      "name": "Screaming Devilkin",
+      "printedPage": 19
+    },
+    {
+      "id": "wotc:mffv1:contents:ygorl",
+      "name": "Ygorl",
+      "printedPage": 20,
+      "reviewCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13729",
+          "reason": "Observed Ygorl, Lord of Entropy expands the title; identity and text version still require review."
+        }
+      ]
+    },
+    {
+      "id": "wotc:mffv1:contents:xill",
+      "name": "Xill",
+      "printedPage": 21
+    }
+  ]
+}
