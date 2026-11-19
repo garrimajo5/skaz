@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-19",
+  "ruleset": "5e-2014",
+  "status": "source-component-identities-not-inventory-grants",
+  "source": {
+    "title": "System Reference Document 5.1",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "pages": [
+      70
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode."
+  },
+  "summary": {
+    "componentIdentities": 9,
+    "occurrences": 10
+  },
+  "limitations": [
+    "Component identity does not establish equivalence to a purchasable catalog item.",
+    "Unspecified quantities, capacities, weights and prices stay unknown.",
+    "No runtime inventory expansion, cost calculation or rules automation."
+  ],
+  "records": [
+    {
+      "proposedComponentId": "srd51:2014:pack-component:string-by-foot",
+      "sourceName": "string",
+      "nameEn": "String",
+      "sourcePage": 70,
+      "sourceLocator": "Equipment Packs",
+      "basis": "explicitly-named-pack-component",
+      "status": "proposed-component-identity-not-runtime-item",
+      "fullRules": "unverified",
+      "catalogItemEquivalence": "not-established",
+      "retailPrice": null,
+      "weight": null,
+      "note": "A length measured in feet; not a coil of hempen rope.",
+      "occurrences": [
+        {
+          "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+          "sourceName": "string",
+          "quantity": 10,
+          "unit": "foot"
+        }
+      ]
+    },
+    {
+      "proposedComponentId": "srd51:2014:pack-component:ink-bottle-capacity-unspecified",
+      "sourceName": "ink",
+      "nameEn": "Ink in a bottle of unspecified capacity",
+      "sourcePage": 70,
+      "sourceLocator": "Equipment Packs",
+      "basis": "explicitly-named-pack-component",
+      "status": "proposed-component-identity-not-runtime-item",
+      "fullRules": "unverified",
+      "catalogItemEquivalence": "not-established",
+      "retailPrice": null,
+      "weight": null,
+      "note": "The pack text gives a bottle but no volume; neither the one-ounce ink table row nor empty bottle capacity establishes this volume.",
+      "occurrences": [
+        {
+          "packObservationId": "srd51:2014:equipment-observation:diplomats-pack",
+          "sourceName": "ink",
+          "quantity": 1,
+          "unit": "bottle"
+        },
+        {
+          "packObservationId": "srd51:2014:equipment-observation:scholars-pack",
+          "sourceName": "ink",
+          "quantity": 1,
+          "unit": "bottle"
+        }
+      ]
+    },
+    {
+      "proposedComponentId": "srd51:2014:pack-component:alms-box",
+      "sourceName": "alms box",
+      "nameEn": "Alms box",
+      "sourcePage": 70,
+      "sourceLocator": "Equipment Packs",
+      "basis": "explicitly-named-pack-component",
+      "status": "proposed-component-identity-not-runtime-item",
+      "fullRules": "unverified",
+      "catalogItemEquivalence": "not-established",
+      "retailPrice": null,
+      "weight": null,
+      "note": "A named pack component; no retail price or capacity specified here.",
+      "occurrences": [
+        {
+          "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+          "sourceName": "alms box",
+          "quantity": 1,
+          "unit": "each"
+        }
+      ]
+    },
+    {
+      "proposedComponentId": "srd51:2014:pack-component:incense-block",
+      "sourceName": "incense",
+      "nameEn": "Block of incense",
+      "sourcePage": 70,
+      "sourceLocator": "Equipment Packs",
+      "basis": "explicitly-named-pack-component",
+      "status": "proposed-component-identity-not-runtime-item",
+      "fullRules": "unverified",
+      "catalogItemEquivalence": "not-established",
+      "retailPrice": null,
+      "weight": null,
+      "note": "A block is the stated counting unit; mass and retail price are unspecified.",
+      "occurrences": [
+        {
+          "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+          "sourceName": "incense",
+          "quantity": 2,
+          "unit": "block"
+        }
+      ]
+    },
+    {
+      "proposedComponentId": "srd51:2014:pack-component:censer",
+      "sourceName": "censer",
+      "nameEn": "Censer",
+      "sourcePage": 70,
+      "sourceLocator": "Equipment Packs",
+      "basis": "explicitly-named-pack-component",
+      "status": "proposed-component-identity-not-runtime-item",
+      "fullRules": "unverified",
+      "catalogItemEquivalence": "not-established",
+      "retailPrice": null,
+      "weight": null,
+      "note": "A named pack component; no retail price or weight specified here.",
+      "occurrences": [
+        {
+          "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+          "sourceName": "censer",
+          "quantity": 1,
+          "unit": "each"
+        }
+      ]
+    },
+    {
+      "proposedComponentId": "srd51:2014:pack-component:vestments-quantity-unspecified",
+      "sourceName": "vestments",
+      "nameEn": "Vestments",
+      "sourcePage": 70,
+      "sourceLocator": "Equipment Packs",
+      "basis": "explicitly-named-pack-component",
+      "status": "proposed-component-identity-not-runtime-item",
+      "fullRules": "unverified",
+      "catalogItemEquivalence": "not-established",
+      "retailPrice": null,
+      "weight": null,
+      "note": "The source names vestments without quantity; do not infer a set or equate them to fine clothes.",
+      "occurrences": [
+        {
+          "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+          "sourceName": "vestments",
+          "quantity": null,
+          "unit": "unspecified"
+        }
+      ]
+    },
+    {
+      "proposedComponentId": "srd51:2014:pack-component:book-of-lore",
+      "sourceName": "book of lore",
+      "nameEn": "Book of lore",
+      "sourcePage": 70,
+      "sourceLocator": "Equipment Packs",
+      "basis": "explicitly-named-pack-component",
+      "status": "proposed-component-identity-not-runtime-item",
+      "fullRules": "unverified",
+      "catalogItemEquivalence": "not-established",
+      "retailPrice": null,
+      "weight": null,
+      "note": "Content-qualified book; not evidence of a particular book subject or equivalence to the generic retail Book row.",
+      "occurrences": [
+        {
+          "packObservationId": "srd51:2014:equipment-observation:scholars-pack",
+          "sourceName": "book of lore",
+          "quantity": 1,
+          "unit": "each"
+        }
+      ]
+    },
+    {
+      "proposedComponentId": "srd51:2014:pack-component:sand-small-bag-capacity-unspecified",
+      "sourceName": "sand",
+      "nameEn": "Small bag of sand",
+      "sourcePage": 70,
+      "sourceLocator": "Equipment Packs",
+      "basis": "explicitly-named-pack-component",
+      "status": "proposed-component-identity-not-runtime-item",
+      "fullRules": "unverified",
+      "catalogItemEquivalence": "not-established",
+      "retailPrice": null,
+      "weight": null,
+      "note": "One little bag; neither capacity nor mass is stated.",
+      "occurrences": [
+        {
+          "packObservationId": "srd51:2014:equipment-observation:scholars-pack",
+          "sourceName": "sand",
+          "quantity": 1,
+          "unit": "little bag"
+        }
+      ]
+    },
+    {
+      "proposedComponentId": "srd51:2014:pack-component:small-knife",
+      "sourceName": "small knife",
+      "nameEn": "Small knife",
+      "sourcePage": 70,
+      "sourceLocator": "Equipment Packs",
+      "basis": "explicitly-named-pack-component",
+      "status": "proposed-component-identity-not-runtime-item",
+      "fullRules": "unverified",
+      "catalogItemEquivalence": "not-established",
+      "retailPrice": null,
+      "weight": null,
+      "note": "No weapon statistics or equivalence to Dagger is stated.",
+      "occurrences": [
+        {
+          "packObservationId": "srd51:2014:equipment-observation:scholars-pack",
+          "sourceName": "small knife",
+          "quantity": 1,
+          "unit": "each"
+        }
+      ]
+    }
+  ]
+}

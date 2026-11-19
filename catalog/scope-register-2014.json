@@ -188,6 +188,31 @@
         "unresolvedMembers": 10,
         "unspecifiedQuantities": 3
       }
+    },
+    {
+      "manifest": "catalog/equipment-unit-proposals-2014.json",
+      "status": "unit-proposals-not-approved-catalog",
+      "summary": {
+        "observations": 82,
+        "byUnitKind": {
+          "barter-row": 13,
+          "equipment-pack": 7,
+          "food-offer": 14,
+          "item": 6,
+          "lifestyle": 7,
+          "mount-offer": 8,
+          "pricing-rule": 1,
+          "service": 14,
+          "supply-offer": 1,
+          "vehicle": 11
+        },
+        "tradeAlternatives": 23,
+        "packMemberships": 66,
+        "catalogCandidateLinks": 56,
+        "componentCandidateLinks": 10,
+        "componentIdentities": 9,
+        "unspecifiedMemberQuantities": 3
+      }
     }
   ],
   "rulesetTarget": "5e-2014",
@@ -134929,7 +134954,8 @@
     "catalog/class-source-bibliography.json": "464e1d25d76ed36b76a774017d7029a272e8bba17d2bf969dcb4a631ee6bd1fe",
     "catalog/equipment-identity-reconciliation.json": "13db28eeec21cf57430f119b6228f90245f87fad2c5d4689ce182275d5924f97",
     "catalog/srd51-additional-equipment-discovery.json": "208f8fe1f1982c8237b0af2409b51713d81c3ca3f7d0d2762e2cfc90591b5606",
-    "catalog/srd51-equipment-pack-memberships.json": "11dd2310357e87eb892a6df47f00350c1a3cfdf3cb378d924e98c42852cf9aa9"
+    "catalog/srd51-equipment-pack-memberships.json": "11dd2310357e87eb892a6df47f00350c1a3cfdf3cb378d924e98c42852cf9aa9",
+    "catalog/equipment-unit-proposals-2014.json": "f539f36dd7b8013caa635028d65605f37e2b3595f2b85f546824c47636ac2696"
   },
   "catalogSha256": "4dedd8cdf1f4fe6557460a8cb4ee4dd4911ce7521ac0083a22a524790d566676"
 }

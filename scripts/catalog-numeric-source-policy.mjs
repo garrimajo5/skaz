@@ -5,6 +5,7 @@ import { pathToFileURL } from 'node:url';
 const dispositions = new Map([
   ['third-party-sourcebook', 'excluded-third-party'],
   ['author-described-homebrew', 'excluded-homebrew'],
+  ['organized-play-source-group', 'needs-publication-identification'],
   ['official-wotc-2014-publication', 'eligible-publication-records-need-review'],
 ]);
 

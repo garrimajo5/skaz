@@ -5,6 +5,16 @@ import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 const root=fileURLToPath(new URL('../',import.meta.url));
+export function committedProposalCases(){
+ return [
+  ['reconcile-equipment-identities.mjs',[],'equipment-identity-reconciliation.json'],
+  ['catalog-equipment-unit-proposals.mjs',[],'equipment-unit-proposals-2014.json'],
+  ['catalog-scope-policy.mjs',[],'class-scope-policy-2014.json'],
+  ['catalog-scope-register.mjs',[],'scope-register-2014.json'],
+  ['catalog-numeric-source-policy.mjs',[],'numeric-source-scope-policy-2014.json'],
+  ['catalog-source-review-queue.mjs',[],'source-review-queue-2014.json']
+ ];
+}
 export function reproductionCases(evidenceDirectory,classDirectory,date,companionDirectory=join(evidenceDirectory,'companion-evidence')){
  if(!/^\d{4}-\d{2}-\d{2}$/.test(date))throw Error('Expected snapshot date YYYY-MM-DD [companion-evidence-directory]');
  return [
@@ -32,11 +42,17 @@ export function reproductionCases(evidenceDirectory,classDirectory,date,companio
   ['catalog-choice-learning.mjs',[classDirectory],'dndsu-choice-learning.json'],
   ['catalog-invocation-spell-policies.mjs',[classDirectory],'dndsu-invocation-spell-policies.json'],
   ['catalog-infusion-effects.mjs',[classDirectory],'dndsu-infusion-effects.json'],
-  ['catalog-scope-register.mjs',[],'scope-register-2014.json']
+  ...committedProposalCases()
  ];
 }
 export function verifyScopeReproduction(evidenceDirectory,classDirectory,date,companionDirectory=join(evidenceDirectory,'companion-evidence')){
  const cases=reproductionCases(resolve(evidenceDirectory),resolve(classDirectory),date,resolve(companionDirectory));
+ return verifyCases(cases);
+}
+export function verifyCommittedProposalReproduction(){
+ return verifyCases(committedProposalCases());
+}
+function verifyCases(cases){
  const temporary=mkdtempSync(join(tmpdir(),'skaz-scope-reproduction-'));
  const sha=path=>createHash('sha256').update(readFileSync(path)).digest('hex');
  const results=[];
@@ -60,7 +76,7 @@ export function verifyScopeReproduction(evidenceDirectory,classDirectory,date,co
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const [,,evidenceDirectory,classDirectory,date,companionDirectory]=process.argv;
- if(!evidenceDirectory||!classDirectory||!date)throw Error('Usage: evidence-directory class-directory YYYY-MM-DD');
- const results=verifyScopeReproduction(evidenceDirectory,classDirectory,date,companionDirectory);
+ if(evidenceDirectory!=='--committed-proposals'&&(!evidenceDirectory||!classDirectory||!date))throw Error('Usage: evidence-directory class-directory YYYY-MM-DD | --committed-proposals');
+ const results=evidenceDirectory==='--committed-proposals'?verifyCommittedProposalReproduction():verifyScopeReproduction(evidenceDirectory,classDirectory,date,companionDirectory);
  console.log(results.length+'/'+results.length+' manifests reproduce byte-for-byte; repository files unchanged');
 }
