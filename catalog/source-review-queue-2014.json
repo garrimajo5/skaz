@@ -11,12 +11,12 @@
       "excluded-by-reviewed-source-policy": 6,
       "mixed-excluded-and-other-sources": 0,
       "needs-source-identification": 3,
-      "needs-publication-review": 242,
+      "needs-publication-review": 235,
       "needs-publication-identification": 45,
       "needs-reference-scope-review": 0,
-      "ready-for-version-and-rights-review": 4596
+      "ready-for-version-and-rights-review": 4603
     },
-    "pendingPublicationSourceIds": 21
+    "pendingPublicationSourceIds": 20
   },
   "limitations": [
     "Every page is routed exactly once; a page is not necessarily one catalog entity.",
@@ -152,11 +152,6 @@
       "dndsu:bestiary:11835",
       "dndsu:bestiary:11837",
       "dndsu:bestiary:11838",
-      "dndsu:bestiary:11847",
-      "dndsu:bestiary:11848",
-      "dndsu:bestiary:11849",
-      "dndsu:bestiary:11850",
-      "dndsu:bestiary:11851",
       "dndsu:bestiary:1257",
       "dndsu:bestiary:13213",
       "dndsu:bestiary:13214",
@@ -357,8 +352,6 @@
       "dndsu:items:5504",
       "dndsu:items:5505",
       "dndsu:items:5506",
-      "dndsu:items:6328",
-      "dndsu:items:6329",
       "dndsu:items:8726",
       "dndsu:items:8727",
       "dndsu:items:8728",
@@ -574,6 +567,11 @@
       "dndsu:bestiary:116",
       "dndsu:bestiary:117",
       "dndsu:bestiary:118",
+      "dndsu:bestiary:11847",
+      "dndsu:bestiary:11848",
+      "dndsu:bestiary:11849",
+      "dndsu:bestiary:11850",
+      "dndsu:bestiary:11851",
       "dndsu:bestiary:11859",
       "dndsu:bestiary:11860",
       "dndsu:bestiary:119",
@@ -4257,6 +4255,8 @@
       "dndsu:items:61",
       "dndsu:items:62",
       "dndsu:items:63",
+      "dndsu:items:6328",
+      "dndsu:items:6329",
       "dndsu:items:64",
       "dndsu:items:6442",
       "dndsu:items:6443",
@@ -5112,12 +5112,6 @@
       "pageReferences": 7
     },
     {
-      "sourceId": "199",
-      "observedTitle": "Monstrous Compendium Vol 3: Minecraft Creatures",
-      "status": "publication-not-reviewed",
-      "pageReferences": 7
-    },
-    {
       "sourceId": "213",
       "observedTitle": "Descent into the Lost Caverns of Tsojcanth",
       "status": "publication-not-reviewed",
@@ -5144,6 +5138,6 @@
   ],
   "inputSha256": {
     "catalog/scope-register-2014.json": "2d8f5f7f964ae42619de9e8e06d3969b2b087e2b58c8dfc2ace98edf6243f339",
-    "catalog/numeric-source-scope-policy-2014.json": "3eb42f14441a7f811728a72b9aeb686044bd0049eba6ff36f9f77103929d11b4"
+    "catalog/numeric-source-scope-policy-2014.json": "75841212e6588b4f24eba259a1cb7c5566dfe10e24a0aecfb2f1f554652fcdbc"
   }
 }

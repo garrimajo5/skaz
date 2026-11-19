@@ -619,6 +619,24 @@
       "evidenceSummary": "The official AL DM guide distinguishes WotC book products and official digital adventures from community-created Premier Organizer and Dungeoncraft adventures. The reference label identifies a program, not one publication with a shared publisher or edition. Each associated page requires the underlying adventure title and version; neither wholesale inclusion nor wholesale exclusion is justified.",
       "exactTextVersion": "unverified",
       "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "199",
+      "observedTitle": "Monstrous Compendium Vol 3: Minecraft Creatures",
+      "publisher": "Wizards of the Coast",
+      "publicationKind": "official-wotc-2014-publication",
+      "ruleset": "5e-2014",
+      "evidenceUrl": "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/software/Minecraft-Monstrous-Compendium.pdf",
+      "editionEvidenceUrl": "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/software/Minecraft-Monstrous-Compendium-revised.pdf",
+      "publicationYear": 2023,
+      "sourcePages": [
+        1,
+        2
+      ],
+      "evidenceSummary": "Official Minecraft-hosted publication identifies Volume Three and carries 2023 WotC publication credits; it is a first-party crossover, not a fan adaptation. A separate revised PDF exists. The reference pages have not been compared against these versions, and five listed mobs do not automatically resolve seven observed page identities.",
+      "redistributionRestriction": "Source limits use to personal noncommercial use and prohibits redistribution; no permission for the common catalog is established.",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
     }
   ],
   "limitations": [

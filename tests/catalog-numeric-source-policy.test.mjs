@@ -17,10 +17,10 @@ test('numeric source policy reproduces pinned evidence without changing observat
   assert.deepEqual(result, report);
   assert.deepEqual(inputSha256, Object.fromEntries(paths.map((path, index) => [path, createHash('sha256').update(raw[index]).digest('hex')])));
   assert.equal(JSON.stringify(inputs), original);
-  assert.deepEqual(result.summary, { observedSources: 70, reviewedSources: 48, observedPages: 4973, affectedPages: 15, excludedPages: 15, mixedSourcePages: 0 });
+  assert.deepEqual(result.summary, { observedSources: 70, reviewedSources: 49, observedPages: 4973, affectedPages: 15, excludedPages: 15, mixedSourcePages: 0 });
   assert.equal(result.approvedDenominator, null);
   assert.equal(result.complete, false);
-  assert.equal(result.records.filter(row => row.disposition === 'not-reviewed-by-this-audit').length, 22);
+  assert.equal(result.records.filter(row => row.disposition === 'not-reviewed-by-this-audit').length, 21);
   assert.equal(result.affectedPages.filter(row => row.originalInclusion === 'excluded-homebrew').length, 9);
   assert.equal(result.affectedPages.filter(row => row.excludedSourceIds.includes('180') && row.originalInclusion === 'candidate-2014').length, 6);
   assert.ok(result.affectedPages.every(row => !row.included && row.fullRules === 'unverified'));
@@ -69,7 +69,7 @@ test('two excluded sources remain excluded, while empty or unreviewed sources ne
 
 test('eligible core publications do not certify page text and require edition plus publisher evidence', () => {
   const report = applyNumericSourcePolicy(...inputs);
-  assert.deepEqual(report.records.filter(row => row.disposition === 'eligible-publication-records-need-review').map(row => row.sourceId), ["101","102","103","107","108","109","111","112","113","114","115","116","117","119","120","121","122","124","125","126","128","129","132","133","134","135","151","152","153","155","158","159","160","161","171","183","189","194","198","202","205","207","219"]);
+  assert.deepEqual(report.records.filter(row => row.disposition === 'eligible-publication-records-need-review').map(row => row.sourceId), ["101","102","103","107","108","109","111","112","113","114","115","116","117","119","120","121","122","124","125","126","128","129","132","133","134","135","151","152","153","155","158","159","160","161","171","183","189","194","198","199","202","205","207","219"]);
   assert.ok(report.records.filter(row => row.editionEvidenceUrl).every(row => row.exactTextVersion === 'unverified' && row.reusePermission === 'not-established'));
   for (const [key, value] of [['publisher', 'Other publisher'], ['ruleset', '5e-2024'], ['editionEvidenceUrl', '']]) {
     const args = fixture();
@@ -85,4 +85,16 @@ test('organized-play group does not certify a publisher for every associated adv
  const args=fixture();args[1].records=[{id:'synthetic:league',sourceIds:['169'],inclusion:'candidate-2014'}];
  const group=applyNumericSourcePolicy(...args);assert.equal(group.affectedPages.length,0);
  assert.equal(group.approvedDenominator,null);assert.equal(group.complete,false);
+});
+
+
+test('official crossover publication does not confer redistribution rights or exact-version approval',()=>{
+ const evidence=inputs[2].records.find(row=>row.sourceId==='199');
+ assert.ok(evidence.redistributionRestriction.includes('prohibits redistribution'));
+ assert.notEqual(evidence.evidenceUrl,evidence.editionEvidenceUrl);
+ const row=applyNumericSourcePolicy(...inputs).records.find(row=>row.sourceId==='199');
+ assert.equal(row.disposition,'eligible-publication-records-need-review');
+ assert.equal(row.redistributionRestriction,evidence.redistributionRestriction);
+ assert.equal(row.reusePermission,'not-established');
+ assert.equal(row.exactTextVersion,'unverified');
 });
