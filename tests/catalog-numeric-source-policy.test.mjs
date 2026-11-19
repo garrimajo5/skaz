@@ -17,10 +17,10 @@ test('numeric source policy reproduces pinned evidence without changing observat
   assert.deepEqual(result, report);
   assert.deepEqual(inputSha256, Object.fromEntries(paths.map((path, index) => [path, createHash('sha256').update(raw[index]).digest('hex')])));
   assert.equal(JSON.stringify(inputs), original);
-  assert.deepEqual(result.summary, { observedSources: 70, reviewedSources: 64, observedPages: 4973, affectedPages: 15, excludedPages: 15, mixedSourcePages: 0 });
+  assert.deepEqual(result.summary, { observedSources: 70, reviewedSources: 69, observedPages: 4973, affectedPages: 15, excludedPages: 15, mixedSourcePages: 0 });
   assert.equal(result.approvedDenominator, null);
   assert.equal(result.complete, false);
-  assert.equal(result.records.filter(row => row.disposition === 'not-reviewed-by-this-audit').length, 6);
+  assert.equal(result.records.filter(row => row.disposition === 'not-reviewed-by-this-audit').length, 1);
   assert.equal(result.affectedPages.filter(row => row.originalInclusion === 'excluded-homebrew').length, 9);
   assert.equal(result.affectedPages.filter(row => row.excludedSourceIds.includes('180') && row.originalInclusion === 'candidate-2014').length, 6);
   assert.ok(result.affectedPages.every(row => !row.included && row.fullRules === 'unverified'));
@@ -69,7 +69,7 @@ test('two excluded sources remain excluded, while empty or unreviewed sources ne
 
 test('eligible core publications do not certify page text and require edition plus publisher evidence', () => {
   const report = applyNumericSourcePolicy(...inputs);
-  assert.deepEqual(report.records.filter(row => row.disposition === 'eligible-publication-records-need-review').map(row => row.sourceId), ["101","102","103","105","106","107","108","109","110","111","112","113","114","115","116","117","119","120","121","122","123","124","125","126","128","129","132","133","134","135","151","152","153","155","157","158","159","160","161","171","174","183","187","188","189","191","194","197","198","199","202","205","206","207","208","213","214","218","219"]);
+  assert.deepEqual(report.records.filter(row => row.disposition === 'eligible-publication-records-need-review').map(row => row.sourceId), ["101","102","103","105","106","107","108","109","110","111","112","113","114","115","116","117","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","151","152","153","155","157","158","159","160","161","167","171","174","183","187","188","189","191","194","197","198","199","202","205","206","207","208","213","214","218","219"]);
   assert.ok(report.records.filter(row => row.editionEvidenceUrl).every(row => row.exactTextVersion === 'unverified' && row.reusePermission === 'not-established'));
   for (const [key, value] of [['publisher', 'Other publisher'], ['ruleset', '5e-2024'], ['editionEvidenceUrl', '']]) {
     const args = fixture();
@@ -97,4 +97,24 @@ test('official crossover publication does not confer redistribution rights or ex
  assert.equal(row.redistributionRestriction,evidence.redistributionRestriction);
  assert.equal(row.reusePermission,'not-established');
  assert.equal(row.exactTextVersion,'unverified');
+});
+
+
+test('licensed-store evidence preserves restrictions and excludes third-party Ryoko when referenced',()=>{
+ const report=applyNumericSourcePolicy(...inputs);
+ for(const id of ['127','130','131','167']){
+  const source=inputs[2].records.find(r=>r.sourceId===id);
+  const decision=report.records.find(r=>r.sourceId===id);
+  assert.equal(decision.disposition,'eligible-publication-records-need-review');
+  assert.ok(source.redistributionRestriction);
+  assert.equal(decision.redistributionRestriction,source.redistributionRestriction);
+  assert.equal(decision.reusePermission,'not-established');
+  assert.equal(decision.exactTextVersion,'unverified');
+ }
+ const args=fixture();
+ args[1].records=[{id:'synthetic:ryoko-only',sourceIds:['210'],inclusion:'candidate-2014'},{id:'synthetic:ryoko-reprint',sourceIds:['210','102'],inclusion:'candidate-2014'}];
+ const result=applyNumericSourcePolicy(...args);
+ assert.equal(result.affectedPages.find(r=>r.id==='synthetic:ryoko-only').disposition,'excluded-by-owner-source-policy');
+ assert.equal(result.affectedPages.find(r=>r.id==='synthetic:ryoko-reprint').disposition,'needs-mixed-source-review');
+ assert.equal(result.complete,false);
 });

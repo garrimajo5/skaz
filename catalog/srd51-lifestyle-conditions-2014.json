@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "status": "lifestyle-conditions-proposal-not-runtime-content",
+  "ruleset": "5e-2014",
+  "source": {
+    "title": "System Reference Document 5.1",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "pages": [
+      72,
+      73
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0"
+  },
+  "inputSha256": {
+    "catalog/srd51-additional-equipment-discovery.json": "d974fc8d0a7386f8a9b2f55dcecc455d3344d1eaaa5f7b095c644785994970ca"
+  },
+  "approvedDenominator": null,
+  "complete": false,
+  "accepted": false,
+  "records": [
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-wretched",
+      "nameEn": "Wretched",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "not-priced",
+        "sourceValue": "—"
+      },
+      "pricingPeriod": "day",
+      "descriptionPage": 73,
+      "summaryRu": "Нет постоянного жилья; приходится искать случайный кров. Постоянные угрозы голода, болезней и насилия; снаряжение может привлекать чужую зависть.",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-squalid",
+      "nameEn": "Squalid",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "sp"
+      },
+      "pricingPeriod": "day",
+      "descriptionPage": 73,
+      "summaryRu": "Есть укрытие от непогоды, но жильё крайне убогое, окружение опасное, голод и болезни распространены; правовая защита мала.",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-poor",
+      "nameEn": "Poor",
+      "sourcePage": 73,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "sp"
+      },
+      "pricingPeriod": "day",
+      "descriptionPage": 73,
+      "summaryRu": "Простая еда и ночлег, изношенная одежда и нестабильные условия. Некоторая правовая защита есть, но сохраняются риски насилия, преступности и болезней.",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-modest",
+      "nameEn": "Modest",
+      "sourcePage": 73,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "gp"
+      },
+      "pricingPeriod": "day",
+      "descriptionPage": 73,
+      "summaryRu": "Простое чистое жильё вне трущоб, достаточно еды и питья; можно поддерживать снаряжение в порядке.",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-comfortable",
+      "nameEn": "Comfortable",
+      "sourcePage": 73,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "pricingPeriod": "day",
+      "descriptionPage": 73,
+      "summaryRu": "Хорошая одежда, удобное жильё; можно без затруднений поддерживать снаряжение в порядке; обычный круг общения включает торговцев, мастеров и офицеров.",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-wealthy",
+      "nameEn": "Wealthy",
+      "sourcePage": 73,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 4,
+        "currency": "gp"
+      },
+      "pricingPeriod": "day",
+      "descriptionPage": 73,
+      "summaryRu": "Роскошное жильё и обычно небольшой штат прислуги; высокий достаток не равен наследственному статусу знати.",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-aristocratic",
+      "nameEn": "Aristocratic",
+      "sourcePage": 73,
+      "pricing": {
+        "mode": "minimum",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "pricingPeriod": "day",
+      "descriptionPage": 73,
+      "summaryRu": "Лучшие жильё, еда, одежда и прислуга; связи с влиятельными людьми сочетаются с риском интриг, обмана и предательства.",
+      "accepted": false,
+      "runtimeImported": false
+    }
+  ],
+  "billing": {
+    "ratePeriod": "day",
+    "chooseAtStartOf": [
+      "week",
+      "month"
+    ],
+    "canChangeEachPeriod": true,
+    "includes": [
+      "accommodation",
+      "food",
+      "drink",
+      "other-necessities",
+      "equipment-maintenance"
+    ],
+    "doNotDoubleChargeIncludedExpenses": true,
+    "example": {
+      "days": 30,
+      "multiplier": 30,
+      "fixedCalendarMonthLength": false
+    },
+    "automaticDebit": false
+  },
+  "selfSufficiency": {
+    "sourcePage": 73,
+    "sourceLocator": "Self-Sufficiency sidebar",
+    "scope": "time-between-adventures",
+    "coinExpense": 0,
+    "timeRequired": true,
+    "timeDuration": null,
+    "ordinaryEquivalent": "Poor",
+    "ordinaryCondition": "spend downtime practicing a profession",
+    "survivalProficiencyEquivalent": "Comfortable",
+    "automaticIncome": false,
+    "automaticLifestyleChange": false,
+    "summaryRu": "Самостоятельное обеспечение вдали от цивилизации не требует монет, но отнимает время: охота, сбор пищи и ремонт своего снаряжения. Если заниматься профессией между приключениями, можно обеспечить эквивалент бедного образа жизни; владение Выживанием позволяет эквивалент комфортного. Точная длительность в этом фрагменте не указана."
+  },
+  "conditions": [
+    {
+      "sourcePage": 72,
+      "locator": "Lifestyle Expenses, first paragraph",
+      "summaryRu": "Расходы покрывают жильё, еду, питьё, прочие необходимые вещи и обслуживание снаряжения."
+    },
+    {
+      "sourcePage": 72,
+      "locator": "Lifestyle Expenses, second paragraph",
+      "summaryRu": "Образ жизни выбирается в начале недели или месяца; ставка дана за день. Период может отличаться от предыдущего; пример 30 дней не устанавливает длину каждого календарного месяца."
+    },
+    {
+      "sourcePage": 72,
+      "locator": "Lifestyle Expenses, third paragraph",
+      "summaryRu": "Выбор образа жизни может влиять на знакомства и риски; это повествовательные последствия, а не гарантированные числовые бонусы или автоматические состояния."
+    },
+    {
+      "sourcePage": 73,
+      "locator": "Food, Drink, and Lodging, introduction",
+      "summaryRu": "Отдельные цены еды, питья и ночлега уже включены в общие расходы образа жизни; одна и та же включённая услуга не должна списываться повторно."
+    }
+  ],
+  "applicationBoundary": {
+    "ruleDeviation": "warn-and-allow-manual-override",
+    "automaticConditions": false,
+    "automaticSocialBonuses": false,
+    "personalExceptions": "do-not-rewrite-reference"
+  },
+  "limitations": [
+    "Russian summaries are proposals requiring independent semantic review; numeric audit does not prove complete translation.",
+    "No runtime profile changes, purchases, automatic debits or income.",
+    "Seven observed rates are not seven item records or accepted catalog identities."
+  ]
+}

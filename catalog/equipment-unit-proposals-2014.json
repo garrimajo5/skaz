@@ -1592,12 +1592,19 @@
       "status": "proposed-unit-not-runtime-record",
       "fullRules": "unverified",
       "pricing": {
-        "mode": "fixed",
+        "mode": "minimum",
         "amount": 2,
         "currency": "gp"
       },
       "pricedUnit": "day",
-      "bestiaryId": null
+      "bestiaryId": null,
+      "pricingEvidence": {
+        "sourcePage": 74,
+        "locator": "Services, paragraph immediately after the pay table",
+        "interpretation": "The listed skilled-hireling pay is a minimum; expert hirelings may demand more.",
+        "correctedOn": "2026-11-19",
+        "previousMode": "fixed"
+      }
     },
     {
       "observationId": "srd51:2014:equipment-observation:hireling-untrained",
@@ -2265,7 +2272,7 @@
     }
   ],
   "inputSha256": {
-    "catalog/srd51-additional-equipment-discovery.json": "208f8fe1f1982c8237b0af2409b51713d81c3ca3f7d0d2762e2cfc90591b5606",
+    "catalog/srd51-additional-equipment-discovery.json": "d974fc8d0a7386f8a9b2f55dcecc455d3344d1eaaa5f7b095c644785994970ca",
     "catalog/srd51-equipment-pack-memberships.json": "11dd2310357e87eb892a6df47f00350c1a3cfdf3cb378d924e98c42852cf9aa9",
     "catalog/srd51-pack-component-identities.json": "41552f97e23dddb5119236284090b0f1a84b6f73c1e7dd46d63e9288755571d3",
     "catalog/equipment-identity-reconciliation.json": "13db28eeec21cf57430f119b6228f90245f87fad2c5d4689ce182275d5924f97"

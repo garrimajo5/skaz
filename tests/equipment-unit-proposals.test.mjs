@@ -95,3 +95,14 @@ test('derivation is deterministic, preserves inputs and pins all four normalized
   result.records[0].pricing.amount=-1;
   assert.deepEqual(args,before);
 });
+test('skilled hireling minimum and source correction survive proposal generation without mutating observations', () => {
+ const args=inputs();
+ const result=buildEquipmentUnitProposals(...args);
+ const row=byName(result,'Hireling, skilled');
+ assert.deepEqual(row.pricing,{mode:'minimum',amount:2,currency:'gp'});
+ assert.equal(row.pricedUnit,'day');
+ assert.equal(row.pricingEvidence.sourcePage,74);
+ assert.equal(row.pricingEvidence.previousMode,'fixed');
+ row.pricingEvidence.locator='modified proposal';
+ assert.notEqual(args[0].records.find(r=>r.nameEn==='Hireling, skilled').pricingEvidence.locator,'modified proposal');
+});

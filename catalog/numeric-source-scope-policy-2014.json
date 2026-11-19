@@ -7,7 +7,7 @@
   "complete": false,
   "summary": {
     "observedSources": 70,
-    "reviewedSources": 64,
+    "reviewedSources": 69,
     "observedPages": 4973,
     "affectedPages": 15,
     "excludedPages": 15,
@@ -258,9 +258,10 @@
       "sourceId": "127",
       "observedTitle": "Essentials Kit: Divine Contention",
       "originalScope": "candidate-2014",
-      "disposition": "not-reviewed-by-this-audit",
-      "evidenceUrl": null,
-      "editionEvidenceUrl": null,
+      "disposition": "eligible-publication-records-need-review",
+      "evidenceUrl": "https://marketplace.roll20.net/browse/gameaddon/4390/dandd-essentials-kit-divine-contention",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/dc",
+      "redistributionRestriction": "Roll20 product license is personal use only and prohibits distribution; this establishes no permission to copy the adventure or assets into SKAZ.",
       "exactTextVersion": "unverified",
       "reusePermission": "not-established"
     },
@@ -288,9 +289,10 @@
       "sourceId": "130",
       "observedTitle": "The Lost Dungeon of Rickedness: Big Rick Energy",
       "originalScope": "candidate-2014",
-      "disposition": "not-reviewed-by-this-audit",
-      "evidenceUrl": null,
-      "editionEvidenceUrl": null,
+      "disposition": "eligible-publication-records-need-review",
+      "evidenceUrl": "https://marketplace.roll20.net/browse/bundle/4790/rick-and-morty-the-lost-dungeon-of-rickedness-big-rick-energy",
+      "editionEvidenceUrl": "https://wpn.wizards.com/en/products/dungeons-and-dragons-vs-rick-and-morty",
+      "redistributionRestriction": "Roll20 license is personal use only, not for distribution. The module and related assets are not licensed for copying into SKAZ.",
       "exactTextVersion": "unverified",
       "reusePermission": "not-established"
     },
@@ -298,9 +300,10 @@
       "sourceId": "131",
       "observedTitle": "Essentials Kit: Sleeping Dragon's Wake",
       "originalScope": "candidate-2014",
-      "disposition": "not-reviewed-by-this-audit",
-      "evidenceUrl": null,
-      "editionEvidenceUrl": null,
+      "disposition": "eligible-publication-records-need-review",
+      "evidenceUrl": "https://marketplace.roll20.net/browse/gameaddon/4389/essentials-kit-sleeping-dragons-wake",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/sdw",
+      "redistributionRestriction": "Roll20 product license is personal use only and prohibits distribution; this establishes no permission to copy the adventure or assets into SKAZ.",
       "exactTextVersion": "unverified",
       "reusePermission": "not-established"
     },
@@ -448,9 +451,10 @@
       "sourceId": "167",
       "observedTitle": "Essentials Kit: Storm Lord's Wrath",
       "originalScope": "candidate-2014",
-      "disposition": "not-reviewed-by-this-audit",
-      "evidenceUrl": null,
-      "editionEvidenceUrl": null,
+      "disposition": "eligible-publication-records-need-review",
+      "evidenceUrl": "https://marketplace.roll20.net/browse/gameaddon/4388/dandd-essentials-kit-storm-lords-wrath",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/slw",
+      "redistributionRestriction": "Roll20 product license is personal use only and prohibits distribution; this establishes no permission to copy the adventure or assets into SKAZ.",
       "exactTextVersion": "unverified",
       "reusePermission": "not-established"
     },
@@ -660,8 +664,8 @@
       "sourceId": "210",
       "observedTitle": "Ryoko's guide to the yokai realms",
       "originalScope": "candidate-2014",
-      "disposition": "not-reviewed-by-this-audit",
-      "evidenceUrl": null,
+      "disposition": "excluded-third-party",
+      "evidenceUrl": "https://marketplace.roll20.net/browse/compendiumexpansion/36080/ryokos-guide-to-the-yokai-realms",
       "editionEvidenceUrl": null,
       "exactTextVersion": "unverified",
       "reusePermission": "not-established"
@@ -931,7 +935,7 @@
   ],
   "inputSha256": {
     "catalog/dndsu-source-register.json": "109868b7dbc77b2168d4dfec77166cf9cff4c8b55b9fff9ea3ccbdbbe899a42f",
-    "catalog/scope-register-2014.json": "2d8f5f7f964ae42619de9e8e06d3969b2b087e2b58c8dfc2ace98edf6243f339",
-    "catalog/numeric-source-publisher-evidence.json": "9266ed956a870777624d017ee61eecc601eec13d9578bd0c6bd7570d9ad3ccbe"
+    "catalog/scope-register-2014.json": "d16b65c44f622b70f685aa391687375df13e627267367b50a58d0bd3307e25dd",
+    "catalog/numeric-source-publisher-evidence.json": "fe541d8ee8529963892e1c4a88603999cbdee71001ce41de623f3eebb226e628"
   }
 }

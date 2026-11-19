@@ -48,6 +48,7 @@ export function buildEquipmentUnitProposals(discovery, packs, components, identi
       pricedUnit: row.pricedUnit ?? row.pricingPeriod ?? null,
       bestiaryId: null,
     };
+    if (row.pricingEvidence) output.pricingEvidence = structuredClone(row.pricingEvidence);
     if (kind === 'mount-offer') output.bestiaryLink = 'purchase-offer-is-not-a-statblock';
     if (kind === 'pricing-rule') {
       if (row.pricing.mode !== 'multiplier') throw new Error('Barding requires a multiplier');
