@@ -38,4 +38,3 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  }
  writeFileSync(output,JSON.stringify({schemaVersion:1,observedOn:date,status:'partial-equipment-tables',articles},null,2)+'\n');console.log(articles.map(a=>({url:a.url,rows:a.records.length,tables:a.selectedTables})));
 }
-
