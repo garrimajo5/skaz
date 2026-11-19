@@ -102,10 +102,14 @@ def parse_weapons(text):
     return result
 
 
+def input_digest(data):
+    return hashlib.sha256(data.replace(b"\r\n",b"\n")).hexdigest()
+
+
 def audit(manifest, rows, identities, identity_path):
     if manifest['source']['sha256']!=SHA256 or manifest['ruleset']!='5e-2014':raise ValueError('Invalid source')
     if manifest['accepted'] is not False or manifest['complete'] is not False or manifest['approvedDenominator'] is not None:raise ValueError('Invalid acceptance boundary')
-    if manifest['inputSha256'][identity_path]!=hashlib.sha256((ROOT/identity_path).read_bytes()).hexdigest():raise ValueError('Identity input changed')
+    if manifest['inputSha256'][identity_path]!=input_digest((ROOT/identity_path).read_bytes()):raise ValueError('Identity input changed')
     records=manifest['records']
     if len(records)!=len(rows) or len({r['nameEn'] for r in records})!=len(rows) or set(r['nameEn'] for r in records)!=set(rows):raise ValueError('Invalid record set')
     by_name={r['nameEn']:r for r in identities['records']}

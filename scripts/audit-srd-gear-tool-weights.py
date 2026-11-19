@@ -60,13 +60,17 @@ def parse_table(text,kind):
     return rows
 
 
+def input_digest(data):
+    return hashlib.sha256(data.replace(b"\r\n",b"\n")).hexdigest()
+
+
 def audit(manifest,tables,identities):
     if manifest['source']['sha256']!=SHA256 or manifest['ruleset']!='5e-2014':raise ValueError('Invalid source')
     if manifest['accepted'] is not False or manifest['complete'] is not False or manifest['approvedDenominator'] is not None:raise ValueError('Acceptance boundary changed')
     expected_ids={};expected_names={}
     for kind,identity in identities.items():
         path=f'catalog/{kind}-canonical-proposal-2014.json'
-        if manifest['inputSha256'][path]!=hashlib.sha256((ROOT/path).read_bytes()).hexdigest():raise ValueError('Identity input changed')
+        if manifest['inputSha256'][path]!=input_digest((ROOT/path).read_bytes()):raise ValueError('Identity input changed')
         by_name={normalize(r['nameEn']):r for r in identity['records']}
         if set(by_name)!=set(tables[kind]):raise ValueError('Source and identity names differ')
         for name,row in tables[kind].items():

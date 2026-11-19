@@ -16,7 +16,7 @@
     "changes": "Структурирование и русское изложение для СКАЗ; не официальный перевод."
   },
   "inputSha256": {
-    "catalog/armor-canonical-proposal-2014.json": "9530f8ed7b202c08364ada85a2a3dd532c8d89c0e2635c53d529965ed2a72a18"
+    "catalog/armor-canonical-proposal-2014.json": "8401414895beba207bb3a0ff01822b13c823b8c0f92b0fecb536256535ddad6f"
   },
   "accepted": false,
   "complete": false,
@@ -360,5 +360,6 @@
     "Table parameters and bounded conditions only; physical descriptions and character-specific exceptions are not complete coverage.",
     "A shield is an AC bonus, not an alternative base AC formula.",
     "No ordinary game-rule restriction is an application authorization or integrity rule."
-  ]
+  ],
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved"
 }

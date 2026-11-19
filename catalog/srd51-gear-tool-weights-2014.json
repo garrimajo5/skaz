@@ -15,7 +15,7 @@
   },
   "inputSha256": {
     "catalog/gear-canonical-proposal-2014.json": "0399dac0a6fae825db7478ced62a77b14717e7613a29b3a029cc4284f154e9b8",
-    "catalog/tools-canonical-proposal-2014.json": "89efdebad20dd8b5916c87f12d59734b1410d7d9ddb9d307d77edfbace1be9be"
+    "catalog/tools-canonical-proposal-2014.json": "863d4d93f052c7edf7d9748047dc4f7bdc7c482a273016e1a4ef670ef49ba3f6"
   },
   "accepted": false,
   "complete": false,
@@ -1776,5 +1776,6 @@
     "A source dash means no numeric weight supplied, not zero.",
     "Vehicle row is a cross-reference, not a weightless tool; two non-SRD gaming sets are outside this table.",
     "No carry capacity, encumbrance, current contents, or automatic state changes are inferred."
-  ]
+  ],
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved"
 }

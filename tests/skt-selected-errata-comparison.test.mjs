@@ -8,7 +8,7 @@ const d=read('catalog/skt-selected-errata-comparison-2014.json');
 const scope=read('catalog/scope-register-2014.json');
 test('selected errata comparisons preserve original observations without accepting complete stat blocks',()=>{
  assert.equal(d.records.length,7);assert.equal(new Set(d.records.map(r=>r.observationId)).size,7);
- assert.equal(d.inputSha256['catalog/scope-register-2014.json'],createHash('sha256').update(raw('catalog/scope-register-2014.json')).digest('hex'));
+ assert.equal(d.inputSha256['catalog/scope-register-2014.json'],createHash('sha256').update(new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(raw('catalog/scope-register-2014.json')).replace(/\r\n/g,'\n')).digest('hex'));
  assert.equal(d.accepted,false);assert.equal(d.complete,false);
  for(const r of d.records){
   const original=scope.records.find(x=>x.id===r.observationId);

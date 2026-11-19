@@ -9,7 +9,7 @@ const diagnostic=read('catalog/observed-name-review-2014.json');
 
 test('source-specific review preserves all seven observations and their original sources',()=>{
  assert.equal(d.groups.length,3);assert.equal(d.groups.flatMap(g=>g.records).length,7);
- assert.equal(d.inputSha256['catalog/observed-name-review-2014.json'],createHash('sha256').update(raw('catalog/observed-name-review-2014.json')).digest('hex'));
+ assert.equal(d.inputSha256['catalog/observed-name-review-2014.json'],createHash('sha256').update(new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(raw('catalog/observed-name-review-2014.json')).replace(/\r\n/g,'\n')).digest('hex'));
  for(const group of d.groups){
   const before=diagnostic.duplicateNameGroups.find(g=>g.section===group.section&&g.comparisonKey===group.comparisonKey);
   assert.ok(before);assert.deepEqual(group.records.map(r=>r.observationId).sort(),before.members.map(r=>r.id).sort());

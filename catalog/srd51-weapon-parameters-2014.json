@@ -16,7 +16,7 @@
     "changes": "Структурирование и русское изложение для СКАЗ; не официальный перевод."
   },
   "inputSha256": {
-    "catalog/weapon-canonical-proposal-2014.json": "5ccfc85ce8f27d8763ea84d82e14c358a58a7773a9828d6a84f75491f1bc2d3e"
+    "catalog/weapon-canonical-proposal-2014.json": "54e9d059c1b23130d63a774377c9748f18f8bc539477be905c88b2f0c155a9d0"
   },
   "accepted": false,
   "complete": false,
@@ -1120,5 +1120,6 @@
         "grantsAction": false
       }
     }
-  ]
+  ],
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved"
 }

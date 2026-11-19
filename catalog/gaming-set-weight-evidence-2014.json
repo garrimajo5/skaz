@@ -48,5 +48,6 @@
     "These two entries are not in the reviewed SRD table; no SRD license is applied to them.",
     "Only numeric table metadata is recorded, not game rules or translated text.",
     "A source dash is not a zero-weight claim."
-  ]
+  ],
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved"
 }
