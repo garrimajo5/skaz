@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "status": "unit-proposal-needs-game-design-and-qa",
+  "accepted": false,
+  "canonicalId": null,
+  "complete": false,
+  "approvedDenominator": null,
+  "sourceId": "152",
+  "sourceTitle": "Fizban's Treasury of Dragons",
+  "observedName": "Drake Companion",
+  "proposedUnitKind": "one-companion-with-level-states",
+  "proposedEntityCount": 1,
+  "proposedStateCount": 3,
+  "members": [
+    {
+      "observationId": "dndsu:bestiary:4842",
+      "url": "https://dnd.su/bestiary/4842-drake-companion/",
+      "rangerLevelThreshold": 3,
+      "size": "Small",
+      "countsAsSeparateCreature": false
+    },
+    {
+      "observationId": "dndsu:bestiary:14130",
+      "url": "https://dnd.su/bestiary/14130-drake-companion/",
+      "rangerLevelThreshold": 7,
+      "size": "Medium",
+      "countsAsSeparateCreature": false
+    },
+    {
+      "observationId": "dndsu:bestiary:14131",
+      "url": "https://dnd.su/bestiary/14131-drake-companion/",
+      "rangerLevelThreshold": 15,
+      "size": "Large",
+      "countsAsSeparateCreature": false
+    }
+  ],
+  "primaryEvidence": {
+    "url": "https://www.dndbeyond.com/posts/1345-ranger-101-ride-your-dragon-into-battle-with-the",
+    "kind": "official-publisher-summary-not-full-final-rulebook",
+    "publishedDate": "2022-09-29",
+    "section": "Drakewarden Ranger Features",
+    "supports": "Companion grows from Small at3 to Medium at7 and Large at15; same subclass companion."
+  },
+  "captures": [
+    {
+      "capture": "4842.html",
+      "url": "https://dnd.su/bestiary/4842-drake-companion/",
+      "resolvedUrl": "https://dnd.su/bestiary/4842-drake-companion/",
+      "sha256": "f7bb40abcf557e86766d472f037bcc2989d7a162cfc68407729bdfb459d70047"
+    },
+    {
+      "capture": "14130.html",
+      "url": "https://dnd.su/bestiary/14130-drake-companion/",
+      "resolvedUrl": "https://dnd.su/bestiary/14130-drake-companion/",
+      "sha256": "3b3c7fb31633b436888ad46e9b22f1af7ea6355d9b72b7459ab115858859a579"
+    },
+    {
+      "capture": "14131.html",
+      "url": "https://dnd.su/bestiary/14131-drake-companion/",
+      "resolvedUrl": "https://dnd.su/bestiary/14131-drake-companion/",
+      "sha256": "c659bfe13e7fa2a82d1e628b95c02d9f845083f7e4e1d109df5ef930910fe43b"
+    },
+    {
+      "capture": "official-2022.html",
+      "url": "https://www.dndbeyond.com/posts/1345-ranger-101-ride-your-dragon-into-battle-with-the",
+      "resolvedUrl": "https://www.dndbeyond.com/posts/1345-ranger-101-ride-your-dragon-into-battle-with-the",
+      "sha256": "b8e48d9825f502a339b1725aa3009adad7e8d412d6fcac014d30b5e9c14846d6"
+    }
+  ],
+  "previewCaution": {
+    "url": "https://media.wizards.com/2021/dnd/downloads/dnd_fizban_preview2.pdf",
+    "status": "preview-not-final-rule-equivalence",
+    "differencesObserved": [
+      "Preview darkvision40 versus secondary60.",
+      "Preview choice swim/flight at7 versus later official summary flight."
+    ],
+    "usedForFinalParameters": false
+  },
+  "remaining": [
+    "Independent game-design/QA decision on catalog counting and state presentation.",
+    "Final full rules and publication rights remain unverified.",
+    "Level11 breath is a subclass feature; three observed size states are not full feature coverage."
+  ],
+  "automaticMerge": false,
+  "runtimeChanged": false,
+  "reusePermission": "not-established"
+}
