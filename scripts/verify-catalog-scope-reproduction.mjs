@@ -12,7 +12,8 @@ export function committedProposalCases(){
   ['catalog-scope-policy.mjs',[],'class-scope-policy-2014.json'],
   ['catalog-scope-register.mjs',[],'scope-register-2014.json'],
   ['catalog-numeric-source-policy.mjs',[],'numeric-source-scope-policy-2014.json'],
-  ['catalog-source-review-queue.mjs',[],'source-review-queue-2014.json']
+  ['catalog-source-review-queue.mjs',[],'source-review-queue-2014.json'],
+  ['catalog-publication-inventory.mjs',[],'fiendish-folio-review-2014.json']
  ];
 }
 export function reproductionCases(evidenceDirectory,classDirectory,date,companionDirectory=join(evidenceDirectory,'companion-evidence')){
