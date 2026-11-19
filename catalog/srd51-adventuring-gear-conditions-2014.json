@@ -1,0 +1,1107 @@
+{
+  "schemaVersion": 1,
+  "status": "adventuring-gear-conditions-proposal-not-runtime-content",
+  "ruleset": "5e-2014",
+  "source": {
+    "title": "System Reference Document 5.1",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "pages": [
+      66,
+      67,
+      68
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "changes": "Independent Russian paraphrases and structured parameters; not an official translation."
+  },
+  "inputSha256": {
+    "catalog/equipment-identity-reconciliation.json": "13db28eeec21cf57430f119b6228f90245f87fad2c5d4689ce182275d5924f97"
+  },
+  "approvedDenominator": null,
+  "complete": false,
+  "accepted": false,
+  "applicationBoundary": {
+    "ruleDeviation": "warn-and-allow-manual-override",
+    "personalExceptions": "preserve-with-provenance-do-not-rewrite-reference",
+    "automaticInventoryGrant": false,
+    "automaticResourceSpend": false,
+    "automaticDamage": false,
+    "automaticConditionApplication": false
+  },
+  "limits": [
+    "42 descriptions in SRD66–68, linked to existing item proposals; not complete general equipment/combat/spellcasting rules or the whole catalog.",
+    "Candidate item IDs reuse the existing reconciliation proposal; no runtime import is performed.",
+    "General combat, object, visibility and spellcasting interactions remain separate rules and require review.",
+    "Unknown action timing is null, not a free action; no inferred target condition or automatic proficiency grant."
+  ],
+  "records": [
+    {
+      "proposalId": "srd51:2014:gear-rule:acid-vial",
+      "candidateItemIds": [
+        "srd51:2014:item:acid-vial"
+      ],
+      "heading": "Acid",
+      "sourcePage": 66,
+      "summaryRu": "Действием можно облить существо в пределах 5 футов или бросить пузырёк на расстояние до 20 футов, где он разбивается. В обоих случаях совершается дальнобойная атака по существу или предмету как импровизированным оружием. Попадание наносит 2d6 урона кислотой.",
+      "mechanics": {
+        "action": "action",
+        "attackType": "ranged",
+        "weaponTreatment": "improvised",
+        "throwMaximumFeet": 20,
+        "targetKinds": [
+          "creature",
+          "object"
+        ],
+        "splashMaximumFeet": 5,
+        "damage": {
+          "dice": "2d6",
+          "type": "acid",
+          "timing": "on-hit"
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:alchemists-fire-flask",
+      "candidateItemIds": [
+        "srd51:2014:item:alchemists-fire-flask"
+      ],
+      "heading": "Alchemist’s Fire",
+      "sourcePage": 66,
+      "summaryRu": "Липкая жидкость воспламеняется на воздухе. Действием флягу бросают до 20 футов; она разбивается. Дальнобойная атака по существу или предмету считается атакой импровизированным оружием. При попадании цель получает 1d4 урона огнём в начале каждого своего хода. Существо может потратить действие на проверку Ловкости Сл 10, чтобы погасить пламя и прекратить этот урон.",
+      "mechanics": {
+        "action": "action",
+        "attackType": "ranged",
+        "weaponTreatment": "improvised",
+        "throwMaximumFeet": 20,
+        "targetKinds": [
+          "creature",
+          "object"
+        ],
+        "damage": {
+          "dice": "1d4",
+          "type": "fire",
+          "timing": "start-of-target-turn"
+        },
+        "endEffect": {
+          "action": "action",
+          "rollType": "ability-check",
+          "ability": "dexterity",
+          "dc": 10,
+          "onSuccess": "extinguish"
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:antitoxin-vial",
+      "candidateItemIds": [
+        "srd51:2014:item:antitoxin-vial"
+      ],
+      "heading": "Antitoxin",
+      "sourcePage": 66,
+      "summaryRu": "Выпивший содержимое пузырька получает преимущество на спасброски от яда на 1 час. Нежити и конструктам противоядие не помогает. Это не иммунитет и не автоматическое снятие уже действующего состояния.",
+      "mechanics": {
+        "duration": {
+          "value": 1,
+          "unit": "hour"
+        },
+        "advantageOn": "saving-throws-against-poison",
+        "excludedCreatureTypes": [
+          "undead",
+          "construct"
+        ],
+        "useAction": null,
+        "automaticPoisonRemoval": false
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:arcane-focus",
+      "candidateItemIds": [
+        "srd51:2014:item:arcane-focus-crystal",
+        "srd51:2014:item:arcane-focus-orb",
+        "srd51:2014:item:arcane-focus-rod",
+        "srd51:2014:item:arcane-focus-staff",
+        "srd51:2014:item:arcane-focus-wand"
+      ],
+      "heading": "Arcane Focus",
+      "sourcePage": 66,
+      "summaryRu": "Магическая фокусировка — специально изготовленная сфера, кристалл, жезл, посох, палочка или похожий предмет для направления магии. Чародей, колдун или волшебник может использовать её как фокусировку заклинаний. Остальные условия материальных и соматических компонентов проверяются отдельно.",
+      "mechanics": {
+        "spellcastingFocus": {
+          "classes": [
+            "sorcerer",
+            "warlock",
+            "wizard"
+          ],
+          "otherSpellcastingConditions": "not-verified-by-this-excerpt",
+          "automaticSpellGrant": false
+        },
+        "continuesOnPage": 67
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:ball-bearings-bag-1000",
+      "candidateItemIds": [
+        "srd51:2014:item:ball-bearings-bag-1000"
+      ],
+      "heading": "Ball Bearings",
+      "sourcePage": 67,
+      "summaryRu": "Действием шарики рассыпают на ровном квадратном участке 10 на 10 футов. Существо, пересекающее участок, совершает спасбросок Ловкости Сл 10; при провале падает ничком. При движении с половинной скоростью спасбросок не требуется.",
+      "mechanics": {
+        "action": "action",
+        "area": {
+          "shape": "square",
+          "sideFeet": 10,
+          "requiresLevelSurface": true
+        },
+        "trigger": "moving-across-area",
+        "save": {
+          "ability": "dexterity",
+          "dc": 10,
+          "onFailure": "prone"
+        },
+        "avoidSave": "move-at-half-speed"
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:block-and-tackle",
+      "candidateItemIds": [
+        "srd51:2014:item:block-and-tackle"
+      ],
+      "heading": "Block and Tackle",
+      "sourcePage": 67,
+      "summaryRu": "Система блоков, троса и крюка позволяет поднимать груз до четырёх обычных пределов подъёма. Это относится к подъёму с помощью устройства, а не к постоянному увеличению переносимого веса.",
+      "mechanics": {
+        "hoistLimitMultiplier": 4,
+        "scope": "hoisting-with-device",
+        "automaticCarryCapacityMultiplier": false
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:book",
+      "candidateItemIds": [
+        "srd51:2014:item:book"
+      ],
+      "heading": "Book",
+      "sourcePage": 67,
+      "summaryRu": "Книга может содержать стихи, историю, сведения по определённой теме, схемы, заметки или другое текстовое и изобразительное содержание. Книга заклинаний — отдельный вид, описанный в своём разделе.",
+      "mechanics": {
+        "content": "varies",
+        "spellbookIsSeparate": true,
+        "automaticSpellGrant": false
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:caltrops-bag-20",
+      "candidateItemIds": [
+        "srd51:2014:item:caltrops-bag-20"
+      ],
+      "heading": "Caltrops",
+      "sourcePage": 67,
+      "summaryRu": "Действием мешок шипов рассыпают на квадратном участке 5 на 5 футов. Вошедшее существо совершает спасбросок Ловкости Сл 15. Провал прекращает его движение в этот ход и наносит 1 колющего урона. Получение этого урона уменьшает скорость ходьбы на 10 футов, пока существо не восстановит хотя бы 1 хит. При движении с половинной скоростью спасбросок не нужен.",
+      "mechanics": {
+        "action": "action",
+        "area": {
+          "shape": "square",
+          "sideFeet": 5
+        },
+        "trigger": "enter-area",
+        "save": {
+          "ability": "dexterity",
+          "dc": 15
+        },
+        "onFailure": {
+          "stopMoving": "this-turn",
+          "damage": {
+            "amount": 1,
+            "type": "piercing"
+          }
+        },
+        "onDamage": {
+          "walkingSpeedReductionFeet": 10,
+          "endsWhen": "regain-at-least-1-hit-point"
+        },
+        "avoidSave": "move-at-half-speed"
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:candle",
+      "candidateItemIds": [
+        "srd51:2014:item:candle"
+      ],
+      "heading": "Candle",
+      "sourcePage": 67,
+      "summaryRu": "Свеча горит 1 час: яркий свет в радиусе 5 футов и тусклый ещё на 5 футов.",
+      "mechanics": {
+        "light": {
+          "shape": "radius",
+          "brightFeet": 5,
+          "additionalDimFeet": 5
+        },
+        "duration": {
+          "value": 1,
+          "unit": "hour"
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:crossbow-bolt-case",
+      "candidateItemIds": [
+        "srd51:2014:item:crossbow-bolt-case"
+      ],
+      "heading": "Case, Crossbow Bolt",
+      "sourcePage": 67,
+      "summaryRu": "Деревянный футляр вмещает до двадцати арбалетных болтов.",
+      "mechanics": {
+        "capacity": {
+          "maximum": 20,
+          "item": "crossbow-bolt"
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:map-or-scroll-case",
+      "candidateItemIds": [
+        "srd51:2014:item:map-or-scroll-case"
+      ],
+      "heading": "Case, Map or Scroll",
+      "sourcePage": 67,
+      "summaryRu": "Цилиндрический кожаный футляр вмещает до десяти свёрнутых листов бумаги либо пяти свёрнутых листов пергамента.",
+      "mechanics": {
+        "capacityAlternatives": [
+          {
+            "maximum": 10,
+            "item": "rolled-paper-sheet"
+          },
+          {
+            "maximum": 5,
+            "item": "rolled-parchment-sheet"
+          }
+        ],
+        "alternativesAreAdditive": false
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:chain-10-feet",
+      "candidateItemIds": [
+        "srd51:2014:item:chain-10-feet"
+      ],
+      "heading": "Chain",
+      "sourcePage": 67,
+      "summaryRu": "У цепи 10 хитов. Её можно разорвать успешной проверкой Силы Сл 20.",
+      "mechanics": {
+        "hitPoints": 10,
+        "break": {
+          "rollType": "ability-check",
+          "ability": "strength",
+          "dc": 20
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:climbers-kit",
+      "candidateItemIds": [
+        "srd51:2014:item:climbers-kit"
+      ],
+      "heading": "Climber’s Kit",
+      "sourcePage": 67,
+      "summaryRu": "Набор включает специальные крюки, насадки для обуви, перчатки и страховочную систему. Действием можно закрепить страховку: падение от точки крепления не превышает 25 футов. Нельзя забраться дальше 25 футов от этой точки, не сняв крепление.",
+      "mechanics": {
+        "action": "action",
+        "effect": "anchor-self",
+        "maximumFallFromAnchorFeet": 25,
+        "maximumClimbFromAnchorFeet": 25,
+        "moveBeyondAnchorRequires": "undo-anchor",
+        "automaticFallDamageImmunity": false
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:component-pouch",
+      "candidateItemIds": [
+        "srd51:2014:item:component-pouch"
+      ],
+      "heading": "Component Pouch",
+      "sourcePage": 67,
+      "summaryRu": "Небольшая непромокаемая кожаная сумка на поясе имеет отделения для материальных компонентов и особых предметов, нужных для заклинаний. Компоненты с явно указанной в описании заклинания стоимостью в это обеспечение не входят. Общие правила расходуемых компонентов и свободной руки проверяются отдельно.",
+      "mechanics": {
+        "contains": "spell-material-components-and-special-items",
+        "excludes": "components-with-specified-cost",
+        "otherSpellcastingConditions": "not-verified-by-this-excerpt",
+        "automaticCostlyComponentGrant": false
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:crowbar",
+      "candidateItemIds": [
+        "srd51:2014:item:crowbar"
+      ],
+      "heading": "Crowbar",
+      "sourcePage": 67,
+      "summaryRu": "Использование лома даёт преимущество на проверки Силы, в которых можно применить его как рычаг.",
+      "mechanics": {
+        "advantage": {
+          "rollType": "ability-check",
+          "ability": "strength",
+          "condition": "crowbar-leverage-can-be-applied"
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:druidic-focus",
+      "candidateItemIds": [
+        "srd51:2014:item:druidic-focus-mistletoe",
+        "srd51:2014:item:druidic-focus-totem",
+        "srd51:2014:item:druidic-focus-wooden-staff",
+        "srd51:2014:item:druidic-focus-yew-wand"
+      ],
+      "heading": "Druidic Focus",
+      "sourcePage": 67,
+      "summaryRu": "Друидическая фокусировка может быть веточкой омелы или падуба, палочкой или скипетром из тиса либо особого дерева, цельным посохом из живого дерева, тотемом с частями священных животных. Друид может использовать её как фокусировку заклинаний. Прочие условия колдовства проверяются отдельно.",
+      "mechanics": {
+        "spellcastingFocus": {
+          "classes": [
+            "druid"
+          ],
+          "otherSpellcastingConditions": "not-verified-by-this-excerpt",
+          "automaticSpellGrant": false
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:fishing-tackle",
+      "candidateItemIds": [
+        "srd51:2014:item:fishing-tackle"
+      ],
+      "heading": "Fishing Tackle",
+      "sourcePage": 67,
+      "summaryRu": "Рыболовные снасти включают деревянную удочку, шёлковую леску, пробковые поплавки, стальные крючки, свинцовые грузила, бархатные приманки и узкую сеть. Наличие набора само по себе не задаёт автоматического улова.",
+      "mechanics": {
+        "contents": [
+          "wooden-rod",
+          "silken-line",
+          "corkwood-bobbers",
+          "steel-hooks",
+          "lead-sinkers",
+          "velvet-lures",
+          "narrow-netting"
+        ],
+        "automaticCatch": false
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:healers-kit",
+      "candidateItemIds": [
+        "srd51:2014:item:healers-kit"
+      ],
+      "heading": "Healer’s Kit",
+      "sourcePage": 67,
+      "summaryRu": "Кожаная сумка с бинтами, мазями и шинами рассчитана на десять применений. Действием расходуют одно применение, чтобы стабилизировать существо с 0 хитов без проверки Мудрости (Медицина). Само это действие не восстанавливает хиты.",
+      "mechanics": {
+        "uses": 10,
+        "action": "action",
+        "costUses": 1,
+        "targetHitPoints": 0,
+        "result": "stabilize",
+        "medicineCheckRequired": false,
+        "healingHitPoints": 0
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:holy-symbol",
+      "candidateItemIds": [
+        "srd51:2014:item:holy-symbol-amulet",
+        "srd51:2014:item:holy-symbol-emblem",
+        "srd51:2014:item:holy-symbol-reliquary"
+      ],
+      "heading": "Holy Symbol",
+      "sourcePage": 67,
+      "summaryRu": "Священный символ представляет божество или пантеон: например амулет, изображение на щите или маленький реликварий. Жрец или паладин может использовать его как фокусировку, если держит в руке, носит открыто либо несёт на щите. Справочник пантеонов перечисляет распространённые символы; остальные условия колдовства проверяются отдельно.",
+      "mechanics": {
+        "spellcastingFocus": {
+          "classes": [
+            "cleric",
+            "paladin"
+          ],
+          "presentationAlternatives": [
+            "held-in-hand",
+            "worn-visibly",
+            "borne-on-shield"
+          ],
+          "otherSpellcastingConditions": "not-verified-by-this-excerpt",
+          "automaticSpellGrant": false
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:holy-water-flask",
+      "candidateItemIds": [
+        "srd51:2014:item:holy-water-flask"
+      ],
+      "heading": "Holy Water",
+      "sourcePage": 67,
+      "summaryRu": "Действием можно облить существо в пределах 5 футов или бросить флягу до 20 футов, разбивая её. В обоих случаях нужна дальнобойная атака по существу как импровизированным оружием; попадание по исчадию или нежити наносит 2d6 излучением. Жрец или паладин может создать святую воду особым часовым ритуалом: нужны серебряный порошок стоимостью 25 зм и расход ячейки 1-го круга.",
+      "mechanics": {
+        "action": "action",
+        "attackType": "ranged",
+        "weaponTreatment": "improvised",
+        "throwMaximumFeet": 20,
+        "targetKinds": [
+          "creature"
+        ],
+        "splashMaximumFeet": 5,
+        "damage": {
+          "dice": "2d6",
+          "type": "radiant",
+          "timing": "on-hit",
+          "creatureTypes": [
+            "fiend",
+            "undead"
+          ]
+        },
+        "creation": {
+          "classes": [
+            "cleric",
+            "paladin"
+          ],
+          "duration": {
+            "value": 1,
+            "unit": "hour"
+          },
+          "component": {
+            "name": "powdered-silver",
+            "costGp": 25,
+            "consumed": true
+          },
+          "spellSlotLevel": 1
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:hunting-trap",
+      "candidateItemIds": [
+        "srd51:2014:item:hunting-trap"
+      ],
+      "heading": "Hunting Trap",
+      "sourcePage": 67,
+      "summaryRu": "Действием устанавливают стальное кольцо с зубцами и нажимной пластиной. Цепь крепит его к неподвижному объекту. Наступившее существо совершает спасбросок Ловкости Сл 13; провал наносит 1d4 колющего урона и останавливает движение. Пока существо не освободится, движение ограничено длиной цепи, обычно 3 фута. Действием существо может совершить проверку Силы Сл 13, освобождая при успехе себя или другого в пределах досягаемости. Каждый провал проверки наносит пойманному ещё 1 колющего урона. Отдельное состояние «опутан» этим описанием не задано.",
+      "mechanics": {
+        "action": "action",
+        "anchor": "immobile-object",
+        "trigger": "step-on-pressure-plate",
+        "save": {
+          "ability": "dexterity",
+          "dc": 13
+        },
+        "onFailure": {
+          "damage": {
+            "dice": "1d4",
+            "type": "piercing"
+          },
+          "stopMoving": true
+        },
+        "movementLimit": {
+          "kind": "chain-length",
+          "typicalFeet": 3
+        },
+        "escape": {
+          "action": "action",
+          "rollType": "ability-check",
+          "ability": "strength",
+          "dc": 13,
+          "targets": [
+            "self",
+            "another-within-reach"
+          ],
+          "failedCheckDamage": {
+            "amount": 1,
+            "type": "piercing",
+            "target": "trapped-creature"
+          }
+        },
+        "appliedCondition": null
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:lamp",
+      "candidateItemIds": [
+        "srd51:2014:item:lamp"
+      ],
+      "heading": "Lamp",
+      "sourcePage": 68,
+      "summaryRu": "Лампа даёт яркий свет в радиусе 15 футов и тусклый ещё на 30 футов. После зажигания одна фляга масла (1 пинта) обеспечивает 6 часов горения.",
+      "mechanics": {
+        "light": {
+          "shape": "radius",
+          "brightFeet": 15,
+          "additionalDimFeet": 30
+        },
+        "duration": {
+          "value": 6,
+          "unit": "hour"
+        },
+        "fuel": {
+          "type": "oil",
+          "pints": 1
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:bullseye-lantern",
+      "candidateItemIds": [
+        "srd51:2014:item:bullseye-lantern"
+      ],
+      "heading": "Lantern, Bullseye",
+      "sourcePage": 68,
+      "summaryRu": "Направленный фонарь даёт яркий свет в конусе длиной 60 футов и тусклый ещё на 60 футов. После зажигания одна фляга масла (1 пинта) обеспечивает 6 часов горения.",
+      "mechanics": {
+        "light": {
+          "shape": "cone",
+          "brightFeet": 60,
+          "additionalDimFeet": 60
+        },
+        "duration": {
+          "value": 6,
+          "unit": "hour"
+        },
+        "fuel": {
+          "type": "oil",
+          "pints": 1
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:hooded-lantern",
+      "candidateItemIds": [
+        "srd51:2014:item:hooded-lantern"
+      ],
+      "heading": "Lantern, Hooded",
+      "sourcePage": 68,
+      "summaryRu": "Закрытый фонарь даёт яркий свет в радиусе 30 футов и тусклый ещё на 30 футов. После зажигания одна фляга масла (1 пинта) обеспечивает 6 часов горения. Действием можно опустить заслонку: остаётся только тусклый свет в радиусе 5 футов.",
+      "mechanics": {
+        "light": {
+          "shape": "radius",
+          "brightFeet": 30,
+          "additionalDimFeet": 30
+        },
+        "duration": {
+          "value": 6,
+          "unit": "hour"
+        },
+        "fuel": {
+          "type": "oil",
+          "pints": 1
+        },
+        "lowerHood": {
+          "action": "action",
+          "brightFeet": 0,
+          "dimRadiusFeet": 5
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:lock",
+      "candidateItemIds": [
+        "srd51:2014:item:lock"
+      ],
+      "heading": "Lock",
+      "sourcePage": 68,
+      "summaryRu": "К замку прилагается ключ. Без ключа владеющее воровскими инструментами существо может вскрыть его успешной проверкой Ловкости Сл 15. Мастер может предусмотреть более хорошие замки по более высокой цене. Отклонение от владения в приложении предупреждает, но не блокирует ручное действие.",
+      "mechanics": {
+        "keyIncluded": true,
+        "pick": {
+          "rollType": "ability-check",
+          "ability": "dexterity",
+          "dc": 15,
+          "normalRequirement": "thieves-tools-proficiency"
+        },
+        "betterLocks": "GM-may-offer-for-higher-price"
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:magnifying-glass",
+      "candidateItemIds": [
+        "srd51:2014:item:magnifying-glass"
+      ],
+      "heading": "Magnifying Glass",
+      "sourcePage": 68,
+      "summaryRu": "Лупа позволяет рассматривать мелкие предметы и даёт преимущество на проверки характеристики для оценки или осмотра маленького либо очень детализированного предмета. Для разведения огня нужны свет не слабее солнечного, трут и около 5 минут.",
+      "mechanics": {
+        "advantage": {
+          "rollType": "ability-check",
+          "task": "appraise-or-inspect-small-or-highly-detailed-item",
+          "ability": "task-dependent"
+        },
+        "fireStarting": {
+          "minimumLight": "as-bright-as-sunlight",
+          "requiresTinder": true,
+          "duration": {
+            "value": 5,
+            "unit": "minute",
+            "approximate": true
+          }
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:manacles",
+      "candidateItemIds": [
+        "srd51:2014:item:manacles"
+      ],
+      "heading": "Manacles",
+      "sourcePage": 68,
+      "summaryRu": "Кандалы подходят Маленькому или Среднему существу. Высвобождение требует проверки Ловкости Сл 20, разрыв — Силы Сл 20. В комплекте один ключ. Без него владеющее воровскими инструментами существо может вскрыть замок проверкой Ловкости Сл 15. У кандалов 15 хитов. Личные исключения из требований доступны через предупреждение и ручное действие.",
+      "mechanics": {
+        "targetSizes": [
+          "small",
+          "medium"
+        ],
+        "escape": {
+          "rollType": "ability-check",
+          "ability": "dexterity",
+          "dc": 20
+        },
+        "break": {
+          "rollType": "ability-check",
+          "ability": "strength",
+          "dc": 20
+        },
+        "keysIncluded": 1,
+        "pick": {
+          "rollType": "ability-check",
+          "ability": "dexterity",
+          "dc": 15,
+          "normalRequirement": "thieves-tools-proficiency"
+        },
+        "hitPoints": 15
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:mess-kit",
+      "candidateItemIds": [
+        "srd51:2014:item:mess-kit"
+      ],
+      "heading": "Mess Kit",
+      "sourcePage": 68,
+      "summaryRu": "Жестяная коробка содержит чашку и простые столовые приборы. Одна из соединяющихся половин может служить сковородой, другая — тарелкой или неглубокой миской.",
+      "mechanics": {
+        "contents": [
+          "cup",
+          "simple-cutlery"
+        ],
+        "boxUses": [
+          "cooking-pan",
+          "plate-or-shallow-bowl"
+        ]
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:oil-flask",
+      "candidateItemIds": [
+        "srd51:2014:item:oil-flask"
+      ],
+      "heading": "Oil",
+      "sourcePage": 68,
+      "summaryRu": "Обычно масло продаётся в глиняной фляге объёмом 1 пинта. Действием можно облить существо в пределах 5 футов или бросить флягу до 20 футов, разбивая её. Дальнобойная атака по существу или предмету считается атакой импровизированным оружием; попадание покрывает цель маслом. Если цель получает урон огнём до высыхания масла через 1 минуту, она получает ещё 5 урона огнём. Флягу также можно вылить на ровную землю, покрыв квадрат 5 на 5 футов. Подожжённое масло горит 2 раунда, нанося 5 урона огнём существу при входе или окончании хода на участке, но не чаще одного раза за ход.",
+      "mechanics": {
+        "action": "action",
+        "attackType": "ranged",
+        "weaponTreatment": "improvised",
+        "throwMaximumFeet": 20,
+        "targetKinds": [
+          "creature",
+          "object"
+        ],
+        "splashMaximumFeet": 5,
+        "flaskPints": 1,
+        "coatedTarget": {
+          "dryAfter": {
+            "value": 1,
+            "unit": "minute"
+          },
+          "trigger": "takes-fire-damage-before-oil-dries",
+          "extraDamage": {
+            "amount": 5,
+            "type": "fire"
+          }
+        },
+        "ground": {
+          "area": {
+            "shape": "square",
+            "sideFeet": 5,
+            "requiresLevelSurface": true
+          },
+          "duration": {
+            "value": 2,
+            "unit": "round"
+          },
+          "triggers": [
+            "enter-area",
+            "end-turn-in-area"
+          ],
+          "damage": {
+            "amount": 5,
+            "type": "fire"
+          },
+          "maximumApplicationsPerCreaturePerTurn": 1,
+          "ignitionRequired": true,
+          "action": null
+        },
+        "actionScope": "splash-or-throw-only"
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:basic-poison-vial",
+      "candidateItemIds": [
+        "srd51:2014:item:basic-poison-vial"
+      ],
+      "heading": "Poison, Basic",
+      "sourcePage": 68,
+      "summaryRu": "Одним пузырьком покрывают одно рубящее или колющее оружие либо до трёх боеприпасов; нанесение требует действия. Существо, по которому попало отравленное оружие или боеприпас, совершает спасбросок Телосложения Сл 10; провал наносит 1d4 урона ядом. Нанесённый яд действует 1 минуту до высыхания. Это описание не добавляет состояние «отравлен».",
+      "mechanics": {
+        "action": "action",
+        "coatingAlternatives": [
+          {
+            "weaponCount": 1,
+            "damageTypes": [
+              "slashing",
+              "piercing"
+            ]
+          },
+          {
+            "maximumAmmunitionPieces": 3
+          }
+        ],
+        "duration": {
+          "value": 1,
+          "unit": "minute"
+        },
+        "trigger": "hit-by-coated-weapon-or-ammunition",
+        "save": {
+          "ability": "constitution",
+          "dc": 10
+        },
+        "onFailure": {
+          "damage": {
+            "dice": "1d4",
+            "type": "poison"
+          }
+        },
+        "appliedCondition": null
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:potion-of-healing",
+      "candidateItemIds": [
+        "srd51:2014:item:potion-of-healing"
+      ],
+      "heading": "Potion of Healing",
+      "sourcePage": 68,
+      "summaryRu": "Выпивший красную магическую жидкость восстанавливает 2d4 + 2 хита. Выпить зелье или дать его другому — действие. Ссылка ведёт к уже существующему варианту обычного зелья лечения, а не создаёт новую карточку.",
+      "mechanics": {
+        "healing": {
+          "dice": "2d4",
+          "bonus": 2
+        },
+        "useAlternatives": [
+          {
+            "mode": "drink",
+            "action": "action"
+          },
+          {
+            "mode": "administer",
+            "action": "action"
+          }
+        ],
+        "reusesExistingPotionIdentity": true
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:pouch",
+      "candidateItemIds": [
+        "srd51:2014:item:pouch"
+      ],
+      "heading": "Pouch",
+      "sourcePage": 68,
+      "summaryRu": "Тканевый или кожаный мешочек может вмещать до двадцати ядер для пращи либо пятидесяти игл для духовой трубки, а также другие подходящие вещи. Сумка с отделениями для компонентов заклинаний описана отдельно.",
+      "mechanics": {
+        "capacityExamples": [
+          {
+            "maximum": 20,
+            "item": "sling-bullet"
+          },
+          {
+            "maximum": 50,
+            "item": "blowgun-needle"
+          }
+        ],
+        "examplesAreAdditive": false,
+        "componentPouchIsSeparate": true
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:quiver",
+      "candidateItemIds": [
+        "srd51:2014:item:quiver"
+      ],
+      "heading": "Quiver",
+      "sourcePage": 68,
+      "summaryRu": "Колчан вмещает до двадцати стрел.",
+      "mechanics": {
+        "capacity": {
+          "maximum": 20,
+          "item": "arrow"
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:portable-ram",
+      "candidateItemIds": [
+        "srd51:2014:item:portable-ram"
+      ],
+      "heading": "Ram, Portable",
+      "sourcePage": 68,
+      "summaryRu": "Переносной таран даёт бонус +4 к проверке Силы при выбивании двери. Один другой персонаж может помогать с тараном, предоставляя преимущество на эту проверку.",
+      "mechanics": {
+        "check": {
+          "rollType": "ability-check",
+          "ability": "strength",
+          "task": "break-down-door",
+          "bonus": 4
+        },
+        "assistance": {
+          "otherCharacters": 1,
+          "effect": "advantage-on-this-check"
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:rations-one-day",
+      "candidateItemIds": [
+        "srd51:2014:item:rations-one-day"
+      ],
+      "heading": "Rations",
+      "sourcePage": 68,
+      "summaryRu": "Рацион состоит из сухой пищи, пригодной для длительного путешествия: например вяленого мяса, сушёных фруктов, сухарей и орехов.",
+      "mechanics": {
+        "content": "dry-food-suitable-for-extended-travel",
+        "examples": [
+          "jerky",
+          "dried-fruit",
+          "hardtack",
+          "nuts"
+        ]
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:rope",
+      "candidateItemIds": [
+        "srd51:2014:item:hempen-rope-50-feet",
+        "srd51:2014:item:silk-rope-50-feet"
+      ],
+      "heading": "Rope",
+      "sourcePage": 68,
+      "summaryRu": "И пеньковая, и шёлковая верёвка имеют 2 хита и рвутся успешной проверкой Силы Сл 17.",
+      "mechanics": {
+        "hitPoints": 2,
+        "break": {
+          "rollType": "ability-check",
+          "ability": "strength",
+          "dc": 17
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:merchants-scale",
+      "candidateItemIds": [
+        "srd51:2014:item:merchants-scale"
+      ],
+      "heading": "Scale, Merchant’s",
+      "sourcePage": 68,
+      "summaryRu": "Торговые весы состоят из небольшого коромысла, чаш и набора гирь до 2 фунтов. Они позволяют точно взвешивать небольшие предметы, например сырьё драгоценных металлов или товары, помогая оценить их стоимость. Цена предмета автоматически из веса не выводится.",
+      "mechanics": {
+        "includedWeightsUpToPounds": 2,
+        "purpose": "exact-weight-of-small-objects",
+        "automaticValuation": false
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:spellbook",
+      "candidateItemIds": [
+        "srd51:2014:item:spellbook"
+      ],
+      "heading": "Spellbook",
+      "sourcePage": 68,
+      "summaryRu": "Необходимая волшебнику книга в кожаном переплёте содержит 100 чистых пергаментных страниц, пригодных для записи заклинаний. Стоимость, время и условия переписывания определяются другими правилами.",
+      "mechanics": {
+        "blankVellumPages": 100,
+        "automaticSpellGrant": false,
+        "spellCopyingRules": "not-verified-by-this-excerpt"
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:spyglass",
+      "candidateItemIds": [
+        "srd51:2014:item:spyglass"
+      ],
+      "heading": "Spyglass",
+      "sourcePage": 68,
+      "summaryRu": "Подзорная труба увеличивает видимый размер предметов вдвое.",
+      "mechanics": {
+        "apparentSizeMultiplier": 2,
+        "automaticVisionRangeMultiplier": false
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:tent-two-person",
+      "candidateItemIds": [
+        "srd51:2014:item:tent-two-person"
+      ],
+      "heading": "Tent",
+      "sourcePage": 68,
+      "summaryRu": "Простая переносная палатка из холста рассчитана на ночлег двоих.",
+      "mechanics": {
+        "sleepingCapacity": 2
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:tinderbox",
+      "candidateItemIds": [
+        "srd51:2014:item:tinderbox"
+      ],
+      "heading": "Tinderbox",
+      "sourcePage": 68,
+      "summaryRu": "В коробочке находятся кремень, огниво и трут (обычно сухая ткань, пропитанная лёгким маслом). Поджечь факел или другое топливо, доступное в достаточном количестве и открытое для поджигания, можно действием; разжигание любого другого огня занимает 1 минуту.",
+      "mechanics": {
+        "lighting": [
+          {
+            "target": "torch-or-other-abundant-exposed-fuel",
+            "duration": {
+              "value": 1,
+              "unit": "action"
+            }
+          },
+          {
+            "target": "other-fire",
+            "duration": {
+              "value": 1,
+              "unit": "minute"
+            }
+          }
+        ]
+      },
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:gear-rule:torch",
+      "candidateItemIds": [
+        "srd51:2014:item:torch"
+      ],
+      "heading": "Torch",
+      "sourcePage": 68,
+      "summaryRu": "Факел горит 1 час: яркий свет в радиусе 20 футов и тусклый ещё на 20 футов. Попадание горящим факелом в ближнем бою наносит 1 урона огнём.",
+      "mechanics": {
+        "light": {
+          "shape": "radius",
+          "brightFeet": 20,
+          "additionalDimFeet": 20
+        },
+        "duration": {
+          "value": 1,
+          "unit": "hour"
+        },
+        "attack": {
+          "type": "melee",
+          "requiresBurning": true,
+          "damage": {
+            "amount": 1,
+            "type": "fire",
+            "timing": "on-hit"
+          }
+        }
+      },
+      "accepted": false,
+      "runtimeImported": false
+    }
+  ]
+}
