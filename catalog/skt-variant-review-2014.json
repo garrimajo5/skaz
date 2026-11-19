@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "status": "variant-differences-not-canonical-identity",
+  "accepted": false,
+  "approvedDenominator": null,
+  "summary": {
+    "groups": 3,
+    "observations": 5,
+    "groupsWithObservedDifferences": 2,
+    "primaryIndexCrDifferences": 1
+  },
+  "rows": [
+    {
+      "groupId": "shield-dwarf",
+      "digitalName": "Shield Dwarf",
+      "primaryIndex": {
+        "cardUrl": "https://www.dndbeyond.com/monsters/296856-shield-dwarf",
+        "challengeRating": "3",
+        "alignment": "Lawful Good"
+      },
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:7706",
+          "observedName": "Shield Dwarf Veteran",
+          "originalSourceIds": [
+            "132"
+          ],
+          "selectedObservedFields": {
+            "challengeRating": "3",
+            "armorClass": 17,
+            "hitPoints": 58,
+            "alignment": "Lawful Good"
+          },
+          "challengeRatingComparison": "same-number-not-proof-of-identity",
+          "alignmentComparison": "same-label-not-proof-of-identity"
+        },
+        {
+          "observationId": "dndsu:bestiary:7709",
+          "observedName": "Shield Dwarf Commoner",
+          "originalSourceIds": [
+            "132"
+          ],
+          "selectedObservedFields": {
+            "challengeRating": "0",
+            "armorClass": 10,
+            "hitPoints": 4,
+            "alignment": "Any Alignment"
+          },
+          "challengeRatingComparison": "different-number-needs-version-review",
+          "alignmentComparison": "different-label-needs-version-review"
+        }
+      ],
+      "differingObservedFields": [
+        "challengeRating",
+        "armorClass",
+        "hitPoints",
+        "alignment"
+      ],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false,
+      "primaryFullTextRead": false
+    },
+    {
+      "groupId": "storm-giant-princess",
+      "digitalName": "Storm Giant Princess",
+      "primaryIndex": {
+        "cardUrl": "https://www.dndbeyond.com/monsters/300491-storm-giant-princess",
+        "challengeRating": "13",
+        "alignment": "Neutral Evil"
+      },
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:7762",
+          "observedName": "Mirran",
+          "originalSourceIds": [
+            "132"
+          ],
+          "selectedObservedFields": {
+            "challengeRating": "13",
+            "armorClass": 11,
+            "hitPoints": 230,
+            "alignment": "Neutral Evil"
+          },
+          "challengeRatingComparison": "same-number-not-proof-of-identity",
+          "alignmentComparison": "same-label-not-proof-of-identity"
+        },
+        {
+          "observationId": "dndsu:bestiary:7763",
+          "observedName": "Nym",
+          "originalSourceIds": [
+            "132"
+          ],
+          "selectedObservedFields": {
+            "challengeRating": "13",
+            "armorClass": 12,
+            "hitPoints": 230,
+            "alignment": "Neutral Evil"
+          },
+          "challengeRatingComparison": "same-number-not-proof-of-identity",
+          "alignmentComparison": "same-label-not-proof-of-identity"
+        }
+      ],
+      "differingObservedFields": [
+        "armorClass"
+      ],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false,
+      "primaryFullTextRead": false
+    },
+    {
+      "groupId": "axe-of-mirabar",
+      "digitalName": "Axe of Mirabar Veteran",
+      "primaryIndex": {
+        "cardUrl": "https://www.dndbeyond.com/monsters/297941-axe-of-mirabar-veteran",
+        "challengeRating": "3",
+        "alignment": "Any Alignment"
+      },
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:7722",
+          "observedName": "Axe of Mirabar Soldier",
+          "originalSourceIds": [
+            "132"
+          ],
+          "selectedObservedFields": {
+            "challengeRating": "3",
+            "armorClass": 18,
+            "hitPoints": 67,
+            "alignment": "Lawful Good"
+          },
+          "challengeRatingComparison": "same-number-not-proof-of-identity",
+          "alignmentComparison": "different-label-needs-version-review"
+        }
+      ],
+      "differingObservedFields": [],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false,
+      "primaryFullTextRead": false
+    }
+  ],
+  "inputSha256": {
+    "catalog/skt-variant-boundaries-2014.json": "3990c220772c201f73729695969f8579ee30e6e576c1180b25205218d7d7df6a",
+    "catalog/skt-public-index-2014.json": "da621b84e94b2cd75eafa19a0509b11458bbb01668f463a8b974259c63204b06",
+    "catalog/scope-register-2014.json": "d16b65c44f622b70f685aa391687375df13e627267367b50a58d0bd3307e25dd"
+  }
+}
