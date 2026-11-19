@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "status": "selected-errata-condition-comparison-not-full-version-acceptance",
+  "checkedOn": "2026-11-19",
+  "ruleset": "5e-2014",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "d16b65c44f622b70f685aa391687375df13e627267367b50a58d0bd3307e25dd"
+  },
+  "primaryEvidence": {
+    "url": "https://media.wizards.com/2020/dnd/downloads/SKT-Errata.pdf",
+    "version": "2.0; copyright2021",
+    "sha256": "7be9a8709571785f9db1bec87a921afcac11712e9f8a85009f3c1229c983c61d",
+    "publisher": "Wizards of the Coast",
+    "reusePermission": "not-established"
+  },
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:5477",
+      "observedName": "Crag Cat",
+      "observedSourceIds": [
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/5477-crag-cat/",
+      "primaryLocator": {
+        "pdfPage": 3,
+        "bookPage": 240,
+        "section": "Appendix C"
+      },
+      "comparedBlock": "Creature type and movement only",
+      "selectedMatches": {
+        "creatureType": "monstrosity",
+        "walkFeet": 40,
+        "climbFeet": 30
+      },
+      "differences": [],
+      "result": "selected-conditions-match-errata-v2",
+      "wholeStatBlockCompared": false,
+      "exactObservedPrinting": "unverified",
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:5601",
+      "observedName": "Iymrith",
+      "observedSourceIds": [
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/5601-iymrith/",
+      "primaryLocator": {
+        "pdfPage": 3,
+        "bookPage": 241,
+        "section": "Appendix C"
+      },
+      "comparedBlock": "Spellcasting action and placement of Change Shape only",
+      "selectedMatches": {
+        "ability": "charisma",
+        "saveDc": 20,
+        "componentRequirement": "none",
+        "limitedSpellFrequency": "1/day each",
+        "spells": [
+          "detect magic",
+          "dispel magic",
+          "ice storm",
+          "stone shape",
+          "teleport"
+        ]
+      },
+      "differences": [
+        {
+          "field": "changeShape.placement",
+          "primary": "action option",
+          "observed": "trait before Actions heading"
+        }
+      ],
+      "result": "selected-matches-with-review-findings",
+      "wholeStatBlockCompared": false,
+      "exactObservedPrinting": "unverified",
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:5605",
+      "observedName": "Maegera the Dawn Titan",
+      "observedSourceIds": [
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/5605-maegera-the-dawn-titan/",
+      "primaryLocator": {
+        "pdfPage": 3,
+        "bookPage": 241,
+        "section": "Appendix C"
+      },
+      "comparedBlock": "Spellcasting action only",
+      "selectedMatches": {
+        "ability": "charisma",
+        "saveDc": 19,
+        "componentRequirement": "no-material-components",
+        "spell": "fireball",
+        "frequencyNotStated": true
+      },
+      "differences": [],
+      "result": "selected-conditions-match-errata-v2",
+      "wholeStatBlockCompared": false,
+      "exactObservedPrinting": "unverified",
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:6402",
+      "observedName": "Tressym",
+      "observedSourceIds": [
+        "126",
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/6402-tressym/",
+      "primaryLocator": {
+        "pdfPage": 3,
+        "bookPage": 242,
+        "section": "Appendix C"
+      },
+      "comparedBlock": "Creature type and alignment only",
+      "selectedMatches": {
+        "creatureType": "monstrosity",
+        "alignment": "any"
+      },
+      "differences": [],
+      "result": "selected-conditions-match-errata-v2",
+      "wholeStatBlockCompared": false,
+      "exactObservedPrinting": "unverified",
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:5606",
+      "observedName": "Uthgardt shaman",
+      "observedSourceIds": [
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/5606-uthgardt-shaman/",
+      "primaryLocator": {
+        "pdfPage": 3,
+        "bookPage": 243,
+        "section": "Appendix C"
+      },
+      "comparedBlock": "Alignment, core Spellcasting action and selected tribal errata only",
+      "selectedMatches": {
+        "ability": "wisdom",
+        "saveDc": 12,
+        "spellAttackBonus": 4,
+        "requiresSacredBundle": true,
+        "atWillSpells": [
+          "dancing lights",
+          "mage hand",
+          "message",
+          "thaumaturgy"
+        ],
+        "limitedSpellFrequency": "1/day each",
+        "limitedSpells": [
+          "augury",
+          "bestow curse",
+          "cordon of arrows",
+          "detect magic",
+          "speak with dead",
+          "spirit guardians"
+        ],
+        "oneActionSpells": [
+          "augury"
+        ]
+      },
+      "differences": [
+        {
+          "field": "alignment",
+          "primary": "any",
+          "observed": "neutral evil"
+        },
+        {
+          "field": "tribalSpells.BlackRaven.polymorph.target",
+          "primary": "self only; raven only",
+          "observed": "raven only; self restriction absent"
+        },
+        {
+          "field": "tribalSpells.Elk.findSteed.castingTime",
+          "primary": "1 action; elk only",
+          "observed": "elk only; action override absent"
+        },
+        {
+          "field": "tribalSpells.Griffon",
+          "primary": [
+            "beast sense (birds only)",
+            "fly"
+          ],
+          "observed": [
+            "feather fall",
+            "fly"
+          ]
+        },
+        {
+          "field": "tribalSpells.SkyPony",
+          "primary": [
+            "gust of wind",
+            "witch bolt"
+          ],
+          "observed": [
+            "divine favor",
+            "feather fall",
+            "lightning bolt"
+          ]
+        },
+        {
+          "field": "tribalSpells.BlackLion.animateDead",
+          "primary": "removed",
+          "observed": "present"
+        },
+        {
+          "field": "tribalSpells.TreeGhost.druidcraftAndPlantGrowth",
+          "primary": "both removed",
+          "observed": "both present"
+        },
+        {
+          "field": "tribalSpells.BlackRaven.featherFall",
+          "primary": "removed",
+          "observed": "present"
+        },
+        {
+          "field": "tribalSpells.Elk.expeditiousRetreat",
+          "primary": "removed",
+          "observed": "present"
+        },
+        {
+          "field": "tribalSpells.GreatWorm.divineFavor",
+          "primary": "removed",
+          "observed": "present"
+        },
+        {
+          "field": "tribalSpells.RedTiger.beastSense",
+          "primary": "removed",
+          "observed": "present"
+        },
+        {
+          "field": "tribalSpells.Thunderbeast.stoneskin",
+          "primary": "removed",
+          "observed": "present"
+        },
+        {
+          "field": "tribalSpells.castingTimeOverride",
+          "primary": "all listed spells cast as 1 action",
+          "observed": "general override absent"
+        }
+      ],
+      "result": "selected-matches-with-review-findings",
+      "wholeStatBlockCompared": false,
+      "exactObservedPrinting": "unverified",
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    }
+  ],
+  "limits": [
+    "Only the named fields were compared; all other traits and tribal lists remain unverified.",
+    "The 2021 errata supersedes older SKT type evidence for Tressym; it does not establish identity of every book version.",
+    "No unrestricted text reuse permission or complete stat block acceptance is inferred.",
+    "Personal exceptions remain possible; this evidence does not impose game-rule action blocks."
+  ]
+}
