@@ -302,5 +302,16 @@
       "observationId": "dndsu:items:247",
       "reason": "Observed typographic apostrophe and lowercase words versus primary straight apostrophe/title case; candidate only, no text equivalence asserted."
     }
+  ],
+  "unitAccessChecks": [
+    {
+      "digitalName": "Crown of the Forest",
+      "url": "https://www.dndbeyond.com/magic-items/1146257-crown-of-the-forest",
+      "checkedOn": "2026-11-19",
+      "result": "redirect-to-product",
+      "finalUrl": "https://marketplace.dndbeyond.com/category/SRC-00056",
+      "fullTextRead": false,
+      "canonicalIdentityConfirmed": false
+    }
   ]
 }
