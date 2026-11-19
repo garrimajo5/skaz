@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "status": "armor-parameters-proposal-not-runtime-content",
+  "ruleset": "5e-2014",
+  "source": {
+    "title": "System Reference Document 5.1",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "pages": [
+      62,
+      63,
+      64
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "changes": "Структурирование и русское изложение для СКАЗ; не официальный перевод."
+  },
+  "inputSha256": {
+    "catalog/armor-canonical-proposal-2014.json": "8401414895beba207bb3a0ff01822b13c823b8c0f92b0fecb536256535ddad6f"
+  },
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "applicationBoundary": {
+    "ruleDeviation": "warn-and-allow-manual-override",
+    "automaticEquip": false,
+    "automaticStatChange": false,
+    "automaticResourceSpend": false
+  },
+  "records": [
+    {
+      "candidateItemId": "srd51:2014:item:padded-armor",
+      "nameEn": "Padded",
+      "category": "light-armor",
+      "sourcePage": 63,
+      "armorClass": {
+        "kind": "base",
+        "value": 11,
+        "dexterityMode": "full",
+        "dexterityCap": null,
+        "negativeDexterityApplies": true
+      },
+      "weightLb": 8,
+      "strengthForUnreducedSpeed": null,
+      "stealthDisadvantage": true,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:leather-armor",
+      "nameEn": "Leather",
+      "category": "light-armor",
+      "sourcePage": 64,
+      "armorClass": {
+        "kind": "base",
+        "value": 11,
+        "dexterityMode": "full",
+        "dexterityCap": null,
+        "negativeDexterityApplies": true
+      },
+      "weightLb": 10,
+      "strengthForUnreducedSpeed": null,
+      "stealthDisadvantage": false,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:studded-leather-armor",
+      "nameEn": "Studded leather",
+      "category": "light-armor",
+      "sourcePage": 64,
+      "armorClass": {
+        "kind": "base",
+        "value": 12,
+        "dexterityMode": "full",
+        "dexterityCap": null,
+        "negativeDexterityApplies": true
+      },
+      "weightLb": 13,
+      "strengthForUnreducedSpeed": null,
+      "stealthDisadvantage": false,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:hide-armor",
+      "nameEn": "Hide",
+      "category": "medium-armor",
+      "sourcePage": 64,
+      "armorClass": {
+        "kind": "base",
+        "value": 12,
+        "dexterityMode": "capped",
+        "dexterityCap": 2,
+        "negativeDexterityApplies": true
+      },
+      "weightLb": 12,
+      "strengthForUnreducedSpeed": null,
+      "stealthDisadvantage": false,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:chain-shirt",
+      "nameEn": "Chain shirt",
+      "category": "medium-armor",
+      "sourcePage": 64,
+      "armorClass": {
+        "kind": "base",
+        "value": 13,
+        "dexterityMode": "capped",
+        "dexterityCap": 2,
+        "negativeDexterityApplies": true
+      },
+      "weightLb": 20,
+      "strengthForUnreducedSpeed": null,
+      "stealthDisadvantage": false,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:scale-mail",
+      "nameEn": "Scale mail",
+      "category": "medium-armor",
+      "sourcePage": 64,
+      "armorClass": {
+        "kind": "base",
+        "value": 14,
+        "dexterityMode": "capped",
+        "dexterityCap": 2,
+        "negativeDexterityApplies": true
+      },
+      "weightLb": 45,
+      "strengthForUnreducedSpeed": null,
+      "stealthDisadvantage": true,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:breastplate",
+      "nameEn": "Breastplate",
+      "category": "medium-armor",
+      "sourcePage": 64,
+      "armorClass": {
+        "kind": "base",
+        "value": 14,
+        "dexterityMode": "capped",
+        "dexterityCap": 2,
+        "negativeDexterityApplies": true
+      },
+      "weightLb": 20,
+      "strengthForUnreducedSpeed": null,
+      "stealthDisadvantage": false,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:half-plate-armor",
+      "nameEn": "Half plate",
+      "category": "medium-armor",
+      "sourcePage": 64,
+      "armorClass": {
+        "kind": "base",
+        "value": 15,
+        "dexterityMode": "capped",
+        "dexterityCap": 2,
+        "negativeDexterityApplies": true
+      },
+      "weightLb": 40,
+      "strengthForUnreducedSpeed": null,
+      "stealthDisadvantage": true,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:ring-mail",
+      "nameEn": "Ring mail",
+      "category": "heavy-armor",
+      "sourcePage": 64,
+      "armorClass": {
+        "kind": "base",
+        "value": 14,
+        "dexterityMode": "ignored",
+        "dexterityCap": null,
+        "negativeDexterityApplies": false
+      },
+      "weightLb": 40,
+      "strengthForUnreducedSpeed": null,
+      "stealthDisadvantage": true,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:chain-mail",
+      "nameEn": "Chain mail",
+      "category": "heavy-armor",
+      "sourcePage": 64,
+      "armorClass": {
+        "kind": "base",
+        "value": 16,
+        "dexterityMode": "ignored",
+        "dexterityCap": null,
+        "negativeDexterityApplies": false
+      },
+      "weightLb": 55,
+      "strengthForUnreducedSpeed": 13,
+      "stealthDisadvantage": true,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:splint-armor",
+      "nameEn": "Splint",
+      "category": "heavy-armor",
+      "sourcePage": 64,
+      "armorClass": {
+        "kind": "base",
+        "value": 17,
+        "dexterityMode": "ignored",
+        "dexterityCap": null,
+        "negativeDexterityApplies": false
+      },
+      "weightLb": 60,
+      "strengthForUnreducedSpeed": 15,
+      "stealthDisadvantage": true,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:plate-armor",
+      "nameEn": "Plate",
+      "category": "heavy-armor",
+      "sourcePage": 64,
+      "armorClass": {
+        "kind": "base",
+        "value": 18,
+        "dexterityMode": "ignored",
+        "dexterityCap": null,
+        "negativeDexterityApplies": false
+      },
+      "weightLb": 65,
+      "strengthForUnreducedSpeed": 15,
+      "stealthDisadvantage": true,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:shield",
+      "nameEn": "Shield",
+      "category": "shield",
+      "sourcePage": 64,
+      "armorClass": {
+        "kind": "bonus",
+        "value": 2,
+        "dexterityMode": "not-applicable",
+        "dexterityCap": null,
+        "negativeDexterityApplies": false
+      },
+      "weightLb": 6,
+      "strengthForUnreducedSpeed": null,
+      "stealthDisadvantage": false,
+      "accepted": false,
+      "runtimeImported": false
+    }
+  ],
+  "donDoff": [
+    {
+      "category": "light-armor",
+      "don": {
+        "amount": 1,
+        "unit": "minute"
+      },
+      "doff": {
+        "amount": 1,
+        "unit": "minute"
+      },
+      "sourcePage": 64
+    },
+    {
+      "category": "medium-armor",
+      "don": {
+        "amount": 5,
+        "unit": "minute"
+      },
+      "doff": {
+        "amount": 1,
+        "unit": "minute"
+      },
+      "sourcePage": 64
+    },
+    {
+      "category": "heavy-armor",
+      "don": {
+        "amount": 10,
+        "unit": "minute"
+      },
+      "doff": {
+        "amount": 5,
+        "unit": "minute"
+      },
+      "sourcePage": 64
+    },
+    {
+      "category": "shield",
+      "don": {
+        "amount": 1,
+        "unit": "action"
+      },
+      "doff": {
+        "amount": 1,
+        "unit": "action"
+      },
+      "sourcePage": 64
+    }
+  ],
+  "conditions": {
+    "proficiency": {
+      "sourcePage": 62,
+      "textRu": "Доспех или щит можно надеть и без владения. По обычному правилу отсутствие владения надетым доспехом даёт помеху проверкам характеристик, спасброскам и броскам атаки с Силой или Ловкостью; накладывать заклинания нельзя. В СКАЗ это предупреждение с ручным исключением, а не запрет сохранения. Применение перечисленных последствий именно к щиту здесь не решается: источник упоминает щит во вводной, но в последствиях говорит о доспехе. До отдельного решения не переносить это условие на щит автоматически.",
+      "affectedAbilities": [
+        "strength",
+        "dexterity"
+      ],
+      "affectedRolls": [
+        "ability-check",
+        "saving-throw",
+        "attack-roll"
+      ],
+      "spellcastingAllowedByOrdinaryRule": false,
+      "shieldConsequenceScope": "not-resolved-by-this-proposal",
+      "shieldAutomation": false
+    },
+    "heavyArmorSpeed": {
+      "sourcePage": 63,
+      "penaltyFeet": 10,
+      "trigger": "strength-below-listed-score",
+      "isEquipRequirement": false,
+      "textRu": "Сила ниже указанной в строке снижает скорость на 10 футов, а не запрещает носить доспех. Отсутствие значения не означает требования Силы. Особенности персонажа и личные исключения проверяются отдельно."
+    },
+    "shield": {
+      "sourcePage": 63,
+      "acBonus": 2,
+      "hands": 1,
+      "maximumBeneficialShields": 1,
+      "textRu": "Щит занимает одну руку и даёт +2 КД. Одновременно учитывается польза только одного щита."
+    },
+    "donDoff": {
+      "sourcePage": 64,
+      "fullDonTimeRequiredForArmorAc": true,
+      "assistedDoffMultiplier": 0.5,
+      "assistedDonMultiplier": null,
+      "textRu": "Польза КД доспеха появляется после полного надевания. Помощь уменьшает вдвое время снятия; уменьшение времени надевания здесь не установлено."
+    },
+    "dexterity": {
+      "sourcePage": 63,
+      "textRu": "Лёгкий доспех учитывает весь модификатор Ловкости. Средний ограничивает только верхнюю границу до +2: отрицательный модификатор сохраняется. Тяжёлый не учитывает ни положительный, ни отрицательный модификатор."
+    }
+  },
+  "limits": [
+    "Table parameters and bounded conditions only; physical descriptions and character-specific exceptions are not complete coverage.",
+    "A shield is an AC bonus, not an alternative base AC formula.",
+    "No ordinary game-rule restriction is an application authorization or integrity rule."
+  ],
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved"
+}

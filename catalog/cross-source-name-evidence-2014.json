@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "status": "cross-source-name-review-not-canonical-acceptance",
+  "checkedOn": "2026-11-19",
+  "ruleset": "5e-2014",
+  "inputSha256": {
+    "catalog/observed-name-review-2014.json": "41a7a84c7d6c4d00b2c94906a793f3bed7779f164797e920c5226654b5ba19a3"
+  },
+  "complete": false,
+  "accepted": false,
+  "approvedDenominator": null,
+  "groups": [
+    {
+      "section": "items",
+      "comparisonKey": "pixie dust",
+      "disposition": "preserve-source-specific-records-and-errata-name",
+      "automaticMerge": false,
+      "records": [
+        {
+          "observationId": "dndsu:items:2415",
+          "observedName": "Pixie Dust",
+          "observedSourceIds": [
+            "132"
+          ],
+          "primaryName": "Faerie Dust",
+          "identityStatus": "primary-errata-renames-source-section",
+          "evidence": [
+            {
+              "url": "https://media.wizards.com/2020/dnd/downloads/SKT-Errata.pdf",
+              "locator": "Version2.0, copyright2021, PDF1: Chapter1 Treasure and Development, bookpage35",
+              "kind": "official-errata",
+              "sha256": "7be9a8709571785f9db1bec87a921afcac11712e9f8a85009f3c1229c983c61d",
+              "version": "2.0; copyright2021"
+            },
+            {
+              "url": "https://www.dndbeyond.com/sources/dnd/sae/storm-kings-thunder",
+              "locator": "Chapter1: Treasure(p.35) and Development(p.35)",
+              "kind": "official-digital-errata"
+            }
+          ],
+          "access": null,
+          "fullRulesVerified": false,
+          "exactObservedTextVersion": "unverified",
+          "reusePermission": "not-established",
+          "accepted": false,
+          "canonicalId": null
+        },
+        {
+          "observationId": "dndsu:items:2839",
+          "observedName": "Pixie Dust",
+          "observedSourceIds": [
+            "151"
+          ],
+          "primaryName": "Pixie Dust",
+          "identityStatus": "official-item-index-name",
+          "evidence": [
+            {
+              "url": "https://www.dndbeyond.com/magic-items?filter-effect-subtype=&filter-effect-type=&filter-has-charges=&filter-requires-attunement=&filter-search=&filter-source=79",
+              "locator": "Pixie Dust; source-filter79; Uncommon",
+              "kind": "official-item-index"
+            },
+            {
+              "url": "https://marketplace.dndbeyond.com/category/wild-beyond-the-witchlight",
+              "locator": "Product detail refers to pixie dust; destination of official item link",
+              "kind": "official-product"
+            }
+          ],
+          "access": {
+            "url": "https://www.dndbeyond.com/magic-items/3895572-pixie-dust",
+            "result": "redirect",
+            "destination": "https://marketplace.dndbeyond.com/category/wild-beyond-the-witchlight",
+            "fullRulesRead": false
+          },
+          "fullRulesVerified": false,
+          "exactObservedTextVersion": "unverified",
+          "reusePermission": "not-established",
+          "accepted": false,
+          "canonicalId": null
+        }
+      ],
+      "conclusion": "Official SKT errata renames pixie dust to faerie dust within the two named book sections. Do not rename the Witchlight item or infer equal mechanics. This is a source-specific name proposal; the historical observation and its text version remain unchanged.",
+      "remaining": [
+        "Confirm the saved SKT observation against its full section and printing.",
+        "Verify complete source-specific item rules and reuse rights before publishing content."
+      ]
+    },
+    {
+      "section": "bestiary",
+      "comparisonKey": "meenlock",
+      "disposition": "preserve-three-source-observations-until-statblock-comparison",
+      "automaticMerge": false,
+      "records": [
+        {
+          "observationId": "dndsu:bestiary:565",
+          "observedName": "Meenlock",
+          "observedSourceIds": [
+            "111"
+          ],
+          "primaryName": "Meenlock",
+          "identityStatus": "official-index-legacy-source-labelled",
+          "evidence": [
+            {
+              "url": "https://www.dndbeyond.com/monsters?filter-search=&filter-type=3&filter-type=8&page=4&sort=cr",
+              "locator": "Meenlock; Legacy; Volo's Guide to Monsters",
+              "kind": "official-monster-index"
+            }
+          ],
+          "access": {
+            "url": "https://www.dndbeyond.com/monsters/17281-meenlock",
+            "result": "redirect",
+            "destination": "https://www.dndbeyond.com/legacy",
+            "fullRulesRead": false
+          },
+          "fullRulesVerified": false,
+          "exactObservedTextVersion": "unverified",
+          "reusePermission": "not-established",
+          "accepted": false,
+          "canonicalId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:6835",
+          "observedName": "Meenlock",
+          "observedSourceIds": [
+            "158"
+          ],
+          "primaryName": "Meenlock",
+          "identityStatus": "official-index-source-labelled",
+          "evidence": [
+            {
+              "url": "https://www.dndbeyond.com/monsters?filter-search=&filter-type=3&filter-type=8&page=4&sort=cr",
+              "locator": "Meenlock; Mordenkainen Presents: Monsters of the Multiverse",
+              "kind": "official-monster-index"
+            }
+          ],
+          "access": {
+            "url": "https://www.dndbeyond.com/monsters/2560871-meenlock",
+            "result": "redirect",
+            "destination": "https://marketplace.dndbeyond.com/category/mordenkainen-presents-monsters-of-the-multiverse",
+            "fullRulesRead": false
+          },
+          "fullRulesVerified": false,
+          "exactObservedTextVersion": "unverified",
+          "reusePermission": "not-established",
+          "accepted": false,
+          "canonicalId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:8895",
+          "observedName": "Meenlock",
+          "observedSourceIds": [
+            "122"
+          ],
+          "primaryName": "Meenlock",
+          "identityStatus": "official-adventure-toc-heading",
+          "evidence": [
+            {
+              "url": "https://www.dndbeyond.com/sources/dnd/cm",
+              "locator": "A Deep and Creeping Darkness: Meenlock heading",
+              "kind": "official-source-toc"
+            }
+          ],
+          "access": {
+            "url": "https://www.dndbeyond.com/sources/cm/a-deep-and-creeping-darkness",
+            "result": "redirect",
+            "destination": "https://marketplace.dndbeyond.com/adventures/candlekeep-mysteries",
+            "fullRulesRead": false
+          },
+          "fullRulesVerified": false,
+          "exactObservedTextVersion": "unverified",
+          "reusePermission": "not-established",
+          "accepted": false,
+          "canonicalId": null
+        }
+      ],
+      "conclusion": "The index separates Volo and Multiverse entries, and Candlekeep independently lists a Meenlock section. A TOC heading does not prove a distinct stat block, nor equivalence to either indexed version. Legacy label is not exclusion from the2014 scope.",
+      "remaining": [
+        "Compare complete stat blocks across the three sources with lawful access.",
+        "Do not infer alignment, abilities, numbers or exact revisions from an index or forum comments."
+      ]
+    },
+    {
+      "section": "bestiary",
+      "comparisonKey": "space hamster",
+      "disposition": "partial-primary-evidence-preserve-both-observations",
+      "automaticMerge": false,
+      "records": [
+        {
+          "observationId": "dndsu:bestiary:6159",
+          "observedName": "Space Hamster",
+          "observedSourceIds": [
+            "135"
+          ],
+          "primaryName": null,
+          "identityStatus": "primary-unit-not-confirmed",
+          "evidence": [],
+          "access": {
+            "url": "https://www.dndbeyond.com/sources/dnd/wdotmm",
+            "result": "public-toc-does-not-confirm-this-unit",
+            "fullRulesRead": false
+          },
+          "fullRulesVerified": false,
+          "exactObservedTextVersion": "unverified",
+          "reusePermission": "not-established",
+          "accepted": false,
+          "canonicalId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:8691",
+          "observedName": "Space Hamster",
+          "observedSourceIds": [
+            "160"
+          ],
+          "primaryName": "Space Hamster",
+          "identityStatus": "official-index-and-source-toc",
+          "evidence": [
+            {
+              "url": "https://www.dndbeyond.com/monsters?page=7&sort=size",
+              "locator": "Space Hamster; Spelljammer: Adventures in Space",
+              "kind": "official-monster-index"
+            },
+            {
+              "url": "https://www.dndbeyond.com/sources/dnd/sais/bam",
+              "locator": "Space Hamsters lists Giant Space Hamster and Space Hamster separately",
+              "kind": "official-source-toc"
+            }
+          ],
+          "access": {
+            "url": "https://www.dndbeyond.com/monsters/2821199-space-hamster",
+            "result": "redirect",
+            "destination": "https://marketplace.dndbeyond.com/category/spelljammer-adventures-in-space",
+            "fullRulesRead": false
+          },
+          "fullRulesVerified": false,
+          "exactObservedTextVersion": "unverified",
+          "reusePermission": "not-established",
+          "accepted": false,
+          "canonicalId": null
+        }
+      ],
+      "conclusion": "Spelljammer identity is independently indexed; the Mad Mage observation has no verified primary unit in this pass. Do not replace its source with Spelljammer or merge it with Giant Space Hamster.",
+      "remaining": [
+        "Find the precise Mad Mage passage and determine whether it is a variant reference or independent stat block.",
+        "Compare source text versions and reuse rights without assuming equivalence from names."
+      ]
+    }
+  ],
+  "limits": [
+    "Evidence contains metadata and brief research conclusions, not copyrighted stat blocks or translations.",
+    "Three reviewed name groups are not a resolved catalog denominator.",
+    "Original4973 observations and294 diagnostic groups remain unchanged.",
+    "Public TOCs and redirects do not establish full rules, licensing, or exact printing."
+  ],
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved"
+}
