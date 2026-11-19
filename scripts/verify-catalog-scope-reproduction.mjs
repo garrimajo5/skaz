@@ -15,7 +15,12 @@ export function committedProposalCases(){
   ['catalog-source-review-queue.mjs',[],'source-review-queue-2014.json'],
   ['catalog-publication-inventory.mjs',[],'fiendish-folio-review-2014.json'],
   ['catalog-grouped-source-review.mjs',[],'adventurers-league-identity-review-2014.json'],
-  ['catalog-observed-name-review.mjs',[],'observed-name-review-2014.json']
+  ['catalog-observed-name-review.mjs',[],'observed-name-review-2014.json'],
+  ['catalog-m0-exit-review.mjs',[],'m0-exit-review-2014.json'],
+  ['catalog-corrected-name-review.mjs',[],'corrected-name-review-2014.json'],
+  ['catalog-named-source-review.mjs',[],'named-source-review-2014.json'],
+  ['catalog-effective-m0-review.mjs',[],'effective-m0-review-2014.json'],
+  ['catalog-class-composition-review.mjs',[],'class-composition-review-2014.json']
  ];
 }
 export function reproductionCases(evidenceDirectory,classDirectory,date,companionDirectory=join(evidenceDirectory,'companion-evidence')){
