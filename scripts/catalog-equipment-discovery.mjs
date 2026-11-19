@@ -8,6 +8,8 @@ export function equipmentRows(html,url){
  if(start<0||end<start)throw Error('Missing article boundary');html=html.slice(start,end);
  const source=html.match(/<li><strong>Источники?:<\/strong>([\s\S]*?)<\/li>/);
  if(!source)throw Error('Missing equipment source');
+ const sourceTitles=[...source[1].matchAll(/<span>([^<]+)<\/span>/g)].map(m=>clean(m[1])).filter(Boolean);
+ if(!sourceTitles.length)throw Error('Empty equipment source evidence');
  const records=[],seen=new Set();let selectedTables=0;
  for(const table of html.matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/g)){
   const rows=[...table[1].matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/g)].map(m=>[...m[1].matchAll(/<t[dh]\b([^>]*)>([\s\S]*?)<\/t[dh]>/g)].map(c=>({text:clean(c[2]),span:Number(c[1].match(/colspan=["'](\d+)["']/)?.[1]||1)})));
@@ -21,7 +23,7 @@ export function equipmentRows(html,url){
     if(!name||name.span>1||!name.text||!price?.text)continue;
     if(!/^(\d|—|–|-)/.test(price.text))throw Error('Unexpected equipment price');
     const key=name.text.toLocaleLowerCase('ru');if(seen.has(key))throw Error('Duplicate equipment name');seen.add(key);
-    records.push({observationId:'equipment:'+createHash('sha256').update(url+'\n'+key).digest('hex').slice(0,20),name:name.text,sourceUrl:url,sourceTitles:[...source[1].matchAll(/<span>([^<]+)<\/span>/g)].map(m=>clean(m[1])),priceText:price.text,status:'table-observation-not-approved-record',canonicalCatalogId:null,fullRules:'unverified',reusePermission:'not-established-for-reference-text'});
+    records.push({observationId:'equipment:'+createHash('sha256').update(url+'\n'+key).digest('hex').slice(0,20),name:name.text,sourceUrl:url,sourceTitles:[...new Set(sourceTitles)],priceText:price.text,status:'table-observation-not-approved-record',canonicalCatalogId:null,fullRules:'unverified',reusePermission:'not-established-for-reference-text'});
    }
   }
  }
@@ -36,3 +38,4 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  }
  writeFileSync(output,JSON.stringify({schemaVersion:1,observedOn:date,status:'partial-equipment-tables',articles},null,2)+'\n');console.log(articles.map(a=>({url:a.url,rows:a.records.length,tables:a.selectedTables})));
 }
+
