@@ -10,7 +10,7 @@ test('Baldur correction proposal covers every affected observation without chang
  assert.equal(affected.length,13);assert.equal(proposal.records.length,13);
  assert.deepEqual(proposal.records.map(p=>p.observationId).sort(),affected.map(p=>p.id).sort());
  assert.equal(new Set(proposal.records.map(p=>p.proposedEnglishName)).size,13);
- for(const row of proposal.records){const p=affected.find(p=>p.id===row.observationId);assert.equal(row.url,p.url);assert.equal(row.resolvedUrl,p.url);assert.deepEqual(row.sourceIds,p.sourceIds);assert.equal(row.observedEnglishName,p.names.en);assert.match(row.proposedEnglishName,/^Baldur's Gate .+/);assert.match(row.rawSha256,/^[0-9a-f]{64}$/);assert.equal(row.accepted,false);assert.equal(row.canonicalId,null);}
+ for(const row of proposal.records){const p=affected.find(p=>p.id===row.observationId);assert.equal(row.url,p.url);assert.equal(row.resolvedUrl,p.url);assert.deepEqual(row.sourceIds,p.sourceIds);assert.equal(row.observedEnglishName,p.names.en);assert.match(row.proposedEnglishName,/^Baldur's Gate .+/);assert.equal(row.proposedEnglishName,row.observedCardEnglishName.trim());assert.match(row.rawSha256,/^[0-9a-f]{64}$/);assert.equal(row.accepted,false);assert.equal(row.canonicalId,null);}
  assert.equal(proposal.scopeSha256,createHash('sha256').update(raw).digest('hex'));assert.equal(proposal.approvedDenominator,null);
 });
 test('malformed index apostrophe explains truncation; correctly encoded heading metadata stays distinct',()=>{
