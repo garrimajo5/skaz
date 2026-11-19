@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "status": "primary-table-metadata-not-runtime-content",
+  "ruleset": "5e-2014",
+  "checkedOn": "2026-11-19",
+  "source": {
+    "title": "Basic Rules (2014)",
+    "publisher": "Wizards of the Coast",
+    "url": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/equipment",
+    "section": "Equipment > Tools > Gaming Set",
+    "license": "not-established",
+    "usage": "two-numeric-table-observations-no-rule-text"
+  },
+  "inputSha256": {
+    "catalog/gaming-sets-canonical-proposal-2014.json": "ece6b5f472d2f569d58fe67f880331adb9707678915072a8351318575999dec4"
+  },
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "applicationBoundary": {
+    "automaticInventoryWeightChange": false,
+    "unknownWeightIsZero": false,
+    "ruleDeviation": "warn-and-allow-manual-override"
+  },
+  "records": [
+    {
+      "candidateItemId": "basic-rules:2014:item:dragonchess-set",
+      "observationId": "equipment:0a561e0baa83bb470a50",
+      "nameEn": "Dragonchess set",
+      "weightLb": 0.5,
+      "sourceWeight": "1/2 lb.",
+      "weightBasis": "entire-listed-entry",
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "basic-rules:2014:item:three-dragon-ante-set",
+      "observationId": "equipment:2e2cc74b394854ece009",
+      "nameEn": "Three-Dragon Ante set",
+      "weightLb": null,
+      "sourceWeight": "-",
+      "weightBasis": "entire-listed-entry",
+      "accepted": false,
+      "runtimeImported": false
+    }
+  ],
+  "limits": [
+    "These two entries are not in the reviewed SRD table; no SRD license is applied to them.",
+    "Only numeric table metadata is recorded, not game rules or translated text.",
+    "A source dash is not a zero-weight claim."
+  ]
+}
