@@ -28,7 +28,7 @@ def only(nodes,label):
     if len(nodes)!=1:raise ValueError('Expected one '+label)
     return nodes[0]
 def clean(node):return ' '.join(node.text().split())
-def parse_page(markup,filter_value,filter_option_id,allowed_sources=None):
+def parse_page(markup,filter_value,filter_option_id,allowed_sources=None,allow_blank_cr=False):
     tree=Tree();tree.feed(markup)
     option=only(tree.root.find(lambda n:n.tag=='option' and n.attrs.get('id')==filter_option_id),'source option')
     if option.attrs.get('value')!=filter_value or 'selected' not in option.attrs:raise ValueError('Source filter not selected')
@@ -48,7 +48,7 @@ def parse_page(markup,filter_value,filter_option_id,allowed_sources=None):
         path=link.attrs['href']
         if not re.fullmatch(r'/monsters/\d+-[a-z0-9-]+',path):raise ValueError('Invalid monster URL')
         cr=clean(only(n.find(lambda x:x.has('monster-challenge')),'CR'))
-        if not re.fullmatch(r'\d+(?:/\d+)?',cr):raise ValueError('Missing/invalid CR')
+        if not re.fullmatch(r'\d+(?:/\d+)?',cr) and not (allow_blank_cr and cr==''):raise ValueError('Missing/invalid CR')
         rows.append({'displayedSource':source,'digitalName':clean(link),'cardUrl':'https://www.dndbeyond.com'+path,'challengeRating':cr,'type':clean(only(n.find(lambda x:x.has('monster-type')),'type')),'size':clean(only(n.find(lambda x:x.has('monster-size')),'size')),'alignment':clean(only(n.find(lambda x:x.has('monster-alignment')),'alignment'))})
     if not rows or len(rows)>20 or len({r['cardUrl'] for r in rows})!=len(rows):raise ValueError('Unexpected digital unit set')
     return {'rows':rows,'nextPage':next(iter(next_pages),None)}

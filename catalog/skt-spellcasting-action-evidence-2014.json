@@ -1,0 +1,1054 @@
+{
+  "schemaVersion": 1,
+  "status": "primary-action-parameters-not-full-stat-blocks",
+  "checkedOn": "2026-11-19",
+  "ruleset": "5e-2014",
+  "sourceId": "132",
+  "accepted": false,
+  "fullRulesVerified": false,
+  "automaticPatch": false,
+  "approvedDenominator": null,
+  "primaryEvidence": {
+    "url": "https://media.wizards.com/2020/dnd/downloads/SKT-Errata.pdf",
+    "version": "2.0; copyright2021",
+    "sha256": "7be9a8709571785f9db1bec87a921afcac11712e9f8a85009f3c1229c983c61d",
+    "publisher": "Wizards of the Coast",
+    "reusePermission": "not-established"
+  },
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "d16b65c44f622b70f685aa391687375df13e627267367b50a58d0bd3307e25dd",
+    "catalog/skt-selected-errata-comparison-2014.json": "269121cd96603697cd7884cfc7d47b8d34176b4c6593fbbac21ff31c8ae19056",
+    "catalog/skt-appendix-errata-comparison-2014.json": "561fe0f26575713014302288c1eb5449989bfd1918e70af08b2d02e43008e997"
+  },
+  "actions": [
+    {
+      "unitId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "pdfPage": 1,
+      "bookPage": 33,
+      "ability": "intelligence",
+      "saveDc": 17,
+      "spellAttackBonus": 11,
+      "componentWaiver": "material-only",
+      "requiresSacredBundle": false,
+      "groups": [
+        {
+          "frequency": "At will",
+          "spells": [
+            {
+              "name": "message",
+              "override": null
+            },
+            {
+              "name": "prestidigitation",
+              "override": null
+            },
+            {
+              "name": "ray of frost",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "2/day each",
+          "spells": [
+            {
+              "name": "gust of wind",
+              "override": null
+            },
+            {
+              "name": "levitate",
+              "override": null
+            },
+            {
+              "name": "magic missile",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "1/day each",
+          "spells": [
+            {
+              "name": "cone of cold",
+              "override": null
+            },
+            {
+              "name": "contact other plane",
+              "override": {
+                "castingTime": "1 action"
+              }
+            },
+            {
+              "name": "greater invisibility",
+              "override": null
+            },
+            {
+              "name": "mass suggestion",
+              "override": null
+            },
+            {
+              "name": "nondetection",
+              "override": null
+            },
+            {
+              "name": "Otiluke’s resilient sphere",
+              "override": null
+            },
+            {
+              "name": "protection from energy",
+              "override": null
+            },
+            {
+              "name": "tongues",
+              "override": null
+            }
+          ]
+        }
+      ],
+      "observationCandidate": {
+        "id": "dndsu:bestiary:5599",
+        "name": "Zephyros",
+        "sourceIds": [
+          "132"
+        ],
+        "url": "https://dnd.su/bestiary/5599-zephyros/",
+        "relation": "same-named-character-selected-action"
+      },
+      "canonicalId": null,
+      "wholeStatBlockCompared": false
+    },
+    {
+      "unitId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "pdfPage": 1,
+      "bookPage": 95,
+      "ability": "charisma",
+      "saveDc": 22,
+      "spellAttackBonus": null,
+      "componentWaiver": "material-only",
+      "requiresSacredBundle": false,
+      "groups": [
+        {
+          "frequency": "At will",
+          "spells": [
+            {
+              "name": "comprehend languages",
+              "override": null
+            },
+            {
+              "name": "detect magic",
+              "override": null
+            },
+            {
+              "name": "mage hand",
+              "override": null
+            },
+            {
+              "name": "minor illusion",
+              "override": null
+            },
+            {
+              "name": "prestidigitation",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "2/day each",
+          "spells": [
+            {
+              "name": "darkness",
+              "override": null
+            },
+            {
+              "name": "detect thoughts",
+              "override": null
+            },
+            {
+              "name": "ice storm",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "1/day each",
+          "spells": [
+            {
+              "name": "banishment",
+              "override": null
+            },
+            {
+              "name": "cloudkill",
+              "override": null
+            },
+            {
+              "name": "disintegrate",
+              "override": null
+            },
+            {
+              "name": "etherealness",
+              "override": null
+            },
+            {
+              "name": "find the path",
+              "override": {
+                "castingTime": "1 action"
+              }
+            },
+            {
+              "name": "greater invisibility",
+              "override": null
+            },
+            {
+              "name": "haste",
+              "override": null
+            },
+            {
+              "name": "locate object",
+              "override": null
+            },
+            {
+              "name": "mass suggestion",
+              "override": null
+            },
+            {
+              "name": "mirage arcane",
+              "override": {
+                "castingTime": "1 action"
+              }
+            },
+            {
+              "name": "prismatic spray",
+              "override": null
+            }
+          ]
+        }
+      ],
+      "observationCandidate": {
+        "id": "dndsu:bestiary:5604",
+        "name": "Klauth",
+        "sourceIds": [
+          "132"
+        ],
+        "url": "https://dnd.su/bestiary/5604-klauth/",
+        "relation": "same-named-character-selected-action"
+      },
+      "canonicalId": null,
+      "wholeStatBlockCompared": false
+    },
+    {
+      "unitId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "pdfPage": 2,
+      "bookPage": 96,
+      "ability": "charisma",
+      "saveDc": 19,
+      "spellAttackBonus": null,
+      "componentWaiver": "material-only",
+      "requiresSacredBundle": false,
+      "groups": [
+        {
+          "frequency": "At will",
+          "spells": [
+            {
+              "name": "detect magic",
+              "override": null
+            },
+            {
+              "name": "druidcraft",
+              "override": null
+            },
+            {
+              "name": "speak with animals",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "2/day each",
+          "spells": [
+            {
+              "name": "animal messenger",
+              "override": null
+            },
+            {
+              "name": "cure wounds",
+              "override": null
+            },
+            {
+              "name": "dispel magic",
+              "override": null
+            },
+            {
+              "name": "entangle",
+              "override": null
+            },
+            {
+              "name": "invisibility",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "1/day each",
+          "spells": [
+            {
+              "name": "blight",
+              "override": null
+            },
+            {
+              "name": "legend lore",
+              "override": {
+                "castingTime": "1 action"
+              }
+            },
+            {
+              "name": "locate creature",
+              "override": null
+            },
+            {
+              "name": "pass without trace",
+              "override": null
+            },
+            {
+              "name": "protection from energy",
+              "override": null
+            },
+            {
+              "name": "true seeing",
+              "override": null
+            }
+          ]
+        }
+      ],
+      "observationCandidate": {
+        "id": "dndsu:bestiary:5607",
+        "name": "Claugiyliamatar",
+        "sourceIds": [
+          "132"
+        ],
+        "url": "https://dnd.su/bestiary/5607-claugiyliamatar/",
+        "relation": "same-named-character-selected-action"
+      },
+      "canonicalId": null,
+      "wholeStatBlockCompared": false
+    },
+    {
+      "unitId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "pdfPage": 2,
+      "bookPage": 107,
+      "ability": "wisdom",
+      "saveDc": 15,
+      "spellAttackBonus": null,
+      "componentWaiver": "material-only",
+      "requiresSacredBundle": false,
+      "groups": [
+        {
+          "frequency": "At will",
+          "spells": [
+            {
+              "name": "druidcraft",
+              "override": null
+            },
+            {
+              "name": "guidance",
+              "override": null
+            },
+            {
+              "name": "resistance",
+              "override": null
+            },
+            {
+              "name": "speak with plants",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "2/day each",
+          "spells": [
+            {
+              "name": "animal messenger",
+              "override": null
+            },
+            {
+              "name": "detect magic",
+              "override": null
+            },
+            {
+              "name": "entangle",
+              "override": null
+            },
+            {
+              "name": "goodberry",
+              "override": null
+            },
+            {
+              "name": "gust of wind",
+              "override": null
+            },
+            {
+              "name": "pass without trace",
+              "override": null
+            },
+            {
+              "name": "speak with animals",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "1/day each",
+          "spells": [
+            {
+              "name": "commune with nature",
+              "override": {
+                "castingTime": "1 action"
+              }
+            },
+            {
+              "name": "conjure woodland beings",
+              "override": null
+            },
+            {
+              "name": "hallucinatory terrain",
+              "override": {
+                "castingTime": "1 action"
+              }
+            }
+          ]
+        }
+      ],
+      "observationCandidate": {
+        "id": "dndsu:bestiary:5615",
+        "name": "Turlang",
+        "sourceIds": [
+          "132"
+        ],
+        "url": "https://dnd.su/bestiary/5615-turlang/",
+        "relation": "same-named-character-selected-action"
+      },
+      "canonicalId": null,
+      "wholeStatBlockCompared": false
+    },
+    {
+      "unitId": "wotc:skt:errata2:page165:spellcasting",
+      "actor": "Storvald",
+      "pdfPage": 2,
+      "bookPage": 165,
+      "ability": "wisdom",
+      "saveDc": null,
+      "spellAttackBonus": null,
+      "componentWaiver": "material-only",
+      "requiresSacredBundle": false,
+      "groups": [
+        {
+          "frequency": "1/day each",
+          "spells": [
+            {
+              "name": "jump",
+              "override": null
+            },
+            {
+              "name": "locate animals or plants",
+              "override": null
+            },
+            {
+              "name": "locate object",
+              "override": null
+            },
+            {
+              "name": "water breathing",
+              "override": null
+            },
+            {
+              "name": "water walk",
+              "override": null
+            }
+          ]
+        }
+      ],
+      "observationCandidate": {
+        "id": "dndsu:bestiary:5619",
+        "name": "Jarl Storvald",
+        "sourceIds": [
+          "132"
+        ],
+        "url": "https://dnd.su/bestiary/5619-jarl-storvald/",
+        "relation": "same-named-character-selected-action"
+      },
+      "canonicalId": null,
+      "wholeStatBlockCompared": false
+    },
+    {
+      "unitId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "pdfPage": 2,
+      "bookPage": 192,
+      "ability": "intelligence",
+      "saveDc": 15,
+      "spellAttackBonus": 7,
+      "componentWaiver": "material-only",
+      "requiresSacredBundle": false,
+      "groups": [
+        {
+          "frequency": "At will",
+          "spells": [
+            {
+              "name": "mage hand",
+              "override": null
+            },
+            {
+              "name": "message",
+              "override": null
+            },
+            {
+              "name": "prestidigitation",
+              "override": null
+            },
+            {
+              "name": "ray of frost",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "2/day each",
+          "spells": [
+            {
+              "name": "arcane lock",
+              "override": null
+            },
+            {
+              "name": "gust of wind",
+              "override": null
+            },
+            {
+              "name": "invisibility",
+              "override": null
+            },
+            {
+              "name": "magic missile",
+              "override": null
+            },
+            {
+              "name": "unseen servant",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "1/day each",
+          "spells": [
+            {
+              "name": "globe of invulnerability",
+              "override": null
+            },
+            {
+              "name": "haste",
+              "override": null
+            },
+            {
+              "name": "hypnotic pattern",
+              "override": null
+            },
+            {
+              "name": "ice storm",
+              "override": null
+            },
+            {
+              "name": "lightning bolt",
+              "override": null
+            },
+            {
+              "name": "Mordenkainen’s sword",
+              "override": null
+            },
+            {
+              "name": "wall of force",
+              "override": null
+            }
+          ]
+        }
+      ],
+      "observationCandidate": {
+        "id": "dndsu:bestiary:5618",
+        "name": "Countess Sansuri",
+        "sourceIds": [
+          "132"
+        ],
+        "url": "https://dnd.su/bestiary/5618-countess-sansuri/",
+        "relation": "same-named-character-selected-action"
+      },
+      "canonicalId": null,
+      "wholeStatBlockCompared": false
+    },
+    {
+      "unitId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "pdfPage": 2,
+      "bookPage": 224,
+      "ability": "intelligence",
+      "saveDc": 22,
+      "spellAttackBonus": null,
+      "componentWaiver": "all-components",
+      "requiresSacredBundle": false,
+      "groups": [
+        {
+          "frequency": "At will",
+          "spells": [
+            {
+              "name": "detect magic",
+              "override": null
+            },
+            {
+              "name": "detect thoughts",
+              "override": null
+            },
+            {
+              "name": "sending",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "2/day each",
+          "spells": [
+            {
+              "name": "control weather",
+              "override": {
+                "castingTime": "1 action"
+              }
+            },
+            {
+              "name": "fly",
+              "override": null
+            },
+            {
+              "name": "ice storm",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "1/day each",
+          "spells": [
+            {
+              "name": "arcane eye",
+              "override": null
+            },
+            {
+              "name": "chain lightning",
+              "override": null
+            },
+            {
+              "name": "feeblemind",
+              "override": null
+            },
+            {
+              "name": "foresight",
+              "override": null
+            },
+            {
+              "name": "locate creature",
+              "override": null
+            },
+            {
+              "name": "mass suggestion",
+              "override": null
+            },
+            {
+              "name": "nondetection",
+              "override": null
+            },
+            {
+              "name": "power word kill",
+              "override": null
+            },
+            {
+              "name": "scrying",
+              "override": {
+                "castingTime": "1 action"
+              }
+            },
+            {
+              "name": "sequester",
+              "override": null
+            },
+            {
+              "name": "telekinesis",
+              "override": null
+            },
+            {
+              "name": "teleport",
+              "override": null
+            }
+          ]
+        }
+      ],
+      "observationCandidate": {
+        "id": "dndsu:bestiary:5600",
+        "name": "Slarkrethel",
+        "sourceIds": [
+          "132"
+        ],
+        "url": "https://dnd.su/bestiary/5600-slarkrethel/",
+        "relation": "same-named-character-selected-action"
+      },
+      "canonicalId": null,
+      "wholeStatBlockCompared": false
+    },
+    {
+      "unitId": "wotc:skt:errata2:page241:spellcasting:iymrith",
+      "actor": "Iymrith",
+      "pdfPage": 3,
+      "bookPage": 241,
+      "ability": "charisma",
+      "saveDc": 20,
+      "spellAttackBonus": null,
+      "componentWaiver": "all-components",
+      "requiresSacredBundle": false,
+      "groups": [
+        {
+          "frequency": "1/day each",
+          "spells": [
+            {
+              "name": "detect magic",
+              "override": null
+            },
+            {
+              "name": "dispel magic",
+              "override": null
+            },
+            {
+              "name": "ice storm",
+              "override": null
+            },
+            {
+              "name": "stone shape",
+              "override": null
+            },
+            {
+              "name": "teleport",
+              "override": null
+            }
+          ]
+        }
+      ],
+      "observationCandidate": {
+        "id": "dndsu:bestiary:5601",
+        "name": "Iymrith",
+        "sourceIds": [
+          "132"
+        ],
+        "url": "https://dnd.su/bestiary/5601-iymrith/",
+        "relation": "same-named-character-selected-action"
+      },
+      "canonicalId": null,
+      "wholeStatBlockCompared": false
+    },
+    {
+      "unitId": "wotc:skt:errata2:page241:spellcasting:maegera",
+      "actor": "Maegera",
+      "pdfPage": 3,
+      "bookPage": 241,
+      "ability": "charisma",
+      "saveDc": 19,
+      "spellAttackBonus": null,
+      "componentWaiver": "material-only",
+      "requiresSacredBundle": false,
+      "groups": [
+        {
+          "frequency": "not-stated",
+          "spells": [
+            {
+              "name": "fireball",
+              "override": null
+            }
+          ]
+        }
+      ],
+      "observationCandidate": {
+        "id": "dndsu:bestiary:5605",
+        "name": "Maegera the Dawn Titan",
+        "sourceIds": [
+          "132"
+        ],
+        "url": "https://dnd.su/bestiary/5605-maegera-the-dawn-titan/",
+        "relation": "same-named-character-selected-action"
+      },
+      "canonicalId": null,
+      "wholeStatBlockCompared": false
+    },
+    {
+      "unitId": "wotc:skt:errata2:page243:spellcasting",
+      "actor": "The shaman",
+      "pdfPage": 3,
+      "bookPage": 243,
+      "ability": "wisdom",
+      "saveDc": 12,
+      "spellAttackBonus": 4,
+      "componentWaiver": "not-stated",
+      "requiresSacredBundle": true,
+      "groups": [
+        {
+          "frequency": "At will",
+          "spells": [
+            {
+              "name": "dancing lights",
+              "override": null
+            },
+            {
+              "name": "mage hand",
+              "override": null
+            },
+            {
+              "name": "message",
+              "override": null
+            },
+            {
+              "name": "thaumaturgy",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "1/day each",
+          "spells": [
+            {
+              "name": "augury",
+              "override": {
+                "castingTime": "1 action"
+              }
+            },
+            {
+              "name": "bestow curse",
+              "override": null
+            },
+            {
+              "name": "cordon of arrows",
+              "override": null
+            },
+            {
+              "name": "detect magic",
+              "override": null
+            },
+            {
+              "name": "speak with dead",
+              "override": null
+            },
+            {
+              "name": "spirit guardians",
+              "override": null
+            }
+          ]
+        }
+      ],
+      "observationCandidate": {
+        "id": "dndsu:bestiary:5606",
+        "name": "Uthgardt shaman",
+        "sourceIds": [
+          "132"
+        ],
+        "url": "https://dnd.su/bestiary/5606-uthgardt-shaman/",
+        "relation": "same-named-character-selected-action"
+      },
+      "canonicalId": null,
+      "wholeStatBlockCompared": false
+    },
+    {
+      "unitId": "wotc:skt:errata2:page252:spellcasting",
+      "actor": "Naxene",
+      "pdfPage": 4,
+      "bookPage": 252,
+      "ability": "intelligence",
+      "saveDc": 13,
+      "spellAttackBonus": 5,
+      "componentWaiver": "not-stated",
+      "requiresSacredBundle": false,
+      "groups": [
+        {
+          "frequency": "At will",
+          "spells": [
+            {
+              "name": "fire bolt",
+              "override": {
+                "damage": {
+                  "dice": "1d10",
+                  "type": "fire"
+                }
+              }
+            },
+            {
+              "name": "light",
+              "override": null
+            },
+            {
+              "name": "mage hand",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "1/day each",
+          "spells": [
+            {
+              "name": "mage armor",
+              "override": null
+            },
+            {
+              "name": "magic missile",
+              "override": null
+            },
+            {
+              "name": "suggestion",
+              "override": null
+            }
+          ]
+        }
+      ],
+      "observationCandidate": {
+        "id": "dndsu:bestiary:7777",
+        "name": "Naxene Drathkala",
+        "sourceIds": [
+          "132"
+        ],
+        "url": "https://dnd.su/bestiary/7777-naxene-drathkala/",
+        "relation": "same-named-character-selected-action"
+      },
+      "canonicalId": null,
+      "wholeStatBlockCompared": false
+    },
+    {
+      "unitId": "wotc:skt:errata2:page255:spellcasting",
+      "actor": "Othovir",
+      "pdfPage": 4,
+      "bookPage": 255,
+      "ability": "charisma",
+      "saveDc": 13,
+      "spellAttackBonus": 5,
+      "componentWaiver": "not-stated",
+      "requiresSacredBundle": false,
+      "groups": [
+        {
+          "frequency": "At will",
+          "spells": [
+            {
+              "name": "fire bolt",
+              "override": {
+                "damage": {
+                  "dice": "1d10",
+                  "type": "fire"
+                }
+              }
+            },
+            {
+              "name": "prestidigitation",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "1/day each",
+          "spells": [
+            {
+              "name": "mage armor",
+              "override": null
+            },
+            {
+              "name": "thunderwave",
+              "override": null
+            },
+            {
+              "name": "witch bolt",
+              "override": null
+            }
+          ]
+        }
+      ],
+      "observationCandidate": {
+        "id": "dndsu:bestiary:7782",
+        "name": "Othovir",
+        "sourceIds": [
+          "132"
+        ],
+        "url": "https://dnd.su/bestiary/7782-othovir/",
+        "relation": "same-named-character-selected-action"
+      },
+      "canonicalId": null,
+      "wholeStatBlockCompared": false
+    },
+    {
+      "unitId": "wotc:skt:errata2:page256:spellcasting",
+      "actor": "The giant",
+      "pdfPage": 4,
+      "bookPage": 256,
+      "ability": "charisma",
+      "saveDc": 17,
+      "spellAttackBonus": null,
+      "componentWaiver": "material-only",
+      "requiresSacredBundle": false,
+      "groups": [
+        {
+          "frequency": "At will",
+          "spells": [
+            {
+              "name": "detect magic",
+              "override": null
+            },
+            {
+              "name": "levitate",
+              "override": null
+            },
+            {
+              "name": "light",
+              "override": null
+            }
+          ]
+        },
+        {
+          "frequency": "1/day each",
+          "spells": [
+            {
+              "name": "control weather",
+              "override": {
+                "castingTime": "1 action"
+              }
+            },
+            {
+              "name": "water breathing",
+              "override": null
+            }
+          ]
+        }
+      ],
+      "observationCandidate": {
+        "id": "dndsu:bestiary:172",
+        "name": "Storm giant",
+        "sourceIds": [
+          "103"
+        ],
+        "url": "https://dnd.su/bestiary/172-storm-giant/",
+        "relation": "same-name-other-book-context"
+      },
+      "canonicalId": null,
+      "wholeStatBlockCompared": false
+    }
+  ],
+  "fieldSemantics": {
+    "nullNumericValue": "not printed in this action; not zero and not a calculated bonus",
+    "componentWaiverNotStated": "no waiver printed; not equivalent to no components",
+    "frequencyNotStated": "no frequency label printed; no invented daily counter or spell slots",
+    "perSpellFrequency": "each applies separately to every named spell, not a pooled group counter",
+    "overrides": "local to this creature action; never changes the general spell",
+    "scope": "Appendix D Storm Giant is not automatically the Monster Manual observation172"
+  },
+  "limits": [
+    "Factual selected action parameters only; no full stat block, primary book inventory or text reuse acceptance.",
+    "Original observations and personal exceptions are never overwritten.",
+    "A matching spell list does not establish class levels, preparation mechanics or identical versions."
+  ]
+}
