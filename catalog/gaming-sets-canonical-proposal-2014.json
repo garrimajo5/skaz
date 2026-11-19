@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "status": "canonical-identity-proposal",
+  "ruleset": "5e-2014",
+  "checkedOn": "2026-11-19",
+  "source": {
+    "title": "Basic Rules (2014)",
+    "publisher": "Wizards of the Coast",
+    "url": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/equipment",
+    "section": "Gaming Set",
+    "license": "not-established",
+    "usage": "bibliographic-identification-only-no-rule-text"
+  },
+  "scope": "Two observations absent from reviewed SRD table resolved against Basic Rules 2014; not SRD-licensed records",
+  "records": [
+    {
+      "observationId": "equipment:0a561e0baa83bb470a50",
+      "observedName": "Драконьи шахматы",
+      "observedPrice": "1 зм",
+      "proposedCanonicalId": "basic-rules:2014:item:dragonchess-set",
+      "nameEn": "Dragonchess set",
+      "costCp": 100,
+      "sourceSection": "Equipment > Tools > Gaming Set",
+      "status": "proposed-identity-not-runtime-record",
+      "fullRules": "unverified",
+      "referenceTranslationPermission": "not-established",
+      "resolvesSrdUnmatched": true
+    },
+    {
+      "observationId": "equipment:2e2cc74b394854ece009",
+      "observedName": "Ставка трех драконов",
+      "observedPrice": "1 зм",
+      "proposedCanonicalId": "basic-rules:2014:item:three-dragon-ante-set",
+      "nameEn": "Three-Dragon Ante set",
+      "costCp": 100,
+      "sourceSection": "Equipment > Tools > Gaming Set",
+      "status": "proposed-identity-not-runtime-record",
+      "fullRules": "unverified",
+      "referenceTranslationPermission": "not-established",
+      "resolvesSrdUnmatched": true
+    }
+  ]
+}

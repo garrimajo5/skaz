@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-19",
+  "status": "publisher-and-edition-evidence-not-text-license",
+  "records": [
+    {
+      "sourceId": "156",
+      "observedTitle": "Midgard Heroes Handbook",
+      "publisher": "Kobold Press",
+      "publicationKind": "third-party-sourcebook",
+      "evidenceUrl": "https://koboldpress.com/kpstore/product/midgard-heroes-handbook-for-5th-edition-errata-sheet/",
+      "evidenceSummary": "Publisher store identifies the Midgard Heroes Handbook 5th Edition errata; official product page search also identifies the matching title.",
+      "accessNote": "Main product page returned 403; publisher errata page was readable.",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "179",
+      "observedTitle": "laserllama",
+      "publisher": "laserllama",
+      "publicationKind": "author-described-homebrew",
+      "evidenceUrl": "https://www.patreon.com/cw/laserllama?l=de",
+      "evidenceSummary": "Creator describes their own D&D 5e work as homebrew.",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "190",
+      "observedTitle": "Valda's Spire of Secrets",
+      "publisher": "Mage Hand Press",
+      "publicationKind": "third-party-sourcebook",
+      "evidenceUrl": "https://magehandpress.com/valdas/",
+      "evidenceSummary": "Publisher presents its own 5e expansion, separately advertises a 2024 update and D&D Beyond availability. Marketplace availability does not establish WotC authorship.",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "101",
+      "observedTitle": "Dungeon Master's Guide",
+      "publisher": "Wizards of the Coast",
+      "publicationKind": "official-wotc-2014-publication",
+      "ruleset": "5e-2014",
+      "evidenceUrl": "https://marketplace.dndbeyond.com/all-rulebooks/dungeon-masters-guide",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/dmg-2014",
+      "evidenceSummary": "Publisher product metadata identifies Wizards of the Coast and the legacy 5e core book. Compendium title explicitly identifies the 2014 edition. Individual reference-page text versions remain unverified.",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "102",
+      "observedTitle": "Player's Handbook",
+      "publisher": "Wizards of the Coast",
+      "publicationKind": "official-wotc-2014-publication",
+      "ruleset": "5e-2014",
+      "evidenceUrl": "https://marketplace.dndbeyond.com/all-rulebooks/players-handbook",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/phb-2014",
+      "evidenceSummary": "Publisher product metadata identifies Wizards of the Coast and the legacy 5e core book. Compendium title explicitly identifies the 2014 edition. Individual reference-page text versions remain unverified.",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "103",
+      "observedTitle": "Monster Manual",
+      "publisher": "Wizards of the Coast",
+      "publicationKind": "official-wotc-2014-publication",
+      "ruleset": "5e-2014",
+      "evidenceUrl": "https://marketplace.dndbeyond.com/all-rulebooks/monster-manual",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/mm-2014",
+      "evidenceSummary": "Publisher product metadata identifies Wizards of the Coast and the legacy 5e core book. Compendium title explicitly identifies the 2014 edition. Individual reference-page text versions remain unverified.",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "109",
+      "observedTitle": "Xanathar's Guide to Everything",
+      "publisher": "Wizards of the Coast",
+      "publicationKind": "official-wotc-2014-publication",
+      "ruleset": "5e-2014",
+      "evidenceUrl": "https://marketplace.dndbeyond.com/rulebooks/xanathars-guide-to-everything",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/xgte",
+      "evidenceSummary": "Publisher product metadata identifies Wizards of the Coast. Official compendium timestamp is from 2017, before the 2024 revision. This identifies the publication era, not the exact current text revision.",
+      "compendiumTimestampYear": 2017,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "116",
+      "observedTitle": "Explorer's Guide to Wildemount",
+      "publisher": "Wizards of the Coast",
+      "publicationKind": "official-wotc-2014-publication",
+      "ruleset": "5e-2014",
+      "evidenceUrl": "https://marketplace.dndbeyond.com/beyond-digital/explorers-guide-to-wildemount",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/egtw",
+      "evidenceSummary": "Publisher product metadata identifies Wizards of the Coast. Official compendium timestamp is from 2020, before the 2024 revision. This identifies the publication era, not the exact current text revision.",
+      "compendiumTimestampYear": 2020,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "117",
+      "observedTitle": "Tasha's Cauldron of Everything",
+      "publisher": "Wizards of the Coast",
+      "publicationKind": "official-wotc-2014-publication",
+      "ruleset": "5e-2014",
+      "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00067",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/tcoe",
+      "evidenceSummary": "Publisher product metadata identifies Wizards of the Coast. Official compendium timestamp is from 2020, before the 2024 revision. This identifies the publication era, not the exact current text revision.",
+      "compendiumTimestampYear": 2020,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    }
+  ],
+  "limitations": [
+    "Nine numeric source IDs only; other source metadata is not certified official by omission. Publication eligibility does not approve any individual reference-page version.",
+    "Ryoko publisher pages returned 403; not classified by this evidence file.",
+    "No source text reproduced or runtime records removed."
+  ]
+}

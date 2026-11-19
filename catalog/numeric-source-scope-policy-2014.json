@@ -1,0 +1,851 @@
+{
+  "schemaVersion": 1,
+  "policy": "owner-official-wotc-2014-only",
+  "decisionDate": "2026-11-19",
+  "coverage": "reviewed-numeric-sources-only-not-full-catalog",
+  "approvedDenominator": null,
+  "complete": false,
+  "summary": {
+    "observedSources": 70,
+    "reviewedSources": 9,
+    "observedPages": 4973,
+    "affectedPages": 9,
+    "excludedPages": 9,
+    "mixedSourcePages": 0
+  },
+  "records": [
+    {
+      "sourceId": "101",
+      "observedTitle": "Dungeon Master's Guide",
+      "originalScope": "candidate-2014",
+      "disposition": "eligible-publication-records-need-review",
+      "evidenceUrl": "https://marketplace.dndbeyond.com/all-rulebooks/dungeon-masters-guide",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/dmg-2014",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "102",
+      "observedTitle": "Player's Handbook",
+      "originalScope": "candidate-2014",
+      "disposition": "eligible-publication-records-need-review",
+      "evidenceUrl": "https://marketplace.dndbeyond.com/all-rulebooks/players-handbook",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/phb-2014",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "103",
+      "observedTitle": "Monster Manual",
+      "originalScope": "candidate-2014",
+      "disposition": "eligible-publication-records-need-review",
+      "evidenceUrl": "https://marketplace.dndbeyond.com/all-rulebooks/monster-manual",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/mm-2014",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "105",
+      "observedTitle": "Hoard of the Dragon Queen",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "106",
+      "observedTitle": "The Rise of Tiamat",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "107",
+      "observedTitle": "Princes of the Apocalypse",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "108",
+      "observedTitle": "Sword Coast Adventurer's Guide",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "109",
+      "observedTitle": "Xanathar's Guide to Everything",
+      "originalScope": "candidate-2014",
+      "disposition": "eligible-publication-records-need-review",
+      "evidenceUrl": "https://marketplace.dndbeyond.com/rulebooks/xanathars-guide-to-everything",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/xgte",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "110",
+      "observedTitle": "Lost Mine of Phandelver",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "111",
+      "observedTitle": "Volo's guide to monsters",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "112",
+      "observedTitle": "Guildmasters' guide to Ravnica",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "113",
+      "observedTitle": "Mordenkainen's Tome of Foes",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "114",
+      "observedTitle": "Tomb of Annihilation",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "115",
+      "observedTitle": "Acquisition Incorporated",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "116",
+      "observedTitle": "Explorer's Guide to Wildemount",
+      "originalScope": "candidate-2014",
+      "disposition": "eligible-publication-records-need-review",
+      "evidenceUrl": "https://marketplace.dndbeyond.com/beyond-digital/explorers-guide-to-wildemount",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/egtw",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "117",
+      "observedTitle": "Tasha's Cauldron of Everything",
+      "originalScope": "candidate-2014",
+      "disposition": "eligible-publication-records-need-review",
+      "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00067",
+      "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/tcoe",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "119",
+      "observedTitle": "Eberron: Rising from the Last War",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "120",
+      "observedTitle": "Icewind Dale: Rime of the Frostmaiden",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "121",
+      "observedTitle": "Mythic Odysseys of Theros",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "122",
+      "observedTitle": "Candlekeep Mysteries",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "123",
+      "observedTitle": "Hunt for the Thessalhydra",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "124",
+      "observedTitle": "Curse of Strahd",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "125",
+      "observedTitle": "Van Richten's Guide to Ravenloft",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "126",
+      "observedTitle": "Baldur's Gate: Descent Into Avernus",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "127",
+      "observedTitle": "Essentials Kit: Divine Contention",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "128",
+      "observedTitle": "Ghosts of Saltmarsh",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "129",
+      "observedTitle": "Out of the Abyss",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "130",
+      "observedTitle": "The Lost Dungeon of Rickedness: Big Rick Energy",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "131",
+      "observedTitle": "Essentials Kit: Sleeping Dragon's Wake",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "132",
+      "observedTitle": "Storm King's Thunder",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "133",
+      "observedTitle": "Tales from the Yawning Portal",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "134",
+      "observedTitle": "Waterdeep: Dragon Heist",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "135",
+      "observedTitle": "Waterdeep: Dungeon of the Mad Mage",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "151",
+      "observedTitle": "The Wild Beyond The Witchlight: A Feywild Adventure",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "152",
+      "observedTitle": "Fizban's Treasury of Dragons",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "153",
+      "observedTitle": "Lost Laboratory of Kwalish",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "155",
+      "observedTitle": "Strixhaven: A Curriculum of Chaos",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "156",
+      "observedTitle": "Midgard Heroes Handbook",
+      "originalScope": "candidate-2014",
+      "disposition": "excluded-third-party",
+      "evidenceUrl": "https://koboldpress.com/kpstore/product/midgard-heroes-handbook-for-5th-edition-errata-sheet/",
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "157",
+      "observedTitle": "Essentials Kit: Dragon of Icespire peak",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "158",
+      "observedTitle": "Mordenkainen Presents: Monsters of the Multiverse",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "159",
+      "observedTitle": "Critical Role: Call of the Netherdeep",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "160",
+      "observedTitle": "Spelljammer: Adventures in Space",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "161",
+      "observedTitle": "Infernal Machine Rebuild",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "167",
+      "observedTitle": "Essentials Kit: Storm Lord's Wrath",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "169",
+      "observedTitle": "Adventurers League",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "171",
+      "observedTitle": "Journeys through the Radiant Citadel",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "174",
+      "observedTitle": "The Vecna Dossier",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "179",
+      "observedTitle": "laserllama",
+      "originalScope": "candidate-2014",
+      "disposition": "excluded-homebrew",
+      "evidenceUrl": "https://www.patreon.com/cw/laserllama?l=de",
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "180",
+      "observedTitle": "Saltmarsh Encounters",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "183",
+      "observedTitle": "Dragonlance: Shadow of the Dragon Queen",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "187",
+      "observedTitle": "Monstrous Compendium Vol 1: Spelljammer Creatures",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "188",
+      "observedTitle": "Monstrous Compendium Vol 2: Dragonlance Creatures",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "189",
+      "observedTitle": "Keys from the Golden Vault",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "190",
+      "observedTitle": "Valda's Spire of Secrets",
+      "originalScope": "candidate-2014",
+      "disposition": "excluded-third-party",
+      "evidenceUrl": "https://magehandpress.com/valdas/",
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "191",
+      "observedTitle": "Honor among Thieves",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "194",
+      "observedTitle": "Misplaced Monsters: Volume One",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "197",
+      "observedTitle": "Giants of the Star Forge",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "198",
+      "observedTitle": "Bigby Presents: Glory of the Giants",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "199",
+      "observedTitle": "Monstrous Compendium Vol 3: Minecraft Creatures",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "202",
+      "observedTitle": "Phandelver and Below: The Shattered Obelisk",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "205",
+      "observedTitle": "Planescape: Adventures in the Multiverse",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "206",
+      "observedTitle": "Mordenkainen's Fiendish Folio Vol 1",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "207",
+      "observedTitle": "The Book of Many Things",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "208",
+      "observedTitle": "Adventure Atlas: The Mortuary",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "210",
+      "observedTitle": "Ryoko's guide to the yokai realms",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "213",
+      "observedTitle": "Descent into the Lost Caverns of Tsojcanth",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "214",
+      "observedTitle": "Vecna: Eve of Ruin",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "218",
+      "observedTitle": "Quest from the Infinite Staircase",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "219",
+      "observedTitle": "Monstrous Compendium Vol. Four: Eldraine Creatures",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "sourceId": "310",
+      "observedTitle": "Spark of Alastas",
+      "originalScope": "candidate-2014",
+      "disposition": "not-reviewed-by-this-audit",
+      "evidenceUrl": null,
+      "editionEvidenceUrl": null,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    }
+  ],
+  "affectedPages": [
+    {
+      "id": "dndsu:class:277",
+      "sourceIds": [
+        "179"
+      ],
+      "originalInclusion": "excluded-homebrew",
+      "disposition": "excluded-by-owner-source-policy",
+      "excludedSourceIds": [
+        "179"
+      ],
+      "included": false,
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:class:382",
+      "sourceIds": [
+        "179"
+      ],
+      "originalInclusion": "excluded-homebrew",
+      "disposition": "excluded-by-owner-source-policy",
+      "excludedSourceIds": [
+        "179"
+      ],
+      "included": false,
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:class:389",
+      "sourceIds": [
+        "179"
+      ],
+      "originalInclusion": "excluded-homebrew",
+      "disposition": "excluded-by-owner-source-policy",
+      "excludedSourceIds": [
+        "179"
+      ],
+      "included": false,
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:class:391",
+      "sourceIds": [
+        "179"
+      ],
+      "originalInclusion": "excluded-homebrew",
+      "disposition": "excluded-by-owner-source-policy",
+      "excludedSourceIds": [
+        "179"
+      ],
+      "included": false,
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:class:395",
+      "sourceIds": [
+        "190"
+      ],
+      "originalInclusion": "excluded-homebrew",
+      "disposition": "excluded-by-owner-source-policy",
+      "excludedSourceIds": [
+        "190"
+      ],
+      "included": false,
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:class:401",
+      "sourceIds": [
+        "179"
+      ],
+      "originalInclusion": "excluded-homebrew",
+      "disposition": "excluded-by-owner-source-policy",
+      "excludedSourceIds": [
+        "179"
+      ],
+      "included": false,
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:class:403",
+      "sourceIds": [
+        "179"
+      ],
+      "originalInclusion": "excluded-homebrew",
+      "disposition": "excluded-by-owner-source-policy",
+      "excludedSourceIds": [
+        "179"
+      ],
+      "included": false,
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:class:853",
+      "sourceIds": [
+        "179"
+      ],
+      "originalInclusion": "excluded-homebrew",
+      "disposition": "excluded-by-owner-source-policy",
+      "excludedSourceIds": [
+        "179"
+      ],
+      "included": false,
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "id": "dndsu:class:857",
+      "sourceIds": [
+        "179"
+      ],
+      "originalInclusion": "excluded-homebrew",
+      "disposition": "excluded-by-owner-source-policy",
+      "excludedSourceIds": [
+        "179"
+      ],
+      "included": false,
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    }
+  ],
+  "inputSha256": {
+    "catalog/dndsu-source-register.json": "109868b7dbc77b2168d4dfec77166cf9cff4c8b55b9fff9ea3ccbdbbe899a42f",
+    "catalog/scope-register-2014.json": "844ae83f31a2e44f83121de9803a664463d3f01c31878be875c182628461e98a",
+    "catalog/numeric-source-publisher-evidence.json": "26d6bcad2fd311b744cae86c426490be2d3c5dd2bd965817eb6e912625af5407"
+  }
+}
