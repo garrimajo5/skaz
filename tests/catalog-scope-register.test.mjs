@@ -27,4 +27,17 @@ test('publisher bibliography does not approve race source scope or invent source
  assert.equal(r.summary.approvedDenominator,null);
 });
 
-test('component evidence remains outside the accepted page denominator',()=>{const r=JSON.parse(readFileSync(new URL('../catalog/scope-register-2014.json',import.meta.url)));assert.equal(r.componentEvidence.length,14);assert.equal(r.componentEvidence.find(e=>e.manifest.endsWith('replicate-item-options.json')).summary.options,49);assert.equal(r.componentEvidence.find(e=>e.manifest.endsWith('class-scope-boundaries.json')).summary.pendingSections,12);assert.equal(r.summary.observedPages,4973);assert.equal(r.summary.approvedDenominator,null);assert.equal(r.summary.fullRulesVerified,0);});
+test('component evidence remains outside the accepted page denominator',()=>{const r=JSON.parse(readFileSync(new URL('../catalog/scope-register-2014.json',import.meta.url)));assert.equal(r.componentEvidence.length,17);assert.equal(r.componentEvidence.find(e=>e.manifest.endsWith('replicate-item-options.json')).summary.options,49);assert.equal(r.componentEvidence.find(e=>e.manifest.endsWith('class-scope-boundaries.json')).summary.pendingSections,12);assert.equal(r.summary.observedPages,4973);assert.equal(r.summary.approvedDenominator,null);assert.equal(r.summary.fullRulesVerified,0);});
+
+test('equipment evidence is linked without treating observations, packs and page records as the same unit', () => {
+ const r=JSON.parse(readFileSync(new URL('../catalog/scope-register-2014.json',import.meta.url)));
+ const components=new Map(r.componentEvidence.map(row=>[row.manifest,row]));
+ assert.equal(components.get('catalog/equipment-identity-reconciliation.json').summary.matchedIdentities,186);
+ assert.equal(components.get('catalog/srd51-additional-equipment-discovery.json').summary.observations,82);
+ assert.equal(components.get('catalog/srd51-equipment-pack-memberships.json').summary.members,66);
+ assert.equal(Object.keys(r.inputSha256).length,33);
+ assert.equal(r.summary.observedPages,4973);
+ assert.equal(r.summary.approvedDenominator,null);
+ assert.equal(r.summary.complete,false);
+ assert.equal(r.records.length,4973);
+});

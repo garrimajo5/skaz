@@ -1,0 +1,1414 @@
+{
+  "schemaVersion": 1,
+  "status": "primary-source-observations-not-approved-catalog",
+  "observedOn": "2026-11-19",
+  "ruleset": "5e-2014",
+  "source": {
+    "title": "System Reference Document 5.1",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "pages": [
+      70,
+      71,
+      72,
+      73,
+      74
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode."
+  },
+  "scope": "Eight additional sections beyond the saved dnd.su equipment observations; heterogeneous source rows/headings, not uniform item records",
+  "summary": {
+    "observations": 82,
+    "equipmentPacks": 7,
+    "mountPurchaseRows": 8,
+    "tackHarnessAndDrawnVehicleRows": 14,
+    "waterborneVehicleRows": 6,
+    "tradeGoodsRows": 13,
+    "tradeGoodsAlternatives": 23,
+    "lifestyleRows": 7,
+    "foodDrinkLodgingRows": 20,
+    "serviceRows": 7
+  },
+  "approvedDenominator": null,
+  "complete": false,
+  "limitations": [
+    "Do not add these 82 observations to 186 as an approved item denominator: units include services, expense tiers, price rules and alternative goods.",
+    "Mount purchase rows are not bestiary stat blocks. Pack contents, weights, speeds, capacities and complete mechanics remain outside this manifest.",
+    "Spellcasting services and all non-SRD sources remain unenumerated here. Prices are source observations, not enforced gameplay limits."
+  ],
+  "records": [
+    {
+      "observationId": "srd51:2014:equipment-observation:burglars-pack",
+      "section": "Equipment Packs",
+      "nameEn": "Burglar’s Pack",
+      "recordType": "equipment-pack",
+      "sourcePage": 70,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 16,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "contents": "not-enumerated-by-this-manifest"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "section": "Equipment Packs",
+      "nameEn": "Diplomat’s Pack",
+      "recordType": "equipment-pack",
+      "sourcePage": 70,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 39,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "contents": "not-enumerated-by-this-manifest"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:dungeoneers-pack",
+      "section": "Equipment Packs",
+      "nameEn": "Dungeoneer’s Pack",
+      "recordType": "equipment-pack",
+      "sourcePage": 70,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 12,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "contents": "not-enumerated-by-this-manifest"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:entertainers-pack",
+      "section": "Equipment Packs",
+      "nameEn": "Entertainer’s Pack",
+      "recordType": "equipment-pack",
+      "sourcePage": 70,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 40,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "contents": "not-enumerated-by-this-manifest"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:explorers-pack",
+      "section": "Equipment Packs",
+      "nameEn": "Explorer’s Pack",
+      "recordType": "equipment-pack",
+      "sourcePage": 70,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "contents": "not-enumerated-by-this-manifest"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:priests-pack",
+      "section": "Equipment Packs",
+      "nameEn": "Priest’s Pack",
+      "recordType": "equipment-pack",
+      "sourcePage": 70,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 19,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "contents": "not-enumerated-by-this-manifest"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:scholars-pack",
+      "section": "Equipment Packs",
+      "nameEn": "Scholar’s Pack",
+      "recordType": "equipment-pack",
+      "sourcePage": 70,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 40,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "contents": "not-enumerated-by-this-manifest"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:camel-purchase",
+      "section": "Mounts and Other Animals",
+      "nameEn": "Camel",
+      "recordType": "mount-purchase-option",
+      "sourcePage": 71,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 50,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "bestiaryIdentity": "not-resolved"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:donkey-or-mule-purchase",
+      "section": "Mounts and Other Animals",
+      "nameEn": "Donkey or mule",
+      "recordType": "mount-purchase-option",
+      "sourcePage": 71,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 8,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "bestiaryIdentity": "not-resolved"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:elephant-purchase",
+      "section": "Mounts and Other Animals",
+      "nameEn": "Elephant",
+      "recordType": "mount-purchase-option",
+      "sourcePage": 71,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 200,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "bestiaryIdentity": "not-resolved"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:draft-horse-purchase",
+      "section": "Mounts and Other Animals",
+      "nameEn": "Horse, draft",
+      "recordType": "mount-purchase-option",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 50,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "bestiaryIdentity": "not-resolved"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:riding-horse-purchase",
+      "section": "Mounts and Other Animals",
+      "nameEn": "Horse, riding",
+      "recordType": "mount-purchase-option",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 75,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "bestiaryIdentity": "not-resolved"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:mastiff-purchase",
+      "section": "Mounts and Other Animals",
+      "nameEn": "Mastiff",
+      "recordType": "mount-purchase-option",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 25,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "bestiaryIdentity": "not-resolved"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:pony-purchase",
+      "section": "Mounts and Other Animals",
+      "nameEn": "Pony",
+      "recordType": "mount-purchase-option",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 30,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "bestiaryIdentity": "not-resolved"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:warhorse-purchase",
+      "section": "Mounts and Other Animals",
+      "nameEn": "Warhorse",
+      "recordType": "mount-purchase-option",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 400,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "bestiaryIdentity": "not-resolved"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:barding-price-rule",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Barding",
+      "recordType": "barding-price-rule",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "multiplier",
+        "factor": 4,
+        "base": "equivalent-armor-for-humanoids"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "note": "Not a fixed-price item; base armor must be chosen. Table weight multiplier is not imported here."
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:bit-and-bridle",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Bit and bridle",
+      "recordType": "tack",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:carriage",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Carriage",
+      "recordType": "land-vehicle",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 100,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:cart",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Cart",
+      "recordType": "land-vehicle",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 15,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:chariot",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Chariot",
+      "recordType": "land-vehicle",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 250,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:feed-per-day",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Feed (per day)",
+      "recordType": "consumable",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "cp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricingPeriod": "day"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:exotic-saddle",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Saddle, exotic",
+      "recordType": "tack",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 60,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:military-saddle",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Saddle, military",
+      "recordType": "tack",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 20,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:pack-saddle",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Saddle, pack",
+      "recordType": "tack",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:riding-saddle",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Saddle, riding",
+      "recordType": "tack",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:saddlebags",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Saddlebags",
+      "recordType": "tack",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 4,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:sled",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Sled",
+      "recordType": "land-vehicle",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 20,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:stabling-per-day",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Stabling (per day)",
+      "recordType": "service",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricingPeriod": "day"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:wagon",
+      "section": "Tack, Harness, and Drawn Vehicles",
+      "nameEn": "Wagon",
+      "recordType": "land-vehicle",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 35,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:galley",
+      "section": "Waterborne Vehicles",
+      "nameEn": "Galley",
+      "recordType": "water-vehicle",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 30000,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:keelboat",
+      "section": "Waterborne Vehicles",
+      "nameEn": "Keelboat",
+      "recordType": "water-vehicle",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3000,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:longship",
+      "section": "Waterborne Vehicles",
+      "nameEn": "Longship",
+      "recordType": "water-vehicle",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10000,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:rowboat",
+      "section": "Waterborne Vehicles",
+      "nameEn": "Rowboat",
+      "recordType": "water-vehicle",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 50,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:sailing-ship",
+      "section": "Waterborne Vehicles",
+      "nameEn": "Sailing ship",
+      "recordType": "water-vehicle",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10000,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:warship",
+      "section": "Waterborne Vehicles",
+      "nameEn": "Warship",
+      "recordType": "water-vehicle",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 25000,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-01",
+      "section": "Trade Goods",
+      "nameEn": "Wheat",
+      "recordType": "barter-price-row",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "cp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "alternatives": [
+        {
+          "nameEn": "Wheat",
+          "quantity": 1,
+          "unit": "lb"
+        }
+      ],
+      "alternativesAre": "one-of-not-a-bundle"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-02",
+      "section": "Trade Goods",
+      "nameEn": "Flour or Chicken",
+      "recordType": "barter-price-row",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "cp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "alternatives": [
+        {
+          "nameEn": "Flour",
+          "quantity": 1,
+          "unit": "lb"
+        },
+        {
+          "nameEn": "Chicken",
+          "quantity": 1,
+          "unit": "animal"
+        }
+      ],
+      "alternativesAre": "one-of-not-a-bundle"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-03",
+      "section": "Trade Goods",
+      "nameEn": "Salt",
+      "recordType": "barter-price-row",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "cp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "alternatives": [
+        {
+          "nameEn": "Salt",
+          "quantity": 1,
+          "unit": "lb"
+        }
+      ],
+      "alternativesAre": "one-of-not-a-bundle"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-04",
+      "section": "Trade Goods",
+      "nameEn": "Iron or Canvas",
+      "recordType": "barter-price-row",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "alternatives": [
+        {
+          "nameEn": "Iron",
+          "quantity": 1,
+          "unit": "lb"
+        },
+        {
+          "nameEn": "Canvas",
+          "quantity": 1,
+          "unit": "square-yard"
+        }
+      ],
+      "alternativesAre": "one-of-not-a-bundle"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-05",
+      "section": "Trade Goods",
+      "nameEn": "Copper or Cotton cloth",
+      "recordType": "barter-price-row",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "alternatives": [
+        {
+          "nameEn": "Copper",
+          "quantity": 1,
+          "unit": "lb"
+        },
+        {
+          "nameEn": "Cotton cloth",
+          "quantity": 1,
+          "unit": "square-yard"
+        }
+      ],
+      "alternativesAre": "one-of-not-a-bundle"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-06",
+      "section": "Trade Goods",
+      "nameEn": "Ginger or Goat",
+      "recordType": "barter-price-row",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "alternatives": [
+        {
+          "nameEn": "Ginger",
+          "quantity": 1,
+          "unit": "lb"
+        },
+        {
+          "nameEn": "Goat",
+          "quantity": 1,
+          "unit": "animal"
+        }
+      ],
+      "alternativesAre": "one-of-not-a-bundle"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-07",
+      "section": "Trade Goods",
+      "nameEn": "Cinnamon or Pepper or Sheep",
+      "recordType": "barter-price-row",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "alternatives": [
+        {
+          "nameEn": "Cinnamon",
+          "quantity": 1,
+          "unit": "lb"
+        },
+        {
+          "nameEn": "Pepper",
+          "quantity": 1,
+          "unit": "lb"
+        },
+        {
+          "nameEn": "Sheep",
+          "quantity": 1,
+          "unit": "animal"
+        }
+      ],
+      "alternativesAre": "one-of-not-a-bundle"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-08",
+      "section": "Trade Goods",
+      "nameEn": "Cloves or Pig",
+      "recordType": "barter-price-row",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "alternatives": [
+        {
+          "nameEn": "Cloves",
+          "quantity": 1,
+          "unit": "lb"
+        },
+        {
+          "nameEn": "Pig",
+          "quantity": 1,
+          "unit": "animal"
+        }
+      ],
+      "alternativesAre": "one-of-not-a-bundle"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-09",
+      "section": "Trade Goods",
+      "nameEn": "Silver or Linen",
+      "recordType": "barter-price-row",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "alternatives": [
+        {
+          "nameEn": "Silver",
+          "quantity": 1,
+          "unit": "lb"
+        },
+        {
+          "nameEn": "Linen",
+          "quantity": 1,
+          "unit": "square-yard"
+        }
+      ],
+      "alternativesAre": "one-of-not-a-bundle"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-10",
+      "section": "Trade Goods",
+      "nameEn": "Silk or Cow",
+      "recordType": "barter-price-row",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "alternatives": [
+        {
+          "nameEn": "Silk",
+          "quantity": 1,
+          "unit": "square-yard"
+        },
+        {
+          "nameEn": "Cow",
+          "quantity": 1,
+          "unit": "animal"
+        }
+      ],
+      "alternativesAre": "one-of-not-a-bundle"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-11",
+      "section": "Trade Goods",
+      "nameEn": "Saffron or Ox",
+      "recordType": "barter-price-row",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 15,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "alternatives": [
+        {
+          "nameEn": "Saffron",
+          "quantity": 1,
+          "unit": "lb"
+        },
+        {
+          "nameEn": "Ox",
+          "quantity": 1,
+          "unit": "animal"
+        }
+      ],
+      "alternativesAre": "one-of-not-a-bundle"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-12",
+      "section": "Trade Goods",
+      "nameEn": "Gold",
+      "recordType": "barter-price-row",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 50,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "alternatives": [
+        {
+          "nameEn": "Gold",
+          "quantity": 1,
+          "unit": "lb"
+        }
+      ],
+      "alternativesAre": "one-of-not-a-bundle"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-13",
+      "section": "Trade Goods",
+      "nameEn": "Platinum",
+      "recordType": "barter-price-row",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 500,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "alternatives": [
+        {
+          "nameEn": "Platinum",
+          "quantity": 1,
+          "unit": "lb"
+        }
+      ],
+      "alternativesAre": "one-of-not-a-bundle"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-wretched",
+      "section": "Lifestyle Expenses",
+      "nameEn": "Wretched",
+      "recordType": "lifestyle-expense",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "not-priced",
+        "sourceValue": "—"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricingPeriod": "day"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-squalid",
+      "section": "Lifestyle Expenses",
+      "nameEn": "Squalid",
+      "recordType": "lifestyle-expense",
+      "sourcePage": 72,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricingPeriod": "day"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-poor",
+      "section": "Lifestyle Expenses",
+      "nameEn": "Poor",
+      "recordType": "lifestyle-expense",
+      "sourcePage": 73,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricingPeriod": "day"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-modest",
+      "section": "Lifestyle Expenses",
+      "nameEn": "Modest",
+      "recordType": "lifestyle-expense",
+      "sourcePage": 73,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricingPeriod": "day"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-comfortable",
+      "section": "Lifestyle Expenses",
+      "nameEn": "Comfortable",
+      "recordType": "lifestyle-expense",
+      "sourcePage": 73,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricingPeriod": "day"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-wealthy",
+      "section": "Lifestyle Expenses",
+      "nameEn": "Wealthy",
+      "recordType": "lifestyle-expense",
+      "sourcePage": 73,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 4,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricingPeriod": "day"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-aristocratic",
+      "section": "Lifestyle Expenses",
+      "nameEn": "Aristocratic",
+      "recordType": "lifestyle-expense",
+      "sourcePage": 73,
+      "pricing": {
+        "mode": "minimum",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricingPeriod": "day"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:ale-gallon",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Ale, gallon",
+      "recordType": "food-or-drink",
+      "sourcePage": 73,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "gallon",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:ale-mug",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Ale, mug",
+      "recordType": "food-or-drink",
+      "sourcePage": 73,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 4,
+        "currency": "cp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "mug",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:banquet-per-person",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Banquet",
+      "recordType": "food-or-drink",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "person",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:bread-loaf",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Bread, loaf",
+      "recordType": "food-or-drink",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "cp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "loaf",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:cheese-hunk",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Cheese, hunk",
+      "recordType": "food-or-drink",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "hunk",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:inn-stay-squalid",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Inn stay, Squalid",
+      "recordType": "lodging-service",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 7,
+        "currency": "cp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:inn-stay-poor",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Inn stay, Poor",
+      "recordType": "lodging-service",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:inn-stay-modest",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Inn stay, Modest",
+      "recordType": "lodging-service",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:inn-stay-comfortable",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Inn stay, Comfortable",
+      "recordType": "lodging-service",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 8,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:inn-stay-wealthy",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Inn stay, Wealthy",
+      "recordType": "lodging-service",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:inn-stay-aristocratic",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Inn stay, Aristocratic",
+      "recordType": "lodging-service",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 4,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meals-squalid",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Meals, Squalid",
+      "recordType": "food-or-drink",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3,
+        "currency": "cp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meals-poor",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Meals, Poor",
+      "recordType": "food-or-drink",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 6,
+        "currency": "cp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meals-modest",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Meals, Modest",
+      "recordType": "food-or-drink",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meals-comfortable",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Meals, Comfortable",
+      "recordType": "food-or-drink",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meals-wealthy",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Meals, Wealthy",
+      "recordType": "food-or-drink",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 8,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meals-aristocratic",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Meals, Aristocratic",
+      "recordType": "food-or-drink",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meat-chunk",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Meat, chunk",
+      "recordType": "food-or-drink",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "chunk",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:wine-common-pitcher",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Wine, common",
+      "recordType": "food-or-drink",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "pitcher",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:wine-fine-bottle",
+      "section": "Food, Drink, and Lodging",
+      "nameEn": "Wine, fine",
+      "recordType": "food-or-drink",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "bottle",
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:coach-between-towns",
+      "section": "Services",
+      "nameEn": "Coach cab, between towns",
+      "recordType": "service",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3,
+        "currency": "cp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "mile"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:coach-within-city",
+      "section": "Services",
+      "nameEn": "Coach cab, within a city",
+      "recordType": "service",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "cp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "not-specified-in-table"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:hireling-skilled",
+      "section": "Services",
+      "nameEn": "Hireling, skilled",
+      "recordType": "service",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:hireling-untrained",
+      "section": "Services",
+      "nameEn": "Hireling, untrained",
+      "recordType": "service",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "day"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:messenger",
+      "section": "Services",
+      "nameEn": "Messenger",
+      "recordType": "service",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "cp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "mile"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:road-or-gate-toll",
+      "section": "Services",
+      "nameEn": "Road or gate toll",
+      "recordType": "service",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "cp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "not-specified-in-table"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:ships-passage",
+      "section": "Services",
+      "nameEn": "Ship’s passage",
+      "recordType": "service",
+      "sourcePage": 74,
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "sp"
+      },
+      "canonicalCatalogId": null,
+      "fullRules": "unverified",
+      "pricedUnit": "mile"
+    }
+  ]
+}
