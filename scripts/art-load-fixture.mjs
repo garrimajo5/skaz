@@ -4,7 +4,7 @@ import {openStore} from '../server/store.mjs';
 import {randomUUID} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 
-export function createArtLoadFixture(){
+export function createArtLoadFixture({artLibrary}={}){
  const store=openStore(':memory:');
  const command=fields=>({mutationId:randomUUID(),expectedRevision:store.read().revision,characterId:store.read().context.characterId,...fields});
  try{
@@ -12,7 +12,7 @@ export function createArtLoadFixture(){
   store.setSpell(command({catalogId:'srd51:2014:spell:fireball',status:'prepared'}));
   for(const slug of ['potion-of-healing','cloak-of-the-manta-ray'])store.addInventory(command({catalogId:'srd51:2014:item:'+slug,quantity:1}));
  }catch(error){store.close();throw error;}
- const server=createApp(store),handler=server.listeners('request')[0];server.removeAllListeners('request');
+ const server=createApp(store,{artLibrary}),handler=server.listeners('request')[0];server.removeAllListeners('request');
  const stats={requests:0,bodyBytes:0,groups:{shell:{requests:0,bodyBytes:0},api:{requests:0,bodyBytes:0},art:{requests:0,bodyBytes:0}}};
  const snapshot=()=>structuredClone(stats);
  server.on('request',(req,res)=>{
