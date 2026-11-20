@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {reviewD02Coverage,buildD02Coverage,proposalFiles,overlayFiles} from '../scripts/review-d02-proposal-coverage-2014.mjs';
+const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
+const inputs=()=>[read('catalog/effective-m0-review-2014.json'),Object.fromEntries(proposalFiles.map(p=>[p,read(p)])),Object.fromEntries(overlayFiles.map(p=>[p,read(p)]))];
+test('all D02 groups represented with exact observations, no accepted denominator',()=>{
+ const r=buildD02Coverage();assert.deepEqual(r.summary,{targetGroups:283,representedGroups:283,unrepresentedGroups:0,preservedObservations:583,preservedSourceAttributions:593,supplementalParentReferences:3,acceptedCanonicalUnits:0});assert.equal(r.complete,false);assert.equal(r.approvedDenominator,null);assert.deepEqual(r,read('catalog/d02-proposal-coverage-2014.json'));
+});
+test('missing proposal is visible without accepting completeness',()=>{const a=inputs();delete a[1][proposalFiles[6]];const r=reviewD02Coverage(...a);assert.equal(r.summary.unrepresentedGroups,4);assert.equal(r.complete,false);assert.equal(r.approvedDenominator,null);});
+test('same group in two proposals is rejected',()=>{const a=inputs();a[1][proposalFiles[1]].groups.push(a[1][proposalFiles[0]].groups[0]);assert.throws(()=>reviewD02Coverage(...a),/Duplicate proposal/);});
+test('out-of-scope root decision cannot enter D02',()=>{const a=inputs();a[1][proposalFiles[0]].groups[0].reviewId=a[0].identityGroups.find(g=>g.decision!=='define-separate-source-version-units').reviewId;assert.throws(()=>reviewD02Coverage(...a),/out-of-scope/);});
+test('source arrays retain order and every component',()=>{const a=inputs();const g=a[1][proposalFiles[5]].groups.find(g=>g.observations.some(o=>o.sourceIds.length>1));g.observations.find(o=>o.sourceIds.length>1).sourceIds.reverse();assert.throws(()=>reviewD02Coverage(...a),/attribution/);});
+test('supplemental groups cannot create new canonical units',()=>{const a=inputs();a[2][overlayFiles[0]].families[0].childProposals[0].accepted=true;assert.throws(()=>reviewD02Coverage(...a),/acceptance/);});
+test('repeated observation cannot replace a missing one',()=>{const a=inputs();const g=a[1][proposalFiles[0]].groups[0];g.units[1]=structuredClone(g.units[0]);assert.throws(()=>reviewD02Coverage(...a),/duplicate observation/);});
+test('unknown report and orphan overlay are rejected',()=>{const a=inputs();a[1]['catalog/foreign.json']=a[1][proposalFiles[0]];assert.throws(()=>reviewD02Coverage(...a),/Unknown report/);const b=inputs();delete b[1][proposalFiles.find(p=>b[1][p].groups.some(g=>g.reviewId===b[2][overlayFiles[0]].reviewId))];assert.throws(()=>reviewD02Coverage(...b),/Overlay without/);});
