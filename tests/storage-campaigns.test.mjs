@@ -1294,3 +1294,39 @@ test('pending history shows actual manual counter overflow and linked undo after
  await h.click('sync-history-chip');assert.match(h.dialog(),/7 → 8/);assert.doesNotMatch(h.dialog(),/7 → 7/);
  h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();await h.click('sync-history-chip');assert.match(h.dialog(),/7 → 8/);assert.equal(h.api.pendingCount(),2);
 });
+
+test('unreadable committed resource response keeps a friendly queue message and replays exactly after reload',async()=>{
+ const local=memory(),session=memory(),commands=[],ids=new Set();let revision=0,hp=28,broken=true,offline=false;
+ const fetch=async(url,options)=>{
+  if(offline)throw new TypeError('Failed to fetch internal detail');
+  if(url==='/api/resources/change'){
+   commands.push(options.body);const c=JSON.parse(options.body);
+   if(!ids.has(c.mutationId)){ids.add(c.mutationId);revision++;hp+=c.delta;}
+   if(broken)return {ok:true,status:200,json:async()=>{throw new SyntaxError('Unexpected token internal body');}};
+  }
+  return response({...payload(revision),state:{...seed,hp}});
+ };
+ let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();
+ h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h.api.paint();
+ assert.match(h.get('sync-status').innerHTML,/Не удалось прочитать ответ сервера/);assert.match(h.get('sync-status').innerHTML,/Очередь сохранена/);assert.doesNotMatch(h.get('sync-status').innerHTML,/Unexpected token|SyntaxError|internal body/);
+ assert.equal(h.api.pendingCount(),1);assert.equal(h.state().hp,27);
+ offline=true;h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal(h.api.pendingCount(),1);assert.equal(h.state().hp,27);
+ offline=false;broken=false;await h.api.flushResources();assert.equal(h.api.pendingCount(),0);assert.equal(h.state().hp,27);assert.equal(ids.size,1);assert.equal(commands.length,2);assert.equal(commands[0],commands[1]);
+});
+test('malformed error bodies preserve denial and conflict statuses without restoring cached authority',async()=>{
+ for(const status of [401,403,404,409])for(const nullBody of [false,true]){
+  let bad=false;const h=harness(memory(),memory(),async()=>bad?{ok:false,status,json:async()=>{if(nullBody)return null;throw new SyntaxError('private proxy body');}}:response(payload(0)),undefined,undefined,true);
+  await h.api.boot();bad=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h.api.paint();
+  assert.equal(h.api.pendingCount(),1);assert.equal(h.api.canResource(),false,'HTTP '+status);assert.equal(h.api.editable(),false);assert.equal(h.state().hp,27);
+  assert.doesNotMatch(h.get('sync-status').innerHTML,/private proxy body|Cannot read|SyntaxError/);
+  assert.match(h.get('sync-status').innerHTML,status===401?/Войди/:status===409?/изменились/:/доступ|прав/);
+ }
+});
+test('network and empty successful responses are readable while explicit server conflicts keep their message',async()=>{
+ for(const kind of ['network','empty','conflict']){
+  let bad=false;const fetch=async()=>{if(!bad)return response(payload(0));if(kind==='network')throw new TypeError('Failed to fetch internal');if(kind==='empty')return {ok:true,status:200,json:async()=>null};return {ok:false,status:409,json:async()=>({error:'Synthetic conflict detail'})};};
+  const h=harness(memory(),memory(),fetch,undefined,undefined,true);await h.api.boot();bad=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h.api.paint();
+  const html=h.get('sync-status').innerHTML;assert.equal(h.api.pendingCount(),1);assert.doesNotMatch(html,/Failed to fetch|Cannot read/);
+  assert.match(html,kind==='network'?/Не удалось связаться/:kind==='empty'?/Не удалось прочитать/:/Synthetic conflict detail/);
+ }
+});

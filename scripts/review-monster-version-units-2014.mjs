@@ -1,15 +1,18 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 import {pathToFileURL} from 'node:url';
 import {catalogInputHash} from './verify-catalog-input-hashes.mjs';
-const files=['catalog/effective-m0-review-2014.json','catalog/numeric-source-scope-policy-2014.json','catalog/monster-version-publication-evidence-2014.json'];
-const books={'111':{book:'vgtm',title:"Volo's Guide to Monsters",policyTitle:"Volo's guide to monsters"},'158':{book:'motm',title:'Mordenkainen Presents: Monsters of the Multiverse',policyTitle:'Mordenkainen Presents: Monsters of the Multiverse'}};
-const selected=g=>g.section==='bestiary'&&g.decision==='define-separate-source-version-units'&&g.members.length===2&&JSON.stringify(g.members.map(m=>m.sourceIds).sort())==='[["111"],["158"]]';
-export function reviewMonsterVersions(review,policy,evidence){
+const pairs={'volo-motm':{sourceIds:['111','158'],evidence:'monster-version-publication-evidence-2014.json',output:'monster-version-unit-proposals-2014.json'},'mtof-motm':{sourceIds:['113','158'],evidence:'mtf-monster-version-publication-evidence-2014.json',output:'mtf-monster-version-unit-proposals-2014.json'}};
+const configuration=pair=>{if(!Object.hasOwn(pairs,pair))throw Error('Unsupported publication pair');return pairs[pair];};
+const books={'113':{book:'mtof',title:"Mordenkainen's Tome of Foes",policyTitle:"Mordenkainen's Tome of Foes"},'111':{book:'vgtm',title:"Volo's Guide to Monsters",policyTitle:"Volo's guide to monsters"},'158':{book:'motm',title:'Mordenkainen Presents: Monsters of the Multiverse',policyTitle:'Mordenkainen Presents: Monsters of the Multiverse'}};
+const selected=(g,sourceIds)=>g.section==='bestiary'&&g.decision==='define-separate-source-version-units'&&g.members.length===2&&JSON.stringify(g.members.map(m=>m.sourceIds).sort())===JSON.stringify(sourceIds.map(id=>[id]));
+export function reviewMonsterVersions(review,policy,evidence,pair='volo-motm'){
+ const config=configuration(pair);
  if(evidence.schemaVersion!==1||evidence.status!=='bestiary-publication-index-evidence-not-full-rules'||!Array.isArray(evidence.sources)||evidence.sources.length!==2)throw Error('Invalid monster evidence');
- const groups=review.identityGroups.filter(selected),names=[...new Set(groups.map(g=>g.comparisonKey))].sort();
+ const groups=review.identityGroups.filter(g=>selected(g,config.sourceIds)),names=[...new Set(groups.map(g=>g.comparisonKey))].sort();
  if(JSON.stringify(names)!==JSON.stringify(evidence.selectedNames))throw Error('Selected names changed; refresh primary evidence');
  const indexes=new Map();
- for(const [sourceId,expected] of Object.entries(books)){
+ for(const sourceId of config.sourceIds){
+  const expected=books[sourceId];
   const policies=policy.records.filter(p=>p.sourceId===sourceId);
   if(policies.length!==1||policies[0].observedTitle!==expected.policyTitle||policies[0].disposition!=='eligible-publication-records-need-review')throw Error('Source policy changed');
   const sources=evidence.sources.filter(s=>s.sourceId===sourceId);if(sources.length!==1)throw Error('Ambiguous book evidence');const source=sources[0];
@@ -35,11 +38,16 @@ export function reviewMonsterVersions(review,policy,evidence){
   return {reviewId:g.reviewId,name:g.comparisonKey,proposal:units.every(u=>u.publicationEvidence)?'keep-separate-publication-versions':'retain-unresolved-publication-attribution',units,accepted:false,canonicalId:null,automaticMerge:false,automaticCharacterMigration:false};
  });
  const complete=proposals.filter(g=>g.proposal==='keep-separate-publication-versions');
- return {schemaVersion:1,status:'bestiary-publication-version-proposals-awaiting-review',accepted:false,complete:false,approvedDenominator:null,selection:'Exactly two bestiary observations with separate sourceIds111 and158; no other group is resolved by this report.',summary:{consideredGroups:groups.length,preservedObservations:observations.size,publicationEvidencedObservations:proposals.flatMap(g=>g.units).filter(u=>u.publicationEvidence).length,proposedSeparateVersionGroups:complete.length,proposedVersionUnits:complete.length*2,unresolvedGroups:groups.length-complete.length,acceptedCanonicalUnits:0},groups:proposals,limitations:['Contents headings establish publication presence, not identical rules or exact errata.','Missing, accented, compound and variant names are not automatically mapped to other headings.','No source observation, runtime entry, character, approved denominator or reuse permission is modified.']};
+ return {schemaVersion:1,status:'bestiary-publication-version-proposals-awaiting-review',accepted:false,complete:false,approvedDenominator:null,selection:'Exactly two bestiary observations with separate sourceIds'+config.sourceIds[0]+' and'+config.sourceIds[1]+'; no other group is resolved by this report.',summary:{consideredGroups:groups.length,preservedObservations:observations.size,publicationEvidencedObservations:proposals.flatMap(g=>g.units).filter(u=>u.publicationEvidence).length,proposedSeparateVersionGroups:complete.length,proposedVersionUnits:complete.length*2,unresolvedGroups:groups.length-complete.length,acceptedCanonicalUnits:0},groups:proposals,limitations:['Contents headings establish publication presence, not identical rules or exact errata.','Missing, accented, compound and variant names are not automatically mapped to other headings.','No source observation, runtime entry, character, approved denominator or reuse permission is modified.']};
 }
-export function buildMonsterVersions(){const raw=files.map(file=>readFileSync(new URL('../'+file,import.meta.url),'utf8'));return {...reviewMonsterVersions(...raw.map(JSON.parse)),inputSha256:Object.fromEntries(files.map((file,i)=>[file,catalogInputHash(raw[i])]))};}
+export function buildMonsterVersions(pair='volo-motm'){
+ const config=configuration(pair),files=['catalog/effective-m0-review-2014.json','catalog/numeric-source-scope-policy-2014.json','catalog/'+config.evidence];
+ const raw=files.map(file=>readFileSync(new URL('../'+file,import.meta.url),'utf8'));
+ return {...reviewMonsterVersions(...raw.map(JSON.parse),pair),inputSha256:Object.fromEntries(files.map((file,i)=>[file,catalogInputHash(raw[i])]))};
+}
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
- if(process.argv.slice(2).some(arg=>arg!=='--write'))throw Error('Only --write supported');
- const report=buildMonsterVersions(),text=JSON.stringify(report,null,2)+'\n',output=new URL('../catalog/monster-version-unit-proposals-2014.json',import.meta.url);
- if(process.argv.includes('--write'))writeFileSync(output,text);else if(readFileSync(output,'utf8').replace(/\r\n/g,'\n')!==text)throw Error('Stale monster proposals');console.log(JSON.stringify(report.summary));
+ const args=process.argv.slice(2);if(args.some(arg=>arg!=='--write'&&!arg.startsWith('--pair='))||args.filter(arg=>arg.startsWith('--pair=')).length>1)throw Error('Only --write and one --pair= supported');
+ const pair=args.find(arg=>arg.startsWith('--pair='))?.slice(7)??'volo-motm',config=configuration(pair);
+ const report=buildMonsterVersions(pair),text=JSON.stringify(report,null,2)+'\n',output=new URL('../catalog/'+config.output,import.meta.url);
+ if(args.includes('--write'))writeFileSync(output,text);else if(readFileSync(output,'utf8').replace(/\r\n/g,'\n')!==text)throw Error('Stale monster proposals');console.log(JSON.stringify(report.summary));
 }
