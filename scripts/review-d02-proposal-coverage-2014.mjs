@@ -13,10 +13,10 @@ function unaccepted(value){
  }
 }
 export function reviewD02Coverage(root,proposals,overlays){
- const target=new Map();
+ const target=new Map();const allObservations=new Set();
  for(const g of root.identityGroups.filter(g=>g.decision==='define-separate-source-version-units')){
   if(target.has(g.reviewId))throw Error('Duplicate root review ID');
-  const ids=g.members.map(m=>m.id);if(new Set(ids).size!==ids.length)throw Error('Duplicate root observation');
+  const ids=g.members.map(m=>m.id);for(const id of ids){if(allObservations.has(id))throw Error('Duplicate root observation');allObservations.add(id);}
   target.set(g.reviewId,g);
  }
  if(Object.keys(proposals).some(p=>!proposalFiles.includes(p))||Object.keys(overlays).some(p=>!overlayFiles.includes(p)))throw Error('Unknown report');
@@ -39,15 +39,16 @@ export function reviewD02Coverage(root,proposals,overlays){
    observations(g,p.observations??p.units);represented.set(p.reviewId,path);
   }
  }
- const supplemental=[];
+ const supplemental=[];const overlayParents=new Set();
  for(const [path,report] of Object.entries(overlays)){
   unaccepted(report);
   const groups=report.groups??[{reviewId:report.reviewId,units:report.families}];
-  for(const p of groups){const g=target.get(p.reviewId);if(!g||!represented.has(p.reviewId))throw Error('Overlay without represented parent');observations(g,p.units);supplemental.push({path,reviewId:p.reviewId,additionalCanonicalUnits:0});}
+  for(const p of groups){const key=path+':'+p.reviewId;if(overlayParents.has(key))throw Error('Duplicate supplemental parent');overlayParents.add(key);const g=target.get(p.reviewId);if(!g||!represented.has(p.reviewId))throw Error('Overlay without represented parent');observations(g,p.units);supplemental.push({path,reviewId:p.reviewId,additionalCanonicalUnits:0});}
  }
- const groups=[...target.values()].map(g=>({reviewId:g.reviewId,section:g.section,proposalPath:represented.get(g.reviewId)??null,observations:g.members.map(m=>({observationId:m.id,sourceIds:[...m.sourceIds]})),accepted:false,canonicalId:null}));
+ const routingCounts={};for(const g of target.values())for(const m of g.members){if(typeof m.routing!=='string'||!m.routing)throw Error('Missing original routing');routingCounts[m.routing]=(routingCounts[m.routing]??0)+1;}
+ const groups=[...target.values()].map(g=>({reviewId:g.reviewId,section:g.section,proposalPath:represented.get(g.reviewId)??null,observations:g.members.map(m=>({observationId:m.id,sourceIds:[...m.sourceIds],routing:m.routing})),accepted:false,canonicalId:null}));
  return {schemaVersion:1,status:'structural-proposal-coverage-only',accepted:false,complete:false,approvedDenominator:null,
- summary:{targetGroups:target.size,representedGroups:represented.size,unrepresentedGroups:target.size-represented.size,preservedObservations:groups.reduce((s,g)=>s+g.observations.length,0),preservedSourceAttributions:groups.reduce((s,g)=>s+g.observations.reduce((n,o)=>n+o.sourceIds.length,0),0),supplementalParentReferences:supplemental.length,acceptedCanonicalUnits:0},
+ summary:{targetGroups:target.size,representedGroups:represented.size,unrepresentedGroups:target.size-represented.size,preservedObservations:groups.reduce((s,g)=>s+g.observations.length,0),preservedSourceAttributions:groups.reduce((s,g)=>s+g.observations.reduce((n,o)=>n+o.sourceIds.length,0),0),supplementalParentReferences:supplemental.length,acceptedCanonicalUnits:0,observationsByOriginalRouting:routingCounts},
  groups,supplemental,limitations:['Structural representation does not accept identity, full rules, source versions, rights, aliases or canonical units.','Supplemental proposals reference existing groups and add zero accepted units.','Other root review decisions and runtime catalog coverage are outside D02; canonical denominator remains unset.']};
 }
 export function buildD02Coverage(){

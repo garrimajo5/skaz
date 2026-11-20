@@ -11,7 +11,11 @@
     "preservedObservations": 583,
     "preservedSourceAttributions": 593,
     "supplementalParentReferences": 3,
-    "acceptedCanonicalUnits": 0
+    "acceptedCanonicalUnits": 0,
+    "observationsByOriginalRouting": {
+      "ready-for-version-and-rights-review": 580,
+      "excluded-by-reference-scope": 3
+    }
   },
   "groups": [
     {
@@ -23,19 +27,22 @@
           "observationId": "dndsu:bestiary:565",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6835",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:8895",
           "sourceIds": [
             "122"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -50,13 +57,15 @@
           "observationId": "dndsu:items:2415",
           "sourceIds": [
             "132"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:items:2839",
           "sourceIds": [
             "151"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -71,13 +80,15 @@
           "observationId": "dndsu:multiverse:race:290",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:185",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -92,13 +103,15 @@
           "observationId": "dndsu:bestiary:635",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6821",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -113,13 +126,15 @@
           "observationId": "dndsu:bestiary:3058",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6543",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -134,19 +149,22 @@
           "observationId": "dndsu:bestiary:1035",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:5861",
           "sourceIds": [
             "129"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6475",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -161,13 +179,15 @@
           "observationId": "dndsu:bestiary:630",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7063",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -182,13 +202,15 @@
           "observationId": "dndsu:bestiary:2656",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6642",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -203,13 +225,15 @@
           "observationId": "dndsu:bestiary:516",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6470",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -224,13 +248,15 @@
           "observationId": "dndsu:bestiary:590",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6877",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -245,13 +271,15 @@
           "observationId": "dndsu:bestiary:568",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6883",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -266,13 +294,15 @@
           "observationId": "dndsu:bestiary:567",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6879",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -287,13 +317,15 @@
           "observationId": "dndsu:bestiary:4750",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6915",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -308,13 +340,15 @@
           "observationId": "dndsu:bestiary:4485",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7036",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -329,13 +363,15 @@
           "observationId": "dndsu:multiverse:race:283",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:170",
           "sourceIds": [
             "119"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -350,25 +386,29 @@
           "observationId": "dndsu:bestiary:1041",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:5864",
           "sourceIds": [
             "129"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6586",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:8033",
           "sourceIds": [
             "123"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -383,13 +423,15 @@
           "observationId": "dndsu:bestiary:609",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6796",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -404,13 +446,15 @@
           "observationId": "dndsu:bestiary:4880",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6798",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -425,13 +469,15 @@
           "observationId": "dndsu:multiverse:race:278",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:92",
           "sourceIds": [
             "107"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -446,13 +492,15 @@
           "observationId": "dndsu:bestiary:595",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6748",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -467,13 +515,15 @@
           "observationId": "dndsu:bestiary:620",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7084",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -488,13 +538,15 @@
           "observationId": "dndsu:bestiary:557",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6807",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -509,13 +561,15 @@
           "observationId": "dndsu:bestiary:4883",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6834",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -530,19 +584,22 @@
           "observationId": "dndsu:bestiary:4876",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:5866",
           "sourceIds": [
             "129"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6753",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -557,13 +614,15 @@
           "observationId": "dndsu:bestiary:621",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7082",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -578,13 +637,15 @@
           "observationId": "dndsu:bestiary:1280",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7056",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -599,13 +660,15 @@
           "observationId": "dndsu:multiverse:race:280",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:161",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -620,13 +683,15 @@
           "observationId": "dndsu:bestiary:599",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6731",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -641,13 +706,15 @@
           "observationId": "dndsu:bestiary:6159",
           "sourceIds": [
             "135"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:8691",
           "sourceIds": [
             "160"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -662,13 +729,15 @@
           "observationId": "dndsu:bestiary:15694",
           "sourceIds": [
             "214"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:8821",
           "sourceIds": [
             "160"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -683,21 +752,25 @@
           "observationId": "dndsu:multiverse:race:301",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:181",
           "sourceIds": [
             "112"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:328",
-          "sourceIds": []
+          "sourceIds": [],
+          "routing": "excluded-by-reference-scope"
         },
         {
           "observationId": "dndsu:race:439",
-          "sourceIds": []
+          "sourceIds": [],
+          "routing": "excluded-by-reference-scope"
         }
       ],
       "accepted": false,
@@ -712,13 +785,15 @@
           "observationId": "dndsu:bestiary:524",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6755",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -733,13 +808,15 @@
           "observationId": "dndsu:bestiary:616",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6578",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -754,13 +831,15 @@
           "observationId": "dndsu:multiverse:race:310",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:188",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -775,13 +854,15 @@
           "observationId": "dndsu:bestiary:574",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7045",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -796,13 +877,15 @@
           "observationId": "dndsu:bestiary:4884",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6837",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -817,13 +900,15 @@
           "observationId": "dndsu:bestiary:576",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6492",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -838,13 +923,15 @@
           "observationId": "dndsu:bestiary:4892",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7054",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -859,13 +946,15 @@
           "observationId": "dndsu:bestiary:2648",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6613",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -880,13 +969,15 @@
           "observationId": "dndsu:bestiary:597",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7029",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -901,13 +992,15 @@
           "observationId": "dndsu:bestiary:589",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6844",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -922,13 +1015,15 @@
           "observationId": "dndsu:bestiary:526",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7038",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -943,13 +1038,15 @@
           "observationId": "dndsu:bestiary:602",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7016",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -964,13 +1061,15 @@
           "observationId": "dndsu:bestiary:6485",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:881",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -985,13 +1084,15 @@
           "observationId": "dndsu:bestiary:2565",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7043",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1006,13 +1107,15 @@
           "observationId": "dndsu:bestiary:6480",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:653",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1027,13 +1130,15 @@
           "observationId": "dndsu:bestiary:2643",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7085",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1048,13 +1153,15 @@
           "observationId": "dndsu:bestiary:558",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6818",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1069,13 +1176,15 @@
           "observationId": "dndsu:bestiary:517",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6477",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1090,13 +1199,15 @@
           "observationId": "dndsu:bestiary:6576",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:924",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1111,13 +1222,15 @@
           "observationId": "dndsu:bestiary:4631",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6885",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1132,13 +1245,15 @@
           "observationId": "dndsu:bestiary:543",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6601",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1153,13 +1268,15 @@
           "observationId": "dndsu:bestiary:560",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6820",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1174,13 +1291,15 @@
           "observationId": "dndsu:bestiary:3979",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6727",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1195,13 +1314,15 @@
           "observationId": "dndsu:bestiary:4871",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6746",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1216,13 +1337,15 @@
           "observationId": "dndsu:items:266",
           "sourceIds": [
             "110"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:items:6736",
           "sourceIds": [
             "202"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1237,13 +1360,15 @@
           "observationId": "dndsu:bestiary:4881",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6799",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1258,13 +1383,15 @@
           "observationId": "dndsu:bestiary:4877",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6760",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1279,13 +1406,15 @@
           "observationId": "dndsu:bestiary:4908",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7073",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1300,13 +1429,15 @@
           "observationId": "dndsu:bestiary:593",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6750",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1321,13 +1452,15 @@
           "observationId": "dndsu:bestiary:4875",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6900",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1342,13 +1475,15 @@
           "observationId": "dndsu:bestiary:637",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7065",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1363,13 +1498,15 @@
           "observationId": "dndsu:bestiary:614",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6751",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1384,13 +1521,15 @@
           "observationId": "dndsu:bestiary:587",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7071",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1405,13 +1544,15 @@
           "observationId": "dndsu:multiverse:race:298",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:172",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1426,19 +1567,22 @@
           "observationId": "dndsu:bestiary:4909",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:5865",
           "sourceIds": [
             "129"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6938",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1453,13 +1597,15 @@
           "observationId": "dndsu:bestiary:645",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6491",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1474,13 +1620,15 @@
           "observationId": "dndsu:bestiary:536",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6467",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1495,13 +1643,15 @@
           "observationId": "dndsu:bestiary:605",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7047",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1516,13 +1666,15 @@
           "observationId": "dndsu:bestiary:2901",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6887",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1537,13 +1689,15 @@
           "observationId": "dndsu:items:267",
           "sourceIds": [
             "110"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:items:6735",
           "sourceIds": [
             "202"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1558,19 +1712,22 @@
           "observationId": "dndsu:bestiary:4863",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:5828",
           "sourceIds": [
             "129"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6596",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1585,13 +1742,15 @@
           "observationId": "dndsu:bestiary:522",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6481",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1606,13 +1765,15 @@
           "observationId": "dndsu:bestiary:578",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7061",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1627,13 +1788,15 @@
           "observationId": "dndsu:bestiary:2644",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6828",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1648,13 +1811,15 @@
           "observationId": "dndsu:bestiary:521",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6482",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1669,13 +1834,15 @@
           "observationId": "dndsu:bestiary:4865",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6704",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1690,13 +1857,15 @@
           "observationId": "dndsu:bestiary:2282",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6600",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1711,13 +1880,15 @@
           "observationId": "dndsu:bestiary:4534",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6717",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1732,13 +1903,15 @@
           "observationId": "dndsu:bestiary:594",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6749",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1753,13 +1926,15 @@
           "observationId": "dndsu:bestiary:4860",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6453",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1774,17 +1949,20 @@
           "observationId": "dndsu:multiverse:race:282",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:173",
           "sourceIds": [
             "112"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:430",
-          "sourceIds": []
+          "sourceIds": [],
+          "routing": "excluded-by-reference-scope"
         }
       ],
       "accepted": false,
@@ -1799,13 +1977,15 @@
           "observationId": "dndsu:bestiary:591",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6876",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1820,13 +2000,15 @@
           "observationId": "dndsu:bestiary:4872",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6744",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1841,19 +2023,22 @@
           "observationId": "dndsu:bestiary:17391",
           "sourceIds": [
             "133"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6584",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:941",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1868,13 +2053,15 @@
           "observationId": "dndsu:bestiary:1626",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6465",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1889,13 +2076,15 @@
           "observationId": "dndsu:bestiary:582",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6784",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1910,13 +2099,15 @@
           "observationId": "dndsu:bestiary:577",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7060",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1931,13 +2122,15 @@
           "observationId": "dndsu:bestiary:2646",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6611",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1952,13 +2145,15 @@
           "observationId": "dndsu:bestiary:525",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6747",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1973,13 +2168,15 @@
           "observationId": "dndsu:bestiary:4862",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6486",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -1994,13 +2191,15 @@
           "observationId": "dndsu:bestiary:4536",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6929",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2015,13 +2214,15 @@
           "observationId": "dndsu:bestiary:537",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6833",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2036,13 +2237,15 @@
           "observationId": "dndsu:bestiary:562",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6827",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2057,13 +2260,15 @@
           "observationId": "dndsu:bestiary:561",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6927",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2078,13 +2283,15 @@
           "observationId": "dndsu:bestiary:1895",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6710",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2099,13 +2306,15 @@
           "observationId": "dndsu:bestiary:1043",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7058",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2120,13 +2329,15 @@
           "observationId": "dndsu:bestiary:3976",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6830",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2141,13 +2352,15 @@
           "observationId": "dndsu:bestiary:5758",
           "sourceIds": [
             "120"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6854",
           "sourceIds": [
             "125"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2162,13 +2375,15 @@
           "observationId": "dndsu:bestiary:5675",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6789",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2183,13 +2398,15 @@
           "observationId": "dndsu:bestiary:1505",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6875",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2204,7 +2421,8 @@
           "observationId": "dndsu:bestiary:8022",
           "sourceIds": [
             "157"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:8027",
@@ -2212,7 +2430,8 @@
             "127",
             "131",
             "167"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2227,13 +2446,15 @@
           "observationId": "dndsu:bestiary:4363",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6457",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2248,13 +2469,15 @@
           "observationId": "dndsu:bestiary:626",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6829",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2269,13 +2492,15 @@
           "observationId": "dndsu:bestiary:639",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7066",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2290,13 +2515,15 @@
           "observationId": "dndsu:bestiary:6582",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:925",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2311,13 +2538,15 @@
           "observationId": "dndsu:bestiary:580",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6783",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2332,13 +2561,15 @@
           "observationId": "dndsu:bestiary:1893",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6712",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2353,13 +2584,15 @@
           "observationId": "dndsu:bestiary:610",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6795",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2374,13 +2607,15 @@
           "observationId": "dndsu:bestiary:559",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6819",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2395,13 +2630,15 @@
           "observationId": "dndsu:bestiary:644",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6490",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2416,13 +2653,15 @@
           "observationId": "dndsu:bestiary:3974",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6711",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2437,13 +2676,15 @@
           "observationId": "dndsu:bestiary:625",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6817",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2460,13 +2701,15 @@
             "114",
             "120",
             "122"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:8718",
           "sourceIds": [
             "160"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2481,13 +2724,15 @@
           "observationId": "dndsu:bestiary:5676",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6790",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2502,13 +2747,15 @@
           "observationId": "dndsu:bestiary:4902",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7042",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2523,13 +2770,15 @@
           "observationId": "dndsu:bestiary:6493",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:655",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2544,13 +2793,15 @@
           "observationId": "dndsu:bestiary:4899",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7032",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2566,13 +2817,15 @@
           "sourceIds": [
             "113",
             "129"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6917",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2587,13 +2840,15 @@
           "observationId": "dndsu:bestiary:3070",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6743",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2608,13 +2863,15 @@
           "observationId": "dndsu:bestiary:1888",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6705",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2629,13 +2886,15 @@
           "observationId": "dndsu:bestiary:4906",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7048",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2650,13 +2909,15 @@
           "observationId": "dndsu:bestiary:588",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7072",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2671,13 +2932,15 @@
           "observationId": "dndsu:bestiary:640",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6464",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2692,13 +2955,15 @@
           "observationId": "dndsu:bestiary:598",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6458",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2713,13 +2978,15 @@
           "observationId": "dndsu:bestiary:4377",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6726",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2734,13 +3001,15 @@
           "observationId": "dndsu:bestiary:1894",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6714",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2755,13 +3024,15 @@
           "observationId": "dndsu:bestiary:544",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6605",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2776,13 +3047,15 @@
           "observationId": "dndsu:bestiary:4640",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6781",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2797,13 +3070,15 @@
           "observationId": "dndsu:bestiary:553",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6462",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2818,13 +3093,15 @@
           "observationId": "dndsu:bestiary:601",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6839",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2839,13 +3116,15 @@
           "observationId": "dndsu:bestiary:3051",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6826",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2860,7 +3139,8 @@
           "observationId": "dndsu:bestiary:8017",
           "sourceIds": [
             "157"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:8023",
@@ -2868,7 +3148,8 @@
             "127",
             "131",
             "167"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2883,13 +3164,15 @@
           "observationId": "dndsu:bestiary:541",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6604",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2904,13 +3187,15 @@
           "observationId": "dndsu:bestiary:4868",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6456",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2925,19 +3210,22 @@
           "observationId": "dndsu:bestiary:1889",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6090",
           "sourceIds": [
             "129"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6707",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2952,13 +3240,15 @@
           "observationId": "dndsu:bestiary:600",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7057",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2973,13 +3263,15 @@
           "observationId": "dndsu:bestiary:4891",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6924",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -2994,13 +3286,15 @@
           "observationId": "dndsu:bestiary:4861",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6454",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3015,13 +3309,15 @@
           "observationId": "dndsu:bestiary:4901",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7030",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3036,13 +3332,15 @@
           "observationId": "dndsu:bestiary:4895",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6980",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3057,13 +3355,15 @@
           "observationId": "dndsu:bestiary:533",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6780",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3078,13 +3378,15 @@
           "observationId": "dndsu:bestiary:6235",
           "sourceIds": [
             "135"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:8050",
           "sourceIds": [
             "130"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3099,13 +3401,15 @@
           "observationId": "dndsu:bestiary:606",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7050",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3120,13 +3424,15 @@
           "observationId": "dndsu:multiverse:race:307",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:183",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3141,13 +3447,15 @@
           "observationId": "dndsu:bestiary:3094",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6916",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3162,13 +3470,15 @@
           "observationId": "dndsu:bestiary:575",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6585",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3183,13 +3493,15 @@
           "observationId": "dndsu:bestiary:534",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6752",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3204,13 +3516,15 @@
           "observationId": "dndsu:bestiary:3053",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6825",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3225,13 +3539,15 @@
           "observationId": "dndsu:multiverse:race:281",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:167",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3246,13 +3562,15 @@
           "observationId": "dndsu:items:10778",
           "sourceIds": [
             "218"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:items:10841",
           "sourceIds": [
             "153"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3267,13 +3585,15 @@
           "observationId": "dndsu:bestiary:4873",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6745",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3288,13 +3608,15 @@
           "observationId": "dndsu:bestiary:1021",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6880",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3309,13 +3631,15 @@
           "observationId": "dndsu:bestiary:3980",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6725",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3330,13 +3654,15 @@
           "observationId": "dndsu:bestiary:554",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6479",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3351,13 +3677,15 @@
           "observationId": "dndsu:bestiary:3962",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6713",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3372,13 +3700,15 @@
           "observationId": "dndsu:bestiary:4888",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6848",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3393,13 +3723,15 @@
           "observationId": "dndsu:bestiary:4887",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6847",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3414,13 +3746,15 @@
           "observationId": "dndsu:bestiary:1662",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7051",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3435,13 +3769,15 @@
           "observationId": "dndsu:multiverse:race:294",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:166",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3456,13 +3792,15 @@
           "observationId": "dndsu:bestiary:4905",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7046",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3477,13 +3815,15 @@
           "observationId": "dndsu:bestiary:4360",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6468",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3498,13 +3838,15 @@
           "observationId": "dndsu:bestiary:581",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6785",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3519,13 +3861,15 @@
           "observationId": "dndsu:bestiary:563",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7069",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3540,13 +3884,15 @@
           "observationId": "dndsu:bestiary:532",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6779",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3561,7 +3907,8 @@
           "observationId": "dndsu:bestiary:8016",
           "sourceIds": [
             "157"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:8024",
@@ -3569,7 +3916,8 @@
             "127",
             "131",
             "167"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3584,13 +3932,15 @@
           "observationId": "dndsu:bestiary:520",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6759",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3605,19 +3955,22 @@
           "observationId": "dndsu:bestiary:460",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:5839",
           "sourceIds": [
             "129"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6587",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3632,13 +3985,15 @@
           "observationId": "dndsu:bestiary:1283",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6757",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3653,13 +4008,15 @@
           "observationId": "dndsu:multiverse:race:289",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:204",
           "sourceIds": [
             "151"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3674,13 +4031,15 @@
           "observationId": "dndsu:bestiary:3649",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6742",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3695,13 +4054,15 @@
           "observationId": "dndsu:bestiary:624",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6608",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3716,13 +4077,15 @@
           "observationId": "dndsu:bestiary:4373",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6484",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3737,13 +4100,15 @@
           "observationId": "dndsu:multiverse:race:299",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:175",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3758,13 +4123,15 @@
           "observationId": "dndsu:bestiary:1044",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6776",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3779,13 +4146,15 @@
           "observationId": "dndsu:bestiary:596",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6597",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3800,13 +4169,15 @@
           "observationId": "dndsu:bestiary:7169",
           "sourceIds": [
             "121"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7498",
           "sourceIds": [
             "128"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3821,19 +4192,22 @@
           "observationId": "dndsu:bestiary:3968",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:5850",
           "sourceIds": [
             "129"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6708",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3848,13 +4222,15 @@
           "observationId": "dndsu:bestiary:2335",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6836",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3869,13 +4245,15 @@
           "observationId": "dndsu:multiverse:race:297",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:168",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3890,13 +4268,15 @@
           "observationId": "dndsu:bestiary:592",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6878",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3911,13 +4291,15 @@
           "observationId": "dndsu:bestiary:646",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6489",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3932,13 +4314,15 @@
           "observationId": "dndsu:bestiary:555",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6487",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3953,13 +4337,15 @@
           "observationId": "dndsu:bestiary:6483",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:880",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3974,13 +4360,15 @@
           "observationId": "dndsu:bestiary:3052",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6824",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -3995,13 +4383,15 @@
           "observationId": "dndsu:bestiary:642",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6831",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4016,13 +4406,15 @@
           "observationId": "dndsu:bestiary:2655",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6928",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4037,7 +4429,8 @@
           "observationId": "dndsu:bestiary:8014",
           "sourceIds": [
             "157"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:8025",
@@ -4045,7 +4438,8 @@
             "127",
             "131",
             "167"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4061,13 +4455,15 @@
           "sourceIds": [
             "111",
             "128"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6476",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4082,13 +4478,15 @@
           "observationId": "dndsu:bestiary:4894",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6976",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4103,13 +4501,15 @@
           "observationId": "dndsu:bestiary:535",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7074",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4124,13 +4524,15 @@
           "observationId": "dndsu:bestiary:542",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6603",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4145,13 +4547,15 @@
           "observationId": "dndsu:bestiary:6478",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:874",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4166,13 +4570,15 @@
           "observationId": "dndsu:bestiary:4879",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6797",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4187,13 +4593,15 @@
           "observationId": "dndsu:bestiary:622",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6488",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4208,13 +4616,15 @@
           "observationId": "dndsu:bestiary:607",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6494",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4229,13 +4639,15 @@
           "observationId": "dndsu:bestiary:4874",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6718",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4250,13 +4662,15 @@
           "observationId": "dndsu:bestiary:3978",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6728",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4271,13 +4685,15 @@
           "observationId": "dndsu:bestiary:1042",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6460",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4292,19 +4708,22 @@
           "observationId": "dndsu:bestiary:17390",
           "sourceIds": [
             "133"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6495",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:889",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4319,13 +4738,15 @@
           "observationId": "dndsu:bestiary:4897",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7031",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4340,13 +4761,15 @@
           "observationId": "dndsu:bestiary:530",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6763",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4361,13 +4784,15 @@
           "observationId": "dndsu:bestiary:4864",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6641",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4382,13 +4807,15 @@
           "observationId": "dndsu:bestiary:619",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7081",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4403,11 +4830,13 @@
           "observationId": "dndsu:multiverse:race:309",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:184",
-          "sourceIds": []
+          "sourceIds": [],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4422,13 +4851,15 @@
           "observationId": "dndsu:bestiary:652",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7040",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4443,13 +4874,15 @@
           "observationId": "dndsu:bestiary:539",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6602",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4464,13 +4897,15 @@
           "observationId": "dndsu:bestiary:15252",
           "sourceIds": [
             "213"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:17230",
           "sourceIds": [
             "218"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4485,13 +4920,15 @@
           "observationId": "dndsu:bestiary:518",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6758",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4506,13 +4943,15 @@
           "observationId": "dndsu:bestiary:4898",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7034",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4527,13 +4966,15 @@
           "observationId": "dndsu:bestiary:4345",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6762",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4548,13 +4989,15 @@
           "observationId": "dndsu:bestiary:538",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6937",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4569,13 +5012,15 @@
           "observationId": "dndsu:bestiary:1281",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7055",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4590,13 +5035,15 @@
           "observationId": "dndsu:bestiary:6583",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:940",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4611,13 +5058,15 @@
           "observationId": "dndsu:bestiary:2333",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6794",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4632,13 +5081,15 @@
           "observationId": "dndsu:multiverse:race:291",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:102",
           "sourceIds": [
             "107"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4653,13 +5104,15 @@
           "observationId": "dndsu:bestiary:13216",
           "sourceIds": [
             "208"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6869",
           "sourceIds": [
             "125"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4674,13 +5127,15 @@
           "observationId": "dndsu:bestiary:1046",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:8259",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4695,13 +5150,15 @@
           "observationId": "dndsu:bestiary:4889",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6913",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4716,13 +5173,15 @@
           "observationId": "dndsu:bestiary:654",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6563",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4737,13 +5196,15 @@
           "observationId": "dndsu:bestiary:10",
           "sourceIds": [
             "110"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:12554",
           "sourceIds": [
             "202"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4758,13 +5219,15 @@
           "observationId": "dndsu:bestiary:4885",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6841",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4779,13 +5242,15 @@
           "observationId": "dndsu:bestiary:4376",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7068",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4800,19 +5265,22 @@
           "observationId": "dndsu:bestiary:1890",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:5848",
           "sourceIds": [
             "129"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6709",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4827,13 +5295,15 @@
           "observationId": "dndsu:bestiary:608",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6496",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4848,13 +5318,15 @@
           "observationId": "dndsu:bestiary:4882",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6832",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4869,13 +5341,15 @@
           "observationId": "dndsu:bestiary:2654",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6703",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4890,13 +5364,15 @@
           "observationId": "dndsu:bestiary:615",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6577",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4911,13 +5387,15 @@
           "observationId": "dndsu:bestiary:1929",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6775",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4932,13 +5410,15 @@
           "observationId": "dndsu:bestiary:583",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6579",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4953,13 +5433,15 @@
           "observationId": "dndsu:bestiary:1970",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6892",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4974,13 +5456,15 @@
           "observationId": "dndsu:multiverse:race:295",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:103",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -4995,13 +5479,15 @@
           "observationId": "dndsu:bestiary:627",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6463",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5016,13 +5502,15 @@
           "observationId": "dndsu:bestiary:6469",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:873",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5037,13 +5525,15 @@
           "observationId": "dndsu:bestiary:5678",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6936",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5058,13 +5548,15 @@
           "observationId": "dndsu:bestiary:1928",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6767",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5079,13 +5571,15 @@
           "observationId": "dndsu:multiverse:race:303",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:182",
           "sourceIds": [
             "121"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5100,13 +5594,15 @@
           "observationId": "dndsu:bestiary:566",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6930",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5121,13 +5617,15 @@
           "observationId": "dndsu:multiverse:race:300",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:179",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5142,13 +5640,15 @@
           "observationId": "dndsu:bestiary:4751",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6902",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5163,13 +5663,15 @@
           "observationId": "dndsu:bestiary:527",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6845",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5184,13 +5686,15 @@
           "observationId": "dndsu:bestiary:4886",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6842",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5205,13 +5709,15 @@
           "observationId": "dndsu:bestiary:540",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6607",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5226,13 +5732,15 @@
           "observationId": "dndsu:multiverse:race:306",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:186",
           "sourceIds": [
             "119"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5247,13 +5755,15 @@
           "observationId": "dndsu:bestiary:6466",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:872",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5268,13 +5778,15 @@
           "observationId": "dndsu:bestiary:564",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6754",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5289,13 +5801,15 @@
           "observationId": "dndsu:bestiary:2334",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6461",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5310,13 +5824,15 @@
           "observationId": "dndsu:bestiary:545",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6606",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5331,13 +5847,15 @@
           "observationId": "dndsu:bestiary:3975",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6706",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5352,13 +5870,15 @@
           "observationId": "dndsu:bestiary:1047",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6459",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5373,13 +5893,15 @@
           "observationId": "dndsu:bestiary:1045",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6777",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5394,13 +5916,15 @@
           "observationId": "dndsu:bestiary:519",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6581",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5415,13 +5939,15 @@
           "observationId": "dndsu:bestiary:617",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7076",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5436,13 +5962,15 @@
           "observationId": "dndsu:bestiary:1022",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6977",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5457,13 +5985,15 @@
           "observationId": "dndsu:bestiary:556",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6926",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5478,13 +6008,15 @@
           "observationId": "dndsu:multiverse:race:296",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:207",
           "sourceIds": [
             "151"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5499,13 +6031,15 @@
           "observationId": "dndsu:bestiary:552",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6610",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5520,13 +6054,15 @@
           "observationId": "dndsu:bestiary:531",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6778",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5541,13 +6077,15 @@
           "observationId": "dndsu:bestiary:638",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7067",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5562,13 +6100,15 @@
           "observationId": "dndsu:bestiary:618",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7083",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5583,13 +6123,15 @@
           "observationId": "dndsu:bestiary:5677",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6788",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5604,13 +6146,15 @@
           "observationId": "dndsu:bestiary:4401",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7086",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5625,13 +6169,15 @@
           "observationId": "dndsu:bestiary:2277",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6455",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5646,13 +6192,15 @@
           "observationId": "dndsu:bestiary:4907",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7049",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5667,13 +6215,15 @@
           "observationId": "dndsu:bestiary:5672",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6791",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5689,13 +6239,15 @@
           "sourceIds": [
             "122",
             "125"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:949",
           "sourceIds": [
             "124"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5710,13 +6262,15 @@
           "observationId": "dndsu:bestiary:4900",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7035",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5731,13 +6285,15 @@
           "observationId": "dndsu:bestiary:2645",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6925",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5752,13 +6308,15 @@
           "observationId": "dndsu:bestiary:1892",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7107",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5774,13 +6332,15 @@
           "sourceIds": [
             "106",
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6787",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5795,13 +6355,15 @@
           "observationId": "dndsu:bestiary:1282",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6914",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5816,13 +6378,15 @@
           "observationId": "dndsu:bestiary:586",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6800",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5837,13 +6401,15 @@
           "observationId": "dndsu:bestiary:584",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6580",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5858,13 +6424,15 @@
           "observationId": "dndsu:bestiary:529",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7039",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5879,13 +6447,15 @@
           "observationId": "dndsu:bestiary:2291",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7037",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5900,13 +6470,15 @@
           "observationId": "dndsu:bestiary:523",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7059",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5921,13 +6493,15 @@
           "observationId": "dndsu:bestiary:15727",
           "sourceIds": [
             "214"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:960",
           "sourceIds": [
             "124"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5942,13 +6516,15 @@
           "observationId": "dndsu:bestiary:4893",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6720",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5963,13 +6539,15 @@
           "observationId": "dndsu:bestiary:631",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:7064",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -5984,19 +6562,22 @@
           "observationId": "dndsu:bestiary:1036",
           "sourceIds": [
             "113"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:5863",
           "sourceIds": [
             "129"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6782",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -6011,13 +6592,15 @@
           "observationId": "dndsu:bestiary:5671",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6792",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -6032,13 +6615,15 @@
           "observationId": "dndsu:multiverse:race:302",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:race:187",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
@@ -6053,13 +6638,15 @@
           "observationId": "dndsu:bestiary:604",
           "sourceIds": [
             "111"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         },
         {
           "observationId": "dndsu:bestiary:6935",
           "sourceIds": [
             "158"
-          ]
+          ],
+          "routing": "ready-for-version-and-rights-review"
         }
       ],
       "accepted": false,
