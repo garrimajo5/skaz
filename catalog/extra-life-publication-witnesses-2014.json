@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "scope": "bibliographic-era-and-permission-witnesses-only",
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "sources": [
+    {
+      "id": "grung2017",
+      "url": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/223738-sample.pdf",
+      "sha256": "341c2ea03cc62e88b8d500beeb102b31c0f6e84bb3ecb2389b2216b06397644e",
+      "pageCount": 2,
+      "kind": "publisher-public-sample-not-full-book",
+      "file": "grung-preview.pdf"
+    },
+    {
+      "id": "locathah2019",
+      "url": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/289261-sample.pdf",
+      "sha256": "fa0934caa3aab7c0f907da3b1f963110ce096e0355d0087c7f3b26257e3360e9",
+      "pageCount": 6,
+      "kind": "publisher-public-sample-not-full-book",
+      "file": "locathah-preview.pdf"
+    },
+    {
+      "id": "kwalish2018",
+      "url": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/258047-sample.pdf",
+      "sha256": "94eb9732ef7f51df5f43b867d930b507bf23f7d43dfcf32cd6942f4435279e12",
+      "pageCount": 6,
+      "kind": "publisher-public-sample-not-full-book",
+      "file": "kwalish-preview.pdf"
+    }
+  ],
+  "units": [
+    {
+      "key": "grung-copyright-era",
+      "source": "grung2017",
+      "pdfPage": 2,
+      "start": "ONE GRUNG ABOVE",
+      "stop": "ver since",
+      "anchors": [
+        "©2017",
+        "WIZARDS OF THE COAST LLC."
+      ]
+    },
+    {
+      "key": "team-historical-publications",
+      "source": "kwalish2018",
+      "pdfPage": 1,
+      "start": "A Note from the D&D Team",
+      "stop": "Background",
+      "anchors": [
+        "2017",
+        "One Grung Above",
+        "The Tortle Package"
+      ]
+    },
+    {
+      "key": "locathah-edition-context",
+      "source": "locathah2019",
+      "pdfPage": 1,
+      "start": "Running the Adventure",
+      "stop": "Adjusting Encounters",
+      "anchors": [
+        "fifth edition"
+      ]
+    },
+    {
+      "key": "locathah-legal-era-and-permission",
+      "source": "locathah2019",
+      "pdfPage": 1,
+      "start": "This material",
+      "stop": "Cover Illustrator",
+      "anchors": [
+        "©2019",
+        "express written permission"
+      ]
+    },
+    {
+      "key": "locathah-character-option-reference",
+      "source": "locathah2019",
+      "pdfPage": 2,
+      "start": "This adventure includes",
+      "stop": "Whether",
+      "anchors": [
+        "playable character race"
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "bibliographyEvidenceId": "bibliography:one-grung-above",
+      "originalEraYear": 2017,
+      "yearEvidenceUnit": "grung-copyright-era",
+      "historicalCorroborationUnit": "team-historical-publications",
+      "fullCharacterRulesVerified": false
+    },
+    {
+      "bibliographyEvidenceId": "bibliography:locathah-rising",
+      "originalEraYear": 2019,
+      "yearEvidenceUnit": "locathah-legal-era-and-permission",
+      "editionContextUnit": "locathah-edition-context",
+      "characterOptionReferenceUnit": "locathah-character-option-reference",
+      "fullCharacterRulesVerified": false
+    },
+    {
+      "bibliographyEvidenceId": "bibliography:the-tortle-package",
+      "originalEraYear": 2017,
+      "yearEvidenceUnit": "team-historical-publications",
+      "priorEvidence": "catalog/source-bibliography-evidence.json#bibliography:the-tortle-package",
+      "newFullPreviewStatus": "HTTP403",
+      "fullCharacterRulesVerified": false
+    }
+  ],
+  "rightsBoundary": {
+    "locathahNoticeUnit": "locathah-legal-era-and-permission",
+    "textReusePermission": "not-established",
+    "translationReusePermission": "not-established",
+    "allWotcBooksCoveredBySrdLicense": false,
+    "findingOfUnlawfulness": false
+  },
+  "limitations": [
+    "These are bounded metadata/era/permission witnesses, not full rules or exact errata comparisons.",
+    "A copyright year and historical team note corroborate original era, not an exact original release day or full text version.",
+    "Locathah race-creation appendix is referenced, not read or accepted as full rules. Grung preview is cover/introduction only.",
+    "Tortle preview returned HTTP403; inaccessible full text was not bypassed or replaced with unofficial copies.",
+    "AL legality and publisher identity remain distinct from project scope, full-rule identity and reuse.",
+    "Anchor checks and author visual review are not independent acceptance; no runtime data or profiles change."
+  ]
+}
