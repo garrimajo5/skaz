@@ -1,0 +1,2050 @@
+{
+  "schemaVersion": 1,
+  "status": "residual-heading-classification-proposal",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "classSlug": "sorcerer",
+  "classUrl": "https://dnd.su/class/101-sorcerer/",
+  "snapshotPageSha256": "043713e7e994523e2fce783280e788e24da198a0d301b155f673c980a7c986d3",
+  "freshCapture": {
+    "url": "https://dnd.su/class/101-sorcerer/",
+    "sha256": "edb1240313dc9beb8ea51c9820bcfb5c014d9071ff91b7bf4f40e59b0a8c560b",
+    "headingStructureSha256": "f6b6975fbe1c1b83a5844630b1cf931ace25cf7f989e3fa2984e091267fd9003"
+  },
+  "records": [
+    {
+      "heading": {
+        "ordinal": 1,
+        "title": "Чародей",
+        "level": 4,
+        "anchors": [
+          "sorcerer"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "ca10e71cef268d00c944b0ee00a75558d6c55e05db032f99e423967637953278",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 2,
+        "title": "ГРУБАЯ МАГИЯ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "34c2f9dde8fed02277050a4f6f0eb47d52992184c8366e1d3c3f3d4befd5f016",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 3,
+        "title": "НЕОБЪЯСНИМЫЕ СИЛЫ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "7e831b6a0150f8526bfda2d2ea13127ca4a27b60babb296563c9b2f6ec134a45",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 4,
+        "title": "Создание чародея",
+        "level": 3,
+        "anchors": [
+          "creation"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "dfb4f53d2654510c5798f2188ab8f8b9147a65a6e187c407074164d91e99fb92",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 5,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "bb9989cdb7a2a659890d103b14bd9ef784c0efb0244e992023209dcba59675d0",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 6,
+        "title": "Углублённая предыстория Чародея (XGE)",
+        "level": 2,
+        "anchors": [
+          "uglubljonnaya_predystoriya_charodeya_xge"
+        ],
+        "sectionAnchor": "uglubljonnaya_predystoriya_charodeya_xge",
+        "bodySha256": "ed431f26a43f30c76e913bd7c6db0b5c867fe82dcd824a16abb96f733e94f50f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 7,
+        "title": "Источник магии",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_charodeya_xge",
+        "bodySha256": "dc9d6e35a087f640744554f9a8872e05b9b71ef6410dc42ed205ec688522c2f0",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 8,
+        "title": "Источники магии",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_charodeya_xge",
+        "bodySha256": "376e8e6c057484dca626a5477ceb074dea08a22ddb957f3d7765c0e30105e569",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 9,
+        "title": "Реакция",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_charodeya_xge",
+        "bodySha256": "05202db1ece0e4c47ccca5b0c50de9799cd81da1f67f9c1cede4eba2e0b1bd37",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 10,
+        "title": "Реакции",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_charodeya_xge",
+        "bodySha256": "3e66e70a33bbebe859a5105f3c01d2efc64f428fe171fa65971fd4730baa3f04",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 11,
+        "title": "Сверхъестественная метка",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_charodeya_xge",
+        "bodySha256": "9ff6ba7ed38938ed8ff0daf9c98f342982e52b4a1df0135efb5877ca91ecade3",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 12,
+        "title": "Сверхъестественные метки",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_charodeya_xge",
+        "bodySha256": "6d27e57b86cd1482c7a9a810dc9761f6152cef331497f42690bf1ac97a34cb07",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 13,
+        "title": "Признак чародейства",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_charodeya_xge",
+        "bodySha256": "135fe3fa2ce366dddfbef17360edcde9842ebfe88e9678365b1ae6fbbcdd023c",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 14,
+        "title": "Признаки чародейства",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_charodeya_xge",
+        "bodySha256": "9c2ea1e436867f2f07fab03c291441dfa6aedb8052a320e8897660c205b58deb",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 15,
+        "title": "МУЛЬТИКЛАССИРОВАНИЕ И Чародей",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_charodeya_xge",
+        "bodySha256": "9ee8a735a3a09f80d96f5973079765631c992e0b34921343a6602b90b39590b2",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 16,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "class-features"
+        ],
+        "sectionAnchor": "class-features",
+        "bodySha256": "6d55e845214a05f9c2991abe7b4090ded7e8e3e0c7ac918b4038629244ac6a30",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 17,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 18,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "df5dee4c4d5321f790706c1400e5320baddbd536600f210673bfbb79660c924a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 19,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "86659d7346bbdca3ecb540d34a00bd657ee7cc917e279a61276630827c19083d",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 20,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "a152c09bcaa4291f856ab2b8c32dfd945376161fe85f7f5b3cfbef6f6e83113f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 23,
+        "title": "Заговоры (заклинания 0-го уровня)",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "4e4b37dd5ac8a356a6a6e15ad89f20d5ab8b586c81b5c4b9c1d206fe2e90cf03",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:sorcerer:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 22,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 24,
+        "title": "Ячейки заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "6c992752533064c2d894f848a53be2194e3393f479c9bdc19300f17c6ae5e979",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:sorcerer:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 22,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 25,
+        "title": "Известные заклинания первого и более высоких уровней",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "9a44ff9da50d2249a421de4aff95636899b0674ce19fe80e6be27b27604bd19e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:sorcerer:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 22,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 26,
+        "title": "Базовая характеристика заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "f8e728aeac27c31fffdb5dbfdf745c6a626707c742792bf3677010eee866f033",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:sorcerer:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 22,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 27,
+        "title": "Фокусировка заклинания",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "0e9d4d8c8cad921b636ba0ebe5db686c5a181effdd0adf368c75fa29040a8746",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:sorcerer:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 22,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 30,
+        "title": "Единицы чародейства",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "c2ac2af64626c5cd16d21f64f0ad638e17274ea60b7b56ab9f389d341664ba41",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:sorcerer:class-features:feature.font-of-magic",
+      "parentHeadingOrdinal": 29,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 31,
+        "title": "Свободное заклинательство",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "26c91b6c61fb6be12b8fac6e63956eed2fd51412da7ecfbdca32062149fca621",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:sorcerer:class-features:feature.font-of-magic",
+      "parentHeadingOrdinal": 29,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 32,
+        "title": "СОЗДАНИЕ ЯЧЕЕК ЗАКЛИНАНИЙ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "b0badb6923635a6c178de8bec6b8e0b51ed453fb0d42fd6ea65aaee78876c968",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 5
+          }
+        ]
+      },
+      "kind": "feature-limit-table",
+      "parentFeatureObservationId": "scope:sorcerer:class-features:feature.font-of-magic",
+      "parentHeadingOrdinal": 29,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 48,
+        "title": "Происхождения чародея",
+        "level": 2,
+        "anchors": [
+          "sorcerous-origins"
+        ],
+        "sectionAnchor": "sorcerous-origins",
+        "bodySha256": "4f527d892969697aaa6e35f40e84cb5d6a1025ee4acc90be4f333c6ebf53365c",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "tradition-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 51,
+        "title": "ДРАКОНИЙ ПРЕДОК",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "origin.draconic",
+        "bodySha256": "8e5d23dce6f8637aeb483a4e265c829371e47befb9299009f4e69fdcaece152f",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 10
+          }
+        ]
+      },
+      "kind": "feature-subrule-table",
+      "parentFeatureObservationId": "scope:sorcerer:origin.draconic:d1520005b52697b0",
+      "parentHeadingOrdinal": 50,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 62,
+        "title": "ВОЛНА ДИКОЙ МАГИИ",
+        "level": 4,
+        "anchors": [
+          "table.wild-magic-surge"
+        ],
+        "sectionAnchor": "origin.wild-magic",
+        "bodySha256": "1f1b3bef13df0556b4b5657ba3e88dcac9d9a69043e524b1d250fd831c681539",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 50
+          }
+        ]
+      },
+      "kind": "feature-effect-table",
+      "parentFeatureObservationId": "scope:sorcerer:origin.wild-magic:a7651b406cc802f9",
+      "parentHeadingOrdinal": 57,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 70,
+        "title": "Причуды теневых чародеев",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "origin.shadow",
+        "bodySha256": "f6b9ebb868f0ddcf4efb1e83ff5a2acbee25b1a5347d016e48b26917ea6fa0be",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 84,
+        "title": "Аберрантное происхождение",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "origin.aberrant-mind",
+        "bodySha256": "5d1aa6b5b191a09583993058804a8a3b040f86af64d4bf2b48386389bc66d542",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 95,
+        "title": "Проявления порядка",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "origin.clockwork-soul",
+        "bodySha256": "04acf0ff9e0e2210fb18337eb1998f38aad51a87aa0a69ecdefc66e67ea6a159",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 108,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "6ed3a04fadc329944f2660f30bda17fbc8562d53f48ee9025529c8ea4c1b6105",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 109,
+        "title": "Происхождение чародея из «Plane Shift: Kaladesh»",
+        "level": 2,
+        "anchors": [
+          "proishozhdenie_charodeya_iz_plane_shift_kaladesh"
+        ],
+        "sectionAnchor": "proishozhdenie_charodeya_iz_plane_shift_kaladesh",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 110,
+        "title": "Пиромант",
+        "level": 2,
+        "anchors": [
+          "piromant"
+        ],
+        "sectionAnchor": "piromant",
+        "bodySha256": "1d497a593dee71c97f728fca086284ed249319231aad853f005f8532173c7185",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-110"
+    },
+    {
+      "heading": {
+        "ordinal": 111,
+        "title": "ПЛАМЕННОЕ СЕРДЦЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "piromant",
+        "bodySha256": "f55b37a2da01ea851fa98f2d4de53b8f04dacc06bc08e54ba47d64a9dcc13926",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-110"
+    },
+    {
+      "heading": {
+        "ordinal": 112,
+        "title": "ОГОНЬ ВНУТРИ ВЕН",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "piromant",
+        "bodySha256": "722db54770c765affc323db232f2359fea96b6d171aa80e5eb06f24e76eba1d6",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-110"
+    },
+    {
+      "heading": {
+        "ordinal": 113,
+        "title": "ЯРОСТЬ ПИРОМАНТА",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "piromant",
+        "bodySha256": "5a09a63d44d869921d3ac6012ecbab5a2b52ced2ee4eea350231285c218822ec",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-110"
+    },
+    {
+      "heading": {
+        "ordinal": 114,
+        "title": "ПЛАМЕННАЯ ДУША",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "piromant",
+        "bodySha256": "590ac6d680aba2a064a12bf4b56b93b5936061dfffceb9e8fe4e805fda663781",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-110"
+    },
+    {
+      "heading": {
+        "ordinal": 115,
+        "title": "Unearthed Arcana",
+        "level": 2,
+        "anchors": [
+          "unearthed_arcana"
+        ],
+        "sectionAnchor": "unearthed_arcana",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 156,
+        "title": "Происхождения чародея «Homebrew»",
+        "level": 2,
+        "anchors": [
+          "proishozhdeniya_charodeya_homebrew"
+        ],
+        "sectionAnchor": "proishozhdeniya_charodeya_homebrew",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 157,
+        "title": "Дитя рун",
+        "level": 2,
+        "anchors": [
+          "ditya_run"
+        ],
+        "sectionAnchor": "ditya_run",
+        "bodySha256": "89e4b9e0976a8cbe0bcfa7e58fc11408bf944b85d77adb7d5008ada23cef29f9",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-157"
+    },
+    {
+      "heading": {
+        "ordinal": 158,
+        "title": "Эссенция рун",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ditya_run",
+        "bodySha256": "ffb53c466dd2bb2f87ea0f3aa354aa96135938c78c7f5f825ac33bfb2875fd22",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-157"
+    },
+    {
+      "heading": {
+        "ordinal": 159,
+        "title": "Глифы защиты",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ditya_run",
+        "bodySha256": "b24322ead035f6617e3a283709e97673fadbcad97d0831f8d5084b3badd4c4c6",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-157"
+    },
+    {
+      "heading": {
+        "ordinal": 160,
+        "title": "Сигильное усиление",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ditya_run",
+        "bodySha256": "7ac209cdd1122294e4fa031f03969aa686ab9b38febb15a93398623a1b7a32eb",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-157"
+    },
+    {
+      "heading": {
+        "ordinal": 161,
+        "title": "Проявление надписей",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ditya_run",
+        "bodySha256": "7208306c291a4a0dc99ea97f7b282ad8301240894be96bf0cc3abebebd465473",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-157"
+    },
+    {
+      "heading": {
+        "ordinal": 162,
+        "title": "Рунический поток",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ditya_run",
+        "bodySha256": "cf408f19be189c861722a7616398d4dfd503b24a7c1f055b78e0553e99c583e1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-157"
+    },
+    {
+      "heading": {
+        "ordinal": 163,
+        "title": "Форма представителя магии",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ditya_run",
+        "bodySha256": "61f1bb3359e414c616b20d5701f00f6f3c499bc63983e36e7fc916dbf0ec4d79",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-157"
+    },
+    {
+      "heading": {
+        "ordinal": 164,
+        "title": "Искра прародителя",
+        "level": 2,
+        "anchors": [
+          "iskra_praroditelya"
+        ],
+        "sectionAnchor": "iskra_praroditelya",
+        "bodySha256": "bc905bf13bd44c5fb9a213befc7c10877231f7a716cb6bee1a6c28d132e7f2d4",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 165,
+        "title": "Первородная магия",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "iskra_praroditelya",
+        "bodySha256": "0d0dd409de92ae748fe814a7e744268e401e8176d85040d705959303be1923d9",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 166,
+        "title": "Облик творения",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "iskra_praroditelya",
+        "bodySha256": "ad839af4b31308bfbb792a3da6566aaf1fef8f3334a4d3db57ebf066a94404b1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 167,
+        "title": "Колыбель жизни",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "iskra_praroditelya",
+        "bodySha256": "0bf615b076e213f151d7dedf6a0b0689f81b2dc7c21b931751c8e95348b3e806",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 168,
+        "title": "Жажда магии",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "iskra_praroditelya",
+        "bodySha256": "cd05444c13344f5055f8065cc78c3f89804b331e0421908683fd9efe8f3b844a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 169,
+        "title": "Дар наследства",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "iskra_praroditelya",
+        "bodySha256": "a03d3159e47633f24725ddc0c7535c4acba30521cf4644a165bb3a3e40b3d448",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 170,
+        "title": "Зелёная кровь",
+        "level": 2,
+        "anchors": [
+          "zeljonaya_krov"
+        ],
+        "sectionAnchor": "zeljonaya_krov",
+        "bodySha256": "f2951c9f294111a00c754bc3c85a02637dbd139ff81833fb31b0ea67b317c5a9",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-170"
+    },
+    {
+      "heading": {
+        "ordinal": 171,
+        "title": "Причуды зелёной крови",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "zeljonaya_krov",
+        "bodySha256": "3a5954437be6ae58a96e09d969c51db3220492a189b237f6744aaa16b9c46da4",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-170"
+    },
+    {
+      "heading": {
+        "ordinal": 172,
+        "title": "Природная магия",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "zeljonaya_krov",
+        "bodySha256": "06a08540abe772db86932791dd9d7f63f2053c49fd941bc6f778428c79e56f9f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-170"
+    },
+    {
+      "heading": {
+        "ordinal": 173,
+        "title": "Зелёная стойкость",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "zeljonaya_krov",
+        "bodySha256": "2e9312a11f90b250fde97a4e59434b85a7911b2f6c3b9de14d71c6386e78fb24",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-170"
+    },
+    {
+      "heading": {
+        "ordinal": 174,
+        "title": "Заклинаний зелёной крови",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "zeljonaya_krov",
+        "bodySha256": "0e04ffa079bc807ebf50143fc86fe403d5194b5ef0f5ee1b1d9f7a5ceca87591",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-170"
+    },
+    {
+      "heading": {
+        "ordinal": 175,
+        "title": "Заклинания зелёной крови",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "zeljonaya_krov",
+        "bodySha256": "00c33a68bd2ebbed004a4da49d9f591988257e9c5b6005378b16c958075916fd",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 5
+          }
+        ]
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-170"
+    },
+    {
+      "heading": {
+        "ordinal": 176,
+        "title": "Тело растения",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "zeljonaya_krov",
+        "bodySha256": "8ac90e70aa68ef1e55c2a41262e833171f887bc28b0c0bfdd1829e9b63945071",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-170"
+    },
+    {
+      "heading": {
+        "ordinal": 177,
+        "title": "Шаг сквозь корни",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "zeljonaya_krov",
+        "bodySha256": "17131f56bb4cf82d4a97b9aabd8b6809173b902802929d6379da9469d743bd45",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-170"
+    },
+    {
+      "heading": {
+        "ordinal": 178,
+        "title": "Ярость зелени",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "zeljonaya_krov",
+        "bodySha256": "df7f9fe152d92ccfbb8acb32b2b84ca29aff11bb6e4b41972eb5ac2b0c884dba",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-170"
+    },
+    {
+      "heading": {
+        "ordinal": 179,
+        "title": "Форма флоры",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "zeljonaya_krov",
+        "bodySha256": "d54f08307cffe5462395209e201e50c6327b3a9e3a4b1ca8c934927b519957b0",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-170"
+    },
+    {
+      "heading": {
+        "ordinal": 180,
+        "title": "Отмеченный порчей",
+        "level": 2,
+        "anchors": [
+          "otmechennyj_porchej"
+        ],
+        "sectionAnchor": "otmechennyj_porchej",
+        "bodySha256": "2a8cc9e3fc82d27e5501bbacfbcee0020608fd861d8897988700a6f9335f3364",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-180"
+    },
+    {
+      "heading": {
+        "ordinal": 181,
+        "title": "СОЗДАНИЕ ЗАРАЗЫ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "otmechennyj_porchej",
+        "bodySha256": "ce9ff89da52376291cb2e740cab7de46217fa4fdc534bbd4cd58d4a1f6469751",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-180"
+    },
+    {
+      "heading": {
+        "ordinal": 182,
+        "title": "ГНИЕНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "otmechennyj_porchej",
+        "bodySha256": "73d7171f96991a4d5c99f4b428481346dabda6a63cd5ffa1affbbbfb54de977e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-180"
+    },
+    {
+      "heading": {
+        "ordinal": 183,
+        "title": "ПРОБУЖДЕНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "otmechennyj_porchej",
+        "bodySha256": "3f686f8c5c5559dab3612f955510f95710b948530ece1ed253e1bdf276833aca",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-180"
+    },
+    {
+      "heading": {
+        "ordinal": 184,
+        "title": "ПРОБУЖДАЮЩИЙ ПРИКАЗ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "otmechennyj_porchej",
+        "bodySha256": "d68e54162c5ccf79d244cef30fce422adcdd866abe5d25a9b87a59d59ead0f02",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-180"
+    },
+    {
+      "heading": {
+        "ordinal": 185,
+        "title": "НЕУТОМИМОЕ ВОЙСКО",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "otmechennyj_porchej",
+        "bodySha256": "ab14dba80a3ebd2f2b508b08f26450aed2a00240fa3330268cb881c89101f03f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-180"
+    },
+    {
+      "heading": {
+        "ordinal": 186,
+        "title": "Полубог",
+        "level": 2,
+        "anchors": [
+          "polubog"
+        ],
+        "sectionAnchor": "polubog",
+        "bodySha256": "8c2706c1fb16317ef4e4d4175a192979b090299c6b2f2da335ccb56b3fbcf9fc",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-186"
+    },
+    {
+      "heading": {
+        "ordinal": 187,
+        "title": "Божественный предок",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "polubog",
+        "bodySha256": "8d0bcfde4d33594fee69be6c72f180785a7e5405954afd142e1bf4aab334a6be",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-186"
+    },
+    {
+      "heading": {
+        "ordinal": 188,
+        "title": "БОЖЕСТВЕННЫЙ ПРЕДОК",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "polubog",
+        "bodySha256": "2d0c2d66f59098f210564cb0fe494f3dde81cb5c859c0688edeba7624e0faed2",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 8
+          }
+        ]
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-186"
+    },
+    {
+      "heading": {
+        "ordinal": 189,
+        "title": "Унаследованная сила",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "polubog",
+        "bodySha256": "dba2623e6b4849e10a6f2fc194482aa1e256336015e8dc7426cd0610fab10322",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-186"
+    },
+    {
+      "heading": {
+        "ordinal": 190,
+        "title": "Усиленная магия",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "polubog",
+        "bodySha256": "af3c6cb5f198bd5932a1971bf6388d0fc06cb65cef617b3e2aa452428d6cf233",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-186"
+    },
+    {
+      "heading": {
+        "ordinal": 191,
+        "title": "Божественное сопротивление",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "polubog",
+        "bodySha256": "43a53bdc0a07520e39c035c7dfe28af47a3b5be123759e69c73006de9c3ea205",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-186"
+    },
+    {
+      "heading": {
+        "ordinal": 192,
+        "title": "Усиливающееся волшебство",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "polubog",
+        "bodySha256": "50358b9435959c5409b896c011ac66eb9083aed8957ff2d1b41648e81aa69c22",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-186"
+    },
+    {
+      "heading": {
+        "ordinal": 193,
+        "title": "Преследуемый",
+        "level": 2,
+        "anchors": [
+          "presleduyemiy"
+        ],
+        "sectionAnchor": "presleduyemiy",
+        "bodySha256": "7e1d2ea228479208980a8834803a696630f588a78f58c4175b7f37f7e5fbf9e5",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-193"
+    },
+    {
+      "heading": {
+        "ordinal": 194,
+        "title": "Заклинания преследуемого",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "presleduyemiy",
+        "bodySha256": "c4812e7d744f36f3b7643ed448057654a7d3e1f5e5d45da402e67f08dfa04bc0",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-193"
+    },
+    {
+      "heading": {
+        "ordinal": 195,
+        "title": "ЗАКЛИНАНИЯ ПРЕСЛЕДУЕМОГО",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "presleduyemiy",
+        "bodySha256": "cb82a7f80a3ab6e55bb34477cdfa79c53aa1f294e52992d201ee4745423b087e",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 5
+          }
+        ]
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-193"
+    },
+    {
+      "heading": {
+        "ordinal": 196,
+        "title": "Призрачный спутник",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "presleduyemiy",
+        "bodySha256": "1d741af32648218c09f434c5608ba08197059bee3561977d57771fc551a8a291",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-193"
+    },
+    {
+      "heading": {
+        "ordinal": 197,
+        "title": "Шестое чувство",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "presleduyemiy",
+        "bodySha256": "5a3c08fcb2711248d5df7877d9682ce05f3c8a85a0e796011d5373083881b5b1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-193"
+    },
+    {
+      "heading": {
+        "ordinal": 198,
+        "title": "Сила духа",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "presleduyemiy",
+        "bodySha256": "d57572d467c77871cf01b285ef81f7b18b8a11080285de1da099625313abd21b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-193"
+    },
+    {
+      "heading": {
+        "ordinal": 199,
+        "title": "Мертвецки бледный",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "presleduyemiy",
+        "bodySha256": "063cc1c42556b88cc1387cf0336ba90c7701d187ad3d89f31c59381c0bb2fb2d",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-193"
+    },
+    {
+      "heading": {
+        "ordinal": 200,
+        "title": "Одержимость фантомом",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "presleduyemiy",
+        "bodySha256": "46cfa5a645e0e4bf327c6c35c475380e2044bb4a4161ab4663fe90bb7a607175",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-193"
+    },
+    {
+      "heading": {
+        "ordinal": 201,
+        "title": "Вуаль смерти",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "presleduyemiy",
+        "bodySha256": "0dbce4df7853e7bb75cdc27229c8fe252a13fd127cb5aaf670949133a1d0be79",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-193"
+    },
+    {
+      "heading": {
+        "ordinal": 202,
+        "title": "Проклятый род",
+        "level": 2,
+        "anchors": [
+          "proklyatiy_rod"
+        ],
+        "sectionAnchor": "proklyatiy_rod",
+        "bodySha256": "dc01df1eeb37530e7317ccb2875b286264625b65344b7ae0423f67ce4d0fd12e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-202"
+    },
+    {
+      "heading": {
+        "ordinal": 203,
+        "title": "Талисман неудачи",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "proklyatiy_rod",
+        "bodySha256": "74c92b0e35b8ec1e868e9ceef5548dd7869b20b8e94da1fd3bf9db40935ddd22",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-202"
+    },
+    {
+      "heading": {
+        "ordinal": 204,
+        "title": "Кровные узы",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "proklyatiy_rod",
+        "bodySha256": "465227c37e74ca9bfcf45a0870afc6836e0d9d5ef8e40dc20a29d7799b6b9f66",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-202"
+    },
+    {
+      "heading": {
+        "ordinal": 205,
+        "title": "Скверное проклятие",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "proklyatiy_rod",
+        "bodySha256": "87152463ecc6198a17668e30a26a512af4b4d419263f5039906bd16e4c074f4d",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-202"
+    },
+    {
+      "heading": {
+        "ordinal": 206,
+        "title": "Раздели бремя",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "proklyatiy_rod",
+        "bodySha256": "8ba80fffa6cfc7ec07894a44aa4b8e9234d05d7affa3d644cc190e0bce2750bc",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-202"
+    },
+    {
+      "heading": {
+        "ordinal": 207,
+        "title": "Ужасающий лик",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "proklyatiy_rod",
+        "bodySha256": "4e380db28fb97875ab0a24cc444ba8a9f16f891d4a0435ec619eb575c1036c06",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-202"
+    },
+    {
+      "heading": {
+        "ordinal": 208,
+        "title": "Мстительный призыв",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "proklyatiy_rod",
+        "bodySha256": "3ead37260dba0c6a4e1a34592b08f7acccc2bf83f00452b6bc282f65ce584ee5",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-202"
+    }
+  ],
+  "policyContexts": {
+    "section-110": {
+      "sourceHeading": {
+        "ordinal": 110,
+        "title": "Пиромант",
+        "level": 2,
+        "anchors": [
+          "piromant"
+        ],
+        "sectionAnchor": "piromant",
+        "bodySha256": "1d497a593dee71c97f728fca086284ed249319231aad853f005f8532173c7185",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "lastHeadingOrdinal": 114,
+      "disposition": "excluded-experimental",
+      "bibliographyIds": [
+        "class-bibliography:plane-shift-kaladesh"
+      ],
+      "basis": "Reuse explicit bibliography/source policy for this named section and uninterrupted subordinate headings; no source decision promoted."
+    },
+    "section-157": {
+      "sourceHeading": {
+        "ordinal": 157,
+        "title": "Дитя рун",
+        "level": 2,
+        "anchors": [
+          "ditya_run"
+        ],
+        "sectionAnchor": "ditya_run",
+        "bodySha256": "89e4b9e0976a8cbe0bcfa7e58fc11408bf944b85d77adb7d5008ada23cef29f9",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "lastHeadingOrdinal": 163,
+      "disposition": "excluded-third-party",
+      "bibliographyIds": [
+        "class-bibliography:taldorei"
+      ],
+      "basis": "Reuse explicit bibliography/source policy for this named section and uninterrupted subordinate headings; no source decision promoted."
+    },
+    "section-164": {
+      "sourceHeading": {
+        "ordinal": 164,
+        "title": "Искра прародителя",
+        "level": 2,
+        "anchors": [
+          "iskra_praroditelya"
+        ],
+        "sectionAnchor": "iskra_praroditelya",
+        "bodySha256": "bc905bf13bd44c5fb9a213befc7c10877231f7a716cb6bee1a6c28d132e7f2d4",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "lastHeadingOrdinal": 169,
+      "disposition": "excluded-unofficial",
+      "bibliographyIds": [
+        "class-bibliography:morgrave"
+      ],
+      "basis": "Reuse explicit bibliography/source policy for this named section and uninterrupted subordinate headings; no source decision promoted."
+    },
+    "section-170": {
+      "sourceHeading": {
+        "ordinal": 170,
+        "title": "Зелёная кровь",
+        "level": 2,
+        "anchors": [
+          "zeljonaya_krov"
+        ],
+        "sectionAnchor": "zeljonaya_krov",
+        "bodySha256": "f2951c9f294111a00c754bc3c85a02637dbd139ff81833fb31b0ea67b317c5a9",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "lastHeadingOrdinal": 179,
+      "disposition": "needs-official-source-evidence",
+      "bibliographyIds": [
+        "class-bibliography:hesperides"
+      ],
+      "basis": "Reuse explicit bibliography/source policy for this named section and uninterrupted subordinate headings; no source decision promoted."
+    },
+    "section-180": {
+      "sourceHeading": {
+        "ordinal": 180,
+        "title": "Отмеченный порчей",
+        "level": 2,
+        "anchors": [
+          "otmechennyj_porchej"
+        ],
+        "sectionAnchor": "otmechennyj_porchej",
+        "bodySha256": "2a8cc9e3fc82d27e5501bbacfbcee0020608fd861d8897988700a6f9335f3364",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "lastHeadingOrdinal": 185,
+      "disposition": "excluded-third-party",
+      "bibliographyIds": [
+        "class-bibliography:sprouting-chaos"
+      ],
+      "basis": "Reuse explicit bibliography/source policy for this named section and uninterrupted subordinate headings; no source decision promoted."
+    },
+    "section-186": {
+      "sourceHeading": {
+        "ordinal": 186,
+        "title": "Полубог",
+        "level": 2,
+        "anchors": [
+          "polubog"
+        ],
+        "sectionAnchor": "polubog",
+        "bodySha256": "8c2706c1fb16317ef4e4d4175a192979b090299c6b2f2da335ccb56b3fbcf9fc",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "lastHeadingOrdinal": 192,
+      "disposition": "excluded-third-party",
+      "bibliographyIds": [
+        "class-bibliography:odyssey"
+      ],
+      "basis": "Reuse explicit bibliography/source policy for this named section and uninterrupted subordinate headings; no source decision promoted."
+    },
+    "section-193": {
+      "sourceHeading": {
+        "ordinal": 193,
+        "title": "Преследуемый",
+        "level": 2,
+        "anchors": [
+          "presleduyemiy"
+        ],
+        "sectionAnchor": "presleduyemiy",
+        "bodySha256": "7e1d2ea228479208980a8834803a696630f588a78f58c4175b7f37f7e5fbf9e5",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "lastHeadingOrdinal": 201,
+      "disposition": "excluded-third-party",
+      "bibliographyIds": [
+        "class-bibliography:grim-hollow"
+      ],
+      "basis": "Reuse explicit bibliography/source policy for this named section and uninterrupted subordinate headings; no source decision promoted."
+    },
+    "section-202": {
+      "sourceHeading": {
+        "ordinal": 202,
+        "title": "Проклятый род",
+        "level": 2,
+        "anchors": [
+          "proklyatiy_rod"
+        ],
+        "sectionAnchor": "proklyatiy_rod",
+        "bodySha256": "dc01df1eeb37530e7317ccb2875b286264625b65344b7ae0423f67ce4d0fd12e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "lastHeadingOrdinal": 208,
+      "disposition": "excluded-third-party",
+      "bibliographyIds": [
+        "class-bibliography:grim-hollow"
+      ],
+      "basis": "Reuse explicit bibliography/source policy for this named section and uninterrupted subordinate headings; no source decision promoted."
+    }
+  },
+  "limitations": [
+    "No canonical denominator, full rules or source rights accepted.",
+    "Historical data and publication decisions are unchanged.",
+    "Ten headings under Hesperides170 remain needs-official-source-evidence. Sprouting Chaos180 now has primary creator/PDF evidence and an explicit third-party exclusion proposal; exact translated rules remain unverified.",
+    "All other mapped sections inherit only an existing explicit source-policy proposal, never a new automatic decision.",
+    "Draconic Ancestor51 contains the ten-row ancestry table AND language/interaction rules; keep its whole body.",
+    "Wild Magic62 has50 d100 result rows belonging to feature57, not50 new features."
+  ]
+}

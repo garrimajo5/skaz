@@ -1,0 +1,582 @@
+{
+  "schemaVersion": 1,
+  "status": "residual-heading-classification-proposal",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "classSlug": "warlock",
+  "classUrl": "https://dnd.su/class/104-warlock/",
+  "snapshotPageSha256": "eec2a9b70c847113ef82030bbe35be7fbdaf8a10d02589938ccc4780750129b8",
+  "freshCapture": {
+    "url": "https://dnd.su/class/104-warlock/",
+    "sha256": "e931c4d74912dad951b8ad5975882fe914adce50eceb6dc1ddd81d811a62eda7",
+    "headingStructureSha256": "68bee6daa97a22515a6b35fda7bb62f8493b6207d19eff9ec7afb0cd30d2e125"
+  },
+  "records": [
+    {
+      "heading": {
+        "ordinal": 1,
+        "title": "Колдун",
+        "level": 4,
+        "anchors": [
+          "warlock"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "b2e01a2be25e9d4cfc2b5da432e69aa14bfd170f99a52a708e83fb26c4ac5e9a",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 2,
+        "title": "КЛЯТВА И ДОЛГ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "fde384712d72ddcf97efba99da82fbe6c8dd7bc25ab2d15c152b915bde6023ca",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 3,
+        "title": "ПОИСКИ ТАЙН",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "94f06a44c8045b30612aeed7da14b34fc60a07d0623f471700bf47e18cdd435e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 4,
+        "title": "Создание колдуна",
+        "level": 3,
+        "anchors": [
+          "creation"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "1b67851d88ada11698989853a824e69ef34b97d41af9b59ae42d026d9f25c847",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 5,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "e1ab6e439ed728f39f5746620314df1c28402dd91d7df0660d781f256fc29569",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 6,
+        "title": "Углублённая предыстория Колдуна (XGE)",
+        "level": 2,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "17bdb0d70c535866b3a0ebf0a4e11947ea8c3c8bf30abc6051770a8dca32415a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 7,
+        "title": "Отношение покровителя",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "00e80a924af05d725898df83205fb0610367d039653d60ac3ef8d3d7abbdc09e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 8,
+        "title": "Отношение покровителя",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "6fb22804b1782e777cc0d4513d8df88ae9ac81fd2e45e80ffb5624dc2330e655",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 9,
+        "title": "Специальные условия договора",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "a90115fb3ad4d0b80f3e423ea2b2cf8b05de233f9b77b8fde3c57448ca492958",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 10,
+        "title": "Специальные условия",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "d4fd1d97da59afa517059f80e6a222dcb79499f7f8cfe928aff434f0a47b9215",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 11,
+        "title": "Связывающий знак",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "c1330f517fefa6c08be9d6a6906c43fc8f8c4e61e90685e8e8fee5894669d712",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 12,
+        "title": "Связывающие знаки",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "43ef4a98e00f66642f672097a2a19c66c869cce677a2a66e69d5b366693ae8e7",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 13,
+        "title": "МУЛЬТИКЛАССИРОВАНИЕ И колдун",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "b99e9411c132c4fe9b605db4181512ff35f738b1c5318ab130990fe3b34611e5",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 14,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "class-features"
+        ],
+        "sectionAnchor": "class-features",
+        "bodySha256": "5fd05161a91f804a62fe08971cd6c58eeae85469c309d7d5c9852b8c4a69148a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 15,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 16,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "0bcefff7e2249910a215911d100efb51f8e400dab83f1e9eb2084d46ca1fcdfa",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 17,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "87c636729a0a91128c056630960e696c2a81074ae4ce4d362a4cc6a32606df82",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 18,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "ad5e4a08facc2c1e68ff8da07b86e18eaa86f3034e51e5e6be0031084cea97c1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 21,
+        "title": "Заговоры (заклинания 0-го уровня)",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "b4fe0b9c10fac634095acc2b6063153cebac137356cdeda7a15f8cdc0222d9f2",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:warlock:class-features:feature.pact-magic",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 22,
+        "title": "Ячейки заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "7f120329ec3e52338c65a4430ecfdd42a6e9a09b39d9a1e701d5bfafadd2be19",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:warlock:class-features:feature.pact-magic",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 23,
+        "title": "Известные заклинания первого и более высоких уровней",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "f546f0a305c795a65f96762b3529e22d49d0c7026aa6703c7029ac7e294343de",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:warlock:class-features:feature.pact-magic",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 24,
+        "title": "Базовая характеристика заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "ccfdc7727b1ba5ac3c3a4a7ffd845f316c43a8cc15ba345d605091a8e110a4ff",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:warlock:class-features:feature.pact-magic",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 25,
+        "title": "Фокусировка заклинания",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "9afcd6688c9e6782039f3add82be45c5eeb856dab6b35136a376131e1c93d58f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:warlock:class-features:feature.pact-magic",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 33,
+        "title": "Ваш Предмет договора.",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "4dee78dcecb00912c28085932429849b80c5cbd8ed378de16f22b0eff7a9dcf9",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-presentation-guidance",
+      "parentFeatureObservationId": "scope:warlock:class-features:feature.pact-boon",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 38,
+        "title": "Таинственные воззвания",
+        "level": 2,
+        "anchors": [
+          "invocations"
+        ],
+        "sectionAnchor": "invocations",
+        "bodySha256": "3280696699ee3340e7ae6d69a07185f0052afbf982c72dc51e4bdf0b3bee1f5b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-choice-index-and-rules",
+      "parentFeatureObservationId": "scope:warlock:class-features:feature.eldritch-invocations",
+      "parentHeadingOrdinal": 27,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 93,
+        "title": "Потусторонние покровители",
+        "level": 2,
+        "anchors": [
+          "patrons"
+        ],
+        "sectionAnchor": "patrons",
+        "bodySha256": "9a4d31f8e5c9133ccd1c76fd82a72cd34c83d86ccb95e40ac1c47968c351b61d",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "tradition-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 145,
+        "title": "Виды гениев",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "patron.genie",
+        "bodySha256": "cde299bcb8c3e9aa02e63af0dc79e83d4a5c94fbacb23f47f90ac9deb156121f",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 4
+          }
+        ]
+      },
+      "kind": "feature-choice-table",
+      "parentFeatureObservationId": "scope:warlock:patron.genie:patron.genie",
+      "parentHeadingOrdinal": 144,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 149,
+        "title": "Сосуд гения",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "patron.genie",
+        "bodySha256": "325f8447d189e42078462b8e5ef21a8322b2095e11b650538ac0b055a1c72138",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "feature-subrule-table",
+      "parentFeatureObservationId": "scope:warlock:patron.genie:38193e7f23fdbf50",
+      "parentHeadingOrdinal": 148,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 160,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "d695b226aa587d0f963950e3864147d10e1e53f9257062a78563d506406ff5f8",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    }
+  ],
+  "limitations": [
+    "No canonical denominator, full rules or publication rights accepted.",
+    "Heading149 includes the six-row vessel appearance table AND mechanical rules for Bottled Respite, Genie Wrath, damage and vessel replacement; do not discard body after table.",
+    "Heading145 is a four-type patron choice whose consequences are defined elsewhere; not four subclasses.",
+    "Heading33 illustrates existing pact boons rather than granting spells from the mentioned appearance examples.",
+    "Heading38 combines invocation index and prerequisites; already enumerated choices are not counted again."
+  ]
+}

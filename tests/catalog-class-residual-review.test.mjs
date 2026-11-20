@@ -1,0 +1,8 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
+import {buildResidualReview,loadResidualReview,residualReview} from '../scripts/catalog-class-residual-review.mjs';
+test('all512 residual headings conserve exclusions pending sources and component proposals',()=>{const {inputs}=loadResidualReview(),before=JSON.stringify(inputs),r=buildResidualReview(inputs);assert.deepEqual(r.summary,{classes:13,originalResidualHeadings:512,classifiedResidualHeadings:512,remainingUnclassifiedHeadings:0,proposedExcludedHeadings:130,sourcePendingHeadings:10,otherComponentHeadings:372});assert.equal(r.accepted,false);assert.equal(r.complete,false);assert.equal(r.approvedDenominator,null);assert.equal(JSON.stringify(inputs),before);});
+test('missing repeated or foreign class batch cannot silently reduce denominator',()=>{for(const mutate of [a=>a.pop(),a=>a[8]=a[7],a=>a[7].classSlug='foreign']){const {inputs}=loadResidualReview();mutate(inputs);assert.throws(()=>buildResidualReview(inputs));}});
+test('scope acceptance is not inferred from full classification coverage',()=>{const {inputs}=loadResidualReview();inputs[7].approvedDenominator=29;assert.throws(()=>buildResidualReview(inputs));});
+test('committed residual review reproduces with pinned input hashes',()=>assert.deepEqual(residualReview(),JSON.parse(readFileSync(new URL('../catalog/class-residual-review-2014.json',import.meta.url),'utf8'))));
+
+test('manual exclusions use the supplied pinned source evidence, not hidden module state',()=>{const {inputs}=loadResidualReview();inputs[3].sources.find(s=>s.title==='Midgard Heroes Handbook').group='Core';assert.throws(()=>buildResidualReview(inputs),/manual source/);});

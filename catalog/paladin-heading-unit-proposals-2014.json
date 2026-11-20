@@ -1,0 +1,560 @@
+{
+  "schemaVersion": 1,
+  "status": "residual-heading-classification-proposal",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "classSlug": "paladin",
+  "classUrl": "https://dnd.su/class/94-paladin/",
+  "snapshotPageSha256": "5802adccedb2ac003c15a63abe5bce228a5a825e0d558580dc26bf0e92352541",
+  "freshCapture": {
+    "url": "https://dnd.su/class/94-paladin/",
+    "sha256": "0da1ae156acac7ef4240e5e3e5420cf4e04b864aac3b8a29f0f05f6c422addb5",
+    "headingStructureSha256": "75d0f785335bae94b8d2ffb07e9c257f9aa68cf6b3f8f3ebff6395827b659fa4"
+  },
+  "records": [
+    {
+      "heading": {
+        "ordinal": 1,
+        "title": "Паладин",
+        "level": 4,
+        "anchors": [
+          "paladin"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "a2771187c5ec5367c929c5c8c4c77ffec20bc2bf54d847b6d37cd933eced54a0",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 2,
+        "title": "ИСТОЧНИК ПРАВЕДНОСТИ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "e396ffa1fb242d6e6b95bf44f161d76f7b5b7b4dd7366e5eff6928be3170bde1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 3,
+        "title": "ЗА МИРСКОЙ ЖИЗНЬЮ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "6c90911a8d5d380c4f8e603c393667076c37c35abb09edc5e1b15e6b10e725cd",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 4,
+        "title": "Создание паладина",
+        "level": 3,
+        "anchors": [
+          "sozdanie_paladina"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "57167f6e1512f56f1201fb55f3b06607ec8d84a74bed880b531560fd843dd714",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 5,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "da0b03e08a2dc0082c287eacbe869b2ed8e96ed72a3c0d642ead3fba275b660a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 6,
+        "title": "Углублённая предыстория Паладина (XGE)",
+        "level": 2,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "4e85b5fad47520b3fc9b9bbd6443ae0607d588160e4da94dbaf874bfc134d5df",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 7,
+        "title": "Личная цель",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "4577efade33f505dea02a019aa76c5bd6424f5407b6518ca10b87a78a43a33d7",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 8,
+        "title": "Личные цели",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "b5ed8e36b3cd19f370408b9d8ecf7de10c26d6c26c3c134f457760ed75f46f55",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 9,
+        "title": "Символ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "195ed2e0eda8458a517f9a859c0ee01181fcd1825608ff590acd00867ed76d6f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 10,
+        "title": "Символы",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "aa29f07da1670ce48ef7bf18c988158025cbf0c2728b30f1e388f7fb301b5701",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 11,
+        "title": "Супостат",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "954ec7ccaae7e997ebe7ffa21621382ab860ebbc020aa8a5faa2d4e2271c8139",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 12,
+        "title": "Супостаты",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "6d1470c0aa45917a79f1dbecf549e79632c6571ca4a94ba321ca96cea26ba4b0",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 13,
+        "title": "Искушение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "fb7062f20ba763e9fbbf45a8ae64f8c4fbd62f8cb5fc253bf625acd45a11c5cf",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 14,
+        "title": "Искушения",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "85d2523f9eeab3e7e77c7bc4e5681767a9ee545bc568e5036c9794566ee6b5f0",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 15,
+        "title": "МУЛЬТИКЛАССИРОВАНИЕ И Паладин",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "075e667ba60f73e474cf1693d5b0535de6c624cac730ac9893e86f5c5d849d3c",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 16,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "klassovye_umeniya"
+        ],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "b8156222cf35c16988a478b4a5597cdd62fdfc756d89a37c78fca5d5ba0b7b29",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 17,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 18,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "d3d7c61961e244bf28c16cad17483b39bf68bdef75a5698baaeac07ef7f02ef6",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 19,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "0932bc25fadf4569ddec63300f1c9492308386d09b43e2bfc42de51629e675f6",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 20,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "b47f2ac540b436ae207bf4ebde93309c16c52a72c43eb2517dfdf396dde3ea52",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 32,
+        "title": "Подготовка и сотворение заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "6e8230ad8fc734b3e2480ff381de0d00d42d766098241a4f07c72b83d58f2197",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:paladin:klassovye_umeniya:feature.spellcasting",
+      "parentHeadingOrdinal": 31,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 33,
+        "title": "Базовая характеристика заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "012426daaf08e96ad3a64f1b86d7b7d2b70ab84135110896dbeb1d96be87329c",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:paladin:klassovye_umeniya:feature.spellcasting",
+      "parentHeadingOrdinal": 31,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 34,
+        "title": "Фокусировка заклинания",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "ec587abd3048d3c0bf7032e56835a4addc21b4434f0cb5834457cdacf558c96f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:paladin:klassovye_umeniya:feature.spellcasting",
+      "parentHeadingOrdinal": 31,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 39,
+        "title": "ЗАКЛИНАНИЯ КЛЯТВЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "c58aadfcf572378e0d1ba17e0297ee81bd5d3838ac0eda28fbe962c31a252de2",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:paladin:klassovye_umeniya:feature.sacred-oath",
+      "parentHeadingOrdinal": 38,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 40,
+        "title": "БОЖЕСТВЕННЫЙ КАНАЛ",
+        "level": 4,
+        "anchors": [
+          "channel-divinity"
+        ],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "025a0d1b45630c618e71eff1ca5eb76a55d7cb799280bae09ffe98c633269318",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:paladin:klassovye_umeniya:feature.sacred-oath",
+      "parentHeadingOrdinal": 38,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 49,
+        "title": "Священные клятвы",
+        "level": 2,
+        "anchors": [
+          "sacred-oaths"
+        ],
+        "sectionAnchor": "sacred-oaths",
+        "bodySha256": "8f1e056c31452aece8e527559d569bc8b845b5271a431b59f9efad8039f6fbf3",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "tradition-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 50,
+        "title": "НАРУШЕНИЕ КЛЯТВЫ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "sacred-oaths",
+        "bodySha256": "c40af94a1e5b9d3dddaa49d77140af28c8f47143af6a98ed76d86b0d18a8fff0",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:paladin:klassovye_umeniya:feature.sacred-oath",
+      "parentHeadingOrdinal": 38,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 119,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "07f475b55b53e8ff5579ff367075a24b4d5ec9035edad47e4b0e422edc014a4b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    }
+  ],
+  "limitations": [
+    "No canonical denominator, full rules or publication rights accepted.",
+    "Original observations remain unchanged. Multiclass paragraphs refer to PHB rather than deriving source from the preceding XGE anchor.",
+    "Spellcasting subrules attach to31; oath spell rules and Channel Divinity attach to existing Sacred Oath38.",
+    "Breaking an Oath50 includes narrative and mechanical conditions, not merely flavour. No automatic punishment or user-action blocking is implemented.",
+    "Four six-row backstory tables remain guidance."
+  ]
+}
