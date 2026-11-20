@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-20",
+  "status": "publication-reference-not-full-rules",
+  "name": "Goliath",
+  "sourceId": "111",
+  "publication": "Volo's Guide to Monsters",
+  "url": "https://media.wizards.com/2021/dnd/downloads/VGtM-Errata.pdf",
+  "sha256": "5772849a279cafec73e30804f140592948e2ac01c0824b8160115285cec8a06a",
+  "errataVersion": "3.0",
+  "pdfPage": 1,
+  "bookPage": 109,
+  "anchor": "Goliath Traits (p. 109)",
+  "claim": "The official errata explicitly locates Goliath traits in this publication. This supports the publication boundary; it does not verify the complete race text or equivalence to Elemental Evil.",
+  "method": "Read primary PDF via web tool; independently downloaded bytes match existing pinned SHA; pypdf located the heading on first page.",
+  "accepted": false,
+  "reusePermission": "not-established",
+  "inputSha256": {
+    "catalog/vgm-mtf-selected-errata-2014.json": "4c85b9871a62b29a5531521a340210eb7f3c8cd1d70a5ca185c31eadd877b6d0"
+  }
+}
