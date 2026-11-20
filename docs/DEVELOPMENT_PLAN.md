@@ -1,3 +1,16 @@
+## 21.11 — передача блока, начатого00:04:12МСК
+
+- PR194/5da6602:2точныеVamp-карточки с равными выбранными числами различаются заклинательским разделом.9Python+4SHA/3HTML независимоPASS;однаprimaryindexстрока17381не назначенаобоимID,Clericrenameнет,canonicalcountnull.
+- PR195/fc896de:приняты только4reference-отношения:Drake1спутник/3уровневыхвида,Vampbase/castingviews,4legacy/MotMdigitalкандидата2демонов.9Node+4SHA/CLIнезависимоPASS;9наблюдений/13исходныхатрибуцийсохранены,2порядкаoriginal/reviewпоказаныбезпереписывания/приоритета.
+- PR196/c880d2b:6новыхpublisherfilters подтверждают2общихlegacyrecordвOotA/MToF и2отдельныхMotMrecord.8Python+4SHA/6primaryHTMLнезависимоPASS;selectedoption/namespace/displayedlabelсохранены,печатнаяэквивалентность/source129removalневыводятся.
+- PR197/4ae081d:актуальныйD03-контекст4групп/9наблюдений/13связей/19captures,2providerreuseфактаотдельноот4pendingcanonicalрешений.7Node+4SHA/CLIнезависимоPASS,P1/P2нет. Финальныйдокументальныйhead/mergeфиксируетсявPR.
+
+Две ограниченные попытки direct17381 (15с и12с после6успешныхpublisherfilters) завершились readtimeout;это конкретное условие данного primary-сравнения,не блокировка всейочереди. Никакого fullprimary/variant/template непрочитано,тайм-аутневыданзаequivalence. Другиеостатки:финальныйDrakeclass/component/unitinventory;печатныеMTF/OotAверсии/errata/смыслsecondary129дляMotM;праваотдельно. При недоступности братьдругиеM0,не повторятьготовые19captures/D04(5+3). Private22notes#78нечитались,ответнаузкийзапросещёнеполучен.
+
+Финальные check/buildPASS,343JSON/257pins0mismatches,локальныессылки4документов/diffPASS. Runtime/production/настоящиепрофилинеменяются,app/browser/Androidвыпускнеприменимы;своихсерверов/вкладок/пробросовнет,основнойcheckoutнетронут. M0/#77не закрыты. Фактическоеокончание/длительностьвфинальномотчёте.
+
+Планировщик:испытать D03currentcontext при следующемвыборе#77;ответственныйcontent,критерии0повторовпринятыхreference/filter-проверок и0потерянныхsourceclaims/ложныхprinted-equivalence. Сохранятьqueryfilter и displayedlabel/namespacesотдельно,историческийпорядокмассивовнепереписывать. Лишняяработа:текстовыеграницыHTML ипереносстрокивfixtureисправленыдо передачи;10старыхcapturesпереиспользованы,новыепроверкиадресные. Общиеинструкции/цель/доступнепереписывались.
+
 ## 21.11 — #77: актуальный D03-контекст
 
 PR196 слитc880d2b после независимых8Python+4SHA/6реальныхprimaryHTML,P1/P2нет. [Контекст](d03-current-review-context-2014.md) связывает4reviewed reference-группы/9наблюдений/13исходныхсвязей/19captures с2verified legacy-provider-reuse. Печатнаяэквивалентность/source129/fullrules/права/canonicalcount отдельноunverified;4rootрешенияpendingнепереписаны.7Node/CLI/3pinsPASS,изменённыеparents/rootрешенияне наследуютприёмку. Следующийшаг — независимыйобзор иконкретныеprimaryусловияпогруппамлибо другойдоступныйM0,безповтора19captures. Runtime/productionнеменяются,этапыоткрыты;рефлексиявдокументе.
