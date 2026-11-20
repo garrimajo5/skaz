@@ -1,0 +1,411 @@
+{
+  "schemaVersion": 1,
+  "status": "residual-heading-classification-proposal",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "classSlug": "rogue",
+  "classUrl": "https://dnd.su/class/99-rogue/",
+  "snapshotPageSha256": "eb7bbf3d2f7826bf84464cc31824cf045908d4c3b50e05656d95bdab6ec99f25",
+  "freshCapture": {
+    "url": "https://dnd.su/class/99-rogue/",
+    "sha256": "7ce1fed6b24b799ee46f30754d7a8d526ed2896b95c6943b0e9ef5199b5f1ee8",
+    "headingStructureSha256": "2332e6e2b4457ae1573d57fa3c7abf0e5f3cc62e3d917aa887d888d40bff7298"
+  },
+  "records": [
+    {
+      "heading": {
+        "ordinal": 1,
+        "title": "Плут",
+        "level": 4,
+        "anchors": [
+          "rogue"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "bdf95ea2c1066d65891c070a9d426c237f5c2354b710e541cdc0f714ed139bc2",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 2,
+        "title": "НАВЫК И ТОЧНОСТЬ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "3fd96d9c8ae6d853430ddb0595b70ea9546e8487562bd7382d1dcff8c4d107ca",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 3,
+        "title": "ТЕНЕВАЯ ЖИЗНЬ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "9d615d15d08a9f3a3a34c0605c23c63b3f14ce55f1004d34c0e4e207a6e6c69d",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 4,
+        "title": "Создание плута",
+        "level": 3,
+        "anchors": [
+          "creation"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "bc5f66c269ef94791dbf503e0e4fd06198df2d2b2055e535c32d221992eb4f6a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 5,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "857c5050c66b7055ea7bb5ad38a8ff965a827f3bce6bb7896c34c630e02d4936",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 6,
+        "title": "Углублённая предыстория Плута (XGE)",
+        "level": 2,
+        "anchors": [
+          "uglubljonnaya_predystoriya_pluta_xge"
+        ],
+        "sectionAnchor": "uglubljonnaya_predystoriya_pluta_xge",
+        "bodySha256": "8a9d99eaa4aa830fcd1a5ff1507bba7efca6c85ca4d568355376e70e2683122d",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 7,
+        "title": "Пагубное пристрастие",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_pluta_xge",
+        "bodySha256": "db2b6ce251d2944e847c3d7ec45a7b4a18301b937262bea8f8183a757968e726",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 8,
+        "title": "Пагубные пристрастия",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_pluta_xge",
+        "bodySha256": "592f83b935cb39643922c270fc2b3b7de5d319b9ffd04f57b44e556f0b98a1c4",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 9,
+        "title": "Противник",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_pluta_xge",
+        "bodySha256": "09d0a87692d7141077bc6d3a90a2228940fdbf3417ddd976bfacf529446a32a8",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 10,
+        "title": "Противники",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_pluta_xge",
+        "bodySha256": "613b5d759edd7518ec11ea3721e9ec4995ddc57c656e6083898239b2c4cb6790",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 11,
+        "title": "Благодетель",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_pluta_xge",
+        "bodySha256": "39901e1f8754bc0726ece9243cc59637294e824fd0bf53fe716caa5790202170",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 12,
+        "title": "Благодетели",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_pluta_xge",
+        "bodySha256": "c46d541ec3c4e664465d4fb8af62623da2ab79a7da4b3b70f8dc7172fcbdeae6",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 13,
+        "title": "МУЛЬТИКЛАССИРОВАНИЕ И плут",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_pluta_xge",
+        "bodySha256": "60c01b3c7e55d06eb94d04ff0964cf935700b329f6e0119865317a0f2eb861e2",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 14,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "class-features"
+        ],
+        "sectionAnchor": "class-features",
+        "bodySha256": "917b07bb00a91a9dd7075d07f0c324af093f1da9eaf83c7be54c937e8d62649a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 15,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 16,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "c77a09158e606b819ad3ae89a59f4fe8c1d7e582d4cc8c126c5838be0f0eeea1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 17,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "15d70a8a92eae904e36b445848a5ef2c93d5aec4863de73798b3c0d5af1198d5",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 18,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "a5693acdd01ef91f3db8ff5c844938a751477b99390a4a2f386b77f171ae5e92",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 33,
+        "title": "Архетипы плута",
+        "level": 2,
+        "anchors": [
+          "roguish-archetypes"
+        ],
+        "sectionAnchor": "roguish-archetypes",
+        "bodySha256": "1ab460d82d2acf60361d6651b10bd3a79852417e38a2ccdf506ed131b6a6ad72",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "tradition-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 89,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "90bad9d273565f028bd2c41c4cab0f74bb9ce11edd1fdc37375e2819869dbe09",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    }
+  ],
+  "limitations": [
+    "No canonical denominator, full rules or publication rights accepted.",
+    "Original observations remain unchanged. Multiclass paragraphs refer to PHB rather than deriving source from the preceding XGE anchor.",
+    "The three six-row backstory tables are guidance, not class features or new subclasses.",
+    "No spellcasting subrules occur in this residual batch; already represented Arcane Trickster material is not extracted again."
+  ]
+}

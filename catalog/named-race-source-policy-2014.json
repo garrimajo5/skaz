@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "policy": "official-wotc-2014-named-race-publications",
+  "checkedOn": "2026-11-20",
+  "complete": false,
+  "approvedDenominator": null,
+  "records": [
+    {
+      "observationId": "dndsu:race:169",
+      "observationUrl": "https://dnd.su/race/169-grung/",
+      "bibliographyId": "bibliography:one-grung-above",
+      "title": "One Grung Above",
+      "publisher": "Wizards of the Coast",
+      "publisherEvidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00060",
+      "numericDndsuSourceId": null,
+      "originalEraEvidence": {
+        "year": 2017,
+        "url": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/223738-sample.pdf",
+        "claim": "2017 publisher preview; official-rules status unresolved."
+      },
+      "disposition": "needs-official-rules-status-review",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established",
+      "canonicalId": null,
+      "fullRulesVerified": false
+    },
+    {
+      "observationId": "dndsu:race:178",
+      "observationUrl": "https://dnd.su/race/178-locathah/",
+      "bibliographyId": "bibliography:locathah-rising",
+      "title": "Locathah Rising",
+      "publisher": "Wizards of the Coast",
+      "publisherEvidenceUrl": "https://marketplace.dndbeyond.com/adventures/SRC-000055",
+      "numericDndsuSourceId": null,
+      "originalEraEvidence": {
+        "year": 2019,
+        "url": "https://www.dndbeyond.com/sources/dnd/lr",
+        "claim": "Official contents dated September 26, 2019 lists Locathah Characters."
+      },
+      "disposition": "eligible-publication-records-need-review",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established",
+      "canonicalId": null,
+      "fullRulesVerified": false
+    },
+    {
+      "observationId": "dndsu:race:184",
+      "observationUrl": "https://dnd.su/race/184-tortle/",
+      "bibliographyId": "bibliography:the-tortle-package",
+      "title": "The Tortle Package",
+      "publisher": "Wizards of the Coast",
+      "publisherEvidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00028",
+      "numericDndsuSourceId": null,
+      "originalEraEvidence": {
+        "year": 2017,
+        "url": "https://media.wizards.com/2017/dnd/downloads/DnDXL2017_Spells.pdf",
+        "claim": "D&D Team announcement, page 1, identifies playable tortles and The Tortle Package."
+      },
+      "disposition": "eligible-publication-records-need-review",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established",
+      "canonicalId": null,
+      "fullRulesVerified": false
+    }
+  ],
+  "limitations": [
+    "Publication routing only; no canonical races or full rules accepted.",
+    "Adventurers League legality is not the general catalog inclusion criterion.",
+    "One Grung Above requires primary official-rules-status evidence; publisher identity alone is insufficient.",
+    "Original bibliography and observation snapshots remain unchanged."
+  ]
+}

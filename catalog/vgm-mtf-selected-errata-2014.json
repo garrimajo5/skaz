@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-20",
+  "rulesEdition": "5e-2014",
+  "accepted": false,
+  "complete": false,
+  "automaticPatch": false,
+  "approvedDenominator": null,
+  "status": "selected-primary-errata-not-mpmm-revision",
+  "sources": {
+    "vgtm": {
+      "url": "https://media.wizards.com/2021/dnd/downloads/VGtM-Errata.pdf",
+      "version": "3.0",
+      "year": 2021,
+      "sha256": "5772849a279cafec73e30804f140592948e2ac01c0824b8160115285cec8a06a",
+      "sourceId": "111"
+    },
+    "mtf": {
+      "url": "https://media.wizards.com/2020/dnd/downloads/MTF-Errata.pdf",
+      "version": "1.0",
+      "year": 2020,
+      "sha256": "6e7da1e2e5b5736bbc8d2fbeb347f38c3ffc790448e40382fd5165ba6fefce78",
+      "sourceId": "113"
+    }
+  },
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  },
+  "records": [
+    {
+      "sourceKey": "vgtm",
+      "correctionHeading": "Kobold Scale Sorcerer",
+      "unitKind": "named-stat-block-correction",
+      "bookPage": 167,
+      "pdfPage": 2,
+      "primarySelectedCorrection": {
+        "sorceryPointsRecovery": "finish-long-rest"
+      },
+      "observationCandidate": {
+        "observationId": "dndsu:bestiary:559",
+        "observedName": "Kobold scale sorcerer",
+        "sourceIds": [
+          "111"
+        ],
+        "url": "https://dnd.su/bestiary/559-kobold-scale-sorcerer/",
+        "relation": "name-and-source-candidate-not-full-identity"
+      },
+      "secondaryCompared": false,
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "sourceKey": "vgtm",
+      "correctionHeading": "Neogi Master",
+      "unitKind": "named-stat-block-correction",
+      "bookPage": 180,
+      "pdfPage": 2,
+      "primarySelectedCorrection": {
+        "hitDice": "11d8+22"
+      },
+      "observationCandidate": {
+        "observationId": "dndsu:bestiary:592",
+        "observedName": "Neogi master",
+        "sourceIds": [
+          "111"
+        ],
+        "url": "https://dnd.su/bestiary/592-neogi-master/",
+        "relation": "name-and-source-candidate-not-full-identity"
+      },
+      "secondaryCompared": false,
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "sourceKey": "vgtm",
+      "correctionHeading": "Yuan-ti Mind Whisperer",
+      "unitKind": "named-stat-block-correction",
+      "bookPage": 204,
+      "pdfPage": 2,
+      "primarySelectedCorrection": {
+        "wisdomScore": 14
+      },
+      "observationCandidate": {
+        "observationId": "dndsu:bestiary:621",
+        "observedName": "Yuan-ti mind whisperer",
+        "sourceIds": [
+          "111"
+        ],
+        "url": "https://dnd.su/bestiary/621-yuan-ti-mind-whisperer/",
+        "relation": "name-and-source-candidate-not-full-identity"
+      },
+      "secondaryCompared": false,
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "sourceKey": "vgtm",
+      "correctionHeading": "Champion",
+      "unitKind": "named-stat-block-correction",
+      "bookPage": 212,
+      "pdfPage": 2,
+      "primarySelectedCorrection": {
+        "correctedWeapon": "shortbow",
+        "averageDamage": 5,
+        "damageDice": "1d6+2"
+      },
+      "observationCandidate": {
+        "observationId": "dndsu:bestiary:655",
+        "observedName": "Champion",
+        "sourceIds": [
+          "111"
+        ],
+        "url": "https://dnd.su/bestiary/655-champion/",
+        "relation": "name-and-source-candidate-not-full-identity"
+      },
+      "secondaryCompared": false,
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "sourceKey": "vgtm",
+      "correctionHeading": "Conjurer",
+      "unitKind": "named-stat-block-correction",
+      "bookPage": 212,
+      "pdfPage": 2,
+      "primarySelectedCorrection": {
+        "cantripAsterisksRemoved": true
+      },
+      "observationCandidate": {
+        "observationId": "dndsu:bestiary:6564",
+        "observedName": "Conjurer",
+        "sourceIds": [
+          "111"
+        ],
+        "url": "https://dnd.su/bestiary/6564-conjurer/",
+        "relation": "name-and-source-candidate-not-full-identity"
+      },
+      "secondaryCompared": false,
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "sourceKey": "vgtm",
+      "correctionHeading": "Evoker",
+      "unitKind": "named-stat-block-correction",
+      "bookPage": 214,
+      "pdfPage": 2,
+      "primarySelectedCorrection": {
+        "sculptSpellsRequiresSavingThrow": true
+      },
+      "observationCandidate": {
+        "observationId": "dndsu:bestiary:634",
+        "observedName": "Evoker",
+        "sourceIds": [
+          "111"
+        ],
+        "url": "https://dnd.su/bestiary/634-evoker/",
+        "relation": "name-and-source-candidate-not-full-identity"
+      },
+      "secondaryCompared": false,
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "sourceKey": "vgtm",
+      "correctionHeading": "Grassland Creatures",
+      "unitKind": "environment-table-entry",
+      "bookPage": 223,
+      "pdfPage": 2,
+      "primarySelectedCorrection": {
+        "creatureName": "Flind",
+        "challengeRating": "9",
+        "experiencePoints": 5000
+      },
+      "observationCandidate": {
+        "observationId": "dndsu:bestiary:534",
+        "observedName": "Flind",
+        "sourceIds": [
+          "111"
+        ],
+        "url": "https://dnd.su/bestiary/534-flind/",
+        "relation": "name-and-source-candidate-not-full-identity"
+      },
+      "secondaryCompared": false,
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "sourceKey": "vgtm",
+      "correctionHeading": "Hill Creatures",
+      "unitKind": "environment-table-entry",
+      "bookPage": 223,
+      "pdfPage": 2,
+      "primarySelectedCorrection": {
+        "creatureName": "Flind",
+        "challengeRating": "9",
+        "experiencePoints": 5000
+      },
+      "observationCandidate": {
+        "observationId": "dndsu:bestiary:534",
+        "observedName": "Flind",
+        "sourceIds": [
+          "111"
+        ],
+        "url": "https://dnd.su/bestiary/534-flind/",
+        "relation": "name-and-source-candidate-not-full-identity"
+      },
+      "secondaryCompared": false,
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "sourceKey": "mtf",
+      "correctionHeading": "Orcus",
+      "unitKind": "named-stat-block-correction",
+      "bookPage": 152,
+      "pdfPage": 1,
+      "primarySelectedCorrection": {
+        "lairActionOrdinal": 1,
+        "removedSaveDcAnnotation": 23
+      },
+      "observationCandidate": {
+        "observationId": "dndsu:bestiary:4890",
+        "observedName": "Orcus",
+        "sourceIds": [
+          "113",
+          "129"
+        ],
+        "url": "https://dnd.su/bestiary/4890-orcus/",
+        "relation": "name-and-source-candidate-not-full-identity"
+      },
+      "secondaryCompared": false,
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "sourceKey": "mtf",
+      "correctionHeading": "Red Abishai",
+      "unitKind": "named-stat-block-correction",
+      "bookPage": 162,
+      "pdfPage": 1,
+      "primarySelectedCorrection": {
+        "biteDamageDice": "3d10+6"
+      },
+      "observationCandidate": {
+        "observationId": "dndsu:bestiary:4868",
+        "observedName": "Red Abishai",
+        "sourceIds": [
+          "113"
+        ],
+        "url": "https://dnd.su/bestiary/4868-red-abishai/",
+        "relation": "name-and-source-candidate-not-full-identity"
+      },
+      "secondaryCompared": false,
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "sourceKey": "mtf",
+      "correctionHeading": "Hellfire Engine",
+      "unitKind": "named-stat-block-correction",
+      "bookPage": 165,
+      "pdfPage": 1,
+      "primarySelectedCorrection": {
+        "ability": "flesh-crushing-stride",
+        "successEffect": "push-to-nearest-space-outside-path"
+      },
+      "observationCandidate": {
+        "observationId": "dndsu:bestiary:2333",
+        "observedName": "Hellfire engine",
+        "sourceIds": [
+          "113"
+        ],
+        "url": "https://dnd.su/bestiary/2333-hellfire-engine/",
+        "relation": "name-and-source-candidate-not-full-identity"
+      },
+      "secondaryCompared": false,
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "sourceKey": "mtf",
+      "correctionHeading": "Zariel",
+      "unitKind": "named-stat-block-correction",
+      "bookPage": 180,
+      "pdfPage": 1,
+      "primarySelectedCorrection": {
+        "javelinReachFeet": 10,
+        "javelinRangeFeet": [
+          30,
+          120
+        ]
+      },
+      "observationCandidate": {
+        "observationId": "dndsu:bestiary:4401",
+        "observedName": "Zariel",
+        "sourceIds": [
+          "113"
+        ],
+        "url": "https://dnd.su/bestiary/4401-zariel/",
+        "relation": "name-and-source-candidate-not-full-identity"
+      },
+      "secondaryCompared": false,
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    }
+  ],
+  "limits": [
+    "VGM selected Chapter3/AppendixB/AppendixC corrections; Chapter1/2 not audited.",
+    "MTF four corrections; not the full sourcebook.",
+    "Flind has two environmental-table correction units but one candidate creature.",
+    "Absence of a selected IMR creature in errata is not proof that its versions are identical.",
+    "Orcus annotation removal concerns the first lair action only; no blanket no-save rule.",
+    "Full source texts and secondary stat blocks not compared; rights not accepted.",
+    "PDF permits personal print/photocopy; no republication licence inferred."
+  ]
+}

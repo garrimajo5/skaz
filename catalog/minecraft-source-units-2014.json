@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "199",
+  "ruleset": "5e-2014",
+  "status": "source-unit-proposal-not-catalog-acceptance",
+  "sourceUrl": "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/software/Minecraft-Monstrous-Compendium.pdf",
+  "revisedSourceUrl": "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/software/Minecraft-Monstrous-Compendium-revised.pdf",
+  "approvedDenominator": null,
+  "complete": false,
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  },
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:11847",
+      "nameEn": "Blaze",
+      "unitKind": "creature-statblock",
+      "sourceLocator": "Blaze",
+      "proposedCanonicalId": null,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:11848",
+      "nameEn": "Creeper",
+      "unitKind": "creature-statblock",
+      "sourceLocator": "Creeper",
+      "proposedCanonicalId": null,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:11849",
+      "nameEn": "Ender Dragon",
+      "unitKind": "creature-statblock",
+      "sourceLocator": "Ender Dragon",
+      "proposedCanonicalId": null,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:11850",
+      "nameEn": "Enderman",
+      "unitKind": "creature-statblock",
+      "sourceLocator": "Enderman",
+      "proposedCanonicalId": null,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:bestiary:11851",
+      "nameEn": "Wolf of the Overworld",
+      "unitKind": "creature-statblock",
+      "sourceLocator": "Wolf of the Overworld",
+      "proposedCanonicalId": null,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:items:6328",
+      "nameEn": "End Crystal",
+      "unitKind": "embedded-object-description",
+      "sourceLocator": "Ender Dragon > End Crystals > Crystal Statistics",
+      "proposedCanonicalId": null,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "observationId": "dndsu:items:6329",
+      "nameEn": "Ender Pearl",
+      "unitKind": "embedded-trait-item",
+      "sourceLocator": "Enderman > Implosion",
+      "proposedCanonicalId": null,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established"
+    }
+  ],
+  "limitations": [
+    "Five creature headings plus two embedded descriptions explain seven reference-page observations; this is not seven creature statblocks or two independently verified magic-item blocks.",
+    "End Crystal is described as an object; no rarity, attunement or purchase price is inferred.",
+    "Ender Pearl is described within a creature trait; a separate reference item page does not establish a separate source item statblock.",
+    "Original and revised PDF exist; reference-page equivalence to either version has not been checked. Text search did not find End Crystals in the revised extraction; this does not prove omission from the actual PDF.",
+    "Publication restricts redistribution; only identities and locators are recorded, no rules text or artwork copied.",
+    "No runtime cards, source text license, approved denominator, or full catalog completeness."
+  ]
+}

@@ -1,0 +1,580 @@
+{
+  "schemaVersion": 1,
+  "status": "residual-heading-classification-proposal",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "classSlug": "barbarian",
+  "classUrl": "https://dnd.su/class/87-barbarian/",
+  "snapshotPageSha256": "41cf6317ae335a583f4a35e728f2e39b3ddeccc553783c2b174d34e6ec021eb7",
+  "freshCapture": {
+    "url": "https://dnd.su/class/87-barbarian/",
+    "sha256": "f48dce4aff48b4459a3ff504b263b8fb5a7181a79909bfa1b11f6431c55a09ba",
+    "headingStructureSha256": "2722d42cd3a8ddf463f3fac22485a3cdee70639e7bc725f624516e818444be49"
+  },
+  "records": [
+    {
+      "heading": {
+        "ordinal": 1,
+        "title": "Варвар",
+        "level": 4,
+        "anchors": [
+          "barbarian"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "0eb845be3d1509761cfc2e8a4f4f7e98b0df2ca8691ec7f9a907409de45f8b06",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 2,
+        "title": "ПЕРВОБЫТНЫЕ ИНСТИНКТЫ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "30ed12971528fc2772010cc43ea3461b1be9e0234f282772c90031402462496b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 3,
+        "title": "ЖИЗНЬ, ПОЛНАЯ ОПАСНОСТЕЙ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "d93afc9bd01ddd075e5b5ed3b3d61ec167e388cfe37fe53f4b99627e2b2e04b0",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 4,
+        "title": "Создание варвара",
+        "level": 3,
+        "anchors": [
+          "sozdanie_varvara"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "1a9987e3887f3b6c71dfbf7048141c3923c02d69e5ae5b92026eb3991a1a72b8",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 5,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "6d463f9b312be8994176ea612c33ef8ffeaf7728e63bb8676623cc60d422183a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 6,
+        "title": "Углублённая предыстория Варвара (XGE)",
+        "level": 2,
+        "anchors": [
+          "uglubljonnaya_predystoriya_varvara_xge"
+        ],
+        "sectionAnchor": "uglubljonnaya_predystoriya_varvara_xge",
+        "bodySha256": "20b830ca02949271a1fb4e0b64ac54301f606d6d1776d35721e110b36c11c8a0",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 7,
+        "title": "Личные тотемы",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_varvara_xge",
+        "bodySha256": "0208c22db2ac73c54f62f3a3dc7f8839f620c0b344503fb04168520aef0f84fb",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-guidance-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 8,
+        "title": "Татуировки",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_varvara_xge",
+        "bodySha256": "4411d3a6198d061f263afb09ea1dc0cfc2115495791dab5b21f31e38299382d3",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 9,
+        "title": "Татуировки",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_varvara_xge",
+        "bodySha256": "fea37958c15cf1422e8668394db99e226cfdba1e67b35bc78c80b1f772a7ddd4",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 10,
+        "title": "Суеверия",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_varvara_xge",
+        "bodySha256": "b60e31881116eb005ece9093e56c4c9a06d312ca4908930149da346abe66e1af",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 11,
+        "title": "Суеверия",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_varvara_xge",
+        "bodySha256": "8b33435cc510d40b2f765dd99af791338a31276ced372ce8ad1e050146850601",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 12,
+        "title": "МУЛЬТИКЛАССИРОВАНИЕ И ВАРВАР",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_varvara_xge",
+        "bodySha256": "7c8871f272ca62f92bf27d3e8ab5139381adb503bbfda4754e5d8a0909397bba",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 13,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "klassovye_umeniya"
+        ],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "15eaa4cecc50ff833741067a984602567171111958e017b1de109e5cdbc89df0",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 14,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 15,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "57e8c7a4f1a8a573820b159d3425b226d2b1c9aa236c977dc5a875b8c66fc70b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 16,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "4ca4abc5ed0f6d5482e7b3cace6d6129fe70d567ed5545f5538be3aef432cb89",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 17,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "klassovye_umeniya",
+        "bodySha256": "8221abb2f5d98375e27e8f51fddf8cb2c40a936c10918e5bef75b63e81254bbb",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 34,
+        "title": "Пути дикости",
+        "level": 2,
+        "anchors": [
+          "primal-paths"
+        ],
+        "sectionAnchor": "primal-paths",
+        "bodySha256": "9437aa35aaf5d35c2801325b0009786591f03621409daa12be55c92813b56d5f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "tradition-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 72,
+        "title": "Дикая магия",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "primal.wild-magic",
+        "bodySha256": "d9e09e6b867e54a61b6846601846cdf699de1ee83d3b46be18bdb8271931482e",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 8
+          }
+        ]
+      },
+      "kind": "feature-effect-table",
+      "parentFeatureObservationId": "scope:barbarian:primal.wild-magic:95feeb1c80c10343",
+      "parentHeadingOrdinal": 71,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 77,
+        "title": "Происхождение зверя",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "primal.beast",
+        "bodySha256": "dfa6dda2c822459fd6a91c44d1f421b434fcee653cc2627ea783f86225187884",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 4
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 88,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "bf7ad2b43219dd7c93f2adc035e4524f362c7925acf3d6fe64e67e9a87e58f5b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 115,
+        "title": "Первобытный страж [Primal guardian] HB HB:GH",
+        "level": 2,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "6d4b9e1ca477e7563ff9929bdd031344c09ff97cd992d60d60e1e2e3d609f964",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "grim-hollow-companion"
+    },
+    {
+      "heading": {
+        "ordinal": 116,
+        "title": "Действия",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "1e8f7a4782806bffd50d24b824c46a554291fecba174fc9dd577c06c350e294b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "grim-hollow-companion"
+    },
+    {
+      "heading": {
+        "ordinal": 117,
+        "title": "Реакции",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "20630f412ad1ce351b0ad5a72b8e81b366602f8a85e1ac51dd0c2c08773437a2",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "grim-hollow-companion"
+    },
+    {
+      "heading": {
+        "ordinal": 118,
+        "title": "Первобытный боец [Primal striker] HB HB:GH",
+        "level": 2,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "49ae2d6f1d70d4f98a9f0493d55276a144104e6e20f571a5e802e550e4c85a21",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "grim-hollow-companion"
+    },
+    {
+      "heading": {
+        "ordinal": 119,
+        "title": "Действия",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "30d2c8f51400759183d04ccbf158e4c0d1312e7e6ba877b0e4af3ae7b7d5716f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "grim-hollow-companion"
+    },
+    {
+      "heading": {
+        "ordinal": 120,
+        "title": "Реакции",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "a9bc6587b623d1af06da52739da0a2def34fb9a10abfc973bb2a6154ba722356",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "grim-hollow-companion"
+    }
+  ],
+  "limitations": [
+    "No canonical denominator, complete rules, publication equivalence or source rights certified.",
+    "Historical observations and existing proposals are unchanged.",
+    "Heading7 combines guidance with a six-row personal-totem table.",
+    "Heading72 is the eight-effect Wild Surge table attached to71; heading77 is origin guidance, not the transformation feature.",
+    "The six companion-stat-block headings115–120 belong to the excluded Grim Hollow tradition109 through explicit companion link110; source proposals do not include them as official monsters."
+  ],
+  "exclusionContexts": {
+    "grim-hollow-companion": {
+      "publication": "Grim Hollow’s The Players Guide",
+      "sourceHeading": {
+        "ordinal": 109,
+        "title": "Путь первобытного духа",
+        "level": 2,
+        "anchors": [
+          "hb.primal.primordial-spirit"
+        ],
+        "sectionAnchor": "hb.primal.primordial-spirit",
+        "bodySha256": "829ef529884ad07952b7f70aa99c44a136511635da1aaa8ceb2c920a354c34dc",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "linkHeading": {
+        "ordinal": 110,
+        "title": "Первобытный спутник",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "hb.primal.primordial-spirit",
+        "bodySha256": "7e475f44b0a2a0c8d9d0c02d2eff867f5d36b54bb1758a6dafbb852267cb73c3",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "basis": "Companion feature110 explicitly selects fighter or guardian forms; their stat blocks follow and carry HB:GH labels. Manual source association, not automatic h2 inheritance."
+    }
+  }
+}

@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-19",
+  "rulesEdition": "5e-2014",
+  "status": "selected-errata-conditions-not-full-abilities",
+  "accepted": false,
+  "automaticPatch": false,
+  "approvedDenominator": null,
+  "primaryEvidence": {
+    "url": "https://media.wizards.com/2018/dnd/downloads/MM-Errata.pdf",
+    "version": "2.0; copyright2018",
+    "sha256": "94b0049fb762872fba6510f1d6c234de946d962a5ce3f1c15e18e050266410fb",
+    "reusePermission": "not-established-for-reference-text"
+  },
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  },
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:40",
+      "observedName": "Banshee",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/40-banshee/",
+      "primaryName": "Banshee",
+      "ability": "Detect Life",
+      "primaryLocator": {
+        "bookPage": 23,
+        "pdfPage": 1
+      },
+      "primarySelectedConditions": {
+        "rangeMiles": 5,
+        "excludedCreatureTypes": [
+          "undead",
+          "construct"
+        ]
+      },
+      "observedSelectedConditions": {
+        "rangeMiles": 5,
+        "excludedCreatureTypes": [
+          "undead",
+          "construct"
+        ]
+      },
+      "comparison": "selected-conditions-match",
+      "note": null,
+      "fullAbilityVerified": false,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:6",
+      "observedName": "Doppelganger",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/6-doppelganger/",
+      "primaryName": "Doppelganger",
+      "ability": "Ambusher",
+      "primaryLocator": {
+        "bookPage": 82,
+        "pdfPage": 1
+      },
+      "primarySelectedConditions": {
+        "combatRound": 1,
+        "attackRollAdvantage": true,
+        "targetSurprisedByActor": true
+      },
+      "observedSelectedConditions": {
+        "combatRound": null,
+        "attackRollAdvantage": true,
+        "targetSurprisedByActor": true
+      },
+      "comparison": "selected-condition-missing",
+      "note": "The Ambusher paragraph omits the first-round restriction. The separate Surprise Attack paragraph has a first-round condition; it is not transferred between abilities.",
+      "fullAbilityVerified": false,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:208",
+      "observedName": "Kenku",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/208-kenku/",
+      "primaryName": "Kenku",
+      "ability": "Ambusher",
+      "primaryLocator": {
+        "bookPage": 194,
+        "pdfPage": 2
+      },
+      "primarySelectedConditions": {
+        "combatRound": 1,
+        "attackRollAdvantage": true,
+        "targetSurprisedByActor": true
+      },
+      "observedSelectedConditions": {
+        "combatRound": 1,
+        "attackRollAdvantage": true,
+        "targetSurprisedByActor": true
+      },
+      "comparison": "selected-conditions-match",
+      "note": null,
+      "fullAbilityVerified": false,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:205",
+      "observedName": "Intellect devourer",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/205-intellect-devourer/",
+      "primaryName": "Intellect Devourer",
+      "ability": "Body Thief",
+      "primaryLocator": {
+        "bookPage": 191,
+        "pdfPage": 2
+      },
+      "primarySelectedConditions": {
+        "protectedByProtectionFromEvilAndGoodPreventsTargeting": true,
+        "forcedExitTrigger": "host-body-dies"
+      },
+      "observedSelectedConditions": {
+        "protectedByProtectionFromEvilAndGoodPreventsTargeting": true,
+        "forcedExitTrigger": "host-body-dies"
+      },
+      "comparison": "selected-conditions-match",
+      "note": null,
+      "fullAbilityVerified": false,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:216",
+      "observedName": "Lich",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/216-lich/",
+      "primaryName": "Lich",
+      "ability": "Disrupt Life",
+      "primaryLocator": {
+        "bookPage": 202,
+        "pdfPage": 2
+      },
+      "primarySelectedConditions": {
+        "excludedCreatureTypes": [
+          "undead"
+        ]
+      },
+      "observedSelectedConditions": {
+        "excludedCreatureTypes": [
+          "undead"
+        ]
+      },
+      "comparison": "selected-conditions-match",
+      "note": null,
+      "fullAbilityVerified": false,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:261",
+      "observedName": "Otyugh",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/261-otyugh/",
+      "primaryName": "Otyugh",
+      "ability": "Tentacle Slam",
+      "primaryLocator": {
+        "bookPage": 248,
+        "pdfPage": 2
+      },
+      "primarySelectedConditions": {
+        "rollKind": "saving-throw",
+        "ability": "constitution"
+      },
+      "observedSelectedConditions": {
+        "rollKind": "saving-throw",
+        "ability": "constitution"
+      },
+      "comparison": "selected-conditions-match",
+      "note": null,
+      "fullAbilityVerified": false,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:269",
+      "observedName": "Rakshasa",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/269-rakshasa/",
+      "primaryName": "Rakshasa",
+      "ability": "Limited Magic Immunity",
+      "primaryLocator": {
+        "bookPage": 257,
+        "pdfPage": 2
+      },
+      "primarySelectedConditions": {
+        "maximumSpellLevel": 6,
+        "prevents": [
+          "affected",
+          "detected"
+        ],
+        "unlessWilling": true
+      },
+      "observedSelectedConditions": null,
+      "comparison": "secondary-unverified",
+      "note": "HTTP400 Timeout fetching secondary page; primary condition only.",
+      "fullAbilityVerified": false,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:4720",
+      "observedName": "Revenant",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/4720-revenant/",
+      "primaryName": "Revenant",
+      "ability": "Rejuvenation",
+      "primaryLocator": {
+        "bookPage": 259,
+        "pdfPage": 2
+      },
+      "primarySelectedConditions": {
+        "newCorpseCreatureType": "humanoid"
+      },
+      "observedSelectedConditions": {
+        "newCorpseCreatureType": "humanoid"
+      },
+      "comparison": "selected-conditions-match",
+      "note": null,
+      "fullAbilityVerified": false,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:301",
+      "observedName": "Thri-kreen",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/301-thri-kreen/",
+      "primaryName": "Thri-kreen",
+      "ability": "Bite",
+      "primaryLocator": {
+        "bookPage": 288,
+        "pdfPage": 2
+      },
+      "primarySelectedConditions": {
+        "repeatSaveEligibleTarget": "poisoned-target",
+        "repeatSaveTiming": "end-of-each-own-turn",
+        "successEndsEffectOnSelf": true
+      },
+      "observedSelectedConditions": {
+        "repeatSaveEligibleTarget": "poisoned-target",
+        "repeatSaveTiming": "end-of-each-own-turn",
+        "successEndsEffectOnSelf": true
+      },
+      "comparison": "selected-conditions-match",
+      "note": null,
+      "fullAbilityVerified": false,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:144",
+      "observedName": "Water Elemental",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/144-water-elemental/",
+      "primaryName": "Water Elemental",
+      "ability": "Whelm final sentence",
+      "primaryLocator": {
+        "bookPage": 125,
+        "pdfPage": 2
+      },
+      "primarySelectedConditions": {
+        "rollKind": "ability-check",
+        "ability": "strength",
+        "dc": 14
+      },
+      "observedSelectedConditions": {
+        "rollKind": "ability-check",
+        "ability": "strength",
+        "dc": 14
+      },
+      "comparison": "selected-conditions-match",
+      "note": null,
+      "fullAbilityVerified": false,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:224",
+      "observedName": "Werewolf",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/224-werewolf/",
+      "primaryName": "Werewolf",
+      "ability": "Multiattack",
+      "primaryLocator": {
+        "bookPage": 211,
+        "pdfPage": 2
+      },
+      "primarySelectedConditions": {
+        "forms": [
+          "humanoid",
+          "hybrid"
+        ],
+        "humanoidAttacks": [
+          "spear",
+          "spear"
+        ],
+        "hybridAttacks": [
+          "bite",
+          "claws"
+        ]
+      },
+      "observedSelectedConditions": {
+        "forms": [
+          "humanoid",
+          "hybrid"
+        ],
+        "humanoidAttacks": [
+          "spear",
+          "spear"
+        ],
+        "hybridAttacks": [
+          "bite",
+          "claws"
+        ]
+      },
+      "comparison": "selected-conditions-match",
+      "note": null,
+      "fullAbilityVerified": false,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:150",
+      "observedName": "Ettercap",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/150-ettercap/",
+      "primaryName": "Ettercap",
+      "ability": "Web",
+      "primaryLocator": {
+        "bookPage": 131,
+        "pdfPage": 1
+      },
+      "primarySelectedConditions": {
+        "appliesTo": "webbing",
+        "vulnerabilities": [
+          "fire"
+        ],
+        "immunities": [
+          "bludgeoning"
+        ]
+      },
+      "observedSelectedConditions": {
+        "appliesTo": "webbing",
+        "vulnerabilities": [
+          "fire"
+        ],
+        "immunities": [
+          "bludgeoning"
+        ]
+      },
+      "comparison": "selected-conditions-match",
+      "note": null,
+      "fullAbilityVerified": false,
+      "fullStatBlockCompared": false,
+      "automaticPatch": false,
+      "canonicalId": null
+    }
+  ],
+  "limits": [
+    "Only the specific correction is structured; no claim about other conditions, damage, ranges, action costs or complete ability text.",
+    "Selected immunity/vulnerability entries are partial, not a replacement for the full list.",
+    "Whelm check is the final-sentence extraction check, not the initial saving throw or all escape rolls.",
+    "Rules remain advisory for user choices; no runtime automation or profile mutation is included."
+  ]
+}

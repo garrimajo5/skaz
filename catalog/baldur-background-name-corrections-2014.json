@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "status": "name-corrections-proposed-not-canonical-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "scopeSha256": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+  "indexEvidence": {
+    "url": "https://dnd.su/backgrounds/",
+    "rawSha256": "bdd5a7576102962f2d88f82c454b2621b2c59d015740a8a51c5f0b49717233b3",
+    "observedOn": "2026-11-20",
+    "rootCause": "Unescaped apostrophe inside a single-quoted data-search attribute truncates the parsed English name at Baldur."
+  },
+  "records": [
+    {
+      "observationId": "dndsu:backgrounds:830",
+      "url": "https://dnd.su/backgrounds/830-baldurs-gate-charlatan/",
+      "resolvedUrl": "https://dnd.su/backgrounds/830-baldurs-gate-charlatan/",
+      "sourceIds": [
+        "126"
+      ],
+      "observedEnglishName": "Baldur",
+      "proposedEnglishName": "Baldur's Gate Charlatan",
+      "evidenceKind": "exact-secondary-card-heading",
+      "rawSha256": "a38c706baaa06faaee1ae91a29a15ed75b7f71753ceeba47a38622a912e4afac",
+      "accepted": false,
+      "canonicalId": null,
+      "observedCardEnglishName": "Baldur's Gate Charlatan"
+    },
+    {
+      "observationId": "dndsu:backgrounds:832",
+      "url": "https://dnd.su/backgrounds/832-baldurs-gate-entertainer/",
+      "resolvedUrl": "https://dnd.su/backgrounds/832-baldurs-gate-entertainer/",
+      "sourceIds": [
+        "126"
+      ],
+      "observedEnglishName": "Baldur",
+      "proposedEnglishName": "Baldur's Gate Entertainer",
+      "evidenceKind": "exact-secondary-card-heading",
+      "rawSha256": "88f5bd2abed1fe60e24bceb7f0f46f5e999677e242c6e6c13230cec85fe2a7dd",
+      "accepted": false,
+      "canonicalId": null,
+      "observedCardEnglishName": "Baldur's Gate Entertainer"
+    },
+    {
+      "observationId": "dndsu:backgrounds:834",
+      "url": "https://dnd.su/backgrounds/834-baldurs-gate-noble/",
+      "resolvedUrl": "https://dnd.su/backgrounds/834-baldurs-gate-noble/",
+      "sourceIds": [
+        "126"
+      ],
+      "observedEnglishName": "Baldur",
+      "proposedEnglishName": "Baldur's Gate Noble",
+      "evidenceKind": "exact-secondary-card-heading",
+      "rawSha256": "b4a5626af324d01ab0deee49fd862fbb52669789fde89bfcc85748ad6665dae7",
+      "accepted": false,
+      "canonicalId": null,
+      "observedCardEnglishName": "Baldur's Gate Noble"
+    },
+    {
+      "observationId": "dndsu:backgrounds:835",
+      "url": "https://dnd.su/backgrounds/835-baldurs-gate-urchin/",
+      "resolvedUrl": "https://dnd.su/backgrounds/835-baldurs-gate-urchin/",
+      "sourceIds": [
+        "126"
+      ],
+      "observedEnglishName": "Baldur",
+      "proposedEnglishName": "Baldur's Gate Urchin",
+      "evidenceKind": "exact-secondary-card-heading",
+      "rawSha256": "525335a5ed8437a654a54a13437abc2f80937367030b1ede5f45f71ccc5592fd",
+      "accepted": false,
+      "canonicalId": null,
+      "observedCardEnglishName": "Baldur's Gate Urchin"
+    },
+    {
+      "observationId": "dndsu:backgrounds:836",
+      "url": "https://dnd.su/backgrounds/836-baldurs-gate-sailor/",
+      "resolvedUrl": "https://dnd.su/backgrounds/836-baldurs-gate-sailor/",
+      "sourceIds": [
+        "126"
+      ],
+      "observedEnglishName": "Baldur",
+      "proposedEnglishName": "Baldur's Gate Sailor",
+      "evidenceKind": "exact-secondary-card-heading",
+      "rawSha256": "62f8bcb6b7ebad44cca3d9daa7daaf4150d75f8712d7e92548bd5a5bb84be85c",
+      "accepted": false,
+      "canonicalId": null,
+      "observedCardEnglishName": "Baldur's Gate Sailor"
+    },
+    {
+      "observationId": "dndsu:backgrounds:837",
+      "url": "https://dnd.su/backgrounds/837-baldurs-gate-sage/",
+      "resolvedUrl": "https://dnd.su/backgrounds/837-baldurs-gate-sage/",
+      "sourceIds": [
+        "126"
+      ],
+      "observedEnglishName": "Baldur",
+      "proposedEnglishName": "Baldur's Gate Sage",
+      "evidenceKind": "exact-secondary-card-heading",
+      "rawSha256": "726314a4b56c19d810b133f18e5fcc81395fa63d7cb8da0b59088af9ab4e908f",
+      "accepted": false,
+      "canonicalId": null,
+      "observedCardEnglishName": "Baldur's Gate Sage"
+    },
+    {
+      "observationId": "dndsu:backgrounds:838",
+      "url": "https://dnd.su/backgrounds/838-baldurs-gate-folk-hero/",
+      "resolvedUrl": "https://dnd.su/backgrounds/838-baldurs-gate-folk-hero/",
+      "sourceIds": [
+        "126"
+      ],
+      "observedEnglishName": "Baldur",
+      "proposedEnglishName": "Baldur's Gate Folk Hero",
+      "evidenceKind": "exact-secondary-card-heading",
+      "rawSha256": "9c84467b51497fac4dfb46c2b5057316f4dd14916898951458f21ccf06533326",
+      "accepted": false,
+      "canonicalId": null,
+      "observedCardEnglishName": "Baldur's Gate Folk Hero"
+    },
+    {
+      "observationId": "dndsu:backgrounds:839",
+      "url": "https://dnd.su/backgrounds/839-baldurs-gate-hermit/",
+      "resolvedUrl": "https://dnd.su/backgrounds/839-baldurs-gate-hermit/",
+      "sourceIds": [
+        "126"
+      ],
+      "observedEnglishName": "Baldur",
+      "proposedEnglishName": "Baldur's Gate Hermit",
+      "evidenceKind": "exact-secondary-card-heading",
+      "rawSha256": "f65dcb711d539d9c699cfb62d903919297bc703084b8eaacead8115442b792f2",
+      "accepted": false,
+      "canonicalId": null,
+      "observedCardEnglishName": "Baldur's Gate Hermit"
+    },
+    {
+      "observationId": "dndsu:backgrounds:840",
+      "url": "https://dnd.su/backgrounds/840-baldurs-gate-acolyte/",
+      "resolvedUrl": "https://dnd.su/backgrounds/840-baldurs-gate-acolyte/",
+      "sourceIds": [
+        "126"
+      ],
+      "observedEnglishName": "Baldur",
+      "proposedEnglishName": "Baldur's Gate Acolyte",
+      "evidenceKind": "exact-secondary-card-heading",
+      "rawSha256": "27dfb96201658842ddc950b9021420972e5907d4cc850e0e545378d1e994852a",
+      "accepted": false,
+      "canonicalId": null,
+      "observedCardEnglishName": "Baldur's Gate Acolyte"
+    },
+    {
+      "observationId": "dndsu:backgrounds:841",
+      "url": "https://dnd.su/backgrounds/841-baldurs-gate-criminal/",
+      "resolvedUrl": "https://dnd.su/backgrounds/841-baldurs-gate-criminal/",
+      "sourceIds": [
+        "126"
+      ],
+      "observedEnglishName": "Baldur",
+      "proposedEnglishName": "Baldur's Gate Criminal",
+      "evidenceKind": "exact-secondary-card-heading",
+      "rawSha256": "8e1822e0af99d26c56d19f23ea722ec0ecfe9669cfda8be686422e55b3e7ed9f",
+      "accepted": false,
+      "canonicalId": null,
+      "observedCardEnglishName": "Baldur's Gate Criminal"
+    },
+    {
+      "observationId": "dndsu:backgrounds:842",
+      "url": "https://dnd.su/backgrounds/842-baldurs-gate-guild-artisan/",
+      "resolvedUrl": "https://dnd.su/backgrounds/842-baldurs-gate-guild-artisan/",
+      "sourceIds": [
+        "126"
+      ],
+      "observedEnglishName": "Baldur",
+      "proposedEnglishName": "Baldur's Gate Guild Artisan",
+      "evidenceKind": "exact-secondary-card-heading",
+      "rawSha256": "392ab6e90d977a0756fbffa80b7b1576308a7ea8e35263325e982095e2224c09",
+      "accepted": false,
+      "canonicalId": null,
+      "observedCardEnglishName": "Baldur's Gate Guild Artisan"
+    },
+    {
+      "observationId": "dndsu:backgrounds:843",
+      "url": "https://dnd.su/backgrounds/843-baldurs-gate-soldier/",
+      "resolvedUrl": "https://dnd.su/backgrounds/843-baldurs-gate-soldier/",
+      "sourceIds": [
+        "126"
+      ],
+      "observedEnglishName": "Baldur",
+      "proposedEnglishName": "Baldur's Gate Soldier",
+      "evidenceKind": "exact-secondary-card-heading",
+      "rawSha256": "628c7e99a372c8d4e20a7b1ea943b9da250e528f2dee342fb2cea6647cba9716",
+      "accepted": false,
+      "canonicalId": null,
+      "observedCardEnglishName": "Baldur's Gate Soldier"
+    },
+    {
+      "observationId": "dndsu:backgrounds:844",
+      "url": "https://dnd.su/backgrounds/844-baldurs-gate-outlander/",
+      "resolvedUrl": "https://dnd.su/backgrounds/844-baldurs-gate-outlander/",
+      "sourceIds": [
+        "126"
+      ],
+      "observedEnglishName": "Baldur",
+      "proposedEnglishName": "Baldur's Gate Outlander",
+      "evidenceKind": "exact-secondary-card-heading",
+      "rawSha256": "680a5a5f6f893d8141427db64a2841871d159d47109d0c53ec062440ae7ff0f5",
+      "accepted": false,
+      "canonicalId": null,
+      "observedCardEnglishName": "Baldur's Gate Outlander "
+    }
+  ],
+  "limitations": [
+    "Original snapshot and IDs remain unchanged.",
+    "Page-heading evidence corrects names, not primary canonical identity or full rules.",
+    "These13 observations are not one duplicate merely because the malformed index yielded the same name.",
+    "Global294-group diagnostic remains historical until a separately reviewed corrected snapshot is produced.",
+    "Full WotC composition and publication rights remain unaccepted."
+  ]
+}

@@ -1,0 +1,946 @@
+{
+  "schemaVersion": 1,
+  "status": "derived-name-review-overlay-not-canonical-catalog",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "nameBasis": "exact-secondary-card-headings-in-separately-reviewed-proposal",
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/baldur-background-name-corrections-2014.json": "f6f8c5af7354ab94131174ff8e44a020eb230c373478cfb18fdb323db9204f01",
+    "catalog/numeric-source-scope-policy-2014.json": "c46db1df76294bc971e7c1582ece3cfe09cd126fcca22edf7fd2431f8379df32",
+    "catalog/background-adaptation-page-review-2014.json": "6569609e5706863eda1bfc14c65ed61bf6741619fc4cf5d32c041a8b289ecabb"
+  },
+  "corrections": [
+    {
+      "observationId": "dndsu:backgrounds:830",
+      "originalEnglishName": "Baldur",
+      "observedCardEnglishName": "Baldur's Gate Charlatan",
+      "effectiveEnglishName": "Baldur's Gate Charlatan",
+      "sourceIds": [
+        "126"
+      ],
+      "url": "https://dnd.su/backgrounds/830-baldurs-gate-charlatan/",
+      "evidenceSha256": "a38c706baaa06faaee1ae91a29a15ed75b7f71753ceeba47a38622a912e4afac",
+      "canonicalId": null,
+      "identityAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:832",
+      "originalEnglishName": "Baldur",
+      "observedCardEnglishName": "Baldur's Gate Entertainer",
+      "effectiveEnglishName": "Baldur's Gate Entertainer",
+      "sourceIds": [
+        "126"
+      ],
+      "url": "https://dnd.su/backgrounds/832-baldurs-gate-entertainer/",
+      "evidenceSha256": "88f5bd2abed1fe60e24bceb7f0f46f5e999677e242c6e6c13230cec85fe2a7dd",
+      "canonicalId": null,
+      "identityAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:834",
+      "originalEnglishName": "Baldur",
+      "observedCardEnglishName": "Baldur's Gate Noble",
+      "effectiveEnglishName": "Baldur's Gate Noble",
+      "sourceIds": [
+        "126"
+      ],
+      "url": "https://dnd.su/backgrounds/834-baldurs-gate-noble/",
+      "evidenceSha256": "b4a5626af324d01ab0deee49fd862fbb52669789fde89bfcc85748ad6665dae7",
+      "canonicalId": null,
+      "identityAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:835",
+      "originalEnglishName": "Baldur",
+      "observedCardEnglishName": "Baldur's Gate Urchin",
+      "effectiveEnglishName": "Baldur's Gate Urchin",
+      "sourceIds": [
+        "126"
+      ],
+      "url": "https://dnd.su/backgrounds/835-baldurs-gate-urchin/",
+      "evidenceSha256": "525335a5ed8437a654a54a13437abc2f80937367030b1ede5f45f71ccc5592fd",
+      "canonicalId": null,
+      "identityAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:836",
+      "originalEnglishName": "Baldur",
+      "observedCardEnglishName": "Baldur's Gate Sailor",
+      "effectiveEnglishName": "Baldur's Gate Sailor",
+      "sourceIds": [
+        "126"
+      ],
+      "url": "https://dnd.su/backgrounds/836-baldurs-gate-sailor/",
+      "evidenceSha256": "62f8bcb6b7ebad44cca3d9daa7daaf4150d75f8712d7e92548bd5a5bb84be85c",
+      "canonicalId": null,
+      "identityAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:837",
+      "originalEnglishName": "Baldur",
+      "observedCardEnglishName": "Baldur's Gate Sage",
+      "effectiveEnglishName": "Baldur's Gate Sage",
+      "sourceIds": [
+        "126"
+      ],
+      "url": "https://dnd.su/backgrounds/837-baldurs-gate-sage/",
+      "evidenceSha256": "726314a4b56c19d810b133f18e5fcc81395fa63d7cb8da0b59088af9ab4e908f",
+      "canonicalId": null,
+      "identityAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:838",
+      "originalEnglishName": "Baldur",
+      "observedCardEnglishName": "Baldur's Gate Folk Hero",
+      "effectiveEnglishName": "Baldur's Gate Folk Hero",
+      "sourceIds": [
+        "126"
+      ],
+      "url": "https://dnd.su/backgrounds/838-baldurs-gate-folk-hero/",
+      "evidenceSha256": "9c84467b51497fac4dfb46c2b5057316f4dd14916898951458f21ccf06533326",
+      "canonicalId": null,
+      "identityAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:839",
+      "originalEnglishName": "Baldur",
+      "observedCardEnglishName": "Baldur's Gate Hermit",
+      "effectiveEnglishName": "Baldur's Gate Hermit",
+      "sourceIds": [
+        "126"
+      ],
+      "url": "https://dnd.su/backgrounds/839-baldurs-gate-hermit/",
+      "evidenceSha256": "f65dcb711d539d9c699cfb62d903919297bc703084b8eaacead8115442b792f2",
+      "canonicalId": null,
+      "identityAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:840",
+      "originalEnglishName": "Baldur",
+      "observedCardEnglishName": "Baldur's Gate Acolyte",
+      "effectiveEnglishName": "Baldur's Gate Acolyte",
+      "sourceIds": [
+        "126"
+      ],
+      "url": "https://dnd.su/backgrounds/840-baldurs-gate-acolyte/",
+      "evidenceSha256": "27dfb96201658842ddc950b9021420972e5907d4cc850e0e545378d1e994852a",
+      "canonicalId": null,
+      "identityAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:841",
+      "originalEnglishName": "Baldur",
+      "observedCardEnglishName": "Baldur's Gate Criminal",
+      "effectiveEnglishName": "Baldur's Gate Criminal",
+      "sourceIds": [
+        "126"
+      ],
+      "url": "https://dnd.su/backgrounds/841-baldurs-gate-criminal/",
+      "evidenceSha256": "8e1822e0af99d26c56d19f23ea722ec0ecfe9669cfda8be686422e55b3e7ed9f",
+      "canonicalId": null,
+      "identityAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:842",
+      "originalEnglishName": "Baldur",
+      "observedCardEnglishName": "Baldur's Gate Guild Artisan",
+      "effectiveEnglishName": "Baldur's Gate Guild Artisan",
+      "sourceIds": [
+        "126"
+      ],
+      "url": "https://dnd.su/backgrounds/842-baldurs-gate-guild-artisan/",
+      "evidenceSha256": "392ab6e90d977a0756fbffa80b7b1576308a7ea8e35263325e982095e2224c09",
+      "canonicalId": null,
+      "identityAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:843",
+      "originalEnglishName": "Baldur",
+      "observedCardEnglishName": "Baldur's Gate Soldier",
+      "effectiveEnglishName": "Baldur's Gate Soldier",
+      "sourceIds": [
+        "126"
+      ],
+      "url": "https://dnd.su/backgrounds/843-baldurs-gate-soldier/",
+      "evidenceSha256": "628c7e99a372c8d4e20a7b1ea943b9da250e528f2dee342fb2cea6647cba9716",
+      "canonicalId": null,
+      "identityAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:844",
+      "originalEnglishName": "Baldur",
+      "observedCardEnglishName": "Baldur's Gate Outlander ",
+      "effectiveEnglishName": "Baldur's Gate Outlander",
+      "sourceIds": [
+        "126"
+      ],
+      "url": "https://dnd.su/backgrounds/844-baldurs-gate-outlander/",
+      "evidenceSha256": "680a5a5f6f893d8141427db64a2841871d159d47109d0c53ec062440ae7ff0f5",
+      "canonicalId": null,
+      "identityAccepted": false
+    }
+  ],
+  "beforeSummary": {
+    "observedPages": 4973,
+    "namedPages": 4968,
+    "missingEnglishNames": 5,
+    "duplicateNameGroups": 294,
+    "observationsInNameGroups": 618,
+    "scriptDiagnostics": 5
+  },
+  "afterSummary": {
+    "observedPages": 4973,
+    "namedPages": 4968,
+    "missingEnglishNames": 5,
+    "duplicateNameGroups": 293,
+    "observationsInNameGroups": 605,
+    "scriptDiagnostics": 5
+  },
+  "groupDelta": {
+    "removedDiagnosticGroups": [
+      {
+        "reviewId": "name-review:beb5c20ab381895cb1c0",
+        "section": "backgrounds",
+        "comparisonKey": "baldur",
+        "reason": "identical-observed-name",
+        "sharedSourceIds": [
+          "126"
+        ],
+        "members": [
+          {
+            "id": "dndsu:backgrounds:830",
+            "section": "backgrounds",
+            "observedName": "Baldur",
+            "sourceIds": [
+              "126"
+            ]
+          },
+          {
+            "id": "dndsu:backgrounds:832",
+            "section": "backgrounds",
+            "observedName": "Baldur",
+            "sourceIds": [
+              "126"
+            ]
+          },
+          {
+            "id": "dndsu:backgrounds:834",
+            "section": "backgrounds",
+            "observedName": "Baldur",
+            "sourceIds": [
+              "126"
+            ]
+          },
+          {
+            "id": "dndsu:backgrounds:835",
+            "section": "backgrounds",
+            "observedName": "Baldur",
+            "sourceIds": [
+              "126"
+            ]
+          },
+          {
+            "id": "dndsu:backgrounds:836",
+            "section": "backgrounds",
+            "observedName": "Baldur",
+            "sourceIds": [
+              "126"
+            ]
+          },
+          {
+            "id": "dndsu:backgrounds:837",
+            "section": "backgrounds",
+            "observedName": "Baldur",
+            "sourceIds": [
+              "126"
+            ]
+          },
+          {
+            "id": "dndsu:backgrounds:838",
+            "section": "backgrounds",
+            "observedName": "Baldur",
+            "sourceIds": [
+              "126"
+            ]
+          },
+          {
+            "id": "dndsu:backgrounds:839",
+            "section": "backgrounds",
+            "observedName": "Baldur",
+            "sourceIds": [
+              "126"
+            ]
+          },
+          {
+            "id": "dndsu:backgrounds:840",
+            "section": "backgrounds",
+            "observedName": "Baldur",
+            "sourceIds": [
+              "126"
+            ]
+          },
+          {
+            "id": "dndsu:backgrounds:841",
+            "section": "backgrounds",
+            "observedName": "Baldur",
+            "sourceIds": [
+              "126"
+            ]
+          },
+          {
+            "id": "dndsu:backgrounds:842",
+            "section": "backgrounds",
+            "observedName": "Baldur",
+            "sourceIds": [
+              "126"
+            ]
+          },
+          {
+            "id": "dndsu:backgrounds:843",
+            "section": "backgrounds",
+            "observedName": "Baldur",
+            "sourceIds": [
+              "126"
+            ]
+          },
+          {
+            "id": "dndsu:backgrounds:844",
+            "section": "backgrounds",
+            "observedName": "Baldur",
+            "sourceIds": [
+              "126"
+            ]
+          }
+        ],
+        "accepted": false,
+        "canonicalId": null,
+        "action": "compare-primary-publications-and-versions-before-any-merge"
+      }
+    ],
+    "addedDiagnosticGroups": [],
+    "changedDiagnosticGroups": [],
+    "unchangedGroupIds": [
+      "name-review:006c7b51de1b91a22445",
+      "name-review:01475e029d49ea59441a",
+      "name-review:019ad948d6ad1eb5297c",
+      "name-review:037938323f4d1f446511",
+      "name-review:040f0db59008bdaca531",
+      "name-review:04c4123dd9021faddce6",
+      "name-review:0877c754916d64303791",
+      "name-review:0890e83b619d40ddb7bf",
+      "name-review:0990cc94edd1f2307583",
+      "name-review:09a2b071dcba4152e924",
+      "name-review:09a4e54444ba7198e981",
+      "name-review:0a1708a1ed75b778b874",
+      "name-review:0aa2910ed850ba5f2508",
+      "name-review:0b737a647baf14aa7fe1",
+      "name-review:0b868afeb63badaad1e3",
+      "name-review:0c1dafcaa5c520b04032",
+      "name-review:0c3eada156adf4acb22f",
+      "name-review:0e5d58c0f797d95c8bf7",
+      "name-review:0f6deb903b62ec97e2b9",
+      "name-review:0fc8fb003db4a3c51ca1",
+      "name-review:1127f232d1af1d297dec",
+      "name-review:120c8233eb9acbd589ea",
+      "name-review:143891f93cacecb0a599",
+      "name-review:153176dc068aa28ea07b",
+      "name-review:158f1636c63994db0757",
+      "name-review:15ca7de4108191f81f30",
+      "name-review:1607b262629a4c704271",
+      "name-review:196742616970ce49880d",
+      "name-review:19b610f76bb81838ed91",
+      "name-review:1b06c8eb8bd23dbc0116",
+      "name-review:1bd7a030f2bff34ef64f",
+      "name-review:1c2a8c8dfb05a6837d02",
+      "name-review:1c8fc6c2d33c057fc033",
+      "name-review:1ce0a4f6ecfcaae76af1",
+      "name-review:1d8ac7e896c12a88d986",
+      "name-review:1e741937cd3a745f4fb5",
+      "name-review:1ec6b67b6e8fc40c3a19",
+      "name-review:1ef8f5ae4c0169bd30a6",
+      "name-review:1f09b03b64c9e790b6f7",
+      "name-review:20e59a8f250f918a3e62",
+      "name-review:20eb68b7ca0b23cf1c4c",
+      "name-review:20fbdf4946b6cda0a989",
+      "name-review:2142936e39154b5884e5",
+      "name-review:224d06e513e44159a3a4",
+      "name-review:2306725148b77f6e711d",
+      "name-review:24c40377c44b51368c3d",
+      "name-review:26138101e27532d0761f",
+      "name-review:261759ffcc7d9abef968",
+      "name-review:26c65e50aa7a599a8ea6",
+      "name-review:2793592cb20cb9ea17b4",
+      "name-review:27c866fd342d61ec17b7",
+      "name-review:28224771ed2810036ccd",
+      "name-review:2889f3314082286f1ed2",
+      "name-review:2911d8dce2c7e2a5a59d",
+      "name-review:2967ce5703858f7157a9",
+      "name-review:297111280d0cdc866c91",
+      "name-review:2a05d5e7451cede58149",
+      "name-review:2a16da9644e2def38d39",
+      "name-review:2ba8b2cd759eb414cb6f",
+      "name-review:2bb08a35d1e930b9b9e2",
+      "name-review:2bc371323ee37b2d0fcb",
+      "name-review:31bc15c862f94febca01",
+      "name-review:31eb9cba6475a86e79f1",
+      "name-review:32493c74bc38dc1c9fec",
+      "name-review:328c308197dcadd6578a",
+      "name-review:33a60c9b712e1ff852ad",
+      "name-review:33c77e349b9b84e709e1",
+      "name-review:346e0184facbebc09668",
+      "name-review:39dddadda85fdb96af4b",
+      "name-review:39fbf40b7c86ea8de5d0",
+      "name-review:3b273b20e116c87f5307",
+      "name-review:3b646e7c0843e455efb2",
+      "name-review:3b6ef076c6bb1ebcf7e2",
+      "name-review:3bd9b3d76711e308d87b",
+      "name-review:3c64a353f40a83290212",
+      "name-review:3c964b537c29ff18a5d0",
+      "name-review:3d4990773e32fb04b7e5",
+      "name-review:3f6b5dfb2648e89a3f06",
+      "name-review:3f916886b35951020b09",
+      "name-review:4011dc80b76400f0d1a8",
+      "name-review:424fddb50830e6be8fb8",
+      "name-review:42ac93489efb3f5b3c1a",
+      "name-review:438fd9d212f39f25e9f4",
+      "name-review:44a9fb154e3ddde9469e",
+      "name-review:4527e6c9409082dbdd3e",
+      "name-review:45c8cd0389addeb51a4c",
+      "name-review:47965381caa0aa98b622",
+      "name-review:47d753d7209133340c0a",
+      "name-review:4997ef12e3bdd741de66",
+      "name-review:4a99711d4fa1e34e9b1e",
+      "name-review:4aa4200288b5c8ee4690",
+      "name-review:4b3d523ffc54f3dcaee3",
+      "name-review:4c43b40edb5dfff27337",
+      "name-review:4f1f991efb6b04c0dc99",
+      "name-review:50757aa4a7191fa8c39a",
+      "name-review:53b5e9fb57f1baa94057",
+      "name-review:5447350ffae8c9faeee4",
+      "name-review:5566b679c0ae7492122c",
+      "name-review:55a606e9e66500474a18",
+      "name-review:562244eca397ef396cc5",
+      "name-review:56c5a277e25a90b738ea",
+      "name-review:56f2df4c85cab49cf12a",
+      "name-review:56f4a50fcd55424c49d2",
+      "name-review:58a2a9e5a38a494e6f27",
+      "name-review:58ec81ff3927d7ebbce4",
+      "name-review:592fb0a6b181f465e066",
+      "name-review:5b13ecc7bedba37c9b58",
+      "name-review:5b64faeb38ec2013f204",
+      "name-review:5b7016167727880489b7",
+      "name-review:5c8864e6095d3c31a7f8",
+      "name-review:5d3df0bb82c140286b68",
+      "name-review:5e24cc2711d9f4ec9a64",
+      "name-review:5e84e381871aada61386",
+      "name-review:61f96519a5c6441403c9",
+      "name-review:6453bf65d4755b725cc6",
+      "name-review:6581fe673b04ff268b63",
+      "name-review:676b975337d9a84b2437",
+      "name-review:68f9a44e8a6e757c5e26",
+      "name-review:692485322d38ef159577",
+      "name-review:692ef5fc9e5709b3db58",
+      "name-review:694e343ed9f3299be35d",
+      "name-review:6aadaee851048080e207",
+      "name-review:6c6d2eb253b8f927240b",
+      "name-review:6cf82424984a3be6b2b7",
+      "name-review:6dd2671195dce1c82571",
+      "name-review:6ddb21589e4c92819c34",
+      "name-review:6ecfd82bc8ed295e526d",
+      "name-review:6fe91bb3a499bdb3b763",
+      "name-review:704674abfd0c76aca775",
+      "name-review:72e877f7e736fbf22855",
+      "name-review:7395199e3b0a52f2b2d2",
+      "name-review:74a71ba26d91b2cad3af",
+      "name-review:750b4230dc23c9bf1f45",
+      "name-review:7534465c35a83e68916e",
+      "name-review:7636a84393e295aa24ae",
+      "name-review:7654f2dcb983c311aaa6",
+      "name-review:769eae03ef8e046d7f4d",
+      "name-review:77c200ef80920cdff245",
+      "name-review:78073c5ef03976ac54da",
+      "name-review:78832c214f0735d76fc5",
+      "name-review:78ef04cefaf20e230195",
+      "name-review:799b0f79eacd07b23878",
+      "name-review:79b587cce22eeffc8469",
+      "name-review:7b848a81d719a3bc76a0",
+      "name-review:7d63abdb92789e5f69ed",
+      "name-review:7dd8f77f0eb7887afb26",
+      "name-review:7e70af317244f7c2dd6c",
+      "name-review:7ee433d3a9d6976a538e",
+      "name-review:7f7e44d351e5be7de4d5",
+      "name-review:7fb74dfcc0cbc47539a0",
+      "name-review:817a75ba644dee41941a",
+      "name-review:81db7aee8679b4488382",
+      "name-review:85572149bfb5e0d914a2",
+      "name-review:86bef3423b6b65ff9403",
+      "name-review:86d847ed2232a8edb542",
+      "name-review:86fa1cd5791a398196dd",
+      "name-review:87b3797bccd66872b0db",
+      "name-review:882e8bd444adf491fa7d",
+      "name-review:88551fa9a324cb590c45",
+      "name-review:8868219ae69004d61d43",
+      "name-review:88def8680dcde8cdaeaf",
+      "name-review:89ae333d892e6abcf7a7",
+      "name-review:8c52508767d4f0dfdf75",
+      "name-review:8d606da9ef4daa12d0dd",
+      "name-review:8d6e03fba04b28ca488b",
+      "name-review:8de0038123ccc424b634",
+      "name-review:8efa0dcc0f5d3fe6d93a",
+      "name-review:915e00ee2984f33fcf99",
+      "name-review:918b526246175b675cba",
+      "name-review:929740019c28f8b2ac17",
+      "name-review:93bf2b2a08d717c20d5b",
+      "name-review:946d2bcad34ad41d3524",
+      "name-review:94cbe140ff5a85123954",
+      "name-review:96081cbbd4ac8e151fe6",
+      "name-review:974cbb4119291dfde230",
+      "name-review:97d6987162372e26f5eb",
+      "name-review:984466c8faa4c0554cdf",
+      "name-review:98b1b27e5ef15df664ca",
+      "name-review:98b25826beb8bc6969e0",
+      "name-review:995f48377d4adbfebcf5",
+      "name-review:9a56b7fd06fc76240eef",
+      "name-review:9ac470de8b8a1b1e9da1",
+      "name-review:9b9449e8ac3b8bc9c518",
+      "name-review:9e61876749b4e613e894",
+      "name-review:9f11f017e2b5c1b69aed",
+      "name-review:a042ef0098204dd94807",
+      "name-review:a07bc3368e13ddc52f80",
+      "name-review:a0ba613bd5f29365f9cf",
+      "name-review:a1991b2a28d09128234f",
+      "name-review:a1b0ce84e1a708f03609",
+      "name-review:a243a62e81fafbfa4750",
+      "name-review:a40da20ca114856b95c3",
+      "name-review:a4add585a08d80e4bb97",
+      "name-review:a4deb61be0c37186b6a1",
+      "name-review:a5cc634ddb08b1672385",
+      "name-review:a6b10fc1eab9c0ba8c1f",
+      "name-review:a6ee97320e7808e2fbde",
+      "name-review:a778e33bedddbc7ab6ab",
+      "name-review:a8710fba1865541dd792",
+      "name-review:ac58b0ef14b0d5a28823",
+      "name-review:adc4f3341a6461b92051",
+      "name-review:af64b49e183f4c91772d",
+      "name-review:afdf6f80ab3f00e93fbd",
+      "name-review:afee1d11feeea80b9432",
+      "name-review:b09a079556cf1e4184bd",
+      "name-review:b0fd0a76f2ab1e121213",
+      "name-review:b1f49641b1512eb19ffe",
+      "name-review:b211121f91b2b8592be3",
+      "name-review:b2cffe9662866b8717db",
+      "name-review:b3d6bc386c768dccad76",
+      "name-review:b592c8025d5cf506790e",
+      "name-review:b61508fd08c1b2ce586c",
+      "name-review:b667b26b51c70ba046a3",
+      "name-review:b72d7394ef475467b7f7",
+      "name-review:b8549edf1349f76678ca",
+      "name-review:b87e27b78cb79a90c615",
+      "name-review:b8bfe876d0b178446d4c",
+      "name-review:b990d8bf2a8ebcbe08b7",
+      "name-review:ba214ad835ab30643fae",
+      "name-review:ba34712b8e61501cce8b",
+      "name-review:bad5452ac3fc9956f5ca",
+      "name-review:bb014bf2607a8b1042cc",
+      "name-review:bb05890699a773f7d7fd",
+      "name-review:bc85d70557772459084b",
+      "name-review:bd4b6aee5d7c70def977",
+      "name-review:bdcd50a8bc72cb9a26b1",
+      "name-review:bec0a45d67a6b1dfbad4",
+      "name-review:c0969400c1ef8c19caed",
+      "name-review:c177a5a175069865b465",
+      "name-review:c2487eb7bf5441276d42",
+      "name-review:c33e38cd5ba6bfdcd994",
+      "name-review:c4bab1d903e9d633cfb9",
+      "name-review:c560fa4d23a227e4437b",
+      "name-review:c5f429d806077c616bff",
+      "name-review:c65a2a8f8fe2d1ec90ae",
+      "name-review:c732ddb0e8fddc92a064",
+      "name-review:c94d10e3495345313d58",
+      "name-review:c98a20b7493934becd68",
+      "name-review:cb7207325c08d0b549d3",
+      "name-review:cc2b4719fcc88db5e003",
+      "name-review:ce5704c6bd74c0cce0bc",
+      "name-review:cf777feca46994ea809c",
+      "name-review:cfc506417fa7fcc29779",
+      "name-review:d123a3682b73f7c11288",
+      "name-review:d2ae7bfe68aeccb1fbbe",
+      "name-review:d4a41f24b3895305f277",
+      "name-review:d4a7f8b9b69f40c20fa8",
+      "name-review:d4b91cc487d724bcfd4f",
+      "name-review:d4f0069614c6d0a8cb88",
+      "name-review:d4f40018dd2991905e72",
+      "name-review:d5406d67955c1c056786",
+      "name-review:d567f1645c3cf9193ee1",
+      "name-review:d56cc52f025e77d4e059",
+      "name-review:d6c04d47c075e2fe1995",
+      "name-review:d73c12e4d9840456461c",
+      "name-review:d793bdcc87ab72ea5f84",
+      "name-review:d8164313cfe9ede8feba",
+      "name-review:d8b71cf1091123b9353c",
+      "name-review:d902da6abab8f6df97e4",
+      "name-review:d9f14fab4093eb99e467",
+      "name-review:dba2699a7b4ca3d9ec80",
+      "name-review:dc075fcdc85eb2e67a64",
+      "name-review:dc900919a9f16c855090",
+      "name-review:dd250a28220155257466",
+      "name-review:dde61ae09843593c03bc",
+      "name-review:de323b7e6e3ce62d7d6f",
+      "name-review:def259f4076ecbfd4d6f",
+      "name-review:dfe079de91e127f21e9e",
+      "name-review:e0be8f5b8cfe610dbe35",
+      "name-review:e329cd8afd373289918a",
+      "name-review:e390784cb83b91bea684",
+      "name-review:e3a4fa4d6e2cc348e64b",
+      "name-review:e66d164d48c82e29e622",
+      "name-review:eab1ec86d070678eecda",
+      "name-review:ebea356ee6816416b971",
+      "name-review:ed3135f7e036854f2a53",
+      "name-review:edb8b31366e23d49366d",
+      "name-review:ee8b442d442116d69a4a",
+      "name-review:f0479db29c7ad32ecbd0",
+      "name-review:f2acd12f69e538f0500e",
+      "name-review:f2be1495d8d8122e3062",
+      "name-review:f3e842731ca5a8ab0599",
+      "name-review:f53cb0e1652520d6a714",
+      "name-review:f58543317089a4dfcc01",
+      "name-review:f6399e5220f1de183c4d",
+      "name-review:f83b185873adec72f7e4",
+      "name-review:fa90cc77090c6cb43e8e",
+      "name-review:fa9773cb8451b1b8840f",
+      "name-review:fc973c2c91c8aff6270f",
+      "name-review:fd94452c88af3e40eb8f",
+      "name-review:fddfe0cc7c6245f014a3",
+      "name-review:fecad2ea639c1189a982",
+      "name-review:ffd59702389dadfaad1d"
+    ]
+  },
+  "originalM0Summary": {
+    "observedPages": 4973,
+    "excludedObservationPages": 87,
+    "publicationDecisionPages": 48,
+    "eligiblePublicationObservationPages": 4838,
+    "identityGroups": 294,
+    "identityGroupsByDecision": {
+      "define-separate-source-version-units": 282,
+      "one-nonexcluded-observation": 5,
+      "resolve-duplicate-or-variant-unit": 3,
+      "resolve-publication-first": 2,
+      "resolve-overlapping-source-attribution": 2
+    },
+    "missingEnglishNames": 5
+  },
+  "effectiveM0Summary": {
+    "observedPages": 4973,
+    "excludedObservationPages": 87,
+    "publicationDecisionPages": 48,
+    "eligiblePublicationObservationPages": 4838,
+    "identityGroups": 293,
+    "identityGroupsByDecision": {
+      "define-separate-source-version-units": 282,
+      "one-nonexcluded-observation": 5,
+      "resolve-duplicate-or-variant-unit": 2,
+      "resolve-publication-first": 2,
+      "resolve-overlapping-source-attribution": 2
+    },
+    "missingEnglishNames": 5
+  },
+  "missingEnglishNameIds": [
+    "dndsu:backgrounds:845",
+    "dndsu:backgrounds:846",
+    "dndsu:backgrounds:847",
+    "dndsu:backgrounds:848",
+    "dndsu:backgrounds:856"
+  ],
+  "scriptDiagnostics": [
+    {
+      "id": "dndsu:bestiary:13077",
+      "section": "bestiary",
+      "observedName": "Сranium rat squeaker swarm",
+      "sourceIds": [
+        "205"
+      ],
+      "reason": "mixed-latin-cyrillic",
+      "characters": [
+        {
+          "character": "С",
+          "codePoint": "U+0421",
+          "latinLookalike": "C"
+        }
+      ],
+      "candidateName": "Cranium rat squeaker swarm",
+      "candidateObservationIds": [],
+      "accepted": false,
+      "canonicalId": null,
+      "action": "check-primary-name-not-automatic-transliteration"
+    },
+    {
+      "id": "dndsu:bestiary:20456",
+      "section": "bestiary",
+      "observedName": "Swarm of Сreeping Сoins",
+      "sourceIds": [
+        "169"
+      ],
+      "reason": "mixed-latin-cyrillic",
+      "characters": [
+        {
+          "character": "С",
+          "codePoint": "U+0421",
+          "latinLookalike": "C"
+        }
+      ],
+      "candidateName": "Swarm of Creeping Coins",
+      "candidateObservationIds": [],
+      "accepted": false,
+      "canonicalId": null,
+      "action": "check-primary-name-not-automatic-transliteration"
+    },
+    {
+      "id": "dndsu:bestiary:568",
+      "section": "bestiary",
+      "observedName": "Nilbog,goblin гоблин",
+      "sourceIds": [
+        "111"
+      ],
+      "reason": "mixed-latin-cyrillic",
+      "characters": [
+        {
+          "character": "б",
+          "codePoint": "U+0431",
+          "latinLookalike": null
+        },
+        {
+          "character": "г",
+          "codePoint": "U+0433",
+          "latinLookalike": null
+        },
+        {
+          "character": "и",
+          "codePoint": "U+0438",
+          "latinLookalike": null
+        },
+        {
+          "character": "л",
+          "codePoint": "U+043B",
+          "latinLookalike": null
+        },
+        {
+          "character": "н",
+          "codePoint": "U+043D",
+          "latinLookalike": null
+        },
+        {
+          "character": "о",
+          "codePoint": "U+043E",
+          "latinLookalike": "o"
+        }
+      ],
+      "candidateName": null,
+      "candidateObservationIds": [],
+      "accepted": false,
+      "canonicalId": null,
+      "action": "check-primary-name-not-automatic-transliteration"
+    },
+    {
+      "id": "dndsu:bestiary:6883",
+      "section": "bestiary",
+      "observedName": "Nilbog,goblin гоблин",
+      "sourceIds": [
+        "158"
+      ],
+      "reason": "mixed-latin-cyrillic",
+      "characters": [
+        {
+          "character": "б",
+          "codePoint": "U+0431",
+          "latinLookalike": null
+        },
+        {
+          "character": "г",
+          "codePoint": "U+0433",
+          "latinLookalike": null
+        },
+        {
+          "character": "и",
+          "codePoint": "U+0438",
+          "latinLookalike": null
+        },
+        {
+          "character": "л",
+          "codePoint": "U+043B",
+          "latinLookalike": null
+        },
+        {
+          "character": "н",
+          "codePoint": "U+043D",
+          "latinLookalike": null
+        },
+        {
+          "character": "о",
+          "codePoint": "U+043E",
+          "latinLookalike": "o"
+        }
+      ],
+      "candidateName": null,
+      "candidateObservationIds": [],
+      "accepted": false,
+      "canonicalId": null,
+      "action": "check-primary-name-not-automatic-transliteration"
+    },
+    {
+      "id": "dndsu:items:6459",
+      "section": "items",
+      "observedName": "Prehistoric Figurines of Wondrous Power,Pyrite Pleisosarus Пиритовый плезиозавр Carnelian Triceratops Сердоликий трицератопс  Яшмовый Тираннозавр Рекс Jasper Tyrannosaurus Rex Kyanite Pteranodon Кианитовый птеранодон",
+      "sourceIds": [
+        "198"
+      ],
+      "reason": "mixed-latin-cyrillic",
+      "characters": [
+        {
+          "character": "К",
+          "codePoint": "U+041A",
+          "latinLookalike": "K"
+        },
+        {
+          "character": "П",
+          "codePoint": "U+041F",
+          "latinLookalike": null
+        },
+        {
+          "character": "Р",
+          "codePoint": "U+0420",
+          "latinLookalike": "P"
+        },
+        {
+          "character": "С",
+          "codePoint": "U+0421",
+          "latinLookalike": "C"
+        },
+        {
+          "character": "Т",
+          "codePoint": "U+0422",
+          "latinLookalike": "T"
+        },
+        {
+          "character": "Я",
+          "codePoint": "U+042F",
+          "latinLookalike": null
+        },
+        {
+          "character": "а",
+          "codePoint": "U+0430",
+          "latinLookalike": "a"
+        },
+        {
+          "character": "в",
+          "codePoint": "U+0432",
+          "latinLookalike": null
+        },
+        {
+          "character": "д",
+          "codePoint": "U+0434",
+          "latinLookalike": null
+        },
+        {
+          "character": "е",
+          "codePoint": "U+0435",
+          "latinLookalike": "e"
+        },
+        {
+          "character": "з",
+          "codePoint": "U+0437",
+          "latinLookalike": null
+        },
+        {
+          "character": "и",
+          "codePoint": "U+0438",
+          "latinLookalike": null
+        },
+        {
+          "character": "й",
+          "codePoint": "U+0439",
+          "latinLookalike": null
+        },
+        {
+          "character": "к",
+          "codePoint": "U+043A",
+          "latinLookalike": null
+        },
+        {
+          "character": "л",
+          "codePoint": "U+043B",
+          "latinLookalike": null
+        },
+        {
+          "character": "м",
+          "codePoint": "U+043C",
+          "latinLookalike": null
+        },
+        {
+          "character": "н",
+          "codePoint": "U+043D",
+          "latinLookalike": null
+        },
+        {
+          "character": "о",
+          "codePoint": "U+043E",
+          "latinLookalike": "o"
+        },
+        {
+          "character": "п",
+          "codePoint": "U+043F",
+          "latinLookalike": null
+        },
+        {
+          "character": "р",
+          "codePoint": "U+0440",
+          "latinLookalike": "p"
+        },
+        {
+          "character": "с",
+          "codePoint": "U+0441",
+          "latinLookalike": "c"
+        },
+        {
+          "character": "т",
+          "codePoint": "U+0442",
+          "latinLookalike": null
+        },
+        {
+          "character": "ц",
+          "codePoint": "U+0446",
+          "latinLookalike": null
+        },
+        {
+          "character": "ш",
+          "codePoint": "U+0448",
+          "latinLookalike": null
+        },
+        {
+          "character": "ы",
+          "codePoint": "U+044B",
+          "latinLookalike": null
+        }
+      ],
+      "candidateName": null,
+      "candidateObservationIds": [],
+      "accepted": false,
+      "canonicalId": null,
+      "action": "check-primary-name-not-automatic-transliteration"
+    }
+  ],
+  "invariants": {
+    "sameObservationCount": true,
+    "sameIdsAndNonNameData": true,
+    "originalRegisterUnchanged": true,
+    "canonicalIdentitiesAssigned": 0
+  },
+  "limitations": [
+    "Removed diagnostic groups are false shared-name signals, not deleted catalog records or accepted canonical merges.",
+    "The original snapshot, original diagnostics and original source eligibility remain unchanged.",
+    "This research overlay does not feed runtime imports, player profiles or publication.",
+    "Primary identities, full publication inventory, full rules and reuse rights still require review."
+  ]
+}

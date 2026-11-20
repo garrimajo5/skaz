@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 1,
+  "rulesEdition": "5e-2014",
+  "observedOn": "2026-11-20",
+  "status": "selected-fields-and-one-action-bonus-evidence",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "automaticPatch": false,
+  "primaryEvidence": {
+    "publicationId": "DDHC-TOA-3",
+    "url": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/220567-sample.pdf",
+    "sha256": "51135d6ea3e76a38b2d945afe73fbbb11178abcf4dc96dec5393bd465d43abd6",
+    "pages": 4,
+    "publisherStatus": "needs-publisher-status-review",
+    "reusePermission": "not-established",
+    "method": "PDF text extraction plus visual inspection of rendered PDF pages2-4; printed pages3-5"
+  },
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:5962",
+      "name": "Archelon",
+      "primary": {
+        "pdfPage": 2,
+        "printedPage": 3,
+        "visualVerified": true,
+        "selected": {
+          "armorClass": 14,
+          "hitPoints": 26,
+          "hitDice": {
+            "count": 4,
+            "die": 8,
+            "modifier": 8
+          },
+          "abilities": [
+            16,
+            13,
+            14,
+            2,
+            12,
+            5
+          ]
+        }
+      },
+      "secondary": {
+        "url": "https://dnd.su/bestiary/5962-archelon/",
+        "sha256": "5cecc1788ddace0f11392c4beded1fa5750cf3e8016499806185bbf6501ee421",
+        "sourceIds": [
+          "169"
+        ],
+        "selected": {
+          "armorClass": 14,
+          "hitPoints": 26,
+          "hitDice": {
+            "count": 4,
+            "die": 8,
+            "modifier": 8
+          },
+          "abilities": [
+            16,
+            13,
+            14,
+            2,
+            12,
+            5
+          ]
+        }
+      },
+      "exactPrinting": "unverified",
+      "wholeStatBlockCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:5963",
+      "name": "Brachiosaurus",
+      "primary": {
+        "pdfPage": 2,
+        "printedPage": 3,
+        "visualVerified": true,
+        "selected": {
+          "armorClass": 16,
+          "hitPoints": 145,
+          "hitDice": {
+            "count": 10,
+            "die": 20,
+            "modifier": 40
+          },
+          "abilities": [
+            24,
+            8,
+            19,
+            2,
+            10,
+            7
+          ],
+          "stompAttackBonus": 10
+        }
+      },
+      "secondary": {
+        "url": "https://dnd.su/bestiary/5963-brachiosaurus/",
+        "sha256": "2a9ae812508ce305863aafd4c8f60b989301b219ab3bf72f72c2e91d4a8c6e5c",
+        "sourceIds": [
+          "169"
+        ],
+        "selected": {
+          "armorClass": 16,
+          "hitPoints": 145,
+          "hitDice": {
+            "count": 10,
+            "die": 20,
+            "modifier": 40
+          },
+          "abilities": [
+            24,
+            8,
+            19,
+            2,
+            10,
+            7
+          ],
+          "stompAttackBonus": 8
+        }
+      },
+      "exactPrinting": "unverified",
+      "wholeStatBlockCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:5965",
+      "name": "Dilophosaurus",
+      "primary": {
+        "pdfPage": 2,
+        "printedPage": 3,
+        "visualVerified": true,
+        "selected": {
+          "armorClass": 13,
+          "hitPoints": 26,
+          "hitDice": {
+            "count": 4,
+            "die": 8,
+            "modifier": 4
+          },
+          "abilities": [
+            13,
+            15,
+            14,
+            2,
+            12,
+            5
+          ]
+        }
+      },
+      "secondary": {
+        "url": "https://dnd.su/bestiary/5965-dilophosaurus/",
+        "sha256": "9f5464b0ef7be859137dd4a11ae9f1d404b7d3f2bde6ea6eb4e4f5825b80add0",
+        "sourceIds": [
+          "169"
+        ],
+        "selected": {
+          "armorClass": 13,
+          "hitPoints": 22,
+          "hitDice": {
+            "count": 4,
+            "die": 8,
+            "modifier": 4
+          },
+          "abilities": [
+            13,
+            15,
+            14,
+            2,
+            12,
+            5
+          ]
+        }
+      },
+      "exactPrinting": "unverified",
+      "wholeStatBlockCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:5966",
+      "name": "Giganotosaurus",
+      "primary": {
+        "pdfPage": 3,
+        "printedPage": 4,
+        "visualVerified": true,
+        "selected": {
+          "armorClass": 14,
+          "hitPoints": 217,
+          "hitDice": {
+            "count": 14,
+            "die": 20,
+            "modifier": 70
+          },
+          "abilities": [
+            26,
+            8,
+            21,
+            2,
+            12,
+            10
+          ]
+        }
+      },
+      "secondary": {
+        "url": "https://dnd.su/bestiary/5966-giganotosaurus/",
+        "sha256": "8a5cae8b0489960381e4c4797701fd016016785f2f46bca8c3c5ca835eb85593",
+        "sourceIds": [
+          "169"
+        ],
+        "selected": {
+          "armorClass": 14,
+          "hitPoints": 217,
+          "hitDice": {
+            "count": 14,
+            "die": 20,
+            "modifier": 70
+          },
+          "abilities": [
+            26,
+            8,
+            21,
+            2,
+            12,
+            10
+          ]
+        }
+      },
+      "exactPrinting": "unverified",
+      "wholeStatBlockCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:5970",
+      "name": "Mosasaurus",
+      "primary": {
+        "pdfPage": 4,
+        "printedPage": 5,
+        "visualVerified": true,
+        "selected": {
+          "armorClass": 13,
+          "hitPoints": 159,
+          "hitDice": {
+            "count": 11,
+            "die": 20,
+            "modifier": 44
+          },
+          "abilities": [
+            24,
+            12,
+            19,
+            2,
+            12,
+            7
+          ]
+        }
+      },
+      "secondary": {
+        "url": "https://dnd.su/bestiary/5970-mosasaurus/",
+        "sha256": "3a972324607fba7762ed4f52e572fc1b5de8fed77a2202b7f72a1761fe8360e3",
+        "sourceIds": [
+          "169"
+        ],
+        "selected": {
+          "armorClass": 13,
+          "hitPoints": 159,
+          "hitDice": {
+            "count": 11,
+            "die": 20,
+            "modifier": 44
+          },
+          "abilities": [
+            24,
+            12,
+            19,
+            2,
+            12,
+            7
+          ]
+        }
+      },
+      "exactPrinting": "unverified",
+      "wholeStatBlockCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:5971",
+      "name": "Nemicolopterus",
+      "primary": {
+        "pdfPage": 4,
+        "printedPage": 5,
+        "visualVerified": true,
+        "selected": {
+          "armorClass": 12,
+          "hitPoints": 1,
+          "hitDice": {
+            "count": 1,
+            "die": 4,
+            "modifier": -1
+          },
+          "abilities": [
+            2,
+            14,
+            8,
+            2,
+            13,
+            7
+          ]
+        }
+      },
+      "secondary": {
+        "url": "https://dnd.su/bestiary/5971-nemicolopterus/",
+        "sha256": "9571610e71fca783b848e216e9d38be0dc35d97c93922545e6299f6887f89568",
+        "sourceIds": [
+          "169"
+        ],
+        "selected": {
+          "armorClass": 12,
+          "hitPoints": 1,
+          "hitDice": {
+            "count": 1,
+            "die": 4,
+            "modifier": -1
+          },
+          "abilities": [
+            2,
+            14,
+            8,
+            2,
+            13,
+            7
+          ]
+        }
+      },
+      "exactPrinting": "unverified",
+      "wholeStatBlockCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    }
+  ],
+  "limitations": [
+    "Six selected statblocks, not the full publication inventory.",
+    "Only armor class, hit points, hit dice and ability scores are compared for all six; Stomp attack bonus is additionally compared for Brachiosaurus.",
+    "Observed differences do not identify an erratum, exact printing or correct replacement value.",
+    "Arithmetic diagnostics never rewrite source facts or the application.",
+    "AL label and creator program do not establish WotC publisher status.",
+    "Full rules, translation equivalence, canonical identity and reuse rights are unverified."
+  ]
+}

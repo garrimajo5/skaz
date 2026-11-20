@@ -1,0 +1,825 @@
+{
+  "schemaVersion": 1,
+  "status": "source-version-candidates-not-canonical-mapping",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "automaticPatch": false,
+  "summary": {
+    "selectedPrimaryRows": 11,
+    "distinctNames": 9,
+    "secondaryObservations": 18,
+    "selectedSecondaryFields": 94,
+    "groupsWithSelectedDifferences": 6,
+    "sourceCompatibleCandidateLinks": 11,
+    "primaryFullStatBlocksRead": 0
+  },
+  "rows": [
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/96508-adult-oblex",
+      "digitalName": "Adult Oblex",
+      "displayedSource": "Mordenkainen’s Tome of Foes",
+      "access": {
+        "result": "redirect-to-legacy",
+        "destination": "https://www.dndbeyond.com/legacy",
+        "fullTextRead": false
+      },
+      "canonicalId": null,
+      "automaticMerge": false,
+      "candidates": [
+        {
+          "observationId": "dndsu:bestiary:1970",
+          "sourceIds": [
+            "113"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:6892",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ],
+      "identityDecision": "unresolved",
+      "primaryFullRulesRead": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17224-boggle",
+      "digitalName": "Boggle",
+      "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+      "access": {
+        "result": "redirect-to-marketplace",
+        "destination": "https://marketplace.dndbeyond.com/category/mordenkainen-presents-monsters-of-the-multiverse",
+        "fullTextRead": false
+      },
+      "canonicalId": null,
+      "automaticMerge": false,
+      "candidates": [
+        {
+          "observationId": "dndsu:bestiary:521",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "different-declared-source-version"
+        },
+        {
+          "observationId": "dndsu:bestiary:6482",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "source-label-compatible-candidate"
+        }
+      ],
+      "identityDecision": "unresolved",
+      "primaryFullRulesRead": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/2556122-boggle",
+      "digitalName": "Boggle",
+      "displayedSource": "Volo's Guide to Monsters",
+      "access": {
+        "result": "redirect-to-legacy",
+        "destination": "https://www.dndbeyond.com/legacy",
+        "fullTextRead": false
+      },
+      "canonicalId": null,
+      "automaticMerge": false,
+      "candidates": [
+        {
+          "observationId": "dndsu:bestiary:521",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:6482",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ],
+      "identityDecision": "unresolved",
+      "primaryFullRulesRead": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/96527-eidolon",
+      "digitalName": "Eidolon",
+      "displayedSource": "Mordenkainen’s Tome of Foes",
+      "access": {
+        "result": "redirect-to-legacy",
+        "destination": "https://www.dndbeyond.com/legacy",
+        "fullTextRead": false
+      },
+      "canonicalId": null,
+      "automaticMerge": false,
+      "candidates": [
+        {
+          "observationId": "dndsu:bestiary:4874",
+          "sourceIds": [
+            "113"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:6718",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ],
+      "identityDecision": "unresolved",
+      "primaryFullRulesRead": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17257-girallon",
+      "digitalName": "Girallon",
+      "displayedSource": "Volo's Guide to Monsters",
+      "access": {
+        "result": "redirect-to-legacy",
+        "destination": "https://www.dndbeyond.com/legacy",
+        "fullTextRead": false
+      },
+      "canonicalId": null,
+      "automaticMerge": false,
+      "candidates": [
+        {
+          "observationId": "dndsu:bestiary:530",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:6763",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ],
+      "identityDecision": "unresolved",
+      "primaryFullRulesRead": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17300-redcap",
+      "digitalName": "Redcap",
+      "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+      "access": {
+        "result": "redirect-to-marketplace",
+        "destination": "https://marketplace.dndbeyond.com/category/mordenkainen-presents-monsters-of-the-multiverse",
+        "fullTextRead": false
+      },
+      "canonicalId": null,
+      "automaticMerge": false,
+      "candidates": [
+        {
+          "observationId": "dndsu:bestiary:561",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "different-declared-source-version"
+        },
+        {
+          "observationId": "dndsu:bestiary:6927",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "source-label-compatible-candidate"
+        }
+      ],
+      "identityDecision": "unresolved",
+      "primaryFullRulesRead": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/2556141-redcap",
+      "digitalName": "Redcap",
+      "displayedSource": "Volo's Guide to Monsters",
+      "access": {
+        "result": "redirect-to-legacy",
+        "destination": "https://www.dndbeyond.com/legacy",
+        "fullTextRead": false
+      },
+      "canonicalId": null,
+      "automaticMerge": false,
+      "candidates": [
+        {
+          "observationId": "dndsu:bestiary:561",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:6927",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ],
+      "identityDecision": "unresolved",
+      "primaryFullRulesRead": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17306-trapper",
+      "digitalName": "Trapper",
+      "displayedSource": "Volo's Guide to Monsters",
+      "access": {
+        "result": "redirect-to-legacy",
+        "destination": "https://www.dndbeyond.com/legacy",
+        "fullTextRead": false
+      },
+      "canonicalId": null,
+      "automaticMerge": false,
+      "candidates": [
+        {
+          "observationId": "dndsu:bestiary:606",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:7050",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ],
+      "identityDecision": "unresolved",
+      "primaryFullRulesRead": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17344-warlock-of-the-fiend",
+      "digitalName": "Warlock of the Fiend",
+      "displayedSource": "Volo's Guide to Monsters",
+      "access": {
+        "result": "redirect-to-legacy",
+        "destination": "https://www.dndbeyond.com/legacy",
+        "fullTextRead": false
+      },
+      "canonicalId": null,
+      "automaticMerge": false,
+      "candidates": [
+        {
+          "observationId": "dndsu:bestiary:639",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:7066",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ],
+      "identityDecision": "unresolved",
+      "primaryFullRulesRead": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17345-warlock-of-the-great-old-one",
+      "digitalName": "Warlock of the Great Old One",
+      "displayedSource": "Volo's Guide to Monsters",
+      "access": {
+        "result": "redirect-to-legacy",
+        "destination": "https://www.dndbeyond.com/legacy",
+        "fullTextRead": false
+      },
+      "canonicalId": null,
+      "automaticMerge": false,
+      "candidates": [
+        {
+          "observationId": "dndsu:bestiary:638",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:7067",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ],
+      "identityDecision": "unresolved",
+      "primaryFullRulesRead": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17346-warlord",
+      "digitalName": "Warlord",
+      "displayedSource": "Volo's Guide to Monsters",
+      "access": {
+        "result": "redirect-to-legacy",
+        "destination": "https://www.dndbeyond.com/legacy",
+        "fullTextRead": false
+      },
+      "canonicalId": null,
+      "automaticMerge": false,
+      "candidates": [
+        {
+          "observationId": "dndsu:bestiary:631",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:7064",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ],
+      "identityDecision": "unresolved",
+      "primaryFullRulesRead": false
+    }
+  ],
+  "groups": [
+    {
+      "name": "Adult Oblex",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:1970",
+          "observedName": "Adult Oblex",
+          "sourceIds": [
+            "113"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/1970-adult-oblex/",
+          "readUrl": "https://dnd.su/bestiary/1970-adult-oblex/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 14,
+            "hitPoints": 75,
+            "challengeRating": "5",
+            "passivePerception": 14,
+            "walkingSpeedFeet": 20
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        },
+        {
+          "observationId": "dndsu:bestiary:6892",
+          "observedName": "Adult Oblex",
+          "sourceIds": [
+            "158"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/6892-adult-oblex/",
+          "readUrl": "https://dnd.su/multiverse/bestiary/6892-adult-oblex/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 14,
+            "hitPoints": 75,
+            "challengeRating": "5",
+            "passivePerception": 14,
+            "walkingSpeedFeet": 20
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        }
+      ],
+      "differingFields": [],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false,
+      "fullRulesVerified": false
+    },
+    {
+      "name": "Boggle",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:521",
+          "observedName": "Boggle",
+          "sourceIds": [
+            "111"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/521-boggle/",
+          "readUrl": "https://dnd.su/bestiary/521-boggle/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 14,
+            "hitPoints": 18,
+            "challengeRating": "1/8",
+            "passivePerception": 13,
+            "walkingSpeedFeet": 30
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        },
+        {
+          "observationId": "dndsu:bestiary:6482",
+          "observedName": "Boggle",
+          "sourceIds": [
+            "158"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/6482-boggle/",
+          "readUrl": "https://dnd.su/multiverse/bestiary/6482-boggle/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 14,
+            "hitPoints": 18,
+            "challengeRating": "1/8",
+            "passivePerception": 15,
+            "walkingSpeedFeet": 30
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        }
+      ],
+      "differingFields": [
+        "passivePerception"
+      ],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false,
+      "fullRulesVerified": false
+    },
+    {
+      "name": "Eidolon",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:4874",
+          "observedName": "Eidolon",
+          "sourceIds": [
+            "113"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/4874-eidolon/",
+          "readUrl": "https://dnd.su/bestiary/4874-eidolon/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 9,
+            "hitPoints": 63,
+            "challengeRating": "12",
+            "passivePerception": 18,
+            "walkingSpeedFeet": 0
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        },
+        {
+          "observationId": "dndsu:bestiary:6718",
+          "observedName": "Eidolon",
+          "sourceIds": [
+            "158"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/6718-eidolon/",
+          "readUrl": "https://dnd.su/multiverse/bestiary/6718-eidolon/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 9,
+            "hitPoints": 63,
+            "challengeRating": "12",
+            "passivePerception": 18,
+            "walkingSpeedFeet": 0
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        }
+      ],
+      "differingFields": [],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false,
+      "fullRulesVerified": false
+    },
+    {
+      "name": "Girallon",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:530",
+          "observedName": "Girallon",
+          "sourceIds": [
+            "111"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/530-girallon/",
+          "readUrl": "https://dnd.su/bestiary/530-girallon/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 13,
+            "hitPoints": 59,
+            "challengeRating": "4",
+            "passivePerception": 13,
+            "walkingSpeedFeet": 40
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        },
+        {
+          "observationId": "dndsu:bestiary:6763",
+          "observedName": "Girallon",
+          "sourceIds": [
+            "158"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/6763-girallon/",
+          "readUrl": "https://dnd.su/multiverse/bestiary/6763-girallon/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 13,
+            "hitPoints": 59,
+            "challengeRating": "4",
+            "passivePerception": 15,
+            "walkingSpeedFeet": 40
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        }
+      ],
+      "differingFields": [
+        "passivePerception"
+      ],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false,
+      "fullRulesVerified": false
+    },
+    {
+      "name": "Redcap",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:561",
+          "observedName": "Redcap",
+          "sourceIds": [
+            "111"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/561-redcap/",
+          "readUrl": "https://dnd.su/bestiary/561-redcap/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 13,
+            "hitPoints": 45,
+            "challengeRating": "3",
+            "passivePerception": 13,
+            "walkingSpeedFeet": 25
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        },
+        {
+          "observationId": "dndsu:bestiary:6927",
+          "observedName": "Redcap",
+          "sourceIds": [
+            "158"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/6927-redcap/",
+          "readUrl": "https://dnd.su/multiverse/bestiary/6927-redcap/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 14,
+            "hitPoints": 45,
+            "challengeRating": "3",
+            "passivePerception": 13,
+            "walkingSpeedFeet": 25
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        }
+      ],
+      "differingFields": [
+        "armorClass"
+      ],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false,
+      "fullRulesVerified": false
+    },
+    {
+      "name": "Trapper",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:606",
+          "observedName": "Trapper",
+          "sourceIds": [
+            "111"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/606-trapper/",
+          "readUrl": "https://dnd.su/bestiary/606-trapper/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 13,
+            "hitPoints": 85,
+            "challengeRating": "3",
+            "passivePerception": 11,
+            "walkingSpeedFeet": 10
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        },
+        {
+          "observationId": "dndsu:bestiary:7050",
+          "observedName": "Trapper",
+          "sourceIds": [
+            "158"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/7050-trapper/",
+          "readUrl": "https://dnd.su/multiverse/bestiary/7050-trapper/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 13,
+            "hitPoints": 68,
+            "challengeRating": "3",
+            "passivePerception": 11,
+            "walkingSpeedFeet": 20
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        }
+      ],
+      "differingFields": [
+        "hitPoints",
+        "walkingSpeedFeet"
+      ],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false,
+      "fullRulesVerified": false
+    },
+    {
+      "name": "Warlord",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:631",
+          "observedName": "Warlord",
+          "sourceIds": [
+            "111"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/631-warlord/",
+          "readUrl": "https://dnd.su/bestiary/631-warlord/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 18,
+            "hitPoints": 229,
+            "challengeRating": "12",
+            "passivePerception": 15,
+            "walkingSpeedFeet": 30
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        },
+        {
+          "observationId": "dndsu:bestiary:7064",
+          "observedName": "Warlord",
+          "sourceIds": [
+            "158"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/7064-warlord/",
+          "readUrl": "https://dnd.su/multiverse/bestiary/7064-warlord/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 18,
+            "hitPoints": 229,
+            "challengeRating": "12",
+            "passivePerception": 15,
+            "walkingSpeedFeet": 30
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        }
+      ],
+      "differingFields": [],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false,
+      "fullRulesVerified": false
+    },
+    {
+      "name": "Warlock of the Great Old One",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:638",
+          "observedName": "Warlock of the Great Old One",
+          "sourceIds": [
+            "111"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/638-warlock-of-the-great-old-one/",
+          "readUrl": "https://dnd.su/bestiary/638-warlock-of-the-great-old-one/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 12,
+            "hitPoints": 91,
+            "challengeRating": "6",
+            "passivePerception": 11,
+            "walkingSpeedFeet": 30,
+            "armorClassWithMageArmor": 15
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        },
+        {
+          "observationId": "dndsu:bestiary:7067",
+          "observedName": "Warlock of the Great Old One",
+          "sourceIds": [
+            "158"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/7067-warlock-of-the-great-old-one/",
+          "readUrl": "https://dnd.su/multiverse/bestiary/7067-warlock-of-the-great-old-one/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 13,
+            "hitPoints": 91,
+            "challengeRating": "6",
+            "passivePerception": 11,
+            "walkingSpeedFeet": 30,
+            "armorClassWithMageArmor": 16
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        }
+      ],
+      "differingFields": [
+        "armorClass",
+        "armorClassWithMageArmor"
+      ],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false,
+      "fullRulesVerified": false
+    },
+    {
+      "name": "Warlock of the Fiend",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:639",
+          "observedName": "Warlock of the Fiend",
+          "sourceIds": [
+            "111"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/639-warlock-of-the-fiend/",
+          "readUrl": "https://dnd.su/bestiary/639-warlock-of-the-fiend/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 12,
+            "hitPoints": 78,
+            "challengeRating": "7",
+            "passivePerception": 11,
+            "walkingSpeedFeet": 30,
+            "armorClassWithMageArmor": 15
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        },
+        {
+          "observationId": "dndsu:bestiary:7066",
+          "observedName": "Warlock of the Fiend",
+          "sourceIds": [
+            "158"
+          ],
+          "originalUrl": "https://dnd.su/bestiary/7066-warlock-of-the-fiend/",
+          "readUrl": "https://dnd.su/multiverse/bestiary/7066-warlock-of-the-fiend/",
+          "evidenceKind": "secondary-observation",
+          "selectedFields": {
+            "armorClass": 13,
+            "hitPoints": 78,
+            "challengeRating": "7",
+            "passivePerception": 11,
+            "walkingSpeedFeet": 30,
+            "armorClassWithMageArmor": 16
+          },
+          "primaryFullRulesRead": false,
+          "fullStatBlockCompared": false,
+          "automaticPatch": false
+        }
+      ],
+      "differingFields": [
+        "armorClass",
+        "armorClassWithMageArmor"
+      ],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false,
+      "fullRulesVerified": false
+    }
+  ],
+  "inputSha256": {
+    "catalog/imr-version-boundaries-2014.json": "d4ae3e68bb9fa3306924a9d012b5c083c04de6ddf36b660fe55b54b0cdb72305",
+    "catalog/infernal-machine-public-index-2014.json": "d932c9f4d3e86017bb692332e3d985b0fa6bd9e08204f80ac996c127c174fd7f",
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  }
+}

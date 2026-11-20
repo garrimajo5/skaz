@@ -1,0 +1,463 @@
+{
+  "schemaVersion": 1,
+  "status": "artificer-heading-classification-proposal",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "classUrl": "https://dnd.su/class/137-artificer/",
+  "snapshotPageSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+  "freshCapture": {
+    "url": "https://dnd.su/class/137-artificer/",
+    "sha256": "08dac7c739b39e420d18a66c0f1aebba2f44e0440099823c5805dcda40060c8b",
+    "checkedOn": "2026-11-20",
+    "headingStructureMatchesSnapshot": true,
+    "headingStructureSha256": "e2495016030b3e487c7c9a174501d7824a2d4ef28ad25d92a19361fce5069f31"
+  },
+  "records": [
+    {
+      "heading": {
+        "ordinal": 1,
+        "title": "Изобретатель",
+        "level": 4,
+        "anchors": [
+          "artificer"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "78f1dee7a82c33dace25a86fafb17f035ae365708ba8a1664cc87936543193f9",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "parentBasis": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 2,
+        "title": "ИЗОБРЕТАТЕЛИ В РАЗЛИЧНЫХ МИРАХ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "4ca48ec86548fa1088328133daddbac9eeb1cf19112ac36da894c67859cb80b1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentBasis": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 3,
+        "title": "Создание изобретателя",
+        "level": 3,
+        "anchors": [
+          "creation"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "d18d047838c2d5025474011a3e13586154e56a63368b979273e42cd0f4a4c218",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentBasis": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 4,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "ea681d2e9b13a840d1d8e7f468c7c0bc46e66e796ab343686e46273c0010904e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentBasis": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 5,
+        "title": "МУЛЬТИКЛАССИРОВАНИЕ И ИЗОБРЕТАТЕЛЬ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "50268f769ebe1840645d11bfd69d4b237b1b14f8319a1444395c8b427a9d74aa",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "parentBasis": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 6,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "class-features"
+        ],
+        "sectionAnchor": "class-features",
+        "bodySha256": "692d9f6048b4351bbc4c1e26fc3c21f01f3a2b84372a3182d55d31dc8f046cea",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentBasis": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 7,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentBasis": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 8,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "7c5f29ea353abe2d90153a33520d2752a667d717a93a5b986b73e6e7ac0b45fa",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentBasis": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 9,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "3ca6d10e1b0998d3e9424d02468c686ed74a98173fc2f1a59c9396b6a39c2ce3",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentBasis": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 10,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "9df515ea94764e7202fa615bd807aef64611f70b82173ecd9dd4edf504c02813",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentBasis": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 13,
+        "title": "НЕОБХОДИМЫЙ ИНСТРУМЕНТ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "3c1932cfe67520379e3e5c3d4582217ce8baf1500e778f1fa89b0ca6cde12713",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "parentBasis": "manual-body-review-not-HTML-inheritance",
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 14,
+        "title": "МАГИЯ ИЗОБРЕТЕНИЙ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "28f8278891531b52cde557a062a84985aece5ba25633928fad2ec04b7411308d",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "presentation-guidance",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "parentBasis": "manual-body-review-not-HTML-inheritance",
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 15,
+        "title": "ЗАГОВОРЫ (ЗАКЛИНАНИЯ 0-ГО УРОВНЯ)",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "ccafee1c6e02a7b140d17e3b74b38baec6847cc1a13d8006127626fc65ec1aea",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "parentBasis": "manual-body-review-not-HTML-inheritance",
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 16,
+        "title": "ПОДГОТОВКА И СОТВОРЕНИЕ ЗАКЛИНАНИЙ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "37c047210599c40198b1fc8e07f21a89848b204329da80c86e46791d2dafa5ab",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "parentBasis": "manual-body-review-not-HTML-inheritance",
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 17,
+        "title": "БАЗОВАЯ ХАРАКТЕРИСТИКА ЗАКЛИНАНИЙ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "b31090f24850a61314c412bfa99621090a761107dee7000354550dd5263d236a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "parentBasis": "manual-body-review-not-HTML-inheritance",
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 18,
+        "title": "РИТУАЛЬНОЕ КОЛДОВСТВО",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "4d2a20ee18ae5fac62cb6275f16db9b31a16ed1c1395c41cff51b1cdf6c708c1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "parentBasis": "manual-body-review-not-HTML-inheritance",
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 20,
+        "title": "ИЗВЕСТНЫЕ ИНФУЗИИ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "04e74f83209ff5daf5fc9477045efa96fc984b0c0fcf54d277fda9debd0687b0",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.infuse-item",
+      "parentBasis": "manual-body-review-not-HTML-inheritance",
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 21,
+        "title": "НАСЫЩЕНИЕ ПРЕДМЕТА МАГИЕЙ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "5ee2ddf546b66f45ca4026766d0251f631af0973f8ca4c0220bb98d26c53b936",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.infuse-item",
+      "parentBasis": "manual-body-review-not-HTML-inheritance",
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 32,
+        "title": "Инфузии изобретателя",
+        "level": 2,
+        "anchors": [
+          "infusions"
+        ],
+        "sectionAnchor": "infusions",
+        "bodySha256": "42856cffc98faa29ae09dab7e27d38c13ba14e9ba22d094f46299ee752ffa605",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "choice-index-and-rules",
+      "parentFeatureObservationId": null,
+      "parentBasis": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 49,
+        "title": "Специализации изобретателя",
+        "level": 2,
+        "anchors": [
+          "specialists"
+        ],
+        "sectionAnchor": "specialists",
+        "bodySha256": "21d76100f431567bd321ce78afffb057e62f001713ddafd022e4c19bea417ce5",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentBasis": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 55,
+        "title": "Экспериментальный эликсир",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "specialist.alchemist",
+        "bodySha256": "5f4cae9f0e3fb585a2177ba513849ff3d3363c2c27dc34d315c009e726f9a5aa",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "feature-effect-table",
+      "parentFeatureObservationId": "scope:artificer:specialist.alchemist:878ad5bd123d73f3",
+      "parentBasis": "manual-body-review-not-HTML-inheritance",
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 64,
+        "title": "Мистические пушки",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "specialist.artillerist",
+        "bodySha256": "810b7520fc908b572144fd67c32ff0de707bb1f75fe868331f267f16492a4ecf",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 3
+          }
+        ]
+      },
+      "kind": "feature-effect-table",
+      "parentFeatureObservationId": "scope:artificer:specialist.artillerist:ebdbc64cc9764ce7",
+      "parentBasis": "manual-body-review-not-HTML-inheritance",
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 86,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "532520b8e3cd879904d9f461752171967e4aca1a3191c93d4d73c3bed7230bd3",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-marker",
+      "parentFeatureObservationId": null,
+      "parentBasis": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    }
+  ],
+  "limitations": [
+    "Secondary page structure and body classification only; primary rules and reproduction rights remain unverified.",
+    "Semantic parents after the presentation sidebar were reviewed explicitly, not inferred from heading nesting.",
+    "Effect tables are components of existing features, not additional class features.",
+    "The progression table and multiclass block are rule groups for further review, not automation approval.",
+    "The unofficial marker does not approve or silently classify descendant rules."
+  ]
+}

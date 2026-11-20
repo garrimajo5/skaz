@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "status": "digital-publication-name-evidence-not-identity-acceptance",
+  "checkedOn": "2026-11-19",
+  "sourceId": "206",
+  "publication": "Mordenkainen's Fiendish Folio Volume 1",
+  "inventoryManifest": "catalog/fiendish-folio-inventory-2014.json",
+  "complete": false,
+  "approvedDenominator": null,
+  "records": [
+    {
+      "unitId": "wotc:mffv1:contents:assassin-bug",
+      "observationId": "dndsu:bestiary:13620",
+      "observedName": "Assasin Bug",
+      "observedSourceIds": [
+        "206"
+      ],
+      "primaryDigitalName": "Assassin Bug",
+      "primarySourceId": "206",
+      "relation": "spelling-candidate",
+      "evidence": {
+        "indexUrl": "https://www.dndbeyond.com/monsters?filter-search=&filter-type=13",
+        "locator": "Assassin Bug — Mordenkainen's Fiendish Folio Volume 1",
+        "cardUrl": "https://www.dndbeyond.com/monsters/588524-assassin-bug",
+        "cardAccess": "redirect-to-product-page",
+        "destination": "https://marketplace.dndbeyond.com/category/SRC-00057",
+        "fullStatBlockRead": false
+      },
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established",
+      "automaticSourceReplacement": false
+    },
+    {
+      "unitId": "wotc:mffv1:contents:dire-corby",
+      "observationId": "dndsu:bestiary:17362",
+      "observedName": "Dire Corby",
+      "observedSourceIds": [
+        "113"
+      ],
+      "primaryDigitalName": "Dire Corby",
+      "primarySourceId": "206",
+      "relation": "same-name-different-observed-source",
+      "evidence": {
+        "indexUrl": "https://www.dndbeyond.com/monsters?filter-environment=7&filter-environment=9&filter-type=0&page=9",
+        "locator": "Dire Corby — Mordenkainen's Fiendish Folio Volume 1",
+        "cardUrl": "https://www.dndbeyond.com/monsters/588585-dire-corby",
+        "cardAccess": "redirect-to-product-page",
+        "destination": "https://marketplace.dndbeyond.com/category/SRC-00057",
+        "fullStatBlockRead": false
+      },
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established",
+      "automaticSourceReplacement": false
+    },
+    {
+      "unitId": "wotc:mffv1:contents:ygorl",
+      "observationId": "dndsu:bestiary:13729",
+      "observedName": "Ygorl, Lord of Entropy",
+      "observedSourceIds": [
+        "206"
+      ],
+      "primaryDigitalName": "Ygorl, Lord of Entropy",
+      "primarySourceId": "206",
+      "relation": "expanded-digital-heading",
+      "evidence": {
+        "indexUrl": "https://www.dndbeyond.com/monsters?filter-cr-min=23&filter-search=&filter-type=0&page=13",
+        "locator": "Ygorl, Lord of Entropy — Mordenkainen's Fiendish Folio Volume 1",
+        "cardUrl": "https://www.dndbeyond.com/monsters/589066-ygorl-lord-of-entropy",
+        "cardAccess": "redirect-to-product-page",
+        "destination": "https://marketplace.dndbeyond.com/category/SRC-00057",
+        "fullStatBlockRead": false
+      },
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "reusePermission": "not-established",
+      "automaticSourceReplacement": false
+    }
+  ],
+  "limits": [
+    "Public digital names complement printed Contents; neither establishes full stat-block equivalence.",
+    "Dire Corby remains attributed to observed source113 in the historical snapshot; this evidence for206 must not overwrite it.",
+    "Needlefolk/Needle Spawn relation and advertised17/Contents18 discrepancy remain unresolved.",
+    "No original names, source IDs, canonical IDs or runtime entries are changed."
+  ]
+}

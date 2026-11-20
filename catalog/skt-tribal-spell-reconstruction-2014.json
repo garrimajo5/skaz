@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "status": "secondary-list-reconstruction-with-primary-edits-not-canonical",
+  "checkedOn": "2026-11-19",
+  "observationId": "dndsu:bestiary:5606",
+  "sourceId": "132",
+  "secondaryUrl": "https://dnd.su/bestiary/5606-uthgardt-shaman/",
+  "primaryEvidence": {
+    "url": "https://media.wizards.com/2020/dnd/downloads/SKT-Errata.pdf",
+    "version": "2.0; copyright2021",
+    "sha256": "7be9a8709571785f9db1bec87a921afcac11712e9f8a85009f3c1229c983c61d",
+    "publisher": "Wizards of the Coast",
+    "reusePermission": "not-established",
+    "pdfPage": 3,
+    "bookPage": 243
+  },
+  "onlinePrimaryEvidence": {
+    "url": "https://www.dndbeyond.com/sources/dnd/sae/storm-kings-thunder",
+    "section": "Uthgardt Shaman (p. 243)",
+    "observedPublishedOn": "2025-04-30",
+    "sameTwoSpellClaim": true
+  },
+  "accepted": false,
+  "fullRulesVerified": false,
+  "automaticPatch": false,
+  "canonicalId": null,
+  "primaryClaimSpellsPerTribe": 2,
+  "primaryCastingTimeOverride": "1 action",
+  "primaryFrequency": "not-restated-in-errata",
+  "observedFrequency": "once per day; per-spell scope not explicit in introduction",
+  "tribes": [
+    {
+      "name": "Black Lion",
+      "observedSpells": [
+        "animate dead",
+        "chill touch",
+        "feign death",
+        "revivify"
+      ],
+      "remove": [
+        "animate dead"
+      ],
+      "add": [],
+      "replaceWith": null,
+      "primaryOverrides": {},
+      "accepted": false
+    },
+    {
+      "name": "Black Raven",
+      "observedSpells": [
+        "animal messenger",
+        "feather fall",
+        "polymorph"
+      ],
+      "remove": [
+        "feather fall"
+      ],
+      "add": [],
+      "replaceWith": null,
+      "primaryOverrides": {
+        "polymorph": {
+          "target": "self only; raven only"
+        }
+      },
+      "accepted": false
+    },
+    {
+      "name": "Blue Bear",
+      "observedSpells": [
+        "enhance ability",
+        "heroism"
+      ],
+      "remove": [],
+      "add": [],
+      "replaceWith": null,
+      "primaryOverrides": {},
+      "accepted": false
+    },
+    {
+      "name": "Elk",
+      "observedSpells": [
+        "expeditious retreat",
+        "find steed",
+        "haste"
+      ],
+      "remove": [
+        "expeditious retreat"
+      ],
+      "add": [],
+      "replaceWith": null,
+      "primaryOverrides": {
+        "find steed": {
+          "castingTime": "1 action",
+          "form": "elk only"
+        }
+      },
+      "accepted": false
+    },
+    {
+      "name": "Gray Wolf",
+      "observedSpells": [
+        "beast sense",
+        "moonbeam",
+        "speak with animals"
+      ],
+      "remove": [],
+      "add": [],
+      "replaceWith": null,
+      "primaryOverrides": {},
+      "accepted": false
+    },
+    {
+      "name": "Great Worm",
+      "observedSpells": [
+        "crusader’s mantle",
+        "divine favor",
+        "hypnotic pattern"
+      ],
+      "remove": [
+        "divine favor"
+      ],
+      "add": [],
+      "replaceWith": null,
+      "primaryOverrides": {},
+      "accepted": false
+    },
+    {
+      "name": "Griffon",
+      "observedSpells": [
+        "feather fall",
+        "fly"
+      ],
+      "remove": [
+        "feather fall"
+      ],
+      "add": [
+        {
+          "spell": "beast sense",
+          "before": "fly"
+        }
+      ],
+      "replaceWith": null,
+      "primaryOverrides": {
+        "beast sense": {
+          "target": "birds only"
+        }
+      },
+      "accepted": false
+    },
+    {
+      "name": "Sky Pony",
+      "observedSpells": [
+        "divine favor",
+        "feather fall",
+        "lightning bolt"
+      ],
+      "remove": [],
+      "add": [],
+      "replaceWith": [
+        "gust of wind",
+        "witch bolt"
+      ],
+      "primaryOverrides": {},
+      "accepted": false
+    },
+    {
+      "name": "Red Tiger",
+      "observedSpells": [
+        "beast sense",
+        "enhance ability",
+        "jump"
+      ],
+      "remove": [
+        "beast sense"
+      ],
+      "add": [],
+      "replaceWith": null,
+      "primaryOverrides": {},
+      "accepted": false
+    },
+    {
+      "name": "Thunderbeast",
+      "observedSpells": [
+        "enhance ability",
+        "pass without trace",
+        "stoneskin"
+      ],
+      "remove": [
+        "stoneskin"
+      ],
+      "add": [],
+      "replaceWith": null,
+      "primaryOverrides": {},
+      "accepted": false
+    },
+    {
+      "name": "Tree Ghost",
+      "observedSpells": [
+        "barkskin",
+        "druidcraft",
+        "plant growth",
+        "speak with plants"
+      ],
+      "remove": [
+        "druidcraft",
+        "plant growth"
+      ],
+      "add": [],
+      "replaceWith": null,
+      "primaryOverrides": {},
+      "accepted": false
+    }
+  ],
+  "secondaryOnlyRestrictions": [
+    {
+      "tribe": "Black Raven",
+      "spell": "animal messenger",
+      "restriction": "raven only"
+    },
+    {
+      "tribe": "Blue Bear",
+      "spell": "enhance ability",
+      "restriction": "Bear’s Endurance only"
+    },
+    {
+      "tribe": "Gray Wolf",
+      "spell": "beast sense",
+      "restriction": "wolf or dire wolf only"
+    },
+    {
+      "tribe": "Gray Wolf",
+      "spell": "speak with animals",
+      "restriction": "wolf or dire wolf only"
+    },
+    {
+      "tribe": "Red Tiger",
+      "spell": "enhance ability",
+      "restriction": "Cat’s Grace only"
+    },
+    {
+      "tribe": "Thunderbeast",
+      "spell": "enhance ability",
+      "restriction": "Bull’s Strength only"
+    }
+  ],
+  "limits": [
+    "Applying explicit errata edits to a secondary list is a diagnostic reconstruction, not a verified primary list.",
+    "Unchanged secondary restrictions are recorded separately, not promoted to primary facts.",
+    "If reconstructed count differs from two, preserve all remaining spells and flag the conflict; never delete arbitrarily.",
+    "A two-spell count alone does not accept the list or settle printing, frequency, rights, or identity."
+  ]
+}

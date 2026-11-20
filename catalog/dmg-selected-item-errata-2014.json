@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "status": "selected-dmg2014-errata-fields-not-full-items",
+  "checkedOn": "2026-11-19",
+  "ruleset": "5e-2014",
+  "sourceId": "101",
+  "accepted": false,
+  "complete": false,
+  "automaticPatch": false,
+  "approvedDenominator": null,
+  "primaryEvidence": {
+    "url": "https://media.wizards.com/2021/dnd/downloads/DMG-Errata.pdf",
+    "version": "3.0; copyright2021",
+    "sha256": "257679dba5ab5f1d6656b9bc508ad82a5a053ea49d57dbeee6e88a5fe01d6afb",
+    "pdfPage": 1,
+    "reusePermission": "not-established"
+  },
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  },
+  "records": [
+    {
+      "observationId": "dndsu:items:4",
+      "observedName": "Amulet of health",
+      "observedSourceIds": [
+        "101"
+      ],
+      "secondaryUrl": "https://dnd.su/items/4-amulet-of-health/",
+      "primaryHeading": "Amulet of Health",
+      "bookPage": 150,
+      "primaryFields": {
+        "attribute": "constitution",
+        "noEffectWhenWithoutItemAtLeast": 19
+      },
+      "comparisonStatus": "selected-fields-match",
+      "secondaryFieldsMatched": true,
+      "wholeItemCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:items:226",
+      "observedName": "Bag of tricks",
+      "observedSourceIds": [
+        "101"
+      ],
+      "secondaryUrl": "https://dnd.su/items/226-bag-of-tricks/",
+      "primaryHeading": "Bag of Tricks",
+      "bookPage": 154,
+      "primaryFields": {
+        "creatureVanishesAt": "next dawn",
+        "alsoVanishesAtHitPoints": 0
+      },
+      "comparisonStatus": "selected-fields-match",
+      "secondaryFieldsMatched": true,
+      "wholeItemCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:items:199",
+      "observedName": "Belt of giant strength",
+      "observedSourceIds": [
+        "101"
+      ],
+      "secondaryUrl": "https://dnd.su/items/199-belt-of-giant-strength/",
+      "primaryHeading": "Belt of Giant Strength",
+      "bookPage": 155,
+      "primaryFields": {
+        "attribute": "strength",
+        "noEffectWhenWithoutItemAtLeast": "belt score"
+      },
+      "comparisonStatus": "selected-fields-match",
+      "secondaryFieldsMatched": true,
+      "wholeItemCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:items:203",
+      "observedName": "Gauntlets of ogre power",
+      "observedSourceIds": [
+        "101"
+      ],
+      "secondaryUrl": "https://dnd.su/items/203-gauntlets-of-ogre-power/",
+      "primaryHeading": "Gauntlets of Ogre Power",
+      "bookPage": 171,
+      "primaryFields": {
+        "attribute": "strength",
+        "noEffectWhenWithoutItemAtLeast": 19
+      },
+      "comparisonStatus": "selected-fields-match",
+      "secondaryFieldsMatched": true,
+      "wholeItemCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:items:178",
+      "observedName": "Headband of intellect",
+      "observedSourceIds": [
+        "101"
+      ],
+      "secondaryUrl": "https://dnd.su/items/178-headband-of-intellect/",
+      "primaryHeading": "Headband of Intellect",
+      "bookPage": 173,
+      "primaryFields": {
+        "attribute": "intelligence",
+        "noEffectWhenWithoutItemAtLeast": 19
+      },
+      "comparisonStatus": "selected-fields-match",
+      "secondaryFieldsMatched": true,
+      "wholeItemCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:items:76",
+      "observedName": "Instrument of the bards",
+      "observedSourceIds": [
+        "101"
+      ],
+      "secondaryUrl": "https://dnd.su/items/76-instrument-of-the-bards/",
+      "primaryHeading": "Instrument of the Bards",
+      "bookPage": 176,
+      "primaryFields": {
+        "playDuringCasting": true,
+        "failedSaveCauses": "charmed",
+        "saveModifier": "disadvantage",
+        "requiredComponentAnyOf": [
+          "somatic",
+          "material"
+        ]
+      },
+      "comparisonStatus": "selected-fields-match",
+      "secondaryFieldsMatched": true,
+      "wholeItemCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:items:50",
+      "observedName": "Pearl of power",
+      "observedSourceIds": [
+        "101"
+      ],
+      "secondaryUrl": "https://dnd.su/items/50-pearl-of-power/",
+      "primaryHeading": "Pearl of Power",
+      "bookPage": 184,
+      "primaryFields": {
+        "onPerson": true,
+        "activation": "action and command word",
+        "restoresExpendedSlots": 1,
+        "expendedLevelAtLeast": 4,
+        "recoveredLevelForThatCase": 3
+      },
+      "comparisonStatus": "selected-fields-match",
+      "secondaryFieldsMatched": true,
+      "wholeItemCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:items:108",
+      "observedName": "Ring of the ram",
+      "observedSourceIds": [
+        "101"
+      ],
+      "secondaryUrl": "https://dnd.su/items/108-ring-of-the-ram/",
+      "primaryHeading": "Ring of the Ram",
+      "bookPage": 193,
+      "primaryFields": {
+        "attackType": "ranged spell attack"
+      },
+      "comparisonStatus": "secondary-fetch-timeout-unverified",
+      "secondaryFieldsMatched": false,
+      "wholeItemCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:items:42",
+      "observedName": "Rod of lordly might",
+      "observedSourceIds": [
+        "101"
+      ],
+      "secondaryUrl": "https://dnd.su/items/42-rod-of-lordly-might/",
+      "primaryHeading": "Rod of Lordly Might",
+      "bookPage": 196,
+      "primaryFields": {
+        "button": 1,
+        "choice": "sword type chosen by user"
+      },
+      "comparisonStatus": "secondary-fetch-timeout-unverified",
+      "secondaryFieldsMatched": false,
+      "wholeItemCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:items:210",
+      "observedName": "Spell scroll",
+      "observedSourceIds": [
+        "101"
+      ],
+      "secondaryUrl": "https://dnd.su/items/210-spell-scroll/",
+      "primaryHeading": "Spell Scroll",
+      "bookPage": 200,
+      "primaryFields": {
+        "ordinaryPrerequisite": "spell on class list",
+        "componentWaiver": "material-only",
+        "castingTime": "normal spell casting time",
+        "consumedAfterCasting": true,
+        "consumedOnInterruptedCasting": false
+      },
+      "comparisonStatus": "selected-fields-match",
+      "secondaryFieldsMatched": true,
+      "wholeItemCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:items:21",
+      "observedName": "Wand of paralysis",
+      "observedSourceIds": [
+        "101"
+      ],
+      "secondaryUrl": "https://dnd.su/items/21-wand-of-paralysis/",
+      "primaryHeading": "Wand of Paralysis",
+      "bookPage": 211,
+      "primaryFields": {
+        "saveAbility": "constitution",
+        "saveDc": 15,
+        "failureCondition": "paralyzed",
+        "durationMinutes": 1
+      },
+      "comparisonStatus": "selected-fields-match",
+      "secondaryFieldsMatched": true,
+      "wholeItemCompared": false,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    }
+  ],
+  "limits": [
+    "Only named errata fields were compared, not complete item use, attunement, recharge, saves or duration rules.",
+    "The generic DMG errata URL is not explicitly2014 and has different chapter/page contents; only the explicitly2014 source and pinned2021 PDF are used.",
+    "Ring of the Ram and Rod of Lordly Might secondary pages timed out; no matching secondary fields are claimed.",
+    "Scroll interruption is not the same as failed ability check or copying a spell; their consumption rules are outside this selected paragraph.",
+    "Prerequisites describe ordinary rules; the product must warn and permit manual exceptions while retaining technical integrity checks."
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "status": "selected-preview-comparison-not-version-acceptance",
+  "accepted": false,
+  "complete": false,
+  "automaticPatch": false,
+  "approvedDenominator": null,
+  "summary": {
+    "observations": 6,
+    "withDifferences": 2,
+    "differingFields": 2,
+    "diceAverageWarnings": 1
+  },
+  "rows": [
+    {
+      "observationId": "dndsu:bestiary:5962",
+      "name": "Archelon",
+      "differences": [],
+      "averageWarnings": [],
+      "result": "selected-fields-match-not-full-equivalence",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false,
+      "fullRulesVerified": false
+    },
+    {
+      "observationId": "dndsu:bestiary:5963",
+      "name": "Brachiosaurus",
+      "differences": [
+        {
+          "field": "stompAttackBonus",
+          "primary": 10,
+          "secondary": 8
+        }
+      ],
+      "averageWarnings": [],
+      "result": "selected-field-differences",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false,
+      "fullRulesVerified": false
+    },
+    {
+      "observationId": "dndsu:bestiary:5965",
+      "name": "Dilophosaurus",
+      "differences": [
+        {
+          "field": "hitPoints",
+          "primary": 26,
+          "secondary": 22
+        }
+      ],
+      "averageWarnings": [
+        {
+          "side": "primary",
+          "printedHitPoints": 26,
+          "computedDiceAverage": 22,
+          "action": "retain-source-observation-no-patch"
+        }
+      ],
+      "result": "selected-field-differences",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false,
+      "fullRulesVerified": false
+    },
+    {
+      "observationId": "dndsu:bestiary:5966",
+      "name": "Giganotosaurus",
+      "differences": [],
+      "averageWarnings": [],
+      "result": "selected-fields-match-not-full-equivalence",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false,
+      "fullRulesVerified": false
+    },
+    {
+      "observationId": "dndsu:bestiary:5970",
+      "name": "Mosasaurus",
+      "differences": [],
+      "averageWarnings": [],
+      "result": "selected-fields-match-not-full-equivalence",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false,
+      "fullRulesVerified": false
+    },
+    {
+      "observationId": "dndsu:bestiary:5971",
+      "name": "Nemicolopterus",
+      "differences": [],
+      "averageWarnings": [],
+      "result": "selected-fields-match-not-full-equivalence",
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false,
+      "fullRulesVerified": false
+    }
+  ],
+  "inputSha256": {
+    "catalog/al-preview-version-evidence-2014.json": "34810f3d4a1babd6c1ff2c176a9b109a6a33c5ee08728aa63c4f16f672808967",
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/adventurers-league-publication-candidates-2014.json": "8d6e9d68159bf1fde71e881ed8dcb3e56a62ff17583a13e1ceecc06df2a9d9c8"
+  }
+}

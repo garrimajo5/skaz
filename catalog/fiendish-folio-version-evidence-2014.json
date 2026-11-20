@@ -1,0 +1,663 @@
+{
+  "schemaVersion": 1,
+  "status": "version-reconciliation-evidence-not-catalog-acceptance",
+  "checkedOn": "2026-11-19",
+  "sourceId": "206",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "reusePermission": "not-established",
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
+  "inputSha256": {
+    "catalog/fiendish-folio-inventory-2014.json": "1ed8aebb2eda9616571d14b547db2a8495d66f62f6d1e58902d3db89d31240e9",
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  },
+  "printEvidence": {
+    "url": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/296621-sample.pdf",
+    "sha256": "745711fe9a105032275ababc376471a8b0834bf83e84475b176fb36ca0dcd269",
+    "pdfPage": 1,
+    "printedPage": 2,
+    "contentsRows": 18,
+    "challengeRows": 18,
+    "fullBookRead": false,
+    "rows": [
+      {
+        "unitId": "wotc:mffv1:contents:assassin-bug",
+        "name": "Assassin Bug",
+        "printedPage": 4,
+        "challengeRating": "3"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:blindheim",
+        "name": "Blindheim",
+        "printedPage": 5,
+        "challengeRating": "2"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:crab-folk",
+        "name": "Crab Folk",
+        "printedPage": 6,
+        "challengeRating": "3"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:dire-corby",
+        "name": "Dire Corby",
+        "printedPage": 7,
+        "challengeRating": "1/2"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:eye-of-fear-and-flame",
+        "name": "Eye of Fear and Flame",
+        "printedPage": 8,
+        "challengeRating": "9"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:forlarren",
+        "name": "Forlarren",
+        "printedPage": 9,
+        "challengeRating": "3"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:giant-fog",
+        "name": "Giant, Fog",
+        "printedPage": 10,
+        "challengeRating": "11"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:jermlaine",
+        "name": "Jermlaine",
+        "printedPage": 11,
+        "challengeRating": "1/8"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:khargra",
+        "name": "Khargra",
+        "printedPage": 12,
+        "challengeRating": "1/8"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:killmoulis",
+        "name": "Killmoulis",
+        "printedPage": 13,
+        "challengeRating": "0"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:mite",
+        "name": "Mite",
+        "printedPage": 14,
+        "challengeRating": "1/4"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:needlefolk",
+        "name": "Needlefolk",
+        "printedPage": 15,
+        "challengeRating": "1/2"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:needle-lord",
+        "name": "Needle Lord",
+        "printedPage": 16,
+        "challengeRating": "3"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:norker",
+        "name": "Norker",
+        "printedPage": 17,
+        "challengeRating": "1/2"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:norker-war-leader",
+        "name": "Norker War Leader",
+        "printedPage": 17,
+        "challengeRating": "3"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:screaming-devilkin",
+        "name": "Screaming Devilkin",
+        "printedPage": 19,
+        "challengeRating": "1"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:ygorl",
+        "name": "Ygorl",
+        "printedPage": 20,
+        "challengeRating": "23"
+      },
+      {
+        "unitId": "wotc:mffv1:contents:xill",
+        "name": "Xill",
+        "printedPage": 21,
+        "challengeRating": "3"
+      }
+    ]
+  },
+  "countEvidence": {
+    "advertisedCount": 17,
+    "staffConfirmedDigitalCount": 17,
+    "supportUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/release-issues-support/53208-mordenkainens-fiendish-folio-volume-1-bugs-and#c8",
+    "staffName": "irTriskit",
+    "staffBadge": "D&D Staff",
+    "postedAt": "2019-12-20T15:21:56Z",
+    "claimScope": "digital-product-description-count-corrected-from-18-to-17",
+    "printDigitalDifferenceResolved": false,
+    "missingUnitIdentified": false,
+    "automaticDeletion": false,
+    "note": "The18 print rows are mapped as review candidates to18 current public index rows, with equal CR. Different names and full text versions remain unverified; the historical staff statement cannot select a row for deletion.",
+    "possibleExplanation": "The public source57 filter returns18 units, but17 display Fiendish Folio and Eye of Fear and Flame displays Infernal Machine Rebuild. This is an observed split, not proof of why the2019 description counted17 new monsters.",
+    "currentPublicIndexCount": 18
+  },
+  "needleEvidence": {
+    "observationId": "dndsu:bestiary:17367",
+    "observedName": "Needle Spawn",
+    "observedSourceIds": [
+      "206"
+    ],
+    "printedName": "Needlefolk",
+    "printedChallengeRating": "1/2",
+    "digitalName": "Needle Spawn",
+    "digitalChallengeRating": "1/2",
+    "digitalType": "Plant",
+    "digitalSize": "Medium",
+    "digitalAlignment": "Chaotic Evil",
+    "indexUrl": "https://www.dndbeyond.com/monsters?filter-search=&filter-type=15&page=3",
+    "indexLocator": "Needle Spawn; separate from Needle Lord (CR3)",
+    "cardUrl": "https://www.dndbeyond.com/monsters/589001-needle-spawn",
+    "cardAccess": "redirect-to-product-page",
+    "destination": "https://marketplace.dndbeyond.com/category/SRC-00057",
+    "fullStatBlockRead": false,
+    "identityConfirmed": false,
+    "canonicalId": null,
+    "automaticRename": false,
+    "relation": "same-CR-different-name-candidate-not-equivalence"
+  },
+  "versionWarnings": [
+    {
+      "observationId": "dndsu:bestiary:13729",
+      "name": "Ygorl, Lord of Entropy",
+      "reportUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/release-issues-support/53208-mordenkainens-fiendish-folio-volume-1-bugs-and#c17",
+      "responseUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/release-issues-support/53208-mordenkainens-fiendish-folio-volume-1-bugs-and#c18",
+      "staffName": "GPyromania",
+      "staffBadge": "D&D Beyond Staff",
+      "postedAt": "2021-05-25T11:28:05Z",
+      "status": "historical-digital-correction-confirmed-by-staff",
+      "fields": [
+        "Arcana proficiency",
+        "Deception proficiency",
+        "Intimidation proficiency",
+        "Persuasion proficiency",
+        "charmed immunity",
+        "exhaustion immunity",
+        "truesight"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/13729-ygorl-lord-of-entropy/",
+      "secondaryPresence": "all-seven-labels-present",
+      "numericValuesVerified": false,
+      "currentDigitalFullTextVerified": false,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:13657",
+      "name": "Khargra",
+      "reportUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/release-issues-support/53208-mordenkainens-fiendish-folio-volume-1-bugs-and#c10",
+      "responseUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/release-issues-support/53208-mordenkainens-fiendish-folio-volume-1-bugs-and#c11",
+      "staffName": "GPyromania",
+      "staffBadge": "D&D Beyond Staff",
+      "postedAt": "2019-12-23T13:54:19Z",
+      "status": "report-escalated-not-confirmed-corrected",
+      "fields": [
+        "bite poison rider disagreement between digital compendium and monster card"
+      ],
+      "primaryCorrectValue": null,
+      "currentDigitalFullTextVerified": false,
+      "automaticPatch": false
+    }
+  ],
+  "digitalIndexEvidence": {
+    "url": "https://www.dndbeyond.com/monsters?filter-source=57",
+    "retrievedOn": "2026-11-19",
+    "transport": "public HTTPS HTML; web tool URL unavailable, direct public response read successfully",
+    "filterSourceValue": "57",
+    "filterSelected": true,
+    "additionalPageLinkObserved": false,
+    "resultCount": 18,
+    "displayedSourceCounts": {
+      "Mordenkainen's Fiendish Folio Volume 1": 17,
+      "Infernal Machine Rebuild": 1
+    },
+    "rows": [
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Assassin Bug",
+        "cardUrl": "https://www.dndbeyond.com/monsters/588524-assassin-bug",
+        "challengeRating": "3",
+        "type": "Monstrosity",
+        "size": "Medium",
+        "alignment": "Neutral",
+        "printedUnitId": "wotc:mffv1:contents:assassin-bug",
+        "printedName": "Assassin Bug",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:13620",
+            "observedName": "Assasin Bug",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Blindheim",
+        "cardUrl": "https://www.dndbeyond.com/monsters/588546-blindheim",
+        "challengeRating": "2",
+        "type": "Humanoid (blindheim)",
+        "size": "Medium",
+        "alignment": "Chaotic Neutral",
+        "printedUnitId": "wotc:mffv1:contents:blindheim",
+        "printedName": "Blindheim",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:13626",
+            "observedName": "Blindheim",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Crab Folk",
+        "cardUrl": "https://www.dndbeyond.com/monsters/588563-crab-folk",
+        "challengeRating": "3",
+        "type": "Giant",
+        "size": "Large",
+        "alignment": "Neutral",
+        "printedUnitId": "wotc:mffv1:contents:crab-folk",
+        "printedName": "Crab Folk",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:13630",
+            "observedName": "Crab Folk",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Dire Corby",
+        "cardUrl": "https://www.dndbeyond.com/monsters/588585-dire-corby",
+        "challengeRating": "1/2",
+        "type": "Humanoid (dire corby)",
+        "size": "Medium",
+        "alignment": "Neutral Evil",
+        "printedUnitId": "wotc:mffv1:contents:dire-corby",
+        "printedName": "Dire Corby",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:17362",
+            "observedName": "Dire Corby",
+            "originalSourceIds": [
+              "113"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Infernal Machine Rebuild",
+        "digitalName": "Eye of Fear and Flame",
+        "cardUrl": "https://www.dndbeyond.com/monsters/581278-eye-of-fear-and-flame",
+        "challengeRating": "9",
+        "type": "Undead",
+        "size": "Medium",
+        "alignment": "Chaotic Evil",
+        "printedUnitId": "wotc:mffv1:contents:eye-of-fear-and-flame",
+        "printedName": "Eye of Fear and Flame",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:13670",
+            "observedName": "Eye of Fear and Flame",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Fog Giant",
+        "cardUrl": "https://www.dndbeyond.com/monsters/588647-fog-giant",
+        "challengeRating": "11",
+        "type": "Giant",
+        "size": "Huge",
+        "alignment": "Neutral Evil",
+        "printedUnitId": "wotc:mffv1:contents:giant-fog",
+        "printedName": "Giant, Fog",
+        "relation": "different-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:17363",
+            "observedName": "Giant, Fog",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Forlarren",
+        "cardUrl": "https://www.dndbeyond.com/monsters/588617-forlarren",
+        "challengeRating": "3",
+        "type": "Fey",
+        "size": "Medium",
+        "alignment": "Chaotic Neutral",
+        "printedUnitId": "wotc:mffv1:contents:forlarren",
+        "printedName": "Forlarren",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:13671",
+            "observedName": "Forlarren",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Jermlaine",
+        "cardUrl": "https://www.dndbeyond.com/monsters/588939-jermlaine",
+        "challengeRating": "1/8",
+        "type": "Humanoid (jermlaine)",
+        "size": "Tiny",
+        "alignment": "Neutral Evil",
+        "printedUnitId": "wotc:mffv1:contents:jermlaine",
+        "printedName": "Jermlaine",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:17364",
+            "observedName": "Jermlaine",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Khargra",
+        "cardUrl": "https://www.dndbeyond.com/monsters/588950-khargra",
+        "challengeRating": "1/8",
+        "type": "Elemental",
+        "size": "Small",
+        "alignment": "Neutral",
+        "printedUnitId": "wotc:mffv1:contents:khargra",
+        "printedName": "Khargra",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:13657",
+            "observedName": "Khargra",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Killmoulis",
+        "cardUrl": "https://www.dndbeyond.com/monsters/588967-killmoulis",
+        "challengeRating": "0",
+        "type": "Fey",
+        "size": "Tiny",
+        "alignment": "Neutral",
+        "printedUnitId": "wotc:mffv1:contents:killmoulis",
+        "printedName": "Killmoulis",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:17365",
+            "observedName": "Killmoulis",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Mite",
+        "cardUrl": "https://www.dndbeyond.com/monsters/588989-mite",
+        "challengeRating": "1/4",
+        "type": "Fey",
+        "size": "Small",
+        "alignment": "Lawful Evil",
+        "printedUnitId": "wotc:mffv1:contents:mite",
+        "printedName": "Mite",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:17366",
+            "observedName": "Mite",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Needle Lord",
+        "cardUrl": "https://www.dndbeyond.com/monsters/589010-needle-lord",
+        "challengeRating": "3",
+        "type": "Plant",
+        "size": "Large",
+        "alignment": "Chaotic Evil",
+        "printedUnitId": "wotc:mffv1:contents:needle-lord",
+        "printedName": "Needle Lord",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:13709",
+            "observedName": "Needle Lord",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Needle Spawn",
+        "cardUrl": "https://www.dndbeyond.com/monsters/589001-needle-spawn",
+        "challengeRating": "1/2",
+        "type": "Plant",
+        "size": "Medium",
+        "alignment": "Chaotic Evil",
+        "printedUnitId": "wotc:mffv1:contents:needlefolk",
+        "printedName": "Needlefolk",
+        "relation": "different-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:17367",
+            "observedName": "Needle Spawn",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Norker",
+        "cardUrl": "https://www.dndbeyond.com/monsters/589016-norker",
+        "challengeRating": "1/2",
+        "type": "Humanoid (goblinoid)",
+        "size": "Small",
+        "alignment": "Chaotic Evil",
+        "printedUnitId": "wotc:mffv1:contents:norker",
+        "printedName": "Norker",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:13711",
+            "observedName": "Norker",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Norker War Leader",
+        "cardUrl": "https://www.dndbeyond.com/monsters/589025-norker-war-leader",
+        "challengeRating": "3",
+        "type": "Humanoid (goblinoid)",
+        "size": "Small",
+        "alignment": "Chaotic Evil",
+        "printedUnitId": "wotc:mffv1:contents:norker-war-leader",
+        "printedName": "Norker War Leader",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:13712",
+            "observedName": "Norker War Leader",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Screaming Devilkin",
+        "cardUrl": "https://www.dndbeyond.com/monsters/589036-screaming-devilkin",
+        "challengeRating": "1",
+        "type": "Fey",
+        "size": "Small",
+        "alignment": "Lawful Evil",
+        "printedUnitId": "wotc:mffv1:contents:screaming-devilkin",
+        "printedName": "Screaming Devilkin",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:13728",
+            "observedName": "Screaming Devilkin",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Xill",
+        "cardUrl": "https://www.dndbeyond.com/monsters/589081-xill",
+        "challengeRating": "3",
+        "type": "Monstrosity",
+        "size": "Medium",
+        "alignment": "Lawful Evil",
+        "printedUnitId": "wotc:mffv1:contents:xill",
+        "printedName": "Xill",
+        "relation": "same-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:13731",
+            "observedName": "Xill",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      },
+      {
+        "displayedSource": "Mordenkainen's Fiendish Folio Volume 1",
+        "digitalName": "Ygorl, Lord of Entropy",
+        "cardUrl": "https://www.dndbeyond.com/monsters/589066-ygorl-lord-of-entropy",
+        "challengeRating": "23",
+        "type": "Aberration",
+        "size": "Large",
+        "alignment": "Chaotic Neutral",
+        "printedUnitId": "wotc:mffv1:contents:ygorl",
+        "printedName": "Ygorl",
+        "relation": "different-name-candidate",
+        "observationCandidates": [
+          {
+            "id": "dndsu:bestiary:13729",
+            "observedName": "Ygorl, Lord of Entropy",
+            "originalSourceIds": [
+              "206"
+            ]
+          }
+        ],
+        "canonicalId": null,
+        "fullRulesVerified": false,
+        "automaticSourceReplacement": false
+      }
+    ],
+    "scope": "public index metadata only; source filter membership differs from displayed source attribution"
+  }
+}

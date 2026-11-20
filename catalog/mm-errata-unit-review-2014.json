@@ -1,0 +1,1588 @@
+{
+  "schemaVersion": 1,
+  "status": "errata-unit-name-candidates-not-full-book-coverage",
+  "accepted": false,
+  "approvedDenominator": null,
+  "summary": {
+    "correctionHeadings": 80,
+    "namedStatBlockHeadings": 75,
+    "namedVariantHeadings": 1,
+    "nonIndividualUnits": 4,
+    "individualUnitsWithOneCandidate": 76,
+    "individualUnitsNeedingNameReview": 0
+  },
+  "records": [
+    {
+      "primaryName": "Aarakocra",
+      "bookPageLabel": "12",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:30",
+          "observedName": "Aarakocra",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Acolyte",
+      "bookPageLabel": "342",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:438",
+          "observedName": "Acolyte",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Adult Blue Dracolich",
+      "bookPageLabel": "84",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:4859",
+          "observedName": "Adult Blue Dracolich",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Adult Brass Dragon",
+      "bookPageLabel": "105",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:116",
+          "observedName": "Adult brass dragon",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Ancient Black Dragon",
+      "bookPageLabel": "87",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:95",
+          "observedName": "Ancient black dragon",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Ancient Blue Dragon",
+      "bookPageLabel": "90",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:99",
+          "observedName": "Ancient blue dragon",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Ancient Brass Dragon",
+      "bookPageLabel": "104",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:115",
+          "observedName": "Ancient brass dragon",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Ancient Bronze Dragon",
+      "bookPageLabel": "107",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:119",
+          "observedName": "Ancient bronze dragon",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Ancient Copper Dragon",
+      "bookPageLabel": "110",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:123",
+          "observedName": "Ancient copper dragon",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Ancient Gold Dragon",
+      "bookPageLabel": "113",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:127",
+          "observedName": "Ancient gold dragon",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Ancient Green Dragon",
+      "bookPageLabel": "93",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:100",
+          "observedName": "Ancient green dragon",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Ancient Red Dragon",
+      "bookPageLabel": "97",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:107",
+          "observedName": "Ancient red dragon",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Ancient Silver Dragon",
+      "bookPageLabel": "116",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:131",
+          "observedName": "Ancient silver dragon",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Ancient White Dragon",
+      "bookPageLabel": "100",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:111",
+          "observedName": "Ancient white dragon",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Ankheg",
+      "bookPageLabel": "21",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:38",
+          "observedName": "Ankheg",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Assassin",
+      "bookPageLabel": "343",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:436",
+          "observedName": "Assassin",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Banshee",
+      "bookPageLabel": "23",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:40",
+          "observedName": "Banshee",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Barlgura",
+      "bookPageLabel": "56",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:64",
+          "observedName": "Barlgura",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Beholder Zombie",
+      "bookPageLabel": "316",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:325",
+          "observedName": "Beholder zombie",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Black Bear",
+      "bookPageLabel": "318",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:414",
+          "observedName": "Black Bear",
+          "sourceIds": [
+            "102",
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Brown Bear",
+      "bookPageLabel": "319",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:330",
+          "observedName": "Brown bear",
+          "sourceIds": [
+            "102",
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Cloud Giant",
+      "bookPageLabel": "154",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:167",
+          "observedName": "Cloud giant",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Cult Fanatic",
+      "bookPageLabel": "345",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:443",
+          "observedName": "Cult fanatic",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Demilich",
+      "bookPageLabel": "48",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:62",
+          "observedName": "Demilich",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Death Knight",
+      "bookPageLabel": "47",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:61",
+          "observedName": "Death knight",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Deva",
+      "bookPageLabel": "16",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:32",
+          "observedName": "Deva",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Diseased Giant Rat",
+      "bookPageLabel": "327",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5642",
+          "observedName": "Diseased giant rat",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Doppelganger",
+      "bookPageLabel": "82",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:6",
+          "observedName": "Doppelganger",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Dragon Turtle",
+      "bookPageLabel": "119",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:137",
+          "observedName": "Dragon turtle",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Drider",
+      "bookPageLabel": "120",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:138",
+          "observedName": "Drider",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Drow Elite Warrior",
+      "bookPageLabel": "128",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:146",
+          "observedName": "Drow elite warrior",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Druid",
+      "bookPageLabel": "346",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:431",
+          "observedName": "Druid",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Efreeti",
+      "bookPageLabel": "145",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:162",
+          "observedName": "Efreeti",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Elephant",
+      "bookPageLabel": "322",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:407",
+          "observedName": "Elephant",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Empyrean",
+      "bookPageLabel": "130",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:149",
+          "observedName": "Empyrean",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Ettercap",
+      "bookPageLabel": "131",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:150",
+          "observedName": "Ettercap",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Flameskull",
+      "bookPageLabel": "134",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:22",
+          "observedName": "Flameskull",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Flying Sword",
+      "bookPageLabel": "20",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:36",
+          "observedName": "Flying sword",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Ghost",
+      "bookPageLabel": "147",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:164",
+          "observedName": "Ghost",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Gith",
+      "bookPageLabel": "159",
+      "pdfPage": 1,
+      "unitKind": "lore-correction",
+      "accepted": false,
+      "observationCandidates": [],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Goblin Boss",
+      "bookPageLabel": "166",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:182",
+          "observedName": "Goblin boss",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Gold Dragon Wyrmling",
+      "bookPageLabel": "115",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:130",
+          "observedName": "Gold dragon wyrmling",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Gray Slaad",
+      "bookPageLabel": "277",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:292",
+          "observedName": "Gray slaad",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Grell",
+      "bookPageLabel": "172",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:188",
+          "observedName": "Grell",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Gynosphinx",
+      "bookPageLabel": "282",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:296",
+          "observedName": "Gynosphinx",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Guard",
+      "bookPageLabel": "347",
+      "pdfPage": 1,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:442",
+          "observedName": "Guard",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Half-Dragon",
+      "bookPageLabel": "180",
+      "pdfPage": 1,
+      "unitKind": "template-and-example-correction",
+      "accepted": false,
+      "observationCandidates": [],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Harpy",
+      "bookPageLabel": "181",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:196",
+          "observedName": "Harpy",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Hook Horror",
+      "bookPageLabel": "189",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:203",
+          "observedName": "Hook horror",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Horned Devil",
+      "bookPageLabel": "74",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:82",
+          "observedName": "Horned devil",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Intellect Devourer",
+      "bookPageLabel": "191",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:205",
+          "observedName": "Intellect devourer",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Kenku",
+      "bookPageLabel": "194",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:208",
+          "observedName": "Kenku",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Kraken",
+      "bookPageLabel": "197",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:211",
+          "observedName": "Kraken",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Kuo-toa Archpriest",
+      "bookPageLabel": "200",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:213",
+          "observedName": "Kuo-toa archpriest",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Lich",
+      "bookPageLabel": "202",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:216",
+          "observedName": "Lich",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Lycanthropes",
+      "bookPageLabel": "207",
+      "pdfPage": 2,
+      "unitKind": "player-template-rule",
+      "accepted": false,
+      "observationCandidates": [],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Magmin",
+      "bookPageLabel": "212",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:225",
+          "observedName": "Magmin",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Merrow",
+      "bookPageLabel": "219",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:235",
+          "observedName": "Merrow",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Monodrone",
+      "bookPageLabel": "224",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:238",
+          "observedName": "Monodrone",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Night Hag",
+      "bookPageLabel": "178",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:193",
+          "observedName": "Night hag",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Noble",
+      "bookPageLabel": "348",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:425",
+          "observedName": "Noble",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Orc War Chief",
+      "bookPageLabel": "246",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:258",
+          "observedName": "Orc war chief",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Otyugh",
+      "bookPageLabel": "248",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:261",
+          "observedName": "Otyugh",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Priest",
+      "bookPageLabel": "348",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:441",
+          "observedName": "Priest",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Purple Worm",
+      "bookPageLabel": "255",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:267",
+          "observedName": "Purple worm",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Quaggoth",
+      "bookPageLabel": "256",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:268",
+          "observedName": "Quaggoth",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Rakshasa",
+      "bookPageLabel": "257",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:269",
+          "observedName": "Rakshasa",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Revenant",
+      "bookPageLabel": "259",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:4720",
+          "observedName": "Revenant",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Riding Horse",
+      "bookPageLabel": "336",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:363",
+          "observedName": "Riding horse",
+          "sourceIds": [
+            "102",
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Solar",
+      "bookPageLabel": "18",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:34",
+          "observedName": "Solar",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Swarm of X",
+      "bookPageLabel": "337–39",
+      "pdfPage": 2,
+      "unitKind": "stat-block-family",
+      "accepted": false,
+      "observationCandidates": [],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Thri-kreen",
+      "bookPageLabel": "288",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:301",
+          "observedName": "Thri-kreen",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Troll",
+      "bookPageLabel": "291",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:304",
+          "observedName": "Troll",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Vampire, Spellcaster",
+      "bookPageLabel": "298",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block-variant",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5634",
+          "observedName": "Vampire Spellcaster",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Veteran",
+      "bookPageLabel": "350",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:421",
+          "observedName": "Veteran",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Warhorse",
+      "bookPageLabel": "340",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:329",
+          "observedName": "Warhorse",
+          "sourceIds": [
+            "102",
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Water Elemental",
+      "bookPageLabel": "125",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:144",
+          "observedName": "Water Elemental",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Werewolf",
+      "bookPageLabel": "211",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:224",
+          "observedName": "Werewolf",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Will-o’-Wisp",
+      "bookPageLabel": "301",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:311",
+          "observedName": "Will-o’-wisp",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "primaryName": "Young Brass Dragon",
+      "bookPageLabel": "105",
+      "pdfPage": 2,
+      "unitKind": "named-stat-block",
+      "accepted": false,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:117",
+          "observedName": "Young brass dragon",
+          "sourceIds": [
+            "103"
+          ],
+          "match": "case-insensitive-name-candidate"
+        }
+      ],
+      "fullRulesVerified": false,
+      "canonicalId": null,
+      "automaticMerge": false
+    }
+  ],
+  "inputSha256": {
+    "catalog/mm-errata-unit-inventory-2014.json": "c990992db05668a95b568bbdc985b9b8387b0c3f3215fe897a4e08afcab182c7",
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  }
+}

@@ -1,0 +1,590 @@
+{
+  "schemaVersion": 1,
+  "status": "public-index-inventory-not-catalog-acceptance",
+  "checkedOn": "2026-11-19",
+  "observedSourceId": "161",
+  "title": "Infernal Machine Rebuild",
+  "publisherEvidence": "catalog/numeric-source-publisher-evidence.json",
+  "indexUrl": "https://www.dndbeyond.com/monsters?filter-source=56",
+  "filterValue": "56",
+  "filterOptionId": "filter-source-infernal-machine-rebuild",
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  },
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "reusePermission": "not-established",
+  "publicIndexPagesCaptured": 3,
+  "publicIndexTraversalComplete": true,
+  "historicalBookInventoryComplete": false,
+  "fullStatBlocksRead": false,
+  "summary": {
+    "digitalRows": 56,
+    "displayedSourceCounts": {
+      "Infernal Machine Rebuild": 26,
+      "Mordenkainen’s Tome of Foes": 3,
+      "Mordenkainen Presents: Monsters of the Multiverse": 2,
+      "Volo's Guide to Monsters": 9,
+      "Lost Laboratory of Kwalish": 1,
+      "Tales from the Yawning Portal": 2,
+      "Monster Manual (2014)": 6,
+      "Ghosts of Saltmarsh": 4,
+      "Basic Rules (2014)": 1,
+      "Hunt for the Thessalhydra": 1,
+      "Storm King's Thunder": 1
+    }
+  },
+  "accessLimits": [
+    {
+      "url": "https://www.dndbeyond.com/sources/imr/npcs-and-monsters",
+      "result": "redirect-to-product-page",
+      "destination": "https://marketplace.dndbeyond.com/adventures/SRC-00056"
+    },
+    {
+      "url": "https://www.dndbeyond.com/sources/imr/new-magic-and-special-items",
+      "result": "redirect-to-product-page",
+      "destination": "https://marketplace.dndbeyond.com/adventures/SRC-00056"
+    }
+  ],
+  "limits": [
+    "A source filter includes referenced creatures and later editions, not just newly published creatures.",
+    "Displayed source attribution and URL are preserved as observed; neither is silently corrected.",
+    "A missing exact name is a review candidate, not a proven missing runtime creature.",
+    "No item inventory or full source version is accepted by this monster-index survey."
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "nextPage": 2,
+      "rows": [
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "\"The Demogorgon\"",
+          "cardUrl": "https://www.dndbeyond.com/monsters/582125-the-demogorgon",
+          "challengeRating": "8",
+          "type": "Giant",
+          "size": "Large",
+          "alignment": "Chaotic Neutral"
+        },
+        {
+          "displayedSource": "Mordenkainen’s Tome of Foes",
+          "digitalName": "Adult Oblex",
+          "cardUrl": "https://www.dndbeyond.com/monsters/96508-adult-oblex",
+          "challengeRating": "5",
+          "type": "Ooze",
+          "size": "Medium",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Andras",
+          "cardUrl": "https://www.dndbeyond.com/monsters/584791-andras",
+          "challengeRating": "8",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Barbatos",
+          "cardUrl": "https://www.dndbeyond.com/monsters/582113-barbatos",
+          "challengeRating": "6",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+          "digitalName": "Boggle",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17224-boggle",
+          "challengeRating": "1/8",
+          "type": "Fey",
+          "size": "Small",
+          "alignment": "Typically Chaotic Neutral"
+        },
+        {
+          "displayedSource": "Volo's Guide to Monsters",
+          "digitalName": "Boggle",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2556122-boggle",
+          "challengeRating": "1/2",
+          "type": "Fey",
+          "size": "Small",
+          "alignment": "Chaotic Neutral"
+        },
+        {
+          "displayedSource": "Lost Laboratory of Kwalish",
+          "digitalName": "Brain in a Jar (Noncore)",
+          "cardUrl": "https://www.dndbeyond.com/monsters/194139-brain-in-a-jar-noncore",
+          "challengeRating": "6",
+          "type": "Undead",
+          "size": "Medium",
+          "alignment": "Any Alignment"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Brain in Iron",
+          "cardUrl": "https://www.dndbeyond.com/monsters/582104-brain-in-iron",
+          "challengeRating": "6",
+          "type": "Construct",
+          "size": "Large",
+          "alignment": "Lawful Neutral"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Dwarven Worker",
+          "cardUrl": "https://www.dndbeyond.com/monsters/584742-dwarven-worker",
+          "challengeRating": "1/8",
+          "type": "Humanoid (dwarf)",
+          "size": "Medium",
+          "alignment": "Neutral"
+        },
+        {
+          "displayedSource": "Mordenkainen’s Tome of Foes",
+          "digitalName": "Eidolon",
+          "cardUrl": "https://www.dndbeyond.com/monsters/96527-eidolon",
+          "challengeRating": "12",
+          "type": "Undead",
+          "size": "Medium",
+          "alignment": "Any Alignment"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Enhanced Medusa",
+          "cardUrl": "https://www.dndbeyond.com/monsters/582096-enhanced-medusa",
+          "challengeRating": "6",
+          "type": "Monstrosity",
+          "size": "Medium",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Eye of Fear and Flame",
+          "cardUrl": "https://www.dndbeyond.com/monsters/581278-eye-of-fear-and-flame",
+          "challengeRating": "9",
+          "type": "Undead",
+          "size": "Medium",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Tales from the Yawning Portal",
+          "digitalName": "Giant Skeleton",
+          "cardUrl": "https://www.dndbeyond.com/monsters/22565-giant-skeleton",
+          "challengeRating": "7",
+          "type": "Undead",
+          "size": "Huge",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Volo's Guide to Monsters",
+          "digitalName": "Girallon",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17257-girallon",
+          "challengeRating": "4",
+          "type": "Monstrosity",
+          "size": "Large",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Grandfather Oak",
+          "cardUrl": "https://www.dndbeyond.com/monsters/584735-grandfather-oak",
+          "challengeRating": "9",
+          "type": "Plant",
+          "size": "Huge",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Tales from the Yawning Portal",
+          "digitalName": "Greater Zombie",
+          "cardUrl": "https://www.dndbeyond.com/monsters/22571-greater-zombie",
+          "challengeRating": "5",
+          "type": "Undead",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Green Hag (Coven Variant)",
+          "cardUrl": "https://www.dndbeyond.com/monsters/301746-green-hag-coven-variant",
+          "challengeRating": "5",
+          "type": "Fey",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Grell",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17157-grell",
+          "challengeRating": "3",
+          "type": "Aberration",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Ghosts of Saltmarsh",
+          "digitalName": "Lizardfolk Render",
+          "cardUrl": "https://www.dndbeyond.com/monsters/313028-lizardfolk-render",
+          "challengeRating": "3",
+          "type": "Humanoid (lizardfolk)",
+          "size": "Large",
+          "alignment": "Neutral"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Lizardfolk Shaman",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17171-lizardfolk-shaman",
+          "challengeRating": "2",
+          "type": "Humanoid (lizardfolk)",
+          "size": "Medium",
+          "alignment": "Neutral"
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "nextPage": 3,
+      "rows": [
+        {
+          "displayedSource": "Ghosts of Saltmarsh",
+          "digitalName": "Locathah",
+          "cardUrl": "https://www.dndbeyond.com/monsters/313041-locathah",
+          "challengeRating": "1/2",
+          "type": "Humanoid (locathah)",
+          "size": "Medium",
+          "alignment": "Neutral"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Lynx Creatlach",
+          "cardUrl": "https://www.dndbeyond.com/monsters/581171-lynx-creatlach",
+          "challengeRating": "5",
+          "type": "Undead (tiefling)",
+          "size": "Medium",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Volo's Guide to Monsters",
+          "digitalName": "Master Thief",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17338-master-thief",
+          "challengeRating": "5",
+          "type": "Humanoid (any race)",
+          "size": "Medium",
+          "alignment": "Any Alignment"
+        },
+        {
+          "displayedSource": "Basic Rules (2014)",
+          "digitalName": "Minotaur Skeleton",
+          "cardUrl": "https://www.dndbeyond.com/monsters/16959-minotaur-skeleton",
+          "challengeRating": "2",
+          "type": "Undead",
+          "size": "Large",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Moghadam",
+          "cardUrl": "https://www.dndbeyond.com/monsters/581182-moghadam",
+          "challengeRating": "12",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Myconid Sovereign",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17184-myconid-sovereign",
+          "challengeRating": "2",
+          "type": "Plant",
+          "size": "Large",
+          "alignment": "Lawful Neutral"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Neo-Otyugh",
+          "cardUrl": "https://www.dndbeyond.com/monsters/582697-neo-otyugh",
+          "challengeRating": "7",
+          "type": "Aberration",
+          "size": "Huge",
+          "alignment": "Neutral"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Pixie",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17192-pixie",
+          "challengeRating": "1/4",
+          "type": "Fey",
+          "size": "Tiny",
+          "alignment": "Neutral Good"
+        },
+        {
+          "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+          "digitalName": "Redcap",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17300-redcap",
+          "challengeRating": "3",
+          "type": "Fey",
+          "size": "Small",
+          "alignment": "Typically Chaotic Evil"
+        },
+        {
+          "displayedSource": "Volo's Guide to Monsters",
+          "digitalName": "Redcap",
+          "cardUrl": "https://www.dndbeyond.com/monsters/2556141-redcap",
+          "challengeRating": "3",
+          "type": "Fey",
+          "size": "Small",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Mordenkainen’s Tome of Foes",
+          "digitalName": "Sacred Statue",
+          "cardUrl": "https://www.dndbeyond.com/monsters/96536-sacred-statue",
+          "challengeRating": "0",
+          "type": "Construct",
+          "size": "Large",
+          "alignment": "Any Alignment"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Seodra",
+          "cardUrl": "https://www.dndbeyond.com/monsters/582085-seodra",
+          "challengeRating": "1/8",
+          "type": "Humanoid (earth genasi)",
+          "size": "Medium",
+          "alignment": "Lawful Neutral"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Sir Ursas",
+          "cardUrl": "https://www.dndbeyond.com/monsters/581191-sir-ursas",
+          "challengeRating": "5",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Skeletal Giant Owl",
+          "cardUrl": "https://www.dndbeyond.com/monsters/581744-skeletal-giant-owl",
+          "challengeRating": "1/4",
+          "type": "Undead",
+          "size": "Large",
+          "alignment": "Neutral"
+        },
+        {
+          "displayedSource": "Ghosts of Saltmarsh",
+          "digitalName": "Skeletal Juggernaut",
+          "cardUrl": "https://www.dndbeyond.com/monsters/316830-skeletal-juggernaut",
+          "challengeRating": "5",
+          "type": "Undead",
+          "size": "Large",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Skeletal Owlbear",
+          "cardUrl": "https://www.dndbeyond.com/monsters/583545-skeletal-owlbear",
+          "challengeRating": "3",
+          "type": "Undead",
+          "size": "Large",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Skeletal Polar Bear",
+          "cardUrl": "https://www.dndbeyond.com/monsters/583540-skeletal-polar-bear",
+          "challengeRating": "2",
+          "type": "Undead",
+          "size": "Large",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Ghosts of Saltmarsh",
+          "digitalName": "Skeletal Swarm",
+          "cardUrl": "https://www.dndbeyond.com/monsters/316845-skeletal-swarm",
+          "challengeRating": "2",
+          "type": "Undead",
+          "size": "Large",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Skeletal Two-Headed Owlbear",
+          "cardUrl": "https://www.dndbeyond.com/monsters/582060-skeletal-two-headed-owlbear",
+          "challengeRating": "3",
+          "type": "Undead",
+          "size": "Large",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Volo's Guide to Monsters",
+          "digitalName": "Slithering Tracker",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17303-slithering-tracker",
+          "challengeRating": "3",
+          "type": "Ooze",
+          "size": "Medium",
+          "alignment": "Chaotic Evil"
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "nextPage": null,
+      "rows": [
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Stolos",
+          "cardUrl": "https://www.dndbeyond.com/monsters/581731-stolos",
+          "challengeRating": "6",
+          "type": "Humanoid (any race)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Tarnhem",
+          "cardUrl": "https://www.dndbeyond.com/monsters/584784-tarnhem",
+          "challengeRating": "19",
+          "type": "Fiend (demon)",
+          "size": "Huge",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Thessalar",
+          "cardUrl": "https://www.dndbeyond.com/monsters/581262-thessalar",
+          "challengeRating": "12",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Thessalar's Homunculus",
+          "cardUrl": "https://www.dndbeyond.com/monsters/583543-thessalars-homunculus",
+          "challengeRating": "0",
+          "type": "Construct",
+          "size": "Tiny",
+          "alignment": "Neutral"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Thessalheart Construct",
+          "cardUrl": "https://www.dndbeyond.com/monsters/582801-thessalheart-construct",
+          "challengeRating": "0",
+          "type": "Construct",
+          "size": "Tiny",
+          "alignment": "Neutral"
+        },
+        {
+          "displayedSource": "Hunt for the Thessalhydra",
+          "digitalName": "Thessalhydra",
+          "cardUrl": "https://www.dndbeyond.com/monsters/339646-thessalhydra",
+          "challengeRating": "4",
+          "type": "Monstrosity",
+          "size": "Huge",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Thessalkraken",
+          "cardUrl": "https://www.dndbeyond.com/monsters/582852-thessalkraken",
+          "challengeRating": "14",
+          "type": "Monstrosity (titan)",
+          "size": "Gargantuan",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Tiefling Muralist",
+          "cardUrl": "https://www.dndbeyond.com/monsters/584769-tiefling-muralist",
+          "challengeRating": "1/8",
+          "type": "Humanoid (tiefling)",
+          "size": "Medium",
+          "alignment": "Any Non-Good Alignment"
+        },
+        {
+          "displayedSource": "Volo's Guide to Monsters",
+          "digitalName": "Trapper",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17306-trapper",
+          "challengeRating": "3",
+          "type": "Monstrosity",
+          "size": "Large",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Tressym",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17353-tressym",
+          "challengeRating": "0",
+          "type": "Monstrosity",
+          "size": "Tiny",
+          "alignment": "Any Alignment"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Two-Headed Crocodile",
+          "cardUrl": "https://www.dndbeyond.com/monsters/582928-two-headed-crocodile",
+          "challengeRating": "1",
+          "type": "Beast",
+          "size": "Large",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Infernal Machine Rebuild",
+          "digitalName": "Two-Headed Owlbear",
+          "cardUrl": "https://www.dndbeyond.com/monsters/582938-two-headed-owlbear",
+          "challengeRating": "3",
+          "type": "Monstrosity",
+          "size": "Large",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Umber Hulk",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17205-umber-hulk",
+          "challengeRating": "5",
+          "type": "Monstrosity",
+          "size": "Large",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Volo's Guide to Monsters",
+          "digitalName": "Warlock of the Fiend",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17344-warlock-of-the-fiend",
+          "challengeRating": "7",
+          "type": "Humanoid (any race)",
+          "size": "Medium",
+          "alignment": "Any Alignment"
+        },
+        {
+          "displayedSource": "Volo's Guide to Monsters",
+          "digitalName": "Warlock of the Great Old One",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17345-warlock-of-the-great-old-one",
+          "challengeRating": "6",
+          "type": "Humanoid (any race)",
+          "size": "Medium",
+          "alignment": "Any Alignment"
+        },
+        {
+          "displayedSource": "Volo's Guide to Monsters",
+          "digitalName": "Warlord",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17346-warlord",
+          "challengeRating": "12",
+          "type": "Humanoid (any race)",
+          "size": "Medium",
+          "alignment": "Any Alignment"
+        }
+      ]
+    }
+  ],
+  "explicitNameCandidates": [
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/582125-the-demogorgon",
+      "observationIds": [
+        "dndsu:bestiary:8520"
+      ],
+      "reason": "Straight quotes in the primary public index and guillemets in the observed name; candidate only, full identity not confirmed."
+    }
+  ]
+}

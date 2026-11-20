@@ -1,0 +1,317 @@
+{
+  "schemaVersion": 1,
+  "status": "public-item-index-not-catalog-acceptance",
+  "checkedOn": "2026-11-19",
+  "sourceId": "161",
+  "indexUrl": "https://www.dndbeyond.com/magic-items?filter-source=56",
+  "digitalRowCount": 25,
+  "publicIndexTraversalComplete": true,
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "fullRulesVerified": false,
+  "reusePermission": "not-established",
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  },
+  "productEvidence": {
+    "url": "https://marketplace.dndbeyond.com/category/SRC-00056",
+    "advertisedNewItemCount": 8,
+    "namedItemInventoryVerified": false
+  },
+  "limits": [
+    "Index includes referenced items and separate family variants.25 rows is not25 new items.",
+    "Rarity/type/attunement are observed display labels, not complete item rules.",
+    "No source attribution appears per item row; membership of this filter does not establish first publication."
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "rows": [
+        {
+          "digitalName": "Apparatus of Kwalish",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5344-apparatus-of-kwalish",
+          "rarityLabel": "Legendary",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "——",
+          "notesLabel": "Utility, Exploration, Combat"
+        },
+        {
+          "digitalName": "Blood of the Lycanthrope Antidote",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/1144990-blood-of-the-lycanthrope-antidote",
+          "rarityLabel": "Uncommon",
+          "typeLabel": "Potion",
+          "attunementLabel": "——",
+          "notesLabel": "Consumable"
+        },
+        {
+          "digitalName": "Bridle of Capturing",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/1145000-bridle-of-capturing",
+          "rarityLabel": "Rare",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "——",
+          "notesLabel": ""
+        },
+        {
+          "digitalName": "Claws of the Umber Hulk",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5580-claws-of-the-umber-hulk",
+          "rarityLabel": "Rare",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Melee Weapon Attack: Slashing, Set: Innate Speed (Burrowing)"
+        },
+        {
+          "digitalName": "Crown of the Forest",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/1146257-crown-of-the-forest",
+          "rarityLabel": "Uncommon",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "——",
+          "notesLabel": ""
+        },
+        {
+          "digitalName": "Helm of Underwater Action",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/602376-helm-of-underwater-action",
+          "rarityLabel": "Uncommon",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Set Base: Darkvision, Set: Speed (Swimming), Movement, Exploration"
+        },
+        {
+          "digitalName": "Ioun Stone of Vitality",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/1145872-ioun-stone-of-vitality",
+          "rarityLabel": "Very Rare",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Bonus: Saving Throws, Healing"
+        },
+        {
+          "digitalName": "Mummy Rot Antidote",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/1144419-mummy-rot-antidote",
+          "rarityLabel": "Uncommon",
+          "typeLabel": "Potion",
+          "attunementLabel": "——",
+          "notesLabel": ""
+        },
+        {
+          "digitalName": "Nolzur's Marvelous Pigments",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5356-nolzurs-marvelous-pigments",
+          "rarityLabel": "Very Rare",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "——",
+          "notesLabel": "Utility, Consumable"
+        },
+        {
+          "digitalName": "Paper Bird",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/254337-paper-bird",
+          "rarityLabel": "Uncommon",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "——",
+          "notesLabel": ""
+        },
+        {
+          "digitalName": "Pot of Awakening",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/27113-pot-of-awakening",
+          "rarityLabel": "Common",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "——",
+          "notesLabel": ""
+        },
+        {
+          "digitalName": "Ruinblade",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/1143978-ruinblade",
+          "rarityLabel": "Legendary",
+          "typeLabel": "Weapon Greatsword",
+          "attunementLabel": "Required",
+          "notesLabel": "Bonus: Magic, Damage: Force, Heavy, Two-Handed, Graze"
+        },
+        {
+          "digitalName": "Spell Gem",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5536-spell-gem",
+          "rarityLabel": "Varies",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Spellcaster if Seeking to Imbue the Gem, Utility"
+        },
+        {
+          "digitalName": "Spell Gem (Amber)",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5542-spell-gem-amber",
+          "rarityLabel": "Very Rare",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Spellcaster if Seeking to Imbue the Gem, Utility"
+        },
+        {
+          "digitalName": "Spell Gem (Bloodstone)",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5541-spell-gem-bloodstone",
+          "rarityLabel": "Rare",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Spellcaster if Seeking to Imbue the Gem, Utility"
+        },
+        {
+          "digitalName": "Spell Gem (Diamond)",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5547-spell-gem-diamond",
+          "rarityLabel": "Legendary",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Spellcaster if Seeking to Imbue the Gem, Utility"
+        },
+        {
+          "digitalName": "Spell Gem (Jade)",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5543-spell-gem-jade",
+          "rarityLabel": "Very Rare",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Spellcaster if Seeking to Imbue the Gem, Utility"
+        },
+        {
+          "digitalName": "Spell Gem (Lapis Lazuli)",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5539-spell-gem-lapis-lazuli",
+          "rarityLabel": "Uncommon",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Spellcaster if Seeking to Imbue the Gem, Utility"
+        },
+        {
+          "digitalName": "Spell Gem (Obsidian)",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5538-spell-gem-obsidian",
+          "rarityLabel": "Uncommon",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Spellcaster if Seeking to Imbue the Gem, Utility"
+        },
+        {
+          "digitalName": "Spell Gem (Quartz)",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5540-spell-gem-quartz",
+          "rarityLabel": "Rare",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Spellcaster if Seeking to Imbue the Gem, Utility"
+        }
+      ],
+      "nextPage": 2
+    },
+    {
+      "page": 2,
+      "rows": [
+        {
+          "digitalName": "Spell Gem (Ruby)",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5546-spell-gem-ruby",
+          "rarityLabel": "Legendary",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Spellcaster if Seeking to Imbue the Gem, Utility"
+        },
+        {
+          "digitalName": "Spell Gem (Star Ruby)",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5545-spell-gem-star-ruby",
+          "rarityLabel": "Legendary",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Spellcaster if Seeking to Imbue the Gem, Utility"
+        },
+        {
+          "digitalName": "Spell Gem (Topaz)",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/5544-spell-gem-topaz",
+          "rarityLabel": "Very Rare",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": "Spellcaster if Seeking to Imbue the Gem, Utility"
+        },
+        {
+          "digitalName": "The Infernal Machine of Lum the Mad",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/1147023-the-infernal-machine-of-lum-the-mad",
+          "rarityLabel": "Artifact",
+          "typeLabel": "Wondrous Item",
+          "attunementLabel": "Required",
+          "notesLabel": ""
+        },
+        {
+          "digitalName": "Thessaltoxin Antidote",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/1146940-thessaltoxin-antidote",
+          "rarityLabel": "Uncommon",
+          "typeLabel": "Potion",
+          "attunementLabel": "——",
+          "notesLabel": ""
+        }
+      ],
+      "nextPage": null
+    }
+  ],
+  "familyCandidates": [
+    {
+      "cardUrl": "https://www.dndbeyond.com/magic-items/1145872-ioun-stone-of-vitality",
+      "parentObservationId": "dndsu:items:79",
+      "reason": "Named Vitality variant versus observed Ioun stone family; metadata does not verify the family contents or exact text version."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/magic-items/5542-spell-gem-amber",
+      "parentObservationId": "dndsu:items:2373",
+      "reason": "Named gemstone variant in the public index and a separate observed family heading; relationship needs full-rule review, not an alias merge."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/magic-items/5541-spell-gem-bloodstone",
+      "parentObservationId": "dndsu:items:2373",
+      "reason": "Named gemstone variant in the public index and a separate observed family heading; relationship needs full-rule review, not an alias merge."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/magic-items/5547-spell-gem-diamond",
+      "parentObservationId": "dndsu:items:2373",
+      "reason": "Named gemstone variant in the public index and a separate observed family heading; relationship needs full-rule review, not an alias merge."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/magic-items/5543-spell-gem-jade",
+      "parentObservationId": "dndsu:items:2373",
+      "reason": "Named gemstone variant in the public index and a separate observed family heading; relationship needs full-rule review, not an alias merge."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/magic-items/5539-spell-gem-lapis-lazuli",
+      "parentObservationId": "dndsu:items:2373",
+      "reason": "Named gemstone variant in the public index and a separate observed family heading; relationship needs full-rule review, not an alias merge."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/magic-items/5538-spell-gem-obsidian",
+      "parentObservationId": "dndsu:items:2373",
+      "reason": "Named gemstone variant in the public index and a separate observed family heading; relationship needs full-rule review, not an alias merge."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/magic-items/5540-spell-gem-quartz",
+      "parentObservationId": "dndsu:items:2373",
+      "reason": "Named gemstone variant in the public index and a separate observed family heading; relationship needs full-rule review, not an alias merge."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/magic-items/5546-spell-gem-ruby",
+      "parentObservationId": "dndsu:items:2373",
+      "reason": "Named gemstone variant in the public index and a separate observed family heading; relationship needs full-rule review, not an alias merge."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/magic-items/5545-spell-gem-star-ruby",
+      "parentObservationId": "dndsu:items:2373",
+      "reason": "Named gemstone variant in the public index and a separate observed family heading; relationship needs full-rule review, not an alias merge."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/magic-items/5544-spell-gem-topaz",
+      "parentObservationId": "dndsu:items:2373",
+      "reason": "Named gemstone variant in the public index and a separate observed family heading; relationship needs full-rule review, not an alias merge."
+    }
+  ],
+  "explicitNameCandidates": [
+    {
+      "cardUrl": "https://www.dndbeyond.com/magic-items/5356-nolzurs-marvelous-pigments",
+      "observationId": "dndsu:items:247",
+      "reason": "Observed typographic apostrophe and lowercase words versus primary straight apostrophe/title case; candidate only, no text equivalence asserted."
+    }
+  ],
+  "unitAccessChecks": [
+    {
+      "digitalName": "Crown of the Forest",
+      "url": "https://www.dndbeyond.com/magic-items/1146257-crown-of-the-forest",
+      "checkedOn": "2026-11-19",
+      "result": "redirect-to-product",
+      "finalUrl": "https://marketplace.dndbeyond.com/category/SRC-00056",
+      "fullTextRead": false,
+      "canonicalIdentityConfirmed": false
+    }
+  ]
+}

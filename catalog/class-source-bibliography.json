@@ -3,8 +3,8 @@
   "status": "class-bibliographic-evidence-not-scope-or-rights-approval",
   "summary": {
     "sourceLabels": 8,
-    "withPrimaryEvidence": 6,
-    "withoutVerifiedPrimaryEvidence": 2
+    "withPrimaryEvidence": 7,
+    "withoutVerifiedPrimaryEvidence": 1
   },
   "records": [
     {
@@ -113,17 +113,34 @@
     {
       "id": "class-bibliography:sprouting-chaos",
       "referenceTitle": "Sprouting Chaos Player's Companion",
-      "candidatePublicationTitle": null,
-      "publisher": null,
-      "publicationKind": "unresolved",
-      "evidence": [],
-      "accessLimitation": "Search found secondary references and a creator-related Reddit result; direct retrieval returned Cache miss. No primary text/version was certified.",
-      "reviewQuestion": "Verify original author publication and homebrew status without assigning a fabricated dnd.su source ID.",
-      "checkedOn": "2026-11-17",
+      "candidatePublicationTitle": "Sprouting Chaos Player's Companion",
+      "publisher": "BoltNine Homebrew",
+      "publicationKind": "third-party-sourcebook",
+      "evidence": [
+        {
+          "url": "https://www.reddit.com/r/UnearthedArcana/comments/5umv6w/sprouting_chaos_players_companion_reformatted/",
+          "location": "Original post by u/Jonoman3000 and its author comment",
+          "method": "primary-creator-post-read",
+          "claim": "Author identifies the 2017 revision of their 2015 companion and links the public PDF."
+        },
+        {
+          "url": "https://drive.google.com/file/d/0B-g9vLTX0eHKZmFkdFVPME9Lckk/view",
+          "location": "PDF page2: credits, contents, creation and update dates",
+          "method": "author-linked-primary-PDF-text-read",
+          "claim": "Credits name Jonoman3000 and BoltNine Homebrew; contents list the Blighted sorcerous origin. This is creator-produced homebrew, not a WotC publication.",
+          "sha256": "3dba939b01a811cc90321b5f90cdd2541248c725ef4e9e18dac94d8f42ded907",
+          "pages": 23
+        }
+      ],
+      "accessLimitation": "Creator blog still redirects to Google sorry (non-retryable500). Creator Reddit post and its public PDF were accessible. PDF reader emitted malformed-float warnings; credits text was cross-checked with the author post. Full rules and dnd.su translation/version equivalence were not certified.",
+      "reviewQuestion": "Review exclusion under the owner WotC-only policy. Exact translated text version and reuse rights remain unverified; personal exceptions remain available.",
+      "checkedOn": "2026-11-20",
       "numericDndsuSourceId": null,
       "exactTextVersion": "unverified",
       "scopeDecision": "awaiting-independent-review",
-      "reusePermission": "not-established"
+      "reusePermission": "not-established",
+      "firstPrinting": "2015-11",
+      "observedRevision": "2017-02; author-linked Update 3 PDF"
     },
     {
       "id": "class-bibliography:odyssey",

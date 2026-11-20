@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-20",
+  "status": "selected-secondary-spellcasting-models-not-primary-rules",
+  "accepted": false,
+  "complete": false,
+  "automaticPatch": false,
+  "inputSha256": {
+    "catalog/imr-version-boundaries-2014.json": "d4ae3e68bb9fa3306924a9d012b5c083c04de6ddf36b660fe55b54b0cdb72305"
+  },
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:638",
+      "observedName": "Warlock of the Great Old One",
+      "sourceIds": [
+        "111"
+      ],
+      "readUrl": "https://dnd.su/bestiary/638-warlock-of-the-great-old-one/",
+      "evidenceKind": "secondary-observation",
+      "primaryFullRulesRead": false,
+      "automaticPatch": false,
+      "selectedModel": {
+        "spellcastingAbility": "charisma",
+        "saveDc": 15,
+        "casterLevel": 14,
+        "spellAttackBonus": 7,
+        "slotPool": {
+          "count": 3,
+          "level": 5,
+          "recharge": [
+            "short-rest",
+            "long-rest"
+          ]
+        },
+        "selectedSlotSpells": [
+          "detect thoughts",
+          "dimension door"
+        ],
+        "dailySpellAbility": "innate-spellcasting",
+        "dailyUsesPerSpell": 1,
+        "dailySpells": [
+          "arcane gate",
+          "true seeing"
+        ],
+        "mageArmorAtWillSelfOnly": true,
+        "innateMaterialsWaived": true
+      }
+    },
+    {
+      "observationId": "dndsu:bestiary:639",
+      "observedName": "Warlock of the Fiend",
+      "sourceIds": [
+        "111"
+      ],
+      "readUrl": "https://dnd.su/bestiary/639-warlock-of-the-fiend/",
+      "evidenceKind": "secondary-observation",
+      "primaryFullRulesRead": false,
+      "automaticPatch": false,
+      "selectedModel": {
+        "spellcastingAbility": "charisma",
+        "saveDc": 15,
+        "casterLevel": 17,
+        "spellAttackBonus": 7,
+        "slotPool": {
+          "count": 4,
+          "level": 5,
+          "recharge": [
+            "short-rest",
+            "long-rest"
+          ]
+        },
+        "selectedSlotSpells": [
+          "banishment",
+          "suggestion"
+        ],
+        "dailySpellAbility": "innate-spellcasting",
+        "dailyUsesPerSpell": 1,
+        "dailySpells": [
+          "feeblemind",
+          "finger of death",
+          "plane shift"
+        ],
+        "mageArmorAtWillSelfOnly": true,
+        "innateMaterialsWaived": true
+      }
+    },
+    {
+      "observationId": "dndsu:bestiary:7067",
+      "observedName": "Warlock of the Great Old One",
+      "sourceIds": [
+        "158"
+      ],
+      "readUrl": "https://dnd.su/multiverse/bestiary/7067-warlock-of-the-great-old-one/",
+      "evidenceKind": "secondary-observation",
+      "primaryFullRulesRead": false,
+      "automaticPatch": false,
+      "selectedModel": {
+        "spellcastingAbility": "charisma",
+        "saveDc": 15,
+        "casterLevel": null,
+        "spellAttackBonus": null,
+        "slotPool": null,
+        "selectedSlotSpells": [],
+        "dailySpellAbility": "spellcasting-action",
+        "dailyUsesPerSpell": 1,
+        "dailySpells": [
+          "arcane gate",
+          "detect thoughts",
+          "true seeing"
+        ],
+        "mageArmorAtWillSelfOnly": true,
+        "innateMaterialsWaived": null
+      }
+    },
+    {
+      "observationId": "dndsu:bestiary:7066",
+      "observedName": "Warlock of the Fiend",
+      "sourceIds": [
+        "158"
+      ],
+      "readUrl": "https://dnd.su/multiverse/bestiary/7066-warlock-of-the-fiend/",
+      "evidenceKind": "secondary-observation",
+      "primaryFullRulesRead": false,
+      "automaticPatch": false,
+      "selectedModel": {
+        "spellcastingAbility": "charisma",
+        "saveDc": 15,
+        "casterLevel": null,
+        "spellAttackBonus": null,
+        "slotPool": null,
+        "selectedSlotSpells": [],
+        "dailySpellAbility": "spellcasting-action",
+        "dailyUsesPerSpell": 1,
+        "dailySpells": [
+          "banishment",
+          "plane shift",
+          "suggestion"
+        ],
+        "mageArmorAtWillSelfOnly": true,
+        "innateMaterialsWaived": null
+      }
+    }
+  ],
+  "limits": [
+    "Null means not stated in the selected ability; it does not mean zero, forbidden or impossible.",
+    "VGM innate uses and its slot pool are separate; no shared daily charge is inferred.",
+    "MPMM spellcasting action does not acquire VGM slots by matching name.",
+    "Selected spell examples do not represent the full spell list.",
+    "NPC stat-block evidence is not a player-class progression rule.",
+    "Primary full text remains unavailable; no reuse rights or canonical version accepted."
+  ]
+}

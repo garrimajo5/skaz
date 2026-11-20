@@ -1,0 +1,577 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "checkedOn": "2026-11-19",
+  "status": "pack-membership-proposal-not-runtime-grant",
+  "source": {
+    "title": "System Reference Document 5.1",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "pages": [
+      70
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode."
+  },
+  "scope": "Seven pack contents enumerated; unresolved members and unspecified quantities retained; no inventory mutation",
+  "summary": {
+    "packs": 7,
+    "members": 66,
+    "unresolvedMembers": 10,
+    "unspecifiedQuantities": 3
+  },
+  "limitations": [
+    "Bundle price is the listed source price, not a sum of constituent retail prices.",
+    "Candidate item references point to identity proposals, not guarantees of runtime availability.",
+    "No automatic expansion, purchase, currency deduction or class equipment grant implemented."
+  ],
+  "records": [
+    {
+      "observationId": "srd51:2014:equipment-observation:burglars-pack",
+      "proposedCanonicalId": "srd51:2014:item:burglars-pack",
+      "nameEn": "Burglar’s Pack",
+      "listedCostGp": 16,
+      "sourcePage": 70,
+      "status": "pack-membership-proposal-not-runtime-record",
+      "fullRules": "unverified",
+      "contents": [
+        {
+          "sourceName": "backpack",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:backpack",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "ball bearings",
+          "quantity": 1,
+          "unit": "bag of 1000",
+          "candidateCatalogId": "srd51:2014:item:ball-bearings-bag-1000",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "string",
+          "quantity": 10,
+          "unit": "foot",
+          "candidateCatalogId": null,
+          "resolution": "needs-canonical-or-unit-review",
+          "note": "Not the same observed item as hempen rope."
+        },
+        {
+          "sourceName": "bell",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:bell",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "candles",
+          "quantity": 5,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:candle",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "crowbar",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:crowbar",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "hammer",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:hammer",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "pitons",
+          "quantity": 10,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:piton",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "hooded lantern",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:hooded-lantern",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "oil",
+          "quantity": 2,
+          "unit": "flask",
+          "candidateCatalogId": "srd51:2014:item:oil-flask",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "rations",
+          "quantity": 5,
+          "unit": "day",
+          "candidateCatalogId": "srd51:2014:item:rations-one-day",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "tinderbox",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:tinderbox",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "waterskin",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:waterskin",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "hempen rope",
+          "quantity": 1,
+          "unit": "50-foot length",
+          "candidateCatalogId": "srd51:2014:item:hempen-rope-50-feet",
+          "resolution": "candidate-identity-not-runtime-grant",
+          "note": "Strapped to the side of the pack."
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "proposedCanonicalId": "srd51:2014:item:diplomats-pack",
+      "nameEn": "Diplomat’s Pack",
+      "listedCostGp": 39,
+      "sourcePage": 70,
+      "status": "pack-membership-proposal-not-runtime-record",
+      "fullRules": "unverified",
+      "contents": [
+        {
+          "sourceName": "chest",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:chest",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "cases for maps and scrolls",
+          "quantity": 2,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:map-or-scroll-case",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "fine clothes",
+          "quantity": 1,
+          "unit": "set",
+          "candidateCatalogId": "srd51:2014:item:fine-clothes",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "ink",
+          "quantity": 1,
+          "unit": "bottle",
+          "candidateCatalogId": null,
+          "resolution": "needs-canonical-or-unit-review",
+          "note": "Pack text does not state the bottle capacity; do not silently equate to the one-ounce table item."
+        },
+        {
+          "sourceName": "ink pen",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:ink-pen",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "lamp",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:lamp",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "oil",
+          "quantity": 2,
+          "unit": "flask",
+          "candidateCatalogId": "srd51:2014:item:oil-flask",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "paper",
+          "quantity": 5,
+          "unit": "sheet",
+          "candidateCatalogId": "srd51:2014:item:paper-sheet",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "perfume",
+          "quantity": 1,
+          "unit": "vial",
+          "candidateCatalogId": "srd51:2014:item:perfume-vial",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "sealing wax",
+          "quantity": null,
+          "unit": "unspecified",
+          "candidateCatalogId": "srd51:2014:item:sealing-wax",
+          "resolution": "candidate-identity-not-runtime-grant",
+          "note": "No amount specified in pack text."
+        },
+        {
+          "sourceName": "soap",
+          "quantity": null,
+          "unit": "unspecified",
+          "candidateCatalogId": "srd51:2014:item:soap",
+          "resolution": "candidate-identity-not-runtime-grant",
+          "note": "No amount specified in pack text."
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:dungeoneers-pack",
+      "proposedCanonicalId": "srd51:2014:item:dungeoneers-pack",
+      "nameEn": "Dungeoneer’s Pack",
+      "listedCostGp": 12,
+      "sourcePage": 70,
+      "status": "pack-membership-proposal-not-runtime-record",
+      "fullRules": "unverified",
+      "contents": [
+        {
+          "sourceName": "backpack",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:backpack",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "crowbar",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:crowbar",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "hammer",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:hammer",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "pitons",
+          "quantity": 10,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:piton",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "torches",
+          "quantity": 10,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:torch",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "tinderbox",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:tinderbox",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "rations",
+          "quantity": 10,
+          "unit": "day",
+          "candidateCatalogId": "srd51:2014:item:rations-one-day",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "waterskin",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:waterskin",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "hempen rope",
+          "quantity": 1,
+          "unit": "50-foot length",
+          "candidateCatalogId": "srd51:2014:item:hempen-rope-50-feet",
+          "resolution": "candidate-identity-not-runtime-grant",
+          "note": "Strapped to the side of the pack."
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:entertainers-pack",
+      "proposedCanonicalId": "srd51:2014:item:entertainers-pack",
+      "nameEn": "Entertainer’s Pack",
+      "listedCostGp": 40,
+      "sourcePage": 70,
+      "status": "pack-membership-proposal-not-runtime-record",
+      "fullRules": "unverified",
+      "contents": [
+        {
+          "sourceName": "backpack",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:backpack",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "bedroll",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:bedroll",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "costumes",
+          "quantity": 2,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:costume-clothes",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "candles",
+          "quantity": 5,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:candle",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "rations",
+          "quantity": 5,
+          "unit": "day",
+          "candidateCatalogId": "srd51:2014:item:rations-one-day",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "waterskin",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:waterskin",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "disguise kit",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:disguise-kit",
+          "resolution": "candidate-identity-not-runtime-grant"
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:explorers-pack",
+      "proposedCanonicalId": "srd51:2014:item:explorers-pack",
+      "nameEn": "Explorer’s Pack",
+      "listedCostGp": 10,
+      "sourcePage": 70,
+      "status": "pack-membership-proposal-not-runtime-record",
+      "fullRules": "unverified",
+      "contents": [
+        {
+          "sourceName": "backpack",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:backpack",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "bedroll",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:bedroll",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "mess kit",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:mess-kit",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "tinderbox",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:tinderbox",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "torches",
+          "quantity": 10,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:torch",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "rations",
+          "quantity": 10,
+          "unit": "day",
+          "candidateCatalogId": "srd51:2014:item:rations-one-day",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "waterskin",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:waterskin",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "hempen rope",
+          "quantity": 1,
+          "unit": "50-foot length",
+          "candidateCatalogId": "srd51:2014:item:hempen-rope-50-feet",
+          "resolution": "candidate-identity-not-runtime-grant",
+          "note": "Strapped to the side of the pack."
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:priests-pack",
+      "proposedCanonicalId": "srd51:2014:item:priests-pack",
+      "nameEn": "Priest’s Pack",
+      "listedCostGp": 19,
+      "sourcePage": 70,
+      "status": "pack-membership-proposal-not-runtime-record",
+      "fullRules": "unverified",
+      "contents": [
+        {
+          "sourceName": "backpack",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:backpack",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "blanket",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:blanket",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "candles",
+          "quantity": 10,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:candle",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "tinderbox",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:tinderbox",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "alms box",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": null,
+          "resolution": "needs-canonical-or-unit-review"
+        },
+        {
+          "sourceName": "incense",
+          "quantity": 2,
+          "unit": "block",
+          "candidateCatalogId": null,
+          "resolution": "needs-canonical-or-unit-review"
+        },
+        {
+          "sourceName": "censer",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": null,
+          "resolution": "needs-canonical-or-unit-review"
+        },
+        {
+          "sourceName": "vestments",
+          "quantity": null,
+          "unit": "unspecified",
+          "candidateCatalogId": null,
+          "resolution": "needs-canonical-or-unit-review",
+          "note": "No quantity or exact canonical set identity specified."
+        },
+        {
+          "sourceName": "rations",
+          "quantity": 2,
+          "unit": "day",
+          "candidateCatalogId": "srd51:2014:item:rations-one-day",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "waterskin",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:waterskin",
+          "resolution": "candidate-identity-not-runtime-grant"
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:scholars-pack",
+      "proposedCanonicalId": "srd51:2014:item:scholars-pack",
+      "nameEn": "Scholar’s Pack",
+      "listedCostGp": 40,
+      "sourcePage": 70,
+      "status": "pack-membership-proposal-not-runtime-record",
+      "fullRules": "unverified",
+      "contents": [
+        {
+          "sourceName": "backpack",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:backpack",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "book of lore",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": null,
+          "resolution": "needs-canonical-or-unit-review"
+        },
+        {
+          "sourceName": "ink",
+          "quantity": 1,
+          "unit": "bottle",
+          "candidateCatalogId": null,
+          "resolution": "needs-canonical-or-unit-review",
+          "note": "Pack text does not state the bottle capacity; do not silently equate to the one-ounce table item."
+        },
+        {
+          "sourceName": "ink pen",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": "srd51:2014:item:ink-pen",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "parchment",
+          "quantity": 10,
+          "unit": "sheet",
+          "candidateCatalogId": "srd51:2014:item:parchment-sheet",
+          "resolution": "candidate-identity-not-runtime-grant"
+        },
+        {
+          "sourceName": "sand",
+          "quantity": 1,
+          "unit": "little bag",
+          "candidateCatalogId": null,
+          "resolution": "needs-canonical-or-unit-review"
+        },
+        {
+          "sourceName": "small knife",
+          "quantity": 1,
+          "unit": "each",
+          "candidateCatalogId": null,
+          "resolution": "needs-canonical-or-unit-review"
+        }
+      ]
+    }
+  ]
+}

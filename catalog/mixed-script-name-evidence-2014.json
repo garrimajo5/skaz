@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "status": "mixed-script-name-evidence-not-canonical-catalog",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "scopeSha256": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:13077",
+      "originalEnglishName": "Сranium rat squeaker swarm",
+      "originalUrl": "https://dnd.su/bestiary/13077-sranium-rat-squeaker-swarm/",
+      "sourceIds": [
+        "205"
+      ],
+      "secondaryCapture": "13077",
+      "proposedEnglishName": "Cranium Rat Squeaker Swarm",
+      "primaryCapture": "cranium-index",
+      "primaryCardUrl": "https://www.dndbeyond.com/monsters/3883523-cranium-rat-squeaker-swarm",
+      "primarySource": "Planescape: Adventures in the Multiverse",
+      "status": "supported-heading-proposal",
+      "applied": false,
+      "canonicalId": null,
+      "identityAccepted": false,
+      "reason": "Cyrillic U+0421 in secondary heading; primary index uses Latin C and title case."
+    },
+    {
+      "observationId": "dndsu:bestiary:20456",
+      "originalEnglishName": "Swarm of Сreeping Сoins",
+      "originalUrl": "https://dnd.su/bestiary/20456-swarm-of-sreeping-soins/",
+      "sourceIds": [
+        "169"
+      ],
+      "secondaryCapture": "20456",
+      "proposedEnglishName": null,
+      "primaryCapture": null,
+      "primaryCardUrl": null,
+      "primarySource": null,
+      "status": "needs-primary-name-and-publication",
+      "applied": false,
+      "canonicalId": null,
+      "identityAccepted": false,
+      "reason": "Secondary heading retains Cyrillic C lookalikes; AL source group is not an exact publication. No primary title witness accepted."
+    },
+    {
+      "observationId": "dndsu:bestiary:568",
+      "originalEnglishName": "Nilbog,goblin гоблин",
+      "originalUrl": "https://dnd.su/bestiary/568-nilbog/",
+      "sourceIds": [
+        "111"
+      ],
+      "secondaryCapture": "568",
+      "proposedEnglishName": "Nilbog",
+      "primaryCapture": "nilbog-index",
+      "primaryCardUrl": "https://www.dndbeyond.com/monsters/17292-nilbog",
+      "primarySource": "Volo's Guide to Monsters",
+      "status": "primary-name-supported-secondary-card-missing",
+      "applied": false,
+      "canonicalId": null,
+      "identityAccepted": false,
+      "reason": "Original snapshot joins name and search aliases. Fresh raw response contains only card6883; do not attribute its MPMM heading to legacy568."
+    },
+    {
+      "observationId": "dndsu:bestiary:6883",
+      "originalEnglishName": "Nilbog,goblin гоблин",
+      "originalUrl": "https://dnd.su/bestiary/6883-nilbog/",
+      "sourceIds": [
+        "158"
+      ],
+      "secondaryCapture": "6883",
+      "proposedEnglishName": "Nilbog",
+      "primaryCapture": "nilbog-index",
+      "primaryCardUrl": "https://www.dndbeyond.com/monsters/2560889-nilbog",
+      "primarySource": "Mordenkainen Presents: Monsters of the Multiverse",
+      "status": "supported-heading-proposal",
+      "applied": false,
+      "canonicalId": null,
+      "identityAccepted": false,
+      "reason": "Original snapshot joins name and search aliases; exact MPMM heading and primary index agree on Nilbog."
+    },
+    {
+      "observationId": "dndsu:items:6459",
+      "originalEnglishName": "Prehistoric Figurines of Wondrous Power,Pyrite Pleisosarus Пиритовый плезиозавр Carnelian Triceratops Сердоликий трицератопс  Яшмовый Тираннозавр Рекс Jasper Tyrannosaurus Rex Kyanite Pteranodon Кианитовый птеранодон",
+      "originalUrl": "https://dnd.su/items/6459-prehistoric-figurines-of-wondrous-power/",
+      "sourceIds": [
+        "198"
+      ],
+      "secondaryCapture": "6459",
+      "proposedEnglishName": "Prehistoric Figurines of Wondrous Power",
+      "primaryCapture": "figurines-article",
+      "primaryCardUrl": "https://www.dndbeyond.com/posts/1548-preview-5-primordial-magic-items-from-bigby",
+      "primarySource": "Bigby Presents: Glory of the Giants",
+      "status": "supported-heading-proposal",
+      "applied": false,
+      "canonicalId": null,
+      "identityAccepted": false,
+      "reason": "Original snapshot joins family heading with four variant search aliases; retain variants separately, not inside English family name."
+    }
+  ],
+  "captures": [
+    {
+      "key": "nilbog-index",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=Nilbog",
+      "resolvedUrl": "https://www.dndbeyond.com/monsters?filter-search=Nilbog",
+      "sha256": "20d8d28efb3153f05d6185d918a784442a0cafe3c0038c9bc70af58f4fda4043"
+    },
+    {
+      "key": "cranium-index",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=Cranium%20Rat%20Squeaker%20Swarm",
+      "resolvedUrl": "https://www.dndbeyond.com/monsters?filter-search=Cranium%20Rat%20Squeaker%20Swarm",
+      "sha256": "5056bc7177285ae2c11ba317096cf3bdce58ece91f80e6dd6767bb41e0bf9228"
+    },
+    {
+      "key": "568",
+      "url": "https://dnd.su/bestiary/568-nilbog/",
+      "resolvedUrl": "https://dnd.su/bestiary/568-nilbog/",
+      "sha256": "52648777bb70cda6a4a68900c066dfce07311b387439cf2480416d28e5f7c15d"
+    },
+    {
+      "key": "6883",
+      "url": "https://dnd.su/multiverse/bestiary/6883-nilbog/",
+      "resolvedUrl": "https://dnd.su/multiverse/bestiary/6883-nilbog/",
+      "sha256": "14befd40593aeb6962883c4ce55f8d4a3b99035b43b88a5d733fccb1ad05a39f"
+    },
+    {
+      "key": "13077",
+      "url": "https://dnd.su/bestiary/13077-sranium-rat-squeaker-swarm/",
+      "resolvedUrl": "https://dnd.su/bestiary/13077-sranium-rat-squeaker-swarm/",
+      "sha256": "f96ceaaa3a813af56b9f286da3e73a0bb098138f02d6d5bc92d8b630e44d9ab6"
+    },
+    {
+      "key": "20456",
+      "url": "https://dnd.su/bestiary/20456-swarm-of-sreeping-soins/",
+      "resolvedUrl": "https://dnd.su/bestiary/20456-swarm-of-sreeping-soins/",
+      "sha256": "21d692a7a35c2780f301219a8be98109107fa530ba8b317249d3c93bc75438cf"
+    },
+    {
+      "key": "6459",
+      "url": "https://dnd.su/items/6459-prehistoric-figurines-of-wondrous-power/",
+      "resolvedUrl": "https://dnd.su/items/6459-prehistoric-figurines-of-wondrous-power/",
+      "sha256": "70b183b3e198bdd2150d3232af307241dd207583b874be2e2f4d93d5e42275a1"
+    },
+    {
+      "key": "figurines-article",
+      "url": "https://www.dndbeyond.com/posts/1548-preview-5-primordial-magic-items-from-bigby",
+      "resolvedUrl": "https://www.dndbeyond.com/posts/1548-preview-5-primordial-magic-items-from-bigby",
+      "sha256": "dad75cbaba88656f282a599ee942399f298bec4782de66e866ae32674490c6a4"
+    }
+  ],
+  "figurineUnitProposal": {
+    "observationId": "dndsu:items:6459",
+    "familyName": "Prehistoric Figurines of Wondrous Power",
+    "primaryCapture": "figurines-article",
+    "variants": [
+      {
+        "name": "Carnelian Triceratops",
+        "rarity": "Very Rare"
+      },
+      {
+        "name": "Jasper Tyrannosaurus Rex",
+        "rarity": "Legendary"
+      },
+      {
+        "name": "Kyanite Pteranodon",
+        "rarity": "Rare"
+      },
+      {
+        "name": "Pyrite Plesiosaurus",
+        "rarity": "Uncommon"
+      }
+    ],
+    "accepted": false,
+    "canonicalIdsAssigned": 0,
+    "fullRulesVerified": false
+  },
+  "limitations": [
+    "Four exact secondary headings were captured; three also have supported primary names. Legacy Nilbog has a primary name but lacks its exact secondary card in the fresh response.",
+    "No correction is applied by this evidence manifest. Original names and aliases remain preserved.",
+    "The four figurine variants are a unit proposal, not four accepted catalog records.",
+    "No full statblock, translation permission or complete publication inventory is certified."
+  ]
+}

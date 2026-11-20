@@ -1,0 +1,451 @@
+{
+  "schemaVersion": 1,
+  "status": "version-unit-proposals-awaiting-independent-review",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "consideredGroups": 12,
+    "proposedSeparateVersionGroups": 12,
+    "unresolvedGroups": 0,
+    "preservedObservations": 24,
+    "proposedVersionUnits": 24,
+    "acceptedCanonicalUnits": 0
+  },
+  "groups": [
+    {
+      "reviewId": "name-review:019ad948d6ad1eb5297c",
+      "name": "firbolg",
+      "proposal": "keep-separate-publication-versions",
+      "basis": "Primary publication identities are evidenced by the publisher index or a precise errata reference; FAQ preserves old and new versions.",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:290",
+          "sourceId": "158",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026387-firbolg",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:019ad948d6ad1eb5297c:source:158",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:185",
+          "sourceId": "111",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/25-firbolg",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:019ad948d6ad1eb5297c:source:111",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "missingEvidence": [],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:1607b262629a4c704271",
+      "name": "aasimar",
+      "proposal": "keep-separate-publication-versions",
+      "basis": "Primary publication identities are evidenced by the publisher index or a precise errata reference; FAQ preserves old and new versions.",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:280",
+          "sourceId": "158",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026378-aasimar",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:1607b262629a4c704271:source:158",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:161",
+          "sourceId": "111",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/24-aasimar",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:1607b262629a4c704271:source:111",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "missingEvidence": [],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:1ce0a4f6ecfcaae76af1",
+      "name": "triton",
+      "proposal": "keep-separate-publication-versions",
+      "basis": "Primary publication identities are evidenced by the publisher index or a precise errata reference; FAQ preserves old and new versions.",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:310",
+          "sourceId": "158",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026405-triton",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:1ce0a4f6ecfcaae76af1:source:158",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:188",
+          "sourceId": "111",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/31-triton",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:1ce0a4f6ecfcaae76af1:source:111",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "missingEvidence": [],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:33c77e349b9b84e709e1",
+      "name": "kenku",
+      "proposal": "keep-separate-publication-versions",
+      "basis": "Primary publication identities are evidenced by the publisher index or a precise errata reference; FAQ preserves old and new versions.",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:298",
+          "sourceId": "158",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026394-kenku",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:33c77e349b9b84e709e1:source:158",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:172",
+          "sourceId": "111",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/28-kenku",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:33c77e349b9b84e709e1:source:111",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "missingEvidence": [],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:85572149bfb5e0d914a2",
+      "name": "tabaxi",
+      "proposal": "keep-separate-publication-versions",
+      "basis": "Primary publication identities are evidenced by the publisher index or a precise errata reference; FAQ preserves old and new versions.",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:307",
+          "sourceId": "158",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026403-tabaxi",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:85572149bfb5e0d914a2:source:158",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:183",
+          "sourceId": "111",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/30-tabaxi",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:85572149bfb5e0d914a2:source:111",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "missingEvidence": [],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:882e8bd444adf491fa7d",
+      "name": "bugbear",
+      "proposal": "keep-separate-publication-versions",
+      "basis": "Primary publication identities are evidenced by the publisher index or a precise errata reference; FAQ preserves old and new versions.",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:281",
+          "sourceId": "158",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026380-bugbear",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:882e8bd444adf491fa7d:source:158",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:167",
+          "sourceId": "111",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/32-bugbear",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:882e8bd444adf491fa7d:source:111",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "missingEvidence": [],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:915e00ee2984f33fcf99",
+      "name": "goblin",
+      "proposal": "keep-separate-publication-versions",
+      "basis": "Primary publication identities are evidenced by the publisher index or a precise errata reference; FAQ preserves old and new versions.",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:294",
+          "sourceId": "158",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026391-goblin",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:915e00ee2984f33fcf99:source:158",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:166",
+          "sourceId": "111",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/33-goblin",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:915e00ee2984f33fcf99:source:111",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "missingEvidence": [],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:9ac470de8b8a1b1e9da1",
+      "name": "kobold",
+      "proposal": "keep-separate-publication-versions",
+      "basis": "Primary publication identities are evidenced by the publisher index or a precise errata reference; FAQ preserves old and new versions.",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:299",
+          "sourceId": "158",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026395-kobold",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:9ac470de8b8a1b1e9da1:source:158",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:175",
+          "sourceId": "111",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/516426-kobold",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:9ac470de8b8a1b1e9da1:source:111",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "missingEvidence": [],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:a0ba613bd5f29365f9cf",
+      "name": "hobgoblin",
+      "proposal": "keep-separate-publication-versions",
+      "basis": "Primary publication identities are evidenced by the publisher index or a precise errata reference; FAQ preserves old and new versions.",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:297",
+          "sourceId": "158",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026393-hobgoblin",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:a0ba613bd5f29365f9cf:source:158",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:168",
+          "sourceId": "111",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/34-hobgoblin",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:a0ba613bd5f29365f9cf:source:111",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "missingEvidence": [],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:cf777feca46994ea809c",
+      "name": "goliath",
+      "proposal": "keep-separate-publication-versions",
+      "basis": "Primary publication identities are evidenced by the publisher index or a precise errata reference; FAQ preserves old and new versions.",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:295",
+          "sourceId": "158",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026392-goliath",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:cf777feca46994ea809c:source:158",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:103",
+          "sourceId": "111",
+          "primaryIdentityUrl": "https://media.wizards.com/2021/dnd/downloads/VGtM-Errata.pdf#page=1",
+          "identityEvidenceKind": "publisher-errata-publication-reference",
+          "bookPage": 109,
+          "proposedVersionKey": "name-review:cf777feca46994ea809c:source:111",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "missingEvidence": [],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:d4f0069614c6d0a8cb88",
+      "name": "lizardfolk",
+      "proposal": "keep-separate-publication-versions",
+      "basis": "Primary publication identities are evidenced by the publisher index or a precise errata reference; FAQ preserves old and new versions.",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:300",
+          "sourceId": "158",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026396-lizardfolk",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:d4f0069614c6d0a8cb88:source:158",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:179",
+          "sourceId": "111",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/29-lizardfolk",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:d4f0069614c6d0a8cb88:source:111",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "missingEvidence": [],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:fecad2ea639c1189a982",
+      "name": "orc",
+      "proposal": "keep-separate-publication-versions",
+      "basis": "Primary publication identities are evidenced by the publisher index or a precise errata reference; FAQ preserves old and new versions.",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:302",
+          "sourceId": "158",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026398-orc",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:fecad2ea639c1189a982:source:158",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:187",
+          "sourceId": "111",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/516433-orc",
+          "identityEvidenceKind": "publisher-index",
+          "bookPage": null,
+          "proposedVersionKey": "name-review:fecad2ea639c1189a982:source:111",
+          "exactErrataVersion": "unverified",
+          "fullRules": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "missingEvidence": [],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    }
+  ],
+  "limitations": [
+    "Only race groups with exactly one Volo and one MotM source are considered; no inference for other books, monsters or unlabelled subraces.",
+    "Separate publisher identities are evidence for proposed version units, not verification of full rules or exact errata.",
+    "The Goliath Volo publication is evidenced by errata page 109, not by substituting the index entry for Elemental Evil.",
+    "Legacy is not a 2024 exclusion rule: the publisher also labels some MotM versions legacy after later updates.",
+    "No source observation, current profile, runtime catalog, license status or accepted denominator is changed."
+  ],
+  "inputSha256": {
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db",
+    "catalog/race-publication-identity-evidence-2014.json": "4bf3637d093a451884bcfdf047fb0d814e8f1232a483ea3783170eb503506daf",
+    "catalog/numeric-source-scope-policy-2014.json": "c46db1df76294bc971e7c1582ece3cfe09cd126fcca22edf7fd2431f8379df32",
+    "catalog/goliath-publication-reference-2014.json": "bcc751515282d15f7a35d302ce301b5943cf906b9ede8c672cbc09872d2e5d90",
+    "catalog/vgm-mtf-selected-errata-2014.json": "4c85b9871a62b29a5531521a340210eb7f3c8cd1d70a5ca185c31eadd877b6d0"
+  }
+}

@@ -1,0 +1,895 @@
+{
+  "schemaVersion": 1,
+  "status": "residual-heading-classification-proposal",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "classSlug": "fighter",
+  "classUrl": "https://dnd.su/class/91-fighter/",
+  "snapshotPageSha256": "6dc77fd52bab9fe2afd06e51998e975aceb4fdf41138efbfd650d7f1664adf2c",
+  "freshCapture": {
+    "url": "https://dnd.su/class/91-fighter/",
+    "sha256": "5eb504b80c8e494e4d8bdb20bfc555554c6de71318f108186d148ff34497d410",
+    "headingStructureSha256": "cb38ee0022f5b629ea2d9c9e0d89e2465e31048f5c820451ff50fbe607138249"
+  },
+  "records": [
+    {
+      "heading": {
+        "ordinal": 1,
+        "title": "Воин",
+        "level": 4,
+        "anchors": [
+          "fighter"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "188fc03a11501cb5299d14b6f94b280d601cd9f453b8678fa5be4780ba6cec26",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 2,
+        "title": "РАЗНОСТОРОННИЕ СПЕЦИАЛИСТЫ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "8b8522836b2f9707dc845840ad22bc5b2bf8493d27913e096d2a36cfb5e81244",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 3,
+        "title": "ГОТОВЫЕ К ОПАСНОСТИ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "1e70af391c7d7bf703ffa992d21a06c8456a0f293a8e1bbee2b5436beb6af0b7",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 4,
+        "title": "Создание воина",
+        "level": 3,
+        "anchors": [
+          "creation"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "89804961033cd4751d7059c2f3babe5a88bf2cb40d7f743d03d40cb0665ff860",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 5,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "71482e175c48da11187bcfa8a3b9f464eab8e4b2a40a87b079d74434d94db7d3",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 6,
+        "title": "Углублённая предыстория Воина (XGE)",
+        "level": 2,
+        "anchors": [
+          "XGE.backstory"
+        ],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "9b752b0412b99f6af7d98028c34472316bd38e8ae925f9cd11e712cb05c9bbcc",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 7,
+        "title": "Геральдический символ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "10de803e8cb7203adf4fb67b0aff9c268e805c7ac64bdf4cab0ebc4c03a1a2d9",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 8,
+        "title": "Геральдический символ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "94385756b8f563305412c40417e2d6010331efbd8efd91a4d05ffec02814ad97",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 9,
+        "title": "Инструктор",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "c46aad8242990bc9c773837e524459999bc03408e1a1b9b28cbab5e0b73a1867",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 10,
+        "title": "Инструкторы",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "d5f334a9893e0849acf183c6745fe4c34364cda6dd15be8bbf4e0e0eb11403fa",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 11,
+        "title": "Фирменный стиль",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "2f83ef63787395e6f31575266e44e744078b173779ede4adfeafbd65ed95b0e8",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 12,
+        "title": "Фирменный стиль",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "b711c2f29cf9cd1ad7085baed0de507c3f0384ea5e90d87691c5fed98c9393de",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 13,
+        "title": "МУЛЬТИКЛАССИРОВАНИЕ И ВОИН",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "df8341366bbf3e4505c140eb6cfb5645c032618c8bdf65021b7449553b58d0d8",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 14,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "class-features"
+        ],
+        "sectionAnchor": "class-features",
+        "bodySha256": "2f9ceb433ed6a003e7cb0897d36488cbae70819980533a7424afb927475085ef",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 15,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 16,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "befab214af85bccaaa00cf52b01d52859ade5620c65bbff053b92b2ecd48ef36",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 17,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "44667670bbc12453b8f2480be80c539885bddda079645259e3365215ab923988",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 18,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "762f1588f19fdef6b446b9e4b388028948a160090bb83ba2b1b5b1be5192ad7d",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 38,
+        "title": "Боевые приёмы",
+        "level": 2,
+        "anchors": [
+          "maneuvers"
+        ],
+        "sectionAnchor": "maneuvers",
+        "bodySha256": "0ff1191cffc3adb0e40973b91a5004519cff3a3bb5182f518c18cd05380763ba",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "choice-index-and-rules",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 39,
+        "title": "Варианты приёмов",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "maneuvers",
+        "bodySha256": "fe015f1ed599ad8f8052fea459c7a6f4bc3f31d4ec54a54f6d7c9587bb9e20ae",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "choice-expansion-and-rules",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 40,
+        "title": "Воинские архетипы",
+        "level": 2,
+        "anchors": [
+          "martial-archetypes"
+        ],
+        "sectionAnchor": "martial-archetypes",
+        "bodySha256": "ddf4ff1e3c7c2f603a42159be7cbd54face1cdbc6cf6f26c90fe829905488590",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "tradition-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 48,
+        "title": "ЗАКЛИНАНИЯ МИСТИЧЕСКОГО РЫЦАРЯ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "archetype.eldritch-knigh",
+        "bodySha256": "6ddc7319bec5b80e92d09b2dda73cb95c94e588006665b8c25bd73a8fbedc4aa",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "feature-progression-table",
+      "parentFeatureObservationId": "scope:fighter:archetype.eldritch-knigh:archetype.eldritch-knigh",
+      "parentHeadingOrdinal": 47,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 106,
+        "title": "Известные руны",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "archetype.rune-knight",
+        "bodySha256": "93f045ae0769c8f7e3050d00655460008b25241c36202381d21784df0e3ad18e",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 4
+          }
+        ]
+      },
+      "kind": "feature-subrule-table",
+      "parentFeatureObservationId": "scope:fighter:archetype.rune-knight:df588fccce3b36d5",
+      "parentHeadingOrdinal": 105,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 112,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "977de3ba1d58a875465691e16e641b524df7b676de954e5ba4bec5e8bb9ae52b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 139,
+        "title": "УлучшениЯ огнестрельного оружия",
+        "level": 2,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "894e19113c77b141e81b95f8db7504d6dd056dc2bb0cfe524d4df6023834dec1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "renegade-upgrades"
+    },
+    {
+      "heading": {
+        "ordinal": 140,
+        "title": "Малые улучшения огнестрельного оружия",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "renegade-upgrades"
+    },
+    {
+      "heading": {
+        "ordinal": 141,
+        "title": "ДВУСТВОЛКА",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "06bbaef6e300fc501d9f87364664dfcd4726abb8f474c4cf32b38f7a6838f428",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "renegade-upgrades"
+    },
+    {
+      "heading": {
+        "ordinal": 142,
+        "title": "ДЫМОВАЯ ЗАВЕСА",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "ee49d5159f8d5d0ddad88c5c37e4897be44f8417276ec37250ad82435de26c33",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "renegade-upgrades"
+    },
+    {
+      "heading": {
+        "ordinal": 143,
+        "title": "Клинок и Чёрный порошок",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "20b24677b8248e4c94e2dc4201c36503493e92fc42dd1c35b3c1bf76ba0c2c94",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "renegade-upgrades"
+    },
+    {
+      "heading": {
+        "ordinal": 144,
+        "title": "ПЕРЕКРЕСТИЕ ПРИЦЕЛА",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "9e9e9c1ca47c7bfbbbeef6d41c921d0d2422f71b76b67cd73d4c2ddd62a14f87",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "renegade-upgrades"
+    },
+    {
+      "heading": {
+        "ordinal": 145,
+        "title": "Сопутствующий ущерб",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "89911f0d0bf3370adde9025c9b78ddff40e8c8bf37b9c7493e0d5c5fad287347",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "renegade-upgrades"
+    },
+    {
+      "heading": {
+        "ordinal": 146,
+        "title": "Основные улучшения огнестрельного оружия",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "renegade-upgrades"
+    },
+    {
+      "heading": {
+        "ordinal": 147,
+        "title": "Обстрел",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "5a8295aadd6ca72990a189b397b9d647c3ebf6c5c09f1683d25ec11bae66c7d5",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "renegade-upgrades"
+    },
+    {
+      "heading": {
+        "ordinal": 148,
+        "title": "Два по цене одного",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "06d0a3a21981967cbe3a5b4af349aa19279a66ea73ac4027fd53f840a2e90b3b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "renegade-upgrades"
+    },
+    {
+      "heading": {
+        "ordinal": 149,
+        "title": "Молниеносный выстрел",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "c07ed5d4be0220410f469b1a267271232e2685430bdefbd8c02fdae2abbd6790",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "renegade-upgrades"
+    },
+    {
+      "heading": {
+        "ordinal": 150,
+        "title": "Испытание огнем",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "3f890d4b13c1490a6c1503aee57aa83534f25aeb0626f721cc7036865f94510a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "renegade-upgrades"
+    },
+    {
+      "heading": {
+        "ordinal": 253,
+        "title": "Щитоносец",
+        "level": 2,
+        "anchors": [
+          "mhh.martial-archetype.shieldbearer"
+        ],
+        "sectionAnchor": "mhh.martial-archetype.shieldbearer",
+        "bodySha256": "75cdbe5a1d5a7e03847385055e51060f66ce42af26858a92bdd6cda8320c4f54",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "midgard-shieldbearer"
+    },
+    {
+      "heading": {
+        "ordinal": 254,
+        "title": "НЕСУЩИЙ ЩИТ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "mhh.martial-archetype.shieldbearer",
+        "bodySha256": "6fa8f7de5d87143ad0a352346f6c1ac5fd0ce61a15986490792d44ebe5012e6b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "midgard-shieldbearer"
+    },
+    {
+      "heading": {
+        "ordinal": 255,
+        "title": "СТЕНА ЩИТОВ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "mhh.martial-archetype.shieldbearer",
+        "bodySha256": "d887dd978deb245cf033024ab9e1f8e92ad1ab34b249675bddb3b44c978bd3d4",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "midgard-shieldbearer"
+    },
+    {
+      "heading": {
+        "ordinal": 256,
+        "title": "УЛУЧШЕННЫЙ БОЕВОЙ СТИЛЬ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "mhh.martial-archetype.shieldbearer",
+        "bodySha256": "465b82311ae42ac208377dac5bf652b069daadad7188ca778a666ab2a7e174c7",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "midgard-shieldbearer"
+    },
+    {
+      "heading": {
+        "ordinal": 257,
+        "title": "ЩИТ РАЗУМА",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "mhh.martial-archetype.shieldbearer",
+        "bodySha256": "bfa2e15a14727d6d135cb3ca4b93a8c9384111e8f25721f748279a384f85e737",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "midgard-shieldbearer"
+    },
+    {
+      "heading": {
+        "ordinal": 258,
+        "title": "НЕПРИСТУПНЫЙ БАСТИОН",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "mhh.martial-archetype.shieldbearer",
+        "bodySha256": "5000265352b3fafd268d3b30d9139465bcc778187b395282cc7a0371e75fe96d",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "midgard-shieldbearer"
+    }
+  ],
+  "exclusionContexts": {
+    "renegade-upgrades": {
+      "publication": "Legends of Runeterra: Dark Tides of Bilgewater",
+      "sourceHeading": {
+        "ordinal": 131,
+        "title": "Ренегат",
+        "level": 2,
+        "anchors": [
+          "hb.martial-archetype.renegate"
+        ],
+        "sectionAnchor": "hb.martial-archetype.renegate",
+        "bodySha256": "94e13b835c6377bcf427d3c27b198fa1039607dddaad87ab2c0320e7f50cecf2",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "linkHeading": {
+        "ordinal": 134,
+        "title": "Оружие на выбор",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "hb.martial-archetype.renegate",
+        "bodySha256": "009ef91b483386d27e87c33b6763dd13c6e987d07a0920be5acdf40c2a530e6a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "basis": "Renegade Weapon of Choice134 explicitly refers to minor and major upgrades at the end of this subclass;139–150 contain this indexed material."
+    },
+    "midgard-shieldbearer": {
+      "publication": "Midgard Heroes Handbook",
+      "sourceHeading": {
+        "ordinal": 253,
+        "title": "Щитоносец",
+        "level": 2,
+        "anchors": [
+          "mhh.martial-archetype.shieldbearer"
+        ],
+        "sectionAnchor": "mhh.martial-archetype.shieldbearer",
+        "bodySha256": "75cdbe5a1d5a7e03847385055e51060f66ce42af26858a92bdd6cda8320c4f54",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "linkHeading": {
+        "ordinal": 253,
+        "title": "Щитоносец",
+        "level": 2,
+        "anchors": [
+          "mhh.martial-archetype.shieldbearer"
+        ],
+        "sectionAnchor": "mhh.martial-archetype.shieldbearer",
+        "bodySha256": "75cdbe5a1d5a7e03847385055e51060f66ce42af26858a92bdd6cda8320c4f54",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "sourceBasis": "manual-leading-source-label",
+      "sourcePrefix": "Источник: «Midgard Heroes Handbook»",
+      "basis": "Source label is in a styled span, missed by the historical strong-only extractor. Following features name the shieldmaster tradition; publisher attribution is explicit in the captured leading body."
+    }
+  },
+  "limitations": [
+    "No canonical denominator, full rules or publication rights accepted.",
+    "Maneuvers38–39 are shared choice material, not exclusively Battle Master features; preserve existing choice observations.",
+    "Eldritch Knight48 has20 progression rows, not20 features. Known Runes106 includes a4-row progression table and subsequent rune rules; preserve its whole body.",
+    "Shieldbearer253–258 require explicit manual source evidence because the historical source extractor missed styled-span markup. Historical snapshot remains unchanged."
+  ]
+}

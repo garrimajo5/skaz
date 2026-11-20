@@ -1,0 +1,570 @@
+{
+  "schemaVersion": 1,
+  "status": "remaining-race-publication-proposals-awaiting-review",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "consideredGroups": 10,
+    "proposedSeparateVersionGroups": 5,
+    "unresolvedGroups": 5,
+    "preservedObservations": 23,
+    "publicationEvidencedObservations": 17,
+    "proposedVersionUnits": 10,
+    "acceptedCanonicalUnits": 0
+  },
+  "groups": [
+    {
+      "reviewId": "name-review:0b868afeb63badaad1e3",
+      "name": "changeling",
+      "proposal": "keep-separate-publication-versions",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:283",
+          "sourceIds": [
+            "158"
+          ],
+          "sourceId": "158",
+          "identityEvidenceKind": "publisher-index",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026382-changeling",
+          "contentsSourceUrl": null,
+          "missingReason": null,
+          "otherListedPublications": [
+            "Eberron: Forge of the Artificer",
+            "Eberron: Rising from the Last War",
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:0b868afeb63badaad1e3:source:158",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:170",
+          "sourceIds": [
+            "119"
+          ],
+          "sourceId": "119",
+          "identityEvidenceKind": "publisher-index",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/260666-changeling",
+          "contentsSourceUrl": null,
+          "missingReason": null,
+          "otherListedPublications": [
+            "Eberron: Forge of the Artificer",
+            "Eberron: Rising from the Last War",
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:0b868afeb63badaad1e3:source:119",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:0f6deb903b62ec97e2b9",
+      "name": "aarakocra",
+      "proposal": "retain-unresolved-publication-attribution",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:278",
+          "sourceIds": [
+            "158"
+          ],
+          "sourceId": "158",
+          "identityEvidenceKind": "publisher-index",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026377-aarakocra",
+          "contentsSourceUrl": null,
+          "missingReason": null,
+          "otherListedPublications": [
+            "Elemental Evil Player's Companion",
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:0f6deb903b62ec97e2b9:source:158",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:92",
+          "sourceIds": [
+            "107"
+          ],
+          "sourceId": "107",
+          "identityEvidenceKind": "missing",
+          "primaryIdentityUrl": null,
+          "contentsSourceUrl": null,
+          "missingReason": "no-exact-primary-name-and-publication-match",
+          "otherListedPublications": [
+            "Elemental Evil Player's Companion",
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:0f6deb903b62ec97e2b9:source:107",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:1bd7a030f2bff34ef64f",
+      "name": "minotaur",
+      "proposal": "retain-unresolved-publication-attribution",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:301",
+          "sourceIds": [
+            "158"
+          ],
+          "sourceId": "158",
+          "identityEvidenceKind": "publisher-index",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026397-minotaur",
+          "contentsSourceUrl": null,
+          "missingReason": null,
+          "otherListedPublications": [
+            "Guildmasters’ Guide to Ravnica",
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:1bd7a030f2bff34ef64f:source:158",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:181",
+          "sourceIds": [
+            "112"
+          ],
+          "sourceId": "112",
+          "identityEvidenceKind": "publisher-contents-heading",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/compendium/rules/ggtr/character-creation#Minotaur",
+          "contentsSourceUrl": "https://www.dndbeyond.com/sources/dnd/ggtr",
+          "missingReason": null,
+          "otherListedPublications": [
+            "Guildmasters’ Guide to Ravnica",
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:1bd7a030f2bff34ef64f:source:112",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:328",
+          "sourceIds": [],
+          "sourceId": null,
+          "identityEvidenceKind": "missing",
+          "primaryIdentityUrl": null,
+          "contentsSourceUrl": null,
+          "missingReason": "missing-source-attribution",
+          "otherListedPublications": [
+            "Guildmasters’ Guide to Ravnica",
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:439",
+          "sourceIds": [],
+          "sourceId": null,
+          "identityEvidenceKind": "missing",
+          "primaryIdentityUrl": null,
+          "contentsSourceUrl": null,
+          "missingReason": "missing-source-attribution",
+          "otherListedPublications": [
+            "Guildmasters’ Guide to Ravnica",
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:4527e6c9409082dbdd3e",
+      "name": "centaur",
+      "proposal": "retain-unresolved-publication-attribution",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:282",
+          "sourceIds": [
+            "158"
+          ],
+          "sourceId": "158",
+          "identityEvidenceKind": "publisher-index",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026381-centaur",
+          "contentsSourceUrl": null,
+          "missingReason": null,
+          "otherListedPublications": [
+            "Guildmasters’ Guide to Ravnica",
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:4527e6c9409082dbdd3e:source:158",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:173",
+          "sourceIds": [
+            "112"
+          ],
+          "sourceId": "112",
+          "identityEvidenceKind": "publisher-contents-heading",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/compendium/rules/ggtr/character-creation#Centaur",
+          "contentsSourceUrl": "https://www.dndbeyond.com/sources/dnd/ggtr",
+          "missingReason": null,
+          "otherListedPublications": [
+            "Guildmasters’ Guide to Ravnica",
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:4527e6c9409082dbdd3e:source:112",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:430",
+          "sourceIds": [],
+          "sourceId": null,
+          "identityEvidenceKind": "missing",
+          "primaryIdentityUrl": null,
+          "contentsSourceUrl": null,
+          "missingReason": "missing-source-attribution",
+          "otherListedPublications": [
+            "Guildmasters’ Guide to Ravnica",
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:98b1b27e5ef15df664ca",
+      "name": "fairy",
+      "proposal": "keep-separate-publication-versions",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:289",
+          "sourceIds": [
+            "158"
+          ],
+          "sourceId": "158",
+          "identityEvidenceKind": "publisher-index",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/814913-fairy",
+          "contentsSourceUrl": null,
+          "missingReason": null,
+          "otherListedPublications": [
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:98b1b27e5ef15df664ca:source:158",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:204",
+          "sourceIds": [
+            "151"
+          ],
+          "sourceId": "151",
+          "identityEvidenceKind": "publisher-contents-heading",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/sources/twbtw/into-the-feywild#Fairy",
+          "contentsSourceUrl": "https://www.dndbeyond.com/sources/dnd/twbtw",
+          "missingReason": null,
+          "otherListedPublications": [
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:98b1b27e5ef15df664ca:source:151",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:b8549edf1349f76678ca",
+      "name": "tortle",
+      "proposal": "retain-unresolved-publication-attribution",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:309",
+          "sourceIds": [
+            "158"
+          ],
+          "sourceId": "158",
+          "identityEvidenceKind": "publisher-index",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026404-tortle",
+          "contentsSourceUrl": null,
+          "missingReason": null,
+          "otherListedPublications": [
+            "Mordenkainen Presents: Monsters of the Multiverse",
+            "The Tortle Package"
+          ],
+          "proposedVersionKey": "name-review:b8549edf1349f76678ca:source:158",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:184",
+          "sourceIds": [],
+          "sourceId": null,
+          "identityEvidenceKind": "missing",
+          "primaryIdentityUrl": null,
+          "contentsSourceUrl": null,
+          "missingReason": "missing-source-attribution",
+          "otherListedPublications": [
+            "Mordenkainen Presents: Monsters of the Multiverse",
+            "The Tortle Package"
+          ],
+          "proposedVersionKey": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:bdcd50a8bc72cb9a26b1",
+      "name": "genasi",
+      "proposal": "retain-unresolved-publication-attribution",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:291",
+          "sourceIds": [
+            "158"
+          ],
+          "sourceId": "158",
+          "identityEvidenceKind": "missing",
+          "primaryIdentityUrl": null,
+          "contentsSourceUrl": null,
+          "missingReason": "no-exact-primary-name-and-publication-match",
+          "otherListedPublications": [
+            "Elemental Evil Player's Companion"
+          ],
+          "proposedVersionKey": "name-review:bdcd50a8bc72cb9a26b1:source:158",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:102",
+          "sourceIds": [
+            "107"
+          ],
+          "sourceId": "107",
+          "identityEvidenceKind": "publisher-contents-heading",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/sources/pota/appendix-a-genasi",
+          "contentsSourceUrl": "https://www.dndbeyond.com/sources/dnd/pota",
+          "missingReason": null,
+          "otherListedPublications": [
+            "Elemental Evil Player's Companion"
+          ],
+          "proposedVersionKey": "name-review:bdcd50a8bc72cb9a26b1:source:107",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:d4a7f8b9b69f40c20fa8",
+      "name": "satyr",
+      "proposal": "keep-separate-publication-versions",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:303",
+          "sourceIds": [
+            "158"
+          ],
+          "sourceId": "158",
+          "identityEvidenceKind": "publisher-index",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026399-satyr",
+          "contentsSourceUrl": null,
+          "missingReason": null,
+          "otherListedPublications": [
+            "Mordenkainen Presents: Monsters of the Multiverse",
+            "Mythic Odysseys of Theros"
+          ],
+          "proposedVersionKey": "name-review:d4a7f8b9b69f40c20fa8:source:158",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:182",
+          "sourceIds": [
+            "121"
+          ],
+          "sourceId": "121",
+          "identityEvidenceKind": "publisher-index",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/410993-satyr",
+          "contentsSourceUrl": null,
+          "missingReason": null,
+          "otherListedPublications": [
+            "Mordenkainen Presents: Monsters of the Multiverse",
+            "Mythic Odysseys of Theros"
+          ],
+          "proposedVersionKey": "name-review:d4a7f8b9b69f40c20fa8:source:121",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:d6c04d47c075e2fe1995",
+      "name": "shifter",
+      "proposal": "keep-separate-publication-versions",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:306",
+          "sourceIds": [
+            "158"
+          ],
+          "sourceId": "158",
+          "identityEvidenceKind": "publisher-index",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/1026402-shifter",
+          "contentsSourceUrl": null,
+          "missingReason": null,
+          "otherListedPublications": [
+            "Eberron: Forge of the Artificer",
+            "Eberron: Rising from the Last War",
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:d6c04d47c075e2fe1995:source:158",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:186",
+          "sourceIds": [
+            "119"
+          ],
+          "sourceId": "119",
+          "identityEvidenceKind": "publisher-index",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/260758-shifter",
+          "contentsSourceUrl": null,
+          "missingReason": null,
+          "otherListedPublications": [
+            "Eberron: Forge of the Artificer",
+            "Eberron: Rising from the Last War",
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:d6c04d47c075e2fe1995:source:119",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:de323b7e6e3ce62d7d6f",
+      "name": "harengon",
+      "proposal": "keep-separate-publication-versions",
+      "units": [
+        {
+          "observationId": "dndsu:multiverse:race:296",
+          "sourceIds": [
+            "158"
+          ],
+          "sourceId": "158",
+          "identityEvidenceKind": "publisher-index",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/species/814914-harengon",
+          "contentsSourceUrl": null,
+          "missingReason": null,
+          "otherListedPublications": [
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:de323b7e6e3ce62d7d6f:source:158",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:race:207",
+          "sourceIds": [
+            "151"
+          ],
+          "sourceId": "151",
+          "identityEvidenceKind": "publisher-contents-heading",
+          "primaryIdentityUrl": "https://www.dndbeyond.com/sources/twbtw/into-the-feywild#Harengon",
+          "contentsSourceUrl": "https://www.dndbeyond.com/sources/dnd/twbtw",
+          "missingReason": null,
+          "otherListedPublications": [
+            "Mordenkainen Presents: Monsters of the Multiverse"
+          ],
+          "proposedVersionKey": "name-review:de323b7e6e3ce62d7d6f:source:151",
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    }
+  ],
+  "limitations": [
+    "Only remaining race identity groups are considered; the earlier Volo/MotM proposal is unchanged.",
+    "A contents heading proves publication attribution, not full rules or exact text version.",
+    "An unlabeled observation is never assigned a source merely from a matching name.",
+    "Elemental Evil is not substituted for source107 Princes of the Apocalypse; later Forge versions do not replace source119 Rising.",
+    "Publisher label typography is retained; Ravnica references use separate publisher contents evidence.",
+    "No profile migration, runtime import, accepted denominator or reuse approval is performed."
+  ],
+  "inputSha256": {
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db",
+    "catalog/race-other-publication-evidence-2014.json": "4904c63a3b942671bd20ff14864fac49cacbbbe724f7476dacaad03fdc273af1",
+    "catalog/numeric-source-scope-policy-2014.json": "c46db1df76294bc971e7c1582ece3cfe09cd126fcca22edf7fd2431f8379df32",
+    "catalog/race-other-toc-evidence-2014.json": "fb269d7eed6255d543722e9ce31e3c835e7edf2e8f672c62ead0b2bfc01236b7",
+    "catalog/race-version-unit-proposals-2014.json": "1bfd679f63954e984f559e736739cb44cd15505cd289cd61a9d30814a0ebcddc"
+  }
+}

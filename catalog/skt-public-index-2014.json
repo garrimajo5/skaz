@@ -1,0 +1,1264 @@
+{
+  "schemaVersion": 1,
+  "status": "public-index-not-historical-book-inventory",
+  "checkedOn": "2026-11-19",
+  "observedSourceId": "132",
+  "title": "Storm King's Thunder",
+  "indexUrl": "https://www.dndbeyond.com/monsters?filter-source=12",
+  "filterValue": "12",
+  "filterOptionId": "filter-source-storm-kings-thunder",
+  "publicIndexPagesCaptured": 6,
+  "publicIndexTraversalComplete": true,
+  "historicalBookInventoryComplete": false,
+  "fullStatBlocksRead": false,
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "reusePermission": "not-established",
+  "allowBlankChallengeRatings": true,
+  "blankChallengeRatingMeaning": "not shown in public index; never infer zero",
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  },
+  "summary": {
+    "digitalRows": 105,
+    "displayedSourceCounts": {
+      "Monster Manual (2014)": 20,
+      "Storm King's Thunder": 85
+    },
+    "blankChallengeRatingRows": 22
+  },
+  "pages": [
+    {
+      "page": 1,
+      "rows": [
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Aarakocra",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17100-aarakocra",
+          "challengeRating": "1/4",
+          "type": "Humanoid (aarakocra)",
+          "size": "Medium",
+          "alignment": "Neutral Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Aarakocra Simulacrum",
+          "cardUrl": "https://www.dndbeyond.com/monsters/300122-aarakocra-simulacrum",
+          "challengeRating": "1/8",
+          "type": "Humanoid (aarakocra)",
+          "size": "Medium",
+          "alignment": "Neutral Good"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Abominable Yeti",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17105-abominable-yeti",
+          "challengeRating": "9",
+          "type": "Monstrosity",
+          "size": "Huge",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Augrek Brighthelm",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27564-augrek-brighthelm",
+          "challengeRating": "",
+          "type": "Humanoid (dwarf)",
+          "size": "Medium",
+          "alignment": "Lawful Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Axe of Mirabar Veteran",
+          "cardUrl": "https://www.dndbeyond.com/monsters/297941-axe-of-mirabar-veteran",
+          "challengeRating": "3",
+          "type": "Humanoid (dwarf)",
+          "size": "Medium",
+          "alignment": "Any Alignment"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Beldora",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27575-beldora",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Black Earth Cultist",
+          "cardUrl": "https://www.dndbeyond.com/monsters/297972-black-earth-cultist",
+          "challengeRating": "2",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Cambion",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17137-cambion",
+          "challengeRating": "5",
+          "type": "Fiend",
+          "size": "Medium",
+          "alignment": "Any Evil Alignment"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Chief Guh",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299589-chief-guh",
+          "challengeRating": "5",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Chief Kartha-Kaya",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299887-chief-kartha-kaya",
+          "challengeRating": "4",
+          "type": "Monstrosity",
+          "size": "Large",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Cinderhild",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299961-cinderhild",
+          "challengeRating": "2",
+          "type": "Giant",
+          "size": "Large",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Claugiyliamatar",
+          "cardUrl": "https://www.dndbeyond.com/monsters/297838-claugiyliamatar",
+          "challengeRating": "22",
+          "type": "Dragon",
+          "size": "Gargantuan",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Cloud Giant (variant)",
+          "cardUrl": "https://www.dndbeyond.com/monsters/324263-cloud-giant-variant",
+          "challengeRating": "9",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Neutral"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Cloud Giant Child",
+          "cardUrl": "https://www.dndbeyond.com/monsters/300476-cloud-giant-child",
+          "challengeRating": "0",
+          "type": "Giant",
+          "size": "Medium",
+          "alignment": "Neutral"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Count Thullen",
+          "cardUrl": "https://www.dndbeyond.com/monsters/300477-count-thullen",
+          "challengeRating": "10",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Neutral Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Countess Sansuri",
+          "cardUrl": "https://www.dndbeyond.com/monsters/300128-countess-sansuri",
+          "challengeRating": "11",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Crag Cat",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17348-crag-cat",
+          "challengeRating": "1",
+          "type": "Monstrosity",
+          "size": "Large",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Cressaro",
+          "cardUrl": "https://www.dndbeyond.com/monsters/300475-cressaro",
+          "challengeRating": "9",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Darathra Shendrel",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27597-darathra-shendrel",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Lawful Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Darz Helgar",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27602-darz-helgar",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Neutral"
+        }
+      ],
+      "nextPage": 2
+    },
+    {
+      "page": 2,
+      "rows": [
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Drow Elite Warrior",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17134-drow-elite-warrior",
+          "challengeRating": "5",
+          "type": "Humanoid",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Drow Mage",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17135-drow-mage",
+          "challengeRating": "7",
+          "type": "Humanoid (elf)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Duchess Brimskarda",
+          "cardUrl": "https://www.dndbeyond.com/monsters/300034-duchess-brimskarda",
+          "challengeRating": "9",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Duke Zalto",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299969-duke-zalto",
+          "challengeRating": "9",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Duvessa Shane",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27573-duvessa-shane",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Lawful Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Eigeron’s Spirit",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299573-eigerons-spirit",
+          "challengeRating": "4",
+          "type": "Undead",
+          "size": "Huge",
+          "alignment": "Neutral Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Elister Noggins",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299663-elister-noggins",
+          "challengeRating": "2",
+          "type": "Humanoid (gnome)",
+          "size": "Small",
+          "alignment": "Chaotic Neutral"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Felbarren Dwarf",
+          "cardUrl": "https://www.dndbeyond.com/monsters/297788-felbarren-dwarf",
+          "challengeRating": "1/8",
+          "type": "Humanoid (dwarf)",
+          "size": "Medium",
+          "alignment": "Lawful Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Fire Giant (variant)",
+          "cardUrl": "https://www.dndbeyond.com/monsters/324266-fire-giant-variant",
+          "challengeRating": "9",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Frost Giant (variant)",
+          "cardUrl": "https://www.dndbeyond.com/monsters/324275-frost-giant-variant",
+          "challengeRating": "8",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Ghelryn Foehammer",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27618-ghelryn-foehammer",
+          "challengeRating": "",
+          "type": "Humanoid (dwarf)",
+          "size": "Medium",
+          "alignment": "Lawful Good"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Goblin Boss",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17155-goblin-boss",
+          "challengeRating": "1",
+          "type": "Humanoid (goblinoid)",
+          "size": "Small",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Great Chief Halric Bonesnapper",
+          "cardUrl": "https://www.dndbeyond.com/monsters/297816-great-chief-halric-bonesnapper",
+          "challengeRating": "2",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Harshnag the Grim",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299155-harshnag-the-grim",
+          "challengeRating": "9",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Helmed Horror",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17159-helmed-horror",
+          "challengeRating": "4",
+          "type": "Construct",
+          "size": "Medium",
+          "alignment": "Neutral"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Hill Giant (variant)",
+          "cardUrl": "https://www.dndbeyond.com/monsters/324280-hill-giant-variant",
+          "challengeRating": "5",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Hobgoblin Warlord",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17161-hobgoblin-warlord",
+          "challengeRating": "6",
+          "type": "Humanoid (goblinoid)",
+          "size": "Medium",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Hulking Crab",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17349-hulking-crab",
+          "challengeRating": "5",
+          "type": "Beast",
+          "size": "Huge",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Ice Spider",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299567-ice-spider",
+          "challengeRating": "1",
+          "type": "Beast",
+          "size": "Large",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Ice Spider Queen",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299571-ice-spider-queen",
+          "challengeRating": "2",
+          "type": "Beast",
+          "size": "Large",
+          "alignment": "Unaligned"
+        }
+      ],
+      "nextPage": 3
+    },
+    {
+      "page": 3,
+      "rows": [
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Imperator Uthor",
+          "cardUrl": "https://www.dndbeyond.com/monsters/300501-imperator-uthor",
+          "challengeRating": "13",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Iymrith",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17350-iymrith",
+          "challengeRating": "23",
+          "type": "Dragon",
+          "size": "Gargantuan",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Jarl Storvald",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299704-jarl-storvald",
+          "challengeRating": "8",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Jasper Dimmerchasm",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299996-jasper-dimmerchasm",
+          "challengeRating": "3",
+          "type": "Humanoid (dwarf)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Kayalithica",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299648-kayalithica",
+          "challengeRating": "7",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "King Hekaton",
+          "cardUrl": "https://www.dndbeyond.com/monsters/300563-king-hekaton",
+          "challengeRating": "13",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Klauth",
+          "cardUrl": "https://www.dndbeyond.com/monsters/297832-klauth",
+          "challengeRating": "25",
+          "type": "Dragon",
+          "size": "Gargantuan",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Knight of the Mithral Shield",
+          "cardUrl": "https://www.dndbeyond.com/monsters/297773-knight-of-the-mithral-shield",
+          "challengeRating": "3",
+          "type": "Humanoid (dwarf)",
+          "size": "Medium",
+          "alignment": "Lawful Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Lifferlas",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27583-lifferlas",
+          "challengeRating": "",
+          "type": "Plant",
+          "size": "Huge",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Lord Khaspere Drylund",
+          "cardUrl": "https://www.dndbeyond.com/monsters/300551-lord-khaspere-drylund",
+          "challengeRating": "1/8",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Maegera the Dawn Titan",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17351-maegera-the-dawn-titan",
+          "challengeRating": "23",
+          "type": "Elemental",
+          "size": "Gargantuan",
+          "alignment": "Chaotic Neutral"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Markham Southwell",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27574-markham-southwell",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Lawful Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Miros Xelbrin",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27588-miros-xelbrin",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Neutral Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Narth Tezrin",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27610-narth-tezrin",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Naxene Drathkala",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27594-naxene-drathkala",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Neutral Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Nimir",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27632-nimir",
+          "challengeRating": "",
+          "type": "Giant (storm giant)",
+          "size": "Huge",
+          "alignment": "Lawful Good"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Orc Eye of Gruumsh",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17188-orc-eye-of-gruumsh",
+          "challengeRating": "2",
+          "type": "Humanoid (orc)",
+          "size": "Medium",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Orc War Chief",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17187-orc-war-chief",
+          "challengeRating": "4",
+          "type": "Humanoid (orc)",
+          "size": "Medium",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Oren Yogilvy",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27595-oren-yogilvy",
+          "challengeRating": "",
+          "type": "Humanoid (halfling)",
+          "size": "Small",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Orlekto",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27634-orlekto",
+          "challengeRating": "",
+          "type": "Giant (storm giant)",
+          "size": "Huge",
+          "alignment": "Chaotic Evil"
+        }
+      ],
+      "nextPage": 4
+    },
+    {
+      "page": 4,
+      "rows": [
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Orog",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17189-orog",
+          "challengeRating": "2",
+          "type": "Humanoid (orc)",
+          "size": "Medium",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Orok",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299121-orok",
+          "challengeRating": "1/8",
+          "type": "Humanoid (human)",
+          "size": "Small",
+          "alignment": "Chaotic Neutral"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Othovir",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27616-othovir",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Lawful Neutral"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Piercer",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17191-piercer",
+          "challengeRating": "1/2",
+          "type": "Monstrosity",
+          "size": "Medium",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Pig",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299623-pig",
+          "challengeRating": "0",
+          "type": "Beast",
+          "size": "Medium",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Pow Ming",
+          "cardUrl": "https://www.dndbeyond.com/monsters/300554-pow-ming",
+          "challengeRating": "6",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Neutral"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Princess Serissa",
+          "cardUrl": "https://www.dndbeyond.com/monsters/300498-princess-serissa",
+          "challengeRating": "13",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Purple Wormling",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17352-purple-wormling",
+          "challengeRating": "2",
+          "type": "Monstrosity",
+          "size": "Large",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Sea Elf",
+          "cardUrl": "https://www.dndbeyond.com/monsters/297749-sea-elf",
+          "challengeRating": "1/8",
+          "type": "Humanoid (elf)",
+          "size": "Medium",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Shadow Demon",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17131-shadow-demon",
+          "challengeRating": "4",
+          "type": "Fiend (demon)",
+          "size": "Medium",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Shaldoor",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27705-shaldoor",
+          "challengeRating": "",
+          "type": "Giant (storm giant)",
+          "size": "Huge",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Shalvus Martholio",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27581-shalvus-martholio",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Neutral"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Sheep",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299616-sheep",
+          "challengeRating": "0",
+          "type": "Beast",
+          "size": "Small",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Shield Dwarf",
+          "cardUrl": "https://www.dndbeyond.com/monsters/296856-shield-dwarf",
+          "challengeRating": "3",
+          "type": "Humanoid (dwarf)",
+          "size": "Medium",
+          "alignment": "Lawful Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Sir Baric Nylef",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27577-sir-baric-nylef",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Lawful Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Sirac of Suzail",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27570-sirac-of-suzail",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Lawful Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Slarkrethel",
+          "cardUrl": "https://www.dndbeyond.com/monsters/300568-slarkrethel",
+          "challengeRating": "25",
+          "type": "Monstrosity (titan)",
+          "size": "Gargantuan",
+          "alignment": "Chaotic Evil"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Smoke Mephit",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17174-smoke-mephit",
+          "challengeRating": "1/4",
+          "type": "Elemental",
+          "size": "Small",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Stone Giant (variant)",
+          "cardUrl": "https://www.dndbeyond.com/monsters/324283-stone-giant-variant",
+          "challengeRating": "7",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Neutral"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Stone Giant of Deadstone Cleft",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299644-stone-giant-of-deadstone-cleft",
+          "challengeRating": "7",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Neutral"
+        }
+      ],
+      "nextPage": 5
+    },
+    {
+      "page": 5,
+      "rows": [
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Stone Giant Statue",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299564-stone-giant-statue",
+          "challengeRating": "0",
+          "type": "Construct",
+          "size": "Huge",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Storm Giant (Variant)",
+          "cardUrl": "https://www.dndbeyond.com/monsters/324286-storm-giant-variant",
+          "challengeRating": "13",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Storm Giant Princess",
+          "cardUrl": "https://www.dndbeyond.com/monsters/300491-storm-giant-princess",
+          "challengeRating": "13",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Thunderbeast Skeleton",
+          "cardUrl": "https://www.dndbeyond.com/monsters/297946-thunderbeast-skeleton",
+          "challengeRating": "3",
+          "type": "Undead",
+          "size": "Huge",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Tressym",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17353-tressym",
+          "challengeRating": "0",
+          "type": "Monstrosity",
+          "size": "Tiny",
+          "alignment": "Any Alignment"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Turlang",
+          "cardUrl": "https://www.dndbeyond.com/monsters/297989-turlang",
+          "challengeRating": "9",
+          "type": "Plant",
+          "size": "Huge",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Urgala Meltimer",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27612-urgala-meltimer",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Lawful Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Uthgardt Leader",
+          "cardUrl": "https://www.dndbeyond.com/monsters/297807-uthgardt-leader",
+          "challengeRating": "2",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Chaotic Neutral"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Uthgardt Shaman",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17354-uthgardt-shaman",
+          "challengeRating": "2",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Vaasha",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27706-vaasha",
+          "challengeRating": "",
+          "type": "Giant (storm giant)",
+          "size": "Huge",
+          "alignment": "Neutral Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Wiri Fleagol",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299907-wiri-fleagol",
+          "challengeRating": "0",
+          "type": "Humanoid (gnome)",
+          "size": "Medium",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Wood Elf Scout",
+          "cardUrl": "https://www.dndbeyond.com/monsters/297745-wood-elf-scout",
+          "challengeRating": "1/2",
+          "type": "Humanoid (elf)",
+          "size": "Medium",
+          "alignment": "Chaotic Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Worvil “the Weevil” Forkbeard",
+          "cardUrl": "https://www.dndbeyond.com/monsters/298099-worvil-the-weevil-forkbeard",
+          "challengeRating": "2",
+          "type": "Humanoid (dwarf)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Yakfolk Priest",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17356-yakfolk-priest",
+          "challengeRating": "4",
+          "type": "Monstrosity",
+          "size": "Large",
+          "alignment": "Typically Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Yakfolk Warrior",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17355-yakfolk-warrior",
+          "challengeRating": "3",
+          "type": "Monstrosity",
+          "size": "Large",
+          "alignment": "Typically Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Young Cloud Giant",
+          "cardUrl": "https://www.dndbeyond.com/monsters/298066-young-cloud-giant",
+          "challengeRating": "5",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Neutral Good"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Young Remorhaz",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17195-young-remorhaz",
+          "challengeRating": "5",
+          "type": "Monstrosity",
+          "size": "Large",
+          "alignment": "Unaligned"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Yuan-ti Malison",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17122-yuan-ti-malison",
+          "challengeRating": "3",
+          "type": "Monstrosity (shapechanger, yuan-ti)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Yuan-ti Malison (Type 1)",
+          "cardUrl": "https://www.dndbeyond.com/monsters/301418-yuan-ti-malison-type-1",
+          "challengeRating": "3",
+          "type": "Monstrosity (shapechanger, yuan-ti)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Yuan-ti Malison (Type 2)",
+          "cardUrl": "https://www.dndbeyond.com/monsters/301421-yuan-ti-malison-type-2",
+          "challengeRating": "3",
+          "type": "Monstrosity (shapechanger, yuan-ti)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        }
+      ],
+      "nextPage": 6
+    },
+    {
+      "page": 6,
+      "rows": [
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Yuan-ti Malison (Type 3)",
+          "cardUrl": "https://www.dndbeyond.com/monsters/301425-yuan-ti-malison-type-3",
+          "challengeRating": "3",
+          "type": "Monstrosity (shapechanger, yuan-ti)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Monster Manual (2014)",
+          "digitalName": "Yuan-ti Pureblood",
+          "cardUrl": "https://www.dndbeyond.com/monsters/17123-yuan-ti-pureblood",
+          "challengeRating": "1",
+          "type": "Humanoid (yuan-ti)",
+          "size": "Medium",
+          "alignment": "Neutral Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Zaltember",
+          "cardUrl": "https://www.dndbeyond.com/monsters/299915-zaltember",
+          "challengeRating": "1",
+          "type": "Giant",
+          "size": "Large",
+          "alignment": "Lawful Evil"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Zephyros",
+          "cardUrl": "https://www.dndbeyond.com/monsters/296828-zephyros",
+          "challengeRating": "13",
+          "type": "Giant",
+          "size": "Huge",
+          "alignment": "Neutral Good"
+        },
+        {
+          "displayedSource": "Storm King's Thunder",
+          "digitalName": "Zi Liang",
+          "cardUrl": "https://www.dndbeyond.com/monsters/27585-zi-liang",
+          "challengeRating": "",
+          "type": "Humanoid (human)",
+          "size": "Medium",
+          "alignment": "Chaotic Good"
+        }
+      ],
+      "nextPage": null
+    }
+  ],
+  "explicitNameCandidates": [
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17105-abominable-yeti",
+      "observationIds": [
+        "dndsu:bestiary:316"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17134-drow-elite-warrior",
+      "observationIds": [
+        "dndsu:bestiary:146"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17135-drow-mage",
+      "observationIds": [
+        "dndsu:bestiary:147"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17155-goblin-boss",
+      "observationIds": [
+        "dndsu:bestiary:182"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17159-helmed-horror",
+      "observationIds": [
+        "dndsu:bestiary:198"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17161-hobgoblin-warlord",
+      "observationIds": [
+        "dndsu:bestiary:201"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17188-orc-eye-of-gruumsh",
+      "observationIds": [
+        "dndsu:bestiary:259"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17187-orc-war-chief",
+      "observationIds": [
+        "dndsu:bestiary:258"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/297749-sea-elf",
+      "observationIds": [
+        "dndsu:bestiary:7714"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17131-shadow-demon",
+      "observationIds": [
+        "dndsu:bestiary:74"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17174-smoke-mephit",
+      "observationIds": [
+        "dndsu:bestiary:232"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/299564-stone-giant-statue",
+      "observationIds": [
+        "dndsu:bestiary:7733"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17354-uthgardt-shaman",
+      "observationIds": [
+        "dndsu:bestiary:5606"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17356-yakfolk-priest",
+      "observationIds": [
+        "dndsu:bestiary:5614"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17355-yakfolk-warrior",
+      "observationIds": [
+        "dndsu:bestiary:5613"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17195-young-remorhaz",
+      "observationIds": [
+        "dndsu:bestiary:270"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17122-yuan-ti-malison",
+      "observationIds": [
+        "dndsu:bestiary:318"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/301418-yuan-ti-malison-type-1",
+      "observationIds": [
+        "dndsu:bestiary:5651"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/301421-yuan-ti-malison-type-2",
+      "observationIds": [
+        "dndsu:bestiary:5652"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/301425-yuan-ti-malison-type-3",
+      "observationIds": [
+        "dndsu:bestiary:5653"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17123-yuan-ti-pureblood",
+      "observationIds": [
+        "dndsu:bestiary:319"
+      ],
+      "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/299589-chief-guh",
+      "observationIds": [
+        "dndsu:bestiary:7739"
+      ],
+      "reason": "Title added to observed personal name; candidate only."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/300034-duchess-brimskarda",
+      "observationIds": [
+        "dndsu:bestiary:7755"
+      ],
+      "reason": "Title added to observed personal name; candidate only."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/299663-elister-noggins",
+      "observationIds": [
+        "dndsu:bestiary:7747"
+      ],
+      "reason": "Surname extends observed first name; candidate only."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/300501-imperator-uthor",
+      "observationIds": [
+        "dndsu:bestiary:7765"
+      ],
+      "reason": "Title added to observed personal name; candidate only."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/300551-lord-khaspere-drylund",
+      "observationIds": [
+        "dndsu:bestiary:7766"
+      ],
+      "reason": "Given name extends observed title/surname; candidate only."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/300498-princess-serissa",
+      "observationIds": [
+        "dndsu:bestiary:7764"
+      ],
+      "reason": "Title added to observed personal name; candidate only."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/299644-stone-giant-of-deadstone-cleft",
+      "observationIds": [
+        "dndsu:bestiary:7742"
+      ],
+      "reason": "Word order differs in location-specific name; candidate only."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/298099-worvil-the-weevil-forkbeard",
+      "observationIds": [
+        "dndsu:bestiary:7729"
+      ],
+      "reason": "Observed nickname is embedded in full digital name; candidate only."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/297807-uthgardt-leader",
+      "observationIds": [
+        "dndsu:bestiary:7720"
+      ],
+      "reason": "Digital name omits Barbarian; identity and full rules remain unverified."
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/299573-eigerons-spirit",
+      "observationIds": [
+        "dndsu:bestiary:7738"
+      ],
+      "reason": "Possessive name matches, but Spirit/Ghost differ; not an asserted canonical alias."
+    }
+  ],
+  "limits": [
+    "Filter includes references and variants;105 is not a count of newly published creatures or approved catalog denominator.",
+    "Blank CR remains an absent display value, not CR0.",
+    "Case-only aliases are review candidates, not merged identities or automatic source replacement."
+  ],
+  "unresolvedNameGroups": [
+    {
+      "digitalName": "Shield Dwarf",
+      "observedIds": [
+        "dndsu:bestiary:7706",
+        "dndsu:bestiary:7709"
+      ],
+      "reason": "Veteran/Commoner distinction cannot be resolved from the digital label."
+    },
+    {
+      "digitalName": "Storm Giant Princess",
+      "observedIds": [
+        "dndsu:bestiary:7762",
+        "dndsu:bestiary:7763"
+      ],
+      "reason": "Do not assign a generic princess card to Mirran or Nym without full primary context."
+    },
+    {
+      "digitalName": "Axe of Mirabar Veteran",
+      "observedIds": [
+        "dndsu:bestiary:7722"
+      ],
+      "reason": "Veteran/Soldier is a candidate requiring a stat-block comparison; no accepted relation."
+    }
+  ]
+}

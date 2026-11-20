@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "status": "selected-errata-condition-comparison-not-full-version-acceptance",
+  "checkedOn": "2026-11-19",
+  "ruleset": "5e-2014",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  },
+  "primaryEvidence": {
+    "url": "https://media.wizards.com/2020/dnd/downloads/SKT-Errata.pdf",
+    "version": "2.0; copyright2021",
+    "sha256": "7be9a8709571785f9db1bec87a921afcac11712e9f8a85009f3c1229c983c61d",
+    "publisher": "Wizards of the Coast",
+    "reusePermission": "not-established"
+  },
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:5599",
+      "observedName": "Zephyros",
+      "observedSourceIds": [
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/5599-zephyros/",
+      "primaryLocator": {
+        "pdfPage": 1,
+        "bookPage": 33,
+        "section": "Tower of Zephyros"
+      },
+      "comparedBlock": "Spellcasting action only",
+      "selectedMatches": {
+        "ability": "intelligence",
+        "saveDc": 17,
+        "spellAttackBonus": 11,
+        "noMaterialComponents": true,
+        "oneActionSpells": [
+          "contact other plane"
+        ]
+      },
+      "spellAttackBonusNullMeans": "not-stated-in-compared-action",
+      "result": "selected-conditions-match-errata-v2",
+      "wholeStatBlockCompared": false,
+      "exactObservedPrinting": "unverified",
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:5604",
+      "observedName": "Klauth",
+      "observedSourceIds": [
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/5604-klauth/",
+      "primaryLocator": {
+        "pdfPage": 1,
+        "bookPage": 95,
+        "section": "Klauthen Vale"
+      },
+      "comparedBlock": "Spellcasting action only",
+      "selectedMatches": {
+        "ability": "charisma",
+        "saveDc": 22,
+        "spellAttackBonus": null,
+        "noMaterialComponents": true,
+        "oneActionSpells": [
+          "find the path",
+          "mirage arcane"
+        ]
+      },
+      "spellAttackBonusNullMeans": "not-stated-in-compared-action",
+      "result": "selected-conditions-match-errata-v2",
+      "wholeStatBlockCompared": false,
+      "exactObservedPrinting": "unverified",
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:5607",
+      "observedName": "Claugiyliamatar",
+      "observedSourceIds": [
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/5607-claugiyliamatar/",
+      "primaryLocator": {
+        "pdfPage": 2,
+        "bookPage": 96,
+        "section": "Kryptgarden Forest"
+      },
+      "comparedBlock": "Spellcasting action only",
+      "selectedMatches": {
+        "ability": "charisma",
+        "saveDc": 19,
+        "spellAttackBonus": null,
+        "noMaterialComponents": true,
+        "oneActionSpells": [
+          "legend lore"
+        ]
+      },
+      "spellAttackBonusNullMeans": "not-stated-in-compared-action",
+      "result": "selected-conditions-match-errata-v2",
+      "wholeStatBlockCompared": false,
+      "exactObservedPrinting": "unverified",
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:5600",
+      "observedName": "Slarkrethel",
+      "observedSourceIds": [
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/5600-slarkrethel/",
+      "primaryLocator": {
+        "pdfPage": 2,
+        "bookPage": 224,
+        "section": "Slarkrethel"
+      },
+      "comparedBlock": "Spellcasting action only",
+      "selectedMatches": {
+        "ability": "intelligence",
+        "saveDc": 22,
+        "spellAttackBonus": null,
+        "noMaterialComponents": true,
+        "componentRequirement": "none",
+        "oneActionSpells": [
+          "control weather",
+          "scrying"
+        ]
+      },
+      "spellAttackBonusNullMeans": "not-stated-in-compared-action",
+      "differences": [],
+      "result": "selected-conditions-match-errata-v2",
+      "wholeStatBlockCompared": false,
+      "exactObservedPrinting": "unverified",
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:5618",
+      "observedName": "Countess Sansuri",
+      "observedSourceIds": [
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/5618-countess-sansuri/",
+      "primaryLocator": {
+        "pdfPage": 2,
+        "bookPage": 192,
+        "section": "The Countess"
+      },
+      "comparedBlock": "Spellcasting action only",
+      "selectedMatches": {
+        "ability": "intelligence",
+        "saveDc": 15,
+        "spellAttackBonus": 7,
+        "noMaterialComponents": true,
+        "oneActionSpells": []
+      },
+      "spellAttackBonusNullMeans": "not-stated-in-compared-action",
+      "differences": [],
+      "result": "selected-conditions-match-errata-v2",
+      "wholeStatBlockCompared": false,
+      "exactObservedPrinting": "unverified",
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:5615",
+      "observedName": "Turlang",
+      "observedSourceIds": [
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/5615-turlang/",
+      "primaryLocator": {
+        "pdfPage": 2,
+        "bookPage": 107,
+        "section": "Shadowtop Cathedral"
+      },
+      "comparedBlock": "Spellcasting action only",
+      "selectedMatches": {
+        "ability": "wisdom",
+        "saveDc": 15,
+        "noMaterialComponents": true,
+        "oneActionSpells": [
+          "commune with nature",
+          "hallucinatory terrain"
+        ]
+      },
+      "spellAttackBonusNullMeans": "not-stated-in-compared-action",
+      "differences": [
+        {
+          "field": "spellAttackBonus",
+          "primary": null,
+          "observed": 7,
+          "classification": "extra-secondary-value-not-stated-in-primary-action",
+          "action": "do-not-promote-calculated-or-secondary-bonus-to-source-fact"
+        },
+        {
+          "field": "limitedSpellFrequencyScope",
+          "primary": "each-spell",
+          "observed": "each-not-explicit-in-two-frequency-labels",
+          "classification": "translation-ambiguity",
+          "action": "preserve-per-spell-scope-from-primary-before-automation"
+        }
+      ],
+      "result": "selected-matches-with-review-findings",
+      "wholeStatBlockCompared": false,
+      "exactObservedPrinting": "unverified",
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:5619",
+      "observedName": "Jarl Storvald",
+      "observedSourceIds": [
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/5619-jarl-storvald/",
+      "primaryLocator": {
+        "pdfPage": 2,
+        "bookPage": 165,
+        "section": "The Frost Giant Jarl"
+      },
+      "comparedBlock": "Spellcasting action only",
+      "selectedMatches": {
+        "noMaterialComponents": true,
+        "oneActionSpells": []
+      },
+      "spellAttackBonusNullMeans": "not-stated-in-compared-action",
+      "differences": [
+        {
+          "field": "ability",
+          "primary": "wisdom",
+          "observed": "intelligence",
+          "classification": "contradicts-primary-action",
+          "action": "use-primary-wisdom-in-future-canonical-proposal-with-provenance"
+        },
+        {
+          "field": "saveDc",
+          "primary": null,
+          "observed": 14,
+          "classification": "extra-secondary-value-not-stated-in-primary-action",
+          "action": "do-not-promote-calculated-or-secondary-dc-to-source-fact"
+        },
+        {
+          "field": "spellAttackBonus",
+          "primary": null,
+          "observed": 6,
+          "classification": "extra-secondary-value-not-stated-in-primary-action",
+          "action": "do-not-promote-calculated-or-secondary-bonus-to-source-fact"
+        }
+      ],
+      "result": "selected-matches-with-review-findings",
+      "wholeStatBlockCompared": false,
+      "exactObservedPrinting": "unverified",
+      "fullRulesVerified": false,
+      "accepted": false,
+      "canonicalId": null
+    }
+  ],
+  "limits": [
+    "This selected comparison does not establish the complete stat block, exact printing, translation permission, or all other monster traits.",
+    "The secondary site is an observed translation, not the authority for a rule.",
+    "Zephyros has a separate innate-casting block in the observed page; the compared Intelligence action must not overwrite that block.",
+    "No spell lists, translated paragraphs, or full stat blocks are redistributed; no character or runtime data changes.",
+    "An additional secondary numeric value is not automatically false, but cannot be represented as an explicit value printed in this primary action.",
+    "All review findings remain research evidence; no silent overwrite of historical observations, personal exceptions, or runtime stat blocks."
+  ],
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved"
+}

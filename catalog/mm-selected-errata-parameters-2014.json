@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-19",
+  "rulesEdition": "5e-2014",
+  "status": "selected-errata-parameters-not-full-stat-blocks",
+  "accepted": false,
+  "complete": false,
+  "automaticPatch": false,
+  "approvedDenominator": null,
+  "primaryEvidence": {
+    "url": "https://media.wizards.com/2018/dnd/downloads/MM-Errata.pdf",
+    "version": "2.0; copyright2018",
+    "sha256": "94b0049fb762872fba6510f1d6c234de946d962a5ce3f1c15e18e050266410fb",
+    "publisher": "Wizards of the Coast",
+    "reusePermission": "not-established-for-reference-text"
+  },
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  },
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:438",
+      "observedName": "Acolyte",
+      "primaryName": "Acolyte",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/438-acolyte/",
+      "primaryLocator": {
+        "bookPage": 342,
+        "pdfPage": 1
+      },
+      "primarySelectedFields": {
+        "passivePerception": 12
+      },
+      "observedSelectedFields": {
+        "passivePerception": 12
+      },
+      "comparison": "selected-fields-match",
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:443",
+      "observedName": "Cult fanatic",
+      "primaryName": "Cult Fanatic",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/443-cult-fanatic/",
+      "primaryLocator": {
+        "bookPage": 345,
+        "pdfPage": 1
+      },
+      "primarySelectedFields": {
+        "passivePerception": 11
+      },
+      "observedSelectedFields": {
+        "passivePerception": 11
+      },
+      "comparison": "selected-fields-match",
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:425",
+      "observedName": "Noble",
+      "primaryName": "Noble",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/425-noble/",
+      "primaryLocator": {
+        "bookPage": 348,
+        "pdfPage": 2
+      },
+      "primarySelectedFields": {
+        "passivePerception": 12
+      },
+      "observedSelectedFields": {
+        "passivePerception": 12
+      },
+      "comparison": "selected-fields-match",
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:441",
+      "observedName": "Priest",
+      "primaryName": "Priest",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/441-priest/",
+      "primaryLocator": {
+        "bookPage": 348,
+        "pdfPage": 2
+      },
+      "primarySelectedFields": {
+        "speedFeet": 30,
+        "religionBonus": 5
+      },
+      "observedSelectedFields": {
+        "speedFeet": 30,
+        "religionBonus": 5
+      },
+      "comparison": "selected-fields-match",
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:421",
+      "observedName": "Veteran",
+      "primaryName": "Veteran",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/421-veteran/",
+      "primaryLocator": {
+        "bookPage": 350,
+        "pdfPage": 2
+      },
+      "primarySelectedFields": {
+        "heavyCrossbowAverageDamage": 6,
+        "heavyCrossbowDamageDice": "1d10+1"
+      },
+      "observedSelectedFields": {
+        "heavyCrossbowAverageDamage": 6,
+        "heavyCrossbowDamageDice": "1d10+1"
+      },
+      "comparison": "selected-fields-match",
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:442",
+      "observedName": "Guard",
+      "primaryName": "Guard",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/442-guard/",
+      "primaryLocator": {
+        "bookPage": 347,
+        "pdfPage": 1
+      },
+      "primarySelectedFields": {
+        "spearTwoHandedMeleeAverageDamage": 5,
+        "spearTwoHandedMeleeDamageDice": "1d8+1",
+        "requiresTwoHands": true,
+        "requiresMeleeAttack": true
+      },
+      "observedSelectedFields": {
+        "spearTwoHandedMeleeAverageDamage": 5,
+        "spearTwoHandedMeleeDamageDice": "1d8+1",
+        "requiresTwoHands": true,
+        "requiresMeleeAttack": true
+      },
+      "comparison": "selected-fields-match",
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:431",
+      "observedName": "Druid",
+      "primaryName": "Druid",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/431-druid/",
+      "primaryLocator": {
+        "bookPage": 346,
+        "pdfPage": 1
+      },
+      "primarySelectedFields": {
+        "quarterstaffWithShillelaghAverageDamage": 6,
+        "quarterstaffWithShillelaghDamageDice": "1d8+2",
+        "requiresShillelagh": true
+      },
+      "observedSelectedFields": {
+        "quarterstaffWithShillelaghAverageDamage": 6,
+        "quarterstaffWithShillelaghDamageDice": "1d8+2",
+        "requiresShillelagh": true
+      },
+      "comparison": "selected-fields-match",
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:436",
+      "observedName": "Assassin",
+      "primaryName": "Assassin",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/436-assassin/",
+      "primaryLocator": {
+        "bookPage": 343,
+        "pdfPage": 1
+      },
+      "primarySelectedFields": {
+        "dexteritySaveBonus": 6,
+        "intelligenceSaveBonus": 4,
+        "acrobaticsBonus": 6,
+        "deceptionBonus": 3,
+        "perceptionBonus": 3,
+        "stealthBonus": 9,
+        "passivePerception": 13,
+        "sneakAttackAverageDamage": 14,
+        "shortswordAttackBonus": 6,
+        "lightCrossbowAttackBonus": 6
+      },
+      "observedSelectedFields": {
+        "dexteritySaveBonus": 6,
+        "intelligenceSaveBonus": 4,
+        "acrobaticsBonus": 6,
+        "deceptionBonus": 3,
+        "perceptionBonus": 3,
+        "stealthBonus": 9,
+        "passivePerception": 13,
+        "sneakAttackAverageDamage": 14,
+        "shortswordAttackBonus": 6,
+        "lightCrossbowAttackBonus": 6
+      },
+      "comparison": "selected-fields-match",
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:193",
+      "observedName": "Night hag",
+      "primaryName": "Night Hag",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/193-night-hag/",
+      "primaryLocator": {
+        "bookPage": 178,
+        "pdfPage": 2
+      },
+      "primarySelectedFields": {
+        "spellSaveDc": 14,
+        "spellAttackBonus": 6,
+        "clawsAttackBonus": 7
+      },
+      "observedSelectedFields": {
+        "spellSaveDc": 14,
+        "spellAttackBonus": 6,
+        "clawsAttackBonus": 7
+      },
+      "comparison": "selected-fields-match",
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:296",
+      "observedName": "Gynosphinx",
+      "primaryName": "Gynosphinx",
+      "sourceIds": [
+        "103"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/296-gynosphinx/",
+      "primaryLocator": {
+        "bookPage": 282,
+        "pdfPage": 1
+      },
+      "primarySelectedFields": {
+        "arcanaBonus": 12,
+        "historyBonus": 12,
+        "perceptionBonus": 8,
+        "religionBonus": 8,
+        "passivePerception": 18,
+        "spellSaveDc": 16,
+        "spellAttackBonus": 8,
+        "clawAttackBonus": 8,
+        "teleportRangeFeet": 120
+      },
+      "observedSelectedFields": {
+        "arcanaBonus": 12,
+        "historyBonus": 12,
+        "perceptionBonus": 8,
+        "religionBonus": 8,
+        "passivePerception": 18,
+        "spellSaveDc": 16,
+        "spellAttackBonus": 8,
+        "clawAttackBonus": 8,
+        "teleportRangeFeet": 120
+      },
+      "comparison": "selected-fields-match",
+      "fullStatBlockCompared": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    }
+  ],
+  "limits": [
+    "Selected fields were read on the secondary pages; comments and linked MM24 pages are not evidence.",
+    "Damage conditions are local to the selected attack; other attacks and class features are not modified.",
+    "An errata match is not full-stat-block verification, permission to reuse text, or canonical identity acceptance.",
+    "Priest secondary language labels conflict internally (All versus up to two languages); not resolved by the selected errata and not accepted."
+  ]
+}

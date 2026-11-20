@@ -1,0 +1,851 @@
+{
+  "schemaVersion": 1,
+  "status": "metadata-diagnostic-not-rights-or-scope-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "bundleEntriesSha256": "ff64f5f4ecb9941c112663aaace893bd62900c9f50456e445b16af1d034763cd",
+  "summary": {
+    "bundledEntries": 633,
+    "declaredSrd51": 632,
+    "referenceOnly": 1,
+    "metadataFindings": 0,
+    "publicationRecords": 78,
+    "referenceObservations": 4973,
+    "referenceFindings": 0,
+    "textsIndependentlyClearedByThisAudit": 0
+  },
+  "categories": {
+    "mechanic": {
+      "entries": 53,
+      "declaredSrd51": 52,
+      "referenceOnly": 1,
+      "needsMetadataReview": 0,
+      "textsIndependentlyClearedByThisAudit": 0,
+      "approvedDenominator": null
+    },
+    "spell": {
+      "entries": 319,
+      "declaredSrd51": 319,
+      "referenceOnly": 0,
+      "needsMetadataReview": 0,
+      "textsIndependentlyClearedByThisAudit": 0,
+      "approvedDenominator": null
+    },
+    "monster": {
+      "entries": 204,
+      "declaredSrd51": 204,
+      "referenceOnly": 0,
+      "needsMetadataReview": 0,
+      "textsIndependentlyClearedByThisAudit": 0,
+      "approvedDenominator": null
+    },
+    "item": {
+      "entries": 56,
+      "declaredSrd51": 56,
+      "referenceOnly": 0,
+      "needsMetadataReview": 0,
+      "textsIndependentlyClearedByThisAudit": 0,
+      "approvedDenominator": null
+    },
+    "artifact": {
+      "entries": 1,
+      "declaredSrd51": 1,
+      "referenceOnly": 0,
+      "needsMetadataReview": 0,
+      "textsIndependentlyClearedByThisAudit": 0,
+      "approvedDenominator": null
+    }
+  },
+  "findings": [],
+  "publications": [
+    {
+      "id": "numeric:101",
+      "title": "Dungeon Master's Guide",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:102",
+      "title": "Player's Handbook",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:103",
+      "title": "Monster Manual",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:105",
+      "title": "Hoard of the Dragon Queen",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:106",
+      "title": "The Rise of Tiamat",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:107",
+      "title": "Princes of the Apocalypse",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:108",
+      "title": "Sword Coast Adventurer's Guide",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:109",
+      "title": "Xanathar's Guide to Everything",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:110",
+      "title": "Lost Mine of Phandelver",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:111",
+      "title": "Volo's guide to monsters",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:112",
+      "title": "Guildmasters' guide to Ravnica",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:113",
+      "title": "Mordenkainen's Tome of Foes",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:114",
+      "title": "Tomb of Annihilation",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:115",
+      "title": "Acquisition Incorporated",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:116",
+      "title": "Explorer's Guide to Wildemount",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:117",
+      "title": "Tasha's Cauldron of Everything",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:119",
+      "title": "Eberron: Rising from the Last War",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:120",
+      "title": "Icewind Dale: Rime of the Frostmaiden",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:121",
+      "title": "Mythic Odysseys of Theros",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:122",
+      "title": "Candlekeep Mysteries",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:123",
+      "title": "Hunt for the Thessalhydra",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:124",
+      "title": "Curse of Strahd",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:125",
+      "title": "Van Richten's Guide to Ravenloft",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:126",
+      "title": "Baldur's Gate: Descent Into Avernus",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:127",
+      "title": "Essentials Kit: Divine Contention",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:128",
+      "title": "Ghosts of Saltmarsh",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:129",
+      "title": "Out of the Abyss",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:130",
+      "title": "The Lost Dungeon of Rickedness: Big Rick Energy",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:131",
+      "title": "Essentials Kit: Sleeping Dragon's Wake",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:132",
+      "title": "Storm King's Thunder",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:133",
+      "title": "Tales from the Yawning Portal",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:134",
+      "title": "Waterdeep: Dragon Heist",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:135",
+      "title": "Waterdeep: Dungeon of the Mad Mage",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:151",
+      "title": "The Wild Beyond The Witchlight: A Feywild Adventure",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:152",
+      "title": "Fizban's Treasury of Dragons",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:153",
+      "title": "Lost Laboratory of Kwalish",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:155",
+      "title": "Strixhaven: A Curriculum of Chaos",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:156",
+      "title": "Midgard Heroes Handbook",
+      "scopeDisposition": "excluded-third-party",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:157",
+      "title": "Essentials Kit: Dragon of Icespire peak",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:158",
+      "title": "Mordenkainen Presents: Monsters of the Multiverse",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:159",
+      "title": "Critical Role: Call of the Netherdeep",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:160",
+      "title": "Spelljammer: Adventures in Space",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:161",
+      "title": "Infernal Machine Rebuild",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:167",
+      "title": "Essentials Kit: Storm Lord's Wrath",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:169",
+      "title": "Adventurers League",
+      "scopeDisposition": "needs-publication-identification",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:171",
+      "title": "Journeys through the Radiant Citadel",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:174",
+      "title": "The Vecna Dossier",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:179",
+      "title": "laserllama",
+      "scopeDisposition": "excluded-homebrew",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:180",
+      "title": "Saltmarsh Encounters",
+      "scopeDisposition": "excluded-third-party",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:183",
+      "title": "Dragonlance: Shadow of the Dragon Queen",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:187",
+      "title": "Monstrous Compendium Vol 1: Spelljammer Creatures",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:188",
+      "title": "Monstrous Compendium Vol 2: Dragonlance Creatures",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:189",
+      "title": "Keys from the Golden Vault",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:190",
+      "title": "Valda's Spire of Secrets",
+      "scopeDisposition": "excluded-third-party",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:191",
+      "title": "Honor among Thieves",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:194",
+      "title": "Misplaced Monsters: Volume One",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:197",
+      "title": "Giants of the Star Forge",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:198",
+      "title": "Bigby Presents: Glory of the Giants",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:199",
+      "title": "Monstrous Compendium Vol 3: Minecraft Creatures",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:202",
+      "title": "Phandelver and Below: The Shattered Obelisk",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:205",
+      "title": "Planescape: Adventures in the Multiverse",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:206",
+      "title": "Mordenkainen's Fiendish Folio Vol 1",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:207",
+      "title": "The Book of Many Things",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:208",
+      "title": "Adventure Atlas: The Mortuary",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:210",
+      "title": "Ryoko's guide to the yokai realms",
+      "scopeDisposition": "excluded-third-party",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:213",
+      "title": "Descent into the Lost Caverns of Tsojcanth",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:214",
+      "title": "Vecna: Eve of Ruin",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:218",
+      "title": "Quest from the Infinite Staircase",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:219",
+      "title": "Monstrous Compendium Vol. Four: Eldraine Creatures",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "numeric:310",
+      "title": "Spark of Alastas",
+      "scopeDisposition": "not-reviewed-by-this-audit",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "class-bibliography:class-bibliography:plane-shift-amonkhet",
+      "title": "Plane Shift: Amonkhet",
+      "scopeDisposition": "awaiting-independent-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "class-bibliography:class-bibliography:plane-shift-kaladesh",
+      "title": "Plane Shift: Kaladesh",
+      "scopeDisposition": "awaiting-independent-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "class-bibliography:class-bibliography:taldorei",
+      "title": "Tal’Dorei Campaign Guide",
+      "scopeDisposition": "awaiting-independent-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "class-bibliography:class-bibliography:morgrave",
+      "title": "Morgrave Miscellany",
+      "scopeDisposition": "awaiting-independent-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "class-bibliography:class-bibliography:hesperides",
+      "title": "Сады Гесперид",
+      "scopeDisposition": "awaiting-independent-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "class-bibliography:class-bibliography:sprouting-chaos",
+      "title": "Sprouting Chaos Player's Companion",
+      "scopeDisposition": "awaiting-independent-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "class-bibliography:class-bibliography:odyssey",
+      "title": "Odyssey of the Dragonlords",
+      "scopeDisposition": "awaiting-independent-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    },
+    {
+      "id": "class-bibliography:class-bibliography:grim-hollow",
+      "title": "Grim Hollow’s The Players Guide",
+      "scopeDisposition": "awaiting-independent-review",
+      "upstreamReuseDeclaration": "not-established",
+      "textReuseEvidence": "not-established-by-this-audit",
+      "translationReuseEvidence": "not-established-by-this-audit",
+      "nextStep": "Locate exact version and applicable permission for the intended text or use; do not inherit SRD license from source eligibility."
+    }
+  ],
+  "referenceSections": {
+    "backgrounds": {
+      "observations": 89,
+      "withCandidateMatch": 0,
+      "withoutNumericAttribution": 0,
+      "reuseDeclarations": {
+        "not-established-for-reference-text": 89
+      },
+      "translationsIndependentlyClearedByThisAudit": 0,
+      "approvedDenominator": null
+    },
+    "bestiary": {
+      "observations": 3140,
+      "withCandidateMatch": 204,
+      "withoutNumericAttribution": 0,
+      "reuseDeclarations": {
+        "not-established-for-reference-text": 3140
+      },
+      "translationsIndependentlyClearedByThisAudit": 0,
+      "approvedDenominator": null
+    },
+    "classes": {
+      "observations": 31,
+      "withCandidateMatch": 0,
+      "withoutNumericAttribution": 6,
+      "reuseDeclarations": {
+        "not-established-for-reference-text": 31
+      },
+      "translationsIndependentlyClearedByThisAudit": 0,
+      "approvedDenominator": null
+    },
+    "feats": {
+      "observations": 105,
+      "withCandidateMatch": 0,
+      "withoutNumericAttribution": 0,
+      "reuseDeclarations": {
+        "not-established-for-reference-text": 105
+      },
+      "translationsIndependentlyClearedByThisAudit": 0,
+      "approvedDenominator": null
+    },
+    "items": {
+      "observations": 934,
+      "withCandidateMatch": 52,
+      "withoutNumericAttribution": 0,
+      "reuseDeclarations": {
+        "not-established-for-reference-text": 934
+      },
+      "translationsIndependentlyClearedByThisAudit": 0,
+      "approvedDenominator": null
+    },
+    "race": {
+      "observations": 150,
+      "withCandidateMatch": 0,
+      "withoutNumericAttribution": 69,
+      "reuseDeclarations": {
+        "not-established-for-reference-text": 150
+      },
+      "translationsIndependentlyClearedByThisAudit": 0,
+      "approvedDenominator": null
+    },
+    "spells": {
+      "observations": 524,
+      "withCandidateMatch": 319,
+      "withoutNumericAttribution": 0,
+      "reuseDeclarations": {
+        "not-established-for-reference-text": 524
+      },
+      "translationsIndependentlyClearedByThisAudit": 0,
+      "approvedDenominator": null
+    }
+  },
+  "referenceFindings": [],
+  "limitations": [
+    "Counts describe bundled metadata, not full catalog coverage or verified permissions.",
+    "A zero finding count does not verify translation authorship, passage correspondence or legal compliance.",
+    "The publication list combines two namespaces; it is not a deduplicated publication denominator.",
+    "A candidate ID or matching SRD name does not license the wording of a reference page or its translation.",
+    "No runtime import, license grant, source exclusion or publishing approval is changed."
+  ],
+  "inputSha256": {
+    "catalog/source-rights-evidence-2014.json": "5aa72478cfb30636f221f4da66768de72c773dc8713801a4bf96a61e44be2ab4",
+    "catalog/numeric-source-scope-policy-2014.json": "c46db1df76294bc971e7c1582ece3cfe09cd126fcca22edf7fd2431f8379df32",
+    "catalog/class-source-bibliography.json": "25f16679b7c273991eea5fc5da1c42d007236e73d8a8a4991730e7975bd6c4b3",
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  }
+}

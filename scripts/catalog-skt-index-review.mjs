@@ -1,0 +1,11 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {reviewPrimaryIndex} from './catalog-primary-index-review.mjs';
+const paths=['catalog/skt-public-index-2014.json','catalog/scope-register-2014.json'];
+const raw=paths.map(p=>new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(readFileSync(new URL('../'+p,import.meta.url))).replace(/\r\n/g,'\n'));
+const data=raw.map(JSON.parse);
+if(data[0].inputSha256[paths[1]]!==createHash('sha256').update(raw[1]).digest('hex'))throw Error('Pinned scope changed');
+const result=reviewPrimaryIndex(...data);
+result.inputSha256=Object.fromEntries(paths.map((p,i)=>[p,createHash('sha256').update(raw[i]).digest('hex')]));
+writeFileSync(process.argv[2]||new URL('../catalog/skt-index-review-2014.json',import.meta.url),JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify(result.summary));
