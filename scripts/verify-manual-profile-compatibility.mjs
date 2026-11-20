@@ -7,12 +7,16 @@ import {join,resolve,sep} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {openStore} from '../server/store.mjs';
 import {privateDatabaseBackup} from './private-backup.mjs';
+import * as currentPackage from '../server/game-art-package.mjs';
+import {personalArtTransfer} from '../server/personal-art-transfer.mjs';
+import {bundledCatalog} from '../server/bundled-catalog.mjs';
 
 const command=(store,fields)=>({mutationId:randomUUID(),expectedRevision:store.read().revision,...fields});
 const digest=async file=>createHash('sha256').update(await readFile(file)).digest('hex');
 
-export async function verifyManualProfileCompatibility(candidateOpenStore) {
+export async function verifyManualProfileCompatibility(candidateOpenStore,candidatePackage=currentPackage) {
  if(typeof candidateOpenStore!=='function')throw Error('Candidate store factory required');
+ if(typeof candidatePackage?.gameArtPackage!=='function'||typeof candidatePackage?.validateGameArtPackage!=='function')throw Error('Candidate package capability required');
  const tempRoot=await realpath(tmpdir()),directory=await mkdtemp(join(tempRoot,'skaz-manual-compat-'));
  const source=join(directory,'synthetic.sqlite'),backup=join(directory,'backup.sqlite'),restored=join(directory,'restored.sqlite');
  let original,candidate,target;
@@ -36,6 +40,19 @@ export async function verifyManualProfileCompatibility(candidateOpenStore) {
   original.undoResource(command(original,{targetMutationId:spend.mutationId,characterId:created.characterId}));
   const expected=original.read(),history=original.history(),exported=original.exportActive(15);
   assert.equal(expected.profileRuleWarnings.filter(w=>w.acknowledged).length,2,'Fixture must exercise both agreement scopes');
+  const manifest=JSON.parse(await readFile(new URL('../catalog/art-manifest.json',import.meta.url),'utf8'));
+  const png=await readFile(new URL('../'+manifest.entries[0].files.thumbnail.path,import.meta.url));
+  const catalogId='srd51:2014:spell:shield';
+  const art=personalArtTransfer([{catalogId,bytes:png}]);
+  const entries=new Map(bundledCatalog().bundle.entries.map(entry=>[entry.id,entry]));
+  const options={lookup:id=>entries.get(id)};
+  const wrapped=currentPackage.gameArtPackage(exported,art,options);
+  const parsed=candidatePackage.validateGameArtPackage(structuredClone(wrapped));
+  assert.deepEqual(parsed,currentPackage.validateGameArtPackage(wrapped),'Candidate package reader changed profile or PNG bytes');
+  const candidateWrapped=candidatePackage.gameArtPackage(exported,art,options);
+  assert.deepEqual(candidateWrapped,wrapped,'Candidate package writer changed profile or PNG bytes');
+  assert.equal(candidateWrapped.schemaVersion,4,'Candidate package downgraded v15 wrapper');
+  assert.throws(()=>candidatePackage.validateGameArtPackage({...wrapped,schemaVersion:3}),{status:422},'Candidate accepted an invalid package downgrade');
   original.close();original=null;
   const originalDigest=await digest(source);
   await privateDatabaseBackup(source,backup);const backupDigest=await digest(backup);
@@ -97,7 +114,7 @@ export async function verifyManualProfileCompatibility(candidateOpenStore) {
   assert.equal(candidate.saveCharacterStats(revisedCommand).replayed,true,'Forward reader lost fallback receipt');
   assert.equal(await digest(source),originalDigest,'Synthetic original modified');
   assert.equal(await digest(backup),backupDigest,'Backup modified');
-  return {verified:true,syntheticOnly:true,restoredRead:true,receiptsPreserved:true,transferVersion:15,spendUndo:true,accessIsolation:true,freshWriteRestart:true,forwardReentry:true,sourceModified:false,backupModified:false,releaseApproved:false};
+  return {verified:true,syntheticOnly:true,restoredRead:true,receiptsPreserved:true,transferVersion:15,artPackageVersion:4,pngBytesPreserved:true,spendUndo:true,accessIsolation:true,freshWriteRestart:true,forwardReentry:true,sourceModified:false,backupModified:false,releaseApproved:false};
  }finally{
   target?.close();candidate?.close();original?.close();
   const resolved=resolve(directory);if(!resolved.startsWith(tempRoot+sep)||!resolved.split(sep).at(-1).startsWith('skaz-manual-compat-'))throw Error('Unsafe cleanup target');
@@ -109,7 +126,7 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const [candidateRoot,...extra]=process.argv.slice(2);
  try{
   if(!candidateRoot||extra.length)throw Error('Usage: node scripts/verify-manual-profile-compatibility.mjs candidate-checkout');
-  const root=await realpath(candidateRoot),module=await import(pathToFileURL(join(root,'server/store.mjs')).href);
-  console.log(JSON.stringify(await verifyManualProfileCompatibility(module.openStore)));
+  const root=await realpath(candidateRoot),module=await import(pathToFileURL(join(root,'server/store.mjs')).href),packageModule=await import(pathToFileURL(join(root,'server/game-art-package.mjs')).href);
+  console.log(JSON.stringify(await verifyManualProfileCompatibility(module.openStore,packageModule)));
  }catch{console.error('Synthetic candidate compatibility failed; no existing campaign database was opened.');process.exitCode=1;}
 }
