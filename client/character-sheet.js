@@ -64,6 +64,7 @@ function validateCasting(value){
  }
  function view(){const sheet=SkazStorage.sheet();if(!sheet)return '';return `<section class="panel own-sheet"><div class="panel-title"><h2>Ресурсы класса</h2><button id="edit-sheet-resources">Изменить</button></div><p>Итоговые остатки задаются вручную. Отдых и применение заклинаний не меняют их автоматически.</p><div class="resource-controls"><p>Счётчики доступны в общем пульте. Здесь можно изменить их состав.</p></div><div class="action-row"><strong>Инвентарь</strong><button id="open-inventory">Открыть</button></div></section>`;}
  function edit(){
+  if(SkazStorage.profileEditorsAvailable?.()===false)return toast('Редакторы профиля временно отключены для восстановления.');
   if(!SkazStorage.editable()||location.protocol==='file:')return toast('Ручной класс доступен после подключения с правом изменения листа');
   const original=SkazStorage.sheet(),key=SkazStorage.snapshotKey();let busy=false;
   const current=()=>key===SkazStorage.snapshotKey()&&SkazStorage.editable();

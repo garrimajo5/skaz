@@ -34,7 +34,8 @@ async function body(request, limit = MAX_BODY) {
   try { return JSON.parse(Buffer.concat(chunks).toString('utf8')); }
   catch { throw new AppError(400, 'Не удалось прочитать JSON'); }
 }
-export function createApp(store, { publicOrigin, authenticate, individualWrites = false, sessions, artLibrary, personalArt, classAdvancement=false } = {}) {
+export function createApp(store, { publicOrigin, authenticate, individualWrites = false, sessions, artLibrary, personalArt, classAdvancement=false, profileEditors=true } = {}) {
+  if(typeof profileEditors!=='boolean')throw new Error('profileEditors must be boolean');
   if(typeof classAdvancement!=='boolean'||classAdvancement&&!Object.hasOwn(store.read(),'advancement'))throw new Error('Повышение требует совместимого явно включённого хранилища');
   // A trusted fixture can inject a library; requests cannot select a manifest,
   // directory, or pilot status. Production always uses the accepted registry.
@@ -206,6 +207,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
         else {store.access.user(identity);if(!store.access.hasPlayableCharacter(identity))filename='waiting.html';if(!/^[a-zA-Z0-9-]{8,80}$/.test(identity))throw new AppError(401,'Нужен индивидуальный вход');}
       }
       let content = await readFile(path.join(clientRoot, filename));
+      if(!profileEditors&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-profile-editors="disabled" ');
       if(classAdvancement&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-class-advancement="enabled" ');
       if(identity&&personalArt&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-personal-art="enabled" ');
       if(identity)content=content.toString('utf8').replace('<body ',`<body data-user-id="${identity}" `);

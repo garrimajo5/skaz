@@ -27,6 +27,7 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
   return { api: vm.runInContext('SkazStorage', context), get, messages, messageOptions, archiveCalls, references, downloads, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
     click: (id,dataset={},disabled=false) => handlers.click({ target: { closest: () => ({ id,dataset,disabled }) } }),
     installArt:(art,cards)=>{context.SkazArt=art;context.SkazPersonalArtCards=cards;},
+    profileRecovery:()=>{context.document.body={dataset:{profileEditors:'disabled'}};},
     advancementEnabled:()=>{context.document.body={dataset:{classAdvancement:'enabled'}};},
     visible: value => {context.document.visibilityState=value;return handlers.visibilitychange();},
     state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),
@@ -1269,4 +1270,15 @@ test('changed agreed facts still require a nonblocking warning before saving',as
  let calls=0;const h=harness(memory(),memory(),async(url,options)=>{if(options.method)calls++;return response({...payload(0),characterStats:stats});});
  await h.api.boot();h.click('edit-stats');statsValues(h,{dex:'33'});await h.get('#stats-form').onsubmit({preventDefault(){}});
  assert.equal(calls,0);assert.match(h.dialog(),/Ловкость: 33/);assert.doesNotMatch(h.dialog(),/Согласовано с мастером\.<\/p>/);
+});
+
+test('profile recovery refuses opening new editors without changing saved data or resource permissions',async()=>{
+ const local=memory(),h=harness(local,memory(),async()=>{throw Error('No request expected');},{onLine:true});
+ const permissions={character:h.api.can('character'),resource:h.api.canResource()};
+ h.profileRecovery();const before=h.state(),stored=[...local.values];
+ assert.equal(h.api.profileEditorsAvailable(),false);
+ h.click('edit-stats');h.click('edit-sheet');
+ assert.equal(h.dialog(),'');assert.deepEqual(h.state(),before);assert.deepEqual([...local.values],stored);
+ assert.deepEqual({character:h.api.can('character'),resource:h.api.canResource()},permissions);
+ assert.ok(h.messages.some(message=>message.includes('временно отключены')));
 });
