@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "status": "publication-relationship-proposals-not-canonical-source-decisions",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "relations": [
+    {
+      "id": "publication-relation:dndsu-source:105",
+      "origin": {
+        "kind": "dndsu-source",
+        "id": "105"
+      },
+      "relationType": "later-refined-compilation",
+      "targets": [
+        {
+          "providerSourceId": 102,
+          "title": "Tyranny of Dragons",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tod"
+        }
+      ],
+      "basis": {
+        "kind": "numeric-publication-evidence",
+        "recordId": "105",
+        "recordSha256": "21e8131e11219434053b2df5fc6575fefb5094d1c522d1116f282f51580582dd",
+        "evidenceUrl": "https://wpn.wizards.com/en/products/tyranny-of-dragons"
+      },
+      "accepted": false,
+      "complete": false,
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false,
+      "preserveOriginalPublications": true
+    },
+    {
+      "id": "publication-relation:dndsu-source:106",
+      "origin": {
+        "kind": "dndsu-source",
+        "id": "106"
+      },
+      "relationType": "later-refined-compilation",
+      "targets": [
+        {
+          "providerSourceId": 102,
+          "title": "Tyranny of Dragons",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tod"
+        }
+      ],
+      "basis": {
+        "kind": "numeric-publication-evidence",
+        "recordId": "106",
+        "recordSha256": "78b53e4405141bafb0287b5fd9c7aa60255abea838eb81ad6f7ed4d0edf04c87",
+        "evidenceUrl": "https://wpn.wizards.com/en/products/tyranny-of-dragons"
+      },
+      "accepted": false,
+      "complete": false,
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false,
+      "preserveOriginalPublications": true
+    },
+    {
+      "id": "publication-relation:dndsu-source:130",
+      "origin": {
+        "kind": "dndsu-source",
+        "id": "130"
+      },
+      "relationType": "boxed-set-containing-adventure",
+      "targets": [
+        {
+          "providerSourceId": 54,
+          "title": "Dungeons & Dragons vs. Rick and Morty",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ddvram"
+        }
+      ],
+      "basis": {
+        "kind": "numeric-publication-evidence",
+        "recordId": "130",
+        "recordSha256": "2a46961b854e01e1e35a8bd3ef2cba1f05d95982f04e69ce64b4353f87ddfa53",
+        "evidenceUrl": "https://marketplace.roll20.net/browse/bundle/4790/rick-and-morty-the-lost-dungeon-of-rickedness-big-rick-energy"
+      },
+      "accepted": false,
+      "complete": false,
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false,
+      "preserveOriginalPublications": true
+    },
+    {
+      "id": "publication-relation:dndsu-source:191",
+      "origin": {
+        "kind": "dndsu-source",
+        "id": "191"
+      },
+      "relationType": "bundle-with-rule-components",
+      "targets": [
+        {
+          "providerSourceId": 104,
+          "title": "Thieves’ Gallery",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tg",
+          "role": "creature-statblocks"
+        },
+        {
+          "providerSourceId": 111,
+          "title": "Legendary Magic Items",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lmi",
+          "role": "magic-items"
+        }
+      ],
+      "basis": {
+        "kind": "numeric-publication-evidence",
+        "recordId": "191",
+        "recordSha256": "583c8971428056f1e9f70d850db42a0e71ba3fa5cf576e3abfc0d4f8bab913e5",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/HAT000001"
+      },
+      "accepted": false,
+      "complete": false,
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false,
+      "preserveOriginalPublications": true,
+      "excludedNonRuleComponents": [
+        "digital-dice-set"
+      ]
+    },
+    {
+      "id": "publication-relation:bibliography:one-grung-above",
+      "origin": {
+        "kind": "bibliography",
+        "id": "bibliography:one-grung-above"
+      },
+      "relationType": "named-publication-library-reference",
+      "targets": [
+        {
+          "providerSourceId": 60,
+          "title": "One Grung Above",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/oga"
+        }
+      ],
+      "basis": {
+        "kind": "unnumbered-publication-relation",
+        "recordId": "bibliography:one-grung-above",
+        "recordSha256": "d9c4f84eabb5ffcf25557a2fb77808fa525326dcda7f6915d6192a2e9b0006b1",
+        "observationId": "dndsu:race:169"
+      },
+      "accepted": false,
+      "complete": false,
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "id": "publication-relation:bibliography:locathah-rising",
+      "origin": {
+        "kind": "bibliography",
+        "id": "bibliography:locathah-rising"
+      },
+      "relationType": "named-publication-library-reference",
+      "targets": [
+        {
+          "providerSourceId": 55,
+          "title": "Locathah Rising",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lr"
+        }
+      ],
+      "basis": {
+        "kind": "unnumbered-publication-relation",
+        "recordId": "bibliography:locathah-rising",
+        "recordSha256": "e0f52b05e8fc1a5eba92b742194b230afd7e2e742745922d832e68e1bdf81e71",
+        "observationId": "dndsu:race:178"
+      },
+      "accepted": false,
+      "complete": false,
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "id": "publication-relation:bibliography:the-tortle-package",
+      "origin": {
+        "kind": "bibliography",
+        "id": "bibliography:the-tortle-package"
+      },
+      "relationType": "named-publication-library-reference",
+      "targets": [
+        {
+          "providerSourceId": 28,
+          "title": "The Tortle Package",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ttp"
+        }
+      ],
+      "basis": {
+        "kind": "unnumbered-publication-relation",
+        "recordId": "bibliography:the-tortle-package",
+        "recordSha256": "82d548e0f8f63a6375c89d6a1121883740fc795033951dc88dda48da4877a486",
+        "observationId": "dndsu:race:184"
+      },
+      "accepted": false,
+      "complete": false,
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "id": "publication-relation:owner-experimental-exclusion:ua",
+      "origin": {
+        "kind": "owner-policy",
+        "id": "owner-official-wotc-2014-only"
+      },
+      "relationType": "existing-experimental-exclusion",
+      "targets": [
+        {
+          "providerSourceId": 100,
+          "title": "Unearthed Arcana",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ua"
+        }
+      ],
+      "basis": {
+        "kind": "owner-class-scope-policy",
+        "recordId": "2026-11-19",
+        "recordSha256": "0e9bd13b59a7c637248f701bf4bf00b6c6954961b6d011b80007aa41a01c278b"
+      },
+      "accepted": false,
+      "complete": false,
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false
+    }
+  ]
+}
