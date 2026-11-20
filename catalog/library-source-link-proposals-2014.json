@@ -1,0 +1,2753 @@
+{
+  "schemaVersion": 1,
+  "status": "library-source-link-proposals-not-source-or-denominator-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "historicalSources": 70,
+    "preservedHistoricalSources": 70,
+    "libraryObservations": 174,
+    "byRelationshipStatus": {
+      "explicit-evidence-candidates": 53,
+      "no-library-candidate": 11,
+      "title-candidates-in-evidenced-ruleset": 6
+    },
+    "distinctPreferredProviderCandidates": 59,
+    "unlinkedProvider5eNonThirdParty": 23
+  },
+  "records": [
+    {
+      "dndsuSourceId": "101",
+      "historicalTitle": "Dungeon Master's Guide",
+      "historicalGroup": "Core",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/all-rulebooks/dungeon-masters-guide",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/dmg-2014"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:3",
+          "providerSourceId": 3,
+          "title": "Dungeon Master’s Guide (2014)",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dmg-2014",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/dmg-2014"
+            },
+            {
+              "kind": "explicit-2014-suffix-title-candidate"
+            }
+          ],
+          "preferredByEvidence": true
+        },
+        {
+          "providerObservationId": "ddb:library-source:146",
+          "providerSourceId": 146,
+          "title": "Dungeon Master’s Guide",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dmg-2024",
+          "providerRuleset": "5.5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": false
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "102",
+      "historicalTitle": "Player's Handbook",
+      "historicalGroup": "Core",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/all-rulebooks/players-handbook",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/phb-2014"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:2",
+          "providerSourceId": 2,
+          "title": "Player’s Handbook (2014)",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/phb-2014",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/phb-2014"
+            },
+            {
+              "kind": "explicit-2014-suffix-title-candidate"
+            }
+          ],
+          "preferredByEvidence": true
+        },
+        {
+          "providerObservationId": "ddb:library-source:145",
+          "providerSourceId": 145,
+          "title": "Player’s Handbook",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/phb-2024",
+          "providerRuleset": "5.5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": false
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "103",
+      "historicalTitle": "Monster Manual",
+      "historicalGroup": "Core",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/all-rulebooks/monster-manual",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/mm-2014"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:5",
+          "providerSourceId": 5,
+          "title": "Monster Manual (2014)",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mm-2014",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/mm-2014"
+            },
+            {
+              "kind": "explicit-2014-suffix-title-candidate"
+            }
+          ],
+          "preferredByEvidence": true
+        },
+        {
+          "providerObservationId": "ddb:library-source:147",
+          "providerSourceId": 147,
+          "title": "Monster Manual",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mm-2024",
+          "providerRuleset": "5.5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": false
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "105",
+      "historicalTitle": "Hoard of the Dragon Queen",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://wpn.wizards.com/en/products/tyranny-of-dragons",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/hotdq"
+      },
+      "relationshipStatus": "no-library-candidate",
+      "candidates": [],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "106",
+      "historicalTitle": "The Rise of Tiamat",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://wpn.wizards.com/en/products/tyranny-of-dragons",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/rot"
+      },
+      "relationshipStatus": "no-library-candidate",
+      "candidates": [],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "107",
+      "historicalTitle": "Princes of the Apocalypse",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00010",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/pota"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:10",
+          "providerSourceId": 10,
+          "title": "Princes of the Apocalypse",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/pota",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-explicit-marketplace-sku",
+              "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00010"
+            },
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/pota"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "108",
+      "historicalTitle": "Sword Coast Adventurer's Guide",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00013",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/scag"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:13",
+          "providerSourceId": 13,
+          "title": "Sword Coast Adventurer's Guide",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/scag",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-explicit-marketplace-sku",
+              "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00013"
+            },
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/scag"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "109",
+      "historicalTitle": "Xanathar's Guide to Everything",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/rulebooks/xanathars-guide-to-everything",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/xgte"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:27",
+          "providerSourceId": 27,
+          "title": "Xanathar's Guide to Everything",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/xgte",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/xgte"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "110",
+      "historicalTitle": "Lost Mine of Phandelver",
+      "historicalGroup": "Adventures, softcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://wpn.wizards.com/en/products/dungeons-and-dragons-starter-set",
+        "editionEvidenceUrl": "https://media.dndbeyond.com/compendium-images/ddal/reference-docs/03-2024/d%26d-adventurers-league-adaptation-guides-v2.4.pdf"
+      },
+      "relationshipStatus": "title-candidates-in-evidenced-ruleset",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:8",
+          "providerSourceId": 8,
+          "title": "Lost Mine of Phandelver",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lmop",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "111",
+      "historicalTitle": "Volo's guide to monsters",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://www.dndbeyond.com/posts/397-what-might-be-next-for-d-d-in-2019",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/vgtm"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:15",
+          "providerSourceId": 15,
+          "title": "Volo's Guide to Monsters",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vgtm",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/vgtm"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "112",
+      "historicalTitle": "Guildmasters' guide to Ravnica",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/root/C5835000",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/ggtr"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:38",
+          "providerSourceId": 38,
+          "title": "Guildmasters’ Guide to Ravnica",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ggtr",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/ggtr"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "113",
+      "historicalTitle": "Mordenkainen's Tome of Foes",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://www.dndbeyond.com/posts/397-what-might-be-next-for-d-d-in-2019",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/mtof"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:33",
+          "providerSourceId": 33,
+          "title": "Mordenkainen’s Tome of Foes",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/mtof"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "114",
+      "historicalTitle": "Tomb of Annihilation",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/adventures/tomb-of-annihilation",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/toa"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:25",
+          "providerSourceId": 25,
+          "title": "Tomb of Annihilation",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/toa",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/toa"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "115",
+      "historicalTitle": "Acquisition Incorporated",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/settings/acquisitions-incorporated",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/ai"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:44",
+          "providerSourceId": 44,
+          "title": "Acquisitions Incorporated",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ai",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/ai"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "116",
+      "historicalTitle": "Explorer's Guide to Wildemount",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/beyond-digital/explorers-guide-to-wildemount",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/egtw"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:59",
+          "providerSourceId": 59,
+          "title": "Explorer's Guide to Wildemount",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/egtw",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Critical Role",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/egtw"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "117",
+      "historicalTitle": "Tasha's Cauldron of Everything",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00067",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/tcoe"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:67",
+          "providerSourceId": 67,
+          "title": "Tasha’s Cauldron of Everything",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tcoe",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-explicit-marketplace-sku",
+              "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00067"
+            },
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/tcoe"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "119",
+      "historicalTitle": "Eberron: Rising from the Last War",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/PROMOTION/eberron-rising-from-the-last-war?icid_campaign=spelljammer-preorder&icid_content=spelljammer&icid_medium=ddb&icid_source=article",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/erftlw"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:49",
+          "providerSourceId": 49,
+          "title": "Eberron: Rising from the Last War",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/erftlw",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/erftlw"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "120",
+      "historicalTitle": "Icewind Dale: Rime of the Frostmaiden",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/settings/icewind-dale-rime-of-the-frostmaiden",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/idrotf"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:66",
+          "providerSourceId": 66,
+          "title": "Icewind Dale: Rime of the Frostmaiden",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/idrotf",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/idrotf"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "121",
+      "historicalTitle": "Mythic Odysseys of Theros",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/beyond-digital/mythic-odysseys-of-theros",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/moot"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:61",
+          "providerSourceId": 61,
+          "title": "Mythic Odysseys of Theros",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/moot",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/moot"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "122",
+      "historicalTitle": "Candlekeep Mysteries",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/TTRPG/candlekeep-mysteries",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/cm"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:68",
+          "providerSourceId": 68,
+          "title": "Candlekeep Mysteries",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/cm",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/cm"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "123",
+      "historicalTitle": "Hunt for the Thessalhydra",
+      "historicalGroup": "Adventures, softcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00047",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/d-d-beyond-feedback/5743-d-d-beyond-pricing-purchase-faq-discussion"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:47",
+          "providerSourceId": 47,
+          "title": "Hunt for the Thessalhydra",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hftt",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-explicit-marketplace-sku",
+              "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00047"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "124",
+      "historicalTitle": "Curse of Strahd",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/curse-of-strahd",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/cos"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:6",
+          "providerSourceId": 6,
+          "title": "Curse of Strahd",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/cos",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/cos"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "125",
+      "historicalTitle": "Van Richten's Guide to Ravenloft",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/settings/van-richtens-guide-to-ravenloft",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/vrgtr"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:69",
+          "providerSourceId": 69,
+          "title": "Van Richten’s Guide to Ravenloft",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vrgtr",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/vrgtr"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "126",
+      "historicalTitle": "Baldur's Gate: Descent Into Avernus",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/LP-ALL-Product/baldurs-gate-descent-into-avernus",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/bgdia"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:48",
+          "providerSourceId": 48,
+          "title": "Baldur’s Gate: Descent into Avernus",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/bgdia",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/bgdia"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "127",
+      "historicalTitle": "Essentials Kit: Divine Contention",
+      "historicalGroup": "Adventures, softcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.roll20.net/browse/gameaddon/4390/dandd-essentials-kit-divine-contention",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/dc"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:52",
+          "providerSourceId": 52,
+          "title": "Divine Contention",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dc",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/dc"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "128",
+      "historicalTitle": "Ghosts of Saltmarsh",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00043",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/gos"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:43",
+          "providerSourceId": 43,
+          "title": "Ghosts of Saltmarsh",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/gos",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-explicit-marketplace-sku",
+              "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00043"
+            },
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/gos"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "129",
+      "historicalTitle": "Out of the Abyss",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00009",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/oota"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:9",
+          "providerSourceId": 9,
+          "title": "Out of the Abyss",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/oota",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-explicit-marketplace-sku",
+              "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00009"
+            },
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/oota"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "130",
+      "historicalTitle": "The Lost Dungeon of Rickedness: Big Rick Energy",
+      "historicalGroup": "Adventures, softcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.roll20.net/browse/bundle/4790/rick-and-morty-the-lost-dungeon-of-rickedness-big-rick-energy",
+        "editionEvidenceUrl": "https://wpn.wizards.com/en/products/dungeons-and-dragons-vs-rick-and-morty"
+      },
+      "relationshipStatus": "no-library-candidate",
+      "candidates": [],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "131",
+      "historicalTitle": "Essentials Kit: Sleeping Dragon's Wake",
+      "historicalGroup": "Adventures, softcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.roll20.net/browse/gameaddon/4389/essentials-kit-sleeping-dragons-wake",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/sdw"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:51",
+          "providerSourceId": 51,
+          "title": "Sleeping Dragon’s Wake",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sdw",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/sdw"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "132",
+      "historicalTitle": "Storm King's Thunder",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/storm-kings-thunder",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/skt"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:12",
+          "providerSourceId": 12,
+          "title": "Storm King's Thunder",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/skt",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/skt"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "133",
+      "historicalTitle": "Tales from the Yawning Portal",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/all-TTRPG/tales-from-the-yawning-portal",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/tftyp"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:14",
+          "providerSourceId": 14,
+          "title": "Tales from the Yawning Portal",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tftyp",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/tftyp"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "134",
+      "historicalTitle": "Waterdeep: Dragon Heist",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/adventures/waterdeep-dragon-heist",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/wdh"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:35",
+          "providerSourceId": 35,
+          "title": "Waterdeep: Dragon Heist",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wdh",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/wdh"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "135",
+      "historicalTitle": "Waterdeep: Dungeon of the Mad Mage",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/adventures/waterdeep-dungeon-of-the-mad-mage",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/wdotmm"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:36",
+          "providerSourceId": 36,
+          "title": "Waterdeep: Dungeon of the Mad Mage",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wdotmm",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/wdotmm"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "151",
+      "historicalTitle": "The Wild Beyond The Witchlight: A Feywild Adventure",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/adventures/wild-beyond-the-witchlight",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/twbtw"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:79",
+          "providerSourceId": 79,
+          "title": "The Wild Beyond the Witchlight",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/twbtw",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/twbtw"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "152",
+      "historicalTitle": "Fizban's Treasury of Dragons",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/all-rulebooks/fizbans-treasury-of-dragons",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/ftod"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:81",
+          "providerSourceId": 81,
+          "title": "Fizban's Treasury of Dragons",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ftod",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/ftod"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "153",
+      "historicalTitle": "Lost Laboratory of Kwalish",
+      "historicalGroup": "Adventurers League",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/beyond-digital/SRC-00040",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/llok"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:40",
+          "providerSourceId": 40,
+          "title": "Lost Laboratory of Kwalish",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/llok",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-explicit-marketplace-sku",
+              "evidenceUrl": "https://marketplace.dndbeyond.com/beyond-digital/SRC-00040"
+            },
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/llok"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "155",
+      "historicalTitle": "Strixhaven: A Curriculum of Chaos",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/settings/strixhaven-a-curriculum-of-chaos",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/sacoc"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:80",
+          "providerSourceId": 80,
+          "title": "Strixhaven: A Curriculum of Chaos",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sacoc",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/sacoc"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "156",
+      "historicalTitle": "Midgard Heroes Handbook",
+      "historicalGroup": "Homebrew",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "excluded-third-party",
+      "publicationEvidence": {
+        "publicationKind": "third-party-sourcebook",
+        "publisher": "Kobold Press",
+        "evidenceUrl": "https://koboldpress.com/kpstore/product/midgard-heroes-handbook-for-5th-edition-errata-sheet/"
+      },
+      "relationshipStatus": "no-library-candidate",
+      "candidates": [],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "157",
+      "historicalTitle": "Essentials Kit: Dragon of Icespire peak",
+      "historicalGroup": "Adventures, softcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://wpn.wizards.com/en/products/dungeons-and-dragons-essentials-kit",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/doip"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:41",
+          "providerSourceId": 41,
+          "title": "Dragon of Icespire Peak",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/doip",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/doip"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "158",
+      "historicalTitle": "Mordenkainen Presents: Monsters of the Multiverse",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/TTRPG/mordenkainen-presents-monsters-of-the-multiverse",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/motm"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:85",
+          "providerSourceId": 85,
+          "title": "Mordenkainen Presents: Monsters of the Multiverse",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/motm"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "159",
+      "historicalTitle": "Critical Role: Call of the Netherdeep",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/adventures/critical-role-call-of-the-netherdeep",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/cotn"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:83",
+          "providerSourceId": 83,
+          "title": "Critical Role: Call of the Netherdeep",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/cotn",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Critical Role",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/cotn"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "160",
+      "historicalTitle": "Spelljammer: Adventures in Space",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/all-rulebooks/spelljammer-adventures-in-space",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/sais"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:90",
+          "providerSourceId": 90,
+          "title": "Spelljammer: Adventures in Space",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sais",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/sais"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "161",
+      "historicalTitle": "Infernal Machine Rebuild",
+      "historicalGroup": "Adventures, softcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/adventures/SRC-00056",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/imr"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:56",
+          "providerSourceId": 56,
+          "title": "Infernal Machine Rebuild",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/imr",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-explicit-marketplace-sku",
+              "evidenceUrl": "https://marketplace.dndbeyond.com/adventures/SRC-00056"
+            },
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/imr"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "167",
+      "historicalTitle": "Essentials Kit: Storm Lord's Wrath",
+      "historicalGroup": "Adventures, softcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.roll20.net/browse/gameaddon/4388/dandd-essentials-kit-storm-lords-wrath",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/slw"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:50",
+          "providerSourceId": 50,
+          "title": "Storm Lord’s Wrath",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/slw",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/slw"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "169",
+      "historicalTitle": "Adventurers League",
+      "historicalGroup": "Adventurers League",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "needs-publication-identification",
+      "publicationEvidence": {
+        "publicationKind": "organized-play-source-group",
+        "publisher": null,
+        "evidenceUrl": "https://media.dndbeyond.com/compendium-images/ddal/reference-docs/03-2024/d%26d-adventurers-league-dungeon-masters-guide-v14.0.pdf"
+      },
+      "relationshipStatus": "no-library-candidate",
+      "candidates": [],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "171",
+      "historicalTitle": "Journeys through the Radiant Citadel",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/settings/journeys-through-the-radiant-citadel",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/jttrc"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:87",
+          "providerSourceId": 87,
+          "title": "Journeys through the Radiant Citadel",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/jttrc",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/jttrc"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "174",
+      "historicalTitle": "The Vecna Dossier",
+      "historicalGroup": "Supplements",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://www.dndbeyond.com/posts/1257-what-is-the-vecna-dossier-uncover-the-archlichs",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/posts/1257-what-is-the-vecna-dossier-uncover-the-archlichs"
+      },
+      "relationshipStatus": "title-candidates-in-evidenced-ruleset",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:91",
+          "providerSourceId": 91,
+          "title": "The Vecna Dossier",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tvd",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "179",
+      "historicalTitle": "laserllama",
+      "historicalGroup": "Homebrew",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "excluded-homebrew",
+      "publicationEvidence": {
+        "publicationKind": "author-described-homebrew",
+        "publisher": "laserllama",
+        "evidenceUrl": "https://www.patreon.com/cw/laserllama?l=de"
+      },
+      "relationshipStatus": "no-library-candidate",
+      "candidates": [],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "180",
+      "historicalTitle": "Saltmarsh Encounters",
+      "historicalGroup": "Adventurers League",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "excluded-third-party",
+      "publicationEvidence": {
+        "publicationKind": "third-party-sourcebook",
+        "publisher": "Creators under the DMs Guild Community Content Agreement",
+        "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/280324-sample.pdf"
+      },
+      "relationshipStatus": "no-library-candidate",
+      "candidates": [],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "183",
+      "historicalTitle": "Dragonlance: Shadow of the Dragon Queen",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/settings/dragonlance-shadow-of-the-dragon-queen",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/sotdq"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:95",
+          "providerSourceId": 95,
+          "title": "Dragonlance: Shadow of the Dragon Queen",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sotdq",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/sotdq"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "187",
+      "historicalTitle": "Monstrous Compendium Vol 1: Spelljammer Creatures",
+      "historicalGroup": "Supplements",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/mcv1/spelljammer-creatures",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/mcv1/spelljammer-creatures"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:89",
+          "providerSourceId": 89,
+          "title": "Monstrous Compendium Vol. 1: Spelljammer Creatures",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mcv1",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "chapter-under-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/mcv1/spelljammer-creatures"
+            },
+            {
+              "kind": "chapter-under-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/mcv1/spelljammer-creatures"
+            },
+            {
+              "kind": "volume-label-alias-candidate"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "188",
+      "historicalTitle": "Monstrous Compendium Vol 2: Dragonlance Creatures",
+      "historicalGroup": "Supplements",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/release-issues-support/158559-monstrous-compendium-volume-two-dragonlance",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/release-issues-support/158559-monstrous-compendium-volume-two-dragonlance"
+      },
+      "relationshipStatus": "title-candidates-in-evidenced-ruleset",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:101",
+          "providerSourceId": 101,
+          "title": "Monstrous Compendium Vol. 2: Dragonlance Creatures",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mcv2",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "volume-label-alias-candidate"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "189",
+      "historicalTitle": "Keys from the Golden Vault",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://wpn.wizards.com/en/products/keys-from-the-golden-vault",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/kftgv"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:103",
+          "providerSourceId": 103,
+          "title": "Keys from the Golden Vault",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/kftgv",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/kftgv"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "190",
+      "historicalTitle": "Valda's Spire of Secrets",
+      "historicalGroup": "Homebrew",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "excluded-third-party",
+      "publicationEvidence": {
+        "publicationKind": "third-party-sourcebook",
+        "publisher": "Mage Hand Press",
+        "evidenceUrl": "https://magehandpress.com/valdas/"
+      },
+      "relationshipStatus": "no-library-candidate",
+      "candidates": [],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "191",
+      "historicalTitle": "Honor among Thieves",
+      "historicalGroup": "Supplements",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/HAT000001",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/posts?page=21"
+      },
+      "relationshipStatus": "no-library-candidate",
+      "candidates": [],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "194",
+      "historicalTitle": "Misplaced Monsters: Volume One",
+      "historicalGroup": "Supplements",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00112-ELIFE",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/posts/1490-support-extra-life-with-6-unique-monsters-for-your"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:112",
+          "providerSourceId": 112,
+          "title": "Misplaced Monsters: Volume One",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mpmv1",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-explicit-marketplace-sku",
+              "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00112-ELIFE"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "197",
+      "historicalTitle": "Giants of the Star Forge",
+      "historicalGroup": "Adventures, softcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://www.dndbeyond.com/claim/source/giants-of-the-star-forge",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/release-issues-support/177292-bigby-presents-glory-of-the-giants-issues-and"
+      },
+      "relationshipStatus": "title-candidates-in-evidenced-ruleset",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:121",
+          "providerSourceId": 121,
+          "title": "Giants of the Star Forge",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/gotsf",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "198",
+      "historicalTitle": "Bigby Presents: Glory of the Giants",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/bigby-presents-glory-of-the-giants",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/gotg"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:110",
+          "providerSourceId": 110,
+          "title": "Bigby Presents: Glory of the Giants",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/gotg",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/gotg"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "199",
+      "historicalTitle": "Monstrous Compendium Vol 3: Minecraft Creatures",
+      "historicalGroup": "Supplements",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/software/Minecraft-Monstrous-Compendium.pdf",
+        "editionEvidenceUrl": "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/software/Minecraft-Monstrous-Compendium-revised.pdf"
+      },
+      "relationshipStatus": "title-candidates-in-evidenced-ruleset",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:115",
+          "providerSourceId": 115,
+          "title": "Monstrous Compendium Vol. 3: Minecraft Creatures",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mcv3",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "volume-label-alias-candidate"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "202",
+      "historicalTitle": "Phandelver and Below: The Shattered Obelisk",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://wpn.wizards.com/en/products/phandelver-and-below-the-shattered-obelisk",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/pbtso"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:113",
+          "providerSourceId": 113,
+          "title": "Phandelver and Below: The Shattered Obelisk",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/pbtso",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/pbtso"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "205",
+      "historicalTitle": "Planescape: Adventures in the Multiverse",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/settings/planescape-adventures-in-the-multiverse",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/paitm"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:114",
+          "providerSourceId": 114,
+          "title": "Planescape: Adventures in the Multiverse",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/paitm",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/paitm"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "206",
+      "historicalTitle": "Mordenkainen's Fiendish Folio Vol 1",
+      "historicalGroup": "Supplements",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00057",
+        "editionEvidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/296621-sample.pdf"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:57",
+          "providerSourceId": 57,
+          "title": "Mordenkainen's Fiendish Folio Volume 1",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mffv1",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-explicit-marketplace-sku",
+              "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00057"
+            },
+            {
+              "kind": "volume-label-alias-candidate"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "207",
+      "historicalTitle": "The Book of Many Things",
+      "historicalGroup": "Sourcebooks",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00109",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/tbomt"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:109",
+          "providerSourceId": 109,
+          "title": "The Book of Many Things",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tbomt",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-explicit-marketplace-sku",
+              "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00109"
+            },
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/tbomt"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "208",
+      "historicalTitle": "Adventure Atlas: The Mortuary",
+      "historicalGroup": "Supplements",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00125",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/posts/1598-lets-build-a-one-shot-with-adventure-atlas-the"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:125",
+          "providerSourceId": 125,
+          "title": "Adventure Atlas: The Mortuary",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/aatm",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-explicit-marketplace-sku",
+              "evidenceUrl": "https://marketplace.dndbeyond.com/category/SRC-00125"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "210",
+      "historicalTitle": "Ryoko's guide to the yokai realms",
+      "historicalGroup": "Homebrew",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "excluded-third-party",
+      "publicationEvidence": {
+        "publicationKind": "third-party-sourcebook",
+        "publisher": "Loot Tavern",
+        "evidenceUrl": "https://marketplace.roll20.net/browse/compendiumexpansion/36080/ryokos-guide-to-the-yokai-realms"
+      },
+      "relationshipStatus": "no-library-candidate",
+      "candidates": [],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "213",
+      "historicalTitle": "Descent into the Lost Caverns of Tsojcanth",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://www.dndbeyond.com/posts/1691-descent-into-the-lost-caverns-of-tsojcanth-claim",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/posts/1691-descent-into-the-lost-caverns-of-tsojcanth-claim"
+      },
+      "relationshipStatus": "title-candidates-in-evidenced-ruleset",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:136",
+          "providerSourceId": 136,
+          "title": "Descent into the Lost Caverns of Tsojcanth",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dilct",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "214",
+      "historicalTitle": "Vecna: Eve of Ruin",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://wpn.wizards.com/en/products/vecna-eve-of-ruin",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/veor"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:132",
+          "providerSourceId": 132,
+          "title": "Vecna: Eve of Ruin",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/veor",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/veor"
+            },
+            {
+              "kind": "normalized-title-only"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "218",
+      "historicalTitle": "Quest from the Infinite Staircase",
+      "historicalGroup": "Adventures, hardcovers",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://wpn.wizards.com/en/products/quests-from-the-infinite-staircase",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/qftis"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:137",
+          "providerSourceId": 137,
+          "title": "Quests from the Infinite Staircase",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/qftis",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-compendium-url",
+              "evidenceUrl": "https://www.dndbeyond.com/sources/dnd/qftis"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "219",
+      "historicalTitle": "Monstrous Compendium Vol. Four: Eldraine Creatures",
+      "historicalGroup": "Supplements",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "publicationEvidence": {
+        "publicationKind": "official-wotc-2014-publication",
+        "publisher": "Wizards of the Coast",
+        "ruleset": "5e-2014",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/all-rulebooks/SRC-00124",
+        "editionEvidenceUrl": "https://www.dndbeyond.com/posts/1574-unleash-the-magic-of-the-feywild-with-25-new"
+      },
+      "relationshipStatus": "explicit-evidence-candidates",
+      "candidates": [
+        {
+          "providerObservationId": "ddb:library-source:124",
+          "providerSourceId": 124,
+          "title": "Monstrous Compendium Vol. 4: Eldraine Creatures",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mcv4",
+          "providerRuleset": "5e",
+          "displayedPublisher": "Wizards of the Coast",
+          "providerIsThirdParty": false,
+          "reasons": [
+            {
+              "kind": "same-explicit-marketplace-sku",
+              "evidenceUrl": "https://marketplace.dndbeyond.com/all-rulebooks/SRC-00124"
+            },
+            {
+              "kind": "volume-label-alias-candidate"
+            }
+          ],
+          "preferredByEvidence": true
+        }
+      ],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "dndsuSourceId": "310",
+      "historicalTitle": "Spark of Alastas",
+      "historicalGroup": "Homebrew",
+      "originalScope": "candidate-2014",
+      "existingPolicyDisposition": "not-reviewed-by-this-audit",
+      "publicationEvidence": null,
+      "relationshipStatus": "no-library-candidate",
+      "candidates": [],
+      "accepted": false,
+      "canonicalSourceId": null,
+      "automaticSourceReplacement": false
+    }
+  ],
+  "unlinkedProvider5eNonThirdParty": [
+    {
+      "providerSourceId": 1,
+      "title": "Basic Rules (2014)",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 28,
+      "title": "The Tortle Package",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ttp",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 34,
+      "title": "Rrakkma",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ddia-mord",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 37,
+      "title": "Wayfinder's Guide to Eberron",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wgte",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 53,
+      "title": "Sage Advice Compendium (2014)",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sac",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 54,
+      "title": "Dungeons & Dragons vs. Rick and Morty",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ddvram",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 55,
+      "title": "Locathah Rising",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lr",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 60,
+      "title": "One Grung Above",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/oga",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 62,
+      "title": "Frozen Sick",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wa",
+      "providerType": "adventure",
+      "metadataBucket": "non-third-party-co-brand-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 92,
+      "title": "The Radiant Citadel",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/trc",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 93,
+      "title": "Spelljammer Academy",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sja",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 94,
+      "title": "Dragons of Stormwreck Isle",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dosi",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 100,
+      "title": "Unearthed Arcana",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ua",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 102,
+      "title": "Tyranny of Dragons",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tod",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 104,
+      "title": "Thieves’ Gallery",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tg",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 105,
+      "title": "Prisoner 13",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/p13",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 111,
+      "title": "Legendary Magic Items",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lmi",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 116,
+      "title": "Domains of Delight: A Feywild Accessory",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dod",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 122,
+      "title": "Baldur’s Gate Gazetteer",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/bgg",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 126,
+      "title": "Lightning Keep",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lke",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 128,
+      "title": "Intro to Stormwreck Isle",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/itsi",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 129,
+      "title": "Heroes’ Feast: Saving the Children’s Menu ",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hfscm",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 135,
+      "title": "Vecna: Nest of the Eldritch Eye",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vnee",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    }
+  ],
+  "limits": [
+    "Every historical source and policy is preserved; candidate links do not accept publication identities.",
+    "Other-version same-name hits remain visible even where a direct primary URL selects a2014 candidate.",
+    "No library listing does not prove exclusion or a missing catalogue entry.",
+    "Co-brand publisher labels do not override independent publication evidence.",
+    "Compilations, bundles, chapters, experimental publications and alternate channels require separate review.",
+    "No full-rule/version/reuse-rights/canonical-ID or runtime changes."
+  ],
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/dndsu-source-register.json": "109868b7dbc77b2168d4dfec77166cf9cff4c8b55b9fff9ea3ccbdbbe899a42f",
+    "catalog/numeric-source-publisher-evidence.json": "fe541d8ee8529963892e1c4a88603999cbdee71001ce41de623f3eebb226e628",
+    "catalog/numeric-source-scope-policy-2014.json": "c46db1df76294bc971e7c1582ece3cfe09cd126fcca22edf7fd2431f8379df32"
+  },
+  "generator": {
+    "path": "scripts/review-library-source-links-2014.py",
+    "sha256": "41774da26baed3e1871f9b8b97f37dac8d9b345177059b0bb7cebfbf5888ef74"
+  }
+}
