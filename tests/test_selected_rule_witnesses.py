@@ -3,6 +3,7 @@ import copy
 import hashlib
 import importlib.util
 import unittest
+import tempfile
 from pathlib import Path
 
 spec = importlib.util.spec_from_file_location("selected_rule_witnesses", Path(__file__).resolve().parents[1] / "scripts/audit-selected-rule-witnesses.py")
@@ -82,6 +83,29 @@ class SelectedRuleWitnessTests(unittest.TestCase):
         self.contract["units"].append(copy.deepcopy(self.contract["units"][0]))
         with self.assertRaisesRegex(ValueError, "Duplicate"):
             mod.audit(self.contract, self.blobs, self.pages)
+
+
+    def test_primary_source_cannot_be_overwritten_by_report(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / "source.pdf"
+            source.write_bytes(b"synthetic primary bytes")
+            with self.assertRaises(FileExistsError):
+                mod.write_new_report(source, "replacement")
+            self.assertEqual(source.read_bytes(), b"synthetic primary bytes")
+
+    def test_existing_review_report_is_preserved(self):
+        with tempfile.TemporaryDirectory() as directory:
+            report = Path(directory) / "review.json"
+            report.write_text("first evidence", encoding="utf-8")
+            with self.assertRaises(FileExistsError):
+                mod.write_new_report(report, "second evidence")
+            self.assertEqual(report.read_text(encoding="utf-8"), "first evidence")
+
+    def test_new_report_is_written_without_changing_source(self):
+        with tempfile.TemporaryDirectory() as directory:
+            report = Path(directory) / "review.json"
+            mod.write_new_report(report, '{"accepted":false}\n')
+            self.assertEqual(report.read_text(encoding="utf-8"), '{"accepted":false}\n')
 
 
 if __name__ == "__main__":

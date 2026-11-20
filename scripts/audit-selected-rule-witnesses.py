@@ -69,6 +69,12 @@ def audit(contract, sources, pages):
             "anchorCount": sum(x["anchorCount"] for x in result), "witnesses": result}
 
 
+def write_new_report(path, text):
+    # Never overwrite a primary source or an earlier review artifact.
+    with Path(path).open('x', encoding='utf-8', newline='\n') as target:
+        target.write(text)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--contract", type=Path, default=Path("catalog/rest-spellcasting-source-comparison-2014.json"))
@@ -95,7 +101,7 @@ def main():
     result = audit(contract, blobs, pages)
     text = json.dumps(result, ensure_ascii=False, indent=2) + "\n"
     if args.output:
-        args.output.write_text(text, encoding="utf-8")
+        write_new_report(args.output, text)
     else:
         print(text, end="")
 
