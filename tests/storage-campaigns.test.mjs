@@ -1,3 +1,4 @@
+import {createRequire} from 'node:module';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
@@ -1243,4 +1244,29 @@ test('manual deviations select v15 export and importing v15 retains the chosen v
  const h=harness(memory(),memory(),async(url,options)=>{calls.push(url);return response(url==='/api/export/active-v15'?file:current);});
  await h.api.boot();h.api.settings();await h.get('#export-active').onclick();assert.ok(calls.includes('/api/export/active-v15'));assert.deepEqual(h.downloads,['skaz-active-v15.json']);
  await h.get('#import-state').onchange({target:{files:[{size:1500,text:async()=>JSON.stringify(file)}]}});assert.ok(h.dialog().includes('31'));
+});
+
+
+test('unchanged agreed deviation saves unrelated stats directly but explicit agreement editor can remove it',async()=>{
+ const rules=createRequire(import.meta.url)('../client/profile-rules.js');
+ let stats={...manualStats(),abilities:{...manualStats().abilities,dex:32}};
+ stats.ruleAcknowledgements=[rules.acknowledge(rules.warnings({stats})[0],'Synthetic agreement')];
+ let current={...payload(0),characterStats:stats};const calls=[];
+ const h=harness(memory(),memory(),async(url,options)=>{if(options.method){calls.push(JSON.parse(options.body));current={...current,revision:current.revision+1,characterStats:calls.at(-1).stats};}return response(current);});
+ await h.api.boot();h.click('edit-stats');statsValues(h,{dex:'32',armorClass:'17'});
+ await h.get('#stats-form').onsubmit({preventDefault(){}});
+ assert.equal(calls.length,1);assert.equal(calls[0].stats.armorClass,17);assert.equal(calls[0].stats.ruleAcknowledgements[0].note,'Synthetic agreement');
+ assert.equal(h.dialog(),'');
+ h.click('edit-stats');statsValues(h,{dex:'32',armorClass:'17'});await h.get('#stats-agreements').onclick();
+ assert.match(h.dialog(),/Проверить характеристики/);h.get('[data-rule-agree="0"]').checked=false;
+ await h.get('#stats-warning-save').onclick();assert.equal(calls.length,2);assert.equal(calls[1].stats.abilities.dex,32);assert.deepEqual(calls[1].stats.ruleAcknowledgements,[]);
+});
+
+test('changed agreed facts still require a nonblocking warning before saving',async()=>{
+ const rules=createRequire(import.meta.url)('../client/profile-rules.js');
+ const stats={...manualStats(),abilities:{...manualStats().abilities,dex:32}};
+ stats.ruleAcknowledgements=[rules.acknowledge(rules.warnings({stats})[0],'Synthetic agreement')];
+ let calls=0;const h=harness(memory(),memory(),async(url,options)=>{if(options.method)calls++;return response({...payload(0),characterStats:stats});});
+ await h.api.boot();h.click('edit-stats');statsValues(h,{dex:'33'});await h.get('#stats-form').onsubmit({preventDefault(){}});
+ assert.equal(calls,0);assert.match(h.dialog(),/Ловкость: 33/);assert.doesNotMatch(h.dialog(),/Согласовано с мастером\.<\/p>/);
 });
