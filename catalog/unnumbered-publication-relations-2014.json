@@ -61,7 +61,8 @@
       "exactErrataVersion": "unverified",
       "textReusePermission": "not-established",
       "translationReusePermission": "not-established",
-      "scopeDecision": "awaiting-game-designer-review",
+      "historicalBibliographyScopeDecision": "awaiting-game-designer-review",
+      "currentNamedPublicationDisposition": "needs-official-rules-status-review",
       "accepted": false,
       "canonicalId": null,
       "numericSourceId": null,
@@ -89,7 +90,8 @@
       "exactErrataVersion": "unverified",
       "textReusePermission": "not-established",
       "translationReusePermission": "not-established",
-      "scopeDecision": "awaiting-game-designer-review",
+      "historicalBibliographyScopeDecision": "awaiting-game-designer-review",
+      "currentNamedPublicationDisposition": "eligible-publication-records-need-review",
       "accepted": false,
       "canonicalId": null,
       "numericSourceId": null,
@@ -117,7 +119,8 @@
       "exactErrataVersion": "unverified",
       "textReusePermission": "not-established",
       "translationReusePermission": "not-established",
-      "scopeDecision": "awaiting-game-designer-review",
+      "historicalBibliographyScopeDecision": "awaiting-game-designer-review",
+      "currentNamedPublicationDisposition": "eligible-publication-records-need-review",
       "accepted": false,
       "canonicalId": null,
       "numericSourceId": null,
@@ -141,6 +144,7 @@
     "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
     "catalog/source-bibliography-evidence.json": "f5ca4401eb4eaf8cf572163844f36dd688d55e4125230944d794dfcdaa28d3b9",
     "catalog/race-other-version-proposals-2014.json": "aec291bd0f0472dceb29e70563212b1019750cfef6e10d6b2f2aff5f3418b19a",
-    "catalog/tortle-source-plaque-2014.json": "204fbcef63f726c5f8ad0665e4d37f40334f1d53602bfc93e0b5a1fa1d21aaa7"
+    "catalog/tortle-source-plaque-2014.json": "204fbcef63f726c5f8ad0665e4d37f40334f1d53602bfc93e0b5a1fa1d21aaa7",
+    "catalog/named-race-source-policy-2014.json": "bb4196a0c51dbcd9c753b6dbc6ee098952269de2b60b160197f6a6a165bdea91"
   }
 }
