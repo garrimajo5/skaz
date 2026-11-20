@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "status": "selected-complete-unit-source-comparison-not-runtime-acceptance",
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "unitId": "wizard-arcane-recovery",
+  "scope": "whole two-paragraph selected unit including example; not whole Wizard class",
+  "sources": {
+    "digital": {
+      "requestedUrl": "https://www.dndbeyond.com/compendium/rules/basic-rules/classes",
+      "finalUrl": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/classes",
+      "status": 200,
+      "bytes": 1123584,
+      "sha256": "a08b309c589644f9faee67201dc7e0b9752be152215bce54d33d4b1ca7688c5e",
+      "capturedAt": "2026-11-20T23:36:30.780059+00:00"
+    },
+    "basic": {
+      "requestedUrl": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "finalUrl": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "status": 200,
+      "bytes": 11537210,
+      "sha256": "7a0c5d8bf52d15092f156d78418aa3d43307e271f810d2f06bf2f0258e9288a3",
+      "capturedAt": "2026-11-20T23:23:21.716585+00:00",
+      "inspectedPdfPages": [
+        33
+      ]
+    },
+    "srd": {
+      "requestedUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "finalUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "status": 200,
+      "bytes": 3158713,
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "capturedAt": "2026-11-20T23:25:29.033862+00:00",
+      "inspectedPdfPages": [
+        53
+      ]
+    }
+  },
+  "boundaries": {
+    "startHeading": "Arcane Recovery",
+    "stopHeading": "Arcane Tradition",
+    "includeBoundaryHeadings": false
+  },
+  "normalization": "NFKC, whitespace folding, ordinal+hyphen-run+literal-level repair; one visually checked fin-\nish wrap on Basic p33 only; no general letter/number/condition repair",
+  "witnesses": {
+    "digital": {
+      "rawExtractedUnitSha256": "6b8959fd3d54ce46a899ea5a07b1ee5061b6ee8a29f03480be26fae7e6acc255",
+      "normalizedUnitSha256": "6771b4f6be44dee6159f58e2053d8fcbd054c80868318c4a28eb67aba0092149",
+      "normalizedWordCount": 94,
+      "layoutNormalizations": {
+        "ordinalHyphenRepairs": 0,
+        "verifiedBasicFinishWrapRepairs": 0
+      }
+    },
+    "basic": {
+      "rawExtractedUnitSha256": "870cd1024782cec1edfccf4c7950edfabcd20b134c71596db4cf71d4046295e1",
+      "normalizedUnitSha256": "6771b4f6be44dee6159f58e2053d8fcbd054c80868318c4a28eb67aba0092149",
+      "normalizedWordCount": 94,
+      "layoutNormalizations": {
+        "ordinalHyphenRepairs": 0,
+        "verifiedBasicFinishWrapRepairs": 1
+      }
+    },
+    "srd": {
+      "rawExtractedUnitSha256": "cfa62e19a5f4486d58f8d7ced60754b2e3c97f11ce7a555cdb1a9fb5638829aa",
+      "normalizedUnitSha256": "6771b4f6be44dee6159f58e2053d8fcbd054c80868318c4a28eb67aba0092149",
+      "normalizedWordCount": 94,
+      "layoutNormalizations": {
+        "ordinalHyphenRepairs": 3,
+        "verifiedBasicFinishWrapRepairs": 0
+      }
+    }
+  },
+  "normalizedSelectedUnitTextEqual": true,
+  "ordinaryFacts": {
+    "trigger": "finish-short-rest",
+    "selectionRequired": true,
+    "spentSlotsOnly": true,
+    "ordinaryFrequencySourceWording": "once-per-day",
+    "ordinaryBudget": "ceil(wizardClassLevel/2)",
+    "ordinaryMaximumRecoverableSlotLevel": 5,
+    "budgetCountsSumOfSlotLevelsNotNumberOfSlots": true,
+    "eachShortRestAutomaticallyRefillsAllSlots": false,
+    "eachShortRestAutomaticallyResetsFrequency": false,
+    "specificDayBoundaryOrPactPoolRouting": "not-established-by-this-unit",
+    "manualDeviationAllowedWithWarning": true,
+    "ordinaryRuleIsNotAnAuthorizationOrDataIntegrityBypass": true
+  },
+  "existingManualFeature": {
+    "id": "wizard-arcane-recovery",
+    "sourcePage": 53,
+    "status": "manual",
+    "textSha256": "30583a0f0c3124a413803c2cc9445d0483dabc84df8b80e14d6c1eb8d1037673",
+    "rewritten": false,
+    "fullClassAccepted": false
+  },
+  "syntheticReviewCases": [
+    {
+      "context": "fictional Wizard4",
+      "spentSlotLevels": [
+        2
+      ],
+      "ordinaryBudget": 2,
+      "ordinaryChoiceFits": true,
+      "basis": "explicit source example"
+    },
+    {
+      "context": "fictional Wizard4",
+      "spentSlotLevels": [
+        1,
+        1
+      ],
+      "ordinaryBudget": 2,
+      "ordinaryChoiceFits": true,
+      "basis": "explicit source example"
+    },
+    {
+      "context": "fictional Wizard5/Fighter3",
+      "spentSlotLevels": [
+        3
+      ],
+      "ordinaryBudget": 3,
+      "ordinaryChoiceFits": true,
+      "basis": "wizard class level and ceiling, not total8"
+    },
+    {
+      "context": "fictional Wizard5/Fighter3",
+      "spentSlotLevels": [
+        2,
+        2
+      ],
+      "ordinaryBudget": 3,
+      "ordinaryChoiceFits": false,
+      "manualActionAllowed": true,
+      "expected": "budget warning; preserve explicit manual route"
+    },
+    {
+      "context": "fictional Wizard6 with manually granted slot6",
+      "spentSlotLevels": [
+        6
+      ],
+      "ordinaryBudget": 3,
+      "ordinaryChoiceFits": false,
+      "manualActionAllowed": true,
+      "expected": "budget and slot-level warnings; no automatic recovery"
+    }
+  ],
+  "inputSha256": {
+    "catalog/basic-rules-publication-boundary-2014.json": "581a431600b794854b840c4d1ab7f5ed210c5ddb3286cf3058905ff506cdf5b6",
+    "catalog/srd51-class-features.json": "677b7c1ba27c2bbcd865bf220ea28c5dc55f205eeeef62c6fc913dd7eccd213a"
+  },
+  "generator": {
+    "path": "scripts/audit-wizard-recovery-source-comparison-2014.py",
+    "sha256": "07a4adaa20c5db94fdca0bab34119ceb3e8835a4c43b94f64a26ae775574eda7"
+  },
+  "limits": [
+    "Equality is only this complete selected unit, not all shared classes/spells/items or global publication identity.",
+    "This confirms existing manual SRD-derived feature conditions; it does not implement rest events or a recovery command.",
+    "No claim that once-per-day means automatic reset on long rest, dawn or a particular calendar boundary.",
+    "No assumption about pool routing for Pact Magic or an unselected multiclass exception.",
+    "Existing SRD provenance is retained; matching web/PDF text does not grant site-wide reuse rights.",
+    "No full prose, private character, PDF/HTML, canonical denominator or owner acceptance exported."
+  ]
+}
