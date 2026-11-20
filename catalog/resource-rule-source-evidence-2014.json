@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "status": "selected-primary-rule-facts-awaiting-game-design-review",
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "source": {
+    "title": "System Reference Document 5.1",
+    "version": "5.1 CC PDF",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "pdfSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "pageCount": 403,
+    "usage": "cc-by-4.0",
+    "termsUrl": "https://creativecommons.org/licenses/by/4.0/legalcode",
+    "checkedOn": "2026-11-20"
+  },
+  "units": [
+    {
+      "key": "item-spell-general",
+      "printedPage": 207,
+      "headings": [
+        "Spells",
+        "Charges"
+      ],
+      "facts": {
+        "ownSpellSlotExpended": false,
+        "componentsRequiredUnlessItemSaysOtherwise": false,
+        "lowestPossibleSpellLevelUnlessItemOverrides": true,
+        "normalSpellConcentrationApplies": true,
+        "normalCastingTimeRangeDurationUnlessOverridden": true,
+        "chooseOwnSpellcastingAbilityWhenMultiple": true,
+        "withoutSpellcastingAbilityModifier": 0,
+        "withoutSpellcastingAbilityProficiencyApplies": true
+      }
+    },
+    {
+      "key": "staff-of-fire-selected",
+      "printedPage": 243,
+      "headings": [
+        "Staff of Fire"
+      ],
+      "facts": {
+        "rarity": "very rare",
+        "attunementRequired": true,
+        "attunementClasses": [
+          "druid",
+          "sorcerer",
+          "warlock",
+          "wizard"
+        ],
+        "fireResistanceWhileHolding": true,
+        "holdingRequiredForSpells": true,
+        "castingAction": "action",
+        "usesOwnSpellSaveDC": true,
+        "chargesMax": 10,
+        "spellChargeCosts": {
+          "burning-hands": 1,
+          "fireball": 3,
+          "wall-of-fire": 4
+        },
+        "regainExpendedCharges": {
+          "event": "dawn",
+          "diceCount": 1,
+          "dieSides": 6,
+          "add": 4
+        },
+        "lastChargeRisk": {
+          "dieSides": 20,
+          "destroyOnResult": 1
+        }
+      }
+    },
+    {
+      "key": "rest-general-selected",
+      "printedPage": 87,
+      "headings": [
+        "Resting",
+        "Short Rest",
+        "Long Rest"
+      ],
+      "facts": {
+        "shortRestMinimumMinutes": 60,
+        "shortRestActivity": "nothing-more-strenuous-than-eating-drinking-reading-tending-wounds",
+        "hitDieRollAddsConstitutionModifier": true,
+        "chooseAdditionalHitDieAfterEachRoll": true,
+        "longRestMinimumHours": 8,
+        "longRestLightActivityMaximumHours": 2,
+        "longRestInterruptionStrenuousHours": 1,
+        "longRestRecoversAllLostHP": true,
+        "longRestHitDiceRecoveryFraction": 0.5,
+        "longRestHitDiceMinimumRecovery": 1,
+        "longRestBenefitsPer24Hours": 1,
+        "longRestMinimumHPAtStart": 1,
+        "recoverSpentHitDiceOnly": true
+      },
+      "unresolved": [
+        "This PDF wording does not explicitly give a six-hour minimum sleep clause; PHB errata were not compared in this check.",
+        "The short-rest paragraph here does not explicitly state a minimum-zero die result; do not infer an errata ruling from this extraction.",
+        "Class/item recovery, odd-total rounding, dawn timing and personal exceptions require their own source/decision."
+      ]
+    }
+  ],
+  "syntheticCases": [
+    {
+      "id": "SOURCE-ITEM-01",
+      "given": {
+        "itemCharges": 7,
+        "costSpell": "fireball",
+        "ownSlotsUnchanged": true
+      },
+      "ordinaryExpected": {
+        "itemCharges": 4,
+        "ownSlotsUnchanged": true
+      },
+      "notAProfileValue": true
+    },
+    {
+      "id": "SOURCE-ITEM-02",
+      "given": {
+        "itemCharges": 4,
+        "event": "dawn",
+        "providedD6Result": 2
+      },
+      "ordinaryExpected": {
+        "regainedExpendedCharges": 6,
+        "itemCharges": 10
+      },
+      "notAProfileValue": true
+    },
+    {
+      "id": "SOURCE-ITEM-03",
+      "given": {
+        "lastChargeExpended": true,
+        "providedD20Result": 1
+      },
+      "ordinaryExpected": {
+        "destroyed": true
+      },
+      "notAProfileValue": true,
+      "implementationCaution": "Explicitly record the provided result and atomic state; retry must never reroll or duplicate destruction. No implementation is claimed."
+    },
+    {
+      "id": "SOURCE-REST-01",
+      "given": {
+        "hp": 11,
+        "maxHp": 30,
+        "totalHitDice": 8,
+        "spentHitDice": 6,
+        "ordinaryLongRestConditionsConfirmed": true
+      },
+      "ordinaryExpected": {
+        "hp": 30,
+        "spentHitDice": 2
+      },
+      "notAProfileValue": true
+    }
+  ],
+  "policyBoundaries": [
+    "These are selected facts from this exact PDF, not all rules of an item/class or an accepted character matrix.",
+    "Ordinary conditions are guidance; personal deviations retain explicit manual paths and optional agreement. Technical integrity, ownership and idempotency remain required.",
+    "No local profile, inventory, coverage status, catalog entry or runtime command is modified.",
+    "No computer-clock dawn/expiry, fabricated start time, implicit slot cost or class-level spell gating is inferred for item casting.",
+    "Existing attribution/terms in the project must be retained for any later SRD-derived catalog publication."
+  ]
+}
