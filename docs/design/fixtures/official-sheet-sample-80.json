@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "status": "local-fictional-layout-sample-not-ocr-acceptance",
+  "synthetic": true,
+  "accepted": false,
+  "complete": false,
+  "source": {
+    "url": "https://media.wizards.com/2016/dnd/downloads/5E_CharacterSheet_Fillable.pdf",
+    "sha256": "8e7b282db42af119c46fef696b15e7430cb1e93bd09a478780623ca1a1908a48",
+    "bytes": 355826,
+    "pages": 3,
+    "editionWitness": "2014 footer on all three pages; author rendered and inspected",
+    "redistributionPermission": "not-established; PDF retained outside Git"
+  },
+  "generatorVersions": {
+    "pypdf": "6.21.4",
+    "renderer": "pdftoppm version 26.07.0"
+  },
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
+  "inputSha256": {
+    "scripts/audit-official-sheet-layout-80.py": "f25df4225660e2ab145d713a454bca8e48346bed6568018d8f4506eef8978818",
+    "scripts/build-official-sheet-sample-80.py": "a303d9921eb9e7dca4469933110e69a519d49c2ffa6f03a94c70ea22c4e14549"
+  },
+  "artifact": {
+    "file": "official-layout-fictional.pdf",
+    "sha256": "ff7c336d888f35c7574d133bf1f8eadb14a11e6d726a0b34180fa402122a8060",
+    "bytes": 612987,
+    "pages": 3,
+    "canonicalNamedFields": 334,
+    "widgets": 336,
+    "interactive": true,
+    "redistributedInGit": false
+  },
+  "rasterPages": [
+    {
+      "file": "page-1.png",
+      "page": 1,
+      "width": 1700,
+      "height": 2200,
+      "dpi": 200,
+      "bytes": 360425,
+      "sha256": "a97f9484761122ecb693b46c554ae13e410eb1bbc34aceae025fbbc2d541cc47",
+      "derivedFromPdfSha256": "ff7c336d888f35c7574d133bf1f8eadb14a11e6d726a0b34180fa402122a8060"
+    },
+    {
+      "file": "page-2.png",
+      "page": 2,
+      "width": 1700,
+      "height": 2200,
+      "dpi": 200,
+      "bytes": 106392,
+      "sha256": "12e0e7eb839222551dfbba5efb6c4c97981db7fcfccabeb211884a4b6333bd55",
+      "derivedFromPdfSha256": "ff7c336d888f35c7574d133bf1f8eadb14a11e6d726a0b34180fa402122a8060"
+    },
+    {
+      "file": "page-3.png",
+      "page": 3,
+      "width": 1700,
+      "height": 2200,
+      "dpi": 200,
+      "bytes": 217535,
+      "sha256": "69ef8d1137e92fbe6061f8f08a43b4cef70f0f9daee22c1a65cd260aad954f6f",
+      "derivedFromPdfSha256": "ff7c336d888f35c7574d133bf1f8eadb14a11e6d726a0b34180fa402122a8060"
+    }
+  ],
+  "inputVariants": [
+    {
+      "kind": "fillable-pdf",
+      "files": [
+        "official-layout-fictional.pdf"
+      ],
+      "pages": 3
+    },
+    {
+      "kind": "png-pages",
+      "files": [
+        "page-1.png",
+        "page-2.png",
+        "page-3.png"
+      ],
+      "pages": 3
+    }
+  ],
+  "expectedPdfValues": {
+    "CharacterName": "Lyra QA",
+    "CharacterName 2": "Lyra QA",
+    "ClassLevel": "Wizard 3 / Warlock 2",
+    "DEX": "14",
+    "HPMax": "27",
+    "HPCurrent": "",
+    "HPTemp": "0",
+    "Spellcasting Class 2": "Wizard",
+    "SpellcastingAbility 2": "INT",
+    "SpellSaveDC  2": "13",
+    "SpellAtkBonus 2": "+5",
+    "SlotsTotal 19": "4",
+    "SlotsRemaining 19": "1",
+    "Spells 1014": "Mage Hand"
+  },
+  "expectedInterpretation": {
+    "selectionStatus": "unreviewed",
+    "classes": [
+      {
+        "name": "Wizard",
+        "level": 3
+      },
+      {
+        "name": "Warlock",
+        "level": 2
+      }
+    ],
+    "printedTotalLevel": null,
+    "derivedTotalLevelCandidate": 5,
+    "hp": {
+      "max": 27,
+      "current": null,
+      "temp": 0
+    },
+    "spellPageClass": "Wizard",
+    "slots": {
+      "spellLevel": 1,
+      "printedTotal": 4,
+      "printedExpended": 1,
+      "printedRemaining": null,
+      "derivedRemainingCandidate": 3,
+      "chosenRemaining": null
+    },
+    "rawSpellText": "Mage Hand",
+    "catalogId": null
+  },
+  "limits": [
+    "Only this pinned public blank template; no arbitrary user sheet is read.",
+    "Generated PDF and raster copies remain local-only; distribution rights are not established.",
+    "Canonical/widget values and appearances are checked; visual render is a separate review.",
+    "Derived candidates are not printed observations or automatic profile changes.",
+    "No OCR engine, accuracy measurement, API persistence or Ready/owner acceptance."
+  ]
+}
