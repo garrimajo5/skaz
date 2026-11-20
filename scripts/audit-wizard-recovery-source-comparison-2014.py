@@ -43,8 +43,10 @@ class WizardRuleParser(HTMLParser):
                 self.depth=1;self.containers+=1
             elif self.depth:self.depth+=1
         if not self.depth:return
+        if (self.collect and tag in ['h1','h2','h3','h4','h5','h6']
+                and not (tag=='h3' and attrs.get('id')=='ArcaneTradition')):
+            raise ValueError('Unexpected heading inside selected unit')
         if tag=='h2':
-            if self.collect:raise ValueError('Section transition inside selected unit')
             if attrs.get('id')=='Wizard':self.wizard=True;self.base_features=False
             elif attrs.get('id')=='ClassFeatures12' and self.wizard:
                 self.base_features=True;self.feature_sections+=1

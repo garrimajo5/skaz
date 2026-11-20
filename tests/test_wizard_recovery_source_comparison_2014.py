@@ -31,6 +31,11 @@ class WizardRecoverySourceTest(unittest.TestCase):
         text=html().replace('<p>Second fixture','<h2 id="Cleric">Cleric</h2><p>Second fixture')
         with self.assertRaises(ValueError):M.WizardRuleParser().result(text)
 
+    def test_unexpected_peer_or_nested_heading_cannot_join_two_different_rules(self):
+        for tag in ['h3','h4','h6']:
+            text=html().replace('<p>Second fixture',f'<{tag} id="OtherRule">Other rule</{tag}><p>Second fixture')
+            with self.subTest(tag=tag),self.assertRaises(ValueError):M.WizardRuleParser().result(text)
+
     def test_pdf_requires_unique_exact_heading_lines(self):
         text='Before\nArcane Recovery\nBody mentioning Arcane Tradition inline.\nArcane Tradition\nAfter'
         self.assertEqual(M.pdf_unit(text),'Body mentioning Arcane Tradition inline.')
