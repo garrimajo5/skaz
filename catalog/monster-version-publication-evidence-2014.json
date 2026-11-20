@@ -1,0 +1,1272 @@
+{
+  "schemaVersion": 1,
+  "status": "bestiary-publication-index-evidence-not-full-rules",
+  "checkedOn": "2026-11-20",
+  "selectedNames": [
+    "alhoon",
+    "annis hag",
+    "apprentice wizard",
+    "archdruid",
+    "archer",
+    "aurochs",
+    "babau",
+    "banderhobb",
+    "barghest",
+    "bheur hag",
+    "black guard drake",
+    "blackguard",
+    "blue guard drake",
+    "bodak",
+    "boggle",
+    "brontosaurus",
+    "catoblepas",
+    "cave fisher",
+    "champion",
+    "chitine",
+    "choldrith",
+    "cloud giant smiling one",
+    "cranium rat",
+    "darkling",
+    "darkling elder",
+    "death kiss",
+    "deep rothe",
+    "deep scion",
+    "deinonychus",
+    "devourer",
+    "dimetrodon",
+    "dolphin",
+    "draegloth",
+    "elder brain",
+    "fire giant dreadnought",
+    "firenewt warlock of imix",
+    "firenewt warrior",
+    "flail snail",
+    "flind",
+    "froghemoth",
+    "frost giant everlasting one",
+    "gauth",
+    "gazer",
+    "giant strider",
+    "girallon",
+    "gnoll flesh gnawer",
+    "gnoll hunter",
+    "gnoll witherling",
+    "green guard drake",
+    "grung",
+    "grung elite warrior",
+    "grung wildling",
+    "hadrosaurus",
+    "hobgoblin devastator",
+    "hobgoblin iron shadow",
+    "ki-rin",
+    "kobold dragonshield",
+    "kobold inventor",
+    "kobold scale sorcerer",
+    "korred",
+    "kraken priest",
+    "leucrotta",
+    "martial arts adept",
+    "master thief",
+    "maw demon",
+    "mindwitness",
+    "morkoth",
+    "mouth of grolantor",
+    "neogi",
+    "neogi hatchling",
+    "neogi master",
+    "neothelid",
+    "nilbog,goblin гоблин",
+    "ox",
+    "quetzalcoatlus",
+    "quickling",
+    "red guard drake",
+    "redcap",
+    "sea spawn",
+    "shadow mastiff",
+    "shadow mastiff alpha",
+    "shoosuva",
+    "slithering tracker",
+    "spawn of kyuss",
+    "stegosaurus",
+    "stench kow",
+    "stone giant dreamwalker",
+    "storm giant quintessent",
+    "swarm of cranium rats",
+    "swarm of rot grubs",
+    "swashbuckler",
+    "tanarukk",
+    "tlincalli",
+    "trapper",
+    "ulitharid",
+    "vargouille",
+    "vegepygmy",
+    "vegepygmy chief",
+    "velociraptor",
+    "war priest",
+    "warlock of the archfey",
+    "warlock of the fiend",
+    "warlock of the great old one",
+    "warlord",
+    "white guard drake",
+    "wood woad",
+    "xvart",
+    "xvart warlock of raxivort",
+    "yeth hound",
+    "yuan-ti anathema",
+    "yuan-ti broodguard",
+    "yuan-ti mind whisperer",
+    "yuan-ti nightmare speaker",
+    "yuan-ti pit master"
+  ],
+  "sources": [
+    {
+      "sourceId": "111",
+      "book": "vgtm",
+      "title": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/sources/dnd/vgtm",
+      "htmlSha256": "afaee9930e46efe51e83bf9e55c786979e3d8dc32d1ee1a34de39811bfcd6ab1",
+      "records": [
+        {
+          "name": "alhoon",
+          "heading": "Alhoon",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Alhoon"
+        },
+        {
+          "name": "annis hag",
+          "heading": "Annis Hag",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#AnnisHag"
+        },
+        {
+          "name": "apprentice wizard",
+          "heading": "Apprentice Wizard",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#ApprenticeWizard"
+        },
+        {
+          "name": "archdruid",
+          "heading": "Archdruid",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#Archdruid"
+        },
+        {
+          "name": "archer",
+          "heading": "Archer",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#Archer"
+        },
+        {
+          "name": "aurochs",
+          "heading": "Aurochs",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-a-assorted-beasts#Aurochs"
+        },
+        {
+          "name": "babau",
+          "heading": "Babau",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Babau"
+        },
+        {
+          "name": "banderhobb",
+          "heading": "Banderhobb",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Banderhobb"
+        },
+        {
+          "name": "barghest",
+          "heading": "Barghest",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Barghest"
+        },
+        {
+          "name": "bheur hag",
+          "heading": "Bheur Hag",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#BheurHag"
+        },
+        {
+          "name": "blackguard",
+          "heading": "Blackguard",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#Blackguard"
+        },
+        {
+          "name": "bodak",
+          "heading": "Bodak",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Bodak"
+        },
+        {
+          "name": "boggle",
+          "heading": "Boggle",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Boggle"
+        },
+        {
+          "name": "brontosaurus",
+          "heading": "Brontosaurus",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Brontosaurus"
+        },
+        {
+          "name": "catoblepas",
+          "heading": "Catoblepas",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Catoblepas"
+        },
+        {
+          "name": "cave fisher",
+          "heading": "Cave Fisher",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#CaveFisher"
+        },
+        {
+          "name": "champion",
+          "heading": "Champion",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#Champion"
+        },
+        {
+          "name": "chitine",
+          "heading": "Chitine",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Chitines"
+        },
+        {
+          "name": "choldrith",
+          "heading": "Choldrith",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Chitines"
+        },
+        {
+          "name": "cloud giant smiling one",
+          "heading": "Cloud Giant Smiling One",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#CloudGiantSmilingOne"
+        },
+        {
+          "name": "cranium rat",
+          "heading": "Cranium Rat",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#CraniumRat"
+        },
+        {
+          "name": "darkling",
+          "heading": "Darkling",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Darklings"
+        },
+        {
+          "name": "darkling elder",
+          "heading": "Darkling Elder",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Darklings"
+        },
+        {
+          "name": "death kiss",
+          "heading": "Death Kiss",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#DeathKiss"
+        },
+        {
+          "name": "deep scion",
+          "heading": "Deep Scion",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#DeepScion"
+        },
+        {
+          "name": "deinonychus",
+          "heading": "Deinonychus",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Deinonychus"
+        },
+        {
+          "name": "devourer",
+          "heading": "Devourer",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Devourer"
+        },
+        {
+          "name": "dimetrodon",
+          "heading": "Dimetrodon",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Dimetrodon"
+        },
+        {
+          "name": "dolphin",
+          "heading": "Dolphin",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-a-assorted-beasts#Dolphin"
+        },
+        {
+          "name": "draegloth",
+          "heading": "Draegloth",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Draegloth"
+        },
+        {
+          "name": "elder brain",
+          "heading": "Elder Brain",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#ElderBrain"
+        },
+        {
+          "name": "fire giant dreadnought",
+          "heading": "Fire Giant Dreadnought",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#FireGiantDreadnought"
+        },
+        {
+          "name": "firenewt warlock of imix",
+          "heading": "Firenewt Warlock of Imix",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#FirenewtWarlockofImix"
+        },
+        {
+          "name": "flail snail",
+          "heading": "Flail Snail",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#FlailSnail"
+        },
+        {
+          "name": "flind",
+          "heading": "Flind",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Flind"
+        },
+        {
+          "name": "froghemoth",
+          "heading": "Froghemoth",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Froghemoth"
+        },
+        {
+          "name": "frost giant everlasting one",
+          "heading": "Frost Giant Everlasting One",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#FrostGiantEverlastingOne"
+        },
+        {
+          "name": "gauth",
+          "heading": "Gauth",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Gauth"
+        },
+        {
+          "name": "gazer",
+          "heading": "Gazer",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Gazer"
+        },
+        {
+          "name": "giant strider",
+          "heading": "Giant Strider",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#GiantStrider"
+        },
+        {
+          "name": "girallon",
+          "heading": "Girallon",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Girallon"
+        },
+        {
+          "name": "gnoll flesh gnawer",
+          "heading": "Gnoll Flesh Gnawer",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#GnollFleshGnawer"
+        },
+        {
+          "name": "gnoll hunter",
+          "heading": "Gnoll Hunter",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#GnollHunter"
+        },
+        {
+          "name": "gnoll witherling",
+          "heading": "Gnoll Witherling",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#GnollWitherling"
+        },
+        {
+          "name": "grung",
+          "heading": "Grung",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Grung"
+        },
+        {
+          "name": "grung elite warrior",
+          "heading": "Grung Elite Warrior",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#GrungEliteWarrior"
+        },
+        {
+          "name": "grung wildling",
+          "heading": "Grung Wildling",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#GrungWildling"
+        },
+        {
+          "name": "hadrosaurus",
+          "heading": "Hadrosaurus",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Hadrosaurus"
+        },
+        {
+          "name": "hobgoblin devastator",
+          "heading": "Hobgoblin Devastator",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#HobgoblinDevastator"
+        },
+        {
+          "name": "hobgoblin iron shadow",
+          "heading": "Hobgoblin Iron Shadow",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#HobgoblinIronShadow"
+        },
+        {
+          "name": "ki-rin",
+          "heading": "Ki-Rin",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Ki-Rin"
+        },
+        {
+          "name": "kobold dragonshield",
+          "heading": "Kobold Dragonshield",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#KoboldDragonshield"
+        },
+        {
+          "name": "kobold inventor",
+          "heading": "Kobold Inventor",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#KoboldInventor"
+        },
+        {
+          "name": "kobold scale sorcerer",
+          "heading": "Kobold Scale Sorcerer",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#KoboldScaleSorcerer"
+        },
+        {
+          "name": "korred",
+          "heading": "Korred",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Korred"
+        },
+        {
+          "name": "kraken priest",
+          "heading": "Kraken Priest",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#KrakenPriest"
+        },
+        {
+          "name": "leucrotta",
+          "heading": "Leucrotta",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Leucrotta"
+        },
+        {
+          "name": "martial arts adept",
+          "heading": "Martial Arts Adept",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#MartialArtsAdept"
+        },
+        {
+          "name": "master thief",
+          "heading": "Master Thief",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#MasterThief"
+        },
+        {
+          "name": "maw demon",
+          "heading": "Maw Demon",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#MawDemon"
+        },
+        {
+          "name": "mindwitness",
+          "heading": "Mindwitness",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Mindwitness"
+        },
+        {
+          "name": "morkoth",
+          "heading": "Morkoth",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Morkoth"
+        },
+        {
+          "name": "mouth of grolantor",
+          "heading": "Mouth of Grolantor",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#MouthofGrolantor"
+        },
+        {
+          "name": "neogi",
+          "heading": "Neogi",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Neogi"
+        },
+        {
+          "name": "neogi hatchling",
+          "heading": "Neogi Hatchling",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Neogi"
+        },
+        {
+          "name": "neogi master",
+          "heading": "Neogi Master",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Neogi"
+        },
+        {
+          "name": "neothelid",
+          "heading": "Neothelid",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Neothelid"
+        },
+        {
+          "name": "quetzalcoatlus",
+          "heading": "Quetzalcoatlus",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Quetzalcoatlus"
+        },
+        {
+          "name": "quickling",
+          "heading": "Quickling",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Quickling"
+        },
+        {
+          "name": "redcap",
+          "heading": "Redcap",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Redcap"
+        },
+        {
+          "name": "sea spawn",
+          "heading": "Sea Spawn",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#SeaSpawn"
+        },
+        {
+          "name": "shadow mastiff",
+          "heading": "Shadow Mastiff",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#ShadowMastiff"
+        },
+        {
+          "name": "shoosuva",
+          "heading": "Shoosuva",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Shoosuva"
+        },
+        {
+          "name": "slithering tracker",
+          "heading": "Slithering Tracker",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#SlitheringTracker"
+        },
+        {
+          "name": "spawn of kyuss",
+          "heading": "Spawn of Kyuss",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#SpawnofKyuss"
+        },
+        {
+          "name": "stegosaurus",
+          "heading": "Stegosaurus",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Stegosaurus"
+        },
+        {
+          "name": "stone giant dreamwalker",
+          "heading": "Stone Giant Dreamwalker",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#StoneGiantDreamwalker"
+        },
+        {
+          "name": "storm giant quintessent",
+          "heading": "Storm Giant Quintessent",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#StormGiantQuintessent"
+        },
+        {
+          "name": "swarm of cranium rats",
+          "heading": "Swarm of Cranium Rats",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#SwarmofCraniumRats"
+        },
+        {
+          "name": "swarm of rot grubs",
+          "heading": "Swarm of Rot Grubs",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-a-assorted-beasts#SwarmofRotGrubs"
+        },
+        {
+          "name": "swashbuckler",
+          "heading": "Swashbuckler",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#Swashbuckler"
+        },
+        {
+          "name": "tanarukk",
+          "heading": "Tanarukk",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Tanarukk"
+        },
+        {
+          "name": "tlincalli",
+          "heading": "Tlincalli",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Tlincalli"
+        },
+        {
+          "name": "trapper",
+          "heading": "Trapper",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Trapper"
+        },
+        {
+          "name": "ulitharid",
+          "heading": "Ulitharid",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Ulitharid"
+        },
+        {
+          "name": "vargouille",
+          "heading": "Vargouille",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Vargouille"
+        },
+        {
+          "name": "vegepygmy",
+          "heading": "Vegepygmy",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Vegepygmies"
+        },
+        {
+          "name": "vegepygmy chief",
+          "heading": "Vegepygmy Chief",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Vegepygmies"
+        },
+        {
+          "name": "velociraptor",
+          "heading": "Velociraptor",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Velociraptor"
+        },
+        {
+          "name": "war priest",
+          "heading": "War Priest",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#WarPriest"
+        },
+        {
+          "name": "warlock of the archfey",
+          "heading": "Warlock of the Archfey",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#WarlockoftheArchfey"
+        },
+        {
+          "name": "warlock of the fiend",
+          "heading": "Warlock of the Fiend",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#WarlockoftheFiend"
+        },
+        {
+          "name": "warlock of the great old one",
+          "heading": "Warlock of the Great Old One",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#WarlockoftheGreatOldOne"
+        },
+        {
+          "name": "warlord",
+          "heading": "Warlord",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#Warlord"
+        },
+        {
+          "name": "wood woad",
+          "heading": "Wood Woad",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#WoodWoad"
+        },
+        {
+          "name": "xvart",
+          "heading": "Xvart",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Xvarts"
+        },
+        {
+          "name": "xvart warlock of raxivort",
+          "heading": "Xvart Warlock of Raxivort",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Xvarts"
+        },
+        {
+          "name": "yeth hound",
+          "heading": "Yeth Hound",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#YethHound"
+        },
+        {
+          "name": "yuan-ti anathema",
+          "heading": "Yuan-Ti Anathema",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Yuan-TiAnathema"
+        },
+        {
+          "name": "yuan-ti broodguard",
+          "heading": "Yuan-Ti Broodguard",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Yuan-TiBroodguard"
+        },
+        {
+          "name": "yuan-ti mind whisperer",
+          "heading": "Yuan-Ti Mind Whisperer",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Yuan-TiMindWhisperer"
+        },
+        {
+          "name": "yuan-ti nightmare speaker",
+          "heading": "Yuan-Ti Nightmare Speaker",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Yuan-TiNightmareSpeaker"
+        },
+        {
+          "name": "yuan-ti pit master",
+          "heading": "Yuan-Ti Pit Master",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#YuanTiPitMaster"
+        }
+      ],
+      "missing": [
+        {
+          "name": "black guard drake",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "blue guard drake",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "deep rothe",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "firenewt warrior",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "green guard drake",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "nilbog,goblin гоблин",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "ox",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "red guard drake",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "shadow mastiff alpha",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "stench kow",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "white guard drake",
+          "reason": "missing-index-heading"
+        }
+      ]
+    },
+    {
+      "sourceId": "158",
+      "book": "motm",
+      "title": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/sources/dnd/motm",
+      "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e",
+      "records": [
+        {
+          "name": "alhoon",
+          "heading": "Alhoon",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Alhoon"
+        },
+        {
+          "name": "annis hag",
+          "heading": "Annis Hag",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#AnnisHag"
+        },
+        {
+          "name": "apprentice wizard",
+          "heading": "Apprentice Wizard",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#ApprenticeWizard"
+        },
+        {
+          "name": "archdruid",
+          "heading": "Archdruid",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Archdruid"
+        },
+        {
+          "name": "archer",
+          "heading": "Archer",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Archer"
+        },
+        {
+          "name": "aurochs",
+          "heading": "Aurochs",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Aurochs"
+        },
+        {
+          "name": "babau",
+          "heading": "Babau",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Babau"
+        },
+        {
+          "name": "banderhobb",
+          "heading": "Banderhobb",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Banderhobb"
+        },
+        {
+          "name": "barghest",
+          "heading": "Barghest",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Barghest"
+        },
+        {
+          "name": "bheur hag",
+          "heading": "Bheur Hag",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#BheurHag"
+        },
+        {
+          "name": "blackguard",
+          "heading": "Blackguard",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Blackguard"
+        },
+        {
+          "name": "bodak",
+          "heading": "Bodak",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Bodak"
+        },
+        {
+          "name": "boggle",
+          "heading": "Boggle",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Boggle"
+        },
+        {
+          "name": "brontosaurus",
+          "heading": "Brontosaurus",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Brontosaurus"
+        },
+        {
+          "name": "catoblepas",
+          "heading": "Catoblepas",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Catoblepas"
+        },
+        {
+          "name": "cave fisher",
+          "heading": "Cave Fisher",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#CaveFisher"
+        },
+        {
+          "name": "champion",
+          "heading": "Champion",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Champion"
+        },
+        {
+          "name": "chitine",
+          "heading": "Chitine",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Chitine"
+        },
+        {
+          "name": "choldrith",
+          "heading": "Choldrith",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Choldrith"
+        },
+        {
+          "name": "cloud giant smiling one",
+          "heading": "Cloud Giant Smiling One",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#CloudGiantSmilingOne"
+        },
+        {
+          "name": "cranium rat",
+          "heading": "Cranium Rat",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#CraniumRats"
+        },
+        {
+          "name": "darkling",
+          "heading": "Darkling",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Darkling"
+        },
+        {
+          "name": "darkling elder",
+          "heading": "Darkling Elder",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#DarklingElder"
+        },
+        {
+          "name": "death kiss",
+          "heading": "Death Kiss",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#DeathKiss"
+        },
+        {
+          "name": "deep scion",
+          "heading": "Deep Scion",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#DeepScion"
+        },
+        {
+          "name": "deinonychus",
+          "heading": "Deinonychus",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Deinonychus"
+        },
+        {
+          "name": "devourer",
+          "heading": "Devourer",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Devourer"
+        },
+        {
+          "name": "dimetrodon",
+          "heading": "Dimetrodon",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Dimetrodon"
+        },
+        {
+          "name": "dolphin",
+          "heading": "Dolphin",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Dolphin"
+        },
+        {
+          "name": "draegloth",
+          "heading": "Draegloth",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Draegloth"
+        },
+        {
+          "name": "elder brain",
+          "heading": "Elder Brain",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#ElderBrain"
+        },
+        {
+          "name": "fire giant dreadnought",
+          "heading": "Fire Giant Dreadnought",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#FireGiantDreadnought"
+        },
+        {
+          "name": "firenewt warlock of imix",
+          "heading": "Firenewt Warlock of Imix",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#FirenewtWarlockofImix"
+        },
+        {
+          "name": "firenewt warrior",
+          "heading": "Firenewt Warrior",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#FirenewtWarrior"
+        },
+        {
+          "name": "flail snail",
+          "heading": "Flail Snail",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#FlailSnail"
+        },
+        {
+          "name": "flind",
+          "heading": "Flind",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#Flind"
+        },
+        {
+          "name": "froghemoth",
+          "heading": "Froghemoth",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#Froghemoth"
+        },
+        {
+          "name": "frost giant everlasting one",
+          "heading": "Frost Giant Everlasting One",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#FrostGiantEverlastingOne"
+        },
+        {
+          "name": "gauth",
+          "heading": "Gauth",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#Gauth"
+        },
+        {
+          "name": "gazer",
+          "heading": "Gazer",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#Gazer"
+        },
+        {
+          "name": "giant strider",
+          "heading": "Giant Strider",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#GiantStrider"
+        },
+        {
+          "name": "girallon",
+          "heading": "Girallon",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#Girallon"
+        },
+        {
+          "name": "gnoll flesh gnawer",
+          "heading": "Gnoll Flesh Gnawer",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#GnollFleshGnawer"
+        },
+        {
+          "name": "gnoll hunter",
+          "heading": "Gnoll Hunter",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#GnollHunter"
+        },
+        {
+          "name": "gnoll witherling",
+          "heading": "Gnoll Witherling",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#GnollWitherling"
+        },
+        {
+          "name": "grung",
+          "heading": "Grung",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#Grung"
+        },
+        {
+          "name": "grung elite warrior",
+          "heading": "Grung Elite Warrior",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#GrungEliteWarrior"
+        },
+        {
+          "name": "grung wildling",
+          "heading": "Grung Wildling",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#GrungWildling"
+        },
+        {
+          "name": "hadrosaurus",
+          "heading": "Hadrosaurus",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Hadrosaurus"
+        },
+        {
+          "name": "hobgoblin devastator",
+          "heading": "Hobgoblin Devastator",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#HobgoblinDevastator"
+        },
+        {
+          "name": "hobgoblin iron shadow",
+          "heading": "Hobgoblin Iron Shadow",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#HobgoblinIronShadow"
+        },
+        {
+          "name": "ki-rin",
+          "heading": "Ki-rin",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#Kirin"
+        },
+        {
+          "name": "kobold dragonshield",
+          "heading": "Kobold Dragonshield",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#KoboldDragonshield"
+        },
+        {
+          "name": "kobold inventor",
+          "heading": "Kobold Inventor",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#KoboldInventor"
+        },
+        {
+          "name": "kobold scale sorcerer",
+          "heading": "Kobold Scale Sorcerer",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#KoboldScaleSorcerer"
+        },
+        {
+          "name": "korred",
+          "heading": "Korred",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#Korred"
+        },
+        {
+          "name": "kraken priest",
+          "heading": "Kraken Priest",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#KrakenPriest"
+        },
+        {
+          "name": "leucrotta",
+          "heading": "Leucrotta",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#Leucrotta"
+        },
+        {
+          "name": "martial arts adept",
+          "heading": "Martial Arts Adept",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#MartialArtsAdept"
+        },
+        {
+          "name": "master thief",
+          "heading": "Master Thief",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#MasterThief"
+        },
+        {
+          "name": "maw demon",
+          "heading": "Maw Demon",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#MawDemon"
+        },
+        {
+          "name": "mindwitness",
+          "heading": "Mindwitness",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#Mindwitness"
+        },
+        {
+          "name": "morkoth",
+          "heading": "Morkoth",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#Morkoth"
+        },
+        {
+          "name": "mouth of grolantor",
+          "heading": "Mouth of Grolantor",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#MouthofGrolantor"
+        },
+        {
+          "name": "neogi",
+          "heading": "Neogi",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#Neogi"
+        },
+        {
+          "name": "neogi hatchling",
+          "heading": "Neogi Hatchling",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#NeogiHatchling"
+        },
+        {
+          "name": "neogi master",
+          "heading": "Neogi Master",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#NeogiMaster"
+        },
+        {
+          "name": "neothelid",
+          "heading": "Neothelid",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#Neothelid"
+        },
+        {
+          "name": "ox",
+          "heading": "Ox",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Ox"
+        },
+        {
+          "name": "quetzalcoatlus",
+          "heading": "Quetzalcoatlus",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Quetzalcoatlus"
+        },
+        {
+          "name": "quickling",
+          "heading": "Quickling",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#Quickling"
+        },
+        {
+          "name": "redcap",
+          "heading": "Redcap",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#Redcap"
+        },
+        {
+          "name": "sea spawn",
+          "heading": "Sea Spawn",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#SeaSpawn"
+        },
+        {
+          "name": "shadow mastiff",
+          "heading": "Shadow Mastiff",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#ShadowMastiff"
+        },
+        {
+          "name": "shadow mastiff alpha",
+          "heading": "Shadow Mastiff Alpha",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#ShadowMastiffAlpha"
+        },
+        {
+          "name": "shoosuva",
+          "heading": "Shoosuva",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#Shoosuva"
+        },
+        {
+          "name": "slithering tracker",
+          "heading": "Slithering Tracker",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#SlitheringTracker"
+        },
+        {
+          "name": "spawn of kyuss",
+          "heading": "Spawn of Kyuss",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#SpawnofKyuss"
+        },
+        {
+          "name": "stegosaurus",
+          "heading": "Stegosaurus",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Stegosaurus"
+        },
+        {
+          "name": "stench kow",
+          "heading": "Stench Kow",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#StenchKow"
+        },
+        {
+          "name": "stone giant dreamwalker",
+          "heading": "Stone Giant Dreamwalker",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#StoneGiantDreamwalker"
+        },
+        {
+          "name": "storm giant quintessent",
+          "heading": "Storm Giant Quintessent",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#StormGiantQuintessent"
+        },
+        {
+          "name": "swarm of cranium rats",
+          "heading": "Swarm of Cranium Rats",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#SwarmofCraniumRats"
+        },
+        {
+          "name": "swarm of rot grubs",
+          "heading": "Swarm of Rot Grubs",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#SwarmofRotGrubs"
+        },
+        {
+          "name": "swashbuckler",
+          "heading": "Swashbuckler",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#Swashbuckler"
+        },
+        {
+          "name": "tanarukk",
+          "heading": "Tanarukk",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#Tanarukk"
+        },
+        {
+          "name": "tlincalli",
+          "heading": "Tlincalli",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#Tlincalli"
+        },
+        {
+          "name": "trapper",
+          "heading": "Trapper",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#Trapper"
+        },
+        {
+          "name": "ulitharid",
+          "heading": "Ulitharid",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#Ulitharid"
+        },
+        {
+          "name": "vargouille",
+          "heading": "Vargouille",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#Vargouille"
+        },
+        {
+          "name": "vegepygmy",
+          "heading": "Vegepygmy",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#Vegepygmy"
+        },
+        {
+          "name": "vegepygmy chief",
+          "heading": "Vegepygmy Chief",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#VegepygmyChief"
+        },
+        {
+          "name": "velociraptor",
+          "heading": "Velociraptor",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Velociraptor"
+        },
+        {
+          "name": "war priest",
+          "heading": "War Priest",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#WarPriest"
+        },
+        {
+          "name": "warlock of the archfey",
+          "heading": "Warlock of the Archfey",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#WarlockoftheArchfey"
+        },
+        {
+          "name": "warlock of the fiend",
+          "heading": "Warlock of the Fiend",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#WarlockoftheFiend"
+        },
+        {
+          "name": "warlock of the great old one",
+          "heading": "Warlock of the Great Old One",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#WarlockoftheGreatOldOne"
+        },
+        {
+          "name": "warlord",
+          "heading": "Warlord",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#Warlord"
+        },
+        {
+          "name": "wood woad",
+          "heading": "Wood Woad",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#WoodWoad"
+        },
+        {
+          "name": "xvart",
+          "heading": "Xvart",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#Xvart"
+        },
+        {
+          "name": "xvart warlock of raxivort",
+          "heading": "Xvart Warlock of Raxivort",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#XvartWarlockofRaxivort"
+        },
+        {
+          "name": "yeth hound",
+          "heading": "Yeth Hound",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#YethHound"
+        },
+        {
+          "name": "yuan-ti anathema",
+          "heading": "Yuan-ti Anathema",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#YuantiAnathema"
+        },
+        {
+          "name": "yuan-ti broodguard",
+          "heading": "Yuan-ti Broodguard",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#YuantiBroodguard"
+        },
+        {
+          "name": "yuan-ti mind whisperer",
+          "heading": "Yuan-ti Mind Whisperer",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#YuantiMindWhisperer"
+        },
+        {
+          "name": "yuan-ti nightmare speaker",
+          "heading": "Yuan-ti Nightmare Speaker",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#YuantiNightmareSpeaker"
+        },
+        {
+          "name": "yuan-ti pit master",
+          "heading": "Yuan-ti Pit Master",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#YuantiPitMaster"
+        }
+      ],
+      "missing": [
+        {
+          "name": "black guard drake",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "blue guard drake",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "deep rothe",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "green guard drake",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "nilbog,goblin гоблин",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "red guard drake",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "white guard drake",
+          "reason": "missing-index-heading"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Exact headings establish publication presence only.",
+    "Missing or compound names remain unresolved; no automatic alias or transliteration.",
+    "No full stat blocks, exact errata version, translation or reuse permission is established."
+  ]
+}
