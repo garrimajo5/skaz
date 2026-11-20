@@ -1,0 +1,557 @@
+{
+  "schemaVersion": 1,
+  "status": "current-work-triage-not-completeness-denominator-or-policy-approval",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "preservedHistoricalSources": 70,
+    "preservedOriginalProviderResidual": 15,
+    "withReviewedBoundedKindWitness": 4,
+    "withoutBoundedKindWitness": 11,
+    "selectedCompleteRuleComparisons": 1,
+    "canonicalUnitsAccepted": 0
+  },
+  "historicalSourceIdSequence": [
+    "101",
+    "102",
+    "103",
+    "105",
+    "106",
+    "107",
+    "108",
+    "109",
+    "110",
+    "111",
+    "112",
+    "113",
+    "114",
+    "115",
+    "116",
+    "117",
+    "119",
+    "120",
+    "121",
+    "122",
+    "123",
+    "124",
+    "125",
+    "126",
+    "127",
+    "128",
+    "129",
+    "130",
+    "131",
+    "132",
+    "133",
+    "134",
+    "135",
+    "151",
+    "152",
+    "153",
+    "155",
+    "156",
+    "157",
+    "158",
+    "159",
+    "160",
+    "161",
+    "167",
+    "169",
+    "171",
+    "174",
+    "179",
+    "180",
+    "183",
+    "187",
+    "188",
+    "189",
+    "190",
+    "191",
+    "194",
+    "197",
+    "198",
+    "199",
+    "202",
+    "205",
+    "206",
+    "207",
+    "208",
+    "210",
+    "213",
+    "214",
+    "218",
+    "219",
+    "310"
+  ],
+  "records": [
+    {
+      "originalProviderReference": {
+        "providerSourceId": 1,
+        "title": "Basic Rules (2014)",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014",
+        "providerType": "sourcebook",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 1,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "independently-reviewed-bounded-witness-present",
+      "publicationKindWitness": "distinct-basic-rules-carriers-with-different-tocs",
+      "witnessPath": "catalog/basic-rules-publication-boundary-2014.json",
+      "reviewedReportSha256": "581a431600b794854b840c4d1ab7f5ed210c5ddb3286cf3058905ff506cdf5b6",
+      "independentReviewCited": {
+        "pr": 208,
+        "head": "ad5fe49630f26852fb8bae700f16cae32929ba1a",
+        "review": "https://github.com/garrimajo5/skaz/pull/208#issuecomment-7053222317",
+        "reviewedScope": "three artifact identities, PDF1-2/TOC, legal and12SRD headings only"
+      },
+      "doNotRepeat": "PDF4classes/14chapters/3appendices versus digital12/15/4; SRD name match is not global text identity",
+      "remainingCriteria": [
+        "carrier/version and canonical-unit decision",
+        "other full shared rules and source-specific differences",
+        "publication/translation rights"
+      ],
+      "additionalSelectedRuleComparison": {
+        "path": "catalog/wizard-recovery-source-comparison-2014.json",
+        "sha256": "0b62cc3ae12d944811eabbaf69ec8693eb180a46120057084e61358a696df5c4",
+        "pr": 210,
+        "head": "111f21b3cdc6f0c5be9ca6ca137541d3f5c6d621",
+        "review": "https://github.com/garrimajo5/skaz/pull/210#issuecomment-7053517446",
+        "scope": "one complete94-word unit across3carriers; final boundary delta retested, not a fresh full-source download",
+        "unitId": "wizard-arcane-recovery",
+        "acceptedForRuntime": false
+      }
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 34,
+        "title": "Rrakkma",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ddia-mord",
+        "providerType": "adventure",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 34,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "remainingCriteria": [
+        "primary publication kind/parent/version evidence",
+        "canonical units, full record provenance and rights"
+      ]
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 37,
+        "title": "Wayfinder's Guide to Eberron",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wgte",
+        "providerType": "sourcebook",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 37,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "remainingCriteria": [
+        "primary publication kind/parent/version evidence",
+        "canonical units, full record provenance and rights"
+      ]
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 53,
+        "title": "Sage Advice Compendium (2014)",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sac",
+        "providerType": "sourcebook",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 53,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "independently-reviewed-bounded-witness-present",
+      "publicationKindWitness": "original-5e-rules-clarification-reference",
+      "witnessPath": "catalog/sage-advice-publication-boundary-2014.json",
+      "reviewedReportSha256": "d1ffcbfb426aaedef84f083d639603b2f0a37e4d60579da5d69b105b8861fde6",
+      "independentReviewCited": {
+        "pr": 206,
+        "head": "061c33010c0db1997c71ba391d74e6fde532c28e",
+        "review": "https://github.com/garrimajo5/skaz/pull/206#issuecomment-7052955503",
+        "reviewedScope": "first-page bibliography/authority boundaries only; not all23pages"
+      },
+      "doNotRepeat": "PDFv2.7 copyright2021 versus URLdirectory2020; DM adjudication retained",
+      "remainingCriteria": [
+        "full answers versus catalogue rule units",
+        "exact digital/PDF answer versions",
+        "publication/translation rights"
+      ]
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 62,
+        "title": "Frozen Sick",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wa",
+        "providerType": "adventure",
+        "metadataBucket": "non-third-party-co-brand-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 62,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "independently-reviewed-bounded-witness-present",
+      "publicationKindWitness": "adventure-chapter-with-separate-public-distribution",
+      "witnessPath": "catalog/frozen-sick-publication-component-2014.json",
+      "reviewedReportSha256": "6232b75208a501d5437b8c2fd70595eaf5b09c9f3c0b76171e211d7dc625c625",
+      "independentReviewCited": {
+        "pr": 211,
+        "head": "5cb56a4c41acf6034500b2e024af1fd8445d2e32",
+        "review": "https://github.com/garrimajo5/skaz/pull/211#issuecomment-7053584544",
+        "reviewedScope": "publisher paragraph, parent TOC, public child canonical/h1; no full adventure"
+      },
+      "doNotRepeat": "provider62 to59 and historicalparent116; CriticalRole display versus existing WotC publication evidence",
+      "remainingCriteria": [
+        "independent child scope/version and full-record provenance",
+        "comparison to original parent chapter and canonical units",
+        "publication/translation rights"
+      ]
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 92,
+        "title": "The Radiant Citadel",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/trc",
+        "providerType": "adventure",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 92,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "remainingCriteria": [
+        "primary publication kind/parent/version evidence",
+        "canonical units, full record provenance and rights"
+      ]
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 93,
+        "title": "Spelljammer Academy",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sja",
+        "providerType": "adventure",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 93,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "remainingCriteria": [
+        "primary publication kind/parent/version evidence",
+        "canonical units, full record provenance and rights"
+      ]
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 94,
+        "title": "Dragons of Stormwreck Isle",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dosi",
+        "providerType": "adventure",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 94,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "remainingCriteria": [
+        "primary publication kind/parent/version evidence",
+        "canonical units, full record provenance and rights"
+      ]
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 105,
+        "title": "Prisoner 13",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/p13",
+        "providerType": "adventure",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 105,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "independently-reviewed-bounded-witness-present",
+      "publicationKindWitness": "adventure-component-with-separate-distribution-entry",
+      "witnessPath": "catalog/prisoner13-publication-component-2014.json",
+      "reviewedReportSha256": "c93eea64905079fb4b06610e6e008504577f90cf816b78ecabf91c4c58ec5321",
+      "independentReviewCited": {
+        "pr": 209,
+        "head": "f76e940a67b51f4841649b9effc9bb8ef67a08a8",
+        "review": "https://github.com/garrimajo5/skaz/pull/209#issuecomment-7053308663",
+        "reviewedScope": "publisher paragraph, parent TOC and anonymous redirect only; no standalone full text"
+      },
+      "doNotRepeat": "provider105 to103 and historicalparent189; adventure versus same-name statblock; claim landing is not full text",
+      "remainingCriteria": [
+        "lawful standalone access for exact text/version comparison",
+        "adventure versus creature canonical units and provenance",
+        "publication/translation rights"
+      ]
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 116,
+        "title": "Domains of Delight: A Feywild Accessory",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dod",
+        "providerType": "sourcebook",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 116,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "remainingCriteria": [
+        "primary publication kind/parent/version evidence",
+        "canonical units, full record provenance and rights"
+      ]
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 122,
+        "title": "Baldur’s Gate Gazetteer",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/bgg",
+        "providerType": "sourcebook",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 122,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "remainingCriteria": [
+        "primary publication kind/parent/version evidence",
+        "canonical units, full record provenance and rights"
+      ]
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 126,
+        "title": "Lightning Keep",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lke",
+        "providerType": "adventure",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 126,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "remainingCriteria": [
+        "primary publication kind/parent/version evidence",
+        "canonical units, full record provenance and rights"
+      ]
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 128,
+        "title": "Intro to Stormwreck Isle",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/itsi",
+        "providerType": "adventure",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 128,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "remainingCriteria": [
+        "primary publication kind/parent/version evidence",
+        "canonical units, full record provenance and rights"
+      ]
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 129,
+        "title": "Heroes’ Feast: Saving the Children’s Menu ",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hfscm",
+        "providerType": "adventure",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 129,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "remainingCriteria": [
+        "primary publication kind/parent/version evidence",
+        "canonical units, full record provenance and rights"
+      ]
+    },
+    {
+      "originalProviderReference": {
+        "providerSourceId": 135,
+        "title": "Vecna: Nest of the Eldritch Eye",
+        "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vnee",
+        "providerType": "adventure",
+        "metadataBucket": "wotc-labelled-provider-5e",
+        "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+      },
+      "providerSourceId": 135,
+      "canonicalUnitAccepted": false,
+      "missingPublicationProven": false,
+      "automaticSourceReplacement": false,
+      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "remainingCriteria": [
+        "primary publication kind/parent/version evidence",
+        "canonical units, full record provenance and rights"
+      ]
+    }
+  ],
+  "primaryKindWorkQueue": [
+    {
+      "providerSourceId": 34,
+      "title": "Rrakkma",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ddia-mord"
+    },
+    {
+      "providerSourceId": 37,
+      "title": "Wayfinder's Guide to Eberron",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wgte"
+    },
+    {
+      "providerSourceId": 92,
+      "title": "The Radiant Citadel",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/trc"
+    },
+    {
+      "providerSourceId": 93,
+      "title": "Spelljammer Academy",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sja"
+    },
+    {
+      "providerSourceId": 94,
+      "title": "Dragons of Stormwreck Isle",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dosi"
+    },
+    {
+      "providerSourceId": 116,
+      "title": "Domains of Delight: A Feywild Accessory",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dod"
+    },
+    {
+      "providerSourceId": 122,
+      "title": "Baldur’s Gate Gazetteer",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/bgg"
+    },
+    {
+      "providerSourceId": 126,
+      "title": "Lightning Keep",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lke"
+    },
+    {
+      "providerSourceId": 128,
+      "title": "Intro to Stormwreck Isle",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/itsi"
+    },
+    {
+      "providerSourceId": 129,
+      "title": "Heroes’ Feast: Saving the Children’s Menu ",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hfscm"
+    },
+    {
+      "providerSourceId": 135,
+      "title": "Vecna: Nest of the Eldritch Eye",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vnee"
+    }
+  ],
+  "nextUntriagedProviderSourceId": 34,
+  "unlinkedHistoricalRowsPreserved": [
+    {
+      "dndsuSourceId": "156",
+      "historicalTitle": "Midgard Heroes Handbook",
+      "existingPolicyDisposition": "excluded-third-party",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "169",
+      "historicalTitle": "Adventurers League",
+      "existingPolicyDisposition": "needs-publication-identification",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "179",
+      "historicalTitle": "laserllama",
+      "existingPolicyDisposition": "excluded-homebrew",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "180",
+      "historicalTitle": "Saltmarsh Encounters",
+      "existingPolicyDisposition": "excluded-third-party",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "190",
+      "historicalTitle": "Valda's Spire of Secrets",
+      "existingPolicyDisposition": "excluded-third-party",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "210",
+      "historicalTitle": "Ryoko's guide to the yokai realms",
+      "existingPolicyDisposition": "excluded-third-party",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "310",
+      "historicalTitle": "Spark of Alastas",
+      "existingPolicyDisposition": "not-reviewed-by-this-audit",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    }
+  ],
+  "inputSha256": {
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe",
+    "catalog/basic-rules-publication-boundary-2014.json": "581a431600b794854b840c4d1ab7f5ed210c5ddb3286cf3058905ff506cdf5b6",
+    "catalog/sage-advice-publication-boundary-2014.json": "d1ffcbfb426aaedef84f083d639603b2f0a37e4d60579da5d69b105b8861fde6",
+    "catalog/frozen-sick-publication-component-2014.json": "6232b75208a501d5437b8c2fd70595eaf5b09c9f3c0b76171e211d7dc625c625",
+    "catalog/prisoner13-publication-component-2014.json": "c93eea64905079fb4b06610e6e008504577f90cf816b78ecabf91c4c58ec5321",
+    "catalog/wizard-recovery-source-comparison-2014.json": "0b62cc3ae12d944811eabbaf69ec8693eb180a46120057084e61358a696df5c4"
+  },
+  "generator": {
+    "path": "scripts/review-d05-current-triage-2014.py",
+    "sha256": "6e1f5387a1db3992ff9e3a5cb7102bf4cda812f41796d04cba279f0ea3ba89c7"
+  },
+  "limits": [
+    "4+11 partitions15 work references, not the game catalogue or count of missing publications.",
+    "A reviewed bounded witness does not close its remaining full-text/version/scope/rights/canonical-unit criteria.",
+    "Current work is separate from original15-row/70-source observations; no input or policy is mutated.",
+    "Review citations are pinned to the checked report and exact PR head; changed evidence needs new review.",
+    "The selected Wizard rule is neither a fifth publication witness nor working runtime automation.",
+    "Owner milestones, private matrix, application/VPS state and catalogue denominator remain unchanged."
+  ]
+}
