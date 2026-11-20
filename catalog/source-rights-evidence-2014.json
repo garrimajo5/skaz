@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-20",
+  "status": "primary-source-evidence-not-publication-clearance",
+  "rulesetTarget": "D&D 5e 2014",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "srd51": {
+    "id": "srd51-english-cc",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "location": "PDF page 1, Legal Information",
+    "license": "CC-BY-4.0",
+    "scope": "SRD 5.1 English document",
+    "pageCount": 403,
+    "claim": "The identified SRD document is offered under CC BY 4.0 with a specified attribution statement. This is not a grant for every WotC publication.",
+    "method": "primary PDF legal page read through web tool; no full-text comparison of bundled records"
+  },
+  "edition": {
+    "url": "https://www.dndbeyond.com/srd",
+    "location": "SRD version comparison and SRD 5.1 section",
+    "claim": "The publisher distinguishes SRD 5.1 (5e) from SRD 5.2 (5.5e). The current page heading does not change the edition of the linked 5.1 document."
+  },
+  "licenseConditions": {
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "location": "Terms and Notices; summary links to legal code",
+    "legalCodeUrl": "https://creativecommons.org/licenses/by/4.0/legalcode",
+    "claim": "Redistribution and adaptation require attribution, a license link and indication of changes; additional restrictions on the licensed freedoms are not permitted. Other rights may still need consideration.",
+    "verification": "deed read; not a full legal review"
+  },
+  "boundaries": [
+    "A matching title, publisher or source ID does not prove a record is derived from the licensed SRD passage.",
+    "The bundled Russian changes notice is a provenance declaration, not independently verified authorship or translation permission.",
+    "No evidence here grants permission to copy dnd.su translations or full non-SRD books.",
+    "A missing permission finding means not established, not a finding that use is unlawful.",
+    "Source eligibility, textual reuse, translated wording, structured fields, automation and artwork require distinct evidence.",
+    "No production publishing decision, project acceptance or catalog denominator is set by this evidence."
+  ]
+}
