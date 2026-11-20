@@ -5,7 +5,7 @@ const stats=()=>({...structuredClone(templateStats),abilities:{str:1,dex:30,con:
 const command=(s,value=stats())=>({mutationId:randomUUID(),expectedRevision:s.read().revision,characterId:s.read().context.characterId,stats:value});
 test('manual stats validate canonical numbers and never accept derived fields or 2024 metadata',()=>{
  assert.deepEqual(validateCharacterStats(stats()),stats());
- for(const change of [s=>s.abilities.str=0,s=>s.abilities.dex=31,s=>s.abilities.con=1.5,s=>s.armorClass=101,s=>s.initiative=-21,s=>s.speed=-1,s=>s.speed='30',s=>s.level=20,s=>s.ruleset='5e-2024',s=>s.abilities.modifier=3,s=>delete s.abilities.int]){const value=stats();change(value);assert.throws(()=>validateCharacterStats(value),{status:422});}
+ for(const change of [s=>s.abilities.str=0,s=>s.abilities.dex=Number.MAX_SAFE_INTEGER+1,s=>s.abilities.con=1.5,s=>s.armorClass=101,s=>s.initiative=-21,s=>s.speed=-1,s=>s.speed='30',s=>s.level=20,s=>s.ruleset='5e-2024',s=>s.abilities.modifier=3,s=>delete s.abilities.int]){const value=stats();change(value);assert.throws(()=>validateCharacterStats(value),{status:422});}
 });
 test('stats persist apart from legacy state, isolate heroes and replay once with global conflicts',()=>{
  const file=join(mkdtempSync(join(tmpdir(),'skaz-stats-')),'db.sqlite');let s=openStore(file);

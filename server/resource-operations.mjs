@@ -23,7 +23,7 @@ export function validateResourceCommand(input){
  if(r.kind==='counter'&&!id(r.counterId))fail('Неверный счётчик');
  if(r.kind==='charges'&&(typeof r.catalogId!=='string'||!/^[a-z0-9][a-z0-9:._-]{2,119}$/.test(r.catalogId)||!Number.isSafeInteger(r.unit)||r.unit<0||r.unit>998))fail('Неверный экземпляр предмета');
  if(!Number.isSafeInteger(input.delta)||(!input.delta&&!(r.kind==='health'&&r.operation==='temporary'))||Math.abs(input.delta)>10000)fail('Нужно ненулевое целое приращение до 10000');
- if(!Number.isSafeInteger(input.maximum)||input.maximum<0||input.maximum>10000||!Number.isSafeInteger(input.before)||input.before<0||input.before>input.maximum)fail('Неверный ожидаемый остаток');
+ if(!Number.isSafeInteger(input.maximum)||input.maximum<0||input.maximum>10000||!Number.isSafeInteger(input.before)||input.before<0||input.before>((r.kind==='counter'||r.kind==='cast'&&(r.operation==='restore'?r.receipt?.cost:r.command?.cost)?.kind==='counter')?9999:input.maximum))fail('Неверный ожидаемый остаток');
  return {context:{campaignId:input.context.campaignId,characterId:input.context.characterId,sessionId:input.context.sessionId},resource:Object.fromEntries(keys.map(k=>[k,r[k]])),delta:input.delta,before:input.before,maximum:input.maximum,...(input.targetMutationId?{targetMutationId:input.targetMutationId}:{})};
 }
 export function resourceBalance(db,current,resource){
@@ -56,7 +56,7 @@ export function applyResourceCommand(db,current,payload,mutationId,writeState){
  let after=balance.value+payload.delta,health;
  if(payload.resource.kind==='health'){try{health=Health.project(current.state.hp,current.state.maxHp,current.state.tempHp||0,payload.resource,payload.delta,current.state.concentration,current.state.concentrationChecks||[],mutationId,Health.deathState(current.state.hp,current.state.deathSaves));}catch(error){throw new AppError(409,error.message);}after=health.hp;}
  if(payload.resource.kind==='hp')after=Math.max(0,Math.min(balance.maximum,after));
- else if(!health&&(after<0||after>balance.maximum))throw new AppError(409,'Приращение выходит за пределы ресурса');
+ else if(!health&&(!Number.isSafeInteger(after)||after<0||after>(payload.resource.kind==='counter'?9999:balance.maximum)))throw new AppError(409,'Приращение выходит за пределы ресурса');
  const next=structuredClone(current.state),r=payload.resource;
  if(r.kind==='counter'){
   const sheet=readCharacterSheet(db,current.context.characterId);sheet.counters.find(c=>c.id===r.counterId).current=after;

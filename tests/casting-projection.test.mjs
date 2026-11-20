@@ -67,3 +67,15 @@ test('browser and server project the same ordered serializable casts after a sav
  // This verifies projection only, not durable server receipts or transport.
  assert.throws(()=>Casting.project(fixture(),saved[1]));
 });
+
+
+test('manual counter excess can cast and restore without negative balance or stale agreement revival',()=>{
+ const s=fixture();s.characterSheet={counters:[{id:'counter-manual',name:'Synthetic',current:8,max:7}],ruleAcknowledgements:[{key:'counter:counter-manual',facts:'old',note:'old'}]};
+ const command=Casting.prepare(s,'spell:instant',{kind:'counter',counterId:'counter-manual',level:1});
+ const result=Casting.project(s,command);assert.equal(result.snapshot.characterSheet.counters[0].current,7);
+ assert.deepEqual(result.snapshot.characterSheet.ruleAcknowledgements,[]);
+ assert.equal(Casting.restore(result.snapshot,result.receipt).characterSheet.counters[0].current,8);
+ assert.equal(s.characterSheet.counters[0].current,8);
+ const empty=fixture();empty.characterSheet={counters:[{id:'counter-manual',name:'Synthetic',current:0,max:7}]};
+ assert.throws(()=>Casting.prepare(empty,'spell:instant',{kind:'counter',counterId:'counter-manual',level:1}));
+});
