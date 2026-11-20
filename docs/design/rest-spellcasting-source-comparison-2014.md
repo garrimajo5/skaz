@@ -10,7 +10,7 @@
 | --- | --- | --- |
 | [PHB Errata v3.0, 2021](https://media.wizards.com/2021/dnd/downloads/PH-Errata.pdf) | PDF 2 и 4: Wizard, Resting, Short/Long Rest | Исправленные фрагменты, не весь PHB или подкласс. Разрешение читать документ не является разрешением переиздать полный PDF. |
 | [SRD 5.1 CC](https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf) | 53/54: волшебник и базовое копирование; 57/58: мультикласс; 238: Robe of Eyes | SRD не содержит изобретателя. Предыдущие частичные проверки подготовки/ритуалов не объявляются новой полной приёмкой. Атрибуция CC BY 4.0 сохраняется. |
-| [Basic Rules 2018 v1.0](https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf) | PDF 5, печатная 4: общее округление | Общее правило действует, когда нет отдельного исключения. Полный PDF не публикуется. |
+| [Basic Rules 2018 v1.0](https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf) | PDF 5, печатная 5: общее округление | Общее правило действует, когда нет отдельного исключения. Полный PDF не публикуется. |
 
 `python scripts/audit-selected-rule-witnesses.py --srd <SRD51.pdf> --ph-errata <PH-Errata.pdf> --basic-rules <BasicRules2018.pdf>`
 
