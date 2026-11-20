@@ -119,3 +119,19 @@ test('manual excess survives queued retry and stale acknowledgement clears in bo
   assert.deepEqual(plain(restored.snapshot.characterSheet),saved.characterSheet);
  }finally{s.close();}
 });
+
+test('queued addressed undo restores a manual excess after reload and exact retries',()=>{
+ const s=openStore(':memory:'),storage=memory();
+ try{
+  const current=s.read();
+  s.saveCharacterSheet({mutationId:randomUUID(),expectedRevision:current.revision,characterId:current.context.characterId,sheet:{ruleset:'5e-2014',ancestry:'',className:'Synthetic',subclass:'',level:2,counters:[{id:'counter-synthetic',name:'Synthetic',current:8,max:7}]}});
+  let q=new Queue(storage,'manual-undo');q.resetBaseline(s.read());
+  const spend=q.enqueue({kind:'counter',counterId:'counter-synthetic'},-1,randomUUID());
+  const inverse=q.enqueueUndo(spend.mutationId,randomUUID());
+  assert.equal(inverse.delta,1);assert.equal(q.snapshot.characterSheet.counters[0].current,8);
+  q=new Queue(storage,'manual-undo');
+  while(q.length){const head=plain(q.head);s.changeResource(head);q.acknowledge(head,s.changeResource(head));}
+  assert.equal(s.read().characterSheet.counters[0].current,8);assert.equal(q.length,0);
+  assert.equal(s.history().find(r=>r.mutationId===spend.mutationId).canUndo,false);
+ }finally{s.close();}
+});

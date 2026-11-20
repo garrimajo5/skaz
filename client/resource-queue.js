@@ -77,7 +77,7 @@ const SkazResourceQueue = (() => {
    }
    const after=target.resource.kind==='hp'?Math.max(0,Math.min(target.maximum,target.before+target.delta)):target.before+target.delta;
    const delta=target.before-after,b=balance(this.snapshot,target.resource);
-   if(!delta||!b||b.maximum!==target.maximum||b.value+delta<0||b.value+delta>b.maximum)throw new Error('Отмена выйдет за границы ресурса');
+   if(!delta||!b||b.maximum!==target.maximum||b.value+delta<0||b.value+delta>(target.resource.kind==='counter'?9999:b.maximum))throw new Error('Отмена выйдет за границы ресурса');
    return {resource:clone(target.resource),delta};
   }
   enqueueUndo(targetId,mutationId){const inverse=this.undoInfo(targetId);return this.enqueue(inverse.resource,inverse.delta,mutationId,targetId);}
