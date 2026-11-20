@@ -23,7 +23,11 @@ def extract_bodies(pages, index):
     for entry in index:
         level = entry['level']
         ordinal = {1: '1st', 2: '2nd', 3: '3rd'}.get(level, str(level)+'th')
-        school = re.escape(entry['school'])
+        # These two school names are split across PDF text runs in the pinned
+        # source (Goodberry and Harm). Match only the observed metadata splits;
+        # leave extracted source text, spell names and other words unchanged.
+        school = {'transmutation': r'transmutatio\s*n',
+                  'necromancy': r'necromanc\s*y'}.get(entry['school'], re.escape(entry['school']))
         metadata = school + r'\s+cantrip' if level == 0 else ordinal + r'\W*level\s+' + school
         pattern = re.escape(normalize(entry['nameEn'])) + r'\s+' + metadata + r'\s*(?:\(ritual\)\s*)?Casting Time:'
         matches = list(re.finditer(pattern, text, re.I))
