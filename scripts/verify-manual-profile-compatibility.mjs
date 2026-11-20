@@ -77,9 +77,27 @@ export async function verifyManualProfileCompatibility(candidateOpenStore) {
   candidate.undoResource(command(candidate,{targetMutationId:next.mutationId,characterId:created.characterId}));
   assert.equal(candidate.read().characterSheet.counters[0].current,8);
   assert.deepEqual(candidate.read().characterStats,expected.characterStats);
+  const revisedStats=structuredClone(expected.characterStats);
+  revisedStats.armorClass=18;
+  const revisedCommand=command(candidate,{characterId:expected.context.characterId,stats:revisedStats});
+  candidate.saveCharacterStats(revisedCommand);
+  assert.deepEqual(candidate.read().characterStats,revisedStats,'Candidate could not save a fresh profile edit');
+  const revisedHistory=candidate.history();
+  candidate.close();candidate=null;
+  candidate=candidateOpenStore(restored);
+  assert.deepEqual(candidate.read().characterStats,revisedStats,'Candidate restart lost the fresh profile edit');
+  assert.deepEqual(candidate.history(),revisedHistory,'Candidate restart changed history');
+  assert.equal(candidate.saveCharacterStats(revisedCommand).replayed,true,'Fresh edit receipt lost after restart');
+  assert.deepEqual(candidate.history(),revisedHistory,'Fresh edit replay duplicated history');
+  candidate.close();candidate=null;
+  // Re-enter the forward version after the fallback has written to the same restored copy.
+  candidate=openStore(restored);
+  assert.deepEqual(candidate.read().characterStats,revisedStats,'Forward reader lost fallback profile changes');
+  assert.deepEqual(candidate.history(),revisedHistory,'Forward reader changed fallback history');
+  assert.equal(candidate.saveCharacterStats(revisedCommand).replayed,true,'Forward reader lost fallback receipt');
   assert.equal(await digest(source),originalDigest,'Synthetic original modified');
   assert.equal(await digest(backup),backupDigest,'Backup modified');
-  return {verified:true,syntheticOnly:true,restoredRead:true,receiptsPreserved:true,transferVersion:15,spendUndo:true,accessIsolation:true,sourceModified:false,backupModified:false,releaseApproved:false};
+  return {verified:true,syntheticOnly:true,restoredRead:true,receiptsPreserved:true,transferVersion:15,spendUndo:true,accessIsolation:true,freshWriteRestart:true,forwardReentry:true,sourceModified:false,backupModified:false,releaseApproved:false};
  }finally{
   target?.close();candidate?.close();original?.close();
   const resolved=resolve(directory);if(!resolved.startsWith(tempRoot+sep)||!resolved.split(sep).at(-1).startsWith('skaz-manual-compat-'))throw Error('Unsafe cleanup target');

@@ -5,7 +5,7 @@ import {verifyManualProfileCompatibility} from '../scripts/verify-manual-profile
 
 test('synthetic backup/restore preserves advisory data, receipts and transfer in compatible reader',async()=>{
  const result=await verifyManualProfileCompatibility(openStore);
- assert.equal(result.verified,true);assert.equal(result.releaseApproved,false);assert.equal(result.sourceModified,false);assert.equal(result.backupModified,false);
+ assert.equal(result.freshWriteRestart,true);assert.equal(result.forwardReentry,true);assert.equal(result.verified,true);assert.equal(result.releaseApproved,false);assert.equal(result.sourceModified,false);assert.equal(result.backupModified,false);
 });
 test('compatibility gate rejects a reader that loses rule agreements',async()=>{
  await assert.rejects(verifyManualProfileCompatibility(file=>{
@@ -22,4 +22,19 @@ test('compatibility gate rejects a reader whose transfer silently drops agreemen
   const store=openStore(file),exportActive=store.exportActive;
   return {...store,exportActive(version){const result=exportActive(version);if(result.characterStats)delete result.characterStats.ruleAcknowledgements;return result;}};
  }),/Transfer changed after restore/);
+});
+
+test('compatibility gate rejects a candidate that accepts replay but drops fresh edits',async()=>{
+ await assert.rejects(verifyManualProfileCompatibility(file=>{
+  const store=openStore(file),saveCharacterStats=store.saveCharacterStats;
+  return {...store,saveCharacterStats(input){if(input.stats?.armorClass===18)return {replayed:false};return saveCharacterStats(input);}};
+ }),/Candidate could not save a fresh profile edit/);
+});
+test('compatibility gate rejects a candidate that loses fresh edits on restart',async()=>{
+ let diskOpens=0;
+ await assert.rejects(verifyManualProfileCompatibility(file=>{
+  const reopened=file!==':memory:'&&++diskOpens>1;
+  const store=openStore(file),read=store.read;
+  return {...store,read(){const view=read();if(reopened&&view.characterStats?.armorClass===18)view.characterStats.armorClass=17;return view;}};
+ }),/Candidate restart lost the fresh profile edit/);
 });
