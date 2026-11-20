@@ -6346,3 +6346,10 @@ Runtime52731fd опубликован: Linux1322/1322,check/build, новый р
 - РевьюPR210 выявилоP2 staleWizard-context. Два воспроизведённых красных теста исправлены явной границей Wizard/ClassFeatures12 и отказом на сменеh2внутриunit; итог13Python. Текущий94-словный фрагмент не менялся; повторное независимое ревью исправленногоexacthead обязательно.
 
 - Дополнительный авторский red→green: посторонниеh3/h4/h6 внутриunit больше не склеивают разные правила;14Python/реальнаярепродукцияPASS. Новыйexacthead повторно передаётся наread-only review.
+
+
+### 21.11 — D05 #77: FrozenSick и co-brand без автоисключения
+
+- PR210/c5ce1dd слит после устраненияP2/re-review14Python и ограниченной3-source/visual приёмки выбранного94-словногоunit. Следующий доступный компонент — provider62FrozenSick→parent59Wildemount→existingdndsu116 по primaryarticle/TOC/childcanonical-h1. Publicchapter неclaim, но полные правила не анализировались.
+-8Python/реальная3HTMLрепродукцияPASS. DisplayedCriticalRole и прежнееWotC-publicationEvidence раздельны, политикастороннихкниг не менялась, childscope/ID/версия/права/denominator не унаследованы. [Пределы/доказательства](frozen-sick-publication-component-2014.md). Independentreview доmerge;15-остаток сохранён.
+- Следующий результат — текущий D05-триаж четырёх ограниченных свидетельств и оставшиесяточныекритерии, затемRrakkma/другой доступныйостаток. Runtime/VPS не менялись. Предложениеcontent ораздельномdisplay/publisherEvidence передаётсяplanner дляитога, безпереписыванияинструкций.

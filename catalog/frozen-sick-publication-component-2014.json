@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "status": "primary-adventure-component-reference-not-scope-text-or-rights-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "sources": {
+    "article.html": {
+      "requestedUrl": "https://www.dndbeyond.com/posts/1886-running-winter-adventures-in-d-d",
+      "finalUrl": "https://www.dndbeyond.com/posts/1886-running-winter-adventures-in-d-d",
+      "status": 200,
+      "bytes": 365573,
+      "sha256": "140c694de56ff26fa4b57758d8c5ece70177060c17b134c82a4d525bd8b7414e",
+      "capturedAt": "2026-11-20T23:45:24.680092+00:00"
+    },
+    "parent.html": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/egtw",
+      "finalUrl": "https://www.dndbeyond.com/sources/dnd/egtw",
+      "status": 200,
+      "bytes": 250591,
+      "sha256": "99fa12a4d4807052e4d3487fa3f5fd22329d611c123a9178afb2bc3dacc33214",
+      "capturedAt": "2026-11-20T23:45:24.547312+00:00"
+    },
+    "child.html": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/wa",
+      "finalUrl": "https://www.dndbeyond.com/sources/dnd/wa/frozen-sick",
+      "status": 200,
+      "bytes": 372849,
+      "sha256": "4aea69c3b8de9759c0885520d28d76965c608881a29b6d6bacb810e487695669",
+      "capturedAt": "2026-11-20T23:45:24.989736+00:00"
+    }
+  },
+  "publisherStatement": {
+    "title": "Running Winter Adventures in D&D",
+    "relationParagraphSha256": "ae232dfdf1cec9fc09d28fcb78523a95f6b2f3c3e3660ca17f2bce46d41bbbed",
+    "explicitAdventureIncludedInParent": true,
+    "childLink": "https://www.dndbeyond.com/sources/dnd/wa/frozen-sick",
+    "scope": "publisher article body only; later editorial reference is not a rules-version decision"
+  },
+  "parentToc": {
+    "title": "Explorer's Guide to Wildemount",
+    "adventureChapterLabel": "Frozen Sick",
+    "adventureChapterUrl": "https://www.dndbeyond.com/sources/egtw/adventures-in-wildemount-frozen-sick",
+    "scope": "book TOC only; no parent full-chapter comparison"
+  },
+  "childIdentity": {
+    "title": "Frozen Sick",
+    "canonicalUrl": "https://www.dndbeyond.com/sources/dnd/wa/frozen-sick",
+    "publicChapterSurfaceReached": true,
+    "semanticFullAdventureRulesReviewed": false,
+    "scope": "head canonical and h1 only; adventure prose is not collected"
+  },
+  "providerReferences": [
+    {
+      "observationId": "ddb:library-source:59",
+      "providerSourceId": 59,
+      "title": "Explorer's Guide to Wildemount",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/egtw",
+      "displayedPublisher": "Critical Role",
+      "providerIsThirdParty": false
+    },
+    {
+      "observationId": "ddb:library-source:62",
+      "providerSourceId": 62,
+      "title": "Frozen Sick",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wa",
+      "displayedPublisher": "Critical Role",
+      "providerIsThirdParty": false
+    }
+  ],
+  "existingParentPublicationEvidence": {
+    "publicationKind": "official-wotc-2014-publication",
+    "publisher": "Wizards of the Coast",
+    "ruleset": "5e-2014",
+    "evidenceUrl": "https://marketplace.dndbeyond.com/beyond-digital/explorers-guide-to-wildemount",
+    "editionEvidenceUrl": "https://www.dndbeyond.com/sources/dnd/egtw"
+  },
+  "relationship": {
+    "kind": "adventure-chapter-with-separate-public-distribution",
+    "childProviderSourceId": 62,
+    "parentProviderSourceId": 59,
+    "existingParentDndsuSourceId": "116",
+    "childDndsuSourceId": null,
+    "canonicalSourceId": null,
+    "automaticSourceReplacement": false,
+    "automaticRecordAttribution": false,
+    "fullTextEquivalence": "unverified",
+    "reusePermission": "not-established"
+  },
+  "coBrandBoundary": {
+    "displayedProviderPublisher": "Critical Role",
+    "existingParentPublicationEvidencePublisher": "Wizards of the Coast",
+    "publisherLabelIsAutomaticExclusion": false,
+    "childScopeAutomaticallyInherited": false,
+    "ownerThirdPartyExclusionChanged": false
+  },
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-source-link-proposals-2014.json": "32baeee49a644be8822acdf46c2ebadc890efeb0ea90801f0e257b0ea509c4dc",
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe"
+  },
+  "generator": {
+    "path": "scripts/audit-frozen-sick-component-2014.py",
+    "sha256": "9c0c37af2ffe5c9958589138ed49d28a624afee89e89fdd4a53be4ee31611670"
+  },
+  "upstreamParser": {
+    "path": "scripts/audit-prisoner13-component-2014.py",
+    "sha256": "5f19428fb4a6d387a09ed38a21871d8f44b8b319f2192d9c731e08784865a124"
+  },
+  "limits": [
+    "A later editorial reference confirms a component relation, not a new edition or identical current texts.",
+    "The parent publication evidence was reviewed earlier; no claim of new full-parent or child rule acceptance.",
+    "The public child is not a claim landing, but only its title/canonical metadata was inspected here.",
+    "Co-brand metadata does not independently include/exclude this child or all Critical Role publications.",
+    "The15-row historical residual, IDs, source policies, canonical denominator, runtime and owner stages remain unchanged.",
+    "No full adventure/article prose, HTML, images, private profiles or account data is exported."
+  ]
+}
