@@ -1282,3 +1282,15 @@ test('profile recovery refuses opening new editors without changing saved data o
  assert.deepEqual({character:h.api.can('character'),resource:h.api.canResource()},permissions);
  assert.ok(h.messages.some(message=>message.includes('временно отключены')));
 });
+
+test('pending history shows actual manual counter overflow and linked undo after reload',async()=>{
+ const local=memory(),session=memory();let offline=false;
+ const snapshot={...payload(0),characterSheet:{ruleset:'5e-2014',ancestry:'',className:'Synthetic',subclass:'',level:2,counters:[{id:'counter-history',name:'Synthetic',current:8,max:7}]}};
+ const fetch=async()=>{if(offline)throw Error('offline');return response(snapshot);};
+ let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();offline=true;
+ const spend=h.api.resourceDelta({kind:'counter',counterId:'counter-history'},-1,h.api.snapshotKey());await tick();
+ await h.click('sync-history-chip');const undo=h.get('queued-undo-button');undo.dataset.queuedUndo=spend.mutationId;await undo.onclick();await tick();
+ assert.equal(h.api.sheet().counters[0].current,8);assert.equal(h.api.pendingCount(),2);
+ await h.click('sync-history-chip');assert.match(h.dialog(),/7 → 8/);assert.doesNotMatch(h.dialog(),/7 → 7/);
+ h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();await h.click('sync-history-chip');assert.match(h.dialog(),/7 → 8/);assert.equal(h.api.pendingCount(),2);
+});
