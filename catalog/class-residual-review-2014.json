@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "status": "residual-classification-review-not-canonical-catalog",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "verification": "Offline metadata validation; raw-capture validation is a separate check.",
+  "summary": {
+    "classes": 13,
+    "originalResidualHeadings": 512,
+    "classifiedResidualHeadings": 512,
+    "remainingUnclassifiedHeadings": 0,
+    "proposedExcludedHeadings": 130,
+    "sourcePendingHeadings": 10,
+    "otherComponentHeadings": 372
+  },
+  "rows": [
+    {
+      "classSlug": "artificer",
+      "originalResidualHeadings": 23,
+      "classified": 23,
+      "proposedExcluded": 0,
+      "sourcePending": 0,
+      "otherComponents": 23,
+      "accepted": false
+    },
+    {
+      "classSlug": "barbarian",
+      "originalResidualHeadings": 27,
+      "classified": 27,
+      "proposedExcluded": 6,
+      "sourcePending": 0,
+      "otherComponents": 21,
+      "accepted": false
+    },
+    {
+      "classSlug": "bard",
+      "originalResidualHeadings": 29,
+      "classified": 29,
+      "proposedExcluded": 0,
+      "sourcePending": 0,
+      "otherComponents": 29,
+      "accepted": false
+    },
+    {
+      "classSlug": "cleric",
+      "originalResidualHeadings": 62,
+      "classified": 62,
+      "proposedExcluded": 30,
+      "sourcePending": 0,
+      "otherComponents": 32,
+      "accepted": false
+    },
+    {
+      "classSlug": "druid",
+      "originalResidualHeadings": 46,
+      "classified": 46,
+      "proposedExcluded": 6,
+      "sourcePending": 0,
+      "otherComponents": 40,
+      "accepted": false
+    },
+    {
+      "classSlug": "fighter",
+      "originalResidualHeadings": 42,
+      "classified": 42,
+      "proposedExcluded": 18,
+      "sourcePending": 0,
+      "otherComponents": 24,
+      "accepted": false
+    },
+    {
+      "classSlug": "monk",
+      "originalResidualHeadings": 27,
+      "classified": 27,
+      "proposedExcluded": 0,
+      "sourcePending": 0,
+      "otherComponents": 27,
+      "accepted": false
+    },
+    {
+      "classSlug": "paladin",
+      "originalResidualHeadings": 28,
+      "classified": 28,
+      "proposedExcluded": 0,
+      "sourcePending": 0,
+      "otherComponents": 28,
+      "accepted": false
+    },
+    {
+      "classSlug": "ranger",
+      "originalResidualHeadings": 34,
+      "classified": 34,
+      "proposedExcluded": 2,
+      "sourcePending": 0,
+      "otherComponents": 32,
+      "accepted": false
+    },
+    {
+      "classSlug": "rogue",
+      "originalResidualHeadings": 20,
+      "classified": 20,
+      "proposedExcluded": 0,
+      "sourcePending": 0,
+      "otherComponents": 20,
+      "accepted": false
+    },
+    {
+      "classSlug": "sorcerer",
+      "originalResidualHeadings": 95,
+      "classified": 95,
+      "proposedExcluded": 47,
+      "sourcePending": 10,
+      "otherComponents": 38,
+      "accepted": false
+    },
+    {
+      "classSlug": "warlock",
+      "originalResidualHeadings": 29,
+      "classified": 29,
+      "proposedExcluded": 0,
+      "sourcePending": 0,
+      "otherComponents": 29,
+      "accepted": false
+    },
+    {
+      "classSlug": "wizard",
+      "originalResidualHeadings": 50,
+      "classified": 50,
+      "proposedExcluded": 21,
+      "sourcePending": 0,
+      "otherComponents": 29,
+      "accepted": false
+    }
+  ],
+  "limitations": [
+    "All512 residual navigation headings have proposals, not512 new features.",
+    "Ten source-pending headings remain unresolved; no official source acceptance is inferred.",
+    "Existing913 feature proposals,189 choice observations and57 spell tables are not replaced or accepted here.",
+    "Full rules, versions, publication inventory, rights and M0 owner acceptance remain separate.",
+    "No runtime imports this research report."
+  ],
+  "inputSha256": {
+    "catalog/dndsu-class-headings.json": "2d8d0f0e30cb3384e3accfc64a51766c7e18fa285a36a433dd7bb4fd5fb17239",
+    "catalog/class-composition-review-2014.json": "ef35209d8a545e719234f7ac69b37e8549bc99bad714c1024e42b9637dd8506f",
+    "catalog/dndsu-reviewed-class-proposals.json": "2658cb19e4ad074003ecf60f46190af992c6abb26584455d2455946e061b9c48",
+    "catalog/dndsu-source-register.json": "109868b7dbc77b2168d4dfec77166cf9cff4c8b55b9fff9ea3ccbdbbe899a42f",
+    "catalog/class-source-bibliography.json": "25f16679b7c273991eea5fc5da1c42d007236e73d8a8a4991730e7975bd6c4b3",
+    "catalog/artificer-heading-unit-proposals-2014.json": "8cb74e7b1d9253844b79007f52b1022df44675101ef6644e2df592121f4a3dcd",
+    "catalog/wizard-source-boundary-proposals-2014.json": "425ab665c1963b42dca0fc016544dfc700d41781b0d1ccf2afac6dff38efdee4",
+    "catalog/bard-heading-unit-proposals-2014.json": "0aa9066d87186f34ae18ceaa31e28fa5e814fb27b0118332a867d04aa4389b58",
+    "catalog/barbarian-heading-unit-proposals-2014.json": "f41f1b85d4a7ce929192d639bc5ee15902f0e7587277c7dd0ef733dc3d752250",
+    "catalog/fighter-heading-unit-proposals-2014.json": "c29257384d0040bbb8f5a31a30170369fadd57fd6a59338dba10162818a15feb",
+    "catalog/druid-heading-unit-proposals-2014.json": "ae0cb2116cf9972527fbdea2b3a722317d8c042b3b9f2b341d2c4587c89aeb84",
+    "catalog/cleric-heading-unit-proposals-2014.json": "319468772d7dd9a6a015355d9052fb7c2ad919328623704d1b50cf3495ff9660",
+    "catalog/warlock-heading-unit-proposals-2014.json": "426c08c457cc63d638f53ffdb72c1a9f9289f467e6e758e4b5ec656243737571",
+    "catalog/monk-heading-unit-proposals-2014.json": "eecdfcfd72c8036924588d33d2bc3c79530c9884b40b276c36f33e190a3f78e3",
+    "catalog/paladin-heading-unit-proposals-2014.json": "f4ea91e3c0ab2b2da573b2437d8a5e1d0d77e980799083a24a0c7aab2b6c7bfe",
+    "catalog/rogue-heading-unit-proposals-2014.json": "fe3b96633ff114817908702489a2e5c2e3a76daaa76782518cf0a1b65cfc3bd1",
+    "catalog/ranger-heading-unit-proposals-2014.json": "ca07f9e8994d3fd1b5d37c9a28b017057d7f5a5b574bdbf78137898f7759a5fb",
+    "catalog/sorcerer-heading-unit-proposals-2014.json": "45d488b95e0bb770d61057f2819724049262bf528fe730d34217d4ca96382f91"
+  }
+}

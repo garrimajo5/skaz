@@ -1,0 +1,962 @@
+{
+  "schemaVersion": 1,
+  "status": "residual-heading-classification-proposal",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "classSlug": "druid",
+  "classUrl": "https://dnd.su/class/90-druid/",
+  "snapshotPageSha256": "c11dc88330902eab631ebba22c374c8e466be46ed2366203691d924f12dd8234",
+  "freshCapture": {
+    "url": "https://dnd.su/class/90-druid/",
+    "sha256": "5d44d78ddba951fb5ee736bc3a178b8f567defbcd286cc6d1e5b39e9cd280d77",
+    "headingStructureSha256": "0c2036ee38e2a891ea1d1b40a19706384b7f09e8c6ea3c712d2db8c2d5c424d9"
+  },
+  "records": [
+    {
+      "heading": {
+        "ordinal": 1,
+        "title": "Друид",
+        "level": 4,
+        "anchors": [
+          "druid"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "4326e1213f29cdf0397925bd812e8d897acb4cd1a939fd416045fe14cbe6ea30",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 2,
+        "title": "СИЛА ПРИРОДЫ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "26727568143a58699be29c40862a13995036a6096b7abe57a0e3e0e3f5ae47ba",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 3,
+        "title": "СОХРАНЕНИЕ РАВНОВЕСИЯ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "a8c0b4793c04243f1b897a622ded0c9f713116dc8f2d8913690ecc8786ba945f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 4,
+        "title": "Создание друида",
+        "level": 3,
+        "anchors": [
+          "creation"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "ebbfe3eda14e2e2587a31e6be5b7c10a4515451b02b1b94fa7952fedb18d4d53",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 5,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "425d582eafdbe92bf56841a16657c0e5f7026908962eded78cce55f2ba44ed73",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 6,
+        "title": "Углублённая предыстория Друида (XGE)",
+        "level": 2,
+        "anchors": [
+          "uglubljonnaya_predystoriya_druida_xge"
+        ],
+        "sectionAnchor": "uglubljonnaya_predystoriya_druida_xge",
+        "bodySha256": "61772c24be79733301bc8a9fa28e1b749b4e9993da3d75d7dd8fe965097d7074",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 7,
+        "title": "Любимый предмет",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_druida_xge",
+        "bodySha256": "795bdfa7094e7ee6a98bfd395459b6e180869a0e19e920b48190224a84edf626",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 8,
+        "title": "Любимый предмет",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_druida_xge",
+        "bodySha256": "694a83b113b3c5357bd70c39141b67d2919a9839d1b79cb15a5a387847364f92",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 9,
+        "title": "Направляющий аспект",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_druida_xge",
+        "bodySha256": "d8f859d0dfb1cb2b9baae02a0b15be43cfb74fae7c0c30f32f2dd5eb691cea2d",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 10,
+        "title": "Направляющие аспекты",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_druida_xge",
+        "bodySha256": "56ed96f8e428cfe96f1f3797e65c2cc1d45628839596afa247f3a9e870203cf9",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 11,
+        "title": "Наставник",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_druida_xge",
+        "bodySha256": "d4c2edd576ea26941d28ceb6b3b961d48c1eddd6042c1f4a1f3f2c556d5891f0",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 12,
+        "title": "Наставники",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_druida_xge",
+        "bodySha256": "18f96e3fe84f2e12969c37ce5021f1670d6f925ba09217d893aaf679c2e1e1c8",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 13,
+        "title": "МУЛЬТИКЛАССИРОВАНИЕ И Друид",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_druida_xge",
+        "bodySha256": "ddf04ef451a2af24d06ea2540829b2ae4231377d8cca3d4fa7ec7aff2f9e65b6",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 14,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "class-features"
+        ],
+        "sectionAnchor": "class-features",
+        "bodySha256": "5c7e615d78fb1250d9d95289662bbd062aa6e04b37d33f1cad1b36335283dffa",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 15,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 16,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "9972227472517f4fda0afb0717df205decc42d629462e5caac4c5da9b6810845",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 17,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "724f5796d8dde62a297bc6be2c18d8f98b4b8345307727b9653b69bf967019a7",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 18,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "360a0b2edba95ee9493195fc145a6faddedc06c7399fbe5d3099d597a6d1449c",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 21,
+        "title": "Заговоры (заклинания 0-го уровня)",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "81d3b7ec974506b232dfdad4d94f8081abae8806eeafe6551629703c37e3c932",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 22,
+        "title": "Подготовка и сотворение заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "6b01c1dfc523798cc46c6278127c68fb4c6c7b9dedb0f4b4dcb52e2615bf050c",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 23,
+        "title": "Базовая характеристика заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "0f6c661926bb13468170640bca1de1165cf53979e3c5296a0a42bf5980498c69",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 24,
+        "title": "Ритуальное колдовство",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "e56dde4a7422ba16dc1f388df9e62da1c4fefb66dbc0ca32211988d5d7284fdd",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 25,
+        "title": "Фокусировка заклинания",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "b74c6a5f7f55b727f596351f14adbdf0bc9b188217d38947d31ba3a19a9467fa",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 26,
+        "title": "СВЯЩЕННЫЕ РАСТЕНИЯ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "a62794955866e81d5ca12adcd4a1f15ba7f3ad2244a79ae505e7c9593122e4da",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 29,
+        "title": "Облик ЗВЕРЯ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "8171d306ddc15cc2d33353c00260345076bdce1f3f1d81c8da8ee39391d985e5",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 3
+          }
+        ]
+      },
+      "kind": "feature-subrule-table",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.wild-shape",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 30,
+        "title": "Изучение дикого облика",
+        "level": 2,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "cbd277993138567fef12a29914aa0069683b9ae9ec4aff8482bb1b8d761fe264",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-reference-guidance",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.wild-shape",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 31,
+        "title": "Арктика",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "eda5b41529ef415050fee453e577282263ab73e55733acc00a3e6157a3f84048",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 7
+          }
+        ]
+      },
+      "kind": "feature-reference-table",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.wild-shape",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 32,
+        "title": "Болото",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "13f4199f34679813063675d9d870a31a7349c56e135235133d7fb104852e59ff",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 14
+          }
+        ]
+      },
+      "kind": "feature-reference-table",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.wild-shape",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 33,
+        "title": "Горы",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "f0c9b54730709fc762a18fef32196b012b6878487fbe91b8dca356417209ab59",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 10
+          }
+        ]
+      },
+      "kind": "feature-reference-table",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.wild-shape",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 34,
+        "title": "Лес",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "e7c1271dae8183634d1a23f2b5b6960c4df0d5eb8db80debf7aa7dac0452e83f",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 37
+          }
+        ]
+      },
+      "kind": "feature-reference-table",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.wild-shape",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 35,
+        "title": "Луг",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "3d9fdd01a04ae9775fe623bc3916938a82be8d30960a6ae4733509e0fb2241a6",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 35
+          }
+        ]
+      },
+      "kind": "feature-reference-table",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.wild-shape",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 36,
+        "title": "Побережье",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "9839986b2fcfbe2dc21f117af50d6b53e0c5eda4d5d701ad5b02338078200300",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 12
+          }
+        ]
+      },
+      "kind": "feature-reference-table",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.wild-shape",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 37,
+        "title": "Под водой",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "70b39af83d09e4ae568d97bcd7a97802ba87f14ef16e73a8c79e4dba5ecb007c",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 10
+          }
+        ]
+      },
+      "kind": "feature-reference-table",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.wild-shape",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 38,
+        "title": "Подземье",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "7cac0fa66264dda9a1d4b303fb811565d98a4341fb6e2f2281882fa887700728",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 11
+          }
+        ]
+      },
+      "kind": "feature-reference-table",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.wild-shape",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 39,
+        "title": "Пустыня",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "b562c6238821d0229ca183365b577945617533b9a7ecf484ee597d1fa1fef484",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 21
+          }
+        ]
+      },
+      "kind": "feature-reference-table",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.wild-shape",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 40,
+        "title": "Холмы",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "7013b5b4cbf98344ac25fe8754e99c832ea2d7f8335689c156b6c3245344956e",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 27
+          }
+        ]
+      },
+      "kind": "feature-reference-table",
+      "parentFeatureObservationId": "scope:druid:class-features:feature.wild-shape",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 48,
+        "title": "Круги друидов",
+        "level": 2,
+        "anchors": [
+          "druid-circles"
+        ],
+        "sectionAnchor": "druid-circles",
+        "bodySha256": "0fc36a46afb8dd23b44677b4a4307279347a481d62fb879d19562586597dc8cd",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "tradition-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 49,
+        "title": "ДРУИДЫ И БОГИ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "druid-circles",
+        "bodySha256": "8c3b6b81c88d78ab288313399e695b70fed0c42e9dc753141b56f7033cc4ad55",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 91,
+        "title": "Звёздная карта",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "circle.stars",
+        "bodySha256": "a83f238aac1e3917d4d456392179c36ff067f03839621f8db813f2c1d2dccfc6",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 104,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "a07bce2f3e6c28bcc324a3d82366ce3f6a4dc59e5a8075affa023931dd8b09f2",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 109,
+        "title": "Первобытный компаньон [Primeval companion] UA HB",
+        "level": 2,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "12b97d1701c6ae0fd9eef5bb9a0987d314d40e5a645d2fc05512add617d5d9c2",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-playtest-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "primeval-ua"
+    },
+    {
+      "heading": {
+        "ordinal": 110,
+        "title": "Действия",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "7a68bfccd06857f7e43ff54796f9d1dbd25a8cc20758c79af96830628de6a239",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-playtest-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "primeval-ua"
+    },
+    {
+      "heading": {
+        "ordinal": 111,
+        "title": "Реакции",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "080219dcfe890e4cd3bdad7e03a5cd5689d4520192e5fa5e26747bdc3cb7c861",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-playtest-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "primeval-ua"
+    },
+    {
+      "heading": {
+        "ordinal": 112,
+        "title": "Доисторический проводник",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "9b21143d2cfdbfb16209462a51e6293b5513ac2c5a979d9ec834bb2cb6677b06",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-playtest-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "primeval-ua"
+    },
+    {
+      "heading": {
+        "ordinal": 113,
+        "title": "Титаническая связь",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "be6d30da6635bae13f1aeda55f9b403e4d99b1181247192003078d237860f029",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-playtest-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "primeval-ua"
+    },
+    {
+      "heading": {
+        "ordinal": 114,
+        "title": "Бич древности",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "9f559055c9313e403bfc00ce1b6fa8a66e77e4965ecc76411d450e0a4a6bb953",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-playtest-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "primeval-ua"
+    }
+  ],
+  "exclusionContexts": {
+    "primeval-ua": {
+      "publication": "Unearthed Arcana: Giant options",
+      "sourceHeading": {
+        "ordinal": 106,
+        "title": "Круг первобытности",
+        "level": 2,
+        "anchors": [
+          "ua.circle.primal"
+        ],
+        "sectionAnchor": "ua.circle.primal",
+        "bodySha256": "626542d3573eee4d656338d8614295668ecdb73c92c46bbd13ec3e291c70477f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "linkHeading": {
+        "ordinal": 108,
+        "title": "Первобытный компаньон",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ua.circle.primal",
+        "bodySha256": "8d54a860483e558f9f326fe92809297dcaac96099c7a5cccfb4979518e862690",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "basis": "Circle of the Primeval explicitly attributed to Unearthed Arcana: Giant options; companion feature108 points to stat block109. Following named features112–114 identify the same circle in their level introductions. These remain experimental, not published Bigby features."
+    }
+  },
+  "limitations": [
+    "No canonical denominator, full rules or publication rights accepted.",
+    "Heading29 contains the three-row Wild Shape limits AND subsequent transformation rules.",
+    "Ten habitat tables reference already-existing beasts; table rows are not newly discovered bestiary units.",
+    "Primeval companion stat block and subsequent features lost the UA context after h2; classify explicitly from source and named feature references.",
+    "Star Map91 is an appearance table; Sacred Plants26 and Druids and Gods49 are contextual lore."
+  ]
+}

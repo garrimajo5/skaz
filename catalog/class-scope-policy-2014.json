@@ -13,9 +13,9 @@
     "sections": 12,
     "byDisposition": {
       "excluded-experimental": 5,
-      "excluded-third-party": 4,
+      "excluded-third-party": 5,
       "excluded-unofficial": 1,
-      "needs-official-source-evidence": 2
+      "needs-official-source-evidence": 1
     }
   },
   "records": [
@@ -322,12 +322,12 @@
         "approvedInclusion": null,
         "fullRules": "unverified"
       },
-      "disposition": "needs-official-source-evidence",
+      "disposition": "excluded-third-party",
       "evidence": [
         {
           "id": "class-bibliography:sprouting-chaos",
-          "publicationKind": "unresolved",
-          "disposition": "needs-official-source-evidence"
+          "publicationKind": "third-party-sourcebook",
+          "disposition": "excluded-third-party"
         }
       ],
       "included": false,
@@ -442,6 +442,6 @@
   ],
   "inputSha256": {
     "catalog/dndsu-class-scope-boundaries.json": "b5c3aa0af6d96ab3405885ca05dc6ba5817845becbeacc6628867920c7da6eaa",
-    "catalog/class-source-bibliography.json": "464e1d25d76ed36b76a774017d7029a272e8bba17d2bf969dcb4a631ee6bd1fe"
+    "catalog/class-source-bibliography.json": "25f16679b7c273991eea5fc5da1c42d007236e73d8a8a4991730e7975bd6c4b3"
   }
 }

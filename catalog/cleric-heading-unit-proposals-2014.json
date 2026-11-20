@@ -1,0 +1,1320 @@
+{
+  "schemaVersion": 1,
+  "status": "residual-heading-classification-proposal",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "classSlug": "cleric",
+  "classUrl": "https://dnd.su/class/89-cleric/",
+  "snapshotPageSha256": "40f972b8d332c60b2fde307742a53f1ba24ae4f0d30992e166894990aab60a21",
+  "freshCapture": {
+    "url": "https://dnd.su/class/89-cleric/",
+    "sha256": "773a7ad8c23f52ab8d8c30b4d9410cc5ad96659e5a05e2f1dcf7a504f0c74da1",
+    "headingStructureSha256": "26f51cfc825dee43148aa079f6654194a23df2a84fe4263a1fb8df36021894af"
+  },
+  "records": [
+    {
+      "heading": {
+        "ordinal": 1,
+        "title": "Жрец",
+        "level": 4,
+        "anchors": [
+          "priest"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "195e1d8491111b67b12043019609357c4deda53d54c520761c6ba25f4bbccd3f",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 2,
+        "title": "ЦЕЛИТЕЛИ И ВОИТЕЛИ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "21f87c556cb77f538a9ccf40acb89078d3d3635b337d5a0a21be2aeec7568499",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 3,
+        "title": "БОЖЕСТВЕННЫЕ ПОСРЕДНИКИ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "a8ab6013e569a116a2b96e263c20fc3bfeaad91f9facecd5804bcdd63665ce85",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 4,
+        "title": "Создание жреца",
+        "level": 3,
+        "anchors": [
+          "creation"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "a865628b72f701907e7ca93ef9553f466eb547ce5ad68ace1e15fa0fafe0e38e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 5,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "658ed06e4430bfe8b8008866479c1579828c8eb32730108e96906639b8dec04b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 6,
+        "title": "Углублённая предыстория Жреца (XGE)",
+        "level": 2,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "a7f6718abd3a6a792eb38e0cb90993b425e8000f7ec5a33651ba99f0966bab53",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 7,
+        "title": "Храм",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "1e79feb68a3963d0b7f1893859106f2a0cbd2bc87ca6aa6820ad482d5da08b24",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 8,
+        "title": "Храмы",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "9793511767e10f899952893b206cfcc9d6ae8704881253841dc84bc5514826c8",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 9,
+        "title": "Дар",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "bda815742920f6c135d73853104ee17eb57a2e7d30ce70cc73e1dfafe2e9f7e4",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 10,
+        "title": "Дары",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "2ce866f9d39f2863799176ae9e5cdb2137adf9e645846211d3495033904db3de",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 11,
+        "title": "Тайна",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "5af36a244320a930f92d8091e9d47b1182a84e2813418ad56f6f678f97568cf8",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 12,
+        "title": "Тайны",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "063814b4a0899c7b89c240bc6cc4f6e57c8eb795280bc23b2575b1a0f1300c4e",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 13,
+        "title": "МУЛЬТИКЛАССИРОВАНИЕ И Жрец",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "053b41cef91924465cc9da88db225de8bcb6371f5fc1e827cf0f41ad15331dd2",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 14,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "features"
+        ],
+        "sectionAnchor": "features",
+        "bodySha256": "79f1acb5b9c7f54e7c051b11903b83dd94598e8b76dfcfef16ad97e16b5dd5a9",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 15,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "features",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 16,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "features",
+        "bodySha256": "828cbd1e7f80645f4636d689447404a6bc094b7c3b66f2c2cefff2d42a6b85fd",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 17,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "features",
+        "bodySha256": "27eaae03f2fc996882ffa6e4bedfe1b58f153cda37cfe9af4e5f41fc650bfea3",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 18,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "features",
+        "bodySha256": "c7e8fe391d979405a6eb70535787e26490b9fcdb24e5d6ae06e12d7c94f83f4d",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 20,
+        "title": "Заговоры (заклинания 0-го уровня)",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "features",
+        "bodySha256": "117f5a348a402397c9099523d780ff02407202e36805d010eca2b2c6a4c8a329",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:cleric:features:feature.spellcasting",
+      "parentHeadingOrdinal": 19,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 21,
+        "title": "Подготовка и сотворение заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "features",
+        "bodySha256": "b9a871fcf7637455058358c3423abdea09a73786d1cbfff581a5d96db6eb4754",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:cleric:features:feature.spellcasting",
+      "parentHeadingOrdinal": 19,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 22,
+        "title": "Базовая характеристика заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "features",
+        "bodySha256": "a18ddc1e31e2201cfadc763a7fa42a5809d7476cecfd67b46d26b46add6833af",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:cleric:features:feature.spellcasting",
+      "parentHeadingOrdinal": 19,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 23,
+        "title": "Ритуальное колдовство",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "features",
+        "bodySha256": "65a989673721f096472bc5da848e693823a7aa293c6d17901393d01610f05cc6",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:cleric:features:feature.spellcasting",
+      "parentHeadingOrdinal": 19,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 24,
+        "title": "Фокусировка заклинания",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "features",
+        "bodySha256": "5b00278eed4c046c32328c400898b4e8f30341b31554904fd83a05ec64eaa18f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:cleric:features:feature.spellcasting",
+      "parentHeadingOrdinal": 19,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 27,
+        "title": "ЗАКЛИНАНИЯ ДОМЕНА",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "features",
+        "bodySha256": "4f761eddd8d64e27eca14a265bbefec5fbdaf67f34a4c1404ee846f378eb72c2",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:cleric:features:feature.divine-domain",
+      "parentHeadingOrdinal": 26,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 29,
+        "title": "БОЖЕСТВЕННЫЙ КАНАЛ: ИЗГНАНИЕ НЕЖИТИ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "features",
+        "bodySha256": "73c17e68058c992799f9a0e1e3c35442a958df63cdccb9f42944ebb7fe7d8041",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:cleric:features:feature.channel-divinity",
+      "parentHeadingOrdinal": 28,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 36,
+        "title": "Божественные домены",
+        "level": 2,
+        "anchors": [
+          "divine-domains"
+        ],
+        "sectionAnchor": "divine-domains",
+        "bodySha256": "fed160714ab0af19e45c240660c76f02961715355b92e837221f3b66c5337ee5",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "tradition-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 103,
+        "title": "Ограждения магией",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "domain.arcana",
+        "bodySha256": "77d23182867bb2161e1450507339f890bf517538b49e4ebdd597b64a8a28a87c",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 5
+          }
+        ]
+      },
+      "kind": "feature-limit-table",
+      "parentFeatureObservationId": "scope:cleric:domain.arcana:b8b55c993101683d",
+      "parentHeadingOrdinal": 102,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 124,
+        "title": "Божества мира",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "domain.peace",
+        "bodySha256": "b37af80ee0af71b91c33707ef675a07ecf7eb41543725025f8019cd8a8aa02f1",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 8
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 134,
+        "title": "Божества порядка",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "domain.order",
+        "bodySha256": "be6d3ea834e40f1672e96f391f49bddda9d828c3ba92ebb61db9814343ea2804",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 4
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 144,
+        "title": "Сумеречные божества",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "domain.twilight",
+        "bodySha256": "c46b97064f4fe67cc04a2469f305602f5dda13274978c13770fac32dddd3c07b",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 8
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 154,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "125ea4e01b891848d11100dd057e23ee931f15c8a4b09126b06640d50cad65d5",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 155,
+        "title": "Божественные домены из «Plane Shift: Amonkhet»",
+        "level": 4,
+        "anchors": [
+          "ps.domains"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 156,
+        "title": "Окетра: Домен сплочённости",
+        "level": 2,
+        "anchors": [
+          "ps.oketra"
+        ],
+        "sectionAnchor": "ps.oketra",
+        "bodySha256": "59524550038d9e3b2cadd3f8c78d84fb7955fcffbe9b7bdf870d3ee07a238d96",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-156"
+    },
+    {
+      "heading": {
+        "ordinal": 157,
+        "title": "Заклинания домена сплочённости",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "ps.oketra",
+        "bodySha256": "4e7c8e9d34bf0502f3d5d7be0bbf6649aa359d92635df1eb8f08269c3121b4c5",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 5
+          }
+        ]
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-156"
+    },
+    {
+      "heading": {
+        "ordinal": 158,
+        "title": "Бонусное владение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.oketra",
+        "bodySha256": "02e40dd8579d624ffd9a24cf215a97dfae5dfd6c9464c6642dd6ebf148b31a03",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-156"
+    },
+    {
+      "heading": {
+        "ordinal": 159,
+        "title": "Действие сплочённости",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.oketra",
+        "bodySha256": "80c8554d4c3b924ec05ea891581521996864236828f9e46a6ff9f64e9770afa2",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-156"
+    },
+    {
+      "heading": {
+        "ordinal": 160,
+        "title": "Божественный канал: Сохранение жизни",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.oketra",
+        "bodySha256": "7e277c968068c33ee6f7ebf495a46ec4f3aa9d478cb83b6c07c9c9f5d942a4c9",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-156"
+    },
+    {
+      "heading": {
+        "ordinal": 161,
+        "title": "Божественный канал: Благословение Окетры",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.oketra",
+        "bodySha256": "1cb5f59c903aeb0e1239a5caaa630c065a81c670174317dc3b896fd0e4f79502",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-156"
+    },
+    {
+      "heading": {
+        "ordinal": 162,
+        "title": "Божественный удар",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.oketra",
+        "bodySha256": "4dec4c2d8b6f446cc7dc08359d061e13209bcc338a3889f215143df12a3c671e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-156"
+    },
+    {
+      "heading": {
+        "ordinal": 163,
+        "title": "Высшее исцеление",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.oketra",
+        "bodySha256": "22c2a9ce957b7ad83c0e07aa1839e63bbbf4a6ca0ef61d3c90962af1b1ba25da",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-156"
+    },
+    {
+      "heading": {
+        "ordinal": 164,
+        "title": "Ронас: Домен силы",
+        "level": 2,
+        "anchors": [
+          "ps.ronas"
+        ],
+        "sectionAnchor": "ps.ronas",
+        "bodySha256": "89c60e5fd38b48219dcbb4904216c1e350eb5c53283de0c4ab7ef1c0307e054b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 165,
+        "title": "Заклинания домена силы",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "ps.ronas",
+        "bodySha256": "81b0b8684862719379acdc73cd62359d2c30daa138b38a2469d931f5ff850997",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 5
+          }
+        ]
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 166,
+        "title": "Бонусное владение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.ronas",
+        "bodySha256": "72a6e0a06e36eeb0b0cb98effdb8b24594dbdf23c173ccf6d4d3668afa72e0dc",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 167,
+        "title": "Аколит силы",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.ronas",
+        "bodySha256": "fd3a17e3e6477249a8d50ae425fd4d224c54ec4f7cd1bbb648fbc5abdf16a814",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 168,
+        "title": "Божественный канал: Свойство силы",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.ronas",
+        "bodySha256": "69afc327eabcd47fbf7adf93efe06c2791ecbe4efdd38f35e9c25d0f920b1b5e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 169,
+        "title": "Божественный канал: Благословение Ронаса",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.ronas",
+        "bodySha256": "0673d771f2e349c8623467b5bae781f600220ed95bb6172a0ce87f39da447f5e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 170,
+        "title": "Божественный удар",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.ronas",
+        "bodySha256": "e39fc3de4a292abd7704445f670ad45a0603a7a15e13ce39e3196994eb0384c9",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 171,
+        "title": "Воплощение битвы",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.ronas",
+        "bodySha256": "54d31989fb098789f0c54da36ba4c74aa8447296ef1c6c348d17fe7de5412605",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-164"
+    },
+    {
+      "heading": {
+        "ordinal": 172,
+        "title": "Бонту: Домен амбиций",
+        "level": 2,
+        "anchors": [
+          "ps.bontu"
+        ],
+        "sectionAnchor": "ps.bontu",
+        "bodySha256": "19245969f5d6eb495281d4d124ccdfe0d9d63b75b71e57fcb6b4a0235a8be0c8",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-172"
+    },
+    {
+      "heading": {
+        "ordinal": 173,
+        "title": "Заклинания домена амбиций",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "ps.bontu",
+        "bodySha256": "5f3e66f7263c0593a4c0e96a9047765fd9faca5534779a9dfe83620ff88992f9",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 5
+          }
+        ]
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-172"
+    },
+    {
+      "heading": {
+        "ordinal": 174,
+        "title": "Защищающая вспышка",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.bontu",
+        "bodySha256": "6c9e6e4e506e8a6062d89e7e1ce29b128782c71090554729bea68af303dfc622",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-172"
+    },
+    {
+      "heading": {
+        "ordinal": 175,
+        "title": "Божественный канал: Двуличность",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.bontu",
+        "bodySha256": "80a6d67aa94b40784122589a6609873ec3d1db9d38632556776f0a15a4d26715",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-172"
+    },
+    {
+      "heading": {
+        "ordinal": 176,
+        "title": "Божественный канал: Плащ теней",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.bontu",
+        "bodySha256": "531d75f86c4e33df4752ef0b7a21faab0cfd4e552174669b8f81f4c37f1fd602",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-172"
+    },
+    {
+      "heading": {
+        "ordinal": 177,
+        "title": "Могущественное колдовство",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.bontu",
+        "bodySha256": "30ee63424237b9418a7f14fccb6811ca49939103ff7d0b6bfa90783fc2ad8764",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-172"
+    },
+    {
+      "heading": {
+        "ordinal": 178,
+        "title": "Улучшенная двуличность",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.bontu",
+        "bodySha256": "9e42b47808c794b2a59e6a13a95a25596f052313beb08f3b7762cac129427c0a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-172"
+    },
+    {
+      "heading": {
+        "ordinal": 179,
+        "title": "Хазорет: Домен рвения",
+        "level": 2,
+        "anchors": [
+          "ps.hazoret"
+        ],
+        "sectionAnchor": "ps.hazoret",
+        "bodySha256": "a727ed7eb07d3f11810aaa8acc799335c52913e80922a59c767f681b994f2670",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-179"
+    },
+    {
+      "heading": {
+        "ordinal": 180,
+        "title": "Заклинания домена рвения",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "ps.hazoret",
+        "bodySha256": "28b768a34326e6d50cf2a267bae93c7c7fd19a12b1c6e73b831545a674850543",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 5
+          }
+        ]
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-179"
+    },
+    {
+      "heading": {
+        "ordinal": 181,
+        "title": "Бонусные владения",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.hazoret",
+        "bodySha256": "d58e2054c1281ad6471a95981e48f7914aa02dfa7e28dac96bba742d3919fd7c",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-179"
+    },
+    {
+      "heading": {
+        "ordinal": 182,
+        "title": "Божественный канал: Всепоглощающее усердие",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.hazoret",
+        "bodySha256": "2601c57435f9571027f4ee65a96f94eae607115ca7d7960f8acf9699810c5a42",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-179"
+    },
+    {
+      "heading": {
+        "ordinal": 183,
+        "title": "Удар грома",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.hazoret",
+        "bodySha256": "95e8ca05c8d763fceb5ddc650ea1e9aeb2a3806d40c4f9efa9a06995ba59a00b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-179"
+    },
+    {
+      "heading": {
+        "ordinal": 184,
+        "title": "Божественный удар",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.hazoret",
+        "bodySha256": "1f5a4c76bb6f3958d6bbae7e351897cb834d5eb3cbc241b37ee641c2c3616777",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-179"
+    },
+    {
+      "heading": {
+        "ordinal": 185,
+        "title": "Пламя славы",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ps.hazoret",
+        "bodySha256": "0db51f84ab999a3741662a02ba21bf9aa6bce0695dabc59bc5d4d4312b63435e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "source-policy-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "policyContextId": "section-179"
+    }
+  ],
+  "policyContexts": {
+    "section-156": {
+      "sourceHeading": {
+        "ordinal": 156,
+        "title": "Окетра: Домен сплочённости",
+        "level": 2,
+        "anchors": [
+          "ps.oketra"
+        ],
+        "sectionAnchor": "ps.oketra",
+        "bodySha256": "59524550038d9e3b2cadd3f8c78d84fb7955fcffbe9b7bdf870d3ee07a238d96",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "lastHeadingOrdinal": 163,
+      "disposition": "excluded-experimental",
+      "bibliographyIds": [
+        "class-bibliography:plane-shift-amonkhet"
+      ],
+      "basis": "Reuse explicit bibliography/source policy for this named section and uninterrupted subordinate headings; no source decision promoted."
+    },
+    "section-164": {
+      "sourceHeading": {
+        "ordinal": 164,
+        "title": "Ронас: Домен силы",
+        "level": 2,
+        "anchors": [
+          "ps.ronas"
+        ],
+        "sectionAnchor": "ps.ronas",
+        "bodySha256": "89c60e5fd38b48219dcbb4904216c1e350eb5c53283de0c4ab7ef1c0307e054b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "lastHeadingOrdinal": 171,
+      "disposition": "excluded-experimental",
+      "bibliographyIds": [
+        "class-bibliography:plane-shift-amonkhet"
+      ],
+      "basis": "Reuse explicit bibliography/source policy for this named section and uninterrupted subordinate headings; no source decision promoted."
+    },
+    "section-172": {
+      "sourceHeading": {
+        "ordinal": 172,
+        "title": "Бонту: Домен амбиций",
+        "level": 2,
+        "anchors": [
+          "ps.bontu"
+        ],
+        "sectionAnchor": "ps.bontu",
+        "bodySha256": "19245969f5d6eb495281d4d124ccdfe0d9d63b75b71e57fcb6b4a0235a8be0c8",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "lastHeadingOrdinal": 178,
+      "disposition": "excluded-experimental",
+      "bibliographyIds": [
+        "class-bibliography:plane-shift-amonkhet"
+      ],
+      "basis": "Reuse explicit bibliography/source policy for this named section and uninterrupted subordinate headings; no source decision promoted."
+    },
+    "section-179": {
+      "sourceHeading": {
+        "ordinal": 179,
+        "title": "Хазорет: Домен рвения",
+        "level": 2,
+        "anchors": [
+          "ps.hazoret"
+        ],
+        "sectionAnchor": "ps.hazoret",
+        "bodySha256": "a727ed7eb07d3f11810aaa8acc799335c52913e80922a59c767f681b994f2670",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "lastHeadingOrdinal": 185,
+      "disposition": "excluded-experimental",
+      "bibliographyIds": [
+        "class-bibliography:plane-shift-amonkhet"
+      ],
+      "basis": "Reuse explicit bibliography/source policy for this named section and uninterrupted subordinate headings; no source decision promoted."
+    }
+  },
+  "limitations": [
+    "No canonical denominator, full rules or source rights accepted.",
+    "Historical data and publication decisions are unchanged.",
+    "Four Plane Shift domains reuse existing source policy excluded-experimental, including their spell tables and feature components.",
+    "Deity example tables are guidance, not new character features or a complete pantheon denominator.",
+    "Arcane Abjuration103 is the five-row limit table of102."
+  ]
+}

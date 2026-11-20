@@ -1,0 +1,894 @@
+{
+  "schemaVersion": 1,
+  "status": "manual-source-boundary-proposal",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "classUrl": "https://dnd.su/class/105-wizard/",
+  "snapshotPageSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+  "freshCapture": {
+    "url": "https://dnd.su/class/105-wizard/",
+    "sha256": "5014af15fd61af05dde5bd29e19514b8fd87fe10ea60fbcd8a81f6574e2053c8",
+    "headingStructureSha256": "32f2bcf9c4dc6d4fa44ce0a4fb52fee4cc08d11c00f039b2f0a6a3ad1eb4ebdb"
+  },
+  "publication": "Midgard Heroes Handbook",
+  "publisher": "Kobold Press",
+  "proposedDisposition": "exclude-third-party-from-common-catalog",
+  "primaryEvidence": [
+    {
+      "url": "https://koboldpress.com/midgard-heroes-angelic-scribe/",
+      "scope": "Angelic Scribe and named seals component"
+    },
+    {
+      "url": "https://koboldpress.com/citing-the-deep-magic-how-and-where-to-incorporate-the-deep-magic-into-your-campaign/",
+      "scope": "Publisher identifies angelic, elemental, geomancy and ring magic in Heroes Handbook"
+    },
+    {
+      "url": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/236914-sample.pdf",
+      "scope": "Publication identity and contents; not full rule verification"
+    }
+  ],
+  "groups": [
+    {
+      "parent": 231,
+      "first": 238,
+      "last": 238,
+      "basis": "Seal Scribe explicitly refers to Angelic Seals below; publisher article confirms this named component.",
+      "parentHeading": {
+        "ordinal": 231,
+        "title": "Ангельский писарь",
+        "level": 2,
+        "anchors": [
+          "mhh.tradition.angelic-scribe"
+        ],
+        "sectionAnchor": "mhh.tradition.angelic-scribe",
+        "bodySha256": "73b9061263c02eeff9498de35513dbae3da1746016885acae9d979678f4c5e49",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "headings": [
+        {
+          "ordinal": 238,
+          "title": "АНГЕЛЬСКИЕ ПЕЧАТИ",
+          "level": 2,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "881e2fe3620711ecdf5e176b6cd51eb9d6c36eaa28ebf4aebda0e9dfcf2c5161",
+          "bodyEmpty": false,
+          "tables": []
+        }
+      ],
+      "linkEvidence": {
+        "ordinal": 234,
+        "title": "ПИСАРЬ ПЕЧАТЕЙ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "mhh.tradition.angelic-scribe",
+        "bodySha256": "9494f0f6742b151bea4321c3955bee2a8901d56135f8706e1555dc264cd74018",
+        "bodyEmpty": false,
+        "tables": []
+      }
+    },
+    {
+      "parent": 252,
+      "first": 259,
+      "last": 265,
+      "basis": "Separate ley-line rules follow Geomancy; publisher identifies geomancy in Heroes Handbook. Not an additional official wizard feature.",
+      "parentHeading": {
+        "ordinal": 252,
+        "title": "Геомант",
+        "level": 2,
+        "anchors": [
+          "mhh.tradition.geomancy"
+        ],
+        "sectionAnchor": "mhh.tradition.geomancy",
+        "bodySha256": "57e0df08d59669ca566d113474eda6eae1d12d7109f2e21471776235cd8ff305",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "headings": [
+        {
+          "ordinal": 259,
+          "title": "ЛЕЙ-ЛИНИИ И ГЕОМАНТИЯ",
+          "level": 2,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "3f67783bd21b5b1c36412887e6b0fcb4b9ac39627ba343421816af4e96be1b3f",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 260,
+          "title": "Сила Земли",
+          "level": 3,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "a66c4e6c8f42bee87c09c97d72fc1f5d9195cecee2eff4eb822dad8c11a03a0b",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 261,
+          "title": "Использование лей-линий",
+          "level": 3,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "16292b594e043cef294eef2ddb43f9057a176212b7736d22b2cf6f81e6cc7208",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 262,
+          "title": "Эффект слабой лей-линии",
+          "level": 4,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "baf683435dc9047588ef21b7743c8b91148c7a58eef8463bb381f533da2d9682",
+          "bodyEmpty": false,
+          "tables": [
+            {
+              "rows": 10
+            }
+          ]
+        },
+        {
+          "ordinal": 263,
+          "title": "Эффект сильной лей-линии",
+          "level": 4,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "c509e2ed68385fa94ab1b1af1d8bc26aa01ab647760a2a60137a3d8972739f08",
+          "bodyEmpty": false,
+          "tables": [
+            {
+              "rows": 10
+            }
+          ]
+        },
+        {
+          "ordinal": 264,
+          "title": "Эффект титанической лей-линии",
+          "level": 4,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "a0ba65e2cd73acd5931070f50a60558011073f67ad7740fc00c055280711334c",
+          "bodyEmpty": false,
+          "tables": [
+            {
+              "rows": 10
+            }
+          ]
+        },
+        {
+          "ordinal": 265,
+          "title": "Ответная реакция лей-линии",
+          "level": 4,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "46517e9322929cdc8032d763ceeacbf00197028d5009e6f81703dd773e5255e2",
+          "bodyEmpty": false,
+          "tables": [
+            {
+              "rows": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "parent": 273,
+      "first": 284,
+      "last": 294,
+      "basis": "Elemental Mastery (heading280) explicitly refers to selectable Arts below; the Arts section supplies these options before the next named tradition.",
+      "parentHeading": {
+        "ordinal": 273,
+        "title": "маг стихий",
+        "level": 2,
+        "anchors": [
+          "mhh.tradition.elementalist"
+        ],
+        "sectionAnchor": "mhh.tradition.elementalist",
+        "bodySha256": "10654cac34310fdacf624764b3cb4d393e480e3500355386e149474d291a734e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "headings": [
+        {
+          "ordinal": 284,
+          "title": "Искусства",
+          "level": 2,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "e8957a0d6ff71004f90b80937114b514d3299a6eb4f89125139c8fd7d299f7f2",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 285,
+          "title": "Каменное убежище",
+          "level": 3,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "fc061f9011cb93cda06bd4e97f785e5f77ae8d3042f8cc439a0d068aef9ba839",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 286,
+          "title": "НЕУКРОТИМЫЙ НАТИСК",
+          "level": 3,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "bae0bf590e138e09dcb0cb02b4903ce461a73c67cf6ef73c79e52c04016145f5",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 287,
+          "title": "Поджигание",
+          "level": 3,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "ac818aef80a301b4f3d49b8e49ca224bd0a1539867df5d9a7da771431490e24f",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 288,
+          "title": "Порыв ветра",
+          "level": 3,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "8e4056aedbe612303e3d0e87b3b2a308c59127d687f54498cdeded15e7d8736d",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 289,
+          "title": "СМЫВАЮЩИЙ ВАЛ",
+          "level": 3,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "ae921251e2eee8fa2f74c9da757ab3a9f99fa775e1b4859d279d081f372d09b7",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 290,
+          "title": "Стихийная адаптация",
+          "level": 3,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "6761c97385f3279a2a36544522963587d6864d9c8815a9700e55267c88e9211b",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 291,
+          "title": "Стихийное разъедание",
+          "level": 3,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "7f667eba92c2e7f2fc332cf234077a3c4bf3fb780e106916de7361cb2e93e884",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 292,
+          "title": "СТИХИЙНЫЙ ОПЛОТ",
+          "level": 3,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "90c25a233ba445f56142c97f2d6ecef0bb6600522c36a1da4eb6f856b3b686d2",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 293,
+          "title": "СТИХИЙНЫЙ СЛУГА",
+          "level": 3,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "c4114c248ca5892653d33c60b0fd86718b511c529bb7f0c1bd3d24fe9c7d4d00",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 294,
+          "title": "Управление стихиями",
+          "level": 3,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "7b6cf333bd1bf8314d3bcd201b449c256843fc539ed649f88b406254ff03849d",
+          "bodyEmpty": false,
+          "tables": []
+        }
+      ],
+      "linkEvidence": {
+        "ordinal": 280,
+        "title": "ВЛАДЫКА СТИХИЙ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "mhh.tradition.elementalist",
+        "bodySha256": "9a8aca8608f7ad2063af4e5e665d0da02f84b505fedf4dbbe9629047da82d1d2",
+        "bodyEmpty": false,
+        "tables": []
+      }
+    },
+    {
+      "parent": 301,
+      "first": 308,
+      "last": 309,
+      "basis": "Ring Magic explanatory material follows Ring Warden; publisher explicitly locates ring magic in Heroes Handbook.",
+      "parentHeading": {
+        "ordinal": 301,
+        "title": "Хранитель колец",
+        "level": 2,
+        "anchors": [
+          "mhh.tradition.ring-warden"
+        ],
+        "sectionAnchor": "mhh.tradition.ring-warden",
+        "bodySha256": "00a16cab72183a26eb47c7a36e817098d3b94ce4f6effbd869bbd9d209ba9b97",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 10
+          }
+        ]
+      },
+      "headings": [
+        {
+          "ordinal": 308,
+          "title": "МАГИЯ КОЛЕЦ",
+          "level": 2,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "4f24a31a14ac3f4d2399fb4c23bf1714da33f65b9fe9c199ba3a94f339e62215",
+          "bodyEmpty": false,
+          "tables": []
+        },
+        {
+          "ordinal": 309,
+          "title": "Соединяя Магию и Материю",
+          "level": 3,
+          "anchors": [],
+          "sectionAnchor": null,
+          "bodySha256": "a95dc8544210bbcaa293edfb3544ee24a03620e453872da0e62cfde688746f0d",
+          "bodyEmpty": false,
+          "tables": []
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Semantic source-boundary proposals, not automatic inheritance across h2 headings.",
+    "No full rules, translation equivalence, rights approval or canonical units certified.",
+    "Original observations and personal exceptions remain unchanged.",
+    "All50 residual headings have proposals, not accepted canonical units. Heading22 includes DMG scroll-copying material; heading13 explicitly references PHB despite the preceding XGE section anchor. Do not infer publication from the closest HTML anchor."
+  ],
+  "classifications": [
+    {
+      "heading": {
+        "ordinal": 1,
+        "title": "Волшебник",
+        "level": 4,
+        "anchors": [
+          "wizard"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "aace51c1332ce52b5c5c5bf6e41f5d77b4537cfc7860d4770aaa8cd0fe0d58af",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 2,
+        "title": "АДЕПТЫ МАГИИ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "222209087ca80c70977e3a6e41e156ee995e2c86ed34990c2d9b50c3469f814b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 3,
+        "title": "СОБЛАЗН ЗНАНИЙ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "95229c23a93c0c3665563ef7c5578b6e91b466e9cc1aaba0ca9db02065ecf0f1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 4,
+        "title": "Создание волшебника",
+        "level": 3,
+        "anchors": [
+          "creation"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "72a474ad6c3c55d2639138db2f4567109314526c3ce42a9b9780e5eb01024fd6",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 5,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "937a2bd2e984b352db69766a6fd5a68cbeef8f4c4347896b16a857ad7493cc1c",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 6,
+        "title": "Углублённая предыстория Волшебника (XGE)",
+        "level": 2,
+        "anchors": [
+          "XGE.backstory"
+        ],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "7fd7e217245f787a04948071b9c67481ff37736f11a8f8f7527c8cd102dba492",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-introduction",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 7,
+        "title": "Книга заклинаний",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "894a55345cbe0ebc83268b3e44a04552fedaae741e8a4d2f08cee81f619dc3bf",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 8,
+        "title": "Книги заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "7367dd4ab8c3ddc6b6f0265fa2c7937da3b34c37ac031f1e4f9dbd8be6dcea8a",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 9,
+        "title": "Амбиции",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "b282584c1d251f04ef661a883bab277bc3a29195375dca79f2864e7cfe71cb8d",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 10,
+        "title": "Амбиции",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "19642eb400b73719774f891f778722d20d6e9a79dd8aa27ff9683abbc66e8873",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 11,
+        "title": "Эксцентричности",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "fe2a9edd54ad1fbb0acfe850e9d22a1e9125e4a7815579126342a961e47d78aa",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 12,
+        "title": "Эксцентричности",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "87b62b1f9f8bbdfc998af0edd9dc9569901014a7b2a4baa5c7477f24e0bef6f3",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 13,
+        "title": "МУЛЬТИКЛАССИРОВАНИЕ И ВОЛШЕБНИК",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "XGE.backstory",
+        "bodySha256": "bc9186d3450690cc4143f43605b31e67c91693bb256c21033edc4643822cb6cb",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 14,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "class-features"
+        ],
+        "sectionAnchor": "class-features",
+        "bodySha256": "a4069dbbbbce76b8862b1a486454c84d6b2a7a7258c82f60e60228f7003d3488",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 15,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 16,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "cd4d9c45102a029b13c30714774bebf8a1ca20d69aa078c32fb2b4adc9dfaab3",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 17,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "839e450da8629dbe2fb6a355c7f7bdf47495a4c15b8a5435d23653cda7488560",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 18,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "f08a2dc2fccddf97da195211ba57080b1e1af1c471dca90ed3ea9d54f2272c01",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 20,
+        "title": "Заговоры (заклинания 0-го уровня)",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "ab296c31fa677a9389ef96218a03e66afdc23d6e0552903d0976636713477241",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:wizard:class-features:feature.spellcasting",
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 21,
+        "title": "Книга заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "8155b373c09d5d2465a1955caf7518bc8bafe243908239242c5a83f9e37f43f9",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:wizard:class-features:feature.spellcasting",
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 22,
+        "title": "ВАША КНИГА ЗАКЛИНАНИЙ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "8f8dd10c46910a9da1d3e983b862a614253361eb7857683d48c7881bd1b976c0",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule-mixed-source",
+      "parentFeatureObservationId": "scope:wizard:class-features:feature.spellcasting",
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 23,
+        "title": "Подготовка и накладывание заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "d71f582f187e61ab460740a1f78135dd1de46425414a9b53c1c5e4603a317468",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:wizard:class-features:feature.spellcasting",
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 24,
+        "title": "Базовая характеристика заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "3be3e20493becc992bb5561deb04cdd259d62f5afa1bf6dfefbccce2467e853b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:wizard:class-features:feature.spellcasting",
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 25,
+        "title": "Ритуальное колдовство",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "d7cd8bbc33c3526bc65c6672e54aaec580e8fb25af4828db7c5103f30c9f2f91",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:wizard:class-features:feature.spellcasting",
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 26,
+        "title": "Фокусировка заклинания",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "49842ef7aff4126c3ea1871488f1ba7a9df2e8c56892393a3a100bbdf37b0c9c",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:wizard:class-features:feature.spellcasting",
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 27,
+        "title": "Известные заклинания первого и более высоких уровней",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "eb9ecfcc571a8dba7f687793bc4234fb8d3458571e606f2bac624416dacb4cc6",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:wizard:class-features:feature.spellcasting",
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 35,
+        "title": "Магические традиции",
+        "level": 2,
+        "anchors": [
+          "arcane-traditions"
+        ],
+        "sectionAnchor": "arcane-traditions",
+        "bodySha256": "d3c9e3cb6bee045ae89428248931c442c88d7d86b4d7100966d33b79dac11c85",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "tradition-introduction",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 115,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "586be9f6540aad3411e7c92336888f020c9f5bacdaacc2b6c4010fd50904fcd1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "heading": {
+        "ordinal": 116,
+        "title": "Магические традиции из «Unearthed Arcana»",
+        "level": 2,
+        "anchors": [
+          "magicheskie_traditsii_iz_unearthed_arcana"
+        ],
+        "sectionAnchor": "magicheskie_traditsii_iz_unearthed_arcana",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "playtest-section-marker",
+      "parentFeatureObservationId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "canonicalId": null
+    }
+  ]
+}

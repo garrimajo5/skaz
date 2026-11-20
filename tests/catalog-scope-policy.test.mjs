@@ -11,9 +11,9 @@ test('owner policy excludes experimental and third party sections without alteri
  assert.equal(result.approvedDenominator,null);
  assert.ok(result.records.every(r=>!r.included&&r.reusePermission==='not-established'));
  assert.equal(result.records.filter(r=>r.disposition==='excluded-experimental').length,5);
- assert.equal(result.records.filter(r=>r.disposition==='excluded-third-party').length,4);
+ assert.equal(result.records.filter(r=>r.disposition==='excluded-third-party').length,5);
  assert.equal(result.records.filter(r=>r.disposition==='excluded-unofficial').length,1);
- assert.equal(result.records.filter(r=>r.disposition==='needs-official-source-evidence').length,2);
+ assert.equal(result.records.filter(r=>r.disposition==='needs-official-source-evidence').length,1);
 });
 test('unknown, duplicate and mixed evidence never becomes an accepted source',()=>{
  const b=structuredClone(boundaries);b.pending[0].bibliographyEvidenceIds=['missing'];

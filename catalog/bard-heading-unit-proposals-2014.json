@@ -1,0 +1,582 @@
+{
+  "schemaVersion": 1,
+  "status": "residual-heading-classification-proposal",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "classSlug": "bard",
+  "classUrl": "https://dnd.su/class/88-bard/",
+  "snapshotPageSha256": "c28e13801103bbfab03ebd9c42a6280492df81ed2137fb114becc9a5b356b610",
+  "freshCapture": {
+    "url": "https://dnd.su/class/88-bard/",
+    "sha256": "f4e9fcb1b30bd228679ad3e1f9fda81f36e34f9764772916c512f008b64eb403",
+    "headingStructureSha256": "b1bb8200740b167e07d618686396633c42b6617064d06a08b6155c7301a14110"
+  },
+  "records": [
+    {
+      "heading": {
+        "ordinal": 1,
+        "title": "Бард",
+        "level": 4,
+        "anchors": [
+          "bard"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "79ff4c368e0a7bce866fa8f05cd21a2e2ebb968f6efac046e5874ef9df532638",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 2,
+        "title": "МУЗЫКА И МАГИЯ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "a3782b913557638fed20b8a92204148c262a5fe17eed215c513be0e5de110a28",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 3,
+        "title": "ОБУЧЕНИЕ НА ОПЫТЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "f3980e5a491f8e98f96d71f36bb3f4ac063fabc6cff0ba453eed0215fb823aa4",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 4,
+        "title": "Создание барда",
+        "level": 3,
+        "anchors": [
+          "sozdanie_barda"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "8fc2a73d1c6f9d00c619870bf7cd46d302f521b135d9cdfda7e8445880320c85",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 5,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "3f2ebca42f8ba7ee55c85c687d278dcfd38c4699761ec2cd43e17c9d76d1b488",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 6,
+        "title": "Углублённая предыстория Барда (XGE)",
+        "level": 2,
+        "anchors": [
+          "uglubljonnaya_predystoriya_barda_xge"
+        ],
+        "sectionAnchor": "uglubljonnaya_predystoriya_barda_xge",
+        "bodySha256": "e53902afc18b617e077763f17094871f650460ec46b41f3771bef12deef8a9f6",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 7,
+        "title": "Главное произведение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_barda_xge",
+        "bodySha256": "acd253867c52a73caabe0a07ae92cc7740b959f668c4fe6cd4417cb2f179c195",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 8,
+        "title": "Главное произведение",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_barda_xge",
+        "bodySha256": "3cf96eeba48bc2cc71b42756e5b146240ef71a5392d5adf616b87b5f7bb0f3f0",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 9,
+        "title": "Инструмент",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_barda_xge",
+        "bodySha256": "b842cb3eab9de458b02ecec017b00847c2b086ae3b7b9334e4fda2ac36637d57",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 10,
+        "title": "Инструменты",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_barda_xge",
+        "bodySha256": "7bddfdc5d399089f66c60f1ba5fa5a70ec2c9ef4aaf69164d91790eb323e26ce",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 11,
+        "title": "Неловкое положение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_barda_xge",
+        "bodySha256": "e2bc82b888b5fcd755a7663d3f0d247ae2b6cc46b43221c0865a8d7d4ff5b195",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 12,
+        "title": "Неловкое положение",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_barda_xge",
+        "bodySha256": "89da02a5ba046614c768dff5e284e5eb02c6de6c25700db6f14adcc7a5a9acb7",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 13,
+        "title": "Муза барда",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_barda_xge",
+        "bodySha256": "ed0c29723d75a19edbef998749232e5dafca2d536ce51567b4768be1afcf92f9",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 14,
+        "title": "МУЛЬТИКЛАССИРОВАНИЕ И БАРД",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_barda_xge",
+        "bodySha256": "a08424c9ba6bb66939be09c57b1fb1e13c4ca3a0b2113ad59e5527e7871719b7",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 15,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "class-features"
+        ],
+        "sectionAnchor": "class-features",
+        "bodySha256": "40b23bc278b452f2de9efb9e4fcbc12f953659a5da4444a17ac5a8e531b7a120",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 16,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 17,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "6eeb558199321541c69f746f22d3d9527e3ea64a7892e008a69a42813c435740",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 18,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "639c9d4656f929d05846d8096f98579edd6b38c5f30b04113c419cd93ab3a132",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 19,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "8d8e849b98eb3734bcb899f31d56a036f1a2ad654c87a6e96d9418a5e2157877",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 21,
+        "title": "Заговоры (заклинания 0-го уровня)",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "e648e3d146416ac1af2a57e33b815b96c0c6de7011cbff9710290bc8f8420f54",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:bard:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 22,
+        "title": "Ячейки заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "76f0021d1b7c0f8cfbd4dfbb244474ad3a7ae1f0f5df43466c23f456d2c5d1a4",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:bard:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 23,
+        "title": "Известные заклинания первого и более высоких уровней",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "ee4c65a34acaba754fbf04bafa57ec3462739ea9d302fdb13d8577c8525c6b0c",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:bard:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 24,
+        "title": "Базовая характеристика заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "79809bdaafe34141edaecbfa7ee0ed97e8cbc7677ef9be83c37353976aa0ace9",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:bard:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 25,
+        "title": "Ритуальное колдовство",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "9e2875a03448f1996de4cc1010ada46467fac9285f95c2581f0184762dda9666",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:bard:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 26,
+        "title": "Фокусировка заклинания",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "2195337dc2b57eff9813b138703dff44974a48fc4a25628a589c7dda82a98876",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:bard:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 20,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 28,
+        "title": "Бард",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "8fbf785794d78c0076aed2bc45ade8a719f7095698582cf8ef194723b7204a53",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 9
+          }
+        ]
+      },
+      "kind": "additional-spell-table",
+      "parentFeatureObservationId": "scope:bard:class-features:feature.extra-spells",
+      "parentHeadingOrdinal": 27,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 41,
+        "title": "Коллегии бардов",
+        "level": 2,
+        "anchors": [
+          "bard-colleges"
+        ],
+        "sectionAnchor": "bard-colleges",
+        "bodySha256": "7295482d495e0a41424a0a5f2d307674457fa676c00862e62b801ed042c03808",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "tradition-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 83,
+        "title": "Истории духов",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "college.spirits",
+        "bodySha256": "c8534246a4fe2887827918b1d79d0041731e1e4f60ddc4cf5844ec8c8ca9e847",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 12
+          }
+        ]
+      },
+      "kind": "feature-effect-table",
+      "parentFeatureObservationId": "scope:bard:college.spirits:19553e3d2ea2d525",
+      "parentHeadingOrdinal": 82,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 87,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "f3fbd6fe9ed74f35c6a60f6b06ece055f5236170b22862553b4f38284f97f2d6",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    }
+  ],
+  "limitations": [
+    "No canonical feature denominator, full rules or source rights accepted.",
+    "Heading28 is the nine-row additional-spell table of the TCE feature27, not a new subclass or nine features.",
+    "Heading83 contains twelve effects of feature82, not twelve independent class features.",
+    "Heading14 references PHB explicitly despite the preceding XGE section anchor.",
+    "Historical snapshot and existing observations remain unchanged."
+  ]
+}
