@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-20",
+  "status": "selected-publication-headings-not-full-rules",
+  "sources": [
+    {
+      "sourceId": "151",
+      "book": "twbtw",
+      "title": "The Wild Beyond the Witchlight",
+      "url": "https://www.dndbeyond.com/sources/dnd/twbtw",
+      "htmlSha256": "cfaf16fbfb70f0b1f52df9fd4073305c4368213df17c4386a4215b611c86ecb2",
+      "records": [
+        {
+          "name": "fairy",
+          "heading": "Fairy",
+          "targetUrl": "https://www.dndbeyond.com/sources/twbtw/into-the-feywild#Fairy"
+        },
+        {
+          "name": "harengon",
+          "heading": "Harengon",
+          "targetUrl": "https://www.dndbeyond.com/sources/twbtw/into-the-feywild#Harengon"
+        }
+      ]
+    },
+    {
+      "sourceId": "112",
+      "book": "ggtr",
+      "title": "Guildmasters' Guide to Ravnica",
+      "url": "https://www.dndbeyond.com/sources/dnd/ggtr",
+      "htmlSha256": "fedaea3dc08b01c9bc7ed54745d85ec4e1a582995d1cd4120fed16f6f75c21f4",
+      "records": [
+        {
+          "name": "centaur",
+          "heading": "Centaur",
+          "targetUrl": "https://www.dndbeyond.com/compendium/rules/ggtr/character-creation#Centaur"
+        },
+        {
+          "name": "minotaur",
+          "heading": "Minotaur",
+          "targetUrl": "https://www.dndbeyond.com/compendium/rules/ggtr/character-creation#Minotaur"
+        }
+      ]
+    },
+    {
+      "sourceId": "107",
+      "book": "pota",
+      "title": "Princes of the Apocalypse",
+      "url": "https://www.dndbeyond.com/sources/dnd/pota",
+      "htmlSha256": "dad64524949e6293f021c7dfc5eae80f03be1fa56bf8ae1c5fad5ae67baee748",
+      "records": [
+        {
+          "name": "genasi",
+          "heading": "Appendix A: Genasi",
+          "targetUrl": "https://www.dndbeyond.com/sources/pota/appendix-a-genasi"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Contents headings establish publication attribution only.",
+    "Witchlight chapter links redirect to the marketplace; full text was not read.",
+    "An absent heading is unresolved evidence, not proof a book lacks the race."
+  ]
+}
