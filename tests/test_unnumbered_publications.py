@@ -31,4 +31,16 @@ class PublicationTests(unittest.TestCase):
   with self.assertRaisesRegex(ValueError,'bibliography basis'):m['review'](*a,html())
  def test_committed_report_has_no_false_clearance(self):
   r=json.loads((ROOT/'catalog/unnumbered-publication-relations-2014.json').read_text(encoding='utf-8'));self.assertEqual(r['summary']['acceptedCanonicalUnits'],0);self.assertFalse(r['complete']);self.assertIsNone(r['approvedDenominator'])
+
+
+class CurrentPolicyTests(unittest.TestCase):
+ def test_historical_bibliography_status_never_replaces_effective_policy(self):
+  r=m['review'](*inputs(),html());byid={x['observationId']:x for x in r['relations']}
+  self.assertEqual(byid['dndsu:race:184']['historicalBibliographyScopeDecision'],'awaiting-game-designer-review')
+  self.assertEqual(byid['dndsu:race:184']['currentNamedPublicationDisposition'],'eligible-publication-records-need-review')
+  self.assertEqual(byid['dndsu:race:178']['currentNamedPublicationDisposition'],'eligible-publication-records-need-review')
+  self.assertEqual(byid['dndsu:race:169']['currentNamedPublicationDisposition'],'needs-official-rules-status-review')
+ def test_changed_current_decision_requires_explicit_review(self):
+  a=inputs();a[4]['records'][0]['disposition']='eligible-publication-records-need-review'
+  with self.assertRaisesRegex(ValueError,'current named policy decision'):m['review'](*a,html())
 if __name__=='__main__':unittest.main()

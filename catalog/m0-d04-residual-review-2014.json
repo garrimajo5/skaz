@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "status": "current-d04-field-review-with-two-source-holds",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "originalMissingEnglishDiagnostics": 5,
+    "reviewedReferenceCollectionExplanations": 5,
+    "originalMixedScriptDiagnostics": 5,
+    "verifiedReferenceEnglishLabels": 3,
+    "heldReferenceLabels": 2,
+    "acceptedCanonicalBackgrounds": 0,
+    "acceptedCanonicalUnits": 0
+  },
+  "explainedCollectionPages": [
+    {
+      "observationId": "dndsu:backgrounds:845",
+      "originalMissingEnglishDiagnosticPreserved": true,
+      "referencePageKind": "optional-background-feature-collection",
+      "reviewedHtmlSha256": "b41467094416309398c4386cc46071379a9013f18895aa7a00ae5a4e1f994747",
+      "fieldDisposition": "preserve-empty-name-for-reviewed-reference-collection",
+      "standaloneBackgroundAccepted": false,
+      "componentUnitsAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:846",
+      "originalMissingEnglishDiagnosticPreserved": true,
+      "referencePageKind": "adventure-background-feature-and-bond-options",
+      "reviewedHtmlSha256": "9f4166480b10962f1356fcc91427a1f83129965c73b863a804809d2542811daa",
+      "fieldDisposition": "preserve-empty-name-for-reviewed-reference-collection",
+      "standaloneBackgroundAccepted": false,
+      "componentUnitsAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:847",
+      "originalMissingEnglishDiagnosticPreserved": true,
+      "referencePageKind": "adventure-background-feature-and-bond-options",
+      "reviewedHtmlSha256": "2f6e70d6aea917231329c3bed9f1715e59d48b0b85015e088828ff02c4d70d4b",
+      "fieldDisposition": "preserve-empty-name-for-reviewed-reference-collection",
+      "standaloneBackgroundAccepted": false,
+      "componentUnitsAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:848",
+      "originalMissingEnglishDiagnosticPreserved": true,
+      "referencePageKind": "setting-adaptations-of-existing-backgrounds",
+      "reviewedHtmlSha256": "c4b7493c3e3ec6adc89079777fa4cb96435797132912fd09b7d361e05bf40093",
+      "fieldDisposition": "preserve-empty-name-for-reviewed-reference-collection",
+      "standaloneBackgroundAccepted": false,
+      "componentUnitsAccepted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:856",
+      "originalMissingEnglishDiagnosticPreserved": true,
+      "referencePageKind": "campaign-bonus-feat-rules",
+      "reviewedHtmlSha256": "9ee39fa01e8f151da12f09bc40885ef713c6c48146531fa5cf699c5af5abfba2",
+      "fieldDisposition": "preserve-empty-name-for-reviewed-reference-collection",
+      "standaloneBackgroundAccepted": false,
+      "componentUnitsAccepted": false
+    }
+  ],
+  "verifiedLabels": [
+    {
+      "observationId": "dndsu:bestiary:13077",
+      "effectiveReferenceEnglishName": "Cranium Rat Squeaker Swarm",
+      "originalObservedEnglishName": "Сranium rat squeaker swarm",
+      "sourceIds": [
+        "205"
+      ],
+      "identityReviewIds": [],
+      "identityAccepted": false,
+      "runtimeChanged": false
+    },
+    {
+      "observationId": "dndsu:bestiary:6883",
+      "effectiveReferenceEnglishName": "Nilbog",
+      "originalObservedEnglishName": "Nilbog,goblin гоблин",
+      "sourceIds": [
+        "158"
+      ],
+      "identityReviewIds": [
+        "name-review:09a4e54444ba7198e981"
+      ],
+      "identityAccepted": false,
+      "runtimeChanged": false
+    },
+    {
+      "observationId": "dndsu:items:6459",
+      "effectiveReferenceEnglishName": "Prehistoric Figurines of Wondrous Power",
+      "originalObservedEnglishName": "Prehistoric Figurines of Wondrous Power,Pyrite Pleisosarus Пиритовый плезиозавр Carnelian Triceratops Сердоликий трицератопс  Яшмовый Тираннозавр Рекс Jasper Tyrannosaurus Rex Kyanite Pteranodon Кианитовый птеранодон",
+      "sourceIds": [
+        "198"
+      ],
+      "identityReviewIds": [],
+      "identityAccepted": false,
+      "runtimeChanged": false
+    }
+  ],
+  "heldLabels": [
+    {
+      "observationId": "dndsu:bestiary:20456",
+      "sourceIds": [
+        "169"
+      ],
+      "reason": "needs-primary-name-and-publication",
+      "nextRequiredEvidence": "Exact primary name and publication for observation20456; an AL umbrella label or visual transliteration is insufficient.",
+      "automaticCorrection": false
+    },
+    {
+      "observationId": "dndsu:bestiary:568",
+      "sourceIds": [
+        "111"
+      ],
+      "reason": "primary-name-supported-secondary-card-missing",
+      "nextRequiredEvidence": "Exact secondary legacy card for observation568; never substitute6883.",
+      "automaticCorrection": false
+    }
+  ],
+  "originalRootChanged": false,
+  "identityGroupsRegrouped": false,
+  "otherM0DecisionsChanged": false,
+  "runtimeChanged": false,
+  "limitations": [
+    "This is the residual of selected D04 field/type diagnostics, not a catalog-completeness percentage or an approved denominator.",
+    "Five collection-page explanations preserve empty English names; they do not invent standalone background entries or accept component rules.",
+    "Three label corrections preserve original observed/search labels and identity membership in the separate reviewed view.",
+    "Two exact source conditions remain open; full rules, versions, rights and the other M0 decisions remain separate unfinished work.",
+    "No character data, runtime catalog, source snapshot, issue closure or stage acceptance is changed."
+  ],
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db",
+    "catalog/mixed-script-name-evidence-2014.json": "033592eee55473cd468d419af022b30c9f6ff439f18d823d788553fc481d0eb7",
+    "catalog/background-collection-structures-2014.json": "d39051626ce0526ccd2011c62a0d9b164d27681293d2acbdbca060e92262bbd2",
+    "catalog/background-reference-kind-decisions-2014.json": "1ee555b7aebe124ecb017653bf89469713ec59fd846700cf0fa0d4543218fc66",
+    "catalog/mixed-script-reference-labels-2014.json": "22100aa101d865790652ed7d23fc2560a5111f674ff064d13dea773f6f46a8a6"
+  }
+}
