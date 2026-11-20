@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-21",
+  "status": "publisher-filter-membership-and-record-reuse-not-printed-rule-equivalence",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "names": 2,
+    "verifiedFilterCaptures": 6,
+    "verifiedBookFilterValues": 3,
+    "filteredRecordOccurrences": 6,
+    "uniqueDigitalRecordsInSelectedFilters": 4,
+    "groupsWithSharedLegacyDigitalRecord": 2,
+    "groupsWithDistinctMotmDigitalRecord": 2,
+    "acceptedCanonicalUnits": 0
+  },
+  "captures": [
+    {
+      "name": "Juiblex",
+      "bookKey": "motm",
+      "requestedUrl": "https://www.dndbeyond.com/monsters?filter-search=Juiblex&filter-source=85",
+      "resolvedUrl": "https://www.dndbeyond.com/monsters?filter-search=Juiblex&filter-source=85",
+      "htmlSha256": "a62b9588b385291ff71b23708c66bfcd021525e06335a35a0ea9ae05173880ed",
+      "publisherFilterValue": "85",
+      "referenceSourceId": "158",
+      "selectedPublisherLabel": "Mordenkainen Presents: Monsters of the Multiverse",
+      "filterAppliedVerified": true,
+      "record": {
+        "name": "Juiblex",
+        "cardUrl": "https://www.dndbeyond.com/monsters/2560853-juiblex",
+        "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse"
+      }
+    },
+    {
+      "name": "Juiblex",
+      "bookKey": "mtof",
+      "requestedUrl": "https://www.dndbeyond.com/monsters?filter-search=Juiblex&filter-source=33",
+      "resolvedUrl": "https://www.dndbeyond.com/monsters?filter-search=Juiblex&filter-source=33",
+      "htmlSha256": "aff768464a62f86af9a5fae77a77fad3a503faa0f247a1599b2e44f68e721298",
+      "publisherFilterValue": "33",
+      "referenceSourceId": "113",
+      "selectedPublisherLabel": "Mordenkainen’s Tome of Foes",
+      "filterAppliedVerified": true,
+      "record": {
+        "name": "Juiblex",
+        "cardUrl": "https://www.dndbeyond.com/monsters/17416-juiblex",
+        "displayedSource": "Out of the Abyss"
+      }
+    },
+    {
+      "name": "Juiblex",
+      "bookKey": "oota",
+      "requestedUrl": "https://www.dndbeyond.com/monsters?filter-search=Juiblex&filter-source=9",
+      "resolvedUrl": "https://www.dndbeyond.com/monsters?filter-search=Juiblex&filter-source=9",
+      "htmlSha256": "3e663a9e8135918103c663ff7eb27b710075f89002a279ecc98cea634568a2db",
+      "publisherFilterValue": "9",
+      "referenceSourceId": "129",
+      "selectedPublisherLabel": "Out of the Abyss",
+      "filterAppliedVerified": true,
+      "record": {
+        "name": "Juiblex",
+        "cardUrl": "https://www.dndbeyond.com/monsters/17416-juiblex",
+        "displayedSource": "Out of the Abyss"
+      }
+    },
+    {
+      "name": "Zuggtmoy",
+      "bookKey": "motm",
+      "requestedUrl": "https://www.dndbeyond.com/monsters?filter-search=Zuggtmoy&filter-source=85",
+      "resolvedUrl": "https://www.dndbeyond.com/monsters?filter-search=Zuggtmoy&filter-source=85",
+      "htmlSha256": "6053fc5d0b1e8b52923ae473e0a51de2cf7098b8f28dc1f5d28fc930115c3507",
+      "publisherFilterValue": "85",
+      "referenceSourceId": "158",
+      "selectedPublisherLabel": "Mordenkainen Presents: Monsters of the Multiverse",
+      "filterAppliedVerified": true,
+      "record": {
+        "name": "Zuggtmoy",
+        "cardUrl": "https://www.dndbeyond.com/monsters/2560977-zuggtmoy",
+        "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse"
+      }
+    },
+    {
+      "name": "Zuggtmoy",
+      "bookKey": "mtof",
+      "requestedUrl": "https://www.dndbeyond.com/monsters?filter-search=Zuggtmoy&filter-source=33",
+      "resolvedUrl": "https://www.dndbeyond.com/monsters?filter-search=Zuggtmoy&filter-source=33",
+      "htmlSha256": "bd4fee2149b34155109db2d58c977095da0e72f22cf2e8c5664325c53db3c2bd",
+      "publisherFilterValue": "33",
+      "referenceSourceId": "113",
+      "selectedPublisherLabel": "Mordenkainen’s Tome of Foes",
+      "filterAppliedVerified": true,
+      "record": {
+        "name": "Zuggtmoy",
+        "cardUrl": "https://www.dndbeyond.com/monsters/17419-zuggtmoy",
+        "displayedSource": "Out of the Abyss"
+      }
+    },
+    {
+      "name": "Zuggtmoy",
+      "bookKey": "oota",
+      "requestedUrl": "https://www.dndbeyond.com/monsters?filter-search=Zuggtmoy&filter-source=9",
+      "resolvedUrl": "https://www.dndbeyond.com/monsters?filter-search=Zuggtmoy&filter-source=9",
+      "htmlSha256": "b611d9eb18a8849b34103c61cc3bcb6afe0d9bfdefbb2791ad96934633454e69",
+      "publisherFilterValue": "9",
+      "referenceSourceId": "129",
+      "selectedPublisherLabel": "Out of the Abyss",
+      "filterAppliedVerified": true,
+      "record": {
+        "name": "Zuggtmoy",
+        "cardUrl": "https://www.dndbeyond.com/monsters/17419-zuggtmoy",
+        "displayedSource": "Out of the Abyss"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "name": "Juiblex",
+      "legacyOotaDigitalRecord": "https://www.dndbeyond.com/monsters/17416-juiblex",
+      "mtofFilteredDigitalRecord": "https://www.dndbeyond.com/monsters/17416-juiblex",
+      "motmFilteredDigitalRecord": "https://www.dndbeyond.com/monsters/2560853-juiblex",
+      "sameDigitalRecordObservedUnderOotaAndMtof": true,
+      "motmDigitalRecordDistinctFromBoth": true,
+      "filteredRecordOccurrences": 3,
+      "uniqueDigitalRecordsInSelectedFilters": 2,
+      "originalPrintedRulesCompared": false,
+      "fullPrimaryStatBlocksRead": false,
+      "originalPrintingEquivalenceAccepted": false,
+      "modernSecondaryOotaPlaqueValidated": false,
+      "automaticSourceRemoval": false,
+      "automaticMerge": false,
+      "canonicalUnitCountApproved": null
+    },
+    {
+      "name": "Zuggtmoy",
+      "legacyOotaDigitalRecord": "https://www.dndbeyond.com/monsters/17419-zuggtmoy",
+      "mtofFilteredDigitalRecord": "https://www.dndbeyond.com/monsters/17419-zuggtmoy",
+      "motmFilteredDigitalRecord": "https://www.dndbeyond.com/monsters/2560977-zuggtmoy",
+      "sameDigitalRecordObservedUnderOotaAndMtof": true,
+      "motmDigitalRecordDistinctFromBoth": true,
+      "filteredRecordOccurrences": 3,
+      "uniqueDigitalRecordsInSelectedFilters": 2,
+      "originalPrintedRulesCompared": false,
+      "fullPrimaryStatBlocksRead": false,
+      "originalPrintingEquivalenceAccepted": false,
+      "modernSecondaryOotaPlaqueValidated": false,
+      "automaticSourceRemoval": false,
+      "automaticMerge": false,
+      "canonicalUnitCountApproved": null
+    }
+  ],
+  "referenceSourceIdsChanged": false,
+  "runtimeChanged": false,
+  "limitations": [
+    "Publisher filter values9/33/85 and reference source IDs129/113/158 belong to different namespaces and are never substituted.",
+    "An exact row under a verified book filter demonstrates current publisher-index membership, not equality of original printed text, errata or licensed wording.",
+    "The MToF-filtered row may display Out of the Abyss; the displayed label is preserved rather than overwritten with the selected filter label.",
+    "Reuse of one digital record across two selected legacy book filters does not approve canonical merging or removing secondary source plaques.",
+    "A separate MotM digital record does not prove that an observed OotA plaque on a secondary MotM card is wrong or that all publications were exhaustively queried.",
+    "No primary rule body, translation right, character migration, runtime change or catalog denominator is accepted."
+  ],
+  "inputSha256": {
+    "catalog/numeric-source-scope-policy-2014.json": "c46db1df76294bc971e7c1582ece3cfe09cd126fcca22edf7fd2431f8379df32",
+    "catalog/demon-source-attribution-2014.json": "710e22e1084d1078374a82f9e73642d9189fc51cc014498ef9e736cae361ff90"
+  }
+}

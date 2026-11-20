@@ -1,3 +1,7 @@
+## 21.11 — #77 D03: подтверждён publisher-record overlap
+
+PR195 слитfc896de после независимых9Node+4SHA/CLI,P1/P2нет. [Новые6primaryfilters](demon-publisher-filter-overlap-2014.md) подтверждают selected book option/URL/SHA:дляJuiblexстарыеOotA/MTFфильтрывозвращают17416,MotM2560853;дляZuggtmoy17419/2560977.6строк/4уникальныхdigitalID. DisplayedSourceOutAbyssподMTFсохранён,providerfilter9/33/85непутаетсясreference129/113/158.8Python/реальные6HTML/2pinsPASS. Печатнаяэквивалентность/полныеправила/права/secondarysource129неприняты,canonical0/denominatornull/runtimeне меняется. Следующийшаг — независимыйобзор иактуальныйD03-контекстбезповтораprimaryfilters;этапыоткрыты,рефлексиявдокументе.
+
 ## 21.11 — #77 D03: четыре справочных отношения
 
 PR194 слит5da6602 после независимых9Python+4SHA/3реальныхHTML,P1/P2нет. [Свод](d03-reference-relationships-2014.md):4группы/9наблюдений/13исходныхатрибуций/13проверенныхcaptures;Drake1спутник/3уровневыхвида,Vamp2различныхreference-вида,4legacy/MotMdigitalкандидатадля2демонов. Два порядкаsourceIdsистории/effectivereview сохранены отдельно,безназначенияприоритета.9Node/воспроизводимостьPASS,изменённыйreviewed evidence не наследует приёмку,original/runtimeне меняются,0canonical/denominatornull. Следующийшаг — независимыйкод-обзор,затемпервичныеварианты/версии/праваилииздательскоеdigital-overlap;этапыоткрыты. Рефлексиявдокументе.
