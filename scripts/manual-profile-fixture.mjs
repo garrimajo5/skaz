@@ -10,6 +10,14 @@ if(typeof loseFirstResponse!=='boolean')throw Error('loseFirstResponse must be b
 const store=openStore(':memory:');
 store.createCharacter({mutationId:randomUUID(),expectedRevision:store.read().revision,campaignId:store.read().context.campaignId,characterId:randomUUID(),template:'manual-2014',profile:{name:'QA Ручной герой',tagline:'Вымышленный профиль'},manual:{stats:{abilities:{str:16,dex:31,con:14,int:18,wis:12,cha:10},armorClass:16,initiative:3,speed:30},sheet:{ruleset:'5e-2014',ancestry:'',className:'QA Волшебник',subclass:'',level:21,counters:[{id:'counter-synthetic',name:'QA Запас',current:8,max:7}],spellcasting:{ability:'int',dcOverride:null,attackOverride:null}},hp:10,maxHp:20,tempHp:0,gold:0}});
 const server=createApp(store,{profileEditors});
+let applicationHandler=server.listeners('request')[0];
+function setProfileEditors(value){
+ if(typeof value!=='boolean')throw Error('profileEditors must be boolean');
+ const replacement=createApp(store,{profileEditors:value});
+ server.removeListener('request',applicationHandler);
+ applicationHandler=replacement.listeners('request')[0];
+ server.on('request',applicationHandler);
+}
 let pendingLoss=loseFirstResponse;
 const observations={lostResponses:0};
 server.prependListener('request',(request,response)=>{
@@ -21,7 +29,7 @@ server.prependListener('request',(request,response)=>{
   };
 });
 server.once('close',()=>store.close());
-return {server,snapshot:()=>({workspace:store.read(),history:store.history(),...observations})};
+return {server,setProfileEditors,snapshot:()=>({workspace:store.read(),history:store.history(),...observations})};
 }
 
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){

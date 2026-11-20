@@ -20,6 +20,9 @@ test('manual RAM fixture loses only the first committed stats response, preservi
   assert.equal(committed.history.length,initial.history.length+1);
   assert.deepEqual(committed.workspace.state,initial.workspace.state);
   assert.deepEqual(committed.workspace.characterSheet,initial.workspace.characterSheet);
+  f.setProfileEditors(false);
+  assert.match(await (await fetch(origin+'/')).text(),/data-profile-editors="disabled"/);
+  assert.deepEqual(f.snapshot(),committed);
   const retry=await send();assert.equal(retry.status,200);assert.equal((await retry.json()).replayed,true);
   assert.deepEqual(f.snapshot(),committed);
   assert.equal((await send({...command,stats:{...command.stats,armorClass:17}})).status,409);
@@ -39,3 +42,14 @@ test('manual fixture is isolated and response loss is opt in',async()=>{
  }finally{await Promise.all([a,b].map(f=>new Promise(r=>{f.server.closeAllConnections();f.server.close(r);})))}
 });
 
+
+test('RAM recovery switch cannot be invoked by HTTP and never changes synthetic data',async()=>{
+ const f=createManualProfileFixture();await new Promise(r=>f.server.listen(0,'127.0.0.1',r));
+ try{
+  const before=f.snapshot(),origin='http://127.0.0.1:'+f.server.address().port;
+  assert.throws(()=>f.setProfileEditors('false'));assert.deepEqual(f.snapshot(),before);
+  f.setProfileEditors(false);assert.match(await (await fetch(origin+'/')).text(),/data-profile-editors="disabled"/);
+  assert.equal((await fetch(origin+'/api/profile-mode',{method:'POST'})).status,404);
+  f.setProfileEditors(true);assert.doesNotMatch(await (await fetch(origin+'/')).text(),/data-profile-editors="disabled"/);assert.deepEqual(f.snapshot(),before);
+ }finally{f.server.closeAllConnections();await new Promise(r=>f.server.close(r));}
+});
