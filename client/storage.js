@@ -114,7 +114,7 @@ const SkazStorage = (() => {
         message='Последнее подтверждение: '+new Date(payload.updatedAt).toLocaleTimeString('ru-RU');
       }
       status='ready';
-    }catch(error){status=[401,403,404].includes(error.status)?'denied':error.status===409?'resource-conflict':'resource-pending';resourceFailure=error.message||'Нет связи. Очередь сохранена в браузере';}
+    }catch(error){status=[401,403,404].includes(error.status)?'denied':error.status===409?'resource-conflict':'resource-pending';resourceFailure=(error.message||'Нет связи с сервером.')+(!error.status&&resourceQueue?.length?' Очередь сохранена в браузере. Можно повторить отправку.':'');}
     finally{resourceSending=false;render();}
   }
   async function reviewResourceQueue(){
@@ -146,11 +146,21 @@ const SkazStorage = (() => {
     try { pending ? localStorage.setItem(pendingKey, JSON.stringify(pending)) : localStorage.removeItem(pendingKey); draftStored = true; }
     catch { draftStored = false; message = 'Черновик остался только в этой вкладке. Скачай его перед закрытием.'; }
   }
+  function responseFailure(response,serverMessage){
+    const fallback=response.ok?'Не удалось прочитать ответ сервера.':({401:'Войди в приложение заново.',403:'Недостаточно прав для этого действия.',404:'Запись не найдена или доступ к ней изменился.',409:'Данные изменились. Сверь изменения с сервером.'}[response.status]||'Сервер не смог выполнить запрос. Повтори попытку позже.');
+    const error=new Error(typeof serverMessage==='string'&&serverMessage.trim()?serverMessage:fallback);
+    if(!response.ok)error.status=response.status;
+    return error;
+  }
   async function request(url, options = {}) {
-    const response = await fetch(url, { cache: 'no-store', ...options, headers: { ...options.headers, 'X-Skaz-View': tabId }, signal: AbortSignal.timeout(10000) });
+    let response;
+    try{response=await fetch(url, { cache: 'no-store', ...options, headers: { ...options.headers, 'X-Skaz-View': tabId }, signal: AbortSignal.timeout(10000) });}
+    catch{throw new Error('Не удалось связаться с сервером.');}
     if(response.headers?.get('x-skaz-mode') === 'private-server')privateServer=true;
-    const payload = await response.json();
-    if (!response.ok) { const error = new Error(payload.error || 'Сервер не ответил'); error.status = response.status; throw error; }
+    let payload;
+    try{payload=await response.json();}catch{throw responseFailure(response);}
+    if(!response.ok)throw responseFailure(response,payload?.error);
+    if(!payload||typeof payload!=='object')throw responseFailure(response);
     return payload;
   }
   function pendingResourceIndices(resource){if(!resourceContextMatches())return [];return [...new Set((resourceQueue?.data?.commands||[]).filter(c=>JSON.stringify(c.resource)===JSON.stringify(resource)).map(c=>c.delta<0?c.before-1:c.before+c.delta-1).filter(i=>i>=0))];}
