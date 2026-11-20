@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import importlib.util
 import json
+import math
 import subprocess
 from PIL import Image
 from pathlib import Path
@@ -93,6 +94,27 @@ def build(source, folder, render=False):
                                  'height': image.height, 'dpi': 200, 'bytes': image_path.stat().st_size,
                                  'sha256': hashlib.sha256(image_path.read_bytes()).hexdigest(),
                                  'derivedFromPdfSha256': hashlib.sha256(output.read_bytes()).hexdigest()})
+    regions = []
+    for row in after['rows']:
+        if row['fieldName'] not in VALUES:
+            continue
+        page = result.pages[row['page'] - 1]
+        region = {'fieldName': row['fieldName'], 'page': row['page'], 'pdfRect': row['rect'],
+                  'blank': VALUES[row['fieldName']] == '', 'normalizedBox': None}
+        if render:
+            if page.rotation != 0 or list(page.cropbox) != list(page.mediabox):
+                raise ValueError('Only the pinned unrotated full-page geometry is supported')
+            image = rendered[row['page'] - 1]
+            sx, sy = image['width'] / float(page.cropbox.width), image['height'] / float(page.cropbox.height)
+            x0, y0, x1, y1 = row['rect']
+            left = math.floor((x0 - float(page.cropbox.left)) * sx)
+            top = math.floor((float(page.cropbox.top) - y1) * sy)
+            right = math.ceil((x1 - float(page.cropbox.left)) * sx)
+            bottom = math.ceil((float(page.cropbox.top) - y0) * sy)
+            if not (0 <= left < right <= image['width'] and 0 <= top < bottom <= image['height']):
+                raise ValueError('Normalized source region outside raster')
+            region['normalizedBox'] = [left, top, right-left, bottom-top]
+        regions.append(region)
     report = {
         'schemaVersion': 1, 'status': 'local-fictional-layout-sample-not-ocr-acceptance',
         'synthetic': True, 'accepted': False, 'complete': False,
@@ -105,6 +127,7 @@ def build(source, folder, render=False):
                      'bytes': output.stat().st_size, 'pages': 3, 'canonicalNamedFields': 334, 'widgets': 336,
                      'interactive': True, 'redistributedInGit': False},
         'rasterPages': rendered,
+        'regions': regions,
         'inputVariants': [{'kind': 'fillable-pdf', 'files': [output.name], 'pages': 3}] +
                          ([{'kind': 'png-pages', 'files': [r['file'] for r in rendered], 'pages': 3}] if rendered else []),
         'expectedPdfValues': VALUES,

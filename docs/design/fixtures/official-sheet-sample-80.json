@@ -19,7 +19,7 @@
   "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
   "inputSha256": {
     "scripts/audit-official-sheet-layout-80.py": "f25df4225660e2ab145d713a454bca8e48346bed6568018d8f4506eef8978818",
-    "scripts/build-official-sheet-sample-80.py": "a303d9921eb9e7dca4469933110e69a519d49c2ffa6f03a94c70ea22c4e14549"
+    "scripts/build-official-sheet-sample-80.py": "acea120b34114bf53c553a82c5794838b741c87ee880c3d005b48f1b2bafeb4e"
   },
   "artifact": {
     "file": "official-layout-fictional.pdf",
@@ -61,6 +61,246 @@
       "bytes": 217535,
       "sha256": "69ef8d1137e92fbe6061f8f08a43b4cef70f0f9daee22c1a65cd260aad954f6f",
       "derivedFromPdfSha256": "ff7c336d888f35c7574d133bf1f8eadb14a11e6d726a0b34180fa402122a8060"
+    }
+  ],
+  "regions": [
+    {
+      "fieldName": "ClassLevel",
+      "page": 1,
+      "pdfRect": [
+        270.043,
+        728.184,
+        375.883,
+        743.841
+      ],
+      "blank": false,
+      "normalizedBox": [
+        750,
+        133,
+        295,
+        45
+      ]
+    },
+    {
+      "fieldName": "CharacterName",
+      "page": 1,
+      "pdfRect": [
+        47.563,
+        709.801,
+        220.744,
+        730.681
+      ],
+      "blank": false,
+      "normalizedBox": [
+        132,
+        170,
+        482,
+        59
+      ]
+    },
+    {
+      "fieldName": "DEX",
+      "page": 1,
+      "pdfRect": [
+        36.8213,
+        540.269,
+        77.803,
+        565.801
+      ],
+      "blank": false,
+      "normalizedBox": [
+        102,
+        628,
+        115,
+        72
+      ]
+    },
+    {
+      "fieldName": "HPMax",
+      "page": 1,
+      "pdfRect": [
+        290.923,
+        584.521,
+        380.203,
+        595.321
+      ],
+      "blank": false,
+      "normalizedBox": [
+        808,
+        546,
+        249,
+        31
+      ]
+    },
+    {
+      "fieldName": "HPCurrent",
+      "page": 1,
+      "pdfRect": [
+        231.163,
+        549.241,
+        380.203,
+        579.481
+      ],
+      "blank": true,
+      "normalizedBox": [
+        642,
+        590,
+        415,
+        85
+      ]
+    },
+    {
+      "fieldName": "HPTemp",
+      "page": 1,
+      "pdfRect": [
+        231.163,
+        497.401,
+        380.203,
+        527.641
+      ],
+      "blank": false,
+      "normalizedBox": [
+        642,
+        734,
+        415,
+        85
+      ]
+    },
+    {
+      "fieldName": "CharacterName 2",
+      "page": 2,
+      "pdfRect": [
+        47.52,
+        705.92,
+        255.96,
+        726.8
+      ],
+      "blank": false,
+      "normalizedBox": [
+        132,
+        181,
+        579,
+        59
+      ]
+    },
+    {
+      "fieldName": "Spellcasting Class 2",
+      "page": 3,
+      "pdfRect": [
+        47.52,
+        705.92,
+        255.96,
+        726.8
+      ],
+      "blank": false,
+      "normalizedBox": [
+        132,
+        181,
+        579,
+        59
+      ]
+    },
+    {
+      "fieldName": "SpellcastingAbility 2",
+      "page": 3,
+      "pdfRect": [
+        283.779,
+        711.36,
+        348.633,
+        735.75
+      ],
+      "blank": false,
+      "normalizedBox": [
+        788,
+        156,
+        181,
+        68
+      ]
+    },
+    {
+      "fieldName": "SpellSaveDC  2",
+      "page": 3,
+      "pdfRect": [
+        384.49,
+        711.36,
+        449.344,
+        735.75
+      ],
+      "blank": false,
+      "normalizedBox": [
+        1068,
+        156,
+        181,
+        68
+      ]
+    },
+    {
+      "fieldName": "SpellAtkBonus 2",
+      "page": 3,
+      "pdfRect": [
+        488.288,
+        711.36,
+        553.143,
+        735.75
+      ],
+      "blank": false,
+      "normalizedBox": [
+        1356,
+        156,
+        181,
+        68
+      ]
+    },
+    {
+      "fieldName": "SlotsTotal 19",
+      "page": 3,
+      "pdfRect": [
+        51.855,
+        457.452,
+        91.095,
+        478.332
+      ],
+      "blank": false,
+      "normalizedBox": [
+        144,
+        871,
+        110,
+        59
+      ]
+    },
+    {
+      "fieldName": "SlotsRemaining 19",
+      "page": 3,
+      "pdfRect": [
+        103.005,
+        457.452,
+        195.84,
+        478.332
+      ],
+      "blank": false,
+      "normalizedBox": [
+        286,
+        871,
+        258,
+        59
+      ]
+    },
+    {
+      "fieldName": "Spells 1014",
+      "page": 3,
+      "pdfRect": [
+        40.32,
+        607.464,
+        198.72,
+        619.56
+      ],
+      "blank": false,
+      "normalizedBox": [
+        112,
+        479,
+        440,
+        34
+      ]
     }
   ],
   "inputVariants": [

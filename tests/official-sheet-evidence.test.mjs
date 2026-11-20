@@ -36,3 +36,16 @@ test('printed expended and derived remaining stay distinct and unconfirmed',()=>
  assert.equal(sample.expectedInterpretation.hp.current,null);assert.equal(sample.expectedInterpretation.hp.temp,0);
  assert.equal(sample.expectedInterpretation.printedTotalLevel,null);
 });
+
+
+test('every selected sample value has its own bounded top-left raster region',()=>{
+ assert.deepEqual(sample.regions.map(r=>r.fieldName).sort(),Object.keys(sample.expectedPdfValues).sort());
+ for(const region of sample.regions){
+  const image=sample.rasterPages.find(p=>p.page===region.page);
+  const [x,y,w,h]=region.normalizedBox;assert(x>=0&&y>=0&&w>0&&h>0&&x+w<=image.width&&y+h<=image.height);
+  assert.equal(region.blank,sample.expectedPdfValues[region.fieldName]==='');
+ }
+ const current=sample.regions.find(r=>r.fieldName==='HPCurrent'),temp=sample.regions.find(r=>r.fieldName==='HPTemp');
+ assert.equal(current.blank,true);assert.equal(temp.blank,false);
+ assert.notDeepEqual(current.normalizedBox,temp.normalizedBox);
+});
