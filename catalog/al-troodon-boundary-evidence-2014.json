@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "rulesEdition": "5e-2014",
+  "observedOn": "2026-11-20",
+  "status": "distinct-secondary-unit-candidates-not-source-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "automaticMerge": false,
+  "automaticRename": false,
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  },
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:5977",
+      "originalNames": {
+        "ru": "Троодон",
+        "en": "Troodon"
+      },
+      "url": "https://dnd.su/bestiary/5977-troodon/",
+      "sourceIds": [
+        "169"
+      ],
+      "capturedName": "Троодон [Troodon]",
+      "rawSha256": "32f68d6d47fca6f485ef2a10554cafe40f5af3e8b4f7e88e7f9905eae019d1d0",
+      "sizeType": "Маленький Зверь, без мировоззрения",
+      "selected": {
+        "armorClass": 13,
+        "hitPoints": 22,
+        "hitDice": {
+          "count": 4,
+          "die": 6,
+          "modifier": 8
+        },
+        "abilities": [
+          12,
+          15,
+          14,
+          4,
+          14,
+          10
+        ]
+      },
+      "primaryStatBlockRead": false,
+      "exactTextVersion": "unverified",
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "observationId": "dndsu:bestiary:6005",
+      "originalNames": {
+        "ru": "Троодон Зомби",
+        "en": "Troodon"
+      },
+      "url": "https://dnd.su/bestiary/6005-troodon/",
+      "sourceIds": [
+        "169"
+      ],
+      "capturedName": "Троодон Зомби [Troodon]",
+      "rawSha256": "cfbb896078841538ffbb1cafe89196cff0a19b7b4456bd5a806cd80b10a4f3c5",
+      "sizeType": "Маленькая Нежить, без мировоззрения",
+      "selected": {
+        "armorClass": 11,
+        "hitPoints": 22,
+        "hitDice": {
+          "count": 4,
+          "die": 8,
+          "modifier": 4
+        },
+        "abilities": [
+          12,
+          10,
+          12,
+          3,
+          8,
+          6
+        ]
+      },
+      "primaryStatBlockRead": false,
+      "exactTextVersion": "unverified",
+      "canonicalId": null,
+      "accepted": false
+    }
+  ],
+  "conclusion": "Preserve both observation IDs: identical English display names do not imply identical creature units.",
+  "primaryEvidenceLimit": "The public preview contains a Troodon description heading, but no Troodon or Troodon Zombie statblock. It cannot resolve the exact English zombie title or full publication version.",
+  "nextStep": "Check both statblocks in a lawfully available primary publication; retain publisher-status and reuse-rights review.",
+  "limitations": [
+    "This is secondary evidence, not proof of WotC publication or an official erratum.",
+    "Russian titles, creature types and selected fields distinguish observations without creating canonical IDs.",
+    "Do not replace the original English name or merge live and undead entries.",
+    "No full rules text is stored here.",
+    "Trait-name extraction is not part of this comparison: an editorial additionalInfo signature must not be counted as a creature ability."
+  ]
+}

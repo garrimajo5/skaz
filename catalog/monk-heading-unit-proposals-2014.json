@@ -1,0 +1,548 @@
+{
+  "schemaVersion": 1,
+  "status": "residual-heading-classification-proposal",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "classSlug": "monk",
+  "classUrl": "https://dnd.su/class/93-monk/",
+  "snapshotPageSha256": "2b612207090d1867b691a6e98cff91809791c1e37af87177ed850b2f204925af",
+  "freshCapture": {
+    "url": "https://dnd.su/class/93-monk/",
+    "sha256": "e6a324786b6473797dd2cd039391bd9b8898685de17312f69875edc66df2e944",
+    "headingStructureSha256": "f2969d99031b1f10f8c6e3d0ee82c3ec89232d1c52a31c3636723b99d6abae6e"
+  },
+  "records": [
+    {
+      "heading": {
+        "ordinal": 1,
+        "title": "Монах",
+        "level": 4,
+        "anchors": [
+          "monk"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "38050688fdd6fea917463e7bb9ad3d8c804dceceb4a8ab4d7545ca888a86fb75",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 2,
+        "title": "МАГИЯ ЦИ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "5078d4ccc14a3931363587b6bd1e4c057888f9a47eede61a8c5f45bca6dfe14e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 3,
+        "title": "ТРЕНИРОВКИ И АСКЕЗА",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "1ab3ebe2851c86197b558738b4538567369bb4609f900c4e51d49c9e1a18e9f3",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 4,
+        "title": "Создание монаха",
+        "level": 3,
+        "anchors": [
+          "creation"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "ae5038b582254145dbb5da18b332b41a967c1f55ef014a3a0a1529a4a7518880",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 5,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "52ae0dfaa1b6acd581df097e637130bc29e21d323334c717b6d35f50b0f9e0df",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 6,
+        "title": "Углублённая предыстория Монаха (XGE)",
+        "level": 2,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "c8dcf81b876ee1476b87127bb647ce9d613d398f02306edcf3eb265a356b279a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 7,
+        "title": "Монастырь",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "0c6aee4e75463401db0848ead9ab757392f840c23b82687139a8170e254fe25e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 8,
+        "title": "Монастыри",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "25bbd7c4f3c9d9941c653dbcd34c4575d0b55d0453322199cb599f76dcdb234a",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 9,
+        "title": "Символ монастыря",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "ec5d7a007ba7c3766753ffbe0a98fd522220d421ec435716c422e333e60f090c",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 10,
+        "title": "Монашеские символы",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "7f6a827fc52d1dbe4933c1643b1b16606f64670bb1bc07569bd773614696da13",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 11,
+        "title": "Мастер",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "8d3bfaf834d2de31c5c8ed180119ee265568c93ceea6e0b2eb700d1e4e6229bc",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 12,
+        "title": "Мастера",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "e2dad00a55d1478ca8f6751fb648c7b7b781696395c4e162fb3cbb625cab643a",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 13,
+        "title": "Мультиклассирование и монах",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "73fa9d30ca8c36f8bfbd52a497384d9ce48522c66082478fc38f05635438d833",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 14,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "class-features"
+        ],
+        "sectionAnchor": "class-features",
+        "bodySha256": "1b23fba44c116dcacbf3d4514515d073415c63a4f864ef534d2f589d6e8967e8",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 15,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 16,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "0e195023cb1c6f76a0f962378f7799792a8608477374abf4b0d19ed15b09eb48",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 17,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "0d3f4caf9f7e0d07665c8a5a28d1c5aaca6f6233d64aed42ce6ef4bef48f7469",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 18,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "389307c686348aef6f1a39a2c717671299bafaf2c8503d05f2ae7469e8ae8966",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 22,
+        "title": "ПОСТУПЬ ВЕТРА",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "a1788cd03752e8200fd6cd40d7a378ed43423486693456106798b9ba9b5cce43",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:monk:class-features:feature.ki",
+      "parentHeadingOrdinal": 21,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 23,
+        "title": "ТЕРПЕЛИВАЯ ОБОРОНА",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "bb80f1f1adba32b62ec12857282fdf386d0a988752dec8ba7a04a2002bf3ac4a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:monk:class-features:feature.ki",
+      "parentHeadingOrdinal": 21,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 24,
+        "title": "ШКВАЛ УДАРОВ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "68d1889f8ce81ae1b5d78730734e06517014175523ffd3c3c86ef672e469730f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:monk:class-features:feature.ki",
+      "parentHeadingOrdinal": 21,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 45,
+        "title": "Монастырские традиции",
+        "level": 2,
+        "anchors": [
+          "monastic-traditions"
+        ],
+        "sectionAnchor": "monastic-traditions",
+        "bodySha256": "4093487f04de308a014a9c07bb17bc1e3ca294d3c3009164f473d22fb30543b2",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "tradition-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 46,
+        "title": "МОНАШЕСКИЕ ОРДЕНЫ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "monastic-traditions",
+        "bodySha256": "bfc976eaaa412c0ffa86b46aaf91b1f628b382ab6e088bb88978ecb28f8c5713",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 59,
+        "title": "ЗАКЛИНАНИЯ И ОЧКИ ЦИ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "tradition.four-elements",
+        "bodySha256": "c4bdabfe8ccb0d495ca3b25713d94c3bd421b03fc954adbfa46764ede48b4b91",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 4
+          }
+        ]
+      },
+      "kind": "feature-limit-table",
+      "parentFeatureObservationId": "scope:monk:tradition.four-elements:9f08f83b8dbdb130",
+      "parentHeadingOrdinal": 58,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 90,
+        "title": "Маски милосердия",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "tradition.mercy",
+        "bodySha256": "909c7d674ebeb841a050f21366d834294888d1319c2264d1bb8d4ca34292ebe5",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 97,
+        "title": "Происхождение Восходящего Дракона",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "tradition.ascending-dragon",
+        "bodySha256": "d2ae8edfb612b5f2771a71a43dc0d6b2ae1e54d2d2734c68a29061a90dfb7378",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 103,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "101b72c62e3c96218bdf312736b3d6bc23242268e78add85d14cefbd9ab28e6e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    }
+  ],
+  "limitations": [
+    "No canonical denominator, complete rules, publication equivalence or source rights certified.",
+    "Historical observations and existing proposals are unchanged.",
+    "The three ki actions are components of existing feature21.",
+    "Heading59 is a four-row spending limit table of Four Elements feature58, not four additional spells.",
+    "Mercy masks and Ascendant Dragon origins are guidance tables, not independent features."
+  ]
+}
