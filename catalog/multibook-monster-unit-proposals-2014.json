@@ -1,0 +1,1153 @@
+{
+  "schemaVersion": 1,
+  "status": "multibook-bestiary-unit-proposals-awaiting-review",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "consideredGroups": 13,
+    "preservedObservations": 40,
+    "publicationEvidencedObservations": 28,
+    "groupsWithAllPublicationWitnesses": 5,
+    "proposedPublicationUnitsInWitnessedGroups": 16,
+    "unresolvedGroups": 8,
+    "homonymGroups": 1,
+    "unapprovedSpellingWitnesses": 4,
+    "publisherLabelFragmentAnomalies": 2,
+    "acceptedCanonicalUnits": 0
+  },
+  "groups": [
+    {
+      "reviewId": "name-review:006c7b51de1b91a22445",
+      "name": "meenlock",
+      "proposal": "review-separate-publication-versions",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:565",
+          "observedName": "Meenlock",
+          "sourceIds": [
+            "111"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Volo's Guide to Monsters",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/vgtm",
+            "heading": "Meenlock",
+            "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Meenlock",
+            "htmlSha256": "afaee9930e46efe51e83bf9e55c786979e3d8dc32d1ee1a34de39811bfcd6ab1"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:006c7b51de1b91a22445:source:111",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6835",
+          "observedName": "Meenlock",
+          "sourceIds": [
+            "158"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen Presents: Monsters of the Multiverse",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+            "heading": "Meenlock",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#Meenlock",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:006c7b51de1b91a22445:source:158",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:8895",
+          "observedName": "Meenlock",
+          "sourceIds": [
+            "122"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Candlekeep Mysteries",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/cm",
+            "heading": "Meenlock",
+            "targetUrl": "https://www.dndbeyond.com/sources/cm/a-deep-and-creeping-darkness#Meenlock",
+            "htmlSha256": "7c5ad9d41c3b0f491423f30053f7e3c070d0b82936430be2f866ec7f621b6d0a"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:006c7b51de1b91a22445:source:122",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "disambiguation": null,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:04c4123dd9021faddce6",
+      "name": "baphomet",
+      "proposal": "review-separate-publication-versions",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:1035",
+          "observedName": "Baphomet",
+          "sourceIds": [
+            "113"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen's Tome of Foes",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+            "heading": "Baphomet",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Baphomet",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:04c4123dd9021faddce6:source:113",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:5861",
+          "observedName": "Baphomet",
+          "sourceIds": [
+            "129"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Out of the Abyss",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/oota",
+            "heading": "Baphomet",
+            "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-d-demon-lords#Baphomet",
+            "htmlSha256": "ec62167514e422be4d3f87fe582dbba09c90e83b09f2d4f8366f29208152a19e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:04c4123dd9021faddce6:source:129",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6475",
+          "observedName": "Baphomet",
+          "sourceIds": [
+            "158"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen Presents: Monsters of the Multiverse",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+            "heading": "Baphomet",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Baphomet",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:04c4123dd9021faddce6:source:158",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "disambiguation": null,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:0c1dafcaa5c520b04032",
+      "name": "demogorgon",
+      "proposal": "review-distinct-homonym-and-publication-versions",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:1041",
+          "observedName": "Demogorgon",
+          "sourceIds": [
+            "113"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen's Tome of Foes",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+            "heading": "Demogorgon",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Demogorgon",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:0c1dafcaa5c520b04032:source:113",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:5864",
+          "observedName": "Demogorgon",
+          "sourceIds": [
+            "129"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Out of the Abyss",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/oota",
+            "heading": "Demogorgon",
+            "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-d-demon-lords#Demogorgon",
+            "htmlSha256": "ec62167514e422be4d3f87fe582dbba09c90e83b09f2d4f8366f29208152a19e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:0c1dafcaa5c520b04032:source:129",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6586",
+          "observedName": "Demogorgon",
+          "sourceIds": [
+            "158"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen Presents: Monsters of the Multiverse",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+            "heading": "Demogorgon",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Demogorgon",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:0c1dafcaa5c520b04032:source:158",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:8033",
+          "observedName": "Demogorgon",
+          "sourceIds": [
+            "123"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-disambiguated-listing-proposal",
+            "sourceId": "123",
+            "digitalName": "Demogorgon (Monstrosity)",
+            "displayedSource": "Hunt for the Thessalhydra",
+            "cardUrl": "https://www.dndbeyond.com/monsters/339638-demogorgon-monstrosity",
+            "type": "Monstrosity",
+            "size": "Medium",
+            "challenge": "4",
+            "indexUrl": "https://www.dndbeyond.com/monsters?filter-search=Demogorgon",
+            "htmlSha256": "6d99cb3e625009a34e1a42bba5125d537a14e302275b6a5e2865f32d85a1c5eb",
+            "identityAccepted": false
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:0c1dafcaa5c520b04032:source:123",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "disambiguation": {
+        "distinctObservationId": "dndsu:bestiary:8033",
+        "proposedDistinctType": "Monstrosity",
+        "contrastedPublisherRows": [
+          {
+            "sourceId": "129",
+            "digitalName": "Demogorgon",
+            "displayedSource": "Out of the Abyss",
+            "cardUrl": "https://www.dndbeyond.com/monsters/17409-demogorgon",
+            "type": "Fiend (demon)",
+            "size": "Huge",
+            "challenge": "26"
+          },
+          {
+            "sourceId": "158",
+            "digitalName": "Demogorgon",
+            "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+            "cardUrl": "https://www.dndbeyond.com/monsters/2560771-demogorgon",
+            "type": "Fiend (demon)",
+            "size": "Huge",
+            "challenge": "26"
+          }
+        ],
+        "associationOfSource113WithDemonPrince": "requires-primary-type-review",
+        "automaticNameAlias": false
+      },
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:153176dc068aa28ea07b",
+      "name": "fraz-urb'luu",
+      "proposal": "retain-unresolved-publication-attribution",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:4876",
+          "observedName": "Fraz-Urb'Luu",
+          "sourceIds": [
+            "113"
+          ],
+          "publicationEvidence": null,
+          "missingReason": "exact-primary-heading-unresolved",
+          "literalSpellingProposal": {
+            "observedKey": "fraz-urb'luu",
+            "publishedKey": "fraz-urb’luu",
+            "heading": "Fraz-Urb’luu",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#FrazUrbluu",
+            "acceptedAlias": false,
+            "sourceId": "113",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064",
+            "automaticAlias": false
+          },
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:5866",
+          "observedName": "Fraz-Urb'Luu",
+          "sourceIds": [
+            "129"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Out of the Abyss",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/oota",
+            "heading": "Fraz-Urb'luu",
+            "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-d-demon-lords#FrazUrbluu",
+            "htmlSha256": "ec62167514e422be4d3f87fe582dbba09c90e83b09f2d4f8366f29208152a19e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:153176dc068aa28ea07b:source:129",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6753",
+          "observedName": "Fraz-Urb'Luu",
+          "sourceIds": [
+            "158"
+          ],
+          "publicationEvidence": null,
+          "missingReason": "exact-primary-heading-unresolved",
+          "literalSpellingProposal": {
+            "observedKey": "fraz-urb'luu",
+            "publishedKey": "fraz-urb’luu",
+            "heading": "Fraz-Urb’luu",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#FrazUrbluu",
+            "acceptedAlias": false,
+            "sourceId": "158",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e",
+            "automaticAlias": false
+          },
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "disambiguation": null,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:346e0184facbebc09668",
+      "name": "yeenoghu",
+      "proposal": "review-separate-publication-versions",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:4909",
+          "observedName": "Yeenoghu",
+          "sourceIds": [
+            "113"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen's Tome of Foes",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+            "heading": "Yeenoghu",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Yeenoghu",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:346e0184facbebc09668:source:113",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:5865",
+          "observedName": "Yeenoghu",
+          "sourceIds": [
+            "129"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Out of the Abyss",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/oota",
+            "heading": "Yeenoghu",
+            "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-d-demon-lords#Yeenoghu",
+            "htmlSha256": "ec62167514e422be4d3f87fe582dbba09c90e83b09f2d4f8366f29208152a19e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:346e0184facbebc09668:source:129",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6938",
+          "observedName": "Yeenoghu",
+          "sourceIds": [
+            "158"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen Presents: Monsters of the Multiverse",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+            "heading": "Yeenoghu",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#Yeenoghu",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:346e0184facbebc09668:source:158",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "disambiguation": null,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:3bd9b3d76711e308d87b",
+      "name": "derro savant",
+      "proposal": "retain-unresolved-publication-attribution",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:4863",
+          "observedName": "Derro Savant",
+          "sourceIds": [
+            "113"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen's Tome of Foes",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+            "heading": "Derro Savant",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#DerroSavant",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:3bd9b3d76711e308d87b:source:113",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:5828",
+          "observedName": "Derro Savant",
+          "sourceIds": [
+            "129"
+          ],
+          "publicationEvidence": null,
+          "missingReason": "exact-primary-heading-unresolved",
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6596",
+          "observedName": "Derro Savant",
+          "sourceIds": [
+            "158"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen Presents: Monsters of the Multiverse",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+            "heading": "Derro Savant",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#DerroSavant",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:3bd9b3d76711e308d87b:source:158",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "disambiguation": null,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:47d753d7209133340c0a",
+      "name": "deathlock wight",
+      "proposal": "retain-unresolved-publication-attribution",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:17391",
+          "observedName": "Deathlock wight",
+          "sourceIds": [
+            "133"
+          ],
+          "publicationEvidence": null,
+          "missingReason": "exact-primary-heading-unresolved",
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6584",
+          "observedName": "Deathlock wight",
+          "sourceIds": [
+            "158"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen Presents: Monsters of the Multiverse",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+            "heading": "Deathlock Wight",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#DeathlockWight",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:47d753d7209133340c0a:source:158",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:941",
+          "observedName": "Deathlock wight",
+          "sourceIds": [
+            "113"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen's Tome of Foes",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+            "heading": "Deathlock Wight",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#DeathlockWight",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:47d753d7209133340c0a:source:113",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "disambiguation": null,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:7b848a81d719a3bc76a0",
+      "name": "duergar kavalrachni",
+      "proposal": "retain-unresolved-publication-attribution",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:1889",
+          "observedName": "Duergar Kavalrachni",
+          "sourceIds": [
+            "113"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen's Tome of Foes",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+            "heading": "Duergar Kavalrachni",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#DuergarKavalrachni",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:7b848a81d719a3bc76a0:source:113",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6090",
+          "observedName": "Duergar Kavalrachni",
+          "sourceIds": [
+            "129"
+          ],
+          "publicationEvidence": null,
+          "missingReason": "exact-primary-heading-unresolved",
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6707",
+          "observedName": "Duergar Kavalrachni",
+          "sourceIds": [
+            "158"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen Presents: Monsters of the Multiverse",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+            "heading": "Duergar Kavalrachni",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#DuergarKavalrachni",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:7b848a81d719a3bc76a0:source:158",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "disambiguation": null,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:97d6987162372e26f5eb",
+      "name": "derro",
+      "proposal": "review-separate-publication-versions",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:460",
+          "observedName": "Derro",
+          "sourceIds": [
+            "113"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen's Tome of Foes",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+            "heading": "Derro",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Derro",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:97d6987162372e26f5eb:source:113",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:5839",
+          "observedName": "Derro",
+          "sourceIds": [
+            "129"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Out of the Abyss",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/oota",
+            "heading": "Derro",
+            "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-c-creatures#Derro",
+            "htmlSha256": "ec62167514e422be4d3f87fe582dbba09c90e83b09f2d4f8366f29208152a19e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:97d6987162372e26f5eb:source:129",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6587",
+          "observedName": "Derro",
+          "sourceIds": [
+            "158"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen Presents: Monsters of the Multiverse",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+            "heading": "Derro",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Derro",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:97d6987162372e26f5eb:source:158",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "disambiguation": null,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:a042ef0098204dd94807",
+      "name": "female steeder",
+      "proposal": "retain-unresolved-publication-attribution",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:3968",
+          "observedName": "Female Steeder",
+          "sourceIds": [
+            "113"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen's Tome of Foes",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+            "heading": "Female Steeder",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#FemaleSteeder",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:a042ef0098204dd94807:source:113",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:5850",
+          "observedName": "Female Steeder",
+          "sourceIds": [
+            "129"
+          ],
+          "publicationEvidence": null,
+          "missingReason": "exact-primary-heading-unresolved",
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6708",
+          "observedName": "Female Steeder",
+          "sourceIds": [
+            "158"
+          ],
+          "publicationEvidence": null,
+          "missingReason": "exact-primary-heading-unresolved",
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": {
+            "name": "female steeder",
+            "heading": "Female Steeder",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#MaleSteeder",
+            "observedFragment": "MaleSteeder",
+            "expectedFragment": "FemaleSteeder",
+            "reason": "publisher-label-fragment-mismatch",
+            "sourceId": "158",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e",
+            "automaticCorrection": false
+          },
+          "proposedVersionKey": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "disambiguation": null,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:b3d6bc386c768dccad76",
+      "name": "choker",
+      "proposal": "retain-unresolved-publication-attribution",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:17390",
+          "observedName": "Choker",
+          "sourceIds": [
+            "133"
+          ],
+          "publicationEvidence": null,
+          "missingReason": "exact-primary-heading-unresolved",
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6495",
+          "observedName": "Choker",
+          "sourceIds": [
+            "158"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen Presents: Monsters of the Multiverse",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+            "heading": "Choker",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Choker",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:b3d6bc386c768dccad76:source:158",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:889",
+          "observedName": "Choker",
+          "sourceIds": [
+            "113"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen's Tome of Foes",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+            "heading": "Choker",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Choker",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:b3d6bc386c768dccad76:source:113",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "disambiguation": null,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:c5f429d806077c616bff",
+      "name": "male steeder",
+      "proposal": "retain-unresolved-publication-attribution",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:1890",
+          "observedName": "Male steeder",
+          "sourceIds": [
+            "113"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Mordenkainen's Tome of Foes",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+            "heading": "Male Steeder",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#MaleSteeder",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:c5f429d806077c616bff:source:113",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:5848",
+          "observedName": "Male steeder",
+          "sourceIds": [
+            "129"
+          ],
+          "publicationEvidence": null,
+          "missingReason": "exact-primary-heading-unresolved",
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6709",
+          "observedName": "Male Steeder",
+          "sourceIds": [
+            "158"
+          ],
+          "publicationEvidence": null,
+          "missingReason": "exact-primary-heading-unresolved",
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": {
+            "name": "male steeder",
+            "heading": "Male Steeder",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#FemaleSteeder",
+            "observedFragment": "FemaleSteeder",
+            "expectedFragment": "MaleSteeder",
+            "reason": "publisher-label-fragment-mismatch",
+            "sourceId": "158",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e",
+            "automaticCorrection": false
+          },
+          "proposedVersionKey": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "disambiguation": null,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:fd94452c88af3e40eb8f",
+      "name": "graz'zt",
+      "proposal": "retain-unresolved-publication-attribution",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:1036",
+          "observedName": "Graz'zt",
+          "sourceIds": [
+            "113"
+          ],
+          "publicationEvidence": null,
+          "missingReason": "exact-primary-heading-unresolved",
+          "literalSpellingProposal": {
+            "observedKey": "graz'zt",
+            "publishedKey": "graz’zt",
+            "heading": "Graz’zt",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Grazzt",
+            "acceptedAlias": false,
+            "sourceId": "113",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064",
+            "automaticAlias": false
+          },
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:5863",
+          "observedName": "Graz'zt",
+          "sourceIds": [
+            "129"
+          ],
+          "publicationEvidence": {
+            "kind": "publisher-exact-contents-heading",
+            "book": "Out of the Abyss",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/oota",
+            "heading": "Graz'zt",
+            "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-d-demon-lords#Grazzt",
+            "htmlSha256": "ec62167514e422be4d3f87fe582dbba09c90e83b09f2d4f8366f29208152a19e"
+          },
+          "missingReason": null,
+          "literalSpellingProposal": null,
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": "name-review:fd94452c88af3e40eb8f:source:129",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6782",
+          "observedName": "Graz'zt",
+          "sourceIds": [
+            "158"
+          ],
+          "publicationEvidence": null,
+          "missingReason": "exact-primary-heading-unresolved",
+          "literalSpellingProposal": {
+            "observedKey": "graz'zt",
+            "publishedKey": "graz’zt",
+            "heading": "Graz’zt",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#Grazzt",
+            "acceptedAlias": false,
+            "sourceId": "158",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e",
+            "automaticAlias": false
+          },
+          "publisherLinkAnomaly": null,
+          "proposedVersionKey": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "disambiguation": null,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    }
+  ],
+  "limitations": [
+    "Only13 multi-book bestiary groups with40 one-source observations are considered; earlier226 simple pairs remain unchanged.",
+    "Unapproved literal apostrophes remain alternate witnesses and never fill an exact-name gap.",
+    "Publisher label/fragment mismatches stay unresolved; target links are never silently repaired or exchanged.",
+    "The source123 Monstrosity is proposed as distinct from the typed source129/158 fiend; source113 type association remains unverified.",
+    "TOC and listing metadata do not establish identical/full rules, errata, translation rights, an accepted denominator or automatic migration."
+  ],
+  "inputSha256": {
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db",
+    "catalog/numeric-source-scope-policy-2014.json": "c46db1df76294bc971e7c1582ece3cfe09cd126fcca22edf7fd2431f8379df32",
+    "catalog/multibook-monster-publication-evidence-2014.json": "ece099e5868ef3dbd0af9494ad7f3b4b18f6b90cebab8d7b4cb078767a4b988c",
+    "catalog/monster-version-unit-proposals-2014.json": "99b1518d55b7083121499bb60d34a0530dde42ad92c60d2b332ec2e390a153ba",
+    "catalog/mtf-monster-version-unit-proposals-2014.json": "97d710a88ebb0184297f034bf46bcbcf115c04b25f6e1c9bbf68092e6838b079"
+  }
+}
