@@ -13,6 +13,20 @@ export function outerListItems(html){
  }
  if(depth!==0)throw Error('Unclosed creature list');return rows;
 }
+// Editorial notes are retained in the evidence hash, but are not creature abilities.
+function withoutEditorialInfo(fragment){
+ let result='',cursor=0,depth=0;
+ for(const tag of fragment.matchAll(/<\/?div\b[^>]*>/g)){
+  const closing=tag[0].startsWith('</');
+  if(!closing){
+   if(depth>0)depth++;
+   else if(attrs(tag[0]).class?.split(/\s+/).includes('additionalInfo')){result+=fragment.slice(cursor,tag.index);depth=1;}
+  }else if(depth>0){depth--;if(depth===0)cursor=tag.index+tag[0].length;}
+ }
+ if(depth!==0)throw Error('Unclosed editorial block');
+ return result+fragment.slice(cursor);
+}
+
 export function companionStatblock(html,{pageId,sources}){
  if(!/^dndsu:bestiary:\d+$/.test(pageId))throw Error('Unexpected creature page ID');
  html=html.replace(/<!--[\s\S]*?-->/g,'');const start=html.indexOf('class="card__body new-article"'),end=html.indexOf('<div class="card__footer"',start);if(start<0||end<start)throw Error('Missing creature article');
@@ -27,8 +41,9 @@ export function companionStatblock(html,{pageId,sources}){
  }
  if(!sizeType||!fields.armorClass||!fields.hitPoints||!fields.speed||abilities.length!==6||new Set(abilities.map(a=>a.name)).size!==6||abilities.some(a=>!['Сила','Ловкость','Телосложение','Интеллект','Мудрость','Харизма'].includes(a.name)))throw Error('Incomplete creature statblock');
  const sections=rows.filter(r=>attrs(r[1]).class?.split(' ').includes('subsection')).map(r=>{
-  const heading=clean(r[2].match(/<h3\b[^>]*>([\s\S]*?)<\/h3>/)?.[1]||'traits');
-  const names=[...r[2].matchAll(/<p\b[^>]*>\s*(?:<em\b[^>]*>\s*)?<strong\b[^>]*>([\s\S]*?)<\/strong>/g)].map(m=>clean(m[1]).replace(/[.]+$/,'').trim());
+  const rules=withoutEditorialInfo(r[2]);
+  const heading=clean(rules.match(/<h3\b[^>]*>([\s\S]*?)<\/h3>/)?.[1]||'traits');
+  const names=[...rules.matchAll(/<p\b[^>]*>\s*(?:<em\b[^>]*>\s*)?<strong\b[^>]*>([\s\S]*?)<\/strong>/g)].map(m=>clean(m[1]).replace(/[.]+$/,'').trim());
   const kind=heading==='Описание'?'narrative':heading==='Полтергейст'?'variant-statblock':['traits','Действия','Реакции','Бонусные действия','Легендарные действия'].includes(heading)?'base-statblock':'unclassified-section';
   return {heading,kind,names:names.filter(Boolean),emptyNameMarkers:names.filter(n=>!n).length,evidenceTextSha256:sha(clean(r[2]))};
  });

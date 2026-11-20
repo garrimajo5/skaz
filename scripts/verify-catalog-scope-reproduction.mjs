@@ -22,7 +22,8 @@ export function committedProposalCases(){
   ['catalog-effective-m0-review.mjs',[],'effective-m0-review-2014.json'],
   ['catalog-class-composition-review.mjs',[],'class-composition-review-2014.json'],
   ['catalog-artificer-heading-review.mjs',[],'artificer-heading-review-2014.json'],
-  ['catalog-class-residual-review.mjs',[],'class-residual-review-2014.json']
+  ['catalog-class-residual-review.mjs',[],'class-residual-review-2014.json'],
+  ['catalog-al-preview-version-review.mjs',[],'al-preview-version-review-2014.json']
  ];
 }
 export function reproductionCases(evidenceDirectory,classDirectory,date,companionDirectory=join(evidenceDirectory,'companion-evidence')){

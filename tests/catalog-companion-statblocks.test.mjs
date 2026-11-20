@@ -18,3 +18,22 @@ test('variant and narrative sections do not masquerade as base creature abilitie
  const unknown=parse(html().replace('<p><strong>Trait.','<h3>Новый вариант</h3><p><strong>Trait.'));assert.equal(unknown.sections[0].kind,'unclassified-section');
  const blank=parse(html().replace('Trait.',' '));assert.deepEqual(blank.sections[0].names,[]);assert.equal(blank.sections[0].emptyNameMarkers,1);
 });
+
+test('editorial notes and nested signatures are not creature abilities or section headings',()=>{
+ const editorial='<div class="note additionalInfo"><h3>Редактор</h3><div><p><em><strong>— Editor</strong></em></p></div></div>';
+ const r=parse(html().replace('<p><strong>Trait.',editorial+'<p><strong>Trait.'));
+ assert.equal(r.sections[0].heading,'traits');assert.equal(r.sections[0].kind,'base-statblock');assert.deepEqual(r.sections[0].names,['Trait']);
+ const changed=parse(html().replace('<p><strong>Trait.',editorial.replace('Editor','Another editor')+'<p><strong>Trait.'));
+ assert.deepEqual(changed.sections[0].names,r.sections[0].names);
+ assert.notEqual(changed.sections[0].evidenceTextSha256,r.sections[0].evidenceTextSha256);
+});
+
+test('editorial filtering uses exact class tokens and preserves adjacent rule content',()=>{
+ for(const attrs of ['class="additionalInfoOther"','data-note="additionalInfo"','class="rule"']){
+  const r=parse(html().replace('<p><strong>Trait.',`<div ${attrs}><p><strong>Other.</strong> rule</p></div><p><strong>Trait.`));
+  assert.deepEqual(r.sections[0].names,['Other','Trait']);
+ }
+ const two='<div class="additionalInfo"><p><strong>Editor.</strong></p></div><p><strong>Between.</strong> rule</p><div class="additionalInfo"><p><strong>Editor2.</strong></p></div>';
+ const r=parse(html().replace('<p><strong>Trait.',two+'<p><strong>Trait.'));assert.deepEqual(r.sections[0].names,['Between','Trait']);
+ assert.throws(()=>parse(html().replace('<p><strong>Trait.','<div class="additionalInfo"><p><strong>Trait.')),/Unclosed editorial/);
+});
