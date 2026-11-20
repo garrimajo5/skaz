@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "status": "derived-artificer-classification-review-not-canonical-units",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "observedHeadings": 130,
+    "existingFeatureProposals": 43,
+    "classifiedResidualHeadings": 23,
+    "remainingArtificerClassificationHeadings": 0,
+    "remainingAllClassClassificationHeadings": 489,
+    "byKind": {
+      "progression-table": 1,
+      "lore": 1,
+      "creation-guidance": 2,
+      "multiclass-rule-group": 1,
+      "section-container": 3,
+      "base-rule": 3,
+      "feature-subrule": 7,
+      "presentation-guidance": 1,
+      "choice-index-and-rules": 1,
+      "feature-effect-table": 2,
+      "excluded-section-marker": 1
+    }
+  },
+  "rows": [
+    {
+      "headingOrdinal": 1,
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 2,
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 3,
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 4,
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 5,
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 6,
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 7,
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 8,
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 9,
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 10,
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 13,
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 14,
+      "kind": "presentation-guidance",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 15,
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 16,
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 17,
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 18,
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 20,
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.infuse-item",
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 21,
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:artificer:class-features:feature.infuse-item",
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 32,
+      "kind": "choice-index-and-rules",
+      "parentFeatureObservationId": null,
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 49,
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 55,
+      "kind": "feature-effect-table",
+      "parentFeatureObservationId": "scope:artificer:specialist.alchemist:878ad5bd123d73f3",
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 64,
+      "kind": "feature-effect-table",
+      "parentFeatureObservationId": "scope:artificer:specialist.artillerist:ebdbc64cc9764ce7",
+      "canonicalId": null,
+      "accepted": false
+    },
+    {
+      "headingOrdinal": 86,
+      "kind": "excluded-section-marker",
+      "parentFeatureObservationId": null,
+      "canonicalId": null,
+      "accepted": false
+    }
+  ],
+  "limitations": [
+    "Zero remaining headings in this explicit residual batch is not complete rules or canonical class acceptance.",
+    "Existing43 feature proposals remain unchanged; components are not counted as extra features.",
+    "Primary publication, exact version, reproduction rights and automation remain downstream or unresolved.",
+    "The original composition report and all source observations are preserved."
+  ],
+  "inputSha256": {
+    "catalog/dndsu-class-headings.json": "2d8d0f0e30cb3384e3accfc64a51766c7e18fa285a36a433dd7bb4fd5fb17239",
+    "catalog/class-composition-review-2014.json": "b259bf7935a7164489eecd42a0302838601b7fda9dedda805400ea810bb5a8f4",
+    "catalog/dndsu-reviewed-class-proposals.json": "2658cb19e4ad074003ecf60f46190af992c6abb26584455d2455946e061b9c48",
+    "catalog/artificer-heading-unit-proposals-2014.json": "8cb74e7b1d9253844b79007f52b1022df44675101ef6644e2df592121f4a3dcd"
+  }
+}
