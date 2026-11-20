@@ -18,4 +18,17 @@ class EvidenceTests(unittest.TestCase):
   result=m.extract(page(link='/compendium/rules/vgtm/appendix-b-nonplayer-characters#Banderhobb',label='<span>Banderhobb</span>'),'vgtm',['banderhobb']);self.assertEqual(len(result['records']),1)
  def test_no_transliteration_or_variant_inference(self):
   result=m.extract(page(label='Deep Rothé'),'vgtm',['deep rothe']);self.assertEqual(result['records'],[]);self.assertEqual(result['missing'][0]['name'],'deep rothe')
+ def test_same_name_race_and_monster_are_separated_by_chapter(self):
+  raw=b'<h1>Mordenkainen Presents: Monsters of the Multiverse</h1><a href="/sources/motm/fantastical-races-continued#Tortle">Tortle</a><a href="/sources/motm/bestiary-su#Tortle">Tortle</a>'
+  result=m.extract(raw,'motm',['tortle']);self.assertEqual(len(result['records']),1);self.assertIn('/bestiary-su#',result['records'][0]['targetUrl'])
+  with self.assertRaises(ValueError):m.extract(raw.replace(b'/sources/motm/bestiary-su#Tortle',b'https://untrusted.invalid/sources/motm/bestiary-su#Tortle'),'motm',['tortle'])
+ def test_race_only_heading_and_duplicate_bestiary_cannot_pass(self):
+  raw=b'<h1>Mordenkainen Presents: Monsters of the Multiverse</h1><a href="/sources/motm/fantastical-races-continued#Tortle">Tortle</a>'
+  with self.assertRaises(ValueError):m.extract(raw,'motm',['tortle'])
+  raw+=b'<a href="/sources/motm/bestiary-su#Tortle">Tortle</a>'*2
+  self.assertEqual(m.extract(raw,'motm',['tortle'])['missing'][0]['reason'],'ambiguous-index-heading')
+ def test_explicit_pair_selection_preserves_the_default(self):
+  review={'identityGroups':[{'section':'bestiary','decision':'define-separate-source-version-units','members':[{'sourceIds':['111']},{'sourceIds':['158']}]},{'section':'bestiary','decision':'define-separate-source-version-units','members':[{'sourceIds':['113']},{'sourceIds':['158']}]}]}
+  self.assertEqual(m.selected_groups(review),[review['identityGroups'][0]])
+  self.assertEqual(m.selected_groups(review,'mtof-motm'),[review['identityGroups'][1]])
 if __name__=='__main__':unittest.main()
