@@ -1,0 +1,974 @@
+{
+  "schemaVersion": 1,
+  "status": "current-publication-reference-context-not-canonical-catalogue",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "historicalSourceRows": 70,
+    "publicationRelations": 8,
+    "numericCompositionOrigins": 4,
+    "namedBibliographyOrigins": 3,
+    "additionalLinkedProviderReferences": 7,
+    "existingOwnerExcludedProviderReferences": 1,
+    "priorUnlinkedProviderReferences": 23,
+    "remainingUnlinkedProviderReferences": 15,
+    "remainingHistoricalRowsWithoutProviderCandidate": 7
+  },
+  "relations": [
+    {
+      "id": "publication-relation:dndsu-source:105",
+      "origin": {
+        "kind": "dndsu-source",
+        "id": "105"
+      },
+      "relationType": "later-refined-compilation",
+      "targets": [
+        {
+          "providerSourceId": 102,
+          "title": "Tyranny of Dragons",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tod"
+        }
+      ],
+      "basis": {
+        "kind": "numeric-publication-evidence",
+        "recordId": "105",
+        "recordSha256": "21e8131e11219434053b2df5fc6575fefb5094d1c522d1116f282f51580582dd",
+        "evidenceUrl": "https://wpn.wizards.com/en/products/tyranny-of-dragons"
+      },
+      "historicalTitle": "Hoard of the Dragon Queen",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "accepted": false,
+      "textEquivalence": "unverified",
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "id": "publication-relation:dndsu-source:106",
+      "origin": {
+        "kind": "dndsu-source",
+        "id": "106"
+      },
+      "relationType": "later-refined-compilation",
+      "targets": [
+        {
+          "providerSourceId": 102,
+          "title": "Tyranny of Dragons",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tod"
+        }
+      ],
+      "basis": {
+        "kind": "numeric-publication-evidence",
+        "recordId": "106",
+        "recordSha256": "78b53e4405141bafb0287b5fd9c7aa60255abea838eb81ad6f7ed4d0edf04c87",
+        "evidenceUrl": "https://wpn.wizards.com/en/products/tyranny-of-dragons"
+      },
+      "historicalTitle": "The Rise of Tiamat",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "accepted": false,
+      "textEquivalence": "unverified",
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "id": "publication-relation:dndsu-source:130",
+      "origin": {
+        "kind": "dndsu-source",
+        "id": "130"
+      },
+      "relationType": "boxed-set-containing-adventure",
+      "targets": [
+        {
+          "providerSourceId": 54,
+          "title": "Dungeons & Dragons vs. Rick and Morty",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ddvram"
+        }
+      ],
+      "basis": {
+        "kind": "numeric-publication-evidence",
+        "recordId": "130",
+        "recordSha256": "2a46961b854e01e1e35a8bd3ef2cba1f05d95982f04e69ce64b4353f87ddfa53",
+        "evidenceUrl": "https://marketplace.roll20.net/browse/bundle/4790/rick-and-morty-the-lost-dungeon-of-rickedness-big-rick-energy"
+      },
+      "historicalTitle": "The Lost Dungeon of Rickedness: Big Rick Energy",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "accepted": false,
+      "textEquivalence": "unverified",
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "id": "publication-relation:dndsu-source:191",
+      "origin": {
+        "kind": "dndsu-source",
+        "id": "191"
+      },
+      "relationType": "bundle-with-rule-components",
+      "targets": [
+        {
+          "providerSourceId": 104,
+          "title": "Thieves’ Gallery",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tg",
+          "role": "creature-statblocks"
+        },
+        {
+          "providerSourceId": 111,
+          "title": "Legendary Magic Items",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lmi",
+          "role": "magic-items"
+        }
+      ],
+      "basis": {
+        "kind": "numeric-publication-evidence",
+        "recordId": "191",
+        "recordSha256": "583c8971428056f1e9f70d850db42a0e71ba3fa5cf576e3abfc0d4f8bab913e5",
+        "evidenceUrl": "https://marketplace.dndbeyond.com/category/HAT000001"
+      },
+      "historicalTitle": "Honor among Thieves",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "accepted": false,
+      "textEquivalence": "unverified",
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "id": "publication-relation:bibliography:one-grung-above",
+      "origin": {
+        "kind": "bibliography",
+        "id": "bibliography:one-grung-above"
+      },
+      "relationType": "named-publication-library-reference",
+      "targets": [
+        {
+          "providerSourceId": 60,
+          "title": "One Grung Above",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/oga"
+        }
+      ],
+      "basis": {
+        "kind": "unnumbered-publication-relation",
+        "recordId": "bibliography:one-grung-above",
+        "recordSha256": "d9c4f84eabb5ffcf25557a2fb77808fa525326dcda7f6915d6192a2e9b0006b1",
+        "observationId": "dndsu:race:169"
+      },
+      "observationId": "dndsu:race:169",
+      "observedSourceIds": [],
+      "bibliographyEvidenceId": "bibliography:one-grung-above",
+      "historicalBibliographyScopeDecision": "awaiting-game-designer-review",
+      "currentNamedPublicationDisposition": "needs-official-rules-status-review",
+      "numericSourceId": null,
+      "automaticAttribution": false,
+      "accepted": false,
+      "textEquivalence": "unverified",
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "id": "publication-relation:bibliography:locathah-rising",
+      "origin": {
+        "kind": "bibliography",
+        "id": "bibliography:locathah-rising"
+      },
+      "relationType": "named-publication-library-reference",
+      "targets": [
+        {
+          "providerSourceId": 55,
+          "title": "Locathah Rising",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lr"
+        }
+      ],
+      "basis": {
+        "kind": "unnumbered-publication-relation",
+        "recordId": "bibliography:locathah-rising",
+        "recordSha256": "e0f52b05e8fc1a5eba92b742194b230afd7e2e742745922d832e68e1bdf81e71",
+        "observationId": "dndsu:race:178"
+      },
+      "observationId": "dndsu:race:178",
+      "observedSourceIds": [],
+      "bibliographyEvidenceId": "bibliography:locathah-rising",
+      "historicalBibliographyScopeDecision": "awaiting-game-designer-review",
+      "currentNamedPublicationDisposition": "eligible-publication-records-need-review",
+      "numericSourceId": null,
+      "automaticAttribution": false,
+      "accepted": false,
+      "textEquivalence": "unverified",
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "id": "publication-relation:bibliography:the-tortle-package",
+      "origin": {
+        "kind": "bibliography",
+        "id": "bibliography:the-tortle-package"
+      },
+      "relationType": "named-publication-library-reference",
+      "targets": [
+        {
+          "providerSourceId": 28,
+          "title": "The Tortle Package",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ttp"
+        }
+      ],
+      "basis": {
+        "kind": "unnumbered-publication-relation",
+        "recordId": "bibliography:the-tortle-package",
+        "recordSha256": "82d548e0f8f63a6375c89d6a1121883740fc795033951dc88dda48da4877a486",
+        "observationId": "dndsu:race:184"
+      },
+      "observationId": "dndsu:race:184",
+      "observedSourceIds": [],
+      "bibliographyEvidenceId": "bibliography:the-tortle-package",
+      "historicalBibliographyScopeDecision": "awaiting-game-designer-review",
+      "currentNamedPublicationDisposition": "eligible-publication-records-need-review",
+      "numericSourceId": null,
+      "automaticAttribution": false,
+      "accepted": false,
+      "textEquivalence": "unverified",
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false
+    },
+    {
+      "id": "publication-relation:owner-experimental-exclusion:ua",
+      "origin": {
+        "kind": "owner-policy",
+        "id": "owner-official-wotc-2014-only"
+      },
+      "relationType": "existing-experimental-exclusion",
+      "targets": [
+        {
+          "providerSourceId": 100,
+          "title": "Unearthed Arcana",
+          "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ua"
+        }
+      ],
+      "basis": {
+        "kind": "owner-class-scope-policy",
+        "recordId": "2026-11-19",
+        "recordSha256": "0e9bd13b59a7c637248f701bf4bf00b6c6954961b6d011b80007aa41a01c278b"
+      },
+      "existingOwnerDecisionDate": "2026-11-19",
+      "experimentalAllowed": false,
+      "accepted": false,
+      "textEquivalence": "unverified",
+      "canonicalPublicationCount": null,
+      "automaticSourceReplacement": false
+    }
+  ],
+  "historicalSourceLedger": [
+    {
+      "dndsuSourceId": "101",
+      "historicalTitle": "Dungeon Master's Guide",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "102",
+      "historicalTitle": "Player's Handbook",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "103",
+      "historicalTitle": "Monster Manual",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "105",
+      "historicalTitle": "Hoard of the Dragon Queen",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": "publication-relation:dndsu-source:105"
+    },
+    {
+      "dndsuSourceId": "106",
+      "historicalTitle": "The Rise of Tiamat",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": "publication-relation:dndsu-source:106"
+    },
+    {
+      "dndsuSourceId": "107",
+      "historicalTitle": "Princes of the Apocalypse",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "108",
+      "historicalTitle": "Sword Coast Adventurer's Guide",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "109",
+      "historicalTitle": "Xanathar's Guide to Everything",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "110",
+      "historicalTitle": "Lost Mine of Phandelver",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "title-candidates-in-evidenced-ruleset",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "111",
+      "historicalTitle": "Volo's guide to monsters",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "112",
+      "historicalTitle": "Guildmasters' guide to Ravnica",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "113",
+      "historicalTitle": "Mordenkainen's Tome of Foes",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "114",
+      "historicalTitle": "Tomb of Annihilation",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "115",
+      "historicalTitle": "Acquisition Incorporated",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "116",
+      "historicalTitle": "Explorer's Guide to Wildemount",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "117",
+      "historicalTitle": "Tasha's Cauldron of Everything",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "119",
+      "historicalTitle": "Eberron: Rising from the Last War",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "120",
+      "historicalTitle": "Icewind Dale: Rime of the Frostmaiden",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "121",
+      "historicalTitle": "Mythic Odysseys of Theros",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "122",
+      "historicalTitle": "Candlekeep Mysteries",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "123",
+      "historicalTitle": "Hunt for the Thessalhydra",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "124",
+      "historicalTitle": "Curse of Strahd",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "125",
+      "historicalTitle": "Van Richten's Guide to Ravenloft",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "126",
+      "historicalTitle": "Baldur's Gate: Descent Into Avernus",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "127",
+      "historicalTitle": "Essentials Kit: Divine Contention",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "128",
+      "historicalTitle": "Ghosts of Saltmarsh",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "129",
+      "historicalTitle": "Out of the Abyss",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "130",
+      "historicalTitle": "The Lost Dungeon of Rickedness: Big Rick Energy",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": "publication-relation:dndsu-source:130"
+    },
+    {
+      "dndsuSourceId": "131",
+      "historicalTitle": "Essentials Kit: Sleeping Dragon's Wake",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "132",
+      "historicalTitle": "Storm King's Thunder",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "133",
+      "historicalTitle": "Tales from the Yawning Portal",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "134",
+      "historicalTitle": "Waterdeep: Dragon Heist",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "135",
+      "historicalTitle": "Waterdeep: Dungeon of the Mad Mage",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "151",
+      "historicalTitle": "The Wild Beyond The Witchlight: A Feywild Adventure",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "152",
+      "historicalTitle": "Fizban's Treasury of Dragons",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "153",
+      "historicalTitle": "Lost Laboratory of Kwalish",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "155",
+      "historicalTitle": "Strixhaven: A Curriculum of Chaos",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "156",
+      "historicalTitle": "Midgard Heroes Handbook",
+      "existingPolicyDisposition": "excluded-third-party",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "157",
+      "historicalTitle": "Essentials Kit: Dragon of Icespire peak",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "158",
+      "historicalTitle": "Mordenkainen Presents: Monsters of the Multiverse",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "159",
+      "historicalTitle": "Critical Role: Call of the Netherdeep",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "160",
+      "historicalTitle": "Spelljammer: Adventures in Space",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "161",
+      "historicalTitle": "Infernal Machine Rebuild",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "167",
+      "historicalTitle": "Essentials Kit: Storm Lord's Wrath",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "169",
+      "historicalTitle": "Adventurers League",
+      "existingPolicyDisposition": "needs-publication-identification",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "171",
+      "historicalTitle": "Journeys through the Radiant Citadel",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "174",
+      "historicalTitle": "The Vecna Dossier",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "title-candidates-in-evidenced-ruleset",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "179",
+      "historicalTitle": "laserllama",
+      "existingPolicyDisposition": "excluded-homebrew",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "180",
+      "historicalTitle": "Saltmarsh Encounters",
+      "existingPolicyDisposition": "excluded-third-party",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "183",
+      "historicalTitle": "Dragonlance: Shadow of the Dragon Queen",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "187",
+      "historicalTitle": "Monstrous Compendium Vol 1: Spelljammer Creatures",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "188",
+      "historicalTitle": "Monstrous Compendium Vol 2: Dragonlance Creatures",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "title-candidates-in-evidenced-ruleset",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "189",
+      "historicalTitle": "Keys from the Golden Vault",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "190",
+      "historicalTitle": "Valda's Spire of Secrets",
+      "existingPolicyDisposition": "excluded-third-party",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "191",
+      "historicalTitle": "Honor among Thieves",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": "publication-relation:dndsu-source:191"
+    },
+    {
+      "dndsuSourceId": "194",
+      "historicalTitle": "Misplaced Monsters: Volume One",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "197",
+      "historicalTitle": "Giants of the Star Forge",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "title-candidates-in-evidenced-ruleset",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "198",
+      "historicalTitle": "Bigby Presents: Glory of the Giants",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "199",
+      "historicalTitle": "Monstrous Compendium Vol 3: Minecraft Creatures",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "title-candidates-in-evidenced-ruleset",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "202",
+      "historicalTitle": "Phandelver and Below: The Shattered Obelisk",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "205",
+      "historicalTitle": "Planescape: Adventures in the Multiverse",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "206",
+      "historicalTitle": "Mordenkainen's Fiendish Folio Vol 1",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "207",
+      "historicalTitle": "The Book of Many Things",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "208",
+      "historicalTitle": "Adventure Atlas: The Mortuary",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "210",
+      "historicalTitle": "Ryoko's guide to the yokai realms",
+      "existingPolicyDisposition": "excluded-third-party",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "213",
+      "historicalTitle": "Descent into the Lost Caverns of Tsojcanth",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "title-candidates-in-evidenced-ruleset",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "214",
+      "historicalTitle": "Vecna: Eve of Ruin",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "218",
+      "historicalTitle": "Quest from the Infinite Staircase",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "219",
+      "historicalTitle": "Monstrous Compendium Vol. Four: Eldraine Creatures",
+      "existingPolicyDisposition": "eligible-publication-records-need-review",
+      "priorRelationshipStatus": "explicit-evidence-candidates",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "310",
+      "historicalTitle": "Spark of Alastas",
+      "existingPolicyDisposition": "not-reviewed-by-this-audit",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    }
+  ],
+  "namedPublicationLedger": [
+    {
+      "relationId": "publication-relation:bibliography:one-grung-above",
+      "observationId": "dndsu:race:169",
+      "observedSourceIds": [],
+      "bibliographyEvidenceId": "bibliography:one-grung-above",
+      "historicalBibliographyScopeDecision": "awaiting-game-designer-review",
+      "currentNamedPublicationDisposition": "needs-official-rules-status-review",
+      "numericSourceId": null,
+      "automaticAttribution": false
+    },
+    {
+      "relationId": "publication-relation:bibliography:locathah-rising",
+      "observationId": "dndsu:race:178",
+      "observedSourceIds": [],
+      "bibliographyEvidenceId": "bibliography:locathah-rising",
+      "historicalBibliographyScopeDecision": "awaiting-game-designer-review",
+      "currentNamedPublicationDisposition": "eligible-publication-records-need-review",
+      "numericSourceId": null,
+      "automaticAttribution": false
+    },
+    {
+      "relationId": "publication-relation:bibliography:the-tortle-package",
+      "observationId": "dndsu:race:184",
+      "observedSourceIds": [],
+      "bibliographyEvidenceId": "bibliography:the-tortle-package",
+      "historicalBibliographyScopeDecision": "awaiting-game-designer-review",
+      "currentNamedPublicationDisposition": "eligible-publication-records-need-review",
+      "numericSourceId": null,
+      "automaticAttribution": false
+    }
+  ],
+  "remainingUnlinkedProviderReferences": [
+    {
+      "providerSourceId": 1,
+      "title": "Basic Rules (2014)",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 34,
+      "title": "Rrakkma",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ddia-mord",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 37,
+      "title": "Wayfinder's Guide to Eberron",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wgte",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 53,
+      "title": "Sage Advice Compendium (2014)",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sac",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 62,
+      "title": "Frozen Sick",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wa",
+      "providerType": "adventure",
+      "metadataBucket": "non-third-party-co-brand-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 92,
+      "title": "The Radiant Citadel",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/trc",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 93,
+      "title": "Spelljammer Academy",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sja",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 94,
+      "title": "Dragons of Stormwreck Isle",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dosi",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 105,
+      "title": "Prisoner 13",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/p13",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 116,
+      "title": "Domains of Delight: A Feywild Accessory",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dod",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 122,
+      "title": "Baldur’s Gate Gazetteer",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/bgg",
+      "providerType": "sourcebook",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 126,
+      "title": "Lightning Keep",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lke",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 128,
+      "title": "Intro to Stormwreck Isle",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/itsi",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 129,
+      "title": "Heroes’ Feast: Saving the Children’s Menu ",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hfscm",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    },
+    {
+      "providerSourceId": 135,
+      "title": "Vecna: Nest of the Eldritch Eye",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vnee",
+      "providerType": "adventure",
+      "metadataBucket": "wotc-labelled-provider-5e",
+      "reviewStatus": "needs-publication-or-component-review-not-proven-missing"
+    }
+  ],
+  "remainingHistoricalRows": [
+    {
+      "dndsuSourceId": "156",
+      "historicalTitle": "Midgard Heroes Handbook",
+      "existingPolicyDisposition": "excluded-third-party",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "169",
+      "historicalTitle": "Adventurers League",
+      "existingPolicyDisposition": "needs-publication-identification",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "179",
+      "historicalTitle": "laserllama",
+      "existingPolicyDisposition": "excluded-homebrew",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "180",
+      "historicalTitle": "Saltmarsh Encounters",
+      "existingPolicyDisposition": "excluded-third-party",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "190",
+      "historicalTitle": "Valda's Spire of Secrets",
+      "existingPolicyDisposition": "excluded-third-party",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "210",
+      "historicalTitle": "Ryoko's guide to the yokai realms",
+      "existingPolicyDisposition": "excluded-third-party",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    },
+    {
+      "dndsuSourceId": "310",
+      "historicalTitle": "Spark of Alastas",
+      "existingPolicyDisposition": "not-reviewed-by-this-audit",
+      "priorRelationshipStatus": "no-library-candidate",
+      "compositionRelationId": null
+    }
+  ],
+  "limits": [
+    "The70 historical numeric sources and three typed unnumbered references are not interchangeable namespaces.",
+    "Grung race169 never fills numeric AL source169; named dispositions and empty sourceIds are preserved.",
+    "Two original adventures can reference one later refined compilation without becoming one text version.",
+    "A bundle retains separate creature/item components; dice are not rule entries.",
+    "UA remains owner-excluded even though library metadata says WotC/non-third-party/5e.",
+    "Reference links do not accept the full publication inventory, canonical counts, rules, rights or runtime imports."
+  ],
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-source-link-proposals-2014.json": "32baeee49a644be8822acdf46c2ebadc890efeb0ea90801f0e257b0ea509c4dc",
+    "catalog/numeric-source-publisher-evidence.json": "fe541d8ee8529963892e1c4a88603999cbdee71001ce41de623f3eebb226e628",
+    "catalog/unnumbered-publication-relations-2014.json": "eb7862d259da0e983669e0bd3c72a6136df7fa4b3e8315526339ef6e1130f59b",
+    "catalog/class-scope-policy-2014.json": "035512eaecf25b6ac91c152db6a675283508abab743d0ca5a0892e17d283114e",
+    "catalog/library-publication-relation-proposals-2014.json": "f2c97fc0a4b9eb1cd9bd9de70c958b0067a86bd21034763d2212a15ac546f05e"
+  },
+  "generator": {
+    "path": "scripts/review-library-publication-context-2014.py",
+    "sha256": "ecc96a6efc4894a054874f8a5f5de4c4cb200ac55f15d869e64a4c0ccf260f24"
+  }
+}
