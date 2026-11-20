@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "status": "explicit-published-spelling-proposals-not-approved-aliases",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "consideredGroups": 2,
+    "preservedObservations": 4,
+    "publishedSpellingWitnesses": 3,
+    "completeProposedRelations": 1,
+    "incompleteGroups": 1,
+    "acceptedAliases": 0
+  },
+  "groups": [
+    {
+      "reviewId": "name-review:cb7207325c08d0b549d3",
+      "observedKey": "githyanki kith'rak",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:1929",
+          "observedName": "Githyanki Kith'rak",
+          "sourceIds": [
+            "113"
+          ],
+          "source": {
+            "sourceId": "113",
+            "book": "mtof",
+            "title": "Mordenkainen's Tome of Foes",
+            "url": "https://www.dndbeyond.com/sources/dnd/mtof",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064"
+          },
+          "publishedSpellingEvidence": {
+            "name": "githyanki kith’rak",
+            "heading": "Githyanki Kith’rak",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#GithyankiKithrak"
+          },
+          "proposedAlias": {
+            "observedKey": "githyanki kith'rak",
+            "publishedKey": "githyanki kith’rak",
+            "reason": "apostrophe-style"
+          },
+          "unresolvedReason": null,
+          "accepted": false,
+          "automaticAlias": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6775",
+          "observedName": "Githyanki Kith'rak",
+          "sourceIds": [
+            "158"
+          ],
+          "source": {
+            "sourceId": "158",
+            "book": "motm",
+            "title": "Mordenkainen Presents: Monsters of the Multiverse",
+            "url": "https://www.dndbeyond.com/sources/dnd/motm",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e"
+          },
+          "publishedSpellingEvidence": {
+            "name": "githyanki kith’rak",
+            "heading": "Githyanki Kith’rak",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#GithyankiKithrak"
+          },
+          "proposedAlias": {
+            "observedKey": "githyanki kith'rak",
+            "publishedKey": "githyanki kith’rak",
+            "reason": "apostrophe-style"
+          },
+          "unresolvedReason": null,
+          "accepted": false,
+          "automaticAlias": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "proposal": "review-explicit-literal-spelling-relation",
+      "accepted": false,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:a1b0ce84e1a708f03609",
+      "observedKey": "deep rothe",
+      "units": [
+        {
+          "observationId": "dndsu:bestiary:646",
+          "observedName": "Deep rothe",
+          "sourceIds": [
+            "111"
+          ],
+          "source": {
+            "sourceId": "111",
+            "book": "vgtm",
+            "title": "Volo's Guide to Monsters",
+            "url": "https://www.dndbeyond.com/sources/dnd/vgtm",
+            "htmlSha256": "afaee9930e46efe51e83bf9e55c786979e3d8dc32d1ee1a34de39811bfcd6ab1"
+          },
+          "publishedSpellingEvidence": null,
+          "proposedAlias": null,
+          "unresolvedReason": "literal-published-heading-missing",
+          "accepted": false,
+          "automaticAlias": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:bestiary:6489",
+          "observedName": "Deep rothe",
+          "sourceIds": [
+            "158"
+          ],
+          "source": {
+            "sourceId": "158",
+            "book": "motm",
+            "title": "Mordenkainen Presents: Monsters of the Multiverse",
+            "url": "https://www.dndbeyond.com/sources/dnd/motm",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e"
+          },
+          "publishedSpellingEvidence": {
+            "name": "deep rothé",
+            "heading": "Deep Rothé",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#DeepRothe"
+          },
+          "proposedAlias": {
+            "observedKey": "deep rothe",
+            "publishedKey": "deep rothé",
+            "reason": "diacritic"
+          },
+          "unresolvedReason": null,
+          "accepted": false,
+          "automaticAlias": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "proposal": "retain-incomplete-spelling-evidence",
+      "accepted": false,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    }
+  ],
+  "limitations": [
+    "Only the two explicitly declared literal relations are proposed; no general punctuation, accent or transliteration normalization.",
+    "A same-name publication heading does not prove identical rules or exact errata.",
+    "The base Volo/MotM and MToF/MotM reports remain unchanged, with their unresolved statuses.",
+    "No runtime alias, canonical unit, source observation or character is modified."
+  ],
+  "inputSha256": {
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db",
+    "catalog/numeric-source-scope-policy-2014.json": "c46db1df76294bc971e7c1582ece3cfe09cd126fcca22edf7fd2431f8379df32"
+  }
+}
