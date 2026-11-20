@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-20",
+  "status": "publication-identity-evidence-not-full-rules",
+  "url": "https://www.dndbeyond.com/species",
+  "htmlSha256": "9814b2197017a66d0c3dbe93cbcff2c187449a74739670074466fddaf769294b",
+  "method": "Extract selected listing-card-race metadata and identity links; full bodies not retained.",
+  "selectedNames": [
+    "aasimar",
+    "bugbear",
+    "firbolg",
+    "goblin",
+    "goliath",
+    "hobgoblin",
+    "kenku",
+    "kobold",
+    "lizardfolk",
+    "orc",
+    "tabaxi",
+    "triton"
+  ],
+  "records": [
+    {
+      "name": "Aasimar",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026378-aasimar"
+    },
+    {
+      "name": "Aasimar",
+      "publication": "Player’s Handbook",
+      "url": "https://www.dndbeyond.com/species/1751434-aasimar"
+    },
+    {
+      "name": "Aasimar",
+      "publication": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/species/24-aasimar"
+    },
+    {
+      "name": "Bugbear",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026380-bugbear"
+    },
+    {
+      "name": "Bugbear",
+      "publication": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/species/32-bugbear"
+    },
+    {
+      "name": "Firbolg",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026387-firbolg"
+    },
+    {
+      "name": "Firbolg",
+      "publication": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/species/25-firbolg"
+    },
+    {
+      "name": "Goblin",
+      "publication": "D&D: World of Warcraft Gameplay Expansion",
+      "url": "https://www.dndbeyond.com/species/2237449-goblin"
+    },
+    {
+      "name": "Goblin",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026391-goblin"
+    },
+    {
+      "name": "Goblin",
+      "publication": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/species/33-goblin"
+    },
+    {
+      "name": "Goliath",
+      "publication": "Elemental Evil Player's Companion",
+      "url": "https://www.dndbeyond.com/species/22-goliath"
+    },
+    {
+      "name": "Goliath",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026392-goliath"
+    },
+    {
+      "name": "Goliath",
+      "publication": "Player’s Handbook",
+      "url": "https://www.dndbeyond.com/species/1751439-goliath"
+    },
+    {
+      "name": "Hobgoblin",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026393-hobgoblin"
+    },
+    {
+      "name": "Hobgoblin",
+      "publication": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/species/34-hobgoblin"
+    },
+    {
+      "name": "Kenku",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026394-kenku"
+    },
+    {
+      "name": "Kenku",
+      "publication": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/species/28-kenku"
+    },
+    {
+      "name": "Kobold",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026395-kobold"
+    },
+    {
+      "name": "Kobold",
+      "publication": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/species/516426-kobold"
+    },
+    {
+      "name": "Lizardfolk",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026396-lizardfolk"
+    },
+    {
+      "name": "Lizardfolk",
+      "publication": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/species/29-lizardfolk"
+    },
+    {
+      "name": "Orc",
+      "publication": "D&D: World of Warcraft Gameplay Expansion",
+      "url": "https://www.dndbeyond.com/species/2237453-orc"
+    },
+    {
+      "name": "Orc",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026398-orc"
+    },
+    {
+      "name": "Orc",
+      "publication": "Player’s Handbook",
+      "url": "https://www.dndbeyond.com/species/1751442-orc"
+    },
+    {
+      "name": "Orc",
+      "publication": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/species/516433-orc"
+    },
+    {
+      "name": "Tabaxi",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026403-tabaxi"
+    },
+    {
+      "name": "Tabaxi",
+      "publication": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/species/30-tabaxi"
+    },
+    {
+      "name": "Triton",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026405-triton"
+    },
+    {
+      "name": "Triton",
+      "publication": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/species/31-triton"
+    }
+  ],
+  "faq": {
+    "url": "https://www.dndbeyond.com/posts/1201-faq-for-mordenkainen-presents-monsters-of-the",
+    "location": "Questions about availability of old and new races and existing characters; article updated 2022-05-12",
+    "claim": "New versions coexist with older races; existing characters are not automatically changed.",
+    "method": "Primary publisher FAQ read through web tool"
+  },
+  "accessLimitations": [
+    "Six detail links for Firbolg, Bugbear and Kobold were opened: MotM links redirect to marketplace and Volo links to legacy landing page. Full rule bodies were not compared.",
+    "Listing labels establish publication identities, not exact errata, translation rights or final canonical units."
+  ]
+}
