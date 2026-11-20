@@ -33,7 +33,7 @@ def normalize_unit(text,basic_pdf_layout=False):
 
 class WizardRuleParser(HTMLParser):
     def __init__(self):
-        super().__init__(convert_charrefs=True);self.depth=0;self.containers=0;self.wizard=False
+        super().__init__(convert_charrefs=True);self.depth=0;self.containers=0;self.wizard=False;self.base_features=False;self.feature_sections=0
         self.starts=0;self.stops=0;self.in_heading=False;self.collect=False;self.paragraph=None;self.paragraphs=[]
     def handle_starttag(self,tag,attrs):
         attrs=dict(attrs)
@@ -43,9 +43,14 @@ class WizardRuleParser(HTMLParser):
                 self.depth=1;self.containers+=1
             elif self.depth:self.depth+=1
         if not self.depth:return
-        if tag=='h2' and attrs.get('id')=='Wizard':self.wizard=True
+        if tag=='h2':
+            if self.collect:raise ValueError('Section transition inside selected unit')
+            if attrs.get('id')=='Wizard':self.wizard=True;self.base_features=False
+            elif attrs.get('id')=='ClassFeatures12' and self.wizard:
+                self.base_features=True;self.feature_sections+=1
+            else:self.wizard=False;self.base_features=False
         if tag=='h3' and attrs.get('id')=='ArcaneRecovery':
-            if not self.wizard:raise ValueError('Recovery is outside Wizard context')
+            if not (self.wizard and self.base_features):raise ValueError('Recovery is outside Wizard base-feature context')
             self.starts+=1;self.in_heading=True;self.collect=False
         if tag=='h3' and attrs.get('id')=='ArcaneTradition':
             if self.starts!=1 or not self.collect:raise ValueError('Wrong selected unit boundary order')
@@ -61,7 +66,7 @@ class WizardRuleParser(HTMLParser):
         if tag=='div':self.depth-=1
     def result(self,html):
         self.feed(html);self.close()
-        if self.containers!=1 or self.depth or self.starts!=1 or self.stops!=1 or len(self.paragraphs)!=2:
+        if self.containers!=1 or self.depth or self.starts!=1 or self.stops!=1 or self.feature_sections!=1 or len(self.paragraphs)!=2:
             raise ValueError('Missing/ambiguous complete two-paragraph Wizard unit')
         return '\n'.join(self.paragraphs)
 

@@ -7,7 +7,7 @@ SPEC=importlib.util.spec_from_file_location('recovery_comparison',ROOT/'scripts/
 M=importlib.util.module_from_spec(SPEC);SPEC.loader.exec_module(M)
 
 def html():
-    return '<h3 id="ArcaneRecovery">Wrong navigation</h3><div class="p-article-content"><h2 id="Wizard">Wizard</h2><h3 id="ArcaneRecovery">Arcane Recovery</h3><p>First fixture paragraph.</p><p>Second fixture paragraph.</p><h3 id="ArcaneTradition">Arcane Tradition</h3><p>Not part of the selected unit.</p></div>'
+    return '<h3 id="ArcaneRecovery">Wrong navigation</h3><div class="p-article-content"><h2 id="Wizard">Wizard</h2><h2 id="ClassFeatures12">Class Features</h2><h3 id="ArcaneRecovery">Arcane Recovery</h3><p>First fixture paragraph.</p><p>Second fixture paragraph.</p><h3 id="ArcaneTradition">Arcane Tradition</h3><p>Not part of the selected unit.</p></div>'
 
 class WizardRecoverySourceTest(unittest.TestCase):
     def test_whole_two_paragraph_unit_excludes_headings_navigation_and_next_feature(self):
@@ -22,6 +22,14 @@ class WizardRecoverySourceTest(unittest.TestCase):
 
     def test_extra_paragraph_cannot_hide_inside_complete_unit(self):
         with self.assertRaises(ValueError):M.WizardRuleParser().result(html().replace('<h3 id="ArcaneTradition">','<p>Additional rule.</p><h3 id="ArcaneTradition">'))
+
+    def test_other_class_after_wizard_cannot_inherit_wizard_context(self):
+        text=html().replace('<h2 id="ClassFeatures12">','<h2 id="Cleric">Cleric</h2><h2 id="ClassFeatures12">')
+        with self.assertRaises(ValueError):M.WizardRuleParser().result(text)
+
+    def test_section_transition_inside_unit_is_not_a_complete_wizard_rule(self):
+        text=html().replace('<p>Second fixture','<h2 id="Cleric">Cleric</h2><p>Second fixture')
+        with self.assertRaises(ValueError):M.WizardRuleParser().result(text)
 
     def test_pdf_requires_unique_exact_heading_lines(self):
         text='Before\nArcane Recovery\nBody mentioning Arcane Tradition inline.\nArcane Tradition\nAfter'
