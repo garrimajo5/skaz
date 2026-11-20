@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "status": "primary-reference-kind-witness-not-rules-or-inventory-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "source": {
+    "url": "https://media.wizards.com/2020/dnd/downloads/SA-Compendium.pdf",
+    "finalUrl": "https://media.wizards.com/2020/dnd/downloads/SA-Compendium.pdf",
+    "status": 200,
+    "bytes": 756064,
+    "sha256": "6f2d092682e627a92dff0412df1c88739669a1b55d4f5aef8daaa53ccc2b4736",
+    "retrievedAt": "2026-11-21T02:07:40+03:00",
+    "pages": 23,
+    "inspectedPdfPages": [
+      1
+    ],
+    "extractorVersion": "6.21.4"
+  },
+  "facts": {
+    "pdfVersion": "2.7",
+    "copyrightYear": 2021,
+    "firstCorePublicationReferenceYear": 2014,
+    "firstPageHeadings": [
+      "Sage Advice Compendium",
+      "Rules References",
+      "Official Rulings",
+      "Compiled Answers"
+    ],
+    "publicationSpecificPersonalUseNoticePresent": true,
+    "firstPageTextSha256": "aa1a3872f2a462c7303e38adb532549a6f716c420d1159aba05b47de7c9435df"
+  },
+  "providerObservationId": "ddb:library-source:53",
+  "providerSourceId": 53,
+  "providerTitle": "Sage Advice Compendium (2014)",
+  "sourceReferenceCandidate": {
+    "kind": "primary-publication-reference",
+    "id": "wotc:sage-advice-compendium:v2.7:2021"
+  },
+  "numericDndsuSourceId": null,
+  "canonicalSourceId": null,
+  "automaticAttribution": false,
+  "publicationKindProposal": "official-original-5e-rules-clarification-reference",
+  "semanticReview": {
+    "scope": "first-page bibliographic/authority boundaries only",
+    "dmAdjudicationRetained": true,
+    "publicTeamStatementsAutomaticallyOfficial": false,
+    "exactDigitalPdfEquivalence": "unverified",
+    "fullAnswersReviewed": false,
+    "commonCatalogTextReusePermission": "not-established"
+  },
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe"
+  },
+  "generator": {
+    "path": "scripts/audit-sage-advice-boundary-2014.py",
+    "sha256": "1cccfb413165ce1f5e8884c0f87519e4a36e03183c79c328479c77b216f29370"
+  },
+  "limits": [
+    "First page establishes a reference publication kind, not a list of new spells/monsters/items.",
+    "URL directory2020 is not the2021 copyright year or a claim of a2020 text version.",
+    "Library presence and PDF snapshot do not prove identical current digital text.",
+    "The15-row residual and historical sources are preserved; no canonical count or inclusion is changed.",
+    "No full answers, PDF, translation, profile data, runtime changes or owner acceptance are exported."
+  ]
+}
