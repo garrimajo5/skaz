@@ -67,7 +67,11 @@ export async function verifyManualProfileCompatibility(candidateOpenStore) {
   owner.selectContext(command(owner,{context:expected.context}));
   assert.deepEqual(owner.read().characterStats,expected.characterStats);
   const readonly=candidate.forUser('qa-owner-compat','compat-readonly');
-  assert.throws(()=>readonly.saveCharacterStats(statsCommand),{status:403},'Read-only actor could write after restore');
+  assert.throws(()=>readonly.saveCharacterStats(statsCommand),{status:403},'Read-only actor could replay after restore');
+  const readonlyBefore=readonly.read();
+  const readonlyCommand=command(readonly,{characterId:readonlyBefore.context.characterId,stats:{abilities:{str:16,dex:12,con:14,int:18,wis:12,cha:10},armorClass:17,initiative:3,speed:30}});
+  assert.throws(()=>readonly.saveCharacterStats(readonlyCommand),{status:403},'Read-only actor could write after restore');
+  assert.deepEqual(readonly.read(),readonlyBefore,'Denied write changed readonly view');
   const next=command(candidate,{context:candidate.read().context,resource:{kind:'counter',counterId:'synthetic-counter'},delta:-1,before:8,maximum:7});
   candidate.changeResource(next);assert.equal(candidate.read().characterSheet.counters[0].current,7);
   candidate.undoResource(command(candidate,{targetMutationId:next.mutationId,characterId:created.characterId}));
