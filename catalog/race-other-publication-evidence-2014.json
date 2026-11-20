@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-20",
+  "status": "publication-identity-evidence-not-full-rules",
+  "url": "https://www.dndbeyond.com/species",
+  "htmlSha256": "9814b2197017a66d0c3dbe93cbcff2c187449a74739670074466fddaf769294b",
+  "method": "Extract selected listing-card-race metadata and identity links; full bodies not retained.",
+  "selectedNames": [
+    "aarakocra",
+    "centaur",
+    "changeling",
+    "fairy",
+    "genasi",
+    "harengon",
+    "minotaur",
+    "satyr",
+    "shifter",
+    "tortle"
+  ],
+  "records": [
+    {
+      "name": "Aarakocra",
+      "publication": "Elemental Evil Player's Companion",
+      "url": "https://www.dndbeyond.com/species/4-aarakocra"
+    },
+    {
+      "name": "Aarakocra",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026377-aarakocra"
+    },
+    {
+      "name": "Centaur",
+      "publication": "Guildmasters’ Guide to Ravnica",
+      "url": "https://www.dndbeyond.com/species/67624-centaur"
+    },
+    {
+      "name": "Centaur",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026381-centaur"
+    },
+    {
+      "name": "Changeling",
+      "publication": "Eberron: Forge of the Artificer",
+      "url": "https://www.dndbeyond.com/species/2048551-changeling"
+    },
+    {
+      "name": "Changeling",
+      "publication": "Eberron: Rising from the Last War",
+      "url": "https://www.dndbeyond.com/species/260666-changeling"
+    },
+    {
+      "name": "Changeling",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026382-changeling"
+    },
+    {
+      "name": "Fairy",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/814913-fairy"
+    },
+    {
+      "name": "Genasi",
+      "publication": "Elemental Evil Player's Companion",
+      "url": "https://www.dndbeyond.com/species/23-genasi"
+    },
+    {
+      "name": "Harengon",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/814914-harengon"
+    },
+    {
+      "name": "Minotaur",
+      "publication": "Guildmasters’ Guide to Ravnica",
+      "url": "https://www.dndbeyond.com/species/67599-minotaur"
+    },
+    {
+      "name": "Minotaur",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026397-minotaur"
+    },
+    {
+      "name": "Satyr",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026399-satyr"
+    },
+    {
+      "name": "Satyr",
+      "publication": "Mythic Odysseys of Theros",
+      "url": "https://www.dndbeyond.com/species/410993-satyr"
+    },
+    {
+      "name": "Shifter",
+      "publication": "Eberron: Forge of the Artificer",
+      "url": "https://www.dndbeyond.com/species/2048554-shifter"
+    },
+    {
+      "name": "Shifter",
+      "publication": "Eberron: Rising from the Last War",
+      "url": "https://www.dndbeyond.com/species/260758-shifter"
+    },
+    {
+      "name": "Shifter",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026402-shifter"
+    },
+    {
+      "name": "Tortle",
+      "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/species/1026404-tortle"
+    },
+    {
+      "name": "Tortle",
+      "publication": "The Tortle Package",
+      "url": "https://www.dndbeyond.com/species/41-tortle"
+    }
+  ],
+  "faq": {
+    "url": "https://www.dndbeyond.com/posts/1201-faq-for-mordenkainen-presents-monsters-of-the",
+    "location": "Questions about availability of old and new races and existing characters; article updated 2022-05-12",
+    "claim": "New versions coexist with older races; existing characters are not automatically changed.",
+    "method": "Primary publisher FAQ read through web tool"
+  },
+  "accessLimitations": [
+    "Index metadata only; full rule bodies were not compared.",
+    "The 107 source label is Princes of the Apocalypse, not Elemental Evil Players Companion. Do not substitute the latter.",
+    "The index includes later Forge of the Artificer versions; these are not evidence for source119 Rising from the Last War.",
+    "Mojibake in the Ravnica label is preserved verbatim and not normalized into proof."
+  ]
+}
