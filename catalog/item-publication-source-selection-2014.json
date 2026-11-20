@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "accepted": false,
+  "status": "four-item-attribution-groups-not-canonical-versions",
+  "selectedReviewIds": [
+    "name-review:01475e029d49ea59441a",
+    "name-review:2a05d5e7451cede58149",
+    "name-review:3b6ef076c6bb1ebcf7e2",
+    "name-review:88551fa9a324cb590c45"
+  ],
+  "observationBasis": [
+    {
+      "reviewId": "name-review:01475e029d49ea59441a",
+      "name": "pixie dust",
+      "observationId": "dndsu:items:2415",
+      "observedName": "Pixie Dust",
+      "sourceIds": [
+        "132"
+      ]
+    },
+    {
+      "reviewId": "name-review:01475e029d49ea59441a",
+      "name": "pixie dust",
+      "observationId": "dndsu:items:2839",
+      "observedName": "Pixie Dust",
+      "sourceIds": [
+        "151"
+      ]
+    },
+    {
+      "reviewId": "name-review:2a05d5e7451cede58149",
+      "name": "staff of defense",
+      "observationId": "dndsu:items:266",
+      "observedName": "Staff of defense",
+      "sourceIds": [
+        "110"
+      ]
+    },
+    {
+      "reviewId": "name-review:2a05d5e7451cede58149",
+      "name": "staff of defense",
+      "observationId": "dndsu:items:6736",
+      "observedName": "Staff of Defense",
+      "sourceIds": [
+        "202"
+      ]
+    },
+    {
+      "reviewId": "name-review:3b6ef076c6bb1ebcf7e2",
+      "name": "spider staff",
+      "observationId": "dndsu:items:267",
+      "observedName": "Spider staff",
+      "sourceIds": [
+        "110"
+      ]
+    },
+    {
+      "reviewId": "name-review:3b6ef076c6bb1ebcf7e2",
+      "name": "spider staff",
+      "observationId": "dndsu:items:6735",
+      "observedName": "Spider Staff",
+      "sourceIds": [
+        "202"
+      ]
+    },
+    {
+      "reviewId": "name-review:88551fa9a324cb590c45",
+      "name": "powered armor",
+      "observationId": "dndsu:items:10778",
+      "observedName": "Powered Armor",
+      "sourceIds": [
+        "218"
+      ]
+    },
+    {
+      "reviewId": "name-review:88551fa9a324cb590c45",
+      "name": "powered armor",
+      "observationId": "dndsu:items:10841",
+      "observedName": "Powered Armor",
+      "sourceIds": [
+        "153"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "110",
+      "policyTitle": "Lost Mine of Phandelver",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lmop",
+      "expectedPublishedTitle": "Lost Mine of Phandelver",
+      "bookCode": "lmop",
+      "contextLabels": [
+        "Appendix A: Magic Items"
+      ],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "132",
+      "policyTitle": "Storm King's Thunder",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/skt",
+      "expectedPublishedTitle": "Storm King's Thunder",
+      "bookCode": "skt",
+      "contextLabels": [
+        "Appendix B: Magic Items"
+      ],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "151",
+      "policyTitle": "The Wild Beyond The Witchlight: A Feywild Adventure",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/twbtw",
+      "expectedPublishedTitle": "The Wild Beyond the Witchlight",
+      "bookCode": "twbtw",
+      "contextLabels": [
+        "Appendix A: Magic Items"
+      ],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "153",
+      "policyTitle": "Lost Laboratory of Kwalish",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/llok",
+      "expectedPublishedTitle": "Lost Laboratory of Kwalish",
+      "bookCode": "llok",
+      "contextLabels": [
+        "Appendix D: Magic Items"
+      ],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "202",
+      "policyTitle": "Phandelver and Below: The Shattered Obelisk",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/pbtso",
+      "expectedPublishedTitle": "Phandelver and Below: The Shattered Obelisk",
+      "bookCode": "pbtso",
+      "contextLabels": [
+        "Appendix B: Magic Items"
+      ],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "218",
+      "policyTitle": "Quest from the Infinite Staircase",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/qftis",
+      "expectedPublishedTitle": "Quests from the Infinite Staircase",
+      "bookCode": "qftis",
+      "contextLabels": [
+        "Appendix A: Magic Items and Technology"
+      ],
+      "unapprovedAlternates": {}
+    }
+  ]
+}

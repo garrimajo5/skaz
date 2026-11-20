@@ -1,0 +1,550 @@
+{
+  "schemaVersion": 1,
+  "status": "item-publication-attribution-proposals-awaiting-review",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "consideredGroups": 4,
+    "preservedObservations": 8,
+    "publicationClaims": 8,
+    "exactPublicationHeadingClaims": 1,
+    "groupsWithAllPublicationHeadings": 0,
+    "parentContexts": 6,
+    "unassignedItemCandidates": 6,
+    "cardAccessFailures": 4,
+    "accessPageRedirects": 2,
+    "acceptedCanonicalUnits": 0
+  },
+  "sources": [
+    {
+      "sourceId": "110",
+      "policyTitle": "Lost Mine of Phandelver",
+      "publishedIndexHeadings": [
+        "Lost Mine of Phandelver",
+        "Lost Mine of Phandelver"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/lmop",
+      "htmlSha256": "e5d7b11483acefaa79933c704f48088430a6c06b289904a082f275ce313f50bb",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "spider staff",
+        "staff of defense"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "spider staff",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "staff of defense",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [
+        {
+          "heading": "Appendix A: Magic Items",
+          "targetUrl": "https://www.dndbeyond.com/sources/lmop/appendix-a-magic-items",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "132",
+      "policyTitle": "Storm King's Thunder",
+      "publishedIndexHeadings": [
+        "Storm King's Thunder",
+        "Storm King’s Thunder"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/skt",
+      "htmlSha256": "690ee5bc21ed57784d0835f617e36f9387195a0c1e5ef0efd9286fe8207b669d",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "pixie dust"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "pixie dust",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [
+        {
+          "heading": "Appendix B: Magic Items",
+          "targetUrl": "https://www.dndbeyond.com/sources/skt/magic-items",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "151",
+      "policyTitle": "The Wild Beyond The Witchlight: A Feywild Adventure",
+      "publishedIndexHeadings": [
+        "The Wild Beyond the Witchlight",
+        "The Wild Beyond the Witchlight"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/twbtw",
+      "htmlSha256": "cfaf16fbfb70f0b1f52df9fd4073305c4368213df17c4386a4215b611c86ecb2",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "pixie dust"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "pixie dust",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [
+        {
+          "heading": "Appendix A: Magic Items",
+          "targetUrl": "https://www.dndbeyond.com/sources/twbtw/magic-items",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "153",
+      "policyTitle": "Lost Laboratory of Kwalish",
+      "publishedIndexHeadings": [
+        "Lost Laboratory of Kwalish"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/llok",
+      "htmlSha256": "b52d53af000221f88d2e27d2e11adbd80c671f9371b383da4475ed43ad46ae21",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "powered armor"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "powered armor",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [
+        {
+          "heading": "Appendix D: Magic Items",
+          "targetUrl": "https://www.dndbeyond.com/compendium/adventures/llok/magic-items",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "202",
+      "policyTitle": "Phandelver and Below: The Shattered Obelisk",
+      "publishedIndexHeadings": [
+        "Phandelver and Below: The Shattered Obelisk",
+        "Phandelver and Below: The Shattered Obelisk"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/pbtso",
+      "htmlSha256": "2704f9cd9aa67ac1041c40cde27f1f989da6146c73871de9c56e09192590ee1f",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "spider staff",
+        "staff of defense"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "spider staff",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "staff of defense",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [
+        {
+          "heading": "Appendix B: Magic Items",
+          "targetUrl": "https://www.dndbeyond.com/sources/pbtso/magic-items",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "218",
+      "policyTitle": "Quest from the Infinite Staircase",
+      "publishedIndexHeadings": [
+        "Quests from the Infinite Staircase",
+        "Quests from the Infinite Staircase"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/qftis",
+      "htmlSha256": "45ab97b08b9860b2855f3bcfc920c986bd05a32dd260fa5371c8e7f5c1a4c2f8",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "powered armor"
+      ],
+      "records": [
+        {
+          "name": "powered armor",
+          "heading": "Powered Armor",
+          "targetUrl": "https://www.dndbeyond.com/sources/qftis/magic-items-and-technology#PoweredArmor",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        }
+      ],
+      "missing": [],
+      "parentContexts": [
+        {
+          "heading": "Appendix A: Magic Items and Technology",
+          "targetUrl": "https://www.dndbeyond.com/sources/qftis/magic-items-and-technology",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    }
+  ],
+  "listings": [
+    {
+      "name": "Pixie Dust",
+      "url": "https://www.dndbeyond.com/magic-items?filter-search=Pixie%20Dust",
+      "htmlSha256": "843dfb1fcdc7735fbb232ae7ec19953077df40efa02a408bd6e86f5f2c5c33b9",
+      "records": [
+        {
+          "heading": "Pixie Dust",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/3895572-pixie-dust",
+          "legacyBadge": false,
+          "editionInferredFromBadge": false,
+          "publicationAssigned": false,
+          "identityAccepted": false
+        }
+      ],
+      "publicationEvidence": false,
+      "fullRulesAccepted": false
+    },
+    {
+      "name": "Staff of Defense",
+      "url": "https://www.dndbeyond.com/magic-items?filter-search=Staff%20of%20Defense",
+      "htmlSha256": "f129850d183c38b0377a246d34519ccac9532ba5bfb5614918694490e92181e3",
+      "records": [
+        {
+          "heading": "Staff of Defense",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/7247089-staff-of-defense",
+          "legacyBadge": false,
+          "editionInferredFromBadge": false,
+          "publicationAssigned": false,
+          "identityAccepted": false
+        },
+        {
+          "heading": "Staff of Defense",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/9090-staff-of-defense",
+          "legacyBadge": true,
+          "editionInferredFromBadge": false,
+          "publicationAssigned": false,
+          "identityAccepted": false
+        }
+      ],
+      "publicationEvidence": false,
+      "fullRulesAccepted": false
+    },
+    {
+      "name": "Spider Staff",
+      "url": "https://www.dndbeyond.com/magic-items?filter-search=Spider%20Staff",
+      "htmlSha256": "0bd0e1e0dcc0ea178dd2570f88d0d83977be6e863818abe37e0f539eee0fe84b",
+      "records": [
+        {
+          "heading": "Spider Staff",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/7247088-spider-staff",
+          "legacyBadge": false,
+          "editionInferredFromBadge": false,
+          "publicationAssigned": false,
+          "identityAccepted": false
+        },
+        {
+          "heading": "Spider Staff",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/9088-spider-staff",
+          "legacyBadge": true,
+          "editionInferredFromBadge": false,
+          "publicationAssigned": false,
+          "identityAccepted": false
+        }
+      ],
+      "publicationEvidence": false,
+      "fullRulesAccepted": false
+    },
+    {
+      "name": "Powered Armor",
+      "url": "https://www.dndbeyond.com/magic-items?filter-search=Powered%20Armor",
+      "htmlSha256": "fc5a327e4cfa0d8609edbf6ab3abea62bff6b4dabaf0d878f69b57ce80edf083",
+      "records": [
+        {
+          "heading": "Powered Armor",
+          "cardUrl": "https://www.dndbeyond.com/magic-items/351921-powered-armor",
+          "legacyBadge": false,
+          "editionInferredFromBadge": false,
+          "publicationAssigned": false,
+          "identityAccepted": false
+        }
+      ],
+      "publicationEvidence": false,
+      "fullRulesAccepted": false
+    }
+  ],
+  "cardAccess": [
+    {
+      "name": "Pixie Dust",
+      "url": "https://www.dndbeyond.com/magic-items/3895572-pixie-dust",
+      "error": "The read operation timed out",
+      "usedAsPublicationWitness": false,
+      "rulesRead": false,
+      "status": "unavailable"
+    },
+    {
+      "name": "Staff of Defense",
+      "url": "https://www.dndbeyond.com/magic-items/7247089-staff-of-defense",
+      "error": "The read operation timed out",
+      "usedAsPublicationWitness": false,
+      "rulesRead": false,
+      "status": "unavailable"
+    },
+    {
+      "name": "Staff of Defense",
+      "url": "https://www.dndbeyond.com/magic-items/9090-staff-of-defense",
+      "resolvedUrl": "https://www.dndbeyond.com/claim/source/lost-mine-of-phandelver",
+      "htmlSha256": "b10dcf73639e20a733e3c9f4975593a1698579988bc4e7813232609ec4ee88ec",
+      "usedAsPublicationWitness": false,
+      "rulesRead": false,
+      "status": "redirected-access-page"
+    },
+    {
+      "name": "Spider Staff",
+      "url": "https://www.dndbeyond.com/magic-items/7247088-spider-staff",
+      "error": "The read operation timed out",
+      "usedAsPublicationWitness": false,
+      "rulesRead": false,
+      "status": "unavailable"
+    },
+    {
+      "name": "Spider Staff",
+      "url": "https://www.dndbeyond.com/magic-items/9088-spider-staff",
+      "resolvedUrl": "https://www.dndbeyond.com/claim/source/lost-mine-of-phandelver",
+      "htmlSha256": "b10dcf73639e20a733e3c9f4975593a1698579988bc4e7813232609ec4ee88ec",
+      "usedAsPublicationWitness": false,
+      "rulesRead": false,
+      "status": "redirected-access-page"
+    },
+    {
+      "name": "Powered Armor",
+      "url": "https://www.dndbeyond.com/magic-items/351921-powered-armor",
+      "error": "The read operation timed out",
+      "usedAsPublicationWitness": false,
+      "rulesRead": false,
+      "status": "unavailable"
+    }
+  ],
+  "groups": [
+    {
+      "reviewId": "name-review:01475e029d49ea59441a",
+      "name": "pixie dust",
+      "observations": [
+        {
+          "observationId": "dndsu:items:2415",
+          "observedName": "Pixie Dust",
+          "sourceIds": [
+            "132"
+          ],
+          "publicationWitness": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:items:2839",
+          "observedName": "Pixie Dust",
+          "sourceIds": [
+            "151"
+          ],
+          "publicationWitness": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:2a05d5e7451cede58149",
+      "name": "staff of defense",
+      "observations": [
+        {
+          "observationId": "dndsu:items:266",
+          "observedName": "Staff of defense",
+          "sourceIds": [
+            "110"
+          ],
+          "publicationWitness": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:items:6736",
+          "observedName": "Staff of Defense",
+          "sourceIds": [
+            "202"
+          ],
+          "publicationWitness": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:3b6ef076c6bb1ebcf7e2",
+      "name": "spider staff",
+      "observations": [
+        {
+          "observationId": "dndsu:items:267",
+          "observedName": "Spider staff",
+          "sourceIds": [
+            "110"
+          ],
+          "publicationWitness": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:items:6735",
+          "observedName": "Spider Staff",
+          "sourceIds": [
+            "202"
+          ],
+          "publicationWitness": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:88551fa9a324cb590c45",
+      "name": "powered armor",
+      "observations": [
+        {
+          "observationId": "dndsu:items:10778",
+          "observedName": "Powered Armor",
+          "sourceIds": [
+            "218"
+          ],
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "heading": "Powered Armor",
+            "targetUrl": "https://www.dndbeyond.com/sources/qftis/magic-items-and-technology#PoweredArmor",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/qftis",
+            "htmlSha256": "45ab97b08b9860b2855f3bcfc920c986bd05a32dd260fa5371c8e7f5c1a4c2f8",
+            "publicationPresenceOnly": true,
+            "fullItemIdentityAccepted": false
+          },
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "observationId": "dndsu:items:10841",
+          "observedName": "Powered Armor",
+          "sourceIds": [
+            "153"
+          ],
+          "publicationWitness": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    }
+  ],
+  "limitations": [
+    "Item identity by name, Legacy badge or access-page redirect is not a reviewed publication/ruleset association.",
+    "Exact scoped headings prove publication presence only; no full item text, class requirement, charges, casting time or source version is accepted.",
+    "Missing exact headings and inaccessible cards remain unresolved, not absent content. No login, claim button or paywall bypass was used.",
+    "No canonical denominator, translation rights, runtime catalog or character data change is established."
+  ],
+  "inputSha256": {
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db",
+    "catalog/numeric-source-scope-policy-2014.json": "c46db1df76294bc971e7c1582ece3cfe09cd126fcca22edf7fd2431f8379df32",
+    "catalog/item-publication-source-selection-2014.json": "f71a7133769c05a71d8921d65a421a32578f11eecd8b685ec8f818e14fb3dc6c"
+  }
+}
