@@ -1,0 +1,2280 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "status": "unit-proposals-not-approved-catalog",
+  "source": {
+    "title": "System Reference Document 5.1",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "pages": [
+      70,
+      71,
+      72,
+      73,
+      74
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode."
+  },
+  "approvedDenominator": null,
+  "complete": false,
+  "summary": {
+    "observations": 82,
+    "byUnitKind": {
+      "barter-row": 13,
+      "equipment-pack": 7,
+      "food-offer": 14,
+      "item": 6,
+      "lifestyle": 7,
+      "mount-offer": 8,
+      "pricing-rule": 1,
+      "service": 14,
+      "supply-offer": 1,
+      "vehicle": 11
+    },
+    "tradeAlternatives": 23,
+    "packMemberships": 66,
+    "catalogCandidateLinks": 56,
+    "componentCandidateLinks": 10,
+    "componentIdentities": 9,
+    "unspecifiedMemberQuantities": 3
+  },
+  "limitations": [
+    "Unit-kind counts are not additive into a count of catalog items; trade rows and alternatives overlap.",
+    "Source component identity does not resolve catalog equivalence or unknown quantity, volume, weight and price.",
+    "Mount and animal trade offers are not bestiary statblocks.",
+    "No runtime import, inventory grant, purchase, currency deduction or automatic expense."
+  ],
+  "records": [
+    {
+      "observationId": "srd51:2014:equipment-observation:burglars-pack",
+      "nameEn": "Burglar’s Pack",
+      "sourcePage": 70,
+      "sourceSection": "Equipment Packs",
+      "unitKind": "equipment-pack",
+      "proposedUnitId": "srd51:2014:item:burglars-pack",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 16,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "nameEn": "Diplomat’s Pack",
+      "sourcePage": 70,
+      "sourceSection": "Equipment Packs",
+      "unitKind": "equipment-pack",
+      "proposedUnitId": "srd51:2014:item:diplomats-pack",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 39,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:dungeoneers-pack",
+      "nameEn": "Dungeoneer’s Pack",
+      "sourcePage": 70,
+      "sourceSection": "Equipment Packs",
+      "unitKind": "equipment-pack",
+      "proposedUnitId": "srd51:2014:item:dungeoneers-pack",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 12,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:entertainers-pack",
+      "nameEn": "Entertainer’s Pack",
+      "sourcePage": 70,
+      "sourceSection": "Equipment Packs",
+      "unitKind": "equipment-pack",
+      "proposedUnitId": "srd51:2014:item:entertainers-pack",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 40,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:explorers-pack",
+      "nameEn": "Explorer’s Pack",
+      "sourcePage": 70,
+      "sourceSection": "Equipment Packs",
+      "unitKind": "equipment-pack",
+      "proposedUnitId": "srd51:2014:item:explorers-pack",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:priests-pack",
+      "nameEn": "Priest’s Pack",
+      "sourcePage": 70,
+      "sourceSection": "Equipment Packs",
+      "unitKind": "equipment-pack",
+      "proposedUnitId": "srd51:2014:item:priests-pack",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 19,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:scholars-pack",
+      "nameEn": "Scholar’s Pack",
+      "sourcePage": 70,
+      "sourceSection": "Equipment Packs",
+      "unitKind": "equipment-pack",
+      "proposedUnitId": "srd51:2014:item:scholars-pack",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 40,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:camel-purchase",
+      "nameEn": "Camel",
+      "sourcePage": 71,
+      "sourceSection": "Mounts and Other Animals",
+      "unitKind": "mount-offer",
+      "proposedUnitId": "srd51:2014:mount-offer:camel-purchase",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 50,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "bestiaryLink": "purchase-offer-is-not-a-statblock"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:donkey-or-mule-purchase",
+      "nameEn": "Donkey or mule",
+      "sourcePage": 71,
+      "sourceSection": "Mounts and Other Animals",
+      "unitKind": "mount-offer",
+      "proposedUnitId": "srd51:2014:mount-offer:donkey-or-mule-purchase",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 8,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "bestiaryLink": "purchase-offer-is-not-a-statblock"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:elephant-purchase",
+      "nameEn": "Elephant",
+      "sourcePage": 71,
+      "sourceSection": "Mounts and Other Animals",
+      "unitKind": "mount-offer",
+      "proposedUnitId": "srd51:2014:mount-offer:elephant-purchase",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 200,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "bestiaryLink": "purchase-offer-is-not-a-statblock"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:draft-horse-purchase",
+      "nameEn": "Horse, draft",
+      "sourcePage": 72,
+      "sourceSection": "Mounts and Other Animals",
+      "unitKind": "mount-offer",
+      "proposedUnitId": "srd51:2014:mount-offer:draft-horse-purchase",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 50,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "bestiaryLink": "purchase-offer-is-not-a-statblock"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:riding-horse-purchase",
+      "nameEn": "Horse, riding",
+      "sourcePage": 72,
+      "sourceSection": "Mounts and Other Animals",
+      "unitKind": "mount-offer",
+      "proposedUnitId": "srd51:2014:mount-offer:riding-horse-purchase",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 75,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "bestiaryLink": "purchase-offer-is-not-a-statblock"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:mastiff-purchase",
+      "nameEn": "Mastiff",
+      "sourcePage": 72,
+      "sourceSection": "Mounts and Other Animals",
+      "unitKind": "mount-offer",
+      "proposedUnitId": "srd51:2014:mount-offer:mastiff-purchase",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 25,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "bestiaryLink": "purchase-offer-is-not-a-statblock"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:pony-purchase",
+      "nameEn": "Pony",
+      "sourcePage": 72,
+      "sourceSection": "Mounts and Other Animals",
+      "unitKind": "mount-offer",
+      "proposedUnitId": "srd51:2014:mount-offer:pony-purchase",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 30,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "bestiaryLink": "purchase-offer-is-not-a-statblock"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:warhorse-purchase",
+      "nameEn": "Warhorse",
+      "sourcePage": 72,
+      "sourceSection": "Mounts and Other Animals",
+      "unitKind": "mount-offer",
+      "proposedUnitId": "srd51:2014:mount-offer:warhorse-purchase",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 400,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "bestiaryLink": "purchase-offer-is-not-a-statblock"
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:barding-price-rule",
+      "nameEn": "Barding",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "pricing-rule",
+      "proposedUnitId": "srd51:2014:pricing-rule:barding-price-rule",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "multiplier",
+        "factor": 4,
+        "base": "equivalent-armor-for-humanoids"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "fixedPurchasePrice": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:bit-and-bridle",
+      "nameEn": "Bit and bridle",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "item",
+      "proposedUnitId": "srd51:2014:item:bit-and-bridle",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:carriage",
+      "nameEn": "Carriage",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "vehicle",
+      "proposedUnitId": "srd51:2014:vehicle:carriage",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 100,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:cart",
+      "nameEn": "Cart",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "vehicle",
+      "proposedUnitId": "srd51:2014:vehicle:cart",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 15,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:chariot",
+      "nameEn": "Chariot",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "vehicle",
+      "proposedUnitId": "srd51:2014:vehicle:chariot",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 250,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:feed-per-day",
+      "nameEn": "Feed (per day)",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "supply-offer",
+      "proposedUnitId": "srd51:2014:supply-offer:feed-per-day",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "cp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:exotic-saddle",
+      "nameEn": "Saddle, exotic",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "item",
+      "proposedUnitId": "srd51:2014:item:exotic-saddle",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 60,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:military-saddle",
+      "nameEn": "Saddle, military",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "item",
+      "proposedUnitId": "srd51:2014:item:military-saddle",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 20,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:pack-saddle",
+      "nameEn": "Saddle, pack",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "item",
+      "proposedUnitId": "srd51:2014:item:pack-saddle",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:riding-saddle",
+      "nameEn": "Saddle, riding",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "item",
+      "proposedUnitId": "srd51:2014:item:riding-saddle",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:saddlebags",
+      "nameEn": "Saddlebags",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "item",
+      "proposedUnitId": "srd51:2014:item:saddlebags",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 4,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:sled",
+      "nameEn": "Sled",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "vehicle",
+      "proposedUnitId": "srd51:2014:vehicle:sled",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 20,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:stabling-per-day",
+      "nameEn": "Stabling (per day)",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:stabling-per-day",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "sp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:wagon",
+      "nameEn": "Wagon",
+      "sourcePage": 72,
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "unitKind": "vehicle",
+      "proposedUnitId": "srd51:2014:vehicle:wagon",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 35,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:galley",
+      "nameEn": "Galley",
+      "sourcePage": 72,
+      "sourceSection": "Waterborne Vehicles",
+      "unitKind": "vehicle",
+      "proposedUnitId": "srd51:2014:vehicle:galley",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 30000,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:keelboat",
+      "nameEn": "Keelboat",
+      "sourcePage": 72,
+      "sourceSection": "Waterborne Vehicles",
+      "unitKind": "vehicle",
+      "proposedUnitId": "srd51:2014:vehicle:keelboat",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3000,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:longship",
+      "nameEn": "Longship",
+      "sourcePage": 72,
+      "sourceSection": "Waterborne Vehicles",
+      "unitKind": "vehicle",
+      "proposedUnitId": "srd51:2014:vehicle:longship",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10000,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:rowboat",
+      "nameEn": "Rowboat",
+      "sourcePage": 72,
+      "sourceSection": "Waterborne Vehicles",
+      "unitKind": "vehicle",
+      "proposedUnitId": "srd51:2014:vehicle:rowboat",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 50,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:sailing-ship",
+      "nameEn": "Sailing ship",
+      "sourcePage": 72,
+      "sourceSection": "Waterborne Vehicles",
+      "unitKind": "vehicle",
+      "proposedUnitId": "srd51:2014:vehicle:sailing-ship",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10000,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:warship",
+      "nameEn": "Warship",
+      "sourcePage": 72,
+      "sourceSection": "Waterborne Vehicles",
+      "unitKind": "vehicle",
+      "proposedUnitId": "srd51:2014:vehicle:warship",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 25000,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-01",
+      "nameEn": "Wheat",
+      "sourcePage": 72,
+      "sourceSection": "Trade Goods",
+      "unitKind": "barter-row",
+      "proposedUnitId": "srd51:2014:barter-row:trade-goods-row-01",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "cp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "alternativesAre": "one-of-not-a-bundle",
+      "alternatives": [
+        {
+          "nameEn": "Wheat",
+          "quantity": 1,
+          "unit": "lb",
+          "proposedUnitId": "srd51:2014:trade-offer:wheat-lb",
+          "bestiaryId": null
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-02",
+      "nameEn": "Flour or Chicken",
+      "sourcePage": 72,
+      "sourceSection": "Trade Goods",
+      "unitKind": "barter-row",
+      "proposedUnitId": "srd51:2014:barter-row:trade-goods-row-02",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "cp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "alternativesAre": "one-of-not-a-bundle",
+      "alternatives": [
+        {
+          "nameEn": "Flour",
+          "quantity": 1,
+          "unit": "lb",
+          "proposedUnitId": "srd51:2014:trade-offer:flour-lb",
+          "bestiaryId": null
+        },
+        {
+          "nameEn": "Chicken",
+          "quantity": 1,
+          "unit": "animal",
+          "proposedUnitId": "srd51:2014:trade-offer:chicken-animal",
+          "bestiaryId": null
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-03",
+      "nameEn": "Salt",
+      "sourcePage": 72,
+      "sourceSection": "Trade Goods",
+      "unitKind": "barter-row",
+      "proposedUnitId": "srd51:2014:barter-row:trade-goods-row-03",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "cp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "alternativesAre": "one-of-not-a-bundle",
+      "alternatives": [
+        {
+          "nameEn": "Salt",
+          "quantity": 1,
+          "unit": "lb",
+          "proposedUnitId": "srd51:2014:trade-offer:salt-lb",
+          "bestiaryId": null
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-04",
+      "nameEn": "Iron or Canvas",
+      "sourcePage": 72,
+      "sourceSection": "Trade Goods",
+      "unitKind": "barter-row",
+      "proposedUnitId": "srd51:2014:barter-row:trade-goods-row-04",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "sp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "alternativesAre": "one-of-not-a-bundle",
+      "alternatives": [
+        {
+          "nameEn": "Iron",
+          "quantity": 1,
+          "unit": "lb",
+          "proposedUnitId": "srd51:2014:trade-offer:iron-lb",
+          "bestiaryId": null
+        },
+        {
+          "nameEn": "Canvas",
+          "quantity": 1,
+          "unit": "square-yard",
+          "proposedUnitId": "srd51:2014:trade-offer:canvas-square-yard",
+          "bestiaryId": null
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-05",
+      "nameEn": "Copper or Cotton cloth",
+      "sourcePage": 72,
+      "sourceSection": "Trade Goods",
+      "unitKind": "barter-row",
+      "proposedUnitId": "srd51:2014:barter-row:trade-goods-row-05",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "sp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "alternativesAre": "one-of-not-a-bundle",
+      "alternatives": [
+        {
+          "nameEn": "Copper",
+          "quantity": 1,
+          "unit": "lb",
+          "proposedUnitId": "srd51:2014:trade-offer:copper-lb",
+          "bestiaryId": null
+        },
+        {
+          "nameEn": "Cotton cloth",
+          "quantity": 1,
+          "unit": "square-yard",
+          "proposedUnitId": "srd51:2014:trade-offer:cotton-cloth-square-yard",
+          "bestiaryId": null
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-06",
+      "nameEn": "Ginger or Goat",
+      "sourcePage": 72,
+      "sourceSection": "Trade Goods",
+      "unitKind": "barter-row",
+      "proposedUnitId": "srd51:2014:barter-row:trade-goods-row-06",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "alternativesAre": "one-of-not-a-bundle",
+      "alternatives": [
+        {
+          "nameEn": "Ginger",
+          "quantity": 1,
+          "unit": "lb",
+          "proposedUnitId": "srd51:2014:trade-offer:ginger-lb",
+          "bestiaryId": null
+        },
+        {
+          "nameEn": "Goat",
+          "quantity": 1,
+          "unit": "animal",
+          "proposedUnitId": "srd51:2014:trade-offer:goat-animal",
+          "bestiaryId": null
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-07",
+      "nameEn": "Cinnamon or Pepper or Sheep",
+      "sourcePage": 72,
+      "sourceSection": "Trade Goods",
+      "unitKind": "barter-row",
+      "proposedUnitId": "srd51:2014:barter-row:trade-goods-row-07",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "alternativesAre": "one-of-not-a-bundle",
+      "alternatives": [
+        {
+          "nameEn": "Cinnamon",
+          "quantity": 1,
+          "unit": "lb",
+          "proposedUnitId": "srd51:2014:trade-offer:cinnamon-lb",
+          "bestiaryId": null
+        },
+        {
+          "nameEn": "Pepper",
+          "quantity": 1,
+          "unit": "lb",
+          "proposedUnitId": "srd51:2014:trade-offer:pepper-lb",
+          "bestiaryId": null
+        },
+        {
+          "nameEn": "Sheep",
+          "quantity": 1,
+          "unit": "animal",
+          "proposedUnitId": "srd51:2014:trade-offer:sheep-animal",
+          "bestiaryId": null
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-08",
+      "nameEn": "Cloves or Pig",
+      "sourcePage": 72,
+      "sourceSection": "Trade Goods",
+      "unitKind": "barter-row",
+      "proposedUnitId": "srd51:2014:barter-row:trade-goods-row-08",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "alternativesAre": "one-of-not-a-bundle",
+      "alternatives": [
+        {
+          "nameEn": "Cloves",
+          "quantity": 1,
+          "unit": "lb",
+          "proposedUnitId": "srd51:2014:trade-offer:cloves-lb",
+          "bestiaryId": null
+        },
+        {
+          "nameEn": "Pig",
+          "quantity": 1,
+          "unit": "animal",
+          "proposedUnitId": "srd51:2014:trade-offer:pig-animal",
+          "bestiaryId": null
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-09",
+      "nameEn": "Silver or Linen",
+      "sourcePage": 72,
+      "sourceSection": "Trade Goods",
+      "unitKind": "barter-row",
+      "proposedUnitId": "srd51:2014:barter-row:trade-goods-row-09",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "alternativesAre": "one-of-not-a-bundle",
+      "alternatives": [
+        {
+          "nameEn": "Silver",
+          "quantity": 1,
+          "unit": "lb",
+          "proposedUnitId": "srd51:2014:trade-offer:silver-lb",
+          "bestiaryId": null
+        },
+        {
+          "nameEn": "Linen",
+          "quantity": 1,
+          "unit": "square-yard",
+          "proposedUnitId": "srd51:2014:trade-offer:linen-square-yard",
+          "bestiaryId": null
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-10",
+      "nameEn": "Silk or Cow",
+      "sourcePage": 72,
+      "sourceSection": "Trade Goods",
+      "unitKind": "barter-row",
+      "proposedUnitId": "srd51:2014:barter-row:trade-goods-row-10",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "alternativesAre": "one-of-not-a-bundle",
+      "alternatives": [
+        {
+          "nameEn": "Silk",
+          "quantity": 1,
+          "unit": "square-yard",
+          "proposedUnitId": "srd51:2014:trade-offer:silk-square-yard",
+          "bestiaryId": null
+        },
+        {
+          "nameEn": "Cow",
+          "quantity": 1,
+          "unit": "animal",
+          "proposedUnitId": "srd51:2014:trade-offer:cow-animal",
+          "bestiaryId": null
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-11",
+      "nameEn": "Saffron or Ox",
+      "sourcePage": 72,
+      "sourceSection": "Trade Goods",
+      "unitKind": "barter-row",
+      "proposedUnitId": "srd51:2014:barter-row:trade-goods-row-11",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 15,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "alternativesAre": "one-of-not-a-bundle",
+      "alternatives": [
+        {
+          "nameEn": "Saffron",
+          "quantity": 1,
+          "unit": "lb",
+          "proposedUnitId": "srd51:2014:trade-offer:saffron-lb",
+          "bestiaryId": null
+        },
+        {
+          "nameEn": "Ox",
+          "quantity": 1,
+          "unit": "animal",
+          "proposedUnitId": "srd51:2014:trade-offer:ox-animal",
+          "bestiaryId": null
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-12",
+      "nameEn": "Gold",
+      "sourcePage": 72,
+      "sourceSection": "Trade Goods",
+      "unitKind": "barter-row",
+      "proposedUnitId": "srd51:2014:barter-row:trade-goods-row-12",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 50,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "alternativesAre": "one-of-not-a-bundle",
+      "alternatives": [
+        {
+          "nameEn": "Gold",
+          "quantity": 1,
+          "unit": "lb",
+          "proposedUnitId": "srd51:2014:trade-offer:gold-lb",
+          "bestiaryId": null
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:trade-goods-row-13",
+      "nameEn": "Platinum",
+      "sourcePage": 72,
+      "sourceSection": "Trade Goods",
+      "unitKind": "barter-row",
+      "proposedUnitId": "srd51:2014:barter-row:trade-goods-row-13",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 500,
+        "currency": "gp"
+      },
+      "pricedUnit": null,
+      "bestiaryId": null,
+      "alternativesAre": "one-of-not-a-bundle",
+      "alternatives": [
+        {
+          "nameEn": "Platinum",
+          "quantity": 1,
+          "unit": "lb",
+          "proposedUnitId": "srd51:2014:trade-offer:platinum-lb",
+          "bestiaryId": null
+        }
+      ]
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-wretched",
+      "nameEn": "Wretched",
+      "sourcePage": 72,
+      "sourceSection": "Lifestyle Expenses",
+      "unitKind": "lifestyle",
+      "proposedUnitId": "srd51:2014:lifestyle:lifestyle-wretched",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "not-priced",
+        "sourceValue": "—"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-squalid",
+      "nameEn": "Squalid",
+      "sourcePage": 72,
+      "sourceSection": "Lifestyle Expenses",
+      "unitKind": "lifestyle",
+      "proposedUnitId": "srd51:2014:lifestyle:lifestyle-squalid",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "sp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-poor",
+      "nameEn": "Poor",
+      "sourcePage": 73,
+      "sourceSection": "Lifestyle Expenses",
+      "unitKind": "lifestyle",
+      "proposedUnitId": "srd51:2014:lifestyle:lifestyle-poor",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "sp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-modest",
+      "nameEn": "Modest",
+      "sourcePage": 73,
+      "sourceSection": "Lifestyle Expenses",
+      "unitKind": "lifestyle",
+      "proposedUnitId": "srd51:2014:lifestyle:lifestyle-modest",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "gp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-comfortable",
+      "nameEn": "Comfortable",
+      "sourcePage": 73,
+      "sourceSection": "Lifestyle Expenses",
+      "unitKind": "lifestyle",
+      "proposedUnitId": "srd51:2014:lifestyle:lifestyle-comfortable",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-wealthy",
+      "nameEn": "Wealthy",
+      "sourcePage": 73,
+      "sourceSection": "Lifestyle Expenses",
+      "unitKind": "lifestyle",
+      "proposedUnitId": "srd51:2014:lifestyle:lifestyle-wealthy",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 4,
+        "currency": "gp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:lifestyle-aristocratic",
+      "nameEn": "Aristocratic",
+      "sourcePage": 73,
+      "sourceSection": "Lifestyle Expenses",
+      "unitKind": "lifestyle",
+      "proposedUnitId": "srd51:2014:lifestyle:lifestyle-aristocratic",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "minimum",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:ale-gallon",
+      "nameEn": "Ale, gallon",
+      "sourcePage": 73,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:ale-gallon",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "sp"
+      },
+      "pricedUnit": "gallon",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:ale-mug",
+      "nameEn": "Ale, mug",
+      "sourcePage": 73,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:ale-mug",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 4,
+        "currency": "cp"
+      },
+      "pricedUnit": "mug",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:banquet-per-person",
+      "nameEn": "Banquet",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:banquet-per-person",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "pricedUnit": "person",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:bread-loaf",
+      "nameEn": "Bread, loaf",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:bread-loaf",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "cp"
+      },
+      "pricedUnit": "loaf",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:cheese-hunk",
+      "nameEn": "Cheese, hunk",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:cheese-hunk",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "sp"
+      },
+      "pricedUnit": "hunk",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:inn-stay-squalid",
+      "nameEn": "Inn stay, Squalid",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:inn-stay-squalid",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 7,
+        "currency": "cp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:inn-stay-poor",
+      "nameEn": "Inn stay, Poor",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:inn-stay-poor",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "sp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:inn-stay-modest",
+      "nameEn": "Inn stay, Modest",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:inn-stay-modest",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "sp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:inn-stay-comfortable",
+      "nameEn": "Inn stay, Comfortable",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:inn-stay-comfortable",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 8,
+        "currency": "sp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:inn-stay-wealthy",
+      "nameEn": "Inn stay, Wealthy",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:inn-stay-wealthy",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:inn-stay-aristocratic",
+      "nameEn": "Inn stay, Aristocratic",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:inn-stay-aristocratic",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 4,
+        "currency": "gp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meals-squalid",
+      "nameEn": "Meals, Squalid",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:meals-squalid",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3,
+        "currency": "cp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meals-poor",
+      "nameEn": "Meals, Poor",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:meals-poor",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 6,
+        "currency": "cp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meals-modest",
+      "nameEn": "Meals, Modest",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:meals-modest",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3,
+        "currency": "sp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meals-comfortable",
+      "nameEn": "Meals, Comfortable",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:meals-comfortable",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "sp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meals-wealthy",
+      "nameEn": "Meals, Wealthy",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:meals-wealthy",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 8,
+        "currency": "sp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meals-aristocratic",
+      "nameEn": "Meals, Aristocratic",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:meals-aristocratic",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:meat-chunk",
+      "nameEn": "Meat, chunk",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:meat-chunk",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3,
+        "currency": "sp"
+      },
+      "pricedUnit": "chunk",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:wine-common-pitcher",
+      "nameEn": "Wine, common",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:wine-common-pitcher",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "sp"
+      },
+      "pricedUnit": "pitcher",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:wine-fine-bottle",
+      "nameEn": "Wine, fine",
+      "sourcePage": 74,
+      "sourceSection": "Food, Drink, and Lodging",
+      "unitKind": "food-offer",
+      "proposedUnitId": "srd51:2014:food-offer:wine-fine-bottle",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "pricedUnit": "bottle",
+      "bestiaryId": null,
+      "includedInLifestyleExpenses": true
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:coach-between-towns",
+      "nameEn": "Coach cab, between towns",
+      "sourcePage": 74,
+      "sourceSection": "Services",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:coach-between-towns",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3,
+        "currency": "cp"
+      },
+      "pricedUnit": "mile",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:coach-within-city",
+      "nameEn": "Coach cab, within a city",
+      "sourcePage": 74,
+      "sourceSection": "Services",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:coach-within-city",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "cp"
+      },
+      "pricedUnit": "not-specified-in-table",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:hireling-skilled",
+      "nameEn": "Hireling, skilled",
+      "sourcePage": 74,
+      "sourceSection": "Services",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:hireling-skilled",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "minimum",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null,
+      "pricingEvidence": {
+        "sourcePage": 74,
+        "locator": "Services, paragraph immediately after the pay table",
+        "interpretation": "The listed skilled-hireling pay is a minimum; expert hirelings may demand more.",
+        "correctedOn": "2026-11-19",
+        "previousMode": "fixed"
+      }
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:hireling-untrained",
+      "nameEn": "Hireling, untrained",
+      "sourcePage": 74,
+      "sourceSection": "Services",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:hireling-untrained",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "sp"
+      },
+      "pricedUnit": "day",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:messenger",
+      "nameEn": "Messenger",
+      "sourcePage": 74,
+      "sourceSection": "Services",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:messenger",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "cp"
+      },
+      "pricedUnit": "mile",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:road-or-gate-toll",
+      "nameEn": "Road or gate toll",
+      "sourcePage": 74,
+      "sourceSection": "Services",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:road-or-gate-toll",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "cp"
+      },
+      "pricedUnit": "not-specified-in-table",
+      "bestiaryId": null
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:ships-passage",
+      "nameEn": "Ship’s passage",
+      "sourcePage": 74,
+      "sourceSection": "Services",
+      "unitKind": "service",
+      "proposedUnitId": "srd51:2014:service:ships-passage",
+      "status": "proposed-unit-not-runtime-record",
+      "fullRules": "unverified",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 1,
+        "currency": "sp"
+      },
+      "pricedUnit": "mile",
+      "bestiaryId": null
+    }
+  ],
+  "packMemberships": [
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "backpack",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:backpack",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "ball bearings",
+      "quantity": 1,
+      "unit": "bag of 1000",
+      "catalogCandidateId": "srd51:2014:item:ball-bearings-bag-1000",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "string",
+      "quantity": 10,
+      "unit": "foot",
+      "catalogCandidateId": null,
+      "componentCandidateId": "srd51:2014:pack-component:string-by-foot",
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "bell",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:bell",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "candles",
+      "quantity": 5,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:candle",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "crowbar",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:crowbar",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "hammer",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:hammer",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "pitons",
+      "quantity": 10,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:piton",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "hooded lantern",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:hooded-lantern",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "oil",
+      "quantity": 2,
+      "unit": "flask",
+      "catalogCandidateId": "srd51:2014:item:oil-flask",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "rations",
+      "quantity": 5,
+      "unit": "day",
+      "catalogCandidateId": "srd51:2014:item:rations-one-day",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "tinderbox",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:tinderbox",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "waterskin",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:waterskin",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:burglars-pack",
+      "sourceName": "hempen rope",
+      "quantity": 1,
+      "unit": "50-foot length",
+      "catalogCandidateId": "srd51:2014:item:hempen-rope-50-feet",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "sourceName": "chest",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:chest",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "sourceName": "cases for maps and scrolls",
+      "quantity": 2,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:map-or-scroll-case",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "sourceName": "fine clothes",
+      "quantity": 1,
+      "unit": "set",
+      "catalogCandidateId": "srd51:2014:item:fine-clothes",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "sourceName": "ink",
+      "quantity": 1,
+      "unit": "bottle",
+      "catalogCandidateId": null,
+      "componentCandidateId": "srd51:2014:pack-component:ink-bottle-capacity-unspecified",
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "sourceName": "ink pen",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:ink-pen",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "sourceName": "lamp",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:lamp",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "sourceName": "oil",
+      "quantity": 2,
+      "unit": "flask",
+      "catalogCandidateId": "srd51:2014:item:oil-flask",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "sourceName": "paper",
+      "quantity": 5,
+      "unit": "sheet",
+      "catalogCandidateId": "srd51:2014:item:paper-sheet",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "sourceName": "perfume",
+      "quantity": 1,
+      "unit": "vial",
+      "catalogCandidateId": "srd51:2014:item:perfume-vial",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "sourceName": "sealing wax",
+      "quantity": null,
+      "unit": "unspecified",
+      "catalogCandidateId": "srd51:2014:item:sealing-wax",
+      "componentCandidateId": null,
+      "quantityStatus": "unspecified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:diplomats-pack",
+      "sourceName": "soap",
+      "quantity": null,
+      "unit": "unspecified",
+      "catalogCandidateId": "srd51:2014:item:soap",
+      "componentCandidateId": null,
+      "quantityStatus": "unspecified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:dungeoneers-pack",
+      "sourceName": "backpack",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:backpack",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:dungeoneers-pack",
+      "sourceName": "crowbar",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:crowbar",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:dungeoneers-pack",
+      "sourceName": "hammer",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:hammer",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:dungeoneers-pack",
+      "sourceName": "pitons",
+      "quantity": 10,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:piton",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:dungeoneers-pack",
+      "sourceName": "torches",
+      "quantity": 10,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:torch",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:dungeoneers-pack",
+      "sourceName": "tinderbox",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:tinderbox",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:dungeoneers-pack",
+      "sourceName": "rations",
+      "quantity": 10,
+      "unit": "day",
+      "catalogCandidateId": "srd51:2014:item:rations-one-day",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:dungeoneers-pack",
+      "sourceName": "waterskin",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:waterskin",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:dungeoneers-pack",
+      "sourceName": "hempen rope",
+      "quantity": 1,
+      "unit": "50-foot length",
+      "catalogCandidateId": "srd51:2014:item:hempen-rope-50-feet",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:entertainers-pack",
+      "sourceName": "backpack",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:backpack",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:entertainers-pack",
+      "sourceName": "bedroll",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:bedroll",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:entertainers-pack",
+      "sourceName": "costumes",
+      "quantity": 2,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:costume-clothes",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:entertainers-pack",
+      "sourceName": "candles",
+      "quantity": 5,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:candle",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:entertainers-pack",
+      "sourceName": "rations",
+      "quantity": 5,
+      "unit": "day",
+      "catalogCandidateId": "srd51:2014:item:rations-one-day",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:entertainers-pack",
+      "sourceName": "waterskin",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:waterskin",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:entertainers-pack",
+      "sourceName": "disguise kit",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:disguise-kit",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:explorers-pack",
+      "sourceName": "backpack",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:backpack",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:explorers-pack",
+      "sourceName": "bedroll",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:bedroll",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:explorers-pack",
+      "sourceName": "mess kit",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:mess-kit",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:explorers-pack",
+      "sourceName": "tinderbox",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:tinderbox",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:explorers-pack",
+      "sourceName": "torches",
+      "quantity": 10,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:torch",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:explorers-pack",
+      "sourceName": "rations",
+      "quantity": 10,
+      "unit": "day",
+      "catalogCandidateId": "srd51:2014:item:rations-one-day",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:explorers-pack",
+      "sourceName": "waterskin",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:waterskin",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:explorers-pack",
+      "sourceName": "hempen rope",
+      "quantity": 1,
+      "unit": "50-foot length",
+      "catalogCandidateId": "srd51:2014:item:hempen-rope-50-feet",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+      "sourceName": "backpack",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:backpack",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+      "sourceName": "blanket",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:blanket",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+      "sourceName": "candles",
+      "quantity": 10,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:candle",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+      "sourceName": "tinderbox",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:tinderbox",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+      "sourceName": "alms box",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": null,
+      "componentCandidateId": "srd51:2014:pack-component:alms-box",
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+      "sourceName": "incense",
+      "quantity": 2,
+      "unit": "block",
+      "catalogCandidateId": null,
+      "componentCandidateId": "srd51:2014:pack-component:incense-block",
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+      "sourceName": "censer",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": null,
+      "componentCandidateId": "srd51:2014:pack-component:censer",
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+      "sourceName": "vestments",
+      "quantity": null,
+      "unit": "unspecified",
+      "catalogCandidateId": null,
+      "componentCandidateId": "srd51:2014:pack-component:vestments-quantity-unspecified",
+      "quantityStatus": "unspecified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+      "sourceName": "rations",
+      "quantity": 2,
+      "unit": "day",
+      "catalogCandidateId": "srd51:2014:item:rations-one-day",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:priests-pack",
+      "sourceName": "waterskin",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:waterskin",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:scholars-pack",
+      "sourceName": "backpack",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:backpack",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:scholars-pack",
+      "sourceName": "book of lore",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": null,
+      "componentCandidateId": "srd51:2014:pack-component:book-of-lore",
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:scholars-pack",
+      "sourceName": "ink",
+      "quantity": 1,
+      "unit": "bottle",
+      "catalogCandidateId": null,
+      "componentCandidateId": "srd51:2014:pack-component:ink-bottle-capacity-unspecified",
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:scholars-pack",
+      "sourceName": "ink pen",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": "srd51:2014:item:ink-pen",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:scholars-pack",
+      "sourceName": "parchment",
+      "quantity": 10,
+      "unit": "sheet",
+      "catalogCandidateId": "srd51:2014:item:parchment-sheet",
+      "componentCandidateId": null,
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:scholars-pack",
+      "sourceName": "sand",
+      "quantity": 1,
+      "unit": "little bag",
+      "catalogCandidateId": null,
+      "componentCandidateId": "srd51:2014:pack-component:sand-small-bag-capacity-unspecified",
+      "quantityStatus": "source-specified"
+    },
+    {
+      "packObservationId": "srd51:2014:equipment-observation:scholars-pack",
+      "sourceName": "small knife",
+      "quantity": 1,
+      "unit": "each",
+      "catalogCandidateId": null,
+      "componentCandidateId": "srd51:2014:pack-component:small-knife",
+      "quantityStatus": "source-specified"
+    }
+  ],
+  "inputSha256": {
+    "catalog/srd51-additional-equipment-discovery.json": "d974fc8d0a7386f8a9b2f55dcecc455d3344d1eaaa5f7b095c644785994970ca",
+    "catalog/srd51-equipment-pack-memberships.json": "11dd2310357e87eb892a6df47f00350c1a3cfdf3cb378d924e98c42852cf9aa9",
+    "catalog/srd51-pack-component-identities.json": "41552f97e23dddb5119236284090b0f1a84b6f73c1e7dd46d63e9288755571d3",
+    "catalog/equipment-identity-reconciliation.json": "13db28eeec21cf57430f119b6228f90245f87fad2c5d4689ce182275d5924f97"
+  }
+}

@@ -1,0 +1,742 @@
+{
+  "schemaVersion": 1,
+  "status": "transport-parameters-and-rule-proposals-not-runtime-content",
+  "ruleset": "5e-2014",
+  "source": {
+    "title": "System Reference Document 5.1",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "pages": [
+      71,
+      72
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0"
+  },
+  "inputSha256": {
+    "catalog/srd51-additional-equipment-discovery.json": "d974fc8d0a7386f8a9b2f55dcecc455d3344d1eaaa5f7b095c644785994970ca",
+    "catalog/equipment-unit-proposals-2014.json": "1d2d7fa804e0d475b11ab8825335c5187bc6138a00babbef793290fb5e0162d5"
+  },
+  "approvedDenominator": null,
+  "complete": false,
+  "summary": {
+    "records": 28,
+    "mountOffers": 8,
+    "tackHarnessAndDrawnVehicleRows": 14,
+    "waterborneVehicleRows": 6,
+    "ruleProposals": 7
+  },
+  "limitations": [
+    "Purchase offers are not bestiary statblocks; Donkey or mule remains one observed offer.",
+    "No purchase, inventory grant, expense, travel or carrying-capacity automation is enabled.",
+    "Game deviations are advisory; these source rules do not authorize a blocking user flow.",
+    "The source table gives speed in feet for animals and mph for ships; no conversion or derived daily distance is assumed."
+  ],
+  "records": [
+    {
+      "observationId": "srd51:2014:equipment-observation:camel-purchase",
+      "proposedUnitId": "srd51:2014:mount-offer:camel-purchase",
+      "nameEn": "Camel",
+      "sourceSection": "Mounts and Other Animals",
+      "sourcePage": 71,
+      "unitKind": "mount-offer",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 50,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 50,
+          "unit": "ft"
+        },
+        "baseCarryingCapacity": {
+          "value": 480,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:donkey-or-mule-purchase",
+      "proposedUnitId": "srd51:2014:mount-offer:donkey-or-mule-purchase",
+      "nameEn": "Donkey or mule",
+      "sourceSection": "Mounts and Other Animals",
+      "sourcePage": 71,
+      "unitKind": "mount-offer",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 8,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 40,
+          "unit": "ft"
+        },
+        "baseCarryingCapacity": {
+          "value": 420,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:elephant-purchase",
+      "proposedUnitId": "srd51:2014:mount-offer:elephant-purchase",
+      "nameEn": "Elephant",
+      "sourceSection": "Mounts and Other Animals",
+      "sourcePage": 71,
+      "unitKind": "mount-offer",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 200,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 40,
+          "unit": "ft"
+        },
+        "baseCarryingCapacity": {
+          "value": 1320,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:draft-horse-purchase",
+      "proposedUnitId": "srd51:2014:mount-offer:draft-horse-purchase",
+      "nameEn": "Horse, draft",
+      "sourceSection": "Mounts and Other Animals",
+      "sourcePage": 72,
+      "unitKind": "mount-offer",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 50,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 40,
+          "unit": "ft"
+        },
+        "baseCarryingCapacity": {
+          "value": 540,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:riding-horse-purchase",
+      "proposedUnitId": "srd51:2014:mount-offer:riding-horse-purchase",
+      "nameEn": "Horse, riding",
+      "sourceSection": "Mounts and Other Animals",
+      "sourcePage": 72,
+      "unitKind": "mount-offer",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 75,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 60,
+          "unit": "ft"
+        },
+        "baseCarryingCapacity": {
+          "value": 480,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:mastiff-purchase",
+      "proposedUnitId": "srd51:2014:mount-offer:mastiff-purchase",
+      "nameEn": "Mastiff",
+      "sourceSection": "Mounts and Other Animals",
+      "sourcePage": 72,
+      "unitKind": "mount-offer",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 25,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 40,
+          "unit": "ft"
+        },
+        "baseCarryingCapacity": {
+          "value": 195,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:pony-purchase",
+      "proposedUnitId": "srd51:2014:mount-offer:pony-purchase",
+      "nameEn": "Pony",
+      "sourceSection": "Mounts and Other Animals",
+      "sourcePage": 72,
+      "unitKind": "mount-offer",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 30,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 40,
+          "unit": "ft"
+        },
+        "baseCarryingCapacity": {
+          "value": 225,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:warhorse-purchase",
+      "proposedUnitId": "srd51:2014:mount-offer:warhorse-purchase",
+      "nameEn": "Warhorse",
+      "sourceSection": "Mounts and Other Animals",
+      "sourcePage": 72,
+      "unitKind": "mount-offer",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 400,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 60,
+          "unit": "ft"
+        },
+        "baseCarryingCapacity": {
+          "value": 540,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:barding-price-rule",
+      "proposedUnitId": "srd51:2014:pricing-rule:barding-price-rule",
+      "nameEn": "Barding",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "pricing-rule",
+      "pricing": {
+        "mode": "multiplier",
+        "factor": 4,
+        "base": "equivalent-armor-for-humanoids"
+      },
+      "parameters": {
+        "weightMultiplier": 2,
+        "base": "equivalent-armor-for-humanoids"
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:bit-and-bridle",
+      "proposedUnitId": "srd51:2014:item:bit-and-bridle",
+      "nameEn": "Bit and bridle",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "item",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 2,
+        "currency": "gp"
+      },
+      "parameters": {
+        "weight": {
+          "value": 1,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:carriage",
+      "proposedUnitId": "srd51:2014:vehicle:carriage",
+      "nameEn": "Carriage",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "vehicle",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 100,
+        "currency": "gp"
+      },
+      "parameters": {
+        "weight": {
+          "value": 600,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:cart",
+      "proposedUnitId": "srd51:2014:vehicle:cart",
+      "nameEn": "Cart",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "vehicle",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 15,
+        "currency": "gp"
+      },
+      "parameters": {
+        "weight": {
+          "value": 200,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:chariot",
+      "proposedUnitId": "srd51:2014:vehicle:chariot",
+      "nameEn": "Chariot",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "vehicle",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 250,
+        "currency": "gp"
+      },
+      "parameters": {
+        "weight": {
+          "value": 100,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:feed-per-day",
+      "proposedUnitId": "srd51:2014:supply-offer:feed-per-day",
+      "nameEn": "Feed (per day)",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "supply-offer",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "cp"
+      },
+      "parameters": {
+        "weight": {
+          "value": 10,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:exotic-saddle",
+      "proposedUnitId": "srd51:2014:item:exotic-saddle",
+      "nameEn": "Saddle, exotic",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "item",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 60,
+        "currency": "gp"
+      },
+      "parameters": {
+        "weight": {
+          "value": 40,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:military-saddle",
+      "proposedUnitId": "srd51:2014:item:military-saddle",
+      "nameEn": "Saddle, military",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "item",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 20,
+        "currency": "gp"
+      },
+      "parameters": {
+        "weight": {
+          "value": 30,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:pack-saddle",
+      "proposedUnitId": "srd51:2014:item:pack-saddle",
+      "nameEn": "Saddle, pack",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "item",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "gp"
+      },
+      "parameters": {
+        "weight": {
+          "value": 15,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:riding-saddle",
+      "proposedUnitId": "srd51:2014:item:riding-saddle",
+      "nameEn": "Saddle, riding",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "item",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10,
+        "currency": "gp"
+      },
+      "parameters": {
+        "weight": {
+          "value": 25,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:saddlebags",
+      "proposedUnitId": "srd51:2014:item:saddlebags",
+      "nameEn": "Saddlebags",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "item",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 4,
+        "currency": "gp"
+      },
+      "parameters": {
+        "weight": {
+          "value": 8,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:sled",
+      "proposedUnitId": "srd51:2014:vehicle:sled",
+      "nameEn": "Sled",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "vehicle",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 20,
+        "currency": "gp"
+      },
+      "parameters": {
+        "weight": {
+          "value": 300,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:stabling-per-day",
+      "proposedUnitId": "srd51:2014:service:stabling-per-day",
+      "nameEn": "Stabling (per day)",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "service",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 5,
+        "currency": "sp"
+      },
+      "parameters": {
+        "weight": {
+          "value": null,
+          "unit": "lb",
+          "sourceNotation": "—",
+          "meaning": "not-a-numeric-weight"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:wagon",
+      "proposedUnitId": "srd51:2014:vehicle:wagon",
+      "nameEn": "Wagon",
+      "sourceSection": "Tack, Harness, and Drawn Vehicles",
+      "sourcePage": 72,
+      "unitKind": "vehicle",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 35,
+        "currency": "gp"
+      },
+      "parameters": {
+        "weight": {
+          "value": 400,
+          "unit": "lb"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:galley",
+      "proposedUnitId": "srd51:2014:vehicle:galley",
+      "nameEn": "Galley",
+      "sourceSection": "Waterborne Vehicles",
+      "sourcePage": 72,
+      "unitKind": "vehicle",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 30000,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 4,
+          "unit": "mph"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:keelboat",
+      "proposedUnitId": "srd51:2014:vehicle:keelboat",
+      "nameEn": "Keelboat",
+      "sourceSection": "Waterborne Vehicles",
+      "sourcePage": 72,
+      "unitKind": "vehicle",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 3000,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 1,
+          "unit": "mph"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:longship",
+      "proposedUnitId": "srd51:2014:vehicle:longship",
+      "nameEn": "Longship",
+      "sourceSection": "Waterborne Vehicles",
+      "sourcePage": 72,
+      "unitKind": "vehicle",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10000,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 3,
+          "unit": "mph"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:rowboat",
+      "proposedUnitId": "srd51:2014:vehicle:rowboat",
+      "nameEn": "Rowboat",
+      "sourceSection": "Waterborne Vehicles",
+      "sourcePage": 72,
+      "unitKind": "vehicle",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 50,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 1.5,
+          "unit": "mph"
+        },
+        "weight": {
+          "value": 100,
+          "unit": "lb",
+          "sourcePage": 71,
+          "sourceLocator": "Rowed Vessels paragraph"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:sailing-ship",
+      "proposedUnitId": "srd51:2014:vehicle:sailing-ship",
+      "nameEn": "Sailing ship",
+      "sourceSection": "Waterborne Vehicles",
+      "sourcePage": 72,
+      "unitKind": "vehicle",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 10000,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 2,
+          "unit": "mph"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    },
+    {
+      "observationId": "srd51:2014:equipment-observation:warship",
+      "proposedUnitId": "srd51:2014:vehicle:warship",
+      "nameEn": "Warship",
+      "sourceSection": "Waterborne Vehicles",
+      "sourcePage": 72,
+      "unitKind": "vehicle",
+      "pricing": {
+        "mode": "fixed",
+        "amount": 25000,
+        "currency": "gp"
+      },
+      "parameters": {
+        "speed": {
+          "value": 2.5,
+          "unit": "mph"
+        }
+      },
+      "accepted": false,
+      "fullRules": "pending-independent-review",
+      "runtimeImported": false
+    }
+  ],
+  "rules": [
+    {
+      "id": "hauling",
+      "sourcePage": 71,
+      "summaryRu": "Животное, тянущее карету, телегу, колесницу, сани или повозку, перемещает до пятикратной базовой грузоподъёмности. В этот вес входит сам транспорт. Для нескольких животных, тянущих один транспорт, базовые грузоподъёмности складываются.",
+      "parameters": {
+        "baseCapacityMultiplier": 5,
+        "vehicleWeightIncluded": true,
+        "combineAnimals": "sum-base-capacities"
+      }
+    },
+    {
+      "id": "unusual-mounts",
+      "sourcePage": 71,
+      "summaryRu": "Летающие и водные скакуны существуют, но редки и обычно не продаются. Их получение может потребовать выращивания, сделки или переговоров; цены здесь не установлены."
+    },
+    {
+      "id": "barding",
+      "sourcePage": 71,
+      "summaryRu": "Доспех для животного стоит вчетверо дороже аналогичного доспеха для гуманоида и весит вдвое больше.",
+      "parameters": {
+        "costMultiplier": 4,
+        "weightMultiplier": 2
+      }
+    },
+    {
+      "id": "military-saddle",
+      "sourcePage": 71,
+      "summaryRu": "Военное седло даёт преимущество на проверки, позволяющие оставаться верхом. Это не общее преимущество на атаки и проверки всадника."
+    },
+    {
+      "id": "exotic-saddle",
+      "sourcePage": 71,
+      "summaryRu": "По обычному правилу для водного или летающего скакуна требуется экзотическое седло. В приложении отклонение должно предупреждать, сохраняя ручной путь."
+    },
+    {
+      "id": "vehicle-proficiency",
+      "sourcePage": 71,
+      "summaryRu": "Владение соответствующим видом транспорта — наземным или водным — добавляет бонус мастерства к проверкам управления им в сложных обстоятельствах."
+    },
+    {
+      "id": "rowed-vessels",
+      "sourcePage": 71,
+      "summaryRu": "Килевые и гребные лодки используются на озёрах и реках. При движении вниз по течению его скорость добавляется к скорости лодки; типичный пример — 3 мили в час, не обязательная константа. Против значительного течения они не идут на вёслах, но их могут тянуть животные с берега. Гребная лодка весит 100 фунтов.",
+      "parameters": {
+        "typicalCurrentSpeedMph": 3,
+        "currentSpeedIsExample": true,
+        "rowboatWeightLb": 100
+      }
+    }
+  ]
+}

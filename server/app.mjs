@@ -1,3 +1,4 @@
+import {catalogWithMaterialReferences} from './spell-material-references.mjs';
 import {classSaveBenefits} from './class-save-benefits.mjs';
 import {classCheckBenefits} from './class-check-benefits.mjs';
 import {advancementClasses,advancementView} from './class-advancement-view.mjs';
@@ -156,8 +157,8 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           if (pathname === '/api/spellbook') return json(response, 200, view.spellbook());
           if (pathname === '/api/inventory') return json(response, 200, view.inventory());
           if (pathname === '/api/catalog/bundled') return json(response, 200, view.catalog.previewBundled());
-          if (pathname === '/api/catalog/entry') return json(response, 200, view.catalog.lookup(new URL(request.url, `http://${host}`).searchParams));
-          if (pathname === '/api/catalog') return json(response, 200, view.catalog.search(new URL(request.url, `http://${host}`).searchParams));
+          if (pathname === '/api/catalog/entry') return json(response, 200, catalogWithMaterialReferences(view.catalog,new URL(request.url, `http://${host}`).searchParams,{lookup:true}));
+          if (pathname === '/api/catalog') return json(response, 200, catalogWithMaterialReferences(view.catalog,new URL(request.url, `http://${host}`).searchParams));
           if (pathname === '/api/catalog/spell-inventory') return json(response, 200, view.catalog.spellInventory());
           if (pathname === '/api/catalog/creature-inventory') return json(response, 200, view.catalog.creatureInventory());
           if (pathname === '/api/catalog/coverage') return json(response, 200, view.catalog.coverage());

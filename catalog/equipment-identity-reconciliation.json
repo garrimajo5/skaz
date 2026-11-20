@@ -1,0 +1,1148 @@
+{
+  "schemaVersion": 1,
+  "status": "identity-reconciliation-not-full-catalog",
+  "approvedDenominator": null,
+  "complete": false,
+  "summary": {
+    "observedRows": 186,
+    "matchedIdentities": 186,
+    "unresolvedIdentities": 0,
+    "resolvedOutsideInitialSource": 2,
+    "existingRuntimeIdsReused": 1,
+    "countsBySource": {
+      "System Reference Document 5.1": 184,
+      "Basic Rules (2014)": 2
+    }
+  },
+  "records": [
+    {
+      "observationId": "equipment:028e5637661642018e79",
+      "proposedCanonicalId": "srd51:2014:item:druidic-focus-mistletoe",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:04f7dcf379d095a51d6d",
+      "proposedCanonicalId": "srd51:2014:item:magnifying-glass",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:050577f3e1a9e3508848",
+      "proposedCanonicalId": "srd51:2014:item:fishing-tackle",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:089eaf9edda3e5d13978",
+      "proposedCanonicalId": "srd51:2014:item:bullseye-lantern",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:0a3513a5334de4aff079",
+      "proposedCanonicalId": "srd51:2014:item:poisoners-kit",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:0a561e0baa83bb470a50",
+      "proposedCanonicalId": "basic-rules:2014:item:dragonchess-set",
+      "primarySource": "Basic Rules (2014)",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:0ac4f5cf426fd591e0ba",
+      "proposedCanonicalId": "srd51:2014:item:block-and-tackle",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:0c8d23f1ccd498e24754",
+      "proposedCanonicalId": "srd51:2014:item:pole-10-feet",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:0ce84311a88b4dbe5f6e",
+      "proposedCanonicalId": "srd51:2014:item:grappling-hook",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:0dc3aa5caf7659dfacc3",
+      "proposedCanonicalId": "srd51:2014:item:weavers-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:10a9bcbf148296995cc6",
+      "proposedCanonicalId": "srd51:2014:item:blowgun",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:1279b4612250973ac662",
+      "proposedCanonicalId": "srd51:2014:item:drum",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:12ed07139668b0f90149",
+      "proposedCanonicalId": "srd51:2014:item:crossbow-bolt-case",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:13add299b1d98641b576",
+      "proposedCanonicalId": "srd51:2014:item:iron-spikes-10",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:16f2f94061dd85845222",
+      "proposedCanonicalId": "srd51:2014:item:druidic-focus-totem",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:17dfe77d134c1c031653",
+      "proposedCanonicalId": "srd51:2014:item:chalk-piece",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:18c04d4114864596caeb",
+      "proposedCanonicalId": "srd51:2014:item:splint-armor",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:1c08d7cc4913091d7cd1",
+      "proposedCanonicalId": "srd51:2014:item:bell",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:1e27e4e27cee747e34b2",
+      "proposedCanonicalId": "srd51:2014:item:hide-armor",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:1ec7bb81dd546b349a3f",
+      "proposedCanonicalId": "srd51:2014:item:whetstone",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:1f3a7601d835cfe6ce3a",
+      "proposedCanonicalId": "srd51:2014:item:arrows-20",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:25f45df2af4887b0c7d3",
+      "proposedCanonicalId": "srd51:2014:item:dagger",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:25fde4114ffb4af4c620",
+      "proposedCanonicalId": "srd51:2014:item:crowbar",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:298be99dba0034907fee",
+      "proposedCanonicalId": "srd51:2014:item:viol",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:2c7a367335af13a6f687",
+      "proposedCanonicalId": "srd51:2014:item:torch",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:2dbf9cdbacfc9abf0aa9",
+      "proposedCanonicalId": "srd51:2014:item:blowgun-needles-50",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:2e05b8c31565b2b1de61",
+      "proposedCanonicalId": "srd51:2014:item:navigators-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:2e2cc74b394854ece009",
+      "proposedCanonicalId": "basic-rules:2014:item:three-dragon-ante-set",
+      "primarySource": "Basic Rules (2014)",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:2e5822685caf0a984aa3",
+      "proposedCanonicalId": "srd51:2014:item:light-crossbow",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:2f8d170576cb21c62576",
+      "proposedCanonicalId": "srd51:2014:item:leather-armor",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:2f962ac80a6ad63e5738",
+      "proposedCanonicalId": "srd51:2014:item:lamp",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:2fe82913d378594a2db3",
+      "proposedCanonicalId": "srd51:2014:item:cobblers-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:30c86797adfdb72d1a4f",
+      "proposedCanonicalId": "srd51:2014:item:maul",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:31037b85b67f526b0517",
+      "proposedCanonicalId": "srd51:2014:item:soap",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:312fad22223a968e99f7",
+      "proposedCanonicalId": "srd51:2014:item:jug-or-pitcher",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:31898c81223f393f55e1",
+      "proposedCanonicalId": "srd51:2014:item:parchment-sheet",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:32271104a174d5bca7b3",
+      "proposedCanonicalId": "srd51:2014:item:acid-vial",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:33108e3a9f0ad23dbf96",
+      "proposedCanonicalId": "srd51:2014:item:sledge-hammer",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:37793a01da88eccf1191",
+      "proposedCanonicalId": "srd51:2014:item:holy-symbol-emblem",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:37d887d22110e8f18953",
+      "proposedCanonicalId": "srd51:2014:item:healers-kit",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:38d2346dba49738bdfa4",
+      "proposedCanonicalId": "srd51:2014:item:component-pouch",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:3abc1d066f639d3ef94d",
+      "proposedCanonicalId": "srd51:2014:item:shield",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:3c50afaa742a02d6a04c",
+      "proposedCanonicalId": "srd51:2014:item:dart",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:3fed589294c688ccb975",
+      "proposedCanonicalId": "srd51:2014:item:pouch",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:44d090bb4e84c0de5058",
+      "proposedCanonicalId": "srd51:2014:item:scimitar",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:453e57c7b8661d5335fd",
+      "proposedCanonicalId": "srd51:2014:item:carpenters-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:45516fc89d2da516afec",
+      "proposedCanonicalId": "srd51:2014:item:mace",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:47581d571e8fc6d75d05",
+      "proposedCanonicalId": "srd51:2014:item:studded-leather-armor",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:47b3b80503dd1ce772a5",
+      "proposedCanonicalId": "srd51:2014:item:blanket",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:47e7503bccced8b9fe84",
+      "proposedCanonicalId": "srd51:2014:item:manacles",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:498deca9a2fac1ea6cd4",
+      "proposedCanonicalId": "srd51:2014:item:alchemists-fire-flask",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:4993ebbb228bd42033e3",
+      "proposedCanonicalId": "srd51:2014:item:common-clothes",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:4a2a0c62aee7f5d9d993",
+      "proposedCanonicalId": "srd51:2014:item:bagpipes",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:4a48100db6dd80830067",
+      "proposedCanonicalId": "srd51:2014:item:light-hammer",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:4cd876874c1cfc254539",
+      "proposedCanonicalId": "srd51:2014:item:crossbow-bolts-20",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:4cfe205f96fa823c8200",
+      "proposedCanonicalId": "srd51:2014:item:morningstar",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:51cebab9a2bb53789de4",
+      "proposedCanonicalId": "srd51:2014:item:greataxe",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:537019a8d2ea8a709c22",
+      "proposedCanonicalId": "srd51:2014:item:trident",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:545df3878d94e984165d",
+      "proposedCanonicalId": "srd51:2014:item:silk-rope-50-feet",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:560808b80ca514e5e0b9",
+      "proposedCanonicalId": "srd51:2014:item:war-pick",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:56c5e7c795371a33feda",
+      "proposedCanonicalId": "srd51:2014:item:ink-pen",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:57c8c8060346d514a938",
+      "proposedCanonicalId": "srd51:2014:item:battleaxe",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:58bd7d4e0479e416e4d5",
+      "proposedCanonicalId": "srd51:2014:item:chain-mail",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:5908a44a7847548e62f9",
+      "proposedCanonicalId": "srd51:2014:item:cartographers-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:59e317941d586a2effcd",
+      "proposedCanonicalId": "srd51:2014:item:horn",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:5e5cdd55409ef47197fd",
+      "proposedCanonicalId": "srd51:2014:item:painters-supplies",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:5fb37259efe5a7568949",
+      "proposedCanonicalId": "srd51:2014:item:fine-clothes",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:62520187d6bc32ab2a91",
+      "proposedCanonicalId": "srd51:2014:item:tinkers-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:62ab8f1e9ab363e41445",
+      "proposedCanonicalId": "srd51:2014:item:chest",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:63758ed65d458636e2e0",
+      "proposedCanonicalId": "srd51:2014:item:arcane-focus-rod",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:6448c7fc9276ad2eb6c5",
+      "proposedCanonicalId": "srd51:2014:item:plate-armor",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:689704059a3ec81a34f2",
+      "proposedCanonicalId": "srd51:2014:item:javelin",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:689c65b0cadaf232bfdc",
+      "proposedCanonicalId": "srd51:2014:item:ball-bearings-bag-1000",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:69ff2f641acf7e8c251a",
+      "proposedCanonicalId": "srd51:2014:item:antitoxin-vial",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:6a0c07fe3e416e928351",
+      "proposedCanonicalId": "srd51:2014:item:hooded-lantern",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:6c4468252854dd248784",
+      "proposedCanonicalId": "srd51:2014:item:spear",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:6d5cf0532c39fd895e40",
+      "proposedCanonicalId": "srd51:2014:item:map-or-scroll-case",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:6d8b807c37fc19138d9f",
+      "proposedCanonicalId": "srd51:2014:item:pike",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:6e222d21fa468aba567f",
+      "proposedCanonicalId": "srd51:2014:item:basket",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:6e44ac01be60fafb61e2",
+      "proposedCanonicalId": "srd51:2014:item:tinderbox",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:70c851929132bee77451",
+      "proposedCanonicalId": "srd51:2014:item:greatclub",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:712899dabc51f2fb85d0",
+      "proposedCanonicalId": "srd51:2014:item:glaive",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:72f16029b303e5f9600e",
+      "proposedCanonicalId": "srd51:2014:item:shovel",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:737ff91e4c32c697daff",
+      "proposedCanonicalId": "srd51:2014:item:glassblowers-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:7428f8e36d564aab1729",
+      "proposedCanonicalId": "srd51:2014:item:oil-flask",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:75546a324ce750761109",
+      "proposedCanonicalId": "srd51:2014:item:scale-mail",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:77c04735bbbb31f78ce8",
+      "proposedCanonicalId": "srd51:2014:item:arcane-focus-staff",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:79dcc461d01fce7b2d8a",
+      "proposedCanonicalId": "srd51:2014:item:rations-one-day",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:7a276ee8cfd1c37348c6",
+      "proposedCanonicalId": "srd51:2014:item:iron-pot",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:7c632f3696f3ca87c899",
+      "proposedCanonicalId": "srd51:2014:item:chain-10-feet",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:7eb7bdf3b4612425f2a2",
+      "proposedCanonicalId": "srd51:2014:item:herbalism-kit",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:7ec0e5dc49681ece70dc",
+      "proposedCanonicalId": "srd51:2014:item:chain-shirt",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:80eb78f0d1dd80a160a3",
+      "proposedCanonicalId": "srd51:2014:item:costume-clothes",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:81de62f79b94becf20b5",
+      "proposedCanonicalId": "srd51:2014:item:travelers-clothes",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:81f83a6ac2937b74351d",
+      "proposedCanonicalId": "srd51:2014:item:forgery-kit",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:835e527a738a20da3a43",
+      "proposedCanonicalId": "srd51:2014:item:vial",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:845f3cbaf65a31dbc5dc",
+      "proposedCanonicalId": "srd51:2014:item:robes",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:84b8e545ea20a0ff8c40",
+      "proposedCanonicalId": "srd51:2014:item:brewers-supplies",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:84dece49ee5376d54cc7",
+      "proposedCanonicalId": "srd51:2014:item:druidic-focus-wooden-staff",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:8739c0db381a52dc6824",
+      "proposedCanonicalId": "srd51:2014:item:flute",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:87441110d40a720b85cb",
+      "proposedCanonicalId": "srd51:2014:item:caltrops-bag-20",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:8778493bf3ecb87fba8b",
+      "proposedCanonicalId": "srd51:2014:item:climbers-kit",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:8b0213e391b451841034",
+      "proposedCanonicalId": "srd51:2014:item:hourglass",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:8bc68f1368fc5a5978f4",
+      "proposedCanonicalId": "srd51:2014:item:book",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:8d244766276748fd3e20",
+      "proposedCanonicalId": "srd51:2014:item:tent-two-person",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:8d4fef3ee42ad9a34c14",
+      "proposedCanonicalId": "srd51:2014:item:lock",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:9129f2a0c7c6c4c5a537",
+      "proposedCanonicalId": "srd51:2014:item:shortsword",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:92b9ff082cede4b978dd",
+      "proposedCanonicalId": "srd51:2014:item:merchants-scale",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:943034b9b48bd7b7d490",
+      "proposedCanonicalId": "srd51:2014:item:heavy-crossbow",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:98168254d2b7a6702aa7",
+      "proposedCanonicalId": "srd51:2014:item:abacus",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:999a9815d14f694a577e",
+      "proposedCanonicalId": "srd51:2014:item:lyre",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:9a761eefd00df677946b",
+      "proposedCanonicalId": "srd51:2014:item:thieves-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:9dda0cc42b9ebfae0f8b",
+      "proposedCanonicalId": "srd51:2014:item:sling-bullets-20",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:9eaa2be1816ab7f395d5",
+      "proposedCanonicalId": "srd51:2014:item:holy-symbol-reliquary",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:a095d0c10bbe93ec7ec2",
+      "proposedCanonicalId": "srd51:2014:item:hammer",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:a1233697818aaca796db",
+      "proposedCanonicalId": "srd51:2014:item:halberd",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:a505965f00e5838fb583",
+      "proposedCanonicalId": "srd51:2014:item:arcane-focus-wand",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:a6901372ed28c0ca36aa",
+      "proposedCanonicalId": "srd51:2014:item:waterskin",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:a75aabdeeebc665c1b75",
+      "proposedCanonicalId": "srd51:2014:item:whip",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:a80b0257b4d5850131bb",
+      "proposedCanonicalId": "srd51:2014:item:piton",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:aa5ceee513f0af017f9b",
+      "proposedCanonicalId": "srd51:2014:item:hempen-rope-50-feet",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:ac79c57454f0f3854386",
+      "proposedCanonicalId": "srd51:2014:item:druidic-focus-yew-wand",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:add2c1f94ca8c18730fa",
+      "proposedCanonicalId": "srd51:2014:item:barrel",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:aea2b16e9bc1298ec45f",
+      "proposedCanonicalId": "srd51:2014:item:sickle",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:aee31a2b3c142d5f6704",
+      "proposedCanonicalId": "srd51:2014:item:warhammer",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:b18378f78c0d89a73295",
+      "proposedCanonicalId": "srd51:2014:item:sealing-wax",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:b1d5a326def210353b39",
+      "proposedCanonicalId": "srd51:2014:item:lute",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:b1fe7b9deee705c00053",
+      "proposedCanonicalId": "srd51:2014:item:longsword",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:b2def89b7124371add93",
+      "proposedCanonicalId": "srd51:2014:item:hand-crossbow",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:b4a7ca160d16c6af93f4",
+      "proposedCanonicalId": "srd51:2014:item:leatherworkers-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:b4fcbbd1fa2de035c0db",
+      "proposedCanonicalId": "srd51:2014:item:net",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:b515706556868e9bae0f",
+      "proposedCanonicalId": "srd51:2014:item:padded-armor",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:b5d6d427ad3f65f24298",
+      "proposedCanonicalId": "srd51:2014:item:disguise-kit",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:b674cb186633f7603ba1",
+      "proposedCanonicalId": "srd51:2014:item:playing-card-set",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:b70dd2b8fd9891366b4c",
+      "proposedCanonicalId": "srd51:2014:item:masons-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:b77423121089bc14a617",
+      "proposedCanonicalId": "srd51:2014:item:miners-pick",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:b800eac19dcb3752af83",
+      "proposedCanonicalId": "srd51:2014:item:spyglass",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:b9fb8a41c45a494e27ab",
+      "proposedCanonicalId": "srd51:2014:item:flask-or-tankard",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:ba1e55eb463a087d3d81",
+      "proposedCanonicalId": "srd51:2014:item:shawm",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:ba9941f62f8ce4140afe",
+      "proposedCanonicalId": "srd51:2014:item:portable-ram",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:bb4fb5578c9d65f60224",
+      "proposedCanonicalId": "srd51:2014:item:ring-mail",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:c3217e92502416c9faa7",
+      "proposedCanonicalId": "srd51:2014:item:sling",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:c3e2dce9cc4329e542b4",
+      "proposedCanonicalId": "srd51:2014:item:holy-water-flask",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:c47ec4fcfc2185f00d27",
+      "proposedCanonicalId": "srd51:2014:item:signet-ring",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:c5fdd3429f1144e21dd7",
+      "proposedCanonicalId": "srd51:2014:item:handaxe",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:c75195e530db06be7079",
+      "proposedCanonicalId": "srd51:2014:item:paper-sheet",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:cc12e4c7ac4631046b95",
+      "proposedCanonicalId": "srd51:2014:item:ladder-10-feet",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:ccfc9bab418a9ff033cc",
+      "proposedCanonicalId": "srd51:2014:item:woodcarvers-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:ce391cc0d77470742126",
+      "proposedCanonicalId": "srd51:2014:item:quarterstaff",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:d090b68f434a72f2bd18",
+      "proposedCanonicalId": "srd51:2014:item:signal-whistle",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:d3ecdec07d461427dc72",
+      "proposedCanonicalId": "srd51:2014:item:basic-poison-vial",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:d461922693a41c118523",
+      "proposedCanonicalId": "srd51:2014:item:jewelers-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:d500993006f1bbca4802",
+      "proposedCanonicalId": "srd51:2014:item:sack",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:d55d9abcb762b0b694d7",
+      "proposedCanonicalId": "srd51:2014:item:half-plate-armor",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:d71230b4cb7406ffdad9",
+      "proposedCanonicalId": "srd51:2014:item:hunting-trap",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:d85406f7a8bbd7b79e81",
+      "proposedCanonicalId": "srd51:2014:item:dulcimer",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:d8e50d0b9baa370ea3f2",
+      "proposedCanonicalId": "srd51:2014:item:calligraphers-supplies",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:dba0c27419a84f7329f7",
+      "proposedCanonicalId": "srd51:2014:item:perfume-vial",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:dba7d28a0056f06a959d",
+      "proposedCanonicalId": "srd51:2014:item:arcane-focus-orb",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:dd4c32ce08ab65a6a53e",
+      "proposedCanonicalId": "srd51:2014:item:lance",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:dd5899a166b9cb542c3a",
+      "proposedCanonicalId": "srd51:2014:item:potion-of-healing",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": true
+    },
+    {
+      "observationId": "equipment:dd8e5c44929bf368444e",
+      "proposedCanonicalId": "srd51:2014:item:arcane-focus-crystal",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:e06085beabcc36a718b9",
+      "proposedCanonicalId": "srd51:2014:item:dice-set",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:e095d760bf25dd9b1ad2",
+      "proposedCanonicalId": "srd51:2014:item:candle",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:e0bf2dcf06fb1f35b79f",
+      "proposedCanonicalId": "srd51:2014:item:backpack",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:e1c5ae50cc2d15e29245",
+      "proposedCanonicalId": "srd51:2014:item:mess-kit",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:e217ba95ae820232ec01",
+      "proposedCanonicalId": "srd51:2014:item:cooks-utensils",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:e60304e2e52e8d843014",
+      "proposedCanonicalId": "srd51:2014:item:steel-mirror",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:ea3dab8e82118eb7a5eb",
+      "proposedCanonicalId": "srd51:2014:item:potters-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:ea3e08afc8b733b1f6f8",
+      "proposedCanonicalId": "srd51:2014:item:glass-bottle",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:eaba96d004980501c61e",
+      "proposedCanonicalId": "srd51:2014:item:longbow",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:ec94cc9350e71f6aedf4",
+      "proposedCanonicalId": "srd51:2014:item:alchemists-supplies",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:eddd9ee26aa2a7835d6d",
+      "proposedCanonicalId": "srd51:2014:item:flail",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:ee325a04f78107858e89",
+      "proposedCanonicalId": "srd51:2014:item:rapier",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:ef0f551349c9ee07f20c",
+      "proposedCanonicalId": "srd51:2014:item:bedroll",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:ef461a5e972388a125c6",
+      "proposedCanonicalId": "srd51:2014:item:shortbow",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:ef5d7c26530ba27d4ea6",
+      "proposedCanonicalId": "srd51:2014:item:quiver",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:f216811e9281126af6f2",
+      "proposedCanonicalId": "srd51:2014:item:greatsword",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:f292e54dad9528456aad",
+      "proposedCanonicalId": "srd51:2014:item:breastplate",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:f63d00213bffd7797aab",
+      "proposedCanonicalId": "srd51:2014:item:club",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:f7f595eaed8f4ea32654",
+      "proposedCanonicalId": "srd51:2014:item:holy-symbol-amulet",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:f8752ec5b4f373f76d1b",
+      "proposedCanonicalId": "srd51:2014:item:ink-one-ounce-bottle",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:fa203189ab449f79ad49",
+      "proposedCanonicalId": "srd51:2014:item:pan-flute",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:fc9eeab1859bcf3d721b",
+      "proposedCanonicalId": "srd51:2014:item:smiths-tools",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:fce48c622d72c794e61f",
+      "proposedCanonicalId": "srd51:2014:item:spellbook",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    },
+    {
+      "observationId": "equipment:fe79e619bad8ab407533",
+      "proposedCanonicalId": "srd51:2014:item:bucket",
+      "primarySource": "System Reference Document 5.1",
+      "reusesRuntime": false
+    }
+  ],
+  "unresolvedObservationIds": [],
+  "resolvedOutsideInitialSource": [
+    "equipment:0a561e0baa83bb470a50",
+    "equipment:2e2cc74b394854ece009"
+  ],
+  "inputSha256": {
+    "catalog/dndsu-equipment-discovery.json": "bc5a113f89cfe16f00d0f94018c67c591c1d3fb9ee0eaf39c7bbc933c006d944",
+    "catalog/armor-canonical-proposal-2014.json": "8401414895beba207bb3a0ff01822b13c823b8c0f92b0fecb536256535ddad6f",
+    "catalog/weapon-canonical-proposal-2014.json": "54e9d059c1b23130d63a774377c9748f18f8bc539477be905c88b2f0c155a9d0",
+    "catalog/tools-canonical-proposal-2014.json": "863d4d93f052c7edf7d9748047dc4f7bdc7c482a273016e1a4ef670ef49ba3f6",
+    "catalog/gear-canonical-proposal-2014.json": "0399dac0a6fae825db7478ced62a77b14717e7613a29b3a029cc4284f154e9b8",
+    "catalog/gaming-sets-canonical-proposal-2014.json": "ece6b5f472d2f569d58fe67f880331adb9707678915072a8351318575999dec4"
+  }
+}

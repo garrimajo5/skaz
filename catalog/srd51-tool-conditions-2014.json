@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "status": "tool-conditions-proposal-not-runtime-content",
+  "ruleset": "5e-2014",
+  "source": {
+    "title": "System Reference Document 5.1",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "pages": [
+      70,
+      71
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0"
+  },
+  "inputSha256": {
+    "catalog/equipment-identity-reconciliation.json": "13db28eeec21cf57430f119b6228f90245f87fad2c5d4689ce182275d5924f97"
+  },
+  "approvedDenominator": null,
+  "complete": false,
+  "accepted": false,
+  "generalRule": {
+    "sourcePage": 70,
+    "locator": "Tools, opening paragraphs",
+    "summaryRu": "Владение инструментом позволяет добавлять бонус мастерства к проверке характеристики, использующей этот инструмент. Инструмент не связан с одной фиксированной характеристикой: мастер выбирает подходящую для задачи.",
+    "ability": "task-dependent",
+    "automaticAbility": "none",
+    "automaticSuccess": false,
+    "automaticProficiencyGrant": false,
+    "proficiencyBonusApplication": "applicable-ability-check-only"
+  },
+  "applicationBoundary": {
+    "ruleDeviation": "warn-and-allow-manual-override",
+    "personalExceptions": "preserve-with-provenance-do-not-rewrite-reference",
+    "automaticInventoryGrant": false,
+    "automaticResourceSpend": false,
+    "automaticBonusApplication": false
+  },
+  "records": [
+    {
+      "proposalId": "srd51:2014:tool-rule:artisan-tools",
+      "heading": "Artisan’s Tools",
+      "sourcePage": 70,
+      "candidateItemIds": [
+        "srd51:2014:item:alchemists-supplies",
+        "srd51:2014:item:brewers-supplies",
+        "srd51:2014:item:calligraphers-supplies",
+        "srd51:2014:item:carpenters-tools",
+        "srd51:2014:item:cartographers-tools",
+        "srd51:2014:item:cobblers-tools",
+        "srd51:2014:item:cooks-utensils",
+        "srd51:2014:item:glassblowers-tools",
+        "srd51:2014:item:jewelers-tools",
+        "srd51:2014:item:leatherworkers-tools",
+        "srd51:2014:item:masons-tools",
+        "srd51:2014:item:painters-supplies",
+        "srd51:2014:item:potters-tools",
+        "srd51:2014:item:smiths-tools",
+        "srd51:2014:item:tinkers-tools",
+        "srd51:2014:item:weavers-tools",
+        "srd51:2014:item:woodcarvers-tools"
+      ],
+      "summaryRu": "Проверки применения инструментов соответствующего ремесла. Каждый вид ремесленных инструментов требует отдельного владения.",
+      "proficiencyCheck": "craft-related-tool-use",
+      "separateProficiencyPerType": true,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:tool-rule:disguise-kit",
+      "heading": "Disguise Kit",
+      "sourcePage": 71,
+      "candidateItemIds": [
+        "srd51:2014:item:disguise-kit"
+      ],
+      "summaryRu": "Косметика, краска для волос и небольшие принадлежности позволяют менять внешность. Владение добавляет бонус мастерства к проверкам создания визуальной маскировки.",
+      "proficiencyCheck": "create-visual-disguise",
+      "separateProficiencyPerType": false,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:tool-rule:forgery-kit",
+      "heading": "Forgery Kit",
+      "sourcePage": 71,
+      "candidateItemIds": [
+        "srd51:2014:item:forgery-kit"
+      ],
+      "summaryRu": "Бумага, пергамент, письменные и печатные принадлежности предназначены для подделки физических документов. Владение добавляет бонус мастерства к проверкам изготовления такой подделки.",
+      "proficiencyCheck": "create-physical-document-forgery",
+      "separateProficiencyPerType": false,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:tool-rule:gaming-set",
+      "heading": "Gaming Set",
+      "sourcePage": 71,
+      "candidateItemIds": [
+        "srd51:2014:item:dice-set",
+        "srd51:2014:item:playing-card-set"
+      ],
+      "summaryRu": "Владение добавляет бонус мастерства к проверкам игры с этим набором. У каждого типа игрового набора отдельное владение; таблица содержит примеры, а не все возможные игры.",
+      "proficiencyCheck": "play-game-with-this-set",
+      "separateProficiencyPerType": true,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:tool-rule:herbalism-kit",
+      "heading": "Herbalism Kit",
+      "sourcePage": 71,
+      "candidateItemIds": [
+        "srd51:2014:item:herbalism-kit"
+      ],
+      "summaryRu": "Владение добавляет бонус мастерства к проверкам распознавания и применения трав. По обычному правилу владение этим набором требуется также для изготовления противоядия и зелий лечения.",
+      "proficiencyCheck": "identify-or-apply-herbs",
+      "separateProficiencyPerType": false,
+      "accepted": false,
+      "runtimeImported": false,
+      "craftingPrerequisite": {
+        "normalRule": "proficiency-with-herbalism-kit",
+        "products": [
+          "antitoxin",
+          "potions-of-healing"
+        ],
+        "deviationHandling": "warn-and-allow-manual-override",
+        "duration": null,
+        "cost": null,
+        "automaticCrafting": false
+      }
+    },
+    {
+      "proposalId": "srd51:2014:tool-rule:musical-instrument",
+      "heading": "Musical Instrument",
+      "sourcePage": 71,
+      "candidateItemIds": [
+        "srd51:2014:item:bagpipes",
+        "srd51:2014:item:drum",
+        "srd51:2014:item:dulcimer",
+        "srd51:2014:item:flute",
+        "srd51:2014:item:lute",
+        "srd51:2014:item:lyre",
+        "srd51:2014:item:horn",
+        "srd51:2014:item:pan-flute",
+        "srd51:2014:item:shawm",
+        "srd51:2014:item:viol"
+      ],
+      "summaryRu": "Владение добавляет бонус мастерства к проверкам исполнения музыки на соответствующем инструменте. Каждый тип требует отдельного владения. Бард может использовать музыкальный инструмент как заклинательную фокусировку.",
+      "proficiencyCheck": "play-music-with-this-instrument",
+      "separateProficiencyPerType": true,
+      "accepted": false,
+      "runtimeImported": false,
+      "spellcastingFocus": {
+        "class": "bard",
+        "itemKind": "musical-instrument",
+        "scope": "focus-option-not-all-spellcasting-rules",
+        "otherSpellcastingConditions": "not-verified-by-this-excerpt",
+        "automaticSpellGrant": false
+      }
+    },
+    {
+      "proposalId": "srd51:2014:tool-rule:navigators-tools",
+      "heading": "Navigator’s Tools",
+      "sourcePage": 71,
+      "candidateItemIds": [
+        "srd51:2014:item:navigators-tools"
+      ],
+      "summaryRu": "Инструменты предназначены для морской навигации. Владение позволяет прокладывать курс корабля и следовать навигационным картам; инструменты позволяют добавлять бонус мастерства к проверкам, чтобы не заблудиться в море.",
+      "proficiencyCheck": "avoid-getting-lost-at-sea",
+      "separateProficiencyPerType": false,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:tool-rule:poisoners-kit",
+      "heading": "Poisoner’s Kit",
+      "sourcePage": 71,
+      "candidateItemIds": [
+        "srd51:2014:item:poisoners-kit"
+      ],
+      "summaryRu": "Набор содержит флаконы, химикаты и принадлежности для создания ядов. Владение добавляет бонус мастерства к проверкам изготовления и применения ядов.",
+      "proficiencyCheck": "craft-or-use-poisons",
+      "separateProficiencyPerType": false,
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "proposalId": "srd51:2014:tool-rule:thieves-tools",
+      "heading": "Thieves’ Tools",
+      "sourcePage": 71,
+      "candidateItemIds": [
+        "srd51:2014:item:thieves-tools"
+      ],
+      "summaryRu": "Набор содержит напильник, отмычки, маленькое зеркало, узкие ножницы и плоскогубцы. Владение добавляет бонус мастерства к проверкам обезвреживания ловушек и открывания замков.",
+      "proficiencyCheck": "disarm-traps-or-open-locks",
+      "separateProficiencyPerType": false,
+      "accepted": false,
+      "runtimeImported": false
+    }
+  ],
+  "limitations": [
+    "Nine rule headings link35 existing SRD item candidates; this does not certify runtime availability or create35 additional items.",
+    "Two Basic Rules game-set candidates are not silently added to the SRD table scope.",
+    "Tool proficiency origins, crafting duration/cost, complete spellcasting prerequisites and concrete ability checks require separate rules/context.",
+    "Russian summaries received independent semantic review separately from structural validation."
+  ]
+}

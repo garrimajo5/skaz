@@ -1,0 +1,3216 @@
+{
+  "schemaVersion": 1,
+  "status": "action-spell-name-references-not-automation",
+  "accepted": false,
+  "summary": {
+    "actions": 13,
+    "spellEntries": 132,
+    "distinctSpellNames": 87,
+    "entriesWithOneCandidate": 132,
+    "unresolvedEntries": 0
+  },
+  "records": [
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "message",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:331",
+          "observedName": "Message",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "prestidigitation",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:91",
+          "observedName": "Prestidigitation",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "ray of frost",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:149",
+          "observedName": "Ray of frost",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "gust of wind",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:255",
+          "observedName": "Gust of wind",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "levitate",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:139",
+          "observedName": "Levitate",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "magic missile",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:27",
+          "observedName": "Magic missile",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "cone of cold",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:133",
+          "observedName": "Cone of cold",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "contact other plane",
+      "frequency": "1/day each",
+      "actionLocalOverride": {
+        "castingTime": "1 action"
+      },
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:309",
+          "observedName": "Contact other plane",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "greater invisibility",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:38",
+          "observedName": "Greater invisibility",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "mass suggestion",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:169",
+          "observedName": "Mass suggestion",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "nondetection",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:185",
+          "observedName": "Nondetection",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "Otiluke’s resilient sphere",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:216",
+          "observedName": "Otiluke's resilient sphere",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "explicit-apostrophe-spelling-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "protection from energy",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:106",
+          "observedName": "Protection from energy",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page33:spellcasting",
+      "actor": "Zephyros",
+      "spellName": "tongues",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:61",
+          "observedName": "Tongues",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "comprehend languages",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:252",
+          "observedName": "Comprehend languages",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "detect magic",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:195",
+          "observedName": "Detect magic",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "mage hand",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:26",
+          "observedName": "Mage hand",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "minor illusion",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:154",
+          "observedName": "Minor illusion",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "prestidigitation",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:91",
+          "observedName": "Prestidigitation",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "darkness",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:353",
+          "observedName": "Darkness",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "detect thoughts",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:196",
+          "observedName": "Detect thoughts",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "ice storm",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:49",
+          "observedName": "Ice Storm",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "banishment",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:116",
+          "observedName": "Banishment",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "cloudkill",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:191",
+          "observedName": "Cloudkill",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "disintegrate",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:299",
+          "observedName": "Disintegrate",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "etherealness",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:64",
+          "observedName": "Etherealness",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "find the path",
+      "frequency": "1/day each",
+      "actionLocalOverride": {
+        "castingTime": "1 action"
+      },
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:245",
+          "observedName": "Find the path",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "greater invisibility",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:38",
+          "observedName": "Greater invisibility",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "haste",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:100",
+          "observedName": "Haste",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "locate object",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:244",
+          "observedName": "Locate object",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "mass suggestion",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:169",
+          "observedName": "Mass suggestion",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "mirage arcane",
+      "frequency": "1/day each",
+      "actionLocalOverride": {
+        "castingTime": "1 action"
+      },
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:343",
+          "observedName": "Mirage arcane",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page95:spellcasting",
+      "actor": "Klauth",
+      "spellName": "prismatic spray",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:291",
+          "observedName": "Prismatic spray",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "detect magic",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:195",
+          "observedName": "Detect magic",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "druidcraft",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:123",
+          "observedName": "Druidcraft",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "speak with animals",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:292",
+          "observedName": "Speak with animals",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "animal messenger",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:259",
+          "observedName": "Animal messenger",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "cure wounds",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:145",
+          "observedName": "Cure wounds",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "dispel magic",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:301",
+          "observedName": "Dispel magic",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "entangle",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:211",
+          "observedName": "Entangle",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "invisibility",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:183",
+          "observedName": "Invisibility",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "blight",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:96",
+          "observedName": "Blight",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "legend lore",
+      "frequency": "1/day each",
+      "actionLocalOverride": {
+        "castingTime": "1 action"
+      },
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:115",
+          "observedName": "Legend lore",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "locate creature",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:247",
+          "observedName": "Locate creature",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "pass without trace",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:8",
+          "observedName": "Pass without trace",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "protection from energy",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:106",
+          "observedName": "Protection from energy",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page96:spellcasting",
+      "actor": "Claugiyliamatar",
+      "spellName": "true seeing",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:126",
+          "observedName": "True seeing",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "druidcraft",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:123",
+          "observedName": "Druidcraft",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "guidance",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:105",
+          "observedName": "Guidance",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "resistance",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:332",
+          "observedName": "Resistance",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "speak with plants",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:294",
+          "observedName": "Speak with plants",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "animal messenger",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:259",
+          "observedName": "Animal messenger",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "detect magic",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:195",
+          "observedName": "Detect magic",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "entangle",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:211",
+          "observedName": "Entangle",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "goodberry",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:78",
+          "observedName": "Goodberry",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "gust of wind",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:255",
+          "observedName": "Gust of wind",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "pass without trace",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:8",
+          "observedName": "Pass without trace",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "speak with animals",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:292",
+          "observedName": "Speak with animals",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "commune with nature",
+      "frequency": "1/day each",
+      "actionLocalOverride": {
+        "castingTime": "1 action"
+      },
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:199",
+          "observedName": "Commune with nature",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "conjure woodland beings",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:270",
+          "observedName": "Conjure woodland beings",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page107:spellcasting",
+      "actor": "Turlang",
+      "spellName": "hallucinatory terrain",
+      "frequency": "1/day each",
+      "actionLocalOverride": {
+        "castingTime": "1 action"
+      },
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:167",
+          "observedName": "Hallucinatory terrain",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page165:spellcasting",
+      "actor": "Storvald",
+      "spellName": "jump",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:286",
+          "observedName": "Jump",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page165:spellcasting",
+      "actor": "Storvald",
+      "spellName": "locate animals or plants",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:242",
+          "observedName": "Locate animals or plants",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page165:spellcasting",
+      "actor": "Storvald",
+      "spellName": "locate object",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:244",
+          "observedName": "Locate object",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page165:spellcasting",
+      "actor": "Storvald",
+      "spellName": "water breathing",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:235",
+          "observedName": "Water breathing",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page165:spellcasting",
+      "actor": "Storvald",
+      "spellName": "water walk",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:88",
+          "observedName": "Water walk",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "mage hand",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:26",
+          "observedName": "Mage hand",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "message",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:331",
+          "observedName": "Message",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "prestidigitation",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:91",
+          "observedName": "Prestidigitation",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "ray of frost",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:149",
+          "observedName": "Ray of frost",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "arcane lock",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:29",
+          "observedName": "Arcane lock",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "gust of wind",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:255",
+          "observedName": "Gust of wind",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "invisibility",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:183",
+          "observedName": "Invisibility",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "magic missile",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:27",
+          "observedName": "Magic missile",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "unseen servant",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:184",
+          "observedName": "Unseen servant",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "globe of invulnerability",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:342",
+          "observedName": "Globe of invulnerability",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "haste",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:100",
+          "observedName": "Haste",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "hypnotic pattern",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:44",
+          "observedName": "Hypnotic pattern",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "ice storm",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:49",
+          "observedName": "Ice Storm",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "lightning bolt",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:175",
+          "observedName": "Lightning bolt",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "Mordenkainen’s sword",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:166",
+          "observedName": "Mordenkainen's sword",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "explicit-apostrophe-spelling-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page192:spellcasting",
+      "actor": "Sansuri",
+      "spellName": "wall of force",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:314",
+          "observedName": "Wall of force",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "detect magic",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:195",
+          "observedName": "Detect magic",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "detect thoughts",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:196",
+          "observedName": "Detect thoughts",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "sending",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:256",
+          "observedName": "Sending",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "control weather",
+      "frequency": "2/day each",
+      "actionLocalOverride": {
+        "castingTime": "1 action"
+      },
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:22",
+          "observedName": "Control weather",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "fly",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:249",
+          "observedName": "Fly",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "ice storm",
+      "frequency": "2/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:49",
+          "observedName": "Ice Storm",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "arcane eye",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:151",
+          "observedName": "Arcane eye",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "chain lightning",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:233",
+          "observedName": "Chain lightning",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "feeblemind",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:317",
+          "observedName": "Feeblemind",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "foresight",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:264",
+          "observedName": "Foresight",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "locate creature",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:247",
+          "observedName": "Locate creature",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "mass suggestion",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:169",
+          "observedName": "Mass suggestion",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "nondetection",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:185",
+          "observedName": "Nondetection",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "power word kill",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:322",
+          "observedName": "Power word kill",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "scrying",
+      "frequency": "1/day each",
+      "actionLocalOverride": {
+        "castingTime": "1 action"
+      },
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:176",
+          "observedName": "Scrying",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "sequester",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:122",
+          "observedName": "Sequester",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "telekinesis",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:344",
+          "observedName": "Telekinesis",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page224:spellcasting",
+      "actor": "Slarkrethel",
+      "spellName": "teleport",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:367",
+          "observedName": "Teleport",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page241:spellcasting:iymrith",
+      "actor": "Iymrith",
+      "spellName": "detect magic",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:195",
+          "observedName": "Detect magic",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page241:spellcasting:iymrith",
+      "actor": "Iymrith",
+      "spellName": "dispel magic",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:301",
+          "observedName": "Dispel magic",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page241:spellcasting:iymrith",
+      "actor": "Iymrith",
+      "spellName": "ice storm",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:49",
+          "observedName": "Ice Storm",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page241:spellcasting:iymrith",
+      "actor": "Iymrith",
+      "spellName": "stone shape",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:121",
+          "observedName": "Stone shape",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page241:spellcasting:iymrith",
+      "actor": "Iymrith",
+      "spellName": "teleport",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:367",
+          "observedName": "Teleport",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page241:spellcasting:maegera",
+      "actor": "Maegera",
+      "spellName": "fireball",
+      "frequency": "not-stated",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:205",
+          "observedName": "Fireball",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page243:spellcasting",
+      "actor": "The shaman",
+      "spellName": "dancing lights",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:234",
+          "observedName": "Dancing lights",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page243:spellcasting",
+      "actor": "The shaman",
+      "spellName": "mage hand",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:26",
+          "observedName": "Mage hand",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page243:spellcasting",
+      "actor": "The shaman",
+      "spellName": "message",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:331",
+          "observedName": "Message",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page243:spellcasting",
+      "actor": "The shaman",
+      "spellName": "thaumaturgy",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:80",
+          "observedName": "Thaumaturgy",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page243:spellcasting",
+      "actor": "The shaman",
+      "spellName": "augury",
+      "frequency": "1/day each",
+      "actionLocalOverride": {
+        "castingTime": "1 action"
+      },
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:40",
+          "observedName": "Augury",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page243:spellcasting",
+      "actor": "The shaman",
+      "spellName": "bestow curse",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:285",
+          "observedName": "Bestow curse",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page243:spellcasting",
+      "actor": "The shaman",
+      "spellName": "cordon of arrows",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:81",
+          "observedName": "Cordon of arrows",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page243:spellcasting",
+      "actor": "The shaman",
+      "spellName": "detect magic",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:195",
+          "observedName": "Detect magic",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page243:spellcasting",
+      "actor": "The shaman",
+      "spellName": "speak with dead",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:293",
+          "observedName": "Speak with dead",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page243:spellcasting",
+      "actor": "The shaman",
+      "spellName": "spirit guardians",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:75",
+          "observedName": "Spirit guardians",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page252:spellcasting",
+      "actor": "Naxene",
+      "spellName": "fire bolt",
+      "frequency": "At will",
+      "actionLocalOverride": {
+        "damage": {
+          "dice": "1d10",
+          "type": "fire"
+        }
+      },
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:204",
+          "observedName": "Fire bolt",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page252:spellcasting",
+      "actor": "Naxene",
+      "spellName": "light",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:307",
+          "observedName": "Light",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page252:spellcasting",
+      "actor": "Naxene",
+      "spellName": "mage hand",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:26",
+          "observedName": "Mage hand",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page252:spellcasting",
+      "actor": "Naxene",
+      "spellName": "mage armor",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:60",
+          "observedName": "Mage armor",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page252:spellcasting",
+      "actor": "Naxene",
+      "spellName": "magic missile",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:27",
+          "observedName": "Magic missile",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page252:spellcasting",
+      "actor": "Naxene",
+      "spellName": "suggestion",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:23",
+          "observedName": "Suggestion",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page255:spellcasting",
+      "actor": "Othovir",
+      "spellName": "fire bolt",
+      "frequency": "At will",
+      "actionLocalOverride": {
+        "damage": {
+          "dice": "1d10",
+          "type": "fire"
+        }
+      },
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:204",
+          "observedName": "Fire bolt",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page255:spellcasting",
+      "actor": "Othovir",
+      "spellName": "prestidigitation",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:91",
+          "observedName": "Prestidigitation",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page255:spellcasting",
+      "actor": "Othovir",
+      "spellName": "mage armor",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:60",
+          "observedName": "Mage armor",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page255:spellcasting",
+      "actor": "Othovir",
+      "spellName": "thunderwave",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:25",
+          "observedName": "Thunderwave",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page255:spellcasting",
+      "actor": "Othovir",
+      "spellName": "witch bolt",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:15",
+          "observedName": "Witch bolt",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page256:spellcasting",
+      "actor": "The giant",
+      "spellName": "detect magic",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:195",
+          "observedName": "Detect magic",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page256:spellcasting",
+      "actor": "The giant",
+      "spellName": "levitate",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:139",
+          "observedName": "Levitate",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page256:spellcasting",
+      "actor": "The giant",
+      "spellName": "light",
+      "frequency": "At will",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:307",
+          "observedName": "Light",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page256:spellcasting",
+      "actor": "The giant",
+      "spellName": "control weather",
+      "frequency": "1/day each",
+      "actionLocalOverride": {
+        "castingTime": "1 action"
+      },
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:22",
+          "observedName": "Control weather",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    },
+    {
+      "actionId": "wotc:skt:errata2:page256:spellcasting",
+      "actor": "The giant",
+      "spellName": "water breathing",
+      "frequency": "1/day each",
+      "actionLocalOverride": null,
+      "candidates": [
+        {
+          "observationId": "dndsu:spells:235",
+          "observedName": "Water breathing",
+          "originalSourceIds": [
+            "102"
+          ],
+          "match": "capitalization-only-name-candidate"
+        }
+      ],
+      "status": "name-linked-full-spell-version-unverified",
+      "canonicalSpellId": null,
+      "accepted": false,
+      "automaticLearn": false,
+      "automaticPrepare": false,
+      "automaticResourceCreation": false,
+      "baseSpellOverride": false
+    }
+  ],
+  "inputSha256": {
+    "catalog/skt-spellcasting-action-evidence-2014.json": "916d29eb1ed83d722f6d7ebe236680800f7a32c9d80d079490bea0159d7c5635",
+    "catalog/scope-register-2014.json": "d16b65c44f622b70f685aa391687375df13e627267367b50a58d0bd3307e25dd"
+  }
+}

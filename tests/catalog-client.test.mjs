@@ -5,28 +5,30 @@ import { readFile } from 'node:fs/promises';
 const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source = await readFile(new URL('../client/catalog.js', import.meta.url), 'utf8');
 function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning=null) {
-  let snapshotKey='hero:0',userId='user-a';
+  let snapshotKey='hero:0',userId='user-a';let readerHeight=0,readerPosition='sticky';const readerNav={parentElement:{},getBoundingClientRect:()=>({height:readerHeight})};
   const handlers = {}, requests = [], tasks = [], additions = [];
   const movement=[], marks=[], spellControls=Object.fromEntries(['catalog-known','catalog-prepared','catalog-book-status'].map(id=>[id,{}]));
-  const region = { parentElement:{open:false}, innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
-  let dialog = '', isOpen=true;const messages=[],typeRegion={innerHTML:'',querySelector:()=>null};
+  const region = { style:{}, parentElement:{open:false}, innerHTML: '', setAttribute() {}, focus:options=>movement.push(['focus',options]),scrollIntoView:options=>movement.push(['scroll',options]) };
+  const focusTargets=new Map();
+  let dialog = '', isOpen=false;const messages=[],typeRegion={innerHTML:'',querySelector:()=>null};
+  const closeHandlers=[];
   const context = vm.createContext({
     localStorage:{getItem:key=>memory.get(key)||null,setItem:(key,value)=>memory.set(key,value)},SkazAccount:{get userId(){return userId;}},setTimeout, clearTimeout, location: { protocol }, page: 'library', URL, URLSearchParams, AbortSignal,
-    queueMicrotask: task => tasks.push(task),
+    queueMicrotask: task => tasks.push(task),getComputedStyle:element=>element===readerNav?{position:readerPosition}:{paddingTop:'48px'},
     fetch: (url,options) => new Promise((resolve, reject) => requests.push({ url, options, resolve, reject })),
-    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => spellControls[id]|| (id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region), querySelector: () => null },
+    document: { addEventListener: (name, fn) => handlers[name] = fn, getElementById: id => focusTargets.get(id)||spellControls[id]|| (id==='catalog-creature-coverage'?typeRegion:id==='dialog'?{open:isOpen,addEventListener:(_,fn)=>closeHandlers.push(fn)}:id==='catalog-reference-loading'?(dialog.includes('catalog-reference-loading')?region:null):id==='catalog-detail-title'?(dialog.includes('catalog-detail-title')?region:null):id==='spell-inventory'?(dialog.includes('spell-inventory')?region:null):id==='bundled-catalog'?(dialog.includes('bundled-catalog')?region:null):region), querySelector: selector => selector==='#dialog .catalog-reader-nav'?readerNav:selector.startsWith('[data-catalog-entry=')?{focus:()=>movement.push(['focus-card',selector])}:null, querySelectorAll:()=>[] },
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
-    toast:message=>messages.push(message),render:()=>{}, modal: html => dialog = html, SkazStorage: { spellLearningMode:()=>spellLearning,can:()=>true,setSpell:async(...args)=>marks.push(args), ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
+    toast:message=>messages.push(message),render:()=>{}, modal: html => {isOpen=true;dialog=html;}, SkazStorage: { spellLearningMode:()=>spellLearning,can:()=>true,setSpell:async(...args)=>marks.push(args), ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
-    click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>isOpen=false, otherModal:()=>dialog='<h2>Other</h2>',
+  return { readerSize:(height,position='sticky')=>{readerHeight=height;readerPosition=position;},focusId:id=>{const target={id,focus:options=>{context.document.activeElement=target;movement.push(['focus-id',id,options]);}};focusTargets.set(id,target);context.document.activeElement={id};}, activeId:()=>context.document.activeElement?.id, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
+    click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>{isOpen=false;closeHandlers.splice(0).forEach(fn=>fn());}, otherModal:()=>{isOpen=true;dialog='<h2>Other</h2>'},
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
     draft:(name,value)=>handlers.input({target:{name,value,checked:name==='scope'&&value==='text',form:{id:'catalog-search'}}}),
     changeKind:value=>handlers.change({target:{name:'kind',value,form:{id:'catalog-search'}}}),
-    detail: () => handlers.click({ target: { closest: () => ({ hasAttribute: () => true, dataset: { catalogEntry: '0' } }) } }),
+    detail: (index=0) => handlers.click({ target: { closest: () => ({ hasAttribute: () => true, dataset: { catalogEntry: String(index) } }) } }),
   };
 }
 const settle = () => new Promise(resolve => setImmediate(resolve));
@@ -52,7 +54,7 @@ test('catalog cards expose useful safe summaries without opening a dialog or app
  {...entry,kind:'item',item:{type:'ring',rarity:'rare',attunement:false}},
  {...entry,mechanic:{category:'<img onerror=bad>',effects:[]}}];
  respond(h.requests[0],{entries:cards,total:4});respond(h.requests[1],coverage);await settle();
- for(const value of ['5 ур','Ритуал','Концентрация','КД 15','Хиты 90','Без настройки','Редкий'])assert.ok(h.region.innerHTML.includes(value));
+ for(const value of ['5 круг','Ритуал','Концентрация','Класс доспеха','>15<','Хиты (базовые)','>90<','Не требуется','Редкий'])assert.ok(h.region.innerHTML.includes(value));
  assert.match(h.region.innerHTML,/&lt;img onerror=bad&gt;/);assert.doesNotMatch(h.region.innerHTML,/<img/);assert.equal(h.dialog(),'');assert.equal(h.additions.length,0);
 });
 
@@ -68,6 +70,7 @@ test('bottom pagination preserves search, guards boundaries and duplicate clicks
 test('paging cannot steal focus from an open dialog or from a superseding search',async()=>{
  for(const mode of ['dialog','new-search']){
  const h=harness();h.submit('');respond(h.requests[0],{entries:[entry],total:21});respond(h.requests[1],coverage);await settle();h.click('catalog-next-bottom');
+ if(mode==='dialog')h.otherModal();
  if(mode==='new-search'){h.close();h.submit('new');respond(h.requests[4],{entries:[entry],total:1});respond(h.requests[5],coverage);await settle();}
  respond(h.requests[2],{entries:[entry],total:21});respond(h.requests[3],coverage);await settle();assert.equal(h.movement.length,0);
  }
@@ -397,4 +400,146 @@ test('catalog known policy has one add action and treats legacy prepared as know
 
 test('catalog cannot demote an always-prepared oath spell even by invoking its disabled handler',async()=>{
  const h=harness('http:',true,new Map(),'prepared');h.submit('shield');respond(h.requests[0],{entries:[{...entry,id:'shield',kind:'spell'}],total:1});respond(h.requests[1],coverage);await settle();h.detail();h.requests.find(r=>r.book).resolve({entries:[{catalogId:'shield',status:'prepared',alwaysPrepared:true}]});await settle();assert.equal(h.spellControls['catalog-known'].disabled,true);assert.equal(h.spellControls['catalog-prepared'].disabled,true);assert.match(h.spellControls['catalog-book-status'].textContent,/Постоянно подготовлено умением класса/);await h.spellControls['catalog-known'].onclick();assert.equal(h.marks.length,0);
+});
+
+ test('switching cards and list preserves results and query without fetching or mutating',async()=>{
+ const h=harness();h.submit('needle',{kind:'spell'});const spell={...entry,kind:'spell',spell:{level:0,castingTime:'1 реакция, когда <опасность>',duration:'До 1 минуты',components:['V','S'],concentration:true}};
+ respond(h.requests[0],{entries:[spell],total:1});respond(h.requests[1],coverage);await settle();
+ assert.match(h.region.innerHTML,/catalog-tile/);assert.match(h.region.innerHTML,/Заговор/);assert.match(h.region.innerHTML,/Не указано/);assert.match(h.region.innerHTML,/&lt;опасность&gt;/);assert.match(h.region.innerHTML,/V, S/);
+ const count=h.requests.length;h.click('',{catalogLayout:'list'});assert.doesNotMatch(h.region.innerHTML,/catalog-tile-open/);assert.match(h.region.innerHTML,/catalog-view-list/);
+ h.click('',{catalogLayout:'cards'});assert.match(h.region.innerHTML,/catalog-tile-open/);assert.equal(h.requests.length,count);assert.match(h.view(),/value="needle"/);assert.equal(h.additions.length,0);
+ });
+
+ test('creature cards preserve zero movement and fractional challenge without inventing missing fields',async()=>{
+ const h=harness();h.submit('',{kind:'monster'});const creature={...entry,kind:'monster',monster:{size:'tiny',type:'beast',challenge:'1/8',armorClass:0,hitPoints:1,speed:{walk:0,fly:60}}};
+ respond(h.requests[0],{entries:[creature,{...entry,kind:'monster',monster:{type:'<script>bad</script>'}}],total:2});respond(h.requests[1],coverage);await settle();
+ for(const text of ['Крошечный · Зверь','1/8','>0<','Ходьба 0 фт · Полёт 60 фт','Не указано','&lt;script&gt;bad&lt;/script&gt;'])assert.ok(h.region.innerHTML.includes(text),text);
+ assert.doesNotMatch(h.region.innerHTML,/<script>|undefined|NaN/);assert.equal(h.additions.length,0);
+ });
+ test('item cards separate reference maximum from instance balance and render only supplied fields',async()=>{
+ const h=harness();h.submit('',{kind:'item'});const entries=[
+ {...entry,kind:'item',item:{type:'potion',rarity:'common',attunement:false,healing:{diceCount:2,diceSides:4,bonus:0}}},
+ {...entry,kind:'item',item:{type:'staff',rarity:'rare',attunement:true,attunementRequirement:'маг <условие>',charges:{max:7,recharge:'На рассвете <бросок>'}}},
+ {...entry,kind:'artifact',artifact:{type:'weapon',attunement:true}},
+ {...entry,kind:'item',item:undefined,source:{usage:'reference-only'}}];
+ respond(h.requests[0],{entries,total:4});respond(h.requests[1],coverage);await settle();
+ for(const text of ['2к4 хитов','Максимум зарядов','>7<','На рассвете &lt;бросок&gt;','маг &lt;условие&gt;','Артефакт · Оружие','Характеристики не импортированы'])assert.ok(h.region.innerHTML.includes(text),text);
+ assert.doesNotMatch(h.region.innerHTML,/Осталось|undefined|NaN|>0<|<условие>/);assert.equal(h.additions.length,0);
+ });
+
+test('spell cards explain components and level without inventing material prices or consumption',async()=>{
+ const h=harness();h.submit('materials',{kind:'spell'});respond(h.requests[0],{entries:[{...entry,id:'material-spell',kind:'spell',spell:{level:0,components:['V','S','M']}}],total:1});respond(h.requests[1],coverage);await settle();
+ assert.match(h.region.innerHTML,/catalog-tile-level[^>]*>Заговор/);
+ assert.match(h.region.innerHTML,/V — голос · S — жесты · M — материалы/);
+ assert.match(h.region.innerHTML,/Материалы, стоимость и расход — в описании или источнике/);
+ assert.doesNotMatch(h.region.innerHTML,/бесплат|не расход|\d+ зм/);
+ assert.match(h.region.innerHTML,/aria-describedby="[^"]*catalog-tile-level-0[^"]*catalog-tile-components-0/);
+});
+
+test('personal card marks distinguish preparation and class learning without altering spells',async()=>{
+ for(const [mode,label] of [['known','Известно'],['spellbook','В книге'],['prepared','Изучено']]){
+  const h=harness('http:',true,new Map(),mode);h.submit('mark',{kind:'spell'});
+  const spell=id=>({...entry,id,kind:'spell',spell:{level:1,components:['V']}});
+  respond(h.requests[0],{entries:['a','b','c','d'].map(spell),total:4});respond(h.requests[1],coverage);await settle();
+  assert.match(h.region.innerHTML,/catalog-tile-open/);assert.doesNotMatch(h.region.innerHTML,/catalog-tile-owned/);
+  h.requests.find(r=>r.book).resolve({entries:[{catalogId:'a',status:'known'},{catalogId:'b',status:'prepared'},{catalogId:'c',status:'prepared',alwaysPrepared:true}]});await settle();
+  for(const mark of [label,mode==='known'?'Известно':'Подготовлено','Постоянно подготовлено'])assert.ok(h.region.innerHTML.includes(mark),mark);
+  assert.doesNotMatch(h.region.innerHTML,/id="catalog-tile-owned-3"/);assert.equal(h.marks.length,0);
+ }
+});
+
+test('book failure leaves reference cards usable and late personal replies cannot cross hero or revision',async()=>{
+ const h=harness('http:',true);const spell={...entry,id:'shield',kind:'spell',spell:{level:1,components:['V'],range:{type:'self'}}};
+ const deliver=()=>{const recent=h.requests.filter(r=>!r.book).slice(-2);respond(recent[0],{entries:[spell],total:1});respond(recent[1],coverage);};
+ h.submit('shield',{kind:'spell'});deliver();await settle();const old=h.requests.find(r=>r.book);
+ h.setOwner('hero:2');h.submit('shield',{kind:'spell'});deliver();await settle();
+ old.resolve({entries:[{catalogId:'shield',status:'prepared'}]});await settle();assert.doesNotMatch(h.region.innerHTML,/catalog-tile-owned/);
+ h.requests.filter(r=>r.book).at(-1).reject(new Error('Unavailable'));await settle();
+ assert.match(h.region.innerHTML,/Личные отметки не загрузились/);assert.match(h.region.innerHTML,/catalog-tile-open/);assert.doesNotMatch(h.region.innerHTML,/Каталог недоступен|Ещё не в книге/);
+ h.submit('shield',{kind:'spell'});deliver();await settle();const next=h.requests.filter(r=>r.book).at(-1);
+ h.setOwner('other:0','user-b');h.view();next.resolve({entries:[{catalogId:'shield',status:'prepared'}]});await settle();assert.doesNotMatch(h.region.innerHTML,/catalog-tile-owned/);
+});
+
+
+test('late book marks retain keyboard focus and share an in-flight request with the reader',async()=>{
+ const h=harness('http:',true);h.submit('shield',{kind:'spell'});
+ respond(h.requests[0],{entries:[{...entry,id:'shield',kind:'spell',spell:{level:1,components:['V'],range:{type:'self'}}}],total:1});respond(h.requests[1],coverage);await settle();
+ h.detail();assert.equal(h.requests.filter(r=>r.book).length,1);
+ h.close();h.focusCard(0);h.requests.find(r=>r.book).resolve({entries:[{catalogId:'shield',status:'prepared'}]});await settle();
+ assert.ok(h.movement.some(([action,selector])=>action==='focus-card'&&selector==='[data-catalog-entry="0"]'));
+ assert.match(h.region.innerHTML,/Подготовлено/);assert.equal(h.marks.length,0);
+});
+
+
+test('late personal marks do not detach the native dialog opener before closing',async()=>{
+ const h=harness('http:',true);h.submit('shield',{kind:'spell'});
+ respond(h.requests[0],{entries:[{...entry,id:'shield',kind:'spell',spell:{level:1,components:['V'],range:{type:'self'}}}],total:1});respond(h.requests[1],coverage);await settle();
+ h.detail();h.requests.find(r=>r.book).resolve({entries:[{catalogId:'shield',status:'prepared'}]});await settle();
+ assert.doesNotMatch(h.region.innerHTML,/catalog-tile-owned/);
+ h.focusCard(0);h.close();assert.match(h.region.innerHTML,/catalog-tile-owned/);
+ assert.ok(h.movement.some(([action])=>action==='focus-card'));
+});
+
+
+test('reference-only spells retain personal marks with valid description targets and unknown level',async()=>{
+ const h=harness('http:',true);h.submit('reference',{kind:'spell'});
+ respond(h.requests[0],{entries:[{...entry,id:'reference-spell',kind:'spell'}],total:1});respond(h.requests[1],coverage);await settle();
+ h.requests.find(r=>r.book).resolve({entries:[{catalogId:'reference-spell',status:'known'}]});await settle();
+ assert.match(h.region.innerHTML,/Круг не указан/);assert.match(h.region.innerHTML,/Характеристики не импортированы/);
+ assert.match(h.region.innerHTML,/id="catalog-tile-owned-0">Изучено/);assert.match(h.region.innerHTML,/id="catalog-tile-level-0"/);
+ assert.doesNotMatch(h.region.innerHTML,/undefined|NaN/);
+});
+
+test('late book updates retain result heading and pagination focus without scrolling',async()=>{
+ for(const id of ['catalog-result-heading','catalog-prev','catalog-next','catalog-prev-bottom','catalog-next-bottom']){
+  const h=harness('http:',true);h.submit('shield',{kind:'spell'});
+  respond(h.requests[0],{entries:[{...entry,id:'shield',kind:'spell',spell:{level:1,components:['V']}}],total:41});respond(h.requests[1],coverage);await settle();
+  h.focusId(id);h.movement.length=0;
+  h.requests.find(r=>r.book).resolve({entries:[{catalogId:'shield',status:'known'}]});await settle();
+  assert.equal(h.movement.length,1,id);assert.equal(h.movement[0][0],'focus-id',id);assert.equal(h.movement[0][1],id);assert.equal(h.movement[0][2].preventScroll,true,id);assert.equal(h.activeId(),id);
+ }
+});
+const materialSpell={...entry,id:'material:one',kind:'spell',ruleset:'5e-2014',spell:{level:1,school:'divination',castingTime:'1 минута',range:{type:'touch'},duration:'Мгновенная',components:['V','S','M']}};
+const materialReference={catalogId:'material:one',materials:{description:'Жемчужина <проверка>',price:{kind:'stated',text:'100 зм'},consumption:{kind:'retained',text:'Не расходуется при накладывании.'},note:'Согласование не блокирует действие.'},source:{url:'https://example.test/srd#page=100'}};
+test('material cards show supplied price and consumption separately and preserve original entries',async()=>{
+ const h=harness();h.submit('materials',{kind:'spell'});assert.match(h.requests[0].url,/includeMaterials=1/);
+ const original=JSON.stringify(materialSpell);respond(h.requests[0],{entries:[materialSpell],total:1,materialReferences:[materialReference]});respond(h.requests[1],coverage);await settle();
+ assert.match(h.region.innerHTML,/100 зм/);assert.match(h.region.innerHTML,/Сохраняется/);h.detail();assert.match(h.dialog(),/Не расходуется при накладывании/);assert.match(h.dialog(),/Жемчужина &lt;проверка&gt;/);assert.match(h.dialog(),/Источник материальных условий/);assert.equal(JSON.stringify(materialSpell),original);assert.equal(h.additions.length,0);
+});
+test('unreviewed same-ID replacement cannot reuse another response material reference',async()=>{
+ const h=harness();h.submit('first',{kind:'spell'});respond(h.requests[0],{entries:[materialSpell],total:1,materialReferences:[materialReference]});respond(h.requests[1],coverage);await settle();
+ h.submit('personal',{kind:'spell'});respond(h.requests[2],{entries:[{...materialSpell,text:'Личное исключение'}],total:1,materialReferences:[]});respond(h.requests[3],coverage);await settle();
+ assert.doesNotMatch(h.region.innerHTML,/100 зм|Сохраняется/);assert.match(h.region.innerHTML,/Стоимость не уточнена/);h.detail();assert.match(h.dialog(),/Расход не уточнён/);assert.match(h.dialog(),/catalog-add-spell/);
+});
+test('late material response cannot replace a newer search',async()=>{
+ const h=harness();h.submit('old',{kind:'spell'});h.submit('new',{kind:'spell'});
+ respond(h.requests[2],{entries:[{...materialSpell,name:{ru:'Новая',en:'New'}}],total:1,materialReferences:[]});respond(h.requests[3],coverage);await settle();
+ respond(h.requests[0],{entries:[materialSpell],total:1,materialReferences:[materialReference]});respond(h.requests[1],coverage);await settle();assert.match(h.region.innerHTML,/Новая/);assert.doesNotMatch(h.region.innerHTML,/100 зм/);
+});
+test('partial and conditional expense remain explicit and unsafe reference URLs are not linked',async()=>{
+ for(const [kind,label] of [['partial','Частичный расход'],['conditional','Расход по условию']]){
+  const h=harness();h.submit('condition',{kind:'spell'});respond(h.requests[0],{entries:[materialSpell],total:1,materialReferences:[{...materialReference,source:{url:'javascript:alert(1)'},materials:{...materialReference.materials,price:{kind:'not-stated'},consumption:{kind,text:'Расходуется только при <условии>'}}}]});respond(h.requests[1],coverage);await settle();
+  assert.match(h.region.innerHTML,new RegExp(label));assert.match(h.region.innerHTML,/Цена в правиле не указана/);h.detail();assert.match(h.dialog(),/Расходуется только при &lt;условии&gt;/);assert.doesNotMatch(h.dialog(),/href="javascript/);
+ }
+});
+test('recent material reference and unloaded book snapshot are distinct until exact-content lookup',async()=>{
+ for(const changed of [false,true]){
+  const memory=new Map([['skaz-catalog-recent-v1:'+JSON.stringify(['user-a','hero']),JSON.stringify([materialSpell.id])]]),h=harness('http:',true,memory);
+  h.submit('');h.requests[0].resolve({entries:[{catalogId:materialSpell.id,status:'known',entry:{...materialSpell,...(changed?{text:'Личное исключение'}:{})}}]});respond(h.requests[1],coverage);respond(h.requests[2],{entry:materialSpell,materialReferences:[materialReference]});await settle();
+  assert.match(h.region.innerHTML,/100 зм/);assert.match(h.region.innerHTML,/Справка не загружена/);assert.doesNotMatch(h.region.innerHTML,/Стоимость не уточнена/);
+  h.detail(1);assert.match(h.dialog(),/catalog-material-load/);h.click('catalog-material-load');const req=h.requests.findLast(r=>r.url.startsWith('/api/catalog/entry?'));respond(req,{entry:materialSpell,materialReferences:[materialReference]});await settle();
+  if(changed){assert.match(h.region.outerHTML,/этой версии ещё не проверены/);assert.doesNotMatch(h.region.outerHTML,/100 зм/);}else{assert.match(h.region.outerHTML,/100 зм/);assert.match(h.region.outerHTML,/Не расходуется/);}
+  assert.equal(h.additions.length,0);assert.equal(h.marks.length,0);
+ }
+});
+test('on-demand material failure permits retry and late lookup cannot update another hero',async()=>{
+ const h=harness('http:',true);h.submit('');h.requests[0].resolve({entries:[{entry:materialSpell,catalogId:materialSpell.id,status:'known'}]});respond(h.requests[1],coverage);await settle();h.detail();h.click('catalog-material-load');h.requests.findLast(r=>r.url.startsWith('/api/catalog/entry?')).reject(new Error('offline'));await settle();assert.match(h.region.textContent,/Можно повторить/);assert.equal(h.region.disabled,false);
+ h.click('catalog-material-load');const pending=h.requests.findLast(r=>r.url.startsWith('/api/catalog/entry?'));h.setOwner('other:1');respond(pending,{entry:materialSpell,materialReferences:[materialReference]});await settle();assert.equal(h.region.outerHTML,undefined);
+});
+test('reader headings clear the measured sticky panel after wrapping or rotation',async()=>{
+ const h=harness();h.submit('');respond(h.requests[0],{entries:[entry],total:1});respond(h.requests[1],coverage);await settle();h.detail();
+ h.readerSize(232);h.click('',{catalogSection:'catalog-body-title'});assert.equal(h.region.style.scrollMarginTop,'296px');
+ h.readerSize(112);h.click('',{catalogSection:'catalog-source-title'});assert.equal(h.region.style.scrollMarginTop,'176px');assert.equal(h.region.parentElement.open,true);
+ h.readerSize(232,'static');h.click('',{catalogSection:'catalog-detail-title'});assert.equal(h.region.style.scrollMarginTop,'16px');
+ assert.equal(h.requests.length,2);assert.equal(h.additions.length,0);
 });

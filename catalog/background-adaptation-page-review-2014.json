@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "status": "background-page-kind-proposals-not-accepted-rules",
+  "checkedOn": "2026-11-19",
+  "complete": false,
+  "approvedDenominator": null,
+  "limits": [
+    "Secondary page structure supports a proposed page type, not identity acceptance or full-rule equivalence.",
+    "Official Contents verify corresponding publication sections only; their full content is inaccessible in this check.",
+    "English headings are not invented for empty observed names, and historical IDs remain unchanged.",
+    "No optional features, bonds or bonus feats are automatically granted to a profile."
+  ],
+  "records": [
+    {
+      "observationId": "dndsu:backgrounds:845",
+      "sourceId": "125",
+      "observedName": "Адаптация предысторий VRGR",
+      "observedEnglishName": "",
+      "referenceEvidence": {
+        "url": "https://dnd.su/backgrounds/845-adaptaciia-predystorii-vrgr/",
+        "locator": "Article introduction and section structure, excluding comments",
+        "kind": "secondary-reference-page-structure"
+      },
+      "proposedPageKind": "optional-background-feature-collection",
+      "reasonRu": "Несколько заменяемых умений и вложенный справочный раздел; не единая самостоятельная предыстория.",
+      "primaryEvidence": {
+        "url": "https://www.dndbeyond.com/sources/dnd/vrgtr",
+        "locator": "Character Creation / Backgrounds / General Background Features",
+        "kind": "official-contents-only",
+        "exactSectionEquivalence": "unverified",
+        "sectionAccess": {
+          "url": "https://www.dndbeyond.com/sources/vrgtr/backgrounds",
+          "result": "redirect-to-product-page",
+          "fullTextRead": false
+        }
+      },
+      "canonicalId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "reusePermission": "not-established",
+      "automaticProfileChange": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:846",
+      "sourceId": "129",
+      "observedName": "Адаптация предысторий OTA",
+      "observedEnglishName": "",
+      "referenceEvidence": {
+        "url": "https://dnd.su/backgrounds/846-adaptaciia-predystorii-ota/",
+        "locator": "Article introduction and section structure, excluding comments",
+        "kind": "secondary-reference-page-structure"
+      },
+      "proposedPageKind": "adventure-background-feature-and-bond-options",
+      "reasonRu": "Сборник заменяемых умений и таблица привязанностей для приключения.",
+      "primaryEvidence": {
+        "url": "https://www.dndbeyond.com/sources/dnd/oota",
+        "locator": "Appendix A: Modifying Backgrounds / Substitute Features",
+        "kind": "official-contents-only",
+        "exactSectionEquivalence": "unverified",
+        "sectionAccess": {
+          "url": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-a-modifying-backgrounds",
+          "result": "redirect-to-product-page",
+          "fullTextRead": false
+        }
+      },
+      "canonicalId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "reusePermission": "not-established",
+      "automaticProfileChange": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:847",
+      "sourceId": "105",
+      "observedName": "Адаптация предысторий HDQ",
+      "observedEnglishName": "",
+      "referenceEvidence": {
+        "url": "https://dnd.su/backgrounds/847-adaptaciia-predystorii-hdq/",
+        "locator": "Article introduction and section structure, excluding comments",
+        "kind": "secondary-reference-page-structure"
+      },
+      "proposedPageKind": "adventure-background-feature-and-bond-options",
+      "reasonRu": "Сборник заменяемых умений и привязанностей для приключения; не самостоятельная новая предыстория.",
+      "primaryEvidence": {
+        "url": "https://www.dndbeyond.com/sources/dnd/hotdq",
+        "locator": "Appendix A: Backgrounds",
+        "kind": "official-contents-only",
+        "exactSectionEquivalence": "unverified",
+        "sectionAccess": {
+          "url": "https://www.dndbeyond.com/sources/hotdq/appendix-a-backgrounds",
+          "result": "http-404",
+          "fullTextRead": false
+        }
+      },
+      "canonicalId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "reusePermission": "not-established",
+      "automaticProfileChange": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:848",
+      "sourceId": "116",
+      "observedName": "Адаптация предысторий EGW",
+      "observedEnglishName": "",
+      "referenceEvidence": {
+        "url": "https://dnd.su/backgrounds/848-adaptaciia-predystorii-egw/",
+        "locator": "Article introduction and section structure, excluding comments",
+        "kind": "secondary-reference-page-structure"
+      },
+      "proposedPageKind": "setting-adaptations-of-existing-backgrounds",
+      "reasonRu": "Несколько адаптаций уже существующих предысторий под фракции сеттинга.",
+      "primaryEvidence": {
+        "url": "https://www.dndbeyond.com/sources/dnd/egtw",
+        "locator": "Character Options / Backgrounds / Adapting Backgrounds",
+        "kind": "official-contents-only",
+        "exactSectionEquivalence": "unverified",
+        "sectionAccess": {
+          "url": "https://www.dndbeyond.com/sources/egtw/character-options-subclasses",
+          "result": "redirect-to-product-page",
+          "fullTextRead": false
+        }
+      },
+      "canonicalId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "reusePermission": "not-established",
+      "automaticProfileChange": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:856",
+      "sourceId": "183",
+      "observedName": "Адаптация предысторий SDQ",
+      "observedEnglishName": "",
+      "referenceEvidence": {
+        "url": "https://dnd.su/backgrounds/856-adaptaciia-predystorii-sdq/",
+        "locator": "Article introduction and section structure, excluding comments",
+        "kind": "secondary-reference-page-structure"
+      },
+      "proposedPageKind": "campaign-bonus-feat-rules",
+      "reasonRu": "Условия дополнительных черт для кампании на уровнях1 и4; не единая самостоятельная предыстория.",
+      "primaryEvidence": {
+        "url": "https://www.dndbeyond.com/sources/dnd/sotdq",
+        "locator": "Character Creation / Backgrounds",
+        "kind": "official-contents-only",
+        "exactSectionEquivalence": "unverified",
+        "sectionAccess": {
+          "url": "https://www.dndbeyond.com/sources/sotdq/character-creation",
+          "result": "redirect-to-product-page",
+          "fullTextRead": false
+        }
+      },
+      "canonicalId": null,
+      "accepted": false,
+      "fullRulesVerified": false,
+      "reusePermission": "not-established",
+      "automaticProfileChange": false
+    }
+  ]
+}

@@ -1,0 +1,2226 @@
+{
+  "schemaVersion": 1,
+  "status": "choice-prerequisite-proposals-not-eligibility-engine",
+  "summary": {
+    "choices": 70,
+    "explicitClassLevels": 37,
+    "pactPrerequisites": 15,
+    "alternativePrerequisites": 2,
+    "itemClauses": 15
+  },
+  "records": [
+    {
+      "choiceObservationId": "scope-choice:421941a906af1dce9f29",
+      "title": "ВЕДЬМАЧИЙ ВЗОР",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 15
+          }
+        ],
+        "explicitMinimumClassLevel": 15
+      },
+      "itemTarget": null,
+      "filterLevel": 15,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "fee44af3556749b80d7814d192883d9c5188dcded3f2da88152edc359a550b15",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "89d848bf527900b012b8b9908b9f5da2e86bd214c298ddc10b35d616a8ed5c29",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:a4fec05f8212b837e7f5",
+      "title": "ВЗОР ДВУХ УМОВ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "bc435027363eb82c679d1d66522d51612aedf2d97af32184c6a933edc8a7a2c8",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:251f97d23a744c84e883",
+      "title": "ВИДЕНИЯ ДАЛЁКИХ КОРОЛЕВСТВ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 15
+          }
+        ],
+        "explicitMinimumClassLevel": 15
+      },
+      "itemTarget": null,
+      "filterLevel": 15,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "fee44af3556749b80d7814d192883d9c5188dcded3f2da88152edc359a550b15",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "18ef3488e005a32eb5cd0be7a7c755d45780ca84db6eb24ba954de38d6dc8219",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:6f8c68eaba12b8595755",
+      "title": "ВОР ПЯТИ СУДЕБ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "d57e62404f0cb660609e7854e4fe86b02251181ad53fe6b01f7fa127bcf2a062",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:56eb3c4831249463ac7a",
+      "title": "ВОСХОДЯЩИЙ ШАГ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 9
+          }
+        ],
+        "explicitMinimumClassLevel": 9
+      },
+      "itemTarget": null,
+      "filterLevel": 9,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "8689df8a9525fab6841838c01afee8027baf9b5eb8d4febe615949a56320c785",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "faffdde1ecadb6a86641e8df9804d801bd57c58325b52501bae55b1680c1cbda",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:9dac14c028faab1fcd44",
+      "title": "ГЛАЗА ХРАНИТЕЛЯ РУН",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "0b8a43ea3c7dbfdc104dcd81aa2fc04f4667103968ecfeaf59fce46a2eff0218",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:ca06a9d9117f2ca1409c",
+      "title": "ГЛАС ЦЕПНОГО МАСТЕРА",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:22b64f813d6ff2507401",
+            "pactKey": "chain"
+          }
+        ],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 3,
+      "filterInterpretation": "pact-access-level-not-explicit-invocation-level",
+      "requirementParagraphSha256": "b2cebb2514c76461df10d854bd58f938b92e95f722887f218699de4d49cfe4df",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "d0d5a89b5c244693a21379d5dbdb95dc43f0a32feb8075735a75c9effc76c64e",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:aed16f17f05b333567f5",
+      "title": "ДОСПЕХ ТЕНЕЙ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "b52740319454320090becdc50bb2c7056842ee65b4d7de5ddab6d676528eda7b",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:91d109da9ca125223900",
+      "title": "ДЬЯВОЛЬСКИЙ ВЗГЛЯД",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "7aee897474692e398d5d14a3a1c184b1e5c33a60575dc49cebce37b81f5b1b71",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:2e54482c9ddf9d81ef32",
+      "title": "ЖАЖДУЩИЙ КЛИНОК",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 5
+          },
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:4267112c15b7d09fc2c2",
+            "pactKey": "blade"
+          }
+        ],
+        "explicitMinimumClassLevel": 5
+      },
+      "itemTarget": null,
+      "filterLevel": 5,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "186a487b1ad2355d03cea028d042f8758ece8c5a434a14ea94cce612aa189e2f",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "91de10d8d0166985fe96c90b99f80b1a33049e33855a3df996886ea6d2f70418",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:9a146b669d2dfbff0f65",
+      "title": "ЖИВОТНАЯ РЕЧЬ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "08818ae5fab6290a4f1666694c36c199eafb3257571c259238349a64e5802eba",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:7fa0930dd82a5fef16dc",
+      "title": "ЗАВОРАЖИВАЮЩИЙ ШЁПОТ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 7
+          }
+        ],
+        "explicitMinimumClassLevel": 7
+      },
+      "itemTarget": null,
+      "filterLevel": 7,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "c9c2d41daffcbe5be629a021dc4575b140e248760fa7260eb2d65df7b00d7bf1",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "1961884b10e7d00cf98cfe126b884e50f0e71d6cd26b13e21d1605a21d0bfe88",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:330135e1439aa982f242",
+      "title": "ЗНАК ДУРНОГО ПРЕДЗНАМЕНОВАНИЯ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 5
+          }
+        ],
+        "explicitMinimumClassLevel": 5
+      },
+      "itemTarget": null,
+      "filterLevel": 5,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "89f7dbb38d4466550945a5dd918a60759125821278939aa98ccf64ed870cba73",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "eee490fbdb050de88f3796980d291a61497626fa6f45b140972a6b2cb7a82a9b",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:2b10186093a7b697f6ea",
+      "title": "КНИГА ДРЕВНИХ СЕКРЕТОВ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:dad10438d3dbd103bc8c",
+            "pactKey": "tome"
+          }
+        ],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 3,
+      "filterInterpretation": "pact-access-level-not-explicit-invocation-level",
+      "requirementParagraphSha256": "766d31830d5b78b834e4d62e8e3715f0f0a5eb72f1eb387ba45dec5742e037c6",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "1d9ae819607e8f17d1a1d981816d75504044ff72ca516bbd2387b433033e3b6d",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:ddefa9cb660a7933f8f1",
+      "title": "МАСКА МНОГИХ ЛИЦ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "df543fb53855b6e9ad3932ebe8281f175d8856f4abb4057eb263d99cadeebddd",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:a73cded1ced586e64af7",
+      "title": "МАСТЕР БЕСЧИСЛЕННЫХ ОБЛИКОВ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 15
+          }
+        ],
+        "explicitMinimumClassLevel": 15
+      },
+      "itemTarget": null,
+      "filterLevel": 15,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "fee44af3556749b80d7814d192883d9c5188dcded3f2da88152edc359a550b15",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "13d4e813f02a28888594a13bf448620d7a4733e13c555c83a3085c79f1d2b672",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:68b22083d208a182b9fd",
+      "title": "МИСТИЧЕСКОЕ КОПЬЁ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "known-cantrip",
+            "spellPageId": "dndsu:spells:168"
+          }
+        ],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "96622f33c4849cd6baf5158e4555ff37813ca9b732851a2ddd9853e7200e3065",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "00497fa49e74883fc9b5a9d9a6ee03a9f5898829465d2cb5b0d3ce8643eaab5d",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:734235015a3ce4fcf2cc",
+      "title": "МОГИЛЬНЫЙ ШЁПОТ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 9
+          }
+        ],
+        "explicitMinimumClassLevel": 9
+      },
+      "itemTarget": null,
+      "filterLevel": 9,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "8689df8a9525fab6841838c01afee8027baf9b5eb8d4febe615949a56320c785",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "c34ff63f0473d70ed63fa28893fd65279a9ea57886230113cbae0274e921b65a",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:a2cc89661301fd3ef266",
+      "title": "МОЩЬ ИСЧАДИЯ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "1d7aa4648d34c0ae8511d2beff91049499545e0a4ad7a39c28a2f7fb5d6bdedb",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:50eefba6b75b6aab678c",
+      "title": "МУЧИТЕЛЬНЫЙ ВЗРЫВ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "known-cantrip",
+            "spellPageId": "dndsu:spells:168"
+          }
+        ],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "96622f33c4849cd6baf5158e4555ff37813ca9b732851a2ddd9853e7200e3065",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "974ffb9f2bea178e465cfcbba58477eb7ddec965ff004d727d214bff344cc861",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:418e50ea5249498d3037",
+      "title": "ОБМАНЧИВОЕ ВЛИЯНИЕ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "49bfe16114cbf1d5cd70c7ea6d899fa2babce400c7a6bb63787f6cbc44d45bb6",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:1d549fd7c26a2ac8f218",
+      "title": "ОДИН СРЕДИ ТЕНЕЙ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 5
+          }
+        ],
+        "explicitMinimumClassLevel": 5
+      },
+      "itemTarget": null,
+      "filterLevel": 5,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "89f7dbb38d4466550945a5dd918a60759125821278939aa98ccf64ed870cba73",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "2654bd132e8c0e9818764a7ef963568133efadcf9cdfeaa18c08e6d41e90debc",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:42b3457c68dc5e9843a3",
+      "title": "ОТТАЛКИВАЮЩИЙ ЗАРЯД",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "known-cantrip",
+            "spellPageId": "dndsu:spells:168"
+          }
+        ],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "96622f33c4849cd6baf5158e4555ff37813ca9b732851a2ddd9853e7200e3065",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "5ccd61a130eeebdb4e87f0ae93be361619c945adc1f8edbc6e0b1d36ff1bf452",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:6c40170c0df2d8621066",
+      "title": "ПОТУСТОРОННИЙ ПРЫЖОК",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 9
+          }
+        ],
+        "explicitMinimumClassLevel": 9
+      },
+      "itemTarget": null,
+      "filterLevel": 9,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "8689df8a9525fab6841838c01afee8027baf9b5eb8d4febe615949a56320c785",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "c82d2aebbec61d4d9fc95572ad0d743aa5a3cd9a2f412d99d2646e8dbdc85779",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:5d1d910fe060ff3a702d",
+      "title": "ПЬЮЩИЙ ЖИЗНЬ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 12
+          },
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:4267112c15b7d09fc2c2",
+            "pactKey": "blade"
+          }
+        ],
+        "explicitMinimumClassLevel": 12
+      },
+      "itemTarget": null,
+      "filterLevel": 12,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "3d967842d756b502a7bdaa20634420e2a2a77ce38141d8f4b7d360f84a661283",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "cbd3313ffc30e49356d924f37bea511db4169ea8e2b988e02130ba6788112e81",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:9a9be63d2748d06461d8",
+      "title": "СКУЛЬПТОР ПЛОТИ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 7
+          }
+        ],
+        "explicitMinimumClassLevel": 7
+      },
+      "itemTarget": null,
+      "filterLevel": 7,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "c9c2d41daffcbe5be629a021dc4575b140e248760fa7260eb2d65df7b00d7bf1",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "de01c432d93e4b9767779fa81602261b74bb13926dd3b0ab0d34fafbb6585e17",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:1f426deefe869d7a9e62",
+      "title": "СЛУГИ ХАОСА",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 9
+          }
+        ],
+        "explicitMinimumClassLevel": 9
+      },
+      "itemTarget": null,
+      "filterLevel": 9,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "8689df8a9525fab6841838c01afee8027baf9b5eb8d4febe615949a56320c785",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "7f882f46e1b2eede04400d95290466fcd134742943824e45f4517a4827e4fe2a",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:07d61e387e90d078a3a7",
+      "title": "ТАИНСТВЕННЫЙ ВЗГЛЯД",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "d272df39035404208c86d57a52cb74d27c30c5ab51d9bc46c76304a552646ed8",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:0963fc8e09f66079ba51",
+      "title": "ТРЯСИНА РАЗУМА",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 5
+          }
+        ],
+        "explicitMinimumClassLevel": 5
+      },
+      "itemTarget": null,
+      "filterLevel": 5,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "89f7dbb38d4466550945a5dd918a60759125821278939aa98ccf64ed870cba73",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "6e06eb3401596b8e53901da27195b55f0e6bb9dd94fe5a9df9fdfe377b4c1d56",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:0121584d37602904cbe6",
+      "title": "ТУМАННЫЕ ВИДЕНИЯ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "25b065fed75f23561d112c95f8c6952e020f2c44a601d7b0d9c6eef56244cc36",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:f1eb8eaceaa23afcba80",
+      "title": "УЖАСАЮЩЕЕ СЛОВО",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 7
+          }
+        ],
+        "explicitMinimumClassLevel": 7
+      },
+      "itemTarget": null,
+      "filterLevel": 7,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "c9c2d41daffcbe5be629a021dc4575b140e248760fa7260eb2d65df7b00d7bf1",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "41aee4ae55ce2c5d5bcdfca8aa6a21707315ce248b3cc28079d88c598eba9432",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:0315eb24edcb54b4e1d3",
+      "title": "ЦЕПИ КАРЦЕРИ",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "102",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 15
+          },
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:22b64f813d6ff2507401",
+            "pactKey": "chain"
+          }
+        ],
+        "explicitMinimumClassLevel": 15
+      },
+      "itemTarget": null,
+      "filterLevel": 15,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "2316b62287c5ac252fd36938849a68b4f51bd92eb4cf60760a5f467b404e928a",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "f003abdc0670de2dff4889b7a1bfcd361b07b873e39c862791460eaacb65ab14",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:9de0d5f86942433871c3",
+      "title": "Аспект луны",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:dad10438d3dbd103bc8c",
+            "pactKey": "tome"
+          }
+        ],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 3,
+      "filterInterpretation": "pact-access-level-not-explicit-invocation-level",
+      "requirementParagraphSha256": "766d31830d5b78b834e4d62e8e3715f0f0a5eb72f1eb387ba45dec5742e037c6",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "169ecadaa3aa8e5e0c5107185fdd2c84e3f0d065df7cffafa95570a375f15fa0",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:8f3b5de4d3ec36bc64f2",
+      "title": "Безжалостное проклятие",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 7
+          },
+          {
+            "anyOf": [
+              {
+                "kind": "known-spell",
+                "spellPageId": "dndsu:spells:312"
+              },
+              {
+                "kind": "class-feature-capability",
+                "classKey": "warlock",
+                "capability": "curse",
+                "resolution": "specific-feature-not-yet-mapped"
+              }
+            ]
+          }
+        ],
+        "explicitMinimumClassLevel": 7
+      },
+      "itemTarget": null,
+      "filterLevel": 7,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "3a2a38e424d12d290be48e3ac0e29a4ef6fa601d1263c17fb57e2effc85791ba",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "4f3ec4554a383d84ffcfe8156f3ae992c0261358392b3827dfff25a159b73a4a",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:5d27eb5a4c0b579a9c1d",
+      "title": "Безумное проклятие",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 5
+          },
+          {
+            "anyOf": [
+              {
+                "kind": "known-spell",
+                "spellPageId": "dndsu:spells:312"
+              },
+              {
+                "kind": "class-feature-capability",
+                "classKey": "warlock",
+                "capability": "curse",
+                "resolution": "specific-feature-not-yet-mapped"
+              }
+            ]
+          }
+        ],
+        "explicitMinimumClassLevel": 5
+      },
+      "itemTarget": null,
+      "filterLevel": 5,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "e0530e47a094324b7e14abd027988133efc77f3a75f2013370b9dd35ace2cd5c",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "a9c95619724995f22fad846ce9e392b14af19fcef16b3228a6aa8236af88005b",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:cc71158ddf4564b1eea0",
+      "title": "Гробница Левистуса",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 5
+          }
+        ],
+        "explicitMinimumClassLevel": 5
+      },
+      "itemTarget": null,
+      "filterLevel": 5,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "89f7dbb38d4466550945a5dd918a60759125821278939aa98ccf64ed870cba73",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "124bc663188662940d643bbd916bdf6d0bc1c43f9d8f4bf9c9eb2bba4281a867",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:e7ab059d3d48986ffce6",
+      "title": "Дар вечноживых",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:22b64f813d6ff2507401",
+            "pactKey": "chain"
+          }
+        ],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 3,
+      "filterInterpretation": "pact-access-level-not-explicit-invocation-level",
+      "requirementParagraphSha256": "b2cebb2514c76461df10d854bd58f938b92e95f722887f218699de4d49cfe4df",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "4c610611c22b2b4e5e3d8503c6445be7d125cacc314451d66da9545f4be23db3",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:6609e1ab20b8564a03b0",
+      "title": "Дар глубин",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 5
+          }
+        ],
+        "explicitMinimumClassLevel": 5
+      },
+      "itemTarget": null,
+      "filterLevel": 5,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "89f7dbb38d4466550945a5dd918a60759125821278939aa98ccf64ed870cba73",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "598b8ec99226d5826f499ed0ca75cbf5cb4324bd220a4fade1cd437581709dda",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:06944bb7d76d11120cb4",
+      "title": "Копье Летаргии",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "known-cantrip",
+            "spellPageId": "dndsu:spells:168"
+          }
+        ],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "96622f33c4849cd6baf5158e4555ff37813ca9b732851a2ddd9853e7200e3065",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "e37af9a3684447611b64154a4e5914ba0a2d7ebb2cb5e944d117e7718223757e",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:c39fed14e12106947fcb",
+      "title": "Мистическая кара",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 5
+          },
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:4267112c15b7d09fc2c2",
+            "pactKey": "blade"
+          }
+        ],
+        "explicitMinimumClassLevel": 5
+      },
+      "itemTarget": null,
+      "filterLevel": 5,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "186a487b1ad2355d03cea028d042f8758ece8c5a434a14ea94cce612aa189e2f",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "e1f4305bb0a3358826b4914554790b1e597459c64364e107cef4b056dd9cf0c6",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:77ed616417877c8c2869",
+      "title": "Плащ мух",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 5
+          }
+        ],
+        "explicitMinimumClassLevel": 5
+      },
+      "itemTarget": null,
+      "filterLevel": 5,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "89f7dbb38d4466550945a5dd918a60759125821278939aa98ccf64ed870cba73",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "58b1afaccff8757c87d978dcce493547ba68b709f866a2fe01b7754a48fa7ab1",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:884b2340b9bde29ba228",
+      "title": "Побег обманщика",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 7
+          }
+        ],
+        "explicitMinimumClassLevel": 7
+      },
+      "itemTarget": null,
+      "filterLevel": 7,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "c9c2d41daffcbe5be629a021dc4575b140e248760fa7260eb2d65df7b00d7bf1",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "d63066d0eeecda64013e1083b512397203d7a13c27f7ecb9fa7a8eb0a8bb37ae",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:dd710ffd864aa4a1debf",
+      "title": "Призрачный взор",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 7
+          }
+        ],
+        "explicitMinimumClassLevel": 7
+      },
+      "itemTarget": null,
+      "filterLevel": 7,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "c9c2d41daffcbe5be629a021dc4575b140e248760fa7260eb2d65df7b00d7bf1",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "df6ae942c2a8e0fe01591d8514683889cb098e57bdee58d41a33f9f91165a5ad",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:67c57acf378e5f9299b8",
+      "title": "Саван теней",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 15
+          }
+        ],
+        "explicitMinimumClassLevel": 15
+      },
+      "itemTarget": null,
+      "filterLevel": 15,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "fee44af3556749b80d7814d192883d9c5188dcded3f2da88152edc359a550b15",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "18b1370d6f6039cb541e7a60782551b2ec2bc73bad709349d93aee87e837af6f",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:82594760ca2e687978e6",
+      "title": "Улучшенное оружие договора",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:4267112c15b7d09fc2c2",
+            "pactKey": "blade"
+          }
+        ],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 3,
+      "filterInterpretation": "pact-access-level-not-explicit-invocation-level",
+      "requirementParagraphSha256": "6b44927997e6320f03a8bffc6b9858da82c5c5d26f564df5866d33bd5cc1fe5c",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "42af83a749be3a64e882b9cc4e45898f67b6e4d744f5a2b8184e56c9e57f4cd1",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:2dfffc20775c34800f04",
+      "title": "Хватка Хадара",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "109",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "known-cantrip",
+            "spellPageId": "dndsu:spells:168"
+          }
+        ],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "96622f33c4849cd6baf5158e4555ff37813ca9b732851a2ddd9853e7200e3065",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "b05b7a3a4e4ee391f97f81cf6b0b76fa5be44df6d93ce15ccd030359605025c0",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:743769c4846f1fc86c3f",
+      "title": "Бессмертный раб",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 5
+          }
+        ],
+        "explicitMinimumClassLevel": 5
+      },
+      "itemTarget": null,
+      "filterLevel": 5,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "89f7dbb38d4466550945a5dd918a60759125821278939aa98ccf64ed870cba73",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "7e7e2cd98626664c837f401953e4e593891b0318b8171f878dd159e76d67e121",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:194bfcf55154913630b6",
+      "title": "Дар защитников",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 9
+          },
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:dad10438d3dbd103bc8c",
+            "pactKey": "tome"
+          }
+        ],
+        "explicitMinimumClassLevel": 9
+      },
+      "itemTarget": null,
+      "filterLevel": 9,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "0548b18074355b9b9999885e21a7b481d36ce30836b1ebbfff1a17cff380e87d",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "b08d7493160aeef681970fe5992c3f5b8e0dd78b09d25da2a99f6263d38d12d5",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:909dc23f19d5012b6576",
+      "title": "Дар мастера цепи",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:22b64f813d6ff2507401",
+            "pactKey": "chain"
+          }
+        ],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 3,
+      "filterInterpretation": "pact-access-level-not-explicit-invocation-level",
+      "requirementParagraphSha256": "b2cebb2514c76461df10d854bd58f938b92e95f722887f218699de4d49cfe4df",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "7e426e84b984f16032eebcd6af5474b4202713fed0051082c00d0bf66662462b",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:d19888e4b2d505a93a93",
+      "title": "Защита талисмана",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 7
+          },
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:3d8e3254aa5a6ff91f5e",
+            "pactKey": "talisman"
+          }
+        ],
+        "explicitMinimumClassLevel": 7
+      },
+      "itemTarget": null,
+      "filterLevel": 7,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "a6a771ecabfe5a49e1a7cdac2841725f795d9ca31f63caab5185b1c30c73ae49",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "32fde5cc0bda8ae66febcd42130bbc7f41a0b25c633d21da4f81d2e2fc859d8b",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:fe22844f7a2936449bcb",
+      "title": "Книжник из дали",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 5
+          },
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:dad10438d3dbd103bc8c",
+            "pactKey": "tome"
+          }
+        ],
+        "explicitMinimumClassLevel": 5
+      },
+      "itemTarget": null,
+      "filterLevel": 5,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "7203cdf175ad37ef6ed4400ff6b99ba52efc651d8f9b4e82f1bfde615328865f",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "96baa0ae3da0f12a4c07de97dacb0d53425aaae7157cbe39684ee012754886a1",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:17dd8cb43a5d2e03b50c",
+      "title": "Мистический разум",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "8a926c9801152c316a287ef561edac12ed707d369723d4c21d15b212130093c9",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:e74bca7ea4d8da4e59f7",
+      "title": "Порицание талисмана",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:3d8e3254aa5a6ff91f5e",
+            "pactKey": "talisman"
+          }
+        ],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": null,
+      "filterLevel": 3,
+      "filterInterpretation": "pact-access-level-not-explicit-invocation-level",
+      "requirementParagraphSha256": "987b4e2716ae2fa2663fa691378bde1ef7490457ccfd1c985a82cb346d9eb1f5",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "6de4c1620f31917e3e06ee8fe75ce5620f84fda3be8cca58f0d7c1ba9cbc2a03",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:cdd2457d892d2cb1f341",
+      "title": "Связь с талисманом",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "warlock",
+            "minimum": 12
+          },
+          {
+            "kind": "selected-pact",
+            "choiceObservationId": "scope-choice:3d8e3254aa5a6ff91f5e",
+            "pactKey": "talisman"
+          }
+        ],
+        "explicitMinimumClassLevel": 12
+      },
+      "itemTarget": null,
+      "filterLevel": 12,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "ab5ae55fce26331327826effb559a775a31b49b644b850b386d3136783059e2e",
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "420604376cc06dca2707fedf113ca4618aef42575052645b913834ed033cf701",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:6afa3d165f02085d18e0",
+      "title": "ВОЗВРАЩАЮЩЕЕСЯ ОРУЖИЕ",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": {
+        "categories": [
+          "simple-weapon",
+          "martial-weapon"
+        ],
+        "requiredProperty": "thrown",
+        "attunement": "not-stated-in-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": "353a6e24750f39de0bddd7d2b92ba593a37bf133a8fa31ee9d31238daabde7b0",
+      "evidenceTextSha256": "b8dcf74f93ef59b11b255defc62f63276ecbe91bfcb258377480b467634e7648",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:0f1c38dfcf60da0c40fb",
+      "title": "ДВИЖИМЫЙ МАГИЕЙ ДОСПЕХ",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "artificer",
+            "minimum": 14
+          }
+        ],
+        "explicitMinimumClassLevel": 14
+      },
+      "itemTarget": {
+        "categories": [
+          "armor"
+        ],
+        "attunement": "required-by-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 14,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "3956ebdb3fe8e03483d38dfd26bff55cdc07f3dce9e130bd715ed2c06e219fe1",
+      "itemParagraphSha256": "790b7d7c9218c422fe1b9119e3eb2f3e9cb6a9f925357c980dce8f15f6001943",
+      "evidenceTextSha256": "fba4245718ddcd36b4c2b6cc860dd9c421e20988569a850373dc8f6981da0c18",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:e8cddae0a8981d6730ac",
+      "title": "ДОСПЕХ МАГИЧЕСКОЙ СИЛЫ",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": {
+        "categories": [
+          "armor"
+        ],
+        "attunement": "required-by-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": "790b7d7c9218c422fe1b9119e3eb2f3e9cb6a9f925357c980dce8f15f6001943",
+      "evidenceTextSha256": "3d102f7366c3f03423845451c0c6a3560b34dd5b51f6045d6e21f94140e1d978",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:633130e7c1cbdf3dab85",
+      "title": "ДОСПЕХ СОПРОТИВЛЕНИЯ",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "artificer",
+            "minimum": 6
+          }
+        ],
+        "explicitMinimumClassLevel": 6
+      },
+      "itemTarget": {
+        "categories": [
+          "armor"
+        ],
+        "attunement": "required-by-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 6,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "a5fa69ff44951d2203e1e947f39bc84be55b2b6f385e01543e50a80e378d0dce",
+      "itemParagraphSha256": "0195e569ef9052b9a8f28db9300ec5e37b5c9b3627ee5ed11c553e7b0134c808",
+      "evidenceTextSha256": "25e096aa9bb67e19a0bec42b05966bbf18e7db93050d4d5533a7af7599d72f15",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:044d8b3d07714234422d",
+      "title": "ИЗЛУЧАЮЩЕЕ СВЕТ ОРУЖИЕ",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "artificer",
+            "minimum": 6
+          }
+        ],
+        "explicitMinimumClassLevel": 6
+      },
+      "itemTarget": {
+        "categories": [
+          "simple-weapon",
+          "martial-weapon"
+        ],
+        "attunement": "required-by-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 6,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "a5fa69ff44951d2203e1e947f39bc84be55b2b6f385e01543e50a80e378d0dce",
+      "itemParagraphSha256": "65e925cb2dcfda7e045ecc28c4204f3ec81e85dde37510b374aab6daf4a0dac0",
+      "evidenceTextSha256": "cb70f3eb52c6f9a401a415f95bce7758c7b03ff03df467ef4c0252455db1ecdc",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:7edbbe8034b37bf23475",
+      "title": "КОЛЬЦО ВОССТАНОВЛЕНИЯ ЗАКЛИНАНИЙ",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "artificer",
+            "minimum": 6
+          }
+        ],
+        "explicitMinimumClassLevel": 6
+      },
+      "itemTarget": {
+        "categories": [
+          "ring"
+        ],
+        "attunement": "required-by-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 6,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "a5fa69ff44951d2203e1e947f39bc84be55b2b6f385e01543e50a80e378d0dce",
+      "itemParagraphSha256": "dd6d8fa082d0f9c49f97e348b36099a095126ecd0452157505bd01f554207d47",
+      "evidenceTextSha256": "da19f177368ad82849dcbc7dfed5c4eb81b8dd7a7b2eb0e20bb40c7727411f27",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:b822a76d1032496bc6c4",
+      "title": "КОПИЯ МАГИЧЕСКОГО ПРЕДМЕТА",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": {
+        "selectionManifest": "catalog/dndsu-replicate-item-options.json",
+        "tableIsExhaustive": false
+      },
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": null,
+      "evidenceTextSha256": "acebf587070e5ca1254f52a2e0ff7d174b29e9a2868096def6dbd43a5e1de8b8",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:52141eb1141619b3ab8c",
+      "title": "ОТТАЛКИВАЮЩИЙ ЩИТ",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "artificer",
+            "minimum": 6
+          }
+        ],
+        "explicitMinimumClassLevel": 6
+      },
+      "itemTarget": {
+        "categories": [
+          "shield"
+        ],
+        "attunement": "required-by-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 6,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "a5fa69ff44951d2203e1e947f39bc84be55b2b6f385e01543e50a80e378d0dce",
+      "itemParagraphSha256": "9bff3e903a668056b0104560ceefec49385b7d48fac9680f0db919c48ab6fe60",
+      "evidenceTextSha256": "90c66877893574c52e5196a0768e7db9cd088d1a08a5808b35200845a891ae83",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:c6b29f04171629559b74",
+      "title": "ПОВТОРНЫЙ ВЫСТРЕЛ",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": {
+        "categories": [
+          "simple-weapon",
+          "martial-weapon"
+        ],
+        "requiredProperty": "ammunition",
+        "attunement": "required-by-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": "b928df7f8dc80ba62af6f93f4379d7b734689b6a094f0e25fcf88209e9e6beba",
+      "evidenceTextSha256": "24203de31c874439be19dbde2bb7db98721b0ee6292d41754b9652b86b9abc5b",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:2574c5ec9aa06f92318d",
+      "title": "САПОГИ ИЗВИЛИСТОГО ПУТИ",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "artificer",
+            "minimum": 6
+          }
+        ],
+        "explicitMinimumClassLevel": 6
+      },
+      "itemTarget": {
+        "categories": [
+          "boots"
+        ],
+        "requiresPair": true,
+        "attunement": "required-by-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 6,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "37c614196758e0332ba01c3e0934b77a29a105c987c465e7b9d5a8e645cc27e2",
+      "itemParagraphSha256": "06ec387bcde914f184b07c5cbd6391a55d682b79d83a0aabbfc3530c4beafb06",
+      "evidenceTextSha256": "41f6b950e79d8e0dacef287692464d180cbbc1148da90c30e1ccd1fe06929fbc",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:b6f4c17f72279d8f5e54",
+      "title": "СЛУГА-ГОМУНКУЛ",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": {
+        "categories": [
+          "gem",
+          "crystal"
+        ],
+        "minimumValueGp": 100,
+        "attunement": "not-stated-in-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": "e129e975997e7ce2f559ff4f8aa21be56d6600bf3461d890a09e750fe72eb5c6",
+      "evidenceTextSha256": "dcae0278e7e8433f94db9e214db0afcd37f873a64828dde68c1b0c2d32e4a42a",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:7915d3cc246b03673c0f",
+      "title": "УЛУЧШЕННАЯ ЗАЩИТА",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": {
+        "categories": [
+          "armor",
+          "shield"
+        ],
+        "attunement": "not-stated-in-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": "b363d300a38a0124e79d7c649fc03b784afb58479ce24726782e9459f6aabfb6",
+      "evidenceTextSha256": "5df704f662edfe1efca2f8ad8abb36b48153c958d2cb009a6dcdea487b5f9be9",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:8612c9c98bc2932fefaa",
+      "title": "УЛУЧШЕННАЯ МАГИЧЕСКАЯ ФОКУСИРОВКА",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": {
+        "categories": [
+          "rod",
+          "staff",
+          "wand"
+        ],
+        "attunement": "required-by-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": "03a0ce15f08b5c79d785fee45a6d980557be9e3901940d77ca73392c0bcde444",
+      "evidenceTextSha256": "2cf223e3e81ff593164c88a7e65cb3e869e8b232a0ff3f7414b5b4ad3e554e5d",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:3b11e70c478464b8a193",
+      "title": "УЛУЧШЕННОЕ ОРУЖИЕ",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": {
+        "categories": [
+          "simple-weapon",
+          "martial-weapon"
+        ],
+        "attunement": "not-stated-in-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": "a6444ebdcc0465902d85537fa4efde3ff3d4a5cce83c2d809b21c23ddafe621b",
+      "evidenceTextSha256": "675797d697001e01258995d62238972e3325fb1d612829aa47bff1c619a1a955",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:6989bd2e15146ae82013",
+      "title": "УСИЛИТЕЛЬ РАЗУМА",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [],
+        "explicitMinimumClassLevel": null
+      },
+      "itemTarget": {
+        "categories": [
+          "armor",
+          "robes"
+        ],
+        "attunement": "not-stated-in-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 0,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": null,
+      "itemParagraphSha256": "202691980dc5bfcf69f1a674d03092142185a5c0ac59817a457dc45f88f6a3da",
+      "evidenceTextSha256": "922c9b4bcaf9efab1f3ab53d844a7d36e4a6fe7f4bc7f35e2d3baf75f98de97d",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:ef9117db49919f74f6fe",
+      "title": "ШЛЕМ ОСВЕДОМЛЁННОСТИ",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "sourceId": "117",
+      "prerequisites": {
+        "allOf": [
+          {
+            "kind": "class-level",
+            "classKey": "artificer",
+            "minimum": 10
+          }
+        ],
+        "explicitMinimumClassLevel": 10
+      },
+      "itemTarget": {
+        "categories": [
+          "helmet"
+        ],
+        "attunement": "required-by-item-clause",
+        "consumption": "not-inferred-from-item-clause"
+      },
+      "filterLevel": 10,
+      "filterInterpretation": "matches-explicit-level-or-no-extra-level",
+      "requirementParagraphSha256": "b2e25a0366a8a2af61ed413c0b94e293e2dc443c9d8b39755c0efec8f697b6e2",
+      "itemParagraphSha256": "136155488132d701f134ff1dd130aa9bbe3a561754c56e975f46cdc480b98e86",
+      "evidenceTextSha256": "03a6c95a734e3519daa5bfb06c878ffc38a0fdb1da9a2353fd41c21993e233c4",
+      "eligibility": "not-computed",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "base-class-access-and-choice-capacity",
+        "specific-curse-capability-mapping",
+        "complete-use-conditions-and-exceptions"
+      ]
+    }
+  ]
+}

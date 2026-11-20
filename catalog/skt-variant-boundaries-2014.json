@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-19",
+  "status": "selected-secondary-variant-boundaries-not-primary-stat-blocks",
+  "accepted": false,
+  "approvedDenominator": null,
+  "automaticPatch": false,
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "d16b65c44f622b70f685aa391687375df13e627267367b50a58d0bd3307e25dd",
+    "catalog/skt-public-index-2014.json": "da621b84e94b2cd75eafa19a0509b11458bbb01668f463a8b974259c63204b06"
+  },
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:7706",
+      "observedName": "Shield Dwarf Veteran",
+      "sourceIds": [
+        "132"
+      ],
+      "url": "https://dnd.su/bestiary/7706-shield-dwarf-veteran/",
+      "selectedObservedFields": {
+        "challengeRating": "3",
+        "armorClass": 17,
+        "hitPoints": 58,
+        "alignment": "Lawful Good"
+      },
+      "evidenceKind": "secondary-observation",
+      "fullRulesVerified": false,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:7709",
+      "observedName": "Shield Dwarf Commoner",
+      "sourceIds": [
+        "132"
+      ],
+      "url": "https://dnd.su/bestiary/7709-shield-dwarf-commoner/",
+      "selectedObservedFields": {
+        "challengeRating": "0",
+        "armorClass": 10,
+        "hitPoints": 4,
+        "alignment": "Any Alignment"
+      },
+      "evidenceKind": "secondary-observation",
+      "fullRulesVerified": false,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:7762",
+      "observedName": "Mirran",
+      "sourceIds": [
+        "132"
+      ],
+      "url": "https://dnd.su/bestiary/7762-mirran/",
+      "selectedObservedFields": {
+        "challengeRating": "13",
+        "armorClass": 11,
+        "hitPoints": 230,
+        "alignment": "Neutral Evil"
+      },
+      "evidenceKind": "secondary-observation",
+      "fullRulesVerified": false,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:7763",
+      "observedName": "Nym",
+      "sourceIds": [
+        "132"
+      ],
+      "url": "https://dnd.su/bestiary/7763-nym/",
+      "selectedObservedFields": {
+        "challengeRating": "13",
+        "armorClass": 12,
+        "hitPoints": 230,
+        "alignment": "Neutral Evil"
+      },
+      "evidenceKind": "secondary-observation",
+      "fullRulesVerified": false,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:7722",
+      "observedName": "Axe of Mirabar Soldier",
+      "sourceIds": [
+        "132"
+      ],
+      "url": "https://dnd.su/bestiary/7722-axe-of-mirabar-soldier/",
+      "selectedObservedFields": {
+        "challengeRating": "3",
+        "armorClass": 18,
+        "hitPoints": 67,
+        "alignment": "Lawful Good"
+      },
+      "evidenceKind": "secondary-observation",
+      "fullRulesVerified": false,
+      "automaticPatch": false
+    }
+  ],
+  "groups": [
+    {
+      "id": "shield-dwarf",
+      "digitalName": "Shield Dwarf",
+      "cardUrl": "https://www.dndbeyond.com/monsters/296856-shield-dwarf",
+      "observationIds": [
+        "dndsu:bestiary:7706",
+        "dndsu:bestiary:7709"
+      ],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "id": "storm-giant-princess",
+      "digitalName": "Storm Giant Princess",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300491-storm-giant-princess",
+      "observationIds": [
+        "dndsu:bestiary:7762",
+        "dndsu:bestiary:7763"
+      ],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false
+    },
+    {
+      "id": "axe-of-mirabar",
+      "digitalName": "Axe of Mirabar Veteran",
+      "cardUrl": "https://www.dndbeyond.com/monsters/297941-axe-of-mirabar-veteran",
+      "observationIds": [
+        "dndsu:bestiary:7722"
+      ],
+      "identityDecision": "unresolved",
+      "canonicalId": null,
+      "automaticMerge": false
+    }
+  ],
+  "primaryAccess": {
+    "checkedOn": "2026-11-19",
+    "result": "redirect-to-marketplace",
+    "destination": "https://marketplace.dndbeyond.com/category/storm-kings-thunder",
+    "fullTextRead": false,
+    "reusePermission": "not-established"
+  },
+  "tribalListAccess": {
+    "cardUrl": "https://www.dndbeyond.com/monsters/17354-uthgardt-shaman",
+    "result": "redirect-to-marketplace",
+    "fullTextRead": false,
+    "remainingCondition": "Need legitimate access to the primary full tribal lists before resolving 22 versus 24."
+  }
+}

@@ -1,0 +1,1299 @@
+{
+  "schemaVersion": 1,
+  "status": "content-policy-proposal-not-runtime-rules",
+  "tableManifestSha256": "88d7d041bae75130962b1c9ef37e3af321e7f7a4b8af69be4363b7600cc36a61",
+  "records": [
+    {
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "parent": "tradition.chronurgy",
+      "tableIds": [
+        "scope-spell-table:3815421a8b38976be63e"
+      ],
+      "tableSourceIds": [
+        "116"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "matrix-availability-and-GM-permission",
+        "non-table-spell-grants"
+      ],
+      "grantMode": "undetermined-matrix-availability",
+      "selection": "not-encoded",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "647e9d549350cd952eaa0d20574b85fd7c5a4b776d68118a0090c5afe8468741"
+    },
+    {
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "parent": "tradition.graviturgy",
+      "tableIds": [
+        "scope-spell-table:0807c942a80dc4e25d48"
+      ],
+      "tableSourceIds": [
+        "116"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "matrix-availability-and-GM-permission",
+        "non-table-spell-grants"
+      ],
+      "grantMode": "undetermined-matrix-availability",
+      "selection": "not-encoded",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "f94ff5de0802cebb1185ac55c56066c79002e39936bdfe52fa6fae7eb1c1c858"
+    },
+    {
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "parent": "circle.land",
+      "tableIds": [
+        "scope-spell-table:376260e48a453f92444e",
+        "scope-spell-table:707e05a24ad334b38f51",
+        "scope-spell-table:00bcecdd6e1a1d153882",
+        "scope-spell-table:64a6d5caea341940df60",
+        "scope-spell-table:c969e5525a223985162a",
+        "scope-spell-table:56d5622b54327c6d850b",
+        "scope-spell-table:737984eb52ac80a83fa8",
+        "scope-spell-table:3927febedce38fedb06a"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "choose-one-terrain-table",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "5f926d2b86ff8b56b5b604d41f7dc95d0e9c10337f78b6d2c90c1fa77f8eefaf"
+    },
+    {
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "parent": "circle.wildfire",
+      "tableIds": [
+        "scope-spell-table:bf293345983aec5f5a80"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "c85fde98d59ec05a6f725cfa093542066ba248c3fdefc2cbefa1c6744f1a433f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "parent": "circle.spores",
+      "tableIds": [
+        "scope-spell-table:260814cd1797f0ec9e67"
+      ],
+      "tableSourceIds": [
+        "117",
+        "112"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "rowExceptions": [
+        {
+          "selector": "2",
+          "grantMode": "learned-cantrip",
+          "countsAgainstCantripLimit": "not-certified",
+          "reason": "explicit-cantrip-grant-before-prepared-spell-rule"
+        }
+      ],
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "ea879856000ef1857572eec4ddc2cda7819002e249d3da16fb1076137157cc94"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.tempest",
+      "tableIds": [
+        "scope-spell-table:e7be4fe6ce494e534e71"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.war",
+      "tableIds": [
+        "scope-spell-table:92b7fa096527c8326d79"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.life",
+      "tableIds": [
+        "scope-spell-table:a5b60578707006a6d752"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.knowledge",
+      "tableIds": [
+        "scope-spell-table:7df9c37b687bd41cdce6"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.trickery",
+      "tableIds": [
+        "scope-spell-table:54342607d2d564ef2141"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.nature",
+      "tableIds": [
+        "scope-spell-table:8769ff683b23ee5c6088"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.light",
+      "tableIds": [
+        "scope-spell-table:88ae6e1b3ba604703ca6"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.death",
+      "tableIds": [
+        "scope-spell-table:c8c0c77a6a1930b2bf1e"
+      ],
+      "tableSourceIds": [
+        "101"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.arcana",
+      "tableIds": [
+        "scope-spell-table:2518fc4c7a3b145c73bd"
+      ],
+      "tableSourceIds": [
+        "108"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.forge",
+      "tableIds": [
+        "scope-spell-table:2219da396546024dcc08"
+      ],
+      "tableSourceIds": [
+        "109"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.grave",
+      "tableIds": [
+        "scope-spell-table:a9aefec4286bc96438d9"
+      ],
+      "tableSourceIds": [
+        "109"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.peace",
+      "tableIds": [
+        "scope-spell-table:15a930e73e08f9c7a155"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.order",
+      "tableIds": [
+        "scope-spell-table:ed2b7bf9d25935e7f078"
+      ],
+      "tableSourceIds": [
+        "117",
+        "112"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "parent": "domain.twilight",
+      "tableIds": [
+        "scope-spell-table:aee5880324645fb18e15"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "2f26e9aeef3765ac7d20f15f3fa3ea8a4f917c6f44edeb33ab18b8dbd3eddd9f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "parent": "specialist.alchemist",
+      "tableIds": [
+        "scope-spell-table:2501997b6de23cb939e7"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "e541828242931434d493b62689c728a1277fa15461374774e0728c87426dd91b"
+    },
+    {
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "parent": "specialist.artillerist",
+      "tableIds": [
+        "scope-spell-table:6eebfb5b1a6c426e3eae"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "a0b97a192eef1cfb50c0904d75c30b61597dfa7ed94c8ea055c6c66b4ca4d63c"
+    },
+    {
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "parent": "specialist.battlesmith",
+      "tableIds": [
+        "scope-spell-table:4761052965bc31ccb7d5"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "45b9fb624a6552aedc319fb4f26f4555bba735392b38a61c97c3de7f8b1783ee"
+    },
+    {
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "parent": "specialist.armorer",
+      "tableIds": [
+        "scope-spell-table:7b0c92fa95e477d29f12"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "30e6b0d58136e201cac60bf45d89f52720aec3167d5140d9e65fa8b821ee7853"
+    },
+    {
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "parent": "patron.archfey",
+      "tableIds": [
+        "scope-spell-table:863741ba31409a3c3ecd"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "expanded-class-selection-list",
+      "automaticallyKnown": false,
+      "selection": "selection-through-normal-class-learning",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "2a2d232c0aa89e892ae07e4a4ab41226bd9f11230102a4578923903aaf2d7fdb"
+    },
+    {
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "parent": "patron.fiend",
+      "tableIds": [
+        "scope-spell-table:48a03ba0890ea3fb2c38"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "expanded-class-selection-list",
+      "automaticallyKnown": false,
+      "selection": "selection-through-normal-class-learning",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "e0916ecc14f8cf11b0a41d66dae5dcf50f644c57f21e7247585f668edf824a32"
+    },
+    {
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "parent": "patron.great-old-one",
+      "tableIds": [
+        "scope-spell-table:a6e641c20ead3992ea1f"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "expanded-class-selection-list",
+      "automaticallyKnown": false,
+      "selection": "selection-through-normal-class-learning",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "252716eed19617fe9c78d7e16cb73f664a21661a68207d00ab304d04204e9d2f"
+    },
+    {
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "parent": "patron.undying",
+      "tableIds": [
+        "scope-spell-table:a1e614bb89f700ead4d5"
+      ],
+      "tableSourceIds": [
+        "108"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "expanded-class-selection-list",
+      "automaticallyKnown": false,
+      "selection": "selection-through-normal-class-learning",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "df416a8aecd74636cdf9f15d2d48baf127c268a08ac1e8d83a8d9b97ae56d811"
+    },
+    {
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "parent": "patron.hexblade",
+      "tableIds": [
+        "scope-spell-table:488266df50ae3b681df2"
+      ],
+      "tableSourceIds": [
+        "109"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "expanded-class-selection-list",
+      "automaticallyKnown": false,
+      "selection": "selection-through-normal-class-learning",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "a2d68ebddb38947f87ff395ed5c1dfcf45c4f06865afe160b8733c1d289dd052"
+    },
+    {
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "parent": "patron.celestial",
+      "tableIds": [
+        "scope-spell-table:76bcdfdb7aea9deff3c1"
+      ],
+      "tableSourceIds": [
+        "109"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "expanded-class-selection-list",
+      "automaticallyKnown": false,
+      "selection": "selection-through-normal-class-learning",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "54f8e6831dd6b32a4e03ac7bc63e0340f9ac7f7c7fe780500aa365e0f5778f54"
+    },
+    {
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "parent": "patron.fathomless",
+      "tableIds": [
+        "scope-spell-table:97493ab4123230a58a97"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "expanded-class-selection-list",
+      "automaticallyKnown": false,
+      "selection": "selection-through-normal-class-learning",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "bac9d0ccc041f0b648fcf08050f6791adbce759d900cc9ce8f7f4237a7c21deb"
+    },
+    {
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "parent": "patron.genie",
+      "tableIds": [
+        "scope-spell-table:54e021f9f5f7ec09aebb"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "expanded-class-selection-list",
+      "automaticallyKnown": false,
+      "selection": "general-column-plus-chosen-genie-kind",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "919885ceba138a76c718a1cb9e56d739e6b79b2e67b8d4fad024894b56d328dd"
+    },
+    {
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "parent": "patron.undead",
+      "tableIds": [
+        "scope-spell-table:6f416dd80564e0499285"
+      ],
+      "tableSourceIds": [
+        "125"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "expanded-class-selection-list",
+      "automaticallyKnown": false,
+      "selection": "selection-through-normal-class-learning",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "7a4cd79a4ce8789e8aaf8a67c10e6febbce9f13cd6a5c2be95004ff9961ee589"
+    },
+    {
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "parent": "oath.devotion",
+      "tableIds": [
+        "scope-spell-table:9e55a68fee4cb1e11fc4"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "914ec5e6518f0c014eb671f9f71446093704d45e5b2b5283170d44e5d16d7ec4"
+    },
+    {
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "parent": "oath.ancients",
+      "tableIds": [
+        "scope-spell-table:7fc8408efa8a30d9ec6f"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "914ec5e6518f0c014eb671f9f71446093704d45e5b2b5283170d44e5d16d7ec4"
+    },
+    {
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "parent": "oath.vengeance",
+      "tableIds": [
+        "scope-spell-table:b883b9363667a14f6579"
+      ],
+      "tableSourceIds": [
+        "102"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "914ec5e6518f0c014eb671f9f71446093704d45e5b2b5283170d44e5d16d7ec4"
+    },
+    {
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "parent": "oath.oathbreaker",
+      "tableIds": [
+        "scope-spell-table:10d4ad0d8513308dbac1"
+      ],
+      "tableSourceIds": [
+        "101"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "914ec5e6518f0c014eb671f9f71446093704d45e5b2b5283170d44e5d16d7ec4"
+    },
+    {
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "parent": "oath.crown",
+      "tableIds": [
+        "scope-spell-table:80359f8362956a2f1ba0"
+      ],
+      "tableSourceIds": [
+        "108"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "914ec5e6518f0c014eb671f9f71446093704d45e5b2b5283170d44e5d16d7ec4"
+    },
+    {
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "parent": "oath.redemption",
+      "tableIds": [
+        "scope-spell-table:10afb6390a0380ad7078"
+      ],
+      "tableSourceIds": [
+        "109"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "914ec5e6518f0c014eb671f9f71446093704d45e5b2b5283170d44e5d16d7ec4"
+    },
+    {
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "parent": "oath.conquest",
+      "tableIds": [
+        "scope-spell-table:365d10e9d006f4e6c8b2"
+      ],
+      "tableSourceIds": [
+        "109"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "914ec5e6518f0c014eb671f9f71446093704d45e5b2b5283170d44e5d16d7ec4"
+    },
+    {
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "parent": "oath.glory",
+      "tableIds": [
+        "scope-spell-table:202f49365bbebdaed3fa"
+      ],
+      "tableSourceIds": [
+        "117",
+        "121"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "914ec5e6518f0c014eb671f9f71446093704d45e5b2b5283170d44e5d16d7ec4"
+    },
+    {
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "parent": "oath.watchers",
+      "tableIds": [
+        "scope-spell-table:abc43d07f387f4666cfc"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "always-prepared",
+      "countsAgainstPreparedLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "ruleSourceIds": [
+        "102"
+      ],
+      "evidenceScope": "base-class-spell-rule",
+      "evidenceTextSha256": "914ec5e6518f0c014eb671f9f71446093704d45e5b2b5283170d44e5d16d7ec4"
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "parent": "archetype.horizon-walker",
+      "tableIds": [
+        "scope-spell-table:a270ae2f4a84920b84dd"
+      ],
+      "tableSourceIds": [
+        "109"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "additional-known",
+      "countsAgainstKnownSpellLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "2c79d3e89109593a99f53c765e815282780f7511bf8d1600ffa5ec8c7b0cd302"
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "parent": "archetype.gloom-stalker",
+      "tableIds": [
+        "scope-spell-table:4f5d9f1d1c4b2eccb47d"
+      ],
+      "tableSourceIds": [
+        "109"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "additional-known",
+      "countsAgainstKnownSpellLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "16b7ab962617b3816ef775645db01d5dc85fad479ffd103631eec90adc7d2692"
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "parent": "archetype.monster-slayer",
+      "tableIds": [
+        "scope-spell-table:8e3d2f09bab5814842e9"
+      ],
+      "tableSourceIds": [
+        "109"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "additional-known",
+      "countsAgainstKnownSpellLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "de29e57acca8729f7ed63027c06ddb39512393f6a9ebf26b0d4a6af8f7ca495a"
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "parent": "archetype.fey-wanderer",
+      "tableIds": [
+        "scope-spell-table:03227624e345e5f2f0cd"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "additional-known",
+      "countsAgainstKnownSpellLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "388249434a55d2f2909337f0dcf25a074fd49c80ca7e5365b61d61ce0000217d"
+    },
+    {
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "parent": "archetype.swarmkeeper",
+      "tableIds": [
+        "scope-spell-table:c0bef70f03c4a30d78f1"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "additional-known",
+      "countsAgainstKnownSpellLimit": false,
+      "selection": "table-rows-at-required-class-level",
+      "cantripException": {
+        "grantMode": "learned-if-not-already-known",
+        "countsAgainstCantripLimit": "not-certified"
+      },
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "4dfccd278c7583a28cf8e7ca824427e55423612070a201e447f6d262a8aa0067"
+    },
+    {
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "parent": "origin.divine-soul",
+      "tableIds": [
+        "scope-spell-table:54a64f271904cdc4ee79"
+      ],
+      "tableSourceIds": [
+        "109"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "one-choice-additional-known",
+      "countsAgainstKnownSpellLimit": false,
+      "selection": "choose-one-affinity-row",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "09aca69c7719fae52b2ceec4d2730d52ec901274c8732386cd6dea8f952be8ab"
+    },
+    {
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "parent": "origin.aberrant-mind",
+      "tableIds": [
+        "scope-spell-table:acb7d9d28da8aa75574c"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "additional-known",
+      "countsAgainstKnownSpellLimit": false,
+      "selection": "all-table-columns-at-required-class-level",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "33ce3c68c4f7c833e33a29030292f19b1b7f842b1074058c3b0128b043f510c4"
+    },
+    {
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "parent": "origin.clockwork-soul",
+      "tableIds": [
+        "scope-spell-table:9d1e79d8bef90cee8c39"
+      ],
+      "tableSourceIds": [
+        "117"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "additional-known",
+      "countsAgainstKnownSpellLimit": false,
+      "selection": "all-table-columns-at-required-class-level",
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "04481f8ff3ed913713ec1b6b1d788f0e18d7933e97d6987be8ee6ced0621aede"
+    },
+    {
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "parent": "origin.lunar-sorcery",
+      "tableIds": [
+        "scope-spell-table:5ac9aebac60b61863263"
+      ],
+      "tableSourceIds": [
+        "183"
+      ],
+      "ruleScope": "table-grants-only",
+      "approval": "awaiting-independent-game-design-review",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "pending": [
+        "non-table-spell-grants",
+        "all-replacement-and-casting-exceptions",
+        "subclass-eligibility"
+      ],
+      "grantMode": "additional-known",
+      "countsAgainstKnownSpellLimit": false,
+      "selection": "all-table-columns-at-required-class-level",
+      "phaseSelection": {
+        "affects": "specified-free-casting-and-other-feature-effects",
+        "doesNotFilterLearnedTableSpells": true,
+        "fullCastingRules": "not-encoded"
+      },
+      "evidenceScope": "subclass-section",
+      "evidenceTextSha256": "cc42abe00f360574f1f3e976f14c2219cfadb32e9844f0ef4345b9d484c14e76"
+    }
+  ]
+}

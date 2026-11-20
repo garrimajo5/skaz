@@ -1,0 +1,398 @@
+{
+  "schemaVersion": 1,
+  "status": "publication-identity-review-not-catalog-acceptance",
+  "sourceId": "206",
+  "evidenceUrl": "https://d1vzi28wh99zvq.cloudfront.net/pdf_previews/296621-sample.pdf",
+  "evidenceLocator": "Preview PDF page 1; printed page 2, Contents and Monsters by Challenge Rating",
+  "approvedDenominator": null,
+  "complete": false,
+  "summary": {
+    "publicationUnits": 18,
+    "observedPagesWithSource": 17,
+    "byStatus": {
+      "explicit-candidate-needs-identity-review": 3,
+      "same-name-and-source-needs-version-review": 14,
+      "same-name-other-source-needs-attribution-review": 1
+    }
+  },
+  "observationsWithoutInventoryCandidate": [],
+  "records": [
+    {
+      "unitId": "wotc:mffv1:contents:assassin-bug",
+      "publicationName": "Assassin Bug",
+      "printedPage": 4,
+      "status": "explicit-candidate-needs-identity-review",
+      "exactNameCandidates": [],
+      "explicitReviewCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13620",
+          "reason": "Observed English name is Assasin Bug; spelling candidate only, not an automatic rename.",
+          "observedName": "Assasin Bug"
+        }
+      ],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:blindheim",
+      "publicationName": "Blindheim",
+      "printedPage": 5,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13626",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:crab-folk",
+      "publicationName": "Crab Folk",
+      "printedPage": 6,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13630",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:dire-corby",
+      "publicationName": "Dire Corby",
+      "printedPage": 7,
+      "status": "same-name-other-source-needs-attribution-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:17362",
+          "sourceIds": [
+            "113"
+          ],
+          "sameSource": false
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:eye-of-fear-and-flame",
+      "publicationName": "Eye of Fear and Flame",
+      "printedPage": 8,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13670",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:forlarren",
+      "publicationName": "Forlarren",
+      "printedPage": 9,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13671",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:giant-fog",
+      "publicationName": "Giant, Fog",
+      "printedPage": 10,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:17363",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:jermlaine",
+      "publicationName": "Jermlaine",
+      "printedPage": 11,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:17364",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:khargra",
+      "publicationName": "Khargra",
+      "printedPage": 12,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13657",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:killmoulis",
+      "publicationName": "Killmoulis",
+      "printedPage": 13,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:17365",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:mite",
+      "publicationName": "Mite",
+      "printedPage": 14,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:17366",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:needlefolk",
+      "publicationName": "Needlefolk",
+      "printedPage": 15,
+      "status": "explicit-candidate-needs-identity-review",
+      "exactNameCandidates": [],
+      "explicitReviewCandidates": [
+        {
+          "observationId": "dndsu:bestiary:17367",
+          "reason": "Observed Needle Spawn may be a different version or heading; preview contents alone cannot establish equivalence.",
+          "observedName": "Needle Spawn"
+        }
+      ],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:needle-lord",
+      "publicationName": "Needle Lord",
+      "printedPage": 16,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13709",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:norker",
+      "publicationName": "Norker",
+      "printedPage": 17,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13711",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:norker-war-leader",
+      "publicationName": "Norker War Leader",
+      "printedPage": 17,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13712",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:screaming-devilkin",
+      "publicationName": "Screaming Devilkin",
+      "printedPage": 19,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13728",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:ygorl",
+      "publicationName": "Ygorl",
+      "printedPage": 20,
+      "status": "explicit-candidate-needs-identity-review",
+      "exactNameCandidates": [],
+      "explicitReviewCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13729",
+          "reason": "Observed Ygorl, Lord of Entropy expands the title; identity and text version still require review.",
+          "observedName": "Ygorl, Lord of Entropy"
+        }
+      ],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    },
+    {
+      "unitId": "wotc:mffv1:contents:xill",
+      "publicationName": "Xill",
+      "printedPage": 21,
+      "status": "same-name-and-source-needs-version-review",
+      "exactNameCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13731",
+          "sourceIds": [
+            "206"
+          ],
+          "sameSource": true
+        }
+      ],
+      "explicitReviewCandidates": [],
+      "canonicalId": null,
+      "accepted": false,
+      "exactTextVersion": "unverified",
+      "fullRules": "unverified",
+      "reusePermission": "not-established"
+    }
+  ],
+  "inputSha256": {
+    "catalog/fiendish-folio-inventory-2014.json": "1ed8aebb2eda9616571d14b547db2a8495d66f62f6d1e58902d3db89d31240e9",
+    "catalog/scope-register-2014.json": "d16b65c44f622b70f685aa391687375df13e627267367b50a58d0bd3307e25dd",
+    "catalog/numeric-source-publisher-evidence.json": "fe541d8ee8529963892e1c4a88603999cbdee71001ce41de623f3eebb226e628"
+  }
+}

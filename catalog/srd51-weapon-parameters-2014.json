@@ -1,0 +1,1125 @@
+{
+  "schemaVersion": 1,
+  "status": "weapon-parameters-proposal-not-runtime-content",
+  "ruleset": "5e-2014",
+  "source": {
+    "title": "System Reference Document 5.1",
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "pages": [
+      64,
+      65,
+      66
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "changes": "Структурирование и русское изложение для СКАЗ; не официальный перевод."
+  },
+  "inputSha256": {
+    "catalog/weapon-canonical-proposal-2014.json": "54e9d059c1b23130d63a774377c9748f18f8bc539477be905c88b2f0c155a9d0"
+  },
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "applicationBoundary": {
+    "ruleDeviation": "warn-and-allow-manual-override",
+    "automaticEquip": false,
+    "automaticStatChange": false,
+    "automaticResourceSpend": false
+  },
+  "records": [
+    {
+      "candidateItemId": "srd51:2014:item:club",
+      "nameEn": "Club",
+      "category": "simple-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d4",
+        "type": "bludgeoning"
+      },
+      "weightLb": 2,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "light"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:dagger",
+      "nameEn": "Dagger",
+      "category": "simple-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d4",
+        "type": "piercing"
+      },
+      "weightLb": 1,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "finesse"
+        },
+        {
+          "key": "light"
+        },
+        {
+          "key": "thrown",
+          "rangeFeet": {
+            "normal": 20,
+            "long": 60
+          }
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:greatclub",
+      "nameEn": "Greatclub",
+      "category": "simple-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d8",
+        "type": "bludgeoning"
+      },
+      "weightLb": 10,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "two-handed"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:handaxe",
+      "nameEn": "Handaxe",
+      "category": "simple-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d6",
+        "type": "slashing"
+      },
+      "weightLb": 2,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "light"
+        },
+        {
+          "key": "thrown",
+          "rangeFeet": {
+            "normal": 20,
+            "long": 60
+          }
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:javelin",
+      "nameEn": "Javelin",
+      "category": "simple-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d6",
+        "type": "piercing"
+      },
+      "weightLb": 2,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "thrown",
+          "rangeFeet": {
+            "normal": 30,
+            "long": 120
+          }
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:light-hammer",
+      "nameEn": "Light hammer",
+      "category": "simple-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d4",
+        "type": "bludgeoning"
+      },
+      "weightLb": 2,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "light"
+        },
+        {
+          "key": "thrown",
+          "rangeFeet": {
+            "normal": 20,
+            "long": 60
+          }
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:mace",
+      "nameEn": "Mace",
+      "category": "simple-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d6",
+        "type": "bludgeoning"
+      },
+      "weightLb": 4,
+      "weightNotation": "pounds",
+      "properties": [],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:quarterstaff",
+      "nameEn": "Quarterstaff",
+      "category": "simple-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d6",
+        "type": "bludgeoning"
+      },
+      "weightLb": 4,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "versatile",
+          "twoHandedMeleeDamage": "1d8"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:sickle",
+      "nameEn": "Sickle",
+      "category": "simple-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d4",
+        "type": "slashing"
+      },
+      "weightLb": 2,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "light"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:spear",
+      "nameEn": "Spear",
+      "category": "simple-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d6",
+        "type": "piercing"
+      },
+      "weightLb": 3,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "thrown",
+          "rangeFeet": {
+            "normal": 20,
+            "long": 60
+          }
+        },
+        {
+          "key": "versatile",
+          "twoHandedMeleeDamage": "1d8"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:light-crossbow",
+      "nameEn": "Crossbow, light",
+      "category": "simple-ranged",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d8",
+        "type": "piercing"
+      },
+      "weightLb": 5,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "ammunition",
+          "rangeFeet": {
+            "normal": 80,
+            "long": 320
+          }
+        },
+        {
+          "key": "loading"
+        },
+        {
+          "key": "two-handed"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:dart",
+      "nameEn": "Dart",
+      "category": "simple-ranged",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d4",
+        "type": "piercing"
+      },
+      "weightLb": 0.25,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "finesse"
+        },
+        {
+          "key": "thrown",
+          "rangeFeet": {
+            "normal": 20,
+            "long": 60
+          }
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:shortbow",
+      "nameEn": "Shortbow",
+      "category": "simple-ranged",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d6",
+        "type": "piercing"
+      },
+      "weightLb": 2,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "ammunition",
+          "rangeFeet": {
+            "normal": 80,
+            "long": 320
+          }
+        },
+        {
+          "key": "two-handed"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:sling",
+      "nameEn": "Sling",
+      "category": "simple-ranged",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d4",
+        "type": "bludgeoning"
+      },
+      "weightLb": null,
+      "weightNotation": "dash-in-source",
+      "properties": [
+        {
+          "key": "ammunition",
+          "rangeFeet": {
+            "normal": 30,
+            "long": 120
+          }
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:battleaxe",
+      "nameEn": "Battleaxe",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d8",
+        "type": "slashing"
+      },
+      "weightLb": 4,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "versatile",
+          "twoHandedMeleeDamage": "1d10"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:flail",
+      "nameEn": "Flail",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d8",
+        "type": "bludgeoning"
+      },
+      "weightLb": 2,
+      "weightNotation": "pounds",
+      "properties": [],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:glaive",
+      "nameEn": "Glaive",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d10",
+        "type": "slashing"
+      },
+      "weightLb": 6,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "heavy"
+        },
+        {
+          "key": "reach"
+        },
+        {
+          "key": "two-handed"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:greataxe",
+      "nameEn": "Greataxe",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d12",
+        "type": "slashing"
+      },
+      "weightLb": 7,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "heavy"
+        },
+        {
+          "key": "two-handed"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:greatsword",
+      "nameEn": "Greatsword",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "2d6",
+        "type": "slashing"
+      },
+      "weightLb": 6,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "heavy"
+        },
+        {
+          "key": "two-handed"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:halberd",
+      "nameEn": "Halberd",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d10",
+        "type": "slashing"
+      },
+      "weightLb": 6,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "heavy"
+        },
+        {
+          "key": "reach"
+        },
+        {
+          "key": "two-handed"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:lance",
+      "nameEn": "Lance",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d12",
+        "type": "piercing"
+      },
+      "weightLb": 6,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "reach"
+        },
+        {
+          "key": "special"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:longsword",
+      "nameEn": "Longsword",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d8",
+        "type": "slashing"
+      },
+      "weightLb": 3,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "versatile",
+          "twoHandedMeleeDamage": "1d10"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:maul",
+      "nameEn": "Maul",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "2d6",
+        "type": "bludgeoning"
+      },
+      "weightLb": 10,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "heavy"
+        },
+        {
+          "key": "two-handed"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:morningstar",
+      "nameEn": "Morningstar",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d8",
+        "type": "piercing"
+      },
+      "weightLb": 4,
+      "weightNotation": "pounds",
+      "properties": [],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:pike",
+      "nameEn": "Pike",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d10",
+        "type": "piercing"
+      },
+      "weightLb": 18,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "heavy"
+        },
+        {
+          "key": "reach"
+        },
+        {
+          "key": "two-handed"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:rapier",
+      "nameEn": "Rapier",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d8",
+        "type": "piercing"
+      },
+      "weightLb": 2,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "finesse"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:scimitar",
+      "nameEn": "Scimitar",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d6",
+        "type": "slashing"
+      },
+      "weightLb": 3,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "finesse"
+        },
+        {
+          "key": "light"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:shortsword",
+      "nameEn": "Shortsword",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d6",
+        "type": "piercing"
+      },
+      "weightLb": 2,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "finesse"
+        },
+        {
+          "key": "light"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:trident",
+      "nameEn": "Trident",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d6",
+        "type": "piercing"
+      },
+      "weightLb": 4,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "thrown",
+          "rangeFeet": {
+            "normal": 20,
+            "long": 60
+          }
+        },
+        {
+          "key": "versatile",
+          "twoHandedMeleeDamage": "1d8"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:war-pick",
+      "nameEn": "War pick",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d8",
+        "type": "piercing"
+      },
+      "weightLb": 2,
+      "weightNotation": "pounds",
+      "properties": [],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:warhammer",
+      "nameEn": "Warhammer",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d8",
+        "type": "bludgeoning"
+      },
+      "weightLb": 2,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "versatile",
+          "twoHandedMeleeDamage": "1d10"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:whip",
+      "nameEn": "Whip",
+      "category": "martial-melee",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d4",
+        "type": "slashing"
+      },
+      "weightLb": 3,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "finesse"
+        },
+        {
+          "key": "reach"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:blowgun",
+      "nameEn": "Blowgun",
+      "category": "martial-ranged",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "fixed",
+        "value": 1,
+        "type": "piercing"
+      },
+      "weightLb": 1,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "ammunition",
+          "rangeFeet": {
+            "normal": 25,
+            "long": 100
+          }
+        },
+        {
+          "key": "loading"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:hand-crossbow",
+      "nameEn": "Crossbow, hand",
+      "category": "martial-ranged",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d6",
+        "type": "piercing"
+      },
+      "weightLb": 3,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "ammunition",
+          "rangeFeet": {
+            "normal": 30,
+            "long": 120
+          }
+        },
+        {
+          "key": "light"
+        },
+        {
+          "key": "loading"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:heavy-crossbow",
+      "nameEn": "Crossbow, heavy",
+      "category": "martial-ranged",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d10",
+        "type": "piercing"
+      },
+      "weightLb": 18,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "ammunition",
+          "rangeFeet": {
+            "normal": 100,
+            "long": 400
+          }
+        },
+        {
+          "key": "heavy"
+        },
+        {
+          "key": "loading"
+        },
+        {
+          "key": "two-handed"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:longbow",
+      "nameEn": "Longbow",
+      "category": "martial-ranged",
+      "sourcePage": 66,
+      "damage": {
+        "kind": "dice",
+        "value": "1d8",
+        "type": "piercing"
+      },
+      "weightLb": 2,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "ammunition",
+          "rangeFeet": {
+            "normal": 150,
+            "long": 600
+          }
+        },
+        {
+          "key": "heavy"
+        },
+        {
+          "key": "two-handed"
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    },
+    {
+      "candidateItemId": "srd51:2014:item:net",
+      "nameEn": "Net",
+      "category": "martial-ranged",
+      "sourcePage": 66,
+      "damage": null,
+      "weightLb": 3,
+      "weightNotation": "pounds",
+      "properties": [
+        {
+          "key": "special"
+        },
+        {
+          "key": "thrown",
+          "rangeFeet": {
+            "normal": 5,
+            "long": 15
+          }
+        }
+      ],
+      "accepted": false,
+      "runtimeImported": false
+    }
+  ],
+  "limits": [
+    "No full weapon catalog claim: these are the37 existing SRD table candidates.",
+    "Dash for Sling weight and Net damage is retained as null, not invented zero or 1d4.",
+    "No automatic equip, attack, resource spending, proficiency grants or damage application."
+  ],
+  "conditions": [
+    {
+      "key": "proficiency",
+      "sourcePage": 64,
+      "textRu": "Владение оружием позволяет добавить бонус мастерства к броску атаки этим оружием. Без владения бонус не добавляется; сама атака не запрещена. Владение не даёт бонус мастерства к урону.",
+      "parameters": {
+        "appliesTo": "attack-roll",
+        "damageBonus": false,
+        "unproficientAttackAllowed": true
+      }
+    },
+    {
+      "key": "ammunition",
+      "sourcePage": 64,
+      "textRu": "Для дистанционной атаки нужны боеприпасы; каждый выстрел тратит один. Доставание входит в атаку, но зарядка одноручного оружия требует свободной руки. После боя за минуту поиска можно вернуть половину потраченных боеприпасов. В ближнем бою такое оружие считается импровизированным; праща при этом должна быть заряжена, чтобы наносить урон.",
+      "parameters": {
+        "spentPerAttack": 1,
+        "freeHandToLoadOneHanded": true,
+        "recoveryFraction": 0.5,
+        "recoverySearchMinutes": 1,
+        "meleeUse": "improvised",
+        "slingMustBeLoadedForMeleeDamage": true
+      }
+    },
+    {
+      "key": "finesse",
+      "sourcePage": 64,
+      "textRu": "Для атаки и урона можно выбрать Силу или Ловкость, но для обоих бросков используется одна и та же характеристика.",
+      "parameters": {
+        "abilities": [
+          "strength",
+          "dexterity"
+        ],
+        "sameAbilityForAttackAndDamage": true
+      }
+    },
+    {
+      "key": "heavy",
+      "sourcePage": 65,
+      "textRu": "По правилу SRD 5.1 существо Маленького размера атакует тяжёлым оружием с помехой. Это не требование минимальной Силы из другой редакции.",
+      "parameters": {
+        "explicitSourceSize": "Small",
+        "attackDisadvantage": true,
+        "strengthMinimum": null
+      }
+    },
+    {
+      "key": "light",
+      "sourcePage": 65,
+      "textRu": "Лёгкое оружие удобно для боя двумя оружиями. Это свойство само по себе не предоставляет дополнительную атаку: условия боя двумя оружиями проверяются отдельно.",
+      "parameters": {
+        "grantsAttack": false
+      }
+    },
+    {
+      "key": "loading",
+      "sourcePage": 65,
+      "textRu": "Когда для стрельбы используется действие, бонусное действие или реакция, оружие с этим свойством выпускает лишь один боеприпас, независимо от обычного числа атак. Это ограничение на каждое такое действие, а не на весь ход; свойство не даёт бонусного действия или реакции.",
+      "parameters": {
+        "ammunitionPerFiringAction": 1,
+        "actionKinds": [
+          "action",
+          "bonus-action",
+          "reaction"
+        ],
+        "perTurnLimit": null,
+        "grantsAction": false
+      }
+    },
+    {
+      "key": "range",
+      "sourcePage": 65,
+      "textRu": "Первое число — нормальная дальность в футах, второе — предельная. За нормальной дальностью атака совершается с помехой; за предельной обычное правило не допускает атаки. СКАЗ показывает предупреждение и оставляет явное ручное исключение.",
+      "parameters": {
+        "unit": "feet",
+        "beyondNormal": "disadvantage",
+        "beyondLong": "outside-ordinary-rule"
+      }
+    },
+    {
+      "key": "reach",
+      "sourcePage": 65,
+      "textRu": "Оружие увеличивает досягаемость на 5 футов для атак им и для определения досягаемости провоцированных атак этим оружием. Другие действия автоматически не расширяются.",
+      "parameters": {
+        "additionalFeet": 5,
+        "appliesTo": [
+          "attacks-with-this-weapon",
+          "opportunity-attacks-with-this-weapon"
+        ]
+      }
+    },
+    {
+      "key": "special",
+      "sourcePage": 65,
+      "textRu": "Особые правила находятся в описании конкретного оружия: в этой таблице это длинное копьё и сеть.",
+      "parameters": {
+        "weapons": [
+          "srd51:2014:item:lance",
+          "srd51:2014:item:net"
+        ]
+      }
+    },
+    {
+      "key": "thrown",
+      "sourcePage": 65,
+      "textRu": "Оружие можно метнуть для дистанционной атаки. У рукопашного метательного оружия используется та же характеристика для атаки и урона, что и в ближнем бою: ручной топор — Сила, кинжал благодаря фехтовальному свойству — Сила или Ловкость.",
+      "parameters": {
+        "meleeThrownUsesMeleeAbility": true,
+        "attackIsRanged": true
+      }
+    },
+    {
+      "key": "two-handed",
+      "sourcePage": 65,
+      "textRu": "Две руки требуются именно при атаке этим оружием. Требование не означает, что для простого удержания всегда нужны две руки.",
+      "parameters": {
+        "requiresTwoHandsWhen": "attacking"
+      }
+    },
+    {
+      "key": "versatile",
+      "sourcePage": 65,
+      "textRu": "Оружием можно пользоваться одной или двумя руками. Урон в скобках относится к рукопашной атаке двумя руками; он не переносится автоматически на бросок оружия.",
+      "parameters": {
+        "alternateDamageRequires": [
+          "two-hands",
+          "melee-attack"
+        ]
+      }
+    },
+    {
+      "key": "improvised",
+      "sourcePage": 65,
+      "textRu": "Можно атаковать предметом, который держат одной или двумя руками. Мастер может считать похожий предмет обычным оружием и разрешить соответствующее владение. Непохожий предмет наносит 1к4 урона выбранного мастером типа. Дистанционное оружие в ближнем бою и метание рукопашного оружия без метательного свойства также наносят 1к4. Дальность импровизированного метательного оружия — 20/60 футов.",
+      "parameters": {
+        "unlikeWeaponDamage": "1d4",
+        "damageType": "gm-assigned",
+        "rangedWeaponUsedInMeleeDamage": "1d4",
+        "nonThrownMeleeWeaponThrownDamage": "1d4",
+        "improvisedThrownRangeFeet": {
+          "normal": 20,
+          "long": 60
+        },
+        "similarWeaponTreatment": "gm-option"
+      }
+    },
+    {
+      "key": "silvered",
+      "sourcePage": 65,
+      "textRu": "Посеребрить одно оружие либо десять боеприпасов стоит 100 зм. Серебро помогает только против соответствующих защит конкретного существа; это не превращение оружия в магическое и не универсальный обход сопротивлений.",
+      "parameters": {
+        "costGp": 100,
+        "alternatives": [
+          {
+            "weapons": 1
+          },
+          {
+            "ammunition": 10
+          }
+        ],
+        "becomesMagical": false
+      }
+    },
+    {
+      "key": "lance",
+      "sourcePage": 65,
+      "textRu": "При атаке длинным копьём цели в пределах 5 футов возникает помеха. Если атакующий не верхом, для использования нужны две руки.",
+      "parameters": {
+        "candidateItemId": "srd51:2014:item:lance",
+        "disadvantageWithinFeet": 5,
+        "twoHandsUnlessMounted": true
+      }
+    },
+    {
+      "key": "net",
+      "sourcePage": 65,
+      "textRu": "Попадание сетью опутывает существо Большого или меньшего размера до освобождения. Бесформенные существа, а также Огромные и более крупные не затрагиваются. Действием можно выполнить проверку Силы Сл 10, освобождая себя или другое существо в досягаемости. Нанесение сети 5 рубящего урона при КД 10 освобождает существо без вреда ему и уничтожает сеть. При использовании действия, бонусного действия или реакции для атаки сетью допускается только одна атака независимо от обычного числа атак; это не предоставляет дополнительных действий.",
+      "parameters": {
+        "candidateItemId": "srd51:2014:item:net",
+        "condition": "restrained",
+        "maximumAffectedSize": "Large",
+        "excludesFormless": true,
+        "escape": {
+          "action": "action",
+          "roll": "ability-check",
+          "ability": "strength",
+          "dc": 10,
+          "target": "self-or-another-within-reach"
+        },
+        "destroy": {
+          "ac": 10,
+          "damage": 5,
+          "type": "slashing",
+          "harmsTrappedCreature": false
+        },
+        "attacksPerUsedAction": 1,
+        "actionKinds": [
+          "action",
+          "bonus-action",
+          "reaction"
+        ],
+        "grantsAction": false
+      }
+    }
+  ],
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved"
+}

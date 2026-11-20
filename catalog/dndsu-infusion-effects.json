@@ -1,0 +1,462 @@
+{
+  "schemaVersion": 1,
+  "status": "partial-infusion-effect-proposals",
+  "summary": {
+    "choices": 16,
+    "chargePools": 4,
+    "dawnUseLimits": 1,
+    "levelScalingBonuses": 3,
+    "referenceOnly": 2
+  },
+  "records": [
+    {
+      "choiceObservationId": "scope-choice:6afa3d165f02085d18e0",
+      "title": "ВОЗВРАЩАЮЩЕЕСЯ ОРУЖИЕ",
+      "sourceId": "117",
+      "effect": {
+        "bonus": {
+          "targets": [
+            "weapon-attack",
+            "weapon-damage"
+          ],
+          "amount": 1
+        },
+        "returnsAfter": "ranged-attack"
+      },
+      "evidenceTextSha256": "b8dcf74f93ef59b11b255defc62f63276ecbe91bfcb258377480b467634e7648",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:0f1c38dfcf60da0c40fb",
+      "title": "ДВИЖИМЫЙ МАГИЕЙ ДОСПЕХ",
+      "sourceId": "117",
+      "effect": {
+        "walkSpeedBonusFeet": 5,
+        "gauntlets": {
+          "weaponType": "simple-magical-melee",
+          "damage": "1d8",
+          "damageType": "force",
+          "thrownRangeFeet": [
+            20,
+            60
+          ],
+          "requiresEmptyHand": true,
+          "wearerProficient": true
+        },
+        "cannotRemoveAgainstWearerWill": true,
+        "replacesMissingLimbs": true
+      },
+      "evidenceTextSha256": "fba4245718ddcd36b4c2b6cc860dd9c421e20988569a850373dc8f6981da0c18",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:e8cddae0a8981d6730ac",
+      "title": "ДОСПЕХ МАГИЧЕСКОЙ СИЛЫ",
+      "sourceId": "117",
+      "effect": {
+        "charges": {
+          "maximum": 6,
+          "recharge": {
+            "trigger": "dawn",
+            "roll": "1d6",
+            "onlyExpended": true
+          }
+        },
+        "effects": [
+          {
+            "cost": 1,
+            "trigger": "strength-check-or-strength-save",
+            "bonus": "intelligence-modifier",
+            "modifierOwner": "infuser"
+          },
+          {
+            "cost": 1,
+            "action": "reaction",
+            "trigger": "would-be-knocked-prone",
+            "effect": "avoid-prone"
+          }
+        ]
+      },
+      "evidenceTextSha256": "3d102f7366c3f03423845451c0c6a3560b34dd5b51f6045d6e21f94140e1d978",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:633130e7c1cbdf3dab85",
+      "title": "ДОСПЕХ СОПРОТИВЛЕНИЯ",
+      "sourceId": "117",
+      "effect": {
+        "chooseDamageResistance": {
+          "count": 1,
+          "when": "infusing",
+          "options": [
+            "thunder",
+            "radiant",
+            "acid",
+            "necrotic",
+            "fire",
+            "psychic",
+            "force",
+            "cold",
+            "lightning",
+            "poison"
+          ]
+        }
+      },
+      "evidenceTextSha256": "25e096aa9bb67e19a0bec42b05966bbf18e7db93050d4d5533a7af7599d72f15",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:044d8b3d07714234422d",
+      "title": "ИЗЛУЧАЮЩЕЕ СВЕТ ОРУЖИЕ",
+      "sourceId": "117",
+      "effect": {
+        "bonus": {
+          "targets": [
+            "weapon-attack",
+            "weapon-damage"
+          ],
+          "amount": 1
+        },
+        "light": {
+          "toggleAction": "bonus-action",
+          "brightFeet": 30,
+          "additionalDimFeet": 30,
+          "requiresHeld": true
+        },
+        "charges": {
+          "maximum": 4,
+          "recharge": {
+            "trigger": "dawn",
+            "roll": "1d4",
+            "onlyExpended": true
+          }
+        },
+        "reaction": {
+          "cost": 1,
+          "trigger": "hit-by-attack",
+          "effect": "blind-attacker",
+          "save": "constitution",
+          "dcOwner": "infuser-spell-save",
+          "duration": "until-end-of-attacker-next-turn"
+        }
+      },
+      "evidenceTextSha256": "cb70f3eb52c6f9a401a415f95bce7758c7b03ff03df467ef4c0252455db1ecdc",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:7edbbe8034b37bf23475",
+      "title": "КОЛЬЦО ВОССТАНОВЛЕНИЯ ЗАКЛИНАНИЙ",
+      "sourceId": "117",
+      "effect": {
+        "uses": {
+          "maximum": 1,
+          "recharge": "dawn"
+        },
+        "action": "action",
+        "effect": "restore-one-expended-slot",
+        "maximumRestoredSlotLevel": 3,
+        "requiresWorn": true
+      },
+      "evidenceTextSha256": "da19f177368ad82849dcbc7dfed5c4eb81b8dd7a7b2eb0e20bb40c7727411f27",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:52141eb1141619b3ab8c",
+      "title": "ОТТАЛКИВАЮЩИЙ ЩИТ",
+      "sourceId": "117",
+      "effect": {
+        "bonus": {
+          "targets": [
+            "armor-class"
+          ],
+          "amount": 1
+        },
+        "charges": {
+          "maximum": 4,
+          "recharge": {
+            "trigger": "dawn",
+            "roll": "1d4",
+            "onlyExpended": true
+          }
+        },
+        "reaction": {
+          "cost": 1,
+          "trigger": "hit-by-melee-attack",
+          "pushUpToFeet": 15,
+          "requiresHeld": true
+        }
+      },
+      "evidenceTextSha256": "90c66877893574c52e5196a0768e7db9cd088d1a08a5808b35200845a891ae83",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:c6b29f04171629559b74",
+      "title": "ПОВТОРНЫЙ ВЫСТРЕЛ",
+      "sourceId": "117",
+      "effect": {
+        "bonus": {
+          "targets": [
+            "weapon-attack",
+            "weapon-damage"
+          ],
+          "amount": 1,
+          "only": "ranged-attacks"
+        },
+        "ignoresWeaponProperty": "loading",
+        "ammunition": {
+          "createWhen": "ranged-attack-without-loaded-ammunition",
+          "disappearsAfter": "hit-or-miss"
+        }
+      },
+      "evidenceTextSha256": "24203de31c874439be19dbde2bb7db98721b0ee6292d41754b9652b86b9abc5b",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:2574c5ec9aa06f92318d",
+      "title": "САПОГИ ИЗВИЛИСТОГО ПУТИ",
+      "sourceId": "117",
+      "effect": {
+        "action": "bonus-action",
+        "teleport": {
+          "upToFeet": 15,
+          "destination": "visible-unoccupied",
+          "mustHaveOccupiedDuring": "current-turn"
+        }
+      },
+      "evidenceTextSha256": "41f6b950e79d8e0dacef287692464d180cbbc1148da90c30e1ccd1fe06929fbc",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:7915d3cc246b03673c0f",
+      "title": "УЛУЧШЕННАЯ ЗАЩИТА",
+      "sourceId": "117",
+      "effect": {
+        "bonus": {
+          "targets": [
+            "armor-class"
+          ],
+          "amount": 1,
+          "atInfuserArtificerLevel": {
+            "level": 10,
+            "amount": 2
+          }
+        },
+        "requires": "wear-armor-or-hold-shield"
+      },
+      "evidenceTextSha256": "5df704f662edfe1efca2f8ad8abb36b48153c958d2cb009a6dcdea487b5f9be9",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:8612c9c98bc2932fefaa",
+      "title": "УЛУЧШЕННАЯ МАГИЧЕСКАЯ ФОКУСИРОВКА",
+      "sourceId": "117",
+      "effect": {
+        "bonus": {
+          "targets": [
+            "spell-attack"
+          ],
+          "amount": 1,
+          "atInfuserArtificerLevel": {
+            "level": 10,
+            "amount": 2
+          }
+        },
+        "ignoresCover": "half-cover-for-spell-attacks",
+        "requires": "held"
+      },
+      "evidenceTextSha256": "2cf223e3e81ff593164c88a7e65cb3e869e8b232a0ff3f7414b5b4ad3e554e5d",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:3b11e70c478464b8a193",
+      "title": "УЛУЧШЕННОЕ ОРУЖИЕ",
+      "sourceId": "117",
+      "effect": {
+        "bonus": {
+          "targets": [
+            "weapon-attack",
+            "weapon-damage"
+          ],
+          "amount": 1,
+          "atInfuserArtificerLevel": {
+            "level": 10,
+            "amount": 2
+          }
+        }
+      },
+      "evidenceTextSha256": "675797d697001e01258995d62238972e3325fb1d612829aa47bff1c619a1a955",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:6989bd2e15146ae82013",
+      "title": "УСИЛИТЕЛЬ РАЗУМА",
+      "sourceId": "117",
+      "effect": {
+        "charges": {
+          "maximum": 4,
+          "recharge": {
+            "trigger": "dawn",
+            "roll": "1d4",
+            "onlyExpended": true
+          }
+        },
+        "reaction": {
+          "cost": 1,
+          "trigger": "failed-constitution-save-to-maintain-concentration",
+          "effect": "succeed-save"
+        }
+      },
+      "evidenceTextSha256": "922c9b4bcaf9efab1f3ab53d844a7d36e4a6fe7f4bc7f35e2d3baf75f98de97d",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:ef9117db49919f74f6fe",
+      "title": "ШЛЕМ ОСВЕДОМЛЁННОСТИ",
+      "sourceId": "117",
+      "effect": {
+        "initiative": "advantage",
+        "surpriseProtection": {
+          "unless": "incapacitated"
+        },
+        "requires": "worn"
+      },
+      "evidenceTextSha256": "03a6c95a734e3519daa5bfb06c878ffc38a0fdb1da9a2353fd41c21993e233c4",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:b822a76d1032496bc6c4",
+      "title": "КОПИЯ МАГИЧЕСКОГО ПРЕДМЕТА",
+      "sourceId": "117",
+      "effect": {
+        "referencedEvidence": "catalog/dndsu-replicate-item-options.json",
+        "mode": "options-not-complete-effects"
+      },
+      "evidenceTextSha256": "acebf587070e5ca1254f52a2e0ff7d174b29e9a2868096def6dbd43a5e1de8b8",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    },
+    {
+      "choiceObservationId": "scope-choice:b6f4c17f72279d8f5e54",
+      "title": "СЛУГА-ГОМУНКУЛ",
+      "sourceId": "117",
+      "effect": {
+        "referencedEvidence": "catalog/dndsu-companion-statblocks.json",
+        "creaturePageId": "dndsu:bestiary:3987",
+        "mode": "companion-not-complete-effects"
+      },
+      "evidenceTextSha256": "dcae0278e7e8433f94db9e214db0afcd37f873a64828dde68c1b0c2d32e4a42a",
+      "approval": "awaiting-independent-game-design-review",
+      "fullRules": "unverified",
+      "automation": "not-applied",
+      "pending": [
+        "complete-conditions-and-item-interactions",
+        "resource-command-semantics",
+        "independent-review"
+      ]
+    }
+  ]
+}

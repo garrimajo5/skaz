@@ -1,0 +1,9 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {bundledCatalog} from '../server/bundled-catalog.mjs';import {validateCatalog} from '../server/catalog.mjs';import {validateMaterialProposal} from '../scripts/spell-materials-contract.mjs';import {spellMaterialReferences} from '../server/spell-material-references.mjs';
+const catalog=validateCatalog(bundledCatalog().bundle),proposal=JSON.parse(fs.readFileSync(new URL('../catalog/spell-materials.proposal.json',import.meta.url))),candidate={...proposal,entries:proposal.entries.filter(e=>["Fire Shield","Freedom of Movement","Hallucinatory Terrain","Ice Storm","Locate Creature","Polymorph","Private Sanctum","Resilient Sphere","Secret Chest","Stone Shape","Wall of Fire"].includes(e.name.en))};
+test('fourth-circle-rest accepted materials are active and exclude personal variants',()=>{assert.equal(validateMaterialProposal(proposal,catalog).reviewed,184);const entries=catalog.filter(e=>candidate.entries.some(r=>r.id===e.id));assert.equal(entries.length,11);assert.equal(spellMaterialReferences(entries).length,11);assert.deepEqual(spellMaterialReferences(entries.map(e=>({...e,text:e.text+' Personal'}))),[]);});
+
+test('chest and replica have separate reusable costs; preparation and alternatives remain explicit',()=>{
+ const row=n=>candidate.entries.find(e=>e.name.en===n).materials;assert.match(row('Secret Chest').price.text,/5000.*50/);assert.equal(row('Secret Chest').consumption.kind,'retained');assert.match(row('Secret Chest').note,/безвозвратно теряется/);
+ assert.match(row('Stone Shape').description,/вылепленная/);assert.match(row('Freedom of Movement').description,/повязанный/);
+ assert.match(row('Fire Shield').description,/или светлячок/);assert.doesNotMatch(row('Wall of Fire').description,/светлячок/);assert.match(row('Private Sanctum').note,/альтернативы только одного/);
+});

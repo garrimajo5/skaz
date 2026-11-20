@@ -1,0 +1,2879 @@
+{
+  "schemaVersion": 1,
+  "status": "public-index-candidates-not-missing-runtime-records",
+  "sourceId": "132",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "digitalRows": 105,
+    "blankChallengeRatingRows": 22,
+    "distinctDigitalNames": 105,
+    "displayedOwnSourceRows": 85,
+    "displayedReferenceRows": 20,
+    "rowsWithoutObservedName": 16,
+    "originalSourceBestiaryObservations": 94,
+    "originalSourceBestiaryWithNameCandidate": 69
+  },
+  "originalSourceBestiaryWithoutNameCandidate": [
+    "dndsu:bestiary:6044",
+    "dndsu:bestiary:7696",
+    "dndsu:bestiary:7697",
+    "dndsu:bestiary:7699",
+    "dndsu:bestiary:7700",
+    "dndsu:bestiary:7706",
+    "dndsu:bestiary:7709",
+    "dndsu:bestiary:7710",
+    "dndsu:bestiary:7711",
+    "dndsu:bestiary:7712",
+    "dndsu:bestiary:7713",
+    "dndsu:bestiary:7715",
+    "dndsu:bestiary:7718",
+    "dndsu:bestiary:7719",
+    "dndsu:bestiary:7722",
+    "dndsu:bestiary:7726",
+    "dndsu:bestiary:7727",
+    "dndsu:bestiary:7731",
+    "dndsu:bestiary:7735",
+    "dndsu:bestiary:7743",
+    "dndsu:bestiary:7748",
+    "dndsu:bestiary:7758",
+    "dndsu:bestiary:7759",
+    "dndsu:bestiary:7762",
+    "dndsu:bestiary:7763"
+  ],
+  "records": [
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Aarakocra",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17100-aarakocra",
+      "challengeRating": "1/4",
+      "type": "Humanoid (aarakocra)",
+      "size": "Medium",
+      "alignment": "Neutral Good",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:30",
+          "observedName": "Aarakocra",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Aarakocra Simulacrum",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300122-aarakocra-simulacrum",
+      "challengeRating": "1/8",
+      "type": "Humanoid (aarakocra)",
+      "size": "Medium",
+      "alignment": "Neutral Good",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7756",
+          "observedName": "Aarakocra Simulacrum",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Abominable Yeti",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17105-abominable-yeti",
+      "challengeRating": "9",
+      "type": "Monstrosity",
+      "size": "Huge",
+      "alignment": "Chaotic Evil",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:316",
+          "observedName": "Abominable yeti",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Augrek Brighthelm",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27564-augrek-brighthelm",
+      "challengeRating": "",
+      "type": "Humanoid (dwarf)",
+      "size": "Medium",
+      "alignment": "Lawful Good",
+      "indexPage": 1,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7780",
+          "observedName": "Augrek Brighthelm",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Axe of Mirabar Veteran",
+      "cardUrl": "https://www.dndbeyond.com/monsters/297941-axe-of-mirabar-veteran",
+      "challengeRating": "3",
+      "type": "Humanoid (dwarf)",
+      "size": "Medium",
+      "alignment": "Any Alignment",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Beldora",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27575-beldora",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Chaotic Good",
+      "indexPage": 1,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7769",
+          "observedName": "Beldora",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Black Earth Cultist",
+      "cardUrl": "https://www.dndbeyond.com/monsters/297972-black-earth-cultist",
+      "challengeRating": "2",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Neutral Evil",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Cambion",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17137-cambion",
+      "challengeRating": "5",
+      "type": "Fiend",
+      "size": "Medium",
+      "alignment": "Any Evil Alignment",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:50",
+          "observedName": "Cambion",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Chief Guh",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299589-chief-guh",
+      "challengeRating": "5",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Chaotic Evil",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7739",
+          "observedName": "Guh",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Title added to observed personal name; candidate only."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Chief Kartha-Kaya",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299887-chief-kartha-kaya",
+      "challengeRating": "4",
+      "type": "Monstrosity",
+      "size": "Large",
+      "alignment": "Neutral Evil",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7749",
+          "observedName": "Chief Kartha-Kaya",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Cinderhild",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299961-cinderhild",
+      "challengeRating": "2",
+      "type": "Giant",
+      "size": "Large",
+      "alignment": "Lawful Evil",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7752",
+          "observedName": "Cinderhild",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Claugiyliamatar",
+      "cardUrl": "https://www.dndbeyond.com/monsters/297838-claugiyliamatar",
+      "challengeRating": "22",
+      "type": "Dragon",
+      "size": "Gargantuan",
+      "alignment": "Lawful Evil",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5607",
+          "observedName": "Claugiyliamatar",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Cloud Giant (variant)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/324263-cloud-giant-variant",
+      "challengeRating": "9",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Neutral",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Cloud Giant Child",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300476-cloud-giant-child",
+      "challengeRating": "0",
+      "type": "Giant",
+      "size": "Medium",
+      "alignment": "Neutral",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Count Thullen",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300477-count-thullen",
+      "challengeRating": "10",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Neutral Good",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7760",
+          "observedName": "Count Thullen",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Countess Sansuri",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300128-countess-sansuri",
+      "challengeRating": "11",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Neutral Evil",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5618",
+          "observedName": "Countess Sansuri",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Crag Cat",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17348-crag-cat",
+      "challengeRating": "1",
+      "type": "Monstrosity",
+      "size": "Large",
+      "alignment": "Unaligned",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5477",
+          "observedName": "Crag Cat",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Cressaro",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300475-cressaro",
+      "challengeRating": "9",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Neutral Evil",
+      "indexPage": 1,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7757",
+          "observedName": "Cressaro",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Darathra Shendrel",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27597-darathra-shendrel",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Lawful Good",
+      "indexPage": 1,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7771",
+          "observedName": "Darathra Shendrel",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Darz Helgar",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27602-darz-helgar",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Neutral",
+      "indexPage": 1,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7772",
+          "observedName": "Darz Helgar",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Drow Elite Warrior",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17134-drow-elite-warrior",
+      "challengeRating": "5",
+      "type": "Humanoid",
+      "size": "Medium",
+      "alignment": "Neutral Evil",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:146",
+          "observedName": "Drow elite warrior",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Drow Mage",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17135-drow-mage",
+      "challengeRating": "7",
+      "type": "Humanoid (elf)",
+      "size": "Medium",
+      "alignment": "Neutral Evil",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:147",
+          "observedName": "Drow mage",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Duchess Brimskarda",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300034-duchess-brimskarda",
+      "challengeRating": "9",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Lawful Evil",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7755",
+          "observedName": "Brimskarda",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Title added to observed personal name; candidate only."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Duke Zalto",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299969-duke-zalto",
+      "challengeRating": "9",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Lawful Evil",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7753",
+          "observedName": "Duke Zalto",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Duvessa Shane",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27573-duvessa-shane",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Lawful Good",
+      "indexPage": 2,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7773",
+          "observedName": "Duvessa Shane",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Eigeron’s Spirit",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299573-eigerons-spirit",
+      "challengeRating": "4",
+      "type": "Undead",
+      "size": "Huge",
+      "alignment": "Neutral Good",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7738",
+          "observedName": "Eigeron's Ghost",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Possessive name matches, but Spirit/Ghost differ; not an asserted canonical alias."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Elister Noggins",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299663-elister-noggins",
+      "challengeRating": "2",
+      "type": "Humanoid (gnome)",
+      "size": "Small",
+      "alignment": "Chaotic Neutral",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7747",
+          "observedName": "Elister",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Surname extends observed first name; candidate only."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Felbarren Dwarf",
+      "cardUrl": "https://www.dndbeyond.com/monsters/297788-felbarren-dwarf",
+      "challengeRating": "1/8",
+      "type": "Humanoid (dwarf)",
+      "size": "Medium",
+      "alignment": "Lawful Good",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7717",
+          "observedName": "Felbarren Dwarf",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Fire Giant (variant)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/324266-fire-giant-variant",
+      "challengeRating": "9",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Lawful Evil",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Frost Giant (variant)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/324275-frost-giant-variant",
+      "challengeRating": "8",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Neutral Evil",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Ghelryn Foehammer",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27618-ghelryn-foehammer",
+      "challengeRating": "",
+      "type": "Humanoid (dwarf)",
+      "size": "Medium",
+      "alignment": "Lawful Good",
+      "indexPage": 2,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7770",
+          "observedName": "Ghelryn Foehammer",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Goblin Boss",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17155-goblin-boss",
+      "challengeRating": "1",
+      "type": "Humanoid (goblinoid)",
+      "size": "Small",
+      "alignment": "Neutral Evil",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:182",
+          "observedName": "Goblin boss",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Great Chief Halric Bonesnapper",
+      "cardUrl": "https://www.dndbeyond.com/monsters/297816-great-chief-halric-bonesnapper",
+      "challengeRating": "2",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Chaotic Evil",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7721",
+          "observedName": "Great Chief Halric Bonesnapper",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Harshnag the Grim",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299155-harshnag-the-grim",
+      "challengeRating": "9",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Chaotic Good",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7732",
+          "observedName": "Harshnag the Grim",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Helmed Horror",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17159-helmed-horror",
+      "challengeRating": "4",
+      "type": "Construct",
+      "size": "Medium",
+      "alignment": "Neutral",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:198",
+          "observedName": "Helmed horror",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Hill Giant (variant)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/324280-hill-giant-variant",
+      "challengeRating": "5",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Chaotic Evil",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Hobgoblin Warlord",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17161-hobgoblin-warlord",
+      "challengeRating": "6",
+      "type": "Humanoid (goblinoid)",
+      "size": "Medium",
+      "alignment": "Lawful Evil",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:201",
+          "observedName": "Hobgoblin warlord",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Hulking Crab",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17349-hulking-crab",
+      "challengeRating": "5",
+      "type": "Beast",
+      "size": "Huge",
+      "alignment": "Unaligned",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Ice Spider",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299567-ice-spider",
+      "challengeRating": "1",
+      "type": "Beast",
+      "size": "Large",
+      "alignment": "Unaligned",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7734",
+          "observedName": "Ice Spider",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Ice Spider Queen",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299571-ice-spider-queen",
+      "challengeRating": "2",
+      "type": "Beast",
+      "size": "Large",
+      "alignment": "Unaligned",
+      "indexPage": 2,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7736",
+          "observedName": "Ice Spider Queen",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Imperator Uthor",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300501-imperator-uthor",
+      "challengeRating": "13",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Chaotic Good",
+      "indexPage": 3,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7765",
+          "observedName": "Uthor",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Title added to observed personal name; candidate only."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Iymrith",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17350-iymrith",
+      "challengeRating": "23",
+      "type": "Dragon",
+      "size": "Gargantuan",
+      "alignment": "Lawful Evil",
+      "indexPage": 3,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5601",
+          "observedName": "Iymrith",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Jarl Storvald",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299704-jarl-storvald",
+      "challengeRating": "8",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Neutral Evil",
+      "indexPage": 3,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5619",
+          "observedName": "Jarl Storvald",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Jasper Dimmerchasm",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299996-jasper-dimmerchasm",
+      "challengeRating": "3",
+      "type": "Humanoid (dwarf)",
+      "size": "Medium",
+      "alignment": "Neutral Evil",
+      "indexPage": 3,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7754",
+          "observedName": "Jasper Dimmerchasm",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Kayalithica",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299648-kayalithica",
+      "challengeRating": "7",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Neutral Evil",
+      "indexPage": 3,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7744",
+          "observedName": "Kayalithica",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "King Hekaton",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300563-king-hekaton",
+      "challengeRating": "13",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Chaotic Good",
+      "indexPage": 3,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7768",
+          "observedName": "King Hekaton",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Klauth",
+      "cardUrl": "https://www.dndbeyond.com/monsters/297832-klauth",
+      "challengeRating": "25",
+      "type": "Dragon",
+      "size": "Gargantuan",
+      "alignment": "Chaotic Evil",
+      "indexPage": 3,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5604",
+          "observedName": "Klauth",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Knight of the Mithral Shield",
+      "cardUrl": "https://www.dndbeyond.com/monsters/297773-knight-of-the-mithral-shield",
+      "challengeRating": "3",
+      "type": "Humanoid (dwarf)",
+      "size": "Medium",
+      "alignment": "Lawful Good",
+      "indexPage": 3,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7716",
+          "observedName": "Knight of the Mithral Shield",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Lifferlas",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27583-lifferlas",
+      "challengeRating": "",
+      "type": "Plant",
+      "size": "Huge",
+      "alignment": "Unaligned",
+      "indexPage": 3,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7774",
+          "observedName": "Lifferlas",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Lord Khaspere Drylund",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300551-lord-khaspere-drylund",
+      "challengeRating": "1/8",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Neutral Evil",
+      "indexPage": 3,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7766",
+          "observedName": "Lord Drylund",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Given name extends observed title/surname; candidate only."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Maegera the Dawn Titan",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17351-maegera-the-dawn-titan",
+      "challengeRating": "23",
+      "type": "Elemental",
+      "size": "Gargantuan",
+      "alignment": "Chaotic Neutral",
+      "indexPage": 3,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5605",
+          "observedName": "Maegera the Dawn Titan",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Markham Southwell",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27574-markham-southwell",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Lawful Good",
+      "indexPage": 3,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7775",
+          "observedName": "Markham Southwell",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Miros Xelbrin",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27588-miros-xelbrin",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Neutral Good",
+      "indexPage": 3,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7776",
+          "observedName": "Miros Xelbrin",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Narth Tezrin",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27610-narth-tezrin",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Chaotic Good",
+      "indexPage": 3,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7778",
+          "observedName": "Narth Tezrin",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Naxene Drathkala",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27594-naxene-drathkala",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Neutral Good",
+      "indexPage": 3,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7777",
+          "observedName": "Naxene Drathkala",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Nimir",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27632-nimir",
+      "challengeRating": "",
+      "type": "Giant (storm giant)",
+      "size": "Huge",
+      "alignment": "Lawful Good",
+      "indexPage": 3,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Orc Eye of Gruumsh",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17188-orc-eye-of-gruumsh",
+      "challengeRating": "2",
+      "type": "Humanoid (orc)",
+      "size": "Medium",
+      "alignment": "Chaotic Evil",
+      "indexPage": 3,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:259",
+          "observedName": "Orc eye of Gruumsh",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Orc War Chief",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17187-orc-war-chief",
+      "challengeRating": "4",
+      "type": "Humanoid (orc)",
+      "size": "Medium",
+      "alignment": "Chaotic Evil",
+      "indexPage": 3,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:258",
+          "observedName": "Orc war chief",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Oren Yogilvy",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27595-oren-yogilvy",
+      "challengeRating": "",
+      "type": "Humanoid (halfling)",
+      "size": "Small",
+      "alignment": "Chaotic Good",
+      "indexPage": 3,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7781",
+          "observedName": "Oren Yogilvy",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Orlekto",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27634-orlekto",
+      "challengeRating": "",
+      "type": "Giant (storm giant)",
+      "size": "Huge",
+      "alignment": "Chaotic Evil",
+      "indexPage": 3,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Orog",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17189-orog",
+      "challengeRating": "2",
+      "type": "Humanoid (orc)",
+      "size": "Medium",
+      "alignment": "Chaotic Evil",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:260",
+          "observedName": "Orog",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Orok",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299121-orok",
+      "challengeRating": "1/8",
+      "type": "Humanoid (human)",
+      "size": "Small",
+      "alignment": "Chaotic Neutral",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7730",
+          "observedName": "Orok",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Othovir",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27616-othovir",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Lawful Neutral",
+      "indexPage": 4,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7782",
+          "observedName": "Othovir",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Piercer",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17191-piercer",
+      "challengeRating": "1/2",
+      "type": "Monstrosity",
+      "size": "Medium",
+      "alignment": "Unaligned",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:264",
+          "observedName": "Piercer",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Pig",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299623-pig",
+      "challengeRating": "0",
+      "type": "Beast",
+      "size": "Medium",
+      "alignment": "Unaligned",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7741",
+          "observedName": "Pig",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Pow Ming",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300554-pow-ming",
+      "challengeRating": "6",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Neutral",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7767",
+          "observedName": "Pow Ming",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Princess Serissa",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300498-princess-serissa",
+      "challengeRating": "13",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Chaotic Good",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7764",
+          "observedName": "Serissa",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Title added to observed personal name; candidate only."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Purple Wormling",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17352-purple-wormling",
+      "challengeRating": "2",
+      "type": "Monstrosity",
+      "size": "Large",
+      "alignment": "Unaligned",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:1018",
+          "observedName": "Purple Wormling",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Sea Elf",
+      "cardUrl": "https://www.dndbeyond.com/monsters/297749-sea-elf",
+      "challengeRating": "1/8",
+      "type": "Humanoid (elf)",
+      "size": "Medium",
+      "alignment": "Chaotic Good",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7714",
+          "observedName": "Sea elf",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Shadow Demon",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17131-shadow-demon",
+      "challengeRating": "4",
+      "type": "Fiend (demon)",
+      "size": "Medium",
+      "alignment": "Chaotic Evil",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:74",
+          "observedName": "Shadow demon",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Shaldoor",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27705-shaldoor",
+      "challengeRating": "",
+      "type": "Giant (storm giant)",
+      "size": "Huge",
+      "alignment": "Chaotic Good",
+      "indexPage": 4,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Shalvus Martholio",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27581-shalvus-martholio",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Neutral",
+      "indexPage": 4,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7787",
+          "observedName": "Shalvus Martholio",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Sheep",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299616-sheep",
+      "challengeRating": "0",
+      "type": "Beast",
+      "size": "Small",
+      "alignment": "Unaligned",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7740",
+          "observedName": "Sheep",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Shield Dwarf",
+      "cardUrl": "https://www.dndbeyond.com/monsters/296856-shield-dwarf",
+      "challengeRating": "3",
+      "type": "Humanoid (dwarf)",
+      "size": "Medium",
+      "alignment": "Lawful Good",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Sir Baric Nylef",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27577-sir-baric-nylef",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Lawful Good",
+      "indexPage": 4,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7784",
+          "observedName": "Sir Baric Nylef",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Sirac of Suzail",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27570-sirac-of-suzail",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Lawful Good",
+      "indexPage": 4,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7783",
+          "observedName": "Sirac of Suzail",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Slarkrethel",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300568-slarkrethel",
+      "challengeRating": "25",
+      "type": "Monstrosity (titan)",
+      "size": "Gargantuan",
+      "alignment": "Chaotic Evil",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5600",
+          "observedName": "Slarkrethel",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Smoke Mephit",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17174-smoke-mephit",
+      "challengeRating": "1/4",
+      "type": "Elemental",
+      "size": "Small",
+      "alignment": "Neutral Evil",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:232",
+          "observedName": "Smoke mephit",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Stone Giant (variant)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/324283-stone-giant-variant",
+      "challengeRating": "7",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Neutral",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Stone Giant of Deadstone Cleft",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299644-stone-giant-of-deadstone-cleft",
+      "challengeRating": "7",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Neutral",
+      "indexPage": 4,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7742",
+          "observedName": "Deadstone Cleft Stone Giant",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Word order differs in location-specific name; candidate only."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Stone Giant Statue",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299564-stone-giant-statue",
+      "challengeRating": "0",
+      "type": "Construct",
+      "size": "Huge",
+      "alignment": "Unaligned",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7733",
+          "observedName": "Stone giant statue",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Storm Giant (Variant)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/324286-storm-giant-variant",
+      "challengeRating": "13",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Chaotic Good",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Storm Giant Princess",
+      "cardUrl": "https://www.dndbeyond.com/monsters/300491-storm-giant-princess",
+      "challengeRating": "13",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Neutral Evil",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Thunderbeast Skeleton",
+      "cardUrl": "https://www.dndbeyond.com/monsters/297946-thunderbeast-skeleton",
+      "challengeRating": "3",
+      "type": "Undead",
+      "size": "Huge",
+      "alignment": "Unaligned",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7724",
+          "observedName": "Thunderbeast Skeleton",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Tressym",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17353-tressym",
+      "challengeRating": "0",
+      "type": "Monstrosity",
+      "size": "Tiny",
+      "alignment": "Any Alignment",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:6402",
+          "observedName": "Tressym",
+          "originalSourceIds": [
+            "126",
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Turlang",
+      "cardUrl": "https://www.dndbeyond.com/monsters/297989-turlang",
+      "challengeRating": "9",
+      "type": "Plant",
+      "size": "Huge",
+      "alignment": "Chaotic Good",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5615",
+          "observedName": "Turlang",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Urgala Meltimer",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27612-urgala-meltimer",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Lawful Good",
+      "indexPage": 5,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7785",
+          "observedName": "Urgala Meltimer",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Uthgardt Leader",
+      "cardUrl": "https://www.dndbeyond.com/monsters/297807-uthgardt-leader",
+      "challengeRating": "2",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Chaotic Neutral",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7720",
+          "observedName": "Uthgardt Barbarian Leader",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Digital name omits Barbarian; identity and full rules remain unverified."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Uthgardt Shaman",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17354-uthgardt-shaman",
+      "challengeRating": "2",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Neutral Evil",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5606",
+          "observedName": "Uthgardt shaman",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Vaasha",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27706-vaasha",
+      "challengeRating": "",
+      "type": "Giant (storm giant)",
+      "size": "Huge",
+      "alignment": "Neutral Good",
+      "indexPage": 5,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [],
+      "status": "no-observed-name-needs-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Wiri Fleagol",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299907-wiri-fleagol",
+      "challengeRating": "0",
+      "type": "Humanoid (gnome)",
+      "size": "Medium",
+      "alignment": "Chaotic Good",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7750",
+          "observedName": "Wiri Fleagol",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Wood Elf Scout",
+      "cardUrl": "https://www.dndbeyond.com/monsters/297745-wood-elf-scout",
+      "challengeRating": "1/2",
+      "type": "Humanoid (elf)",
+      "size": "Medium",
+      "alignment": "Chaotic Good",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7698",
+          "observedName": "Wood Elf Scout",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Worvil “the Weevil” Forkbeard",
+      "cardUrl": "https://www.dndbeyond.com/monsters/298099-worvil-the-weevil-forkbeard",
+      "challengeRating": "2",
+      "type": "Humanoid (dwarf)",
+      "size": "Medium",
+      "alignment": "Neutral Evil",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7729",
+          "observedName": "Weevil",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Observed nickname is embedded in full digital name; candidate only."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Yakfolk Priest",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17356-yakfolk-priest",
+      "challengeRating": "4",
+      "type": "Monstrosity",
+      "size": "Large",
+      "alignment": "Typically Neutral Evil",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5614",
+          "observedName": "Yakfolk priest",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Yakfolk Warrior",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17355-yakfolk-warrior",
+      "challengeRating": "3",
+      "type": "Monstrosity",
+      "size": "Large",
+      "alignment": "Typically Neutral Evil",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5613",
+          "observedName": "Yakfolk warrior",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Young Cloud Giant",
+      "cardUrl": "https://www.dndbeyond.com/monsters/298066-young-cloud-giant",
+      "challengeRating": "5",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Neutral Good",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7728",
+          "observedName": "Young Cloud Giant",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Young Remorhaz",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17195-young-remorhaz",
+      "challengeRating": "5",
+      "type": "Monstrosity",
+      "size": "Large",
+      "alignment": "Unaligned",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:270",
+          "observedName": "Young remorhaz",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Yuan-ti Malison",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17122-yuan-ti-malison",
+      "challengeRating": "3",
+      "type": "Monstrosity (shapechanger, yuan-ti)",
+      "size": "Medium",
+      "alignment": "Neutral Evil",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:318",
+          "observedName": "Yuan-ti malison",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Yuan-ti Malison (Type 1)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/301418-yuan-ti-malison-type-1",
+      "challengeRating": "3",
+      "type": "Monstrosity (shapechanger, yuan-ti)",
+      "size": "Medium",
+      "alignment": "Neutral Evil",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5651",
+          "observedName": "Yuan-ti malison (Type 1)",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Yuan-ti Malison (Type 2)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/301421-yuan-ti-malison-type-2",
+      "challengeRating": "3",
+      "type": "Monstrosity (shapechanger, yuan-ti)",
+      "size": "Medium",
+      "alignment": "Neutral Evil",
+      "indexPage": 5,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5652",
+          "observedName": "Yuan-ti malison (Type 2)",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Yuan-ti Malison (Type 3)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/301425-yuan-ti-malison-type-3",
+      "challengeRating": "3",
+      "type": "Monstrosity (shapechanger, yuan-ti)",
+      "size": "Medium",
+      "alignment": "Neutral Evil",
+      "indexPage": 6,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5653",
+          "observedName": "Yuan-ti malison (Type 3)",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Monster Manual (2014)",
+      "digitalName": "Yuan-ti Pureblood",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17123-yuan-ti-pureblood",
+      "challengeRating": "1",
+      "type": "Humanoid (yuan-ti)",
+      "size": "Medium",
+      "alignment": "Neutral Evil",
+      "indexPage": 6,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-reference-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:319",
+          "observedName": "Yuan-ti pureblood",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Zaltember",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299915-zaltember",
+      "challengeRating": "1",
+      "type": "Giant",
+      "size": "Large",
+      "alignment": "Lawful Evil",
+      "indexPage": 6,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7751",
+          "observedName": "Zaltember",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Zephyros",
+      "cardUrl": "https://www.dndbeyond.com/monsters/296828-zephyros",
+      "challengeRating": "13",
+      "type": "Giant",
+      "size": "Huge",
+      "alignment": "Neutral Good",
+      "indexPage": 6,
+      "challengeRatingStatus": "shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5599",
+          "observedName": "Zephyros",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    },
+    {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Zi Liang",
+      "cardUrl": "https://www.dndbeyond.com/monsters/27585-zi-liang",
+      "challengeRating": "",
+      "type": "Humanoid (human)",
+      "size": "Medium",
+      "alignment": "Chaotic Good",
+      "indexPage": 6,
+      "challengeRatingStatus": "not-shown",
+      "scopeKind": "displayed-own-source",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7786",
+          "observedName": "Zi Liang",
+          "originalSourceIds": [
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "status": "name-candidate-needs-identity-review",
+      "canonicalId": null,
+      "accepted": false,
+      "fullRules": "unverified",
+      "exactTextVersion": "unverified",
+      "automaticSourceReplacement": false
+    }
+  ],
+  "inputSha256": {
+    "catalog/skt-public-index-2014.json": "da621b84e94b2cd75eafa19a0509b11458bbb01668f463a8b974259c63204b06",
+    "catalog/scope-register-2014.json": "d16b65c44f622b70f685aa391687375df13e627267367b50a58d0bd3307e25dd"
+  }
+}

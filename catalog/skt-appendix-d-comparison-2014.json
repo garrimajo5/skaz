@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "status": "selected-appendix-d-comparison-not-full-version-acceptance",
+  "checkedOn": "2026-11-19",
+  "accepted": false,
+  "fullRulesVerified": false,
+  "automaticPatch": false,
+  "primaryEvidence": {
+    "url": "https://media.wizards.com/2020/dnd/downloads/SKT-Errata.pdf",
+    "version": "2.0; copyright2021",
+    "sha256": "7be9a8709571785f9db1bec87a921afcac11712e9f8a85009f3c1229c983c61d",
+    "publisher": "Wizards of the Coast",
+    "reusePermission": "not-established"
+  },
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:7777",
+      "observedName": "Naxene Drathkala",
+      "sourceIds": [
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/7777-naxene-drathkala/",
+      "primaryActionId": "wotc:skt:errata2:page252:spellcasting",
+      "primaryLocator": {
+        "pdfPage": 4,
+        "bookPage": 252
+      },
+      "selectedMatches": [
+        "ability",
+        "saveDc",
+        "spellAttackBonus",
+        "actionPlacement",
+        "frequencyLabels",
+        "spellNames",
+        "fireBoltDamageOverride"
+      ],
+      "extraSecondaryClaims": [
+        {
+          "field": "casterLevel",
+          "observed": 6,
+          "primary": null
+        },
+        {
+          "field": "wizardPreparedSpellModel",
+          "observed": "stated",
+          "primary": null
+        }
+      ],
+      "nullMeans": "not stated in replacement action; not automatically disproven elsewhere",
+      "fullStatBlockCompared": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    },
+    {
+      "observationId": "dndsu:bestiary:7782",
+      "observedName": "Othovir",
+      "sourceIds": [
+        "132"
+      ],
+      "secondaryUrl": "https://dnd.su/bestiary/7782-othovir/",
+      "primaryActionId": "wotc:skt:errata2:page255:spellcasting",
+      "primaryLocator": {
+        "pdfPage": 4,
+        "bookPage": 255
+      },
+      "selectedMatches": [
+        "ability",
+        "saveDc",
+        "spellAttackBonus",
+        "actionPlacement",
+        "frequencyLabels",
+        "spellNames",
+        "fireBoltDamageOverride"
+      ],
+      "extraSecondaryClaims": [
+        {
+          "field": "sorcererPreparedSpellModel",
+          "observed": "stated",
+          "primary": null
+        }
+      ],
+      "nullMeans": "not stated in replacement action; not automatically disproven elsewhere",
+      "fullStatBlockCompared": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticPatch": false
+    }
+  ],
+  "limits": [
+    "The primary errata replaces this casting block but does not reproduce every other character rule.",
+    "Do not infer wizard/sorcerer preparation, slots, or cantrip scaling from secondary introductory labels.",
+    "Fire bolt has an explicit local1d10 fire override in both actions; do not upgrade it to2d10 from an inferred level6.",
+    "Storm Giant appendixD256 remains a separate primary context from MonsterManual observation172."
+  ],
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "d16b65c44f622b70f685aa391687375df13e627267367b50a58d0bd3307e25dd",
+    "catalog/skt-spellcasting-action-evidence-2014.json": "916d29eb1ed83d722f6d7ebe236680800f7a32c9d80d079490bea0159d7c5635"
+  }
+}

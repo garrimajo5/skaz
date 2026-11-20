@@ -78,3 +78,29 @@ dialog:has(#spell-inventory){max-width:760px}
 
 /* Short landscape screens need the content height; keep 44px touch targets. */
 @media(max-height:500px){.catalog-reader-nav{position:static}.catalog-reader-nav::before{display:none}.catalog-reader-nav~h2,.catalog-reader-nav~h3,.catalog-related h3{scroll-margin-top:16px}}
+
+/* Reference cards prototype; existing reader and search remain authoritative. */
+.catalog-layout{display:flex;gap:8px;margin:16px 0}.catalog-layout button{min-height:44px}.catalog-layout button[aria-pressed="true"]{background:var(--accent);color:var(--ink)}.catalog-view-list{grid-template-columns:1fr}
+.catalog-tile{min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-m);overflow:hidden}
+.catalog-tile-open{display:flex;flex-direction:column;gap:16px;width:100%;height:100%;text-align:left;white-space:normal;padding:18px;background:transparent;border:0;color:var(--text);border-radius:var(--radius-m);overflow-wrap:anywhere}
+.catalog-tile-open:hover{background:var(--raised)}.catalog-tile-open:focus-visible{outline:3px solid var(--accent);outline-offset:-4px}
+.catalog-tile-heading{display:flex;flex-wrap:wrap;align-items:center;gap:16px;width:100%;min-width:0}.catalog-tile-heading>span:last-child{min-width:0;flex:1 1 180px}.catalog-tile-heading strong{display:block;font-family:Georgia,serif;font-size:23px;line-height:1.2}.catalog-tile-heading small{display:block;color:var(--muted);font-size:12px;margin-top:5px}.catalog-tile-school{display:block;font-size:13px;color:var(--muted);margin-top:10px}
+.catalog-tile-heading .skaz-art{float:none;margin:0;width:112px;height:112px;flex:0 0 112px}.catalog-tile-heading .skaz-art img{width:100%;height:100%;object-fit:contain}
+.catalog-tile-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;border-top:1px solid var(--line);padding-top:14px}.catalog-tile-fact small{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}.catalog-tile-fact>span{font-size:15px;line-height:1.4}
+.catalog-tile-tags{display:flex;flex-wrap:wrap;gap:8px}.catalog-tile-tags:empty{display:none}.catalog-tile-tags>span{font-size:12px;border:1px solid var(--line);border-radius:var(--radius-s);padding:5px 8px}.catalog-tile-read{margin-top:auto;color:var(--accent);font-size:13px;padding-top:4px}
+@media(max-width:650px){.catalog-tile-heading .skaz-art{width:88px;height:88px;flex-basis:88px}.catalog-tile-heading strong{font-size:21px}.catalog-tile-open{padding:16px}}
+
+.catalog-tile-effect{font-size:14px;line-height:1.5;color:var(--text)}
+.catalog .catalog-grid.catalog-view-cards{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}.catalog .catalog-view-list{grid-template-columns:1fr}
+
+/* Spell identity and personal state stay distinct from reference facts. */
+.catalog-tile-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;width:100%}
+.catalog-tile-level{font-size:14px;font-weight:700;color:var(--accent);border:1px solid var(--line);border-radius:var(--radius-s);padding:6px 10px}
+.catalog-tile-owned{font-size:13px;font-weight:600;color:var(--text);background:var(--raised);border-radius:var(--radius-s);padding:6px 10px}
+.catalog-tile-components,.catalog-book-note{font-size:13px;line-height:1.5;color:var(--muted)}
+.catalog-tile-components{border-top:1px solid var(--line);padding-top:10px}
+
+/* Match the sticky 56px header in the large landscape shell (quick.css). */
+@media(min-width:1000px) and (min-height:600px) and (orientation:landscape){#catalog-result-heading{scroll-margin-top:76px}}
+
+.catalog-tile-fact-material{grid-column:1/-1}.catalog-material-details{margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:var(--radius-s);overflow-wrap:anywhere}.catalog-material-details h3{scroll-margin-top:204px}.catalog-material-details p,.catalog-material-details .catalog-meta{font-size:14px;line-height:1.6}

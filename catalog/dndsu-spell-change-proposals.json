@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 1,
+  "status": "partial-spell-change-policy-proposals",
+  "summary": {
+    "policies": 10,
+    "classLevelReplacement": 4,
+    "longRestPreparation": 5,
+    "optionalCantripReplacement": 1
+  },
+  "records": [
+    {
+      "featureId": "scope:bard:class-features:feature.spellcasting",
+      "classUrl": "https://dnd.su/class/88-bard/",
+      "classKey": "bard",
+      "featureTitle": "ИСПОЛЬЗОВАНИЕ ЗАКЛИНАНИЙ",
+      "sourceIds": [
+        "102"
+      ],
+      "continuationContext": null,
+      "policy": "replace-one-known-on-class-level",
+      "trigger": "gain-level-in-this-class",
+      "optionalFeature": false,
+      "selection": "at-most-one-replacement",
+      "resource": "known-spells",
+      "spellList": "bard",
+      "requiresSpellbook": false,
+      "selectionPool": "class-spell-list",
+      "preparationMinutesPerSpellLevel": null,
+      "evidenceTextSha256": "17fd19132259c5c67477847abf4da541536da4261ed57e1cc2bde899d7d93d74",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "approval": "awaiting-independent-game-design-review",
+      "pending": [
+        "eligibility-and-available-spell-levels",
+        "multiclass-rules",
+        "subclass-grants-and-exceptions",
+        "complete-conditions"
+      ]
+    },
+    {
+      "featureId": "scope:ranger:class-features:feature.spellcasting",
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "classKey": "ranger",
+      "featureTitle": "Использование заклинаний",
+      "sourceIds": [
+        "102"
+      ],
+      "continuationContext": null,
+      "policy": "replace-one-known-on-class-level",
+      "trigger": "gain-level-in-this-class",
+      "optionalFeature": false,
+      "selection": "at-most-one-replacement",
+      "resource": "known-spells",
+      "spellList": "ranger",
+      "requiresSpellbook": false,
+      "selectionPool": "class-spell-list",
+      "preparationMinutesPerSpellLevel": null,
+      "evidenceTextSha256": "a84e18e427c356acdbacfcc9546c4169f36c3686f85cdf75b486d6390cdc432a",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "approval": "awaiting-independent-game-design-review",
+      "pending": [
+        "eligibility-and-available-spell-levels",
+        "multiclass-rules",
+        "subclass-grants-and-exceptions",
+        "complete-conditions"
+      ]
+    },
+    {
+      "featureId": "scope:sorcerer:class-features:feature.spellcasting",
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "classKey": "sorcerer",
+      "featureTitle": "Использование заклинаний",
+      "sourceIds": [
+        "102"
+      ],
+      "continuationContext": null,
+      "policy": "replace-one-known-on-class-level",
+      "trigger": "gain-level-in-this-class",
+      "optionalFeature": false,
+      "selection": "at-most-one-replacement",
+      "resource": "known-spells",
+      "spellList": "sorcerer",
+      "requiresSpellbook": false,
+      "selectionPool": "class-spell-list",
+      "preparationMinutesPerSpellLevel": null,
+      "evidenceTextSha256": "ea793ad43478421d97d803f67b7cf3f8f4ba118312066798861e1207e6982601",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "approval": "awaiting-independent-game-design-review",
+      "pending": [
+        "eligibility-and-available-spell-levels",
+        "multiclass-rules",
+        "subclass-grants-and-exceptions",
+        "complete-conditions"
+      ]
+    },
+    {
+      "featureId": "scope:warlock:class-features:feature.pact-magic",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "classKey": "warlock",
+      "featureTitle": "МАГИЯ ДОГОВОРА",
+      "sourceIds": [
+        "102"
+      ],
+      "continuationContext": null,
+      "policy": "replace-one-known-on-class-level",
+      "trigger": "gain-level-in-this-class",
+      "optionalFeature": false,
+      "selection": "at-most-one-replacement",
+      "resource": "known-spells",
+      "spellList": "warlock",
+      "requiresSpellbook": false,
+      "selectionPool": "class-spell-list",
+      "preparationMinutesPerSpellLevel": null,
+      "evidenceTextSha256": "bd028479516bd1ec4135308d78ad76942a0cc3f7e7b3599a3f7997ca1c18ceb9",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "approval": "awaiting-independent-game-design-review",
+      "pending": [
+        "eligibility-and-available-spell-levels",
+        "multiclass-rules",
+        "subclass-grants-and-exceptions",
+        "complete-conditions"
+      ]
+    },
+    {
+      "featureId": "scope:cleric:features:feature.spellcasting",
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "classKey": "cleric",
+      "featureTitle": "Использование заклинаний",
+      "sourceIds": [
+        "102"
+      ],
+      "continuationContext": null,
+      "policy": "change-prepared-after-long-rest",
+      "trigger": "after-long-rest",
+      "optionalFeature": false,
+      "selection": "new-prepared-list",
+      "resource": "prepared-spells",
+      "spellList": "cleric",
+      "requiresSpellbook": false,
+      "selectionPool": "class-spell-list",
+      "preparationMinutesPerSpellLevel": 1,
+      "evidenceTextSha256": "fa1b009896c1acca337cc4eef7fc1c50474f0293d60e43ee7fb6c700067ecfb5",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "approval": "awaiting-independent-game-design-review",
+      "pending": [
+        "eligibility-and-available-spell-levels",
+        "multiclass-rules",
+        "subclass-grants-and-exceptions",
+        "complete-conditions"
+      ]
+    },
+    {
+      "featureId": "scope:druid:class-features:feature.spellcasting",
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "classKey": "druid",
+      "featureTitle": "Использование заклинаний",
+      "sourceIds": [
+        "102"
+      ],
+      "continuationContext": null,
+      "policy": "change-prepared-after-long-rest",
+      "trigger": "after-long-rest",
+      "optionalFeature": false,
+      "selection": "new-prepared-list",
+      "resource": "prepared-spells",
+      "spellList": "druid",
+      "requiresSpellbook": false,
+      "selectionPool": "class-spell-list",
+      "preparationMinutesPerSpellLevel": 1,
+      "evidenceTextSha256": "15ae15465b583f1e967d0889ba5af8f23b8605b59640600b4f39ec1c288bdbdb",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "approval": "awaiting-independent-game-design-review",
+      "pending": [
+        "eligibility-and-available-spell-levels",
+        "multiclass-rules",
+        "subclass-grants-and-exceptions",
+        "complete-conditions"
+      ]
+    },
+    {
+      "featureId": "scope:paladin:klassovye_umeniya:feature.spellcasting",
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "classKey": "paladin",
+      "featureTitle": "Использование заклинаний",
+      "sourceIds": [
+        "102"
+      ],
+      "continuationContext": null,
+      "policy": "change-prepared-after-long-rest",
+      "trigger": "after-long-rest",
+      "optionalFeature": false,
+      "selection": "new-prepared-list",
+      "resource": "prepared-spells",
+      "spellList": "paladin",
+      "requiresSpellbook": false,
+      "selectionPool": "class-spell-list",
+      "preparationMinutesPerSpellLevel": 1,
+      "evidenceTextSha256": "2d8e708193bd4f05cc05c41a14be2749995d3de9fbb2609413fe63f2bf4aae32",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "approval": "awaiting-independent-game-design-review",
+      "pending": [
+        "eligibility-and-available-spell-levels",
+        "multiclass-rules",
+        "subclass-grants-and-exceptions",
+        "complete-conditions"
+      ]
+    },
+    {
+      "featureId": "scope:wizard:class-features:feature.spellcasting",
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "classKey": "wizard",
+      "featureTitle": "Использование заклинаний",
+      "sourceIds": [
+        "102"
+      ],
+      "continuationContext": {
+        "title": "ВАША КНИГА ЗАКЛИНАНИЙ",
+        "headingOrdinal": 22,
+        "basis": "explicit-reviewed-continuation-after-spellcasting"
+      },
+      "policy": "change-prepared-after-long-rest",
+      "trigger": "after-long-rest",
+      "optionalFeature": false,
+      "selection": "new-prepared-list",
+      "resource": "prepared-spells",
+      "spellList": "wizard",
+      "requiresSpellbook": true,
+      "selectionPool": "spellbook",
+      "preparationMinutesPerSpellLevel": 1,
+      "evidenceTextSha256": "92272f726f8333ed2fb22d1aec2523e1556d81057ea7d4b37eda67e12365b821",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "approval": "awaiting-independent-game-design-review",
+      "pending": [
+        "eligibility-and-available-spell-levels",
+        "multiclass-rules",
+        "subclass-grants-and-exceptions",
+        "complete-conditions"
+      ]
+    },
+    {
+      "featureId": "scope:artificer:class-features:feature.spellcasting",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "classKey": "artificer",
+      "featureTitle": "Использование заклинаний",
+      "sourceIds": [
+        "117"
+      ],
+      "continuationContext": {
+        "title": "МАГИЯ ИЗОБРЕТЕНИЙ",
+        "headingOrdinal": 14,
+        "basis": "explicit-reviewed-continuation-after-spellcasting"
+      },
+      "policy": "change-prepared-after-long-rest",
+      "trigger": "after-long-rest",
+      "optionalFeature": false,
+      "selection": "new-prepared-list",
+      "resource": "prepared-spells",
+      "spellList": "artificer",
+      "requiresSpellbook": false,
+      "selectionPool": "class-spell-list",
+      "preparationMinutesPerSpellLevel": 1,
+      "evidenceTextSha256": "29cacdc9a9d18d613882d21306910e43f98e5fdbd42e63cb0b72d5182754a57d",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "approval": "awaiting-independent-game-design-review",
+      "pending": [
+        "eligibility-and-available-spell-levels",
+        "multiclass-rules",
+        "subclass-grants-and-exceptions",
+        "complete-conditions"
+      ]
+    },
+    {
+      "featureId": "scope:wizard:class-features:feature.cantrip-formulas",
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "classKey": "wizard",
+      "featureTitle": "Формулы заговоров",
+      "sourceIds": [
+        "117"
+      ],
+      "continuationContext": null,
+      "policy": "optional-replace-one-cantrip-after-long-rest",
+      "trigger": "after-long-rest",
+      "optionalFeature": true,
+      "selection": "at-most-one-replacement",
+      "resource": "known-cantrips",
+      "spellList": "wizard",
+      "requiresSpellbook": true,
+      "selectionPool": "class-spell-list",
+      "preparationMinutesPerSpellLevel": null,
+      "evidenceTextSha256": "b9c38e1e1b6bc7515730aab83601fa50273ab18eaef2c01f04e59a6e8c2acc89",
+      "automation": "not-applied",
+      "fullRules": "unverified",
+      "approval": "awaiting-independent-game-design-review",
+      "pending": [
+        "eligibility-and-available-spell-levels",
+        "multiclass-rules",
+        "subclass-grants-and-exceptions",
+        "complete-conditions"
+      ]
+    }
+  ]
+}
