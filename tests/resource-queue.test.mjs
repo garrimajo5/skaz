@@ -102,3 +102,20 @@ test('queued undo refuses overflow and forged inverse without losing the queue',
   s.changeResource(plain(hit));const forged={...plain(hit),mutationId:randomUUID(),expectedRevision:s.read().revision,before:18,delta:9,targetMutationId:hit.mutationId};assert.throws(()=>s.changeResource(forged),{status:409});assert.equal(s.read().state.hp,18);
  }finally{s.close();}
 });
+
+
+test('manual excess survives queued retry and stale acknowledgement clears in both projection and server',()=>{
+ const s=openStore(':memory:'),storage=memory(),q=new Queue(storage,'manual-excess');
+ try{
+  const current=s.read(),sheet={ruleset:'5e-2014',ancestry:'',className:'Synthetic',subclass:'',level:2,counters:[{id:'counter-synthetic',name:'Synthetic',current:8,max:7}]};
+  s.saveCharacterSheet({mutationId:randomUUID(),expectedRevision:current.revision,characterId:current.context.characterId,sheet});
+  const warning=s.read().profileRuleWarnings[0];sheet.ruleAcknowledgements=[{key:warning.key,facts:warning.facts,note:'Synthetic'}];
+  s.saveCharacterSheet({mutationId:randomUUID(),expectedRevision:s.read().revision,characterId:current.context.characterId,sheet});
+  q.resetBaseline(s.read());const command=plain(q.enqueue({kind:'counter',counterId:'counter-synthetic'},-1,randomUUID()));
+  assert.equal(q.snapshot.characterSheet.counters[0].current,7);assert.deepEqual(plain(q.snapshot.characterSheet.ruleAcknowledgements),[]);
+  const restored=new Queue(storage,'manual-excess');assert.equal(restored.head.mutationId,command.mutationId);
+  const saved=s.changeResource(command);assert.equal(s.changeResource(command).replayed,true);
+  restored.acknowledge(command,saved);assert.equal(restored.length,0);
+  assert.deepEqual(plain(restored.snapshot.characterSheet),saved.characterSheet);
+ }finally{s.close();}
+});

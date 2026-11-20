@@ -25,12 +25,12 @@ const SkazResourceQueue = (() => {
   }
   if(command.resource.kind==='hp'&&command.delta<0&&(snapshot.state.tempHp||0)>0)throw new Error('Обнови страницу: урон должен учитывать временные хиты');
   let value=b.value+command.delta;
-  if(command.targetMutationId&&(value<0||value>b.maximum))throw new Error('Отмена выйдет за границы ресурса');
+  if(command.targetMutationId&&(value<0||value>(command.resource.kind==='counter'?9999:b.maximum)))throw new Error('Отмена выйдет за границы ресурса');
   if(command.resource.kind==='hp')value=Math.max(0,Math.min(b.maximum,value));
-  else if(value<0||value>b.maximum)throw new Error('Ресурс выйдет за допустимые границы');
+  else if(value<0||value>(command.resource.kind==='counter'?9999:b.maximum))throw new Error('Ресурс выйдет за допустимые границы');
   const next=clone(snapshot),r=command.resource;
   if(r.kind==='hp')next.state.hp=value;else if(r.kind==='slot')next.state.slots[r.level]=value;else if(r.kind==='inspiration')next.state.inspiration=value;
-  else if(r.kind==='counter')next.characterSheet.counters.find(c=>c.id===r.counterId).current=value;
+  else if(r.kind==='counter'){next.characterSheet.counters.find(c=>c.id===r.counterId).current=value;if(next.characterSheet.ruleAcknowledgements)next.characterSheet.ruleAcknowledgements=next.characterSheet.ruleAcknowledgements.filter(a=>a.key!=='counter:'+r.counterId);}
   else next.inventory.find(item=>item.catalogId===r.catalogId).chargeCounts[r.unit]=value;
   return next;
  }

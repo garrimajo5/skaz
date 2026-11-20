@@ -1,3 +1,6 @@
+import {validateTransfer} from '../server/transfer.mjs';
+import {gameArtPackage,validateGameArtPackage} from '../server/game-art-package.mjs';
+import {personalArtTransfer} from '../server/personal-art-transfer.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {randomUUID} from 'node:crypto';
@@ -28,7 +31,7 @@ test('manual creation uses explicit zero values and never inherits demo or priva
 
 test('manual payload rejects unknown, missing, invalid and non-2014 fields without side effects',()=>{
  const s=openStore(':memory:');try{const before=s.read();
-  for(const alter of [r=>delete r.manual,r=>r.manual=null,r=>r.manual.extra=1,r=>delete r.manual.gold,r=>r.manual.hp=22,r=>r.manual.hp=-1,r=>r.manual.maxHp=0,r=>r.manual.tempHp=10000,r=>r.manual.gold=0.5,r=>r.manual.stats=null,r=>r.manual.stats.abilities.str=31,r=>r.manual.sheet=null,r=>r.manual.sheet.ruleset='5e-2024',r=>r.manual.sheet.level=0,r=>r.manual.sheet.counters[0].current=2,r=>r.template='bard5-demo']){
+  for(const alter of [r=>delete r.manual,r=>r.manual=null,r=>r.manual.extra=1,r=>delete r.manual.gold,r=>r.manual.hp=22,r=>r.manual.hp=-1,r=>r.manual.maxHp=0,r=>r.manual.tempHp=10000,r=>r.manual.gold=0.5,r=>r.manual.stats=null,r=>r.manual.stats.abilities.str=1.5,r=>r.manual.sheet=null,r=>r.manual.sheet.ruleset='5e-2024',r=>r.manual.sheet.level=0,r=>r.manual.sheet.counters[0].current=-1,r=>r.template='bard5-demo']){
    const r=request(s);alter(r);assert.throws(()=>s.createCharacter(r),{status:422});assert.deepEqual(s.read(),before);
   }
   assert.equal(s.campaigns()[0].characters.length,1);
@@ -89,4 +92,82 @@ test('manual API keeps origin/client guards and returns complete explicitly ente
  assert.equal((await fetch(url,{method:'POST',headers:{...headers,Origin:'https://foreign.invalid'},body})).status,403);
  const response=await fetch(url,{method:'POST',headers,body});assert.equal(response.status,200);const saved=await response.json();assert.deepEqual(saved.characterSheet,r.manual.sheet);assert.deepEqual(saved.characterStats,r.manual.stats);assert.equal(saved.state.gold,0);
  assert.equal((await fetch(url,{method:'POST',headers,body}).then(x=>x.json())).replayed,true);
+});
+
+
+test('manual deviations remain advisory through creation, restart, acknowledgement, spending and undo',()=>{
+ const file=join(mkdtempSync(join(tmpdir(),'skaz-advisory-')),'qa.sqlite');let s=openStore(file);
+ try{
+  const r=request(s);r.manual.stats.abilities.dex=31;r.manual.sheet.level=21;
+  r.manual.sheet.counters[0].current=8;r.manual.sheet.counters[0].max=7;
+  s.createCharacter(r);assert.equal(s.read().profileRuleWarnings.length,3);
+  assert.ok(s.read().profileRuleWarnings.every(w=>w.blocking===false&&!w.acknowledged));
+  assert.equal(s.createCharacter(r).replayed,true);
+  const sheet=s.read().characterSheet;
+  sheet.ruleAcknowledgements=s.read().profileRuleWarnings.filter(w=>!w.key.startsWith('ability:')).map(({key,facts})=>({key,facts,note:'Synthetic agreement'}));
+  s.saveCharacterSheet(command(s,{characterId:r.characterId,sheet}));
+  s.close();s=openStore(file);
+  assert.equal(s.read().characterStats.abilities.dex,31);
+  assert.equal(s.read().profileRuleWarnings.filter(w=>w.acknowledged).length,2);
+  const spend=command(s,{context:s.read().context,resource:{kind:'counter',counterId:'second-wind-test'},delta:-1,before:8,maximum:7});
+  s.changeResource(spend);assert.equal(s.read().characterSheet.counters[0].current,7);
+  assert.equal(s.changeResource(spend).replayed,true);
+  assert.equal(s.read().profileRuleWarnings.length,2);
+  s.undoResource(command(s,{targetMutationId:spend.mutationId,characterId:s.read().context.characterId}));
+  assert.equal(s.read().characterSheet.counters[0].current,8);
+  assert.equal(s.read().profileRuleWarnings.find(w=>w.key.startsWith('counter:')).acknowledged,false);
+  const before=s.read();
+  assert.throws(()=>s.changeResource(command(s,{context:before.context,resource:{kind:'counter',counterId:'second-wind-test'},delta:-9,before:8,maximum:7})),{status:409});
+  assert.deepEqual(s.read(),before);
+ }finally{s.close();}
+});
+
+
+test('v15 preserves deviations and exact agreements; old formats fail instead of silently downgrading',()=>{
+ const source=openStore(':memory:'),target=openStore(':memory:');
+ try{
+  const r=request(source);r.manual.stats.abilities.dex=31;r.manual.sheet.level=21;r.manual.sheet.counters[0].current=8;r.manual.sheet.counters[0].max=7;
+  source.createCharacter(r);const stats=source.read().characterStats;
+  stats.ruleAcknowledgements=source.read().profileRuleWarnings.filter(w=>w.key.startsWith('ability:')).map(({key,facts})=>({key,facts,note:'Synthetic agreement'}));
+  source.saveCharacterStats(command(source,{characterId:r.characterId,stats}));
+  for(const version of [8,9,12,13,14])assert.throws(()=>source.exportActive(version),{status:409});
+  const file=source.exportActive(15);assert.equal(file.schemaVersion,15);
+  assert.throws(()=>validateTransfer({...file,schemaVersion:14}),{status:422});
+  const wrapped=gameArtPackage(file,personalArtTransfer([]));assert.equal(wrapped.schemaVersion,4);
+  assert.deepEqual(validateGameArtPackage(wrapped).game.characterStats,stats);
+  target.importActive(command(target,{destination:'new-campaign',file}));
+  assert.deepEqual(target.read().characterStats,stats);assert.deepEqual(target.read().characterSheet,source.read().characterSheet);
+  assert.deepEqual(target.read().profileRuleWarnings,source.read().profileRuleWarnings);
+ }finally{source.close();target.close();}
+});
+
+
+test('agreement scopes and legacy edits cannot discard another field agreement',()=>{
+ const s=openStore(':memory:');try{
+  const r=request(s);r.manual.stats.abilities.dex=31;r.manual.sheet.level=21;s.createCharacter(r);
+  const [ability,level]=s.read().profileRuleWarnings;
+  const stats=s.read().characterStats;stats.ruleAcknowledgements=[{key:ability.key,facts:ability.facts,note:'Synthetic'}];
+  s.saveCharacterStats(command(s,{characterId:r.characterId,stats}));
+  const before=s.read(),without=structuredClone(stats);delete without.ruleAcknowledgements;
+  assert.throws(()=>s.saveCharacterStats(command(s,{characterId:r.characterId,stats:{...stats,ruleAcknowledgements:null}})),{status:422});
+  assert.throws(()=>s.saveCharacterStats(command(s,{characterId:r.characterId,stats:without})),{status:409});
+  assert.throws(()=>s.saveCharacterStats(command(s,{characterId:r.characterId,stats:{...stats,ruleAcknowledgements:[{key:level.key,facts:level.facts,note:''}]}})),{status:422});
+  assert.deepEqual(s.read(),before);
+  const sheet=s.read().characterSheet;sheet.ruleAcknowledgements=[{key:level.key,facts:level.facts,note:''}];
+  s.saveCharacterSheet(command(s,{characterId:r.characterId,sheet}));
+  const oldSheet=structuredClone(sheet);delete oldSheet.ruleAcknowledgements;
+  assert.throws(()=>s.saveCharacterSheet(command(s,{characterId:r.characterId,sheet:oldSheet})),{status:409});
+  stats.ruleAcknowledgements=[];s.saveCharacterStats(command(s,{characterId:r.characterId,stats}));
+  assert.equal(s.read().characterStats.abilities.dex,31);assert.equal(s.read().profileRuleWarnings.find(w=>w.key===ability.key).acknowledged,false);
+ }finally{s.close();}
+});
+
+test('v15 API exports advisory fields without enabling advancement or weakening Origin guard',async t=>{
+ const s=openStore(':memory:'),app=createApp(s);await new Promise(r=>app.listen(0,'127.0.0.1',r));t.after(async()=>{await new Promise(r=>app.close(r));s.close();});
+ const r=request(s);r.manual.sheet.level=21;s.createCharacter(r);
+ const url=`http://127.0.0.1:${app.address().port}/api/export/active-v15`;
+ const response=await fetch(url);assert.equal(response.status,200);
+ const file=await response.json();assert.equal(file.schemaVersion,15);assert.equal(file.characterSheet.level,21);assert.equal(file.advancement,null);
+ assert.equal((await fetch(url,{headers:{Origin:'https://foreign.invalid'}})).status,403);
+ assert.equal((await fetch(url.replace('v15','v14'))).status,409);
 });

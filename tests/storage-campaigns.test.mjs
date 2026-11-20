@@ -4,6 +4,7 @@ import vm from 'node:vm';
 import { readFile } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
 import { seed } from '../server/state.mjs';
+const profileRulesSource=await readFile(new URL('../client/profile-rules.js',import.meta.url),'utf8');
 const conditionsSource=await readFile(new URL('../client/conditions.js',import.meta.url),'utf8');
 const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source = await readFile(new URL('../client/storage.js', import.meta.url), 'utf8');
@@ -16,11 +17,11 @@ function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, wi
   const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch, navigator, SkazAccount,
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
-    document: { createElement:()=>({click(){downloads.push(this.download);}}), getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')&&!get('inventory-page').innerHTML.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
+    document: { querySelector:get, createElement:()=>({click(){downloads.push(this.download);}}), getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')&&!get('inventory-page').innerHTML.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
     SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-queued-undo]' ? [get('queued-undo-button')] : selector === '[data-resource-undo]' ? [get('resource-undo-button')] : selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>{dialog=html;get('dialog').open=true;}, closeModal() {dialog='';get('dialog').open=false;}, toast: (value,undo,options) => {messages.push(value);messageOptions.push(options);},
   });
   if(withQueue)vm.runInContext(queueSource,context);
-  vm.runInContext(conditionsSource,context);vm.runInContext(sheetSource,context);
+  vm.runInContext(profileRulesSource,context);vm.runInContext(conditionsSource,context);vm.runInContext(sheetSource,context);
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   return { api: vm.runInContext('SkazStorage', context), get, messages, messageOptions, archiveCalls, references, downloads, dialog:()=>dialog, setPage:value=>{context.page=value;}, pageHtml:()=>get('inventory-page').innerHTML,
     click: (id,dataset={},disabled=false) => handlers.click({ target: { closest: () => ({ id,dataset,disabled }) } }),
@@ -913,7 +914,7 @@ test('manual stats form sends one typed operation with zero and negative values 
 });
 test('manual stats rejects invalid input, denies stale or read-only forms and requires a complete acknowledgement',async()=>{
  let current=payload(0),writes=0;const local=memory(),session=memory(),h=harness(local,session,async(url,options)=>{if(options.method){writes++;return response(payload(1));}return response(current);});await h.api.boot();h.click('edit-stats');
- for(const value of ['','0','31','1.5','1e1']){statsValues(h,{str:value});await h.get('#stats-form').onsubmit({preventDefault(){}});assert.equal(writes,0);}
+ for(const value of ['','0','9007199254740992','1.5','1e1']){statsValues(h,{str:value});await h.get('#stats-form').onsubmit({preventDefault(){}});assert.equal(writes,0);}
  statsValues(h);current=payload(1,'other');await h.api.boot();await h.get('#stats-form').onsubmit({preventDefault(){}});assert.equal(writes,0);
  h.click('edit-stats');statsValues(h);await h.get('#stats-form').onsubmit({preventDefault(){}});assert.equal(writes,1);assert.equal(h.api.editable(),false);assert.ok([...local.values.keys()].some(k=>k.startsWith('skaz-pending-v1:')));
  const denied=harness(memory(),memory(),async()=>response({...payload(0),permissions:permissionFixture('player',false)}));await denied.api.boot();denied.click('edit-stats');assert.equal(denied.dialog(),'');
@@ -1218,4 +1219,28 @@ test('cached spellbook derives permanent preparation from the current hero and r
  let h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();let book=await h.api.spellbookData();assert.equal(book.entries[0].alwaysPrepared,true);assert.equal(book.entries[1].alwaysPrepared,undefined);book.entries[0].alwaysPrepared=false;assert.equal((await h.api.spellbookData()).entries[0].alwaysPrepared,true);
  offline=true;h.api.resourceDelta({kind:'hp'},-1,h.api.snapshotKey());await tick();h=harness(local,session,fetch,undefined,undefined,true);await h.api.boot();assert.equal((await h.api.spellbookData()).entries[0].alwaysPrepared,true);
  const fresh=harness(memory(),memory(),fetch,undefined,undefined,true);offline=false;await fresh.api.boot();other=true;await fresh.api.boot();assert.equal((await fresh.api.spellbookData()).entries[0].alwaysPrepared,undefined);
+});
+
+
+test('manual ability31 can save without agreement and retries the same optional agreement after response loss',async()=>{
+ const calls=[],local=memory(),session=memory();let current=payload(0),lose=false;
+ const transport=async(url,options)=>{if(options.method){calls.push(options.body);current={...payload(current.revision+1),characterStats:JSON.parse(options.body).stats};if(lose)throw Error('lost reply');}return response(current);};
+ const h=harness(local,session,transport);await h.api.boot();h.click('edit-stats');statsValues(h,{dex:'31'});
+ await h.get('#stats-form').onsubmit({preventDefault(){}});assert.match(h.dialog(),/Проверить характеристики/);assert.equal(calls.length,0);
+ h.get('[data-rule-agree="0"]').checked=false;await h.get('#stats-warning-save').onclick();
+ assert.equal(JSON.parse(calls[0]).stats.abilities.dex,31);assert.deepEqual(JSON.parse(calls[0]).stats.ruleAcknowledgements,[]);
+ h.click('edit-stats');statsValues(h,{dex:'31'});await h.get('#stats-form').onsubmit({preventDefault(){}});
+ h.get('[data-rule-agree="0"]').checked=true;h.get('[data-rule-note="0"]').value='Synthetic table agreement';lose=true;
+ await h.get('#stats-warning-save').onclick();assert.equal(calls.length,2);assert.equal(h.api.editable(),false);
+ const pending=calls[1],reload=harness(local,session,async(url,options)=>{if(options.method)calls.push(options.body);return response(current);});
+ await reload.api.boot();await reload.click('sync-retry');assert.equal(calls[2],pending);
+ assert.equal(reload.api.stats().ruleAcknowledgements[0].note,'Synthetic table agreement');
+});
+
+test('manual deviations select v15 export and importing v15 retains the chosen values',async()=>{
+ const current={...payload(0),characterStats:{...manualStats(),abilities:{...manualStats().abilities,dex:31},ruleAcknowledgements:[]}},calls=[];
+ const file={app:'skaz-active',schemaVersion:15,ruleset:'5e-2014',scope:'active-game',source:{context:current.context,revision:0},state:seed,session:{title:'Synthetic'},characterStats:current.characterStats,characterSheet:null,advancement:null,inventory:[],spellbook:[],quests:[],places:[],proposals:[],catalog:{entries:[]}};
+ const h=harness(memory(),memory(),async(url,options)=>{calls.push(url);return response(url==='/api/export/active-v15'?file:current);});
+ await h.api.boot();h.api.settings();await h.get('#export-active').onclick();assert.ok(calls.includes('/api/export/active-v15'));assert.deepEqual(h.downloads,['skaz-active-v15.json']);
+ await h.get('#import-state').onchange({target:{files:[{size:1500,text:async()=>JSON.stringify(file)}]}});assert.ok(h.dialog().includes('31'));
 });

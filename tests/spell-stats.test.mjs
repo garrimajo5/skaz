@@ -9,7 +9,7 @@ import {validateCharacterSheet} from '../server/character-sheet.mjs';
 import {templateStats} from '../server/character-stats.mjs';
 import {openStore} from '../server/store.mjs';
 import {validateTransfer} from '../server/transfer.mjs';
-const context=vm.createContext({});vm.runInContext(readFileSync(new URL('../client/character-sheet.js',import.meta.url),'utf8'),context);
+const context=vm.createContext({structuredClone});vm.runInContext(readFileSync(new URL('../client/profile-rules.js',import.meta.url),'utf8'),context);vm.runInContext(readFileSync(new URL('../client/character-sheet.js',import.meta.url),'utf8'),context);
 const client=vm.runInContext('SkazCharacterSheet',context);
 const sheet=(spellcasting={ability:'cha',dcOverride:null,attackOverride:null})=>({ruleset:'5e-2014',ancestry:'',className:'Бард',subclass:'',level:5,counters:[],spellcasting});
 const cmd=(s,value)=>({mutationId:randomUUID(),expectedRevision:s.read().revision,characterId:s.read().context.characterId,sheet:value});

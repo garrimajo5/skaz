@@ -1,12 +1,15 @@
 import {AppError} from './state.mjs';
+import Rules from '../client/profile-rules.js';
 
 export const templateStats=Object.freeze({abilities:Object.freeze({str:8,dex:14,con:14,int:12,wis:10,cha:18}),armorClass:14,initiative:2,speed:30});
 const exact=(value,keys)=>value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===keys.length&&keys.every(k=>Object.hasOwn(value,k));
 export function validateCharacterStats(value){
-  if(!exact(value,['abilities','armorClass','initiative','speed'])||!exact(value.abilities,['str','dex','con','int','wis','cha']))throw new AppError(422,'Неверные поля характеристик');
+  if(!exact(value,['abilities','armorClass','initiative','speed',...(Object.hasOwn(value||{},'ruleAcknowledgements')?['ruleAcknowledgements']:[])])||!exact(value.abilities,['str','dex','con','int','wis','cha']))throw new AppError(422,'Неверные поля характеристик');
   for(const [name,min,max]of [['armorClass',0,100],['initiative',-20,40],['speed',0,1000]])if(!Number.isSafeInteger(value[name])||value[name]<min||value[name]>max)throw new AppError(422,'Неверное число: '+name);
-  if(Object.values(value.abilities).some(n=>!Number.isSafeInteger(n)||n<1||n>30))throw new AppError(422,'Характеристики: целые числа 1–30');
-  return {abilities:Object.fromEntries(['str','dex','con','int','wis','cha'].map(k=>[k,value.abilities[k]])),armorClass:value.armorClass,initiative:value.initiative,speed:value.speed};
+  if(Object.values(value.abilities).some(n=>!Number.isSafeInteger(n)||n<1))throw new AppError(422,'Характеристики: положительные безопасные целые числа');
+  let ruleAcknowledgements;try{ruleAcknowledgements=Rules.validateAcknowledgements(Object.hasOwn(value,'ruleAcknowledgements')?value.ruleAcknowledgements:[], 'stats');}catch{throw new AppError(422,'Неверное согласование правил');}
+  const reviewed=Rules.reconcile({stats:{...value,ruleAcknowledgements}}).stats;
+  return {...(Object.hasOwn(value,'ruleAcknowledgements')?{ruleAcknowledgements:reviewed.ruleAcknowledgements}:{}),abilities:Object.fromEntries(['str','dex','con','int','wis','cha'].map(k=>[k,value.abilities[k]])),armorClass:value.armorClass,initiative:value.initiative,speed:value.speed};
 }
 export function setupCharacterStats(db){
   db.exec(`CREATE TABLE IF NOT EXISTS character_stats (

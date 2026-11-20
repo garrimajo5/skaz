@@ -3,6 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFile} from 'node:fs/promises';
+const profileRulesSource=await readFile(new URL('../client/profile-rules.js',import.meta.url),'utf8');
 const conditionsSource=await readFile(new URL('../client/conditions.js',import.meta.url),'utf8');
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/app.js',import.meta.url),'utf8');
@@ -12,7 +13,7 @@ function harness(){
  const context=vm.createContext({structuredClone,URL,Blob,location:{protocol:'http:',hash:'#hero'},history:{replaceState(){}},localStorage:{getItem:()=>null},setTimeout:()=>0,clearTimeout(){},
   document:{body:{dataset:{}},querySelector:get,querySelectorAll:()=>[],getElementById:id=>id==='blocked-form-message'?(elements.get('#'+id)||null):get('#'+id),createElement:()=>({setAttribute(){},scrollIntoView(){}}),addEventListener:(key,fn)=>handlers[key]=fn},window:{addEventListener(){},scrollTo(){}},
   SkazStorage:{preference:()=> 'polar',paint(){},boot(){},setTheme(){},sessionTitle:()=>'',sessionDate:()=>'',contextKey:()=> 'same',snapshotKey:()=> 'same:'+revision,editable:()=>editable,commit:async(state,label)=>{writes.push({state:structuredClone(state),label});revision++;return {state};}},SkazEvents:{pendingCount:()=>0}
- });vm.runInContext(conditionsSource,context);vm.runInContext(healthSource,context);vm.runInContext(sheetSource,context);vm.runInContext(source,context);
+ });vm.runInContext(profileRulesSource,context);vm.runInContext(conditionsSource,context);vm.runInContext(healthSource,context);vm.runInContext(sheetSource,context);vm.runInContext(source,context);
  return {get,writes,block:()=>editable=false,run:code=>vm.runInContext(code,context),state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset,classList:{contains:()=>false}})}})};
 }
 
@@ -191,7 +192,7 @@ test('long rest clears temporary HP and one undo restores that reserve',async()=
 });
 
 test('manual-class rest restores health and clears temp HP without inventing counter recovery',async()=>{
- const h=harness();h.run('state.tempHp=9;SkazStorage.sheet=()=>({counters:[{id:"ki",current:1,max:4}]})');const before=h.state();h.click('rest');await h.get('#long-rest').onclick();await new Promise(r=>setImmediate(r));assert.equal(h.state().hp,38);assert.equal(h.state().tempHp,0);assert.deepEqual(h.state().slots,before.slots);assert.equal(h.state().inspiration,before.inspiration);
+ const h=harness();h.run('state.tempHp=9;SkazStorage.sheet=()=>({counters:[{id:"counter-ki",current:1,max:4}]})');const before=h.state();h.click('rest');await h.get('#long-rest').onclick();await new Promise(r=>setImmediate(r));assert.equal(h.state().hp,38);assert.equal(h.state().tempHp,0);assert.deepEqual(h.state().slots,before.slots);assert.equal(h.state().inspiration,before.inspiration);
 });
 
 test('concentration question remains visible independently of toast, is escaped and rejects stale buttons',()=>{

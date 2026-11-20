@@ -18,6 +18,7 @@ import { createAuthentication } from './authentication.mjs';
 import {createPersonalArtAccess} from './personal-art-access.mjs';
 import {gameArtPackage,validateGameArtPackage} from './game-art-package.mjs';
 import { validateCharacterCreate, createCharacter } from './characters.mjs';
+import ProfileRules from '../client/profile-rules.js';
 import { setupProposals, readProposals, validateProposalCreate, validateProposalDecision, createProposal, decideProposal } from './proposals.mjs';
 import { setupPlaces, readPlaces, validatePlaceCommand, savePlace } from './places.mjs';
 import { setupQuests, readQuests, validateQuestCommand, saveQuest } from './quests.mjs';
@@ -86,6 +87,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
       session: { name: session.name, playedOn: session.playedOn }, sessionNumber: session.number,
       spellbook:readSpellbook(db,context.character.id),
       characterStats,
+      profileRuleWarnings:ProfileRules.warnings({stats:characterStats,sheet:characterSheet}),
       characterSheet, spellLearning, classSaveBenefits:classSaveBenefits(advancement),classCheckBenefits:classCheckBenefits(advancement),classSkills:advancement?.version===17?rogueSkillView(advancement.rogueSkills,{classId:advancement.classId,level:advancement.level,abilities:characterStats.abilities}):loreSkillView(advancement,characterStats),alwaysPreparedSpellIds:alwaysPreparedOrigins(advancement).map(o=>o.catalogId),unlimitedResources:unlimitedResourceViews(advancement),classGrantedSpellIds:[13,14,15].includes(advancement?.version)?[...new Set([...advancement.spells.map(o=>o.catalogId),...(advancement.version===14?invocationRequiredSpellIds(advancement):[]),...(advancement.version===15?advancement.lore.secrets?.spellIds||[]:[])])]:[11,12].includes(advancement?.version)?[advancement.subclass.bonusCantrip.catalogId]:[],
       ...(classAdvancement?{advancement}:{}),
       state: joinState({ campaign: context.campaign.data, character: context.character.data, session: context.session.data }) };
@@ -98,6 +100,9 @@ export function openStore(filename, {classAdvancement=false}={}) {
     try {
       const current = read();
       if(withArt&&current.state.conditions!==undefined)version=14;
+      const advisory=ProfileRules.requiresV15({stats:current.characterStats,sheet:current.characterSheet});
+      if(withArt&&advisory)version=15;
+      if(advisory&&version<15)throw new AppError(409,'Ручные отклонения и согласования требуют экспорт v15');
       if(current.state.conditions!==undefined&&version<14)throw new AppError(409,'Состояния требуют экспорт v14');
       if(current.advancement&&version<13)throw new AppError(409,'Повышение уровня требует экспорт v13 или полную SQLite-копию');
       if(current.advancement)validateAdvancementSnapshot(current.advancement,current.characterSheet,current.characterStats,current.spellbook);
@@ -112,7 +117,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
       const quests = readQuests(db, current.context.campaignId);
       const places = readPlaces(db, current.context.campaignId);
       const proposals = readProposals(db, current.context);
-      if (![2,3,4,5,6,7,8,9,10,11,12,13,14].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
+      if (![2,3,4,5,6,7,8,9,10,11,12,13,14,15].includes(version)) throw new AppError(422, 'Неверная версия экспорта');
       if(version<12&&(current.state.concentrationChecks!==undefined||current.state.deathSaves!==undefined))throw new AppError(409,'Здоровье и проверки требуют экспорт v12');
       if(version<11&&current.state.tempHp!==undefined)throw new AppError(409,'Временные хиты требуют экспорт v11');
       if(version<10&&current.characterSheet&&['spellcasting','saveProficiencies','spellLearning'].some(key=>Object.hasOwn(current.characterSheet,key)))throw new AppError(409,'Настройки заклинаний требуют экспорт v10 или SQLite backup');
@@ -303,12 +308,13 @@ export function openStore(filename, {classAdvancement=false}={}) {
     },
     saveCharacterSheet:request=>{
       const payload=validateSheetCommand(request),hash=createHash('sha256').update(JSON.stringify({operation:'character-sheet',expectedRevision:request.expectedRevision,payload})).digest('hex');
-      return mutate(request,hash,'Ручной класс и счётчики',()=>{const current=read();if(payload.sheet&&current.characterSheet?.spellLearning!=null&&!Object.hasOwn(payload.sheet,'spellLearning'))throw new AppError(409,'Обнови страницу: отсутствует выбор модели заклинаний');if(current.advancement&&(!payload.sheet||payload.sheet.level!==current.characterSheet.level||payload.sheet.className!==current.characterSheet.className||current.advancement.version>=5&&payload.sheet.subclass!==current.characterSheet.subclass))throw new AppError(409,'Класс и уровень связаны с историей повышения');if([9,11,12,13,14,15,16,17].includes(current.advancement?.version))validateAdvancementSnapshot(current.advancement,payload.sheet,current.characterStats,current.spellbook);saveCharacterSheet(db,payload,request.mutationId,current.context.characterId);return read().state;},'character-sheet');
+      return mutate(request,hash,'Ручной класс и счётчики',()=>{const current=read();if(payload.sheet&&current.characterSheet?.ruleAcknowledgements&&!Object.hasOwn(payload.sheet,'ruleAcknowledgements'))throw new AppError(409,'Обнови страницу: отсутствуют сохранённые согласования');if(payload.sheet&&current.characterSheet?.spellLearning!=null&&!Object.hasOwn(payload.sheet,'spellLearning'))throw new AppError(409,'Обнови страницу: отсутствует выбор модели заклинаний');if(current.advancement&&(!payload.sheet||payload.sheet.level!==current.characterSheet.level||payload.sheet.className!==current.characterSheet.className||current.advancement.version>=5&&payload.sheet.subclass!==current.characterSheet.subclass))throw new AppError(409,'Класс и уровень связаны с историей повышения');if([9,11,12,13,14,15,16,17].includes(current.advancement?.version))validateAdvancementSnapshot(current.advancement,payload.sheet,current.characterStats,current.spellbook);saveCharacterSheet(db,payload,request.mutationId,current.context.characterId);return read().state;},'character-sheet');
     },
     saveCharacterStats: request => {
       const payload=validateStatsCommand(request);
       const hash=createHash('sha256').update(JSON.stringify({operation:'character-stats',expectedRevision:request.expectedRevision,payload})).digest('hex');
       return mutate(request,hash,'Ручные характеристики персонажа',()=>{
+        if(payload.stats&&read().characterStats?.ruleAcknowledgements&&!Object.hasOwn(payload.stats,'ruleAcknowledgements'))throw new AppError(409,'Обнови страницу: отсутствуют сохранённые согласования');
         saveCharacterStats(db,payload,request.mutationId,read().context.characterId);
         const current=read();if([13,14,15,16,17].includes(current.advancement?.version))validateAdvancementSnapshot(current.advancement,current.characterSheet,current.characterStats,current.spellbook);
         return current.state;
