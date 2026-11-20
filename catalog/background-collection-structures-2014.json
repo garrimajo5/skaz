@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "status": "secondary-background-collection-structures-not-canonical-units",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "referencePages": 5,
+    "reproducedStructures": 5,
+    "selectedHeadings": 23,
+    "inventedEnglishNames": 0,
+    "acceptedStandaloneBackgrounds": 0,
+    "acceptedCanonicalUnits": 0
+  },
+  "records": [
+    {
+      "observationId": "dndsu:backgrounds:845",
+      "sourceIds": [
+        "125"
+      ],
+      "observedName": "Адаптация предысторий VRGR",
+      "observedEnglishName": "",
+      "referenceUrl": "https://dnd.su/backgrounds/845-adaptaciia-predystorii-vrgr/",
+      "htmlSha256": "b41467094416309398c4386cc46071379a9013f18895aa7a00ae5a4e1f994747",
+      "proposedPageKind": "optional-background-feature-collection",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Наследник"
+        },
+        {
+          "level": "h2",
+          "text": "Странник тумана"
+        },
+        {
+          "level": "h3",
+          "text": "Талисман тумана"
+        },
+        {
+          "level": "h2",
+          "text": "Духовный медиум"
+        },
+        {
+          "level": "h2",
+          "text": "Переживший травму"
+        },
+        {
+          "level": "h2",
+          "text": "Путешественник"
+        },
+        {
+          "level": "h3",
+          "text": "Умения предыстории, связанные поколениями"
+        },
+        {
+          "level": "h3",
+          "text": "Характеристики для ужасов"
+        }
+      ],
+      "structureReproduced": true,
+      "semanticPageKindReview": "awaiting-independent-review",
+      "standaloneBackgroundAccepted": false,
+      "componentCountAccepted": false,
+      "fullPrimarySectionRead": false,
+      "canonicalId": null,
+      "accepted": false,
+      "automaticProfileChange": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:846",
+      "sourceIds": [
+        "129"
+      ],
+      "observedName": "Адаптация предысторий OTA",
+      "observedEnglishName": "",
+      "referenceUrl": "https://dnd.su/backgrounds/846-adaptaciia-predystorii-ota/",
+      "htmlSha256": "9f4166480b10962f1356fcc91427a1f83129965c73b863a804809d2542811daa",
+      "proposedPageKind": "adventure-background-feature-and-bond-options",
+      "headings": [
+        {
+          "level": "h3",
+          "text": "Альтернативные умения предысторий"
+        },
+        {
+          "level": "h3",
+          "text": "ОПЦИОНАЛЬНОЕ УМЕНИЕ: ОБИТАТЕЛЬ ГЛУБИН"
+        },
+        {
+          "level": "h3",
+          "text": "ОПЦИОНАЛЬНОЕ УМЕНИЕ: ОПЫТ СПУСКА В ПОДЗЕМЬЕ"
+        },
+        {
+          "level": "h3",
+          "text": "Альтернативные привязанности"
+        }
+      ],
+      "structureReproduced": true,
+      "semanticPageKindReview": "awaiting-independent-review",
+      "standaloneBackgroundAccepted": false,
+      "componentCountAccepted": false,
+      "fullPrimarySectionRead": false,
+      "canonicalId": null,
+      "accepted": false,
+      "automaticProfileChange": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:847",
+      "sourceIds": [
+        "105"
+      ],
+      "observedName": "Адаптация предысторий HDQ",
+      "observedEnglishName": "",
+      "referenceUrl": "https://dnd.su/backgrounds/847-adaptaciia-predystorii-hdq/",
+      "htmlSha256": "2f6e70d6aea917231329c3bed9f1715e59d48b0b85015e088828ff02c4d70d4b",
+      "proposedPageKind": "adventure-background-feature-and-bond-options",
+      "headings": [
+        {
+          "level": "h3",
+          "text": "Альтернативные умения предысторий"
+        },
+        {
+          "level": "h3",
+          "text": "ОПЦИОНАЛЬНОЕ УМЕНИЕ: Шпион в Драконьем Культе"
+        },
+        {
+          "level": "h3",
+          "text": "ОПЦИОНАЛЬНОЕ УМЕНИЕ: Драконолог"
+        },
+        {
+          "level": "h3",
+          "text": "Альтернативные привязанности"
+        }
+      ],
+      "structureReproduced": true,
+      "semanticPageKindReview": "awaiting-independent-review",
+      "standaloneBackgroundAccepted": false,
+      "componentCountAccepted": false,
+      "fullPrimarySectionRead": false,
+      "canonicalId": null,
+      "accepted": false,
+      "automaticProfileChange": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:848",
+      "sourceIds": [
+        "116"
+      ],
+      "observedName": "Адаптация предысторий EGW",
+      "observedEnglishName": "",
+      "referenceUrl": "https://dnd.su/backgrounds/848-adaptaciia-predystorii-egw/",
+      "htmlSha256": "c4b7493c3e3ec6adc89079777fa4cb96435797132912fd09b7d361e05bf40093",
+      "proposedPageKind": "setting-adaptations-of-existing-backgrounds",
+      "headings": [
+        {
+          "level": "h3",
+          "text": "Прислужник (Люксонорождённый)"
+        },
+        {
+          "level": "h3",
+          "text": "Преступник (Мириадский оперативник)"
+        },
+        {
+          "level": "h3",
+          "text": "Моряк (Пират Пирушки)"
+        },
+        {
+          "level": "h3",
+          "text": "Мудрец (Кобальтовый учёный)"
+        },
+        {
+          "level": "h3",
+          "text": "Шпион (Вера Аугена)"
+        }
+      ],
+      "structureReproduced": true,
+      "semanticPageKindReview": "awaiting-independent-review",
+      "standaloneBackgroundAccepted": false,
+      "componentCountAccepted": false,
+      "fullPrimarySectionRead": false,
+      "canonicalId": null,
+      "accepted": false,
+      "automaticProfileChange": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:856",
+      "sourceIds": [
+        "183"
+      ],
+      "observedName": "Адаптация предысторий SDQ",
+      "observedEnglishName": "",
+      "referenceUrl": "https://dnd.su/backgrounds/856-adaptaciia-predystorii-sdq/",
+      "htmlSha256": "9ee39fa01e8f151da12f09bc40885ef713c6c48146531fa5cf699c5af5abfba2",
+      "proposedPageKind": "campaign-bonus-feat-rules",
+      "headings": [
+        {
+          "level": "h3",
+          "text": "1-й уровень, бонусная черта"
+        },
+        {
+          "level": "h3",
+          "text": "4-й уровень, бонусная черта"
+        }
+      ],
+      "structureReproduced": true,
+      "semanticPageKindReview": "awaiting-independent-review",
+      "standaloneBackgroundAccepted": false,
+      "componentCountAccepted": false,
+      "fullPrimarySectionRead": false,
+      "canonicalId": null,
+      "accepted": false,
+      "automaticProfileChange": false
+    }
+  ],
+  "limitations": [
+    "Five adaptation/option-collection reference pages are not five accepted standalone backgrounds.",
+    "Curated headings corroborate the reference page-kind proposal; count of headings alone is not proof of every component or primary-rule equivalence.",
+    "Empty observed English names stay empty; source IDs, historical page-kind proposals and raw snapshots are preserved.",
+    "Primary section references in the earlier proposal remain contents-only; this audit does not claim access to those full sections.",
+    "No features, bonus feats, proficiencies or bonds are granted automatically; personal manual choices remain available."
+  ],
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/background-adaptation-page-review-2014.json": "6569609e5706863eda1bfc14c65ed61bf6741619fc4cf5d32c041a8b289ecabb",
+    "catalog/background-collection-structure-selection-2014.json": "e9d526e7b3b716c623c53c3f9859879eabe3dc94c8152b3b404aa6a1bf8d057c"
+  }
+}
