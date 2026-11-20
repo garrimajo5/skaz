@@ -6353,3 +6353,10 @@ Runtime52731fd опубликован: Linux1322/1322,check/build, новый р
 - PR210/c5ce1dd слит после устраненияP2/re-review14Python и ограниченной3-source/visual приёмки выбранного94-словногоunit. Следующий доступный компонент — provider62FrozenSick→parent59Wildemount→existingdndsu116 по primaryarticle/TOC/childcanonical-h1. Publicchapter неclaim, но полные правила не анализировались.
 -8Python/реальная3HTMLрепродукцияPASS. DisplayedCriticalRole и прежнееWotC-publicationEvidence раздельны, политикастороннихкниг не менялась, childscope/ID/версия/права/denominator не унаследованы. [Пределы/доказательства](frozen-sick-publication-component-2014.md). Independentreview доmerge;15-остаток сохранён.
 - Следующий результат — текущий D05-триаж четырёх ограниченных свидетельств и оставшиесяточныекритерии, затемRrakkma/другой доступныйостаток. Runtime/VPS не менялись. Предложениеcontent ораздельномdisplay/publisherEvidence передаётсяplanner дляитога, безпереписыванияинструкций.
+
+
+### 21.11 — D05 #77: текущий триаж4/11 без потери15/70
+
+- После независимых8Python/4SHA/3HTMLreview слитPR211/353cd89. Новый [текущийD05триаж](d05-current-publication-triage-2014.md) сохраняет15provider/70historical/7unlinked строк, выделяет4ограниченныхprimarykind/componentсвидетельства и11безтакогоscope. ТочныеPRhead/comment/SHA препятствуют наследованию старогоreview изменившимсяотчётом. ОдинполныйWizardunit отдельно, не5-ясамостоятельнаяпубликация.
+-10новыхPython/реальнаяJSONрепродукцияPASS. Никакихmissing/canonical/denominatorрешений: всеremainingCriteria у4сохранены, самостоятельныеgame-design/QA/права/M0открыты. Следующийисполнимыйcontent шаг — provider34Rrakkma, не повторятьBasic/Sage/Prisoner/Frozen boundedscope. НовыйHTTPнеиспользовался.
+- Рефлексияcontent/решениеplanner: испытатьтриажвследующемD05, критерии0повторовпринятогоscope/0потерьsourceclaims, цена6JSON+быстрыйаудит. Такжеиспытатьраздельныеокно/позициюRogue, display/publicationpublisher иpage-specific нормализацииснегативнымисмысловымипримерами. Общиеинструкции/цели/доступнеизменены; runtime/VPSне менялись. Independentreview нового слоя доmerge.
