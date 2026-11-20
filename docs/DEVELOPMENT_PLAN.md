@@ -1,3 +1,7 @@
+## 21.11 — #77: актуальный D03-контекст
+
+PR196 слитc880d2b после независимых8Python+4SHA/6реальныхprimaryHTML,P1/P2нет. [Контекст](d03-current-review-context-2014.md) связывает4reviewed reference-группы/9наблюдений/13исходныхсвязей/19captures с2verified legacy-provider-reuse. Печатнаяэквивалентность/source129/fullrules/права/canonicalcount отдельноunverified;4rootрешенияpendingнепереписаны.7Node/CLI/3pinsPASS,изменённыеparents/rootрешенияне наследуютприёмку. Следующийшаг — независимыйобзор иконкретныеprimaryусловияпогруппамлибо другойдоступныйM0,безповтора19captures. Runtime/productionнеменяются,этапыоткрыты;рефлексиявдокументе.
+
 ## 21.11 — #77 D03: подтверждён publisher-record overlap
 
 PR195 слитfc896de после независимых9Node+4SHA/CLI,P1/P2нет. [Новые6primaryfilters](demon-publisher-filter-overlap-2014.md) подтверждают selected book option/URL/SHA:дляJuiblexстарыеOotA/MTFфильтрывозвращают17416,MotM2560853;дляZuggtmoy17419/2560977.6строк/4уникальныхdigitalID. DisplayedSourceOutAbyssподMTFсохранён,providerfilter9/33/85непутаетсясreference129/113/158.8Python/реальные6HTML/2pinsPASS. Печатнаяэквивалентность/полныеправила/права/secondarysource129неприняты,canonical0/denominatornull/runtimeне меняется. Следующийшаг — независимыйобзор иактуальныйD03-контекстбезповтораprimaryfilters;этапыоткрыты,рефлексиявдокументе.

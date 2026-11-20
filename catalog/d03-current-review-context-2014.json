@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "status": "current-selected-d03-reference-review-and-open-canonical-conditions",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "reviewedReferenceGroups": 4,
+    "preservedObservations": 9,
+    "preservedOriginalSourceClaims": 13,
+    "reviewedSourceCaptures": 19,
+    "verifiedLegacyPublisherReuseGroups": 2,
+    "pendingCanonicalGroupDecisions": 4,
+    "acceptedCanonicalUnits": 0
+  },
+  "reviewedContextFingerprint": "9b3a8fa7f5115e76c31fa3b9058e6aae825a4367953e5f66b3905fa3918efdd6",
+  "groups": [
+    {
+      "reviewId": "name-review:33a60c9b712e1ff852ad",
+      "name": "vampiric ixitxachitl",
+      "originalRootDecision": "resolve-duplicate-or-variant-unit",
+      "originalRootDecisionOverwritten": false,
+      "verifiedReferenceRelationship": "distinct-base-and-spellcasting-reference-views",
+      "referenceRelationshipReviewed": true,
+      "observationIds": [
+        "dndsu:bestiary:5830",
+        "dndsu:bestiary:5832"
+      ],
+      "preservedOriginalSourceClaimCount": 2,
+      "publisherDigitalContext": null,
+      "nextPrimaryCondition": "Exact primary base/variant/template text to determine canonical granularity; the direct detail timed out.",
+      "canonicalUnitCountApproved": null,
+      "fullRuleComponentInventoryAccepted": false,
+      "reusePermission": "not-established",
+      "automaticMerge": false,
+      "automaticSourceRemoval": false
+    },
+    {
+      "reviewId": "name-review:5d3df0bb82c140286b68",
+      "name": "juiblex",
+      "originalRootDecision": "resolve-overlapping-source-attribution",
+      "originalRootDecisionOverwritten": false,
+      "verifiedReferenceRelationship": "distinct-primary-digital-version-candidates",
+      "referenceRelationshipReviewed": true,
+      "observationIds": [
+        "dndsu:bestiary:1752",
+        "dndsu:bestiary:6595"
+      ],
+      "preservedOriginalSourceClaimCount": 4,
+      "publisherDigitalContext": {
+        "legacyRecordReusedUnderOotaAndMtof": true,
+        "legacyCardUrl": "https://www.dndbeyond.com/monsters/17416-juiblex",
+        "mtofFilteredCardUrl": "https://www.dndbeyond.com/monsters/17416-juiblex",
+        "motmCardUrl": "https://www.dndbeyond.com/monsters/2560853-juiblex",
+        "motmDigitalRecordDistinct": true,
+        "originalPrintedRulesEquivalent": "unverified",
+        "modernSecondaryOotaPlaqueValidated": false
+      },
+      "nextPrimaryCondition": "Original MTF/OotA text and errata plus meaning of source129 on the secondary MotM view; selected-filter membership alone does not settle these.",
+      "canonicalUnitCountApproved": null,
+      "fullRuleComponentInventoryAccepted": false,
+      "reusePermission": "not-established",
+      "automaticMerge": false,
+      "automaticSourceRemoval": false
+    },
+    {
+      "reviewId": "name-review:77c200ef80920cdff245",
+      "name": "drake companion",
+      "originalRootDecision": "resolve-duplicate-or-variant-unit",
+      "originalRootDecisionOverwritten": false,
+      "verifiedReferenceRelationship": "one-companion-with-level-state-views",
+      "referenceRelationshipReviewed": true,
+      "observationIds": [
+        "dndsu:bestiary:14130",
+        "dndsu:bestiary:14131",
+        "dndsu:bestiary:4842"
+      ],
+      "preservedOriginalSourceClaimCount": 3,
+      "publisherDigitalContext": null,
+      "nextPrimaryCondition": "Final companion/class component inventory, catalogue-unit definition, exact version and rights; level11 breath is not covered by the three size states.",
+      "canonicalUnitCountApproved": null,
+      "fullRuleComponentInventoryAccepted": false,
+      "reusePermission": "not-established",
+      "automaticMerge": false,
+      "automaticSourceRemoval": false
+    },
+    {
+      "reviewId": "name-review:b09a079556cf1e4184bd",
+      "name": "zuggtmoy",
+      "originalRootDecision": "resolve-overlapping-source-attribution",
+      "originalRootDecisionOverwritten": false,
+      "verifiedReferenceRelationship": "distinct-primary-digital-version-candidates",
+      "referenceRelationshipReviewed": true,
+      "observationIds": [
+        "dndsu:bestiary:4910",
+        "dndsu:bestiary:6594"
+      ],
+      "preservedOriginalSourceClaimCount": 4,
+      "publisherDigitalContext": {
+        "legacyRecordReusedUnderOotaAndMtof": true,
+        "legacyCardUrl": "https://www.dndbeyond.com/monsters/17419-zuggtmoy",
+        "mtofFilteredCardUrl": "https://www.dndbeyond.com/monsters/17419-zuggtmoy",
+        "motmCardUrl": "https://www.dndbeyond.com/monsters/2560977-zuggtmoy",
+        "motmDigitalRecordDistinct": true,
+        "originalPrintedRulesEquivalent": "unverified",
+        "modernSecondaryOotaPlaqueValidated": false
+      },
+      "nextPrimaryCondition": "Original MTF/OotA text and errata plus meaning of source129 on the secondary MotM view; selected-filter membership alone does not settle these.",
+      "canonicalUnitCountApproved": null,
+      "fullRuleComponentInventoryAccepted": false,
+      "reusePermission": "not-established",
+      "automaticMerge": false,
+      "automaticSourceRemoval": false
+    }
+  ],
+  "originalRootChanged": false,
+  "otherM0DecisionsChanged": false,
+  "runtimeChanged": false,
+  "limitations": [
+    "This context records reviewed reference relations and selected publisher-index memberships, not completion of D03, M0 or the project.",
+    "Current digital-record reuse is deliberately separate from original printed-rule equivalence and the secondary source129 claim.",
+    "Nine source observations and thirteen original attribution edges remain in the underlying relation report; no source or identity group is removed.",
+    "Four canonical granularity decisions, full rule/component inventories, exact versions and rights remain unaccepted; the owner alone closes stages.",
+    "Use this reviewed context before repeating completed reference/source-filter checks; pursue the stated primary conditions or another available M0 step."
+  ],
+  "inputSha256": {
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db",
+    "catalog/d03-reference-relationships-2014.json": "12522d5ed494d7ec01226ca3c6d5debc51ddd054acbcb7427a50f4bca941a559",
+    "catalog/demon-publisher-filter-overlap-2014.json": "b969584d1d1832fe906fe076ea7de034df003a1a5a9364121d8e379189795e09"
+  }
+}
