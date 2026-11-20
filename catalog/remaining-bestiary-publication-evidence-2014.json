@@ -1,0 +1,1023 @@
+{
+  "schemaVersion": 1,
+  "status": "remaining-bestiary-publication-witnesses-not-full-rules",
+  "checkedOn": "2026-11-20",
+  "selectedReviewIds": [
+    "name-review:19b610f76bb81838ed91",
+    "name-review:1b06c8eb8bd23dbc0116",
+    "name-review:56f4a50fcd55424c49d2",
+    "name-review:592fb0a6b181f465e066",
+    "name-review:692ef5fc9e5709b3db58",
+    "name-review:6ddb21589e4c92819c34",
+    "name-review:78ef04cefaf20e230195",
+    "name-review:817a75ba644dee41941a",
+    "name-review:96081cbbd4ac8e151fe6",
+    "name-review:9f11f017e2b5c1b69aed",
+    "name-review:a6ee97320e7808e2fbde",
+    "name-review:a778e33bedddbc7ab6ab",
+    "name-review:b990d8bf2a8ebcbe08b7",
+    "name-review:bec0a45d67a6b1dfbad4",
+    "name-review:c33e38cd5ba6bfdcd994",
+    "name-review:ed3135f7e036854f2a53",
+    "name-review:f2acd12f69e538f0500e",
+    "name-review:fa90cc77090c6cb43e8e"
+  ],
+  "sources": [
+    {
+      "sourceId": "106",
+      "policyTitle": "The Rise of Tiamat",
+      "publishedIndexHeadings": [
+        "Rise of Tiamat"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/rot",
+      "htmlSha256": "a8c2c2cb18815cf987939ecff5a59c0bad65ebda01b74afd66d2b6cb49a87364",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "guard drake"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "guard drake",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [
+        {
+          "heading": "Appendix D: Monsters",
+          "targetUrl": "https://www.dndbeyond.com/sources/rot/appendix-d-monsters",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": {
+        "requestedUrl": "https://www.dndbeyond.com/sources/rot/appendix-d-monsters",
+        "error": "HTTP Error 404: Not Found",
+        "usedAsCreatureEvidence": false,
+        "status": "unavailable"
+      }
+    },
+    {
+      "sourceId": "110",
+      "policyTitle": "Lost Mine of Phandelver",
+      "publishedIndexHeadings": [
+        "Lost Mine of Phandelver",
+        "Lost Mine of Phandelver"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/lmop",
+      "htmlSha256": "e5d7b11483acefaa79933c704f48088430a6c06b289904a082f275ce313f50bb",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "red ruffian"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "red ruffian",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [],
+      "unapprovedAlternates": [
+        {
+          "observedKey": "red ruffian",
+          "heading": "Redbrand Ruffians",
+          "targetUrl": "https://www.dndbeyond.com/sources/lmop/phandalin#RedbrandRuffians",
+          "aliasAccepted": false,
+          "usedAsExactWitness": false
+        }
+      ],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "111",
+      "policyTitle": "Volo's guide to monsters",
+      "publishedIndexHeadings": [
+        "Volo's Guide to Monsters",
+        "Volo’s Guide to Monsters"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/vgtm",
+      "htmlSha256": "afaee9930e46efe51e83bf9e55c786979e3d8dc32d1ee1a34de39811bfcd6ab1",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "bard",
+        "guard drake"
+      ],
+      "records": [
+        {
+          "name": "bard",
+          "heading": "Bard",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#Bard",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        },
+        {
+          "name": "guard drake",
+          "heading": "Guard Drake",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#GuardDrake",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        }
+      ],
+      "missing": [],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "113",
+      "policyTitle": "Mordenkainen's Tome of Foes",
+      "publishedIndexHeadings": [
+        "Mordenkainen's Tome of Foes",
+        "Mordenkainen’s Tome of Foes"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+      "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "orcus"
+      ],
+      "records": [
+        {
+          "name": "orcus",
+          "heading": "Orcus",
+          "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Orcus",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        }
+      ],
+      "missing": [],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "114",
+      "policyTitle": "Tomb of Annihilation",
+      "publishedIndexHeadings": [
+        "Tomb of Annihilation",
+        "Tomb of Annihilation"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/toa",
+      "htmlSha256": "d19be60a3ed5002b5e413350ba733770a5b1b667f49185c74d3240141ac090a3",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "chwinga"
+      ],
+      "records": [
+        {
+          "name": "chwinga",
+          "heading": "Chwinga",
+          "targetUrl": "https://www.dndbeyond.com/sources/toa/monsters-and-npcs#Chwinga",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        }
+      ],
+      "missing": [],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "120",
+      "policyTitle": "Icewind Dale: Rime of the Frostmaiden",
+      "publishedIndexHeadings": [
+        "Icewind Dale: Rime of the Frostmaiden"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/idrotf",
+      "htmlSha256": "505b7223833bcead998d96c2f7054c419ca6f896253f85adb7190968c983877f",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "brain in a jar",
+        "chwinga"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "brain in a jar",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "chwinga",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [
+        {
+          "heading": "Appendix C: Creatures",
+          "targetUrl": "https://www.dndbeyond.com/sources/idrotf/appendix-c-creatures",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": {
+        "requestedUrl": "https://www.dndbeyond.com/sources/idrotf/appendix-c-creatures",
+        "error": "The read operation timed out",
+        "usedAsCreatureEvidence": false,
+        "status": "unavailable"
+      }
+    },
+    {
+      "sourceId": "121",
+      "policyTitle": "Mythic Odysseys of Theros",
+      "publishedIndexHeadings": [
+        "Mythic Odysseys of Theros"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/moot",
+      "htmlSha256": "9a19b978f2f22747a0b395c02132a02ed170d7dc91cb4cd474f0af9d1be09f95",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "amphisbaena"
+      ],
+      "records": [
+        {
+          "name": "amphisbaena",
+          "heading": "Amphisbaena",
+          "targetUrl": "https://www.dndbeyond.com/sources/moot/friends-and-foes#Amphisbaena",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        }
+      ],
+      "missing": [],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "122",
+      "policyTitle": "Candlekeep Mysteries",
+      "publishedIndexHeadings": [
+        "Candlekeep Mysteries",
+        "Candlekeep Mysteries"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/cm",
+      "htmlSha256": "7c5ad9d41c3b0f491423f30053f7e3c070d0b82936430be2f866ec7f621b6d0a",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "chwinga",
+        "wereraven"
+      ],
+      "records": [
+        {
+          "name": "chwinga",
+          "heading": "Chwinga",
+          "targetUrl": "https://www.dndbeyond.com/sources/cm/alkazaars-appendix#Chwinga",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        },
+        {
+          "name": "wereraven",
+          "heading": "Wereraven",
+          "targetUrl": "https://www.dndbeyond.com/sources/cm/book-of-the-raven#Wereraven",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        }
+      ],
+      "missing": [],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "124",
+      "policyTitle": "Curse of Strahd",
+      "publishedIndexHeadings": [
+        "Curse of Strahd"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/cos",
+      "htmlSha256": "5923c67c236949caf8a72d6fe71e6a5f818f0d2c7f8a00afc1913c77254c3077",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "strahd von zarovich",
+        "wereraven"
+      ],
+      "records": [
+        {
+          "name": "strahd von zarovich",
+          "heading": "Strahd von Zarovich",
+          "targetUrl": "https://www.dndbeyond.com/sources/cos/into-the-mists#StrahdvonZarovich",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        }
+      ],
+      "missing": [
+        {
+          "name": "wereraven",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "125",
+      "policyTitle": "Van Richten's Guide to Ravenloft",
+      "publishedIndexHeadings": [
+        "Van Richten’s Guide to Ravenloft"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/vrgtr",
+      "htmlSha256": "469c55ebc1d7d6c370deb9b14cf7e5bfc6481ad26d098fe88998a60ea296419e",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "brain in a jar",
+        "necrichor",
+        "wereraven"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "brain in a jar",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "necrichor",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "wereraven",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [
+        {
+          "heading": "Bestiary",
+          "targetUrl": "https://www.dndbeyond.com/sources/vrgtr/monsters-of-ravenloft#Bestiary",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": {
+        "requestedUrl": "https://www.dndbeyond.com/sources/vrgtr/monsters-of-ravenloft",
+        "error": "The read operation timed out",
+        "usedAsCreatureEvidence": false,
+        "status": "unavailable"
+      }
+    },
+    {
+      "sourceId": "127",
+      "policyTitle": "Essentials Kit: Divine Contention",
+      "publishedIndexHeadings": [
+        "Divine Contention"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/dc",
+      "htmlSha256": "07ad1a7b2270e69822df6e10affaa16b3f91f0e9e9babfe4148c35afcbde2c54",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "expert",
+        "spellcaster (healer)",
+        "spellcaster (mage)",
+        "warrior"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "expert",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "spellcaster (healer)",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "spellcaster (mage)",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "warrior",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [
+        {
+          "heading": "Appendix B: Sidekicks",
+          "targetUrl": "https://www.dndbeyond.com/sources/dc/sidekicks",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": {
+        "requestedUrl": "https://www.dndbeyond.com/sources/dc/sidekicks",
+        "error": "The read operation timed out",
+        "usedAsCreatureEvidence": false,
+        "status": "unavailable"
+      }
+    },
+    {
+      "sourceId": "128",
+      "policyTitle": "Ghosts of Saltmarsh",
+      "publishedIndexHeadings": [
+        "Ghosts of Saltmarsh",
+        "Ghosts of Saltmarsh"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/gos",
+      "htmlSha256": "35bff0a1c1ed6bffd8b96aca65373c30529a5913a9096eee0468aa31b64d1393",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "amphisbaena",
+        "bard"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "amphisbaena",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "bard",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [
+        {
+          "heading": "Appendix C: Monsters and NPCs",
+          "targetUrl": "https://www.dndbeyond.com/sources/gos/monsters-and-npcs",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": {
+        "requestedUrl": "https://www.dndbeyond.com/sources/gos/monsters-and-npcs",
+        "error": "The read operation timed out",
+        "usedAsCreatureEvidence": false,
+        "status": "unavailable"
+      }
+    },
+    {
+      "sourceId": "129",
+      "policyTitle": "Out of the Abyss",
+      "publishedIndexHeadings": [
+        "Out of the Abyss"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/oota",
+      "htmlSha256": "ec62167514e422be4d3f87fe582dbba09c90e83b09f2d4f8366f29208152a19e",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "orcus"
+      ],
+      "records": [
+        {
+          "name": "orcus",
+          "heading": "Orcus",
+          "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-d-demon-lords#Orcus",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        }
+      ],
+      "missing": [],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "130",
+      "policyTitle": "The Lost Dungeon of Rickedness: Big Rick Energy",
+      "publishedIndexHeadings": [],
+      "kind": "publisher-product",
+      "indexUrl": "https://wpn.wizards.com/en/products/dungeons-and-dragons-vs-rick-and-morty",
+      "htmlSha256": "61d28a38b2125f42110a363bafb42bb5553cd741b8ee5469100259fceaef4d8c",
+      "literalPublicationTitleVerified": false,
+      "scopedTocPresent": false,
+      "wantedNames": [
+        "large mimic"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "large mimic",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "131",
+      "policyTitle": "Essentials Kit: Sleeping Dragon's Wake",
+      "publishedIndexHeadings": [
+        "Sleeping Dragon’s Wake"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/sdw",
+      "htmlSha256": "cfe616ca6d7215bf373ff0513540079023ec659c46c7cf0da6aac985c0cba79a",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "expert",
+        "spellcaster (healer)",
+        "spellcaster (mage)",
+        "warrior"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "expert",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "spellcaster (healer)",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "spellcaster (mage)",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "warrior",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [
+        {
+          "heading": "Appendix B: Sidekicks",
+          "targetUrl": "https://www.dndbeyond.com/sources/sdw/sidekicks",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": {
+        "requestedUrl": "https://www.dndbeyond.com/sources/sdw/sidekicks",
+        "error": "The read operation timed out",
+        "usedAsCreatureEvidence": false,
+        "status": "unavailable"
+      }
+    },
+    {
+      "sourceId": "135",
+      "policyTitle": "Waterdeep: Dungeon of the Mad Mage",
+      "publishedIndexHeadings": [
+        "Waterdeep: Dungeon of the Mad Mage"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/wdotmm",
+      "htmlSha256": "cf97544b9e0f3e50d51c0dd36174e6f2e9d23e3489c789dd151b0058e82c35b7",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "large mimic",
+        "space hamster"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "large mimic",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "space hamster",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "157",
+      "policyTitle": "Essentials Kit: Dragon of Icespire peak",
+      "publishedIndexHeadings": [
+        "Dragon of Icespire Peak",
+        "Dragon of Icespire Peak"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/doip",
+      "htmlSha256": "615fc7c32a618094d16951cdb297a0fcf09081ce48acc7695cbae0307b3b4b00",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "expert",
+        "spellcaster (healer)",
+        "spellcaster (mage)",
+        "warrior"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "expert",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "spellcaster (healer)",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "spellcaster (mage)",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "warrior",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [
+        {
+          "heading": "Sidekicks",
+          "targetUrl": "https://www.dndbeyond.com/sources/doip/sidekicks",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": {
+        "requestedUrl": "https://www.dndbeyond.com/sources/doip/sidekicks",
+        "error": "The read operation timed out",
+        "usedAsCreatureEvidence": false,
+        "status": "unavailable"
+      }
+    },
+    {
+      "sourceId": "158",
+      "policyTitle": "Mordenkainen Presents: Monsters of the Multiverse",
+      "publishedIndexHeadings": [
+        "Mordenkainen Presents: Monsters of the Multiverse"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+      "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "bard",
+        "guard drake",
+        "orcus"
+      ],
+      "records": [
+        {
+          "name": "bard",
+          "heading": "Bard",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Bard",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        },
+        {
+          "name": "guard drake",
+          "heading": "Guard Drake",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#GuardDrake",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        },
+        {
+          "name": "orcus",
+          "heading": "Orcus",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#Orcus",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        }
+      ],
+      "missing": [],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "160",
+      "policyTitle": "Spelljammer: Adventures in Space",
+      "publishedIndexHeadings": [
+        "Spelljammer: Adventures in Space",
+        "Spelljammer: Adventures in Space"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/sais",
+      "htmlSha256": "1191a5a0ebedb74e4cb77cebe0ba1fee20ba8d8ab49b3617eaa027d81346d378",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "chwinga",
+        "cosmic horror",
+        "space hamster"
+      ],
+      "records": [
+        {
+          "name": "chwinga",
+          "heading": "Chwinga",
+          "targetUrl": "https://www.dndbeyond.com/sources/sais/bam/bestiary#Chwinga",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        },
+        {
+          "name": "cosmic horror",
+          "heading": "Cosmic Horror",
+          "targetUrl": "https://www.dndbeyond.com/sources/sais/bam/bestiary#CosmicHorror",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        },
+        {
+          "name": "space hamster",
+          "heading": "Space Hamster",
+          "targetUrl": "https://www.dndbeyond.com/sources/sais/bam/bestiary#SpaceHamster",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        }
+      ],
+      "missing": [],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "167",
+      "policyTitle": "Essentials Kit: Storm Lord's Wrath",
+      "publishedIndexHeadings": [
+        "Storm Lord’s Wrath"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/slw",
+      "htmlSha256": "2068052fa714257a3c763486de03903986a904b70a113caf6039dda5f0b56fd7",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "expert",
+        "spellcaster (healer)",
+        "spellcaster (mage)",
+        "warrior"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "expert",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "spellcaster (healer)",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "spellcaster (mage)",
+          "reason": "exact-heading-unresolved"
+        },
+        {
+          "name": "warrior",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [
+        {
+          "heading": "Appendix B: Sidekicks",
+          "targetUrl": "https://www.dndbeyond.com/sources/slw/sidekicks",
+          "relation": "parent-chapter-only",
+          "satisfiesCreatureClaim": false
+        }
+      ],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": {
+        "requestedUrl": "https://www.dndbeyond.com/sources/slw/sidekicks",
+        "error": "The read operation timed out",
+        "usedAsCreatureEvidence": false,
+        "status": "unavailable"
+      }
+    },
+    {
+      "sourceId": "202",
+      "policyTitle": "Phandelver and Below: The Shattered Obelisk",
+      "publishedIndexHeadings": [
+        "Phandelver and Below: The Shattered Obelisk",
+        "Phandelver and Below: The Shattered Obelisk"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/pbtso",
+      "htmlSha256": "2704f9cd9aa67ac1041c40cde27f1f989da6146c73871de9c56e09192590ee1f",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "red ruffian"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "red ruffian",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [],
+      "unapprovedAlternates": [
+        {
+          "observedKey": "red ruffian",
+          "heading": "Redbrand Ruffian",
+          "targetUrl": "https://www.dndbeyond.com/sources/pbtso/bestiary#RedbrandRuffian",
+          "aliasAccepted": false,
+          "usedAsExactWitness": false
+        },
+        {
+          "observedKey": "red ruffian",
+          "heading": "Redbrand Ruffians",
+          "targetUrl": "https://www.dndbeyond.com/sources/pbtso/trouble-in-phandalin#RedbrandRuffians",
+          "aliasAccepted": false,
+          "usedAsExactWitness": false
+        }
+      ],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "208",
+      "policyTitle": "Adventure Atlas: The Mortuary",
+      "publishedIndexHeadings": [
+        "Let's Build a One-Shot With Adventure Atlas: The Mortuary!"
+      ],
+      "kind": "publisher-article",
+      "indexUrl": "https://www.dndbeyond.com/posts/1598-lets-build-a-one-shot-with-adventure-atlas-the",
+      "htmlSha256": "634638fee66ca9981aa54d13aa07b010ed5c1eead4d74668cd31762fa1618c22",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": false,
+      "wantedNames": [
+        "necrichor"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "necrichor",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "213",
+      "policyTitle": "Descent into the Lost Caverns of Tsojcanth",
+      "publishedIndexHeadings": [
+        "Descent into the Lost Caverns of Tsojcanth: Claim Your Free Copy Today!"
+      ],
+      "kind": "publisher-article",
+      "indexUrl": "https://www.dndbeyond.com/posts/1691-descent-into-the-lost-caverns-of-tsojcanth-claim",
+      "htmlSha256": "3d628ab76b7096312b840d1e8720f4798146726688ca26cbd157b8fd9b9b9ee6",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": false,
+      "wantedNames": [
+        "pech"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "pech",
+          "reason": "exact-heading-unresolved"
+        }
+      ],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [
+        {
+          "name": "pech",
+          "heading": "pech",
+          "targetUrl": "https://www.dndbeyond.com/monsters/4353901-pech",
+          "acceptedAsPublicationWitness": false
+        }
+      ],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "214",
+      "policyTitle": "Vecna: Eve of Ruin",
+      "publishedIndexHeadings": [
+        "Vecna: Eve of Ruin",
+        "Vecna: Eve of Ruin"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/veor",
+      "htmlSha256": "9a37d2894c8ffe5d4949495dced5bc3aac0a67de620fde0e565114ae6b43a3fc",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "cosmic horror",
+        "strahd von zarovich"
+      ],
+      "records": [
+        {
+          "name": "cosmic horror",
+          "heading": "Cosmic Horror",
+          "targetUrl": "https://www.dndbeyond.com/sources/veor/bestiary#CosmicHorror",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        },
+        {
+          "name": "strahd von zarovich",
+          "heading": "Strahd von Zarovich",
+          "targetUrl": "https://www.dndbeyond.com/sources/veor/character-dossier#StrahdvonZarovich",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        }
+      ],
+      "missing": [],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    },
+    {
+      "sourceId": "218",
+      "policyTitle": "Quest from the Infinite Staircase",
+      "publishedIndexHeadings": [
+        "Quests from the Infinite Staircase",
+        "Quests from the Infinite Staircase"
+      ],
+      "kind": "publisher-toc",
+      "indexUrl": "https://www.dndbeyond.com/sources/dnd/qftis",
+      "htmlSha256": "45ab97b08b9860b2855f3bcfc920c986bd05a32dd260fa5371c8e7f5c1a4c2f8",
+      "literalPublicationTitleVerified": true,
+      "scopedTocPresent": true,
+      "wantedNames": [
+        "pech"
+      ],
+      "records": [
+        {
+          "name": "pech",
+          "heading": "Pech",
+          "targetUrl": "https://www.dndbeyond.com/sources/qftis/creatures#Pech",
+          "kind": "publisher-scoped-toc-heading",
+          "publicationPresenceOnly": true
+        }
+      ],
+      "missing": [],
+      "parentContexts": [],
+      "unapprovedAlternates": [],
+      "articleMentions": [],
+      "linkAnomalies": [],
+      "chapterAccess": null
+    }
+  ],
+  "limitations": [
+    "Only selected scoped headings establish literal publication presence; no stat-block identity or identical/full rules are established.",
+    "Composite source arrays remain observations; each edge is a publication claim, not an accepted canonical version.",
+    "Parent chapters, article mentions and unapproved spellings never fill an exact-heading gap.",
+    "No translation reuse permission, accepted denominator, automatic merge or character migration is established."
+  ]
+}
