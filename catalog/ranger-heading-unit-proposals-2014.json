@@ -1,0 +1,714 @@
+{
+  "schemaVersion": 1,
+  "status": "residual-heading-classification-proposal",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "classSlug": "ranger",
+  "classUrl": "https://dnd.su/class/97-ranger/",
+  "snapshotPageSha256": "b401206c3c379c72d4f3cc50bb3c5c2e2902cc8b43578b75d2b293075d187ac7",
+  "freshCapture": {
+    "url": "https://dnd.su/class/97-ranger/",
+    "sha256": "19ecf4c9593bce9b199599328a4aa240a5dccce30ec5dfa6e385243302571c6f",
+    "headingStructureSha256": "02db841d81299ed679d6090e491af8151972ad277de2d39168bd78b095da8e31"
+  },
+  "records": [
+    {
+      "heading": {
+        "ordinal": 1,
+        "title": "Следопыт",
+        "level": 4,
+        "anchors": [
+          "ranger"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "b0960ba22005fb551aa26ab53769a46ab224c6010d7facb4dfecb2ac170a3c19",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 2,
+        "title": "СМЕРТОНОСНЫЕ ОХОТНИКИ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "294eb706338d34ae8f77ae7ed61a20c98dd54d47d2faef10fe1c654af8478ecd",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 3,
+        "title": "НЕЗАВИСИМЫЕ ИСКАТЕЛИ ПРИКЛЮЧЕНИЙ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "e7a9b06a96bbd064d1f6a0ba31162d8571bfe9120393236c75208f99ba2ba219",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 4,
+        "title": "Создание следопыта",
+        "level": 3,
+        "anchors": [
+          "creation"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "3fa8efbdd159a324abcba435d33b97e790646492216d17205133bae4e28ff702",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 5,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "e37d87c891b88a14ac7523ec5f8d3f30ac1a7ad6013ec1f9485102409c6a91a1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 6,
+        "title": "Углублённая предыстория Следопыта (XGE)",
+        "level": 2,
+        "anchors": [
+          "uglubljonnaya_predystoriya_sledopyta_xge"
+        ],
+        "sectionAnchor": "uglubljonnaya_predystoriya_sledopyta_xge",
+        "bodySha256": "3e03ddc43fc8b6e3ade35027bea3e4092b283c7726cf7f205f9ac8c08611925a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 7,
+        "title": "Взгляд на мир",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_sledopyta_xge",
+        "bodySha256": "a882cc08a405dd811b95e8ca40bb385b670622edf8fb530e1daca5404180cb3b",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 8,
+        "title": "Взгляды на мир",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_sledopyta_xge",
+        "bodySha256": "19930e425b5edc53a664708ca64069d97dc770736c664feb62085d3b78f548b8",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 9,
+        "title": "Родной край",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_sledopyta_xge",
+        "bodySha256": "4f2263954709e1b467d06a56a0923c2f31e3b82749a08df8c7a0583eff55ad5c",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 10,
+        "title": "Родные края",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_sledopyta_xge",
+        "bodySha256": "f34464c90af3590e8c134222fc5baac97646ffc5f54ff53c371733d786276f34",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 11,
+        "title": "Заклятый враг",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_sledopyta_xge",
+        "bodySha256": "633687ba4e388a984c016b20bd3abe1c01c1999d14d991935a4319a569e82191",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "backstory-guidance",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 12,
+        "title": "Заклятые враги",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_sledopyta_xge",
+        "bodySha256": "57a88634086a73c1f3662bb92b18e962e37356611915fb1b2a07d7e1fdc6ec4b",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 13,
+        "title": "МУЛЬТИКЛАССИРОВАНИЕ И Следопыт",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "uglubljonnaya_predystoriya_sledopyta_xge",
+        "bodySha256": "cb135b01a95714b1d548c4bc8d549a48280dd813213edcd311ded4ba5bbabd1f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 14,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "class-features"
+        ],
+        "sectionAnchor": "class-features",
+        "bodySha256": "a0677abb3386c98bf3fc63decef2423dcb1d08692894e58805cc16c5296c7e58",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 15,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 16,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "09f5435763ecb4f584d499cd4ce1d2852d7b6e61b98e3ae4d9da8c115061a106",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 17,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "69360ac1324d316ef36673d9083578eaf89fd4fc93bdfb71b2e7eede9b4ebe02",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 18,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "b16f6190f94e7be16e6345350297c324c6e6ae27cd8ab8aac8adc2de12a81899",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 23,
+        "title": "Хитрец (1-й уровень)",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "1a472643abcdaea56b8cdc9ecd58d2aa8d3b210cace7d4b2995d6173d500b9b3",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:ranger:class-features:feature.deft-explorer",
+      "parentHeadingOrdinal": 22,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 24,
+        "title": "Бродяга (6-й уровень)",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "6fae7f725db8e1d00f20ea0aa3230b7ccfe493d16a76f8e1ccc02fe1f45215ef",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:ranger:class-features:feature.deft-explorer",
+      "parentHeadingOrdinal": 22,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 25,
+        "title": "Неутомимый (10-й уровень)",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "29c92361dc50c40a9508a208655fe16204196e03bc1d14410ba971df79763f81",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:ranger:class-features:feature.deft-explorer",
+      "parentHeadingOrdinal": 22,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 35,
+        "title": "Ячейки заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "150e81c6b40455f77a4087a87e86892fa7d7db29dc92a30a5f41fa9961284097",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:ranger:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 34,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 36,
+        "title": "Известные заклинания первого и более высоких уровней",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "39707852ac420af90d4a3dbb624bc2dfe91bc2603cd54ce1c628a90b1ce79a34",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:ranger:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 34,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 37,
+        "title": "Базовая характеристика заклинаний",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "926bc294a97c8bc8f11d492881b1054167ee5b2b7e313d776d8388853271f98a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:ranger:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 34,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 38,
+        "title": "Заклинательная фокусировка",
+        "level": 4,
+        "anchors": [
+          "feature.spellcasting-focus"
+        ],
+        "sectionAnchor": "class-features",
+        "bodySha256": "368bee89034892fe37d5ccbf03b5e213c935d0848af1a9297d46a24d5f3d931c",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "parentFeatureObservationId": "scope:ranger:class-features:feature.spellcasting",
+      "parentHeadingOrdinal": 34,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 43,
+        "title": "Заклинания изначальной осведомлённости",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "dbbdb4fee71b83e99110afb2c751ba0c654370a6f2b7dc42624c72efd4bc5f0f",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 5
+          }
+        ]
+      },
+      "kind": "additional-spell-table",
+      "parentFeatureObservationId": "scope:ranger:class-features:feature.primal-awareness",
+      "parentHeadingOrdinal": 42,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 53,
+        "title": "Архетипы следопыта",
+        "level": 2,
+        "anchors": [
+          "ranger-archetypes"
+        ],
+        "sectionAnchor": "ranger-archetypes",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 64,
+        "title": "Спутники повелителя зверей",
+        "level": 2,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "fb85e21c03169a119ac7ed5706f195f9863c43d3244a0560fd1a4ea2944a02af",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "variant-introduction",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 91,
+        "title": "Дары Страны Фей",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "archetype.fey-wanderer",
+        "bodySha256": "75fc32c3797a3624b2ac173e6c2f088ae35e4e718dc3f46d8db5aecd549f49c5",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 98,
+        "title": "Внешний вид роя",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "archetype.swarmkeeper",
+        "bodySha256": "8bbeef1ef83e1e45f444629717d14485be1dd7c5866726821f73e4bed273f619",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 4
+          }
+        ]
+      },
+      "kind": "feature-subrule-table",
+      "parentFeatureObservationId": "scope:ranger:archetype.swarmkeeper:dd7a2d2804ae71c9",
+      "parentHeadingOrdinal": 97,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 106,
+        "title": "Происхождение наездника на дрейке",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "archetype.drakewarden",
+        "bodySha256": "4e90a3eda0ceb3f2c4d457359b8871c54cbc0423890b8621858b5c2290bd00b1",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "backstory-table",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 112,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "679c6b22e676218528226c0d3ecb1170e868e79f9aae01deb9a65f26b5d145d7",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-index",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false
+    },
+    {
+      "heading": {
+        "ordinal": 170,
+        "title": "Рой паразитов HB HB:GH",
+        "level": 2,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "aeb09a1d64c363e40f9b7c5ddd583e617242e3458f9b42207a35851a09d12b4f",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "grim-hollow-vermin"
+    },
+    {
+      "heading": {
+        "ordinal": 171,
+        "title": "Действия",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "3135065f1f2f7e6b499b58b4f541bc7a31f6e161c694db149e9794b1ebb52000",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-third-party-component",
+      "parentFeatureObservationId": null,
+      "parentHeadingOrdinal": null,
+      "canonicalId": null,
+      "fullRulesVerified": false,
+      "accepted": false,
+      "sourceContextId": "grim-hollow-vermin"
+    }
+  ],
+  "exclusionContexts": {
+    "grim-hollow-vermin": {
+      "publication": "Grim Hollow’s The Players Guide",
+      "sourceHeading": {
+        "ordinal": 162,
+        "title": "Повелитель паразитов",
+        "level": 2,
+        "anchors": [
+          "ua.archetype.vermin-lord"
+        ],
+        "sectionAnchor": "ua.archetype.vermin-lord",
+        "bodySha256": "3bff004ebe0908707f818da20a65d40e17847c398bc5019ba66e1257db7d5a43",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "linkHeading": {
+        "ordinal": 165,
+        "title": "Призыв паразитов",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "ua.archetype.vermin-lord",
+        "bodySha256": "485bc2ddaee90737872b0527f25ca6c2ec9b7c12dbea46d53c770539a33f04b1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "sourceBasis": "manual-leading-source-label",
+      "sourcePrefix": "Источник: «Grim Hollow’s The Players Guide»",
+      "basis": "Vermin Lord source explicitly says Grim Hollow despite ua anchor; feature165 summons the named swarms whose HB:GH stat block170 follows. Do not treat the URL anchor as publication evidence."
+    }
+  },
+  "limitations": [
+    "No canonical denominator, full rules or source rights accepted.",
+    "Spellcasting Focus38 is an optional rule; association with Spellcasting34 does not assign it the base PHB publication or make the option compulsory.",
+    "Companions64 introduces the TCE alternative to PHB Beast Master; no automatic replacement is implied.",
+    "Swarm Appearance98 includes four appearances AND attack-triggered swarm mechanics; its body is not discarded after the table.",
+    "The two Vermin Swarm stat-block headings are source-linked third-party components, not new official monsters."
+  ]
+}

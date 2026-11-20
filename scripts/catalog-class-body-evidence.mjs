@@ -22,3 +22,19 @@ export function classBodyEvidence(html){
 }
 
 export const structureSha=rows=>sha(JSON.stringify(rows.map(h=>[h.ordinal,h.title,h.level,h.anchors,h.sectionAnchor])));
+
+// A stable title/anchor layout does not prove that a publication label stayed the same.
+export function verifyClassSourceLabels(snapshotHeadings,html){
+ const labels=rows=>rows.map(h=>[h.ordinal,h.explicitSources]);
+ if(JSON.stringify(labels(snapshotHeadings))!==JSON.stringify(labels(classHeadings(html).headings)))throw Error('Class publication labels changed');
+ return true;
+}
+
+export function verifyClassBodyPrefix(html,ordinal,prefix){
+ const start=html.search(/<div\b[^>]*class="card__body new-article"[^>]*>/),end=html.indexOf('<div class="card__footer"',start);
+ if(start<0||end<start)throw Error('Missing article boundary');
+ const article=html.slice(start,end),heads=[...article.matchAll(/<h([234])\b[^>]*>([\s\S]*?)<\/h\1>/g)].filter(m=>decode(m[2].replace(/<[^>]*>/g,' ')).trim());
+ const h=heads[ordinal-1];if(!h||!prefix)throw Error('Missing source prefix evidence');
+ const text=decode(article.slice(h.index+h[0].length,heads[ordinal]?.index??article.length).replace(/<[^>]*>/g,' ')).replace(/\s+/g,' ').trim();
+ if(!text.startsWith(prefix))throw Error('Leading source label changed');return true;
+}

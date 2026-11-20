@@ -1,6 +1,6 @@
 import {readFileSync} from 'node:fs';
 import {pathToFileURL} from 'node:url';
-import {classBodyEvidence,sha,structureSha} from './catalog-class-body-evidence.mjs';
+import {classBodyEvidence,sha,structureSha,verifyClassSourceLabels} from './catalog-class-body-evidence.mjs';
 const boundary=[[231,238,238],[252,259,265],[273,284,294],[301,308,309]];
 const kinds={1:'progression-table',2:'lore',3:'lore',4:'creation-guidance',5:'creation-guidance',6:'backstory-introduction',7:'backstory-guidance',8:'backstory-table',9:'backstory-guidance',10:'backstory-table',11:'backstory-guidance',12:'backstory-table',13:'multiclass-rule-group',14:'section-container',15:'section-container',16:'base-rule',17:'base-rule',18:'base-rule',20:'feature-subrule',21:'feature-subrule',22:'feature-subrule-mixed-source',23:'feature-subrule',24:'feature-subrule',25:'feature-subrule',26:'feature-subrule',27:'feature-subrule',35:'tradition-introduction',115:'excluded-section-index',116:'playtest-section-marker'};
 export function verifyWizardBoundaries(manifest,snapshot,composition,html){
@@ -38,7 +38,7 @@ export function verifyWizardBoundaries(manifest,snapshot,composition,html){
   if(JSON.stringify(h.tables)!==JSON.stringify(count?[{rows:count}]:[])||h.bodyEmpty!==[15,116].includes(n))throw Error('Body unit boundary changed');
  }
  if(html!==undefined){
-  if(sha(html)!==manifest.freshCapture.sha256)throw Error('Capture changed');
+  if(sha(html)!==manifest.freshCapture.sha256)throw Error('Capture changed');verifyClassSourceLabels(page.headings,html);
   const fresh=classBodyEvidence(html);
   if(structureSha(fresh)!==manifest.freshCapture.headingStructureSha256)throw Error('Capture structure changed');
   for(const r of manifest.classifications)if(JSON.stringify(r.heading)!==JSON.stringify(fresh[r.heading.ordinal-1]))throw Error('Classified body changed');

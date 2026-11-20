@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {paths,reviewArtificerHeadings,verifyArtificerCapture} from '../scripts/catalog-artificer-heading-review.mjs';
-import {classBodyEvidence,sha,structureSha} from '../scripts/catalog-class-body-evidence.mjs';
+import {classBodyEvidence,sha,structureSha,verifyClassSourceLabels,verifyClassBodyPrefix} from '../scripts/catalog-class-body-evidence.mjs';
 const raw=paths.map(p=>readFileSync(new URL('../'+p,import.meta.url),'utf8').replace(/\r\n/g,'\n'));
 const inputs=()=>raw.map(JSON.parse);
 test('23 residual headings are classified without adding class features or changing originals',()=>{
@@ -44,3 +44,14 @@ test('whole heading structure is pinned beyond the23 classified bodies',()=>{con
  </table><div class="card__footer">`;
  assert.deepEqual(classBodyEvidence(html)[0].tables,[{rows:3}]);
  });
+
+test('unchanged headings cannot conceal a changed explicit publication label',()=>{
+ const html='<div class="card__body new-article"><h2>Tradition</h2><p><strong>Источник: «Book A»</strong></p><div class="card__footer">';
+ const snapshot=[{ordinal:1,explicitSources:['Book A']}];
+ assert.equal(verifyClassSourceLabels(snapshot,html),true);
+ const changed=html.replace('Book A','Book B');
+ assert.equal(structureSha(classBodyEvidence(html)),structureSha(classBodyEvidence(changed)));
+ assert.throws(()=>verifyClassSourceLabels(snapshot,changed),/publication labels/);
+});
+
+test('manual source evidence supports styled spans but rejects body mention masquerading as leading source',()=>{const html='<div class="card__body new-article"><h2>Subclass</h2><p><span>Источник: «Book A»</span></p><p>rules</p><div class="card__footer">';assert.equal(verifyClassBodyPrefix(html,1,'Источник: «Book A»'),true);assert.throws(()=>verifyClassBodyPrefix(html,1,'Источник: «Book B»'),/source label/);assert.throws(()=>verifyClassBodyPrefix(html.replace('<p><span>','<p>Other text</p><p><span>'),1,'Источник: «Book A»'),/source label/);});
