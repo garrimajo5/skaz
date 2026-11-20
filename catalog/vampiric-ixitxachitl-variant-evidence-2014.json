@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "status": "secondary-spellcasting-distinction-not-canonical-unit-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "reviewId": "name-review:33a60c9b712e1ff852ad",
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:5830",
+      "originalSourceIds": [
+        "129"
+      ],
+      "referenceUrl": "https://dnd.su/bestiary/5830-vampiric-ixitxachitl/",
+      "htmlSha256": "f8311134ae4e833396de6e6aabfd6d7e40bc51cac8e6f6344e4f83844db0446c",
+      "selectedSecondaryFields": {
+        "armorClass": 16,
+        "hitPoints": 44,
+        "hitDice": "8d8 + 8",
+        "challengeRating": 2,
+        "experience": 450,
+        "abilities": {
+          "Сил": 14,
+          "Лов": 18,
+          "Тел": 13,
+          "Инт": 12,
+          "Мдр": 13,
+          "Хар": 7
+        }
+      },
+      "mechanicalRegionSha256": "094813c17140c11722ac9ba52243c98c309952ccadcc2d438f7b543fb10e8f5d",
+      "spellcastingSectionPresent": false,
+      "accepted": false,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:5832",
+      "originalSourceIds": [
+        "129"
+      ],
+      "referenceUrl": "https://dnd.su/bestiary/5832-vampiric-ixitxachitl/",
+      "htmlSha256": "dd855c1bac85cb35f761b1b19268275b09f97e4f7d1f76118f897ae6844bf459",
+      "selectedSecondaryFields": {
+        "armorClass": 16,
+        "hitPoints": 44,
+        "hitDice": "8d8 + 8",
+        "challengeRating": 2,
+        "experience": 450,
+        "abilities": {
+          "Сил": 14,
+          "Лов": 18,
+          "Тел": 13,
+          "Инт": 12,
+          "Мдр": 13,
+          "Хар": 7
+        }
+      },
+      "mechanicalRegionSha256": "8f761da8fcbdebab1fb46343e16f02baeb19b6ee8a36d4f71f9ccc4461d07a3f",
+      "spellcastingSectionPresent": true,
+      "accepted": false,
+      "canonicalId": null
+    }
+  ],
+  "comparison": {
+    "selectedNumericFieldsEqual": true,
+    "normalizedSecondaryRegionsEqual": false,
+    "textOutsideSelectedSpellcastingEqual": true,
+    "selectedSpellcastingSectionSha256": "2d3b50de503b4ec8282a6fc0acc14271f9d0b939c83a84019c93e2722388a697",
+    "primaryRulesCompared": false,
+    "automaticMergeApproved": false,
+    "duplicateDeletionApproved": false
+  },
+  "primaryIndex": {
+    "url": "https://www.dndbeyond.com/monsters?filter-search=Vampiric%20Ixitxachitl",
+    "htmlSha256": "4bfe6589b45c5de70b398543f9309df7e0627a5cc99cae62f61be9211a69682b",
+    "records": [
+      {
+        "name": "Vampiric Ixitxachitl",
+        "cardUrl": "https://www.dndbeyond.com/monsters/17381-vampiric-ixitxachitl",
+        "publication": "Out of the Abyss",
+        "assignedToSecondaryObservation": false
+      }
+    ],
+    "fullPrimaryStatBlockRead": false
+  },
+  "primaryDetailAccess": {
+    "requestedUrl": "https://www.dndbeyond.com/monsters/17381-vampiric-ixitxachitl",
+    "fullPrimaryRulesCompared": false,
+    "error": "The read operation timed out"
+  },
+  "referenceRelationshipProposal": "retain-base-and-spellcasting-view-distinction",
+  "proposedCanonicalEntityCount": null,
+  "canonicalUnitsAccepted": 0,
+  "automaticCharacterMigration": false,
+  "limitations": [
+    "Equal numeric fields do not establish identical mechanics: the selected secondary variant contains a spellcasting section.",
+    "Equality outside the selected normalized secondary region is not proof of complete or primary-rule equivalence.",
+    "One publisher index record is not assigned to both observations and does not prove duplicate identity or canonical granularity.",
+    "Full primary base/variant rules, exact version and reuse rights remain unverified; the detail timeout is recorded, not bypassed.",
+    "Original names, IDs, source arrays, snapshots and runtime remain unchanged."
+  ],
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db",
+    "catalog/numeric-source-scope-policy-2014.json": "c46db1df76294bc971e7c1582ece3cfe09cd126fcca22edf7fd2431f8379df32"
+  }
+}
