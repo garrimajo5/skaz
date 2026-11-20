@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-20",
+  "status": "genasi-headings-and-publication-metadata-not-full-rules",
+  "motm": {
+    "sourceId": "158",
+    "title": "Mordenkainen Presents: Monsters of the Multiverse",
+    "url": "https://www.dndbeyond.com/sources/dnd/motm",
+    "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e",
+    "records": [
+      {
+        "heading": "Genasi",
+        "targetUrl": "https://www.dndbeyond.com/sources/motm/fantastical-races#Genasi",
+        "role": "family-heading",
+        "parentHeading": null
+      },
+      {
+        "heading": "Air Genasi",
+        "targetUrl": "https://www.dndbeyond.com/sources/motm/fantastical-races#AirGenasiTraits",
+        "role": "indented-variant-heading",
+        "parentHeading": "Genasi"
+      },
+      {
+        "heading": "Earth Genasi",
+        "targetUrl": "https://www.dndbeyond.com/sources/motm/fantastical-races#EarthGenasiTraits",
+        "role": "indented-variant-heading",
+        "parentHeading": "Genasi"
+      },
+      {
+        "heading": "Fire Genasi",
+        "targetUrl": "https://www.dndbeyond.com/sources/motm/fantastical-races#FireGenasiTraits",
+        "role": "indented-variant-heading",
+        "parentHeading": "Genasi"
+      },
+      {
+        "heading": "Water Genasi",
+        "targetUrl": "https://www.dndbeyond.com/sources/motm/fantastical-races#WaterGenasiTraits",
+        "role": "indented-variant-heading",
+        "parentHeading": "Genasi"
+      }
+    ]
+  },
+  "pota": {
+    "sourceId": "107",
+    "book": "pota",
+    "title": "Princes of the Apocalypse",
+    "url": "https://www.dndbeyond.com/sources/dnd/pota",
+    "htmlSha256": "dad64524949e6293f021c7dfc5eae80f03be1fa56bf8ae1c5fad5ae67baee748",
+    "records": [
+      {
+        "name": "genasi",
+        "heading": "Appendix A: Genasi",
+        "targetUrl": "https://www.dndbeyond.com/sources/pota/appendix-a-genasi"
+      }
+    ]
+  },
+  "supportingOtherPublication": {
+    "sourceId": null,
+    "publication": "Elemental Evil Player's Companion",
+    "url": "https://www.dndbeyond.com/species/23-genasi",
+    "htmlSha256": "6dec2a91f362f20a5a2bd0383f0c592193f02c451922dafa5310a0fb7885e26c",
+    "records": [
+      {
+        "heading": "Air Genasi",
+        "targetUrl": "https://www.dndbeyond.com/species/23-genasi#AirGenasi",
+        "publicationSlug": "elemental-evil-players-companion",
+        "legacy": true
+      },
+      {
+        "heading": "Earth Genasi",
+        "targetUrl": "https://www.dndbeyond.com/species/23-genasi#EarthGenasi",
+        "publicationSlug": "elemental-evil-players-companion",
+        "legacy": true
+      },
+      {
+        "heading": "Fire Genasi",
+        "targetUrl": "https://www.dndbeyond.com/species/23-genasi#FireGenasi",
+        "publicationSlug": "elemental-evil-players-companion",
+        "legacy": true
+      },
+      {
+        "heading": "Water Genasi",
+        "targetUrl": "https://www.dndbeyond.com/species/23-genasi#WaterGenasi",
+        "publicationSlug": "elemental-evil-players-companion",
+        "legacy": true
+      }
+    ],
+    "observationSourceAssignment": false
+  },
+  "limitations": [
+    "TOC indentation witnesses a family and four variant headings, not four accepted catalog records.",
+    "Elemental Evil metadata is not assigned to source107 Princes of the Apocalypse.",
+    "The accessible PotA TOC has only the family heading; its chapter redirects to the marketplace.",
+    "Full rules, exact versions, translation rights and a catalog denominator remain unaccepted."
+  ]
+}
