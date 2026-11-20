@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "status": "primary-adventure-anthology-relation-witness-not-canonical-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "sources": {
+    "article.html": {
+      "requestedUrl": "https://www.dndbeyond.com/posts/1438-claim-your-copy-of-prisoner-13-and-infiltrate",
+      "finalUrl": "https://www.dndbeyond.com/posts/1438-claim-your-copy-of-prisoner-13-and-infiltrate",
+      "status": 200,
+      "bytes": 362872,
+      "sha256": "77dbe0a1e6f431db8f81e99856fa78e8ce7b28d6dc01843b76a64f65f72fb9ed",
+      "capturedAt": "2026-11-20T23:31:06.345046+00:00"
+    },
+    "parent.html": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/kftgv",
+      "finalUrl": "https://www.dndbeyond.com/sources/dnd/kftgv",
+      "status": 200,
+      "bytes": 258131,
+      "sha256": "c1088c618c526335f480d2be64f094a34e9b45710bc5ef0efb40252f9b277347",
+      "capturedAt": "2026-11-20T23:31:06.162329+00:00"
+    },
+    "child.html": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/p13",
+      "finalUrl": "https://www.dndbeyond.com/claim/source/prisoner-13",
+      "status": 200,
+      "bytes": 221329,
+      "sha256": "9ddf70b7307ae6a10ee794cbe30b5a24a5c85bbb93b3a90513a180814938841f",
+      "capturedAt": "2026-11-20T23:31:06.861511+00:00"
+    }
+  },
+  "publisherStatement": {
+    "title": "Claim Your Copy of Prisoner 13 and Infiltrate Revel's End!",
+    "relationParagraphSha256": "a77b6e37f25f65979dcecbce411df820a31effe3df55a254f9b4f9ba2c080395",
+    "parentLink": "https://www.dndbeyond.com/marketplace/adventures/keys-from-the-golden-vault?icid_medium=ddb&icid_source=article&icid_campaign=revels-end&icid_content=kftgv",
+    "explicitAdventureFromAnthologyStatement": true,
+    "publicArticleOffersClaimAtNoCost": true,
+    "scope": "publisher article body only; comments/navigation excluded"
+  },
+  "parentToc": {
+    "title": "Keys from the Golden Vault",
+    "adventureHeading": "Prisoner 13",
+    "adventureChapterUrl": "https://www.dndbeyond.com/sources/kftgv/prisoner-13",
+    "sameNameStatblock": {
+      "tocLabel": "Stat Block: Prisoner 13",
+      "url": "https://www.dndbeyond.com/sources/kftgv/prisoner-13#Prisoner13statblock",
+      "catalogUnitDecision": "separate-kind-review-required"
+    },
+    "scope": "anthology TOC metadata only; no chapter/full statblock text inspected"
+  },
+  "providerReferences": [
+    {
+      "observationId": "ddb:library-source:103",
+      "providerSourceId": 103,
+      "title": "Keys from the Golden Vault",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/kftgv",
+      "providerIsFree": false
+    },
+    {
+      "observationId": "ddb:library-source:105",
+      "providerSourceId": 105,
+      "title": "Prisoner 13",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/p13",
+      "providerIsFree": false
+    }
+  ],
+  "relationship": {
+    "kind": "adventure-component-with-separate-distribution-entry",
+    "childProviderSourceId": 105,
+    "parentProviderSourceId": 103,
+    "existingParentDndsuSourceId": "189",
+    "childDndsuSourceId": null,
+    "canonicalSourceId": null,
+    "automaticSourceReplacement": false,
+    "automaticRecordAttribution": false,
+    "fullTextEquivalence": "unverified",
+    "reusePermission": "not-established"
+  },
+  "accessBoundary": {
+    "anonymousChildRequestRedirectedToClaimPage": true,
+    "childFullAdventureTextInspected": false,
+    "claimSubmitted": false,
+    "authenticatedAccessUsed": false,
+    "providerIsFreeFlagPreserved": true,
+    "freeClaimOfferIsPublicationPermission": false
+  },
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe",
+    "catalog/library-source-link-proposals-2014.json": "32baeee49a644be8822acdf46c2ebadc890efeb0ea90801f0e257b0ea509c4dc"
+  },
+  "generator": {
+    "path": "scripts/audit-prisoner13-component-2014.py",
+    "sha256": "5f19428fb4a6d387a09ed38a21871d8f44b8b319f2192d9c731e08784865a124"
+  },
+  "limits": [
+    "An anthology component and a separate distribution source are not two proved distinct full rules versions.",
+    "The adventure title and its same-name creature statblock are different kinds, not an accepted single unit or alias.",
+    "Provider105 does not invent/replace dndsu source105; only existing parent189 is referenced.",
+    "A public no-cost claim offer is neither completed access nor permission to publish/translate full text.",
+    "The historical15-row residual remains unchanged; no canonical counts, profiles, runtime or owner acceptance are exported."
+  ]
+}
