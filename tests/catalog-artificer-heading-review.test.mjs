@@ -32,3 +32,15 @@ test('changed capture or body hash is rejected independently of classification',
 test('report is reproducible from committed inputs',()=>{const r=reviewArtificerHeadings(...inputs());r.inputSha256=Object.fromEntries(paths.map((p,i)=>[p,sha(raw[i])]));assert.deepEqual(r,JSON.parse(readFileSync(new URL('../catalog/artificer-heading-review-2014.json',import.meta.url),'utf8')));});
 
 test('whole heading structure is pinned beyond the23 classified bodies',()=>{const a=inputs();a[0].pages.find(p=>p.url===a[3].classUrl).headings[129].title+=' changed';assert.throws(()=>reviewArtificerHeadings(...a),/structure changed/);});
+
+ test('only a class token identifies a td-based header, not arbitrary attributes or substrings',()=>{
+ const html=`<div class="card__body new-article"><h3>Table</h3><table>
+ <tr data-note="table_header"><td>A</td></tr>
+ <tr class="not_table_header"><td>B</td></tr>
+ <tr data-note='class="table_header"'><td>C</td></tr>
+ <tr CLASS='other table_header'><td>Header</td></tr>
+ <tr class=table_header><td>Header</td></tr>
+ <tr class="other&#32;table_header"><td>Header</td></tr>
+ </table><div class="card__footer">`;
+ assert.deepEqual(classBodyEvidence(html)[0].tables,[{rows:3}]);
+ });
