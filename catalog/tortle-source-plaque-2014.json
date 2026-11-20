@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "status": "secondary-literal-source-plaque-not-publication-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "reviewId": "name-review:b8549edf1349f76678ca",
+  "observationId": "dndsu:race:184",
+  "observedSourceIds": [],
+  "originalRouting": "ready-for-version-and-rights-review",
+  "secondaryEvidence": {
+    "url": "https://dnd.su/race/184-tortle/",
+    "htmlSha256": "d8c63096744458acf37f1caa48b3d832e3fb941aed072fdd65dfcbc0eb625ffa",
+    "scope": "card__body.new-article > ul.params.card__article-body; source li/span",
+    "literalPublicationTitle": "The Tortle Package",
+    "primaryEvidence": false,
+    "fullRulesRead": false
+  },
+  "proposedSourceId": null,
+  "canonicalId": null,
+  "automaticAttribution": false,
+  "automaticCharacterMigration": false,
+  "remaining": [
+    "Exact primary publication/version relation for this observation is unaccepted.",
+    "No numeric source ID is inferred from a secondary title or the other digital Tortle record.",
+    "Full rules, errata version, translation rights and canonical denominator remain unverified."
+  ],
+  "inputSha256": {
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db",
+    "catalog/race-other-version-proposals-2014.json": "aec291bd0f0472dceb29e70563212b1019750cfef6e10d6b2f2aff5f3418b19a"
+  }
+}
