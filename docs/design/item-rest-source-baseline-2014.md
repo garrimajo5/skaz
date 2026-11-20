@@ -1,5 +1,7 @@
 # #78 — узкий первичный baseline предметных заклинаний и отдыха
 
+Продолжение 20.11: [отдельная сверка эрраты и общих правил](rest-spellcasting-source-comparison-2014.md) уточняет прежние неизвестные по сну, минимуму восстановления и округлению. Ниже сохранён исторический объём первой проверки.
+
 20.11.2026, content. Это выбранные факты из точного [SRD5.1 CC PDF](https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf), не готовая автоматизация и не принятие всей матрицы. SHA256 `2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0`,403страницы. Текст извлечён pypdf; печатные страницы87/207/243отрендереныPDFium и просмотрены визуально. Копия PDF/PNG внеGit; новых библиотек не ставилось.
 
 Машиночитаемый источник: [resource-rule-source-evidence-2014.json](../../catalog/resource-rule-source-evidence-2014.json). Статусawaiting-game-design-review,acceptedForRuntime:false. Нет runtime-import/новых catalog-entry/перезаписи личного листа.

@@ -1,0 +1,439 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "status": "selected-primary-comparison-awaiting-independent-review",
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "checkedOn": "2026-11-20",
+  "inputSha256": {
+    "catalog/resource-rule-source-evidence-2014.json": "053ca09778a83a15e45bf19436da893e3155fde268b99d34c2c47442d82b601a"
+  },
+  "sources": [
+    {
+      "id": "srd51",
+      "title": "System Reference Document 5.1 CC",
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "pageCount": 403,
+      "rights": "CC BY 4.0; retain project attribution"
+    },
+    {
+      "id": "phErrata30",
+      "title": "Player’s Handbook Errata, version 3.0 (2021), for 2014 PHB",
+      "url": "https://media.wizards.com/2021/dnd/downloads/PH-Errata.pdf",
+      "sha256": "0c49e2c9c90c9dede38346874c8fda9ff39ce8a715d71aedc5bd1d1e4321014e",
+      "pageCount": 5,
+      "rights": "Public reading; personal-use PDF notice does not authorize rehosting full text"
+    },
+    {
+      "id": "basic2018",
+      "title": "D&D Basic Rules, Version 1.0 (2018), 2014 rules",
+      "url": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "sha256": "7a0c5d8bf52d15092f156d78418aa3d43307e271f810d2f06bf2f0258e9288a3",
+      "pageCount": 180,
+      "rights": "Public reading; full PDF is not redistributed"
+    }
+  ],
+  "units": [
+    {
+      "key": "rest-errata-selected",
+      "source": "phErrata30",
+      "pdfPage": 4,
+      "start": "Resting (p. 186).",
+      "stop": "Combat Creature Size",
+      "anchors": [
+        "minimum of 0",
+        "sleeps for at least 6",
+        "minimum of one die"
+      ],
+      "facts": {
+        "shortRestHitDieHealingMinimum": 0,
+        "ordinaryLongRestMinimumSleepHours": 6,
+        "longRestMinimumHours": 8,
+        "longRestLightActivityMaximumHours": 2,
+        "longRestSpentHitDiceRecoveryMinimum": 1
+      },
+      "limitations": [
+        "Specific racial, class, spell or personal exceptions are not overridden."
+      ]
+    },
+    {
+      "key": "wizard-errata-selected",
+      "source": "phErrata30",
+      "pdfPage": 2,
+      "start": "Wizard Your Spellbook (p. 114).",
+      "stop": "Empowered Evocation (p. 117).",
+      "anchors": [
+        "spell level you can prepare",
+        "takes or deals any damage"
+      ],
+      "facts": {
+        "copyingUsesPreparableSpellLevel": true,
+        "bookRepositoryExcludesCantrips": true,
+        "minorConjurationEndsWhenObjectTakesOrDealsAnyDamage": true
+      },
+      "limitations": [
+        "Minor Conjuration is only a corrected final clause; its full feature is not accepted."
+      ]
+    },
+    {
+      "key": "general-rounding",
+      "source": "basic2018",
+      "pdfPage": 5,
+      "start": "Round Down",
+      "stop": "Adventures",
+      "anchors": [
+        "round down if you end up with a fraction"
+      ],
+      "facts": {
+        "ordinaryDivisionRounding": "floor"
+      },
+      "limitations": [
+        "A specific rule can override the general rounding rule."
+      ]
+    },
+    {
+      "key": "wizard-preparation-selected",
+      "source": "srd51",
+      "pdfPage": 53,
+      "start": "Preparing and Casting Spells",
+      "stop": "Spellcasting Ability",
+      "anchors": [
+        "Intelligence modifier",
+        "your wizard level",
+        "one spell",
+        "from your spellbook"
+      ],
+      "facts": {
+        "ordinaryPreparedCount": "max(1, intelligenceModifier + wizardClassLevel)",
+        "preparationSelection": "wizard-spellbook",
+        "higherMulticlassSlotsDoNotExpandClassPreparation": true
+      },
+      "combinedWith": [
+        "multiclass-spellcasting-selected"
+      ],
+      "limitations": [
+        "Preparation and ritual access were already partially checked; this packet supplies reproducible scopes, not a new full-row pass."
+      ],
+      "extractionNote": "The PDF text run splits the word minimum; the rendered page was checked. Whitespace normalization does not repair or invent internal letters."
+    },
+    {
+      "key": "wizard-spellcasting-bonuses",
+      "source": "srd51",
+      "pdfPage": 53,
+      "start": "Spellcasting Ability",
+      "stop": "Ritual Casting",
+      "anchors": [
+        "8",
+        "proficiency bonus",
+        "Intelligence modifier"
+      ],
+      "facts": {
+        "ability": "intelligence",
+        "spellSaveDC": "8 + proficiencyBonus + intelligenceModifier",
+        "spellAttackModifier": "proficiencyBonus + intelligenceModifier"
+      },
+      "limitations": [
+        "Other sources and explicit item overrides remain independent."
+      ]
+    },
+    {
+      "key": "wizard-learning-on-level",
+      "source": "srd51",
+      "pdfPage": 53,
+      "start": "Learning Spells of 1st Level and Higher",
+      "stop": "Arcane Recovery",
+      "anchors": [
+        "add two",
+        "for free",
+        "as shown on the Wizard table"
+      ],
+      "facts": {
+        "ordinarySpellLevelUsesWizardTable": true,
+        "newWizardSpellsOnSubsequentWizardLevel": 2
+      },
+      "limitations": [
+        "Existing imported levels do not grant these spells again; choices are not inferred.",
+        "The initial six-spell spellbook is a separate class-entry feature; do not add this two-spell increment on top of it."
+      ]
+    },
+    {
+      "key": "wizard-asi-levels",
+      "source": "srd51",
+      "pdfPage": 53,
+      "start": "Ability Score Improvement",
+      "stop": "Spell Mastery",
+      "anchors": [
+        "4th",
+        "8th",
+        "12th",
+        "16th",
+        "19th",
+        "above 20"
+      ],
+      "facts": {
+        "wizardClassLevels": [
+          4,
+          8,
+          12,
+          16,
+          19
+        ],
+        "ordinaryOptions": {
+          "oneAbilityIncrease": 2,
+          "twoAbilityIncreasesEach": 1
+        },
+        "ordinaryAbilityCap": 20
+      },
+      "limitations": [
+        "Imported improvements are not re-applied; feats and personal origins are separate."
+      ]
+    },
+    {
+      "key": "wizard-copy-base-cost",
+      "source": "srd51",
+      "pdfPage": 54,
+      "start": "Copying a Spell into the Book.",
+      "stop": "The cost represents",
+      "anchors": [
+        "spell level you can prepare",
+        "2 hours",
+        "50 gp"
+      ],
+      "facts": {
+        "ordinaryBaseHoursPerSpellLevel": 2,
+        "ordinaryBaseGpPerSpellLevel": 50,
+        "copyingUsesPreparableSpellLevel": true
+      },
+      "limitations": [
+        "Unmodified base cost only; subclass discounts, scroll-copy procedure, replacement and other exceptions need separate sources."
+      ]
+    },
+    {
+      "key": "multiclass-spellcasting-selected",
+      "source": "srd51",
+      "pdfPage": 58,
+      "start": "Spells Known and Prepared.",
+      "stop": "Pact Magic.",
+      "anchors": [
+        "for each class individually",
+        "associated with one of your classes",
+        "half your levels (rounded down) in the paladin and ranger classes",
+        "higher than the spells you know or can prepare"
+      ],
+      "facts": {
+        "knownPreparedAndCantripsByIndividualClass": true,
+        "classSpellcastingAbilityAndFocusRetained": true,
+        "higherSlotsCanUpcastLowerSpells": true,
+        "srdHalfCasterRoundingAppliesOnlyTo": [
+          "paladin",
+          "ranger"
+        ]
+      },
+      "limitations": [
+        "Artificer does not occur in this SRD list; its own multiclass contribution is not inferred."
+      ]
+    },
+    {
+      "key": "multiclass-hd-proficiency",
+      "source": "srd51",
+      "pdfPage": 57,
+      "start": "Hit Points and Hit Dice",
+      "stop": "Proficiencies When",
+      "anchors": [
+        "keep track of them separately",
+        "total character level"
+      ],
+      "facts": {
+        "differentHitDieTypesStoredSeparately": true,
+        "proficiencyBonusUsesTotalCharacterLevel": true
+      },
+      "limitations": [
+        "A particular mixed-die recovery allocation remains the player’s explicit choice."
+      ]
+    },
+    {
+      "key": "robe-of-eyes-selected",
+      "source": "srd51",
+      "pdfPage": 238,
+      "start": "Robe of Eyes",
+      "stop": "Robe of Scintillating Colors",
+      "anchors": [
+        "requires attunement",
+        "in all directions",
+        "rely on sight",
+        "120 feet",
+        "invisible creatures and objects",
+        "Ethereal Plane",
+        "within 5 feet",
+        "DC 11 for light or DC 15 for daylight"
+      ],
+      "facts": {
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "benefitsRequireWearing": true,
+        "seeAllDirections": true,
+        "sightBasedPerceptionAdvantage": true,
+        "darkvisionFeet": 120,
+        "seeInvisibleCreaturesAndObjectsFeet": 120,
+        "seeIntoEtherealPlaneFeet": 120,
+        "robeEyesCannotCloseOrAvert": true,
+        "blindness": {
+          "triggerLightCastOnRobe": true,
+          "triggerDaylightWithinFeet": 5,
+          "durationMinutes": 1,
+          "endOfOwnTurnsConstitutionSave": true,
+          "lightDC": 11,
+          "daylightDC": 15
+        },
+        "truesightGrantedByThisText": false
+      },
+      "forbidden": [
+        "This robe has 3 charges"
+      ],
+      "limitations": [
+        "Specific sight benefits are not replaced by the broader Truesight trait; no charges or dawn recovery are borrowed from the next item."
+      ]
+    }
+  ],
+  "syntheticCases": [
+    {
+      "id": "REST-CORRECTION-01",
+      "given": {
+        "hitDieResult": 1,
+        "constitutionModifier": -3
+      },
+      "ordinaryExpected": {
+        "healing": 0
+      },
+      "basis": [
+        "rest-errata-selected"
+      ]
+    },
+    {
+      "id": "REST-CORRECTION-02",
+      "given": {
+        "totalHitDice": 9,
+        "spentHitDice": 6,
+        "confirmedOrdinaryLongRest": true
+      },
+      "ordinaryExpected": {
+        "recoveredSpentHitDice": 4,
+        "remainingSpentHitDice": 2
+      },
+      "basis": [
+        "general-rounding",
+        "rest-errata-selected"
+      ]
+    },
+    {
+      "id": "REST-CORRECTION-03",
+      "given": {
+        "totalHitDice": 1,
+        "spentHitDice": 1,
+        "confirmedOrdinaryLongRest": true
+      },
+      "ordinaryExpected": {
+        "recoveredSpentHitDice": 1
+      },
+      "basis": [
+        "general-rounding",
+        "rest-errata-selected"
+      ]
+    },
+    {
+      "id": "PREPARATION-01",
+      "given": {
+        "wizardClassLevel": 5,
+        "intelligenceModifier": 3,
+        "otherClass": "cleric",
+        "otherClassLevel": 2,
+        "preparedWizardSpells": 9
+      },
+      "ordinaryExpected": {
+        "wizardPreparedCount": 8,
+        "higherCombinedSlotsDoNotExpandWizardPreparation": true,
+        "warningForPreparedCount": true,
+        "manualSaveAllowedWithoutDmAgreement": true
+      },
+      "basis": [
+        "wizard-preparation-selected",
+        "multiclass-spellcasting-selected"
+      ]
+    },
+    {
+      "id": "BONUS-01",
+      "given": {
+        "intelligenceModifier": 3,
+        "proficiencyBonus": 3
+      },
+      "ordinaryExpected": {
+        "spellSaveDC": 14,
+        "spellAttackModifier": 6
+      },
+      "basis": [
+        "wizard-spellcasting-bonuses"
+      ]
+    },
+    {
+      "id": "COPY-01",
+      "given": {
+        "spellLevel": 2,
+        "ordinaryBaseCostOnly": true
+      },
+      "ordinaryExpected": {
+        "hours": 4,
+        "gp": 100,
+        "subclassDiscountNotInferred": true
+      },
+      "basis": [
+        "wizard-copy-base-cost"
+      ]
+    },
+    {
+      "id": "ROBE-01",
+      "given": {
+        "wearing": true,
+        "attuned": true,
+        "sightBasedPerceptionCheck": false
+      },
+      "ordinaryExpected": {
+        "perceptionAdvantageFromThisItem": false,
+        "truesightNotInferred": true,
+        "chargesFromAdjacentItemNotInferred": true
+      },
+      "basis": [
+        "robe-of-eyes-selected"
+      ]
+    },
+    {
+      "id": "ROBE-02",
+      "given": {
+        "wearing": true,
+        "attuned": true,
+        "trigger": "daylight",
+        "distanceFeet": 5
+      },
+      "ordinaryExpected": {
+        "blindnessDurationMinutes": 1,
+        "endOfOwnTurnSaveAbility": "constitution",
+        "saveDC": 15
+      },
+      "basis": [
+        "robe-of-eyes-selected"
+      ]
+    }
+  ],
+  "unresolved": [
+    "Full Artificer 2014 class/multiclass/infusion rules are not confirmed by inaccessible class URLs, summaries, forum comments or UA/2024 documents.",
+    "Full subclass features and specific exceptions are separate checks.",
+    "No row is fully accepted and no runtime transition is implemented by witness matching."
+  ],
+  "policyBoundaries": [
+    "Ordinary formulas produce guidance; manual values and optional agreement remain available.",
+    "No real profile values or source spell choices are published.",
+    "Original matrix observed/coverage/routes remain unchanged; a private supplement can point to partial units.",
+    "Unknown start/duration/source is not zero or current computer time.",
+    "Ownership, integrity, conflict and exact replay remain technical guards."
+  ]
+}
