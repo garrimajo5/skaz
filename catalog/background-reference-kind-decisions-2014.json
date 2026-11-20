@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "status": "reviewed-reference-page-kind-decisions-only",
+  "acceptedForReferencePageKinds": true,
+  "complete": false,
+  "approvedDenominator": null,
+  "canonicalUnitsAccepted": 0,
+  "review": {
+    "reviewedHead": "c26c696857ffe301cbb8554fef8a1d556e9255e1",
+    "evidenceUrl": "https://github.com/garrimajo5/skaz/pull/191#issuecomment-7050173376",
+    "method": "independent-read-only-game-design-review-of-introductions-and-structure",
+    "fullPrimarySectionsReviewed": false
+  },
+  "records": [
+    {
+      "observationId": "dndsu:backgrounds:845",
+      "sourceIds": [
+        "125"
+      ],
+      "referenceUrl": "https://dnd.su/backgrounds/845-adaptaciia-predystorii-vrgr/",
+      "reviewedHtmlSha256": "b41467094416309398c4386cc46071379a9013f18895aa7a00ae5a4e1f994747",
+      "verifiedReferencePageKind": "optional-background-feature-collection",
+      "acceptedForReferencePageKind": true,
+      "standaloneBackgroundUnit": false,
+      "componentUnitsAccepted": false,
+      "fullRulesAccepted": false,
+      "canonicalId": null,
+      "automaticProfileChange": false,
+      "manualPersonalChoiceRestricted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:846",
+      "sourceIds": [
+        "129"
+      ],
+      "referenceUrl": "https://dnd.su/backgrounds/846-adaptaciia-predystorii-ota/",
+      "reviewedHtmlSha256": "9f4166480b10962f1356fcc91427a1f83129965c73b863a804809d2542811daa",
+      "verifiedReferencePageKind": "adventure-background-feature-and-bond-options",
+      "acceptedForReferencePageKind": true,
+      "standaloneBackgroundUnit": false,
+      "componentUnitsAccepted": false,
+      "fullRulesAccepted": false,
+      "canonicalId": null,
+      "automaticProfileChange": false,
+      "manualPersonalChoiceRestricted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:847",
+      "sourceIds": [
+        "105"
+      ],
+      "referenceUrl": "https://dnd.su/backgrounds/847-adaptaciia-predystorii-hdq/",
+      "reviewedHtmlSha256": "2f6e70d6aea917231329c3bed9f1715e59d48b0b85015e088828ff02c4d70d4b",
+      "verifiedReferencePageKind": "adventure-background-feature-and-bond-options",
+      "acceptedForReferencePageKind": true,
+      "standaloneBackgroundUnit": false,
+      "componentUnitsAccepted": false,
+      "fullRulesAccepted": false,
+      "canonicalId": null,
+      "automaticProfileChange": false,
+      "manualPersonalChoiceRestricted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:848",
+      "sourceIds": [
+        "116"
+      ],
+      "referenceUrl": "https://dnd.su/backgrounds/848-adaptaciia-predystorii-egw/",
+      "reviewedHtmlSha256": "c4b7493c3e3ec6adc89079777fa4cb96435797132912fd09b7d361e05bf40093",
+      "verifiedReferencePageKind": "setting-adaptations-of-existing-backgrounds",
+      "acceptedForReferencePageKind": true,
+      "standaloneBackgroundUnit": false,
+      "componentUnitsAccepted": false,
+      "fullRulesAccepted": false,
+      "canonicalId": null,
+      "automaticProfileChange": false,
+      "manualPersonalChoiceRestricted": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:856",
+      "sourceIds": [
+        "183"
+      ],
+      "referenceUrl": "https://dnd.su/backgrounds/856-adaptaciia-predystorii-sdq/",
+      "reviewedHtmlSha256": "9ee39fa01e8f151da12f09bc40885ef713c6c48146531fa5cf699c5af5abfba2",
+      "verifiedReferencePageKind": "campaign-bonus-feat-rules",
+      "acceptedForReferencePageKind": true,
+      "standaloneBackgroundUnit": false,
+      "componentUnitsAccepted": false,
+      "fullRulesAccepted": false,
+      "canonicalId": null,
+      "automaticProfileChange": false,
+      "manualPersonalChoiceRestricted": false
+    }
+  ],
+  "limitations": [
+    "Reference page-kind decisions are accepted only for the exact reviewed HTML bytes.",
+    "The five reference collections are not five approved standalone backgrounds; component units/full rules/rights remain unaccepted.",
+    "This decision does not change personal manual choices or apply any feature, feat, bond or campaign bonus.",
+    "Stage M0 and issue77 remain open; reference classification does not accept the catalog denominator."
+  ],
+  "inputSha256": {
+    "catalog/background-collection-structures-2014.json": "d39051626ce0526ccd2011c62a0d9b164d27681293d2acbdbca060e92262bbd2"
+  }
+}
