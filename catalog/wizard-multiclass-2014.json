@@ -435,7 +435,8 @@
     "aggregationOfMultipleOddHalfCastersAdjudicatedByThisReport": false,
     "artificerRoundingOrEldritchKnightArcaneTricksterRulesAccepted": false,
     "unsupportedClassContributionSilentlyTreatedAsZero": false,
-    "higherSlotsCanUpcastKnownLowerSpellsOnlyWhenSpellProvidesEnhancement": true,
+    "higherSlotsCanCastKnownOrPreparedLowerCircleSpellsWithoutEnhancement": true,
+    "enhancedEffectRequiresSpellSpecificText": true,
     "everySpellAutomaticallyGainsDice": false,
     "pactMagicAddsWarlockLevelsToThisGeneralFormula": false,
     "pactSlotsCanCastKnownOrPreparedSpellcastingClassSpells": true,
@@ -476,6 +477,11 @@
       "unsupportedSourceFilledWithZero": false
     },
     {
+      "case": "higher-slot-lower-known-spell-without-scaling",
+      "higherSlotUseAllowed": true,
+      "enhancedEffectAutomaticallyInvented": false
+    },
+    {
       "case": "manual-higher-circle-known",
       "ordinaryClassLimitWarning": true,
       "manualSaveAllowed": true,
@@ -508,6 +514,6 @@
   },
   "generator": {
     "path": "scripts/audit-wizard-multiclass-2014.py",
-    "sha256": "84f0a287055f25835e36cd883036b88a9453a14339848eb1799c607ea1f60892"
+    "sha256": "5b83ed71cfd58ee104f0d0feaaab57ea8a4aef3c8da2ab4548a991da9d4be21c"
   }
 }

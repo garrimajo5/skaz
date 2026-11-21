@@ -60,4 +60,8 @@ class WizardMulticlassTests(unittest.TestCase):
   for path,digest in {**d['inputSha256'],**d['upstreamParserSha256']}.items():self.assertEqual(M.sha((ROOT/path).read_bytes().replace(b'\r\n',b'\n')),digest)
   self.assertEqual(d['generator']['sha256'],M.sha((ROOT/d['generator']['path']).read_bytes().replace(b'\r\n',b'\n')));self.assertFalse(d['accepted'] or d['complete'] or d['acceptedForRuntime'] or d['runtimeChanged']);self.assertIsNone(d['approvedDenominator']);self.assertEqual(d['summary']['canonicalUnitsAccepted'],0)
 
+ def test_higher_slot_casting_does_not_require_enhanced_effect(self):
+  d=report();f=d['ordinarySelectedFacts'];self.assertTrue(f['higherSlotsCanCastKnownOrPreparedLowerCircleSpellsWithoutEnhancement']);self.assertTrue(f['enhancedEffectRequiresSpellSpecificText']);self.assertNotIn('higherSlotsCanUpcastKnownLowerSpellsOnlyWhenSpellProvidesEnhancement',f)
+  case=next(c for c in d['syntheticDecisionCases'] if c['case']=='higher-slot-lower-known-spell-without-scaling');self.assertTrue(case['higherSlotUseAllowed']);self.assertFalse(case['enhancedEffectAutomaticallyInvented'])
+
 if __name__=='__main__':unittest.main()

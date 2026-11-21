@@ -7,7 +7,7 @@
 - Если Spellcasting feature только одного класса, применяются правила этого класса. Известные/подготовленные определяются для каждого класса отдельно, как для одиночного класса; ability/focus привязаны к классу. Пример книги из10заклинаний — пример, не предел копирования.
 - Русский Int13абзац описывает Wizard-условие при входе/выходе из класса. Primary требует prerequisites **обоих** текущего/нового класса; остальные11строк таблицы этим сравнением не приняты.
 - Wizard levels полностью участвуют в общей формуле; выбранный SRD называет5fullcasters иhalf-downPaladin/Ranger. Artificer/one-third-caster правила здесь не содержатся, поэтому их вклад не выдумывается как0. Агрегация нескольких нечётных halfcasters отдельно не разрешена этим отчётом.
-- Таблица даёт доступные ячейки, а не право изучать/готовить высший круг. Source-example Ranger4/Wizard3:effective5, slots4/3/2, но Wizardдо2круга/Rangerдо1. Upcasting усиливает только эффект, явно описанный в заклинании; не любой cantrip или автоматические extra dice.
+- Таблица даёт доступные ячейки, а не право изучать/готовить высший круг. Source-example Ranger4/Wizard3:effective5, slots4/3/2, но Wizardдо2круга/Rangerдо1. Высшую ячейку можно тратить на известное/подготовленное заклинание низшего круга и без усиления. Усиленный эффект появляется только там, где его описывает само заклинание; автоматические extra dice не выдумываются.
 - Pact Magic разрешает использовать его слоты для известных/подготовленных Spellcasting-спеллов и обычные Spellcasting-слоты для известных Warlock-спеллов. Это не объединение resource-pools, восстановления, количества ячеек и не прибавление Warlocklevels к общей SRDформуле.
 
 20×9=180числовых клеток сопоставлены с уже проверенной slot-проекцией Wizard-table; это новый carrier witness, не повторное открытие старых20/220 Wizard-клеток и не тождество class-level/effective-caster-level. Только явное em dash представлено0, неизвестный символ/потерянная строка не становится0.
@@ -19,7 +19,7 @@ python scripts/audit-wizard-multiclass-2014.py --class-html <class-105.html> --s
 python -m unittest discover -s tests -p test_wizard_multiclass_2014.py
 ```
 
-13адресных Python PASS: cross-page condition, lost both-class prerequisite/Pact ending, complete table/dash/order/cell mismatches, source pins, no false Artificer acceptance и reuseparagraph2. Реальные источники сверены; UI/runtime/VPS не меняются, выпуска нет. Независимое exact-head read-only review нужно передmerge; #77/M0 принимает владелец.
+14адресных Python PASS: cross-page condition, lost both-class prerequisite/Pact ending, complete table/dash/order/cell mismatches, source pins, no false Artificer acceptance и reuseparagraph2. Реальные источники сверены; UI/runtime/VPS не меняются, выпуска нет. Независимое exact-head read-only review нужно передmerge; #77/M0 принимает владелец.
 
 Evocation37/38/39 теперь имеет [отдельное выбранное сравнение](wizard-evocation-low-level-2014.md). Текущий следующий критерий — [границы единиц и planner review](class-unit-granularity-proposal-2014.md); полная TCE/Artificer версия и прежние general/media критерии остаются.
 
