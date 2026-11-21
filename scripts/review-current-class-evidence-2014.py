@@ -182,6 +182,7 @@ def add_narrative_coverage_context(d,narrative,coverage):
 SPELL_LIST='catalog/wizard-spell-list-reference-2014.json'
 CORE_CHOICES='catalog/wizard-core-choices-2014.json'
 ENTRY='catalog/wizard-entry-boundaries-2014.json'
+EQUIPMENT='catalog/wizard-equipment-2014.json'
 
 
 def add_wizard_list_and_choice_context(d,listing,choices):
@@ -204,6 +205,15 @@ def add_wizard_entry_context(d,entry):
  d['coVersionedWizardEntry']={'path':ENTRY,'scope':'2complete secondary HP/proficiency scopes/8paragraphs and only multiclass13paragraph2;SRD52/57 with separate Basic12minimum context','priorIndependentReviewInherited':False,'fullWizardRulesAccepted':False,'wholeMulticlassHeadingAccepted':False}
  d['nextWorkItem'].update({'phase':'wizard-starting-equipment-and-wealth','action':'Compare complete Wizard Equipment18 intro/four choices/alternate4d4x10wealth against exact primary equipment and starting-wealth scopes; do not regrant starting lists on multiclass. Keep full TCE and remaining class criteria separate.','requiredInputs':[ENTRY,CORE_CHOICES,SPELL_LIST]})
  d['nextWorkItem']['doNotRepeat']+='Wizard16/17HP/proficiencies8paragraphs and only13paragraph2; separate SRD52/57 and Basic12minimum1 carrier context.'
+ return d
+
+
+def add_wizard_equipment_context(d,equipment):
+ s=equipment['summary'];f=equipment['ordinarySelectedFacts']
+ if equipment.get('accepted') or equipment.get('complete') or equipment.get('acceptedForRuntime') or equipment.get('runtimeChanged') or equipment.get('approvedDenominator') is not None or s['canonicalUnitsAccepted'] or s['secondaryProseParagraphs']!=2 or s['secondaryListItems']!=4 or not f['alternateWealth']['replacesBothClassAndBackgroundStartingEquipment'] or f['standardAndWealthOptionsSimultaneouslyGranted'] or f['equipmentRegrantedOnMulticlass']:raise ValueError('Changed starting equipment/alternate-wealth boundary')
+ d['coVersionedWizardEquipment']={'path':EQUIPMENT,'scope':'complete selected Equipment18 intro/four items or choices/alternate-wealth paragraph;SRD52 and selected Basic45Wizard4d4x10gp row','priorIndependentReviewInherited':False,'fullWizardRulesAccepted':False,'automaticInventoryGrantsAccepted':False}
+ d['nextWorkItem'].update({'phase':'wizard-multiclass-prerequisite-and-slot-context','action':'Compare only remaining Wizard multiclass13 paragraphs0/1/3 with exact primary optional-rule/prerequisite/both-class and Spellcasting slot-versus-known/prepared scopes. Paragraph2 already compared; do not infer full Artificer or automatically grant higher-circle learning.','requiredInputs':[EQUIPMENT,ENTRY,SPELL_LIST]})
+ d['nextWorkItem']['doNotRepeat']+='Equipment18two paragraphs/four list items with separate Basic45alternateWizardwealth,not other classes or pack contents.'
  return d
 
 
@@ -236,11 +246,11 @@ def build(root=Path('.')):
         d['inputSha256'][path]=sha(raw)
     d=add_narrative_coverage_context(d,extra[NARRATIVE],extra[SCOPE_COVERAGE])
     new={}
-    for path in [SPELL_LIST,CORE_CHOICES,ENTRY]:
+    for path in [SPELL_LIST,CORE_CHOICES,ENTRY,EQUIPMENT]:
         raw=(root/path).read_bytes().replace(b'\r\n',b'\n');new[path]=json.loads(raw)
         if new[path]['generator']['sha256']!=sha((root/new[path]['generator']['path']).read_bytes().replace(b'\r\n',b'\n')):raise ValueError('Changed Wizard list/core generator; rebuild')
         d['inputSha256'][path]=sha(raw)
-    d=add_wizard_list_and_choice_context(d,new[SPELL_LIST],new[CORE_CHOICES]);d=add_wizard_entry_context(d,new[ENTRY])
+    d=add_wizard_list_and_choice_context(d,new[SPELL_LIST],new[CORE_CHOICES]);d=add_wizard_entry_context(d,new[ENTRY]);d=add_wizard_equipment_context(d,new[EQUIPMENT])
     d['generator']={'path':'scripts/review-current-class-evidence-2014.py','sha256':sha(Path(__file__).read_bytes().replace(b'\r\n',b'\n'))};return d
 
 if __name__=='__main__':
