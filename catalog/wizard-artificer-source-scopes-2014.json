@@ -1,0 +1,4266 @@
+{
+  "schemaVersion": 1,
+  "status": "candidate-to-corresponding-source-scope-map-not-translation-or-class-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "selectedCandidateRecords": 130,
+    "byClass": {
+      "wizard": 87,
+      "artificer": 43
+    },
+    "byEvidenceState": {
+      "bounded-corresponding-source-components": 3,
+      "no-linked-primary-component-in-this-matrix": 124,
+      "local-srd-reference-only": 3
+    },
+    "preservedAdditionalArtificerHeadings": 23,
+    "resolvedArtificerParentReferences": 10,
+    "canonicalUnitsAccepted": 0,
+    "completeCandidateRulesAccepted": 0
+  },
+  "candidateRows": [
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:class-features:feature.spellcasting",
+        "kind": "base-feature",
+        "title": "Использование заклинаний",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#feature.spellcasting",
+        "headingOrdinal": 19,
+        "parent": "class-features",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": "wizard-spellcasting",
+      "localImplementationStatus": "manual",
+      "correspondingSourceComponents": [
+        {
+          "path": "catalog/rest-spellcasting-source-comparison-2014.json",
+          "unitKey": "wizard-preparation-selected",
+          "scope": "selected source scope only; may include a different sidebar/feature clause",
+          "sourceScope": {
+            "source": "srd51",
+            "pdfPage": 53,
+            "start": "Preparing and Casting Spells",
+            "stop": "Spellcasting Ability"
+          },
+          "correspondingFacts": {
+            "ordinaryPreparedCount": "max(1, intelligenceModifier + wizardClassLevel)",
+            "preparationSelection": "wizard-spellbook",
+            "higherMulticlassSlotsDoNotExpandClassPreparation": true
+          },
+          "excludedFactKeys": [],
+          "sourceLimitations": [
+            "Preparation and ritual access were already partially checked; this packet supplies reproducible scopes, not a new full-row pass."
+          ],
+          "spellbookSidebarContextOnly": false
+        },
+        {
+          "path": "catalog/rest-spellcasting-source-comparison-2014.json",
+          "unitKey": "wizard-spellcasting-bonuses",
+          "scope": "selected source scope only; may include a different sidebar/feature clause",
+          "sourceScope": {
+            "source": "srd51",
+            "pdfPage": 53,
+            "start": "Spellcasting Ability",
+            "stop": "Ritual Casting"
+          },
+          "correspondingFacts": {
+            "ability": "intelligence",
+            "spellSaveDC": "8 + proficiencyBonus + intelligenceModifier",
+            "spellAttackModifier": "proficiencyBonus + intelligenceModifier"
+          },
+          "excludedFactKeys": [],
+          "sourceLimitations": [
+            "Other sources and explicit item overrides remain independent."
+          ],
+          "spellbookSidebarContextOnly": false
+        },
+        {
+          "path": "catalog/rest-spellcasting-source-comparison-2014.json",
+          "unitKey": "wizard-learning-on-level",
+          "scope": "selected source scope only; may include a different sidebar/feature clause",
+          "sourceScope": {
+            "source": "srd51",
+            "pdfPage": 53,
+            "start": "Learning Spells of 1st Level and Higher",
+            "stop": "Arcane Recovery"
+          },
+          "correspondingFacts": {
+            "ordinarySpellLevelUsesWizardTable": true,
+            "newWizardSpellsOnSubsequentWizardLevel": 2
+          },
+          "excludedFactKeys": [],
+          "sourceLimitations": [
+            "Existing imported levels do not grant these spells again; choices are not inferred.",
+            "The initial six-spell spellbook is a separate class-entry feature; do not add this two-spell increment on top of it."
+          ],
+          "spellbookSidebarContextOnly": false
+        },
+        {
+          "path": "catalog/rest-spellcasting-source-comparison-2014.json",
+          "unitKey": "wizard-copy-base-cost",
+          "scope": "selected source scope only; may include a different sidebar/feature clause",
+          "sourceScope": {
+            "source": "srd51",
+            "pdfPage": 54,
+            "start": "Copying a Spell into the Book.",
+            "stop": "The cost represents"
+          },
+          "correspondingFacts": {
+            "ordinaryBaseHoursPerSpellLevel": 2,
+            "ordinaryBaseGpPerSpellLevel": 50,
+            "copyingUsesPreparableSpellLevel": true
+          },
+          "excludedFactKeys": [],
+          "sourceLimitations": [
+            "Unmodified base cost only; subclass discounts, scroll-copy procedure, replacement and other exceptions need separate sources."
+          ],
+          "spellbookSidebarContextOnly": false
+        },
+        {
+          "path": "catalog/rest-spellcasting-source-comparison-2014.json",
+          "unitKey": "wizard-errata-selected",
+          "scope": "selected source scope only; may include a different sidebar/feature clause",
+          "sourceScope": {
+            "source": "phErrata30",
+            "pdfPage": 2,
+            "start": "Wizard Your Spellbook (p. 114).",
+            "stop": "Empowered Evocation (p. 117)."
+          },
+          "correspondingFacts": {
+            "copyingUsesPreparableSpellLevel": true,
+            "bookRepositoryExcludesCantrips": true
+          },
+          "excludedFactKeys": [
+            "minorConjurationEndsWhenObjectTakesOrDealsAnyDamage"
+          ],
+          "sourceLimitations": [
+            "Minor Conjuration is only a corrected final clause; its full feature is not accepted."
+          ],
+          "spellbookSidebarContextOnly": true
+        },
+        {
+          "path": "catalog/wizard-ritual-source-comparison-2014.json",
+          "unitKey": "source-comparison:wizard-ritual-casting",
+          "scope": "whole single-paragraph Ritual Casting subsection only; not all Spellcasting, Wizard or other classes"
+        }
+      ],
+      "evidenceState": "bounded-corresponding-source-components",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:class-features:feature.extra-spells",
+        "kind": "base-feature",
+        "title": "Дополнительные заклинания волшебника",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#feature.extra-spells",
+        "headingOrdinal": 28,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-option-TCE-marker",
+        "observedInitialLevels": [
+          1
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:class-features:feature.arcane-recovery",
+        "kind": "base-feature",
+        "title": "МАГИЧЕСКОЕ ВОССТАНОВЛЕНИЕ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#feature.arcane-recovery",
+        "headingOrdinal": 29,
+        "parent": "class-features",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          1
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": "wizard-arcane-recovery",
+      "localImplementationStatus": "manual",
+      "correspondingSourceComponents": [
+        {
+          "path": "catalog/wizard-recovery-source-comparison-2014.json",
+          "unitKey": "wizard-arcane-recovery",
+          "scope": "whole two-paragraph selected unit including example; not whole Wizard class"
+        }
+      ],
+      "evidenceState": "bounded-corresponding-source-components",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:class-features:feature.arcane-tradition",
+        "kind": "base-feature",
+        "title": "МАГИЧЕСКИЕ ТРАДИЦИИ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#feature.arcane-tradition",
+        "headingOrdinal": 30,
+        "parent": "class-features",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": "wizard-arcane-tradition",
+      "localImplementationStatus": "choice",
+      "correspondingSourceComponents": [],
+      "evidenceState": "local-srd-reference-only",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:class-features:feature.cantrip-formulas",
+        "kind": "base-feature",
+        "title": "Формулы заговоров",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#feature.cantrip-formulas",
+        "headingOrdinal": 31,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-option-TCE-marker",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:class-features:feature.ASI",
+        "kind": "base-feature",
+        "title": "УВЕЛИЧЕНИЕ ХАРАКТЕРИСТИК",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#feature.ASI",
+        "headingOrdinal": 32,
+        "parent": "class-features",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          4
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": "wizard-ability-score-improvement",
+      "localImplementationStatus": "choice",
+      "correspondingSourceComponents": [
+        {
+          "path": "catalog/rest-spellcasting-source-comparison-2014.json",
+          "unitKey": "wizard-asi-levels",
+          "scope": "selected SRD ASI clause; not candidate translation acceptance",
+          "sourceScope": {
+            "source": "srd51",
+            "pdfPage": 53,
+            "start": "Ability Score Improvement",
+            "stop": "Spell Mastery"
+          }
+        }
+      ],
+      "evidenceState": "bounded-corresponding-source-components",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:class-features:feature.spell-mastery",
+        "kind": "base-feature",
+        "title": "МАСТЕРСТВО ЗАКЛИНАТЕЛЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#feature.spell-mastery",
+        "headingOrdinal": 33,
+        "parent": "class-features",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          18
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": "wizard-spell-mastery",
+      "localImplementationStatus": "choice",
+      "correspondingSourceComponents": [],
+      "evidenceState": "local-srd-reference-only",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:class-features:feature.signature-spells",
+        "kind": "base-feature",
+        "title": "ФИРМЕННОЕ ЗАКЛИНАНИЕ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#feature.signature-spells",
+        "headingOrdinal": 34,
+        "parent": "class-features",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          20
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": "wizard-signature-spells",
+      "localImplementationStatus": "choice",
+      "correspondingSourceComponents": [],
+      "evidenceState": "local-srd-reference-only",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.evocation:tradition.evocation",
+        "kind": "subclass",
+        "title": "Школа Воплощения",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation",
+        "headingOrdinal": 36,
+        "parent": "tradition.evocation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.evocation:bf9e9bd93c493c16",
+        "kind": "subclass-feature",
+        "title": "МАСТЕР ВОПЛОЩЕНИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation",
+        "headingOrdinal": 37,
+        "parent": "tradition.evocation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.evocation:ff956c10572b13ea",
+        "kind": "subclass-feature",
+        "title": "ПОСТРОЕНИЕ ЗАКЛИНАНИЙ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation",
+        "headingOrdinal": 38,
+        "parent": "tradition.evocation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.evocation:de01fc614320d930",
+        "kind": "subclass-feature",
+        "title": "МОЩНЫЙ ЗАГОВОР",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation",
+        "headingOrdinal": 39,
+        "parent": "tradition.evocation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.evocation:b236acb2c4fcaa68",
+        "kind": "subclass-feature",
+        "title": "УСИЛЕННОЕ ВОПЛОЩЕНИЕ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation",
+        "headingOrdinal": 40,
+        "parent": "tradition.evocation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.evocation:e2f1d83e0f5bb67f",
+        "kind": "subclass-feature",
+        "title": "ПЕРЕГРУЗКА",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation",
+        "headingOrdinal": 41,
+        "parent": "tradition.evocation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.conjuration:tradition.conjuration",
+        "kind": "subclass",
+        "title": "Школа Вызова",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.conjuration",
+        "headingOrdinal": 42,
+        "parent": "tradition.conjuration",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.conjuration:e13b1fd985921283",
+        "kind": "subclass-feature",
+        "title": "МАСТЕР СОЗИДАНИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.conjuration",
+        "headingOrdinal": 43,
+        "parent": "tradition.conjuration",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.conjuration:8e6da0e54f83ddeb",
+        "kind": "subclass-feature",
+        "title": "МАЛЫЙ ВЫЗОВ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.conjuration",
+        "headingOrdinal": 44,
+        "parent": "tradition.conjuration",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.conjuration:ec3e5ea964a6cafc",
+        "kind": "subclass-feature",
+        "title": "БЕЗОПАСНОЕ ПЕРЕМЕЩЕНИЕ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.conjuration",
+        "headingOrdinal": 45,
+        "parent": "tradition.conjuration",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.conjuration:4494b6907b34e163",
+        "kind": "subclass-feature",
+        "title": "ФОКУСИРОВАННЫЙ ВЫЗОВ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.conjuration",
+        "headingOrdinal": 46,
+        "parent": "tradition.conjuration",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.conjuration:d929bc3822c28e19",
+        "kind": "subclass-feature",
+        "title": "НАДЁЖНЫЙ ПРИЗЫВ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.conjuration",
+        "headingOrdinal": 47,
+        "parent": "tradition.conjuration",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.illusion:tradition.illusion",
+        "kind": "subclass",
+        "title": "Школа Иллюзии",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.illusion",
+        "headingOrdinal": 48,
+        "parent": "tradition.illusion",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.illusion:bc0a749e1cffb5c5",
+        "kind": "subclass-feature",
+        "title": "МАСТЕР ИЛЛЮЗИЙ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.illusion",
+        "headingOrdinal": 49,
+        "parent": "tradition.illusion",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.illusion:377df2c61029d4b2",
+        "kind": "subclass-feature",
+        "title": "УЛУЧШЕННАЯ МАЛАЯ ИЛЛЮЗИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.illusion",
+        "headingOrdinal": 50,
+        "parent": "tradition.illusion",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.illusion:18139c438e878fae",
+        "kind": "subclass-feature",
+        "title": "ПЛАСТИЧНЫЕ ИЛЛЮЗИИ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.illusion",
+        "headingOrdinal": 51,
+        "parent": "tradition.illusion",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.illusion:b5c25ead4f845d62",
+        "kind": "subclass-feature",
+        "title": "СОБСТВЕННАЯ ИЛЛЮЗОРНОСТЬ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.illusion",
+        "headingOrdinal": 52,
+        "parent": "tradition.illusion",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.illusion:a0b408c0e27c16e2",
+        "kind": "subclass-feature",
+        "title": "ИЛЛЮЗОРНАЯ РЕАЛЬНОСТЬ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.illusion",
+        "headingOrdinal": 53,
+        "parent": "tradition.illusion",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.necromancy:tradition.necromancy",
+        "kind": "subclass",
+        "title": "Школа Некромантии",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.necromancy",
+        "headingOrdinal": 54,
+        "parent": "tradition.necromancy",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.necromancy:d0f9c43a7ace230c",
+        "kind": "subclass-feature",
+        "title": "МАСТЕР НЕКРОМАНТИИ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.necromancy",
+        "headingOrdinal": 55,
+        "parent": "tradition.necromancy",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.necromancy:a0fde2d7bb06d8c0",
+        "kind": "subclass-feature",
+        "title": "МРАЧНАЯ ЖАТВА",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.necromancy",
+        "headingOrdinal": 56,
+        "parent": "tradition.necromancy",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.necromancy:cb10ec73cff0b0d9",
+        "kind": "subclass-feature",
+        "title": "НЕЖИВЫЕ РАБЫ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.necromancy",
+        "headingOrdinal": 57,
+        "parent": "tradition.necromancy",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.necromancy:fe54fe8bbfb97609",
+        "kind": "subclass-feature",
+        "title": "ЕДИНЕНИЕ С НЕ-ЖИЗНЬЮ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.necromancy",
+        "headingOrdinal": 58,
+        "parent": "tradition.necromancy",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.necromancy:9d59566819045eb1",
+        "kind": "subclass-feature",
+        "title": "УПРАВЛЕНИЕ НЕЖИТЬЮ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.necromancy",
+        "headingOrdinal": 59,
+        "parent": "tradition.necromancy",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.abjuration:tradition.abjuration",
+        "kind": "subclass",
+        "title": "Школа Ограждения",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.abjuration",
+        "headingOrdinal": 60,
+        "parent": "tradition.abjuration",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.abjuration:8f6902d4338e3d90",
+        "kind": "subclass-feature",
+        "title": "МАСТЕР ОГРАЖДЕНИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.abjuration",
+        "headingOrdinal": 61,
+        "parent": "tradition.abjuration",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.abjuration:81aaaf529d085d8b",
+        "kind": "subclass-feature",
+        "title": "МАГИЧЕСКАЯ ЗАЩИТА",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.abjuration",
+        "headingOrdinal": 62,
+        "parent": "tradition.abjuration",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.abjuration:3d8fc79f9d00dcdb",
+        "kind": "subclass-feature",
+        "title": "ПРОЕКЦИЯ ЗАЩИТЫ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.abjuration",
+        "headingOrdinal": 63,
+        "parent": "tradition.abjuration",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.abjuration:640bf162984be4c7",
+        "kind": "subclass-feature",
+        "title": "УЛУЧШЕННОЕ ОГРАЖДЕНИЕ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.abjuration",
+        "headingOrdinal": 64,
+        "parent": "tradition.abjuration",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.abjuration:1801b348d32fc0ae",
+        "kind": "subclass-feature",
+        "title": "СОПРОТИВЛЕНИЕ ЗАКЛИНАНИЯМ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.abjuration",
+        "headingOrdinal": 65,
+        "parent": "tradition.abjuration",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.enchantment:tradition.enchantment",
+        "kind": "subclass",
+        "title": "Школа Очарования",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.enchantment",
+        "headingOrdinal": 66,
+        "parent": "tradition.enchantment",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.enchantment:ea4560046558f7e1",
+        "kind": "subclass-feature",
+        "title": "МАСТЕР ОЧАРОВАНИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.enchantment",
+        "headingOrdinal": 67,
+        "parent": "tradition.enchantment",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.enchantment:173a28557b10b068",
+        "kind": "subclass-feature",
+        "title": "ГИПНОТИЧЕСКИЙ ВЗГЛЯД",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.enchantment",
+        "headingOrdinal": 68,
+        "parent": "tradition.enchantment",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.enchantment:0b6b9305109b4b7d",
+        "kind": "subclass-feature",
+        "title": "ИНСТИНКТИВНОЕ ОЧАРОВАНИЕ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.enchantment",
+        "headingOrdinal": 69,
+        "parent": "tradition.enchantment",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.enchantment:697b31f39f6054c6",
+        "kind": "subclass-feature",
+        "title": "УСИЛЕННОЕ ОЧАРОВАНИЕ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.enchantment",
+        "headingOrdinal": 70,
+        "parent": "tradition.enchantment",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.enchantment:e2bace22fa25efb0",
+        "kind": "subclass-feature",
+        "title": "ЛОЖНЫЕ ВОСПОМИНАНИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.enchantment",
+        "headingOrdinal": 71,
+        "parent": "tradition.enchantment",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.transmutation:tradition.transmutation",
+        "kind": "subclass",
+        "title": "Школа Преобразования",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.transmutation",
+        "headingOrdinal": 72,
+        "parent": "tradition.transmutation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.transmutation:99a45618a7a447f2",
+        "kind": "subclass-feature",
+        "title": "МАСТЕР ПРЕОБРАЗОВАНИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.transmutation",
+        "headingOrdinal": 73,
+        "parent": "tradition.transmutation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.transmutation:69ee7e201ded124b",
+        "kind": "subclass-feature",
+        "title": "МАЛАЯ АЛХИМИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.transmutation",
+        "headingOrdinal": 74,
+        "parent": "tradition.transmutation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.transmutation:43bb5408204fbe58",
+        "kind": "subclass-feature",
+        "title": "КАМЕНЬ ПРЕОБРАЗОВАНИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.transmutation",
+        "headingOrdinal": 75,
+        "parent": "tradition.transmutation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.transmutation:b89a31c5f9da1f76",
+        "kind": "subclass-feature",
+        "title": "ПЕРЕВЁРТЫШ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.transmutation",
+        "headingOrdinal": 76,
+        "parent": "tradition.transmutation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.transmutation:743f0ddcddf2028f",
+        "kind": "subclass-feature",
+        "title": "ГЕНИЙ ПРЕОБРАЗОВАНИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.transmutation",
+        "headingOrdinal": 77,
+        "parent": "tradition.transmutation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.divination:tradition.divination",
+        "kind": "subclass",
+        "title": "Школа Прорицания",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.divination",
+        "headingOrdinal": 78,
+        "parent": "tradition.divination",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.divination:960a94e02f362cf2",
+        "kind": "subclass-feature",
+        "title": "МАСТЕР ПРОРИЦАНИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.divination",
+        "headingOrdinal": 79,
+        "parent": "tradition.divination",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.divination:0a9bdf16a44f433f",
+        "kind": "subclass-feature",
+        "title": "ЗНАМЕНИЕ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.divination",
+        "headingOrdinal": 80,
+        "parent": "tradition.divination",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.divination:b7678e5be3921379",
+        "kind": "subclass-feature",
+        "title": "ЭКСПЕРТ ПРОРИЦАНИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.divination",
+        "headingOrdinal": 81,
+        "parent": "tradition.divination",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.divination:5d000dc9a8c5451e",
+        "kind": "subclass-feature",
+        "title": "ТРЕТИЙ ГЛАЗ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.divination",
+        "headingOrdinal": 82,
+        "parent": "tradition.divination",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.divination:6a3df95fe28ce648",
+        "kind": "subclass-feature",
+        "title": "ВЕЛИКОЕ ЗНАМЕНИЕ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.divination",
+        "headingOrdinal": 83,
+        "parent": "tradition.divination",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.war-magic:tradition.war-magic",
+        "kind": "subclass",
+        "title": "Военная магия",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.war-magic",
+        "headingOrdinal": 84,
+        "parent": "tradition.war-magic",
+        "sourceIds": [
+          "109"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.war-magic:818ef7e5bb4271ea",
+        "kind": "subclass-feature",
+        "title": "МАГИЧЕСКОЕ ОТРАЖЕНИЕ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.war-magic",
+        "headingOrdinal": 85,
+        "parent": "tradition.war-magic",
+        "sourceIds": [
+          "109"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.war-magic:a6cf191ff7bd3cb0",
+        "kind": "subclass-feature",
+        "title": "ТАКТИЧЕСКАЯ СМЕКАЛКА",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.war-magic",
+        "headingOrdinal": 86,
+        "parent": "tradition.war-magic",
+        "sourceIds": [
+          "109"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.war-magic:b9a41e75d2926ba1",
+        "kind": "subclass-feature",
+        "title": "ВСПЛЕСК МОЩИ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.war-magic",
+        "headingOrdinal": 87,
+        "parent": "tradition.war-magic",
+        "sourceIds": [
+          "109"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.war-magic:cfc25488a6f88536",
+        "kind": "subclass-feature",
+        "title": "СТОЙКАЯ МАГИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.war-magic",
+        "headingOrdinal": 88,
+        "parent": "tradition.war-magic",
+        "sourceIds": [
+          "109"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.war-magic:d2cf3312ea22a6d3",
+        "kind": "subclass-feature",
+        "title": "ОТРАЖАЮЩИЙ ПОКРОВ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.war-magic",
+        "headingOrdinal": 89,
+        "parent": "tradition.war-magic",
+        "sourceIds": [
+          "109"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.chronurgy:tradition.chronurgy",
+        "kind": "subclass",
+        "title": "Магия хронургии",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy",
+        "headingOrdinal": 90,
+        "parent": "tradition.chronurgy",
+        "sourceIds": [
+          "116"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.chronurgy:7b137646c6799206",
+        "kind": "subclass-feature",
+        "title": "ХРОНО-СДВИГ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy",
+        "headingOrdinal": 91,
+        "parent": "tradition.chronurgy",
+        "sourceIds": [
+          "116"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.chronurgy:c446302e1c02e9e3",
+        "kind": "subclass-feature",
+        "title": "ВНЕВРЕМЕННАЯ ОСВЕДОМЛЕННОСТЬ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy",
+        "headingOrdinal": 92,
+        "parent": "tradition.chronurgy",
+        "sourceIds": [
+          "116"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.chronurgy:3f1294c88491c9cc",
+        "kind": "subclass-feature",
+        "title": "КРАТКОВРЕМЕННЫЙ СТАЗИС",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy",
+        "headingOrdinal": 93,
+        "parent": "tradition.chronurgy",
+        "sourceIds": [
+          "116"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.chronurgy:edce13b32a978cb4",
+        "kind": "subclass-feature",
+        "title": "СЖАТИЕ МАГИИ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy",
+        "headingOrdinal": 94,
+        "parent": "tradition.chronurgy",
+        "sourceIds": [
+          "116"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.chronurgy:faf838ec7c02320b",
+        "kind": "subclass-feature",
+        "title": "ВЕРОЯТНОЕ БУДУЩЕЕ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy",
+        "headingOrdinal": 95,
+        "parent": "tradition.chronurgy",
+        "sourceIds": [
+          "116"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.chronurgy:86d9b5fd7e2b0afc",
+        "kind": "rules-guidance",
+        "title": "Дюнамантия для не дюнамантов",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy",
+        "headingOrdinal": 96,
+        "parent": "tradition.chronurgy",
+        "sourceIds": [
+          "116"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.graviturgy:tradition.graviturgy",
+        "kind": "subclass",
+        "title": "Магия гравитургии",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.graviturgy",
+        "headingOrdinal": 97,
+        "parent": "tradition.graviturgy",
+        "sourceIds": [
+          "116"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.graviturgy:3b7ae3ec98e2c350",
+        "kind": "subclass-feature",
+        "title": "УПРАВЛЕНИЕ ТЯЖЕСТЬЮ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.graviturgy",
+        "headingOrdinal": 98,
+        "parent": "tradition.graviturgy",
+        "sourceIds": [
+          "116"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.graviturgy:8027064412ae380a",
+        "kind": "subclass-feature",
+        "title": "ГРАВИТАЦИОННЫЙ КОЛОДЕЦ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.graviturgy",
+        "headingOrdinal": 99,
+        "parent": "tradition.graviturgy",
+        "sourceIds": [
+          "116"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.graviturgy:cc548a9b96b621b0",
+        "kind": "subclass-feature",
+        "title": "АГРЕССИВНОЕ ПРИТЯЖЕНИЕ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.graviturgy",
+        "headingOrdinal": 100,
+        "parent": "tradition.graviturgy",
+        "sourceIds": [
+          "116"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.graviturgy:216eefe92a97eb15",
+        "kind": "subclass-feature",
+        "title": "ГОРИЗОНТ СОБЫТИЙ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.graviturgy",
+        "headingOrdinal": 101,
+        "parent": "tradition.graviturgy",
+        "sourceIds": [
+          "116"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.graviturgy:86d9b5fd7e2b0afc",
+        "kind": "rules-guidance",
+        "title": "Дюнамантия для не дюнамантов",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.graviturgy",
+        "headingOrdinal": 102,
+        "parent": "tradition.graviturgy",
+        "sourceIds": [
+          "116"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.scribes:tradition.scribes",
+        "kind": "subclass",
+        "title": "Орден писцов",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.scribes",
+        "headingOrdinal": 103,
+        "parent": "tradition.scribes",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.scribes:da09be6717585f3d",
+        "kind": "subclass-feature",
+        "title": "Волшебное перо",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.scribes",
+        "headingOrdinal": 104,
+        "parent": "tradition.scribes",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.scribes:fd5026c478de1842",
+        "kind": "subclass-feature",
+        "title": "Пробуждённая книга заклинаний",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.scribes",
+        "headingOrdinal": 105,
+        "parent": "tradition.scribes",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.scribes:b7778f2c9af8fdb1",
+        "kind": "subclass-feature",
+        "title": "Пробуждение разума",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.scribes",
+        "headingOrdinal": 106,
+        "parent": "tradition.scribes",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.scribes:8e54c0d9cd7c9621",
+        "kind": "subclass-feature",
+        "title": "Мастер скриптория",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.scribes",
+        "headingOrdinal": 107,
+        "parent": "tradition.scribes",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.scribes:a8842ad98a1e2e0c",
+        "kind": "subclass-feature",
+        "title": "Единство со словом",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.scribes",
+        "headingOrdinal": 108,
+        "parent": "tradition.scribes",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.bladesinging:tradition.bladesinging",
+        "kind": "subclass",
+        "title": "Песнь клинка",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.bladesinging",
+        "headingOrdinal": 109,
+        "parent": "tradition.bladesinging",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.bladesinging:5dd84cdf4462efaf",
+        "kind": "subclass-feature",
+        "title": "Тренировка войны и песни",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.bladesinging",
+        "headingOrdinal": 110,
+        "parent": "tradition.bladesinging",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.bladesinging:87d7a1f7219f8fa5",
+        "kind": "subclass-feature",
+        "title": "Песнь клинка",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.bladesinging",
+        "headingOrdinal": 111,
+        "parent": "tradition.bladesinging",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.bladesinging:9ede3ebb1d19609a",
+        "kind": "subclass-feature",
+        "title": "Дополнительная атака",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.bladesinging",
+        "headingOrdinal": 112,
+        "parent": "tradition.bladesinging",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.bladesinging:fa02e8e7adab370f",
+        "kind": "subclass-feature",
+        "title": "Песнь защиты",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.bladesinging",
+        "headingOrdinal": 113,
+        "parent": "tradition.bladesinging",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "wizard",
+      "candidateReference": {
+        "id": "scope:wizard:tradition.bladesinging:67e099600734ec30",
+        "kind": "subclass-feature",
+        "title": "Песнь победы",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.bladesinging",
+        "headingOrdinal": 114,
+        "parent": "tradition.bladesinging",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:class-features:feature.magical-tinkering",
+        "kind": "base-feature",
+        "title": "МАГИЧЕСКИЙ МАСТЕРОВОЙ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#feature.magical-tinkering",
+        "headingOrdinal": 11,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          1
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:class-features:feature.spellcasting",
+        "kind": "base-feature",
+        "title": "Использование заклинаний",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#feature.spellcasting",
+        "headingOrdinal": 12,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          1
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:class-features:feature.infuse-item",
+        "kind": "base-feature",
+        "title": "ИНФУЗИРОВАНИЕ ПРЕДМЕТА",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#feature.infuse-item",
+        "headingOrdinal": 19,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:class-features:feature.specialist",
+        "kind": "base-feature",
+        "title": "СПЕЦИАЛЬНОСТЬ ИЗОБРЕТАТЕЛЯ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#feature.specialist",
+        "headingOrdinal": 22,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:class-features:feature.right-tool-for-the-job",
+        "kind": "base-feature",
+        "title": "ПОДХОДЯЩИЙ ИНСТРУМЕНТ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#feature.right-tool-for-the-job",
+        "headingOrdinal": 23,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:class-features:feature.ASI",
+        "kind": "base-feature",
+        "title": "УВЕЛИЧЕНИЕ ХАРАКТЕРИСТИК",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#feature.ASI",
+        "headingOrdinal": 24,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          4
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:class-features:feature.tool-expertise",
+        "kind": "base-feature",
+        "title": "КОМПЕТЕНТНОСТЬ ВО ВЛАДЕНИИ ИНСТРУМЕНТАМИ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#feature.tool-expertise",
+        "headingOrdinal": 25,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:class-features:feature.flash-of-genius",
+        "kind": "base-feature",
+        "title": "ПРОБЛЕСК ГЕНИАЛЬНОСТИ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#feature.flash-of-genius",
+        "headingOrdinal": 26,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          7
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:class-features:feature.magic-item-adept",
+        "kind": "base-feature",
+        "title": "ЭКСПЕРТ В ОБРАЩЕНИИ С МАГИЧЕСКИМИ ПРЕДМЕТАМИ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#feature.magic-item-adept",
+        "headingOrdinal": 27,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          10
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:class-features:feature.spell-storing-item",
+        "kind": "base-feature",
+        "title": "ХРАНЯЩИЙ ЗАКЛИНАНИЯ ПРЕДМЕТ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#feature.spell-storing-item",
+        "headingOrdinal": 28,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          11
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:class-features:feature.magic-item-savant",
+        "kind": "base-feature",
+        "title": "УЧЁНЫЙ ПО МАГИЧЕСКИМ ПРЕДМЕТАМ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#feature.magic-item-savant",
+        "headingOrdinal": 29,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          14
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:class-features:feature.magic-item-master",
+        "kind": "base-feature",
+        "title": "МАСТЕР В ОБРАЩЕНИИ С МАГИЧЕСКИМИ ПРЕДМЕТАМИ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#feature.magic-item-master",
+        "headingOrdinal": 30,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          18
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:class-features:feature.soul-of-artifice",
+        "kind": "base-feature",
+        "title": "ДУША ИЗОБРЕТЕНИЯ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#feature.soul-of-artifice",
+        "headingOrdinal": 31,
+        "parent": "class-features",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          20
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.alchemist:specialist.alchemist",
+        "kind": "subclass",
+        "title": "Алхимик",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist",
+        "headingOrdinal": 50,
+        "parent": "specialist.alchemist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.alchemist:08d269fc98dbfdab",
+        "kind": "subclass-feature",
+        "title": "ВЛАДЕНИЕ ИНСТРУМЕНТАМИ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist",
+        "headingOrdinal": 51,
+        "parent": "specialist.alchemist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.alchemist:93b7483dbd2b5197",
+        "kind": "subclass-feature",
+        "title": "ЗАКЛИНАНИЯ АЛХИМИКОВ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist",
+        "headingOrdinal": 52,
+        "parent": "specialist.alchemist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.alchemist:878ad5bd123d73f3",
+        "kind": "subclass-feature",
+        "title": "ЭКСПЕРИМЕНТАЛЬНЫЙ ЭЛИКСИР",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist",
+        "headingOrdinal": 54,
+        "parent": "specialist.alchemist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.alchemist:45bf0cb4e0b646a8",
+        "kind": "subclass-feature",
+        "title": "УЧЁНЫЙ АЛХИМИК",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist",
+        "headingOrdinal": 56,
+        "parent": "specialist.alchemist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          5
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.alchemist:9bd72d7a38200834",
+        "kind": "subclass-feature",
+        "title": "ВОССТАНАВЛИВАЮЩИЕ РЕАГЕНТЫ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist",
+        "headingOrdinal": 57,
+        "parent": "specialist.alchemist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          9
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.alchemist:5ab794c7564d4100",
+        "kind": "subclass-feature",
+        "title": "ХИМИЧЕСКОЕ МАСТЕРСТВО",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist",
+        "headingOrdinal": 58,
+        "parent": "specialist.alchemist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          15
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.artillerist:specialist.artillerist",
+        "kind": "subclass",
+        "title": "Артиллерист",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist",
+        "headingOrdinal": 59,
+        "parent": "specialist.artillerist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.artillerist:08d269fc98dbfdab",
+        "kind": "subclass-feature",
+        "title": "Владение инструментами",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist",
+        "headingOrdinal": 60,
+        "parent": "specialist.artillerist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.artillerist:2bc4a4ce0393c94a",
+        "kind": "subclass-feature",
+        "title": "ЗАКЛИНАНИЯ АРТИЛЛЕРИСТА",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist",
+        "headingOrdinal": 61,
+        "parent": "specialist.artillerist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.artillerist:ebdbc64cc9764ce7",
+        "kind": "subclass-feature",
+        "title": "МИСТИЧЕСКАЯ ПУШКА",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist",
+        "headingOrdinal": 63,
+        "parent": "specialist.artillerist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.artillerist:d806f64985b0613a",
+        "kind": "subclass-feature",
+        "title": "Мистическое ОГНЕСТРЕЛЬНОЕ ОРУЖИЕ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist",
+        "headingOrdinal": 65,
+        "parent": "specialist.artillerist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          5
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.artillerist:920fbb40b0dd7b7e",
+        "kind": "subclass-feature",
+        "title": "ВЗРЫВООПАСНАЯ ПУШКА",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist",
+        "headingOrdinal": 66,
+        "parent": "specialist.artillerist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          9
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.artillerist:42b931caa1f4f795",
+        "kind": "subclass-feature",
+        "title": "УКРЕПЛЁННАЯ ПОЗИЦИЯ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist",
+        "headingOrdinal": 67,
+        "parent": "specialist.artillerist",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          15
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.battlesmith:specialist.battlesmith",
+        "kind": "subclass",
+        "title": "Боевой кузнец",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith",
+        "headingOrdinal": 68,
+        "parent": "specialist.battlesmith",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.battlesmith:08d269fc98dbfdab",
+        "kind": "subclass-feature",
+        "title": "ВЛАДЕНИЕ ИНСТРУМЕНТАМИ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith",
+        "headingOrdinal": 69,
+        "parent": "specialist.battlesmith",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.battlesmith:2f6a8c71f7ddd8a3",
+        "kind": "subclass-feature",
+        "title": "ЗАКЛИНАНИЯ БОЕВОГО КУЗНЕЦА",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith",
+        "headingOrdinal": 70,
+        "parent": "specialist.battlesmith",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.battlesmith:add398e56c386253",
+        "kind": "subclass-feature",
+        "title": "БОЕВАЯ ГОТОВНОСТЬ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith",
+        "headingOrdinal": 72,
+        "parent": "specialist.battlesmith",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.battlesmith:c4961367422c09fe",
+        "kind": "subclass-feature",
+        "title": "СТАЛЬНОЙ ЗАЩИТНИК",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith",
+        "headingOrdinal": 73,
+        "parent": "specialist.battlesmith",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.battlesmith:9ede3ebb1d19609a",
+        "kind": "subclass-feature",
+        "title": "ДОПОЛНИТЕЛЬНАЯ АТАКА",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith",
+        "headingOrdinal": 74,
+        "parent": "specialist.battlesmith",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          5
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.battlesmith:44d064ad8f656380",
+        "kind": "subclass-feature",
+        "title": "МАГИЧЕСКАЯ ВСТРЯСКА",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith",
+        "headingOrdinal": 75,
+        "parent": "specialist.battlesmith",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          9
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.battlesmith:b6ea9d0e779c1e83",
+        "kind": "subclass-feature",
+        "title": "УЛУЧШЕННЫЙ ЗАЩИТНИК",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith",
+        "headingOrdinal": 76,
+        "parent": "specialist.battlesmith",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          15
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.armorer:specialist.armorer",
+        "kind": "subclass",
+        "title": "Бронник",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer",
+        "headingOrdinal": 77,
+        "parent": "specialist.armorer",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": []
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.armorer:08d269fc98dbfdab",
+        "kind": "subclass-feature",
+        "title": "ВЛАДЕНИЕ ИНСТРУМЕНТАМИ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer",
+        "headingOrdinal": 78,
+        "parent": "specialist.armorer",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.armorer:096d32adc9cc13b2",
+        "kind": "subclass-feature",
+        "title": "ЗАКЛИНАНИЯ БРОННИКА",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer",
+        "headingOrdinal": 79,
+        "parent": "specialist.armorer",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.armorer:749c98ae8bc17fce",
+        "kind": "subclass-feature",
+        "title": "мистический ДОСПЕХ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer",
+        "headingOrdinal": 81,
+        "parent": "specialist.armorer",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.armorer:40b2fef4e59f8adc",
+        "kind": "subclass-feature",
+        "title": "МОДЕЛЬ ДОСПЕХА",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer",
+        "headingOrdinal": 82,
+        "parent": "specialist.armorer",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          3
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.armorer:9ede3ebb1d19609a",
+        "kind": "subclass-feature",
+        "title": "ДОПОЛНИТЕЛЬНАЯ АТАКА",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer",
+        "headingOrdinal": 83,
+        "parent": "specialist.armorer",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          5
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.armorer:4c97712288d26bc4",
+        "kind": "subclass-feature",
+        "title": "МОДИФИКАЦИИ ДОСПЕХА",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer",
+        "headingOrdinal": 84,
+        "parent": "specialist.armorer",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          9
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "classSlug": "artificer",
+      "candidateReference": {
+        "id": "scope:artificer:specialist.armorer:33dfc2450bac503f",
+        "kind": "subclass-feature",
+        "title": "ИДЕАЛЬНАЯ БРОНЯ",
+        "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer",
+        "headingOrdinal": 85,
+        "parent": "specialist.armorer",
+        "sourceIds": [
+          "117"
+        ],
+        "sourceBasis": "explicit-subclass-source",
+        "observedInitialLevels": [
+          15
+        ]
+      },
+      "candidateSnapshotSha256": "0ec03d3e2517a2a12b7395f7a039000f2dc05125d52ea40e265b511ad5fbcfe7",
+      "localSrdParentFeatureId": null,
+      "localImplementationStatus": null,
+      "correspondingSourceComponents": [],
+      "evidenceState": "no-linked-primary-component-in-this-matrix",
+      "originalCandidateTextOrTranslationCompared": false,
+      "originalSourceClaimsValidatedByCorrespondence": false,
+      "completeCandidateRulesAccepted": false,
+      "automaticCapabilityAccepted": false,
+      "manualDeviationAllowedWithWarning": true
+    }
+  ],
+  "artificerHeadingRows": [
+    {
+      "headingReference": {
+        "ordinal": 1,
+        "title": "Изобретатель",
+        "level": 4,
+        "anchors": [
+          "artificer"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "78f1dee7a82c33dace25a86fafb17f035ae365708ba8a1664cc87936543193f9",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 20
+          }
+        ]
+      },
+      "kind": "progression-table",
+      "originalParentFeatureObservationId": null,
+      "originalParentBasis": null,
+      "parentReferenceState": "no-parent-reference",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 2,
+        "title": "ИЗОБРЕТАТЕЛИ В РАЗЛИЧНЫХ МИРАХ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "4ca48ec86548fa1088328133daddbac9eeb1cf19112ac36da894c67859cb80b1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "lore",
+      "originalParentFeatureObservationId": null,
+      "originalParentBasis": null,
+      "parentReferenceState": "no-parent-reference",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 3,
+        "title": "Создание изобретателя",
+        "level": 3,
+        "anchors": [
+          "creation"
+        ],
+        "sectionAnchor": null,
+        "bodySha256": "d18d047838c2d5025474011a3e13586154e56a63368b979273e42cd0f4a4c218",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "originalParentFeatureObservationId": null,
+      "originalParentBasis": null,
+      "parentReferenceState": "no-parent-reference",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 4,
+        "title": "БЫСТРОЕ СОЗДАНИЕ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "ea681d2e9b13a840d1d8e7f468c7c0bc46e66e796ab343686e46273c0010904e",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "creation-guidance",
+      "originalParentFeatureObservationId": null,
+      "originalParentBasis": null,
+      "parentReferenceState": "no-parent-reference",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 5,
+        "title": "МУЛЬТИКЛАССИРОВАНИЕ И ИЗОБРЕТАТЕЛЬ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": null,
+        "bodySha256": "50268f769ebe1840645d11bfd69d4b237b1b14f8319a1444395c8b427a9d74aa",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "multiclass-rule-group",
+      "originalParentFeatureObservationId": null,
+      "originalParentBasis": null,
+      "parentReferenceState": "no-parent-reference",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 6,
+        "title": "Классовые умения",
+        "level": 2,
+        "anchors": [
+          "class-features"
+        ],
+        "sectionAnchor": "class-features",
+        "bodySha256": "692d9f6048b4351bbc4c1e26fc3c21f01f3a2b84372a3182d55d31dc8f046cea",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "originalParentFeatureObservationId": null,
+      "originalParentBasis": null,
+      "parentReferenceState": "no-parent-reference",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 7,
+        "title": "Хиты, владение и снаряжение",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bodyEmpty": true,
+        "tables": []
+      },
+      "kind": "section-container",
+      "originalParentFeatureObservationId": null,
+      "originalParentBasis": null,
+      "parentReferenceState": "no-parent-reference",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 8,
+        "title": "ХИТЫ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "7c5f29ea353abe2d90153a33520d2752a667d717a93a5b986b73e6e7ac0b45fa",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "originalParentFeatureObservationId": null,
+      "originalParentBasis": null,
+      "parentReferenceState": "no-parent-reference",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 9,
+        "title": "ВЛАДЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "3ca6d10e1b0998d3e9424d02468c686ed74a98173fc2f1a59c9396b6a39c2ce3",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "originalParentFeatureObservationId": null,
+      "originalParentBasis": null,
+      "parentReferenceState": "no-parent-reference",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 10,
+        "title": "СНАРЯЖЕНИЕ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "9df515ea94764e7202fa615bd807aef64611f70b82173ecd9dd4edf504c02813",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "base-rule",
+      "originalParentFeatureObservationId": null,
+      "originalParentBasis": null,
+      "parentReferenceState": "no-parent-reference",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 13,
+        "title": "НЕОБХОДИМЫЙ ИНСТРУМЕНТ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "3c1932cfe67520379e3e5c3d4582217ce8baf1500e778f1fa89b0ca6cde12713",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "originalParentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "originalParentBasis": "manual-body-review-not-HTML-inheritance",
+      "parentReferenceState": "resolved-existing-artificer-candidate",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 14,
+        "title": "МАГИЯ ИЗОБРЕТЕНИЙ",
+        "level": 3,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "28f8278891531b52cde557a062a84985aece5ba25633928fad2ec04b7411308d",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "presentation-guidance",
+      "originalParentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "originalParentBasis": "manual-body-review-not-HTML-inheritance",
+      "parentReferenceState": "resolved-existing-artificer-candidate",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 15,
+        "title": "ЗАГОВОРЫ (ЗАКЛИНАНИЯ 0-ГО УРОВНЯ)",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "ccafee1c6e02a7b140d17e3b74b38baec6847cc1a13d8006127626fc65ec1aea",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "originalParentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "originalParentBasis": "manual-body-review-not-HTML-inheritance",
+      "parentReferenceState": "resolved-existing-artificer-candidate",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 16,
+        "title": "ПОДГОТОВКА И СОТВОРЕНИЕ ЗАКЛИНАНИЙ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "37c047210599c40198b1fc8e07f21a89848b204329da80c86e46791d2dafa5ab",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "originalParentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "originalParentBasis": "manual-body-review-not-HTML-inheritance",
+      "parentReferenceState": "resolved-existing-artificer-candidate",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 17,
+        "title": "БАЗОВАЯ ХАРАКТЕРИСТИКА ЗАКЛИНАНИЙ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "b31090f24850a61314c412bfa99621090a761107dee7000354550dd5263d236a",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "originalParentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "originalParentBasis": "manual-body-review-not-HTML-inheritance",
+      "parentReferenceState": "resolved-existing-artificer-candidate",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 18,
+        "title": "РИТУАЛЬНОЕ КОЛДОВСТВО",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "4d2a20ee18ae5fac62cb6275f16db9b31a16ed1c1395c41cff51b1cdf6c708c1",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "originalParentFeatureObservationId": "scope:artificer:class-features:feature.spellcasting",
+      "originalParentBasis": "manual-body-review-not-HTML-inheritance",
+      "parentReferenceState": "resolved-existing-artificer-candidate",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 20,
+        "title": "ИЗВЕСТНЫЕ ИНФУЗИИ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "04e74f83209ff5daf5fc9477045efa96fc984b0c0fcf54d277fda9debd0687b0",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "originalParentFeatureObservationId": "scope:artificer:class-features:feature.infuse-item",
+      "originalParentBasis": "manual-body-review-not-HTML-inheritance",
+      "parentReferenceState": "resolved-existing-artificer-candidate",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 21,
+        "title": "НАСЫЩЕНИЕ ПРЕДМЕТА МАГИЕЙ",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "class-features",
+        "bodySha256": "5ee2ddf546b66f45ca4026766d0251f631af0973f8ca4c0220bb98d26c53b936",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "feature-subrule",
+      "originalParentFeatureObservationId": "scope:artificer:class-features:feature.infuse-item",
+      "originalParentBasis": "manual-body-review-not-HTML-inheritance",
+      "parentReferenceState": "resolved-existing-artificer-candidate",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 32,
+        "title": "Инфузии изобретателя",
+        "level": 2,
+        "anchors": [
+          "infusions"
+        ],
+        "sectionAnchor": "infusions",
+        "bodySha256": "42856cffc98faa29ae09dab7e27d38c13ba14e9ba22d094f46299ee752ffa605",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "choice-index-and-rules",
+      "originalParentFeatureObservationId": null,
+      "originalParentBasis": null,
+      "parentReferenceState": "no-parent-reference",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 49,
+        "title": "Специализации изобретателя",
+        "level": 2,
+        "anchors": [
+          "specialists"
+        ],
+        "sectionAnchor": "specialists",
+        "bodySha256": "21d76100f431567bd321ce78afffb057e62f001713ddafd022e4c19bea417ce5",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "section-container",
+      "originalParentFeatureObservationId": null,
+      "originalParentBasis": null,
+      "parentReferenceState": "no-parent-reference",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 55,
+        "title": "Экспериментальный эликсир",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "specialist.alchemist",
+        "bodySha256": "5f4cae9f0e3fb585a2177ba513849ff3d3363c2c27dc34d315c009e726f9a5aa",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 6
+          }
+        ]
+      },
+      "kind": "feature-effect-table",
+      "originalParentFeatureObservationId": "scope:artificer:specialist.alchemist:878ad5bd123d73f3",
+      "originalParentBasis": "manual-body-review-not-HTML-inheritance",
+      "parentReferenceState": "resolved-existing-artificer-candidate",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 64,
+        "title": "Мистические пушки",
+        "level": 4,
+        "anchors": [],
+        "sectionAnchor": "specialist.artillerist",
+        "bodySha256": "810b7520fc908b572144fd67c32ff0de707bb1f75fe868331f267f16492a4ecf",
+        "bodyEmpty": false,
+        "tables": [
+          {
+            "rows": 3
+          }
+        ]
+      },
+      "kind": "feature-effect-table",
+      "originalParentFeatureObservationId": "scope:artificer:specialist.artillerist:ebdbc64cc9764ce7",
+      "originalParentBasis": "manual-body-review-not-HTML-inheritance",
+      "parentReferenceState": "resolved-existing-artificer-candidate",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    },
+    {
+      "headingReference": {
+        "ordinal": 86,
+        "title": "Unearthed Arcana & Unofficial",
+        "level": 2,
+        "anchors": [
+          "unofficial"
+        ],
+        "sectionAnchor": "unofficial",
+        "bodySha256": "532520b8e3cd879904d9f461752171967e4aca1a3191c93d4d73c3bed7230bd3",
+        "bodyEmpty": false,
+        "tables": []
+      },
+      "kind": "excluded-section-marker",
+      "originalParentFeatureObservationId": null,
+      "originalParentBasis": null,
+      "parentReferenceState": "no-parent-reference",
+      "sameSecondarySnapshot": true,
+      "sourceComponentsInheritedFromWizard": false,
+      "completeRulesVerified": false,
+      "canonicalId": null
+    }
+  ],
+  "sourceNamespaces": {
+    "historical102": "Player's Handbook",
+    "historical117": "Tasha's Cauldron of Everything",
+    "source117IsSrdOrProviderId": false
+  },
+  "limits": [
+    "Stable class/feature anchors link corresponding English source components, not Russian text identity, translation or claimed PHB/TCE source equivalence.",
+    "One selected errata scope includes a separate Minor Conjuration correction; it is not part of Wizard base Spellcasting by adjacency.",
+    "Equal Spellcasting/ASI labels never inherit Wizard rules for Artificer; optional TCE features do not become SRD omissions.",
+    "Subclasses, choices, infusions and unsupported primary gaps remain visible; no new auto-grants, game-action blocks or real profile edits.",
+    "This map inventories existing witnesses; it performs no new full-text retrieval or catalogue denominator acceptance."
+  ],
+  "inputSha256": {
+    "catalog/dndsu-reviewed-class-proposals.json": "2658cb19e4ad074003ecf60f46190af992c6abb26584455d2455946e061b9c48",
+    "catalog/artificer-heading-unit-proposals-2014.json": "8cb74e7b1d9253844b79007f52b1022df44675101ef6644e2df592121f4a3dcd",
+    "catalog/srd51-class-features.json": "677b7c1ba27c2bbcd865bf220ea28c5dc55f205eeeef62c6fc913dd7eccd213a",
+    "catalog/rest-spellcasting-source-comparison-2014.json": "74078b423eb8670a9c7a2a00a00109c5621e42c1c141a28f41f688a310352ada",
+    "catalog/wizard-recovery-source-comparison-2014.json": "0b62cc3ae12d944811eabbaf69ec8693eb180a46120057084e61358a696df5c4",
+    "catalog/wizard-ritual-source-comparison-2014.json": "b86c7cab1fff18dd8a13507d317cb3a9cb25b3066562fc3f197f766512ae553b",
+    "catalog/dndsu-source-register.json": "109868b7dbc77b2168d4dfec77166cf9cff4c8b55b9fff9ea3ccbdbbe899a42f"
+  },
+  "generator": {
+    "path": "scripts/review-wizard-artificer-source-scopes-2014.py",
+    "sha256": "4fb44374bd6445df247759134f8e16fd42f955b7825241756d39ed7ad702567e"
+  }
+}
