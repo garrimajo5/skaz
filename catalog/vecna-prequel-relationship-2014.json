@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "status": "bounded-adventure-relationship-not-full-record-or-canonical-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "providerSourceId": 135,
+  "numericDndsuSourceId": null,
+  "canonicalSourceId": null,
+  "automaticAttribution": false,
+  "fullRulesReviewed": false,
+  "providerReference": {
+    "observationId": "ddb:library-source:135",
+    "title": "Vecna: Nest of the Eldritch Eye",
+    "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vnee",
+    "sku": "SRC-00135",
+    "providerReleaseDate": "2024-04-16T13:45:00Z",
+    "providerRuleset": {
+      "name": "5e",
+      "label": "5e"
+    },
+    "displayedPublisher": "Wizards of the Coast"
+  },
+  "sources": {
+    "vecna-article": {
+      "requestedUrl": "https://www.dndbeyond.com/posts/1680-play-the-prequel-adventure-to-vecna-eve-of-ruin",
+      "finalUrl": "https://www.dndbeyond.com/posts/1680-play-the-prequel-adventure-to-vecna-eve-of-ruin",
+      "status": 200,
+      "bytes": 374738,
+      "sha256": "94c747249896134daaf2e20c6e1f853613a11067dcec3a9f2873116b7820ca4f",
+      "capturedAt": "2026-11-21T12:34:57.032853+00:00"
+    }
+  },
+  "relationship": {
+    "kind": "separate-low-level-prequel-to-high-level-adventure",
+    "introductionParagraphSha256": "c3f5aff9211c5617a3024ee1c096d571f7e4cf13c91513f1cbd61eb48b1c00c4",
+    "transitionParagraphSha256": "77d000286af8390ab4268dc24a35db7f7b95a9310fa9aa2ecaa203b47ff55e95",
+    "advertisedPrequelLevel": 3,
+    "relatedCampaignLevelRange": [
+      10,
+      20
+    ],
+    "transitionDeterminedByDm": true,
+    "automaticLevel3To10Granted": false,
+    "relatedProviderSourceId": 132,
+    "relatedSku": "SRC-00134",
+    "relatedExistingDndsuSourceId": "214",
+    "containedInRelatedBookOrIdenticalRules": "not-established",
+    "calendarYear2024AutomaticallyMeansRevisedRules": false,
+    "scope": "two publisher article paragraphs and separate product reference; no full prequel or campaign rules"
+  },
+  "limitedSourceAttempts": [
+    {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/vnee",
+      "finalUrl": "https://marketplace.dndbeyond.com/category/SRC-00135",
+      "status": 200,
+      "bytes": null,
+      "sha256": null,
+      "bodyFile": null,
+      "capturedAt": "2026-11-21T12:34:56.807290+00:00",
+      "outcome": "capture-error",
+      "retried": false,
+      "errorType": "TimeoutError"
+    }
+  ],
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-source-link-proposals-2014.json": "32baeee49a644be8822acdf46c2ebadc890efeb0ea90801f0e257b0ea509c4dc",
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe"
+  },
+  "generator": {
+    "path": "scripts/audit-adventure-relationships-2014.py",
+    "sha256": "eade3323dfba353c6bc3e90904b04b8ca2f97a363ff4456cbca39281935af3c7"
+  },
+  "upstreamParsers": [
+    {
+      "path": "scripts/audit-prisoner13-component-2014.py",
+      "sha256": "5f19428fb4a6d387a09ed38a21871d8f44b8b319f2192d9c731e08784865a124"
+    },
+    {
+      "path": "scripts/audit-radiant-citadel-chapter-2014.py",
+      "sha256": "6bd65a91c991c9432a4aefd06286d146cb695415ae59238013501d37a243a9b0"
+    }
+  ],
+  "limits": [
+    "A narrative relationship does not establish containment, identical rules or full category record counts.",
+    "Provider IDs, product SKUs and existing historical IDs stay distinct; no child ID or permission inferred.",
+    "Publisher/author/brand and calendar year do not automatically change common catalogue policy or rules edition.",
+    "Full rules, exact versions, individual record provenance and publication/translation rights remain open.",
+    "No purchase/claim/account, real profile, runtime, automatic levels, owner milestone or accepted denominator changed."
+  ]
+}
