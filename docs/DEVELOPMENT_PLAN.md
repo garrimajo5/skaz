@@ -6392,3 +6392,10 @@ Runtime52731fd опубликован: Linux1322/1322,check/build, новый р
 
 - После11Python/4SHA/3HTMLнезависимогоreviewслитPR216/e2f79ed. Academy93:4orderedcomponentTOCs, publisher1–5/preparesLightXaryxis,ALPDF48optionalanyorder/<=4beforefinishingchosenadventures. Stageразделены, неглобальныйcap/неавтоповышение/неall4mandatory; relatedboxedprovider90/historical160неchildID.
 -10Python/реальные3HTML+reusedAL48/visual48PASS; [границы](spelljammer-academy-series-boundary-2014.md). Первоначальныйотказ/rootregressionвыявиликонфликтself.offsetсHTMLParser; red→greenпереименованиемpart_link_start. Полныезаписи/версии/права/canonical/denominatorнеприняты, independentreviewдоmerge. ДалееStormwreck94/Intro128; runtime/VPSнеменялись.
+
+
+### 21.11 — #77 Stormwreck94/128 и сохранность source receipts
+
+- Два разных источника, два Intro-encounter-reference, только одно явное reuse из первой главы.8Python/реальная2bodyрепродукцияPASS; httpStatus/finalUrl честноnull после intro25sTimeout и потери aggregate-квитанций. [Граница](stormwreck-publication-pair-boundary-2014.md); полные тексты/версии/права не приняты.
+- Исправлен процесс захвата: [утилита](publication-witness-capture.md) сохраняет per-resource started/header/final и частичный manifest;8mockPythonPASS, IncompleteRead red→green. Новая утилита не использовалась для живого повторного запроса и не усиливает старыйprovenance. Independentreview доmerge, затем актуализировать D05-триаж.
+- Первый полезный сегмент03:10:56–03:45:13МСК (34мин17с). Перерыв03:45:13–14:51:44 не считать работой; продолжен тот же шаг/ветка, без параллельного блока. Main/правила/назначение после перерыва проверены, чужих изменений нет. Runtime/VPS/профили/этапы не менялись.
