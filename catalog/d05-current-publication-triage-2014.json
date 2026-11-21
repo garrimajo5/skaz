@@ -674,9 +674,9 @@
   "nextWorkItem": {
     "phase": "class-rule-provenance-and-scope",
     "providerSourceId": 1,
-    "action": "Map existing Wizard/Artificer class-heading proposals to bounded source components; retain complete/partial/unverified distinctions.",
-    "doNotRepeat": "Carrier TOCs, local125/247 reference crosswalk, Arcane Recovery, Ritual Casting and previously selected preparation/learning/ASI/copying units.",
-    "evidencePath": "catalog/basic-rules-publication-boundary-2014.json",
+    "action": "Wizard/Artificer source work: compare secondary Wizard Spellcasting body to checked corresponding English clauses; retain candidate/source/version holds.",
+    "doNotRepeat": "Carrier TOCs, local125/247 reference crosswalk, Arcane Recovery, Ritual Casting,130/23candidate map,six Artificer errata,9/21inventory,three short comparisons,415word sidebar and previously selected preparation/learning/ASI/copying units.",
+    "evidencePath": "catalog/wizard-artificer-current-evidence-2014.json",
     "candidateInputs": [
       "catalog/dndsu-reviewed-class-proposals.json",
       "catalog/artificer-heading-unit-proposals-2014.json"
@@ -698,6 +698,17 @@
       "head": "4e55b4089017e6ad70e669e9f4293b25667e3a0d",
       "review": "https://github.com/garrimajo5/skaz/pull/225#issuecomment-7062998536",
       "scope": "whole selected32word Wizard Ritual Casting subsection across3retained carriers only"
+    }
+  },
+  "currentClassEvidenceContext": {
+    "path": "catalog/wizard-artificer-current-evidence-2014.json",
+    "summary": {
+      "preservedCandidateRecords": 130,
+      "preservedArtificerHeadingObservations": 23,
+      "supplementedCandidateReferences": 5,
+      "selectedArtificerCorrections": 6,
+      "unattachedCorrectionsRetained": 1,
+      "canonicalUnitsAccepted": 0
     }
   },
   "unlinkedHistoricalRowsPreserved": [
@@ -753,6 +764,7 @@
   ],
   "inputSha256": {
     "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe",
+    "catalog/wizard-artificer-current-evidence-2014.json": "9e1e849eda248710c250be6326b8d3d8ea4bc31004d3158d3fe5d4aae778deb9",
     "catalog/basic-rules-publication-boundary-2014.json": "581a431600b794854b840c4d1ab7f5ed210c5ddb3286cf3058905ff506cdf5b6",
     "catalog/sage-advice-publication-boundary-2014.json": "d1ffcbfb426aaedef84f083d639603b2f0a37e4d60579da5d69b105b8861fde6",
     "catalog/frozen-sick-publication-component-2014.json": "6232b75208a501d5437b8c2fd70595eaf5b09c9f3c0b76171e211d7dc625c625",
@@ -773,7 +785,7 @@
   },
   "generator": {
     "path": "scripts/review-d05-current-triage-2014.py",
-    "sha256": "b0e8330e81f051b5aa9e42cd2b006e4f4f077886bedc0f24dccd9a49f52e5c0e"
+    "sha256": "44fbab6fb7c0e64b3b3634f8b387637856ccbef325e34d636fa915f3671523f3"
   },
   "limits": [
     "15+0 partitions15 work references, not the game catalogue or count of missing publications.",
@@ -781,6 +793,7 @@
     "Current work is separate from original15-row/70-source observations; no input or policy is mutated.",
     "Review citations are pinned to the checked report and exact PR head; changed evidence needs new review.",
     "The two selected Wizard components and local class-reference crosswalk are not additional publication witnesses or runtime automation.",
+    "Selected comparison counters describe explicitly pinned original Arcane/Ritual inputs; current class-specific evidence is a separate overlay, not a global total.",
     "Owner milestones, private matrix, application/VPS state and catalogue denominator remain unchanged."
   ]
 }

@@ -1,0 +1,51 @@
+import copy
+import importlib.util
+import json
+from pathlib import Path
+import tempfile
+import unittest
+ROOT=Path(__file__).resolve().parents[1]
+s=importlib.util.spec_from_file_location('current',ROOT/'scripts/review-current-class-evidence-2014.py');M=importlib.util.module_from_spec(s);s.loader.exec_module(M)
+
+def data():return M.load_reviewed(ROOT)
+
+class CurrentClassEvidenceTest(unittest.TestCase):
+    def test_original_candidate_order_source_claim_digest_and_headings_are_preserved(self):
+        source=data();before=copy.deepcopy(source);d=M.combine(source);rows=source['candidateMap']['candidateRows']
+        self.assertEqual(d['preservedCandidateIdSequence'],[r['candidateReference']['id'] for r in rows]);self.assertEqual(len(d['preservedCandidateIdSequence']),130);self.assertEqual(source,before);self.assertEqual(d['summary']['preservedArtificerHeadingObservations'],23)
+        ledger=[{k:r['candidateReference'][k] for k in ['id','sourceIds','sourceBasis']} for r in rows]
+        self.assertEqual(d['preservedClaimLedgerSha256'],M.sha(json.dumps(ledger,ensure_ascii=False,separators=(',',':')).encode()))
+    def test_five_supplemental_candidates_and_one_unattached_choice_are_not_new_units(self):
+        d=M.combine(data());self.assertEqual(len(d['supplementalCandidateLinks']),5);self.assertEqual(len(d['unattachedCorrections']),1);self.assertEqual(d['unattachedCorrections'][0]['correctionKey'],'repeating-shot-ammunition');self.assertEqual(d['summary']['canonicalUnitsAccepted'],0)
+        self.assertTrue(all(not r['completeCandidateTextAccepted'] and not r['wholeFeatureAccepted'] and not r['runtimeAccepted'] for r in d['supplementalCandidateLinks']))
+    def test_artificer_keeps_both_source_specific_spellcasting_patches_with_version_holds(self):
+        d=M.combine(data());r=next(r for r in d['supplementalCandidateLinks'] if r['candidateId']=='scope:artificer:class-features:feature.spellcasting')
+        self.assertEqual(r['additionalEvidenceKeys'],['artificerErrata']);self.assertEqual([c['historicalBookSourceId'] for c in r['sourceSpecificCorrections']],['119','117']);self.assertTrue(all(not c['appliesToCandidatePublicationVerified'] for c in r['sourceSpecificCorrections']))
+    def test_closed_sidebar_reference_does_not_close_other_reference_tasks_or_whole_feature(self):
+        source=data();d=M.combine(source);g=d['wizardReferenceGraph'];self.assertEqual(g['originalGraphPreserved'],source['spellcastingInventory']['openReferenceGraph']);self.assertEqual(g['remainingGraph'],['Wizard table','general spellcasting rules','Wizard spell list']);self.assertFalse(g['wholeFeatureRulesAccepted']);self.assertFalse(g['literalWholeSourceEqualityClaimed'])
+    def test_changed_original_graph_requires_new_explicit_mapping(self):
+        source=data();source['spellcastingInventory']['openReferenceGraph'].append(source['spellcastingInventory']['openReferenceGraph'][-1])
+        with self.assertRaises(ValueError):M.combine(source)
+    def test_runtime_full_candidate_or_errata_applicability_cannot_be_promoted(self):
+        for mutate in [lambda d:d['spellbookSidebar'].update(acceptedForRuntime=True),lambda d:d['candidateMap']['candidateRows'][0].update(completeCandidateRulesAccepted=True),lambda d:d['artificerErrata']['records'][0].update(appliesToCandidatePublicationVerified=True)]:
+            source=data();mutate(source)
+            with self.assertRaises(ValueError):M.combine(source)
+    def test_unknown_or_cross_class_errata_candidate_cannot_be_assigned(self):
+        for target in ['scope:wizard:class-features:feature.spellcasting','scope:artificer:class-features:feature.unknown']:
+            source=data();source['artificerErrata']['records'][0]['correspondingCandidateId']=target
+            with self.assertRaises(ValueError):M.combine(source)
+    def test_changed_artifact_cannot_inherit_previous_independent_review(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            for spec in M.EVIDENCE.values():
+                p=root/spec['path'];p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((ROOT/spec['path']).read_bytes())
+            self.assertEqual(set(M.load_reviewed(root)),set(M.EVIDENCE));p=root/M.EVIDENCE['spellbookSidebar']['path'];p.write_bytes(p.read_bytes()+b' ')
+            with self.assertRaisesRegex(ValueError,'inherit'):M.load_reviewed(root)
+    def test_next_task_is_concordance_with_snapshot_hold_and_no_repeated_work(self):
+        d=M.combine(data());n=d['nextWorkItem'];self.assertEqual(n['role'],'content');self.assertEqual(n['phase'],'wizard-candidate-clause-concordance');self.assertIn('own SHA',n['sourceSnapshotRequirement']);self.assertIn('TCE/Artificer',n['parallelRemainingCriterion']);self.assertIn('415word sidebar',n['doNotRepeat'])
+    def test_committed_report_and_all_pins_reproduce(self):
+        d=json.loads((ROOT/'catalog/wizard-artificer-current-evidence-2014.json').read_text(encoding='utf-8'));self.assertEqual(d,M.build(ROOT))
+        for path,digest in d['inputSha256'].items():self.assertEqual(M.sha((ROOT/path).read_bytes().replace(b'\r\n',b'\n')),digest)
+        self.assertEqual(d['generator']['sha256'],M.sha((ROOT/d['generator']['path']).read_bytes().replace(b'\r\n',b'\n')))
+
+if __name__=='__main__':unittest.main()
