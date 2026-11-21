@@ -161,7 +161,8 @@
       ],
       "additionalEvidenceKeys": [
         "spellcastingInventory",
-        "spellbookSidebar"
+        "spellbookSidebar",
+        "coVersionedConcordance"
       ],
       "completeCandidateTextAccepted": false,
       "wholeFeatureAccepted": false,
@@ -279,18 +280,24 @@
     "literalWholeSourceEqualityClaimed": false,
     "wholeFeatureRulesAccepted": false
   },
+  "coVersionedConcordance": {
+    "path": "catalog/wizard-candidate-clause-concordance-2014.json",
+    "scope": "8retained secondary sections/19paragraphs/19manual assessments with source102/101 segmentation and two qualifier omissions; reviewed with this change, not inherited from prior four PRs",
+    "wholeCandidateAccepted": false,
+    "priorIndependentReviewInherited": false
+  },
   "nextWorkItem": {
     "role": "content",
-    "phase": "wizard-candidate-clause-concordance",
+    "phase": "wizard-table-reference-concordance",
+    "action": "Check Wizard table rows and parent introduction against corresponding retained 2014 English scopes; preserve mixed-source insert and omitted qualifiers as findings, not silent edits.",
     "candidateId": "scope:wizard:class-features:feature.spellcasting",
-    "action": "Compare the secondary Wizard Spellcasting body clause by clause against checked corresponding English scopes, keeping snapshot and source claims separate.",
     "requiredInputs": [
-      "catalog/dndsu-reviewed-class-proposals.json",
+      "catalog/wizard-candidate-clause-concordance-2014.json",
       "catalog/wizard-artificer-source-scopes-2014.json"
     ],
-    "sourceSnapshotRequirement": "Use the retained candidate snapshot if available; a new public capture keeps its own SHA and must not inherit the old snapshot identity.",
-    "parallelRemainingCriterion": "Exact TCE/Artificer full-text/version applicability is still unverified; do not substitute Eberron/Wizard/UA/2024.",
-    "doNotRepeat": "130/23source map, six errata scopes,9/21inventory,three short comparisons,415word sidebar and prior Arcane/Ritual/preparation/learning/ASI/copying scopes."
+    "sourceSnapshotRequirement": "Retained source keeps its own SHA; preserve historical/fresh identities.",
+    "parallelRemainingCriterion": "Exact TCE/Artificer full-text/version applicability remains unverified.",
+    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; preserve DMG insert and both learning qualifier findings."
   },
   "limits": [
     "New links overlay the original map; no candidate ID, source array, heading parent or unknown record is removed or canonized.",
@@ -336,10 +343,11 @@
     "catalog/wizard-artificer-source-scopes-2014.json": "35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5",
     "catalog/artificer-errata-scopes-2014.json": "fe1bdeaeee905651e8ddd60199d315ad090bde9aa23746d516f11da673f2c026",
     "catalog/wizard-spellcasting-scope-2014.json": "d55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb",
-    "catalog/wizard-spellbook-sidebar-2014.json": "029e5bbb68162230d73159188cb1fda0af9f2c6966beac9b414ca61bf15b1917"
+    "catalog/wizard-spellbook-sidebar-2014.json": "029e5bbb68162230d73159188cb1fda0af9f2c6966beac9b414ca61bf15b1917",
+    "catalog/wizard-candidate-clause-concordance-2014.json": "a056d5d38ed7574cd05b3aaa292c409929994804f4bc70ef07dbe1cdd6461013"
   },
   "generator": {
     "path": "scripts/review-current-class-evidence-2014.py",
-    "sha256": "e7f20eac901b757b3e1bed0f050f0d01b43ab249f9db7abc47a08aa347964f9b"
+    "sha256": "067d2bedb38d4941869fbbf0227ee7302e187bc41ba6e9e8e651942bc623ca9f"
   }
 }
