@@ -693,8 +693,8 @@
       "1f7d20a09fd8eb15c2cd4d110e7d003a3e37d522f0e4404b6aa74ac1b8b16fbf"
     ],
     "primaryParagraphSha256": "ae2bc91dc791d14dcff41cb4813dea2e924a6bf079faea9c11e76a3eecf2b3d3",
-    "assessment": "narrative subject corresponds; secondary level marker and two navigation references are additional, not exact translation equality",
-    "additionalReferences": [
+    "assessment": "narrative and two reference topics correspond; secondary adds level marker and localizes primary chapter10/11 navigation to site URLs; not two new reference topics or exact translation equality",
+    "secondaryNavigationReferences": [
       {
         "href": "/spells/?search=&class=21",
         "title": "заклинания волшебника"
@@ -704,7 +704,18 @@
         "title": "использование заклинаний"
       }
     ],
-    "addedReferencesVerifiedInFull": false,
+    "primaryNavigationReferences": [
+      {
+        "chapter": 10,
+        "topic": "general spellcasting rules"
+      },
+      {
+        "chapter": 11,
+        "topic": "Wizard spell list"
+      }
+    ],
+    "navigationTargetsVerifiedInFull": false,
+    "twoNewReferenceTopicsClaimed": false,
     "literalTranslationEqualityClaimed": false,
     "newMechanicalCapabilityInferred": false
   },
@@ -736,7 +747,7 @@
   },
   "generator": {
     "path": "scripts/audit-wizard-table-concordance-2014.py",
-    "sha256": "bcda4b2b86654622589666899f81ffd25470f18a8b0306926382ce050bb047d4"
+    "sha256": "4f53a3ec6dfc0e334f051c89dfcb16bea2c030a322df0755f5b3286ce1715f3b"
   },
   "upstreamParsers": [
     {

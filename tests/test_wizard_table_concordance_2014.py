@@ -88,7 +88,7 @@ class WizardTableConcordanceTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'SHA'):M.audit(b'changed',b'changed',b'changed')
 
     def test_intro_additions_and_historical_identity_are_preserved(self):
-        d=stored();i=d['introduction'];self.assertEqual(len(i['secondaryParagraphSha256']),2);self.assertEqual(len(i['additionalReferences']),2);self.assertFalse(i['literalTranslationEqualityClaimed'] or i['addedReferencesVerifiedInFull']);self.assertNotEqual(d['sources']['secondary']['sha256'],d['sources']['secondary']['historicalCandidateSnapshotSha256']);self.assertEqual(i['candidateReferencePreserved']['sourceIds'],['102'])
+        d=stored();i=d['introduction'];self.assertEqual(len(i['secondaryParagraphSha256']),2);self.assertEqual(len(i['secondaryNavigationReferences']),2);self.assertEqual([r['chapter'] for r in i['primaryNavigationReferences']],[10,11]);self.assertFalse(i['twoNewReferenceTopicsClaimed']);self.assertFalse(i['literalTranslationEqualityClaimed'] or i['navigationTargetsVerifiedInFull']);self.assertNotEqual(d['sources']['secondary']['sha256'],d['sources']['secondary']['historicalCandidateSnapshotSha256']);self.assertEqual(i['candidateReferencePreserved']['sourceIds'],['102'])
 
     def test_existing_srd_rows_and_optional_candidates_are_preserved(self):
         d=stored();self.assertTrue(d['sources']['srd']['existingWizardRowsReproduced']);self.assertEqual(d['summary']['numericCellsComparedExcludingLevel'],220);self.assertEqual([r['candidateReference']['sourceIds'] for r in d['table']['optionalObservations']],[['117'],['117']]);self.assertFalse(d['table']['optionalGrantsApplied'])

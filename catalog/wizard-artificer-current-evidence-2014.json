@@ -290,7 +290,7 @@
   },
   "coVersionedTable": {
     "path": "catalog/wizard-table-concordance-2014.json",
-    "scope": "20Wizard rows/220numeric cells with4literal feature-name deltas,2optionalTCE cells and added intro references; reviewed with this change",
+    "scope": "20Wizard rows/220numeric cells with4literal feature-name deltas,2optionalTCE cells and localized intro navigation; reviewed with this change",
     "priorIndependentReviewInherited": false,
     "wholeFeatureAccepted": false
   },
@@ -361,10 +361,10 @@
     "catalog/wizard-spellcasting-scope-2014.json": "d55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb",
     "catalog/wizard-spellbook-sidebar-2014.json": "029e5bbb68162230d73159188cb1fda0af9f2c6966beac9b414ca61bf15b1917",
     "catalog/wizard-candidate-clause-concordance-2014.json": "a056d5d38ed7574cd05b3aaa292c409929994804f4bc70ef07dbe1cdd6461013",
-    "catalog/wizard-table-concordance-2014.json": "222bb2cb073eb7936caf116de017baabe674a5f4359d5f788f43867d53cd6496"
+    "catalog/wizard-table-concordance-2014.json": "e0eb3230426253d2239dcd5cd2fa0a350d33358acacd38f6fa6c933f5b913872"
   },
   "generator": {
     "path": "scripts/review-current-class-evidence-2014.py",
-    "sha256": "e245c4b82b00c407b68a6d25ecc329b0446aee8276b776c20e1a0817f1f4dc53"
+    "sha256": "f19872df4c54d751217f8304f0fc5b11780245516545cacdeae977f6a834138b"
   }
 }

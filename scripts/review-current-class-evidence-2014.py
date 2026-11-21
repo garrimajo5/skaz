@@ -77,7 +77,7 @@ def combine(data,concordance,table):
             'remainingGraph':remaining,'literalWholeSourceEqualityClaimed':False,'wholeFeatureRulesAccepted':False},
         'coVersionedConcordance':{'path':CONCORDANCE,'scope':'8retained secondary sections/19paragraphs/19manual assessments; independently reviewed in PR232, not inherited from prior four PRs','evidenceKey':'candidateConcordance',
             'wholeCandidateAccepted':False,'priorIndependentReviewInherited':False},
-        'coVersionedTable':{'path':TABLE,'scope':'20Wizard rows/220numeric cells with4literal feature-name deltas,2optionalTCE cells and added intro references; reviewed with this change','priorIndependentReviewInherited':False,'wholeFeatureAccepted':False},
+        'coVersionedTable':{'path':TABLE,'scope':'20Wizard rows/220numeric cells with4literal feature-name deltas,2optionalTCE cells and localized intro navigation; reviewed with this change','priorIndependentReviewInherited':False,'wholeFeatureAccepted':False},
         'nextWorkItem':{**table['nextWorkItem'],'candidateId':wizard,
             'requiredInputs':[TABLE,'catalog/wizard-artificer-source-scopes-2014.json'],
             'sourceSnapshotRequirement':'Retained source keeps its own SHA; preserve historical/fresh identities.',

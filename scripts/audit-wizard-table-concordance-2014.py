@@ -160,7 +160,7 @@ def audit(secondary_raw,digital_raw,srd_raw,root=Path('.')):
     texts={path:(root/path).read_bytes().replace(b'\r\n',b'\n') for path in INPUTS};data={path:json.loads(raw) for path,raw in texts.items()}
     stored=next(c for c in data[INPUTS[0]]['classes'] if c['slug']=='wizard')['levels']
     if srd_rows!=stored:raise ValueError('Existing Wizard progression table drifted from selected primary')
-    # Level marker and added cross-reference links are not silently removed to claim exact translation.
+    # Level marker and carrier-specific navigation links are not silently removed to claim exact translation.
     headings=list(re.finditer(r'<h([234])\b[^>]*>(.*?)</h\1>',article,re.S));ordinal=0;intro_raw=None
     for i,h in enumerate(headings):
         if not visible(h[2]):continue
@@ -174,7 +174,7 @@ def audit(secondary_raw,digital_raw,srd_raw,root=Path('.')):
     primary=module('audit-wizard-spellcasting-scope-2014').SpellcastingParser().result(digital)[0]
     if primary['headingId']!='WizardSpellcasting' or len(primary['paragraphs'])!=1:raise ValueError('Changed primary introduction')
     links=refs(intro_raw)
-    if [r['href'] for r in links]!=['/spells/?search=&class=21','/articles/mechanics/157-spellcasting/']:raise ValueError('Changed added reference graph')
+    if [r['href'] for r in links]!=['/spells/?search=&class=21','/articles/mechanics/157-spellcasting/']:raise ValueError('Changed localized navigation graph')
     candidate=data[INPUTS[1]]['candidateReference']
     if candidate['id']!='scope:wizard:class-features:feature.spellcasting' or candidate['sourceIds']!=['102']:raise ValueError('Changed parent/source claims')
     for item in optional:
@@ -192,8 +192,8 @@ def audit(secondary_raw,digital_raw,srd_raw,root=Path('.')):
                    'srd':{'url':data[INPUTS[0]]['source']['url'],'sha256':SRD_SHA,'pdfPage':52,'existingWizardRowsReproduced':True}},
         'table':{'numericProjectionEqualAcrossThreeCarriers':True,'baseFeatureNameCorrespondence':'manual href-to-existing English feature-name mapping; not full feature text equivalence','rows':projection(secondary_rows),'literalFeatureNameDifferences':deltas,'optionalObservations':optional,'optionalGrantsApplied':False,'secondaryProjections':{'baseFeatureReferences':[{ 'level':r['level'],'references':r['observedFeatureReferences']} for r in secondary_rows]}},
         'introduction':{'candidateReferencePreserved':candidate,'secondaryBodySha256':sha(visible(intro_raw).encode()),'secondaryParagraphSha256':[sha(p.encode()) for p in ps],'primaryParagraphSha256':expected_intro,
-            'assessment':'narrative subject corresponds; secondary level marker and two navigation references are additional, not exact translation equality',
-            'additionalReferences':links,'addedReferencesVerifiedInFull':False,'literalTranslationEqualityClaimed':False,'newMechanicalCapabilityInferred':False},
+            'assessment':'narrative and two reference topics correspond; secondary adds level marker and localizes primary chapter10/11 navigation to site URLs; not two new reference topics or exact translation equality',
+            'secondaryNavigationReferences':links,'primaryNavigationReferences':[{'chapter':10,'topic':'general spellcasting rules'},{'chapter':11,'topic':'Wizard spell list'}],'navigationTargetsVerifiedInFull':False,'twoNewReferenceTopicsClaimed':False,'literalTranslationEqualityClaimed':False,'newMechanicalCapabilityInferred':False},
         'referenceGraphProgress':{'wizardTableNumericAndBaseFeatureNamesCompared':True,'wizardTableFullFeatureRulesAccepted':False,'remaining':['general spellcasting rules','Wizard spell list'],'originalGraphRewritten':False},
         'nextWorkItem':{'role':'content','phase':'wizard-general-spellcasting-reference','action':'Inventory the secondary general Spellcasting reference article linked by Wizard19 and map bounded corresponding primary scopes, preserving Wizard spell list and multiclass context as separate references.'},
         'limits':['Only Wizard table rows are re-extracted; existing twelve-class implementation is not duplicated or changed.',
