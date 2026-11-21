@@ -31,7 +31,7 @@
 
 Все15 исходных provider-ссылок имеют ограниченное kind-свидетельство. `primaryKindWorkQueue=[]`, `nextUntriagedProviderSourceId=null`: этот результат не означает исчерпанную очередь проекта или полный каталог. В `remainingCriteriaWorkQueue` сохранены15строк с критериями полного текста, версий, происхождения, прав и канонических единиц. Два полных выбранных Wizard-компонента (Arcane Recovery/Ritual Casting) и локальный class-reference crosswalk учитываются отдельно, не как новые публикации или автоматизация класса.
 
-**Следующий исполнимый шаг content/D05:** оставшиеся Wizard multiclass13 paragraphs0/1/3, с class-known/prepared/slot и optional prerequisite контекстами. [Equipment18](wizard-equipment-2014.md) уже сопоставлен целиком; [class context](wizard-artificer-current-evidence-2014.md) сохраняет предыдущие list/core/entry и38general witnesses/11pending+5media. Полные TCE/Artificer, классы/версии/права/канонические единицы и прочие general критерии не приняты.
+**Следующий исполнимый шаг planner/D05:** [границы классовых единиц](class-unit-granularity-proposal-2014.md) и остаток composition/version/alias/denominator #77. [Class context](wizard-artificer-current-evidence-2014.md) теперь включает выбранные multiclass13 и Evocation37/38/39;130/23 — observations, не принятые единицы. Полные TCE/Artificer,11general-body/5media, версии/права/состав каталога не приняты; M0 закрывает владелец.
 
 Прежние crosswalk иArcane/Ritual остаются закреплёнными в этомпубликационномтриаже; его selected-counts не выдаются за глобальное число source-сравнений. Классовойдетализации соответствует отдельныйcurrent-context вход, без принятия canonical/прав/автоматизации.
 

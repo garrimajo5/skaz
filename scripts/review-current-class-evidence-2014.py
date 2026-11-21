@@ -183,6 +183,9 @@ SPELL_LIST='catalog/wizard-spell-list-reference-2014.json'
 CORE_CHOICES='catalog/wizard-core-choices-2014.json'
 ENTRY='catalog/wizard-entry-boundaries-2014.json'
 EQUIPMENT='catalog/wizard-equipment-2014.json'
+MULTICLASS='catalog/wizard-multiclass-2014.json'
+EVOCATION='catalog/wizard-evocation-low-level-2014.json'
+UNIT_PROPOSAL='catalog/class-unit-granularity-proposal-2014.json'
 
 
 def add_wizard_list_and_choice_context(d,listing,choices):
@@ -217,6 +220,32 @@ def add_wizard_equipment_context(d,equipment):
  return d
 
 
+def add_wizard_multiclass_context(d,multiclass):
+ s=multiclass['summary'];f=multiclass['ordinarySelectedFacts']
+ if multiclass.get('accepted') or multiclass.get('complete') or multiclass.get('acceptedForRuntime') or multiclass.get('runtimeChanged') or multiclass.get('approvedDenominator') is not None or s['canonicalUnitsAccepted'] or s['newSecondaryParagraphs']!=3 or s['previouslyComparedParagraphsReused']!=1 or s['tableNumericCells']!=180 or s['wholeTranslatedPrimaryMulticlassRulesAccepted'] or f['unsupportedClassContributionSilentlyTreatedAsZero'] or f['artificerRoundingOrEldritchKnightArcaneTricksterRulesAccepted'] or f['pactMagicAddsWarlockLevelsToThisGeneralFormula'] or not f['eachClassKnownAndPreparedAsSingleClassIndividually'] or not f['higherSlotsCanCastKnownOrPreparedLowerCircleSpellsWithoutEnhancement'] or not f['enhancedEffectRequiresSpellSpecificText']:raise ValueError('Changed bounded multiclass/source-gap/class-spell scope')
+ d['coVersionedWizardMulticlass']={'path':MULTICLASS,'scope':'Wizard13paragraphs0/1/3 with2reused;full selected SRDcasting57-58,180table cells,optional Basic58 and both-class prerequisite;not full translated rules','priorIndependentReviewInherited':False,'fullWizardRulesAccepted':False,'fullArtificerOrThirdCasterFormulaAccepted':False,'runtimeAccepted':False}
+ d['nextWorkItem'].update({'phase':'wizard-evocation-low-level-source-scopes','action':'Compare retained Evocation37/38/39 level2/6 full clauses against exact SRD54; keep parent narrative,other subclass sources,and level10/14 separate. Do not infer this as the real character subclass.','requiredInputs':[MULTICLASS,'catalog/wizard-artificer-source-scopes-2014.json']})
+ d['nextWorkItem']['doNotRepeat']+='Wizard13paragraphs0/1/3,primarycaster180cells,per-class known/prepared and Pact interop; Artificer/third-caster formulas remain source gaps.'
+ return d
+
+
+def add_evocation_context(d,selected):
+ s=selected['summary'];assessments=selected['manualAssessments']
+ if selected.get('accepted') or selected.get('complete') or selected.get('acceptedForRuntime') or selected.get('runtimeChanged') or selected.get('approvedDenominator') is not None or s['canonicalUnitsAccepted'] or s['selectedSubclassFeatures']!=3 or s['secondaryParagraphsIncludingLevelLabels']!=6 or s['completeSelectedPrimaryScopes']!=3 or assessments[1]['universalImmunityToAnyDamageOrOtherSpells'] or assessments[1]['selfAutomaticallyProtected'] or assessments[2]['attackRollMissTriggersHalfDamage'] or assessments[2]['automaticRollOrDamageMutationAccepted']:raise ValueError('Changed bounded Evocation qualifiers/source scope')
+ d['coVersionedEvocation']={'path':EVOCATION,'scope':'complete selected Evocation37/38/39 level2/6 clauses/SRD54,not narrative or level10/14','priorIndependentReviewInherited':False,'fullSubclassOrRealCharacterChoiceAccepted':False,'runtimeAccepted':False}
+ d['nextWorkItem']['doNotRepeat']+='Evocation37/38/39 complete selected low-level clauses; casting-cost/global-immunity/attack-miss extensions not established.'
+ return d
+
+
+def add_unit_proposal_context(d,selected):
+ s=selected['summary'];p=selected['projection'];compat=selected['runtimeCompatibility'];boundary=selected['m0Boundary'];guidance=selected['sharedGuidanceProposal']
+ if selected.get('accepted') or selected.get('complete') or selected.get('acceptedForRuntime') or selected.get('runtimeChanged') or selected.get('approvedDenominator') is not None or s['canonicalUnitsAccepted'] or s['preservedCandidateObservations']!=130 or s['preservedAuxiliaryArtificerHeadings']!=23 or s['newCapabilitiesCreatedFromAuxiliaryHeadings'] or len(p['rows'])!=130 or len(p['auxiliaryArtificerHeadingRows'])!=23 or p['sourceIdOrderPreserved']!=d['preservedCandidateIdSequence'] or any(r['canonicalId'] is not None or r['automaticallyGrantedByCatalogPresence'] for r in p['rows']) or any(r['countedAsAdditionalCatalogCapability'] for r in p['auxiliaryArtificerHeadingRows']) or compat['importableCatalogBundle'] or compat['newClassSpecificSchemaOrMigrationIntroduced'] or boundary['m0OrFullCatalogAccepted'] or boundary['globalCatalogDenominatorEstablished'] or guidance['sourceObservationsMergedOrRemoved'] or guidance['canonicalAliasOrPrimaryBookTextEqualityAccepted']:raise ValueError('Changed class-unit proposal cannot become canonical/runtime/denominator acceptance')
+ d['coVersionedClassUnitProposal']={'path':UNIT_PROPOSAL,'scope':'130preserved observations/23auxiliary headings; proposed feature/subclass/component roles,ASI occurrences and two preserved guidance witnesses','priorIndependentReviewInherited':False,'authorProposalIndependentlyAccepted':False,'globalDenominatorOrRuntimeKindsAccepted':False}
+ d['nextWorkItem'].update({'role':'planner','phase':'class-unit-version-and-alias-residual-review','action':'Assess the bounded two-class unit proposal against #77 composition/version/duplicate/denominator DoD; identify remaining source/version/alias and owner acceptance conditions. Do not require arbitrary higher-level feature audits or claim the whole catalog from 130 observations. Keep full TCE/Artificer/source rights holds separate.','requiredInputs':[UNIT_PROPOSAL,'catalog/d05-current-publication-triage-2014.json','docs/ROADMAP.md']})
+ d['nextWorkItem']['doNotRepeat']+='130/23 unit-role proposal and ASI occurrence distinction; not an approved canonical count or runtime schema.'
+ return d
+
+
 def build(root=Path('.')):
     data=load_reviewed(root);concordance=load_concordance(root);table=load_table(root);d=combine(data,concordance,table);d['reviewedEvidence']=EVIDENCE;d['inputSha256']={s['path']:s['sha256'] for s in EVIDENCE.values()}
     d['inputSha256'][CONCORDANCE]=sha((root/CONCORDANCE).read_bytes().replace(b'\r\n',b'\n'))
@@ -246,11 +275,11 @@ def build(root=Path('.')):
         d['inputSha256'][path]=sha(raw)
     d=add_narrative_coverage_context(d,extra[NARRATIVE],extra[SCOPE_COVERAGE])
     new={}
-    for path in [SPELL_LIST,CORE_CHOICES,ENTRY,EQUIPMENT]:
+    for path in [SPELL_LIST,CORE_CHOICES,ENTRY,EQUIPMENT,MULTICLASS,EVOCATION,UNIT_PROPOSAL]:
         raw=(root/path).read_bytes().replace(b'\r\n',b'\n');new[path]=json.loads(raw)
         if new[path]['generator']['sha256']!=sha((root/new[path]['generator']['path']).read_bytes().replace(b'\r\n',b'\n')):raise ValueError('Changed Wizard list/core generator; rebuild')
         d['inputSha256'][path]=sha(raw)
-    d=add_wizard_list_and_choice_context(d,new[SPELL_LIST],new[CORE_CHOICES]);d=add_wizard_entry_context(d,new[ENTRY]);d=add_wizard_equipment_context(d,new[EQUIPMENT])
+    d=add_wizard_list_and_choice_context(d,new[SPELL_LIST],new[CORE_CHOICES]);d=add_wizard_entry_context(d,new[ENTRY]);d=add_wizard_equipment_context(d,new[EQUIPMENT]);d=add_wizard_multiclass_context(d,new[MULTICLASS]);d=add_evocation_context(d,new[EVOCATION]);d=add_unit_proposal_context(d,new[UNIT_PROPOSAL])
     d['generator']={'path':'scripts/review-current-class-evidence-2014.py','sha256':sha(Path(__file__).read_bytes().replace(b'\r\n',b'\n'))};return d
 
 if __name__=='__main__':
