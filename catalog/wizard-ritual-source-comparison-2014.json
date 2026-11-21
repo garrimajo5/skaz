@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "status": "complete-selected-wizard-ritual-component-not-full-class-or-runtime",
+  "unitId": "source-comparison:wizard-ritual-casting",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "scope": "whole single-paragraph Ritual Casting subsection only; not all Spellcasting, Wizard or other classes",
+  "sources": {
+    "digital": {
+      "requestedUrl": "https://www.dndbeyond.com/compendium/rules/basic-rules/classes",
+      "finalUrl": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/classes",
+      "status": 200,
+      "bytes": 1123584,
+      "sha256": "a08b309c589644f9faee67201dc7e0b9752be152215bce54d33d4b1ca7688c5e",
+      "capturedAt": "2026-11-20T23:36:30.780059+00:00"
+    },
+    "basic": {
+      "requestedUrl": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "finalUrl": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "status": 200,
+      "bytes": 11537210,
+      "sha256": "7a0c5d8bf52d15092f156d78418aa3d43307e271f810d2f06bf2f0258e9288a3",
+      "capturedAt": "2026-11-20T23:23:21.716585+00:00",
+      "inspectedPdfPages": [
+        32
+      ]
+    },
+    "srd": {
+      "requestedUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "finalUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "status": 200,
+      "bytes": 3158713,
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "capturedAt": "2026-11-20T23:25:29.033862+00:00",
+      "inspectedPdfPages": [
+        53
+      ]
+    }
+  },
+  "boundaries": {
+    "startHeading": "Ritual Casting",
+    "stopHeading": "Spellcasting Focus",
+    "boundaryHeadingsIncluded": false
+  },
+  "witnesses": {
+    "digital": {
+      "rawExtractedUnitSha256": "829c52f5e4f02a5d62212ce6f5852ae8d86321dee3b171213108d29c4e11d0d0",
+      "normalizedUnitSha256": "829c52f5e4f02a5d62212ce6f5852ae8d86321dee3b171213108d29c4e11d0d0",
+      "normalizedWordCount": 32
+    },
+    "basic": {
+      "rawExtractedUnitSha256": "19d487c60a7a2d66fb943f7f428a745f061dc5407848f0e484fc589d374cbd71",
+      "normalizedUnitSha256": "829c52f5e4f02a5d62212ce6f5852ae8d86321dee3b171213108d29c4e11d0d0",
+      "normalizedWordCount": 32
+    },
+    "srd": {
+      "rawExtractedUnitSha256": "b7257d57af3eaeb671dfa533302d9cd9b00c68d0cbbbc86a2a21c82e49300d65",
+      "normalizedUnitSha256": "829c52f5e4f02a5d62212ce6f5852ae8d86321dee3b171213108d29c4e11d0d0",
+      "normalizedWordCount": 32
+    }
+  },
+  "normalization": "NFKC and whitespace only; no general hyphen, letter, quote, number or condition repair",
+  "normalizedSelectedUnitTextEqual": true,
+  "ordinaryFacts": {
+    "spellMustBeWizardSpell": true,
+    "spellMustHaveRitualTag": true,
+    "spellMustBeInWizardSpellbook": true,
+    "preparationRequiredByThisFeature": false,
+    "allKnownOrOtherClassSpellsAutomaticallyRitual": false,
+    "artificerOrOtherClassRitualRuleInferred": false,
+    "durationOrSlotExpenditureEstablishedByThisSubsection": false,
+    "manualDeviationAllowedWithWarning": true
+  },
+  "existingManualParentFeature": {
+    "id": "wizard-spellcasting",
+    "status": "manual",
+    "textSha256": "0a89417e4a8f8e76b68cba91ed4d60ed28325d176a594cc5c71d27c38ec220b6",
+    "rewritten": false,
+    "newCatalogFeatureCreated": false
+  },
+  "priorPreparationWitnessIsSameAsRitualUnit": false,
+  "syntheticCases": [
+    {
+      "spellIsWizardSpell": true,
+      "ritualTag": true,
+      "inWizardBook": true,
+      "prepared": false,
+      "ordinaryWizardRitualAccess": true
+    },
+    {
+      "spellIsWizardSpell": true,
+      "ritualTag": false,
+      "inWizardBook": true,
+      "prepared": true,
+      "ordinaryWizardRitualAccess": false,
+      "manualActionAllowed": true,
+      "expected": "ritual-tag warning"
+    },
+    {
+      "spellIsWizardSpell": true,
+      "ritualTag": true,
+      "inWizardBook": false,
+      "prepared": true,
+      "ordinaryWizardRitualAccess": false,
+      "manualActionAllowed": true,
+      "expected": "wizard-book warning"
+    },
+    {
+      "spellIsWizardSpell": false,
+      "ritualTag": true,
+      "inWizardBook": false,
+      "prepared": true,
+      "ordinaryWizardRitualAccess": false,
+      "manualActionAllowed": true,
+      "expected": "do not borrow Wizard feature for another class"
+    }
+  ],
+  "inputSha256": {
+    "catalog/basic-rules-publication-boundary-2014.json": "581a431600b794854b840c4d1ab7f5ed210c5ddb3286cf3058905ff506cdf5b6",
+    "catalog/srd51-class-features.json": "677b7c1ba27c2bbcd865bf220ea28c5dc55f205eeeef62c6fc913dd7eccd213a",
+    "catalog/rest-spellcasting-source-comparison-2014.json": "74078b423eb8670a9c7a2a00a00109c5621e42c1c141a28f41f688a310352ada"
+  },
+  "generator": {
+    "path": "scripts/audit-wizard-ritual-source-comparison-2014.py",
+    "sha256": "beacbbaf74a03d03ef6e4dc19fa7190a133ff7912c15a4d7a3b2359674512ef3"
+  },
+  "upstreamParser": {
+    "path": "scripts/audit-wizard-recovery-source-comparison-2014.py",
+    "sha256": "315a8a4c5f3763ccd55c70b7a0211deb2b1e8e34e13057af489a31580b2fb388"
+  },
+  "limits": [
+    "Complete selected component equality does not establish whole class/source equality, automation or new canonical aliases.",
+    "Wizard ritual access is separate from preparation count, other-class rituals and technical data/access checks.",
+    "No full prose, source artefacts, private sheet, runtime, cross-carrier reuse right or owner acceptance exported."
+  ]
+}
