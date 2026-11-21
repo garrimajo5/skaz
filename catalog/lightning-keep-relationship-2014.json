@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "status": "bounded-adventure-relationship-not-full-record-or-canonical-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "providerSourceId": 126,
+  "numericDndsuSourceId": null,
+  "canonicalSourceId": null,
+  "automaticAttribution": false,
+  "fullRulesReviewed": false,
+  "providerReference": {
+    "observationId": "ddb:library-source:126",
+    "title": "Lightning Keep",
+    "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lke",
+    "sku": "",
+    "providerReleaseDate": "2023-09-26T13:50:00Z",
+    "providerRuleset": {
+      "name": "5e",
+      "label": "5e"
+    },
+    "displayedPublisher": "Wizards of the Coast"
+  },
+  "sources": {
+    "lightning-source": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/lke",
+      "finalUrl": "https://www.dndbeyond.com/claim/source/lightning-keep",
+      "status": 200,
+      "bytes": 221204,
+      "sha256": "1f57ef65ac2bdaffa13ab20f596c0238e80f09b89238430d47706f96c0886576",
+      "capturedAt": "2026-11-21T12:29:03.491443+00:00"
+    },
+    "lightning-article": {
+      "requestedUrl": "https://www.dndbeyond.com/posts/1579-from-minecraft-x-dungeons-dragons-to-tabletop",
+      "finalUrl": "https://www.dndbeyond.com/posts/1579-from-minecraft-x-dungeons-dragons-to-tabletop",
+      "status": 200,
+      "bytes": 285991,
+      "sha256": "92b21dfe6c27a28e481ca99e0a6a812a5f9fe6eda93e2858f19e1fac4db98288",
+      "capturedAt": "2026-11-21T12:29:03.492442+00:00"
+    }
+  },
+  "relationship": {
+    "kind": "adventure-featuring-monsters-from-distinct-supplement",
+    "introductionParagraphSha256": "f25a755bc7f2b9b93548e19620b903a8af14fcc41c06b70c2c571bbff166f13a",
+    "reuseParagraphSha256": "930b3da38ec814d96e5d9265c3b8faa9c81f203fb544ea3e47835ddfafd3a4b7",
+    "offerParagraphSha256": "32c5531afe38754f72a8c239eb4f90e092eda5fc32dd7348ff1026cee691a8ba",
+    "advertisedLevel": 3,
+    "partySize": [
+      4,
+      6
+    ],
+    "advertisedHours": [
+      3,
+      4
+    ],
+    "worldChoiceForcedToMinecraft": false,
+    "allSupplementCreaturesOrExactStatblocksIncluded": "not-established",
+    "relatedProviderSourceId": 115,
+    "relatedExistingDndsuSourceId": "199",
+    "isAliasOfRelatedBook": false,
+    "claimSubmitted": false,
+    "promotionEndedNotice": true,
+    "previousClaimantAccessTested": false,
+    "scope": "two article paragraphs and one scoped claim description/link; no full adventure or creature rules"
+  },
+  "limitedSourceAttempts": [],
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-source-link-proposals-2014.json": "32baeee49a644be8822acdf46c2ebadc890efeb0ea90801f0e257b0ea509c4dc",
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe"
+  },
+  "generator": {
+    "path": "scripts/audit-adventure-relationships-2014.py",
+    "sha256": "eade3323dfba353c6bc3e90904b04b8ca2f97a363ff4456cbca39281935af3c7"
+  },
+  "upstreamParsers": [
+    {
+      "path": "scripts/audit-prisoner13-component-2014.py",
+      "sha256": "5f19428fb4a6d387a09ed38a21871d8f44b8b319f2192d9c731e08784865a124"
+    },
+    {
+      "path": "scripts/audit-radiant-citadel-chapter-2014.py",
+      "sha256": "6bd65a91c991c9432a4aefd06286d146cb695415ae59238013501d37a243a9b0"
+    }
+  ],
+  "limits": [
+    "A narrative relationship does not establish containment, identical rules or full category record counts.",
+    "Provider IDs, product SKUs and existing historical IDs stay distinct; no child ID or permission inferred.",
+    "Publisher/author/brand and calendar year do not automatically change common catalogue policy or rules edition.",
+    "Full rules, exact versions, individual record provenance and publication/translation rights remain open.",
+    "No purchase/claim/account, real profile, runtime, automatic levels, owner milestone or accepted denominator changed."
+  ]
+}
