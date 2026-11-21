@@ -296,18 +296,21 @@
     "wholeFeatureAccepted": false
   },
   "nextWorkItem": {
-    "role": "planner",
-    "phase": "class-unit-version-and-alias-residual-review",
-    "action": "Assess the bounded two-class unit proposal against #77 composition/version/duplicate/denominator DoD; identify remaining source/version/alias and owner acceptance conditions. Do not require arbitrary higher-level feature audits or claim the whole catalog from 130 observations. Keep full TCE/Artificer/source rights holds separate.",
+    "role": "content",
+    "phase": "d06-non-class-unit-boundaries",
+    "action": "Use existing #77D06 Folio/IMR/SKT review to select an unresolved unit/variant/reference boundary; do not repeat successful class inventory/TOC or arbitrary high-level feature text. Class Eloquence full-body criterion has a scoped access hold only; complete rules that do not define identity belong to M4, not a new M0 barrier.",
     "candidateId": "scope:wizard:class-features:feature.spellcasting",
     "requiredInputs": [
-      "catalog/class-unit-granularity-proposal-2014.json",
-      "catalog/d05-current-publication-triage-2014.json",
-      "docs/ROADMAP.md"
+      "docs/catalog-m0-exit-criteria-2014.md",
+      "catalog/fiendish-folio-review-2014.json",
+      "catalog/imr-version-review-2014.json",
+      "catalog/skt-index-review-2014.json",
+      "catalog/class-unit-residual-review-2014.json",
+      "catalog/class-multisource-toc-2014.json"
     ],
     "sourceSnapshotRequirement": "Retained source keeps its own SHA; preserve historical/fresh identities.",
     "parallelRemainingCriterion": "Exact TCE/Artificer full-text/version applicability remains unverified.",
-    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings. General Spellcasting48heading inventory and two KnownPrepared/Armor complete selected subsections/4secondary paragraphs.13general casting scopes/32secondary paragraphs,including cantrip errata and material qualifier finding.6duration/concentration/target scopes/13paragraphs/3list items; Basic rounding and target referent caveat.9ordinary area/save/attack/effect prose scopes/19paragraphs; diagrams/captions and equal-potency errata remain distinct.4common introduction/school scopes/18paragraphs/eight explicitly mapped categories.Ready17 spell excerpt/bonus18 condensed clause with full combat/errata/reaction context.Prelude/Weave7paragraphs,TOC/carrier witnesses and49source-body coverage map;pending variants/media are separate.204SRD list names/circles with198paginated+6targeted name witnesses,17bounded eponym correspondences,4Wizard TCE labels and Augury toggle; Wizard30/32 core choices with optional feat context,not TCE31.Wizard16/17HP/proficiencies8paragraphs and only13paragraph2; separate SRD52/57 and Basic12minimum1 carrier context.Equipment18two paragraphs/four list items with separate Basic45alternateWizardwealth,not other classes or pack contents.Wizard13paragraphs0/1/3,primarycaster180cells,per-class known/prepared and Pact interop; Artificer/third-caster formulas remain source gaps.Evocation37/38/39 complete selected low-level clauses; casting-cost/global-immunity/attack-miss extensions not established.130/23 unit-role proposal and ASI occurrence distinction; not an approved canonical count or runtime schema."
+    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings. General Spellcasting48heading inventory and two KnownPrepared/Armor complete selected subsections/4secondary paragraphs.13general casting scopes/32secondary paragraphs,including cantrip errata and material qualifier finding.6duration/concentration/target scopes/13paragraphs/3list items; Basic rounding and target referent caveat.9ordinary area/save/attack/effect prose scopes/19paragraphs; diagrams/captions and equal-potency errata remain distinct.4common introduction/school scopes/18paragraphs/eight explicitly mapped categories.Ready17 spell excerpt/bonus18 condensed clause with full combat/errata/reaction context.Prelude/Weave7paragraphs,TOC/carrier witnesses and49source-body coverage map;pending variants/media are separate.204SRD list names/circles with198paginated+6targeted name witnesses,17bounded eponym correspondences,4Wizard TCE labels and Augury toggle; Wizard30/32 core choices with optional feat context,not TCE31.Wizard16/17HP/proficiencies8paragraphs and only13paragraph2; separate SRD52/57 and Basic12minimum1 carrier context.Equipment18two paragraphs/four list items with separate Basic45alternateWizardwealth,not other classes or pack contents.Wizard13paragraphs0/1/3,primarycaster180cells,per-class known/prepared and Pact interop; Artificer/third-caster formulas remain source gaps.Evocation37/38/39 complete selected low-level clauses; casting-cost/global-immunity/attack-miss extensions not established.130/23 unit-role proposal and ASI occurrence distinction; not an approved canonical count or runtime schema.13class/913role reconciliation,31navigation13+3+15 and3publisherTOCs/8family+3sidekicklinks; no repeated full-class audit or marketplace body retry."
   },
   "limits": [
     "New links overlay the original map; no candidate ID, source array, heading parent or unknown record is removed or canonized.",
@@ -434,7 +437,9 @@
     "catalog/wizard-equipment-2014.json": "e70bc191a9d9488016f0f9395e6d30d005e60f37eae44d340760025184cd84fe",
     "catalog/wizard-multiclass-2014.json": "eb6ce1f560cebbc6705d99a530d500c7fb8eda59d332c74d6619f87e49aefea5",
     "catalog/wizard-evocation-low-level-2014.json": "7352d7b0febbd902f0e535c3bdf5907135d65d62ca0dd2d2dfe53424deeeb7c4",
-    "catalog/class-unit-granularity-proposal-2014.json": "cdadac4c6ae8b9cf95e49822744a2971cfec238e9790be7d51cba2f85141cdbd"
+    "catalog/class-unit-granularity-proposal-2014.json": "cdadac4c6ae8b9cf95e49822744a2971cfec238e9790be7d51cba2f85141cdbd",
+    "catalog/class-unit-residual-review-2014.json": "46b8324ab412d7e9ee922e197336220a4d9d0381306d22ecba5871f97dc9a6b4",
+    "catalog/class-multisource-toc-2014.json": "864176253e1d6bc599d2ae5ed1e12085dfade4196bb2a18c0761398a520971a2"
   },
   "coVersionedGeneralReference": {
     "path": "catalog/spellcasting-reference-scopes-2014.json",
@@ -531,8 +536,23 @@
     "authorProposalIndependentlyAccepted": false,
     "globalDenominatorOrRuntimeKindsAccepted": false
   },
+  "coVersionedThirteenClassUnitReview": {
+    "path": "catalog/class-unit-residual-review-2014.json",
+    "publisherWitnessPath": "catalog/class-multisource-toc-2014.json",
+    "scope": "913preserved proposed observations/13main classes,13sparse roles,28multi-source observations;31discovery rows retain3sidekicks/15excluded",
+    "priorIndependentReviewInherited": false,
+    "fullClassCatalogAccepted": false,
+    "canonicalDenominatorAccepted": false,
+    "runtimeAccepted": false
+  },
+  "specificPrimaryBodyHold": {
+    "family": "bard:college.eloquence",
+    "condition": "Exact authorized TCE/MOoT subclass bodies/versions not retained; two requests redirected to marketplace and timed out during body read.",
+    "evidence": "catalog/class-multisource-toc-2014.json",
+    "wholeIssueBlocked": false
+  },
   "generator": {
     "path": "scripts/review-current-class-evidence-2014.py",
-    "sha256": "324156d14e91fbf3e047b7f71abafbe621fdd209dd5b8483bd992d42fc68dd3b"
+    "sha256": "d297051d13869211890a3dd25bbe166483edec1812105fb0c4c307ea5762b9df"
   }
 }

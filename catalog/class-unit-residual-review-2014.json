@@ -1,0 +1,724 @@
+{
+  "schemaVersion": 1,
+  "status": "thirteen-class-representation-review-and-version-residual-not-canonical-catalog",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "selectedReviewBasis": {
+    "path": "catalog/class-unit-granularity-proposal-2014.json",
+    "review": "https://github.com/garrimajo5/skaz/pull/245#issuecomment-7068679715",
+    "exactHead": "87647d9522a3e04b9c02caec54c42154396f5e8c",
+    "priorReviewInheritedForNewThirteenClassPacket": false
+  },
+  "summary": {
+    "classes": 13,
+    "preservedProposalObservations": 913,
+    "acquiredFeatureCandidateObservations": 780,
+    "subclassParentObservations": 118,
+    "otherReferenceObservations": 15,
+    "newSparseRoleCases": 13,
+    "multiSourceObservationGroups": 4,
+    "multiSourceObservations": 28,
+    "optionalReplacementLinks": 1,
+    "canonicalUnitsAccepted": 0
+  },
+  "discoveryBoundary": {
+    "observedNavigationRows": 31,
+    "mainClassRows": 13,
+    "sidekickReferenceRows": 3,
+    "observedExcludedGroupRows": 15,
+    "preservedDiscoveryRowSequenceSha256": "9586f5d699f420051307feb83fc7bb542783522b4cb2b15cfd34d0262193bcbd",
+    "mainClassesAreEntireAllowedClassReferenceCatalog": false,
+    "sidekickReferences": [
+      {
+        "section": "classes",
+        "url": "https://dnd.su/class/199-warrior-sidekick/",
+        "ru": "Боец",
+        "en": "Warrior Sidekick",
+        "sourceTitle": "Tasha's Cauldron of Everything",
+        "group": "sidekicks",
+        "canonicalId": null,
+        "fullRulesAccepted": false,
+        "playerClassAutomaticallyAdded": false
+      },
+      {
+        "section": "classes",
+        "url": "https://dnd.su/class/198-spellcaster-sidekick/",
+        "ru": "Заклинатель",
+        "en": "Spellcaster Sidekick",
+        "sourceTitle": "Tasha's Cauldron of Everything",
+        "group": "sidekicks",
+        "canonicalId": null,
+        "fullRulesAccepted": false,
+        "playerClassAutomaticallyAdded": false
+      },
+      {
+        "section": "classes",
+        "url": "https://dnd.su/class/197-expert-sidekick/",
+        "ru": "Эксперт ",
+        "en": "Expert Sidekick",
+        "sourceTitle": "Tasha's Cauldron of Everything",
+        "group": "sidekicks",
+        "canonicalId": null,
+        "fullRulesAccepted": false,
+        "playerClassAutomaticallyAdded": false
+      }
+    ],
+    "excludedObservationUrls": [
+      "https://dnd.su/homebrew/class/395-alchemist/",
+      "https://dnd.su/homebrew/class/853-alternate-barbarian/",
+      "https://dnd.su/homebrew/class/382-alternate-fighter/",
+      "https://dnd.su/homebrew/class/391-alternate-monk/",
+      "https://dnd.su/homebrew/class/857-alternate-rogue/",
+      "https://dnd.su/homebrew/class/403-warlord/",
+      "https://dnd.su/homebrew/class/472-jaeger/",
+      "https://dnd.su/homebrew/class/565-stargazer/",
+      "https://dnd.su/homebrew/class/195-blood-hunter/",
+      "https://dnd.su/homebrew/class/277-magus/",
+      "https://dnd.su/homebrew/class/208-mystic/",
+      "https://dnd.su/homebrew/class/202-the-lingering-soul/",
+      "https://dnd.su/homebrew/class/401-savant/",
+      "https://dnd.su/homebrew/class/419-runekeeper/",
+      "https://dnd.su/homebrew/class/389-shaman/"
+    ]
+  },
+  "representationRoles": {
+    "base-feature": "class-feature-candidate",
+    "subclass": "subclass-choice-parent-candidate",
+    "subclass-feature": "subclass-feature-candidate",
+    "rules-guidance": "supporting-rule-reference-candidate",
+    "subclass-prerequisite": "subclass-requirement-reference-candidate",
+    "equipment-reference": "cross-category-equipment-reference-candidate",
+    "choice-index": "choice-collection-reference-candidate",
+    "oath-guidance": "oath-rule-reference-candidate"
+  },
+  "roleCounts": {
+    "class-feature-candidate": 170,
+    "subclass-choice-parent-candidate": 118,
+    "subclass-feature-candidate": 610,
+    "subclass-requirement-reference-candidate": 2,
+    "cross-category-equipment-reference-candidate": 1,
+    "choice-collection-reference-candidate": 2,
+    "supporting-rule-reference-candidate": 2,
+    "oath-rule-reference-candidate": 8
+  },
+  "classRows": [
+    {
+      "classSlug": "bard",
+      "classUrl": "https://dnd.su/class/88-bard/",
+      "proposalObservations": 57,
+      "observedKindCounts": {
+        "base-feature": 14,
+        "subclass": 8,
+        "subclass-feature": 35
+      },
+      "preservedIdSequenceSha256": "95038dd180b0ad59dfa9e89d8b1b99c9d5a998d5e51f3673c52e9bc135ac38bf",
+      "preservedClaimLedgerSha256": "dabac191f476a759d9a8d54c92d38280d225d9f4ef72c440abdec1c47e4d990c",
+      "resolvedParentLedgerSha256": "4360d21426141d8ceb05846c2bb9bff881d6d2427bb5508d4561fe4f01239b8b",
+      "auxiliaryResidualHeadings": 29,
+      "auxiliaryChoiceObservations": 0,
+      "auxiliarySpellTableObservations": 0,
+      "fullPublicationInventoryVerified": false,
+      "canonicalUnitsAccepted": 0
+    },
+    {
+      "classSlug": "barbarian",
+      "classUrl": "https://dnd.su/class/87-barbarian/",
+      "proposalObservations": 67,
+      "observedKindCounts": {
+        "base-feature": 16,
+        "subclass": 9,
+        "subclass-feature": 40,
+        "subclass-prerequisite": 1,
+        "equipment-reference": 1
+      },
+      "preservedIdSequenceSha256": "51e57595489417bc270501810822da0fbe9b8491f1df07e19a6211e1c07b3f1e",
+      "preservedClaimLedgerSha256": "1b6c5d190c7d8efe01bb1d03b86e21f6dd079033433cc2508e6b1a39eb416c3c",
+      "resolvedParentLedgerSha256": "7fbf910842fa8a50302326255cf4cf379c631f65fa0f87f7f9b1069ebb7de7d5",
+      "auxiliaryResidualHeadings": 27,
+      "auxiliaryChoiceObservations": 15,
+      "auxiliarySpellTableObservations": 0,
+      "fullPublicationInventoryVerified": false,
+      "canonicalUnitsAccepted": 0
+    },
+    {
+      "classSlug": "fighter",
+      "classUrl": "https://dnd.su/class/91-fighter/",
+      "proposalObservations": 76,
+      "observedKindCounts": {
+        "base-feature": 8,
+        "subclass": 10,
+        "subclass-feature": 56,
+        "subclass-prerequisite": 1,
+        "choice-index": 1
+      },
+      "preservedIdSequenceSha256": "eb3a30d795d0f3287181982285353516c90a55ad631797ad5d9c4526d4ef14dd",
+      "preservedClaimLedgerSha256": "49ffddec036c3adf502875da649c1a613fe335c4bce8fb275ffa46ace7f9f0d3",
+      "resolvedParentLedgerSha256": "54f7b0a737e7019f5d2c0be2496af7c391ae3b591b33059293baa833df4f9880",
+      "auxiliaryResidualHeadings": 42,
+      "auxiliaryChoiceObservations": 48,
+      "auxiliarySpellTableObservations": 0,
+      "fullPublicationInventoryVerified": false,
+      "canonicalUnitsAccepted": 0
+    },
+    {
+      "classSlug": "wizard",
+      "classUrl": "https://dnd.su/class/105-wizard/",
+      "proposalObservations": 87,
+      "observedKindCounts": {
+        "base-feature": 8,
+        "subclass": 13,
+        "subclass-feature": 64,
+        "rules-guidance": 2
+      },
+      "preservedIdSequenceSha256": "cdb11ab8270204f8a72f2482139f790dcdde0a4da61b18f3a07c748253455eee",
+      "preservedClaimLedgerSha256": "810d3af27de71333c6a5fc16a636d0baf75883608eefb2ea47ff58783e033d3f",
+      "resolvedParentLedgerSha256": "82f505af8577eca7affbc50fdeedfb9e6e5f44f301ebbaa7df73e81ab49cb344",
+      "auxiliaryResidualHeadings": 50,
+      "auxiliaryChoiceObservations": 0,
+      "auxiliarySpellTableObservations": 2,
+      "fullPublicationInventoryVerified": false,
+      "canonicalUnitsAccepted": 0
+    },
+    {
+      "classSlug": "druid",
+      "classUrl": "https://dnd.su/class/90-druid/",
+      "proposalObservations": 54,
+      "observedKindCounts": {
+        "base-feature": 11,
+        "subclass": 7,
+        "subclass-feature": 36
+      },
+      "preservedIdSequenceSha256": "81d806f588e45004b2b86c9f7a05b7067cbf6fcdaf440cf14b109b0fe5e617ab",
+      "preservedClaimLedgerSha256": "5766ba40b8a45dd18f70905c226493000bb9d1a3860b00882d84ea71e264bc76",
+      "resolvedParentLedgerSha256": "103b5f694ac1905b3627b5177424bf4e36e52ba6f0ec3a5b1b259aeccf5863b3",
+      "auxiliaryResidualHeadings": 46,
+      "auxiliaryChoiceObservations": 0,
+      "auxiliarySpellTableObservations": 10,
+      "fullPublicationInventoryVerified": false,
+      "canonicalUnitsAccepted": 0
+    },
+    {
+      "classSlug": "cleric",
+      "classUrl": "https://dnd.su/class/89-cleric/",
+      "proposalObservations": 109,
+      "observedKindCounts": {
+        "base-feature": 10,
+        "subclass": 14,
+        "subclass-feature": 85
+      },
+      "preservedIdSequenceSha256": "00317ffb21b1243289ddec13ed92184b265a1d54c8acee04f8a0b812a6f7de03",
+      "preservedClaimLedgerSha256": "f76c810f5ea6b4166bfc5f8463afb48a7733d0d57884bbeb0b6479d60264499a",
+      "resolvedParentLedgerSha256": "ac18754378fc74205329254f12485e0e748a0f3db14d7b85b7da9f8b0a5f058d",
+      "auxiliaryResidualHeadings": 62,
+      "auxiliaryChoiceObservations": 0,
+      "auxiliarySpellTableObservations": 14,
+      "fullPublicationInventoryVerified": false,
+      "canonicalUnitsAccepted": 0
+    },
+    {
+      "classSlug": "artificer",
+      "classUrl": "https://dnd.su/class/137-artificer/",
+      "proposalObservations": 43,
+      "observedKindCounts": {
+        "base-feature": 13,
+        "subclass": 4,
+        "subclass-feature": 26
+      },
+      "preservedIdSequenceSha256": "c9bb2c87ee5b37d3b290bc604a5664a3e535309bf30ceca1b57e58e3c2665ef1",
+      "preservedClaimLedgerSha256": "fb589af824f8b8d6c8e40fe66c449d8c6b29de8dcf59006892f22db8a83a670d",
+      "resolvedParentLedgerSha256": "0ea874ba1df85c65a492e79f31c788e0ac96014b89c7f00e93e39238c65dde53",
+      "auxiliaryResidualHeadings": 23,
+      "auxiliaryChoiceObservations": 16,
+      "auxiliarySpellTableObservations": 4,
+      "fullPublicationInventoryVerified": false,
+      "canonicalUnitsAccepted": 0
+    },
+    {
+      "classSlug": "warlock",
+      "classUrl": "https://dnd.su/class/104-warlock/",
+      "proposalObservations": 67,
+      "observedKindCounts": {
+        "base-feature": 9,
+        "subclass": 9,
+        "subclass-feature": 49
+      },
+      "preservedIdSequenceSha256": "94571a04c8d000c79cdff65e89499d29717f1002984068390f62b18374f193f8",
+      "preservedClaimLedgerSha256": "7d3d560f3f97d8e6298ae90aa32194fa78a76e09e0b556d884262ea328ff595a",
+      "resolvedParentLedgerSha256": "d76478de132aae032053b46990b7337da2fc1c0c23f12b90cb5f43b18a1099f4",
+      "auxiliaryResidualHeadings": 29,
+      "auxiliaryChoiceObservations": 58,
+      "auxiliarySpellTableObservations": 9,
+      "fullPublicationInventoryVerified": false,
+      "canonicalUnitsAccepted": 0
+    },
+    {
+      "classSlug": "monk",
+      "classUrl": "https://dnd.su/class/93-monk/",
+      "proposalObservations": 76,
+      "observedKindCounts": {
+        "base-feature": 23,
+        "subclass": 10,
+        "subclass-feature": 42,
+        "choice-index": 1
+      },
+      "preservedIdSequenceSha256": "7244fdc7e8699757c256a2be236dcb3f625f40fd0dc545e97b09b9d2d8628a51",
+      "preservedClaimLedgerSha256": "8d81e313c2b6937336275783ce4b8075295a8351e3ec4f73c8e7ad9bff696bed",
+      "resolvedParentLedgerSha256": "76cfecf140fd69d8d00a4b1f161d424a723e30b93d553271c4e18c3f24d59751",
+      "auxiliaryResidualHeadings": 27,
+      "auxiliaryChoiceObservations": 17,
+      "auxiliarySpellTableObservations": 0,
+      "fullPublicationInventoryVerified": false,
+      "canonicalUnitsAccepted": 0
+    },
+    {
+      "classSlug": "paladin",
+      "classUrl": "https://dnd.su/class/94-paladin/",
+      "proposalObservations": 78,
+      "observedKindCounts": {
+        "base-feature": 16,
+        "subclass": 9,
+        "oath-guidance": 8,
+        "subclass-feature": 45
+      },
+      "preservedIdSequenceSha256": "e5bd1c4bf772e78916499374f3000de0f86c1b9a7900ed0901f9cf1e5709d595",
+      "preservedClaimLedgerSha256": "3a6bf07d6001be08fff989299798a5fc431957206b08ea26c050886e1f9ceaa5",
+      "resolvedParentLedgerSha256": "ff0431b06de2b90e3bca9f350128e922a6fc0c4c5a8109cf18fad86affeb6181",
+      "auxiliaryResidualHeadings": 28,
+      "auxiliaryChoiceObservations": 7,
+      "auxiliarySpellTableObservations": 9,
+      "fullPublicationInventoryVerified": false,
+      "canonicalUnitsAccepted": 0
+    },
+    {
+      "classSlug": "rogue",
+      "classUrl": "https://dnd.su/class/99-rogue/",
+      "proposalObservations": 69,
+      "observedKindCounts": {
+        "base-feature": 14,
+        "subclass": 9,
+        "subclass-feature": 46
+      },
+      "preservedIdSequenceSha256": "7b2feca0334e8795d9fa1701d17213e36d2ecfa63f6d68b3d4c3c80f64d81bd9",
+      "preservedClaimLedgerSha256": "7c7e7778790a63e93c561536d0248fc2af690349834231af6916875915dbb3ea",
+      "resolvedParentLedgerSha256": "27602997594aff1a1da7e1dd7840436ec7b341edb012142f8a7e8a6a2d504077",
+      "auxiliaryResidualHeadings": 20,
+      "auxiliaryChoiceObservations": 0,
+      "auxiliarySpellTableObservations": 0,
+      "fullPublicationInventoryVerified": false,
+      "canonicalUnitsAccepted": 0
+    },
+    {
+      "classSlug": "ranger",
+      "classUrl": "https://dnd.su/class/97-ranger/",
+      "proposalObservations": 70,
+      "observedKindCounts": {
+        "base-feature": 19,
+        "subclass": 8,
+        "subclass-feature": 43
+      },
+      "preservedIdSequenceSha256": "a057bff26dfe0ef8e0313a398b556b808ed4545f0c4b62b3891983c4db356adb",
+      "preservedClaimLedgerSha256": "673a4de5cac52f1c0ec39c89072ad43a0e0643f28f2045b8ec759957c25d7a1c",
+      "resolvedParentLedgerSha256": "40a438c8c65e3d57bb5c88612e7dd7b1affdf129be0145c580213f8dc22e283e",
+      "auxiliaryResidualHeadings": 34,
+      "auxiliaryChoiceObservations": 18,
+      "auxiliarySpellTableObservations": 5,
+      "fullPublicationInventoryVerified": false,
+      "canonicalUnitsAccepted": 0
+    },
+    {
+      "classSlug": "sorcerer",
+      "classUrl": "https://dnd.su/class/101-sorcerer/",
+      "proposalObservations": 60,
+      "observedKindCounts": {
+        "base-feature": 9,
+        "subclass": 8,
+        "subclass-feature": 43
+      },
+      "preservedIdSequenceSha256": "735963e7524749084450270b8c40bd888950fe7fa627b6dd7aabca4db19040d9",
+      "preservedClaimLedgerSha256": "86773fe88ce32f03cfa174c248c73137d71d52867f1d48024fc2443c5355a03f",
+      "resolvedParentLedgerSha256": "299ee99f0965e2ee47bee8b95130192040a7f560d77ba6b9b0a84d1b1e5bd99a",
+      "auxiliaryResidualHeadings": 95,
+      "auxiliaryChoiceObservations": 10,
+      "auxiliarySpellTableObservations": 4,
+      "fullPublicationInventoryVerified": false,
+      "canonicalUnitsAccepted": 0
+    }
+  ],
+  "specialRoleCases": [
+    {
+      "classSlug": "barbarian",
+      "observationId": "scope:barbarian:primal.battlerager:e0b08daa5b127f72",
+      "title": "ОГРАНИЧЕНИЕ: ТОЛЬКО ДЛЯ ДВАРФОВ",
+      "observedKind": "subclass-prerequisite",
+      "proposedRepresentationRole": "subclass-requirement-reference-candidate",
+      "parentObservationId": "scope:barbarian:primal.battlerager:primal.battlerager",
+      "sourceIds": [
+        "108"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "profileCapabilityAutomaticallyGranted": false,
+      "canonicalId": null,
+      "crossCategoryTargetId": null
+    },
+    {
+      "classSlug": "barbarian",
+      "observationId": "scope:barbarian:primal.battlerager:cd995618721ff13b",
+      "title": "Шипованный доспех",
+      "observedKind": "equipment-reference",
+      "proposedRepresentationRole": "cross-category-equipment-reference-candidate",
+      "parentObservationId": "scope:barbarian:primal.battlerager:primal.battlerager",
+      "sourceIds": [
+        "108"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "profileCapabilityAutomaticallyGranted": false,
+      "canonicalId": null,
+      "crossCategoryTargetId": null
+    },
+    {
+      "classSlug": "fighter",
+      "observationId": "scope:fighter:archetype.banneret:b9b6e758703a4056",
+      "title": "Ограничение: Рыцарство",
+      "observedKind": "subclass-prerequisite",
+      "proposedRepresentationRole": "subclass-requirement-reference-candidate",
+      "parentObservationId": "scope:fighter:archetype.banneret:archetype.banneret",
+      "sourceIds": [
+        "108"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "profileCapabilityAutomaticallyGranted": false,
+      "canonicalId": null,
+      "crossCategoryTargetId": null
+    },
+    {
+      "classSlug": "fighter",
+      "observationId": "scope:fighter:archetype.arcane-archer:dc0b99f528a629d7",
+      "title": "ВАРИАНТЫ МАГИЧЕСКОГО ВЫСТРЕЛА",
+      "observedKind": "choice-index",
+      "proposedRepresentationRole": "choice-collection-reference-candidate",
+      "parentObservationId": "scope:fighter:archetype.arcane-archer:archetype.arcane-archer",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "profileCapabilityAutomaticallyGranted": false,
+      "canonicalId": null,
+      "crossCategoryTargetId": null
+    },
+    {
+      "classSlug": "monk",
+      "observationId": "scope:monk:tradition.four-elements:a6c4df41e67c1aba",
+      "title": "СТИХИЙНЫЕ ПРАКТИКИ",
+      "observedKind": "choice-index",
+      "proposedRepresentationRole": "choice-collection-reference-candidate",
+      "parentObservationId": "scope:monk:tradition.four-elements:tradition.four-elements",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "profileCapabilityAutomaticallyGranted": false,
+      "canonicalId": null,
+      "crossCategoryTargetId": null
+    },
+    {
+      "classSlug": "paladin",
+      "observationId": "scope:paladin:oath.devotion:16d81ea6d250a9dd",
+      "title": "ДОГМАТЫ ПРЕДАННОСТИ",
+      "observedKind": "oath-guidance",
+      "proposedRepresentationRole": "oath-rule-reference-candidate",
+      "parentObservationId": "scope:paladin:oath.devotion:oath.devotion",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "profileCapabilityAutomaticallyGranted": false,
+      "canonicalId": null,
+      "crossCategoryTargetId": null
+    },
+    {
+      "classSlug": "paladin",
+      "observationId": "scope:paladin:oath.ancients:b5301b7bf8b1c698",
+      "title": "ДОГМАТЫ ДРЕВНИХ",
+      "observedKind": "oath-guidance",
+      "proposedRepresentationRole": "oath-rule-reference-candidate",
+      "parentObservationId": "scope:paladin:oath.ancients:oath.ancients",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "profileCapabilityAutomaticallyGranted": false,
+      "canonicalId": null,
+      "crossCategoryTargetId": null
+    },
+    {
+      "classSlug": "paladin",
+      "observationId": "scope:paladin:oath.vengeance:67c5a882c53479ab",
+      "title": "ДОГМАТЫ МЕСТИ",
+      "observedKind": "oath-guidance",
+      "proposedRepresentationRole": "oath-rule-reference-candidate",
+      "parentObservationId": "scope:paladin:oath.vengeance:oath.vengeance",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-PHB",
+      "profileCapabilityAutomaticallyGranted": false,
+      "canonicalId": null,
+      "crossCategoryTargetId": null
+    },
+    {
+      "classSlug": "paladin",
+      "observationId": "scope:paladin:oath.oathbreaker:a905b45d9dda585c",
+      "title": "Искупление клятвопреступника",
+      "observedKind": "oath-guidance",
+      "proposedRepresentationRole": "oath-rule-reference-candidate",
+      "parentObservationId": "scope:paladin:oath.oathbreaker:oath.oathbreaker",
+      "sourceIds": [
+        "101"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "profileCapabilityAutomaticallyGranted": false,
+      "canonicalId": null,
+      "crossCategoryTargetId": null
+    },
+    {
+      "classSlug": "paladin",
+      "observationId": "scope:paladin:oath.redemption:67c33c397ce3c182",
+      "title": "ДОГМАТЫ ИСКУПЛЕНИЯ",
+      "observedKind": "oath-guidance",
+      "proposedRepresentationRole": "oath-rule-reference-candidate",
+      "parentObservationId": "scope:paladin:oath.redemption:oath.redemption",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "profileCapabilityAutomaticallyGranted": false,
+      "canonicalId": null,
+      "crossCategoryTargetId": null
+    },
+    {
+      "classSlug": "paladin",
+      "observationId": "scope:paladin:oath.conquest:c91b66f45e9078f0",
+      "title": "ДОГМАТЫ ПОКОРЕНИЯ",
+      "observedKind": "oath-guidance",
+      "proposedRepresentationRole": "oath-rule-reference-candidate",
+      "parentObservationId": "scope:paladin:oath.conquest:oath.conquest",
+      "sourceIds": [
+        "109"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "profileCapabilityAutomaticallyGranted": false,
+      "canonicalId": null,
+      "crossCategoryTargetId": null
+    },
+    {
+      "classSlug": "paladin",
+      "observationId": "scope:paladin:oath.glory:765eed40fc94e2f0",
+      "title": "Догматы славы",
+      "observedKind": "oath-guidance",
+      "proposedRepresentationRole": "oath-rule-reference-candidate",
+      "parentObservationId": "scope:paladin:oath.glory:oath.glory",
+      "sourceIds": [
+        "117",
+        "121"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "profileCapabilityAutomaticallyGranted": false,
+      "canonicalId": null,
+      "crossCategoryTargetId": null
+    },
+    {
+      "classSlug": "paladin",
+      "observationId": "scope:paladin:oath.watchers:24f067b40f27db08",
+      "title": "Догматы смотрителей",
+      "observedKind": "oath-guidance",
+      "proposedRepresentationRole": "oath-rule-reference-candidate",
+      "parentObservationId": "scope:paladin:oath.watchers:oath.watchers",
+      "sourceIds": [
+        "117"
+      ],
+      "sourceBasis": "explicit-subclass-source",
+      "profileCapabilityAutomaticallyGranted": false,
+      "canonicalId": null,
+      "crossCategoryTargetId": null
+    }
+  ],
+  "optionalReplacementLinks": [
+    {
+      "classSlug": "ranger",
+      "optionalObservationId": "scope:ranger:archetype.beast-master:supplement:ebb93373a28fa5eb",
+      "replacementTargetObservationId": "scope:ranger:archetype.beast-master:82ec36671e3952b5",
+      "sourceIds": [
+        "117"
+      ],
+      "choiceRequired": true,
+      "existingFeatureRemovedAutomatically": false,
+      "canonicalVersionEqualityAccepted": false
+    }
+  ],
+  "versionDecisionGroups": [
+    {
+      "classSlug": "bard",
+      "parentToken": "college.eloquence",
+      "parentObservationId": "scope:bard:college.eloquence:college.eloquence",
+      "sourceIds": [
+        "117",
+        "121"
+      ],
+      "memberObservationIds": [
+        "scope:bard:college.eloquence:college.eloquence",
+        "scope:bard:college.eloquence:753dc99aea6f1e4a",
+        "scope:bard:college.eloquence:54998442a6807380",
+        "scope:bard:college.eloquence:6bb66cad80fdbc4d",
+        "scope:bard:college.eloquence:69cefa2da537ac12",
+        "scope:bard:college.eloquence:09b9e4bde74d43d1"
+      ],
+      "sourceClaimsAreNotVersionCount": true,
+      "versionCount": null,
+      "aliasAccepted": false
+    },
+    {
+      "classSlug": "druid",
+      "parentToken": "circle.spores",
+      "parentObservationId": "scope:druid:circle.spores:circle.spores",
+      "sourceIds": [
+        "117",
+        "112"
+      ],
+      "memberObservationIds": [
+        "scope:druid:circle.spores:circle.spores",
+        "scope:druid:circle.spores:d899bb01a20fec24",
+        "scope:druid:circle.spores:51460da872d3917d",
+        "scope:druid:circle.spores:52979d2cdd742adf",
+        "scope:druid:circle.spores:b1049531965ca41a",
+        "scope:druid:circle.spores:b76bb91c26e95a4b",
+        "scope:druid:circle.spores:a53cdf2322541890"
+      ],
+      "sourceClaimsAreNotVersionCount": true,
+      "versionCount": null,
+      "aliasAccepted": false
+    },
+    {
+      "classSlug": "cleric",
+      "parentToken": "domain.order",
+      "parentObservationId": "scope:cleric:domain.order:domain.order",
+      "sourceIds": [
+        "117",
+        "112"
+      ],
+      "memberObservationIds": [
+        "scope:cleric:domain.order:domain.order",
+        "scope:cleric:domain.order:09049e29253af8c1",
+        "scope:cleric:domain.order:6a4a569b7aa399f7",
+        "scope:cleric:domain.order:b8bf02c8a2e7dae7",
+        "scope:cleric:domain.order:6ab70745d429e98a",
+        "scope:cleric:domain.order:2c9526bb2f967a84",
+        "scope:cleric:domain.order:505820b84398d2a5",
+        "scope:cleric:domain.order:5e88609eed21ba24"
+      ],
+      "sourceClaimsAreNotVersionCount": true,
+      "versionCount": null,
+      "aliasAccepted": false
+    },
+    {
+      "classSlug": "paladin",
+      "parentToken": "oath.glory",
+      "parentObservationId": "scope:paladin:oath.glory:oath.glory",
+      "sourceIds": [
+        "117",
+        "121"
+      ],
+      "memberObservationIds": [
+        "scope:paladin:oath.glory:oath.glory",
+        "scope:paladin:oath.glory:765eed40fc94e2f0",
+        "scope:paladin:oath.glory:7bedf5485fe3b7b9",
+        "scope:paladin:oath.glory:79b57f20b5022d09",
+        "scope:paladin:oath.glory:bfc29d733d8d7828",
+        "scope:paladin:oath.glory:b8ccfabaf083cb2c",
+        "scope:paladin:oath.glory:f020b2328f7c4954"
+      ],
+      "sourceClaimsAreNotVersionCount": true,
+      "versionCount": null,
+      "aliasAccepted": false
+    }
+  ],
+  "overlappingAuxiliaryObservations": {
+    "residualHeadings": 512,
+    "proposedExcludedResidualHeadings": 130,
+    "sourcePendingResidualHeadings": 10,
+    "otherResidualComponents": 372,
+    "choiceObservations": 189,
+    "spellTableObservations": 57,
+    "existingChoiceHeadingLinks": 109,
+    "existingSpellTableHeadingLinks": 45,
+    "mayBeAddedTo913AsCanonicalUnits": false
+  },
+  "sparseRoleDecisions": [
+    {
+      "kind": "subclass-prerequisite",
+      "count": 2,
+      "proposal": "Keep an addressable parent requirement reference, not a separately acquired ability. Ordinary deviations warn and allow manual character choices."
+    },
+    {
+      "kind": "equipment-reference",
+      "count": 1,
+      "proposal": "Keep the original class reference; defer any item-category identity/alias until exact source/version comparison. Do not invent an equipment ID or grant."
+    },
+    {
+      "kind": "choice-index",
+      "count": 2,
+      "proposal": "Keep the choice collection parent; links/options are not all granted automatically and index presence is not proof of full options."
+    },
+    {
+      "kind": "oath-guidance",
+      "count": 8,
+      "proposal": "Keep tenets and redemption-rule references addressable, not decorative lore to discard. No automatic penalty, subclass removal or mandatory GM checkbox."
+    }
+  ],
+  "plannerDecision": {
+    "representationMethod": "trial-on-this-thirteen-class-packet",
+    "selectedTwoClassMethodIndependentlyReviewed": true,
+    "newThirteenClassScopeRequiresOwnReview": true,
+    "sourceAndVersionDecisionsNotReplaced": true,
+    "m0FullTextAuditOfEveryHigherLevelFeatureAddedAsNewRequirement": false
+  },
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "four-class-multisource-version-proposals",
+    "action": "Resolve only four exact source-claim families (Eloquence/Spores/Order/Glory) using bounded publication/version evidence. Preserve 28 observation IDs and original source order; do not multiply counts by source links or infer whole-text equality. If primary access fails, retain a scoped hold and take independent D01/D06/D07 work.",
+    "firstFamily": "bard:college.eloquence",
+    "canonicalCountBeforeEvidence": null
+  },
+  "limits": [
+    "Thirteen main-class navigation groups were already inventoried; no new class or full-text coverage is claimed.",
+    "913 records and 512/189/57 auxiliary observations overlap and do not establish a canonical denominator.",
+    "Eligible numeric publication status is not full-text/version/rights proof; the 12 section policies do not automatically propagate to arbitrary descendants.",
+    "Two selected-class prior reviews do not independently accept this wider packet.",
+    "Multiple source IDs can represent reuse, revised versions or broader attribution; version count and canonical aliases stay unknown.",
+    "Ranger replacement remains a choice link, not automatic removal or replay of an imported feature.",
+    "No runtime import/schema/character/automation changes; ordinary manual exceptions remain allowed."
+  ],
+  "inputSha256": {
+    "catalog/class-scope.json": "0019399d0012d9c773071195f5a4196e9a4e0991113d91c423cbf4c2af8a8674",
+    "catalog/dndsu-class-headings.json": "2d8d0f0e30cb3384e3accfc64a51766c7e18fa285a36a433dd7bb4fd5fb17239",
+    "catalog/dndsu-bard-scope-proposal.json": "b606aae829060bb323ee6d05dccab8c005b2353645bdbb4f4fea74ccb1d99780",
+    "catalog/dndsu-barbarian-scope-proposal.json": "17b7eb8c02ac88fcd4a2377d35a34270661e6de54243f5193959b265ba97fc67",
+    "catalog/dndsu-reviewed-class-proposals.json": "2658cb19e4ad074003ecf60f46190af992c6abb26584455d2455946e061b9c48",
+    "catalog/dndsu-class-choice-metadata.json": "c0e205ef1407ac83c625f803242286db9409f7ad466d13cfbebad624a11bb35e",
+    "catalog/class-scope-policy-2014.json": "035512eaecf25b6ac91c152db6a675283508abab743d0ca5a0892e17d283114e",
+    "catalog/dndsu-subclass-spell-tables.json": "88d7d041bae75130962b1c9ef37e3af321e7f7a4b8af69be4363b7600cc36a61",
+    "catalog/class-residual-review-2014.json": "007aa5ee030381f2d655b65be9ef4904cb588caf83e0763bce913487afdf64d9",
+    "catalog/class-unit-granularity-proposal-2014.json": "cdadac4c6ae8b9cf95e49822744a2971cfec238e9790be7d51cba2f85141cdbd",
+    "catalog/numeric-source-scope-policy-2014.json": "c46db1df76294bc971e7c1582ece3cfe09cd126fcca22edf7fd2431f8379df32",
+    "catalog/dndsu-class-discovery.json": "4f9306f0149f10da0758c00f6a6b3bb6e1a69db483dec7959361dfaf5301f420"
+  },
+  "upstreamCodeSha256": {
+    "scripts/catalog-class-composition-review.mjs": "7456ad265ac9f81d14078fde40f29222181cc056d89adc5bec1022f7928ce8c9"
+  },
+  "generator": {
+    "path": "scripts/review-class-unit-residual-2014.mjs",
+    "sha256": "6134509c44efbcc3ba00d7f60b1aef34bca1b2f0b29238d4d49554005cce628e"
+  }
+}

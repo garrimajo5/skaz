@@ -186,6 +186,8 @@ EQUIPMENT='catalog/wizard-equipment-2014.json'
 MULTICLASS='catalog/wizard-multiclass-2014.json'
 EVOCATION='catalog/wizard-evocation-low-level-2014.json'
 UNIT_PROPOSAL='catalog/class-unit-granularity-proposal-2014.json'
+UNIT_RESIDUAL='catalog/class-unit-residual-review-2014.json'
+UNIT_TOC='catalog/class-multisource-toc-2014.json'
 
 
 def add_wizard_list_and_choice_context(d,listing,choices):
@@ -246,6 +248,17 @@ def add_unit_proposal_context(d,selected):
  return d
 
 
+def add_thirteen_class_unit_context(d,units,toc):
+ s=units['summary'];b=units['discoveryBoundary'];t=toc['summary']
+ if units.get('accepted') or units.get('complete') or units.get('acceptedForRuntime') or units.get('runtimeChanged') or units.get('approvedDenominator') is not None or s['canonicalUnitsAccepted'] or s['classes']!=13 or s['preservedProposalObservations']!=913 or s['newSparseRoleCases']!=13 or s['multiSourceObservations']!=28 or b['mainClassesAreEntireAllowedClassReferenceCatalog'] or b['sidekickReferenceRows']!=3 or units['overlappingAuxiliaryObservations']['mayBeAddedTo913AsCanonicalUnits'] or any(g['versionCount'] is not None or g['aliasAccepted'] for g in units['versionDecisionGroups']):raise ValueError('Changed bounded thirteen-class unit/source scope')
+ if toc.get('accepted') or toc.get('complete') or toc.get('acceptedForRuntime') or toc.get('runtimeChanged') or toc.get('approvedDenominator') is not None or t['canonicalUnitsAccepted'] or t['publisherIndices']!=3 or t['selectedClassFamilyTocLinks']!=8 or t['selectedSidekickTocLinks']!=3 or t['chapterBodiesRetained'] or t['completeSubclassComparisons'] or toc['sidekickVersionContext']['wholeGuideRulesAccepted'] or toc['sidekickVersionContext']['manualAssessments']['earlierLevelSixCapAutomaticallyInheritedByTce'] or toc['sidekickVersionContext']['manualAssessments']['manualCharacterChoiceForbidden'] or any(g['fullRuleEqualityAccepted'] or g['canonicalAliasAccepted'] for g in toc['familyWitnesses']) or any(a['fullBodyRetained'] or a['primarySubclassRulesCompared'] or a['accessBarrierProvedToBePaywall'] for a in toc['chapterAttempts']):raise ValueError('Publisher TOC or partial response cannot become full rules/version/rights proof')
+ d['coVersionedThirteenClassUnitReview']={'path':UNIT_RESIDUAL,'publisherWitnessPath':UNIT_TOC,'scope':'913preserved proposed observations/13main classes,13sparse roles,28multi-source observations;31discovery rows retain3sidekicks/15excluded','priorIndependentReviewInherited':False,'fullClassCatalogAccepted':False,'canonicalDenominatorAccepted':False,'runtimeAccepted':False}
+ d['specificPrimaryBodyHold']={'family':'bard:college.eloquence','condition':'Exact authorized TCE/MOoT subclass bodies/versions not retained; two requests redirected to marketplace and timed out during body read.','evidence':UNIT_TOC,'wholeIssueBlocked':False}
+ d['nextWorkItem'].update({'role':'content','phase':'d06-non-class-unit-boundaries','action':'Use existing #77D06 Folio/IMR/SKT review to select an unresolved unit/variant/reference boundary; do not repeat successful class inventory/TOC or arbitrary high-level feature text. Class Eloquence full-body criterion has a scoped access hold only; complete rules that do not define identity belong to M4, not a new M0 barrier.','requiredInputs':['docs/catalog-m0-exit-criteria-2014.md','catalog/fiendish-folio-review-2014.json','catalog/imr-version-review-2014.json','catalog/skt-index-review-2014.json',UNIT_RESIDUAL,UNIT_TOC]})
+ d['nextWorkItem']['doNotRepeat']+='13class/913role reconciliation,31navigation13+3+15 and3publisherTOCs/8family+3sidekicklinks; no repeated full-class audit or marketplace body retry.'
+ return d
+
+
 def build(root=Path('.')):
     data=load_reviewed(root);concordance=load_concordance(root);table=load_table(root);d=combine(data,concordance,table);d['reviewedEvidence']=EVIDENCE;d['inputSha256']={s['path']:s['sha256'] for s in EVIDENCE.values()}
     d['inputSha256'][CONCORDANCE]=sha((root/CONCORDANCE).read_bytes().replace(b'\r\n',b'\n'))
@@ -275,11 +288,11 @@ def build(root=Path('.')):
         d['inputSha256'][path]=sha(raw)
     d=add_narrative_coverage_context(d,extra[NARRATIVE],extra[SCOPE_COVERAGE])
     new={}
-    for path in [SPELL_LIST,CORE_CHOICES,ENTRY,EQUIPMENT,MULTICLASS,EVOCATION,UNIT_PROPOSAL]:
+    for path in [SPELL_LIST,CORE_CHOICES,ENTRY,EQUIPMENT,MULTICLASS,EVOCATION,UNIT_PROPOSAL,UNIT_RESIDUAL,UNIT_TOC]:
         raw=(root/path).read_bytes().replace(b'\r\n',b'\n');new[path]=json.loads(raw)
         if new[path]['generator']['sha256']!=sha((root/new[path]['generator']['path']).read_bytes().replace(b'\r\n',b'\n')):raise ValueError('Changed Wizard list/core generator; rebuild')
         d['inputSha256'][path]=sha(raw)
-    d=add_wizard_list_and_choice_context(d,new[SPELL_LIST],new[CORE_CHOICES]);d=add_wizard_entry_context(d,new[ENTRY]);d=add_wizard_equipment_context(d,new[EQUIPMENT]);d=add_wizard_multiclass_context(d,new[MULTICLASS]);d=add_evocation_context(d,new[EVOCATION]);d=add_unit_proposal_context(d,new[UNIT_PROPOSAL])
+    d=add_wizard_list_and_choice_context(d,new[SPELL_LIST],new[CORE_CHOICES]);d=add_wizard_entry_context(d,new[ENTRY]);d=add_wizard_equipment_context(d,new[EQUIPMENT]);d=add_wizard_multiclass_context(d,new[MULTICLASS]);d=add_evocation_context(d,new[EVOCATION]);d=add_unit_proposal_context(d,new[UNIT_PROPOSAL]);d=add_thirteen_class_unit_context(d,new[UNIT_RESIDUAL],new[UNIT_TOC])
     d['generator']={'path':'scripts/review-current-class-evidence-2014.py','sha256':sha(Path(__file__).read_bytes().replace(b'\r\n',b'\n'))};return d
 
 if __name__=='__main__':

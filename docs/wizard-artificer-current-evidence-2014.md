@@ -14,9 +14,9 @@
 
 ## Следующий исполнимый шаг
 
-Planner: **class-unit-version-and-alias-residual-review** — проверить предложенные границы единиц по фактическим DoD #77, определить остаток полного состава/версий/дублей/прав/знаменателя и пакет для владельца. [Граница единиц](class-unit-granularity-proposal-2014.md) не задаёт canonical IDs, новый runtime-kind или1:1. Полный source-аудит каждого высокоуровневого умения не становится новым барьером M0.
+Общий [пакет единиц13классов](class-unit-residual-review-2014.md) сопоставляет913proposals/8kinds,13особых случаев и28multi-source observations. Discovery31 сохраняет13main+3sidekick+15excluded; [primary TOC](class-multisource-toc-2014.md) подтверждает8family+3sidekick links, не полные версии/права. Прежний130/23source-ledger не изменён и не повышен до full-class/canonical.
 
-Не повторять завершённые selected list/core/entry/Equipment/multiclass/Evocation scopes. Полные TCE/Artificer/CantripFormulas31,11general-body/5media, полные классы/версии/права/канонический знаменатель остаются отдельными критериями. Приоритет матрицы Эдвина сохраняется; реальные данные дляQA не использовать.
+Следующий content: независимый оставшийся unit/variant/reference критерий D06 Folio/IMR/SKT по [конечной очереди M0](catalog-m0-exit-criteria-2014.md). Только перваяEloquence full-body/version сверка имеет конкретныйhold: два запроса дали marketplace-finalURL/200headers и timeout без body. Не повторять успешные TOC/13-class inventory и произвольные полные high-level умения; M4-правила без влияния на единицу не добавлять к барьеру M0. Полные TCE/Artificer/CantripFormulas31,11general-body/5media, версии/права/глобальный знаменатель отдельно; #77/M0принимает владелец.
 
 ```sh
 python scripts/review-current-class-evidence-2014.py --output <report.json>
@@ -24,4 +24,4 @@ python -m unittest discover -s tests -p test_current_class_evidence_2014.py
 python -m unittest discover -s tests -p test_d05_current_triage_2014.py
 ```
 
-36context/21triage тестов проверяют130/23/ledger/5+1/15-70-7, точныеreviewpins, partial-versus-complete scopes, отсутствие full-list/runtime grants и безопасную передачу следующего критерия. Подробности/рефлексия нового пакета — в профильном отчёте/PR; общий план не является архивом. Runtime/VPS не менялись, выпуск неприменим; #77/M0/этапы принимает владелец.
+39context/21triage тестов проверяют130/23/ledger/5+1/15-70-7, точныеreviewpins, partial-versus-complete scopes, отсутствие full-list/runtime grants и безопасную передачу следующего критерия. Подробности/рефлексия нового пакета — в профильном отчёте/PR; общий план не является архивом. Runtime/VPS не менялись, выпуск неприменим; #77/M0/этапы принимает владелец.

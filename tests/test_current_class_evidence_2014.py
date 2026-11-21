@@ -62,7 +62,7 @@ class CurrentClassEvidenceTest(unittest.TestCase):
             with self.assertRaises(ValueError):M.combine(data(),M.load_concordance(ROOT),t)
 
     def test_current_general_overlay_advances_only_checked_selected_scopes(self):
-        d=M.build(ROOT);self.assertEqual(d['nextWorkItem']['phase'],'class-unit-version-and-alias-residual-review');self.assertFalse(d['coVersionedGeneralReference']['fullReferenceRulesAccepted'] or d['coVersionedGeneralReference']['priorIndependentReviewInherited']);self.assertIn('48heading',d['nextWorkItem']['doNotRepeat'])
+        d=M.build(ROOT);self.assertEqual(d['nextWorkItem']['phase'],'d06-non-class-unit-boundaries');self.assertFalse(d['coVersionedGeneralReference']['fullReferenceRulesAccepted'] or d['coVersionedGeneralReference']['priorIndependentReviewInherited']);self.assertIn('48heading',d['nextWorkItem']['doNotRepeat'])
 
     def test_mixed_general_reference_cannot_be_accepted_from_phb_header(self):
         g=json.loads((ROOT/M.GENERAL).read_text(encoding='utf-8'));g['sourceBoundaryObservations']['wholePageSourceInheritanceAllowed']=True
@@ -156,6 +156,24 @@ class CurrentClassEvidenceTest(unittest.TestCase):
             elif mutation=='auxiliary':e['projection']['auxiliaryArtificerHeadingRows'][0]['countedAsAdditionalCatalogCapability']=True
             else:e['sharedGuidanceProposal']['sourceObservationsMergedOrRemoved']=True
             with self.assertRaises(ValueError):M.add_unit_proposal_context(d,e)
+
+    def test_thirteen_main_classes_cannot_erase_sidekicks_or_promote_versions(self):
+        for mutation in ['sidekicks','alias','denominator']:
+            u=json.loads((ROOT/M.UNIT_RESIDUAL).read_text(encoding='utf-8'));t=json.loads((ROOT/M.UNIT_TOC).read_text(encoding='utf-8'))
+            if mutation=='sidekicks':u['discoveryBoundary']['mainClassesAreEntireAllowedClassReferenceCatalog']=True
+            elif mutation=='alias':u['versionDecisionGroups'][0]['aliasAccepted']=True
+            else:u['approvedDenominator']=913
+            with self.assertRaises(ValueError):M.add_thirteen_class_unit_context({},u,t)
+
+    def test_redirect_status200_is_not_a_retained_full_body_or_proven_paywall(self):
+        for field in ['fullBodyRetained','primarySubclassRulesCompared','accessBarrierProvedToBePaywall']:
+            u=json.loads((ROOT/M.UNIT_RESIDUAL).read_text(encoding='utf-8'));t=json.loads((ROOT/M.UNIT_TOC).read_text(encoding='utf-8'));t['chapterAttempts'][0][field]=True
+            with self.assertRaises(ValueError):M.add_thirteen_class_unit_context({},u,t)
+
+    def test_editorial_sidekick_version_context_cannot_apply_old_cap_or_ban_hero_choices(self):
+        for field in ['earlierLevelSixCapAutomaticallyInheritedByTce','manualCharacterChoiceForbidden']:
+            u=json.loads((ROOT/M.UNIT_RESIDUAL).read_text(encoding='utf-8'));t=json.loads((ROOT/M.UNIT_TOC).read_text(encoding='utf-8'));t['sidekickVersionContext']['manualAssessments'][field]=True
+            with self.assertRaises(ValueError):M.add_thirteen_class_unit_context({},u,t)
 
     def test_committed_report_and_all_pins_reproduce(self):
         d=json.loads((ROOT/'catalog/wizard-artificer-current-evidence-2014.json').read_text(encoding='utf-8'));self.assertEqual(d,M.build(ROOT))
