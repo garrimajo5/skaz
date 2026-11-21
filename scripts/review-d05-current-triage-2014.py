@@ -29,6 +29,7 @@ WITNESSES={
       'remaining':['lawful standalone access for exact text/version comparison','adventure versus creature canonical units and provenance','publication/translation rights'],
       'doNotRepeat':'provider105 to103 and historicalparent189; adventure versus same-name statblock; claim landing is not full text'},
 }
+WITNESSES.update({34: {'path': 'catalog/rrakkma-publication-boundary-2014.json', 'sha256': '2d39d1bfe6220a0bb6a49cbc82eb69b8f0c1cd67962f203564d4fa86e066cfc5', 'kind': 'introductory-companion-adventure-for-book', 'pr': 213, 'head': 'c5720249c8f618496a4f735e886b2d88e5c4393b', 'review': 'https://github.com/garrimajo5/skaz/pull/213#issuecomment-7053766906', 'reviewedScope': 'own introductory metadata and one editorial3e-to5e rewrite paragraph only', 'remaining': ['full5e record inventory and exact versions', 'independent canonical units versus introduced book and generic AL observations', 'publication/translation rights'], 'doNotRepeat': 'ownDDIA-MORD, introductory-forMToF not contained-in/alias;3e-origin versus5e-rewrite; no genericAL169 attribution'}})
 RULE={'path':'catalog/wizard-recovery-source-comparison-2014.json','sha256':'0b62cc3ae12d944811eabbaf69ec8693eb180a46120057084e61358a696df5c4',
       'pr':210,'head':'111f21b3cdc6f0c5be9ca6ca137541d3f5c6d621','review':'https://github.com/garrimajo5/skaz/pull/210#issuecomment-7053517446',
       'scope':'one complete94-word unit across3carriers; final boundary delta retested, not a fresh full-source download'}
@@ -43,9 +44,10 @@ def validate_identity(pid,witness):
     if witness.get('accepted') or witness.get('complete') or witness.get('approvedDenominator') is not None:
         raise ValueError('Bounded witness unexpectedly claims canonical acceptance')
     identity=witness.get('relationship',witness)
-    actual=identity.get('childProviderSourceId',identity.get('providerSourceId'))
+    actual=identity.get('childProviderSourceId',witness.get('providerSourceId'))
     if actual!=pid:raise ValueError('Wrong witness provider namespace/identity')
-    if (identity.get('canonicalSourceId') is not None or identity.get('automaticRecordAttribution',False)
+    if (witness.get('canonicalSourceId') is not None or witness.get('numericDndsuSourceId') is not None
+            or identity.get('childDndsuSourceId') is not None or identity.get('canonicalSourceId') is not None or identity.get('automaticRecordAttribution',False)
             or identity.get('automaticSourceReplacement',False) or witness.get('automaticAttribution',False)):
         raise ValueError('Bounded evidence cannot automatically replace or attribute catalogue records')
 
@@ -87,18 +89,18 @@ def build(root=Path('.')):
         rows.append(row)
     return {'schemaVersion':1,'status':'current-work-triage-not-completeness-denominator-or-policy-approval',
             'accepted':False,'complete':False,'approvedDenominator':None,
-            'summary':{'preservedHistoricalSources':70,'preservedOriginalProviderResidual':15,'withReviewedBoundedKindWitness':4,
-                       'withoutBoundedKindWitness':11,'selectedCompleteRuleComparisons':1,'canonicalUnitsAccepted':0},
+            'summary':{'preservedHistoricalSources':70,'preservedOriginalProviderResidual':15,'withReviewedBoundedKindWitness':len(verified),
+                       'withoutBoundedKindWitness':len(untriaged),'selectedCompleteRuleComparisons':1,'canonicalUnitsAccepted':0},
             'historicalSourceIdSequence':historical,'records':rows,'primaryKindWorkQueue':untriaged,
             'nextUntriagedProviderSourceId':untriaged[0]['providerSourceId'],
             'unlinkedHistoricalRowsPreserved':context['remainingHistoricalRows'],
             'inputSha256':{p:sha(t.encode()) for p,t in texts.items()},
             'generator':{'path':'scripts/review-d05-current-triage-2014.py','sha256':sha(Path(__file__).read_bytes().replace(b'\r\n',b'\n'))},
-            'limits':['4+11 partitions15 work references, not the game catalogue or count of missing publications.',
+            'limits':['5+10 partitions15 work references, not the game catalogue or count of missing publications.',
                       'A reviewed bounded witness does not close its remaining full-text/version/scope/rights/canonical-unit criteria.',
                       'Current work is separate from original15-row/70-source observations; no input or policy is mutated.',
                       'Review citations are pinned to the checked report and exact PR head; changed evidence needs new review.',
-                      'The selected Wizard rule is neither a fifth publication witness nor working runtime automation.',
+                      'The selected Wizard rule is neither a sixth publication witness nor working runtime automation.',
                       'Owner milestones, private matrix, application/VPS state and catalogue denominator remain unchanged.']}
 
 if __name__=='__main__':

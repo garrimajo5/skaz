@@ -17,24 +17,24 @@ class D05CurrentTriageTest(unittest.TestCase):
         self.assertEqual(d['unlinkedHistoricalRowsPreserved'],context['remainingHistoricalRows'])
         self.assertEqual(len(d['records']),15);self.assertEqual(len(d['historicalSourceIdSequence']),70)
 
-    def test_four_reviewed_bounded_witnesses_do_not_erase_their_remaining_criteria(self):
+    def test_five_reviewed_bounded_witnesses_do_not_erase_their_remaining_criteria(self):
         d=M.build(ROOT);rows=[r for r in d['records'] if r['triageState']=='independently-reviewed-bounded-witness-present']
-        self.assertEqual({r['providerSourceId'] for r in rows},{1,53,62,105})
+        self.assertEqual({r['providerSourceId'] for r in rows},{1,34,53,62,105})
         self.assertTrue(all(r['remainingCriteria'] and not r['canonicalUnitAccepted'] and not r['missingPublicationProven'] for r in rows))
         self.assertFalse(d['accepted']);self.assertIsNone(d['approvedDenominator']);self.assertEqual(d['summary']['canonicalUnitsAccepted'],0)
 
-    def test_untriaged_queue_is_eleven_work_references_not_missing_books(self):
+    def test_untriaged_queue_is_ten_work_references_not_missing_books(self):
         d=M.build(ROOT)
-        self.assertEqual([r['providerSourceId'] for r in d['primaryKindWorkQueue']],[34,37,92,93,94,116,122,126,128,129,135])
-        self.assertEqual(d['nextUntriagedProviderSourceId'],34)
+        self.assertEqual([r['providerSourceId'] for r in d['primaryKindWorkQueue']],[37,92,93,94,116,122,126,128,129,135])
+        self.assertEqual(d['nextUntriagedProviderSourceId'],37)
         self.assertTrue(all(not r['missingPublicationProven'] for r in d['records']))
         self.assertNotIn('missingPublicationCount',d['summary'])
 
-    def test_selected_rule_is_not_a_fifth_kind_witness_or_enabled_runtime(self):
+    def test_selected_rule_is_not_a_sixth_kind_witness_or_enabled_runtime(self):
         d=M.build(ROOT);row=next(r for r in d['records'] if r['providerSourceId']==1)
         self.assertEqual(row['additionalSelectedRuleComparison']['unitId'],'wizard-arcane-recovery')
         self.assertFalse(row['additionalSelectedRuleComparison']['acceptedForRuntime'])
-        self.assertEqual(d['summary']['withReviewedBoundedKindWitness'],4);self.assertEqual(d['summary']['selectedCompleteRuleComparisons'],1)
+        self.assertEqual(d['summary']['withReviewedBoundedKindWitness'],5);self.assertEqual(d['summary']['selectedCompleteRuleComparisons'],1)
 
     def test_changed_report_cannot_inherit_old_independent_review(self):
         spec=M.WITNESSES[62];text=(ROOT/spec['path']).read_text(encoding='utf-8')
@@ -66,6 +66,17 @@ class D05CurrentTriageTest(unittest.TestCase):
         for field,value in [('acceptedForRuntime',True),('runtimeChanged',True),('accepted',True),('unitId','another-class-rule')]:
             d={**original,field:value}
             with self.assertRaises(ValueError):M.validate_rule(d)
+
+    def test_root_provider_with_introductory_book_relation_is_not_the_book_provider(self):
+        d=read(M.WITNESSES[34]['path']);M.validate_identity(34,d)
+        wrong=copy.deepcopy(d);wrong['providerSourceId']=33
+        with self.assertRaises(ValueError):M.validate_identity(34,wrong)
+
+    def test_introduced_book_or_generic_al_id_cannot_be_inherited_as_own_numeric_id(self):
+        original=read(M.WITNESSES[34]['path'])
+        for field,value in [('numericDndsuSourceId','113'),('numericDndsuSourceId','169'),('canonicalSourceId','book:mtof')]:
+            wrong={**original,field:value}
+            with self.assertRaises(ValueError):M.validate_identity(34,wrong)
 
     def test_committed_report_reproduces_and_provenance_stays_json_only(self):
         d=read('catalog/d05-current-publication-triage-2014.json');self.assertEqual(d,M.build(ROOT))
