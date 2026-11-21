@@ -6413,3 +6413,5 @@ PR #218: независимое ревью обнаружило два P2 в cap
 
 
 D05/#77,21.11.2026 с15:21:38МСК,content: provider116 Domains — официальное PDF-свидетельство v1.1/страница1 о самостоятельном дополнении/товаре371449, не wholeWitchlight/не canonical. Официальный9-страничный PDF сохранён/отрендерен; marketplace HTML чтение ограничено, полнота/права открыты.9 целевых тестов и отдельные квитанции успешных/неудачных ответов; независимое ревью требуется перед merge. Следующий122 Gazetteer, затем126. См. [отчёт](domains-delight-reference-boundary-2014.md).
+
+D05/#77: Domains PR220 слит после независимого9/9/reproduction/page1 review. Gazetteer122 — отдельная выдача раздела parent48/historical126; claim-main без рекламы37/12, отдельный Backgroundsfragment. Уже сохранённый ALv2.4/page25 визуально проверен: Season9features, без глобального запрета/auto-grant.10 тестов, fulltext/rights/canonical открыты. [Граница Gazetteer](gazetteer-component-boundary-2014.md); следующий126LightningKeep.
