@@ -36,6 +36,8 @@ RULE={'path':'catalog/wizard-recovery-source-comparison-2014.json','sha256':'0b6
       'pr':210,'head':'111f21b3cdc6f0c5be9ca6ca137541d3f5c6d621','review':'https://github.com/garrimajo5/skaz/pull/210#issuecomment-7053517446',
       'scope':'one complete94-word unit across3carriers; final boundary delta retested, not a fresh full-source download'}
 
+EXTRA_CLASS_EVIDENCE={'classReferenceCrosswalk': {'path': 'catalog/basic-class-feature-crosswalk-2014.json', 'sha256': '3de8beca1c5587ae55d22db765e6c9f1d338d1d8855cbd1372497b4f47f7329d', 'pr': 224, 'head': '3d9395d29d2d9d8666c7ed98808e2a229dc74120', 'review': 'https://github.com/garrimajo5/skaz/pull/224#issuecomment-7062900941', 'scope': 'local125featureIDs/247table references and carrier boundaries only; no full class text'}, 'ritualComparison': {'path': 'catalog/wizard-ritual-source-comparison-2014.json', 'sha256': 'b86c7cab1fff18dd8a13507d317cb3a9cb25b3066562fc3f197f766512ae553b', 'pr': 225, 'head': '4e55b4089017e6ad70e669e9f4293b25667e3a0d', 'review': 'https://github.com/garrimajo5/skaz/pull/225#issuecomment-7062998536', 'scope': 'whole selected32word Wizard Ritual Casting subsection across3retained carriers only'}}
+
 def sha(raw):return hashlib.sha256(raw).hexdigest()
 def normalized(text):return text.replace('\r\n','\n')
 def reviewed_json(text,expected):
@@ -75,15 +77,28 @@ def validate_rule(rule):
             or rule.get('acceptedForRuntime') or rule.get('runtimeChanged') or rule.get('accepted') or rule.get('complete') or rule.get('approvedDenominator') is not None):
         raise ValueError('Selected source comparison cannot become runtime/class/denominator acceptance')
 
+def validate_extra(kind,data):
+    if data.get('accepted') or data.get('complete') or data.get('approvedDenominator') is not None:
+        raise ValueError('Supplemental class evidence cannot accept the catalogue')
+    if kind=='ritualComparison':
+        if data.get('unitId')!='source-comparison:wizard-ritual-casting' or not data.get('normalizedSelectedUnitTextEqual') or data.get('acceptedForRuntime') or data.get('runtimeChanged'):
+            raise ValueError('Ritual component cannot become runtime or whole-class acceptance')
+    elif kind=='classReferenceCrosswalk':
+        if data['summary']['canonicalUnitsAccepted'] or any(r['fullClassTextCompared'] or r['canonicalClassAccepted'] or r['automaticCapabilitiesAccepted'] for r in data['classRows']):
+            raise ValueError('Local reference crosswalk cannot become full class acceptance')
+    else:raise ValueError('Unexpected supplemental evidence kind')
+
+
 def build(root=Path('.')):
     if not set(WITNESSES).issubset(EXPECTED_RESIDUAL):raise ValueError('Witness outside original15 references')
     if any(not w['remaining'] for w in WITNESSES.values()):raise ValueError('Bounded witnesses must retain remaining criteria')
-    paths=[CONTEXT,*[w['path'] for w in WITNESSES.values()],RULE['path']]
+    paths=[CONTEXT,*[w['path'] for w in WITNESSES.values()],RULE['path'],*[w['path'] for w in EXTRA_CLASS_EVIDENCE.values()]]
     texts={path:normalized((root/path).read_text(encoding='utf-8')) for path in paths}
     context=json.loads(texts[CONTEXT]);historical=validate_context(context);verified={}
     for pid,spec in WITNESSES.items():
         data=reviewed_json(texts[spec['path']],spec['sha256']);validate_identity(pid,data);verified[pid]=data
     rule=reviewed_json(texts[RULE['path']],RULE['sha256']);validate_rule(rule)
+    for kind,spec in EXTRA_CLASS_EVIDENCE.items():validate_extra(kind,reviewed_json(texts[spec['path']],spec['sha256']))
     rows=[];untriaged=[]
     for original in context['remainingUnlinkedProviderReferences']:
         pid=original['providerSourceId'];row={'originalProviderReference':original,'providerSourceId':pid,
@@ -104,17 +119,19 @@ def build(root=Path('.')):
                 'canonicalUnitAccepted':False} for r in rows]
     next_work=({'phase':'primary-publication-kind','providerSourceId':untriaged[0]['providerSourceId'],
                 'action':'Inspect primary publication kind/version evidence before canonical units.'} if untriaged else
-               {'phase':'publication-version-and-record-inventory','providerSourceId':1,
-                'action':'Reconcile Basic Rules carriers with existing class/feature inventories; retain differences and unreviewed full rules.',
-                'doNotRepeat':'Already reviewed carrier TOCs and selected Arcane Recovery unit.',
-                'evidencePath':WITNESSES[1]['path']})
+               {'phase':'class-rule-provenance-and-scope','providerSourceId':1,
+                'action':'Map existing Wizard/Artificer class-heading proposals to bounded source components; retain complete/partial/unverified distinctions.',
+                'doNotRepeat':'Carrier TOCs, local125/247 reference crosswalk, Arcane Recovery, Ritual Casting and previously selected preparation/learning/ASI/copying units.',
+                'evidencePath':WITNESSES[1]['path'],
+                'candidateInputs':['catalog/dndsu-reviewed-class-proposals.json','catalog/artificer-heading-unit-proposals-2014.json']})
     return {'schemaVersion':2,'status':'current-work-triage-not-completeness-denominator-or-policy-approval',
             'accepted':False,'complete':False,'approvedDenominator':None,
             'summary':{'preservedHistoricalSources':70,'preservedOriginalProviderResidual':15,'withReviewedBoundedKindWitness':len(verified),
-                       'withoutBoundedKindWitness':len(untriaged),'selectedCompleteRuleComparisons':1,'canonicalUnitsAccepted':0},
+                       'withoutBoundedKindWitness':len(untriaged),'selectedCompleteRuleComparisons':2,'classReferenceCrosswalks':1,'canonicalUnitsAccepted':0},
             'historicalSourceIdSequence':historical,'records':rows,'primaryKindWorkQueue':untriaged,
             'nextUntriagedProviderSourceId':untriaged[0]['providerSourceId'] if untriaged else None,
             'remainingCriteriaWorkQueue':remaining,'nextWorkItem':next_work,
+            'supplementalClassEvidence':EXTRA_CLASS_EVIDENCE,
             'unlinkedHistoricalRowsPreserved':context['remainingHistoricalRows'],
             'inputSha256':{p:sha(t.encode()) for p,t in texts.items()},
             'generator':{'path':'scripts/review-d05-current-triage-2014.py','sha256':sha(Path(__file__).read_bytes().replace(b'\r\n',b'\n'))},
@@ -122,7 +139,7 @@ def build(root=Path('.')):
                       'A reviewed bounded witness does not close its remaining full-text/version/scope/rights/canonical-unit criteria.',
                       'Current work is separate from original15-row/70-source observations; no input or policy is mutated.',
                       'Review citations are pinned to the checked report and exact PR head; changed evidence needs new review.',
-                      'The selected Wizard rule is neither a sixteenth publication witness nor working runtime automation.',
+                      'The two selected Wizard components and local class-reference crosswalk are not additional publication witnesses or runtime automation.',
                       'Owner milestones, private matrix, application/VPS state and catalogue denominator remain unchanged.']}
 
 if __name__=='__main__':

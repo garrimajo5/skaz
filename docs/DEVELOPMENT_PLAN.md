@@ -6425,3 +6425,14 @@ D05/#77 после PR223: выполнен следующий carrier→class/fe
 D05/#77: PR224 crosswalk слит после независимых14/14/repro/всех247ссылок. Новый полный Wizard RitualCasting subsection: три уже сохранённых носителя digital/Basic32/SRD53,32слова равны приNFKC/whitespace; визуальные32/53,11тестов PASS. Parentwizard-spellcasting/manual не менялся, новыйruntimeID/автоматизация не созданы; подготовка/прочие классы/время/ячейки не заимствованы. [Полный ритуальный компонент](wizard-ritual-source-comparison-2014.md); отдельный от счётчика агрегата D05. Следующий — сверка конкретных class-heading/source scopes Wizard/Artificer с уже существующими preparation/learning/ASI/copying свидетелями, без повтора этихunits и без обхода доступа к полным Artificer правилам.
 
 PR225: независимыйP2 silent dropped conditions воспроизведён двумя красными тестами. RitualParser теперь отклоняет nested/unclosedp, списки, изображения и внеабзацный видимый текст; inline-текст сохраняется.15 тестов PASS после исправления;32-словное содержимое свидетельств неизменно, повторное ревью exacthead обязательно.
+
+
+### Итог D05/#77 блока21.11.2026 с15:21:38МСК
+
+Content: PR220–225 слиты после независимых read-only обзоров. Пять оставшихся kind-ссылок116/122/126/129/135 проверены в ограниченных scopes,15/70/7 исходных строк сохранены. Следующая фаза: локальный class crosswalk12/125/247 (85manual/38choice/2unsupported), затем полный выбранный RitualCasting Wizard в3носителях. Пустая первичная очередь исправлена: не завершает #77;15 remainingCriteria остаются. P2 RitualParser silent loss воспроизведён двумя красными тестами, исправлен,15/15 и повторный обзор4e55b40 PASS.
+
+Финальная передача связывает crosswalk/Ritual точными review pins,20triage тестов/18JSONвходов,2selectedкомпонента/1localcrosswalk отдельно от15kind-свидетельств. Следующий исполнимый шаг — Wizard/Artificer heading-proposal→bounded-source mapping по существующим двум candidate-inputs, не повторяя закрытые scopes. Fulltext/версии/права/canonical units, матрица/приёмкаQA-геймдизайнера иM0 остаются открыты.
+
+Проверки этого пакета:9Domains+10Gazetteer+15adventureRelations+20triage+14crosswalk+15ritual Python PASS;4globalSHA,check/buildPASS. Новые HTTP/PDF source артефакты хранятся вне Git; исходные runtime data/client/server/package/deployment не менялись. Выпуск неприменим; своего браузера/серверов/ADBнет. Фактическое окончание/длительность и финальные counts — в #77.
+
+Роль planner: одобрить для #77 уже принятый capture-helper с прежними ограничениями —12явных запросов/7сохранённыхуспехов/5отдельныхотказов/0автоповторов. Одобрить явные стадии kind/reference-integrity/selected-subsection/full-class в текущей передаче; это не изменение целей/MVP/общих инструкций/прав доступа. Рефлексия: отдельные scopes/pins убрали повтор сети и ложное завершение; цена18аудитныхвходов, риск ложной полноты ограничен тестами/независимым review. Новых предложений planner нет.

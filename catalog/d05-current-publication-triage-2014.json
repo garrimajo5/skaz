@@ -9,7 +9,8 @@
     "preservedOriginalProviderResidual": 15,
     "withReviewedBoundedKindWitness": 15,
     "withoutBoundedKindWitness": 0,
-    "selectedCompleteRuleComparisons": 1,
+    "selectedCompleteRuleComparisons": 2,
+    "classReferenceCrosswalks": 1,
     "canonicalUnitsAccepted": 0
   },
   "historicalSourceIdSequence": [
@@ -671,11 +672,33 @@
     }
   ],
   "nextWorkItem": {
-    "phase": "publication-version-and-record-inventory",
+    "phase": "class-rule-provenance-and-scope",
     "providerSourceId": 1,
-    "action": "Reconcile Basic Rules carriers with existing class/feature inventories; retain differences and unreviewed full rules.",
-    "doNotRepeat": "Already reviewed carrier TOCs and selected Arcane Recovery unit.",
-    "evidencePath": "catalog/basic-rules-publication-boundary-2014.json"
+    "action": "Map existing Wizard/Artificer class-heading proposals to bounded source components; retain complete/partial/unverified distinctions.",
+    "doNotRepeat": "Carrier TOCs, local125/247 reference crosswalk, Arcane Recovery, Ritual Casting and previously selected preparation/learning/ASI/copying units.",
+    "evidencePath": "catalog/basic-rules-publication-boundary-2014.json",
+    "candidateInputs": [
+      "catalog/dndsu-reviewed-class-proposals.json",
+      "catalog/artificer-heading-unit-proposals-2014.json"
+    ]
+  },
+  "supplementalClassEvidence": {
+    "classReferenceCrosswalk": {
+      "path": "catalog/basic-class-feature-crosswalk-2014.json",
+      "sha256": "3de8beca1c5587ae55d22db765e6c9f1d338d1d8855cbd1372497b4f47f7329d",
+      "pr": 224,
+      "head": "3d9395d29d2d9d8666c7ed98808e2a229dc74120",
+      "review": "https://github.com/garrimajo5/skaz/pull/224#issuecomment-7062900941",
+      "scope": "local125featureIDs/247table references and carrier boundaries only; no full class text"
+    },
+    "ritualComparison": {
+      "path": "catalog/wizard-ritual-source-comparison-2014.json",
+      "sha256": "b86c7cab1fff18dd8a13507d317cb3a9cb25b3066562fc3f197f766512ae553b",
+      "pr": 225,
+      "head": "4e55b4089017e6ad70e669e9f4293b25667e3a0d",
+      "review": "https://github.com/garrimajo5/skaz/pull/225#issuecomment-7062998536",
+      "scope": "whole selected32word Wizard Ritual Casting subsection across3retained carriers only"
+    }
   },
   "unlinkedHistoricalRowsPreserved": [
     {
@@ -744,18 +767,20 @@
     "catalog/lightning-keep-relationship-2014.json": "c81fd62ab4173bd48f21b75d8593e018f36a7dfcc6564a71bad2e2dc24d51328",
     "catalog/heroes-feast-relationship-2014.json": "976b3061840d8a0bd089eb8a07b8cdf1d743892d598fdd13709a5028ad48b912",
     "catalog/vecna-prequel-relationship-2014.json": "5fc91d33282f236ddaca4049b1ab18eca6848851d1712a485042ed2770859280",
-    "catalog/wizard-recovery-source-comparison-2014.json": "0b62cc3ae12d944811eabbaf69ec8693eb180a46120057084e61358a696df5c4"
+    "catalog/wizard-recovery-source-comparison-2014.json": "0b62cc3ae12d944811eabbaf69ec8693eb180a46120057084e61358a696df5c4",
+    "catalog/basic-class-feature-crosswalk-2014.json": "3de8beca1c5587ae55d22db765e6c9f1d338d1d8855cbd1372497b4f47f7329d",
+    "catalog/wizard-ritual-source-comparison-2014.json": "b86c7cab1fff18dd8a13507d317cb3a9cb25b3066562fc3f197f766512ae553b"
   },
   "generator": {
     "path": "scripts/review-d05-current-triage-2014.py",
-    "sha256": "aa02187d0cad9b97dcbbc853f0fde52c8d046c36a750205777bf8ab58059074f"
+    "sha256": "b0e8330e81f051b5aa9e42cd2b006e4f4f077886bedc0f24dccd9a49f52e5c0e"
   },
   "limits": [
     "15+0 partitions15 work references, not the game catalogue or count of missing publications.",
     "A reviewed bounded witness does not close its remaining full-text/version/scope/rights/canonical-unit criteria.",
     "Current work is separate from original15-row/70-source observations; no input or policy is mutated.",
     "Review citations are pinned to the checked report and exact PR head; changed evidence needs new review.",
-    "The selected Wizard rule is neither a sixteenth publication witness nor working runtime automation.",
+    "The two selected Wizard components and local class-reference crosswalk are not additional publication witnesses or runtime automation.",
     "Owner milestones, private matrix, application/VPS state and catalogue denominator remain unchanged."
   ]
 }

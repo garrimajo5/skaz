@@ -34,7 +34,7 @@ class D05CurrentTriageTest(unittest.TestCase):
         d=M.build(ROOT);row=next(r for r in d['records'] if r['providerSourceId']==1)
         self.assertEqual(row['additionalSelectedRuleComparison']['unitId'],'wizard-arcane-recovery')
         self.assertFalse(row['additionalSelectedRuleComparison']['acceptedForRuntime'])
-        self.assertEqual(d['summary']['withReviewedBoundedKindWitness'],15);self.assertEqual(d['summary']['selectedCompleteRuleComparisons'],1)
+        self.assertEqual(d['summary']['withReviewedBoundedKindWitness'],15);self.assertEqual(d['summary']['selectedCompleteRuleComparisons'],2)
 
     def test_changed_report_cannot_inherit_old_independent_review(self):
         spec=M.WITNESSES[62];text=(ROOT/spec['path']).read_text(encoding='utf-8')
@@ -82,7 +82,7 @@ class D05CurrentTriageTest(unittest.TestCase):
         d=M.build(ROOT);rows={r['providerSourceId']:r for r in d['records']}
         self.assertEqual(rows[94]['witnessPath'],rows[128]['witnessPath'])
         self.assertNotEqual(rows[94]['publicationKindWitness'],rows[128]['publicationKindWitness'])
-        self.assertEqual(len(d['inputSha256']),16)
+        self.assertEqual(len(d['inputSha256']),18)
         for pid in [94,128]:
             self.assertIn('HTTP status/final URL unretained',rows[pid]['provenanceCaveat'])
             M.validate_identity(pid,read(M.WITNESSES[pid]['path']))
@@ -103,7 +103,7 @@ class D05CurrentTriageTest(unittest.TestCase):
         d=M.build(ROOT);self.assertEqual(d['primaryKindWorkQueue'],[]);self.assertIsNone(d['nextUntriagedProviderSourceId'])
         self.assertEqual([r['providerSourceId'] for r in d['remainingCriteriaWorkQueue']],M.EXPECTED_RESIDUAL)
         self.assertTrue(all(r['remainingCriteria'] and not r['canonicalUnitAccepted'] for r in d['remainingCriteriaWorkQueue']))
-        self.assertEqual(d['nextWorkItem']['phase'],'publication-version-and-record-inventory');self.assertEqual(d['nextWorkItem']['providerSourceId'],1)
+        self.assertEqual(d['nextWorkItem']['phase'],'class-rule-provenance-and-scope');self.assertEqual(d['nextWorkItem']['providerSourceId'],1)
         self.assertIn('Arcane Recovery',d['nextWorkItem']['doNotRepeat']);self.assertFalse(d['complete'])
 
     def test_primary_pass_cannot_drop_remaining_criteria_or_accept_full_rules(self):
@@ -117,6 +117,19 @@ class D05CurrentTriageTest(unittest.TestCase):
         from unittest.mock import patch
         with patch.dict(M.WITNESSES,{132:M.WITNESSES[135]}):
             with self.assertRaises(ValueError):M.build(ROOT)
+
+    def test_supplemental_unit_and_crosswalk_are_pinned_without_new_publication_count(self):
+        d=M.build(ROOT);self.assertEqual(d['summary']['withReviewedBoundedKindWitness'],15);self.assertEqual(d['summary']['selectedCompleteRuleComparisons'],2)
+        self.assertEqual(d['summary']['classReferenceCrosswalks'],1);self.assertEqual(set(d['supplementalClassEvidence']),{'classReferenceCrosswalk','ritualComparison'})
+        for kind,spec in M.EXTRA_CLASS_EVIDENCE.items():M.validate_extra(kind,M.reviewed_json((ROOT/spec['path']).read_text(encoding='utf-8'),spec['sha256']))
+    def test_supplemental_evidence_cannot_promote_runtime_or_full_class(self):
+        r=read(M.EXTRA_CLASS_EVIDENCE['ritualComparison']['path']);r['acceptedForRuntime']=True
+        with self.assertRaises(ValueError):M.validate_extra('ritualComparison',r)
+        c=read(M.EXTRA_CLASS_EVIDENCE['classReferenceCrosswalk']['path']);c['classRows'][0]['fullClassTextCompared']=True
+        with self.assertRaises(ValueError):M.validate_extra('classReferenceCrosswalk',c)
+    def test_next_step_uses_existing_class_candidates_and_does_not_repeat_completed_units(self):
+        n=M.build(ROOT)['nextWorkItem'];self.assertIn('Wizard/Artificer',n['action']);self.assertIn('Ritual Casting',n['doNotRepeat']);self.assertIn('local125/247',n['doNotRepeat'])
+        self.assertTrue(all((ROOT/path).is_file() for path in n['candidateInputs']))
 
     def test_committed_report_reproduces_and_provenance_stays_json_only(self):
         d=read('catalog/d05-current-publication-triage-2014.json');self.assertEqual(d,M.build(ROOT))
