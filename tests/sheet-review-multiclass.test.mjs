@@ -2,13 +2,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
-const html=readFileSync(new URL('../docs/design/prototypes/sheet-review-80.html',import.meta.url),'utf8');
+const html=readFileSync(new URL('../docs/design/prototypes/sheet-review-80.js',import.meta.url),'utf8');
 const source=html.slice(html.indexOf('function reviewValue('),html.indexOf('function load('));
 const field=(key,value,leaveUnknown=false)=>({key,min:1,max:20,leaveUnknown,input:{value:String(value),setAttribute(){}},status:{classList:{toggle(){}}}});
 function setup(wizard=3,warlock=2,total=5){
  const fields=[field('level.wizard',wizard),field('level.warlock',warlock),field('totalLevel',total)];
  const nodes={summary:{},apply:{},confirmed:{checked:true},'class-comparison':{},'class-status':{},'class-agreement-label':{},'class-agreement':{}};
- const ctx=vm.createContext({fields,classAgreement:null,confirmedResult:false,$:id=>nodes[id]});vm.runInContext(source,ctx);
+ const ctx=vm.createContext({fields,classAgreement:null,confirmation:null,$:id=>nodes[id]});vm.runInContext(source,ctx);
  return {fields,nodes,ctx,state:()=>JSON.parse(vm.runInContext('JSON.stringify(classReviewState(fields))',ctx)),update:()=>vm.runInContext('update()',ctx)};
 }
 test('two class levels are compared to a separate manual total without changing fields',()=>{
