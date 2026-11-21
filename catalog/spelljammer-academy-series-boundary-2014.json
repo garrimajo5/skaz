@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "status": "primary-ordered-adventure-series-witness-not-rules-count-or-runtime-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "providerSourceId": 93,
+  "providerObservationId": "ddb:library-source:93",
+  "numericDndsuSourceId": null,
+  "canonicalSourceId": null,
+  "automaticAttribution": false,
+  "sources": {
+    "source.html": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/sja",
+      "finalUrl": "https://www.dndbeyond.com/sources/dnd/sja",
+      "status": 200,
+      "bytes": 246287,
+      "sha256": "13243600ab73ce80190d5794bdf8f49d3b760a802a8c3fe0ba4c9963d0bd67bb",
+      "capturedAt": "2026-11-21T00:25:50.225448+00:00"
+    },
+    "article.html": {
+      "requestedUrl": "https://www.dndbeyond.com/posts/1284-what-is-the-spelljammer-academy-adventure-series",
+      "finalUrl": "https://www.dndbeyond.com/posts/1284-what-is-the-spelljammer-academy-adventure-series",
+      "status": 200,
+      "bytes": 365301,
+      "sha256": "3305e19f4bb937b4582327fbba8876f32d15cb2752f122175bf5278619de68a6",
+      "capturedAt": "2026-11-21T00:26:46.692063+00:00"
+    },
+    "claim.html": {
+      "requestedUrl": "https://www.dndbeyond.com/claim/source/spelljammer-academy",
+      "finalUrl": "https://www.dndbeyond.com/claim/source/spelljammer-academy",
+      "status": 200,
+      "bytes": 221632,
+      "sha256": "f968b2af7f3e46d0332022bce9859e4b14adbcdc46ea4d3a1ccae593a2e130e2",
+      "capturedAt": "2026-11-21T00:26:46.402453+00:00"
+    },
+    "reusedALGuide": {
+      "requestedUrl": "https://media.dndbeyond.com/compendium-images/ddal/reference-docs/03-2024/d%26d-adventurers-league-adaptation-guides-v2.4.pdf",
+      "finalUrl": "https://media.dndbeyond.com/compendium-images/ddal/reference-docs/03-2024/d%26d-adventurers-league-adaptation-guides-v2.4.pdf",
+      "status": 200,
+      "bytes": 1476910,
+      "sha256": "ee0ffa32ccab84212b518380ab81d720d15e8c1ccaa529750666fc235123dcbb",
+      "capturedAt": "2026-11-21T00:12:40.910257+00:00",
+      "newlyInspectedPdfPages": [
+        48
+      ]
+    }
+  },
+  "seriesToc": {
+    "title": "Spelljammer Academy",
+    "orderedPartReferences": [
+      {
+        "number": 1,
+        "title": "Orientation",
+        "chapterUrl": "https://www.dndbeyond.com/sources/sja/orientation",
+        "creatureStatisticsReferences": [
+          {
+            "label": "Creature Statistics",
+            "url": "https://www.dndbeyond.com/sources/sja/orientation#CreatureStatistics"
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Trial By Fire",
+        "chapterUrl": "https://www.dndbeyond.com/sources/sja/trial-by-fire",
+        "creatureStatisticsReferences": [
+          {
+            "label": "Creature Statistics",
+            "url": "https://www.dndbeyond.com/sources/sja/trial-by-fire#CreatureStatistics"
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Realmspace Sortie!",
+        "chapterUrl": "https://www.dndbeyond.com/sources/sja/realmspace-sortie",
+        "creatureStatisticsReferences": [
+          {
+            "label": "Creature Statistics",
+            "url": "https://www.dndbeyond.com/sources/sja/realmspace-sortie#CreatureStatistics"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "title": "Behold... H'Catha",
+        "chapterUrl": "https://www.dndbeyond.com/sources/sja/behold-hcatha",
+        "creatureStatisticsReferences": [
+          {
+            "label": "Creature Statistics",
+            "url": "https://www.dndbeyond.com/sources/sja/behold-hcatha#CreatureStatistics"
+          }
+        ]
+      }
+    ],
+    "proposedComponentReferences": 4,
+    "scope": "four named TOC components only; repeated section labels are not merged as creature records"
+  },
+  "publisherStatement": {
+    "title": "What Is the Spelljammer Academy Adventure Series?",
+    "statementSha256": "6a88c396e229902d664f7b4e7a4f6b6d812a97016f846cd8e12f0c9cd741bd30",
+    "advertisedStartLevel": 1,
+    "advertisedCompletionLevel": 5,
+    "preparesForAdventure": "Light of Xaryxis",
+    "relatedBoxedSetTitle": "Spelljammer: Adventures in Space",
+    "containedInBoxedSet": "not-established",
+    "scope": "one publisher introductory paragraph; not class-level automation"
+  },
+  "claimBoundary": {
+    "currentPromotionEndedNotice": true,
+    "offerDescriptionSha256": "ea5f1e9b43759cc51eecabcd9faa13e156d187252099ec1d38f816c3fe5934f9",
+    "claimSubmitted": false,
+    "authenticatedAccessUsed": false,
+    "priorClaimantAccessTested": false,
+    "fullAdventureRulesReviewed": false
+  },
+  "campaignTiming": {
+    "pdfPage": 48,
+    "subsectionSha256": "2f9231ee9836cc59cbe7df9ed4b21cdfb030d89b172fef41b8f6ba6f37b5ec0c",
+    "designedSequentialParts": true,
+    "alOptionalTierOneAnyOrder": true,
+    "alBeforeSelectedAdventuresFinishedOrdinaryMaximumLevel": 4,
+    "allFourPartsAlwaysMandatory": false,
+    "globalProfileMaximumLevelIs4": false,
+    "automaticLevelGrantedOnMetadataImport": false,
+    "scope": "AL before-completion guidance, compatible with advertised completion5; not a global class or game-action cap"
+  },
+  "relationship": {
+    "kind": "four-part-preparatory-adventure-series",
+    "relatedBoxedSetProviderSourceId": 90,
+    "relatedBoxedSetExistingDndsuSourceId": "160",
+    "containedInBoxedSet": "not-established",
+    "isAliasOfBoxedSet": false,
+    "genericALSource169Assigned": false,
+    "fullTextOrRecordEquivalence": "unverified",
+    "reusePermission": "not-established"
+  },
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-source-link-proposals-2014.json": "32baeee49a644be8822acdf46c2ebadc890efeb0ea90801f0e257b0ea509c4dc",
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe",
+    "catalog/wayfinder-version-boundary-2014.json": "8e452fef30ac75e59707802705180f1ef654728aa2b44348b59d55ca578c75ac"
+  },
+  "generator": {
+    "path": "scripts/audit-spelljammer-academy-series-2014.py",
+    "sha256": "64978e08d026e8545ba17e5ad1e23580ce486735144aab34c9e33432de01a87b"
+  },
+  "upstreamParsers": [
+    {
+      "path": "scripts/audit-prisoner13-component-2014.py",
+      "sha256": "5f19428fb4a6d387a09ed38a21871d8f44b8b319f2192d9c731e08784865a124"
+    },
+    {
+      "path": "scripts/audit-radiant-citadel-chapter-2014.py",
+      "sha256": "6bd65a91c991c9432a4aefd06286d146cb695415ae59238013501d37a243a9b0"
+    }
+  ],
+  "limits": [
+    "Four component references are not four accepted creature/spell/item units or the whole related boxed set.",
+    "Repeated Creature Statistics headings remain scoped to their parts, without assumed duplicate record identities.",
+    "Completion5 and AL stay-at-most4 before finishing selected adventures describe different timing, not inconsistent versions.",
+    "No automatic level grant, all-parts mandate, global profile cap or removal of personal manual exceptions.",
+    "No full adventure/PDF/HTML/private profile, new source attribution, catalogue denominator or owner acceptance exported."
+  ]
+}

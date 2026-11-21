@@ -6386,3 +6386,9 @@ Runtime52731fd опубликован: Linux1322/1322,check/build, новый р
 
 - PR215/fd921b7слитпосленезависимых11Python/4SHA/3artifact/visualAL18review. Следующийнезависимыйисточник92: provider87/Journeys→existinghistorical171, отдельнаяперваяглаваsettinghub. Primaryarticle+именованныйContentsTOC+claimexpirednotice, неgenericproviderType=adventure/counts/wholebookunlock.
 -11Python/реальные3HTML/SHA PASS; [границы](radiant-citadel-chapter-boundary-2014.md). ОтдельныйStatblocksTOC неchapter, peerh2внутрискоупаотклоняется; истёкшеепромо неproofдоступастарыхвладельцев. Claim/auth/fullchapterнеиспользовались. Independentreviewдоmerge, fullrules/версии/права/denominatorоткрыты; далее93SpelljammerAcademy. Runtime/VPSне менялись.
+
+
+### 21.11 — D05 #77: Academy93 четыреparts и before/aftercompletion
+
+- После11Python/4SHA/3HTMLнезависимогоreviewслитPR216/e2f79ed. Academy93:4orderedcomponentTOCs, publisher1–5/preparesLightXaryxis,ALPDF48optionalanyorder/<=4beforefinishingchosenadventures. Stageразделены, неглобальныйcap/неавтоповышение/неall4mandatory; relatedboxedprovider90/historical160неchildID.
+-10Python/реальные3HTML+reusedAL48/visual48PASS; [границы](spelljammer-academy-series-boundary-2014.md). Первоначальныйотказ/rootregressionвыявиликонфликтself.offsetсHTMLParser; red→greenпереименованиемpart_link_start. Полныезаписи/версии/права/canonical/denominatorнеприняты, independentreviewдоmerge. ДалееStormwreck94/Intro128; runtime/VPSнеменялись.
