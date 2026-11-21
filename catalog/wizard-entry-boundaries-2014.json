@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "status": "bounded-entry-concordance-not-full-class-or-runtime",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "sources": {
+    "secondary": {
+      "url": "https://dnd.su/class/105-wizard/",
+      "sha256": "5014af15fd61af05dde5bd29e19514b8fd87fe10ea60fbcd8a81f6574e2053c8",
+      "retainedSnapshotNotHistoricalCandidateSnapshot": true,
+      "originalHttpReceiptUnavailable": true
+    },
+    "srd": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "selectedPdfPages": [
+        52,
+        57
+      ]
+    },
+    "basic": {
+      "url": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "sha256": "7a0c5d8bf52d15092f156d78418aa3d43307e271f810d2f06bf2f0258e9288a3",
+      "selectedPdfPages": [
+        12
+      ]
+    },
+    "renderedPagesInspected": true
+  },
+  "secondaryScopes": [
+    {
+      "headingOrdinal": 13,
+      "title": "МУЛЬТИКЛАССИРОВАНИЕ И ВОЛШЕБНИК",
+      "wholeBodySha256": "bc9186d3450690cc4143f43605b31e67c91693bb256c21033edc4643822cb6cb",
+      "originalParagraphCount": 4,
+      "comparedParagraphIndexes": [
+        2
+      ],
+      "comparedParagraphSha256": [
+        "401d676995352247de76174e1b1a4c16591fdda460f439b6d43bb162b10efa9e"
+      ],
+      "completeHeadingProseCompared": false
+    },
+    {
+      "headingOrdinal": 16,
+      "title": "ХИТЫ",
+      "wholeBodySha256": "cd4d9c45102a029b13c30714774bebf8a1ca20d69aa078c32fb2b4adc9dfaab3",
+      "originalParagraphCount": 3,
+      "comparedParagraphIndexes": [
+        0,
+        1,
+        2
+      ],
+      "comparedParagraphSha256": [
+        "0c808f1812741e5167df9b1c8374f1a489a7f6e5d5c5b61ad714855ad1ae33d0",
+        "ffab50011e7739599372581bd5a50c415f53abd5bdbcf781180d76f03de959a3",
+        "cf2ba892e9cb64e120da58bb2a6d31a5900c552d0259137a289ee6c746d71a0a"
+      ],
+      "completeHeadingProseCompared": true
+    },
+    {
+      "headingOrdinal": 17,
+      "title": "ВЛАДЕНИЕ",
+      "wholeBodySha256": "839e450da8629dbe2fb6a355c7f7bdf47495a4c15b8a5435d23653cda7488560",
+      "originalParagraphCount": 5,
+      "comparedParagraphIndexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "comparedParagraphSha256": [
+        "bc6ba28fd5d09134949d7a56753900ef231469c4da2570766270b0f5646bc0c8",
+        "86b1aaec65f208ba6f2469a80683cde75078cc0b76f49e94e255750bb443d5fd",
+        "fc6c825b664ba836f48b8d810e642eae302f1e98467a42d0a97a2f2ddee73be9",
+        "9665b6717effc03c4590365b85b4a4c1ba65eb352d53eb0cd23c4b8d0728fe1b",
+        "05b4134466c0c578f6d0a4ab18e724cc9dc7e98d5e1b5c9264bed3734dda1c99"
+      ],
+      "completeHeadingProseCompared": true
+    }
+  ],
+  "primaryScopes": [
+    {
+      "kind": "wizard-hit-points",
+      "source": "srd51",
+      "pdfPage": 52,
+      "start": "Hit Points Hit Dice:",
+      "stop": "Proficiencies",
+      "selectedTextSha256": "da6216bb386682ceea45f04226692c74947c210b6e8e3a9b8b2d4869900d6a74",
+      "wordCount": 35,
+      "otherClassTableRowsAccepted": false
+    },
+    {
+      "kind": "wizard-starting-proficiencies",
+      "source": "srd51",
+      "pdfPage": 52,
+      "start": "Proficiencies",
+      "stop": "Equipment You start",
+      "selectedTextSha256": "1f2a087d923ee54a6eeb74b476352f8f071b98dfad28ff01981ab18e84f71352",
+      "wordCount": 27,
+      "otherClassTableRowsAccepted": false
+    },
+    {
+      "kind": "multiclass-hit-points-and-dice",
+      "source": "srd51",
+      "pdfPage": 57,
+      "start": "Hit Points and Hit Dice",
+      "stop": "Proficiency Bonus",
+      "selectedTextSha256": "44748e5a7f60bab08b38641845370302834e351dc34bd6cb7c1c24aa76bf9549",
+      "wordCount": 129,
+      "otherClassTableRowsAccepted": false
+    },
+    {
+      "kind": "multiclass-proficiency-context",
+      "source": "srd51",
+      "pdfPage": 57,
+      "start": "Proficiencies When you gain your first level",
+      "stop": "Class Features",
+      "selectedTextSha256": "5e132217aa4245c718b7d4995735890a72e20eadd86be74243c00f9f1bf5c0ac",
+      "wordCount": 141,
+      "otherClassTableRowsAccepted": false
+    },
+    {
+      "kind": "multiclass-no-generic-starting-equipment",
+      "source": "srd51",
+      "pdfPage": 57,
+      "start": "Class Features When you gain a new level",
+      "stop": "Channel Divinity If you already have",
+      "selectedTextSha256": "aed51f0406763a10da0fb93f6f58b8ed5c1dc8424f83c70ad2737f001058e113",
+      "wordCount": 44,
+      "otherClassTableRowsAccepted": false
+    },
+    {
+      "kind": "basic-hp-gain-minimum-context",
+      "source": "basic2018",
+      "pdfPage": 12,
+      "start": "Each time you gain a level, you gain 1 additional Hit Die.",
+      "stop": "When your Constitution modifier increases",
+      "selectedTextSha256": "c7d40d42e201405c4bcda6d3108dd0074d5d008e2bec96aee3d4d3a55e5e59ef",
+      "wordCount": 58,
+      "constitutionalRetroactivityParagraphCompared": false
+    }
+  ],
+  "ordinarySelectedFacts": {
+    "wizardHitDie": "d6",
+    "wizardCharacterFirstLevelHpBase": 6,
+    "laterLevelWizardFixedGainBeforeCon": 4,
+    "rolledAlternative": "1d6",
+    "initialCharacterLevelAndNewWizardClassLevelNotInterchangeable": true,
+    "minimum1ExplicitInSrdWizardClassParagraph": false,
+    "minimum1ExplicitInBasicGenericRolledTotalSentence": true,
+    "minimumMarkerNotSilentlyInsertedIntoSrdText": true,
+    "startingArmorProficiencies": [],
+    "startingWeaponProficiencies": [
+      "daggers",
+      "darts",
+      "slings",
+      "quarterstaffs",
+      "light crossbows"
+    ],
+    "startingToolProficiencies": [],
+    "startingSavingThrows": [
+      "Intelligence",
+      "Wisdom"
+    ],
+    "startingSkillChoices": {
+      "choose": 2,
+      "from": [
+        "Arcana",
+        "History",
+        "Insight",
+        "Investigation",
+        "Medicine",
+        "Religion"
+      ]
+    },
+    "wizardMulticlassProficienciesGrantedBySelectedTableRow": [],
+    "wizardStartingSavingThrowsAutomaticallyGrantedOnMulticlass": false,
+    "wizardClassFirstLevelAutomaticallyGetsCharacterFirstLevel6Hp": false,
+    "mixedHitDiceTypesKeptSeparate": true,
+    "startingEquipmentAutomaticallyRegrantedFromGenericClassStartingList": false,
+    "specificSpellbookFeatureGrantDecidedByThisContext": false,
+    "currentHpManufacturedFromMaximum": false
+  },
+  "manualAssessments": [
+    {
+      "kind": "hp-three-paragraphs",
+      "secondaryHeadingOrdinal": 16,
+      "primaryClassFactsAgree": true,
+      "minimum1RequiresSeparateBasicCarrierContext": true,
+      "literalSourceEqualityClaimed": false
+    },
+    {
+      "kind": "starting-proficiencies-five-paragraphs",
+      "secondaryHeadingOrdinal": 17,
+      "selectedKindsAndSkillSetAgree": true,
+      "skillOrderDiffers": true,
+      "secondarySkillOrder": [
+        "History",
+        "Arcana",
+        "Medicine",
+        "Insight",
+        "Investigation",
+        "Religion"
+      ],
+      "primarySkillOrder": [
+        "Arcana",
+        "History",
+        "Insight",
+        "Investigation",
+        "Medicine",
+        "Religion"
+      ],
+      "allGrantedOnMulticlass": false
+    },
+    {
+      "kind": "wizard-multiclass-no-proficiencies",
+      "secondaryHeadingOrdinal": 13,
+      "paragraphIndexes": [
+        2
+      ],
+      "otherThreeParagraphsCompared": false,
+      "allTwelvePrimaryTableRowsAccepted": false
+    }
+  ],
+  "holds": {
+    "equipment18IncludingFourChoicesAndAlternateWealth": "not compared in this report; full original body retained outside Git",
+    "multiclass13PrerequisiteAndSpellSlotParagraphs": "not accepted from proficiency-only comparison",
+    "minimum1Scope": "Basic marks rolled total; literal placement across carriers retained, no generic runtime clamp introduced",
+    "fullClassSourceVersionAndRights": "not accepted"
+  },
+  "summary": {
+    "completeSecondaryEntryScopes": 2,
+    "completeEntryParagraphs": 8,
+    "selectedMulticlassParagraphs": 1,
+    "primaryContextScopes": 6,
+    "canonicalUnitsAccepted": 0
+  },
+  "implementationBoundaries": {
+    "manualDeviationWarnAndAllow": true,
+    "oldProficienciesOrHpOverwritten": false,
+    "runtimeAccepted": false
+  },
+  "inputSha256": {},
+  "upstreamParserSha256": {
+    "scripts/audit-wizard-candidate-concordance-2014.py": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b"
+  },
+  "generator": {
+    "path": "scripts/audit-wizard-entry-boundaries-2014.py",
+    "sha256": "8b9e84352710a3133e1b8951a5468779cb8e59f6d19856a8fdb5012c49207f0b"
+  }
+}
