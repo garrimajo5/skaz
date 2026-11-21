@@ -21,7 +21,7 @@
 | Направление | Состояние и адресный вход |
 | --- | --- |
 | M0 / #77: источники и полнота | Открыто; [решения об источниках](catalog-source-decisions-2014.md), [D05-триаж](d05-current-publication-triage-2014.md). Наличие записи, текст, параметры, автоматизация, права и арт учитываются раздельно. |
-| M0 / #77 / Wizard–Artificer | [Контекст](wizard-artificer-current-evidence-2014.md): selected multiclass13/180slotcells и Evocation37/38/39 добавлены к прежним list/core/entry/Equipment. [Границы единиц](class-unit-granularity-proposal-2014.md):130observations/23aux сохранены, не canonical/denominator/runtime. Следующий planner — unit/version/alias residual по #77; полные TCE/Artificer и general/media критерии отдельно. |
+| M0 / #77 / классовые единицы | [13-class пакет](class-unit-residual-review-2014.md):913observations/8roles,4source-version families/28ID;31discovery сохраняет3sidekicks отдельно от13main. [Primary TOC](class-multisource-toc-2014.md):8family+3sidekick links, не full rules/rights/denominator. Eloquencebody — scoped hold; следующий content: оставшиеся D06unit/variant/reference границы, не arbitrary high-level audit. |
 | #77 / D03 | [Текущий контекст](d03-current-review-context-2014.md): reference-отношения и digital overlap отделены от canonical/печатной эквивалентности. Остатки и первичные условия — в этом контексте. |
 | M0 / #78 | Матрица Эдвина и игровая приёмка: [декомпозиция](design/edwin-work-breakdown.md), текущий issue. Не читать настоящий личный лист как QA-фикстуру; доступ к приватным заметкам не подразумевается. |
 | M0 / #79 | План полевой приёмки: текущий issue и [решение об устройстве](qa/device-decision-2026-11-17.md). Физический Xiaomi, сон и двухчасовая игра не объявлены принятыми. |

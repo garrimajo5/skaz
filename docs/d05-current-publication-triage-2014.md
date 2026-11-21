@@ -31,7 +31,7 @@
 
 Все15 исходных provider-ссылок имеют ограниченное kind-свидетельство. `primaryKindWorkQueue=[]`, `nextUntriagedProviderSourceId=null`: этот результат не означает исчерпанную очередь проекта или полный каталог. В `remainingCriteriaWorkQueue` сохранены15строк с критериями полного текста, версий, происхождения, прав и канонических единиц. Два полных выбранных Wizard-компонента (Arcane Recovery/Ritual Casting) и локальный class-reference crosswalk учитываются отдельно, не как новые публикации или автоматизация класса.
 
-**Следующий исполнимый шаг planner/D05:** [границы классовых единиц](class-unit-granularity-proposal-2014.md) и остаток composition/version/alias/denominator #77. [Class context](wizard-artificer-current-evidence-2014.md) теперь включает выбранные multiclass13 и Evocation37/38/39;130/23 — observations, не принятые единицы. Полные TCE/Artificer,11general-body/5media, версии/права/состав каталога не приняты; M0 закрывает владелец.
+**Текущий D05:** [пакет13классов](class-unit-residual-review-2014.md) связывает913observations/8roles/4version families, отдельно31discovery13+3+15 и [3primary TOC](class-multisource-toc-2014.md). Это не canonical denominator. ПерваяEloquence full-body/version сверка имеет только scoped hold (redirect/200headers/body timeout), не блокировку#77. Следующий content — оставшаяся D06unit/variant/reference граница Folio/IMR/SKT по фактической конечной очереди; успешные индексы не перечитывать, full rules без влияния на единицу оставить M4.
 
 Прежние crosswalk иArcane/Ritual остаются закреплёнными в этомпубликационномтриаже; его selected-counts не выдаются за глобальное число source-сравнений. Классовойдетализации соответствует отдельныйcurrent-context вход, без принятия canonical/прав/автоматизации.
 

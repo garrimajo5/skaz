@@ -1,0 +1,457 @@
+{
+  "schemaVersion": 1,
+  "status": "four-family-publisher-toc-witnesses-not-rule-or-version-equivalence",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "summary": {
+    "publisherIndices": 3,
+    "selectedClassFamilyTocLinks": 8,
+    "selectedSidekickTocLinks": 3,
+    "pairedFamilies": 4,
+    "preservedObservationIds": 28,
+    "chapterAttemptsWithObservedMarketplaceRedirect": 2,
+    "chapterBodiesRetained": 0,
+    "completeSubclassComparisons": 0,
+    "canonicalUnitsAccepted": 0
+  },
+  "sources": [
+    {
+      "bookKey": "tcoe",
+      "sourceId": "117",
+      "title": "Tasha’s Cauldron of Everything",
+      "capture": {
+        "requestedUrl": "https://www.dndbeyond.com/sources/dnd/tcoe",
+        "finalUrl": "https://www.dndbeyond.com/sources/dnd/tcoe",
+        "status": 200,
+        "capturedAt": "2026-11-21T20:53:10.368802+00:00",
+        "bytes": 243551,
+        "sha256": "91d36b9e84e825b1fa376ad5fb175d2544e042c96f47d616f4ec3f78744c86ee",
+        "outcome": "complete",
+        "retried": false
+      },
+      "tocBoundary": "one div.compendium-toc-full-text",
+      "selectedLinks": [
+        {
+          "classSlug": "bard",
+          "sourceId": "117",
+          "label": "College of Eloquence",
+          "observedHref": "/sources/tcoe/bard#CollegeofEloquence",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/bard#CollegeofEloquence",
+          "completeSubclassBodyCompared": false
+        },
+        {
+          "classSlug": "cleric",
+          "sourceId": "117",
+          "label": "Order Domain",
+          "observedHref": "/sources/tcoe/cleric#OrderDomain",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/cleric#OrderDomain",
+          "completeSubclassBodyCompared": false
+        },
+        {
+          "classSlug": "druid",
+          "sourceId": "117",
+          "label": "Circle of Spores",
+          "observedHref": "/sources/tcoe/druid#CircleofSpores",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/druid#CircleofSpores",
+          "completeSubclassBodyCompared": false
+        },
+        {
+          "classSlug": "paladin",
+          "sourceId": "117",
+          "label": "Oath of Glory",
+          "observedHref": "/sources/tcoe/paladin#OathofGlory",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/paladin#OathofGlory",
+          "completeSubclassBodyCompared": false
+        },
+        {
+          "sidekickLabel": "Expert",
+          "secondaryClassUrl": "https://dnd.su/class/197-expert-sidekick/",
+          "sourceId": "117",
+          "label": "Expert",
+          "observedHref": "/sources/tcoe/dungeon-masters-tools#Expert",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/dungeon-masters-tools#Expert",
+          "completeSidekickBodyCompared": false
+        },
+        {
+          "sidekickLabel": "Spellcaster",
+          "secondaryClassUrl": "https://dnd.su/class/198-spellcaster-sidekick/",
+          "sourceId": "117",
+          "label": "Spellcaster",
+          "observedHref": "/sources/tcoe/dungeon-masters-tools#Spellcaster",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/dungeon-masters-tools#Spellcaster",
+          "completeSidekickBodyCompared": false
+        },
+        {
+          "sidekickLabel": "Warrior",
+          "secondaryClassUrl": "https://dnd.su/class/199-warrior-sidekick/",
+          "sourceId": "117",
+          "label": "Warrior",
+          "observedHref": "/sources/tcoe/dungeon-masters-tools#Warrior",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/dungeon-masters-tools#Warrior",
+          "completeSidekickBodyCompared": false
+        }
+      ]
+    },
+    {
+      "bookKey": "moot",
+      "sourceId": "121",
+      "title": "Mythic Odysseys of Theros",
+      "capture": {
+        "requestedUrl": "https://www.dndbeyond.com/sources/dnd/moot",
+        "finalUrl": "https://www.dndbeyond.com/sources/dnd/moot",
+        "status": 200,
+        "capturedAt": "2026-11-21T20:53:10.369317+00:00",
+        "bytes": 246948,
+        "sha256": "9a19b978f2f22747a0b395c02132a02ed170d7dc91cb4cd474f0af9d1be09f95",
+        "outcome": "complete",
+        "retried": false
+      },
+      "tocBoundary": "one div.compendium-toc-full-text",
+      "selectedLinks": [
+        {
+          "classSlug": "bard",
+          "sourceId": "121",
+          "label": "Bard: College of Eloquence",
+          "observedHref": "/sources/moot/character-creation#BardCollegeofEloquence",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/moot/character-creation#BardCollegeofEloquence",
+          "completeSubclassBodyCompared": false
+        },
+        {
+          "classSlug": "paladin",
+          "sourceId": "121",
+          "label": "Paladin: Oath of Glory",
+          "observedHref": "/sources/moot/character-creation#PaladinOathofGlory",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/moot/character-creation#PaladinOathofGlory",
+          "completeSubclassBodyCompared": false
+        }
+      ]
+    },
+    {
+      "bookKey": "ggtr",
+      "sourceId": "112",
+      "title": "Guildmasters' Guide to Ravnica",
+      "capture": {
+        "requestedUrl": "https://www.dndbeyond.com/sources/dnd/ggtr",
+        "finalUrl": "https://www.dndbeyond.com/sources/dnd/ggtr",
+        "status": 200,
+        "capturedAt": "2026-11-21T20:53:10.369317+00:00",
+        "bytes": 252050,
+        "sha256": "fedaea3dc08b01c9bc7ed54745d85ec4e1a582995d1cd4120fed16f6f75c21f4",
+        "outcome": "complete",
+        "retried": false
+      },
+      "tocBoundary": "one div.compendium-toc-full-text",
+      "selectedLinks": [
+        {
+          "classSlug": "cleric",
+          "sourceId": "112",
+          "label": "Cleric: Order Domain",
+          "observedHref": "https://www.dndbeyond.com/compendium/rules/ggtr/character-creation#ClericOrderDomain",
+          "resolvedUrl": "https://www.dndbeyond.com/compendium/rules/ggtr/character-creation#ClericOrderDomain",
+          "completeSubclassBodyCompared": false
+        },
+        {
+          "classSlug": "druid",
+          "sourceId": "112",
+          "label": "Druid: Circle of Spores",
+          "observedHref": "https://www.dndbeyond.com/compendium/rules/ggtr/character-creation#DruidCircleofSpores",
+          "resolvedUrl": "https://www.dndbeyond.com/compendium/rules/ggtr/character-creation#DruidCircleofSpores",
+          "completeSubclassBodyCompared": false
+        }
+      ]
+    }
+  ],
+  "familyWitnesses": [
+    {
+      "classSlug": "bard",
+      "parentToken": "college.eloquence",
+      "memberObservationIds": [
+        "scope:bard:college.eloquence:college.eloquence",
+        "scope:bard:college.eloquence:753dc99aea6f1e4a",
+        "scope:bard:college.eloquence:54998442a6807380",
+        "scope:bard:college.eloquence:6bb66cad80fdbc4d",
+        "scope:bard:college.eloquence:69cefa2da537ac12",
+        "scope:bard:college.eloquence:09b9e4bde74d43d1"
+      ],
+      "originalSourceIdsPreserved": [
+        "117",
+        "121"
+      ],
+      "primaryIndexPresenceForBothSources": true,
+      "selectedPublisherLinks": [
+        {
+          "classSlug": "bard",
+          "sourceId": "117",
+          "label": "College of Eloquence",
+          "observedHref": "/sources/tcoe/bard#CollegeofEloquence",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/bard#CollegeofEloquence",
+          "completeSubclassBodyCompared": false
+        },
+        {
+          "classSlug": "bard",
+          "sourceId": "121",
+          "label": "Bard: College of Eloquence",
+          "observedHref": "/sources/moot/character-creation#BardCollegeofEloquence",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/moot/character-creation#BardCollegeofEloquence",
+          "completeSubclassBodyCompared": false
+        }
+      ],
+      "fullRuleEqualityAccepted": false,
+      "printedVersionEqualityAccepted": false,
+      "canonicalVersionCount": null,
+      "canonicalAliasAccepted": false
+    },
+    {
+      "classSlug": "druid",
+      "parentToken": "circle.spores",
+      "memberObservationIds": [
+        "scope:druid:circle.spores:circle.spores",
+        "scope:druid:circle.spores:d899bb01a20fec24",
+        "scope:druid:circle.spores:51460da872d3917d",
+        "scope:druid:circle.spores:52979d2cdd742adf",
+        "scope:druid:circle.spores:b1049531965ca41a",
+        "scope:druid:circle.spores:b76bb91c26e95a4b",
+        "scope:druid:circle.spores:a53cdf2322541890"
+      ],
+      "originalSourceIdsPreserved": [
+        "117",
+        "112"
+      ],
+      "primaryIndexPresenceForBothSources": true,
+      "selectedPublisherLinks": [
+        {
+          "classSlug": "druid",
+          "sourceId": "117",
+          "label": "Circle of Spores",
+          "observedHref": "/sources/tcoe/druid#CircleofSpores",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/druid#CircleofSpores",
+          "completeSubclassBodyCompared": false
+        },
+        {
+          "classSlug": "druid",
+          "sourceId": "112",
+          "label": "Druid: Circle of Spores",
+          "observedHref": "https://www.dndbeyond.com/compendium/rules/ggtr/character-creation#DruidCircleofSpores",
+          "resolvedUrl": "https://www.dndbeyond.com/compendium/rules/ggtr/character-creation#DruidCircleofSpores",
+          "completeSubclassBodyCompared": false
+        }
+      ],
+      "fullRuleEqualityAccepted": false,
+      "printedVersionEqualityAccepted": false,
+      "canonicalVersionCount": null,
+      "canonicalAliasAccepted": false
+    },
+    {
+      "classSlug": "cleric",
+      "parentToken": "domain.order",
+      "memberObservationIds": [
+        "scope:cleric:domain.order:domain.order",
+        "scope:cleric:domain.order:09049e29253af8c1",
+        "scope:cleric:domain.order:6a4a569b7aa399f7",
+        "scope:cleric:domain.order:b8bf02c8a2e7dae7",
+        "scope:cleric:domain.order:6ab70745d429e98a",
+        "scope:cleric:domain.order:2c9526bb2f967a84",
+        "scope:cleric:domain.order:505820b84398d2a5",
+        "scope:cleric:domain.order:5e88609eed21ba24"
+      ],
+      "originalSourceIdsPreserved": [
+        "117",
+        "112"
+      ],
+      "primaryIndexPresenceForBothSources": true,
+      "selectedPublisherLinks": [
+        {
+          "classSlug": "cleric",
+          "sourceId": "117",
+          "label": "Order Domain",
+          "observedHref": "/sources/tcoe/cleric#OrderDomain",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/cleric#OrderDomain",
+          "completeSubclassBodyCompared": false
+        },
+        {
+          "classSlug": "cleric",
+          "sourceId": "112",
+          "label": "Cleric: Order Domain",
+          "observedHref": "https://www.dndbeyond.com/compendium/rules/ggtr/character-creation#ClericOrderDomain",
+          "resolvedUrl": "https://www.dndbeyond.com/compendium/rules/ggtr/character-creation#ClericOrderDomain",
+          "completeSubclassBodyCompared": false
+        }
+      ],
+      "fullRuleEqualityAccepted": false,
+      "printedVersionEqualityAccepted": false,
+      "canonicalVersionCount": null,
+      "canonicalAliasAccepted": false
+    },
+    {
+      "classSlug": "paladin",
+      "parentToken": "oath.glory",
+      "memberObservationIds": [
+        "scope:paladin:oath.glory:oath.glory",
+        "scope:paladin:oath.glory:765eed40fc94e2f0",
+        "scope:paladin:oath.glory:7bedf5485fe3b7b9",
+        "scope:paladin:oath.glory:79b57f20b5022d09",
+        "scope:paladin:oath.glory:bfc29d733d8d7828",
+        "scope:paladin:oath.glory:b8ccfabaf083cb2c",
+        "scope:paladin:oath.glory:f020b2328f7c4954"
+      ],
+      "originalSourceIdsPreserved": [
+        "117",
+        "121"
+      ],
+      "primaryIndexPresenceForBothSources": true,
+      "selectedPublisherLinks": [
+        {
+          "classSlug": "paladin",
+          "sourceId": "117",
+          "label": "Oath of Glory",
+          "observedHref": "/sources/tcoe/paladin#OathofGlory",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/paladin#OathofGlory",
+          "completeSubclassBodyCompared": false
+        },
+        {
+          "classSlug": "paladin",
+          "sourceId": "121",
+          "label": "Paladin: Oath of Glory",
+          "observedHref": "/sources/moot/character-creation#PaladinOathofGlory",
+          "resolvedUrl": "https://www.dndbeyond.com/sources/moot/character-creation#PaladinOathofGlory",
+          "completeSubclassBodyCompared": false
+        }
+      ],
+      "fullRuleEqualityAccepted": false,
+      "printedVersionEqualityAccepted": false,
+      "canonicalVersionCount": null,
+      "canonicalAliasAccepted": false
+    }
+  ],
+  "sidekickReferenceWitnesses": [
+    {
+      "originalDiscoveryObservation": {
+        "section": "classes",
+        "url": "https://dnd.su/class/199-warrior-sidekick/",
+        "ru": "Боец",
+        "en": "Warrior Sidekick",
+        "sourceTitle": "Tasha's Cauldron of Everything",
+        "group": "sidekicks",
+        "canonicalId": null,
+        "fullRulesAccepted": false,
+        "playerClassAutomaticallyAdded": false
+      },
+      "publisherTocLink": {
+        "sidekickLabel": "Warrior",
+        "secondaryClassUrl": "https://dnd.su/class/199-warrior-sidekick/",
+        "sourceId": "117",
+        "label": "Warrior",
+        "observedHref": "/sources/tcoe/dungeon-masters-tools#Warrior",
+        "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/dungeon-masters-tools#Warrior",
+        "completeSidekickBodyCompared": false
+      },
+      "referencePresenceVerified": true,
+      "playerClassAutomaticallyAdded": false,
+      "fullRulesOrCanonicalUnitAccepted": false
+    },
+    {
+      "originalDiscoveryObservation": {
+        "section": "classes",
+        "url": "https://dnd.su/class/198-spellcaster-sidekick/",
+        "ru": "Заклинатель",
+        "en": "Spellcaster Sidekick",
+        "sourceTitle": "Tasha's Cauldron of Everything",
+        "group": "sidekicks",
+        "canonicalId": null,
+        "fullRulesAccepted": false,
+        "playerClassAutomaticallyAdded": false
+      },
+      "publisherTocLink": {
+        "sidekickLabel": "Spellcaster",
+        "secondaryClassUrl": "https://dnd.su/class/198-spellcaster-sidekick/",
+        "sourceId": "117",
+        "label": "Spellcaster",
+        "observedHref": "/sources/tcoe/dungeon-masters-tools#Spellcaster",
+        "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/dungeon-masters-tools#Spellcaster",
+        "completeSidekickBodyCompared": false
+      },
+      "referencePresenceVerified": true,
+      "playerClassAutomaticallyAdded": false,
+      "fullRulesOrCanonicalUnitAccepted": false
+    },
+    {
+      "originalDiscoveryObservation": {
+        "section": "classes",
+        "url": "https://dnd.su/class/197-expert-sidekick/",
+        "ru": "Эксперт ",
+        "en": "Expert Sidekick",
+        "sourceTitle": "Tasha's Cauldron of Everything",
+        "group": "sidekicks",
+        "canonicalId": null,
+        "fullRulesAccepted": false,
+        "playerClassAutomaticallyAdded": false
+      },
+      "publisherTocLink": {
+        "sidekickLabel": "Expert",
+        "secondaryClassUrl": "https://dnd.su/class/197-expert-sidekick/",
+        "sourceId": "117",
+        "label": "Expert",
+        "observedHref": "/sources/tcoe/dungeon-masters-tools#Expert",
+        "resolvedUrl": "https://www.dndbeyond.com/sources/tcoe/dungeon-masters-tools#Expert",
+        "completeSidekickBodyCompared": false
+      },
+      "referencePresenceVerified": true,
+      "playerClassAutomaticallyAdded": false,
+      "fullRulesOrCanonicalUnitAccepted": false
+    }
+  ],
+  "chapterAttempts": [
+    {
+      "requestedUrl": "https://www.dndbeyond.com/sources/tcoe/bard",
+      "finalUrl": "https://marketplace.dndbeyond.com/all-rulebooks/tashas-cauldron-of-everything",
+      "status": 200,
+      "capturedAt": "2026-11-21T20:53:10.865940+00:00",
+      "outcome": "capture-error",
+      "errorType": "TimeoutError",
+      "retried": false,
+      "headersObserved": true,
+      "fullBodyRetained": false,
+      "primarySubclassRulesCompared": false,
+      "accessBarrierProvedToBePaywall": false
+    },
+    {
+      "requestedUrl": "https://www.dndbeyond.com/sources/moot/character-creation",
+      "finalUrl": "https://marketplace.dndbeyond.com/settings/mythic-odysseys-of-theros",
+      "status": 200,
+      "capturedAt": "2026-11-21T20:53:10.881897+00:00",
+      "outcome": "capture-error",
+      "errorType": "TimeoutError",
+      "retried": false,
+      "headersObserved": true,
+      "fullBodyRetained": false,
+      "primarySubclassRulesCompared": false,
+      "accessBarrierProvedToBePaywall": false
+    }
+  ],
+  "limits": [
+    "Selected TOC links establish publication presence only, not whole text/version/translation equality or usage rights.",
+    "The two chapter responses exposed marketplace final URLs/status200 before body-read timeout; no complete body was retained.",
+    "A marketplace redirect and timeout are not a proven paywall, permanent denial, authentication permission or license to bypass access.",
+    "Raw publisher HTML and individual receipts remain outside Git; numeric source namespaces/order and all28observations are preserved.",
+    "No automatic version expansion, aliases, runtime or character changes; manual game exceptions remain allowed."
+  ],
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "exact-eloquence-version-body-access",
+    "action": "Obtain an authorized exact TCE/MOoT subclass body/version witness before comparing the6Eloquence observations; do not repeat successful index captures. Without it, keep only this body criterion on hold and continue independent D01/D06/D07 evidence.",
+    "firstFamily": "bard:college.eloquence"
+  },
+  "inputSha256": {
+    "catalog/class-unit-residual-review-2014.json": "46b8324ab412d7e9ee922e197336220a4d9d0381306d22ecba5871f97dc9a6b4"
+  },
+  "upstreamCaptureToolSha256": {
+    "scripts/capture-publication-witnesses.py": "7d095b266c4b02fcfaf18bc2526306ccf6a15e959475c658605313d2d418e76b"
+  },
+  "generator": {
+    "path": "scripts/audit-class-multisource-toc-2014.py",
+    "sha256": "d67f3b2410c78abe7490a229266986c87ddc161db03df5897a2918d3bba3ddbe"
+  }
+}
