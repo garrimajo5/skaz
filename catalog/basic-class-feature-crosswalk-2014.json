@@ -1,0 +1,3872 @@
+{
+  "schemaVersion": 1,
+  "status": "local-table-feature-reference-crosswalk-not-full-class-or-carrier-text-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "carrierReferencedSrdClasses": 12,
+    "basicPdfClassTocMentions": 4,
+    "digitalClassTocMentions": 12,
+    "existingLocalFeatureRecords": 125,
+    "existingLocalFeatureStatusCounts": {
+      "manual": 85,
+      "choice": 38,
+      "unsupported": 2
+    },
+    "tableFeatureOccurrences": 247,
+    "referenceResolution": {
+      "local-key-resolves-uniquely": 247
+    },
+    "canonicalUnitsAccepted": 0
+  },
+  "classRows": [
+    {
+      "classId": "srd51:2014:class:barbarian",
+      "slug": "barbarian",
+      "englishName": "Barbarian",
+      "carrierReferences": {
+        "basicPdfTocEntry": null,
+        "digitalTocMention": true,
+        "srdHeadingPage": 8,
+        "existingSrdTableExtractionPage": 8,
+        "scope": "TOC/headings and existing extraction-page metadata only"
+      },
+      "existingFeatureReferences": [
+        {
+          "id": "barbarian-rage",
+          "keys": [
+            "Rage"
+          ],
+          "status": "manual",
+          "sourcePage": 8
+        },
+        {
+          "id": "barbarian-unarmored-defense",
+          "keys": [
+            "Unarmored Defense"
+          ],
+          "status": "manual",
+          "sourcePage": 8
+        },
+        {
+          "id": "barbarian-reckless-attack",
+          "keys": [
+            "Reckless Attack"
+          ],
+          "status": "manual",
+          "sourcePage": 9
+        },
+        {
+          "id": "barbarian-danger-sense",
+          "keys": [
+            "Danger Sense"
+          ],
+          "status": "manual",
+          "sourcePage": 9
+        },
+        {
+          "id": "barbarian-primal-path",
+          "keys": [
+            "Primal Path",
+            "Path feature"
+          ],
+          "status": "choice",
+          "sourcePage": 9
+        },
+        {
+          "id": "barbarian-ability-score-improvement",
+          "keys": [
+            "Ability Score Improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 9
+        },
+        {
+          "id": "barbarian-extra-attack",
+          "keys": [
+            "Extra Attack"
+          ],
+          "status": "manual",
+          "sourcePage": 9
+        },
+        {
+          "id": "barbarian-fast-movement",
+          "keys": [
+            "Fast Movement"
+          ],
+          "status": "manual",
+          "sourcePage": 9
+        },
+        {
+          "id": "barbarian-feral-instinct",
+          "keys": [
+            "Feral Instinct"
+          ],
+          "status": "manual",
+          "sourcePage": 9
+        },
+        {
+          "id": "barbarian-brutal-critical",
+          "keys": [
+            "Brutal Critical (1 die)",
+            "Brutal Critical (2 dice)",
+            "Brutal Critical (3 dice)"
+          ],
+          "status": "manual",
+          "sourcePage": 9
+        },
+        {
+          "id": "barbarian-relentless-rage",
+          "keys": [
+            "Relentless Rage"
+          ],
+          "status": "manual",
+          "sourcePage": 9
+        },
+        {
+          "id": "barbarian-persistent-rage",
+          "keys": [
+            "Persistent Rage"
+          ],
+          "status": "manual",
+          "sourcePage": 9
+        },
+        {
+          "id": "barbarian-indomitable-might",
+          "keys": [
+            "Indomitable Might"
+          ],
+          "status": "manual",
+          "sourcePage": 9
+        },
+        {
+          "id": "barbarian-primal-champion",
+          "keys": [
+            "Primal Champion"
+          ],
+          "status": "manual",
+          "sourcePage": 9
+        }
+      ],
+      "existingFeatureStatusCounts": {
+        "manual": 12,
+        "choice": 2
+      },
+      "tableFeatureReferences": [
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 1,
+          "label": "Rage",
+          "candidateFeatureIds": [
+            "barbarian-rage"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 2,
+          "label": "Unarmored Defense",
+          "candidateFeatureIds": [
+            "barbarian-unarmored-defense"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 1,
+          "label": "Reckless Attack",
+          "candidateFeatureIds": [
+            "barbarian-reckless-attack"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 2,
+          "label": "Danger Sense",
+          "candidateFeatureIds": [
+            "barbarian-danger-sense"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 3,
+          "tableFeatureOrdinal": 1,
+          "label": "Primal Path",
+          "candidateFeatureIds": [
+            "barbarian-primal-path"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "barbarian-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 5,
+          "tableFeatureOrdinal": 1,
+          "label": "Extra Attack",
+          "candidateFeatureIds": [
+            "barbarian-extra-attack"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 5,
+          "tableFeatureOrdinal": 2,
+          "label": "Fast Movement",
+          "candidateFeatureIds": [
+            "barbarian-fast-movement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 1,
+          "label": "Path feature",
+          "candidateFeatureIds": [
+            "barbarian-primal-path"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 7,
+          "tableFeatureOrdinal": 1,
+          "label": "Feral Instinct",
+          "candidateFeatureIds": [
+            "barbarian-feral-instinct"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "barbarian-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 9,
+          "tableFeatureOrdinal": 1,
+          "label": "Brutal Critical (1 die)",
+          "candidateFeatureIds": [
+            "barbarian-brutal-critical"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 1,
+          "label": "Path feature",
+          "candidateFeatureIds": [
+            "barbarian-primal-path"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 11,
+          "tableFeatureOrdinal": 1,
+          "label": "Relentless Rage",
+          "candidateFeatureIds": [
+            "barbarian-relentless-rage"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 12,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "barbarian-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 13,
+          "tableFeatureOrdinal": 1,
+          "label": "Brutal Critical (2 dice)",
+          "candidateFeatureIds": [
+            "barbarian-brutal-critical"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 1,
+          "label": "Path feature",
+          "candidateFeatureIds": [
+            "barbarian-primal-path"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 15,
+          "tableFeatureOrdinal": 1,
+          "label": "Persistent Rage",
+          "candidateFeatureIds": [
+            "barbarian-persistent-rage"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 16,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "barbarian-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 17,
+          "tableFeatureOrdinal": 1,
+          "label": "Brutal Critical (3 dice)",
+          "candidateFeatureIds": [
+            "barbarian-brutal-critical"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 18,
+          "tableFeatureOrdinal": 1,
+          "label": "Indomitable Might",
+          "candidateFeatureIds": [
+            "barbarian-indomitable-might"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 19,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "barbarian-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 20,
+          "tableFeatureOrdinal": 1,
+          "label": "Primal Champion",
+          "candidateFeatureIds": [
+            "barbarian-primal-champion"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        }
+      ],
+      "unreferencedLocalFeatureIds": [],
+      "fullClassTextCompared": false,
+      "canonicalClassAccepted": false,
+      "automaticCapabilitiesAccepted": false
+    },
+    {
+      "classId": "srd51:2014:class:bard",
+      "slug": "bard",
+      "englishName": "Bard",
+      "carrierReferences": {
+        "basicPdfTocEntry": null,
+        "digitalTocMention": true,
+        "srdHeadingPage": 11,
+        "existingSrdTableExtractionPage": 11,
+        "scope": "TOC/headings and existing extraction-page metadata only"
+      },
+      "existingFeatureReferences": [
+        {
+          "id": "bard-spellcasting",
+          "keys": [
+            "Spellcasting"
+          ],
+          "status": "manual",
+          "sourcePage": 12
+        },
+        {
+          "id": "bard-inspiration",
+          "keys": [
+            "Bardic Inspiration (d6)",
+            "Bardic Inspiration (d8)",
+            "Bardic Inspiration (d10)",
+            "Bardic Inspiration (d12)"
+          ],
+          "status": "manual",
+          "sourcePage": 12
+        },
+        {
+          "id": "bard-jack-of-all-trades",
+          "keys": [
+            "Jack of All Trades"
+          ],
+          "status": "manual",
+          "sourcePage": 12
+        },
+        {
+          "id": "bard-song-of-rest",
+          "keys": [
+            "Song of Rest (d6)",
+            "Song of Rest (d8)",
+            "Song of Rest (d10)",
+            "Song of Rest (d12)"
+          ],
+          "status": "manual",
+          "sourcePage": 12
+        },
+        {
+          "id": "bard-college",
+          "keys": [
+            "Bard College",
+            "Bard College feature"
+          ],
+          "status": "choice",
+          "sourcePage": 12
+        },
+        {
+          "id": "bard-expertise",
+          "keys": [
+            "Expertise"
+          ],
+          "status": "choice",
+          "sourcePage": 13
+        },
+        {
+          "id": "bard-ability-score-improvement",
+          "keys": [
+            "Ability Score Improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 13
+        },
+        {
+          "id": "bard-font-of-inspiration",
+          "keys": [
+            "Font of Inspiration"
+          ],
+          "status": "manual",
+          "sourcePage": 13
+        },
+        {
+          "id": "bard-countercharm",
+          "keys": [
+            "Countercharm"
+          ],
+          "status": "manual",
+          "sourcePage": 13
+        },
+        {
+          "id": "bard-magical-secrets",
+          "keys": [
+            "Magical Secrets"
+          ],
+          "status": "choice",
+          "sourcePage": 13
+        },
+        {
+          "id": "bard-superior-inspiration",
+          "keys": [
+            "Superior Inspiration"
+          ],
+          "status": "manual",
+          "sourcePage": 13
+        }
+      ],
+      "existingFeatureStatusCounts": {
+        "manual": 7,
+        "choice": 4
+      },
+      "tableFeatureReferences": [
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 1,
+          "label": "Spellcasting",
+          "candidateFeatureIds": [
+            "bard-spellcasting"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 2,
+          "label": "Bardic Inspiration (d6)",
+          "candidateFeatureIds": [
+            "bard-inspiration"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 1,
+          "label": "Jack of All Trades",
+          "candidateFeatureIds": [
+            "bard-jack-of-all-trades"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 2,
+          "label": "Song of Rest (d6)",
+          "candidateFeatureIds": [
+            "bard-song-of-rest"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 3,
+          "tableFeatureOrdinal": 1,
+          "label": "Bard College",
+          "candidateFeatureIds": [
+            "bard-college"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 3,
+          "tableFeatureOrdinal": 2,
+          "label": "Expertise",
+          "candidateFeatureIds": [
+            "bard-expertise"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "bard-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 5,
+          "tableFeatureOrdinal": 1,
+          "label": "Bardic Inspiration (d8)",
+          "candidateFeatureIds": [
+            "bard-inspiration"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 5,
+          "tableFeatureOrdinal": 2,
+          "label": "Font of Inspiration",
+          "candidateFeatureIds": [
+            "bard-font-of-inspiration"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 1,
+          "label": "Countercharm",
+          "candidateFeatureIds": [
+            "bard-countercharm"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 2,
+          "label": "Bard College feature",
+          "candidateFeatureIds": [
+            "bard-college"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "bard-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 9,
+          "tableFeatureOrdinal": 1,
+          "label": "Song of Rest (d8)",
+          "candidateFeatureIds": [
+            "bard-song-of-rest"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 1,
+          "label": "Bardic Inspiration (d10)",
+          "candidateFeatureIds": [
+            "bard-inspiration"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 2,
+          "label": "Expertise",
+          "candidateFeatureIds": [
+            "bard-expertise"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 3,
+          "label": "Magical Secrets",
+          "candidateFeatureIds": [
+            "bard-magical-secrets"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 12,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "bard-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 13,
+          "tableFeatureOrdinal": 1,
+          "label": "Song of Rest (d10)",
+          "candidateFeatureIds": [
+            "bard-song-of-rest"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 1,
+          "label": "Magical Secrets",
+          "candidateFeatureIds": [
+            "bard-magical-secrets"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 2,
+          "label": "Bard College feature",
+          "candidateFeatureIds": [
+            "bard-college"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 15,
+          "tableFeatureOrdinal": 1,
+          "label": "Bardic Inspiration (d12)",
+          "candidateFeatureIds": [
+            "bard-inspiration"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 16,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "bard-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 17,
+          "tableFeatureOrdinal": 1,
+          "label": "Song of Rest (d12)",
+          "candidateFeatureIds": [
+            "bard-song-of-rest"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 18,
+          "tableFeatureOrdinal": 1,
+          "label": "Magical Secrets",
+          "candidateFeatureIds": [
+            "bard-magical-secrets"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 19,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "bard-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 20,
+          "tableFeatureOrdinal": 1,
+          "label": "Superior Inspiration",
+          "candidateFeatureIds": [
+            "bard-superior-inspiration"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        }
+      ],
+      "unreferencedLocalFeatureIds": [],
+      "fullClassTextCompared": false,
+      "canonicalClassAccepted": false,
+      "automaticCapabilitiesAccepted": false
+    },
+    {
+      "classId": "srd51:2014:class:cleric",
+      "slug": "cleric",
+      "englishName": "Cleric",
+      "carrierReferences": {
+        "basicPdfTocEntry": {
+          "name": "Cleric",
+          "page": 22
+        },
+        "digitalTocMention": true,
+        "srdHeadingPage": 15,
+        "existingSrdTableExtractionPage": 15,
+        "scope": "TOC/headings and existing extraction-page metadata only"
+      },
+      "existingFeatureReferences": [
+        {
+          "id": "cleric-spellcasting",
+          "keys": [
+            "Spellcasting"
+          ],
+          "status": "manual",
+          "sourcePage": 16
+        },
+        {
+          "id": "cleric-domain",
+          "keys": [
+            "Divine Domain",
+            "Divine Domain feature"
+          ],
+          "status": "choice",
+          "sourcePage": 16
+        },
+        {
+          "id": "cleric-channel-divinity",
+          "keys": [
+            "Channel Divinity (1/rest)",
+            "Channel Divinity (2/rest)",
+            "Channel Divinity (3/rest)"
+          ],
+          "status": "manual",
+          "sourcePage": 16
+        },
+        {
+          "id": "cleric-ability-score-improvement",
+          "keys": [
+            "Ability Score Improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 17
+        },
+        {
+          "id": "cleric-destroy-undead",
+          "keys": [
+            "Destroy Undead (CR 1/2)",
+            "Destroy Undead (CR 1)",
+            "Destroy Undead (CR 2)",
+            "Destroy Undead (CR 3)",
+            "Destroy Undead (CR 4)"
+          ],
+          "status": "manual",
+          "sourcePage": 17
+        },
+        {
+          "id": "cleric-divine-intervention",
+          "keys": [
+            "Divine Intervention",
+            "Divine Intervention improvement"
+          ],
+          "status": "manual",
+          "sourcePage": 17
+        }
+      ],
+      "existingFeatureStatusCounts": {
+        "manual": 4,
+        "choice": 2
+      },
+      "tableFeatureReferences": [
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 1,
+          "label": "Spellcasting",
+          "candidateFeatureIds": [
+            "cleric-spellcasting"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 2,
+          "label": "Divine Domain",
+          "candidateFeatureIds": [
+            "cleric-domain"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 1,
+          "label": "Channel Divinity (1/rest)",
+          "candidateFeatureIds": [
+            "cleric-channel-divinity"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 2,
+          "label": "Divine Domain feature",
+          "candidateFeatureIds": [
+            "cleric-domain"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "cleric-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 5,
+          "tableFeatureOrdinal": 1,
+          "label": "Destroy Undead (CR 1/2)",
+          "candidateFeatureIds": [
+            "cleric-destroy-undead"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 1,
+          "label": "Channel Divinity (2/rest)",
+          "candidateFeatureIds": [
+            "cleric-channel-divinity"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 2,
+          "label": "Divine Domain feature",
+          "candidateFeatureIds": [
+            "cleric-domain"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "cleric-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 2,
+          "label": "Destroy Undead (CR 1)",
+          "candidateFeatureIds": [
+            "cleric-destroy-undead"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 3,
+          "label": "Divine Domain feature",
+          "candidateFeatureIds": [
+            "cleric-domain"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 1,
+          "label": "Divine Intervention",
+          "candidateFeatureIds": [
+            "cleric-divine-intervention"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 11,
+          "tableFeatureOrdinal": 1,
+          "label": "Destroy Undead (CR 2)",
+          "candidateFeatureIds": [
+            "cleric-destroy-undead"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 12,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "cleric-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 1,
+          "label": "Destroy Undead (CR 3)",
+          "candidateFeatureIds": [
+            "cleric-destroy-undead"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 16,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "cleric-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 17,
+          "tableFeatureOrdinal": 1,
+          "label": "Destroy Undead (CR 4)",
+          "candidateFeatureIds": [
+            "cleric-destroy-undead"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 17,
+          "tableFeatureOrdinal": 2,
+          "label": "Divine Domain feature",
+          "candidateFeatureIds": [
+            "cleric-domain"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 18,
+          "tableFeatureOrdinal": 1,
+          "label": "Channel Divinity (3/rest)",
+          "candidateFeatureIds": [
+            "cleric-channel-divinity"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 19,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "cleric-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 20,
+          "tableFeatureOrdinal": 1,
+          "label": "Divine Intervention improvement",
+          "candidateFeatureIds": [
+            "cleric-divine-intervention"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        }
+      ],
+      "unreferencedLocalFeatureIds": [],
+      "fullClassTextCompared": false,
+      "canonicalClassAccepted": false,
+      "automaticCapabilitiesAccepted": false
+    },
+    {
+      "classId": "srd51:2014:class:druid",
+      "slug": "druid",
+      "englishName": "Druid",
+      "carrierReferences": {
+        "basicPdfTocEntry": null,
+        "digitalTocMention": true,
+        "srdHeadingPage": 19,
+        "existingSrdTableExtractionPage": 19,
+        "scope": "TOC/headings and existing extraction-page metadata only"
+      },
+      "existingFeatureReferences": [
+        {
+          "id": "druid-druidic",
+          "keys": [
+            "Druidic"
+          ],
+          "status": "manual",
+          "sourcePage": 19
+        },
+        {
+          "id": "druid-spellcasting",
+          "keys": [
+            "Spellcasting"
+          ],
+          "status": "manual",
+          "sourcePage": 20
+        },
+        {
+          "id": "druid-wild-shape",
+          "keys": [
+            "Wild Shape",
+            "Wild Shape improvement"
+          ],
+          "status": "unsupported",
+          "sourcePage": 20
+        },
+        {
+          "id": "druid-circle",
+          "keys": [
+            "Druid Circle",
+            "Druid Circle feature"
+          ],
+          "status": "choice",
+          "sourcePage": 21
+        },
+        {
+          "id": "druid-ability-score-improvement",
+          "keys": [
+            "Ability Score Improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 21
+        },
+        {
+          "id": "druid-timeless-body",
+          "keys": [
+            "Timeless Body"
+          ],
+          "status": "manual",
+          "sourcePage": 21
+        },
+        {
+          "id": "druid-beast-spells",
+          "keys": [
+            "Beast Spells"
+          ],
+          "status": "manual",
+          "sourcePage": 21
+        },
+        {
+          "id": "druid-archdruid",
+          "keys": [
+            "Archdruid"
+          ],
+          "status": "unsupported",
+          "sourcePage": 21
+        }
+      ],
+      "existingFeatureStatusCounts": {
+        "manual": 4,
+        "unsupported": 2,
+        "choice": 2
+      },
+      "tableFeatureReferences": [
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 1,
+          "label": "Druidic",
+          "candidateFeatureIds": [
+            "druid-druidic"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 2,
+          "label": "Spellcasting",
+          "candidateFeatureIds": [
+            "druid-spellcasting"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 1,
+          "label": "Wild Shape",
+          "candidateFeatureIds": [
+            "druid-wild-shape"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 2,
+          "label": "Druid Circle",
+          "candidateFeatureIds": [
+            "druid-circle"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 1,
+          "label": "Wild Shape improvement",
+          "candidateFeatureIds": [
+            "druid-wild-shape"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 2,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "druid-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 1,
+          "label": "Druid Circle feature",
+          "candidateFeatureIds": [
+            "druid-circle"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 1,
+          "label": "Wild Shape improvement",
+          "candidateFeatureIds": [
+            "druid-wild-shape"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 2,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "druid-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 1,
+          "label": "Druid Circle feature",
+          "candidateFeatureIds": [
+            "druid-circle"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 12,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "druid-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 1,
+          "label": "Druid Circle feature",
+          "candidateFeatureIds": [
+            "druid-circle"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 16,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "druid-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 18,
+          "tableFeatureOrdinal": 1,
+          "label": "Timeless Body",
+          "candidateFeatureIds": [
+            "druid-timeless-body"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 18,
+          "tableFeatureOrdinal": 2,
+          "label": "Beast Spells",
+          "candidateFeatureIds": [
+            "druid-beast-spells"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 19,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "druid-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 20,
+          "tableFeatureOrdinal": 1,
+          "label": "Archdruid",
+          "candidateFeatureIds": [
+            "druid-archdruid"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        }
+      ],
+      "unreferencedLocalFeatureIds": [],
+      "fullClassTextCompared": false,
+      "canonicalClassAccepted": false,
+      "automaticCapabilitiesAccepted": false
+    },
+    {
+      "classId": "srd51:2014:class:fighter",
+      "slug": "fighter",
+      "englishName": "Fighter",
+      "carrierReferences": {
+        "basicPdfTocEntry": {
+          "name": "Fighter",
+          "page": 26
+        },
+        "digitalTocMention": true,
+        "srdHeadingPage": 24,
+        "existingSrdTableExtractionPage": 24,
+        "scope": "TOC/headings and existing extraction-page metadata only"
+      },
+      "existingFeatureReferences": [
+        {
+          "id": "fighter-fighting-style",
+          "keys": [
+            "Fighting Style"
+          ],
+          "status": "manual",
+          "sourcePage": 24
+        },
+        {
+          "id": "fighter-second-wind",
+          "keys": [
+            "Second Wind"
+          ],
+          "status": "manual",
+          "sourcePage": 24
+        },
+        {
+          "id": "fighter-action-surge",
+          "keys": [
+            "Action Surge (one use)",
+            "Action Surge (two uses)"
+          ],
+          "status": "manual",
+          "sourcePage": 25
+        },
+        {
+          "id": "fighter-extra-attack",
+          "keys": [
+            "Extra Attack",
+            "Extra Attack (2)",
+            "Extra Attack (3)"
+          ],
+          "status": "manual",
+          "sourcePage": 25
+        },
+        {
+          "id": "fighter-indomitable",
+          "keys": [
+            "Indomitable (one use)",
+            "Indomitable (two uses)",
+            "Indomitable (three uses)"
+          ],
+          "status": "manual",
+          "sourcePage": 25
+        },
+        {
+          "id": "fighter-ability-score-improvement",
+          "keys": [
+            "Ability Score Improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 25
+        },
+        {
+          "id": "fighter-martial-archetype",
+          "keys": [
+            "Martial Archetype",
+            "Martial Archetype feature"
+          ],
+          "status": "choice",
+          "sourcePage": 25
+        }
+      ],
+      "existingFeatureStatusCounts": {
+        "manual": 5,
+        "choice": 2
+      },
+      "tableFeatureReferences": [
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 1,
+          "label": "Fighting Style",
+          "candidateFeatureIds": [
+            "fighter-fighting-style"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 2,
+          "label": "Second Wind",
+          "candidateFeatureIds": [
+            "fighter-second-wind"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 1,
+          "label": "Action Surge (one use)",
+          "candidateFeatureIds": [
+            "fighter-action-surge"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 3,
+          "tableFeatureOrdinal": 1,
+          "label": "Martial Archetype",
+          "candidateFeatureIds": [
+            "fighter-martial-archetype"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "fighter-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 5,
+          "tableFeatureOrdinal": 1,
+          "label": "Extra Attack",
+          "candidateFeatureIds": [
+            "fighter-extra-attack"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "fighter-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 7,
+          "tableFeatureOrdinal": 1,
+          "label": "Martial Archetype feature",
+          "candidateFeatureIds": [
+            "fighter-martial-archetype"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "fighter-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 9,
+          "tableFeatureOrdinal": 1,
+          "label": "Indomitable (one use)",
+          "candidateFeatureIds": [
+            "fighter-indomitable"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 1,
+          "label": "Martial Archetype feature",
+          "candidateFeatureIds": [
+            "fighter-martial-archetype"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 11,
+          "tableFeatureOrdinal": 1,
+          "label": "Extra Attack (2)",
+          "candidateFeatureIds": [
+            "fighter-extra-attack"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 12,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "fighter-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 13,
+          "tableFeatureOrdinal": 1,
+          "label": "Indomitable (two uses)",
+          "candidateFeatureIds": [
+            "fighter-indomitable"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "fighter-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 15,
+          "tableFeatureOrdinal": 1,
+          "label": "Martial Archetype feature",
+          "candidateFeatureIds": [
+            "fighter-martial-archetype"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 16,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "fighter-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 17,
+          "tableFeatureOrdinal": 1,
+          "label": "Action Surge (two uses)",
+          "candidateFeatureIds": [
+            "fighter-action-surge"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 17,
+          "tableFeatureOrdinal": 2,
+          "label": "Indomitable (three uses)",
+          "candidateFeatureIds": [
+            "fighter-indomitable"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 18,
+          "tableFeatureOrdinal": 1,
+          "label": "Martial Archetype feature",
+          "candidateFeatureIds": [
+            "fighter-martial-archetype"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 19,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "fighter-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 20,
+          "tableFeatureOrdinal": 1,
+          "label": "Extra Attack (3)",
+          "candidateFeatureIds": [
+            "fighter-extra-attack"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        }
+      ],
+      "unreferencedLocalFeatureIds": [],
+      "fullClassTextCompared": false,
+      "canonicalClassAccepted": false,
+      "automaticCapabilitiesAccepted": false
+    },
+    {
+      "classId": "srd51:2014:class:monk",
+      "slug": "monk",
+      "englishName": "Monk",
+      "carrierReferences": {
+        "basicPdfTocEntry": null,
+        "digitalTocMention": true,
+        "srdHeadingPage": 26,
+        "existingSrdTableExtractionPage": 26,
+        "scope": "TOC/headings and existing extraction-page metadata only"
+      },
+      "existingFeatureReferences": [
+        {
+          "id": "monk-unarmored-defense",
+          "keys": [
+            "Unarmored Defense"
+          ],
+          "status": "manual",
+          "sourcePage": 26
+        },
+        {
+          "id": "monk-martial-arts",
+          "keys": [
+            "Martial Arts"
+          ],
+          "status": "manual",
+          "sourcePage": 26
+        },
+        {
+          "id": "monk-ki",
+          "keys": [
+            "Ki"
+          ],
+          "status": "manual",
+          "sourcePage": 27
+        },
+        {
+          "id": "monk-unarmored-movement",
+          "keys": [
+            "Unarmored Movement",
+            "Unarmored Movement improvement"
+          ],
+          "status": "manual",
+          "sourcePage": 27
+        },
+        {
+          "id": "monk-monastic-tradition",
+          "keys": [
+            "Monastic Tradition",
+            "Monastic Tradition feature"
+          ],
+          "status": "choice",
+          "sourcePage": 27
+        },
+        {
+          "id": "monk-deflect-missiles",
+          "keys": [
+            "Deflect Missiles"
+          ],
+          "status": "manual",
+          "sourcePage": 27
+        },
+        {
+          "id": "monk-ability-score-improvement",
+          "keys": [
+            "Ability Score Improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 27
+        },
+        {
+          "id": "monk-slow-fall",
+          "keys": [
+            "Slow Fall"
+          ],
+          "status": "manual",
+          "sourcePage": 27
+        },
+        {
+          "id": "monk-extra-attack",
+          "keys": [
+            "Extra Attack"
+          ],
+          "status": "manual",
+          "sourcePage": 27
+        },
+        {
+          "id": "monk-stunning-strike",
+          "keys": [
+            "Stunning Strike"
+          ],
+          "status": "manual",
+          "sourcePage": 28
+        },
+        {
+          "id": "monk-ki-empowered-strikes",
+          "keys": [
+            "Ki-Empowered Strikes"
+          ],
+          "status": "manual",
+          "sourcePage": 28
+        },
+        {
+          "id": "monk-evasion",
+          "keys": [
+            "Evasion"
+          ],
+          "status": "manual",
+          "sourcePage": 28
+        },
+        {
+          "id": "monk-stillness-of-mind",
+          "keys": [
+            "Stillness of Mind"
+          ],
+          "status": "manual",
+          "sourcePage": 28
+        },
+        {
+          "id": "monk-purity-of-body",
+          "keys": [
+            "Purity of Body"
+          ],
+          "status": "manual",
+          "sourcePage": 28
+        },
+        {
+          "id": "monk-tongue",
+          "keys": [
+            "Tongue of the Sun and Moon"
+          ],
+          "status": "manual",
+          "sourcePage": 28
+        },
+        {
+          "id": "monk-diamond-soul",
+          "keys": [
+            "Diamond Soul"
+          ],
+          "status": "manual",
+          "sourcePage": 28
+        },
+        {
+          "id": "monk-timeless-body",
+          "keys": [
+            "Timeless Body"
+          ],
+          "status": "manual",
+          "sourcePage": 28
+        },
+        {
+          "id": "monk-empty-body",
+          "keys": [
+            "Empty Body"
+          ],
+          "status": "manual",
+          "sourcePage": 28
+        },
+        {
+          "id": "monk-perfect-self",
+          "keys": [
+            "Perfect Self"
+          ],
+          "status": "manual",
+          "sourcePage": 28
+        }
+      ],
+      "existingFeatureStatusCounts": {
+        "manual": 17,
+        "choice": 2
+      },
+      "tableFeatureReferences": [
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 1,
+          "label": "Unarmored Defense",
+          "candidateFeatureIds": [
+            "monk-unarmored-defense"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 2,
+          "label": "Martial Arts",
+          "candidateFeatureIds": [
+            "monk-martial-arts"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 1,
+          "label": "Ki",
+          "candidateFeatureIds": [
+            "monk-ki"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 2,
+          "label": "Unarmored Movement",
+          "candidateFeatureIds": [
+            "monk-unarmored-movement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 3,
+          "tableFeatureOrdinal": 1,
+          "label": "Monastic Tradition",
+          "candidateFeatureIds": [
+            "monk-monastic-tradition"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 3,
+          "tableFeatureOrdinal": 2,
+          "label": "Deflect Missiles",
+          "candidateFeatureIds": [
+            "monk-deflect-missiles"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "monk-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 2,
+          "label": "Slow Fall",
+          "candidateFeatureIds": [
+            "monk-slow-fall"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 5,
+          "tableFeatureOrdinal": 1,
+          "label": "Extra Attack",
+          "candidateFeatureIds": [
+            "monk-extra-attack"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 5,
+          "tableFeatureOrdinal": 2,
+          "label": "Stunning Strike",
+          "candidateFeatureIds": [
+            "monk-stunning-strike"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 1,
+          "label": "Ki-Empowered Strikes",
+          "candidateFeatureIds": [
+            "monk-ki-empowered-strikes"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 2,
+          "label": "Monastic Tradition feature",
+          "candidateFeatureIds": [
+            "monk-monastic-tradition"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 7,
+          "tableFeatureOrdinal": 1,
+          "label": "Evasion",
+          "candidateFeatureIds": [
+            "monk-evasion"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 7,
+          "tableFeatureOrdinal": 2,
+          "label": "Stillness of Mind",
+          "candidateFeatureIds": [
+            "monk-stillness-of-mind"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "monk-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 9,
+          "tableFeatureOrdinal": 1,
+          "label": "Unarmored Movement improvement",
+          "candidateFeatureIds": [
+            "monk-unarmored-movement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 1,
+          "label": "Purity of Body",
+          "candidateFeatureIds": [
+            "monk-purity-of-body"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 11,
+          "tableFeatureOrdinal": 1,
+          "label": "Monastic Tradition feature",
+          "candidateFeatureIds": [
+            "monk-monastic-tradition"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 12,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "monk-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 13,
+          "tableFeatureOrdinal": 1,
+          "label": "Tongue of the Sun and Moon",
+          "candidateFeatureIds": [
+            "monk-tongue"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 1,
+          "label": "Diamond Soul",
+          "candidateFeatureIds": [
+            "monk-diamond-soul"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 15,
+          "tableFeatureOrdinal": 1,
+          "label": "Timeless Body",
+          "candidateFeatureIds": [
+            "monk-timeless-body"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 16,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "monk-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 17,
+          "tableFeatureOrdinal": 1,
+          "label": "Monastic Tradition feature",
+          "candidateFeatureIds": [
+            "monk-monastic-tradition"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 18,
+          "tableFeatureOrdinal": 1,
+          "label": "Empty Body",
+          "candidateFeatureIds": [
+            "monk-empty-body"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 19,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "monk-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 20,
+          "tableFeatureOrdinal": 1,
+          "label": "Perfect Self",
+          "candidateFeatureIds": [
+            "monk-perfect-self"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        }
+      ],
+      "unreferencedLocalFeatureIds": [],
+      "fullClassTextCompared": false,
+      "canonicalClassAccepted": false,
+      "automaticCapabilitiesAccepted": false
+    },
+    {
+      "classId": "srd51:2014:class:paladin",
+      "slug": "paladin",
+      "englishName": "Paladin",
+      "carrierReferences": {
+        "basicPdfTocEntry": null,
+        "digitalTocMention": true,
+        "srdHeadingPage": 30,
+        "existingSrdTableExtractionPage": 30,
+        "scope": "TOC/headings and existing extraction-page metadata only"
+      },
+      "existingFeatureReferences": [
+        {
+          "id": "paladin-divine-sense",
+          "keys": [
+            "Divine Sense"
+          ],
+          "status": "manual",
+          "sourcePage": 30
+        },
+        {
+          "id": "paladin-lay-on-hands",
+          "keys": [
+            "Lay on Hands"
+          ],
+          "status": "manual",
+          "sourcePage": 31
+        },
+        {
+          "id": "paladin-fighting-style",
+          "keys": [
+            "Fighting Style"
+          ],
+          "status": "choice",
+          "sourcePage": 31
+        },
+        {
+          "id": "paladin-spellcasting",
+          "keys": [
+            "Spellcasting"
+          ],
+          "status": "manual",
+          "sourcePage": 31
+        },
+        {
+          "id": "paladin-divine-smite",
+          "keys": [
+            "Divine Smite"
+          ],
+          "status": "manual",
+          "sourcePage": 31
+        },
+        {
+          "id": "paladin-divine-health",
+          "keys": [
+            "Divine Health"
+          ],
+          "status": "manual",
+          "sourcePage": 32
+        },
+        {
+          "id": "paladin-oath",
+          "keys": [
+            "Sacred Oath",
+            "Sacred Oath feature"
+          ],
+          "status": "choice",
+          "sourcePage": 32
+        },
+        {
+          "id": "paladin-ability-score-improvement",
+          "keys": [
+            "Ability Score Improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 32
+        },
+        {
+          "id": "paladin-extra-attack",
+          "keys": [
+            "Extra Attack"
+          ],
+          "status": "manual",
+          "sourcePage": 32
+        },
+        {
+          "id": "paladin-aura-protection",
+          "keys": [
+            "Aura of Protection"
+          ],
+          "status": "manual",
+          "sourcePage": 32
+        },
+        {
+          "id": "paladin-aura-courage",
+          "keys": [
+            "Aura of Courage"
+          ],
+          "status": "manual",
+          "sourcePage": 32
+        },
+        {
+          "id": "paladin-improved-smite",
+          "keys": [
+            "Improved Divine Smite"
+          ],
+          "status": "manual",
+          "sourcePage": 32
+        },
+        {
+          "id": "paladin-cleansing-touch",
+          "keys": [
+            "Cleansing Touch"
+          ],
+          "status": "manual",
+          "sourcePage": 32
+        },
+        {
+          "id": "paladin-aura-improvements",
+          "keys": [
+            "Aura improvements"
+          ],
+          "status": "manual",
+          "sourcePage": 32
+        }
+      ],
+      "existingFeatureStatusCounts": {
+        "manual": 11,
+        "choice": 3
+      },
+      "tableFeatureReferences": [
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 1,
+          "label": "Divine Sense",
+          "candidateFeatureIds": [
+            "paladin-divine-sense"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 2,
+          "label": "Lay on Hands",
+          "candidateFeatureIds": [
+            "paladin-lay-on-hands"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 1,
+          "label": "Fighting Style",
+          "candidateFeatureIds": [
+            "paladin-fighting-style"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 2,
+          "label": "Spellcasting",
+          "candidateFeatureIds": [
+            "paladin-spellcasting"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 3,
+          "label": "Divine Smite",
+          "candidateFeatureIds": [
+            "paladin-divine-smite"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 3,
+          "tableFeatureOrdinal": 1,
+          "label": "Divine Health",
+          "candidateFeatureIds": [
+            "paladin-divine-health"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 3,
+          "tableFeatureOrdinal": 2,
+          "label": "Sacred Oath",
+          "candidateFeatureIds": [
+            "paladin-oath"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "paladin-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 5,
+          "tableFeatureOrdinal": 1,
+          "label": "Extra Attack",
+          "candidateFeatureIds": [
+            "paladin-extra-attack"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 1,
+          "label": "Aura of Protection",
+          "candidateFeatureIds": [
+            "paladin-aura-protection"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 7,
+          "tableFeatureOrdinal": 1,
+          "label": "Sacred Oath feature",
+          "candidateFeatureIds": [
+            "paladin-oath"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "paladin-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 1,
+          "label": "Aura of Courage",
+          "candidateFeatureIds": [
+            "paladin-aura-courage"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 11,
+          "tableFeatureOrdinal": 1,
+          "label": "Improved Divine Smite",
+          "candidateFeatureIds": [
+            "paladin-improved-smite"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 12,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "paladin-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 1,
+          "label": "Cleansing Touch",
+          "candidateFeatureIds": [
+            "paladin-cleansing-touch"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 15,
+          "tableFeatureOrdinal": 1,
+          "label": "Sacred Oath feature",
+          "candidateFeatureIds": [
+            "paladin-oath"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 16,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "paladin-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 18,
+          "tableFeatureOrdinal": 1,
+          "label": "Aura improvements",
+          "candidateFeatureIds": [
+            "paladin-aura-improvements"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 19,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "paladin-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 20,
+          "tableFeatureOrdinal": 1,
+          "label": "Sacred Oath feature",
+          "candidateFeatureIds": [
+            "paladin-oath"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        }
+      ],
+      "unreferencedLocalFeatureIds": [],
+      "fullClassTextCompared": false,
+      "canonicalClassAccepted": false,
+      "automaticCapabilitiesAccepted": false
+    },
+    {
+      "classId": "srd51:2014:class:ranger",
+      "slug": "ranger",
+      "englishName": "Ranger",
+      "carrierReferences": {
+        "basicPdfTocEntry": null,
+        "digitalTocMention": true,
+        "srdHeadingPage": 35,
+        "existingSrdTableExtractionPage": 35,
+        "scope": "TOC/headings and existing extraction-page metadata only"
+      },
+      "existingFeatureReferences": [
+        {
+          "id": "ranger-favored-enemy",
+          "keys": [
+            "Favored Enemy",
+            "Favored Enemy improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 35
+        },
+        {
+          "id": "ranger-natural-explorer",
+          "keys": [
+            "Natural Explorer",
+            "Natural Explorer improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 36
+        },
+        {
+          "id": "ranger-favored-improvements",
+          "keys": [
+            "Favored Enemy and Natural Explorer improvements"
+          ],
+          "status": "choice",
+          "sourcePage": 36
+        },
+        {
+          "id": "ranger-fighting-style",
+          "keys": [
+            "Fighting Style"
+          ],
+          "status": "choice",
+          "sourcePage": 36
+        },
+        {
+          "id": "ranger-spellcasting",
+          "keys": [
+            "Spellcasting"
+          ],
+          "status": "manual",
+          "sourcePage": 36
+        },
+        {
+          "id": "ranger-archetype",
+          "keys": [
+            "Ranger Archetype",
+            "Ranger Archetype feature"
+          ],
+          "status": "choice",
+          "sourcePage": 37
+        },
+        {
+          "id": "ranger-primeval-awareness",
+          "keys": [
+            "Primeval Awareness"
+          ],
+          "status": "manual",
+          "sourcePage": 37
+        },
+        {
+          "id": "ranger-ability-score-improvement",
+          "keys": [
+            "Ability Score Improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 37
+        },
+        {
+          "id": "ranger-extra-attack",
+          "keys": [
+            "Extra Attack"
+          ],
+          "status": "manual",
+          "sourcePage": 37
+        },
+        {
+          "id": "ranger-lands-stride",
+          "keys": [
+            "Land `s Stride"
+          ],
+          "status": "manual",
+          "sourcePage": 37
+        },
+        {
+          "id": "ranger-hide-in-plain-sight",
+          "keys": [
+            "Hide in Plain Sight"
+          ],
+          "status": "manual",
+          "sourcePage": 37
+        },
+        {
+          "id": "ranger-vanish",
+          "keys": [
+            "Vanish"
+          ],
+          "status": "manual",
+          "sourcePage": 37
+        },
+        {
+          "id": "ranger-feral-senses",
+          "keys": [
+            "Feral Senses"
+          ],
+          "status": "manual",
+          "sourcePage": 37
+        },
+        {
+          "id": "ranger-foe-slayer",
+          "keys": [
+            "Foe Slayer"
+          ],
+          "status": "manual",
+          "sourcePage": 37
+        }
+      ],
+      "existingFeatureStatusCounts": {
+        "choice": 6,
+        "manual": 8
+      },
+      "tableFeatureReferences": [
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 1,
+          "label": "Favored Enemy",
+          "candidateFeatureIds": [
+            "ranger-favored-enemy"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 2,
+          "label": "Natural Explorer",
+          "candidateFeatureIds": [
+            "ranger-natural-explorer"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 1,
+          "label": "Fighting Style",
+          "candidateFeatureIds": [
+            "ranger-fighting-style"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 2,
+          "label": "Spellcasting",
+          "candidateFeatureIds": [
+            "ranger-spellcasting"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 3,
+          "tableFeatureOrdinal": 1,
+          "label": "Ranger Archetype",
+          "candidateFeatureIds": [
+            "ranger-archetype"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 3,
+          "tableFeatureOrdinal": 2,
+          "label": "Primeval Awareness",
+          "candidateFeatureIds": [
+            "ranger-primeval-awareness"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "ranger-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 5,
+          "tableFeatureOrdinal": 1,
+          "label": "Extra Attack",
+          "candidateFeatureIds": [
+            "ranger-extra-attack"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 1,
+          "label": "Favored Enemy and Natural Explorer improvements",
+          "candidateFeatureIds": [
+            "ranger-favored-improvements"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 7,
+          "tableFeatureOrdinal": 1,
+          "label": "Ranger Archetype feature",
+          "candidateFeatureIds": [
+            "ranger-archetype"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "ranger-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 2,
+          "label": "Land `s Stride",
+          "candidateFeatureIds": [
+            "ranger-lands-stride"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 1,
+          "label": "Natural Explorer improvement",
+          "candidateFeatureIds": [
+            "ranger-natural-explorer"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 2,
+          "label": "Hide in Plain Sight",
+          "candidateFeatureIds": [
+            "ranger-hide-in-plain-sight"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 11,
+          "tableFeatureOrdinal": 1,
+          "label": "Ranger Archetype feature",
+          "candidateFeatureIds": [
+            "ranger-archetype"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 12,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "ranger-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 1,
+          "label": "Favored Enemy improvement",
+          "candidateFeatureIds": [
+            "ranger-favored-enemy"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 2,
+          "label": "Vanish",
+          "candidateFeatureIds": [
+            "ranger-vanish"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 15,
+          "tableFeatureOrdinal": 1,
+          "label": "Ranger Archetype feature",
+          "candidateFeatureIds": [
+            "ranger-archetype"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 16,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "ranger-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 18,
+          "tableFeatureOrdinal": 1,
+          "label": "Feral Senses",
+          "candidateFeatureIds": [
+            "ranger-feral-senses"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 19,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "ranger-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 20,
+          "tableFeatureOrdinal": 1,
+          "label": "Foe Slayer",
+          "candidateFeatureIds": [
+            "ranger-foe-slayer"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        }
+      ],
+      "unreferencedLocalFeatureIds": [],
+      "fullClassTextCompared": false,
+      "canonicalClassAccepted": false,
+      "automaticCapabilitiesAccepted": false
+    },
+    {
+      "classId": "srd51:2014:class:rogue",
+      "slug": "rogue",
+      "englishName": "Rogue",
+      "carrierReferences": {
+        "basicPdfTocEntry": {
+          "name": "Rogue",
+          "page": 28
+        },
+        "digitalTocMention": true,
+        "srdHeadingPage": 39,
+        "existingSrdTableExtractionPage": 38,
+        "scope": "TOC/headings and existing extraction-page metadata only"
+      },
+      "existingFeatureReferences": [
+        {
+          "id": "rogue-expertise",
+          "keys": [
+            "Expertise"
+          ],
+          "status": "choice",
+          "sourcePage": 39
+        },
+        {
+          "id": "rogue-sneak-attack",
+          "keys": [
+            "Sneak Attack"
+          ],
+          "status": "manual",
+          "sourcePage": 39
+        },
+        {
+          "id": "rogue-thieves-cant",
+          "keys": [
+            "Thieves` Cant"
+          ],
+          "status": "manual",
+          "sourcePage": 39
+        },
+        {
+          "id": "rogue-cunning-action",
+          "keys": [
+            "Cunning Action"
+          ],
+          "status": "manual",
+          "sourcePage": 40
+        },
+        {
+          "id": "rogue-roguish-archetype",
+          "keys": [
+            "Roguish Archetype",
+            "Roguish Archetype feature"
+          ],
+          "status": "choice",
+          "sourcePage": 40
+        },
+        {
+          "id": "rogue-ability-score-improvement",
+          "keys": [
+            "Ability Score Improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 40
+        },
+        {
+          "id": "rogue-uncanny-dodge",
+          "keys": [
+            "Uncanny Dodge"
+          ],
+          "status": "manual",
+          "sourcePage": 40
+        },
+        {
+          "id": "rogue-evasion",
+          "keys": [
+            "Evasion"
+          ],
+          "status": "manual",
+          "sourcePage": 40
+        },
+        {
+          "id": "rogue-reliable-talent",
+          "keys": [
+            "Reliable Talent"
+          ],
+          "status": "manual",
+          "sourcePage": 40
+        },
+        {
+          "id": "rogue-blindsense",
+          "keys": [
+            "Blindsense"
+          ],
+          "status": "manual",
+          "sourcePage": 40
+        },
+        {
+          "id": "rogue-slippery-mind",
+          "keys": [
+            "Slippery Mind"
+          ],
+          "status": "manual",
+          "sourcePage": 40
+        },
+        {
+          "id": "rogue-elusive",
+          "keys": [
+            "Elusive"
+          ],
+          "status": "manual",
+          "sourcePage": 40
+        },
+        {
+          "id": "rogue-stroke-of-luck",
+          "keys": [
+            "Stroke of Luck"
+          ],
+          "status": "manual",
+          "sourcePage": 40
+        }
+      ],
+      "existingFeatureStatusCounts": {
+        "choice": 3,
+        "manual": 10
+      },
+      "tableFeatureReferences": [
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 1,
+          "label": "Expertise",
+          "candidateFeatureIds": [
+            "rogue-expertise"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 2,
+          "label": "Sneak Attack",
+          "candidateFeatureIds": [
+            "rogue-sneak-attack"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 3,
+          "label": "Thieves` Cant",
+          "candidateFeatureIds": [
+            "rogue-thieves-cant"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 1,
+          "label": "Cunning Action",
+          "candidateFeatureIds": [
+            "rogue-cunning-action"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 3,
+          "tableFeatureOrdinal": 1,
+          "label": "Roguish Archetype",
+          "candidateFeatureIds": [
+            "rogue-roguish-archetype"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "rogue-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 5,
+          "tableFeatureOrdinal": 1,
+          "label": "Uncanny Dodge",
+          "candidateFeatureIds": [
+            "rogue-uncanny-dodge"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 1,
+          "label": "Expertise",
+          "candidateFeatureIds": [
+            "rogue-expertise"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 7,
+          "tableFeatureOrdinal": 1,
+          "label": "Evasion",
+          "candidateFeatureIds": [
+            "rogue-evasion"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "rogue-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 9,
+          "tableFeatureOrdinal": 1,
+          "label": "Roguish Archetype feature",
+          "candidateFeatureIds": [
+            "rogue-roguish-archetype"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "rogue-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 11,
+          "tableFeatureOrdinal": 1,
+          "label": "Reliable Talent",
+          "candidateFeatureIds": [
+            "rogue-reliable-talent"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 12,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "rogue-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 13,
+          "tableFeatureOrdinal": 1,
+          "label": "Roguish Archetype feature",
+          "candidateFeatureIds": [
+            "rogue-roguish-archetype"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 1,
+          "label": "Blindsense",
+          "candidateFeatureIds": [
+            "rogue-blindsense"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 15,
+          "tableFeatureOrdinal": 1,
+          "label": "Slippery Mind",
+          "candidateFeatureIds": [
+            "rogue-slippery-mind"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 16,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "rogue-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 17,
+          "tableFeatureOrdinal": 1,
+          "label": "Roguish Archetype feature",
+          "candidateFeatureIds": [
+            "rogue-roguish-archetype"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 18,
+          "tableFeatureOrdinal": 1,
+          "label": "Elusive",
+          "candidateFeatureIds": [
+            "rogue-elusive"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 19,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "rogue-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 20,
+          "tableFeatureOrdinal": 1,
+          "label": "Stroke of Luck",
+          "candidateFeatureIds": [
+            "rogue-stroke-of-luck"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        }
+      ],
+      "unreferencedLocalFeatureIds": [],
+      "fullClassTextCompared": false,
+      "canonicalClassAccepted": false,
+      "automaticCapabilitiesAccepted": false
+    },
+    {
+      "classId": "srd51:2014:class:sorcerer",
+      "slug": "sorcerer",
+      "englishName": "Sorcerer",
+      "carrierReferences": {
+        "basicPdfTocEntry": null,
+        "digitalTocMention": true,
+        "srdHeadingPage": 42,
+        "existingSrdTableExtractionPage": 42,
+        "scope": "TOC/headings and existing extraction-page metadata only"
+      },
+      "existingFeatureReferences": [
+        {
+          "id": "sorcerer-spellcasting",
+          "keys": [
+            "Spellcasting"
+          ],
+          "status": "manual",
+          "sourcePage": 43
+        },
+        {
+          "id": "sorcerer-origin",
+          "keys": [
+            "Sorcerous Origin",
+            "Sorcerous Origin feature"
+          ],
+          "status": "choice",
+          "sourcePage": 43
+        },
+        {
+          "id": "sorcerer-font-of-magic",
+          "keys": [
+            "Font of Magic"
+          ],
+          "status": "manual",
+          "sourcePage": 43
+        },
+        {
+          "id": "sorcerer-metamagic",
+          "keys": [
+            "Metamagic"
+          ],
+          "status": "choice",
+          "sourcePage": 44
+        },
+        {
+          "id": "sorcerer-ability-score-improvement",
+          "keys": [
+            "Ability Score Improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 44
+        },
+        {
+          "id": "sorcerer-restoration",
+          "keys": [
+            "Sorcerous Restoration"
+          ],
+          "status": "manual",
+          "sourcePage": 44
+        }
+      ],
+      "existingFeatureStatusCounts": {
+        "manual": 3,
+        "choice": 3
+      },
+      "tableFeatureReferences": [
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 1,
+          "label": "Spellcasting",
+          "candidateFeatureIds": [
+            "sorcerer-spellcasting"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 2,
+          "label": "Sorcerous Origin",
+          "candidateFeatureIds": [
+            "sorcerer-origin"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 1,
+          "label": "Font of Magic",
+          "candidateFeatureIds": [
+            "sorcerer-font-of-magic"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 3,
+          "tableFeatureOrdinal": 1,
+          "label": "Metamagic",
+          "candidateFeatureIds": [
+            "sorcerer-metamagic"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "sorcerer-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 1,
+          "label": "Sorcerous Origin feature",
+          "candidateFeatureIds": [
+            "sorcerer-origin"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "sorcerer-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 1,
+          "label": "Metamagic",
+          "candidateFeatureIds": [
+            "sorcerer-metamagic"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 12,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "sorcerer-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 1,
+          "label": "Sorcerous Origin feature",
+          "candidateFeatureIds": [
+            "sorcerer-origin"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 16,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "sorcerer-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 17,
+          "tableFeatureOrdinal": 1,
+          "label": "Metamagic",
+          "candidateFeatureIds": [
+            "sorcerer-metamagic"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 18,
+          "tableFeatureOrdinal": 1,
+          "label": "Sorcerous Origin feature",
+          "candidateFeatureIds": [
+            "sorcerer-origin"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 19,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "sorcerer-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 20,
+          "tableFeatureOrdinal": 1,
+          "label": "Sorcerous Restoration",
+          "candidateFeatureIds": [
+            "sorcerer-restoration"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        }
+      ],
+      "unreferencedLocalFeatureIds": [],
+      "fullClassTextCompared": false,
+      "canonicalClassAccepted": false,
+      "automaticCapabilitiesAccepted": false
+    },
+    {
+      "classId": "srd51:2014:class:warlock",
+      "slug": "warlock",
+      "englishName": "Warlock",
+      "carrierReferences": {
+        "basicPdfTocEntry": null,
+        "digitalTocMention": true,
+        "srdHeadingPage": 46,
+        "existingSrdTableExtractionPage": 46,
+        "scope": "TOC/headings and existing extraction-page metadata only"
+      },
+      "existingFeatureReferences": [
+        {
+          "id": "warlock-patron",
+          "keys": [
+            "Otherworldly Patron",
+            "Otherworldly Patron feature"
+          ],
+          "status": "choice",
+          "sourcePage": 46
+        },
+        {
+          "id": "warlock-pact-magic",
+          "keys": [
+            "Pact Magic"
+          ],
+          "status": "manual",
+          "sourcePage": 47
+        },
+        {
+          "id": "warlock-invocations",
+          "keys": [
+            "Eldritch Invocations"
+          ],
+          "status": "choice",
+          "sourcePage": 47
+        },
+        {
+          "id": "warlock-pact-boon",
+          "keys": [
+            "Pact Boon"
+          ],
+          "status": "choice",
+          "sourcePage": 47
+        },
+        {
+          "id": "warlock-ability-score-improvement",
+          "keys": [
+            "Ability Score Improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 48
+        },
+        {
+          "id": "warlock-arcanum",
+          "keys": [
+            "Mystic Arcanum (6th level)",
+            "Mystic Arcanum (7th level)",
+            "Mystic Arcanum (8th level)",
+            "Mystic Arcanum (9th level)"
+          ],
+          "status": "choice",
+          "sourcePage": 48
+        },
+        {
+          "id": "warlock-eldritch-master",
+          "keys": [
+            "Eldritch Master"
+          ],
+          "status": "manual",
+          "sourcePage": 48
+        }
+      ],
+      "existingFeatureStatusCounts": {
+        "choice": 5,
+        "manual": 2
+      },
+      "tableFeatureReferences": [
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 1,
+          "label": "Otherworldly Patron",
+          "candidateFeatureIds": [
+            "warlock-patron"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 2,
+          "label": "Pact Magic",
+          "candidateFeatureIds": [
+            "warlock-pact-magic"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 1,
+          "label": "Eldritch Invocations",
+          "candidateFeatureIds": [
+            "warlock-invocations"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 3,
+          "tableFeatureOrdinal": 1,
+          "label": "Pact Boon",
+          "candidateFeatureIds": [
+            "warlock-pact-boon"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "warlock-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 1,
+          "label": "Otherworldly Patron feature",
+          "candidateFeatureIds": [
+            "warlock-patron"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "warlock-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 1,
+          "label": "Otherworldly Patron feature",
+          "candidateFeatureIds": [
+            "warlock-patron"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 11,
+          "tableFeatureOrdinal": 1,
+          "label": "Mystic Arcanum (6th level)",
+          "candidateFeatureIds": [
+            "warlock-arcanum"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 12,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "warlock-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 13,
+          "tableFeatureOrdinal": 1,
+          "label": "Mystic Arcanum (7th level)",
+          "candidateFeatureIds": [
+            "warlock-arcanum"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 1,
+          "label": "Otherworldly Patron feature",
+          "candidateFeatureIds": [
+            "warlock-patron"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 15,
+          "tableFeatureOrdinal": 1,
+          "label": "Mystic Arcanum (8th level)",
+          "candidateFeatureIds": [
+            "warlock-arcanum"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 16,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "warlock-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 17,
+          "tableFeatureOrdinal": 1,
+          "label": "Mystic Arcanum (9th level)",
+          "candidateFeatureIds": [
+            "warlock-arcanum"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 19,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "warlock-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 20,
+          "tableFeatureOrdinal": 1,
+          "label": "Eldritch Master",
+          "candidateFeatureIds": [
+            "warlock-eldritch-master"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        }
+      ],
+      "unreferencedLocalFeatureIds": [],
+      "fullClassTextCompared": false,
+      "canonicalClassAccepted": false,
+      "automaticCapabilitiesAccepted": false
+    },
+    {
+      "classId": "srd51:2014:class:wizard",
+      "slug": "wizard",
+      "englishName": "Wizard",
+      "carrierReferences": {
+        "basicPdfTocEntry": {
+          "name": "Wizard",
+          "page": 31
+        },
+        "digitalTocMention": true,
+        "srdHeadingPage": 52,
+        "existingSrdTableExtractionPage": 52,
+        "scope": "TOC/headings and existing extraction-page metadata only"
+      },
+      "existingFeatureReferences": [
+        {
+          "id": "wizard-spellcasting",
+          "keys": [
+            "Spellcasting"
+          ],
+          "status": "manual",
+          "sourcePage": 53
+        },
+        {
+          "id": "wizard-arcane-recovery",
+          "keys": [
+            "Arcane Recovery"
+          ],
+          "status": "manual",
+          "sourcePage": 53
+        },
+        {
+          "id": "wizard-arcane-tradition",
+          "keys": [
+            "Arcane Tradition",
+            "Arcane Tradition feature"
+          ],
+          "status": "choice",
+          "sourcePage": 53
+        },
+        {
+          "id": "wizard-ability-score-improvement",
+          "keys": [
+            "Ability Score Improvement"
+          ],
+          "status": "choice",
+          "sourcePage": 53
+        },
+        {
+          "id": "wizard-spell-mastery",
+          "keys": [
+            "Spell Mastery"
+          ],
+          "status": "choice",
+          "sourcePage": 53
+        },
+        {
+          "id": "wizard-signature-spells",
+          "keys": [
+            "Signature Spell"
+          ],
+          "status": "choice",
+          "sourcePage": 54
+        }
+      ],
+      "existingFeatureStatusCounts": {
+        "manual": 2,
+        "choice": 4
+      },
+      "tableFeatureReferences": [
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 1,
+          "label": "Spellcasting",
+          "candidateFeatureIds": [
+            "wizard-spellcasting"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 1,
+          "tableFeatureOrdinal": 2,
+          "label": "Arcane Recovery",
+          "candidateFeatureIds": [
+            "wizard-arcane-recovery"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 2,
+          "tableFeatureOrdinal": 1,
+          "label": "Arcane Tradition",
+          "candidateFeatureIds": [
+            "wizard-arcane-tradition"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 4,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "wizard-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 6,
+          "tableFeatureOrdinal": 1,
+          "label": "Arcane Tradition feature",
+          "candidateFeatureIds": [
+            "wizard-arcane-tradition"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 8,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "wizard-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 10,
+          "tableFeatureOrdinal": 1,
+          "label": "Arcane Tradition feature",
+          "candidateFeatureIds": [
+            "wizard-arcane-tradition"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 12,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "wizard-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 14,
+          "tableFeatureOrdinal": 1,
+          "label": "Arcane Tradition feature",
+          "candidateFeatureIds": [
+            "wizard-arcane-tradition"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 16,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "wizard-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 18,
+          "tableFeatureOrdinal": 1,
+          "label": "Spell Mastery",
+          "candidateFeatureIds": [
+            "wizard-spell-mastery"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 19,
+          "tableFeatureOrdinal": 1,
+          "label": "Ability Score Improvement",
+          "candidateFeatureIds": [
+            "wizard-ability-score-improvement"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        },
+        {
+          "level": 20,
+          "tableFeatureOrdinal": 1,
+          "label": "Signature Spell",
+          "candidateFeatureIds": [
+            "wizard-signature-spells"
+          ],
+          "state": "local-key-resolves-uniquely",
+          "fullTextEquivalenceEstablished": false
+        }
+      ],
+      "unreferencedLocalFeatureIds": [],
+      "fullClassTextCompared": false,
+      "canonicalClassAccepted": false,
+      "automaticCapabilitiesAccepted": false
+    }
+  ],
+  "artificerBoundary": {
+    "presentInTheseSrdCarriers": false,
+    "excludedFromProjectOrProvenMissing": false,
+    "nextEvidenceSource": "separate official2014 Artificer publication and existing D05 class evidence"
+  },
+  "selectedRuleBoundary": {
+    "unitId": "wizard-arcane-recovery",
+    "selectedEnglishUnitEqualAcrossThreeCarriers": true,
+    "existingManualFeatureId": "wizard-arcane-recovery",
+    "existingManualFeatureStatus": "manual",
+    "existingManualTextUnchanged": true,
+    "fullWizardOrAllFeatureTextAccepted": false,
+    "runtimeEnabled": false
+  },
+  "rightsBoundary": {
+    "localSrdUsage": "cc-by-4.0",
+    "sameCheckedSrdCarrier": true,
+    "licenseTransferredToOtherBasicRulesCarriers": false,
+    "otherSourceTextTranslationPermission": "not-established"
+  },
+  "limits": [
+    "All matches are exact local English key references scoped to a class, not source-text identity or new canonical aliases.",
+    "Existing local records and their statuses are an application data inventory, not the full official class catalogue denominator.",
+    "Repeated table entries, choices and unsupported notices are retained; no capability becomes automatic.",
+    "BasicPDF4/digital12/SRD12 references remain separate; Artificer requires separate source evidence, not project exclusion.",
+    "No current user profile, runtime, owner stage or publication rights changed."
+  ],
+  "inputSha256": {
+    "catalog/basic-rules-publication-boundary-2014.json": "581a431600b794854b840c4d1ab7f5ed210c5ddb3286cf3058905ff506cdf5b6",
+    "catalog/srd51-class-progression.json": "c66281ce130701fd79a79c0388ba08047c124185e9f6bdb538533dde25e72fe5",
+    "catalog/srd51-class-features.json": "677b7c1ba27c2bbcd865bf220ea28c5dc55f205eeeef62c6fc913dd7eccd213a",
+    "catalog/wizard-recovery-source-comparison-2014.json": "0b62cc3ae12d944811eabbaf69ec8693eb180a46120057084e61358a696df5c4"
+  },
+  "generator": {
+    "path": "scripts/review-basic-class-feature-crosswalk-2014.py",
+    "sha256": "54906e336dd4d7423748f8636489aa0abf516ba19b7589d2b5f5ca4189a06b9b"
+  }
+}
