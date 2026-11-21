@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "status": "current-work-triage-not-completeness-denominator-or-policy-approval",
   "accepted": false,
   "complete": false,
@@ -7,8 +7,8 @@
   "summary": {
     "preservedHistoricalSources": 70,
     "preservedOriginalProviderResidual": 15,
-    "withReviewedBoundedKindWitness": 10,
-    "withoutBoundedKindWitness": 5,
+    "withReviewedBoundedKindWitness": 15,
+    "withoutBoundedKindWitness": 0,
     "selectedCompleteRuleComparisons": 1,
     "canonicalUnitsAccepted": 0
   },
@@ -375,11 +375,22 @@
       "canonicalUnitAccepted": false,
       "missingPublicationProven": false,
       "automaticSourceReplacement": false,
-      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "triageState": "independently-reviewed-bounded-witness-present",
+      "publicationKindWitness": "official-pdf-feywild-supplement-reference",
+      "witnessPath": "catalog/domains-delight-reference-boundary-2014.json",
+      "reviewedReportSha256": "3e9fb9347ff7a6e431dabb2afe7c35bd1524ae323cb692844aa6498f79e144c2",
+      "independentReviewCited": {
+        "pr": 220,
+        "head": "cfd405f439800204434443a70da2029aa0221e59",
+        "review": "https://github.com/garrimajo5/skaz/pull/220#issuecomment-7062626839",
+        "reviewedScope": "official Dungeoncraft v1.1 PDF page1/product annotations only"
+      },
+      "doNotRepeat": "PDF product371449 is not provider116 or a historical source ID; historical programme restrictions do not ban profile actions",
       "remainingCriteria": [
-        "primary publication kind/parent/version evidence",
-        "canonical units, full record provenance and rights"
-      ]
+        "current full supplement/version, individual rules and rights",
+        "independent canonical-unit decision and publication/translation rights"
+      ],
+      "provenanceCaveat": "Only official reference PDF page1 retained/read; failed marketplace/source captures do not establish full supplement access."
     },
     {
       "originalProviderReference": {
@@ -394,10 +405,20 @@
       "canonicalUnitAccepted": false,
       "missingPublicationProven": false,
       "automaticSourceReplacement": false,
-      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "triageState": "independently-reviewed-bounded-witness-present",
+      "publicationKindWitness": "setting-gazetteer-component-with-background-distribution",
+      "witnessPath": "catalog/gazetteer-component-boundary-2014.json",
+      "reviewedReportSha256": "3da390da1a6ceb38da069ec4a890bd07c7d2b1795fe3fa0147d5ddb4f1089507",
+      "independentReviewCited": {
+        "pr": 221,
+        "head": "9ae8cfb500e611a277d31ffd0c8a53fbae31d641",
+        "review": "https://github.com/garrimajo5/skaz/pull/221#issuecomment-7062658619",
+        "reviewedScope": "own parent TOC/background fragment, scoped claim and reused AL25 only"
+      },
+      "doNotRepeat": "provider122/parent48/historical126 separate; whole-book37/12 outside offer, Season9 not global grant",
       "remainingCriteria": [
-        "primary publication kind/parent/version evidence",
-        "canonical units, full record provenance and rights"
+        "full background rules and versions, exact child scope and rights",
+        "independent canonical-unit decision and publication/translation rights"
       ]
     },
     {
@@ -413,10 +434,20 @@
       "canonicalUnitAccepted": false,
       "missingPublicationProven": false,
       "automaticSourceReplacement": false,
-      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "triageState": "independently-reviewed-bounded-witness-present",
+      "publicationKindWitness": "adventure-featuring-monsters-from-distinct-supplement",
+      "witnessPath": "catalog/lightning-keep-relationship-2014.json",
+      "reviewedReportSha256": "c81fd62ab4173bd48f21b75d8593e018f36a7dfcc6564a71bad2e2dc24d51328",
+      "independentReviewCited": {
+        "pr": 222,
+        "head": "3dfc765bb23a609f1af039cfcba739b4a58fcca3",
+        "review": "https://github.com/garrimajo5/skaz/pull/222#issuecomment-7062754852",
+        "reviewedScope": "two publisher paragraphs and one claim description/link only"
+      },
+      "doNotRepeat": "related115/historical199 not alias/all-monsters; world need not be Minecraft",
       "remainingCriteria": [
-        "primary publication kind/parent/version evidence",
-        "canonical units, full record provenance and rights"
+        "full adventure/creatures, exact versions and individual record provenance",
+        "independent canonical-unit decision and publication/translation rights"
       ]
     },
     {
@@ -462,11 +493,22 @@
       "canonicalUnitAccepted": false,
       "missingPublicationProven": false,
       "automaticSourceReplacement": false,
-      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "triageState": "independently-reviewed-bounded-witness-present",
+      "publicationKindWitness": "standalone-adventure-inspired-by-cookbook-recipe",
+      "witnessPath": "catalog/heroes-feast-relationship-2014.json",
+      "reviewedReportSha256": "976b3061840d8a0bd089eb8a07b8cdf1d743892d598fdd13709a5028ad48b912",
+      "independentReviewCited": {
+        "pr": 222,
+        "head": "3dfc765bb23a609f1af039cfcba739b4a58fcca3",
+        "review": "https://github.com/garrimajo5/skaz/pull/222#issuecomment-7062754852",
+        "reviewedScope": "publisher recipe relation, level and publishing-context paragraphs only"
+      },
+      "doNotRepeat": "cookbook recipe inspiration not cookbook rules inclusion; author and publisher separate, raw title retained",
       "remainingCriteria": [
-        "primary publication kind/parent/version evidence",
-        "canonical units, full record provenance and rights"
-      ]
+        "full adventure and rule-unit inventory, exact versions and rights",
+        "independent canonical-unit decision and publication/translation rights"
+      ],
+      "provenanceCaveat": "Publisher article retained; source URL rejected by URL guard, source body not read."
     },
     {
       "originalProviderReference": {
@@ -481,41 +523,160 @@
       "canonicalUnitAccepted": false,
       "missingPublicationProven": false,
       "automaticSourceReplacement": false,
-      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "triageState": "independently-reviewed-bounded-witness-present",
+      "publicationKindWitness": "separate-low-level-prequel-to-high-level-adventure",
+      "witnessPath": "catalog/vecna-prequel-relationship-2014.json",
+      "reviewedReportSha256": "5fc91d33282f236ddaca4049b1ab18eca6848851d1712a485042ed2770859280",
+      "independentReviewCited": {
+        "pr": 222,
+        "head": "3dfc765bb23a609f1af039cfcba739b4a58fcca3",
+        "review": "https://github.com/garrimajo5/skaz/pull/222#issuecomment-7062754852",
+        "reviewedScope": "two publisher paragraphs and separate product reference only"
+      },
+      "doNotRepeat": "provider132/historical214/SKU134 separate; level3 to10 decided byDM, no automatic grant or 2024-date edition switch",
       "remainingCriteria": [
-        "primary publication kind/parent/version evidence",
-        "canonical units, full record provenance and rights"
-      ]
+        "full prequel/campaign rules, versions, individual provenance and rights",
+        "independent canonical-unit decision and publication/translation rights"
+      ],
+      "provenanceCaveat": "Publisher article retained; source HTTP200/body timeout is not a read prequel."
     }
   ],
-  "primaryKindWorkQueue": [
+  "primaryKindWorkQueue": [],
+  "nextUntriagedProviderSourceId": null,
+  "remainingCriteriaWorkQueue": [
+    {
+      "providerSourceId": 1,
+      "remainingCriteria": [
+        "carrier/version and canonical-unit decision",
+        "other full shared rules and source-specific differences",
+        "publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
+    },
+    {
+      "providerSourceId": 34,
+      "remainingCriteria": [
+        "full5e record inventory and exact versions",
+        "independent canonical units versus introduced book and generic AL observations",
+        "publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
+    },
+    {
+      "providerSourceId": 37,
+      "remainingCriteria": [
+        "current version-specific official status and exact rules",
+        "independent canonical-unit decisions and publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
+    },
+    {
+      "providerSourceId": 53,
+      "remainingCriteria": [
+        "full answers versus catalogue rule units",
+        "exact digital/PDF answer versions",
+        "publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
+    },
+    {
+      "providerSourceId": 62,
+      "remainingCriteria": [
+        "independent child scope/version and full-record provenance",
+        "comparison to original parent chapter and canonical units",
+        "publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
+    },
+    {
+      "providerSourceId": 92,
+      "remainingCriteria": [
+        "full chapter versions, rule units and rights",
+        "independent canonical-unit decisions and publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
+    },
+    {
+      "providerSourceId": 93,
+      "remainingCriteria": [
+        "full adventures and creature units, exact versions and rights",
+        "independent canonical-unit decisions and publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
+    },
+    {
+      "providerSourceId": 94,
+      "remainingCriteria": [
+        "full book/intro text and exact record provenance, versions and rights",
+        "independent canonical-unit decisions and publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
+    },
+    {
+      "providerSourceId": 105,
+      "remainingCriteria": [
+        "lawful standalone access for exact text/version comparison",
+        "adventure versus creature canonical units and provenance",
+        "publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
+    },
     {
       "providerSourceId": 116,
-      "title": "Domains of Delight: A Feywild Accessory",
-      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dod"
+      "remainingCriteria": [
+        "current full supplement/version, individual rules and rights",
+        "independent canonical-unit decision and publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
     },
     {
       "providerSourceId": 122,
-      "title": "Baldur’s Gate Gazetteer",
-      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/bgg"
+      "remainingCriteria": [
+        "full background rules and versions, exact child scope and rights",
+        "independent canonical-unit decision and publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
     },
     {
       "providerSourceId": 126,
-      "title": "Lightning Keep",
-      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lke"
+      "remainingCriteria": [
+        "full adventure/creatures, exact versions and individual record provenance",
+        "independent canonical-unit decision and publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
+    },
+    {
+      "providerSourceId": 128,
+      "remainingCriteria": [
+        "full book/intro text and exact record provenance, versions and rights",
+        "independent canonical-unit decisions and publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
     },
     {
       "providerSourceId": 129,
-      "title": "Heroes’ Feast: Saving the Children’s Menu ",
-      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hfscm"
+      "remainingCriteria": [
+        "full adventure and rule-unit inventory, exact versions and rights",
+        "independent canonical-unit decision and publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
     },
     {
       "providerSourceId": 135,
-      "title": "Vecna: Nest of the Eldritch Eye",
-      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vnee"
+      "remainingCriteria": [
+        "full prequel/campaign rules, versions, individual provenance and rights",
+        "independent canonical-unit decision and publication/translation rights"
+      ],
+      "canonicalUnitAccepted": false
     }
   ],
-  "nextUntriagedProviderSourceId": 116,
+  "nextWorkItem": {
+    "phase": "publication-version-and-record-inventory",
+    "providerSourceId": 1,
+    "action": "Reconcile Basic Rules carriers with existing class/feature inventories; retain differences and unreviewed full rules.",
+    "doNotRepeat": "Already reviewed carrier TOCs and selected Arcane Recovery unit.",
+    "evidencePath": "catalog/basic-rules-publication-boundary-2014.json"
+  },
   "unlinkedHistoricalRowsPreserved": [
     {
       "dndsuSourceId": "156",
@@ -578,18 +739,23 @@
     "catalog/radiant-citadel-chapter-boundary-2014.json": "8a827e4613d771c9abe0a8a98c207fc28dac0b9864ebe48a0e169b37f26ca169",
     "catalog/spelljammer-academy-series-boundary-2014.json": "4c1d4a9a5f8e375b392d7abd6439c9d2509b220f45cfed6d62eeb211489c78e3",
     "catalog/stormwreck-publication-pair-boundary-2014.json": "645497b5dc08d08ed2559b9444cfb2703008b49b46d0dded792abdeaac4834ed",
+    "catalog/domains-delight-reference-boundary-2014.json": "3e9fb9347ff7a6e431dabb2afe7c35bd1524ae323cb692844aa6498f79e144c2",
+    "catalog/gazetteer-component-boundary-2014.json": "3da390da1a6ceb38da069ec4a890bd07c7d2b1795fe3fa0147d5ddb4f1089507",
+    "catalog/lightning-keep-relationship-2014.json": "c81fd62ab4173bd48f21b75d8593e018f36a7dfcc6564a71bad2e2dc24d51328",
+    "catalog/heroes-feast-relationship-2014.json": "976b3061840d8a0bd089eb8a07b8cdf1d743892d598fdd13709a5028ad48b912",
+    "catalog/vecna-prequel-relationship-2014.json": "5fc91d33282f236ddaca4049b1ab18eca6848851d1712a485042ed2770859280",
     "catalog/wizard-recovery-source-comparison-2014.json": "0b62cc3ae12d944811eabbaf69ec8693eb180a46120057084e61358a696df5c4"
   },
   "generator": {
     "path": "scripts/review-d05-current-triage-2014.py",
-    "sha256": "9b7e422dd3863de9590778f7e520289998869d1cbe5370c7346fbe7fcb8d180e"
+    "sha256": "aa02187d0cad9b97dcbbc853f0fde52c8d046c36a750205777bf8ab58059074f"
   },
   "limits": [
-    "10+5 partitions15 work references, not the game catalogue or count of missing publications.",
+    "15+0 partitions15 work references, not the game catalogue or count of missing publications.",
     "A reviewed bounded witness does not close its remaining full-text/version/scope/rights/canonical-unit criteria.",
     "Current work is separate from original15-row/70-source observations; no input or policy is mutated.",
     "Review citations are pinned to the checked report and exact PR head; changed evidence needs new review.",
-    "The selected Wizard rule is neither an eleventh publication witness nor working runtime automation.",
+    "The selected Wizard rule is neither a sixteenth publication witness nor working runtime automation.",
     "Owner milestones, private matrix, application/VPS state and catalogue denominator remain unchanged."
   ]
 }
