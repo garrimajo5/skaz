@@ -41,6 +41,12 @@ def capture_one(resource,folder,opener,timeout,max_bytes,clock=time.monotonic):
         with opener.open(request,timeout=timeout) as response:
             final=validate_url(response.url);record.update(finalUrl=final,status=response.status,outcome='headers-received');atomic_json(sidecar,record)
             if response.status!=200:raise ValueError('Unexpected non200 success response')
+            length_header=getattr(response,'headers',{}).get('Content-Length')
+            expected=None
+            if length_header is not None:
+                if not re.fullmatch(r'[0-9]+',length_header.strip()):raise ValueError('Invalid Content-Length')
+                expected=int(length_header);record['declaredBytes']=expected;atomic_json(sidecar,record)
+                if expected>max_bytes:raise ValueError('Declared public body exceeds byte budget')
             chunks=[];size=0
             while True:
                 if clock()-started>2*timeout:raise TimeoutError('Total read budget exceeded between chunks')
@@ -48,6 +54,7 @@ def capture_one(resource,folder,opener,timeout,max_bytes,clock=time.monotonic):
                 if not chunk:break
                 chunks.append(chunk);size+=len(chunk)
                 if size>max_bytes:raise ValueError('Public body exceeds byte budget')
+            if expected is not None and size!=expected:raise http.client.IncompleteRead(b'',max(0,expected-size))
             raw=b''.join(chunks);(folder/file).write_bytes(raw)
             record.update(bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest(),bodyFile=file,outcome='complete')
     except urllib.error.HTTPError as exc:
@@ -66,6 +73,7 @@ def capture_batch(resources,folder,opener=None,workers=2,timeout=15,max_bytes=20
     names=[]
     for r in resources:
         if set(r)!={'file','url'} or not re.fullmatch(r'[a-z][a-z0-9_-]{0,50}\.(html|pdf|json|txt)',r['file']):raise ValueError('Unsafe or unexpected output name')
+        if r['file']=='capture.json':raise ValueError('Reserved capture manifest name')
         validate_url(r['url']);names.append(r['file'])
     if len(set(names))!=len(names):raise ValueError('Duplicate output names would overwrite evidence')
     if folder.exists() and any(folder.iterdir()):raise FileExistsError('Use a new or empty capture directory')

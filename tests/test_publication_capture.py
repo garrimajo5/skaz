@@ -49,6 +49,23 @@ class PublicationCaptureTest(unittest.TestCase):
             self.assertEqual(d['bad.html']['errorType'],'IncompleteRead');self.assertIsNone(d['bad.html']['sha256'])
             self.assertTrue((Path(t)/'capture.json').exists())
 
+    def test_reserved_manifest_name_fails_before_network_and_files(self):
+        with tempfile.TemporaryDirectory() as t:
+            o=Opener()
+            with self.assertRaises(ValueError):M.capture_batch([{'file':'capture.json','url':'https://www.dndbeyond.com/source'}],t,opener=o)
+            self.assertFalse(o.calls);self.assertFalse(list(Path(t).iterdir()))
+
+    def test_real_http_response_premature_eof_is_not_complete(self):
+        class Socket:
+            def makefile(self,*args):return io.BytesIO(b'HTTP/1.1 200 OK\r\nContent-Length: 10\r\n\r\nabc')
+        class TruncatedOpener:
+            def open(self,req,timeout):
+                response=http.client.HTTPResponse(Socket());response.begin();response.url=req.full_url;return response
+        with tempfile.TemporaryDirectory() as t:
+            d=M.capture_batch([{'file':'bad.html','url':'https://www.dndbeyond.com/source'}],t,opener=TruncatedOpener())
+            self.assertFalse(d['captureBatch']['complete']);self.assertEqual(d['bad.html']['errorType'],'IncompleteRead')
+            self.assertIsNone(d['bad.html']['sha256']);self.assertFalse((Path(t)/'bad.html').exists())
+
     def test_http403_is_retained_once_without_retry_or_body(self):
         with tempfile.TemporaryDirectory() as t:
             o=Opener();d=M.capture_batch([{'file':'denied.html','url':'https://www.dndbeyond.com/denied'}],t,opener=o)

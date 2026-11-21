@@ -13,3 +13,5 @@ python scripts/capture-publication-witnesses.py <explicit-plan.json> <new-extern
 8тестов на вымышленных ответах проверили timeout, IncompleteRead,403, сохранение успешного соседа, byte/deadline budgets, запрет перезаписи/неверных путей и targets. IncompleteRead сначала воспроизвёл отмену итогового манифеста; обработчик исправлен, тест прошёл. Живого сетевого прогона новой утилиты в этом блоке не было. Старые Stormwreck HTTP-квитанции не реконструированы.
 
 Решение planner: испытать эту утилиту на следующем разрешённом новом источнике, без повторного скачивания уже принятого. Критерий — при частичном сбое сохраняется каждый успешный receipt, неизвестные поля не выдумываются. Общие разрешения и инструкции не меняются.
+
+Reviewer regressions: reserved `capture.json` fails before network/files; a declared Content-Length must match the body at EOF before any body/SHA is accepted. The regression uses a real stdlib HTTPResponse with a truncated body, without network.
