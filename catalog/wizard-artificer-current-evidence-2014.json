@@ -297,17 +297,17 @@
   },
   "nextWorkItem": {
     "role": "content",
-    "phase": "general-areas-saves-attacks-combination",
-    "action": "Compare full common area/shape, saving-throw, attack-roll and combining-effect scopes against complete corresponding SRD boundaries; preserve XGE grid methods and TCE personalization separately.",
+    "phase": "general-core-introductions-and-schools",
+    "action": "Compare What Is a Spell, Spell Level, Casting a Spell introduction and complete Schools of Magic against retained SRD100-104; keep diagrams, variants, Ready and XGE/TCE separate, then Wizard spell list.",
     "candidateId": "scope:wizard:class-features:feature.spellcasting",
     "requiredInputs": [
+      "catalog/general-areas-effects-2014.json",
       "catalog/general-concentration-targets-2014.json",
-      "catalog/general-casting-clauses-2014.json",
       "catalog/spellcasting-reference-scopes-2014.json"
     ],
     "sourceSnapshotRequirement": "Retained source keeps its own SHA; preserve historical/fresh identities.",
     "parallelRemainingCriterion": "Exact TCE/Artificer full-text/version applicability remains unverified.",
-    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings. General Spellcasting48heading inventory and two KnownPrepared/Armor complete selected subsections/4secondary paragraphs.13general casting scopes/32secondary paragraphs,including cantrip errata and material qualifier finding.6duration/concentration/target scopes/13paragraphs/3list items; Basic rounding and target referent caveat."
+    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings. General Spellcasting48heading inventory and two KnownPrepared/Armor complete selected subsections/4secondary paragraphs.13general casting scopes/32secondary paragraphs,including cantrip errata and material qualifier finding.6duration/concentration/target scopes/13paragraphs/3list items; Basic rounding and target referent caveat.9ordinary area/save/attack/effect prose scopes/19paragraphs; diagrams/captions and equal-potency errata remain distinct."
   },
   "limits": [
     "New links overlay the original map; no candidate ID, source array, heading parent or unknown record is removed or canonized.",
@@ -379,6 +379,14 @@
       "head": "344a66a37aee1f3151384cc230922ec606c1d848",
       "review": "https://github.com/garrimajo5/skaz/pull/236#issuecomment-7064939796",
       "scope": "13selected general casting scopes/32secondary paragraphs,cantrip errata/material qualifier caveat retained"
+    },
+    "concentrationTargets": {
+      "path": "catalog/general-concentration-targets-2014.json",
+      "sha256": "0913dd9d2f06d30f69bd60d32451d89117170f1a6a354d82029bf64d87c5330b",
+      "pr": 237,
+      "head": "5cab5effb2f28340abd868ce483efdd62c7b1034",
+      "review": "https://github.com/garrimajo5/skaz/pull/237#issuecomment-7065116486",
+      "scope": "6selected full scopes/13paragraphs/3list items,Basic rounding and referent caveat retained"
     }
   },
   "inputSha256": {
@@ -390,7 +398,8 @@
     "catalog/wizard-table-concordance-2014.json": "e0eb3230426253d2239dcd5cd2fa0a350d33358acacd38f6fa6c933f5b913872",
     "catalog/spellcasting-reference-scopes-2014.json": "0e20ecfc18534dcc94752854e8ff018d8ad109eeabe9290036d04a6c57d925d3",
     "catalog/general-casting-clauses-2014.json": "aa6815ec47e2cb963c1c30e5fc50082bb20a6fc47861bc6c6f502dfcd59c97cf",
-    "catalog/general-concentration-targets-2014.json": "0913dd9d2f06d30f69bd60d32451d89117170f1a6a354d82029bf64d87c5330b"
+    "catalog/general-concentration-targets-2014.json": "0913dd9d2f06d30f69bd60d32451d89117170f1a6a354d82029bf64d87c5330b",
+    "catalog/general-areas-effects-2014.json": "64aef4dd8001785004414ed3cee11cb7d1d0a7084563294d1a7db2cee5139896"
   },
   "coVersionedGeneralReference": {
     "path": "catalog/spellcasting-reference-scopes-2014.json",
@@ -410,8 +419,14 @@
     "priorIndependentReviewInherited": false,
     "fullGeneralChapterAccepted": false
   },
+  "coVersionedAreasEffects": {
+    "path": "catalog/general-areas-effects-2014.json",
+    "scope": "9complete ordinary-prose scopes/19paragraphs;7diagrams/6captions retained unverified;equal-potency errata separate",
+    "priorIndependentReviewInherited": false,
+    "fullGeneralChapterAccepted": false
+  },
   "generator": {
     "path": "scripts/review-current-class-evidence-2014.py",
-    "sha256": "da88ae61836c872a538166e0bd463476f2373a2515f3b831943795f4942d27c5"
+    "sha256": "533fe3120e2b6cf918f36133b2e1bfd952492989e30182cdef381927497d7964"
   }
 }

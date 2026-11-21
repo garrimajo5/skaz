@@ -1,0 +1,555 @@
+{
+  "schemaVersion": 1,
+  "status": "nine-selected-common-prose-scopes-with-diagram-and-errata-holds-not-full-mixed-page",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "summary": {
+    "selectedOrdinaryProseScopes": 9,
+    "selectedOrdinaryProseParagraphs": 19,
+    "diagramReferencesPreservedNotAccepted": 7,
+    "captionsPreservedNotAccepted": 6,
+    "remainingHeadingsWithoutSelectedProseReview": 18,
+    "additionalHeadingsWithUnverifiedDiagrams": 5,
+    "canonicalUnitsAccepted": 0
+  },
+  "sources": {
+    "secondary": {
+      "requestedUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+      "capturedAt": "2026-11-21T14:29:12.576358+00:00",
+      "status": 200,
+      "finalUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+      "bytes": 438149,
+      "sha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+      "outcome": "complete",
+      "retried": false,
+      "declaredBytes": null,
+      "bodyFile": "spellcasting.html"
+    },
+    "srd": {
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "pdfPages": [
+        102,
+        103,
+        104
+      ]
+    },
+    "errata": {
+      "url": "https://media.wizards.com/2021/dnd/downloads/PH-Errata.pdf",
+      "sha256": "0c49e2c9c90c9dede38346874c8fda9ff39ce8a715d71aedc5bd1d1e4321014e",
+      "version": "3.0(2021),2014PHB",
+      "pdfPage": 4
+    },
+    "extractor": "pypdfium2",
+    "extractorVersion": "5.13.0",
+    "renderedPagesInspected": true
+  },
+  "records": [
+    {
+      "key": "areas",
+      "headingOrdinal": 34,
+      "title": "Области воздействия",
+      "bodyTextSha256": "ff7051f5906efce741120365eb9b764e994d38211b924952788367978af9a020",
+      "ordinaryProseParagraphSha256": [
+        "8f45710c8fb1c9856af0c34c2a928ec4dde69ca187fbc55bc92cbbf97d4e5cda",
+        "cd5adaccd7387afefa5d23638264b7b2764a2f0f18ab3701f78b2eac0f98c34b",
+        "4fd7f737ecf7d6ed7f99794f5292b9e69c4916d8e3e1076a3809b8ce70c7293c",
+        "65d57395fc4083f78fe6236c042fb6f33281efa0c0021cc71aa9dbd63a25cbc0",
+        "b3f85b03198e6c9195daad898ca1cf24ccf89fdcf1eed41dad34beb33b2d58ff",
+        "9cfd36112cc3beb1c5730f04dcc567c81c448c3f340c159d44cb1eaf73caaaa4"
+      ],
+      "captionTextSha256": [],
+      "diagramReferences": [
+        {
+          "src": "/ennin/spells-aoe/templates.png",
+          "dataSrc": null,
+          "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "fetchedOrAcceptedAsArt": false
+        }
+      ],
+      "completeSelectedOrdinaryProseCompared": true,
+      "wholeSecondaryHeadingAcceptedAsRules": false,
+      "diagramAndCaptionRulesVerified": false,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          102,
+          103
+        ],
+        "startHeading": "Areas of Effect",
+        "stopExcluded": "Cone",
+        "selectedTextSha256": "3ae6d9f56d77559878b4dec0749ef898ae9f631abf9ac0c92d3bf5f50fce84e8",
+        "wordCount": 148
+      },
+      "assessment": "selected-ordinary-prose-conditions-correspond",
+      "ordinaryFacts": {
+        "spellDescriptionSpecifiesArea": true,
+        "fiveCommonShapes": true,
+        "originMayBePointCreatureOrObject": true,
+        "unblockedStraightLinesFromOriginRequiredByOrdinaryRule": true,
+        "blockingRequiresTotalCover": true,
+        "spellSpecificExceptionsRemainSeparate": true,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "cone",
+      "headingOrdinal": 35,
+      "title": "Конус",
+      "bodyTextSha256": "753434a0b074745452b97ac652bc3d45343362d2d50af78a40552fe43d96d9e3",
+      "ordinaryProseParagraphSha256": [
+        "62437c000b3c766fc8e424ccba69ae3b168b02467e7f5b016e74e15115b55921"
+      ],
+      "captionTextSha256": [
+        "7fbaa13fafbf76921857e6bb3c62603e55b38f5ea1241c6fc93a58ce089ab6ed",
+        "888ee38ac49e545cf857362d6218f8c74e0f2bd79aa556527e1eedfe9b42ad08"
+      ],
+      "diagramReferences": [
+        {
+          "src": "/ennin/spells-aoe/cone.png",
+          "dataSrc": null,
+          "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "fetchedOrAcceptedAsArt": false
+        },
+        {
+          "src": "/ennin/spells-aoe/cone-tokens.png",
+          "dataSrc": null,
+          "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "fetchedOrAcceptedAsArt": false
+        }
+      ],
+      "completeSelectedOrdinaryProseCompared": true,
+      "wholeSecondaryHeadingAcceptedAsRules": false,
+      "diagramAndCaptionRulesVerified": false,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          103
+        ],
+        "startHeading": "Cone",
+        "stopExcluded": "Cube",
+        "selectedTextSha256": "66b24146534058775c2237a08c6fd17b6dee35e285f1fb876e08a6f9538ee207",
+        "wordCount": 61
+      },
+      "assessment": "selected-ordinary-prose-conditions-correspond",
+      "ordinaryFacts": {
+        "widthAtDistanceEqualsDistanceFromOrigin": true,
+        "maximumLengthFromSpell": true,
+        "originIncludedByDefault": false,
+        "casterMayChooseToIncludeOrigin": true,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "cube",
+      "headingOrdinal": 36,
+      "title": "Куб",
+      "bodyTextSha256": "8054c8bbd355ce9a5d1171092f2c3b758a50bec6ef2a6e4e8dec2439ff5f8bfe",
+      "ordinaryProseParagraphSha256": [
+        "eee0dcfd190c242f6c37ceddf5a711c4aafdea547712e4bd0a8595a604c80be4"
+      ],
+      "captionTextSha256": [
+        "c70995951f7d82b935d3534cf7cd4cf6648500ad9fd39db21c0a62d5fde837aa",
+        "d21bbb6e055a3d88f9036dcad760e479702461380ae90d9459b09eda299e6844"
+      ],
+      "diagramReferences": [
+        {
+          "src": "/ennin/spells-aoe/square.png",
+          "dataSrc": null,
+          "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "fetchedOrAcceptedAsArt": false
+        },
+        {
+          "src": "/ennin/spells-aoe/square-obstacle.png",
+          "dataSrc": null,
+          "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "fetchedOrAcceptedAsArt": false
+        }
+      ],
+      "completeSelectedOrdinaryProseCompared": true,
+      "wholeSecondaryHeadingAcceptedAsRules": false,
+      "diagramAndCaptionRulesVerified": false,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          103
+        ],
+        "startHeading": "Cube",
+        "stopExcluded": "Cylinder",
+        "selectedTextSha256": "c98cdb375e7b6c28a30ba620dad8fa7e02cd981211d5c71d72bffb759056ad88",
+        "wordCount": 46
+      },
+      "assessment": "selected-ordinary-prose-conditions-correspond",
+      "ordinaryFacts": {
+        "originCanBeAnywhereOnOneFace": true,
+        "sizeIsSideLength": true,
+        "originIncludedByDefault": false,
+        "casterMayChooseToIncludeOrigin": true,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "line",
+      "headingOrdinal": 37,
+      "title": "Линия",
+      "bodyTextSha256": "c448708ebb19361455e60da019135e2311022be18516e5e5557c30cc0d27d1af",
+      "ordinaryProseParagraphSha256": [
+        "7e28e34f1ff44587042332aa21838a17c5353626ec39574db58c776bf70b1337"
+      ],
+      "captionTextSha256": [
+        "d775fc8b300cf030b40a8560ff37dab537236415a0bf879316773861ea9f5d70"
+      ],
+      "diagramReferences": [
+        {
+          "src": "/ennin/spells-aoe/line.png",
+          "dataSrc": null,
+          "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "fetchedOrAcceptedAsArt": false
+        }
+      ],
+      "completeSelectedOrdinaryProseCompared": true,
+      "wholeSecondaryHeadingAcceptedAsRules": false,
+      "diagramAndCaptionRulesVerified": false,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          103
+        ],
+        "startHeading": "Line",
+        "stopExcluded": "Sphere",
+        "selectedTextSha256": "81e6b3a6224ad5b2466570b38b950889e5fecb9b9983d3548b7fae19efe4df04",
+        "wordCount": 42
+      },
+      "assessment": "selected-ordinary-prose-conditions-correspond",
+      "ordinaryFacts": {
+        "lengthAndWidthDefineArea": true,
+        "everyLineHasFixedFiveFootWidth": false,
+        "originIncludedByDefault": false,
+        "casterMayChooseToIncludeOrigin": true,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "sphere",
+      "headingOrdinal": 38,
+      "title": "Сфера",
+      "bodyTextSha256": "c5584577936fdd0f22aace11e61ef3478da34d02f996ebbebd671ab396c0f9e1",
+      "ordinaryProseParagraphSha256": [
+        "c5584577936fdd0f22aace11e61ef3478da34d02f996ebbebd671ab396c0f9e1"
+      ],
+      "captionTextSha256": [],
+      "diagramReferences": [],
+      "completeSelectedOrdinaryProseCompared": true,
+      "wholeSecondaryHeadingAcceptedAsRules": false,
+      "diagramAndCaptionRulesVerified": false,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          103
+        ],
+        "startHeading": "Sphere",
+        "stopExcluded": "Saving Throws",
+        "selectedTextSha256": "a84bad8eca398fce2b79df8577daa1ce5bf94d208e8a4d254b1b6220d2a481b6",
+        "wordCount": 43
+      },
+      "assessment": "selected-ordinary-prose-conditions-correspond",
+      "ordinaryFacts": {
+        "sizeUsesRadiusNotDiameter": true,
+        "originIsCenter": true,
+        "originIncluded": true,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "cylinder",
+      "headingOrdinal": 39,
+      "title": "Цилиндр",
+      "bodyTextSha256": "9e5f03c0dd6fe424f735974539577fbde612ca987beb0a7e55f8ed873005f44a",
+      "ordinaryProseParagraphSha256": [
+        "9a03de154baf830951b8890fe4656542fc376ddcedc55c98c85c6dcb9d7b2660",
+        "b14fb15fbb73196838a6a4678a3577dd5a001d0d44e551f4d8933ff091e0aeae"
+      ],
+      "captionTextSha256": [
+        "78f387edb137c214aa20a12ecd8dcc0034f9baeab01b34bbb71381d5c38f5e83"
+      ],
+      "diagramReferences": [
+        {
+          "src": "/ennin/spells-aoe/circle.png",
+          "dataSrc": null,
+          "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "fetchedOrAcceptedAsArt": false
+        }
+      ],
+      "completeSelectedOrdinaryProseCompared": true,
+      "wholeSecondaryHeadingAcceptedAsRules": false,
+      "diagramAndCaptionRulesVerified": false,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          103
+        ],
+        "startHeading": "Cylinder",
+        "stopExcluded": "Line",
+        "selectedTextSha256": "4a544976d21888feb30168aeb71b14f7e2ef00861d693b2eae80912716c1d97e",
+        "wordCount": 100
+      },
+      "assessment": "retained-placement-wording-difference",
+      "ordinaryFacts": {
+        "originIsCircleCenter": true,
+        "primaryGroundOrSpellHeightPlacementReference": true,
+        "expandsToCircleThenUpOrDownThroughHeight": true,
+        "originIncluded": true,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false,
+      "literalDifference": {
+        "secondary": "upper-or-lower-base",
+        "primary": "circle on ground or at spell-effect height",
+        "exactPlacementEquivalenceAccepted": false,
+        "sourceSilentlyRewritten": false
+      }
+    },
+    {
+      "key": "saving-throws",
+      "headingOrdinal": 43,
+      "title": "Спасброски",
+      "bodyTextSha256": "4111a538559ae6510da3a801a7a1a08b8421b0e1b2b025fce831b438dfa3f356",
+      "ordinaryProseParagraphSha256": [
+        "536374658eeeec0a26220e6801d8c547f9ff3a803a5868b3813582ab3ce13cd8",
+        "f64b34040f39524e5a73944e830e2fe31cea2df8432ebbe2ac6ac541136af060"
+      ],
+      "captionTextSha256": [],
+      "diagramReferences": [],
+      "completeSelectedOrdinaryProseCompared": true,
+      "wholeSecondaryHeadingAcceptedAsRules": false,
+      "diagramAndCaptionRulesVerified": false,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          103
+        ],
+        "startHeading": "Saving Throws",
+        "stopExcluded": "Attack Rolls",
+        "selectedTextSha256": "337cc1775f58ccce7be7c528fd062070674027b943998731186084f8586f92b8",
+        "wordCount": 63
+      },
+      "assessment": "selected-ordinary-prose-conditions-correspond",
+      "ordinaryFacts": {
+        "spellSpecifiesAbilityAndSuccessFailureEffects": true,
+        "saveCanAvoidSomeOrAllAsSpellSays": true,
+        "saveDC": "8 + spellcastingAbilityModifier + proficiencyBonus + specialModifiers",
+        "successfulSaveAlwaysHalvesDamage": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false,
+      "literalDifference": {
+        "kind": "partial-versus-some-or-all-avoidance-wording",
+        "sourceSilentlyRewritten": false
+      }
+    },
+    {
+      "key": "attack-rolls",
+      "headingOrdinal": 44,
+      "title": "Броски атаки",
+      "bodyTextSha256": "9af2b9ec597d02975b02bfaea20c4d3dac08c77c79b3d526b36aa0737100cabb",
+      "ordinaryProseParagraphSha256": [
+        "904d303519e99ba4d15d388566b844bbcaebe833513e078d9ee092274b1243d9",
+        "d8c6dcd9d4f7715e42d1df0ec8771b066ac1f9b6d227925c685ea2c8756b5594",
+        "b3e35087ee6ab57ab3dd1208119133af94cca329c606c29df802609e9d1907e8"
+      ],
+      "captionTextSha256": [],
+      "diagramReferences": [],
+      "completeSelectedOrdinaryProseCompared": true,
+      "wholeSecondaryHeadingAcceptedAsRules": false,
+      "diagramAndCaptionRulesVerified": false,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          103
+        ],
+        "startHeading": "Attack Rolls",
+        "stopExcluded": "The Schools of Magic",
+        "selectedTextSha256": "32c6521cc479794e6bb555644fce49ae6fbde8e10f26ee2ba2b57a751e8768fa",
+        "wordCount": 73
+      },
+      "assessment": "selected-ordinary-prose-conditions-correspond",
+      "ordinaryFacts": {
+        "spellAttackModifier": "spellcastingAbilityModifier + proficiencyBonus",
+        "rangedSpellAttackDisadvantageNeedsHostileWithinFiveFeetThatSeesCasterAndIsNotIncapacitated": true,
+        "allSpellAttacksAreRanged": false,
+        "nearbyHostileMustBeTheAttackTarget": false,
+        "specificItemOrFeatureOverridesRemainSeparate": true,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "combining-effects",
+      "headingOrdinal": 45,
+      "title": "Объединение магических эффектов",
+      "bodyTextSha256": "c271e4bbfd8dd575217e150b431cc113b35c44e4fdea2e810895c9a285c84e8c",
+      "ordinaryProseParagraphSha256": [
+        "b0a2c7ef876c1cbcaa3817d54416f1a0f9bfbe61edae24351d3c0976ba23f67c",
+        "b4ea5501289572a4732255726c83d669915d3cdec6b8939de1bf842875c023ed"
+      ],
+      "captionTextSha256": [],
+      "diagramReferences": [],
+      "completeSelectedOrdinaryProseCompared": true,
+      "wholeSecondaryHeadingAcceptedAsRules": false,
+      "diagramAndCaptionRulesVerified": false,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          104
+        ],
+        "startHeading": "Combining Magical Effects",
+        "stopExcluded": "PDF104 end",
+        "selectedTextSha256": "ebd98978926dda6a455f9471eecad1c7c8a2cb4f82ba1fe7ebe0aa1a5583d081",
+        "wordCount": 71
+      },
+      "assessment": "secondary-and-srd-core-correspond-but-2014-errata-addition-missing",
+      "ordinaryFacts": {
+        "differentSpellsAddWhileDurationsOverlap": true,
+        "specificNonStackingRulesRemainSeparate": true,
+        "combiningEffectsSumsEveryResourceAutomatically": false,
+        "sameSpellEffectsStack": false,
+        "mostPotentEffectWhileOverlapApplies": true,
+        "equallyPotentOverlappingMostRecentPerSeparateErrata": true,
+        "equalTieRuleEstablishedBySrdTextAlone": false,
+        "lessPotentCastingAutomaticallyDispelledOrDeleted": false,
+        "blessExampleGrantsTwoBonusDice": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false,
+      "additionalPrimaryEvidence": {
+        "source": "phb2014-errata-v3.0-2021",
+        "pdfPage": 4,
+        "start": "Combining Magical Effects (p. 205).",
+        "stopExcluded": "Spells",
+        "rawSelectedTextSha256": "5141e489a89ee2faff53cb0e970ecf5da67d153d4e3806973ecdbf9c3f4c8214",
+        "pdfWordWrapMarkersRetained": true,
+        "scope": "only selected added equal-potency overlapping-effect sentence; not all errata/spells"
+      },
+      "secondaryAndSrdOmitEqualPotencyMostRecentClause": true
+    }
+  ],
+  "remainingHeadingOrdinalsWithoutSelectedProseReview": [
+    1,
+    2,
+    7,
+    8,
+    9,
+    12,
+    17,
+    18,
+    27,
+    31,
+    32,
+    33,
+    40,
+    41,
+    42,
+    46,
+    47,
+    48
+  ],
+  "headingOrdinalsWithUnverifiedDiagramInsertions": [
+    34,
+    35,
+    36,
+    37,
+    39
+  ],
+  "syntheticCases": [
+    {
+      "case": "cone-cube-line-origin",
+      "originExcludedByDefault": true,
+      "casterMayInclude": true
+    },
+    {
+      "case": "sphere-cylinder-origin",
+      "originIncluded": true
+    },
+    {
+      "case": "line-width",
+      "fixedFiveFeetInferred": false
+    },
+    {
+      "case": "successful-save",
+      "halfDamageAutomaticallyInferred": false
+    },
+    {
+      "case": "ranged-spell-at-distant-target-with-nearby-hostile",
+      "hostileWithinFiveFeet": true,
+      "hostileSeesCaster": true,
+      "hostileIncapacitated": false,
+      "ordinaryDisadvantage": true,
+      "hostileMustBeTarget": false
+    },
+    {
+      "case": "equalPotentSameSpellOverlap",
+      "mostRecentAppliesPerSeparateErrata": true,
+      "bothCastingsDeletedOrDoubleBonus": false
+    }
+  ],
+  "preservedHolds": {
+    "xgeGridHeadings": [
+      40,
+      41,
+      42
+    ],
+    "tcePersonalizationHeadings": [
+      46,
+      47
+    ],
+    "diagramSourceOrGeometryAccepted": false,
+    "originalSourceArraysRewritten": false,
+    "runtimeEffectsOrConditionsDeleted": false
+  },
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "general-core-introductions-and-schools",
+    "action": "Compare What Is a Spell, Spell Level, Casting a Spell introduction and complete Schools of Magic against retained SRD100-104; keep diagrams, variants, Ready and XGE/TCE separate, then Wizard spell list."
+  },
+  "limits": [
+    "Nine complete ordinary-prose scopes are compared, not all diagram/caption content of five headings.18headings still lack selected prose review.",
+    "Same-spell equal-potency most-recent rule has separate PHB errata evidence; secondary/SRD omission is not silently repaired.",
+    "Cylinder placement and save-avoidance wording differences remain explicit; no grid or full translation equivalence asserted.",
+    "No raw source prose/PDF, canonical units, rights, runtime change, profile edit or owner-stage closure exported."
+  ],
+  "inputSha256": {
+    "catalog/general-concentration-targets-2014.json": "0913dd9d2f06d30f69bd60d32451d89117170f1a6a354d82029bf64d87c5330b",
+    "catalog/general-casting-clauses-2014.json": "aa6815ec47e2cb963c1c30e5fc50082bb20a6fc47861bc6c6f502dfcd59c97cf",
+    "catalog/spellcasting-reference-scopes-2014.json": "0e20ecfc18534dcc94752854e8ff018d8ad109eeabe9290036d04a6c57d925d3"
+  },
+  "generator": {
+    "path": "scripts/audit-general-areas-effects-2014.py",
+    "sha256": "e3b6321095d8387ba6d2bc4f876d7a455d87a18f9eafd12835861c91a3a1d730"
+  },
+  "upstreamParsers": [
+    {
+      "path": "scripts/audit-general-casting-clauses-2014.py",
+      "sha256": "c29e37353aedb0d78d8305a34eec865a442f316071913278a2a3aa390c820aa3"
+    },
+    {
+      "path": "scripts/audit-wizard-candidate-concordance-2014.py",
+      "sha256": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b"
+    }
+  ]
+}
