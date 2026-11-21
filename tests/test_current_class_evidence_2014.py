@@ -61,6 +61,13 @@ class CurrentClassEvidenceTest(unittest.TestCase):
             else:t['summary']['numericCellsComparedExcludingLevel']=200
             with self.assertRaises(ValueError):M.combine(data(),M.load_concordance(ROOT),t)
 
+    def test_current_general_overlay_advances_only_checked_selected_scopes(self):
+        d=M.build(ROOT);self.assertEqual(d['nextWorkItem']['phase'],'general-spell-slots-and-upcasting');self.assertFalse(d['coVersionedGeneralReference']['fullReferenceRulesAccepted'] or d['coVersionedGeneralReference']['priorIndependentReviewInherited']);self.assertIn('48heading',d['nextWorkItem']['doNotRepeat'])
+
+    def test_mixed_general_reference_cannot_be_accepted_from_phb_header(self):
+        g=json.loads((ROOT/M.GENERAL).read_text(encoding='utf-8'));g['sourceBoundaryObservations']['wholePageSourceInheritanceAllowed']=True
+        with self.assertRaises(ValueError):M.add_general_context({},g)
+
     def test_committed_report_and_all_pins_reproduce(self):
         d=json.loads((ROOT/'catalog/wizard-artificer-current-evidence-2014.json').read_text(encoding='utf-8'));self.assertEqual(d,M.build(ROOT))
         for path,digest in d['inputSha256'].items():self.assertEqual(M.sha((ROOT/path).read_bytes().replace(b'\r\n',b'\n')),digest)
