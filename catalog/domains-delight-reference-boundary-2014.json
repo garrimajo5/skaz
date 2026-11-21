@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "status": "official-pdf-supplement-reference-with-limited-marketplace-captures-not-full-rules",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "providerSourceId": 116,
+  "providerObservationId": "ddb:library-source:116",
+  "numericDndsuSourceId": null,
+  "canonicalSourceId": null,
+  "automaticAttribution": false,
+  "providerReference": {
+    "title": "Domains of Delight: A Feywild Accessory",
+    "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dod",
+    "sku": "SRC-00116-ELIFE",
+    "displayedPublisher": "Wizards of the Coast",
+    "providerRuleset": {
+      "name": "5e",
+      "label": "5e"
+    },
+    "providerReleaseDate": "2023-05-23T13:45:00Z",
+    "providerType": "sourcebook"
+  },
+  "sources": {
+    "dungeoncraft.pdf": {
+      "requestedUrl": "https://media.wizards.com/2021/dnd/downloads/Dungeoncraft_Wild_Beyond_the_Witchlight_v1.1.pdf",
+      "finalUrl": "https://media.wizards.com/2021/dnd/downloads/Dungeoncraft_Wild_Beyond_the_Witchlight_v1.1.pdf",
+      "status": 200,
+      "bytes": 383971,
+      "sha256": "9a2a19a39d28221092f1f63353c4e5e11e4c8497b203f14ba08964f31184a72c",
+      "capturedAt": "2026-11-21T12:23:07.039127+00:00"
+    }
+  },
+  "pdfReference": {
+    "pdfPage": 1,
+    "pdfVersion": "1.1",
+    "publicationReferenceParagraphSha256": "cb6140ab46c11f7f301fa32c6e5d28dae5371f4a15dc26a09bc8d5185931d79a",
+    "supplementKindExplicit": true,
+    "separateDmsGuildProductUrl": "https://www.dmsguild.com/product/371449/Domains-of-Delight-5e",
+    "productNumberIsDndsuSourceId": false,
+    "sameAsWholeWitchlightOrContainedChapter": "not-established",
+    "campaignArchfeyRestriction": {
+      "paragraphSha256": "324b84946b633fc02bae7d1a5da5c919ed3721d56b21ac34d90572b56af8a261",
+      "scope": "historical Dungeoncraft programme only; not current global AL legality or common profile prohibition",
+      "blocksOrdinaryProfileActions": false,
+      "provesBookUnofficialOrEmpty": false
+    },
+    "scope": "one official PDF page and its product annotations; supplement full rules not read"
+  },
+  "pdfPageCount": 9,
+  "inspectedPdfPages": [
+    1
+  ],
+  "accessAndCaptureLimits": {
+    "limitedAttempts": [
+      {
+        "requestedUrl": "https://www.dndbeyond.com/sources/dnd/dod",
+        "finalUrl": null,
+        "status": null,
+        "bytes": null,
+        "sha256": null,
+        "bodyFile": null,
+        "capturedAt": "2026-11-21T12:23:06.177281+00:00",
+        "outcome": "capture-error",
+        "retried": false,
+        "errorType": "ValueError"
+      },
+      {
+        "requestedUrl": "https://marketplace.dndbeyond.com/PROMOTION/SRC-00116-ELIFE",
+        "finalUrl": "https://marketplace.dndbeyond.com/PROMOTION/SRC-00116-ELIFE",
+        "status": 200,
+        "bytes": null,
+        "sha256": null,
+        "bodyFile": null,
+        "capturedAt": "2026-11-21T12:23:06.178043+00:00",
+        "outcome": "capture-error",
+        "retried": false,
+        "errorType": "TimeoutError"
+      },
+      {
+        "requestedUrl": "https://marketplace.dndbeyond.com/all-rulebooks/SRC-00116-ELIFE",
+        "finalUrl": "https://marketplace.dndbeyond.com/all-rulebooks/SRC-00116-ELIFE",
+        "status": 200,
+        "bytes": null,
+        "sha256": null,
+        "bodyFile": null,
+        "capturedAt": "2026-11-21T12:24:14.343507+00:00",
+        "outcome": "capture-error",
+        "retried": false,
+        "errorType": "TimeoutError"
+      }
+    ],
+    "fullSupplementRead": false,
+    "marketplaceBodyRetained": false,
+    "claimsAboutPermanentDenialOrPriorOwners": false,
+    "captureFailuresDoNotInvalidateSuccessfulPdfReceipt": true,
+    "captureHelperAutomaticRetries": false,
+    "scope": "failed URL validation and body reads retained as failures; successful PDF retained independently"
+  },
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe"
+  },
+  "generator": {
+    "path": "scripts/audit-domains-delight-reference-2014.py",
+    "sha256": "0d91483366697618e64d4eeaa6fcd8a733449f78bc42c1eadf39ff91cc65cc7d"
+  },
+  "upstreamParser": {
+    "path": "scripts/audit-prisoner13-component-2014.py",
+    "sha256": "5f19428fb4a6d387a09ed38a21871d8f44b8b319f2192d9c731e08784865a124"
+  },
+  "limits": [
+    "Supplement reference and WotC library label do not establish complete current text or record counts.",
+    "Historical programme restrictions are not a game-profile action ban or proof of zero common-catalogue records.",
+    "371449 is a distribution product number,116 is a provider ID; neither invents a historical/canonical ID.",
+    "Full rules/version comparison, independent canonical decisions and publication/translation rights remain open.",
+    "No account, private profile, application runtime, owner milestone or accepted catalogue denominator changed."
+  ]
+}
