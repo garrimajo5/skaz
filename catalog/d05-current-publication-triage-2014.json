@@ -7,8 +7,8 @@
   "summary": {
     "preservedHistoricalSources": 70,
     "preservedOriginalProviderResidual": 15,
-    "withReviewedBoundedKindWitness": 4,
-    "withoutBoundedKindWitness": 11,
+    "withReviewedBoundedKindWitness": 5,
+    "withoutBoundedKindWitness": 10,
     "selectedCompleteRuleComparisons": 1,
     "canonicalUnitsAccepted": 0
   },
@@ -138,10 +138,21 @@
       "canonicalUnitAccepted": false,
       "missingPublicationProven": false,
       "automaticSourceReplacement": false,
-      "triageState": "awaiting-primary-publication-kind-or-component-witness",
+      "triageState": "independently-reviewed-bounded-witness-present",
+      "publicationKindWitness": "introductory-companion-adventure-for-book",
+      "witnessPath": "catalog/rrakkma-publication-boundary-2014.json",
+      "reviewedReportSha256": "2d39d1bfe6220a0bb6a49cbc82eb69b8f0c1cd67962f203564d4fa86e066cfc5",
+      "independentReviewCited": {
+        "pr": 213,
+        "head": "c5720249c8f618496a4f735e886b2d88e5c4393b",
+        "review": "https://github.com/garrimajo5/skaz/pull/213#issuecomment-7053766906",
+        "reviewedScope": "own introductory metadata and one editorial3e-to5e rewrite paragraph only"
+      },
+      "doNotRepeat": "ownDDIA-MORD, introductory-forMToF not contained-in/alias;3e-origin versus5e-rewrite; no genericAL169 attribution",
       "remainingCriteria": [
-        "primary publication kind/parent/version evidence",
-        "canonical units, full record provenance and rights"
+        "full5e record inventory and exact versions",
+        "independent canonical units versus introduced book and generic AL observations",
+        "publication/translation rights"
       ]
     },
     {
@@ -427,11 +438,6 @@
   ],
   "primaryKindWorkQueue": [
     {
-      "providerSourceId": 34,
-      "title": "Rrakkma",
-      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ddia-mord"
-    },
-    {
       "providerSourceId": 37,
       "title": "Wayfinder's Guide to Eberron",
       "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wgte"
@@ -482,7 +488,7 @@
       "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vnee"
     }
   ],
-  "nextUntriagedProviderSourceId": 34,
+  "nextUntriagedProviderSourceId": 37,
   "unlinkedHistoricalRowsPreserved": [
     {
       "dndsuSourceId": "156",
@@ -540,18 +546,19 @@
     "catalog/sage-advice-publication-boundary-2014.json": "d1ffcbfb426aaedef84f083d639603b2f0a37e4d60579da5d69b105b8861fde6",
     "catalog/frozen-sick-publication-component-2014.json": "6232b75208a501d5437b8c2fd70595eaf5b09c9f3c0b76171e211d7dc625c625",
     "catalog/prisoner13-publication-component-2014.json": "c93eea64905079fb4b06610e6e008504577f90cf816b78ecabf91c4c58ec5321",
+    "catalog/rrakkma-publication-boundary-2014.json": "2d39d1bfe6220a0bb6a49cbc82eb69b8f0c1cd67962f203564d4fa86e066cfc5",
     "catalog/wizard-recovery-source-comparison-2014.json": "0b62cc3ae12d944811eabbaf69ec8693eb180a46120057084e61358a696df5c4"
   },
   "generator": {
     "path": "scripts/review-d05-current-triage-2014.py",
-    "sha256": "6e1f5387a1db3992ff9e3a5cb7102bf4cda812f41796d04cba279f0ea3ba89c7"
+    "sha256": "85c06486500e981c62030412d384ea6f526f8760e21998ad72fbfe681d614664"
   },
   "limits": [
-    "4+11 partitions15 work references, not the game catalogue or count of missing publications.",
+    "5+10 partitions15 work references, not the game catalogue or count of missing publications.",
     "A reviewed bounded witness does not close its remaining full-text/version/scope/rights/canonical-unit criteria.",
     "Current work is separate from original15-row/70-source observations; no input or policy is mutated.",
     "Review citations are pinned to the checked report and exact PR head; changed evidence needs new review.",
-    "The selected Wizard rule is neither a fifth publication witness nor working runtime automation.",
+    "The selected Wizard rule is neither a sixth publication witness nor working runtime automation.",
     "Owner milestones, private matrix, application/VPS state and catalogue denominator remain unchanged."
   ]
 }
