@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
+import {bundledCatalog} from '../server/bundled-catalog.mjs';
 import { readFile } from 'node:fs/promises';
+const factsSource=await readFile(new URL('../client/spell-facts.js',import.meta.url),'utf8');
 const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source = await readFile(new URL('../client/catalog.js', import.meta.url), 'utf8');
 function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning=null) {
@@ -20,9 +22,10 @@ function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning
     FormData: class { constructor(form) { this.form = form; } get(key) { return this.form[key] || ''; } },
     toast:message=>messages.push(message),render:()=>{}, modal: html => {isOpen=true;dialog=html;}, SkazStorage: { spellLearningMode:()=>spellLearning,can:()=>true,setSpell:async(...args)=>marks.push(args), ...(home?{contextKey:()=>snapshotKey.split(':')[0],snapshotKey:()=>snapshotKey,spellbookData:()=>new Promise((resolve,reject)=>requests.push({url:'/api/spellbook',resolve,reject,book:true}))}:{}),addInventory: entry => additions.push(entry), editSpell: entry => additions.push(entry) },
   });
+  vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
   const view = () => vm.runInContext('SkazCatalog.view()', context);
-  return { readerSize:(height,position='sticky')=>{readerHeight=height;readerPosition=position;},focusId:id=>{const target={id,focus:options=>{context.document.activeElement=target;movement.push(['focus-id',id,options]);}};focusTargets.set(id,target);context.document.activeElement={id};}, activeId:()=>context.document.activeElement?.id, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
+  return { factsCalls,readerSize:(height,position='sticky')=>{readerHeight=height;readerPosition=position;},focusId:id=>{const target={id,focus:options=>{context.document.activeElement=target;movement.push(['focus-id',id,options]);}};focusTargets.set(id,target);context.document.activeElement={id};}, activeId:()=>context.document.activeElement?.id, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>{isOpen=false;closeHandlers.splice(0).forEach(fn=>fn());}, otherModal:()=>{isOpen=true;dialog='<h2>Other</h2>'},
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
     inventorySubmit:(q,status,level='')=>handlers.submit({target:{id:'spell-inventory-search',q,status,level},preventDefault(){}}),
@@ -542,4 +545,16 @@ test('reader headings clear the measured sticky panel after wrapping or rotation
  h.readerSize(112);h.click('',{catalogSection:'catalog-source-title'});assert.equal(h.region.style.scrollMarginTop,'176px');assert.equal(h.region.parentElement.open,true);
  h.readerSize(232,'static');h.click('',{catalogSection:'catalog-detail-title'});assert.equal(h.region.style.scrollMarginTop,'16px');
  assert.equal(h.requests.length,2);assert.equal(h.additions.length,0);
+});
+
+test('catalog uses shared checked spell facts with base dice and keeps changed personal cards readable',async()=>{
+ const actual=bundledCatalog().bundle.entries.find(e=>e.id==='srd51:2014:spell:acid-splash');
+ for(const changed of[false,true]){
+  const card=structuredClone(actual);if(changed){card.source.usage='personal';card.text+=' Личное правило: 9d20.';}
+  const h=harness();h.submit('',{kind:'spell'});respond(h.requests[0],{entries:[card],total:1});respond(h.requests[1],coverage);await settle();
+  assert.equal(h.factsCalls.at(-1)[0],card);assert.equal(h.factsCalls.at(-1)[1],undefined);
+  if(changed)assert.doesNotMatch(h.region.innerHTML,/catalog-tile-effect/);
+  else assert.match(h.region.innerHTML,/class="catalog-tile-effect"[^>]*>спас ЛОВ · 1к6 кислота \(база\)<\/span>/);
+  h.detail();assert.ok(h.dialog().includes(card.name.ru));if(changed)assert.match(h.dialog(),/Личное правило: 9d20/);assert.equal(h.additions.length,0);
+ }
 });

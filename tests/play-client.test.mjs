@@ -1,11 +1,13 @@
+import {bundledCatalog} from '../server/bundled-catalog.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import vm from 'node:vm';import{readFile}from'node:fs/promises';
+const factsSource=await readFile(new URL('../client/spell-facts.js',import.meta.url),'utf8');
 const artSource=await readFile(new URL('../client/art.js',import.meta.url),'utf8');
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/play.js',import.meta.url),'utf8');
 function harness({quests=[],questFailure=false,spellLearning=null}={}){const elements=new Map(),handlers={},requests=[],reads=[],spends=[],casts=[],chargeEdits=[],memory=new Map();let snapshot='a',owner='hero-a',html='';const lists=['spells','items','quests'].map(kind=>({dataset:{playList:kind},scrollTop:0}));const get=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',value:'',textContent:'',open:true});return elements.get(id);};
  const context=vm.createContext({page:'play',state:{profile:{name:'Hero'},journal:[],notes:[],hp:20,slots:{1:0,2:2,3:1}},sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)},queueMicrotask,URLSearchParams,AbortSignal,
  document:{getElementById:get,querySelectorAll:selector=>selector==='[data-play-list]'?lists:[],addEventListener:(event,fn)=>handlers[event]=fn},modal:value=>{html=value;get('dialog').open=true;},closeModal:()=>get('dialog').open=false,toast(){},go:value=>context.page=value,
- SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise(resolve=>requests.push({kind:'book',resolve})),questsData:async()=>{if(questFailure)throw Error('offline');return {quests};},inventoryData:()=>new Promise(resolve=>requests.push({kind:'items',resolve})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(artSource,context);vm.runInContext(sheetSource,context);vm.runInContext(source,context);return{setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,top)=>{lists[index].scrollTop=top;handlers.scroll({target:lists[index]});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}})};
+ SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise(resolve=>requests.push({kind:'book',resolve})),questsData:async()=>{if(questFailure)throw Error('offline');return {quests};},inventoryData:()=>new Promise(resolve=>requests.push({kind:'items',resolve})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(sheetSource,context);vm.runInContext(source,context);return{factsCalls,setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,top)=>{lists[index].scrollTop=top;handlers.scroll({target:lists[index]});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}})};
 }
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 test('play art keeps spell circle, stable action IDs and item quantity independent of image loading',async()=>{
@@ -123,4 +125,19 @@ test('empty known spell list offers adding known spells, prepared policies keep 
   if(spellLearning==='known')assert.doesNotMatch(html,/Подготовить/);
   await h.click('',{playPrepare:'spells'});assert.equal(h.page(),'spells');
  }
+});
+
+test('play passes actual total level to shared facts at every cantrip boundary, with base fallback for unknown',async()=>{
+ const actual=bundledCatalog().bundle.entries.find(e=>e.id==='srd51:2014:spell:acid-splash');
+ for(const[level,expected]of[[4,'1к6'],[5,'2к6'],[10,'2к6'],[11,'3к6'],[16,'3к6'],[17,'4к6'],[undefined,'1к6 кислота (база)'],[null,'1к6 кислота (база)']]){
+  const h=harness();h.setSheet({level,counters:[]});await loaded(h,[{catalogId:actual.id,status:'known',entry:actual}]);
+  const html=h.get('play-content').innerHTML;assert.equal(h.factsCalls.at(-1)[0],actual);assert.equal(h.factsCalls.at(-1)[1],level);assert.ok(html.includes('спас ЛОВ · '+expected));
+  assert.equal(h.casts.length,0);assert.equal(h.spends.length,0);
+ }
+});
+
+test('play preserves metadata, reading and actions when same-ID personal text has no trusted summary',async()=>{
+ const actual=structuredClone(bundledCatalog().bundle.entries.find(e=>e.id==='srd51:2014:spell:acid-splash'));actual.source.usage='personal';actual.text+=' Личное правило: 9d20.';
+ const h=harness();h.setSheet({level:17,counters:[]});await loaded(h,[{catalogId:actual.id,status:'known',entry:actual}]);const html=h.get('play-content').innerHTML;
+ assert.doesNotMatch(html,/спас ЛОВ|4к6 кислота/);assert.match(html,/60 фт/);assert.ok(html.includes('data-play-cast="'+actual.id+'"'));await h.click('',{playRead:'spell',id:actual.id});assert.equal(h.reads[0][0],actual);assert.equal(h.casts.length,0);
 });
