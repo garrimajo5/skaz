@@ -17,24 +17,24 @@ class D05CurrentTriageTest(unittest.TestCase):
         self.assertEqual(d['unlinkedHistoricalRowsPreserved'],context['remainingHistoricalRows'])
         self.assertEqual(len(d['records']),15);self.assertEqual(len(d['historicalSourceIdSequence']),70)
 
-    def test_five_reviewed_bounded_witnesses_do_not_erase_their_remaining_criteria(self):
+    def test_ten_reviewed_bounded_witnesses_do_not_erase_their_remaining_criteria(self):
         d=M.build(ROOT);rows=[r for r in d['records'] if r['triageState']=='independently-reviewed-bounded-witness-present']
-        self.assertEqual({r['providerSourceId'] for r in rows},{1,34,53,62,105})
+        self.assertEqual({r['providerSourceId'] for r in rows},{1,34,37,53,62,92,93,94,105,128})
         self.assertTrue(all(r['remainingCriteria'] and not r['canonicalUnitAccepted'] and not r['missingPublicationProven'] for r in rows))
         self.assertFalse(d['accepted']);self.assertIsNone(d['approvedDenominator']);self.assertEqual(d['summary']['canonicalUnitsAccepted'],0)
 
-    def test_untriaged_queue_is_ten_work_references_not_missing_books(self):
+    def test_untriaged_queue_is_five_work_references_not_missing_books(self):
         d=M.build(ROOT)
-        self.assertEqual([r['providerSourceId'] for r in d['primaryKindWorkQueue']],[37,92,93,94,116,122,126,128,129,135])
-        self.assertEqual(d['nextUntriagedProviderSourceId'],37)
+        self.assertEqual([r['providerSourceId'] for r in d['primaryKindWorkQueue']],[116,122,126,129,135])
+        self.assertEqual(d['nextUntriagedProviderSourceId'],116)
         self.assertTrue(all(not r['missingPublicationProven'] for r in d['records']))
         self.assertNotIn('missingPublicationCount',d['summary'])
 
-    def test_selected_rule_is_not_a_sixth_kind_witness_or_enabled_runtime(self):
+    def test_selected_rule_is_not_an_eleventh_kind_witness_or_enabled_runtime(self):
         d=M.build(ROOT);row=next(r for r in d['records'] if r['providerSourceId']==1)
         self.assertEqual(row['additionalSelectedRuleComparison']['unitId'],'wizard-arcane-recovery')
         self.assertFalse(row['additionalSelectedRuleComparison']['acceptedForRuntime'])
-        self.assertEqual(d['summary']['withReviewedBoundedKindWitness'],5);self.assertEqual(d['summary']['selectedCompleteRuleComparisons'],1)
+        self.assertEqual(d['summary']['withReviewedBoundedKindWitness'],10);self.assertEqual(d['summary']['selectedCompleteRuleComparisons'],1)
 
     def test_changed_report_cannot_inherit_old_independent_review(self):
         spec=M.WITNESSES[62];text=(ROOT/spec['path']).read_text(encoding='utf-8')
@@ -77,6 +77,27 @@ class D05CurrentTriageTest(unittest.TestCase):
         for field,value in [('numericDndsuSourceId','113'),('numericDndsuSourceId','169'),('canonicalSourceId','book:mtof')]:
             wrong={**original,field:value}
             with self.assertRaises(ValueError):M.validate_identity(34,wrong)
+
+    def test_paired_document_preserves_both_independent_provider_references(self):
+        d=M.build(ROOT);rows={r['providerSourceId']:r for r in d['records']}
+        self.assertEqual(rows[94]['witnessPath'],rows[128]['witnessPath'])
+        self.assertNotEqual(rows[94]['publicationKindWitness'],rows[128]['publicationKindWitness'])
+        self.assertEqual(len(d['inputSha256']),11)
+        for pid in [94,128]:
+            self.assertIn('HTTP status/final URL unretained',rows[pid]['provenanceCaveat'])
+            M.validate_identity(pid,read(M.WITNESSES[pid]['path']))
+
+    def test_pair_rejects_dropped_swapped_or_accepted_member_identity(self):
+        original=read(M.WITNESSES[94]['path'])
+        changes=[lambda d:d['providerSourceIds'].pop(),lambda d:d['perProviderWitnesses'].pop('128'),
+                 lambda d:d['perProviderWitnesses']['94'].update(providerSourceId=128),
+                 lambda d:d['perProviderWitnesses']['94'].update(numericDndsuSourceId='94'),
+                 lambda d:d['perProviderWitnesses']['94'].update(fullRulesReviewed=True),
+                 lambda d:d['perProviderWitnesses']['94'].update(automaticAttribution=True)]
+        for mutate in changes:
+            d=copy.deepcopy(original);mutate(d)
+            with self.assertRaises(ValueError):M.validate_identity(94,d)
+        with self.assertRaises(ValueError):M.validate_identity(116,original)
 
     def test_committed_report_reproduces_and_provenance_stays_json_only(self):
         d=read('catalog/d05-current-publication-triage-2014.json');self.assertEqual(d,M.build(ROOT))
