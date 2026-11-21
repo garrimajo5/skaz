@@ -62,7 +62,7 @@ class CurrentClassEvidenceTest(unittest.TestCase):
             with self.assertRaises(ValueError):M.combine(data(),M.load_concordance(ROOT),t)
 
     def test_current_general_overlay_advances_only_checked_selected_scopes(self):
-        d=M.build(ROOT);self.assertEqual(d['nextWorkItem']['phase'],'general-duration-concentration-targets');self.assertFalse(d['coVersionedGeneralReference']['fullReferenceRulesAccepted'] or d['coVersionedGeneralReference']['priorIndependentReviewInherited']);self.assertIn('48heading',d['nextWorkItem']['doNotRepeat'])
+        d=M.build(ROOT);self.assertEqual(d['nextWorkItem']['phase'],'general-areas-saves-attacks-combination');self.assertFalse(d['coVersionedGeneralReference']['fullReferenceRulesAccepted'] or d['coVersionedGeneralReference']['priorIndependentReviewInherited']);self.assertIn('48heading',d['nextWorkItem']['doNotRepeat'])
 
     def test_mixed_general_reference_cannot_be_accepted_from_phb_header(self):
         g=json.loads((ROOT/M.GENERAL).read_text(encoding='utf-8'));g['sourceBoundaryObservations']['wholePageSourceInheritanceAllowed']=True
@@ -77,6 +77,13 @@ class CurrentClassEvidenceTest(unittest.TestCase):
             if mutation=='runtime':c['acceptedForRuntime']=True
             else:c['summary']['newSecondaryParagraphs']=31
             with self.assertRaises(ValueError):M.add_casting_context({},c)
+
+    def test_concentration_overlay_keeps_lists_and_advances_only_selected_work(self):
+        d=M.build(ROOT);self.assertFalse(d['coVersionedConcentrationTargets']['fullGeneralChapterAccepted']);self.assertIn('3list',d['nextWorkItem']['doNotRepeat'])
+
+    def test_lost_concentration_list_item_cannot_be_accepted(self):
+        c=json.loads((ROOT/M.CONCENTRATION).read_text(encoding='utf-8'));c['summary']['newSecondaryListItems']=2
+        with self.assertRaises(ValueError):M.add_concentration_context({},c)
 
     def test_committed_report_and_all_pins_reproduce(self):
         d=json.loads((ROOT/'catalog/wizard-artificer-current-evidence-2014.json').read_text(encoding='utf-8'));self.assertEqual(d,M.build(ROOT))
