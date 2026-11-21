@@ -6360,3 +6360,9 @@ Runtime52731fd опубликован: Linux1322/1322,check/build, новый р
 - После независимых8Python/4SHA/3HTMLreview слитPR211/353cd89. Новый [текущийD05триаж](d05-current-publication-triage-2014.md) сохраняет15provider/70historical/7unlinked строк, выделяет4ограниченныхprimarykind/componentсвидетельства и11безтакогоscope. ТочныеPRhead/comment/SHA препятствуют наследованию старогоreview изменившимсяотчётом. ОдинполныйWizardunit отдельно, не5-ясамостоятельнаяпубликация.
 -10новыхPython/реальнаяJSONрепродукцияPASS. Никакихmissing/canonical/denominatorрешений: всеremainingCriteria у4сохранены, самостоятельныеgame-design/QA/права/M0открыты. Следующийисполнимыйcontent шаг — provider34Rrakkma, не повторятьBasic/Sage/Prisoner/Frozen boundedscope. НовыйHTTPнеиспользовался.
 - Рефлексияcontent/решениеplanner: испытатьтриажвследующемD05, критерии0повторовпринятогоscope/0потерьsourceclaims, цена6JSON+быстрыйаудит. Такжеиспытатьраздельныеокно/позициюRogue, display/publicationpublisher иpage-specific нормализацииснегативнымисмысловымипримерами. Общиеинструкции/цели/доступнеизменены; runtime/VPSне менялись. Independentreview нового слоя доmerge.
+
+
+### 21.11 — D05 #77: Rrakkma/DDIA-MORD не глава по одному for-book
+
+- PR212/8b4681d слит после независимых10Python/4SHA/6JSONрепродукции и сверкиreviewpins. При<40мин продолжен первыйuntriaged34Rrakkma: primaryintroкодDDIA-MORD, introductory-forMToF; одинpublisherабзац оrewrite3e→5e. Отношениеcompanion, contained-inнеустановлено, неalias и неавтозаполнениеAL169.
+-7Python/реальные2HTML/SHA PASS, [границы](rrakkma-publication-boundary-2014.md). Provider34/introducedbook33/existinghistorical113 раздельны; своиnumeric/canonicalID/права/полнотанеприняты. Независимоеreviewдоmerge; затемобновитьтекущийтриажновымboundedwitness,следующий37Wayfinder. Runtime/VPS/профилинеменялись.
