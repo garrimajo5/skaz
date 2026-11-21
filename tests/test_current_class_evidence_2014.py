@@ -62,7 +62,7 @@ class CurrentClassEvidenceTest(unittest.TestCase):
             with self.assertRaises(ValueError):M.combine(data(),M.load_concordance(ROOT),t)
 
     def test_current_general_overlay_advances_only_checked_selected_scopes(self):
-        d=M.build(ROOT);self.assertEqual(d['nextWorkItem']['phase'],'weave-narrative-and-current-scope-coverage');self.assertFalse(d['coVersionedGeneralReference']['fullReferenceRulesAccepted'] or d['coVersionedGeneralReference']['priorIndependentReviewInherited']);self.assertIn('48heading',d['nextWorkItem']['doNotRepeat'])
+        d=M.build(ROOT);self.assertEqual(d['nextWorkItem']['phase'],'wizard-spell-list-reference');self.assertFalse(d['coVersionedGeneralReference']['fullReferenceRulesAccepted'] or d['coVersionedGeneralReference']['priorIndependentReviewInherited']);self.assertIn('48heading',d['nextWorkItem']['doNotRepeat'])
 
     def test_mixed_general_reference_cannot_be_accepted_from_phb_header(self):
         g=json.loads((ROOT/M.GENERAL).read_text(encoding='utf-8'));g['sourceBoundaryObservations']['wholePageSourceInheritanceAllowed']=True
@@ -105,6 +105,15 @@ class CurrentClassEvidenceTest(unittest.TestCase):
     def test_bonus_duplicate_cannot_become_new_capability(self):
         c=json.loads((ROOT/M.READY).read_text(encoding='utf-8'));c['bonusRelationship']['secondRuleOrCapabilityCreated']=True
         with self.assertRaises(ValueError):M.add_ready_context({},c)
+
+    def test_narrative_coverage_is_not_full_chapter_or_denominator(self):
+        d=M.build(ROOT);self.assertFalse(d['coVersionedNarrativeCoverage']['fullGeneralChapterAccepted']);self.assertIn('49source-body',d['nextWorkItem']['doNotRepeat'])
+
+    def test_pending_partition_or_denominator_cannot_be_promoted(self):
+        n=json.loads((ROOT/M.NARRATIVE).read_text(encoding='utf-8'));c=json.loads((ROOT/M.SCOPE_COVERAGE).read_text(encoding='utf-8'));c['approvedDenominator']=49
+        with self.assertRaises(ValueError):M.add_narrative_coverage_context({},n,c)
+        c['approvedDenominator']=None;c['summary']['awaitingOwnPrimaryBodyComparison']=0
+        with self.assertRaises(ValueError):M.add_narrative_coverage_context({},n,c)
 
     def test_committed_report_and_all_pins_reproduce(self):
         d=json.loads((ROOT/'catalog/wizard-artificer-current-evidence-2014.json').read_text(encoding='utf-8'));self.assertEqual(d,M.build(ROOT))

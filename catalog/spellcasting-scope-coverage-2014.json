@@ -1,0 +1,1115 @@
+{
+  "schemaVersion": 1,
+  "status": "current-49-source-body-witness-map-not-canonical-rules-denominator",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "summary": {
+    "originalBodyObservations": 49,
+    "withSelectedBodyWitness": 38,
+    "awaitingOwnPrimaryBodyComparison": 11,
+    "additionalWitnessedBodiesWithUnverifiedMedia": 5,
+    "unverifiedDiagramsRetained": 7,
+    "unverifiedCaptionsRetained": 6,
+    "canonicalUnitsAccepted": 0
+  },
+  "sourceArticle": {
+    "requestedUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+    "capturedAt": "2026-11-21T14:29:12.576358+00:00",
+    "status": 200,
+    "finalUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+    "bytes": 438149,
+    "sha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+    "outcome": "complete",
+    "retried": false,
+    "declaredBytes": null,
+    "bodyFile": "spellcasting.html"
+  },
+  "rows": [
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 0,
+        "title": "prelude",
+        "bodyTextSha256": "e2911ca3046aa98b44e795befd7a01fbeaf6309363f46674449b8c5bbe822f03"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "coVersionedNarrative",
+      "reportSelector": "/records/0",
+      "scopeKind": "narrative-prose-with-embedded-navigation-separate",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 1,
+        "title": "Что такое заклинание?",
+        "bodyTextSha256": "06b066ed4373a55c959abb7c1272e974522935118286e27ad7c03b0969c1e266"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "introductionsSchools",
+      "reportSelector": "/records/0",
+      "scopeKind": "complete-selected-introduction-category-text",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 2,
+        "title": "Уровень заклинания",
+        "bodyTextSha256": "e500d12c30d738a58d62da3061451e8d356c45f2fc6d63b1bc1f6ec201d5ef47"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "introductionsSchools",
+      "reportSelector": "/records/1",
+      "scopeKind": "complete-selected-introduction-category-text",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 3,
+        "title": "Известные и подготовленные заклинания",
+        "bodyTextSha256": "aac55888764893e936cc8b29f846a54f4dafbe38bb8f2483196fee1b8cacf932"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "generalReference",
+      "reportSelector": "/selectedComparisons/0",
+      "scopeKind": "complete-selected-text",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 4,
+        "title": "Накладывание заклинаний в доспехе",
+        "bodyTextSha256": "ece82a14cf5e7e4fa48a7ca02c03f7ea55cbafa975ca987b45c77ac4c67af8a8"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "generalReference",
+      "reportSelector": "/selectedComparisons/1",
+      "scopeKind": "complete-selected-text",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 5,
+        "title": "Ячейки заклинаний",
+        "bodyTextSha256": "0137becfeb228736cdfc759b7ec5246895268985fb870d0fba8eb5101f106338"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "castingClauses",
+      "reportSelector": "/records/0",
+      "scopeKind": "complete-selected-text-with-caveats",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 6,
+        "title": "Накладывание заклинания с увеличенным уровнем",
+        "bodyTextSha256": "d3c0a2c0bc00398e7609fbc4cbeffcfef4862b359452573f7bfb76dea96dbd80"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "castingClauses",
+      "reportSelector": "/records/1",
+      "scopeKind": "complete-selected-text-with-caveats",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 7,
+        "title": "Вариант: Очки заклинаний",
+        "bodyTextSha256": "48339d037b34e3543a95e60952c1d882999a4b94c99d92647231c738ecf0845e"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "awaiting-own-primary-scope-version-comparison",
+      "pendingGroup": "spell-points-variant",
+      "explicitHeadingLabel": null,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 8,
+        "title": "СТОИМОСТЬ В ОЧКАХ ЗАКЛИНАНИЙ",
+        "bodyTextSha256": "569f6a53e875e7b9f00978aa5cd987f7fa6fcf93db7b51298c0bfb156b07791c"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "awaiting-own-primary-scope-version-comparison",
+      "pendingGroup": "spell-points-variant",
+      "explicitHeadingLabel": null,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 1
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 9,
+        "title": "ОЧКИ ЗАКЛИНАНИЙ В ЗАВИСИМОСТИ ОТ УРОВНЯ",
+        "bodyTextSha256": "aaced09361891ec104e06edb52e04f3e7a791335fb396c691ba1c7fb4e133c36"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "awaiting-own-primary-scope-version-comparison",
+      "pendingGroup": "spell-points-variant",
+      "explicitHeadingLabel": null,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 3
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 10,
+        "title": "Заговоры",
+        "bodyTextSha256": "e96c573c4934fc5da9dfcf3309327ca6efd4f7d26784af891de24a3374c191fd"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "castingClauses",
+      "reportSelector": "/records/2",
+      "scopeKind": "complete-selected-text-with-caveats",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 11,
+        "title": "Ритуалы",
+        "bodyTextSha256": "773f4aad3ef19186eddd65b607430e0c5af6b0007c5b71e070147e2bffa303dc"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "castingClauses",
+      "reportSelector": "/records/3",
+      "scopeKind": "complete-selected-text-with-caveats",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 12,
+        "title": "Накладывание заклинания",
+        "bodyTextSha256": "af16640806e365232d2a76a6719fd6798cdcab21429a2478c293b0cf69e4decd"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "introductionsSchools",
+      "reportSelector": "/records/2",
+      "scopeKind": "complete-selected-introduction-category-text",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 13,
+        "title": "Время накладывания",
+        "bodyTextSha256": "4eba4752c0a3c688e6078155926ec57c0a79e77a1cbb8b5251534ed6bc2f0e65"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "castingClauses",
+      "reportSelector": "/records/4",
+      "scopeKind": "complete-selected-text-with-caveats",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 14,
+        "title": "Бонусное действие",
+        "bodyTextSha256": "833d757d8a52a98f003d4d5b5e70d57477572b613f30a689ea00c59ada25017f"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "castingClauses",
+      "reportSelector": "/records/5",
+      "scopeKind": "complete-selected-text-with-caveats",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 15,
+        "title": "Реакция",
+        "bodyTextSha256": "94d0f19b9bd15f1a81312ca079dfb03606d7857564df6e0c0641937baa5cc369"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "castingClauses",
+      "reportSelector": "/records/6",
+      "scopeKind": "complete-selected-text-with-caveats",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 16,
+        "title": "Долгое накладывание",
+        "bodyTextSha256": "19e8cd3010d4083695e8a6ec023d8964f7d98e6f80334d3bd5ad88ff42d569e1"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "castingClauses",
+      "reportSelector": "/records/7",
+      "scopeKind": "complete-selected-text-with-caveats",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 17,
+        "title": "Действие подготовка",
+        "bodyTextSha256": "8130f2e025c8baa74769944ee466ddbde43ca35d86b8c8384780ced3b0efc6f0"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "readyBonus",
+      "reportSelector": "/secondaryObservations/0",
+      "scopeKind": "spell-excerpt-with-full-external-action-context",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 18,
+        "title": "Заклинания, накладываемые бонусным действием",
+        "bodyTextSha256": "593d9e6472571699be37a497738d1b3fb1acffd1b2a209e5e3ebd5611e867971"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "readyBonus",
+      "reportSelector": "/secondaryObservations/1",
+      "scopeKind": "condensed-repeat-of-clause14-not-new-capability",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 19,
+        "title": "Дистанция",
+        "bodyTextSha256": "57a660e988e8b7fcf113b2ed1113b0c7f15453713d56e542ead03df7211e5f72"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "castingClauses",
+      "reportSelector": "/records/8",
+      "scopeKind": "complete-selected-text-with-caveats",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 20,
+        "title": "Компоненты",
+        "bodyTextSha256": "d660dfae14a032bc4c24006280d970e42f2c53924b654b8dabf985dbab1e26f9"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "castingClauses",
+      "reportSelector": "/records/9",
+      "scopeKind": "complete-selected-text-with-caveats",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 21,
+        "title": "Вербальный (В)",
+        "bodyTextSha256": "6ecd2b40e439d4fd0e5bb08623e1f1fcddb66550f90d7084ec67d116260792be"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "castingClauses",
+      "reportSelector": "/records/10",
+      "scopeKind": "complete-selected-text-with-caveats",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 22,
+        "title": "Соматический (С)",
+        "bodyTextSha256": "543789b6931b8a89588e5879f8ce2451a05db28662e307ff6535502716a29b43"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "castingClauses",
+      "reportSelector": "/records/11",
+      "scopeKind": "complete-selected-text-with-caveats",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 23,
+        "title": "Материальный (М)",
+        "bodyTextSha256": "7e2df43160da7c8ca03ac9ed81b50bc287a299c941bb821bc9c731ecc8da2f90"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "castingClauses",
+      "reportSelector": "/records/12",
+      "scopeKind": "complete-selected-text-with-caveats",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 24,
+        "title": "Длительность",
+        "bodyTextSha256": "090e24e89a4d5ef154d379131da5128ad78d3b5b5ebadbaa4069aa9c2ac63cc0"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "concentrationTargets",
+      "reportSelector": "/records/0",
+      "scopeKind": "complete-selected-text-with-lists",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 25,
+        "title": "Мгновенная",
+        "bodyTextSha256": "f1beebc84ca8163e726e3b1f4040552e8a830e6d592cdde1e6d0fde247ccad98"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "concentrationTargets",
+      "reportSelector": "/records/1",
+      "scopeKind": "complete-selected-text-with-lists",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 26,
+        "title": "Концентрация",
+        "bodyTextSha256": "b7fa8d4ae257d99d425050c593339dcd2552b233b0006a93f8558e27926658a9"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "concentrationTargets",
+      "reportSelector": "/records/2",
+      "scopeKind": "complete-selected-text-with-lists",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 27,
+        "title": "Школы магии",
+        "bodyTextSha256": "7f2febb86cd967efc860baaa37864940e7ae031e268ecd9350f8f51d5da3dfdb"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "introductionsSchools",
+      "reportSelector": "/records/3",
+      "scopeKind": "complete-selected-introduction-category-text",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 28,
+        "title": "Цели",
+        "bodyTextSha256": "0bc17b727433488b4b749e61b80c144c7777923ee79bae7b7183e3b4b2bd98e8"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "concentrationTargets",
+      "reportSelector": "/records/3",
+      "scopeKind": "complete-selected-text-with-lists",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 29,
+        "title": "Свободный путь до цели",
+        "bodyTextSha256": "6c49f1606512538d3122e098b3bccecbbed2a65d049dbaabe774ce2bc024a025"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "concentrationTargets",
+      "reportSelector": "/records/4",
+      "scopeKind": "complete-selected-text-with-lists",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 30,
+        "title": "Нацеливание на себя",
+        "bodyTextSha256": "9efc116dca18d0f92d7877ba6eb3f4bda309527c303e895708c7786d12b17234"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "concentrationTargets",
+      "reportSelector": "/records/5",
+      "scopeKind": "complete-selected-text-with-lists",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 31,
+        "title": "Наблюдая за работой заклинателя (XGE)",
+        "bodyTextSha256": "5050c6e7c1a613683c1ba076a2bdbb661e139d6704421f2d667c0e9d517ad8ec"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "awaiting-own-primary-scope-version-comparison",
+      "pendingGroup": "xge-labelled-or-adjacent-grid",
+      "explicitHeadingLabel": "XGE",
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 32,
+        "title": "Определение заклинания (XGE)",
+        "bodyTextSha256": "bae261570aac464234bfeb6457c3688ab586cdf7b6f794cdf7884b8c2400a1e6"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "awaiting-own-primary-scope-version-comparison",
+      "pendingGroup": "xge-labelled-or-adjacent-grid",
+      "explicitHeadingLabel": "XGE",
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 33,
+        "title": "Недопустимые цели заклинания (XGE)",
+        "bodyTextSha256": "0fe073a02c3d9edcd52f0cde366fdb688658eaee86229ebad4a147d5ac53e938"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "awaiting-own-primary-scope-version-comparison",
+      "pendingGroup": "xge-labelled-or-adjacent-grid",
+      "explicitHeadingLabel": "XGE",
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 34,
+        "title": "Области воздействия",
+        "bodyTextSha256": "ff7051f5906efce741120365eb9b764e994d38211b924952788367978af9a020"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "areasEffects",
+      "reportSelector": "/records/0",
+      "scopeKind": "ordinary-prose-with-media-separate",
+      "diagramCountUnverified": 1,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 35,
+        "title": "Конус",
+        "bodyTextSha256": "753434a0b074745452b97ac652bc3d45343362d2d50af78a40552fe43d96d9e3"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "areasEffects",
+      "reportSelector": "/records/1",
+      "scopeKind": "ordinary-prose-with-media-separate",
+      "diagramCountUnverified": 2,
+      "captionCountUnverified": 2,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 36,
+        "title": "Куб",
+        "bodyTextSha256": "8054c8bbd355ce9a5d1171092f2c3b758a50bec6ef2a6e4e8dec2439ff5f8bfe"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "areasEffects",
+      "reportSelector": "/records/2",
+      "scopeKind": "ordinary-prose-with-media-separate",
+      "diagramCountUnverified": 2,
+      "captionCountUnverified": 2,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 37,
+        "title": "Линия",
+        "bodyTextSha256": "c448708ebb19361455e60da019135e2311022be18516e5e5557c30cc0d27d1af"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "areasEffects",
+      "reportSelector": "/records/3",
+      "scopeKind": "ordinary-prose-with-media-separate",
+      "diagramCountUnverified": 1,
+      "captionCountUnverified": 1,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 38,
+        "title": "Сфера",
+        "bodyTextSha256": "c5584577936fdd0f22aace11e61ef3478da34d02f996ebbebd671ab396c0f9e1"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "areasEffects",
+      "reportSelector": "/records/4",
+      "scopeKind": "ordinary-prose-with-media-separate",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 39,
+        "title": "Цилиндр",
+        "bodyTextSha256": "9e5f03c0dd6fe424f735974539577fbde612ca987beb0a7e55f8ed873005f44a"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "areasEffects",
+      "reportSelector": "/records/5",
+      "scopeKind": "ordinary-prose-with-media-separate",
+      "diagramCountUnverified": 1,
+      "captionCountUnverified": 1,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 40,
+        "title": "Области воздействия на сетке (XGE)",
+        "bodyTextSha256": "db3267a73fa9299aca4d9eb4b25b11d2c25ae35b032e132714cc1504d0654c27"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "awaiting-own-primary-scope-version-comparison",
+      "pendingGroup": "xge-labelled-or-adjacent-grid",
+      "explicitHeadingLabel": "XGE",
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 41,
+        "title": "Метод шаблона",
+        "bodyTextSha256": "daf35a54e74307caedf14f11c71900b3593a3be62c659aee2c559fe00911aeee"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "awaiting-own-primary-scope-version-comparison",
+      "pendingGroup": "xge-labelled-or-adjacent-grid",
+      "explicitHeadingLabel": null,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 42,
+        "title": "Метод жетона",
+        "bodyTextSha256": "965f57837de9af81f8bf8fa6ad8eefc16758a96a4ce908ee92edb7e27b8379a9"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "awaiting-own-primary-scope-version-comparison",
+      "pendingGroup": "xge-labelled-or-adjacent-grid",
+      "explicitHeadingLabel": null,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 43,
+        "title": "Спасброски",
+        "bodyTextSha256": "4111a538559ae6510da3a801a7a1a08b8421b0e1b2b025fce831b438dfa3f356"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "areasEffects",
+      "reportSelector": "/records/6",
+      "scopeKind": "ordinary-prose-with-media-separate",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 44,
+        "title": "Броски атаки",
+        "bodyTextSha256": "9af2b9ec597d02975b02bfaea20c4d3dac08c77c79b3d526b36aa0737100cabb"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "areasEffects",
+      "reportSelector": "/records/7",
+      "scopeKind": "ordinary-prose-with-media-separate",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 45,
+        "title": "Объединение магических эффектов",
+        "bodyTextSha256": "c271e4bbfd8dd575217e150b431cc113b35c44e4fdea2e810895c9a285c84e8c"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "areasEffects",
+      "reportSelector": "/records/8",
+      "scopeKind": "ordinary-prose-with-media-separate",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 46,
+        "title": "Опциональное правило: Персонализация Заклинаний (TCE)",
+        "bodyTextSha256": "216603dd7b771f198d2bffb1a47b9f7baa374a02a264c99e0fe4baf865692084"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "awaiting-own-primary-scope-version-comparison",
+      "pendingGroup": "tce-labelled-or-adjacent-theme-table",
+      "explicitHeadingLabel": "TCE",
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 47,
+        "title": "Магические темы",
+        "bodyTextSha256": "f03eb5c9a6d02fbba127662ad5f58ebaa21ed1851e92d72c7b87b32d0fe990ff"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "awaiting-own-primary-scope-version-comparison",
+      "pendingGroup": "tce-labelled-or-adjacent-theme-table",
+      "explicitHeadingLabel": null,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 1
+    },
+    {
+      "observationReference": {
+        "articleSnapshotSha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+        "ordinal": 48,
+        "title": "Плетение магии",
+        "bodyTextSha256": "ab6cc368e4a3d72fe51084e484cefbf30fc4153091d581196b2406e98533710a"
+      },
+      "canonicalId": null,
+      "canonicalRuleMissingProven": false,
+      "acceptedForRuntime": false,
+      "sourceIdInherited": false,
+      "state": "selected-body-witness-present",
+      "evidenceKey": "coVersionedNarrative",
+      "reportSelector": "/records/1",
+      "scopeKind": "complete-selected-narrative-prose",
+      "diagramCountUnverified": 0,
+      "captionCountUnverified": 0,
+      "fullRulesAccepted": false,
+      "originalTableElementCount": 0
+    }
+  ],
+  "independentlyReviewedEvidence": {
+    "generalReference": {
+      "path": "catalog/spellcasting-reference-scopes-2014.json",
+      "sha256": "0e20ecfc18534dcc94752854e8ff018d8ad109eeabe9290036d04a6c57d925d3",
+      "pr": 234,
+      "head": "80e16bcac195f52761a47de2a83f868e7926b400",
+      "review": "https://github.com/garrimajo5/skaz/pull/234#issuecomment-7064250485",
+      "scope": "48heading inventory and two complete selected KnownPrepared/Armor scopes(4secondary paragraphs),not full mixed page"
+    },
+    "castingClauses": {
+      "path": "catalog/general-casting-clauses-2014.json",
+      "sha256": "aa6815ec47e2cb963c1c30e5fc50082bb20a6fc47861bc6c6f502dfcd59c97cf",
+      "pr": 236,
+      "head": "344a66a37aee1f3151384cc230922ec606c1d848",
+      "review": "https://github.com/garrimajo5/skaz/pull/236#issuecomment-7064939796",
+      "scope": "13selected general casting scopes/32secondary paragraphs,cantrip errata/material qualifier caveat retained"
+    },
+    "concentrationTargets": {
+      "path": "catalog/general-concentration-targets-2014.json",
+      "sha256": "0913dd9d2f06d30f69bd60d32451d89117170f1a6a354d82029bf64d87c5330b",
+      "pr": 237,
+      "head": "5cab5effb2f28340abd868ce483efdd62c7b1034",
+      "review": "https://github.com/garrimajo5/skaz/pull/237#issuecomment-7065116486",
+      "scope": "6selected full scopes/13paragraphs/3list items,Basic rounding and referent caveat retained"
+    },
+    "areasEffects": {
+      "path": "catalog/general-areas-effects-2014.json",
+      "sha256": "64aef4dd8001785004414ed3cee11cb7d1d0a7084563294d1a7db2cee5139896",
+      "pr": 238,
+      "head": "3968c43ed70dc850cf68f59fc3da2604aa959156",
+      "review": "https://github.com/garrimajo5/skaz/pull/238#issuecomment-7065234416",
+      "scope": "9ordinary-prose scopes/19paragraphs;7diagrams/6captions unverified;equal-potency errata separate"
+    },
+    "introductionsSchools": {
+      "path": "catalog/general-introductions-schools-2014.json",
+      "sha256": "8618b63a316e83bdc40eebc5124f1826244bad5a32e341f74c6998ddf4a01dc1",
+      "pr": 239,
+      "head": "cb3455094a9ab8b26d1a25ed5be14c18f8ccf9ff",
+      "review": "https://github.com/garrimajo5/skaz/pull/239#issuecomment-7065896663",
+      "scope": "4selected full scopes/18paragraphs/eight explicit school mappings;article boundary excludes UI"
+    },
+    "readyBonus": {
+      "path": "catalog/ready-bonus-context-2014.json",
+      "sha256": "d921d0707996439739a7e678fc6da9406c108424b2669db0446d05d5d9dbae5a",
+      "pr": 240,
+      "head": "e06c5b13cc479e1bc80f802e73df51cae6042d22",
+      "review": "https://github.com/garrimajo5/skaz/pull/240#issuecomment-7066100829",
+      "scope": "Ready17 spell excerpt/bonus18 condensation with full combat/reaction/errata context"
+    }
+  },
+  "coVersionedNarrative": {
+    "path": "catalog/weave-narrative-2014.json",
+    "scope": "prelude2p+Weave5p with TOC and Basic carrier witness",
+    "priorIndependentReviewInherited": false
+  },
+  "unverifiedMediaHeadingOrdinals": [
+    34,
+    35,
+    36,
+    37,
+    39
+  ],
+  "pendingHeadingOrdinals": [
+    7,
+    8,
+    9,
+    31,
+    32,
+    33,
+    40,
+    41,
+    42,
+    46,
+    47
+  ],
+  "navigationClassifiedSeparately": {
+    "kind": "embedded-navigation-not-rule-prose",
+    "rawHtmlSha256": "048b810395a59a3bc9bcbe81df030bc9e68ee63dbfd9612c4c3c51be69d19a42",
+    "visibleTextSha256": "eaae50090eb4acacf4d632536c521e700202660ecfb7797c5a7825f52f7c538c",
+    "hrefs": [
+      "/beta/img/sprite.svg#dropdown",
+      "/beta/img/sprite.svg#dropdown",
+      "#chto_takoe_zaklinanie?",
+      "#uroven_zaklinaniya",
+      "#izvestnye_i_podgotovlennye_zaklinaniya",
+      "#yachejki_zaklinanij",
+      "#variant-spellpoints",
+      "#zagovory",
+      "#ritualy",
+      "#nakladyvanie_zaklinaniya",
+      "#vremya_nakladyvaniya",
+      "#distantsiya",
+      "#komponenty",
+      "#dlitelnost",
+      "#tseli",
+      "#nabljudaya_za_rabotoj_zaklinatelya_xge",
+      "#opredelenie_zaklinaniya_xge",
+      "#invalid-spell-targets",
+      "#areas-of-effect",
+      "#oblasti_vozdejstviya_na_setke_xge",
+      "#spasbroski",
+      "#broski_ataki",
+      "#obedinenie_magicheskih_jeffektov",
+      "#optsionalnoe_pravilo_personalizatsiya_zaklinanij_tce"
+    ],
+    "dataAnchors": [
+      "chto_takoe_zaklinanie?",
+      "nakladyvanie_zaklinaniya"
+    ],
+    "retainedInOriginalBodyWitness": true,
+    "newRulesCreated": false
+  },
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "wizard-spell-list-reference",
+    "action": "Locate retained primary Wizard spell-list boundaries and compare actual secondary list/version/source scope; keep optional additions, names versus full rules, and general variant/media criteria separate."
+  },
+  "limits": [
+    "49bodies/38witnessed/11pending partitions source observations,not game rules,missing catalog records or a completeness denominator.",
+    "Five witnessed bodies still have seven unverified diagrams and six captions; tables/variants/XGE/TCE need their own primary scopes.",
+    "Ready spell excerpt,duplicate bonus observation,narrative and complete selected text are different scope kinds,not equal accepted features.",
+    "Original body/order/title/hash remains unchanged; no source arrays,canonical IDs,full class,translation,rights,runtime or owner milestone accepted."
+  ],
+  "inputSha256": {
+    "catalog/spellcasting-reference-scopes-2014.json": "0e20ecfc18534dcc94752854e8ff018d8ad109eeabe9290036d04a6c57d925d3",
+    "catalog/general-casting-clauses-2014.json": "aa6815ec47e2cb963c1c30e5fc50082bb20a6fc47861bc6c6f502dfcd59c97cf",
+    "catalog/general-concentration-targets-2014.json": "0913dd9d2f06d30f69bd60d32451d89117170f1a6a354d82029bf64d87c5330b",
+    "catalog/general-areas-effects-2014.json": "64aef4dd8001785004414ed3cee11cb7d1d0a7084563294d1a7db2cee5139896",
+    "catalog/general-introductions-schools-2014.json": "8618b63a316e83bdc40eebc5124f1826244bad5a32e341f74c6998ddf4a01dc1",
+    "catalog/ready-bonus-context-2014.json": "d921d0707996439739a7e678fc6da9406c108424b2669db0446d05d5d9dbae5a",
+    "catalog/weave-narrative-2014.json": "684b2216337283afcfda3baf03fe92c305d80310c11defadc29d42b18320815a"
+  },
+  "generator": {
+    "path": "scripts/review-spellcasting-scope-coverage-2014.py",
+    "sha256": "4594d762985bfa9977ccc5d6d23d68cb8f0ac7f910dc0a2b00e59b416ee807b2"
+  }
+}
