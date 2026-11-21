@@ -297,16 +297,17 @@
   },
   "nextWorkItem": {
     "role": "content",
-    "phase": "general-duration-concentration-targets",
-    "action": "Compare full duration/instantaneous/concentration and target scopes against complete SRD102 boundaries, preserving lists, damage-source checks and adjacent XGE additions as separate scopes.",
+    "phase": "general-areas-saves-attacks-combination",
+    "action": "Compare full common area/shape, saving-throw, attack-roll and combining-effect scopes against complete corresponding SRD boundaries; preserve XGE grid methods and TCE personalization separately.",
     "candidateId": "scope:wizard:class-features:feature.spellcasting",
     "requiredInputs": [
+      "catalog/general-concentration-targets-2014.json",
       "catalog/general-casting-clauses-2014.json",
       "catalog/spellcasting-reference-scopes-2014.json"
     ],
     "sourceSnapshotRequirement": "Retained source keeps its own SHA; preserve historical/fresh identities.",
     "parallelRemainingCriterion": "Exact TCE/Artificer full-text/version applicability remains unverified.",
-    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings. General Spellcasting48heading inventory and two KnownPrepared/Armor complete selected subsections/4secondary paragraphs.13general casting scopes/32secondary paragraphs,including cantrip errata and material qualifier finding."
+    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings. General Spellcasting48heading inventory and two KnownPrepared/Armor complete selected subsections/4secondary paragraphs.13general casting scopes/32secondary paragraphs,including cantrip errata and material qualifier finding.6duration/concentration/target scopes/13paragraphs/3list items; Basic rounding and target referent caveat."
   },
   "limits": [
     "New links overlay the original map; no candidate ID, source array, heading parent or unknown record is removed or canonized.",
@@ -370,6 +371,14 @@
       "head": "80e16bcac195f52761a47de2a83f868e7926b400",
       "review": "https://github.com/garrimajo5/skaz/pull/234#issuecomment-7064250485",
       "scope": "48heading inventory and two complete selected KnownPrepared/Armor scopes(4secondary paragraphs),not full mixed page"
+    },
+    "castingClauses": {
+      "path": "catalog/general-casting-clauses-2014.json",
+      "sha256": "aa6815ec47e2cb963c1c30e5fc50082bb20a6fc47861bc6c6f502dfcd59c97cf",
+      "pr": 236,
+      "head": "344a66a37aee1f3151384cc230922ec606c1d848",
+      "review": "https://github.com/garrimajo5/skaz/pull/236#issuecomment-7064939796",
+      "scope": "13selected general casting scopes/32secondary paragraphs,cantrip errata/material qualifier caveat retained"
     }
   },
   "inputSha256": {
@@ -380,7 +389,8 @@
     "catalog/wizard-candidate-clause-concordance-2014.json": "a056d5d38ed7574cd05b3aaa292c409929994804f4bc70ef07dbe1cdd6461013",
     "catalog/wizard-table-concordance-2014.json": "e0eb3230426253d2239dcd5cd2fa0a350d33358acacd38f6fa6c933f5b913872",
     "catalog/spellcasting-reference-scopes-2014.json": "0e20ecfc18534dcc94752854e8ff018d8ad109eeabe9290036d04a6c57d925d3",
-    "catalog/general-casting-clauses-2014.json": "aa6815ec47e2cb963c1c30e5fc50082bb20a6fc47861bc6c6f502dfcd59c97cf"
+    "catalog/general-casting-clauses-2014.json": "aa6815ec47e2cb963c1c30e5fc50082bb20a6fc47861bc6c6f502dfcd59c97cf",
+    "catalog/general-concentration-targets-2014.json": "0913dd9d2f06d30f69bd60d32451d89117170f1a6a354d82029bf64d87c5330b"
   },
   "coVersionedGeneralReference": {
     "path": "catalog/spellcasting-reference-scopes-2014.json",
@@ -394,8 +404,14 @@
     "priorIndependentReviewInherited": false,
     "fullGeneralChapterAccepted": false
   },
+  "coVersionedConcentrationTargets": {
+    "path": "catalog/general-concentration-targets-2014.json",
+    "scope": "6complete selected scopes/13paragraphs/3list items; Basic rounding and target referent caveat separate",
+    "priorIndependentReviewInherited": false,
+    "fullGeneralChapterAccepted": false
+  },
   "generator": {
     "path": "scripts/review-current-class-evidence-2014.py",
-    "sha256": "ff161cb771f682584eb3d5296953da0396f558b5de7864a0221b09a7a238a907"
+    "sha256": "da88ae61836c872a538166e0bd463476f2373a2515f3b831943795f4942d27c5"
   }
 }

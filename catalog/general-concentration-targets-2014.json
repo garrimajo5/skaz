@@ -1,0 +1,442 @@
+{
+  "schemaVersion": 1,
+  "status": "six-selected-duration-concentration-target-scopes-not-full-chapter-or-runtime",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "summary": {
+    "newSelectedSubsections": 6,
+    "newSecondaryParagraphs": 13,
+    "newSecondaryListItems": 3,
+    "targetReferentMismatchesRetained": 1,
+    "remainingUnreviewedHeadingBodies": 27,
+    "canonicalUnitsAccepted": 0
+  },
+  "sources": {
+    "secondary": {
+      "requestedUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+      "capturedAt": "2026-11-21T14:29:12.576358+00:00",
+      "status": 200,
+      "finalUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+      "bytes": 438149,
+      "sha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+      "outcome": "complete",
+      "retried": false,
+      "declaredBytes": null,
+      "bodyFile": "spellcasting.html"
+    },
+    "srd": {
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "pdfPage": 102
+    },
+    "basic": {
+      "sha256": "7a0c5d8bf52d15092f156d78418aa3d43307e271f810d2f06bf2f0258e9288a3",
+      "url": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "pdfPage": 5,
+      "srdLicenseInherited": false
+    },
+    "extractor": "pypdfium2",
+    "extractorVersion": "5.13.0",
+    "renderedPagesInspected": true
+  },
+  "records": [
+    {
+      "key": "duration",
+      "headingOrdinal": 24,
+      "title": "Длительность",
+      "secondary": {
+        "bodyTextSha256": "090e24e89a4d5ef154d379131da5128ad78d3b5b5ebadbaa4069aa9c2ac63cc0",
+        "paragraphCount": 1,
+        "listItemCount": 0,
+        "textBlocks": [
+          {
+            "kind": "p",
+            "textSha256": "090e24e89a4d5ef154d379131da5128ad78d3b5b5ebadbaa4069aa9c2ac63cc0"
+          }
+        ]
+      },
+      "primary": {
+        "source": "srd51",
+        "pdfPage": 102,
+        "heading": "Duration",
+        "startMarker": "Duration A spell’s duration",
+        "stopExcluded": "Instantaneous",
+        "selectedTextSha256": "83f2915fcd96df2910f65e8041123288fdaed943a349d92083a755993ad34e86",
+        "wordCount": 37,
+        "completeSelectedTextScope": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison pinned to full source/body/list witnesses; not automatic translation equivalence",
+      "ordinaryFacts": {
+        "roundsMinutesHoursYearsPossible": true,
+        "untilDispelledOrDestroyedDependsOnSpell": true,
+        "allDurationsFixedToConcentration": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "instantaneous",
+      "headingOrdinal": 25,
+      "title": "Мгновенная",
+      "secondary": {
+        "bodyTextSha256": "f1beebc84ca8163e726e3b1f4040552e8a830e6d592cdde1e6d0fde247ccad98",
+        "paragraphCount": 1,
+        "listItemCount": 0,
+        "textBlocks": [
+          {
+            "kind": "p",
+            "textSha256": "f1beebc84ca8163e726e3b1f4040552e8a830e6d592cdde1e6d0fde247ccad98"
+          }
+        ]
+      },
+      "primary": {
+        "source": "srd51",
+        "pdfPage": 102,
+        "heading": "Instantaneous",
+        "startMarker": "Instantaneous Many spells",
+        "stopExcluded": "Concentration",
+        "selectedTextSha256": "31a081c70d28e032872a3b00927974002bf86d58d8b6eedbe7e15671bf2697ce",
+        "wordCount": 31,
+        "completeSelectedTextScope": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison pinned to full source/body/list witnesses; not automatic translation equivalence",
+      "ordinaryFacts": {
+        "instantaneousSpellMagicExistsOnlyForAnInstant": true,
+        "instantaneousEffectNotDispelledByDurationRule": true,
+        "counterspellBeforeCompletionRuledOutByThisSection": false,
+        "allResultingChangesRevertedInstantly": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "concentration",
+      "headingOrdinal": 26,
+      "title": "Концентрация",
+      "secondary": {
+        "bodyTextSha256": "b7fa8d4ae257d99d425050c593339dcd2552b233b0006a93f8558e27926658a9",
+        "paragraphCount": 5,
+        "listItemCount": 3,
+        "textBlocks": [
+          {
+            "kind": "p",
+            "textSha256": "b92edf715bb22d83b1aa72359d49cf8593d2b66f38051c2004941dabe4f53652"
+          },
+          {
+            "kind": "p",
+            "textSha256": "a0ede286de27b0855e58f0cf12bef0a7938e1da8ea7f585db4abeaa32cca53ab"
+          },
+          {
+            "kind": "p",
+            "textSha256": "202a1fb3fb4e20dd9f15475fa694ec228d18643b926553915870e5dd775164d1"
+          },
+          {
+            "kind": "p",
+            "textSha256": "0ea0057c59033c41610b32170bf623aedb70c8b100ace5fbd63b02be1372c23d"
+          },
+          {
+            "kind": "li",
+            "textSha256": "62a0703f9e9c1522d11469e59376e95f7569e144591041792bb1158cdaa4f0f8"
+          },
+          {
+            "kind": "li",
+            "textSha256": "3233f33f14fd06cba40e53588bc59dbc9214d149324b3e10956055762debee0e"
+          },
+          {
+            "kind": "li",
+            "textSha256": "7e1242369f273f4089e1a71db9499f8eabdf1ed784af57a35dff89d331c99a38"
+          },
+          {
+            "kind": "p",
+            "textSha256": "59a9e2c5711146342db1b2fecba1512bafd5b064d446d84f2ebb83e85a70c349"
+          }
+        ]
+      },
+      "primary": {
+        "source": "srd51",
+        "pdfPage": 102,
+        "heading": "Concentration",
+        "startMarker": "Concentration Some spells",
+        "stopExcluded": "Targets",
+        "selectedTextSha256": "46a95b4625be253b128639a0259617b956ce8ebc435744699c5501c62527662b",
+        "wordCount": 227,
+        "completeSelectedTextScope": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison pinned to full source/body/list witnesses; not automatic translation equivalence",
+      "ordinaryFacts": {
+        "losingConcentrationEndsConcentrationSpell": true,
+        "canEndAnytimeWithoutAction": true,
+        "normalMovementOrAttackingAutomaticallyBreaks": false,
+        "anotherConcentrationSpellEndsPrevious": true,
+        "ordinaryTwoConcentrationSpellsAllowed": false,
+        "damageCheckAbility": "constitution",
+        "damageCheckType": "saving-throw",
+        "ordinaryDamageDC": "max(10,floor(damage/2))",
+        "differentDamageSourcesRequireSeparateSaves": true,
+        "incapacitationOrDeathEndsConcentration": true,
+        "dmMayCallEnvironmentSaveDC": 10,
+        "everyEnvironmentEventAutomaticallyCallsSave": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false,
+      "additionalPrimaryEvidence": {
+        "source": "basic2018",
+        "pdfPage": 5,
+        "start": "Round Down",
+        "stopExcluded": "Adventures",
+        "selectedTextSha256": "46ece0b9961fc8973bc2efa6aabd617665af1d31285d1e366703490aee5523e5",
+        "scope": "whole selected general rounding paragraph only; not SRD concentration wording"
+      }
+    },
+    {
+      "key": "targets",
+      "headingOrdinal": 28,
+      "title": "Цели",
+      "secondary": {
+        "bodyTextSha256": "0bc17b727433488b4b749e61b80c144c7777923ee79bae7b7183e3b4b2bd98e8",
+        "paragraphCount": 3,
+        "listItemCount": 0,
+        "textBlocks": [
+          {
+            "kind": "p",
+            "textSha256": "d513500b7deca2a017e0ec4e1ef95951d12b4b89db1aae7d37a4368ca1af4241"
+          },
+          {
+            "kind": "p",
+            "textSha256": "f1330d85c0d7d780eac23d626318fb084a37a173cfe20c89a50c44dd6d662c41"
+          },
+          {
+            "kind": "p",
+            "textSha256": "839dcd12ac05edec60c7a70acaab86b4ce6090169eaa1235ff91f4434a32021e"
+          }
+        ]
+      },
+      "primary": {
+        "source": "srd51",
+        "pdfPage": 102,
+        "heading": "Targets",
+        "startMarker": "Targets A typical spell",
+        "stopExcluded": "A Clear Path to the Target",
+        "selectedTextSha256": "181187321d17e2f527137550dc672c01f7e522851a041917fc984acf57fcef6f",
+        "wordCount": 90,
+        "completeSelectedTextScope": true
+      },
+      "assessment": "selected-conditions-with-retained-referent-mismatch",
+      "assessmentMethod": "manual semantic comparison pinned to full source/body/list witnesses; not automatic translation equivalence",
+      "ordinaryFacts": {
+        "spellDescriptionDeterminesTargetKinds": true,
+        "perceptibleEffectClauseRefersToSpellInPrimary": true,
+        "targetAlwaysKnowsItWasTargeted": false,
+        "spellDescriptionCanOverrideAwareness": true,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false,
+      "literalDifference": {
+        "kind": "perceptible-effect-referent-shift",
+        "secondaryRefersTo": "target",
+        "primaryRefersTo": "spell",
+        "sourceSilentlyRewritten": false
+      }
+    },
+    {
+      "key": "clear-path",
+      "headingOrdinal": 29,
+      "title": "Свободный путь до цели",
+      "secondary": {
+        "bodyTextSha256": "6c49f1606512538d3122e098b3bccecbbed2a65d049dbaabe774ce2bc024a025",
+        "paragraphCount": 2,
+        "listItemCount": 0,
+        "textBlocks": [
+          {
+            "kind": "p",
+            "textSha256": "31385574e25bc93c3892175f3e83b07afdacf96157f660159336a1bded095ab9"
+          },
+          {
+            "kind": "p",
+            "textSha256": "3164aac1e5e28d0d312d1370922fd7d730837eb6280e40f98542a2ed0b1ccbcc"
+          }
+        ]
+      },
+      "primary": {
+        "source": "srd51",
+        "pdfPage": 102,
+        "heading": "A Clear Path to the Target",
+        "startMarker": "A Clear Path to the Target To target",
+        "stopExcluded": "Targeting Yourself",
+        "selectedTextSha256": "a2973966b3b8b432b01e803cdd2b681eb5ba2598d33066e53bbdb33d91557cb0",
+        "wordCount": 59,
+        "completeSelectedTextScope": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison pinned to full source/body/list witnesses; not automatic translation equivalence",
+      "ordinaryFacts": {
+        "targetCannotBeBehindTotalCoverByOrdinaryRule": true,
+        "unseenAreaOriginWithInterveningObstructionAppearsNearSide": true,
+        "invisibilityAutomaticallyEqualsTotalCover": false,
+        "spellSpecificExceptionsRemainSeparate": true,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "self-target",
+      "headingOrdinal": 30,
+      "title": "Нацеливание на себя",
+      "secondary": {
+        "bodyTextSha256": "9efc116dca18d0f92d7877ba6eb3f4bda309527c303e895708c7786d12b17234",
+        "paragraphCount": 1,
+        "listItemCount": 0,
+        "textBlocks": [
+          {
+            "kind": "p",
+            "textSha256": "9efc116dca18d0f92d7877ba6eb3f4bda309527c303e895708c7786d12b17234"
+          }
+        ]
+      },
+      "primary": {
+        "source": "srd51",
+        "pdfPage": 102,
+        "heading": "Targeting Yourself",
+        "startMarker": "Targeting Yourself If a spell",
+        "stopExcluded": "Areas of Effect",
+        "selectedTextSha256": "703e56a4b39fb6ee703155362e80b32c64e7a598f1d2025f7a1cca32c0377248",
+        "wordCount": 43,
+        "completeSelectedTextScope": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison pinned to full source/body/list witnesses; not automatic translation equivalence",
+      "ordinaryFacts": {
+        "creatureOfChoiceCanBeSelfUnlessHostileOrOtherCreatureRequired": true,
+        "casterCanChooseSelfIfWithinOwnArea": true,
+        "rangeSelfAlwaysMeansOnlyCasterCanBeAffected": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    }
+  ],
+  "remainingHeadingOrdinals": [
+    1,
+    2,
+    7,
+    8,
+    9,
+    12,
+    17,
+    18,
+    27,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48
+  ],
+  "syntheticCases": [
+    {
+      "case": "separateDamageSources",
+      "damage": [
+        8,
+        27
+      ],
+      "expectedSeparateConSavesDC": [
+        10,
+        13
+      ],
+      "mergedSingleCheck": false
+    },
+    {
+      "case": "oddDamageRounding",
+      "damage": 21,
+      "expectedConSaveDC": 10,
+      "roundingSource": "Basic2018PDF5,not concentration subsection alone"
+    },
+    {
+      "case": "incapacitatedEvenWithPositiveHP",
+      "ordinaryConcentrationEnds": true
+    },
+    {
+      "case": "movementOrAttackOnly",
+      "automaticConcentrationBreak": false
+    },
+    {
+      "case": "concentrationEndedVoluntarily",
+      "actionRequired": false
+    },
+    {
+      "case": "instantaneousEffect",
+      "dispelAllowedByDurationRule": false,
+      "counterspellTimingDecidedByThisRule": false
+    },
+    {
+      "case": "unseenTarget",
+      "invisibleAutomaticallyMeansTotalCover": false
+    },
+    {
+      "case": "selfRangeArea",
+      "onlyCasterCanEverBeAffected": false
+    }
+  ],
+  "preservedHolds": {
+    "xgeObservingIdentifyingInvalidTargetsHeadings": [
+      31,
+      32,
+      33
+    ],
+    "xgeOrTceRulesAccepted": false,
+    "sourceArraysRewritten": false,
+    "runtimeResourceOrConditionChanges": false
+  },
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "general-areas-saves-attacks-combination",
+    "action": "Compare full common area/shape, saving-throw, attack-roll and combining-effect scopes against complete corresponding SRD boundaries; preserve XGE grid methods and TCE personalization separately."
+  },
+  "limits": [
+    "Six selected scopes retain all13paragraphs and3list items;27other heading bodies are not accepted.",
+    "General rounding has separate Basic5 provenance; Basic license/whole book acceptance is not inherited from SRD.",
+    "Secondary target/spell perceptibility referent mismatch is retained, not silently repaired or used for automatic NPC-awareness.",
+    "No full source prose/PDF, canonical units, rights, runtime hard block, profile edit, inventory event or owner milestone accepted."
+  ],
+  "inputSha256": {
+    "catalog/general-casting-clauses-2014.json": "aa6815ec47e2cb963c1c30e5fc50082bb20a6fc47861bc6c6f502dfcd59c97cf",
+    "catalog/spellcasting-reference-scopes-2014.json": "0e20ecfc18534dcc94752854e8ff018d8ad109eeabe9290036d04a6c57d925d3",
+    "catalog/basic-rules-publication-boundary-2014.json": "581a431600b794854b840c4d1ab7f5ed210c5ddb3286cf3058905ff506cdf5b6"
+  },
+  "generator": {
+    "path": "scripts/audit-general-concentration-targets-2014.py",
+    "sha256": "6d98c56b910f79043fd3a7752b5bb66bd534e2b839a19374b249317350fdfe25"
+  },
+  "upstreamParsers": [
+    {
+      "path": "scripts/audit-general-casting-clauses-2014.py",
+      "sha256": "c29e37353aedb0d78d8305a34eec865a442f316071913278a2a3aa390c820aa3"
+    },
+    {
+      "path": "scripts/audit-wizard-candidate-concordance-2014.py",
+      "sha256": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b"
+    }
+  ]
+}
