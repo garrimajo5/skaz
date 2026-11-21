@@ -31,9 +31,9 @@
 
 Все15 исходных provider-ссылок имеют ограниченное kind-свидетельство. `primaryKindWorkQueue=[]`, `nextUntriagedProviderSourceId=null`: этот результат не означает исчерпанную очередь проекта или полный каталог. В `remainingCriteriaWorkQueue` сохранены15строк с критериями полного текста, версий, происхождения, прав и канонических единиц. Два полных выбранных Wizard-компонента (Arcane Recovery/Ritual Casting) и локальный class-reference crosswalk учитываются отдельно, не как новые публикации или автоматизация класса.
 
-**Следующий исполнимый шаг content/D05:** сопоставить существующие Wizard/Artificer class-heading proposals с конкретными проверенными source-компонентами, различая полный/частичный/непроверенный scope. Входы: `catalog/dndsu-reviewed-class-proposals.json` и `catalog/artificer-heading-unit-proposals-2014.json`. Не повторять TOC, закрытую локальную сверку125ID/247ссылок, ArcaneRecovery/RitualCasting и ранее выбранные preparation/learning/ASI/copying units. Неизвестный полный Artificer текст не заменять UA/2024/форумом или соседним Wizard-правилом.
+**Следующий исполнимый шаг content/D05:** [текущая class-evidence передача](wizard-artificer-current-evidence-2014.md) связывает уже завершённые mapping130/23,6Artificererrata,9/21Wizardinventory,3короткихкомпонента и415-словнуюврезку. Следующаяработа — clause-concordance тела вторичногоWizardSpellcastingcandidate с подтверждёнными английскимиscopes; точнаяTCE/Artificer версия/полныйтекст остаётся отдельнымhold. Не повторять выполненныеscopes и не подменятьArtificer соседнимWizard/UA/2024. НовыйsecondarycaptureимеетсвойSHA.
 
-[Crosswalk](basic-class-feature-crosswalk-2014.md) и [Ritual Casting](wizard-ritual-source-comparison-2014.md) включены с точными reportSHA/head/review pins.125/247 — локальная целостность, а два полных компонента — узкие текстовые сравнения; не полнота всех12классов. Artificer остаётся в проекте отдельно от этих SRD-носителей.
+Прежние crosswalk иArcane/Ritual остаются закреплёнными в этомпубликационномтриаже; его selected-counts не выдаются за глобальное число source-сравнений. Классовойдетализации соответствует отдельныйcurrent-context вход, без принятия canonical/прав/автоматизации.
 
 У Domains116 сохранён только официальный PDF-reference/page1; marketplace body не удержан. У Feast129/Vecna135 статьи сохранены, source-body не прочитан. Ограничения не превращены в постоянный отказ доступа или полные правила. Исходные15/70/7 не изменились, права/канонические единицы не приняты.
 
@@ -44,7 +44,7 @@ python scripts/review-d05-current-triage-2014.py --output <report.json>
 python -m unittest discover -s tests -p test_d05_current_triage_2014.py
 ```
 
-18 уникальных входных JSON (14 kind-свидетельств, два selected-rule сравнения, class-reference crosswalk и контекст), без нового HTTP. 20 Python PASS: сохранность15/70/7, пустая первичная очередь и15 оставшихся критериев, точные review pins, запрет чужого namespace/автоматической атрибуции, отдельные94/128 и явные ограничения HTTP provenance. Это проверка слоя текущей работы, а не повтор всех полных source-аудитов.
+19 уникальных входных JSON (14 kind-свидетельств, два прямо закреплённых selected-rule сравнения, class-reference crosswalk, publication context и current class context), без нового HTTP. 21 Python PASS: сохранность15/70/7, пустая первичная очередь и15 оставшихся критериев, точные review pins, запрет чужого namespace/автоматической атрибуции, отдельные94/128 и явные ограничения HTTP provenance. Это проверка слоя текущей работы, а не повтор всех полных source-аудитов.
 
 Рефлексия content: повторно скачивать уже рассмотренные источники не требуется; текущий триаж хранит точный scope, ограничения и следующий критерий. Реальные captures этого блока сохранили успешные PDF/HTML при отказах соседей; автоматических повторов0. Обнаруженный IndexError на пустой первичной очереди воспроизведён, исправлен и защищён переходом к remainingCriteria. Предложениеplanner — учесть результат испытания отдельных квитанций и явных фаз; решение не подменяет общие инструкции/доступ.
 

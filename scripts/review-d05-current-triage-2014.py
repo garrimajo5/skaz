@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 CONTEXT='catalog/library-current-publication-context-2014.json'
+CURRENT_CLASSES='catalog/wizard-artificer-current-evidence-2014.json'
 EXPECTED_RESIDUAL=[1,34,37,53,62,92,93,94,105,116,122,126,128,129,135]
 # Review citations bind exact reviewed report bytes (UTF-8/LF), not mutable future reports.
 WITNESSES={
@@ -92,9 +93,12 @@ def validate_extra(kind,data):
 def build(root=Path('.')):
     if not set(WITNESSES).issubset(EXPECTED_RESIDUAL):raise ValueError('Witness outside original15 references')
     if any(not w['remaining'] for w in WITNESSES.values()):raise ValueError('Bounded witnesses must retain remaining criteria')
-    paths=[CONTEXT,*[w['path'] for w in WITNESSES.values()],RULE['path'],*[w['path'] for w in EXTRA_CLASS_EVIDENCE.values()]]
+    paths=[CONTEXT,CURRENT_CLASSES,*[w['path'] for w in WITNESSES.values()],RULE['path'],*[w['path'] for w in EXTRA_CLASS_EVIDENCE.values()]]
     texts={path:normalized((root/path).read_text(encoding='utf-8')) for path in paths}
     context=json.loads(texts[CONTEXT]);historical=validate_context(context);verified={}
+    current_classes=json.loads(texts[CURRENT_CLASSES])
+    if current_classes.get('accepted') or current_classes.get('complete') or current_classes.get('approvedDenominator') is not None or current_classes['summary']['canonicalUnitsAccepted']:
+        raise ValueError('Current class context must retain source/canonical holds')
     for pid,spec in WITNESSES.items():
         data=reviewed_json(texts[spec['path']],spec['sha256']);validate_identity(pid,data);verified[pid]=data
     rule=reviewed_json(texts[RULE['path']],RULE['sha256']);validate_rule(rule)
@@ -120,9 +124,9 @@ def build(root=Path('.')):
     next_work=({'phase':'primary-publication-kind','providerSourceId':untriaged[0]['providerSourceId'],
                 'action':'Inspect primary publication kind/version evidence before canonical units.'} if untriaged else
                {'phase':'class-rule-provenance-and-scope','providerSourceId':1,
-                'action':'Map existing Wizard/Artificer class-heading proposals to bounded source components; retain complete/partial/unverified distinctions.',
-                'doNotRepeat':'Carrier TOCs, local125/247 reference crosswalk, Arcane Recovery, Ritual Casting and previously selected preparation/learning/ASI/copying units.',
-                'evidencePath':WITNESSES[1]['path'],
+                'action':'Wizard/Artificer source work: compare secondary Wizard Spellcasting body to checked corresponding English clauses; retain candidate/source/version holds.',
+                'doNotRepeat':'Carrier TOCs, local125/247 reference crosswalk, Arcane Recovery, Ritual Casting,130/23candidate map,six Artificer errata,9/21inventory,three short comparisons,415word sidebar and previously selected preparation/learning/ASI/copying units.',
+                'evidencePath':CURRENT_CLASSES,
                 'candidateInputs':['catalog/dndsu-reviewed-class-proposals.json','catalog/artificer-heading-unit-proposals-2014.json']})
     return {'schemaVersion':2,'status':'current-work-triage-not-completeness-denominator-or-policy-approval',
             'accepted':False,'complete':False,'approvedDenominator':None,
@@ -132,6 +136,7 @@ def build(root=Path('.')):
             'nextUntriagedProviderSourceId':untriaged[0]['providerSourceId'] if untriaged else None,
             'remainingCriteriaWorkQueue':remaining,'nextWorkItem':next_work,
             'supplementalClassEvidence':EXTRA_CLASS_EVIDENCE,
+            'currentClassEvidenceContext':{'path':CURRENT_CLASSES,'summary':current_classes['summary']},
             'unlinkedHistoricalRowsPreserved':context['remainingHistoricalRows'],
             'inputSha256':{p:sha(t.encode()) for p,t in texts.items()},
             'generator':{'path':'scripts/review-d05-current-triage-2014.py','sha256':sha(Path(__file__).read_bytes().replace(b'\r\n',b'\n'))},
@@ -140,6 +145,7 @@ def build(root=Path('.')):
                       'Current work is separate from original15-row/70-source observations; no input or policy is mutated.',
                       'Review citations are pinned to the checked report and exact PR head; changed evidence needs new review.',
                       'The two selected Wizard components and local class-reference crosswalk are not additional publication witnesses or runtime automation.',
+                      'Selected comparison counters describe explicitly pinned original Arcane/Ritual inputs; current class-specific evidence is a separate overlay, not a global total.',
                       'Owner milestones, private matrix, application/VPS state and catalogue denominator remain unchanged.']}
 
 if __name__=='__main__':

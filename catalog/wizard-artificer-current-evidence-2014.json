@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 1,
+  "status": "current-class-evidence-overlay-not-full-rules-or-original-source-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "preservedCandidateRecords": 130,
+    "preservedArtificerHeadingObservations": 23,
+    "supplementedCandidateReferences": 5,
+    "selectedArtificerCorrections": 6,
+    "unattachedCorrectionsRetained": 1,
+    "canonicalUnitsAccepted": 0
+  },
+  "baseCandidateMap": {
+    "path": "catalog/wizard-artificer-source-scopes-2014.json",
+    "sha256": "35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5",
+    "pr": 227,
+    "head": "01876659e4be009e645095c677cebbdcf52d278d",
+    "review": "https://github.com/garrimajo5/skaz/pull/227#issuecomment-7063197013",
+    "scope": "130candidate/23heading preservation and bounded correspondence only"
+  },
+  "preservedCandidateIdSequence": [
+    "scope:wizard:class-features:feature.spellcasting",
+    "scope:wizard:class-features:feature.extra-spells",
+    "scope:wizard:class-features:feature.arcane-recovery",
+    "scope:wizard:class-features:feature.arcane-tradition",
+    "scope:wizard:class-features:feature.cantrip-formulas",
+    "scope:wizard:class-features:feature.ASI",
+    "scope:wizard:class-features:feature.spell-mastery",
+    "scope:wizard:class-features:feature.signature-spells",
+    "scope:wizard:tradition.evocation:tradition.evocation",
+    "scope:wizard:tradition.evocation:bf9e9bd93c493c16",
+    "scope:wizard:tradition.evocation:ff956c10572b13ea",
+    "scope:wizard:tradition.evocation:de01fc614320d930",
+    "scope:wizard:tradition.evocation:b236acb2c4fcaa68",
+    "scope:wizard:tradition.evocation:e2f1d83e0f5bb67f",
+    "scope:wizard:tradition.conjuration:tradition.conjuration",
+    "scope:wizard:tradition.conjuration:e13b1fd985921283",
+    "scope:wizard:tradition.conjuration:8e6da0e54f83ddeb",
+    "scope:wizard:tradition.conjuration:ec3e5ea964a6cafc",
+    "scope:wizard:tradition.conjuration:4494b6907b34e163",
+    "scope:wizard:tradition.conjuration:d929bc3822c28e19",
+    "scope:wizard:tradition.illusion:tradition.illusion",
+    "scope:wizard:tradition.illusion:bc0a749e1cffb5c5",
+    "scope:wizard:tradition.illusion:377df2c61029d4b2",
+    "scope:wizard:tradition.illusion:18139c438e878fae",
+    "scope:wizard:tradition.illusion:b5c25ead4f845d62",
+    "scope:wizard:tradition.illusion:a0b408c0e27c16e2",
+    "scope:wizard:tradition.necromancy:tradition.necromancy",
+    "scope:wizard:tradition.necromancy:d0f9c43a7ace230c",
+    "scope:wizard:tradition.necromancy:a0fde2d7bb06d8c0",
+    "scope:wizard:tradition.necromancy:cb10ec73cff0b0d9",
+    "scope:wizard:tradition.necromancy:fe54fe8bbfb97609",
+    "scope:wizard:tradition.necromancy:9d59566819045eb1",
+    "scope:wizard:tradition.abjuration:tradition.abjuration",
+    "scope:wizard:tradition.abjuration:8f6902d4338e3d90",
+    "scope:wizard:tradition.abjuration:81aaaf529d085d8b",
+    "scope:wizard:tradition.abjuration:3d8fc79f9d00dcdb",
+    "scope:wizard:tradition.abjuration:640bf162984be4c7",
+    "scope:wizard:tradition.abjuration:1801b348d32fc0ae",
+    "scope:wizard:tradition.enchantment:tradition.enchantment",
+    "scope:wizard:tradition.enchantment:ea4560046558f7e1",
+    "scope:wizard:tradition.enchantment:173a28557b10b068",
+    "scope:wizard:tradition.enchantment:0b6b9305109b4b7d",
+    "scope:wizard:tradition.enchantment:697b31f39f6054c6",
+    "scope:wizard:tradition.enchantment:e2bace22fa25efb0",
+    "scope:wizard:tradition.transmutation:tradition.transmutation",
+    "scope:wizard:tradition.transmutation:99a45618a7a447f2",
+    "scope:wizard:tradition.transmutation:69ee7e201ded124b",
+    "scope:wizard:tradition.transmutation:43bb5408204fbe58",
+    "scope:wizard:tradition.transmutation:b89a31c5f9da1f76",
+    "scope:wizard:tradition.transmutation:743f0ddcddf2028f",
+    "scope:wizard:tradition.divination:tradition.divination",
+    "scope:wizard:tradition.divination:960a94e02f362cf2",
+    "scope:wizard:tradition.divination:0a9bdf16a44f433f",
+    "scope:wizard:tradition.divination:b7678e5be3921379",
+    "scope:wizard:tradition.divination:5d000dc9a8c5451e",
+    "scope:wizard:tradition.divination:6a3df95fe28ce648",
+    "scope:wizard:tradition.war-magic:tradition.war-magic",
+    "scope:wizard:tradition.war-magic:818ef7e5bb4271ea",
+    "scope:wizard:tradition.war-magic:a6cf191ff7bd3cb0",
+    "scope:wizard:tradition.war-magic:b9a41e75d2926ba1",
+    "scope:wizard:tradition.war-magic:cfc25488a6f88536",
+    "scope:wizard:tradition.war-magic:d2cf3312ea22a6d3",
+    "scope:wizard:tradition.chronurgy:tradition.chronurgy",
+    "scope:wizard:tradition.chronurgy:7b137646c6799206",
+    "scope:wizard:tradition.chronurgy:c446302e1c02e9e3",
+    "scope:wizard:tradition.chronurgy:3f1294c88491c9cc",
+    "scope:wizard:tradition.chronurgy:edce13b32a978cb4",
+    "scope:wizard:tradition.chronurgy:faf838ec7c02320b",
+    "scope:wizard:tradition.chronurgy:86d9b5fd7e2b0afc",
+    "scope:wizard:tradition.graviturgy:tradition.graviturgy",
+    "scope:wizard:tradition.graviturgy:3b7ae3ec98e2c350",
+    "scope:wizard:tradition.graviturgy:8027064412ae380a",
+    "scope:wizard:tradition.graviturgy:cc548a9b96b621b0",
+    "scope:wizard:tradition.graviturgy:216eefe92a97eb15",
+    "scope:wizard:tradition.graviturgy:86d9b5fd7e2b0afc",
+    "scope:wizard:tradition.scribes:tradition.scribes",
+    "scope:wizard:tradition.scribes:da09be6717585f3d",
+    "scope:wizard:tradition.scribes:fd5026c478de1842",
+    "scope:wizard:tradition.scribes:b7778f2c9af8fdb1",
+    "scope:wizard:tradition.scribes:8e54c0d9cd7c9621",
+    "scope:wizard:tradition.scribes:a8842ad98a1e2e0c",
+    "scope:wizard:tradition.bladesinging:tradition.bladesinging",
+    "scope:wizard:tradition.bladesinging:5dd84cdf4462efaf",
+    "scope:wizard:tradition.bladesinging:87d7a1f7219f8fa5",
+    "scope:wizard:tradition.bladesinging:9ede3ebb1d19609a",
+    "scope:wizard:tradition.bladesinging:fa02e8e7adab370f",
+    "scope:wizard:tradition.bladesinging:67e099600734ec30",
+    "scope:artificer:class-features:feature.magical-tinkering",
+    "scope:artificer:class-features:feature.spellcasting",
+    "scope:artificer:class-features:feature.infuse-item",
+    "scope:artificer:class-features:feature.specialist",
+    "scope:artificer:class-features:feature.right-tool-for-the-job",
+    "scope:artificer:class-features:feature.ASI",
+    "scope:artificer:class-features:feature.tool-expertise",
+    "scope:artificer:class-features:feature.flash-of-genius",
+    "scope:artificer:class-features:feature.magic-item-adept",
+    "scope:artificer:class-features:feature.spell-storing-item",
+    "scope:artificer:class-features:feature.magic-item-savant",
+    "scope:artificer:class-features:feature.magic-item-master",
+    "scope:artificer:class-features:feature.soul-of-artifice",
+    "scope:artificer:specialist.alchemist:specialist.alchemist",
+    "scope:artificer:specialist.alchemist:08d269fc98dbfdab",
+    "scope:artificer:specialist.alchemist:93b7483dbd2b5197",
+    "scope:artificer:specialist.alchemist:878ad5bd123d73f3",
+    "scope:artificer:specialist.alchemist:45bf0cb4e0b646a8",
+    "scope:artificer:specialist.alchemist:9bd72d7a38200834",
+    "scope:artificer:specialist.alchemist:5ab794c7564d4100",
+    "scope:artificer:specialist.artillerist:specialist.artillerist",
+    "scope:artificer:specialist.artillerist:08d269fc98dbfdab",
+    "scope:artificer:specialist.artillerist:2bc4a4ce0393c94a",
+    "scope:artificer:specialist.artillerist:ebdbc64cc9764ce7",
+    "scope:artificer:specialist.artillerist:d806f64985b0613a",
+    "scope:artificer:specialist.artillerist:920fbb40b0dd7b7e",
+    "scope:artificer:specialist.artillerist:42b931caa1f4f795",
+    "scope:artificer:specialist.battlesmith:specialist.battlesmith",
+    "scope:artificer:specialist.battlesmith:08d269fc98dbfdab",
+    "scope:artificer:specialist.battlesmith:2f6a8c71f7ddd8a3",
+    "scope:artificer:specialist.battlesmith:add398e56c386253",
+    "scope:artificer:specialist.battlesmith:c4961367422c09fe",
+    "scope:artificer:specialist.battlesmith:9ede3ebb1d19609a",
+    "scope:artificer:specialist.battlesmith:44d064ad8f656380",
+    "scope:artificer:specialist.battlesmith:b6ea9d0e779c1e83",
+    "scope:artificer:specialist.armorer:specialist.armorer",
+    "scope:artificer:specialist.armorer:08d269fc98dbfdab",
+    "scope:artificer:specialist.armorer:096d32adc9cc13b2",
+    "scope:artificer:specialist.armorer:749c98ae8bc17fce",
+    "scope:artificer:specialist.armorer:40b2fef4e59f8adc",
+    "scope:artificer:specialist.armorer:9ede3ebb1d19609a",
+    "scope:artificer:specialist.armorer:4c97712288d26bc4",
+    "scope:artificer:specialist.armorer:33dfc2450bac503f"
+  ],
+  "preservedClaimLedgerSha256": "fb93606d29706faac096a16ec7c378bc2dd8088a456ac1432b664b38a0de3972",
+  "supplementalCandidateLinks": [
+    {
+      "candidateId": "scope:wizard:class-features:feature.spellcasting",
+      "sourceClaims": [
+        "102"
+      ],
+      "additionalEvidenceKeys": [
+        "spellcastingInventory",
+        "spellbookSidebar"
+      ],
+      "completeCandidateTextAccepted": false,
+      "wholeFeatureAccepted": false,
+      "runtimeAccepted": false
+    },
+    {
+      "candidateId": "scope:artificer:class-features:feature.magical-tinkering",
+      "sourceClaims": [
+        "117"
+      ],
+      "additionalEvidenceKeys": [
+        "artificerErrata"
+      ],
+      "completeCandidateTextAccepted": false,
+      "wholeFeatureAccepted": false,
+      "runtimeAccepted": false,
+      "sourceSpecificCorrections": [
+        {
+          "correctionKey": "magical-tinkering",
+          "historicalBookSourceId": "119",
+          "appliesToCandidatePublicationVerified": false,
+          "scopeKind": "replacement-phrase"
+        }
+      ]
+    },
+    {
+      "candidateId": "scope:artificer:class-features:feature.spellcasting",
+      "sourceClaims": [
+        "117"
+      ],
+      "additionalEvidenceKeys": [
+        "artificerErrata"
+      ],
+      "completeCandidateTextAccepted": false,
+      "wholeFeatureAccepted": false,
+      "runtimeAccepted": false,
+      "sourceSpecificCorrections": [
+        {
+          "correctionKey": "tools-material-clarification",
+          "historicalBookSourceId": "119",
+          "appliesToCandidatePublicationVerified": false,
+          "scopeKind": "added-clarification"
+        },
+        {
+          "correctionKey": "purify-ritual-tag",
+          "historicalBookSourceId": "117",
+          "appliesToCandidatePublicationVerified": false,
+          "scopeKind": "added-spell-list-marker"
+        }
+      ]
+    },
+    {
+      "candidateId": "scope:artificer:class-features:feature.infuse-item",
+      "sourceClaims": [
+        "117"
+      ],
+      "additionalEvidenceKeys": [
+        "artificerErrata"
+      ],
+      "completeCandidateTextAccepted": false,
+      "wholeFeatureAccepted": false,
+      "runtimeAccepted": false,
+      "sourceSpecificCorrections": [
+        {
+          "correctionKey": "infused-container-contents",
+          "historicalBookSourceId": "119",
+          "appliesToCandidatePublicationVerified": false,
+          "scopeKind": "whole-added-paragraph"
+        }
+      ]
+    },
+    {
+      "candidateId": "scope:artificer:class-features:feature.right-tool-for-the-job",
+      "sourceClaims": [
+        "117"
+      ],
+      "additionalEvidenceKeys": [
+        "artificerErrata"
+      ],
+      "completeCandidateTextAccepted": false,
+      "wholeFeatureAccepted": false,
+      "runtimeAccepted": false,
+      "sourceSpecificCorrections": [
+        {
+          "correctionKey": "right-tool",
+          "historicalBookSourceId": "119",
+          "appliesToCandidatePublicationVerified": false,
+          "scopeKind": "replacement-phrase"
+        }
+      ]
+    }
+  ],
+  "unattachedCorrections": [
+    {
+      "correctionKey": "repeating-shot-ammunition",
+      "historicalBookSourceId": "117",
+      "appliesToCandidatePublicationVerified": false,
+      "scopeKind": "whole-replacement-sentence"
+    }
+  ],
+  "wizardReferenceGraph": {
+    "originalGraphPreserved": [
+      "Wizard table",
+      "general spellcasting rules",
+      "Wizard spell list",
+      "remaining complete Your Spellbook sidebar/version comparison"
+    ],
+    "completedSelectedReference": "remaining complete Your Spellbook sidebar/version comparison",
+    "completionEvidenceKey": "spellbookSidebar",
+    "remainingGraph": [
+      "Wizard table",
+      "general spellcasting rules",
+      "Wizard spell list"
+    ],
+    "literalWholeSourceEqualityClaimed": false,
+    "wholeFeatureRulesAccepted": false
+  },
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "wizard-candidate-clause-concordance",
+    "candidateId": "scope:wizard:class-features:feature.spellcasting",
+    "action": "Compare the secondary Wizard Spellcasting body clause by clause against checked corresponding English scopes, keeping snapshot and source claims separate.",
+    "requiredInputs": [
+      "catalog/dndsu-reviewed-class-proposals.json",
+      "catalog/wizard-artificer-source-scopes-2014.json"
+    ],
+    "sourceSnapshotRequirement": "Use the retained candidate snapshot if available; a new public capture keeps its own SHA and must not inherit the old snapshot identity.",
+    "parallelRemainingCriterion": "Exact TCE/Artificer full-text/version applicability is still unverified; do not substitute Eberron/Wizard/UA/2024.",
+    "doNotRepeat": "130/23source map, six errata scopes,9/21inventory,three short comparisons,415word sidebar and prior Arcane/Ritual/preparation/learning/ASI/copying scopes."
+  },
+  "limits": [
+    "New links overlay the original map; no candidate ID, source array, heading parent or unknown record is removed or canonized.",
+    "Six Artificer corrections retain their own119/117 provenance and candidate applicability holds, including one unattached choice correction.",
+    "Completed English sidebar comparison closes only that named reference task; original graph remains and whole-class/source rights stay open.",
+    "No secondary translation/PHB-TCE source equivalence, feature automation, profile edit, publication rights or owner milestone accepted."
+  ],
+  "reviewedEvidence": {
+    "candidateMap": {
+      "path": "catalog/wizard-artificer-source-scopes-2014.json",
+      "sha256": "35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5",
+      "pr": 227,
+      "head": "01876659e4be009e645095c677cebbdcf52d278d",
+      "review": "https://github.com/garrimajo5/skaz/pull/227#issuecomment-7063197013",
+      "scope": "130candidate/23heading preservation and bounded correspondence only"
+    },
+    "artificerErrata": {
+      "path": "catalog/artificer-errata-scopes-2014.json",
+      "sha256": "fe1bdeaeee905651e8ddd60199d315ad090bde9aa23746d516f11da673f2c026",
+      "pr": 228,
+      "head": "005ae93bffb442208867fef8ad9926cd16c685d0",
+      "review": "https://github.com/garrimajo5/skaz/pull/228#issuecomment-7063307174",
+      "scope": "six source-specific selected clauses/PDFpage1 only"
+    },
+    "spellcastingInventory": {
+      "path": "catalog/wizard-spellcasting-scope-2014.json",
+      "sha256": "d55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb",
+      "pr": 229,
+      "head": "6687601a979918f3cb514328a682973f8b786bc8",
+      "review": "https://github.com/garrimajo5/skaz/pull/229#issuecomment-7063425731",
+      "scope": "9block21paragraph digital inventory and3selected comparisons only"
+    },
+    "spellbookSidebar": {
+      "path": "catalog/wizard-spellbook-sidebar-2014.json",
+      "sha256": "029e5bbb68162230d73159188cb1fda0af9f2c6966beac9b414ca61bf15b1917",
+      "pr": 230,
+      "head": "99f7da0987e91e6a0bceef15b8ea5cce185072fa",
+      "review": "https://github.com/garrimajo5/skaz/pull/230#issuecomment-7063541170",
+      "scope": "complete7paragraph415word sidebar with preserved literal carrier difference"
+    }
+  },
+  "inputSha256": {
+    "catalog/wizard-artificer-source-scopes-2014.json": "35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5",
+    "catalog/artificer-errata-scopes-2014.json": "fe1bdeaeee905651e8ddd60199d315ad090bde9aa23746d516f11da673f2c026",
+    "catalog/wizard-spellcasting-scope-2014.json": "d55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb",
+    "catalog/wizard-spellbook-sidebar-2014.json": "029e5bbb68162230d73159188cb1fda0af9f2c6966beac9b414ca61bf15b1917"
+  },
+  "generator": {
+    "path": "scripts/review-current-class-evidence-2014.py",
+    "sha256": "e7f20eac901b757b3e1bed0f050f0d01b43ab249f9db7abc47a08aa347964f9b"
+  }
+}

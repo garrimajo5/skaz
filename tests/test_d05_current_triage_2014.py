@@ -82,7 +82,7 @@ class D05CurrentTriageTest(unittest.TestCase):
         d=M.build(ROOT);rows={r['providerSourceId']:r for r in d['records']}
         self.assertEqual(rows[94]['witnessPath'],rows[128]['witnessPath'])
         self.assertNotEqual(rows[94]['publicationKindWitness'],rows[128]['publicationKindWitness'])
-        self.assertEqual(len(d['inputSha256']),18)
+        self.assertEqual(len(d['inputSha256']),19)
         for pid in [94,128]:
             self.assertIn('HTTP status/final URL unretained',rows[pid]['provenanceCaveat'])
             M.validate_identity(pid,read(M.WITNESSES[pid]['path']))
@@ -130,6 +130,14 @@ class D05CurrentTriageTest(unittest.TestCase):
     def test_next_step_uses_existing_class_candidates_and_does_not_repeat_completed_units(self):
         n=M.build(ROOT)['nextWorkItem'];self.assertIn('Wizard/Artificer',n['action']);self.assertIn('Ritual Casting',n['doNotRepeat']);self.assertIn('local125/247',n['doNotRepeat'])
         self.assertTrue(all((ROOT/path).is_file() for path in n['candidateInputs']))
+
+    def test_current_class_context_cannot_silently_accept_stage_or_denominator(self):
+        import tempfile
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as folder:
+            p=Path(folder)/'accepted.json';p.write_text(json.dumps({'accepted':True,'complete':False,'approvedDenominator':None,'summary':{'canonicalUnitsAccepted':0}}),encoding='utf-8')
+            with patch.object(M,'CURRENT_CLASSES',str(p)):
+                with self.assertRaisesRegex(ValueError,'holds'):M.build(ROOT)
 
     def test_committed_report_reproduces_and_provenance_stays_json_only(self):
         d=read('catalog/d05-current-publication-triage-2014.json');self.assertEqual(d,M.build(ROOT))
