@@ -22,5 +22,8 @@ test('scoped noEmit check rejects a corrected HP value incorrectly represented a
   assert.match(result.stdout+result.stderr,/TS2322/);
   assert.match(result.stdout+result.stderr,/null|manual-correction/);
   assert.deepEqual(readdirSync(dir).sort(),['jsconfig.json','sheet-review.js'],'no generated JS');
- }finally{rmSync(dir,{recursive:true,force:true});}
+ }finally{
+  assert.equal(path.dirname(path.resolve(dir)),path.resolve(tmpdir()));
+  rmSync(dir,{recursive:true,force:true});
+ }
 });

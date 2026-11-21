@@ -9,7 +9,7 @@
  * @typedef {{id: string, assets: PageAsset[], regions: SourceRegion[]}} Scenario
  * @typedef {{cases: Scenario[]}} Manifest
  * @typedef {{fieldId: string, value: number, selection: 'confirmed', provenance: 'ocr-confirmed'} | {fieldId: string, value: number, selection: 'corrected', provenance: 'manual-correction'} | {fieldId: string, value: null, selection: 'left-unknown', provenance: 'manual-unknown'}} ConfirmedField
- * @typedef {{values: ConfirmedField[]}} ReviewConfirmation
+ * @typedef {{readonly values: ReadonlyArray<Readonly<ConfirmedField>>}} ReviewConfirmation
  * @typedef {{kind: 'unknown'|'invalid'|'overflow'|'equal'|'mismatch', fingerprint: string, text: string, sum?: number, total?: number}} ClassComparison
  */
 

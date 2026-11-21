@@ -47,6 +47,7 @@ test('unknown max HP → manual value → confirmation → correction requires a
  assert.equal(h.read('selectedValue(fields.find(f=>f.key==="hpMax"))'),undefined);
  assert.equal(h.node('apply').disabled,true,'blank is unresolved, not zero');
  h.unknown('classLevel');h.input('hpMax','33');
+ assert.equal(h.read('fields.find(f=>f.key==="hpMax").value'),null,'original ambiguous candidate is not rewritten by the manual choice');
  assert.match(h.node('field-hpMax-status').textContent,/Исправлено вами/);
  assert.equal(h.node('apply').disabled,true,'typing does not confirm a group');
  h.submit();
