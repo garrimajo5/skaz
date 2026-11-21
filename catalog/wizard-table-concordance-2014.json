@@ -1,0 +1,755 @@
+{
+  "schemaVersion": 1,
+  "status": "selected-wizard-table-and-intro-concordance-not-full-class-or-runtime",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "summary": {
+    "levelsCompared": 20,
+    "numericCellsComparedExcludingLevel": 220,
+    "baseFeatureCellsCompared": 20,
+    "literalFeatureNameDifferencesPreserved": 4,
+    "optionalTceObservationsPreserved": 2,
+    "secondaryIntroductionParagraphs": 2,
+    "primaryIntroductionParagraphs": 1,
+    "canonicalUnitsAccepted": 0
+  },
+  "sources": {
+    "secondary": {
+      "url": "https://dnd.su/class/105-wizard/",
+      "sha256": "5014af15fd61af05dde5bd29e19514b8fd87fe10ea60fbcd8a81f6574e2053c8",
+      "tableVisibleTextSha256": "5a24badcf663b88f422cea2ebc163d6fbff7c7be5c5f3239de06fba2b15a781c",
+      "historicalCandidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "receiptBasis": "retained HTML; no new HTTP receipt claimed"
+    },
+    "digital": {
+      "url": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/classes",
+      "sha256": "a08b309c589644f9faee67201dc7e0b9752be152215bce54d33d4b1ca7688c5e",
+      "tableVisibleTextSha256": "3fa1de65853a3c5fd5ebb9aedf13a2eaaed38c797a0127099000ce496d0d7fa7"
+    },
+    "srd": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "pdfPage": 52,
+      "existingWizardRowsReproduced": true
+    }
+  },
+  "table": {
+    "numericProjectionEqualAcrossThreeCarriers": true,
+    "baseFeatureNameCorrespondence": "manual href-to-existing English feature-name mapping; not full feature text equivalence",
+    "rows": [
+      {
+        "level": 1,
+        "proficiency": 2,
+        "cantrips": 3,
+        "spellSlots": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "featuresEn": [
+          "Spellcasting",
+          "Arcane Recovery"
+        ]
+      },
+      {
+        "level": 2,
+        "proficiency": 2,
+        "cantrips": 3,
+        "spellSlots": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "featuresEn": [
+          "Arcane Tradition"
+        ]
+      },
+      {
+        "level": 3,
+        "proficiency": 2,
+        "cantrips": 3,
+        "spellSlots": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "featuresEn": []
+      },
+      {
+        "level": 4,
+        "proficiency": 2,
+        "cantrips": 4,
+        "spellSlots": [
+          4,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "featuresEn": [
+          "Ability Score Improvement"
+        ]
+      },
+      {
+        "level": 5,
+        "proficiency": 3,
+        "cantrips": 4,
+        "spellSlots": [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "featuresEn": []
+      },
+      {
+        "level": 6,
+        "proficiency": 3,
+        "cantrips": 4,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "featuresEn": [
+          "Arcane Tradition feature"
+        ]
+      },
+      {
+        "level": 7,
+        "proficiency": 3,
+        "cantrips": 4,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "featuresEn": []
+      },
+      {
+        "level": 8,
+        "proficiency": 3,
+        "cantrips": 4,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "featuresEn": [
+          "Ability Score Improvement"
+        ]
+      },
+      {
+        "level": 9,
+        "proficiency": 4,
+        "cantrips": 4,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "featuresEn": []
+      },
+      {
+        "level": 10,
+        "proficiency": 4,
+        "cantrips": 5,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        "featuresEn": [
+          "Arcane Tradition feature"
+        ]
+      },
+      {
+        "level": 11,
+        "proficiency": 4,
+        "cantrips": 5,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "featuresEn": []
+      },
+      {
+        "level": 12,
+        "proficiency": 4,
+        "cantrips": 5,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "featuresEn": [
+          "Ability Score Improvement"
+        ]
+      },
+      {
+        "level": 13,
+        "proficiency": 5,
+        "cantrips": 5,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          1,
+          0,
+          0
+        ],
+        "featuresEn": []
+      },
+      {
+        "level": 14,
+        "proficiency": 5,
+        "cantrips": 5,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          1,
+          0,
+          0
+        ],
+        "featuresEn": [
+          "Arcane Tradition feature"
+        ]
+      },
+      {
+        "level": 15,
+        "proficiency": 5,
+        "cantrips": 5,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          0
+        ],
+        "featuresEn": []
+      },
+      {
+        "level": 16,
+        "proficiency": 5,
+        "cantrips": 5,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          0
+        ],
+        "featuresEn": [
+          "Ability Score Improvement"
+        ]
+      },
+      {
+        "level": 17,
+        "proficiency": 6,
+        "cantrips": 5,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "featuresEn": []
+      },
+      {
+        "level": 18,
+        "proficiency": 6,
+        "cantrips": 5,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "featuresEn": [
+          "Spell Mastery"
+        ]
+      },
+      {
+        "level": 19,
+        "proficiency": 6,
+        "cantrips": 5,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "featuresEn": [
+          "Ability Score Improvement"
+        ]
+      },
+      {
+        "level": 20,
+        "proficiency": 6,
+        "cantrips": 5,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          1,
+          1
+        ],
+        "featuresEn": [
+          "Signature Spells"
+        ]
+      }
+    ],
+    "literalFeatureNameDifferences": [
+      {
+        "level": 6,
+        "secondaryMappedFeatureNames": [
+          "Arcane Tradition feature"
+        ],
+        "digitalFeatureNames": [
+          "Arcane Tradition Feature"
+        ],
+        "srdFeatureNames": [
+          "Arcane Tradition feature"
+        ],
+        "classification": "retained-literal-capitalization-difference"
+      },
+      {
+        "level": 10,
+        "secondaryMappedFeatureNames": [
+          "Arcane Tradition feature"
+        ],
+        "digitalFeatureNames": [
+          "Arcane Tradition Feature"
+        ],
+        "srdFeatureNames": [
+          "Arcane Tradition feature"
+        ],
+        "classification": "retained-literal-capitalization-difference"
+      },
+      {
+        "level": 14,
+        "secondaryMappedFeatureNames": [
+          "Arcane Tradition feature"
+        ],
+        "digitalFeatureNames": [
+          "Arcane Tradition Feature"
+        ],
+        "srdFeatureNames": [
+          "Arcane Tradition feature"
+        ],
+        "classification": "retained-literal-capitalization-difference"
+      },
+      {
+        "level": 20,
+        "secondaryMappedFeatureNames": [
+          "Signature Spells"
+        ],
+        "digitalFeatureNames": [
+          "Signature Spells"
+        ],
+        "srdFeatureNames": [
+          "Signature Spell"
+        ],
+        "classification": "retained-literal-singular-plural-name-difference-not-full-feature-equivalence"
+      }
+    ],
+    "optionalObservations": [
+      {
+        "level": 1,
+        "visibleTextSha256": "cbb9d310177430fa37f079a530861693dd6f74438e207581125a16778bf865ba",
+        "references": [
+          {
+            "href": "#feature.extra-spells",
+            "title": "Дополнительные заклинания"
+          }
+        ],
+        "sourceClaim": "117",
+        "optional": true,
+        "candidateReference": {
+          "id": "scope:wizard:class-features:feature.extra-spells",
+          "kind": "base-feature",
+          "title": "Дополнительные заклинания волшебника",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#feature.extra-spells",
+          "headingOrdinal": 28,
+          "parent": "class-features",
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-option-TCE-marker",
+          "observedInitialLevels": [
+            1
+          ]
+        }
+      },
+      {
+        "level": 3,
+        "visibleTextSha256": "52ffde2b5c5a12b49018556f82c8b8894e5734fa27efb6910df95004a707e0e1",
+        "references": [
+          {
+            "href": "#feature.cantrip-formulas",
+            "title": "Формулы заговоров"
+          }
+        ],
+        "sourceClaim": "117",
+        "optional": true,
+        "candidateReference": {
+          "id": "scope:wizard:class-features:feature.cantrip-formulas",
+          "kind": "base-feature",
+          "title": "Формулы заговоров",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#feature.cantrip-formulas",
+          "headingOrdinal": 31,
+          "parent": "class-features",
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-option-TCE-marker",
+          "observedInitialLevels": [
+            3
+          ]
+        }
+      }
+    ],
+    "optionalGrantsApplied": false,
+    "secondaryProjections": {
+      "baseFeatureReferences": [
+        {
+          "level": 1,
+          "references": [
+            {
+              "href": "#feature.spellcasting",
+              "title": "Использование заклинаний"
+            },
+            {
+              "href": "#feature.arcane-recovery",
+              "title": "Магическое восстановление"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "references": [
+            {
+              "href": "#feature.arcane-tradition",
+              "title": "Магические традиции"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "references": []
+        },
+        {
+          "level": 4,
+          "references": [
+            {
+              "href": "#feature.ASI",
+              "title": "Увеличение характеристик"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "references": []
+        },
+        {
+          "level": 6,
+          "references": [
+            {
+              "href": "#feature.arcane-tradition",
+              "title": "Умение магической традиции"
+            }
+          ]
+        },
+        {
+          "level": 7,
+          "references": []
+        },
+        {
+          "level": 8,
+          "references": [
+            {
+              "href": "#feature.ASI",
+              "title": "Увеличение характеристик"
+            }
+          ]
+        },
+        {
+          "level": 9,
+          "references": []
+        },
+        {
+          "level": 10,
+          "references": [
+            {
+              "href": "#feature.arcane-tradition",
+              "title": "Умение магической традиции"
+            }
+          ]
+        },
+        {
+          "level": 11,
+          "references": []
+        },
+        {
+          "level": 12,
+          "references": [
+            {
+              "href": "#feature.ASI",
+              "title": "Увеличение характеристик"
+            }
+          ]
+        },
+        {
+          "level": 13,
+          "references": []
+        },
+        {
+          "level": 14,
+          "references": [
+            {
+              "href": "#feature.arcane-tradition",
+              "title": "Умение магической традиции"
+            }
+          ]
+        },
+        {
+          "level": 15,
+          "references": []
+        },
+        {
+          "level": 16,
+          "references": [
+            {
+              "href": "#feature.ASI",
+              "title": "Увеличение характеристик"
+            }
+          ]
+        },
+        {
+          "level": 17,
+          "references": []
+        },
+        {
+          "level": 18,
+          "references": [
+            {
+              "href": "#feature.spell-mastery",
+              "title": "Мастерство заклинателя"
+            }
+          ]
+        },
+        {
+          "level": 19,
+          "references": [
+            {
+              "href": "#feature.ASI",
+              "title": "Увеличение характеристик"
+            }
+          ]
+        },
+        {
+          "level": 20,
+          "references": [
+            {
+              "href": "#feature.signature-spells",
+              "title": "Фирменное заклинание"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "introduction": {
+    "candidateReferencePreserved": {
+      "id": "scope:wizard:class-features:feature.spellcasting",
+      "canonicalCatalogId": null,
+      "identityStatus": "proposal-observation",
+      "kind": "base-feature",
+      "title": "Использование заклинаний",
+      "sourceUrl": "https://dnd.su/class/105-wizard/#feature.spellcasting",
+      "headingOrdinal": 19,
+      "parent": "class-features",
+      "sourceIds": [
+        "102"
+      ],
+      "sourceBasis": "base-class-page-source",
+      "sourceCompleteness": "not-verified-in-full-text",
+      "observedInitialLevels": [],
+      "levelProgression": "not-verified-by-heading",
+      "fullRules": "unverified",
+      "automation": "not-audited",
+      "inclusion": "proposed-2014-awaiting-review"
+    },
+    "secondaryBodySha256": "7368153635d1cf964a7267022744e0b44170c5cf27b01119b00a30106ada91fa",
+    "secondaryParagraphSha256": [
+      "3970464161a63487da8afd415bb0126cd7b938c63937eab84d7e84165a0bdf09",
+      "1f7d20a09fd8eb15c2cd4d110e7d003a3e37d522f0e4404b6aa74ac1b8b16fbf"
+    ],
+    "primaryParagraphSha256": "ae2bc91dc791d14dcff41cb4813dea2e924a6bf079faea9c11e76a3eecf2b3d3",
+    "assessment": "narrative subject corresponds; secondary level marker and two navigation references are additional, not exact translation equality",
+    "additionalReferences": [
+      {
+        "href": "/spells/?search=&class=21",
+        "title": "заклинания волшебника"
+      },
+      {
+        "href": "/articles/mechanics/157-spellcasting/",
+        "title": "использование заклинаний"
+      }
+    ],
+    "addedReferencesVerifiedInFull": false,
+    "literalTranslationEqualityClaimed": false,
+    "newMechanicalCapabilityInferred": false
+  },
+  "referenceGraphProgress": {
+    "wizardTableNumericAndBaseFeatureNamesCompared": true,
+    "wizardTableFullFeatureRulesAccepted": false,
+    "remaining": [
+      "general spellcasting rules",
+      "Wizard spell list"
+    ],
+    "originalGraphRewritten": false
+  },
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "wizard-general-spellcasting-reference",
+    "action": "Inventory the secondary general Spellcasting reference article linked by Wizard19 and map bounded corresponding primary scopes, preserving Wizard spell list and multiclass context as separate references."
+  },
+  "limits": [
+    "Only Wizard table rows are re-extracted; existing twelve-class implementation is not duplicated or changed.",
+    "TCE optional source117 observations remain separate from base PHB102 names; optional grants or full TCE text not accepted.",
+    "The three source snapshots are pinned independently; no exact PHB/translation/rights/canonical acceptance inherited.",
+    "No runtime/profile/resource change or stage closure. Ordinary game deviations still warn and allow manual action."
+  ],
+  "inputSha256": {
+    "catalog/srd51-class-progression.json": "c66281ce130701fd79a79c0388ba08047c124185e9f6bdb538533dde25e72fe5",
+    "catalog/wizard-candidate-clause-concordance-2014.json": "a056d5d38ed7574cd05b3aaa292c409929994804f4bc70ef07dbe1cdd6461013",
+    "catalog/wizard-artificer-source-scopes-2014.json": "35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5",
+    "catalog/wizard-spellcasting-scope-2014.json": "d55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb"
+  },
+  "generator": {
+    "path": "scripts/audit-wizard-table-concordance-2014.py",
+    "sha256": "bcda4b2b86654622589666899f81ffd25470f18a8b0306926382ce050bb047d4"
+  },
+  "upstreamParsers": [
+    {
+      "path": "scripts/extract-srd-class-tables.py",
+      "sha256": "b16a4da220793a0a867d4d5a5184ad753fe210fe6f28152df57db20df84df595"
+    },
+    {
+      "path": "scripts/audit-wizard-candidate-concordance-2014.py",
+      "sha256": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b"
+    },
+    {
+      "path": "scripts/audit-wizard-spellcasting-scope-2014.py",
+      "sha256": "5b15411e559c1d153f7b7021fd12d98640baf70d70c67a14e1b53512c59f0b37"
+    }
+  ]
+}

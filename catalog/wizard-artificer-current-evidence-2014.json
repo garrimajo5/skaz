@@ -162,7 +162,8 @@
       "additionalEvidenceKeys": [
         "spellcastingInventory",
         "spellbookSidebar",
-        "coVersionedConcordance"
+        "candidateConcordance",
+        "coVersionedTable"
       ],
       "completeCandidateTextAccepted": false,
       "wholeFeatureAccepted": false,
@@ -282,22 +283,29 @@
   },
   "coVersionedConcordance": {
     "path": "catalog/wizard-candidate-clause-concordance-2014.json",
-    "scope": "8retained secondary sections/19paragraphs/19manual assessments with source102/101 segmentation and two qualifier omissions; reviewed with this change, not inherited from prior four PRs",
+    "scope": "8retained secondary sections/19paragraphs/19manual assessments; independently reviewed in PR232, not inherited from prior four PRs",
+    "evidenceKey": "candidateConcordance",
     "wholeCandidateAccepted": false,
     "priorIndependentReviewInherited": false
   },
+  "coVersionedTable": {
+    "path": "catalog/wizard-table-concordance-2014.json",
+    "scope": "20Wizard rows/220numeric cells with4literal feature-name deltas,2optionalTCE cells and added intro references; reviewed with this change",
+    "priorIndependentReviewInherited": false,
+    "wholeFeatureAccepted": false
+  },
   "nextWorkItem": {
     "role": "content",
-    "phase": "wizard-table-reference-concordance",
-    "action": "Check Wizard table rows and parent introduction against corresponding retained 2014 English scopes; preserve mixed-source insert and omitted qualifiers as findings, not silent edits.",
+    "phase": "wizard-general-spellcasting-reference",
+    "action": "Inventory the secondary general Spellcasting reference article linked by Wizard19 and map bounded corresponding primary scopes, preserving Wizard spell list and multiclass context as separate references.",
     "candidateId": "scope:wizard:class-features:feature.spellcasting",
     "requiredInputs": [
-      "catalog/wizard-candidate-clause-concordance-2014.json",
+      "catalog/wizard-table-concordance-2014.json",
       "catalog/wizard-artificer-source-scopes-2014.json"
     ],
     "sourceSnapshotRequirement": "Retained source keeps its own SHA; preserve historical/fresh identities.",
     "parallelRemainingCriterion": "Exact TCE/Artificer full-text/version applicability remains unverified.",
-    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; preserve DMG insert and both learning qualifier findings."
+    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings."
   },
   "limits": [
     "New links overlay the original map; no candidate ID, source array, heading parent or unknown record is removed or canonized.",
@@ -337,6 +345,14 @@
       "head": "99f7da0987e91e6a0bceef15b8ea5cce185072fa",
       "review": "https://github.com/garrimajo5/skaz/pull/230#issuecomment-7063541170",
       "scope": "complete7paragraph415word sidebar with preserved literal carrier difference"
+    },
+    "candidateConcordance": {
+      "path": "catalog/wizard-candidate-clause-concordance-2014.json",
+      "sha256": "a056d5d38ed7574cd05b3aaa292c409929994804f4bc70ef07dbe1cdd6461013",
+      "pr": 232,
+      "head": "f999fed4f8ae19fb23d2899cfdb0146dd17b9dbd",
+      "review": "https://github.com/garrimajo5/skaz/pull/232#issuecomment-7063957699",
+      "scope": "8selected secondary sections/19paragraphs/19manual clause assessments; DMG insertion and two omissions retained"
     }
   },
   "inputSha256": {
@@ -344,10 +360,11 @@
     "catalog/artificer-errata-scopes-2014.json": "fe1bdeaeee905651e8ddd60199d315ad090bde9aa23746d516f11da673f2c026",
     "catalog/wizard-spellcasting-scope-2014.json": "d55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb",
     "catalog/wizard-spellbook-sidebar-2014.json": "029e5bbb68162230d73159188cb1fda0af9f2c6966beac9b414ca61bf15b1917",
-    "catalog/wizard-candidate-clause-concordance-2014.json": "a056d5d38ed7574cd05b3aaa292c409929994804f4bc70ef07dbe1cdd6461013"
+    "catalog/wizard-candidate-clause-concordance-2014.json": "a056d5d38ed7574cd05b3aaa292c409929994804f4bc70ef07dbe1cdd6461013",
+    "catalog/wizard-table-concordance-2014.json": "222bb2cb073eb7936caf116de017baabe674a5f4359d5f788f43867d53cd6496"
   },
   "generator": {
     "path": "scripts/review-current-class-evidence-2014.py",
-    "sha256": "067d2bedb38d4941869fbbf0227ee7302e187bc41ba6e9e8e651942bc623ca9f"
+    "sha256": "e245c4b82b00c407b68a6d25ecc329b0446aee8276b776c20e1a0817f1f4dc53"
   }
 }

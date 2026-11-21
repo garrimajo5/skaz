@@ -31,7 +31,7 @@
 
 Все15 исходных provider-ссылок имеют ограниченное kind-свидетельство. `primaryKindWorkQueue=[]`, `nextUntriagedProviderSourceId=null`: этот результат не означает исчерпанную очередь проекта или полный каталог. В `remainingCriteriaWorkQueue` сохранены15строк с критериями полного текста, версий, происхождения, прав и канонических единиц. Два полных выбранных Wizard-компонента (Arcane Recovery/Ritual Casting) и локальный class-reference crosswalk учитываются отдельно, не как новые публикации или автоматизация класса.
 
-**Следующий исполнимый шаг content/D05:** Wizard table и вводный Spellcasting19 против сохранённых английских источников. [Concordance8/19/19](wizard-candidate-clause-concordance-2014.md) выполнена; DMG-вставка и два пропуска learning сохранены. Точная TCE/Artificer версия — отдельный hold. Не повторять проверенные scopes; historical/retainedSHA раздельны.
+**Следующий исполнимый шаг content/D05:** Инвентаризация общей статьи Spellcasting, связанной из Wizard19, и bounded primary scopes; [таблица20/220 и вводный19](wizard-table-concordance-2014.md) уже сопоставлены с4literal дельтами и2отдельнымиTCEопциями. [Concordance8/19/19](wizard-candidate-clause-concordance-2014.md) выполнена; DMG-вставка и два пропуска learning сохранены. Точная TCE/Artificer версия — отдельный hold. Не повторять проверенные scopes; historical/retainedSHA раздельны.
 
 Прежние crosswalk иArcane/Ritual остаются закреплёнными в этомпубликационномтриаже; его selected-counts не выдаются за глобальное число source-сравнений. Классовойдетализации соответствует отдельныйcurrent-context вход, без принятия canonical/прав/автоматизации.
 
