@@ -33,7 +33,7 @@ async function form(scenario = 'conflicting-pages') {
  const context=vm.createContext({document,HTMLElement,...classes,Image:class {async decode(){}},fetch:async url=>{requests.push(url);return {ok:true,json:async()=>structuredClone(manifest)};}});
  vm.runInContext(script,context);
  await new Promise(resolve=>setImmediate(resolve));
- assert(document.getElementById('field-'+(scenario==='zero-charges'?'charges':'hpMax')),node('summary').textContent);
+ assert(document.getElementById('field-'+({ 'zero-charges':'charges', 'multiclass-pact':'level.wizard' }[scenario]??'hpMax')),node('summary').textContent);
  const read=expression=>{const value=vm.runInContext('JSON.stringify('+expression+')',context);return value===undefined?undefined:JSON.parse(value);};
  const input=(id,value)=>{const n=node('field-'+id);n.focus();n.value=value;n.oninput();};
  const unknown=id=>{const f=vm.runInContext('fields.find(f=>f.key==='+JSON.stringify(id)+')',context);f.unknownBox.checked=true;f.unknownBox.onchange();};
@@ -90,4 +90,14 @@ test('an unavailable/unloaded field set cannot produce an empty confirmation',as
  const h=await form();
  vm.runInContext('fields=[];confirmation=null;update()',h.context);
  h.submit();assert.equal(h.node('apply').disabled,true);assert.equal(h.read('confirmation'),null);
+});
+
+
+test('GM agreement marks the group dirty without relabeling an unchanged OCR total as a correction',async()=>{
+ const h=await form('multiclass-pact');h.input('level.wizard','4');
+ h.node('class-agreement').checked=true;h.node('class-agreement').onchange();
+ assert.match(h.node('field-totalLevel-status').textContent,/Значение из сценария/);
+ h.submit();const values=h.read('confirmation').values;
+ assert.equal(values.find(f=>f.fieldId==='totalLevel').provenance,'ocr-confirmed');
+ assert.equal(values.find(f=>f.fieldId==='level.wizard').provenance,'manual-correction');
 });

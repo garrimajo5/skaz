@@ -107,7 +107,7 @@ function update(){
   if(f.unknownBox)f.unknownBox.checked=unknown;
   if(f.agreedValue&&!agreementApplies(f))f.agreedValue=null;
   if(!valid)missing++;
-  f.status.textContent=unknown?'Оставлено неизвестным вами. Это не ноль.':raw===''?'Не указано — введите значение или выберите «Оставить неизвестным»':valid?(f.changed?'Исправлено вами':'Значение из сценария — сверьте'):'Введите неотрицательное целое число без дробной части';
+  f.status.textContent=unknown?'Оставлено неизвестным вами. Это не ноль.':raw===''?'Не указано — введите значение или выберите «Оставить неизвестным»':valid?(f.edited?'Исправлено вами':'Значение из сценария — сверьте'):'Введите неотрицательное целое число без дробной части';
   const warning=!unknown&&assessment.warning;
   if(warning)f.status.textContent='Предупреждение: значение выходит за ожидаемый диапазон '+(f.min??0)+'–'+(f.max??'неизвестно')+'. Можно подтвердить вручную.';
   if(warning&&agreementApplies(f))f.status.textContent='Согласовано с мастером для этого значения. Ожидаемый диапазон: '+(f.min??0)+'–'+f.max+'.';
