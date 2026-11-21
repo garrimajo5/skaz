@@ -297,17 +297,17 @@
   },
   "nextWorkItem": {
     "role": "content",
-    "phase": "wizard-spell-list-reference",
-    "action": "Locate retained primary Wizard spell-list boundaries and compare actual secondary list/version/source scope; keep optional additions, names versus full rules, and general variant/media criteria separate.",
+    "phase": "wizard-starting-equipment-and-wealth",
+    "action": "Compare complete Wizard Equipment18 intro/four choices/alternate4d4x10wealth against exact primary equipment and starting-wealth scopes; do not regrant starting lists on multiclass. Keep full TCE and remaining class criteria separate.",
     "candidateId": "scope:wizard:class-features:feature.spellcasting",
     "requiredInputs": [
-      "catalog/spellcasting-scope-coverage-2014.json",
-      "catalog/weave-narrative-2014.json",
-      "catalog/general-introductions-schools-2014.json"
+      "catalog/wizard-entry-boundaries-2014.json",
+      "catalog/wizard-core-choices-2014.json",
+      "catalog/wizard-spell-list-reference-2014.json"
     ],
     "sourceSnapshotRequirement": "Retained source keeps its own SHA; preserve historical/fresh identities.",
     "parallelRemainingCriterion": "Exact TCE/Artificer full-text/version applicability remains unverified.",
-    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings. General Spellcasting48heading inventory and two KnownPrepared/Armor complete selected subsections/4secondary paragraphs.13general casting scopes/32secondary paragraphs,including cantrip errata and material qualifier finding.6duration/concentration/target scopes/13paragraphs/3list items; Basic rounding and target referent caveat.9ordinary area/save/attack/effect prose scopes/19paragraphs; diagrams/captions and equal-potency errata remain distinct.4common introduction/school scopes/18paragraphs/eight explicitly mapped categories.Ready17 spell excerpt/bonus18 condensed clause with full combat/errata/reaction context.Prelude/Weave7paragraphs,TOC/carrier witnesses and49source-body coverage map;pending variants/media are separate."
+    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings. General Spellcasting48heading inventory and two KnownPrepared/Armor complete selected subsections/4secondary paragraphs.13general casting scopes/32secondary paragraphs,including cantrip errata and material qualifier finding.6duration/concentration/target scopes/13paragraphs/3list items; Basic rounding and target referent caveat.9ordinary area/save/attack/effect prose scopes/19paragraphs; diagrams/captions and equal-potency errata remain distinct.4common introduction/school scopes/18paragraphs/eight explicitly mapped categories.Ready17 spell excerpt/bonus18 condensed clause with full combat/errata/reaction context.Prelude/Weave7paragraphs,TOC/carrier witnesses and49source-body coverage map;pending variants/media are separate.204SRD list names/circles with198paginated+6targeted name witnesses,17bounded eponym correspondences,4Wizard TCE labels and Augury toggle; Wizard30/32 core choices with optional feat context,not TCE31.Wizard16/17HP/proficiencies8paragraphs and only13paragraph2; separate SRD52/57 and Basic12minimum1 carrier context."
   },
   "limits": [
     "New links overlay the original map; no candidate ID, source array, heading parent or unknown record is removed or canonized.",
@@ -427,7 +427,10 @@
     "catalog/general-introductions-schools-2014.json": "8618b63a316e83bdc40eebc5124f1826244bad5a32e341f74c6998ddf4a01dc1",
     "catalog/ready-bonus-context-2014.json": "d921d0707996439739a7e678fc6da9406c108424b2669db0446d05d5d9dbae5a",
     "catalog/weave-narrative-2014.json": "684b2216337283afcfda3baf03fe92c305d80310c11defadc29d42b18320815a",
-    "catalog/spellcasting-scope-coverage-2014.json": "bfaeec746be3a92d0e9fe7f6166296e0a129d475176f58a87adb4ecbb70abefd"
+    "catalog/spellcasting-scope-coverage-2014.json": "bfaeec746be3a92d0e9fe7f6166296e0a129d475176f58a87adb4ecbb70abefd",
+    "catalog/wizard-spell-list-reference-2014.json": "6517741c951defe484e0dc18d8ff6fc674a5f7d2d97ca3e07b4c5873655f0a7f",
+    "catalog/wizard-core-choices-2014.json": "e8a8b2d8df160ad6c121c107e2c6d74ce388b56d3fd1e0d534f268252e1c8e48",
+    "catalog/wizard-entry-boundaries-2014.json": "ceb3f947d0a118fb20fa72824caafade32935d1b952b1bf411776df8bf6aae0a"
   },
   "coVersionedGeneralReference": {
     "path": "catalog/spellcasting-reference-scopes-2014.json",
@@ -472,8 +475,31 @@
     "priorIndependentReviewInherited": false,
     "fullGeneralChapterAccepted": false
   },
+  "coVersionedWizardListChoices": {
+    "listPath": "catalog/wizard-spell-list-reference-2014.json",
+    "choicesPath": "catalog/wizard-core-choices-2014.json",
+    "scope": "204SRD names/circles,333paginated secondary observations+6targeted absences,17name correspondences and4Wizard-TCE labels;2complete selected secondary core scopes/6paragraphs with separate optional-feat context",
+    "priorIndependentReviewInherited": false,
+    "fullSecondaryClassListAccepted": false,
+    "fullWizardRulesAccepted": false,
+    "originalFiveSupplementalLinksPreserved": true
+  },
+  "remainingSpecificCriteria": {
+    "fullSecondaryWizardList": "not established by pagination; all204 selected SRD names are accounted for, not a full WotC catalog",
+    "generalPrimaryBodyComparisons": 11,
+    "generalMediaHeadings": 5,
+    "cantripFormulas31": "exact TCE primary/version remains required",
+    "wholeWizardClass": "not accepted"
+  },
+  "coVersionedWizardEntry": {
+    "path": "catalog/wizard-entry-boundaries-2014.json",
+    "scope": "2complete secondary HP/proficiency scopes/8paragraphs and only multiclass13paragraph2;SRD52/57 with separate Basic12minimum context",
+    "priorIndependentReviewInherited": false,
+    "fullWizardRulesAccepted": false,
+    "wholeMulticlassHeadingAccepted": false
+  },
   "generator": {
     "path": "scripts/review-current-class-evidence-2014.py",
-    "sha256": "942625d3e6d2a5f8ec2f5c36b69ddb87d3aa862fb7eefa108e2db5c2c4655072"
+    "sha256": "e639ae99406db442c595851890828441d58cd487ef231f1ad3508677e26dd75e"
   }
 }

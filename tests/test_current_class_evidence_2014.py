@@ -62,7 +62,7 @@ class CurrentClassEvidenceTest(unittest.TestCase):
             with self.assertRaises(ValueError):M.combine(data(),M.load_concordance(ROOT),t)
 
     def test_current_general_overlay_advances_only_checked_selected_scopes(self):
-        d=M.build(ROOT);self.assertEqual(d['nextWorkItem']['phase'],'wizard-spell-list-reference');self.assertFalse(d['coVersionedGeneralReference']['fullReferenceRulesAccepted'] or d['coVersionedGeneralReference']['priorIndependentReviewInherited']);self.assertIn('48heading',d['nextWorkItem']['doNotRepeat'])
+        d=M.build(ROOT);self.assertEqual(d['nextWorkItem']['phase'],'wizard-starting-equipment-and-wealth');self.assertFalse(d['coVersionedGeneralReference']['fullReferenceRulesAccepted'] or d['coVersionedGeneralReference']['priorIndependentReviewInherited']);self.assertIn('48heading',d['nextWorkItem']['doNotRepeat'])
 
     def test_mixed_general_reference_cannot_be_accepted_from_phb_header(self):
         g=json.loads((ROOT/M.GENERAL).read_text(encoding='utf-8'));g['sourceBoundaryObservations']['wholePageSourceInheritanceAllowed']=True
@@ -114,6 +114,24 @@ class CurrentClassEvidenceTest(unittest.TestCase):
         with self.assertRaises(ValueError):M.add_narrative_coverage_context({},n,c)
         c['approvedDenominator']=None;c['summary']['awaitingOwnPrimaryBodyComparison']=0
         with self.assertRaises(ValueError):M.add_narrative_coverage_context({},n,c)
+
+    def test_wizard_list_and_core_scopes_remain_bounded(self):
+        d=M.build(ROOT);self.assertFalse(d['coVersionedWizardListChoices']['fullSecondaryClassListAccepted'] or d['coVersionedWizardListChoices']['fullWizardRulesAccepted']);self.assertIn('198paginated+6targeted',d['nextWorkItem']['doNotRepeat']);self.assertEqual(d['remainingSpecificCriteria']['generalPrimaryBodyComparisons'],11)
+
+    def test_name_coverage_cannot_accept_secondary_catalog_or_spell_rules(self):
+        for mutation in ['whole-list','rule']:
+            l=json.loads((ROOT/M.SPELL_LIST).read_text(encoding='utf-8'));c=json.loads((ROOT/M.CORE_CHOICES).read_text(encoding='utf-8'))
+            if mutation=='whole-list':l['summary']['completeSecondaryClassListAccepted']=True
+            else:l['secondaryScope']['entries'][0]['wholeSpellRulesCompared']=True
+            with self.assertRaises(ValueError):M.add_wizard_list_and_choice_context({},l,c)
+
+    def test_class_choice_cannot_reapply_imported_asi(self):
+        l=json.loads((ROOT/M.SPELL_LIST).read_text(encoding='utf-8'));c=json.loads((ROOT/M.CORE_CHOICES).read_text(encoding='utf-8'));c['manualAssessments'][1]['importedAsiAppliedAgain']=True
+        with self.assertRaises(ValueError):M.add_wizard_list_and_choice_context({},l,c)
+
+    def test_entry_cannot_turn_starting_saves_into_multiclass_grants(self):
+        e=json.loads((ROOT/M.ENTRY).read_text(encoding='utf-8'));e['ordinarySelectedFacts']['wizardStartingSavingThrowsAutomaticallyGrantedOnMulticlass']=True
+        with self.assertRaises(ValueError):M.add_wizard_entry_context({},e)
 
     def test_committed_report_and_all_pins_reproduce(self):
         d=json.loads((ROOT/'catalog/wizard-artificer-current-evidence-2014.json').read_text(encoding='utf-8'));self.assertEqual(d,M.build(ROOT))

@@ -179,6 +179,34 @@ def add_narrative_coverage_context(d,narrative,coverage):
     return d
 
 
+SPELL_LIST='catalog/wizard-spell-list-reference-2014.json'
+CORE_CHOICES='catalog/wizard-core-choices-2014.json'
+ENTRY='catalog/wizard-entry-boundaries-2014.json'
+
+
+def add_wizard_list_and_choice_context(d,listing,choices):
+ for selected in [listing,choices]:
+  if selected.get('accepted') or selected.get('complete') or selected.get('acceptedForRuntime') or selected.get('runtimeChanged') or selected.get('approvedDenominator') is not None or selected['summary']['canonicalUnitsAccepted']:raise ValueError('Selected Wizard evidence cannot promote full class/runtime/denominator')
+ s=listing['summary'];c=choices['summary']
+ if s['primaryEntries']!=204 or s['secondaryObservations']!=333 or s['nameLevelCorrespondences']!=198 or s['primaryNamesNotObserved']!=6 or s['primaryNamesAccountedForWithTargetedControls']!=204 or s['wizardTceMarked']!=4 or s['completeSecondaryClassListAccepted'] or listing['secondaryScope']['completeSecondaryClassListAccepted'] or len(listing['targetedControlEvidence']['targetedPaginationAbsences'])!=6:raise ValueError('Changed bounded list/pagination/control scope')
+ if any(r['wholeSpellRulesCompared'] or r['canonicalCatalogId'] is not None for r in listing['secondaryScope']['entries']):raise ValueError('Name witness cannot accept full spell rules/canonical ID')
+ if c['selectedCandidateScopes']!=2 or c['secondaryParagraphsIncludingLevelLabels']!=6 or c['secondaryRuleProseParagraphs']!=4 or c['reusedAsiPrimaryScopes']!=1 or choices['manualAssessments'][1]['capIsUniversalForEveryItemBuffOrManualProfile'] or choices['manualAssessments'][1]['importedAsiAppliedAgain'] or not choices['implementationBoundaries']['ordinaryGameDeviationsWarnAndAllowManual']:raise ValueError('Changed class-local/manual core-choice boundary')
+ d['coVersionedWizardListChoices']={'listPath':SPELL_LIST,'choicesPath':CORE_CHOICES,'scope':'204SRD names/circles,333paginated secondary observations+6targeted absences,17name correspondences and4Wizard-TCE labels;2complete selected secondary core scopes/6paragraphs with separate optional-feat context','priorIndependentReviewInherited':False,'fullSecondaryClassListAccepted':False,'fullWizardRulesAccepted':False,'originalFiveSupplementalLinksPreserved':True}
+ d['nextWorkItem'].update({'role':'content','phase':'wizard-entry-and-multiclass-source-boundaries','action':'Compare complete selected Wizard entry HP/proficiencies/equipment against retained primary; keep first-class versus multiclass benefits and class/source/version boundaries explicit.','requiredInputs':[SPELL_LIST,CORE_CHOICES,'catalog/wizard-artificer-source-scopes-2014.json']})
+ d['nextWorkItem']['doNotRepeat']+='204SRD list names/circles with198paginated+6targeted name witnesses,17bounded eponym correspondences,4Wizard TCE labels and Augury toggle; Wizard30/32 core choices with optional feat context,not TCE31.'
+ d['remainingSpecificCriteria']={'fullSecondaryWizardList':'not established by pagination; all204 selected SRD names are accounted for, not a full WotC catalog','generalPrimaryBodyComparisons':11,'generalMediaHeadings':5,'cantripFormulas31':'exact TCE primary/version remains required','wholeWizardClass':'not accepted'}
+ return d
+
+
+def add_wizard_entry_context(d,entry):
+ s=entry['summary'];f=entry['ordinarySelectedFacts']
+ if entry.get('accepted') or entry.get('complete') or entry.get('acceptedForRuntime') or entry.get('runtimeChanged') or entry.get('approvedDenominator') is not None or s['canonicalUnitsAccepted'] or s['completeSecondaryEntryScopes']!=2 or s['completeEntryParagraphs']!=8 or s['selectedMulticlassParagraphs']!=1 or f['wizardStartingSavingThrowsAutomaticallyGrantedOnMulticlass'] or f['wizardClassFirstLevelAutomaticallyGetsCharacterFirstLevel6Hp'] or f['currentHpManufacturedFromMaximum'] or f['minimum1ExplicitInSrdWizardClassParagraph']:raise ValueError('Changed first-class/multiclass or carrier-specific HP scope')
+ d['coVersionedWizardEntry']={'path':ENTRY,'scope':'2complete secondary HP/proficiency scopes/8paragraphs and only multiclass13paragraph2;SRD52/57 with separate Basic12minimum context','priorIndependentReviewInherited':False,'fullWizardRulesAccepted':False,'wholeMulticlassHeadingAccepted':False}
+ d['nextWorkItem'].update({'phase':'wizard-starting-equipment-and-wealth','action':'Compare complete Wizard Equipment18 intro/four choices/alternate4d4x10wealth against exact primary equipment and starting-wealth scopes; do not regrant starting lists on multiclass. Keep full TCE and remaining class criteria separate.','requiredInputs':[ENTRY,CORE_CHOICES,SPELL_LIST]})
+ d['nextWorkItem']['doNotRepeat']+='Wizard16/17HP/proficiencies8paragraphs and only13paragraph2; separate SRD52/57 and Basic12minimum1 carrier context.'
+ return d
+
+
 def build(root=Path('.')):
     data=load_reviewed(root);concordance=load_concordance(root);table=load_table(root);d=combine(data,concordance,table);d['reviewedEvidence']=EVIDENCE;d['inputSha256']={s['path']:s['sha256'] for s in EVIDENCE.values()}
     d['inputSha256'][CONCORDANCE]=sha((root/CONCORDANCE).read_bytes().replace(b'\r\n',b'\n'))
@@ -207,6 +235,12 @@ def build(root=Path('.')):
         if extra[path]['generator']['sha256']!=sha((root/extra[path]['generator']['path']).read_bytes().replace(b'\r\n',b'\n')):raise ValueError('Changed narrative/coverage generator; rebuild')
         d['inputSha256'][path]=sha(raw)
     d=add_narrative_coverage_context(d,extra[NARRATIVE],extra[SCOPE_COVERAGE])
+    new={}
+    for path in [SPELL_LIST,CORE_CHOICES,ENTRY]:
+        raw=(root/path).read_bytes().replace(b'\r\n',b'\n');new[path]=json.loads(raw)
+        if new[path]['generator']['sha256']!=sha((root/new[path]['generator']['path']).read_bytes().replace(b'\r\n',b'\n')):raise ValueError('Changed Wizard list/core generator; rebuild')
+        d['inputSha256'][path]=sha(raw)
+    d=add_wizard_list_and_choice_context(d,new[SPELL_LIST],new[CORE_CHOICES]);d=add_wizard_entry_context(d,new[ENTRY])
     d['generator']={'path':'scripts/review-current-class-evidence-2014.py','sha256':sha(Path(__file__).read_bytes().replace(b'\r\n',b'\n'))};return d
 
 if __name__=='__main__':
