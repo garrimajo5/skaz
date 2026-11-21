@@ -6380,3 +6380,9 @@ Runtime52731fd опубликован: Linux1322/1322,check/build, новый р
 - Источниковаярольcontent, собственныйskaz-queue-errors; предыдущийблок03:09:40завершён/назначениеосвобождено. Выбранprovider37поcurrenttriage, план45–50мин:prototype/version/revision, затемRadiantCitadel/Spelljammerрезерв. Правилаизmainнеизменны.
 - Primaryprototypeintro + точныйfirststaffbody1 об oldnonofficial/publichomebrew versusupdated + ALguidev2.4pages1/3/18 (visual18).11Python/реальная3artifactрепродукцияPASS. [Границы](wayfinder-version-boundary-2014.md): конкретноеoldнепроходитобщийscope, updatedcurrentrequires-version-specific-evidence,ALнеобщийзапрет/неblockprofileaction. SourceID/canonical/denominatorнеприняты.
 - Конкретныевнешниеусловия: одинintroGETbody-readTimeout20s, unverifiedDMsGuildcandidate403web; безповтора/обхода/входа, они неproofстатусапубликации. ПродолжениенезависимогоD05следующегоисточника, runtime/VPSнеменялись. Independentreviewдоmerge; currentfullrules/точныеверсии/праваоткрыты.
+
+
+### 21.11 — D05 #77: RadiantCitadel92 chapter не wholeanthology
+
+- PR215/fd921b7слитпосленезависимых11Python/4SHA/3artifact/visualAL18review. Следующийнезависимыйисточник92: provider87/Journeys→existinghistorical171, отдельнаяперваяглаваsettinghub. Primaryarticle+именованныйContentsTOC+claimexpirednotice, неgenericproviderType=adventure/counts/wholebookunlock.
+-11Python/реальные3HTML/SHA PASS; [границы](radiant-citadel-chapter-boundary-2014.md). ОтдельныйStatblocksTOC неchapter, peerh2внутрискоупаотклоняется; истёкшеепромо неproofдоступастарыхвладельцев. Claim/auth/fullchapterнеиспользовались. Independentreviewдоmerge, fullrules/версии/права/denominatorоткрыты; далее93SpelljammerAcademy. Runtime/VPSне менялись.
