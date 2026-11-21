@@ -326,6 +326,50 @@
       "canonicalAliasAccepted": false
     }
   ],
+  "sidekickVersionContext": {
+    "url": "https://www.dndbeyond.com/posts/906-how-to-play-sidekicks-like-heroes-in-tashas",
+    "sourceKind": "publisher-platform-editorial-guide-not-rulebook",
+    "numericRulebookSourceId": null,
+    "capture": {
+      "requestedUrl": "https://www.dndbeyond.com/posts/906-how-to-play-sidekicks-like-heroes-in-tashas",
+      "finalUrl": "https://www.dndbeyond.com/posts/906-how-to-play-sidekicks-like-heroes-in-tashas",
+      "status": 200,
+      "capturedAt": "2026-11-21T21:07:57.785138+00:00",
+      "bytes": 379976,
+      "sha256": "d09a48c49accdf2d09e57d23956efd5ac0a8e1675a5f3c535421fefd2252a10b",
+      "outcome": "complete",
+      "retried": false
+    },
+    "selectedIntroParagraphs": [
+      {
+        "paragraphIndex": 7,
+        "wholeParagraphSha256": "099c1140bd9816c5fbe4579ca0dfd4788c19eb8bf430e3e769c27466869188c7"
+      },
+      {
+        "paragraphIndex": 8,
+        "wholeParagraphSha256": "44168646c84471e0f465c7b70d228487d20bbe52a4f6819aa7aaf9690c173506"
+      }
+    ],
+    "wholeGuideRulesAccepted": false,
+    "manualAssessments": {
+      "guideDescribesIcespireAndTceAsDifferentStages": true,
+      "guideReportsEarlierIcespireLevelRange": [
+        1,
+        6
+      ],
+      "tceMaximumLevelProvedBySelectedParagraphs": null,
+      "earlierLevelSixCapAutomaticallyInheritedByTce": false,
+      "guideCanReplaceExactBookVersionComparison": false,
+      "sidekicksMayBePlayedAsHeroesNotOnlyDmControlledNpcs": true,
+      "playerClassAutomaticallyAddedInSkaz": false,
+      "manualCharacterChoiceForbidden": false
+    },
+    "limits": [
+      "This is an editorial overview on the publisher platform, not a primary complete rulebook body.",
+      "Selected whole paragraphs distinguish earlier and updated rules; no canonical alias, exact full text, rights or level1-20 progression is accepted.",
+      "No hero/companion prohibition or mandatory approval checkbox is introduced; current manual character exceptions stay available."
+    ]
+  },
   "sidekickReferenceWitnesses": [
     {
       "originalDiscoveryObservation": {
@@ -452,6 +496,6 @@
   },
   "generator": {
     "path": "scripts/audit-class-multisource-toc-2014.py",
-    "sha256": "d67f3b2410c78abe7490a229266986c87ddc161db03df5897a2918d3bba3ddbe"
+    "sha256": "74855310270f1614870492cfcea0a4ca3a910b588704ca1b88f4e0144ab42e6a"
   }
 }

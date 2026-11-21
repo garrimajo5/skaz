@@ -5,6 +5,8 @@ from pathlib import Path
 from urllib.parse import urljoin,urlsplit
 import hashlib
 import json
+import re
+from html import unescape
 ROOT=Path(__file__).resolve().parents[1]
 UNITS='catalog/class-unit-residual-review-2014.json'
 BOOKS={
@@ -59,7 +61,30 @@ def chapter_boundary(receipt,requested,final):
  if receipt.get('requestedUrl')!=requested or receipt.get('finalUrl')!=final or receipt.get('status')!=200 or receipt.get('outcome')!='capture-error' or receipt.get('errorType')!='TimeoutError' or receipt.get('bodyFile') is not None or receipt.get('sha256') is not None or receipt.get('bytes') is not None or receipt.get('retried') is not False:raise ValueError('Chapter attempt cannot be silently promoted to a retained rule body')
  return {**{k:receipt.get(k) for k in ['requestedUrl','finalUrl','status','capturedAt','outcome','errorType','retried']},'headersObserved':True,'fullBodyRetained':False,'primarySubclassRulesCompared':False,'accessBarrierProvedToBePaywall':False}
 
-def build(folder,root=ROOT):
+GUIDE_URL='https://www.dndbeyond.com/posts/906-how-to-play-sidekicks-like-heroes-in-tashas'
+GUIDE_SHA='d09a48c49accdf2d09e57d23956efd5ac0a8e1675a5f3c535421fefd2252a10b'
+def sidekick_intro(raw):
+ text=raw.decode('utf-8');roots=list(re.finditer(r'<section\b[^>]*class="p-article-content[^\"]*"[^>]*>',text))
+ if len(roots)!=1:raise ValueError('One bounded editorial article body required')
+ end=text.find('</section>',roots[0].end())
+ if end<0:raise ValueError('Missing editorial article boundary')
+ body=text[roots[0].end():end];heading=re.search(r'<h2\b',body)
+ if not heading:raise ValueError('Missing introduction stop heading')
+ intro=body[:heading.start()];parts=re.findall(r'<p\b[^>]*>(.*?)</p>',intro,re.S)
+ if len(parts)!=10:raise ValueError('Changed exact editorial introduction paragraph inventory')
+ return [{'paragraphIndex':i,'wholeParagraphSha256':sha(compact(unescape(re.sub('<[^>]*>',' ',parts[i]))).encode())} for i in [7,8]]
+
+def sidekick_version_context(raw,receipt):
+ if sha(raw)!=GUIDE_SHA or receipt.get('requestedUrl')!=GUIDE_URL or receipt.get('finalUrl')!=GUIDE_URL or receipt.get('outcome')!='complete' or receipt.get('status')!=200 or receipt.get('retried') is not False or receipt.get('sha256')!=GUIDE_SHA or receipt.get('bytes')!=len(raw):raise ValueError('Exact complete anonymous editorial guide capture required')
+ selected=sidekick_intro(raw)
+ if [r['wholeParagraphSha256'] for r in selected]!=['099c1140bd9816c5fbe4579ca0dfd4788c19eb8bf430e3e769c27466869188c7','44168646c84471e0f465c7b70d228487d20bbe52a4f6819aa7aaf9690c173506']:raise ValueError('Changed selected whole editorial version paragraphs')
+ return {'url':GUIDE_URL,'sourceKind':'publisher-platform-editorial-guide-not-rulebook','numericRulebookSourceId':None,'capture':{k:receipt.get(k) for k in ['requestedUrl','finalUrl','status','capturedAt','bytes','sha256','outcome','retried']},'selectedIntroParagraphs':selected,'wholeGuideRulesAccepted':False,
+  'manualAssessments':{'guideDescribesIcespireAndTceAsDifferentStages':True,'guideReportsEarlierIcespireLevelRange':[1,6],'tceMaximumLevelProvedBySelectedParagraphs':None,'earlierLevelSixCapAutomaticallyInheritedByTce':False,'guideCanReplaceExactBookVersionComparison':False,'sidekicksMayBePlayedAsHeroesNotOnlyDmControlledNpcs':True,'playerClassAutomaticallyAddedInSkaz':False,'manualCharacterChoiceForbidden':False},
+  'limits':['This is an editorial overview on the publisher platform, not a primary complete rulebook body.','Selected whole paragraphs distinguish earlier and updated rules; no canonical alias, exact full text, rights or level1-20 progression is accepted.','No hero/companion prohibition or mandatory approval checkbox is introduced; current manual character exceptions stay available.']}
+
+def build(folder,root=ROOT,sidekick_folder=None):
+ if sidekick_folder is None:raise ValueError('Retained editorial version capture required')
+ guide_capture=json.loads((sidekick_folder/'capture.json').read_text(encoding='utf-8'));guide=sidekick_version_context((sidekick_folder/'sidekick-guide.html').read_bytes(),guide_capture['sidekick-guide.html'])
  units=json.loads((root/UNITS).read_text(encoding='utf-8'));capture=json.loads((folder/'capture.json').read_text(encoding='utf-8'));sources=[];links=[]
  for key,book in BOOKS.items():
   raw=(folder/book['file']).read_bytes();receipt=verified_receipt(capture[book['file']],raw,key);selected=parse_toc(raw,key);links.extend(selected);sources.append({'bookKey':key,'sourceId':book['sourceId'],'title':book['title'],'capture':receipt,'tocBoundary':'one div.compendium-toc-full-text','selectedLinks':selected})
@@ -76,9 +101,9 @@ def build(folder,root=ROOT):
  attempts=[chapter_boundary(capture['tcoe-bard.html'],'https://www.dndbeyond.com/sources/tcoe/bard','https://marketplace.dndbeyond.com/all-rulebooks/tashas-cauldron-of-everything'),chapter_boundary(capture['moot-character.html'],'https://www.dndbeyond.com/sources/moot/character-creation','https://marketplace.dndbeyond.com/settings/mythic-odysseys-of-theros')]
  if len(groups)!=4 or sum(len(g['memberObservationIds']) for g in groups)!=28 or capture['captureBatch']['resourceCount']!=5 or capture['captureBatch']['automaticRetries'] is not False:raise ValueError('Changed bounded family/capture scope')
  return {'schemaVersion':1,'status':'four-family-publisher-toc-witnesses-not-rule-or-version-equivalence','accepted':False,'complete':False,'approvedDenominator':None,'acceptedForRuntime':False,'runtimeChanged':False,
-  'summary':{'publisherIndices':3,'selectedClassFamilyTocLinks':8,'selectedSidekickTocLinks':3,'pairedFamilies':4,'preservedObservationIds':28,'chapterAttemptsWithObservedMarketplaceRedirect':2,'chapterBodiesRetained':0,'completeSubclassComparisons':0,'canonicalUnitsAccepted':0},'sources':sources,'familyWitnesses':groups,'sidekickReferenceWitnesses':sidekick_witnesses,'chapterAttempts':attempts,
+  'summary':{'publisherIndices':3,'selectedClassFamilyTocLinks':8,'selectedSidekickTocLinks':3,'pairedFamilies':4,'preservedObservationIds':28,'chapterAttemptsWithObservedMarketplaceRedirect':2,'chapterBodiesRetained':0,'completeSubclassComparisons':0,'canonicalUnitsAccepted':0},'sources':sources,'familyWitnesses':groups,'sidekickVersionContext':guide,'sidekickReferenceWitnesses':sidekick_witnesses,'chapterAttempts':attempts,
   'limits':['Selected TOC links establish publication presence only, not whole text/version/translation equality or usage rights.','The two chapter responses exposed marketplace final URLs/status200 before body-read timeout; no complete body was retained.','A marketplace redirect and timeout are not a proven paywall, permanent denial, authentication permission or license to bypass access.','Raw publisher HTML and individual receipts remain outside Git; numeric source namespaces/order and all28observations are preserved.','No automatic version expansion, aliases, runtime or character changes; manual game exceptions remain allowed.'],
   'nextWorkItem':{'role':'content','phase':'exact-eloquence-version-body-access','action':'Obtain an authorized exact TCE/MOoT subclass body/version witness before comparing the6Eloquence observations; do not repeat successful index captures. Without it, keep only this body criterion on hold and continue independent D01/D06/D07 evidence.','firstFamily':'bard:college.eloquence'},
   'inputSha256':{UNITS:sha((root/UNITS).read_bytes().replace(b'\r\n',b'\n'))},'upstreamCaptureToolSha256':{'scripts/capture-publication-witnesses.py':capture['captureBatch']['captureToolSha256']},'generator':{'path':'scripts/audit-class-multisource-toc-2014.py','sha256':sha(Path(__file__).read_bytes().replace(b'\r\n',b'\n'))}}
 if __name__=='__main__':
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--captures',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args();d=build(a.captures);a.output.write_bytes((json.dumps(d,ensure_ascii=False,indent=2)+'\n').encode());print(json.dumps(d['summary']))
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--captures',type=Path,required=True);p.add_argument('--sidekick-captures',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args();d=build(a.captures,sidekick_folder=a.sidekick_captures);a.output.write_bytes((json.dumps(d,ensure_ascii=False,indent=2)+'\n').encode());print(json.dumps(d['summary']))

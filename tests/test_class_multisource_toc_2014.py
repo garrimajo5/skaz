@@ -42,6 +42,15 @@ class PublisherClassTocTests(unittest.TestCase):
  def test_three_sidekicks_are_reference_presence_not_automatically_playable_classes(self):
   rows=report()['sidekickReferenceWitnesses'];self.assertEqual(len(rows),3)
   for row in rows:self.assertTrue(row['referencePresenceVerified']);self.assertFalse(row['playerClassAutomaticallyAdded'] or row['fullRulesOrCanonicalUnitAccepted']);self.assertEqual(row['originalDiscoveryObservation']['url'],row['publisherTocLink']['secondaryClassUrl'])
+ def test_bounded_guide_intro_excludes_comments_and_keeps_whole_selected_paragraphs(self):
+  raw=('<p>outside</p><section class="p-article-content u-typography-format">'+''.join('<p>scope'+str(i)+'</p>' for i in range(10))+'<h2>next</h2><p>not selected</p></section><p>comment</p>').encode()
+  rows=M.sidekick_intro(raw);self.assertEqual([r['paragraphIndex'] for r in rows],[7,8]);self.assertEqual(rows[0]['wholeParagraphSha256'],M.sha(b'scope7'))
+  for changed in [raw.replace(b'<p>scope0</p>',b''),raw.replace(b'</section>',b''),raw+raw]:
+   with self.assertRaises(ValueError):M.sidekick_intro(changed)
+ def test_editorial_context_cannot_be_rulebook_or_automatic_level_cap(self):
+  g=report()['sidekickVersionContext'];f=g['manualAssessments'];self.assertEqual(g['sourceKind'],'publisher-platform-editorial-guide-not-rulebook');self.assertIsNone(g['numericRulebookSourceId']);self.assertIsNone(f['tceMaximumLevelProvedBySelectedParagraphs']);self.assertFalse(g['wholeGuideRulesAccepted'] or f['earlierLevelSixCapAutomaticallyInheritedByTce'] or f['manualCharacterChoiceForbidden']);self.assertTrue(f['sidekicksMayBePlayedAsHeroesNotOnlyDmControlledNpcs'])
+ def test_wrong_guide_bytes_cannot_inherit_editorial_scope(self):
+  with self.assertRaises(ValueError):M.sidekick_version_context(b'unknown guide',report()['sidekickVersionContext']['capture'])
  def test_input_capture_tool_generator_pins_and_bounded_summary(self):
   d=report()
   for path,digest in {**d['inputSha256'],**d['upstreamCaptureToolSha256']}.items():self.assertEqual(M.sha((ROOT/path).read_bytes().replace(b'\r\n',b'\n')),digest)

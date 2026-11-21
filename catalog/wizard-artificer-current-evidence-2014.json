@@ -439,7 +439,7 @@
     "catalog/wizard-evocation-low-level-2014.json": "7352d7b0febbd902f0e535c3bdf5907135d65d62ca0dd2d2dfe53424deeeb7c4",
     "catalog/class-unit-granularity-proposal-2014.json": "cdadac4c6ae8b9cf95e49822744a2971cfec238e9790be7d51cba2f85141cdbd",
     "catalog/class-unit-residual-review-2014.json": "46b8324ab412d7e9ee922e197336220a4d9d0381306d22ecba5871f97dc9a6b4",
-    "catalog/class-multisource-toc-2014.json": "0ce4dbec61465b4d12f633060723d2d58c278a25660eec28beb4cefb868fab0f"
+    "catalog/class-multisource-toc-2014.json": "864176253e1d6bc599d2ae5ed1e12085dfade4196bb2a18c0761398a520971a2"
   },
   "coVersionedGeneralReference": {
     "path": "catalog/spellcasting-reference-scopes-2014.json",
@@ -553,6 +553,6 @@
   },
   "generator": {
     "path": "scripts/review-current-class-evidence-2014.py",
-    "sha256": "6a07224f1686645de26c411f7af00645f1cae9d608b2040c7cc3d2f335492fdf"
+    "sha256": "d297051d13869211890a3dd25bbe166483edec1812105fb0c4c307ea5762b9df"
   }
 }

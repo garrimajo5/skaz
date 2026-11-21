@@ -170,6 +170,11 @@ class CurrentClassEvidenceTest(unittest.TestCase):
             u=json.loads((ROOT/M.UNIT_RESIDUAL).read_text(encoding='utf-8'));t=json.loads((ROOT/M.UNIT_TOC).read_text(encoding='utf-8'));t['chapterAttempts'][0][field]=True
             with self.assertRaises(ValueError):M.add_thirteen_class_unit_context({},u,t)
 
+    def test_editorial_sidekick_version_context_cannot_apply_old_cap_or_ban_hero_choices(self):
+        for field in ['earlierLevelSixCapAutomaticallyInheritedByTce','manualCharacterChoiceForbidden']:
+            u=json.loads((ROOT/M.UNIT_RESIDUAL).read_text(encoding='utf-8'));t=json.loads((ROOT/M.UNIT_TOC).read_text(encoding='utf-8'));t['sidekickVersionContext']['manualAssessments'][field]=True
+            with self.assertRaises(ValueError):M.add_thirteen_class_unit_context({},u,t)
+
     def test_committed_report_and_all_pins_reproduce(self):
         d=json.loads((ROOT/'catalog/wizard-artificer-current-evidence-2014.json').read_text(encoding='utf-8'));self.assertEqual(d,M.build(ROOT))
         for path,digest in d['inputSha256'].items():self.assertEqual(M.sha((ROOT/path).read_bytes().replace(b'\r\n',b'\n')),digest)
