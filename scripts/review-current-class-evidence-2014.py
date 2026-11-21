@@ -16,7 +16,18 @@ def load_reviewed(root):
         data[key]=json.loads(raw)
     return data
 
-def combine(data):
+CONCORDANCE = 'catalog/wizard-candidate-clause-concordance-2014.json'
+
+
+def load_concordance(root):
+    raw=(root/CONCORDANCE).read_bytes().replace(b'\r\n',b'\n')
+    d=json.loads(raw)
+    if d['generator']['sha256']!=sha((root/d['generator']['path']).read_bytes().replace(b'\r\n',b'\n')):
+        raise ValueError('Concordance generator changed; rebuild and review this co-versioned evidence')
+    return d
+
+
+def combine(data,concordance):
     for d in data.values():
         if d.get('accepted') or d.get('complete') or d.get('approvedDenominator') is not None or d.get('acceptedForRuntime') or d.get('runtimeChanged'):raise ValueError('Bounded class evidence cannot become runtime/canonical acceptance')
     matrix=data['candidateMap'];errata=data['artificerErrata'];inventory=data['spellcastingInventory'];sidebar=data['spellbookSidebar']
@@ -38,6 +49,9 @@ def combine(data):
         row=links.setdefault(target,{'candidateId':target,'sourceClaims':by_id[target]['candidateReference']['sourceIds'],'additionalEvidenceKeys':['artificerErrata'],
             'completeCandidateTextAccepted':False,'wholeFeatureAccepted':False,'runtimeAccepted':False,'sourceSpecificCorrections':[]})
         row['sourceSpecificCorrections'].append(item)
+    if concordance.get('accepted') or concordance.get('complete') or concordance.get('acceptedForRuntime') or concordance['summary']['canonicalUnitsAccepted'] or concordance['summary']['clauseAssessments']!=19 or concordance['candidateReference']['id']!=wizard:
+        raise ValueError('Changed bounded concordance scope')
+    links[wizard]['additionalEvidenceKeys'].append('coVersionedConcordance')
     old_graph=inventory['openReferenceGraph'];closed='remaining complete Your Spellbook sidebar/version comparison'
     if old_graph.count(closed)!=1:raise ValueError('Changed explicit reference graph; no heuristic removal')
     remaining=[r for r in old_graph if r!=closed]
@@ -50,12 +64,13 @@ def combine(data):
         'supplementalCandidateLinks':list(links.values()),'unattachedCorrections':unattached,
         'wizardReferenceGraph':{'originalGraphPreserved':old_graph,'completedSelectedReference':closed,'completionEvidenceKey':'spellbookSidebar',
             'remainingGraph':remaining,'literalWholeSourceEqualityClaimed':False,'wholeFeatureRulesAccepted':False},
-        'nextWorkItem':{'role':'content','phase':'wizard-candidate-clause-concordance','candidateId':wizard,
-            'action':'Compare the secondary Wizard Spellcasting body clause by clause against checked corresponding English scopes, keeping snapshot and source claims separate.',
-            'requiredInputs':['catalog/dndsu-reviewed-class-proposals.json','catalog/wizard-artificer-source-scopes-2014.json'],
-            'sourceSnapshotRequirement':'Use the retained candidate snapshot if available; a new public capture keeps its own SHA and must not inherit the old snapshot identity.',
-            'parallelRemainingCriterion':'Exact TCE/Artificer full-text/version applicability is still unverified; do not substitute Eberron/Wizard/UA/2024.',
-            'doNotRepeat':'130/23source map, six errata scopes,9/21inventory,three short comparisons,415word sidebar and prior Arcane/Ritual/preparation/learning/ASI/copying scopes.'},
+        'coVersionedConcordance':{'path':CONCORDANCE,'scope':'8retained secondary sections/19paragraphs/19manual assessments with source102/101 segmentation and two qualifier omissions; reviewed with this change, not inherited from prior four PRs',
+            'wholeCandidateAccepted':False,'priorIndependentReviewInherited':False},
+        'nextWorkItem':{**concordance['nextWorkItem'],'candidateId':wizard,
+            'requiredInputs':[CONCORDANCE,'catalog/wizard-artificer-source-scopes-2014.json'],
+            'sourceSnapshotRequirement':'Retained source keeps its own SHA; preserve historical/fresh identities.',
+            'parallelRemainingCriterion':'Exact TCE/Artificer full-text/version applicability remains unverified.',
+            'doNotRepeat':'130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; preserve DMG insert and both learning qualifier findings.'},
         'limits':['New links overlay the original map; no candidate ID, source array, heading parent or unknown record is removed or canonized.',
             'Six Artificer corrections retain their own119/117 provenance and candidate applicability holds, including one unattached choice correction.',
             'Completed English sidebar comparison closes only that named reference task; original graph remains and whole-class/source rights stay open.',
@@ -63,7 +78,8 @@ def combine(data):
 
 
 def build(root=Path('.')):
-    data=load_reviewed(root);d=combine(data);d['reviewedEvidence']=EVIDENCE;d['inputSha256']={s['path']:s['sha256'] for s in EVIDENCE.values()}
+    data=load_reviewed(root);concordance=load_concordance(root);d=combine(data,concordance);d['reviewedEvidence']=EVIDENCE;d['inputSha256']={s['path']:s['sha256'] for s in EVIDENCE.values()}
+    d['inputSha256'][CONCORDANCE]=sha((root/CONCORDANCE).read_bytes().replace(b'\r\n',b'\n'))
     d['generator']={'path':'scripts/review-current-class-evidence-2014.py','sha256':sha(Path(__file__).read_bytes().replace(b'\r\n',b'\n'))};return d
 
 if __name__=='__main__':

@@ -11,29 +11,29 @@ def data():return M.load_reviewed(ROOT)
 
 class CurrentClassEvidenceTest(unittest.TestCase):
     def test_original_candidate_order_source_claim_digest_and_headings_are_preserved(self):
-        source=data();before=copy.deepcopy(source);d=M.combine(source);rows=source['candidateMap']['candidateRows']
+        source=data();before=copy.deepcopy(source);d=M.combine(source,M.load_concordance(ROOT));rows=source['candidateMap']['candidateRows']
         self.assertEqual(d['preservedCandidateIdSequence'],[r['candidateReference']['id'] for r in rows]);self.assertEqual(len(d['preservedCandidateIdSequence']),130);self.assertEqual(source,before);self.assertEqual(d['summary']['preservedArtificerHeadingObservations'],23)
         ledger=[{k:r['candidateReference'][k] for k in ['id','sourceIds','sourceBasis']} for r in rows]
         self.assertEqual(d['preservedClaimLedgerSha256'],M.sha(json.dumps(ledger,ensure_ascii=False,separators=(',',':')).encode()))
     def test_five_supplemental_candidates_and_one_unattached_choice_are_not_new_units(self):
-        d=M.combine(data());self.assertEqual(len(d['supplementalCandidateLinks']),5);self.assertEqual(len(d['unattachedCorrections']),1);self.assertEqual(d['unattachedCorrections'][0]['correctionKey'],'repeating-shot-ammunition');self.assertEqual(d['summary']['canonicalUnitsAccepted'],0)
+        d=M.combine(data(),M.load_concordance(ROOT));self.assertEqual(len(d['supplementalCandidateLinks']),5);self.assertEqual(len(d['unattachedCorrections']),1);self.assertEqual(d['unattachedCorrections'][0]['correctionKey'],'repeating-shot-ammunition');self.assertEqual(d['summary']['canonicalUnitsAccepted'],0)
         self.assertTrue(all(not r['completeCandidateTextAccepted'] and not r['wholeFeatureAccepted'] and not r['runtimeAccepted'] for r in d['supplementalCandidateLinks']))
     def test_artificer_keeps_both_source_specific_spellcasting_patches_with_version_holds(self):
-        d=M.combine(data());r=next(r for r in d['supplementalCandidateLinks'] if r['candidateId']=='scope:artificer:class-features:feature.spellcasting')
+        d=M.combine(data(),M.load_concordance(ROOT));r=next(r for r in d['supplementalCandidateLinks'] if r['candidateId']=='scope:artificer:class-features:feature.spellcasting')
         self.assertEqual(r['additionalEvidenceKeys'],['artificerErrata']);self.assertEqual([c['historicalBookSourceId'] for c in r['sourceSpecificCorrections']],['119','117']);self.assertTrue(all(not c['appliesToCandidatePublicationVerified'] for c in r['sourceSpecificCorrections']))
     def test_closed_sidebar_reference_does_not_close_other_reference_tasks_or_whole_feature(self):
-        source=data();d=M.combine(source);g=d['wizardReferenceGraph'];self.assertEqual(g['originalGraphPreserved'],source['spellcastingInventory']['openReferenceGraph']);self.assertEqual(g['remainingGraph'],['Wizard table','general spellcasting rules','Wizard spell list']);self.assertFalse(g['wholeFeatureRulesAccepted']);self.assertFalse(g['literalWholeSourceEqualityClaimed'])
+        source=data();d=M.combine(source,M.load_concordance(ROOT));g=d['wizardReferenceGraph'];self.assertEqual(g['originalGraphPreserved'],source['spellcastingInventory']['openReferenceGraph']);self.assertEqual(g['remainingGraph'],['Wizard table','general spellcasting rules','Wizard spell list']);self.assertFalse(g['wholeFeatureRulesAccepted']);self.assertFalse(g['literalWholeSourceEqualityClaimed'])
     def test_changed_original_graph_requires_new_explicit_mapping(self):
         source=data();source['spellcastingInventory']['openReferenceGraph'].append(source['spellcastingInventory']['openReferenceGraph'][-1])
-        with self.assertRaises(ValueError):M.combine(source)
+        with self.assertRaises(ValueError):M.combine(source,M.load_concordance(ROOT))
     def test_runtime_full_candidate_or_errata_applicability_cannot_be_promoted(self):
         for mutate in [lambda d:d['spellbookSidebar'].update(acceptedForRuntime=True),lambda d:d['candidateMap']['candidateRows'][0].update(completeCandidateRulesAccepted=True),lambda d:d['artificerErrata']['records'][0].update(appliesToCandidatePublicationVerified=True)]:
             source=data();mutate(source)
-            with self.assertRaises(ValueError):M.combine(source)
+            with self.assertRaises(ValueError):M.combine(source,M.load_concordance(ROOT))
     def test_unknown_or_cross_class_errata_candidate_cannot_be_assigned(self):
         for target in ['scope:wizard:class-features:feature.spellcasting','scope:artificer:class-features:feature.unknown']:
             source=data();source['artificerErrata']['records'][0]['correspondingCandidateId']=target
-            with self.assertRaises(ValueError):M.combine(source)
+            with self.assertRaises(ValueError):M.combine(source,M.load_concordance(ROOT))
     def test_changed_artifact_cannot_inherit_previous_independent_review(self):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder)
@@ -42,7 +42,15 @@ class CurrentClassEvidenceTest(unittest.TestCase):
             self.assertEqual(set(M.load_reviewed(root)),set(M.EVIDENCE));p=root/M.EVIDENCE['spellbookSidebar']['path'];p.write_bytes(p.read_bytes()+b' ')
             with self.assertRaisesRegex(ValueError,'inherit'):M.load_reviewed(root)
     def test_next_task_is_concordance_with_snapshot_hold_and_no_repeated_work(self):
-        d=M.combine(data());n=d['nextWorkItem'];self.assertEqual(n['role'],'content');self.assertEqual(n['phase'],'wizard-candidate-clause-concordance');self.assertIn('own SHA',n['sourceSnapshotRequirement']);self.assertIn('TCE/Artificer',n['parallelRemainingCriterion']);self.assertIn('415word sidebar',n['doNotRepeat'])
+        d=M.combine(data(),M.load_concordance(ROOT));n=d['nextWorkItem'];self.assertEqual(n['role'],'content');self.assertEqual(n['phase'],'wizard-table-reference-concordance');self.assertIn('own SHA',n['sourceSnapshotRequirement']);self.assertIn('TCE/Artificer',n['parallelRemainingCriterion']);self.assertIn('415word sidebar',n['doNotRepeat']);self.assertIn('19assessment',n['doNotRepeat'])
+    def test_co_versioned_concordance_does_not_inherit_previous_review(self):
+        d=M.combine(data(),M.load_concordance(ROOT));self.assertFalse(d['coVersionedConcordance']['priorIndependentReviewInherited']);self.assertFalse(d['coVersionedConcordance']['wholeCandidateAccepted'])
+
+    def test_changed_concordance_scope_is_rejected(self):
+        for field,value in [('accepted',True),('acceptedForRuntime',True)]:
+            c=M.load_concordance(ROOT);c[field]=value
+            with self.assertRaises(ValueError):M.combine(data(),c)
+
     def test_committed_report_and_all_pins_reproduce(self):
         d=json.loads((ROOT/'catalog/wizard-artificer-current-evidence-2014.json').read_text(encoding='utf-8'));self.assertEqual(d,M.build(ROOT))
         for path,digest in d['inputSha256'].items():self.assertEqual(M.sha((ROOT/path).read_bytes().replace(b'\r\n',b'\n')),digest)
