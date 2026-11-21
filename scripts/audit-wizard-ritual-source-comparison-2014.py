@@ -38,13 +38,23 @@ class RitualParser(HTMLParser):
         if tag=='h4' and id=='SpellcastingFocus7':
             if not self.collect or self.starts!=1 or self.para is not None:raise ValueError('Wrong ritual boundary order')
             self.stops+=1;self.collect=False
-        if self.collect and tag=='p':self.para=[]
+        if self.collect:
+            if tag=='p':
+                if self.para is not None:raise ValueError('Nested or unclosed selected paragraph')
+                self.para=[]
+            elif tag not in ['em','strong','b','i','a','span','br'] or self.para is None:
+                raise ValueError('Unexpected nonparagraph content inside selected subsection')
+            elif tag=='br':self.para.append(' ')
+
     def handle_data(self,data):
+        if self.collect and self.para is None and data.strip():raise ValueError('Visible text outside selected paragraph')
         if self.para is not None:self.para.append(data)
     def handle_endtag(self,tag):
         if not self.depth:return
         if tag=='h4' and self.pending:self.pending=False;self.collect=True
-        if tag=='p' and self.para is not None:self.paragraphs.append(R.words(''.join(self.para)));self.para=None
+        if tag=='p' and self.collect:
+            if self.para is None:raise ValueError('Unpaired selected paragraph close')
+            self.paragraphs.append(R.words(''.join(self.para)));self.para=None
         if tag=='div':self.depth-=1
     def result(self,html):
         self.feed(html);self.close()

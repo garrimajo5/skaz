@@ -25,6 +25,17 @@ class WizardRitualSourceTest(unittest.TestCase):
     def test_unexpected_heading_or_extra_paragraph_cannot_be_hidden_in_unit(self):
         for text in [html().replace('<p>'+UNIT,'<h4 id="Other">Other</h4><p>'+UNIT),html().replace('</p><h4 id="SpellcastingFocus7">','</p><p>Additional condition.</p><h4 id="SpellcastingFocus7">')]:
             with self.assertRaises(ValueError):M.RitualParser().result(text)
+    def test_list_condition_inside_unit_is_not_silently_dropped(self):
+        text=html().replace('<h4 id="SpellcastingFocus7">','<ul><li>Additional source condition.</li></ul><h4 id="SpellcastingFocus7">')
+        with self.assertRaises(ValueError):M.RitualParser().result(text)
+    def test_second_paragraph_cannot_overwrite_unclosed_first_condition(self):
+        text=html().replace('<p>'+UNIT,'<p>Additional unclosed condition.<p>'+UNIT)
+        with self.assertRaises(ValueError):M.RitualParser().result(text)
+    def test_plain_text_or_image_condition_outside_paragraph_is_rejected(self):
+        for addition in ['Additional visible condition.','<img alt="Additional source condition">']:
+            with self.assertRaises(ValueError):M.RitualParser().result(html().replace('<h4 id="SpellcastingFocus7">',addition+'<h4 id="SpellcastingFocus7">'))
+    def test_inline_emphasis_preserves_complete_text(self):
+        self.assertEqual(M.RitualParser().result(html().replace('wizard spell','<em>wizard spell</em>')),UNIT)
     def test_exact_pdf_heading_boundary_not_substring_is_required(self):
         for text in ['Ritual Casting example\n'+UNIT+'\nSpellcasting Focus','Ritual Casting\n'+UNIT+'\nRitual Casting\nSpellcasting Focus']:
             with self.assertRaises(ValueError):M.pdf_unit(text)
