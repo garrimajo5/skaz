@@ -290,22 +290,23 @@
   },
   "coVersionedTable": {
     "path": "catalog/wizard-table-concordance-2014.json",
-    "scope": "20Wizard rows/220numeric cells with4literal feature-name deltas,2optionalTCE cells and localized intro navigation; reviewed with this change",
+    "evidenceKey": "wizardTable",
+    "scope": "20Wizard rows/220numeric cells with4literal feature-name deltas,2optionalTCE cells and localized intro navigation; independently reviewed in PR233",
     "priorIndependentReviewInherited": false,
     "wholeFeatureAccepted": false
   },
   "nextWorkItem": {
     "role": "content",
-    "phase": "wizard-general-spellcasting-reference",
-    "action": "Inventory the secondary general Spellcasting reference article linked by Wizard19 and map bounded corresponding primary scopes, preserving Wizard spell list and multiclass context as separate references.",
+    "phase": "general-spell-slots-and-upcasting",
+    "action": "Compare complete secondary Spell Slots and Casting at Higher Level scopes against corresponding SRD100/101 boundaries; preserve spell-points variant and multiclass separation.",
     "candidateId": "scope:wizard:class-features:feature.spellcasting",
     "requiredInputs": [
-      "catalog/wizard-table-concordance-2014.json",
-      "catalog/wizard-artificer-source-scopes-2014.json"
+      "catalog/spellcasting-reference-scopes-2014.json",
+      "catalog/wizard-table-concordance-2014.json"
     ],
     "sourceSnapshotRequirement": "Retained source keeps its own SHA; preserve historical/fresh identities.",
     "parallelRemainingCriterion": "Exact TCE/Artificer full-text/version applicability remains unverified.",
-    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings."
+    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings. General Spellcasting48heading inventory and two KnownPrepared/Armor complete selected subsections/4secondary paragraphs."
   },
   "limits": [
     "New links overlay the original map; no candidate ID, source array, heading parent or unknown record is removed or canonized.",
@@ -353,6 +354,14 @@
       "head": "f999fed4f8ae19fb23d2899cfdb0146dd17b9dbd",
       "review": "https://github.com/garrimajo5/skaz/pull/232#issuecomment-7063957699",
       "scope": "8selected secondary sections/19paragraphs/19manual clause assessments; DMG insertion and two omissions retained"
+    },
+    "wizardTable": {
+      "path": "catalog/wizard-table-concordance-2014.json",
+      "sha256": "e0eb3230426253d2239dcd5cd2fa0a350d33358acacd38f6fa6c933f5b913872",
+      "pr": 233,
+      "head": "198f8d795a9da4882a3ac6541efc53e303a22da4",
+      "review": "https://github.com/garrimajo5/skaz/pull/233#issuecomment-7064114661",
+      "scope": "20Wizard rows/220numeric cells,4literal name deltas,2optional TCE cells and localized intro navigation"
     }
   },
   "inputSha256": {
@@ -361,10 +370,17 @@
     "catalog/wizard-spellcasting-scope-2014.json": "d55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb",
     "catalog/wizard-spellbook-sidebar-2014.json": "029e5bbb68162230d73159188cb1fda0af9f2c6966beac9b414ca61bf15b1917",
     "catalog/wizard-candidate-clause-concordance-2014.json": "a056d5d38ed7574cd05b3aaa292c409929994804f4bc70ef07dbe1cdd6461013",
-    "catalog/wizard-table-concordance-2014.json": "e0eb3230426253d2239dcd5cd2fa0a350d33358acacd38f6fa6c933f5b913872"
+    "catalog/wizard-table-concordance-2014.json": "e0eb3230426253d2239dcd5cd2fa0a350d33358acacd38f6fa6c933f5b913872",
+    "catalog/spellcasting-reference-scopes-2014.json": "0e20ecfc18534dcc94752854e8ff018d8ad109eeabe9290036d04a6c57d925d3"
+  },
+  "coVersionedGeneralReference": {
+    "path": "catalog/spellcasting-reference-scopes-2014.json",
+    "scope": "48heading inventory only; two complete selected subsections/4secondary paragraphs, not full mixed page",
+    "priorIndependentReviewInherited": false,
+    "fullReferenceRulesAccepted": false
   },
   "generator": {
     "path": "scripts/review-current-class-evidence-2014.py",
-    "sha256": "f19872df4c54d751217f8304f0fc5b11780245516545cacdeae977f6a834138b"
+    "sha256": "8b1ec57978d4547b2182911ed6e713a25ff6ecb470edbac2aa37538369560330"
   }
 }

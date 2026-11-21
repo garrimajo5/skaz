@@ -674,8 +674,8 @@
   "nextWorkItem": {
     "phase": "class-rule-provenance-and-scope",
     "providerSourceId": 1,
-    "action": "Wizard/Artificer source work: inventory the general Spellcasting reference linked by Wizard19 and map corresponding bounded primary scopes; retain Wizard spell list and source/version holds.",
-    "doNotRepeat": "Carrier TOCs, local125/247 reference crosswalk, Arcane Recovery, Ritual Casting,130/23candidate map,six Artificer errata,9/21inventory,three short comparisons,415word sidebar,8section/19paragraph/19assessment concordance,20Wizard rows/220numeric cells with4literal name deltas and2optionalTCE cells, introductory19 and previously selected preparation/learning/ASI/copying units.",
+    "action": "Wizard/Artificer source work: compare complete general Spell Slots and higher-level casting scopes with SRD100/101; retain optional variants, Wizard spell list and source/version holds.",
+    "doNotRepeat": "Carrier TOCs, local125/247 reference crosswalk, Arcane Recovery, Ritual Casting,130/23candidate map,six Artificer errata,9/21inventory,three short comparisons,415word sidebar,8section/19paragraph/19assessment concordance,20Wizard rows/220numeric cells with4literal name deltas and2optionalTCE cells, introductory19,48heading general-reference inventory and two complete KnownPrepared/Armor scopes(4secondary paragraphs), and previously selected preparation/learning/ASI/copying units.",
     "evidencePath": "catalog/wizard-artificer-current-evidence-2014.json",
     "candidateInputs": [
       "catalog/dndsu-reviewed-class-proposals.json",
@@ -764,7 +764,7 @@
   ],
   "inputSha256": {
     "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe",
-    "catalog/wizard-artificer-current-evidence-2014.json": "72f9ef3e7406a3d3d2772ed17ffae04ad08c8add442d8c350d32b764e164ed36",
+    "catalog/wizard-artificer-current-evidence-2014.json": "c72169304d161f96113ff87733f4f0bae0a064ba9c082c13ee995ddb22db9888",
     "catalog/basic-rules-publication-boundary-2014.json": "581a431600b794854b840c4d1ab7f5ed210c5ddb3286cf3058905ff506cdf5b6",
     "catalog/sage-advice-publication-boundary-2014.json": "d1ffcbfb426aaedef84f083d639603b2f0a37e4d60579da5d69b105b8861fde6",
     "catalog/frozen-sick-publication-component-2014.json": "6232b75208a501d5437b8c2fd70595eaf5b09c9f3c0b76171e211d7dc625c625",
@@ -785,7 +785,7 @@
   },
   "generator": {
     "path": "scripts/review-d05-current-triage-2014.py",
-    "sha256": "9908d2bee8c17186c57d661d74caf93159afe7d15c35ea1bd5ed6d6167f2c46d"
+    "sha256": "0299bcdb03b33c14bd4cea5bf0ebd6d871bde4bf3bd25d3dad3cf44b2e5ca2e2"
   },
   "limits": [
     "15+0 partitions15 work references, not the game catalogue or count of missing publications.",
