@@ -11,7 +11,7 @@
 
 ## Следующий исполнимый шаг
 
-Content: **Wizard18Equipment целиком** — вводный абзац,4списочных выбора и альтернативные4d4×10gold; установить точные primaryequipment/starting-wealth границы и сверить. Не выдавать начальный набор повторно при мультиклассировании; специфические Spellbook/feature-grants требуют собственной проверки. Требуемые входы и sourceSHA закреплены в JSON `nextWorkItem`.
+Content: **оставшиеся Wizard multiclass13 paragraphs0/1/3** — optional-rule/prerequisite/both-class и slot-versus-known/prepared контексты; paragraph2уже сравнен. [Equipment18](wizard-equipment-2014.md) теперь сопоставлен целиком:2абзаца/4list items, SRD52 и отдельный Basic45Wizard-wealth. Не повторять выдачу снаряжения при мультиклассировании и не решать специфические Spellbook/feature grants общим ограничением. Точные входы — вJSON `nextWorkItem`.
 
 Не повторять уже выбранные Wizard-list, HP/proficiencies/ASI/tradition и General-body witnesses. Полные TCE/Artificer/CantripFormulas31, прочие multiclass13параграфы,11general-body,5media, полные классы/версии/права/канонический знаменатель остаются отдельными критериями. Приоритет матрицы Эдвина сохраняется; реальные данные дляQA не использовать.
 
@@ -21,4 +21,4 @@ python -m unittest discover -s tests -p test_current_class_evidence_2014.py
 python -m unittest discover -s tests -p test_d05_current_triage_2014.py
 ```
 
-32context/21triage тестов проверяют130/23/ledger/5+1/15-70-7, точныеreviewpins, partial-versus-complete scopes, отсутствие full-list/runtime grants и безопасную передачу следующего критерия. Подробности/рефлексия нового пакета — в профильном отчёте/PR; общий план не является архивом. Runtime/VPS не менялись, выпуск неприменим; #77/M0/этапы принимает владелец.
+33context/21triage тестов проверяют130/23/ledger/5+1/15-70-7, точныеreviewpins, partial-versus-complete scopes, отсутствие full-list/runtime grants и безопасную передачу следующего критерия. Подробности/рефлексия нового пакета — в профильном отчёте/PR; общий план не является архивом. Runtime/VPS не менялись, выпуск неприменим; #77/M0/этапы принимает владелец.

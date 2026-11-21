@@ -35,7 +35,7 @@ TCE связывается с конкретным классом в строк�
 - Общий multiclass Class Features-параграф не даёт повторно начальное снаряжение. Возможные особые grants класса/Spellbook не решаются автоматически этим общим ограничением.
 - Классовый абзац SRD52 не содержит явного minimum1; русский абзац содержит, Basic2018PDF12 ставит `(minimum of 1)` в предложение о сумме броска сCon. Разная буквальная позиция и границы носителей удержаны, SRD молча не исправлен; универсального runtime-clamp этот отчёт не вводит. Basic12абзац о ретроактивномCon исключён из выбранного scope.
 
-**Следующий исполнимый content-шаг:** Wizard18Equipment целиком (вводный абзац,4списочных выбора и альтернативный4d4×10gold) с точным primaryequipment/starting-wealth scope. Не повторять HP/proficiencies/ASI/list. Полные классы, остальные multiclass13параграфы, TCE/Artificer,11general-body и5media критериев остаются отдельно.
+**Следующий исполнимый content-шаг:** оставшиеся multiclass13 paragraphs0/1/3 (paragraph2сравнен). [Equipment18](wizard-equipment-2014.md) уже сопоставлен отдельным выбранным scope; его прежняя локальная hold-строка в entry-report относится только к границе того отчёта. Полные классы/TCE/Artificer/11general-body/5media и права остаются отдельно.
 
 ## Проверка и воспроизведение
 
@@ -50,6 +50,6 @@ python -m unittest discover -s tests -p test_wizard_core_choices_2014.py
 python -m unittest discover -s tests -p test_wizard_entry_boundaries_2014.py
 ```
 
-21list/11core/9entry +32current-context/21triage =94Python PASS. Негативные проверки: продолжения/terminal boundary, ControlWeather split, duplicateEnglish/круг, changed filter/foreignpagination/namespace, class-boundTCE, multiplebookplaques/PH24, unknownsourceSHA, full-class/runtime promotion, importedASIиmulticlass saves. Первичные PDF111–114/53/75/52/57 иBasic12 просмотрены изображениями. Изменений UI/runtime нет: браузер/Android/длительная игра здесь неприменимы; приложение/VPS/реальные профили не меняются, этапы открыты. Независимое read-only ревью exacthead нужно перед merge; это не собственная приёмка.
+21list/11core/9entry +8Equipment/33current-context/21triage =103проверки Python подтверждены текущим и переиспользуемым неизменённым пакетом. Негативные проверки: продолжения/terminal boundary, ControlWeather split, duplicateEnglish/круг, changed filter/foreignpagination/namespace, class-boundTCE, multiplebookplaques/PH24, unknownsourceSHA, full-class/runtime promotion, importedASIиmulticlass saves. Первичные PDF111–114/53/75/52/57 иBasic12 просмотрены изображениями. Изменений UI/runtime нет: браузер/Android/длительная игра здесь неприменимы; приложение/VPS/реальные профили не меняются, этапы открыты. Независимое read-only ревью exacthead нужно перед merge; это не собственная приёмка.
 
 Рефлексия content: parser-настройка выявила несколько bookplaques и непостоянный размер страниц, поэтому догадка о25карточках отклонена; исключения не скрыты. Найдены реальные различия выдач и carrier minimum1, а не новые «дыры каталога». Предложение planner: сохранить targeted exact-name controls при остатках пагинации и привязывать optional markers к отдельному классу. Критерий пользы — ни одного ложного missing/full-class/автоматического grant; цена — адресныеcaptures/negativechecks, риск новой версии явно ограниченSHA. Общие инструкции/доступ не меняются.
