@@ -124,8 +124,8 @@ def build(root=Path('.')):
     next_work=({'phase':'primary-publication-kind','providerSourceId':untriaged[0]['providerSourceId'],
                 'action':'Inspect primary publication kind/version evidence before canonical units.'} if untriaged else
                {'phase':'class-rule-provenance-and-scope','providerSourceId':1,
-                'action':'Wizard/Artificer source work: check Wizard table rows and parent introduction against corresponding retained 2014 English scopes; retain source/version holds.',
-                'doNotRepeat':'Carrier TOCs, local125/247 reference crosswalk, Arcane Recovery, Ritual Casting,130/23candidate map,six Artificer errata,9/21inventory,three short comparisons,415word sidebar,8section/19paragraph/19assessment concordance and previously selected preparation/learning/ASI/copying units.',
+                'action':'Wizard/Artificer source work: inventory the general Spellcasting reference linked by Wizard19 and map corresponding bounded primary scopes; retain Wizard spell list and source/version holds.',
+                'doNotRepeat':'Carrier TOCs, local125/247 reference crosswalk, Arcane Recovery, Ritual Casting,130/23candidate map,six Artificer errata,9/21inventory,three short comparisons,415word sidebar,8section/19paragraph/19assessment concordance,20Wizard rows/220numeric cells with4literal name deltas and2optionalTCE cells, introductory19 and previously selected preparation/learning/ASI/copying units.',
                 'evidencePath':CURRENT_CLASSES,
                 'candidateInputs':['catalog/dndsu-reviewed-class-proposals.json','catalog/artificer-heading-unit-proposals-2014.json']})
     return {'schemaVersion':2,'status':'current-work-triage-not-completeness-denominator-or-policy-approval',

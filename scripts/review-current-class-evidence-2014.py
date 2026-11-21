@@ -3,7 +3,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-EVIDENCE={'candidateMap': {'path': 'catalog/wizard-artificer-source-scopes-2014.json', 'sha256': '35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5', 'pr': 227, 'head': '01876659e4be009e645095c677cebbdcf52d278d', 'review': 'https://github.com/garrimajo5/skaz/pull/227#issuecomment-7063197013', 'scope': '130candidate/23heading preservation and bounded correspondence only'}, 'artificerErrata': {'path': 'catalog/artificer-errata-scopes-2014.json', 'sha256': 'fe1bdeaeee905651e8ddd60199d315ad090bde9aa23746d516f11da673f2c026', 'pr': 228, 'head': '005ae93bffb442208867fef8ad9926cd16c685d0', 'review': 'https://github.com/garrimajo5/skaz/pull/228#issuecomment-7063307174', 'scope': 'six source-specific selected clauses/PDFpage1 only'}, 'spellcastingInventory': {'path': 'catalog/wizard-spellcasting-scope-2014.json', 'sha256': 'd55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb', 'pr': 229, 'head': '6687601a979918f3cb514328a682973f8b786bc8', 'review': 'https://github.com/garrimajo5/skaz/pull/229#issuecomment-7063425731', 'scope': '9block21paragraph digital inventory and3selected comparisons only'}, 'spellbookSidebar': {'path': 'catalog/wizard-spellbook-sidebar-2014.json', 'sha256': '029e5bbb68162230d73159188cb1fda0af9f2c6966beac9b414ca61bf15b1917', 'pr': 230, 'head': '99f7da0987e91e6a0bceef15b8ea5cce185072fa', 'review': 'https://github.com/garrimajo5/skaz/pull/230#issuecomment-7063541170', 'scope': 'complete7paragraph415word sidebar with preserved literal carrier difference'}}
+EVIDENCE={'candidateMap': {'path': 'catalog/wizard-artificer-source-scopes-2014.json', 'sha256': '35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5', 'pr': 227, 'head': '01876659e4be009e645095c677cebbdcf52d278d', 'review': 'https://github.com/garrimajo5/skaz/pull/227#issuecomment-7063197013', 'scope': '130candidate/23heading preservation and bounded correspondence only'}, 'artificerErrata': {'path': 'catalog/artificer-errata-scopes-2014.json', 'sha256': 'fe1bdeaeee905651e8ddd60199d315ad090bde9aa23746d516f11da673f2c026', 'pr': 228, 'head': '005ae93bffb442208867fef8ad9926cd16c685d0', 'review': 'https://github.com/garrimajo5/skaz/pull/228#issuecomment-7063307174', 'scope': 'six source-specific selected clauses/PDFpage1 only'}, 'spellcastingInventory': {'path': 'catalog/wizard-spellcasting-scope-2014.json', 'sha256': 'd55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb', 'pr': 229, 'head': '6687601a979918f3cb514328a682973f8b786bc8', 'review': 'https://github.com/garrimajo5/skaz/pull/229#issuecomment-7063425731', 'scope': '9block21paragraph digital inventory and3selected comparisons only'}, 'spellbookSidebar': {'path': 'catalog/wizard-spellbook-sidebar-2014.json', 'sha256': '029e5bbb68162230d73159188cb1fda0af9f2c6966beac9b414ca61bf15b1917', 'pr': 230, 'head': '99f7da0987e91e6a0bceef15b8ea5cce185072fa', 'review': 'https://github.com/garrimajo5/skaz/pull/230#issuecomment-7063541170', 'scope': 'complete7paragraph415word sidebar with preserved literal carrier difference'}, 'candidateConcordance': {'path': 'catalog/wizard-candidate-clause-concordance-2014.json', 'sha256': 'a056d5d38ed7574cd05b3aaa292c409929994804f4bc70ef07dbe1cdd6461013', 'pr': 232, 'head': 'f999fed4f8ae19fb23d2899cfdb0146dd17b9dbd', 'review': 'https://github.com/garrimajo5/skaz/pull/232#issuecomment-7063957699', 'scope': '8selected secondary sections/19paragraphs/19manual clause assessments; DMG insertion and two omissions retained'}}
 
 
 def sha(raw):return hashlib.sha256(raw).hexdigest()
@@ -27,7 +27,16 @@ def load_concordance(root):
     return d
 
 
-def combine(data,concordance):
+TABLE='catalog/wizard-table-concordance-2014.json'
+
+
+def load_table(root):
+    d=json.loads((root/TABLE).read_text(encoding='utf-8'))
+    if d['generator']['sha256']!=sha((root/d['generator']['path']).read_bytes().replace(b'\r\n',b'\n')):raise ValueError('Changed table generator; rebuild co-versioned evidence')
+    return d
+
+
+def combine(data,concordance,table):
     for d in data.values():
         if d.get('accepted') or d.get('complete') or d.get('approvedDenominator') is not None or d.get('acceptedForRuntime') or d.get('runtimeChanged'):raise ValueError('Bounded class evidence cannot become runtime/canonical acceptance')
     matrix=data['candidateMap'];errata=data['artificerErrata'];inventory=data['spellcastingInventory'];sidebar=data['spellbookSidebar']
@@ -51,7 +60,9 @@ def combine(data,concordance):
         row['sourceSpecificCorrections'].append(item)
     if concordance.get('accepted') or concordance.get('complete') or concordance.get('acceptedForRuntime') or concordance['summary']['canonicalUnitsAccepted'] or concordance['summary']['clauseAssessments']!=19 or concordance['candidateReference']['id']!=wizard:
         raise ValueError('Changed bounded concordance scope')
-    links[wizard]['additionalEvidenceKeys'].append('coVersionedConcordance')
+    if table.get('accepted') or table.get('complete') or table.get('acceptedForRuntime') or table['summary']['canonicalUnitsAccepted'] or table['summary']['numericCellsComparedExcludingLevel']!=220 or table['summary']['optionalTceObservationsPreserved']!=2 or table['introduction']['candidateReferencePreserved']['id']!=wizard:
+        raise ValueError('Changed bounded table/intro scope')
+    links[wizard]['additionalEvidenceKeys'].extend(['candidateConcordance','coVersionedTable'])
     old_graph=inventory['openReferenceGraph'];closed='remaining complete Your Spellbook sidebar/version comparison'
     if old_graph.count(closed)!=1:raise ValueError('Changed explicit reference graph; no heuristic removal')
     remaining=[r for r in old_graph if r!=closed]
@@ -64,13 +75,14 @@ def combine(data,concordance):
         'supplementalCandidateLinks':list(links.values()),'unattachedCorrections':unattached,
         'wizardReferenceGraph':{'originalGraphPreserved':old_graph,'completedSelectedReference':closed,'completionEvidenceKey':'spellbookSidebar',
             'remainingGraph':remaining,'literalWholeSourceEqualityClaimed':False,'wholeFeatureRulesAccepted':False},
-        'coVersionedConcordance':{'path':CONCORDANCE,'scope':'8retained secondary sections/19paragraphs/19manual assessments with source102/101 segmentation and two qualifier omissions; reviewed with this change, not inherited from prior four PRs',
+        'coVersionedConcordance':{'path':CONCORDANCE,'scope':'8retained secondary sections/19paragraphs/19manual assessments; independently reviewed in PR232, not inherited from prior four PRs','evidenceKey':'candidateConcordance',
             'wholeCandidateAccepted':False,'priorIndependentReviewInherited':False},
-        'nextWorkItem':{**concordance['nextWorkItem'],'candidateId':wizard,
-            'requiredInputs':[CONCORDANCE,'catalog/wizard-artificer-source-scopes-2014.json'],
+        'coVersionedTable':{'path':TABLE,'scope':'20Wizard rows/220numeric cells with4literal feature-name deltas,2optionalTCE cells and localized intro navigation; reviewed with this change','priorIndependentReviewInherited':False,'wholeFeatureAccepted':False},
+        'nextWorkItem':{**table['nextWorkItem'],'candidateId':wizard,
+            'requiredInputs':[TABLE,'catalog/wizard-artificer-source-scopes-2014.json'],
             'sourceSnapshotRequirement':'Retained source keeps its own SHA; preserve historical/fresh identities.',
             'parallelRemainingCriterion':'Exact TCE/Artificer full-text/version applicability remains unverified.',
-            'doNotRepeat':'130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; preserve DMG insert and both learning qualifier findings.'},
+            'doNotRepeat':'130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings.'},
         'limits':['New links overlay the original map; no candidate ID, source array, heading parent or unknown record is removed or canonized.',
             'Six Artificer corrections retain their own119/117 provenance and candidate applicability holds, including one unattached choice correction.',
             'Completed English sidebar comparison closes only that named reference task; original graph remains and whole-class/source rights stay open.',
@@ -78,8 +90,9 @@ def combine(data,concordance):
 
 
 def build(root=Path('.')):
-    data=load_reviewed(root);concordance=load_concordance(root);d=combine(data,concordance);d['reviewedEvidence']=EVIDENCE;d['inputSha256']={s['path']:s['sha256'] for s in EVIDENCE.values()}
+    data=load_reviewed(root);concordance=load_concordance(root);table=load_table(root);d=combine(data,concordance,table);d['reviewedEvidence']=EVIDENCE;d['inputSha256']={s['path']:s['sha256'] for s in EVIDENCE.values()}
     d['inputSha256'][CONCORDANCE]=sha((root/CONCORDANCE).read_bytes().replace(b'\r\n',b'\n'))
+    d['inputSha256'][TABLE]=sha((root/TABLE).read_bytes().replace(b'\r\n',b'\n'))
     d['generator']={'path':'scripts/review-current-class-evidence-2014.py','sha256':sha(Path(__file__).read_bytes().replace(b'\r\n',b'\n'))};return d
 
 if __name__=='__main__':
