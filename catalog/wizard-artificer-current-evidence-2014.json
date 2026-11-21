@@ -297,17 +297,17 @@
   },
   "nextWorkItem": {
     "role": "content",
-    "phase": "weave-narrative-and-current-scope-coverage",
-    "action": "Compare complete final Weave48 narrative with retained Basic2018 primary, using parsed article end; refresh source-scope coverage separating reviewed prose, excerpt context and unverified diagrams/variants.",
+    "phase": "wizard-spell-list-reference",
+    "action": "Locate retained primary Wizard spell-list boundaries and compare actual secondary list/version/source scope; keep optional additions, names versus full rules, and general variant/media criteria separate.",
     "candidateId": "scope:wizard:class-features:feature.spellcasting",
     "requiredInputs": [
-      "catalog/ready-bonus-context-2014.json",
-      "catalog/general-introductions-schools-2014.json",
-      "catalog/spellcasting-reference-scopes-2014.json"
+      "catalog/spellcasting-scope-coverage-2014.json",
+      "catalog/weave-narrative-2014.json",
+      "catalog/general-introductions-schools-2014.json"
     ],
     "sourceSnapshotRequirement": "Retained source keeps its own SHA; preserve historical/fresh identities.",
     "parallelRemainingCriterion": "Exact TCE/Artificer full-text/version applicability remains unverified.",
-    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings. General Spellcasting48heading inventory and two KnownPrepared/Armor complete selected subsections/4secondary paragraphs.13general casting scopes/32secondary paragraphs,including cantrip errata and material qualifier finding.6duration/concentration/target scopes/13paragraphs/3list items; Basic rounding and target referent caveat.9ordinary area/save/attack/effect prose scopes/19paragraphs; diagrams/captions and equal-potency errata remain distinct.4common introduction/school scopes/18paragraphs/eight explicitly mapped categories.Ready17 spell excerpt/bonus18 condensed clause with full combat/errata/reaction context."
+    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings. General Spellcasting48heading inventory and two KnownPrepared/Armor complete selected subsections/4secondary paragraphs.13general casting scopes/32secondary paragraphs,including cantrip errata and material qualifier finding.6duration/concentration/target scopes/13paragraphs/3list items; Basic rounding and target referent caveat.9ordinary area/save/attack/effect prose scopes/19paragraphs; diagrams/captions and equal-potency errata remain distinct.4common introduction/school scopes/18paragraphs/eight explicitly mapped categories.Ready17 spell excerpt/bonus18 condensed clause with full combat/errata/reaction context.Prelude/Weave7paragraphs,TOC/carrier witnesses and49source-body coverage map;pending variants/media are separate."
   },
   "limits": [
     "New links overlay the original map; no candidate ID, source array, heading parent or unknown record is removed or canonized.",
@@ -403,6 +403,14 @@
       "head": "cb3455094a9ab8b26d1a25ed5be14c18f8ccf9ff",
       "review": "https://github.com/garrimajo5/skaz/pull/239#issuecomment-7065896663",
       "scope": "4selected full scopes/18paragraphs/eight explicit school mappings;article boundary excludes UI"
+    },
+    "readyBonus": {
+      "path": "catalog/ready-bonus-context-2014.json",
+      "sha256": "d921d0707996439739a7e678fc6da9406c108424b2669db0446d05d5d9dbae5a",
+      "pr": 240,
+      "head": "e06c5b13cc479e1bc80f802e73df51cae6042d22",
+      "review": "https://github.com/garrimajo5/skaz/pull/240#issuecomment-7066100829",
+      "scope": "Ready17 spell excerpt/bonus18 condensation with full combat/reaction/errata context"
     }
   },
   "inputSha256": {
@@ -417,7 +425,9 @@
     "catalog/general-concentration-targets-2014.json": "0913dd9d2f06d30f69bd60d32451d89117170f1a6a354d82029bf64d87c5330b",
     "catalog/general-areas-effects-2014.json": "64aef4dd8001785004414ed3cee11cb7d1d0a7084563294d1a7db2cee5139896",
     "catalog/general-introductions-schools-2014.json": "8618b63a316e83bdc40eebc5124f1826244bad5a32e341f74c6998ddf4a01dc1",
-    "catalog/ready-bonus-context-2014.json": "d921d0707996439739a7e678fc6da9406c108424b2669db0446d05d5d9dbae5a"
+    "catalog/ready-bonus-context-2014.json": "d921d0707996439739a7e678fc6da9406c108424b2669db0446d05d5d9dbae5a",
+    "catalog/weave-narrative-2014.json": "684b2216337283afcfda3baf03fe92c305d80310c11defadc29d42b18320815a",
+    "catalog/spellcasting-scope-coverage-2014.json": "bfaeec746be3a92d0e9fe7f6166296e0a129d475176f58a87adb4ecbb70abefd"
   },
   "coVersionedGeneralReference": {
     "path": "catalog/spellcasting-reference-scopes-2014.json",
@@ -455,8 +465,15 @@
     "priorIndependentReviewInherited": false,
     "fullGeneralChapterAccepted": false
   },
+  "coVersionedNarrativeCoverage": {
+    "narrativePath": "catalog/weave-narrative-2014.json",
+    "coveragePath": "catalog/spellcasting-scope-coverage-2014.json",
+    "scope": "2narrative scopes/7paragraphs and49source-body map;38selected witnesses/11pending plus5media holds,not rule denominator",
+    "priorIndependentReviewInherited": false,
+    "fullGeneralChapterAccepted": false
+  },
   "generator": {
     "path": "scripts/review-current-class-evidence-2014.py",
-    "sha256": "4f30cec7d655d8f27793138dcb7491955f1ccb0be28f74669823bc505b791bb5"
+    "sha256": "942625d3e6d2a5f8ec2f5c36b69ddb87d3aa862fb7eefa108e2db5c2c4655072"
   }
 }
