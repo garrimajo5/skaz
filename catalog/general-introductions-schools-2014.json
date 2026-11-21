@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 1,
+  "status": "four-selected-introduction-school-scopes-not-full-catalog-or-runtime",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "summary": {
+    "selectedScopes": 4,
+    "secondaryParagraphs": 18,
+    "schoolCategoriesExplicitlyMapped": 8,
+    "remainingHeadingsWithoutSelectedProseReview": 14,
+    "canonicalUnitsAccepted": 0
+  },
+  "sources": {
+    "secondary": {
+      "requestedUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+      "capturedAt": "2026-11-21T14:29:12.576358+00:00",
+      "status": 200,
+      "finalUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+      "bytes": 438149,
+      "sha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+      "outcome": "complete",
+      "retried": false,
+      "declaredBytes": null,
+      "bodyFile": "spellcasting.html"
+    },
+    "srd": {
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "pdfPages": [
+        100,
+        101,
+        103,
+        104
+      ]
+    },
+    "extractor": "pypdfium2",
+    "extractorVersion": "5.13.0",
+    "renderedPrimaryScopesInspected": true
+  },
+  "articleBoundary": {
+    "mode": "parsed-desc-container-end-not-literal-div-search",
+    "descriptionRawHtmlSha256": "6ee1383e2fcc750844ea25a695546fbc778c2779bd951bc896c99a6a64b77171",
+    "commentsScriptsAndFooterIncluded": false
+  },
+  "records": [
+    {
+      "key": "what-is-spell",
+      "headingOrdinal": 1,
+      "title": "Что такое заклинание?",
+      "secondaryBodySha256": "06b066ed4373a55c959abb7c1272e974522935118286e27ad7c03b0969c1e266",
+      "secondaryParagraphSha256": [
+        "216a0fcbc6f175953d6458a6da235ea5b8373323f4ceb1e2516b89c545032970",
+        "37411173291085fdc9b57990311d06cb776a8d8f725f8a4abbf15cdd7c67101b",
+        "64dc49e88a3c6b5b39769e9ed0d67775f5046648622cde402435c287ab1da5f0"
+      ],
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          100
+        ],
+        "startHeading": "What Is a Spell?",
+        "stopHeadingExcluded": "Spell Level",
+        "selectedTextSha256": "7fb4bddf7bab5f5d91110c330a38ed9873698ce3ae8fec3c4269d7a43db94302",
+        "wordCount": 166,
+        "completeSelectedTextScope": true
+      },
+      "assessment": "manual selected semantic correspondence; not literal translation equality",
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "spell-level",
+      "headingOrdinal": 2,
+      "title": "Уровень заклинания",
+      "secondaryBodySha256": "e500d12c30d738a58d62da3061451e8d356c45f2fc6d63b1bc1f6ec201d5ef47",
+      "secondaryParagraphSha256": [
+        "65aa80531b81af2028e26ac871c1f3f0882554d38585df404bcddaeba23d3f84",
+        "d094073440dbca42fd7ed82bf88f615b9c3c4957764fb4e1d5f2f8cdac189d94",
+        "29015351e6eabcc1afa4af8716eb37bd792f84fae1bcbe8f0eaf9196fdc5d0db"
+      ],
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          100
+        ],
+        "startHeading": "Spell Level",
+        "stopHeadingExcluded": "Known and Prepared Spells",
+        "selectedTextSha256": "881940047e4ec140e339c1ebb0b39cb59b4a3aa228948c7090c8276536826df8",
+        "wordCount": 93,
+        "completeSelectedTextScope": true
+      },
+      "assessment": "manual selected semantic correspondence; not literal translation equality",
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "casting-introduction",
+      "headingOrdinal": 12,
+      "title": "Накладывание заклинания",
+      "secondaryBodySha256": "af16640806e365232d2a76a6719fd6798cdcab21429a2478c293b0cf69e4decd",
+      "secondaryParagraphSha256": [
+        "ac4ad6a6a0c2295e3121477d153a594fa1a23dc8ce5c35beae951b0da634386e",
+        "efb460c9629b79cdc5153a50ee037ae89fe0dda6d0daec44cdb3719547dacea1"
+      ],
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          101
+        ],
+        "startHeading": "Casting a Spell",
+        "stopHeadingExcluded": "Casting Time",
+        "selectedTextSha256": "ac90852859e5e808716fe1d53ae00339619709a51a70f7ad7c61561eb4b500ec",
+        "wordCount": 54,
+        "completeSelectedTextScope": true
+      },
+      "assessment": "manual selected semantic correspondence; not literal translation equality",
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "schools",
+      "headingOrdinal": 27,
+      "title": "Школы магии",
+      "secondaryBodySha256": "7f2febb86cd967efc860baaa37864940e7ae031e268ecd9350f8f51d5da3dfdb",
+      "secondaryParagraphSha256": [
+        "356d92274cc2f44a1fe3420371911944db4b1a52c3f55d384a58fb7ca7124431",
+        "eccf86933c81fa29f0e7928f8f60d6834323580bea48b278a60befb828038002",
+        "acaede3d88d3191a0821bfb706d3bdcbaae9f11943cea85d8fa47e4872eaf516",
+        "16432ca6f72bb8a0c827da9c44e7c9906a207c1cc1fcaaff2e4cdd84daaa2764",
+        "f6e29d852d1ede870fa7d73badd45edc900e48415fc0ca86890fd1bfa0988d3f",
+        "cf217bb8c3d86b8ce0c3fb0eea2d8a1b1c08f4fd7e87e8809606d18233aa34b4",
+        "02a8aca57d245d741f52e4b9052e69a812e87dcd74cd1abcc8ec1f4b932a6323",
+        "2727b2f3c9f4308233ed3bb508f9d8abbd5e9441c2b28c763efbc6bed4587aab",
+        "6793764f03011c3c7acf830771a248fdaf1193fc0504d7914172a00836f9d1f6",
+        "7b793b0b5c77db54e58e9a6fe8ec26c70d71d378188650b0d3e16e558494ec49"
+      ],
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          103,
+          104
+        ],
+        "startHeading": "The Schools of Magic",
+        "stopHeadingExcluded": "Combining Magical Effects",
+        "selectedTextSha256": "80d9f1f30ddaa34c3db423a09073476e5f733c6bae43e5f63a92ba6a0efad1e8",
+        "wordCount": 403,
+        "completeSelectedTextScope": true
+      },
+      "assessment": "manual selected semantic correspondence; not literal translation equality",
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    }
+  ],
+  "schoolCorrespondence": {
+    "primaryOrder": [
+      "abjuration",
+      "conjuration",
+      "divination",
+      "enchantment",
+      "evocation",
+      "illusion",
+      "necromancy",
+      "transmutation"
+    ],
+    "secondaryOrder": [
+      "evocation",
+      "conjuration",
+      "illusion",
+      "necromancy",
+      "abjuration",
+      "enchantment",
+      "transmutation",
+      "divination"
+    ],
+    "rows": [
+      {
+        "school": "evocation",
+        "secondaryParagraphIndex": 2,
+        "secondaryParagraphTextSha256": "acaede3d88d3191a0821bfb706d3bdcbaae9f11943cea85d8fa47e4872eaf516",
+        "primaryCategoryTextSha256": "8621fe97b2c597b770e8f5225049e963d86161fa1c98a842c5e772c89998703c",
+        "primaryCategoryWordCount": 25,
+        "completeCategoryParagraphCompared": true
+      },
+      {
+        "school": "conjuration",
+        "secondaryParagraphIndex": 3,
+        "secondaryParagraphTextSha256": "16432ca6f72bb8a0c827da9c44e7c9906a207c1cc1fcaaff2e4cdd84daaa2764",
+        "primaryCategoryTextSha256": "6c4fc14cea27ac1f710d6b0c738810b2d6c62209d29eb773c1ff376f4c6b8cf0",
+        "primaryCategoryWordCount": 43,
+        "completeCategoryParagraphCompared": true
+      },
+      {
+        "school": "illusion",
+        "secondaryParagraphIndex": 4,
+        "secondaryParagraphTextSha256": "f6e29d852d1ede870fa7d73badd45edc900e48415fc0ca86890fd1bfa0988d3f",
+        "primaryCategoryTextSha256": "8db14a7d751ec9032f10b51f43ac6241b4983b4d3e8634f75934f23894cd839f",
+        "primaryCategoryWordCount": 61,
+        "completeCategoryParagraphCompared": true
+      },
+      {
+        "school": "necromancy",
+        "secondaryParagraphIndex": 5,
+        "secondaryParagraphTextSha256": "cf217bb8c3d86b8ce0c3fb0eea2d8a1b1c08f4fd7e87e8809606d18233aa34b4",
+        "primaryCategoryTextSha256": "29ea14e843183fa8a9e688a9840011ca0dbe10b56567b39f87ed5bcb05e08892",
+        "primaryCategoryWordCount": 63,
+        "completeCategoryParagraphCompared": true
+      },
+      {
+        "school": "abjuration",
+        "secondaryParagraphIndex": 6,
+        "secondaryParagraphTextSha256": "02a8aca57d245d741f52e4b9052e69a812e87dcd74cd1abcc8ec1f4b932a6323",
+        "primaryCategoryTextSha256": "b362f1ce4365fe3a7e4102a1aca58497162dbc1c4ba4307980f42d4a6190bcfb",
+        "primaryCategoryWordCount": 30,
+        "completeCategoryParagraphCompared": true
+      },
+      {
+        "school": "enchantment",
+        "secondaryParagraphIndex": 7,
+        "secondaryParagraphTextSha256": "2727b2f3c9f4308233ed3bb508f9d8abbd5e9441c2b28c763efbc6bed4587aab",
+        "primaryCategoryTextSha256": "acae6ded5767a66cf351e70f093ccd979e55592caa0bbefbb440118c901a4c7b",
+        "primaryCategoryWordCount": 39,
+        "completeCategoryParagraphCompared": true
+      },
+      {
+        "school": "transmutation",
+        "secondaryParagraphIndex": 8,
+        "secondaryParagraphTextSha256": "6793764f03011c3c7acf830771a248fdaf1193fc0504d7914172a00836f9d1f6",
+        "primaryCategoryTextSha256": "206d9b3cf063e1b35de3a57a132b487d62e270c49d022135706581f6ea1f56be",
+        "primaryCategoryWordCount": 46,
+        "completeCategoryParagraphCompared": true
+      },
+      {
+        "school": "divination",
+        "secondaryParagraphIndex": 9,
+        "secondaryParagraphTextSha256": "7b793b0b5c77db54e58e9a6fe8ec26c70d71d378188650b0d3e16e558494ec49",
+        "primaryCategoryTextSha256": "2b2f9d8ca162a6d9c04f5e9f3aa9ea17f1d39cb742524e0579c3112e9b724579",
+        "primaryCategoryWordCount": 32,
+        "completeCategoryParagraphCompared": true
+      }
+    ],
+    "labelProjectionRepairs": [
+      {
+        "secondaryParagraphIndex": 8,
+        "kind": "label-only-join-adjacent-strong-fragments",
+        "bodyTextRewritten": false,
+        "fragmentSha256": [
+          "808e15a474d759c4351402a430619b0d8bb2c0d25c1a95bcc7ee666fcd4b8fd7",
+          "accf0ff270560aa8a00609cd2c1eb220eed91d5779af91279202a1eb3a5f56a0"
+        ]
+      }
+    ],
+    "sameOrderClaimed": false,
+    "primaryIllusionContinuationOn104Retained": true
+  },
+  "ordinarySelectedFacts": {
+    "spellIsDiscreteMagicEffect": true,
+    "narrativeDoesNotFixEveryCastingTimeToSeconds": true,
+    "spellLevelRange": [
+      0,
+      9
+    ],
+    "cantripSpellLevel": 0,
+    "spellLevelEqualsCharacterLevel": false,
+    "ordinaryLevel9SpellTypicallyNeedsAtLeastCharacterLevel17": true,
+    "typicalThresholdDoesNotOverrideItemsOrSpecificFeatures": true,
+    "descriptionMetadataFields": [
+      "name",
+      "level",
+      "school",
+      "castingTime",
+      "range",
+      "components",
+      "duration"
+    ],
+    "effectDescriptionSeparate": true,
+    "newImporterHardRequirementImplemented": false,
+    "schoolCategoriesHaveNoOwnRulesButOtherRulesCanReferToThem": true,
+    "schoolMembershipAutomaticallyGrantsClassSpellAccess": false,
+    "necromancyLoreCreatesAlignmentCreationGate": false,
+    "schoolSubclassRulesAccepted": false,
+    "manualDeviationAllowedWithWarning": true
+  },
+  "remainingHeadingOrdinalsWithoutSelectedProseReview": [
+    7,
+    8,
+    9,
+    17,
+    18,
+    31,
+    32,
+    33,
+    40,
+    41,
+    42,
+    46,
+    47,
+    48
+  ],
+  "unverifiedDiagramHeadingOrdinals": [
+    34,
+    35,
+    36,
+    37,
+    39
+  ],
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "ready-and-repeated-bonus-reference",
+    "action": "Compare secondary Ready17 selected spell procedure against corresponding full combat Ready primary context and errata, and bonus18 against checked bonus14 rule; preserve trigger/slot timing and partial scope distinctions."
+  },
+  "limits": [
+    "Four selected text scopes/18paragraphs/eight categories only, not full class/subclass/spell list/rights/canonical acceptance.",
+    "School paragraphs are mapped explicitly across different orders; the one fragmented strong-label projection does not rewrite body witnesses.",
+    "Narrative/category descriptions do not grant spells, set universal casting times or enforce alignment gates.",
+    "14remaining heading bodies plus five unverified diagram insertions remain; no runtime/profile change or owner milestone closure."
+  ],
+  "inputSha256": {
+    "catalog/general-areas-effects-2014.json": "64aef4dd8001785004414ed3cee11cb7d1d0a7084563294d1a7db2cee5139896",
+    "catalog/spellcasting-reference-scopes-2014.json": "0e20ecfc18534dcc94752854e8ff018d8ad109eeabe9290036d04a6c57d925d3"
+  },
+  "generator": {
+    "path": "scripts/audit-general-introductions-schools-2014.py",
+    "sha256": "fa432b081f25ffcad4ad85c0b0df791439974a36e9eaa8f71450660fcbb2d7fe"
+  },
+  "upstreamParsers": [
+    {
+      "path": "scripts/audit-general-casting-clauses-2014.py",
+      "sha256": "c29e37353aedb0d78d8305a34eec865a442f316071913278a2a3aa390c820aa3"
+    },
+    {
+      "path": "scripts/audit-wizard-candidate-concordance-2014.py",
+      "sha256": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b"
+    }
+  ]
+}
