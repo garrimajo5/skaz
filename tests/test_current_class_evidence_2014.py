@@ -62,7 +62,7 @@ class CurrentClassEvidenceTest(unittest.TestCase):
             with self.assertRaises(ValueError):M.combine(data(),M.load_concordance(ROOT),t)
 
     def test_current_general_overlay_advances_only_checked_selected_scopes(self):
-        d=M.build(ROOT);self.assertEqual(d['nextWorkItem']['phase'],'ready-and-repeated-bonus-reference');self.assertFalse(d['coVersionedGeneralReference']['fullReferenceRulesAccepted'] or d['coVersionedGeneralReference']['priorIndependentReviewInherited']);self.assertIn('48heading',d['nextWorkItem']['doNotRepeat'])
+        d=M.build(ROOT);self.assertEqual(d['nextWorkItem']['phase'],'weave-narrative-and-current-scope-coverage');self.assertFalse(d['coVersionedGeneralReference']['fullReferenceRulesAccepted'] or d['coVersionedGeneralReference']['priorIndependentReviewInherited']);self.assertIn('48heading',d['nextWorkItem']['doNotRepeat'])
 
     def test_mixed_general_reference_cannot_be_accepted_from_phb_header(self):
         g=json.loads((ROOT/M.GENERAL).read_text(encoding='utf-8'));g['sourceBoundaryObservations']['wholePageSourceInheritanceAllowed']=True
@@ -98,6 +98,13 @@ class CurrentClassEvidenceTest(unittest.TestCase):
     def test_school_category_cannot_become_automatic_spell_access(self):
         c=json.loads((ROOT/M.INTRODUCTIONS).read_text(encoding='utf-8'));c['ordinarySelectedFacts']['schoolMembershipAutomaticallyGrantsClassSpellAccess']=True
         with self.assertRaises(ValueError):M.add_introduction_context({},c)
+
+    def test_ready_overlay_keeps_partial_action_and_reused_bonus_scope(self):
+        d=M.build(ROOT);self.assertFalse(d['coVersionedReadyBonus']['fullGeneralChapterAccepted']);self.assertIn('Ready17 spell excerpt',d['nextWorkItem']['doNotRepeat'])
+
+    def test_bonus_duplicate_cannot_become_new_capability(self):
+        c=json.loads((ROOT/M.READY).read_text(encoding='utf-8'));c['bonusRelationship']['secondRuleOrCapabilityCreated']=True
+        with self.assertRaises(ValueError):M.add_ready_context({},c)
 
     def test_committed_report_and_all_pins_reproduce(self):
         d=json.loads((ROOT/'catalog/wizard-artificer-current-evidence-2014.json').read_text(encoding='utf-8'));self.assertEqual(d,M.build(ROOT))
