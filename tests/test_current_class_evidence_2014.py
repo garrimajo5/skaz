@@ -62,7 +62,7 @@ class CurrentClassEvidenceTest(unittest.TestCase):
             with self.assertRaises(ValueError):M.combine(data(),M.load_concordance(ROOT),t)
 
     def test_current_general_overlay_advances_only_checked_selected_scopes(self):
-        d=M.build(ROOT);self.assertEqual(d['nextWorkItem']['phase'],'wizard-multiclass-prerequisite-and-slot-context');self.assertFalse(d['coVersionedGeneralReference']['fullReferenceRulesAccepted'] or d['coVersionedGeneralReference']['priorIndependentReviewInherited']);self.assertIn('48heading',d['nextWorkItem']['doNotRepeat'])
+        d=M.build(ROOT);self.assertEqual(d['nextWorkItem']['phase'],'class-unit-version-and-alias-residual-review');self.assertFalse(d['coVersionedGeneralReference']['fullReferenceRulesAccepted'] or d['coVersionedGeneralReference']['priorIndependentReviewInherited']);self.assertIn('48heading',d['nextWorkItem']['doNotRepeat'])
 
     def test_mixed_general_reference_cannot_be_accepted_from_phb_header(self):
         g=json.loads((ROOT/M.GENERAL).read_text(encoding='utf-8'));g['sourceBoundaryObservations']['wholePageSourceInheritanceAllowed']=True
@@ -136,6 +136,26 @@ class CurrentClassEvidenceTest(unittest.TestCase):
     def test_equipment_cannot_grant_both_wealth_and_standard_lists(self):
         e=json.loads((ROOT/M.EQUIPMENT).read_text(encoding='utf-8'));e['ordinarySelectedFacts']['standardAndWealthOptionsSimultaneouslyGranted']=True
         with self.assertRaises(ValueError):M.add_wizard_equipment_context({},e)
+
+    def test_multiclass_slot_scope_does_not_promote_artificer_or_pact_pool(self):
+        for field in ['artificerRoundingOrEldritchKnightArcaneTricksterRulesAccepted','pactMagicAddsWarlockLevelsToThisGeneralFormula','unsupportedClassContributionSilentlyTreatedAsZero']:
+            m=json.loads((ROOT/M.MULTICLASS).read_text(encoding='utf-8'));m['ordinarySelectedFacts'][field]=True
+            with self.assertRaises(ValueError):M.add_wizard_multiclass_context({},m)
+
+    def test_evocation_cannot_inherit_global_immunity_or_attack_miss_damage(self):
+        for index,field in [(1,'universalImmunityToAnyDamageOrOtherSpells'),(1,'selfAutomaticallyProtected'),(2,'attackRollMissTriggersHalfDamage')]:
+            e=json.loads((ROOT/M.EVOCATION).read_text(encoding='utf-8'));e['manualAssessments'][index][field]=True
+            with self.assertRaises(ValueError):M.add_evocation_context({},e)
+
+    def test_unit_proposal_cannot_accept_canonical_denominator_or_auxiliary_grants(self):
+        for mutation in ['canonical','denominator','runtime','auxiliary','merge']:
+            e=json.loads((ROOT/M.UNIT_PROPOSAL).read_text(encoding='utf-8'));d={'preservedCandidateIdSequence':e['projection']['sourceIdOrderPreserved']}
+            if mutation=='canonical':e['projection']['rows'][0]['canonicalId']='accepted:test'
+            elif mutation=='denominator':e['m0Boundary']['globalCatalogDenominatorEstablished']=True
+            elif mutation=='runtime':e['runtimeCompatibility']['importableCatalogBundle']=True
+            elif mutation=='auxiliary':e['projection']['auxiliaryArtificerHeadingRows'][0]['countedAsAdditionalCatalogCapability']=True
+            else:e['sharedGuidanceProposal']['sourceObservationsMergedOrRemoved']=True
+            with self.assertRaises(ValueError):M.add_unit_proposal_context(d,e)
 
     def test_committed_report_and_all_pins_reproduce(self):
         d=json.loads((ROOT/'catalog/wizard-artificer-current-evidence-2014.json').read_text(encoding='utf-8'));self.assertEqual(d,M.build(ROOT))

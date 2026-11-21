@@ -17,6 +17,6 @@ python -m unittest discover -s tests -p test_wizard_equipment_2014.py
 
 8Equipment +33current-context/21triage Python PASS; source CLI выполнен на реальных сохранённых PDF/HTML. Прежние проверки неизменённых list/core/entry переиспользуются. Source-only, UI/Android/runtime/VPS неприменимы. Независимое exact-head read-only review перед merge; #77/M0/этапы не закрывать.
 
-Следующий content: **только оставшиеся Wizard multiclass13 paragraphs0/1/3** (optional rule/prerequisite/slot context). Paragraph2уже сравнен; class-known/prepared и caster-slot-level не объединять, полную TCE/Artificer применимость не наследовать.
+Оставшиеся Wizard13 paragraphs0/1/3 теперь разобраны в [собственном отчёте](wizard-multiclass-2014.md); paragraph2не считается заново. Следующий актуальный критерий — в [текущем контексте](wizard-artificer-current-evidence-2014.md), без принятия полной TCE/Artificer версии.
 
 Рефлексия content: label-only подход потерял бы альтернативный абзац и фоновые вещи; complete ordered parts устраняет риск. Предложение planner: сохранить отдельные source-свидетельства standard choices и alternate wealth и не выдавать их совместно автоматически. Польза — отсутствие повторных starting grants; цена — один parser/test scope, риск ограничен исходнымSHA. Общие инструкции не меняются.

@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 1,
+  "status": "bounded-wizard-multiclass-summary-not-complete-class-or-runtime",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "sources": {
+    "secondary": {
+      "url": "https://dnd.su/class/105-wizard/",
+      "sha256": "5014af15fd61af05dde5bd29e19514b8fd87fe10ea60fbcd8a81f6574e2053c8",
+      "originalHttpReceiptUnavailable": true,
+      "historicalCandidateSnapshotNotReplaced": true
+    },
+    "srd": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "pdfPages": [
+        56,
+        57,
+        58
+      ]
+    },
+    "basic": {
+      "url": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "sha256": "7a0c5d8bf52d15092f156d78418aa3d43307e271f810d2f06bf2f0258e9288a3",
+      "pdfPages": [
+        58
+      ]
+    },
+    "renderedPagesInspected": true
+  },
+  "secondaryHeading": {
+    "headingOrdinal": 13,
+    "title": "МУЛЬТИКЛАССИРОВАНИЕ И ВОЛШЕБНИК",
+    "wholeBodySha256": "bc9186d3450690cc4143f43605b31e67c91693bb256c21033edc4643822cb6cb",
+    "wholeBodyRead": true,
+    "paragraphCount": 4,
+    "newComparedParagraphIndexes": [
+      0,
+      1,
+      3
+    ],
+    "newParagraphSha256": [
+      "a80b01a9b076fb9bf8eb9a6cf111d629a6e5807a9da2a71dcd4296c2bd311e7b",
+      "c7e796a1dc7cfa57298241a39063b9323755b61d733f4d0248ce331f6efa981f",
+      "2c9db70403afd69e300e139c9776050cdeb0a73439152d6679f5b39c8670255d"
+    ],
+    "reusedProficiencyParagraph": {
+      "path": "catalog/wizard-entry-boundaries-2014.json",
+      "paragraphIndex": 2,
+      "paragraphSha256": "401d676995352247de76174e1b1a4c16591fdda460f439b6d43bb162b10efa9e"
+    },
+    "wholePrimaryMulticlassRulesRepresentedByThisHeading": false
+  },
+  "primaryContexts": [
+    {
+      "kind": "multiclass-prologue",
+      "source": "srd51",
+      "pdfPages": [
+        56
+      ],
+      "textSha256": "fe84f4927134a52af06e5fd5052011e70301fdaefc5b39d470202f767f316207",
+      "wordCount": 163
+    },
+    {
+      "kind": "both-class-prerequisites",
+      "source": "srd51",
+      "pdfPages": [
+        56
+      ],
+      "textSha256": "1fc25024c0446ae3bfe0d6743f5e826a2273ee39971145833ce2b84a964dbf38",
+      "wordCount": 84
+    },
+    {
+      "kind": "complete-selected-casting-context",
+      "source": "srd51",
+      "pdfPages": [
+        57,
+        58
+      ],
+      "textSha256": "6688b3e8490759805dfc13618d8e50f19d74b87b21ebcc783ef4c6c4d8e97ca5",
+      "wordCount": 472
+    },
+    {
+      "kind": "optional-rules-campaign-context",
+      "source": "basic2018",
+      "pdfPages": [
+        58
+      ],
+      "textSha256": "d59d32673df6b44a2a9b7bf3a902ed44f2c51127bb97d9bc59ba60541e007e1f",
+      "wordCount": 112
+    }
+  ],
+  "slotTableWitness": {
+    "source": "srd51",
+    "pdfPage": 58,
+    "start": "Multiclass Spellcaster: Spell Slots per Spell Level Lvl. 1st 2nd 3rd 4th 5th 6th 7th 8th 9th",
+    "stop": "Alignment A typical creature",
+    "textSha256": "a2f4791416c76f5d9999f7960f747069b9aadfbf799c494348d354351ca152ba",
+    "rows": [
+      {
+        "effectiveCasterLevel": 1,
+        "spellSlots": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 2,
+        "spellSlots": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 3,
+        "spellSlots": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 4,
+        "spellSlots": [
+          4,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 5,
+        "spellSlots": [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 6,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 7,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 8,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 9,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 10,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 11,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 12,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 13,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 14,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 15,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 16,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "effectiveCasterLevel": 17,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "effectiveCasterLevel": 18,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          3,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "effectiveCasterLevel": 19,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          3,
+          2,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "effectiveCasterLevel": 20,
+        "spellSlots": [
+          4,
+          3,
+          3,
+          3,
+          3,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
+    ],
+    "numericCellsCompared": 180,
+    "explicitDashGlyphsRepresentedAsZero": [
+      "—"
+    ],
+    "priorWizardNumericProjectionReusedNotFullRuleEquality": true,
+    "characterLevelOrKnownSpellCircleColumn": false
+  },
+  "manualAssessments": [
+    {
+      "paragraphIndex": 0,
+      "kind": "optional-rule-source-context",
+      "secondaryReferenceToPhbNotTreatedAsProofOfHistoricalPhbVersion": true,
+      "campaignRuleChoiceCorroboratedByBasic58": true,
+      "mandatoryGmCheckboxForManualSave": false
+    },
+    {
+      "paragraphIndex": 1,
+      "kind": "wizard-specific-Int13-prerequisite",
+      "minimumIntelligence": 13,
+      "appliesEnteringWizardOrLeavingWizardForAnotherClass": true,
+      "primaryBothCurrentAndNewClassPrerequisitesRetained": true,
+      "otherClassPrerequisitesContainedInWizardSentence": false,
+      "allTwelveClassPrerequisiteRowsAccepted": false
+    },
+    {
+      "paragraphIndex": 3,
+      "kind": "condensed-wizard-slot-contribution-reference",
+      "wizardLevelsCountAsFullSpellcastingLevels": true,
+      "wholePrimaryFormulaTranslatedByOneSentence": false,
+      "higherSlotsTeachOrPrepareHigherCircleAutomatically": false,
+      "artificerOrThirdCasterFormulaInferredFromSrdList": false
+    }
+  ],
+  "ordinarySelectedFacts": {
+    "campaignMulticlassRuleOptional": true,
+    "singleSpellcastingClassUsesThatClassRules": true,
+    "eachClassKnownAndPreparedAsSingleClassIndividually": true,
+    "castingAbilityAndFocusAssociatedWithClass": true,
+    "exampleWizardBookTenSpellsIsHardCapacityLimit": false,
+    "srdFullCasterClasses": [
+      "bard",
+      "cleric",
+      "druid",
+      "sorcerer",
+      "wizard"
+    ],
+    "srdHalfCasterClasses": [
+      "paladin",
+      "ranger"
+    ],
+    "srdHalfCasterRounding": "down",
+    "aggregationOfMultipleOddHalfCastersAdjudicatedByThisReport": false,
+    "artificerRoundingOrEldritchKnightArcaneTricksterRulesAccepted": false,
+    "unsupportedClassContributionSilentlyTreatedAsZero": false,
+    "higherSlotsCanUpcastKnownLowerSpellsOnlyWhenSpellProvidesEnhancement": true,
+    "everySpellAutomaticallyGainsDice": false,
+    "pactMagicAddsWarlockLevelsToThisGeneralFormula": false,
+    "pactSlotsCanCastKnownOrPreparedSpellcastingClassSpells": true,
+    "spellcastingSlotsCanCastKnownWarlockSpells": true,
+    "pactRechargeCountsOrPoolMergingEstablishedByThisScope": false
+  },
+  "syntheticDecisionCases": [
+    {
+      "case": "source-ranger4-wizard3",
+      "effectiveCasterLevel": 5,
+      "slotsFirstThreeCircles": [
+        4,
+        3,
+        2
+      ],
+      "ordinaryWizardHighestCircle": 2,
+      "ordinaryRangerHighestCircle": 1,
+      "thirdCircleKnownSpellsAutomaticallyGranted": false
+    },
+    {
+      "case": "ranger4-wizard3-example-book",
+      "exampleBookSpells": 10,
+      "exampleWizardCantrips": 3,
+      "intelligence": 16,
+      "preparedWizardSpells": 6,
+      "additionalCopiedWizardSpellsForbidden": false
+    },
+    {
+      "case": "wizard-and-pact",
+      "crossCastKnownClassSpellsAllowed": true,
+      "poolsAndRechargeMerged": false,
+      "warlockLevelsAddedToGeneralSrdFormula": false
+    },
+    {
+      "case": "artificer3-wizard6-source-gap",
+      "effectiveCasterLevelVerifiedFromTheseSources": null,
+      "manualProfileSaveAllowed": true,
+      "unsupportedSourceFilledWithZero": false
+    },
+    {
+      "case": "manual-higher-circle-known",
+      "ordinaryClassLimitWarning": true,
+      "manualSaveAllowed": true,
+      "gmCheckboxMandatory": false
+    }
+  ],
+  "limits": [
+    "All four secondary paragraphs now have bounded witnesses, but the heading is still a class-specific summary, not full primary multiclass rules.",
+    "Pact Magic interoperability does not establish slot counts/recovery or teach extra spells.",
+    "Artificer and one-third-caster formulas require exact primary scopes; they are not zero or inherited from Wizard.",
+    "Full class/source/version/rights and canonical denominator remain unaccepted.",
+    "Game-rule deviations warn and allow manual input; technical access/integrity/replay boundaries do not change."
+  ],
+  "summary": {
+    "newSecondaryParagraphs": 3,
+    "previouslyComparedParagraphsReused": 1,
+    "selectedPrimaryContexts": 4,
+    "tableRows": 20,
+    "tableNumericCells": 180,
+    "wholeTranslatedPrimaryMulticlassRulesAccepted": false,
+    "canonicalUnitsAccepted": 0
+  },
+  "inputSha256": {
+    "catalog/wizard-entry-boundaries-2014.json": "ceb3f947d0a118fb20fa72824caafade32935d1b952b1bf411776df8bf6aae0a",
+    "catalog/wizard-table-concordance-2014.json": "e0eb3230426253d2239dcd5cd2fa0a350d33358acacd38f6fa6c933f5b913872"
+  },
+  "upstreamParserSha256": {
+    "scripts/audit-wizard-candidate-concordance-2014.py": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b",
+    "scripts/audit-wizard-entry-boundaries-2014.py": "8b9e84352710a3133e1b8951a5468779cb8e59f6d19856a8fdb5012c49207f0b"
+  },
+  "generator": {
+    "path": "scripts/audit-wizard-multiclass-2014.py",
+    "sha256": "84f0a287055f25835e36cd883036b88a9453a14339848eb1799c607ea1f60892"
+  }
+}

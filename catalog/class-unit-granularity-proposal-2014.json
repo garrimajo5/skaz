@@ -1,0 +1,3467 @@
+{
+  "schemaVersion": 1,
+  "status": "game-design-unit-representation-proposal-not-canonical-or-runtime",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "selectedClassGroups": [
+    "wizard",
+    "artificer"
+  ],
+  "projection": {
+    "rows": [
+      {
+        "sourceObservationId": "scope:wizard:class-features:feature.spellcasting",
+        "classGroupKey": "wizard",
+        "observedKind": "base-feature",
+        "titlePreserved": "Использование заклинаний",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#feature.spellcasting"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:class-features:feature.extra-spells",
+        "classGroupKey": "wizard",
+        "observedKind": "base-feature",
+        "titlePreserved": "Дополнительные заклинания волшебника",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-option-TCE-marker",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#feature.extra-spells"
+        },
+        "observedInitialLevelsPreserved": [
+          1
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:class-features:feature.arcane-recovery",
+        "classGroupKey": "wizard",
+        "observedKind": "base-feature",
+        "titlePreserved": "МАГИЧЕСКОЕ ВОССТАНОВЛЕНИЕ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#feature.arcane-recovery"
+        },
+        "observedInitialLevelsPreserved": [
+          1
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:class-features:feature.arcane-tradition",
+        "classGroupKey": "wizard",
+        "observedKind": "base-feature",
+        "titlePreserved": "МАГИЧЕСКИЕ ТРАДИЦИИ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#feature.arcane-tradition"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:class-features:feature.cantrip-formulas",
+        "classGroupKey": "wizard",
+        "observedKind": "base-feature",
+        "titlePreserved": "Формулы заговоров",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-option-TCE-marker",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#feature.cantrip-formulas"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:class-features:feature.ASI",
+        "classGroupKey": "wizard",
+        "observedKind": "base-feature",
+        "titlePreserved": "УВЕЛИЧЕНИЕ ХАРАКТЕРИСТИК",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#feature.ASI"
+        },
+        "observedInitialLevelsPreserved": [
+          4
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:class-features:feature.spell-mastery",
+        "classGroupKey": "wizard",
+        "observedKind": "base-feature",
+        "titlePreserved": "МАСТЕРСТВО ЗАКЛИНАТЕЛЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#feature.spell-mastery"
+        },
+        "observedInitialLevelsPreserved": [
+          18
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:class-features:feature.signature-spells",
+        "classGroupKey": "wizard",
+        "observedKind": "base-feature",
+        "titlePreserved": "ФИРМЕННОЕ ЗАКЛИНАНИЕ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#feature.signature-spells"
+        },
+        "observedInitialLevelsPreserved": [
+          20
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.evocation:tradition.evocation",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass",
+        "titlePreserved": "Школа Воплощения",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.evocation",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.evocation:bf9e9bd93c493c16",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МАСТЕР ВОПЛОЩЕНИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.evocation",
+        "proposedParentObservationId": "scope:wizard:tradition.evocation:tradition.evocation",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.evocation:ff956c10572b13ea",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ПОСТРОЕНИЕ ЗАКЛИНАНИЙ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.evocation",
+        "proposedParentObservationId": "scope:wizard:tradition.evocation:tradition.evocation",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.evocation:de01fc614320d930",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МОЩНЫЙ ЗАГОВОР",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "tradition.evocation",
+        "proposedParentObservationId": "scope:wizard:tradition.evocation:tradition.evocation",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.evocation:b236acb2c4fcaa68",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "УСИЛЕННОЕ ВОПЛОЩЕНИЕ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "tradition.evocation",
+        "proposedParentObservationId": "scope:wizard:tradition.evocation:tradition.evocation",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.evocation:e2f1d83e0f5bb67f",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ПЕРЕГРУЗКА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "tradition.evocation",
+        "proposedParentObservationId": "scope:wizard:tradition.evocation:tradition.evocation",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.conjuration:tradition.conjuration",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass",
+        "titlePreserved": "Школа Вызова",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.conjuration"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.conjuration",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.conjuration:e13b1fd985921283",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МАСТЕР СОЗИДАНИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.conjuration"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.conjuration",
+        "proposedParentObservationId": "scope:wizard:tradition.conjuration:tradition.conjuration",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.conjuration:8e6da0e54f83ddeb",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МАЛЫЙ ВЫЗОВ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.conjuration"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.conjuration",
+        "proposedParentObservationId": "scope:wizard:tradition.conjuration:tradition.conjuration",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.conjuration:ec3e5ea964a6cafc",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "БЕЗОПАСНОЕ ПЕРЕМЕЩЕНИЕ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.conjuration"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "tradition.conjuration",
+        "proposedParentObservationId": "scope:wizard:tradition.conjuration:tradition.conjuration",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.conjuration:4494b6907b34e163",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ФОКУСИРОВАННЫЙ ВЫЗОВ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.conjuration"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "tradition.conjuration",
+        "proposedParentObservationId": "scope:wizard:tradition.conjuration:tradition.conjuration",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.conjuration:d929bc3822c28e19",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "НАДЁЖНЫЙ ПРИЗЫВ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.conjuration"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "tradition.conjuration",
+        "proposedParentObservationId": "scope:wizard:tradition.conjuration:tradition.conjuration",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.illusion:tradition.illusion",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass",
+        "titlePreserved": "Школа Иллюзии",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.illusion"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.illusion",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.illusion:bc0a749e1cffb5c5",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МАСТЕР ИЛЛЮЗИЙ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.illusion"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.illusion",
+        "proposedParentObservationId": "scope:wizard:tradition.illusion:tradition.illusion",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.illusion:377df2c61029d4b2",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "УЛУЧШЕННАЯ МАЛАЯ ИЛЛЮЗИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.illusion"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.illusion",
+        "proposedParentObservationId": "scope:wizard:tradition.illusion:tradition.illusion",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.illusion:18139c438e878fae",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ПЛАСТИЧНЫЕ ИЛЛЮЗИИ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.illusion"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "tradition.illusion",
+        "proposedParentObservationId": "scope:wizard:tradition.illusion:tradition.illusion",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.illusion:b5c25ead4f845d62",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "СОБСТВЕННАЯ ИЛЛЮЗОРНОСТЬ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.illusion"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "tradition.illusion",
+        "proposedParentObservationId": "scope:wizard:tradition.illusion:tradition.illusion",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.illusion:a0b408c0e27c16e2",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ИЛЛЮЗОРНАЯ РЕАЛЬНОСТЬ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.illusion"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "tradition.illusion",
+        "proposedParentObservationId": "scope:wizard:tradition.illusion:tradition.illusion",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.necromancy:tradition.necromancy",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass",
+        "titlePreserved": "Школа Некромантии",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.necromancy"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.necromancy",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.necromancy:d0f9c43a7ace230c",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МАСТЕР НЕКРОМАНТИИ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.necromancy"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.necromancy",
+        "proposedParentObservationId": "scope:wizard:tradition.necromancy:tradition.necromancy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.necromancy:a0fde2d7bb06d8c0",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МРАЧНАЯ ЖАТВА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.necromancy"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.necromancy",
+        "proposedParentObservationId": "scope:wizard:tradition.necromancy:tradition.necromancy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.necromancy:cb10ec73cff0b0d9",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "НЕЖИВЫЕ РАБЫ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.necromancy"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "tradition.necromancy",
+        "proposedParentObservationId": "scope:wizard:tradition.necromancy:tradition.necromancy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.necromancy:fe54fe8bbfb97609",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ЕДИНЕНИЕ С НЕ-ЖИЗНЬЮ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.necromancy"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "tradition.necromancy",
+        "proposedParentObservationId": "scope:wizard:tradition.necromancy:tradition.necromancy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.necromancy:9d59566819045eb1",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "УПРАВЛЕНИЕ НЕЖИТЬЮ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.necromancy"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "tradition.necromancy",
+        "proposedParentObservationId": "scope:wizard:tradition.necromancy:tradition.necromancy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.abjuration:tradition.abjuration",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass",
+        "titlePreserved": "Школа Ограждения",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.abjuration"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.abjuration",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.abjuration:8f6902d4338e3d90",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МАСТЕР ОГРАЖДЕНИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.abjuration"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.abjuration",
+        "proposedParentObservationId": "scope:wizard:tradition.abjuration:tradition.abjuration",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.abjuration:81aaaf529d085d8b",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МАГИЧЕСКАЯ ЗАЩИТА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.abjuration"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.abjuration",
+        "proposedParentObservationId": "scope:wizard:tradition.abjuration:tradition.abjuration",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.abjuration:3d8fc79f9d00dcdb",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ПРОЕКЦИЯ ЗАЩИТЫ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.abjuration"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "tradition.abjuration",
+        "proposedParentObservationId": "scope:wizard:tradition.abjuration:tradition.abjuration",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.abjuration:640bf162984be4c7",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "УЛУЧШЕННОЕ ОГРАЖДЕНИЕ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.abjuration"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "tradition.abjuration",
+        "proposedParentObservationId": "scope:wizard:tradition.abjuration:tradition.abjuration",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.abjuration:1801b348d32fc0ae",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "СОПРОТИВЛЕНИЕ ЗАКЛИНАНИЯМ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.abjuration"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "tradition.abjuration",
+        "proposedParentObservationId": "scope:wizard:tradition.abjuration:tradition.abjuration",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.enchantment:tradition.enchantment",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass",
+        "titlePreserved": "Школа Очарования",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.enchantment"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.enchantment",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.enchantment:ea4560046558f7e1",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МАСТЕР ОЧАРОВАНИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.enchantment"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.enchantment",
+        "proposedParentObservationId": "scope:wizard:tradition.enchantment:tradition.enchantment",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.enchantment:173a28557b10b068",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ГИПНОТИЧЕСКИЙ ВЗГЛЯД",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.enchantment"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.enchantment",
+        "proposedParentObservationId": "scope:wizard:tradition.enchantment:tradition.enchantment",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.enchantment:0b6b9305109b4b7d",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ИНСТИНКТИВНОЕ ОЧАРОВАНИЕ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.enchantment"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "tradition.enchantment",
+        "proposedParentObservationId": "scope:wizard:tradition.enchantment:tradition.enchantment",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.enchantment:697b31f39f6054c6",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "УСИЛЕННОЕ ОЧАРОВАНИЕ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.enchantment"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "tradition.enchantment",
+        "proposedParentObservationId": "scope:wizard:tradition.enchantment:tradition.enchantment",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.enchantment:e2bace22fa25efb0",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ЛОЖНЫЕ ВОСПОМИНАНИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.enchantment"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "tradition.enchantment",
+        "proposedParentObservationId": "scope:wizard:tradition.enchantment:tradition.enchantment",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.transmutation:tradition.transmutation",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass",
+        "titlePreserved": "Школа Преобразования",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.transmutation"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.transmutation",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.transmutation:99a45618a7a447f2",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МАСТЕР ПРЕОБРАЗОВАНИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.transmutation"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.transmutation",
+        "proposedParentObservationId": "scope:wizard:tradition.transmutation:tradition.transmutation",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.transmutation:69ee7e201ded124b",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МАЛАЯ АЛХИМИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.transmutation"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.transmutation",
+        "proposedParentObservationId": "scope:wizard:tradition.transmutation:tradition.transmutation",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.transmutation:43bb5408204fbe58",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "КАМЕНЬ ПРЕОБРАЗОВАНИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.transmutation"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "tradition.transmutation",
+        "proposedParentObservationId": "scope:wizard:tradition.transmutation:tradition.transmutation",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.transmutation:b89a31c5f9da1f76",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ПЕРЕВЁРТЫШ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.transmutation"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "tradition.transmutation",
+        "proposedParentObservationId": "scope:wizard:tradition.transmutation:tradition.transmutation",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.transmutation:743f0ddcddf2028f",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ГЕНИЙ ПРЕОБРАЗОВАНИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.transmutation"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "tradition.transmutation",
+        "proposedParentObservationId": "scope:wizard:tradition.transmutation:tradition.transmutation",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.divination:tradition.divination",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass",
+        "titlePreserved": "Школа Прорицания",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.divination"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.divination",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.divination:960a94e02f362cf2",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МАСТЕР ПРОРИЦАНИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.divination"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.divination",
+        "proposedParentObservationId": "scope:wizard:tradition.divination:tradition.divination",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.divination:0a9bdf16a44f433f",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ЗНАМЕНИЕ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.divination"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.divination",
+        "proposedParentObservationId": "scope:wizard:tradition.divination:tradition.divination",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.divination:b7678e5be3921379",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ЭКСПЕРТ ПРОРИЦАНИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.divination"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "tradition.divination",
+        "proposedParentObservationId": "scope:wizard:tradition.divination:tradition.divination",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.divination:5d000dc9a8c5451e",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ТРЕТИЙ ГЛАЗ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.divination"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "tradition.divination",
+        "proposedParentObservationId": "scope:wizard:tradition.divination:tradition.divination",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.divination:6a3df95fe28ce648",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ВЕЛИКОЕ ЗНАМЕНИЕ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "102"
+          ],
+          "sourceBasis": "base-class-page-PHB",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.divination"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "tradition.divination",
+        "proposedParentObservationId": "scope:wizard:tradition.divination:tradition.divination",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.war-magic:tradition.war-magic",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass",
+        "titlePreserved": "Военная магия",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "109"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.war-magic"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.war-magic",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.war-magic:818ef7e5bb4271ea",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МАГИЧЕСКОЕ ОТРАЖЕНИЕ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "109"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.war-magic"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.war-magic",
+        "proposedParentObservationId": "scope:wizard:tradition.war-magic:tradition.war-magic",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.war-magic:a6cf191ff7bd3cb0",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ТАКТИЧЕСКАЯ СМЕКАЛКА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "109"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.war-magic"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.war-magic",
+        "proposedParentObservationId": "scope:wizard:tradition.war-magic:tradition.war-magic",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.war-magic:b9a41e75d2926ba1",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ВСПЛЕСК МОЩИ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "109"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.war-magic"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "tradition.war-magic",
+        "proposedParentObservationId": "scope:wizard:tradition.war-magic:tradition.war-magic",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.war-magic:cfc25488a6f88536",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "СТОЙКАЯ МАГИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "109"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.war-magic"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "tradition.war-magic",
+        "proposedParentObservationId": "scope:wizard:tradition.war-magic:tradition.war-magic",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.war-magic:d2cf3312ea22a6d3",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ОТРАЖАЮЩИЙ ПОКРОВ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "109"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.war-magic"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "tradition.war-magic",
+        "proposedParentObservationId": "scope:wizard:tradition.war-magic:tradition.war-magic",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.chronurgy:tradition.chronurgy",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass",
+        "titlePreserved": "Магия хронургии",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "116"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.chronurgy",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.chronurgy:7b137646c6799206",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ХРОНО-СДВИГ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "116"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.chronurgy",
+        "proposedParentObservationId": "scope:wizard:tradition.chronurgy:tradition.chronurgy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.chronurgy:c446302e1c02e9e3",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ВНЕВРЕМЕННАЯ ОСВЕДОМЛЕННОСТЬ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "116"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.chronurgy",
+        "proposedParentObservationId": "scope:wizard:tradition.chronurgy:tradition.chronurgy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.chronurgy:3f1294c88491c9cc",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "КРАТКОВРЕМЕННЫЙ СТАЗИС",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "116"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "tradition.chronurgy",
+        "proposedParentObservationId": "scope:wizard:tradition.chronurgy:tradition.chronurgy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.chronurgy:edce13b32a978cb4",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "СЖАТИЕ МАГИИ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "116"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "tradition.chronurgy",
+        "proposedParentObservationId": "scope:wizard:tradition.chronurgy:tradition.chronurgy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.chronurgy:faf838ec7c02320b",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ВЕРОЯТНОЕ БУДУЩЕЕ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "116"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "tradition.chronurgy",
+        "proposedParentObservationId": "scope:wizard:tradition.chronurgy:tradition.chronurgy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.chronurgy:86d9b5fd7e2b0afc",
+        "classGroupKey": "wizard",
+        "observedKind": "rules-guidance",
+        "titlePreserved": "Дюнамантия для не дюнамантов",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "116"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.chronurgy"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.chronurgy",
+        "proposedParentObservationId": "scope:wizard:tradition.chronurgy:tradition.chronurgy",
+        "proposedRepresentationRole": "supporting-rule-reference-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.graviturgy:tradition.graviturgy",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass",
+        "titlePreserved": "Магия гравитургии",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "116"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.graviturgy"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.graviturgy",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.graviturgy:3b7ae3ec98e2c350",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "УПРАВЛЕНИЕ ТЯЖЕСТЬЮ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "116"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.graviturgy"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.graviturgy",
+        "proposedParentObservationId": "scope:wizard:tradition.graviturgy:tradition.graviturgy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.graviturgy:8027064412ae380a",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ГРАВИТАЦИОННЫЙ КОЛОДЕЦ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "116"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.graviturgy"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "tradition.graviturgy",
+        "proposedParentObservationId": "scope:wizard:tradition.graviturgy:tradition.graviturgy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.graviturgy:cc548a9b96b621b0",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "АГРЕССИВНОЕ ПРИТЯЖЕНИЕ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "116"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.graviturgy"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "tradition.graviturgy",
+        "proposedParentObservationId": "scope:wizard:tradition.graviturgy:tradition.graviturgy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.graviturgy:216eefe92a97eb15",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ГОРИЗОНТ СОБЫТИЙ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "116"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.graviturgy"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "tradition.graviturgy",
+        "proposedParentObservationId": "scope:wizard:tradition.graviturgy:tradition.graviturgy",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.graviturgy:86d9b5fd7e2b0afc",
+        "classGroupKey": "wizard",
+        "observedKind": "rules-guidance",
+        "titlePreserved": "Дюнамантия для не дюнамантов",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "116"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.graviturgy"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.graviturgy",
+        "proposedParentObservationId": "scope:wizard:tradition.graviturgy:tradition.graviturgy",
+        "proposedRepresentationRole": "supporting-rule-reference-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.scribes:tradition.scribes",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass",
+        "titlePreserved": "Орден писцов",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.scribes"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.scribes",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.scribes:da09be6717585f3d",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "Волшебное перо",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.scribes"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.scribes",
+        "proposedParentObservationId": "scope:wizard:tradition.scribes:tradition.scribes",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.scribes:fd5026c478de1842",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "Пробуждённая книга заклинаний",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.scribes"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.scribes",
+        "proposedParentObservationId": "scope:wizard:tradition.scribes:tradition.scribes",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.scribes:b7778f2c9af8fdb1",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "Пробуждение разума",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.scribes"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "tradition.scribes",
+        "proposedParentObservationId": "scope:wizard:tradition.scribes:tradition.scribes",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.scribes:8e54c0d9cd7c9621",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "Мастер скриптория",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.scribes"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "tradition.scribes",
+        "proposedParentObservationId": "scope:wizard:tradition.scribes:tradition.scribes",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.scribes:a8842ad98a1e2e0c",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "Единство со словом",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.scribes"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "tradition.scribes",
+        "proposedParentObservationId": "scope:wizard:tradition.scribes:tradition.scribes",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.bladesinging:tradition.bladesinging",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass",
+        "titlePreserved": "Песнь клинка",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.bladesinging"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "tradition.bladesinging",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.bladesinging:5dd84cdf4462efaf",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "Тренировка войны и песни",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.bladesinging"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.bladesinging",
+        "proposedParentObservationId": "scope:wizard:tradition.bladesinging:tradition.bladesinging",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.bladesinging:87d7a1f7219f8fa5",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "Песнь клинка",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.bladesinging"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "tradition.bladesinging",
+        "proposedParentObservationId": "scope:wizard:tradition.bladesinging:tradition.bladesinging",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.bladesinging:9ede3ebb1d19609a",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "Дополнительная атака",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.bladesinging"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "tradition.bladesinging",
+        "proposedParentObservationId": "scope:wizard:tradition.bladesinging:tradition.bladesinging",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.bladesinging:fa02e8e7adab370f",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "Песнь защиты",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.bladesinging"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "tradition.bladesinging",
+        "proposedParentObservationId": "scope:wizard:tradition.bladesinging:tradition.bladesinging",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:wizard:tradition.bladesinging:67e099600734ec30",
+        "classGroupKey": "wizard",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "Песнь победы",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.bladesinging"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "tradition.bladesinging",
+        "proposedParentObservationId": "scope:wizard:tradition.bladesinging:tradition.bladesinging",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:class-features:feature.magical-tinkering",
+        "classGroupKey": "artificer",
+        "observedKind": "base-feature",
+        "titlePreserved": "МАГИЧЕСКИЙ МАСТЕРОВОЙ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#feature.magical-tinkering"
+        },
+        "observedInitialLevelsPreserved": [
+          1
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:class-features:feature.spellcasting",
+        "classGroupKey": "artificer",
+        "observedKind": "base-feature",
+        "titlePreserved": "Использование заклинаний",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#feature.spellcasting"
+        },
+        "observedInitialLevelsPreserved": [
+          1
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:class-features:feature.infuse-item",
+        "classGroupKey": "artificer",
+        "observedKind": "base-feature",
+        "titlePreserved": "ИНФУЗИРОВАНИЕ ПРЕДМЕТА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#feature.infuse-item"
+        },
+        "observedInitialLevelsPreserved": [
+          2
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:class-features:feature.specialist",
+        "classGroupKey": "artificer",
+        "observedKind": "base-feature",
+        "titlePreserved": "СПЕЦИАЛЬНОСТЬ ИЗОБРЕТАТЕЛЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#feature.specialist"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:class-features:feature.right-tool-for-the-job",
+        "classGroupKey": "artificer",
+        "observedKind": "base-feature",
+        "titlePreserved": "ПОДХОДЯЩИЙ ИНСТРУМЕНТ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#feature.right-tool-for-the-job"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:class-features:feature.ASI",
+        "classGroupKey": "artificer",
+        "observedKind": "base-feature",
+        "titlePreserved": "УВЕЛИЧЕНИЕ ХАРАКТЕРИСТИК",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#feature.ASI"
+        },
+        "observedInitialLevelsPreserved": [
+          4
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:class-features:feature.tool-expertise",
+        "classGroupKey": "artificer",
+        "observedKind": "base-feature",
+        "titlePreserved": "КОМПЕТЕНТНОСТЬ ВО ВЛАДЕНИИ ИНСТРУМЕНТАМИ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#feature.tool-expertise"
+        },
+        "observedInitialLevelsPreserved": [
+          6
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:class-features:feature.flash-of-genius",
+        "classGroupKey": "artificer",
+        "observedKind": "base-feature",
+        "titlePreserved": "ПРОБЛЕСК ГЕНИАЛЬНОСТИ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#feature.flash-of-genius"
+        },
+        "observedInitialLevelsPreserved": [
+          7
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:class-features:feature.magic-item-adept",
+        "classGroupKey": "artificer",
+        "observedKind": "base-feature",
+        "titlePreserved": "ЭКСПЕРТ В ОБРАЩЕНИИ С МАГИЧЕСКИМИ ПРЕДМЕТАМИ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#feature.magic-item-adept"
+        },
+        "observedInitialLevelsPreserved": [
+          10
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:class-features:feature.spell-storing-item",
+        "classGroupKey": "artificer",
+        "observedKind": "base-feature",
+        "titlePreserved": "ХРАНЯЩИЙ ЗАКЛИНАНИЯ ПРЕДМЕТ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#feature.spell-storing-item"
+        },
+        "observedInitialLevelsPreserved": [
+          11
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:class-features:feature.magic-item-savant",
+        "classGroupKey": "artificer",
+        "observedKind": "base-feature",
+        "titlePreserved": "УЧЁНЫЙ ПО МАГИЧЕСКИМ ПРЕДМЕТАМ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#feature.magic-item-savant"
+        },
+        "observedInitialLevelsPreserved": [
+          14
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:class-features:feature.magic-item-master",
+        "classGroupKey": "artificer",
+        "observedKind": "base-feature",
+        "titlePreserved": "МАСТЕР В ОБРАЩЕНИИ С МАГИЧЕСКИМИ ПРЕДМЕТАМИ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#feature.magic-item-master"
+        },
+        "observedInitialLevelsPreserved": [
+          18
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:class-features:feature.soul-of-artifice",
+        "classGroupKey": "artificer",
+        "observedKind": "base-feature",
+        "titlePreserved": "ДУША ИЗОБРЕТЕНИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "base-class-page-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#feature.soul-of-artifice"
+        },
+        "observedInitialLevelsPreserved": [
+          20
+        ],
+        "observedParentTokenPreserved": "class-features",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "class-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.alchemist:specialist.alchemist",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass",
+        "titlePreserved": "Алхимик",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "specialist.alchemist",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.alchemist:08d269fc98dbfdab",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ВЛАДЕНИЕ ИНСТРУМЕНТАМИ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.alchemist",
+        "proposedParentObservationId": "scope:artificer:specialist.alchemist:specialist.alchemist",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.alchemist:93b7483dbd2b5197",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ЗАКЛИНАНИЯ АЛХИМИКОВ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.alchemist",
+        "proposedParentObservationId": "scope:artificer:specialist.alchemist:specialist.alchemist",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.alchemist:878ad5bd123d73f3",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ЭКСПЕРИМЕНТАЛЬНЫЙ ЭЛИКСИР",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.alchemist",
+        "proposedParentObservationId": "scope:artificer:specialist.alchemist:specialist.alchemist",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.alchemist:45bf0cb4e0b646a8",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "УЧЁНЫЙ АЛХИМИК",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist"
+        },
+        "observedInitialLevelsPreserved": [
+          5
+        ],
+        "observedParentTokenPreserved": "specialist.alchemist",
+        "proposedParentObservationId": "scope:artificer:specialist.alchemist:specialist.alchemist",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.alchemist:9bd72d7a38200834",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ВОССТАНАВЛИВАЮЩИЕ РЕАГЕНТЫ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist"
+        },
+        "observedInitialLevelsPreserved": [
+          9
+        ],
+        "observedParentTokenPreserved": "specialist.alchemist",
+        "proposedParentObservationId": "scope:artificer:specialist.alchemist:specialist.alchemist",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.alchemist:5ab794c7564d4100",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ХИМИЧЕСКОЕ МАСТЕРСТВО",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.alchemist"
+        },
+        "observedInitialLevelsPreserved": [
+          15
+        ],
+        "observedParentTokenPreserved": "specialist.alchemist",
+        "proposedParentObservationId": "scope:artificer:specialist.alchemist:specialist.alchemist",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.artillerist:specialist.artillerist",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass",
+        "titlePreserved": "Артиллерист",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "specialist.artillerist",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.artillerist:08d269fc98dbfdab",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "Владение инструментами",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.artillerist",
+        "proposedParentObservationId": "scope:artificer:specialist.artillerist:specialist.artillerist",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.artillerist:2bc4a4ce0393c94a",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ЗАКЛИНАНИЯ АРТИЛЛЕРИСТА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.artillerist",
+        "proposedParentObservationId": "scope:artificer:specialist.artillerist:specialist.artillerist",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.artillerist:ebdbc64cc9764ce7",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МИСТИЧЕСКАЯ ПУШКА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.artillerist",
+        "proposedParentObservationId": "scope:artificer:specialist.artillerist:specialist.artillerist",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.artillerist:d806f64985b0613a",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "Мистическое ОГНЕСТРЕЛЬНОЕ ОРУЖИЕ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist"
+        },
+        "observedInitialLevelsPreserved": [
+          5
+        ],
+        "observedParentTokenPreserved": "specialist.artillerist",
+        "proposedParentObservationId": "scope:artificer:specialist.artillerist:specialist.artillerist",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.artillerist:920fbb40b0dd7b7e",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ВЗРЫВООПАСНАЯ ПУШКА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist"
+        },
+        "observedInitialLevelsPreserved": [
+          9
+        ],
+        "observedParentTokenPreserved": "specialist.artillerist",
+        "proposedParentObservationId": "scope:artificer:specialist.artillerist:specialist.artillerist",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.artillerist:42b931caa1f4f795",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "УКРЕПЛЁННАЯ ПОЗИЦИЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.artillerist"
+        },
+        "observedInitialLevelsPreserved": [
+          15
+        ],
+        "observedParentTokenPreserved": "specialist.artillerist",
+        "proposedParentObservationId": "scope:artificer:specialist.artillerist:specialist.artillerist",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.battlesmith:specialist.battlesmith",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass",
+        "titlePreserved": "Боевой кузнец",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "specialist.battlesmith",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.battlesmith:08d269fc98dbfdab",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ВЛАДЕНИЕ ИНСТРУМЕНТАМИ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.battlesmith",
+        "proposedParentObservationId": "scope:artificer:specialist.battlesmith:specialist.battlesmith",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.battlesmith:2f6a8c71f7ddd8a3",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ЗАКЛИНАНИЯ БОЕВОГО КУЗНЕЦА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.battlesmith",
+        "proposedParentObservationId": "scope:artificer:specialist.battlesmith:specialist.battlesmith",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.battlesmith:add398e56c386253",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "БОЕВАЯ ГОТОВНОСТЬ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.battlesmith",
+        "proposedParentObservationId": "scope:artificer:specialist.battlesmith:specialist.battlesmith",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.battlesmith:c4961367422c09fe",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "СТАЛЬНОЙ ЗАЩИТНИК",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.battlesmith",
+        "proposedParentObservationId": "scope:artificer:specialist.battlesmith:specialist.battlesmith",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.battlesmith:9ede3ebb1d19609a",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ДОПОЛНИТЕЛЬНАЯ АТАКА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith"
+        },
+        "observedInitialLevelsPreserved": [
+          5
+        ],
+        "observedParentTokenPreserved": "specialist.battlesmith",
+        "proposedParentObservationId": "scope:artificer:specialist.battlesmith:specialist.battlesmith",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.battlesmith:44d064ad8f656380",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МАГИЧЕСКАЯ ВСТРЯСКА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith"
+        },
+        "observedInitialLevelsPreserved": [
+          9
+        ],
+        "observedParentTokenPreserved": "specialist.battlesmith",
+        "proposedParentObservationId": "scope:artificer:specialist.battlesmith:specialist.battlesmith",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.battlesmith:b6ea9d0e779c1e83",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "УЛУЧШЕННЫЙ ЗАЩИТНИК",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.battlesmith"
+        },
+        "observedInitialLevelsPreserved": [
+          15
+        ],
+        "observedParentTokenPreserved": "specialist.battlesmith",
+        "proposedParentObservationId": "scope:artificer:specialist.battlesmith:specialist.battlesmith",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.armorer:specialist.armorer",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass",
+        "titlePreserved": "Бронник",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer"
+        },
+        "observedInitialLevelsPreserved": [],
+        "observedParentTokenPreserved": "specialist.armorer",
+        "proposedParentObservationId": null,
+        "proposedRepresentationRole": "subclass-choice-parent-candidate",
+        "profileCapabilityCandidate": false,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.armorer:08d269fc98dbfdab",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ВЛАДЕНИЕ ИНСТРУМЕНТАМИ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.armorer",
+        "proposedParentObservationId": "scope:artificer:specialist.armorer:specialist.armorer",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.armorer:096d32adc9cc13b2",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ЗАКЛИНАНИЯ БРОННИКА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.armorer",
+        "proposedParentObservationId": "scope:artificer:specialist.armorer:specialist.armorer",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.armorer:749c98ae8bc17fce",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "мистический ДОСПЕХ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.armorer",
+        "proposedParentObservationId": "scope:artificer:specialist.armorer:specialist.armorer",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.armorer:40b2fef4e59f8adc",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МОДЕЛЬ ДОСПЕХА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer"
+        },
+        "observedInitialLevelsPreserved": [
+          3
+        ],
+        "observedParentTokenPreserved": "specialist.armorer",
+        "proposedParentObservationId": "scope:artificer:specialist.armorer:specialist.armorer",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.armorer:9ede3ebb1d19609a",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ДОПОЛНИТЕЛЬНАЯ АТАКА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer"
+        },
+        "observedInitialLevelsPreserved": [
+          5
+        ],
+        "observedParentTokenPreserved": "specialist.armorer",
+        "proposedParentObservationId": "scope:artificer:specialist.armorer:specialist.armorer",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.armorer:4c97712288d26bc4",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "МОДИФИКАЦИИ ДОСПЕХА",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer"
+        },
+        "observedInitialLevelsPreserved": [
+          9
+        ],
+        "observedParentTokenPreserved": "specialist.armorer",
+        "proposedParentObservationId": "scope:artificer:specialist.armorer:specialist.armorer",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      },
+      {
+        "sourceObservationId": "scope:artificer:specialist.armorer:33dfc2450bac503f",
+        "classGroupKey": "artificer",
+        "observedKind": "subclass-feature",
+        "titlePreserved": "ИДЕАЛЬНАЯ БРОНЯ",
+        "sourceClaimsPreserved": {
+          "sourceIds": [
+            "117"
+          ],
+          "sourceBasis": "explicit-subclass-source",
+          "sourceUrl": "https://dnd.su/class/137-artificer/#specialist.armorer"
+        },
+        "observedInitialLevelsPreserved": [
+          15
+        ],
+        "observedParentTokenPreserved": "specialist.armorer",
+        "proposedParentObservationId": "scope:artificer:specialist.armorer:specialist.armorer",
+        "proposedRepresentationRole": "subclass-feature-candidate",
+        "profileCapabilityCandidate": true,
+        "automaticallyGrantedByCatalogPresence": false,
+        "canonicalId": null,
+        "inclusionStatus": "proposal-awaiting-exact-source-version-rights-and-unit-review"
+      }
+    ],
+    "auxiliaryArtificerHeadingRows": [
+      {
+        "headingOrdinal": 1,
+        "titlePreserved": "Изобретатель",
+        "originalKindPreserved": "progression-table",
+        "originalParentObservationIdPreserved": null,
+        "proposedReferenceRole": "occurrence-and-progression-reference",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 2,
+        "titlePreserved": "ИЗОБРЕТАТЕЛИ В РАЗЛИЧНЫХ МИРАХ",
+        "originalKindPreserved": "lore",
+        "originalParentObservationIdPreserved": null,
+        "proposedReferenceRole": "reference-lore",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 3,
+        "titlePreserved": "Создание изобретателя",
+        "originalKindPreserved": "creation-guidance",
+        "originalParentObservationIdPreserved": null,
+        "proposedReferenceRole": "reference-guidance",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 4,
+        "titlePreserved": "БЫСТРОЕ СОЗДАНИЕ",
+        "originalKindPreserved": "creation-guidance",
+        "originalParentObservationIdPreserved": null,
+        "proposedReferenceRole": "reference-guidance",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 5,
+        "titlePreserved": "МУЛЬТИКЛАССИРОВАНИЕ И ИЗОБРЕТАТЕЛЬ",
+        "originalKindPreserved": "multiclass-rule-group",
+        "originalParentObservationIdPreserved": null,
+        "proposedReferenceRole": "multiclass-reference",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 6,
+        "titlePreserved": "Классовые умения",
+        "originalKindPreserved": "section-container",
+        "originalParentObservationIdPreserved": null,
+        "proposedReferenceRole": "section-container",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 7,
+        "titlePreserved": "Хиты, владение и снаряжение",
+        "originalKindPreserved": "section-container",
+        "originalParentObservationIdPreserved": null,
+        "proposedReferenceRole": "section-container",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 8,
+        "titlePreserved": "ХИТЫ",
+        "originalKindPreserved": "base-rule",
+        "originalParentObservationIdPreserved": null,
+        "proposedReferenceRole": "starting-rule-data",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 9,
+        "titlePreserved": "ВЛАДЕНИЕ",
+        "originalKindPreserved": "base-rule",
+        "originalParentObservationIdPreserved": null,
+        "proposedReferenceRole": "starting-rule-data",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 10,
+        "titlePreserved": "СНАРЯЖЕНИЕ",
+        "originalKindPreserved": "base-rule",
+        "originalParentObservationIdPreserved": null,
+        "proposedReferenceRole": "starting-rule-data",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 13,
+        "titlePreserved": "НЕОБХОДИМЫЙ ИНСТРУМЕНТ",
+        "originalKindPreserved": "feature-subrule",
+        "originalParentObservationIdPreserved": "scope:artificer:class-features:feature.spellcasting",
+        "proposedReferenceRole": "feature-body-component",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 14,
+        "titlePreserved": "МАГИЯ ИЗОБРЕТЕНИЙ",
+        "originalKindPreserved": "presentation-guidance",
+        "originalParentObservationIdPreserved": "scope:artificer:class-features:feature.spellcasting",
+        "proposedReferenceRole": "reference-presentation",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 15,
+        "titlePreserved": "ЗАГОВОРЫ (ЗАКЛИНАНИЯ 0-ГО УРОВНЯ)",
+        "originalKindPreserved": "feature-subrule",
+        "originalParentObservationIdPreserved": "scope:artificer:class-features:feature.spellcasting",
+        "proposedReferenceRole": "feature-body-component",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 16,
+        "titlePreserved": "ПОДГОТОВКА И СОТВОРЕНИЕ ЗАКЛИНАНИЙ",
+        "originalKindPreserved": "feature-subrule",
+        "originalParentObservationIdPreserved": "scope:artificer:class-features:feature.spellcasting",
+        "proposedReferenceRole": "feature-body-component",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 17,
+        "titlePreserved": "БАЗОВАЯ ХАРАКТЕРИСТИКА ЗАКЛИНАНИЙ",
+        "originalKindPreserved": "feature-subrule",
+        "originalParentObservationIdPreserved": "scope:artificer:class-features:feature.spellcasting",
+        "proposedReferenceRole": "feature-body-component",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 18,
+        "titlePreserved": "РИТУАЛЬНОЕ КОЛДОВСТВО",
+        "originalKindPreserved": "feature-subrule",
+        "originalParentObservationIdPreserved": "scope:artificer:class-features:feature.spellcasting",
+        "proposedReferenceRole": "feature-body-component",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 20,
+        "titlePreserved": "ИЗВЕСТНЫЕ ИНФУЗИИ",
+        "originalKindPreserved": "feature-subrule",
+        "originalParentObservationIdPreserved": "scope:artificer:class-features:feature.infuse-item",
+        "proposedReferenceRole": "feature-body-component",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 21,
+        "titlePreserved": "НАСЫЩЕНИЕ ПРЕДМЕТА МАГИЕЙ",
+        "originalKindPreserved": "feature-subrule",
+        "originalParentObservationIdPreserved": "scope:artificer:class-features:feature.infuse-item",
+        "proposedReferenceRole": "feature-body-component",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 32,
+        "titlePreserved": "Инфузии изобретателя",
+        "originalKindPreserved": "choice-index-and-rules",
+        "originalParentObservationIdPreserved": null,
+        "proposedReferenceRole": "choice-collection-component",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 49,
+        "titlePreserved": "Специализации изобретателя",
+        "originalKindPreserved": "section-container",
+        "originalParentObservationIdPreserved": null,
+        "proposedReferenceRole": "section-container",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 55,
+        "titlePreserved": "Экспериментальный эликсир",
+        "originalKindPreserved": "feature-effect-table",
+        "originalParentObservationIdPreserved": "scope:artificer:specialist.alchemist:878ad5bd123d73f3",
+        "proposedReferenceRole": "feature-table-component",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 64,
+        "titlePreserved": "Мистические пушки",
+        "originalKindPreserved": "feature-effect-table",
+        "originalParentObservationIdPreserved": "scope:artificer:specialist.artillerist:ebdbc64cc9764ce7",
+        "proposedReferenceRole": "feature-table-component",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      },
+      {
+        "headingOrdinal": 86,
+        "titlePreserved": "Unearthed Arcana & Unofficial",
+        "originalKindPreserved": "excluded-section-marker",
+        "originalParentObservationIdPreserved": null,
+        "proposedReferenceRole": "excluded-boundary-marker",
+        "countedAsAdditionalCatalogCapability": false,
+        "canonicalId": null
+      }
+    ],
+    "sourceIdOrderPreserved": [
+      "scope:wizard:class-features:feature.spellcasting",
+      "scope:wizard:class-features:feature.extra-spells",
+      "scope:wizard:class-features:feature.arcane-recovery",
+      "scope:wizard:class-features:feature.arcane-tradition",
+      "scope:wizard:class-features:feature.cantrip-formulas",
+      "scope:wizard:class-features:feature.ASI",
+      "scope:wizard:class-features:feature.spell-mastery",
+      "scope:wizard:class-features:feature.signature-spells",
+      "scope:wizard:tradition.evocation:tradition.evocation",
+      "scope:wizard:tradition.evocation:bf9e9bd93c493c16",
+      "scope:wizard:tradition.evocation:ff956c10572b13ea",
+      "scope:wizard:tradition.evocation:de01fc614320d930",
+      "scope:wizard:tradition.evocation:b236acb2c4fcaa68",
+      "scope:wizard:tradition.evocation:e2f1d83e0f5bb67f",
+      "scope:wizard:tradition.conjuration:tradition.conjuration",
+      "scope:wizard:tradition.conjuration:e13b1fd985921283",
+      "scope:wizard:tradition.conjuration:8e6da0e54f83ddeb",
+      "scope:wizard:tradition.conjuration:ec3e5ea964a6cafc",
+      "scope:wizard:tradition.conjuration:4494b6907b34e163",
+      "scope:wizard:tradition.conjuration:d929bc3822c28e19",
+      "scope:wizard:tradition.illusion:tradition.illusion",
+      "scope:wizard:tradition.illusion:bc0a749e1cffb5c5",
+      "scope:wizard:tradition.illusion:377df2c61029d4b2",
+      "scope:wizard:tradition.illusion:18139c438e878fae",
+      "scope:wizard:tradition.illusion:b5c25ead4f845d62",
+      "scope:wizard:tradition.illusion:a0b408c0e27c16e2",
+      "scope:wizard:tradition.necromancy:tradition.necromancy",
+      "scope:wizard:tradition.necromancy:d0f9c43a7ace230c",
+      "scope:wizard:tradition.necromancy:a0fde2d7bb06d8c0",
+      "scope:wizard:tradition.necromancy:cb10ec73cff0b0d9",
+      "scope:wizard:tradition.necromancy:fe54fe8bbfb97609",
+      "scope:wizard:tradition.necromancy:9d59566819045eb1",
+      "scope:wizard:tradition.abjuration:tradition.abjuration",
+      "scope:wizard:tradition.abjuration:8f6902d4338e3d90",
+      "scope:wizard:tradition.abjuration:81aaaf529d085d8b",
+      "scope:wizard:tradition.abjuration:3d8fc79f9d00dcdb",
+      "scope:wizard:tradition.abjuration:640bf162984be4c7",
+      "scope:wizard:tradition.abjuration:1801b348d32fc0ae",
+      "scope:wizard:tradition.enchantment:tradition.enchantment",
+      "scope:wizard:tradition.enchantment:ea4560046558f7e1",
+      "scope:wizard:tradition.enchantment:173a28557b10b068",
+      "scope:wizard:tradition.enchantment:0b6b9305109b4b7d",
+      "scope:wizard:tradition.enchantment:697b31f39f6054c6",
+      "scope:wizard:tradition.enchantment:e2bace22fa25efb0",
+      "scope:wizard:tradition.transmutation:tradition.transmutation",
+      "scope:wizard:tradition.transmutation:99a45618a7a447f2",
+      "scope:wizard:tradition.transmutation:69ee7e201ded124b",
+      "scope:wizard:tradition.transmutation:43bb5408204fbe58",
+      "scope:wizard:tradition.transmutation:b89a31c5f9da1f76",
+      "scope:wizard:tradition.transmutation:743f0ddcddf2028f",
+      "scope:wizard:tradition.divination:tradition.divination",
+      "scope:wizard:tradition.divination:960a94e02f362cf2",
+      "scope:wizard:tradition.divination:0a9bdf16a44f433f",
+      "scope:wizard:tradition.divination:b7678e5be3921379",
+      "scope:wizard:tradition.divination:5d000dc9a8c5451e",
+      "scope:wizard:tradition.divination:6a3df95fe28ce648",
+      "scope:wizard:tradition.war-magic:tradition.war-magic",
+      "scope:wizard:tradition.war-magic:818ef7e5bb4271ea",
+      "scope:wizard:tradition.war-magic:a6cf191ff7bd3cb0",
+      "scope:wizard:tradition.war-magic:b9a41e75d2926ba1",
+      "scope:wizard:tradition.war-magic:cfc25488a6f88536",
+      "scope:wizard:tradition.war-magic:d2cf3312ea22a6d3",
+      "scope:wizard:tradition.chronurgy:tradition.chronurgy",
+      "scope:wizard:tradition.chronurgy:7b137646c6799206",
+      "scope:wizard:tradition.chronurgy:c446302e1c02e9e3",
+      "scope:wizard:tradition.chronurgy:3f1294c88491c9cc",
+      "scope:wizard:tradition.chronurgy:edce13b32a978cb4",
+      "scope:wizard:tradition.chronurgy:faf838ec7c02320b",
+      "scope:wizard:tradition.chronurgy:86d9b5fd7e2b0afc",
+      "scope:wizard:tradition.graviturgy:tradition.graviturgy",
+      "scope:wizard:tradition.graviturgy:3b7ae3ec98e2c350",
+      "scope:wizard:tradition.graviturgy:8027064412ae380a",
+      "scope:wizard:tradition.graviturgy:cc548a9b96b621b0",
+      "scope:wizard:tradition.graviturgy:216eefe92a97eb15",
+      "scope:wizard:tradition.graviturgy:86d9b5fd7e2b0afc",
+      "scope:wizard:tradition.scribes:tradition.scribes",
+      "scope:wizard:tradition.scribes:da09be6717585f3d",
+      "scope:wizard:tradition.scribes:fd5026c478de1842",
+      "scope:wizard:tradition.scribes:b7778f2c9af8fdb1",
+      "scope:wizard:tradition.scribes:8e54c0d9cd7c9621",
+      "scope:wizard:tradition.scribes:a8842ad98a1e2e0c",
+      "scope:wizard:tradition.bladesinging:tradition.bladesinging",
+      "scope:wizard:tradition.bladesinging:5dd84cdf4462efaf",
+      "scope:wizard:tradition.bladesinging:87d7a1f7219f8fa5",
+      "scope:wizard:tradition.bladesinging:9ede3ebb1d19609a",
+      "scope:wizard:tradition.bladesinging:fa02e8e7adab370f",
+      "scope:wizard:tradition.bladesinging:67e099600734ec30",
+      "scope:artificer:class-features:feature.magical-tinkering",
+      "scope:artificer:class-features:feature.spellcasting",
+      "scope:artificer:class-features:feature.infuse-item",
+      "scope:artificer:class-features:feature.specialist",
+      "scope:artificer:class-features:feature.right-tool-for-the-job",
+      "scope:artificer:class-features:feature.ASI",
+      "scope:artificer:class-features:feature.tool-expertise",
+      "scope:artificer:class-features:feature.flash-of-genius",
+      "scope:artificer:class-features:feature.magic-item-adept",
+      "scope:artificer:class-features:feature.spell-storing-item",
+      "scope:artificer:class-features:feature.magic-item-savant",
+      "scope:artificer:class-features:feature.magic-item-master",
+      "scope:artificer:class-features:feature.soul-of-artifice",
+      "scope:artificer:specialist.alchemist:specialist.alchemist",
+      "scope:artificer:specialist.alchemist:08d269fc98dbfdab",
+      "scope:artificer:specialist.alchemist:93b7483dbd2b5197",
+      "scope:artificer:specialist.alchemist:878ad5bd123d73f3",
+      "scope:artificer:specialist.alchemist:45bf0cb4e0b646a8",
+      "scope:artificer:specialist.alchemist:9bd72d7a38200834",
+      "scope:artificer:specialist.alchemist:5ab794c7564d4100",
+      "scope:artificer:specialist.artillerist:specialist.artillerist",
+      "scope:artificer:specialist.artillerist:08d269fc98dbfdab",
+      "scope:artificer:specialist.artillerist:2bc4a4ce0393c94a",
+      "scope:artificer:specialist.artillerist:ebdbc64cc9764ce7",
+      "scope:artificer:specialist.artillerist:d806f64985b0613a",
+      "scope:artificer:specialist.artillerist:920fbb40b0dd7b7e",
+      "scope:artificer:specialist.artillerist:42b931caa1f4f795",
+      "scope:artificer:specialist.battlesmith:specialist.battlesmith",
+      "scope:artificer:specialist.battlesmith:08d269fc98dbfdab",
+      "scope:artificer:specialist.battlesmith:2f6a8c71f7ddd8a3",
+      "scope:artificer:specialist.battlesmith:add398e56c386253",
+      "scope:artificer:specialist.battlesmith:c4961367422c09fe",
+      "scope:artificer:specialist.battlesmith:9ede3ebb1d19609a",
+      "scope:artificer:specialist.battlesmith:44d064ad8f656380",
+      "scope:artificer:specialist.battlesmith:b6ea9d0e779c1e83",
+      "scope:artificer:specialist.armorer:specialist.armorer",
+      "scope:artificer:specialist.armorer:08d269fc98dbfdab",
+      "scope:artificer:specialist.armorer:096d32adc9cc13b2",
+      "scope:artificer:specialist.armorer:749c98ae8bc17fce",
+      "scope:artificer:specialist.armorer:40b2fef4e59f8adc",
+      "scope:artificer:specialist.armorer:9ede3ebb1d19609a",
+      "scope:artificer:specialist.armorer:4c97712288d26bc4",
+      "scope:artificer:specialist.armorer:33dfc2450bac503f"
+    ],
+    "proposedRoleCounts": {
+      "class-feature-candidate": 21,
+      "subclass-choice-parent-candidate": 17,
+      "subclass-feature-candidate": 90,
+      "supporting-rule-reference-candidate": 2
+    },
+    "occurrenceExample": {
+      "catalogObservationId": "scope:wizard:class-features:feature.ASI",
+      "classLevelOccurrences": [
+        4,
+        8,
+        12,
+        16,
+        19
+      ],
+      "catalogEntryCopiesPerOccurrence": false,
+      "choiceOrHistoryInstancesAreSeparateFromCatalogIdentity": true,
+      "importedImprovementsAppliedAgain": false
+    },
+    "spellcastingCompositionExample": {
+      "sourceObservationId": "scope:wizard:class-features:feature.spellcasting",
+      "bodyParagraphsAutomaticallyBecomeAbilities": false,
+      "tableReferencesAutomaticallyBecomeCapabilities": false,
+      "sourceComponentsRemainAddressable": true
+    }
+  },
+  "sharedGuidanceProposal": {
+    "secondarySourceUrl": "https://dnd.su/class/105-wizard/",
+    "secondarySha256": "5014af15fd61af05dde5bd29e19514b8fd87fe10ea60fbcd8a81f6574e2053c8",
+    "retainedHistoricalIdentityNotReplaced": true,
+    "originalHttpReceiptUnavailable": true,
+    "witnesses": [
+      {
+        "headingOrdinal": 96,
+        "title": "Дюнамантия для не дюнамантов",
+        "bodySha256": "95b75cbdcb4e685e4199d13b774b7f996ef77965e6941d1fcacd28c61cefca33",
+        "paragraphSha256": [
+          "43ee1de70786c81a283883738ab4c164539608656f9997339e9a07891f29fba2",
+          "04e433b20bd6b91a466cf4e020a69d367b94f532af3df567ea06593694abd6d7"
+        ],
+        "paragraphCount": 2
+      },
+      {
+        "headingOrdinal": 102,
+        "title": "Дюнамантия для не дюнамантов",
+        "bodySha256": "95b75cbdcb4e685e4199d13b774b7f996ef77965e6941d1fcacd28c61cefca33",
+        "paragraphSha256": [
+          "43ee1de70786c81a283883738ab4c164539608656f9997339e9a07891f29fba2",
+          "04e433b20bd6b91a466cf4e020a69d367b94f532af3df567ea06593694abd6d7"
+        ],
+        "paragraphCount": 2
+      }
+    ],
+    "equalSelectedSecondaryBodies": true,
+    "proposedRelationship": "two-preserved-parent-specific-observations-may-share-a-reference-view",
+    "sourceObservationsMergedOrRemoved": false,
+    "canonicalAliasOrPrimaryBookTextEqualityAccepted": false,
+    "newAutomaticCapabilityCreated": false
+  },
+  "runtimeCompatibility": {
+    "observedExistingKinds": [
+      "mechanic",
+      "spell",
+      "monster",
+      "item",
+      "artifact"
+    ],
+    "proposedRepresentationRolesAreNotAcceptedRuntimeKinds": true,
+    "newClassSpecificSchemaOrMigrationIntroduced": false,
+    "importableCatalogBundle": false
+  },
+  "proposedRules": [
+    {
+      "key": "independent-feature-vs-component",
+      "proposal": "Named features with their own level/choice/source are candidates; paragraphs, containers, lore and table rows do not automatically become acquired capabilities."
+    },
+    {
+      "key": "subclass-choice",
+      "proposal": "Subclass is a choice parent; catalog presence does not grant every subclass or child feature."
+    },
+    {
+      "key": "repeatable-choice-events",
+      "proposal": "An ASI catalog observation can have several class-level occurrences; event/history instances do not duplicate catalog identity or reapply imported choices."
+    },
+    {
+      "key": "shared-guidance",
+      "proposal": "Keep both original parent/source observations and permit a shared reference view only with bounded evidence; no canonical alias from a repeated title."
+    }
+  ],
+  "gameDesignScenarios": [
+    {
+      "case": "wizard-spellcasting-reference",
+      "oneFeatureObservationPreserved": true,
+      "twentyOneInventoryParagraphsOrLabelsBecomeTwentyOneCapabilities": false
+    },
+    {
+      "case": "wizard-asi-four-to-eight",
+      "sameCatalogObservation": true,
+      "newPlayerChoiceOccurrence": true,
+      "oldImprovementAutomaticallyReapplied": false
+    },
+    {
+      "case": "subclass-selection",
+      "allThirteenObservedWizardSubclassParentsAutomaticallyGranted": false,
+      "playerChoiceRequired": true
+    },
+    {
+      "case": "artificer-auxiliary-table",
+      "twentyThreeHeadingsAddedAsTwentyThreeCapabilities": false,
+      "parentAndComponentReferencesPreserved": true
+    },
+    {
+      "case": "manual-class-exception",
+      "ordinaryRuleWarningAvailable": true,
+      "manualSaveAllowed": true,
+      "mandatoryGmCheckbox": false
+    }
+  ],
+  "summary": {
+    "preservedCandidateObservations": 130,
+    "classGroupsInSelectedScope": 2,
+    "proposedIndependentFeatureObservations": 111,
+    "proposedSubclassParentObservations": 17,
+    "proposedSupportingGuidanceObservations": 2,
+    "preservedAuxiliaryArtificerHeadings": 23,
+    "newCapabilitiesCreatedFromAuxiliaryHeadings": 0,
+    "canonicalUnitsAccepted": 0
+  },
+  "m0Boundary": {
+    "purpose": "proposal for the existing #77 unit/version/duplicate/denominator criteria",
+    "fullClassTextReviewOfEveryFeatureRequiredByThisProposalForM0": false,
+    "m0OrFullCatalogAccepted": false,
+    "globalCatalogDenominatorEstablished": false,
+    "remainingDecisions": [
+      "independent review of proposed unit boundaries",
+      "exact publication/version and rights for records",
+      "full catalog composition beyond these two selected class groups",
+      "owner acceptance of M0"
+    ]
+  },
+  "limits": [
+    "Counts are selected observations/proposed representation roles, not accepted units or the whole class catalog.",
+    "Existing source IDs/basis/order/parents are preserved, not proven by this proposal.",
+    "Observation-to-canonical cardinality is not fixed: version evidence may require splitting, while supporting references may be shared without deleting original observations.",
+    "A shared secondary-guidance witness is not proof of primary EGW equality or publication rights.",
+    "This is an author game-design proposal, not independent acceptance of the author source audits.",
+    "No profile/API/import migration or automatic abilities; manual exceptions remain allowed."
+  ],
+  "inputSha256": {
+    "catalog/wizard-artificer-source-scopes-2014.json": "35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5",
+    "catalog/wizard-table-concordance-2014.json": "e0eb3230426253d2239dcd5cd2fa0a350d33358acacd38f6fa6c933f5b913872"
+  },
+  "upstreamCodeSha256": {
+    "server/catalog.mjs": "14b258ddaf457407b34f56fd1abfea06b92ef389330560f5cd6e42a288ff5a7b",
+    "scripts/audit-wizard-candidate-concordance-2014.py": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b"
+  },
+  "generator": {
+    "path": "scripts/review-class-unit-granularity-2014.py",
+    "sha256": "114aecaed315e72058569431644cf5a0af75c3a30a8c503fbd27a68195079ee2"
+  }
+}
