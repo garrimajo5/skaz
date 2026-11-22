@@ -3,11 +3,12 @@ import test from 'node:test';import assert from 'node:assert/strict';import vm f
 const factsSource=await readFile(new URL('../client/spell-facts.js',import.meta.url),'utf8');
 const artSource=await readFile(new URL('../client/art.js',import.meta.url),'utf8');
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
+const presentationSource=await readFile(new URL('../client/play-presentation.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/play.js',import.meta.url),'utf8');
 function harness({quests=[],questFailure=false,spellLearning=null}={}){const elements=new Map(),handlers={},requests=[],reads=[],spends=[],casts=[],chargeEdits=[],memory=new Map();let snapshot='a',owner='hero-a',html='';const lists=['spells','items','quests'].map(kind=>({dataset:{playList:kind},scrollTop:0}));const get=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',value:'',textContent:'',open:true});return elements.get(id);};
- const context=vm.createContext({page:'play',state:{profile:{name:'Hero'},journal:[],notes:[],hp:20,slots:{1:0,2:2,3:1}},sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)},queueMicrotask,URLSearchParams,AbortSignal,
+ const context=vm.createContext({page:'play',location:{protocol:'http:'},state:{profile:{name:'Hero'},journal:[],notes:[],hp:20,maxHp:38,slots:{1:0,2:2,3:1}},sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)},queueMicrotask,URLSearchParams,AbortSignal,
  document:{getElementById:get,querySelectorAll:selector=>selector==='[data-play-list]'?lists:[],addEventListener:(event,fn)=>handlers[event]=fn},modal:value=>{html=value;get('dialog').open=true;},closeModal:()=>get('dialog').open=false,toast(){},go:value=>context.page=value,
- SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise(resolve=>requests.push({kind:'book',resolve})),questsData:async()=>{if(questFailure)throw Error('offline');return {quests};},inventoryData:()=>new Promise(resolve=>requests.push({kind:'items',resolve})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(sheetSource,context);vm.runInContext(source,context);return{factsCalls,setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,top)=>{lists[index].scrollTop=top;handlers.scroll({target:lists[index]});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}})};
+ SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise(resolve=>requests.push({kind:'book',resolve})),questsData:async()=>{if(questFailure)throw Error('offline');return {quests};},inventoryData:()=>new Promise(resolve=>requests.push({kind:'items',resolve})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,top)=>{lists[index].scrollTop=top;handlers.scroll({target:lists[index]});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}})};
 }
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 test('play art keeps spell circle, stable action IDs and item quantity independent of image loading',async()=>{
@@ -75,6 +76,11 @@ test('combat and exploration filters retain rituals, unknown entries and stable 
  let html=h.get('play-content').innerHTML;assert.doesNotMatch(html,/data-id="Long"/);assert.match(html,/data-id="Ritual"/);assert.match(html,/Прочее/);assert.match(html,/&lt;Unknown&gt;/);
  await h.click('',{playSpellScope:'exploration'});html=h.get('play-content').innerHTML;assert.match(html,/data-id="Long"/);assert.match(html,/data-id="Ritual"/);assert.doesNotMatch(html,/data-id="Fast"|data-id="Bonus"/);
  await h.click('',{playSpellScope:'all'});assert.match(h.get('play-content').innerHTML,/data-id="Fast"/);assert.equal(h.spends.length,0);
+ await h.click('',{playSpellScope:'bonus'});
+ html=h.get('play-content').innerHTML;
+ assert.match(html,/data-id="Bonus"/);
+ assert.doesNotMatch(html,/data-id="Fast"|data-id="Long"/);
+ await h.click('',{playSpellScope:'all'});
  await h.click('',{playRead:'spell',id:'Long'});assert.equal(h.reads[0][0].id,'Long');h.context('different');await h.click('',{playSpellScope:'combat'});assert.match(h.get('play-content').innerHTML,/data-id="Long"/);
 });
 
@@ -140,4 +146,31 @@ test('play preserves metadata, reading and actions when same-ID personal text ha
  const actual=structuredClone(bundledCatalog().bundle.entries.find(e=>e.id==='srd51:2014:spell:acid-splash'));actual.source.usage='personal';actual.text+=' Личное правило: 9d20.';
  const h=harness();h.setSheet({level:17,counters:[]});await loaded(h,[{catalogId:actual.id,status:'known',entry:actual}]);const html=h.get('play-content').innerHTML;
  assert.doesNotMatch(html,/спас ЛОВ|4к6 кислота/);assert.match(html,/60 фт/);assert.ok(html.includes('data-play-cast="'+actual.id+'"'));await h.click('',{playRead:'spell',id:actual.id});assert.equal(h.reads[0][0],actual);assert.equal(h.casts.length,0);
+});
+
+test('quick access has one resource mount and keeps actor identity in its status band',()=>{
+ const h=harness(),html=h.api.view();
+ assert.match(html,/<h1>Быстрый доступ<\/h1>/);
+ assert.match(html,/aria-label="Состояние активного персонажа"[\s\S]*<strong>Hero<\/strong>/);
+ assert.match(html,/<strong>20<span> \/ 38<\/span>/);
+ assert.equal((html.match(/id="play-quick-slot"/g)||[]).length,1);
+ assert.match(html,/id="play-history"/);
+});
+
+test('cast price follows the selected command, with distinct free and manual paths',async()=>{
+ const h=harness(),free=spell('Free',0),paid=spell('Paid',1),exhausted=spell('Exhausted',4);
+ await loaded(h,[free,paid,exhausted]);
+ let html=h.get('play-content').innerHTML;
+ assert.match(html,/Применить: Free · Без ячейки/);
+ assert.match(html,/Сотворить: Paid · 1 ячейка · 2 круг/);
+ assert.match(html,/нет ячеек 4\+: Exhausted/);
+ await h.click('',{playCastLevel:'Paid',level:'3'});
+ html=h.get('play-content').innerHTML;
+ assert.match(html,/Сотворить: Paid · 1 ячейка · 3 круг/);
+ await h.click('',{playCast:'Paid'});
+ assert.equal(h.casts[0][1].level,3);
+ h.setSheet({level:5,counters:[{current:1}]});
+ await h.click('',{playSpellScope:'all'});
+ assert.match(h.get('play-content').innerHTML,/Сотворить: Paid · Выбор счётчика/);
+ assert.equal(h.casts.length,1);
 });

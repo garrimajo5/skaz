@@ -56,7 +56,41 @@ function editConditions(){
  $('#conditions-form').onsubmit=event=>{event.preventDefault();try{if(key!==SkazStorage.snapshotKey())throw Error('Игра изменилась. Открой состояния заново.');if(!canChange())return;const next=SkazConditions.validate({active:[...document.querySelectorAll('#conditions-form input:checked')].map(input=>input.value),exhaustion:Number($('#condition-exhaustion').value)});closeModal();if(JSON.stringify(value)===JSON.stringify(next))return;change('Состояния обновлены',()=>{state.conditions=next;log('Состояния',SkazConditions.names(next).join(', ')||'Отметки сняты');});}catch(error){$('#conditions-error').textContent=error.message;}};
 }
 function quickPanel(){return `${healthVitals()}<div class="quick-resources" tabindex="0" aria-label="Ресурсы: нажми заполненную — потратить, пустую — вернуть">${resourceControls()}</div><div class="quick-concentration-row ${state.concentrationChecks?.length?'concentration-pending':''}">${state.concentration?`<span class="quick-concentration" title="Концентрация: ${esc(state.concentration)}"><span data-ui-icon="focus"></span> ${esc(state.concentration)}</span><button id="quick-end-concentration" data-concentration="${esc(state.concentration)}" data-snapshot="${esc(SkazStorage.snapshotKey())}" aria-label="Завершить концентрацию: ${esc(state.concentration)}" ${SkazStorage.editable()?'':'disabled'}>Снять</button>`:'<span class="quick-concentration">Без концентрации</span>'}${concentrationQuestion()}</div>${conditionChips()}<div class="quick-extras"><button id="quick-conditions" aria-label="Изменить состояния персонажа" ${SkazStorage.editable()?'':'disabled'}>Состояния</button><button id="rest" class="secondary"><span data-ui-icon="rest"></span> Отдых</button><button id="quick-note" aria-label="Быстрая личная заметка" ${SkazStorage.editable()?'':'disabled'}><span data-ui-icon="note"></span> Заметка</button><button id="quick-pending" ${SkazStorage.pendingCount?.()?'':'hidden'} aria-label="Не подтверждено сервером: ${SkazStorage.pendingCount?.()||0}. Открыть состояние сохранения">● ${SkazStorage.pendingCount?.()||0}</button></div>`;}
-function render(){document.body.dataset.page=page;document.body.dataset.hpState=state.hp===0?'zero':'normal';$$('[data-play-mode]').forEach(b=>b.setAttribute('aria-pressed',String((page==='play'?'play':'prepare')===b.dataset.playMode)));document.body.dataset.examples=SkazStorage.showExamples?.()?'show':'hide';SkazStorage.paint();if(SkazStorage.readyToDisplay?.()===false){document.body.dataset.theme=state.theme;$('#campaign-name').textContent='';$('#session-name-label').textContent='Открываем игру…';$('#quick-state').innerHTML='';$('#main').innerHTML='<div class="panel" role="status"><h1>Открываем твою игру</h1><p>Загружаем сохранённый лист и проверяем доступ.</p></div>';return;}document.getElementById('session-name-label').textContent=[state.profile.name,SkazStorage.sessionTitle(),SkazStorage.sessionDate()].filter(Boolean).join(' · ');$('#campaign-name').textContent=state.profile.campaign;$("#quick-state").innerHTML=quickPanel();document.body.dataset.theme=state.theme;$('#main').innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage,play:()=>SkazPlay.view()}[page]||hero)();$$('[data-page]').forEach(b=>{b.classList.toggle('active',b.dataset.page===page);if(b.closest('nav')) b.setAttribute('aria-current',b.dataset.page===page?'page':'false')});$$('[data-theme-choice]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.themeChoice===state.theme)));const pendingCount=location.protocol==='file:'?pending().length:SkazEvents.pendingCount();$('#pending-count').textContent=Number.isInteger(pendingCount)&&pendingCount>0?String(pendingCount):'';$('#pending-count').hidden=!(Number.isInteger(pendingCount)&&pendingCount>0);SkazStorage.decorate?.();if(page==='inventory')void SkazStorage.inventory({preserveDialog:true});}
+function render(){
+ const main=$('#main'), quick=$('#quick-state'), home=$('#quick-state-home');
+ if(page==='play') SkazPlay.captureFocus();
+ if(quick.parentElement!==home) home.append(quick);
+ document.body.dataset.page=page;
+ document.body.dataset.hpState=state.hp===0?'zero':'normal';
+ document.body.dataset.examples=SkazStorage.showExamples?.()?'show':'hide';
+ document.body.dataset.theme=state.theme;
+ SkazStorage.paint();
+ $$('[data-play-mode]').forEach(button=>button.setAttribute('aria-pressed',String((page==='play'?'play':'prepare')===button.dataset.playMode)));
+ if(SkazStorage.readyToDisplay?.()===false){
+  $('#campaign-name').textContent='';
+  $('#session-name-label').textContent='Открываем игру…';
+  quick.innerHTML='';
+  main.innerHTML='<div class="panel" role="status"><h1>Открываем твою игру</h1><p>Загружаем сохранённый лист и проверяем доступ.</p></div>';
+  return;
+ }
+ $('#session-name-label').textContent=[state.profile.name,SkazStorage.sessionTitle(),SkazStorage.sessionDate()].filter(Boolean).join(' · ');
+ $('#campaign-name').textContent=state.profile.campaign;
+ quick.innerHTML=quickPanel();
+ main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage,play:()=>SkazPlay.view()}[page]||hero)();
+ if(page==='play') $('#play-quick-slot').append(quick);
+ $$('[data-page]').forEach(button=>{
+  const selected=button.dataset.page===page;
+  button.classList.toggle('active',selected);
+  if(button.closest('nav')) button.setAttribute('aria-current',selected?'page':'false');
+ });
+ $$('[data-theme-choice]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.themeChoice===state.theme)));
+ const pendingCount=location.protocol==='file:'?pending().length:SkazEvents.pendingCount();
+ $('#pending-count').textContent=Number.isInteger(pendingCount)&&pendingCount>0?String(pendingCount):'';
+ $('#pending-count').hidden=!(Number.isInteger(pendingCount)&&pendingCount>0);
+ SkazStorage.decorate?.();
+ if(page==='play') SkazPlay.restoreFocus();
+ if(page==='inventory') void SkazStorage.inventory({preserveDialog:true});
+}
 function go(p){if(!['hero','spells','journal','quests','map','library','inventory','play'].includes(p))p='hero';page=p;if(typeof SkazPlay!=='undefined')SkazPlay.remember(p);history.replaceState(null,'','#'+p);render();window.scrollTo({top:0,behavior:'instant'})}
 function modal(html){
  const menu=document.getElementById('session-menu');if(menu)menu.open=false;

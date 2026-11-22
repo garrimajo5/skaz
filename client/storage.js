@@ -952,7 +952,7 @@ const SkazStorage = (() => {
     if (id === 'edit-resources') editResources();
     if (id === 'session-settings') sessions();
     if (id === 'campaign-settings') campaigns();
-    if(id==='sync-history-chip')try{await showResourceHistory();}catch(error){toast(error.message);}
+    if(id==='sync-history-chip'||id==='play-history')try{await showResourceHistory();}catch(error){toast(error.message);}
     if (id === 'data-settings') settings();
     if(id==='resource-send')await flushResources();
     if(id==='resource-review')try{await reviewResourceQueue();}catch(error){toast(error.message,undefined,{error:true,persistent:true});}

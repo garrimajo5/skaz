@@ -1,15 +1,65 @@
 const SkazPlay = (()=>{
  const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  let key='',owner='',serial=0,searchSerial=0,status='idle',book=[],items=[],quests=[],questError=false,scrollPositions={},spellScope='combat';
- let castLevels={};
+ let castLevels={}, returnFocus=null;
+ const spellScopes=[
+  ['combat','В бою'],['action','Действие'],['bonus','Бонусное'],
+  ['reaction','Реакция'],['exploration','Вне боя'],['all','Все']
+ ];
  const mode=()=>{try{return sessionStorage.getItem('skaz-play-mode-v1')==='play'?'play':'prepare';}catch{return 'prepare';}};
- function remember(page){if(page!=='play'){++serial;++searchSerial;if(status==='loading')status='idle';}try{sessionStorage.setItem('skaz-play-mode-v1',page==='play'?'play':'prepare');}catch{}}
+ function remember(page){if(page!=='play'){returnFocus=null;++serial;++searchSerial;if(status==='loading')status='idle';}try{sessionStorage.setItem('skaz-play-mode-v1',page==='play'?'play':'prepare');}catch{}}
  const active=()=>typeof page!=='undefined'&&page==='play';
+ function captureFocus(){
+  const focused=document.activeElement;
+  if(!focused?.closest('.play-screen'))return;
+  const data=focused.dataset;
+  let selector=focused.id?'#'+CSS.escape(focused.id):'';
+  for(const name of ['playCast','playCastLevel','playRead','playCharges','playSpend','playSpellScope']){
+   if(!data[name])continue;
+   const attribute=name.replace(/[A-Z]/g,c=>'-'+c.toLowerCase());
+   selector='[data-'+attribute+'='+CSS.escape(data[name])+']';
+   if(name==='playCastLevel')selector+='[data-level='+CSS.escape(data.level)+']';
+   if(name==='playRead')selector+='[data-id='+CSS.escape(data.id)+']';
+   break;
+  }
+  if(selector)returnFocus={selector,context:SkazStorage.contextKey()};
+ }
+ function restoreFocus(){
+  if(!returnFocus)return;
+  if(returnFocus.context===SkazStorage.contextKey()&&document.activeElement===document.body){
+   let target=document.querySelector?.('.play-screen '+returnFocus.selector);
+   if(!target&&status==='loading')return;
+   if(target?.disabled){
+    const row=target.closest('.play-spell-action,.play-item');
+    target=row?.querySelector('[data-play-read]')||document.getElementById('play-content');
+   }
+   target?.focus({preventScroll:true});
+  }
+  returnFocus=null;
+ }
  function view(){
   const next=SkazStorage.snapshotKey();if(next!==key){key=next;const context=SkazStorage.contextKey();if(context!==owner){owner=context;scrollPositions={};castLevels={};}status='idle';book=[];items=[];quests=[];questError=false;++serial;}
   if(status==='idle'){status='loading';const token=serial;queueMicrotask(()=>{if(token===serial&&active())load();});}
   const stats=SkazStorage.stats(),sheet=SkazStorage.sheet?.();
-  return `<section class="play-screen" aria-label="Игровой экран"><div class="play-heading"><h1>${escape(state.profile.name)}</h1><span>${escape(sheet?.className||'Бард')} · ${sheet?.level||5} уровень</span><button id="play-edit"><span data-ui-icon="settings"></span> Править лист</button><button id="play-search">Поиск правил</button></div><div class="play-stats"><strong>КД ${stats.armorClass}</strong><span>Инициатива ${stats.initiative>=0?'+':''}${stats.initiative}</span><span>Скорость ${stats.speed} фт</span><div class="play-spell-stats">${SkazCharacterSheet.spellTiles(stats,sheet)}</div>${SkazCharacterSheet.abilityRow(stats,sheet)}</div><div id="play-content" aria-live="polite">${content()}</div></section>`;
+  return SkazPlayPresentation.screen({
+   heroName:state.profile.name,
+   className:sheet?.className||'Бард',
+   level:sheet?sheet.level:5,
+   session:SkazStorage.sessionTitle?.()||'',
+   hp:state.hp,
+   maxHp:state.maxHp,
+   tempHp:state.tempHp,
+   armorClass:stats.armorClass,
+   concentration:state.concentration,
+   conditions:typeof SkazConditions==='undefined'?[]:SkazConditions.names(state.conditions),
+   gold:state.gold,
+   initiative:stats.initiative,
+   speed:stats.speed,
+   checks:SkazCharacterSheet.abilityRow(stats,sheet),
+   magicStats:SkazCharacterSheet.spellTiles(stats,sheet),
+   content:content(),
+   historyAvailable:location.protocol!=='file:'&&SkazStorage.access?.()?.history!==false,
+  });
  }
  function castingGroup(spell){
   const time=String(spell?.castingTime||'').trim().toLowerCase();
@@ -19,11 +69,17 @@ const SkazPlay = (()=>{
   if(/^\d+\s+(?:минут\S*|час\S*|minute\S*|hour\S*)(?:$|[,.;\s])/.test(time))return 'long';
   return 'other';
  }
- function inSpellScope(spell,scope){const group=castingGroup(spell);return scope==='all'||(scope==='combat'?group!=='long':group==='long'||spell?.ritual===true||/\d+\s+(?:минут|minute|час|hour)/i.test(String(spell?.castingTime||'')));}
+ function inSpellScope(spell,scope){
+  const group=castingGroup(spell);
+  if(scope==='all')return true;
+  if(scope==='combat')return group!=='long';
+  if(scope==='exploration')return group==='long'||spell?.ritual===true||/\d+\s+(?:минут|minute|час|hour)/i.test(String(spell?.castingTime||''));
+  return group===scope;
+ }
  function spellSummary(spell){if(!spell)return 'Время и дистанция не указаны';const range=spell.range,parts=[];if(range)parts.push(range.type==='feet'?range.feet+' фт':({self:'На себя',touch:'Касание',sight:'Видимость',unlimited:'Без ограничения',special:'Особая дистанция'}[range.type]||''));if(spell.concentration)parts.push('Концентрация');if(spell.ritual)parts.push('Ритуал');if(!parts.length)parts.push(spell.castingTime||'Время не указано');return parts.filter(Boolean).join(' · ');}
 
  function availableLevels(spell){return [1,2,3].filter(n=>n>=spell.level&&state.slots?.[n]>0);}
- function selectedLevel(item){const levels=availableLevels(item.entry.spell);return levels.includes(castLevels[item.catalogId])?castLevels[item.catalogId]:levels[0];}
+ function selectedLevel(item){const levels=item.entry.spell?availableLevels(item.entry.spell):[];return levels.includes(castLevels[item.catalogId])?castLevels[item.catalogId]:levels[0];}
  function castControls(item){
   const spell=item.entry.spell,sheet=SkazStorage.sheet?.(),level=spell?.level,levels=spell?availableLevels(spell):[];
   const slots=sheet?sheet.counters.some(c=>c.current>0):levels.length>0;
@@ -31,7 +87,8 @@ const SkazPlay = (()=>{
   const label=!Number.isInteger(level)?'круг не указан':state.hp===0?'0 HP':level>0&&!slots?'нет ячеек '+level+'+':level===0?'Применить':'Сотворить';
   const warning=spell?.concentration&&state.concentration?'Сменит концентрацию «'+state.concentration+'»':'';
   const choices=!sheet&&level>0&&levels.length>1?'<div class="play-cast-levels" role="group" aria-label="Круг ячейки для '+escape(item.entry.name.ru)+'">'+levels.map(n=>'<button data-play-cast-level="'+escape(item.catalogId)+'" data-level="'+n+'" aria-pressed="'+(n===selectedLevel(item))+'" aria-label="'+n+' круг · осталось '+state.slots[n]+'">'+n+'</button>').join('')+'</div>':'';
-  return '<div class="play-casting-controls">'+choices+'<button class="play-cast" data-play-cast="'+escape(item.catalogId)+'" '+(enabled?'':'disabled')+' title="'+escape(warning||label)+'">'+escape(label)+(warning?'<small>сменит конц.</small>':'')+'</button></div>';
+  const cost=SkazPlayPresentation.castCost(enabled,level,!!sheet,selectedLevel(item));
+  return '<div class="play-casting-controls">'+choices+'<button class="play-cast" data-play-cast="'+escape(item.catalogId)+'" '+(enabled?'':'disabled')+' aria-label="'+escape(label+': '+item.entry.name.ru+(cost?' · '+cost:'')+(warning?' · '+warning:''))+'"><span>'+escape(label)+'</span>'+(cost?'<small class="play-cost">'+escape(cost)+'</small>':'')+(warning?'<small class="play-cast-warning">Сменит конц.</small>':'')+'</button></div>';
  }
  function openCast(item){
   const captured=SkazStorage.snapshotKey(),spell=item.entry.spell,sheet=SkazStorage.sheet?.(),manual=!!sheet;
@@ -49,27 +106,27 @@ const SkazPlay = (()=>{
   for(const button of document.querySelectorAll('[data-cast-circle]'))button.onclick=()=>{circle=Number(button.dataset.castCircle);for(const b of document.querySelectorAll('[data-cast-circle]'))b.setAttribute('aria-pressed',String(b===button));};
   document.getElementById('play-cast-form').onsubmit=event=>{event.preventDefault();if(submitted)return;try{if(!active()||captured!==SkazStorage.snapshotKey())throw Error('Игра изменилась. Открой сотворение заново');const cost=spell.level===0?null:manual?{kind:'counter',counterId,level:circle}:{kind:'slot',level:circle};SkazStorage.castSpell(item.catalogId,cost,captured);submitted=true;closeModal();}catch(error){toast(error.message);}};
  }
- function spellPanel(spells){
+ function spellPanel(spells,hasConsumables){
   if(!spells.length)return '<section class="panel play-empty"><button data-play-prepare="spells">'+(SkazStorage.spellLearningMode?.()==='known'?'Добавить известные заклинания':'Подготовить заклинания')+' →</button></section>';
   const visible=spells.filter(x=>inSpellScope(x.entry.spell,spellScope));
   const groups=[['action','Действие'],['bonus','Бонусное действие'],['reaction','Реакция'],['long','Длительное сотворение'],['other','Прочее']];
-  return '<section class="panel play-spells"><h2>'+(SkazStorage.spellLearningMode?.()==='known'?'Заклинания и заговоры':'Подготовленные и заговоры')+'</h2><div class="play-spell-scopes" role="group" aria-label="Заклинания по ситуации">'+[['combat','В бою'],['exploration','Вне боя'],['all','Все '+spells.length]].map(([id,label])=>'<button data-play-spell-scope="'+id+'" aria-pressed="'+(spellScope===id)+'">'+label+'</button>').join('')+'</div><div class="play-list" tabindex="0" role="region" aria-label="Заклинания персонажа" data-play-list="spells">'+(visible.length?groups.map(([id,label])=>{const rows=visible.filter(x=>castingGroup(x.entry.spell)===id);if(!rows.length)return '';return '<h3 class="play-action-heading">'+label+'</h3>'+rows.map(x=>{const spell=x.entry.spell,on=spell?.concentration&&state.concentration===x.entry.name.ru,facts=typeof SkazSpellFacts!=='undefined'?SkazSpellFacts.summary(x.entry,SkazStorage.sheet?.()?.level):null,summary=[spellSummary(spell),facts].filter(Boolean).join(' · ');return '<div class="play-spell-action"><button class="play-row play-spell-row'+(on?' is-concentrating':'')+'" data-play-read="spell" data-id="'+escape(x.catalogId)+'"><span class="play-art">'+(typeof SkazArt!=='undefined'?SkazArt.markup(x.entry):'')+'<span class="play-spell-level" aria-label="'+(spell?.level===0?'Заговор':spell?.level===undefined?'Круг не указан':spell.level+' круг')+'">'+(spell?.level===0?'∅':spell?.level??'?')+'</span></span><span class="play-spell-copy"><strong>'+escape(x.entry.name.ru)+'</strong><small title="'+escape(summary)+'">'+(on?'<span data-ui-icon="focus"></span> действует · ':'')+escape(summary)+'</small></span></button>'+castControls(x)+'</div>';}).join('');}).join(''):'<p class="small">В этой группе нет заклинаний.</p>')+'</div></section>';
+  return '<section class="panel play-spells"><h3 class="visually-hidden">'+(SkazStorage.spellLearningMode?.()==='known'?'Заклинания и заговоры':'Подготовленные и заговоры')+'</h3><div class="play-spell-scopes" role="group" aria-label="Заклинания по ситуации">'+spellScopes.map(([id,label])=>'<button data-play-spell-scope="'+id+'" aria-pressed="'+(spellScope===id)+'">'+label+(id==='all'?' '+spells.length:'')+'</button>').join('')+(hasConsumables?'<button id="play-show-consumables">Расходники ↓</button>':'')+'</div><div class="play-list" tabindex="0" role="region" aria-label="Заклинания персонажа" data-play-list="spells">'+(visible.length?groups.map(([id,label])=>{const rows=visible.filter(x=>castingGroup(x.entry.spell)===id);if(!rows.length)return '';return '<h3 class="play-action-heading">'+label+'</h3>'+rows.map(x=>{const spell=x.entry.spell,on=spell?.concentration&&state.concentration===x.entry.name.ru,facts=typeof SkazSpellFacts!=='undefined'?SkazSpellFacts.summary(x.entry,SkazStorage.sheet?.()?.level):null,summary=[spellSummary(spell),facts].filter(Boolean).join(' · ');return '<div class="play-spell-action"><button class="play-row play-spell-row'+(on?' is-concentrating':'')+'" data-play-read="spell" data-id="'+escape(x.catalogId)+'"><span class="play-art">'+(typeof SkazArt!=='undefined'?SkazArt.markup(x.entry):'')+'<span class="play-spell-level" aria-label="'+(spell?.level===0?'Заговор':spell?.level===undefined?'Круг не указан':spell.level+' круг')+'">'+(spell?.level===0?'∅':spell?.level??'?')+'</span></span><span class="play-spell-copy"><strong>'+escape(x.entry.name.ru)+'</strong><small title="'+escape(summary)+'">'+(on?'<span data-ui-icon="focus"></span> действует · ':'')+escape(summary)+'</small></span></button>'+castControls(x)+'</div>';}).join('');}).join(''):'<p class="small">В этой группе нет заклинаний.</p>')+'</div></section>';
  }
 
  function content(){
   if(status==='loading')return '<p role="status">Открываем подготовленные заклинания и инвентарь…</p>';
-  if(status==='error')return '<div class="panel"><h2>Игровые списки недоступны</h2><p>Проверь соединение или заверши отправку очереди. Хиты и доступные ресурсы остаются в нижнем пульте.</p><button id="play-retry">Повторить</button></div>';
+  if(status==='error')return '<div class="panel"><h2>Игровые списки недоступны</h2><p>Проверь соединение или заверши отправку очереди. Хиты и доступные ресурсы остаются в панели.</p><button id="play-retry">Повторить</button></div>';
   const spells=book.filter(x=>SkazStorage.spellLearningMode?.()==='known'||x.status==='prepared'||x.entry.spell?.level===0).sort((a,b)=>(a.entry.spell?.level??99)-(b.entry.spell?.level??99)||a.entry.name.ru.localeCompare(b.entry.name.ru,'ru'));
   const consumables=items.filter(x=>{const info=x.entry.item||x.entry.artifact;return info?.charges||['potion','scroll'].includes(info?.type);}).sort((a,b)=>a.entry.name.ru.localeCompare(b.entry.name.ru,'ru'));
   const recent=[...state.journal,...state.notes].sort((a,b)=>(b.at||0)-(a.at||0))[0];
-  return `${spellPanel(spells)}<div class="play-side">${consumables.length?'<section class="panel play-consumables"><h2>Расходники и заряды</h2><div class="play-list" tabindex="0" role="region" aria-label="Расходники и заряды" data-play-list="items">':''}${consumables.map(x=>{const info=x.entry.item||x.entry.artifact;return `<div class="play-item"><button class="play-row" data-play-read="item" data-id="${escape(x.catalogId)}">${typeof SkazArt!=='undefined'?SkazArt.markup(x.entry):''}<strong>${escape(x.entry.name.ru)}</strong><span>×${x.quantity}${info.charges?' · заряды '+Array.from({length:Math.min(x.quantity,3)},(_,i)=>x.chargeCounts?.[i]??'не указаны').join(' / ')+(x.quantity>3?' · ещё '+(x.quantity-3):'') :''}</span></button>${info.charges?`<button data-play-charges="${escape(x.catalogId)}">${Array.from({length:x.quantity},(_,i)=>x.chargeCounts?.[i]).some(n=>n==null)?'Указать заряды':'Заряды'}</button>`:`<button data-play-spend="${escape(x.catalogId)}" aria-label="Списать один: ${escape(x.entry.name.ru)}" ${SkazStorage.editable()?'':'disabled'}>−1</button>`}</div>`;}).join('')||'<section class="panel play-empty"><button data-play-prepare="inventory">Добавить расходники →</button></section>'}${consumables.length?'</div><p class="small">−1 списывает предмет. Эффект подтверждается отдельно.</p></section>':''}${questPanel()}${recent?`<section class="panel play-last"><h2>Последняя запись</h2><strong>${escape(recent.title)}</strong><p>${escape(recent.text)}</p><button id="play-note">＋ Личная заметка</button></section>`:'<section class="panel play-empty"><button id="play-note">＋ Первая личная заметка</button></section>'}</div>`;
+  return `${spellPanel(spells,consumables.length>0)}<div class="play-side">${consumables.length?'<section class="panel play-consumables"><h2 id="play-consumables-title" tabindex="-1">Расходники и заряды</h2><div class="play-list" tabindex="0" role="region" aria-label="Расходники и заряды" data-play-list="items">':''}${consumables.map(x=>{const info=x.entry.item||x.entry.artifact;return `<div class="play-item"><button class="play-row" data-play-read="item" data-id="${escape(x.catalogId)}">${typeof SkazArt!=='undefined'?SkazArt.markup(x.entry):''}<strong>${escape(x.entry.name.ru)}</strong><span>×${x.quantity}${info.charges?' · заряды '+Array.from({length:Math.min(x.quantity,3)},(_,i)=>x.chargeCounts?.[i]??'не указаны').join(' / ')+(x.quantity>3?' · ещё '+(x.quantity-3):'') :''}</span></button>${info.charges?`<button data-play-charges="${escape(x.catalogId)}">${Array.from({length:x.quantity},(_,i)=>x.chargeCounts?.[i]).some(n=>n==null)?'Указать заряды':'Заряды'}</button>`:`<button data-play-spend="${escape(x.catalogId)}" aria-label="Списать один: ${escape(x.entry.name.ru)}" ${SkazStorage.editable()?'':'disabled'}>Списать <small class="play-cost">1 предмет</small></button>`}</div>`;}).join('')||'<section class="panel play-empty"><button data-play-prepare="inventory">Добавить расходники →</button></section>'}${consumables.length?'</div><p class="small">−1 списывает предмет. Эффект подтверждается отдельно.</p></section>':''}${questPanel()}${recent?`<section class="panel play-last"><h2>Последняя запись</h2><strong>${escape(recent.title)}</strong><p>${escape(recent.text)}</p><button id="play-note">＋ Личная заметка</button></section>`:'<section class="panel play-empty"><button id="play-note">＋ Первая личная заметка</button></section>'}</div>`;
  }
  function questPanel(){
   const activeQuests=quests.filter(q=>q.status==='active');
   if(!activeQuests.length)return '<section class="panel play-empty"><button data-play-prepare="quests">'+(questError?'Задания недоступны · открыть →':'Выбрать задание →')+'</button></section>';
   return '<section class="panel play-quests"><h2>Текущие задания</h2><div class="play-list" tabindex="0" role="region" aria-label="Текущие задания" data-play-list="quests">'+activeQuests.map(q=>'<button class="play-row" data-play-prepare="quests"><strong>'+escape(q.title)+'</strong><span>'+escape(q.steps.find(s=>!s.done)?.title||'Все этапы отмечены')+'</span></button>').join('')+'</div></section>';
  }
- function refresh(){if(!active()||key!==SkazStorage.snapshotKey())return;const root=document.getElementById('play-content');if(root){root.innerHTML=content();document.querySelectorAll('[data-play-list]').forEach(list=>{list.scrollTop=scrollPositions[list.dataset.playList]||0;});}}
+ function refresh(){if(!active()||key!==SkazStorage.snapshotKey())return;const root=document.getElementById('play-content');if(root){captureFocus();root.innerHTML=content();restoreFocus();document.querySelectorAll('[data-play-list]').forEach(list=>{list.scrollTop=scrollPositions[list.dataset.playList]||0;});}}
  async function load(){const token=++serial,captured=key;status='loading';refresh();try{const [spells,inventory,questResult]=await Promise.all([SkazStorage.spellbookData(),SkazStorage.inventoryData(),SkazStorage.questsData().catch(()=>null)]);if(token!==serial||captured!==SkazStorage.snapshotKey()||!active())return;book=spells.entries;items=inventory.entries;quests=questResult?.quests||[];questError=questResult===null;status='ready';}catch{if(token!==serial||captured!==SkazStorage.snapshotKey()||!active())return;status='error';}refresh();}
  function search(initial=''){
   const captured=SkazStorage.snapshotKey(),openedPage=page,instance=++searchSerial;let request=0,query=initial,results=[];
@@ -81,12 +138,12 @@ const SkazPlay = (()=>{
  }
  document.addEventListener('submit',event=>{if(event.target.id==='header-search'){event.preventDefault();search(document.getElementById('header-search-query').value.trim());}});
  document.addEventListener('scroll',event=>{const list=event.target;if(active()&&owner===SkazStorage.contextKey()&&['spells','items','quests'].includes(list.dataset?.playList))scrollPositions[list.dataset.playList]=list.scrollTop;},true);
- document.addEventListener('click',async event=>{const b=event.target.closest('button');if(!b)return;if(b.dataset.playMode){closeModal();go(b.dataset.playMode==='play'?'play':'hero');return;}if(!active())return;if(b.id==='play-edit'){go('hero');return;}if(b.id==='play-search'){search();return;}if(b.id==='play-checks'){SkazCharacterSheet.checks();return;}if(key!==SkazStorage.snapshotKey())return;if(['combat','exploration','all'].includes(b.dataset.playSpellScope)){spellScope=b.dataset.playSpellScope;scrollPositions.spells=0;refresh();document.querySelector?.('[data-play-spell-scope="'+spellScope+'"]')?.focus();return;}if(b.id==='play-retry'){void load();return;}if(['spells','inventory','quests'].includes(b.dataset.playPrepare)){go(b.dataset.playPrepare);return;}
+ document.addEventListener('click',async event=>{const b=event.target.closest('button');if(!b)return;if(b.dataset.playMode){closeModal();go(b.dataset.playMode==='play'?'play':'hero');return;}if(!active())return;if(b.id==='play-edit'){go('hero');return;}if(b.id==='play-search'){search();return;}if(b.id==='play-checks'){SkazCharacterSheet.checks();return;}if(key!==SkazStorage.snapshotKey())return;if(spellScopes.some(([id])=>id===b.dataset.playSpellScope)){spellScope=b.dataset.playSpellScope;scrollPositions.spells=0;refresh();document.querySelector?.('[data-play-spell-scope="'+spellScope+'"]')?.focus();return;}if(b.id==='play-retry'){void load();return;}if(b.id==='play-show-consumables'){const target=document.getElementById('play-consumables-title');target?.focus();return;}if(['spells','inventory','quests'].includes(b.dataset.playPrepare)){go(b.dataset.playPrepare);return;}
   if(b.dataset.playCastLevel){const item=book.find(x=>x.catalogId===b.dataset.playCastLevel),n=Number(b.dataset.level);if(item&&!SkazStorage.sheet?.()&&availableLevels(item.entry.spell).includes(n)){castLevels[item.catalogId]=n;refresh();Array.from(document.querySelectorAll('[data-play-cast-level]')).find(x=>x.dataset.playCastLevel===item.catalogId&&Number(x.dataset.level)===n)?.focus();}return;}
   if(b.dataset.playCast){const item=book.find(x=>x.catalogId===b.dataset.playCast);if(item&&SkazStorage.canResource?.())openCast(item);return;}
   if(b.dataset.playRead){const item=(b.dataset.playRead==='spell'?book:items).find(x=>x.catalogId===b.dataset.id),captured=key;if(item)SkazCatalog.readSnapshot(item.entry,closeModal,()=>active()&&captured===SkazStorage.snapshotKey(),'К игре');}
   if(b.dataset.playCharges){const item=items.find(x=>x.catalogId===b.dataset.playCharges);if(item)SkazStorage.editCharges(item);return;}
   if(b.dataset.playSpend){const item=items.find(x=>x.catalogId===b.dataset.playSpend);if(!item)return;try{await SkazStorage.spendInventoryOne(item,key);toast('Списан один предмет. Эффект не применён автоматически.');}catch(error){toast(error.message);}}
  });
- return {view,mode,remember,castingGroup,inSpellScope,spellSummary};
+ return {view,mode,remember,castingGroup,inSpellScope,spellSummary,captureFocus,restoreFocus};
 })();
