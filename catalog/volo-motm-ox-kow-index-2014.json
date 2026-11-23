@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "groups": [
+    {
+      "reviewId": "name-review:676b975337d9a84b2437",
+      "name": "Ox",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:644",
+          "observedName": "Ox",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Ox (Cow)",
+            "url": "https://www.dndbeyond.com/sources/vgtm/appendix-a-assorted-beasts#Cattle",
+            "relation": "named-index-variant"
+          },
+          "publisherFilterValue": "15",
+          "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-search=Ox&filter-source=15",
+          "htmlSha256": "4f6cd665a6dcc5b5f98a55527a50c0f0bce86325e85fdede64c79f4f90351033",
+          "digitalRow": {
+            "displayedSource": "Volo's Guide to Monsters",
+            "digitalName": "Ox",
+            "cardUrl": "https://www.dndbeyond.com/monsters/24001-ox",
+            "challengeRating": "1/4",
+            "type": "Beast",
+            "size": "Large",
+            "alignment": "Unaligned"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6490",
+          "observedName": "Ox",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": true,
+          "additionalLocator": null,
+          "publisherFilterValue": "85",
+          "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-search=Ox&filter-source=85",
+          "htmlSha256": "ea4e0ee472f747341c143339967b9056a13606a260cf7cb0c034f04d834c5526",
+          "digitalRow": {
+            "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+            "digitalName": "Ox",
+            "cardUrl": "https://www.dndbeyond.com/monsters/2560899-ox",
+            "challengeRating": "1/4",
+            "type": "Beast (Cattle)",
+            "size": "Large",
+            "alignment": "Unaligned"
+          }
+        }
+      ],
+      "digitalDifferences": {
+        "type": {
+          "vgtm": "Beast",
+          "motm": "Beast (Cattle)"
+        }
+      },
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "fullStatBlocksCompared": false,
+      "exactErrataVersionVerified": false,
+      "translationReusePermission": "not-established"
+    },
+    {
+      "reviewId": "name-review:39dddadda85fdb96af4b",
+      "name": "Stench Kow",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:645",
+          "observedName": "Stench kow",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Stench Kow (Cow)",
+            "url": "https://www.dndbeyond.com/sources/vgtm/appendix-a-assorted-beasts#Cattle",
+            "relation": "named-index-variant"
+          },
+          "publisherFilterValue": "15",
+          "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-search=Stench+Kow&filter-source=15",
+          "htmlSha256": "2caffa94be7a4e822443b2c76f0418b8c319a108681b5503aa21a0fd7d8d935b",
+          "digitalRow": {
+            "displayedSource": "Volo's Guide to Monsters",
+            "digitalName": "Stench Kow",
+            "cardUrl": "https://www.dndbeyond.com/monsters/24007-stench-kow",
+            "challengeRating": "1/4",
+            "type": "Beast",
+            "size": "Large",
+            "alignment": "Unaligned"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6491",
+          "observedName": "Stench kow",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": true,
+          "additionalLocator": null,
+          "publisherFilterValue": "85",
+          "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-search=Stench+Kow&filter-source=85",
+          "htmlSha256": "81efed01d0b354e8333c04027cf95ae54d2bbc6b52fcd0c4c8984aa2484146f8",
+          "digitalRow": {
+            "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+            "digitalName": "Stench Kow",
+            "cardUrl": "https://www.dndbeyond.com/monsters/2560929-stench-kow",
+            "challengeRating": "1/2",
+            "type": "Fiend (Cattle)",
+            "size": "Large",
+            "alignment": "Unaligned"
+          }
+        }
+      ],
+      "digitalDifferences": {
+        "type": {
+          "vgtm": "Beast",
+          "motm": "Fiend (Cattle)"
+        },
+        "challengeRating": {
+          "vgtm": "1/4",
+          "motm": "1/2"
+        }
+      },
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "fullStatBlocksCompared": false,
+      "exactErrataVersionVerified": false,
+      "translationReusePermission": "not-established"
+    }
+  ],
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "inputSha256": {
+    "catalog/volo-motm-residual-locators-2014.json": "287d2084641c274cd1b9709db9ce01e4ec38241b110488f7aa6f9b33ebf961b8"
+  }
+}

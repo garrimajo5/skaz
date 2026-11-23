@@ -50,6 +50,23 @@ python scripts/review-volo-motm-warrior-alpha-index-2014.py --directory <пап�
 python -m unittest discover -s tests -p test_volo_motm_warrior_alpha_index.py
 ```
 
+## Цифровые карточки Ox и Stench Kow
+
+23.11.2026 проверены четыре строки именованных фильтров Volo и MotM. Сопоставлены отдельные карточки и прежние наблюдения. Заголовок `Cattle` в книге Volo остаётся указателем на контекст вариантов. [Машиночитаемая сверка](../catalog/volo-motm-ox-kow-index-2014.json).
+
+| Запись | Volo | MotM | Различие в цифровом указателе |
+| --- | --- | --- | --- |
+| Ox | `644/111`, [24001](https://www.dndbeyond.com/monsters/24001-ox) | `6490/158`, [2560899](https://www.dndbeyond.com/monsters/2560899-ox) | Beast → Beast (Cattle). CR 1/4 в обеих строках. |
+| Stench Kow | `645/111`, [24007](https://www.dndbeyond.com/monsters/24007-stench-kow) | `6491/158`, [2560929](https://www.dndbeyond.com/monsters/2560929-stench-kow) | Beast → Fiend (Cattle), CR 1/4 → 1/2. |
+
+Названия, URL, источник и SHA исходного HTML зафиксированы отдельно у каждой записи. Цифровое поле `Cattle` оставлено как издательская метка. Точная печатная версия, полный текст, алиасы, разрешение на перевод и применение в расчётах остаются открытыми.
+
+Для повторения используй четыре исходных файла `ox-vgtm.html`, `ox-motm.html`, `stench-kow-vgtm.html`, `stench-kow-motm.html`. Пути запросов есть в отчёте.
+
+```sh
+python scripts/review-volo-motm-warrior-alpha-index-2014.py --batch ox-kow --directory <папка-HTML> --output <отчёт-JSON>
+```
+
 ## Артефакты и проверки
 
 - `catalog/monster-version-publication-evidence-2014.json`:114имён,2публикации,210заголовков/ссылок и18missing-отметок по источникам.

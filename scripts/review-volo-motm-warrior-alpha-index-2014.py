@@ -1,4 +1,4 @@
-"""Record two publisher-index comparisons while keeping the source proposals open."""
+"""Record publisher-index comparisons while keeping the source proposals open."""
 import argparse
 import hashlib
 import json
@@ -17,18 +17,24 @@ NAMES = {
     "Firenewt Warrior": ("dndsu:bestiary:594", "dndsu:bestiary:6749"),
     "Shadow Mastiff Alpha": ("dndsu:bestiary:5678", "dndsu:bestiary:6936"),
 }
+OX_KOW = {
+    "Ox": ("dndsu:bestiary:644", "dndsu:bestiary:6490"),
+    "Stench Kow": ("dndsu:bestiary:645", "dndsu:bestiary:6491"),
+}
+BATCHES = {"warrior-alpha": NAMES, "ox-kow": OX_KOW}
 FIELDS = ("type", "challengeRating", "alignment")
 
 
-def build(base, captures):
+def build(base, captures, *, batch="warrior-alpha"):
+    names = BATCHES[batch]
     if base["accepted"] is not False or base["complete"] is not False or base["approvedDenominator"] is not None:
         raise ValueError("The existing version review must remain open")
-    if set(captures) != {(name, book) for name in NAMES for book in BOOKS}:
+    if set(captures) != {(name, book) for name in names for book in BOOKS}:
         raise ValueError("Both books are required for each of the two names")
 
     groups = []
     cards = set()
-    for name, ids in NAMES.items():
+    for name, ids in names.items():
         previous = PARSER["only"]((g for g in base["groups"] if g["name"] == name.lower()), name)
         if previous["aliasAccepted"] is not False or previous["canonicalId"] is not None:
             raise ValueError("A newly resolved group needs separate review")
@@ -87,14 +93,15 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--directory", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--batch", choices=BATCHES, default="warrior-alpha")
     args = parser.parse_args()
     paths = {
         (name, book): args.directory / f"{name.lower().replace(' ', '-')}-{book}.html"
-        for name in NAMES for book in BOOKS
+        for name in BATCHES[args.batch] for book in BOOKS
     }
     if args.output.suffix != ".json" or args.output.resolve() in {path.resolve() for path in paths.values()}:
         parser.error("Write an independent JSON report")
     baseline = (ROOT / BASE).read_bytes().replace(b"\r\n", b"\n")
-    report = build(json.loads(baseline), {key: path.read_bytes() for key, path in paths.items()})
+    report = build(json.loads(baseline), {key: path.read_bytes() for key, path in paths.items()}, batch=args.batch)
     report["inputSha256"] = {BASE: hashlib.sha256(baseline).hexdigest()}
     args.output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
