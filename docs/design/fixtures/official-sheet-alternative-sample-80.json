@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "status": "local-fictional-layout-sample-not-ocr-acceptance",
+  "synthetic": true,
+  "accepted": false,
+  "complete": false,
+  "source": {
+    "url": "https://media.wizards.com/2014/downloads/dnd/5E_CHARACTERSHEETSV3.ZIP",
+    "archiveSha256": "2d46a1f6cdaea2a09901c72de2f94f2920ed8d1102614212b87f65b303e57827",
+    "archiveMember": "Character Sheet - Alternative - Form Fillable.pdf",
+    "sha256": "a5c24cf034d93cd7c0dba1b8f740f648acac3ceb58e4103ff5aaaeac347ab561",
+    "bytes": 131050,
+    "pages": 1
+  },
+  "generatorVersions": {
+    "pypdf": "6.21.4",
+    "renderer": "pdftoppm version 26.07.0"
+  },
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
+  "inputSha256": {
+    "scripts/audit-official-sheet-layout-80.py": "ca7ef68e91ed4cdbc8fe23cb9f62a750f43e2270d0364893bf44d3b20091b947",
+    "scripts/build-official-sheet-sample-80.py": "b42f3cec1c69f5f26572ab9d6e1b4e122fb5bfb22e0871669c5eec7358ae5a19"
+  },
+  "artifact": {
+    "file": "official-alternative-fictional.pdf",
+    "sha256": "a7e221837301fc467559c79f0628e78fb6cea357d62f582aa71cb7ede9502aa3",
+    "bytes": 154984,
+    "pages": 1,
+    "canonicalNamedFields": 100,
+    "widgets": 105,
+    "interactive": true,
+    "redistributedInGit": false
+  },
+  "rasterPages": [
+    {
+      "file": "page-1.png",
+      "page": 1,
+      "width": 1700,
+      "height": 2200,
+      "dpi": 200,
+      "bytes": 289357,
+      "sha256": "93b31400640ae53e330c03cebb4d696a702e6815bab10bbfeb08cd721e57010d",
+      "derivedFromPdfSha256": "a7e221837301fc467559c79f0628e78fb6cea357d62f582aa71cb7ede9502aa3"
+    }
+  ],
+  "regions": [
+    {
+      "fieldName": "HPMax",
+      "page": 1,
+      "pdfRect": [
+        300.535,
+        583.471,
+        380.488,
+        592.962
+      ],
+      "blank": true,
+      "normalizedBox": [
+        834,
+        552,
+        223,
+        28
+      ]
+    },
+    {
+      "fieldName": "HPCurrent",
+      "page": 1,
+      "pdfRect": [
+        230.957,
+        544.591,
+        379.997,
+        576.795
+      ],
+      "blank": false,
+      "normalizedBox": [
+        641,
+        597,
+        415,
+        91
+      ]
+    },
+    {
+      "fieldName": "DEXmod ",
+      "page": 1,
+      "pdfRect": [
+        52.0367,
+        510.696,
+        73.2767,
+        523.503
+      ],
+      "blank": false,
+      "normalizedBox": [
+        144,
+        745,
+        60,
+        37
+      ]
+    },
+    {
+      "fieldName": "CharacterName",
+      "page": 1,
+      "pdfRect": [
+        47.3568,
+        709.406,
+        220.538,
+        730.286
+      ],
+      "blank": false,
+      "normalizedBox": [
+        131,
+        171,
+        482,
+        59
+      ]
+    },
+    {
+      "fieldName": "DEX",
+      "page": 1,
+      "pdfRect": [
+        42.375,
+        480.746,
+        83.3567,
+        506.279
+      ],
+      "blank": false,
+      "normalizedBox": [
+        117,
+        793,
+        115,
+        72
+      ]
+    },
+    {
+      "fieldName": "HPTemp",
+      "page": 1,
+      "pdfRect": [
+        230.957,
+        491.442,
+        379.997,
+        521.682
+      ],
+      "blank": false,
+      "normalizedBox": [
+        641,
+        750,
+        415,
+        85
+      ]
+    },
+    {
+      "fieldName": "ClassLevel",
+      "page": 1,
+      "pdfRect": [
+        269.491,
+        727.789,
+        375.331,
+        743.446
+      ],
+      "blank": false,
+      "normalizedBox": [
+        748,
+        134,
+        295,
+        45
+      ]
+    }
+  ],
+  "inputVariants": [
+    {
+      "kind": "fillable-pdf",
+      "files": [
+        "official-alternative-fictional.pdf"
+      ],
+      "pages": 1
+    },
+    {
+      "kind": "png-pages",
+      "files": [
+        "page-1.png"
+      ],
+      "pages": 1
+    }
+  ],
+  "expectedPdfValues": {
+    "CharacterName": "Lyra QA",
+    "ClassLevel": "Wizard 3 / Warlock 2",
+    "DEX": "14",
+    "DEXmod ": "+2",
+    "HPMax": "",
+    "HPCurrent": "0",
+    "HPTemp": "0"
+  },
+  "expectedInterpretation": {
+    "selectionStatus": "unreviewed",
+    "classes": [
+      {
+        "name": "Wizard",
+        "level": 3
+      },
+      {
+        "name": "Warlock",
+        "level": 2
+      }
+    ],
+    "printedTotalLevel": null,
+    "derivedTotalLevelCandidate": 5,
+    "hp": {
+      "max": null,
+      "current": 0,
+      "temp": 0
+    },
+    "dexterity": {
+      "score": 14,
+      "printedModifier": 2
+    },
+    "spellcastingPageIncluded": false
+  },
+  "limits": [
+    "Only this pinned public blank template; no arbitrary user sheet is read.",
+    "Generated PDF and raster copies remain local-only; distribution rights are not established.",
+    "Canonical/widget values and appearances are checked; visual render is a separate review.",
+    "Derived candidates are not printed observations or automatic profile changes.",
+    "No OCR engine, accuracy measurement, API persistence or Ready/owner acceptance."
+  ]
+}
