@@ -46,3 +46,13 @@ test('v2 package retains a v13 ledger and rejects cross-version downgrades',t=>{
   const changed=structuredClone(bundle);mutate(changed);assert.throws(()=>validateGameArtPackage(changed),{status:422});
  }
 });
+
+
+test('v4 wrapper keeps actual personal PNG bytes and v15 manual exception together',t=>{
+ const {store,art,lookup}=fixture(t),current=store.read();
+ store.saveCharacterSheet({mutationId:'synthetic-v15-sheet',expectedRevision:current.revision,characterId:current.context.characterId,sheet:{ruleset:'5e-2014',ancestry:'',className:'Synthetic',subclass:'',level:21,counters:[]}});
+ const game=store.exportActive(15),wrapped=gameArtPackage(game,art,{lookup}),checked=validateGameArtPackage(wrapped);
+ assert.equal(wrapped.schemaVersion,4);assert.equal(checked.game.characterSheet.level,21);
+ assert.deepEqual(wrapped.personalArt,art);assert.equal(checked.art.length,1);
+ assert.throws(()=>validateGameArtPackage({...wrapped,schemaVersion:3}),{status:422});
+});

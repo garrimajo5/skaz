@@ -14,7 +14,7 @@ import {personalArtHttp} from './personal-art-http.mjs';
 import {gameArtPackageMaxBytes} from './game-art-package.mjs';
 
 const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
-const files = new Set(['conditions.js', 'icons.js', 'class-advancement-transport.js','class-advancement.js','class-advancement-shell.js','art-cache.js', 'art.js', 'fonts.css',"fonts/inter-400-800-cyrillic.woff2","fonts/inter-400-800-latin.woff2","fonts/pt-serif-400-cyrillic.woff2","fonts/pt-serif-400-latin.woff2","fonts/pt-serif-700-cyrillic.woff2","fonts/pt-serif-700-latin.woff2",'health.js', 'casting.js', 'spell-facts.js', 'resource-queue.js', 'index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'personal-art-session.js', 'private-exit.js', 'game-art-transfer.js', 'game-art-transfer-panel.js', 'game-art-transfer-shell.js', 'personal-art-command.js', 'personal-art-transport.js', 'personal-art-preview.js', 'personal-art-history.js', 'personal-art-editor.js', 'personal-art-cards.js', 'personal-art-view.js', 'account.js', 'members.js', 'character-sheet.js', 'style.css', 'quick.css', 'play-layout.css', 'app.js', 'play-presentation.js', 'play.js', 'ui.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
+const files = new Set(['profile-rules.js', 'conditions.js', 'icons.js', 'class-advancement-transport.js','class-advancement.js','class-advancement-shell.js','art-cache.js', 'art.js', 'fonts.css',"fonts/inter-400-800-cyrillic.woff2","fonts/inter-400-800-latin.woff2","fonts/pt-serif-400-cyrillic.woff2","fonts/pt-serif-400-latin.woff2","fonts/pt-serif-700-cyrillic.woff2","fonts/pt-serif-700-latin.woff2",'health.js', 'casting.js', 'spell-facts.js', 'resource-queue.js', 'index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'personal-art-session.js', 'private-exit.js', 'game-art-transfer.js', 'game-art-transfer-panel.js', 'game-art-transfer-shell.js', 'personal-art-command.js', 'personal-art-transport.js', 'personal-art-preview.js', 'personal-art-history.js', 'personal-art-editor.js', 'personal-art-cards.js', 'personal-art-view.js', 'account.js', 'members.js', 'character-sheet.js', 'style.css', 'quick.css', 'play-layout.css', 'app.js', 'play-presentation.js', 'play.js', 'ui.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
 const contentTypes = { '.woff2': 'font/woff2', '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
 const MAX_BODY = 512 * 1024;
 function json(response, status, value, extra = {}) {
@@ -34,7 +34,8 @@ async function body(request, limit = MAX_BODY) {
   try { return JSON.parse(Buffer.concat(chunks).toString('utf8')); }
   catch { throw new AppError(400, 'Не удалось прочитать JSON'); }
 }
-export function createApp(store, { publicOrigin, authenticate, individualWrites = false, sessions, artLibrary, personalArt, classAdvancement=false } = {}) {
+export function createApp(store, { publicOrigin, authenticate, individualWrites = false, sessions, artLibrary, personalArt, classAdvancement=false, profileEditors=true } = {}) {
+  if(typeof profileEditors!=='boolean')throw new Error('profileEditors must be boolean');
   if(typeof classAdvancement!=='boolean'||classAdvancement&&!Object.hasOwn(store.read(),'advancement'))throw new Error('Повышение требует совместимого явно включённого хранилища');
   // A trusted fixture can inject a library; requests cannot select a manifest,
   // directory, or pilot status. Production always uses the accepted registry.
@@ -172,6 +173,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           const sessionDetail = pathname.match(/^\/api\/sessions\/([a-zA-Z0-9-]{1,80})$/);
           if (sessionDetail) return json(response, 200, view.session(sessionDetail[1]));
           if (pathname === '/api/history') {const params=new URL(request.url, `http://${host}`).searchParams;const scope=params.get('scope')||'all';if(!['all','session'].includes(scope)||params.getAll('scope').length>1)throw new AppError(400,'Неверный фильтр истории');return json(response,200,{changes:view.history(scope)});}
+          if (pathname === '/api/export/active-v15') return json(response,200,view.exportActive(15),{'Content-Disposition':'attachment; filename="skaz-active-v15.json"'});
           if (pathname === '/api/export/active-v14') return json(response,200,view.exportActive(14),{'Content-Disposition':'attachment; filename="skaz-active-v14.json"'});
           if (pathname === '/api/export/active-v12') return json(response,200,view.exportActive(12),{'Content-Disposition':'attachment; filename="skaz-active-v12.json"'});
           if (pathname === '/api/export/active-v11') return json(response,200,view.exportActive(11),{'Content-Disposition':'attachment; filename="skaz-active-v11.json"'});
@@ -205,6 +207,8 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
         else {store.access.user(identity);if(!store.access.hasPlayableCharacter(identity))filename='waiting.html';if(!/^[a-zA-Z0-9-]{8,80}$/.test(identity))throw new AppError(401,'Нужен индивидуальный вход');}
       }
       let content = await readFile(path.join(clientRoot, filename));
+      if(!profileEditors&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-profile-editors="disabled" ');
+      if(store.profileWriteFormat===14&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-profile-write-format="14" ');
       if(classAdvancement&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-class-advancement="enabled" ');
       if(identity&&personalArt&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-personal-art="enabled" ');
       if(identity)content=content.toString('utf8').replace('<body ',`<body data-user-id="${identity}" `);

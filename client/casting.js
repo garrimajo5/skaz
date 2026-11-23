@@ -23,7 +23,7 @@ const SkazCasting = (() => {
   if(cost?.kind==='counter'&&exact(cost,['kind','counterId','level'])&&Number.isInteger(cost.level)&&cost.level>=1&&cost.level<=9){
    // The level is an explicit manual declaration, never guessed from a name.
    const counter=snapshot.characterSheet?.counters.find(item=>item.id===cost.counterId);
-   if(!counter||!Number.isSafeInteger(counter.current)||!Number.isSafeInteger(counter.max)||counter.current<0||counter.current>counter.max||counter.max<0||counter.max>10000)reject('Счётчик ячеек требует сверки');
+   if(!counter||!Number.isSafeInteger(counter.current)||!Number.isSafeInteger(counter.max)||counter.current<0||counter.current>9999||counter.max<0||counter.max>10000)reject('Счётчик ячеек требует сверки');
    return {value:counter.current,maximum:counter.max};
   }
   reject('Выбери ячейку и её круг');
@@ -43,7 +43,7 @@ const SkazCasting = (() => {
  }
  function writeCost(snapshot,cost,value){
   if(cost?.kind==='slot')snapshot.state.slots[cost.level]=value;
-  if(cost?.kind==='counter')snapshot.characterSheet.counters.find(item=>item.id===cost.counterId).current=value;
+  if(cost?.kind==='counter'){snapshot.characterSheet.counters.find(item=>item.id===cost.counterId).current=value;if(snapshot.characterSheet.ruleAcknowledgements)snapshot.characterSheet.ruleAcknowledgements=snapshot.characterSheet.ruleAcknowledgements.filter(a=>a.key!=='counter:'+cost.counterId);}
  }
  function project(snapshot,command){
   if(!exact(command,['kind','context','spell','cost','before','maximum','focusBefore'])||command.kind!=='cast')reject('Неверная составная команда');
@@ -60,7 +60,7 @@ const SkazCasting = (() => {
  function restore(snapshot,receipt){
   if(!exact(receipt,['context','cost','before','after','maximum','focusBefore','focusAfter','changesFocus'])||!equal(context(snapshot),receipt.context))reject('Отмена относится к другой игре');
   const b=balance(snapshot,receipt.cost);
-  if(b.value!==receipt.after||b.maximum!==receipt.maximum||!Number.isSafeInteger(receipt.before)||receipt.before<0||receipt.before>b.maximum||receipt.after!==(receipt.cost===null?0:receipt.before-1))reject('Остаток после сотворения изменился');
+  if(b.value!==receipt.after||b.maximum!==receipt.maximum||!Number.isSafeInteger(receipt.before)||receipt.before<0||receipt.before>(receipt.cost?.kind==='counter'?9999:b.maximum)||receipt.after!==(receipt.cost===null?0:receipt.before-1))reject('Остаток после сотворения изменился');
   if(receipt.changesFocus&&!equal(focus(snapshot),receipt.focusAfter))reject('После сотворения менялась концентрация');
   const next=copy(snapshot);writeCost(next,receipt.cost,receipt.before);
   if(receipt.changesFocus){next.state.concentration=receipt.focusBefore.concentration;next.state.concentrationChecks=copy(receipt.focusBefore.checks);}

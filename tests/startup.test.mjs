@@ -69,3 +69,26 @@ test('personal art opt-in preserves read-only preflight and does not initialize 
  assert.equal(config.personalArt,true);assert.deepEqual(readFileSync(database),before);
  const db=new DatabaseSync(database,{readOnly:true});assert.equal(db.prepare("SELECT count(*) AS n FROM sqlite_master WHERE name='personal_art_schema'").get().n,0);db.close();
 });
+
+test('profile editor recovery is explicit and validates before opening a database',()=>{
+ assert.equal(startupOptions({database:fixture()}).profileEditors,undefined);
+ assert.equal(startupOptions({database:fixture(),profileEditors:'0'}).profileEditors,false);
+ assert.equal(startupOptions({database:fixture(),profileEditors:'1'}).profileEditors,undefined);
+ for(const value of ['',true,'false','2'])assert.throws(()=>startupOptions({database:fixture(),profileEditors:value}),/SKAZ_PROFILE_EDITORS/);
+ const database=fixture(),entry=fileURLToPath(new URL('../server/index.mjs',import.meta.url));
+ const result=spawnSync(process.execPath,[entry],{env:{...process.env,SKAZ_DB:database,SKAZ_AUTH_MODE:'shared',SKAZ_PROFILE_EDITORS:'invalid'},encoding:'utf8',timeout:5000});
+ assert.equal(result.status,1);assert.equal(existsSync(database),false);
+});
+
+test('v14 write compatibility is explicit and requires the recovery HTML flag at startup',()=>{
+ const options={database:fixture()};
+ assert.equal(startupOptions(options).profileWriteFormat,undefined);
+ assert.equal(startupOptions({...options,profileEditors:'0',profileWriteFormat:'15'}).profileWriteFormat,undefined);
+ assert.equal(startupOptions({...options,profileEditors:'0',profileWriteFormat:'14'}).profileWriteFormat,14);
+ assert.throws(()=>startupOptions({...options,profileWriteFormat:'14'}),/требует SKAZ_PROFILE_EDITORS=0/);
+ for(const value of ['',14,'13','16'])assert.throws(()=>startupOptions({...options,profileWriteFormat:value}),/SKAZ_PROFILE_WRITE_FORMAT/);
+ const entry=fileURLToPath(new URL('../server/index.mjs',import.meta.url));
+ const result=spawnSync(process.execPath,[entry],{env:{...process.env,SKAZ_DB:options.database,SKAZ_AUTH_MODE:'shared',SKAZ_PROFILE_EDITORS:'1',SKAZ_PROFILE_WRITE_FORMAT:'14'},encoding:'utf8',timeout:5000});
+ assert.equal(result.status,1);
+ assert.equal(existsSync(options.database),false);
+});
