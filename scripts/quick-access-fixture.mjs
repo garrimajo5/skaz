@@ -40,9 +40,12 @@ export function createQuickAccessFixture({loseCastResponse = false} = {}) {
       if (!pending || request.method !== 'POST' || request.url !== '/api/resources/change') return;
       const finish = response.end;
       response.end = function (chunk, ...args) {
-        if (this.statusCode === 200 && pending) {
-          pending = false;
-          return finish.call(this, '{', ...args);
+        if (this.statusCode === 200 && pending && typeof chunk === 'string') {
+          const resource = JSON.parse(chunk).resourceReceipt?.resource;
+          if (resource?.kind === 'cast' && resource.operation === 'cast') {
+            pending = false;
+            return finish.call(this, '{', ...args);
+          }
         }
         return finish.call(this, chunk, ...args);
       };
