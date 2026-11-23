@@ -4,10 +4,10 @@
   "status": "original-visual-design-samples-not-ocr-benchmark",
   "ruleset": "5e-2014",
   "generator": "scripts/build-sheet-visual-fixtures.py",
-  "generatorSha256": "643b963371c31d293ae3fded4aa6a315e1efe946db7c9bc2b662a69326b9f62c",
+  "generatorSha256": "8de4f5a500e4cf33e417821da0bbc0f642b1763ec75302a81060d99c64107533",
   "semanticSourceSha256": "db57ee5001f60048a261e9ba257c949d38066a8110ae1adb74210ada48711821",
   "fontSha256": "c9b76220a5be42ead4733611e417cd65c5fd8aeaa33eb56576ac378a37d130a1",
-  "regionCoordinates": "Canonical upright PNG pixels; rotate JPEG to upright before mapping. PDF uses proportional A4 coordinates.",
+  "regionCoordinates": "Canonical upright PNG pixels; resolve EXIF orientation before applying any manual rotation. PDF uses proportional A4 coordinates.",
   "sourceLicense": "Original project QA layouts; no external sheet or personal data copied",
   "cases": [
     {
@@ -67,6 +67,19 @@
           "width": 1754,
           "height": 1240,
           "rotationToUprightClockwise": 90
+        },
+        {
+          "file": "single-class-exif6.jpg",
+          "kind": "jpeg-exif",
+          "sha256": "052faffeba3211ae17363eb4a5884eab5cf7c061eb5449c9aae8e851b8a303fd",
+          "bytes": 145920,
+          "width": 1754,
+          "height": 1240,
+          "page": 1,
+          "exifOrientation": 6,
+          "uprightWidth": 1240,
+          "uprightHeight": 1754,
+          "derivedFromSha256": "556fbfd8799edfc707b5f27c087126fbc9ee3c16e51db91e5918c1725dd14450"
         }
       ],
       "regions": [

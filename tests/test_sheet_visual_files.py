@@ -1,7 +1,7 @@
 """Checks only committed synthetic PDFs/images, not OCR or real player sheets."""
 import json, unittest
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageChops, ImageOps, ImageStat
 from pypdf import PdfReader
 ROOT=Path(__file__).resolve().parents[1]/'docs/design/fixtures/sheet-visual'
 M=json.loads((ROOT/'manifest.json').read_text(encoding='utf-8'))
@@ -12,6 +12,28 @@ class VisualFiles(unittest.TestCase):
    if a['file'].endswith(('.png','.jpg')):
     with self.subTest(file=a['file']),Image.open(ROOT/a['file']) as im:
      im.load();self.assertEqual(im.size,(a['width'],a['height']));self.assertEqual(im.mode,'RGB')
+ def test_exif_normalization_preserves_the_hp_and_dexterity_regions(self):
+  case=next(c for c in M['cases'] if c['id']=='single-class')
+  asset=next(a for a in case['assets'] if a['kind']=='jpeg-exif')
+  original=next(a for a in case['assets'] if a['sha256']==asset['derivedFromSha256'])
+  raw_rotation=next(a for a in case['assets'] if a['kind']=='jpeg-rotated')
+  with Image.open(ROOT/asset['file']) as encoded, Image.open(ROOT/original['file']) as png, Image.open(ROOT/raw_rotation['file']) as manual:
+   self.assertEqual(encoded.getexif().get(0x0112),6)
+   self.assertIsNone(manual.getexif().get(0x0112))
+   self.assertEqual(encoded.tobytes(),manual.tobytes(),'same rotated pixels with a different orientation path')
+   upright=ImageOps.exif_transpose(encoded)
+   self.assertEqual(upright.size,(asset['uprightWidth'],asset['uprightHeight']))
+   self.assertEqual(upright.size,png.size)
+   self.assertIsNone(upright.getexif().get(0x0112),'avoid applying the tag a second time')
+   fields={'hp.max','hp.current','hp.temp','abilities.dex'}
+   for field in fields:
+    region=next(r for r in case['regions'] if r['field']==field)
+    with self.subTest(field=field):
+     x,y,width,height=region['box'];box=(x,y,x+width,y+height)
+     expected=png.crop(box).convert('L')
+     self.assertLess(expected.getextrema()[0],64,'region contains printed ink')
+     residual=ImageChops.difference(expected,upright.crop(box).convert('L'))
+     self.assertLess(ImageStat.Stat(residual).mean[0],3.0,'canonical raster ROI within JPEG tolerance')
  def test_pdf_pages_are_a4_and_not_encrypted_or_interactive(self):
   for a in ASSETS:
    if a['file'].endswith('.pdf'):

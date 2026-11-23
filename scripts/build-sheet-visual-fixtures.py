@@ -17,7 +17,7 @@ font=ImageFont.truetype(str(FONT),30)
 small=ImageFont.truetype(str(FONT),22)
 heading=ImageFont.truetype(str(FONT),44)
 semantic=json.loads((ROOT/'docs/design/fixtures/sheet-review-cases.json').read_text(encoding='utf-8-sig'))
-manifest={'schemaVersion':1,'synthetic':True,'status':'original-visual-design-samples-not-ocr-benchmark','ruleset':'5e-2014','generator':'scripts/build-sheet-visual-fixtures.py','generatorSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'semanticSourceSha256':hashlib.sha256((ROOT/'docs/design/fixtures/sheet-review-cases.json').read_bytes()).hexdigest(),'fontSha256':hashlib.sha256(FONT.read_bytes()).hexdigest(),'regionCoordinates':'Canonical upright PNG pixels; rotate JPEG to upright before mapping. PDF uses proportional A4 coordinates.','sourceLicense':'Original project QA layouts; no external sheet or personal data copied','cases':[]}
+manifest={'schemaVersion':1,'synthetic':True,'status':'original-visual-design-samples-not-ocr-benchmark','ruleset':'5e-2014','generator':'scripts/build-sheet-visual-fixtures.py','generatorSha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'semanticSourceSha256':hashlib.sha256((ROOT/'docs/design/fixtures/sheet-review-cases.json').read_bytes()).hexdigest(),'fontSha256':hashlib.sha256(FONT.read_bytes()).hexdigest(),'regionCoordinates':'Canonical upright PNG pixels; resolve EXIF orientation before applying any manual rotation. PDF uses proportional A4 coordinates.','sourceLicense':'Original project QA layouts; no external sheet or personal data copied','cases':[]}
 
 layouts={
 'single-class': [('name','Имя','Лира'),('classes','Класс и уровень','Бард 5'),('abilities.str','Сила','8'),('abilities.dex','Ловкость','14'),('abilities.con','Телосложение','12'),('abilities.int','Интеллект','10'),('abilities.wis','Мудрость','13'),('abilities.cha','Харизма','16'),('hp.max','Максимум хитов','33'),('hp.current','Текущие хиты','21'),('hp.temp','Временные хиты','0')],
@@ -94,7 +94,13 @@ for semantic_case in semantic['cases']:
   if case=='single-class':
    pdf=OUT/'single-class-text.pdf';text_pdf(pdf,[texts]);entry['assets'].append(info(pdf,'text-pdf',pages=1))
    pdf=OUT/'single-class-scan.pdf';c=canvas.Canvas(str(pdf),pagesize=(595.28,841.89),invariant=1);c.drawImage(ImageReader(im),0,0,595.28,841.89);c.save();entry['assets'].append(info(pdf,'image-pdf',pages=1))
-   jpg=OUT/'single-class-rotated.jpg';im.rotate(90,expand=True).save(jpg,quality=90);entry['assets'].append(info(jpg,'jpeg-rotated',width=H,height=W,rotationToUprightClockwise=90))
+   stored=im.transpose(Image.Transpose.ROTATE_90)
+   jpg=OUT/'single-class-rotated.jpg';stored.save(jpg,quality=90)
+   entry['assets'].append(info(jpg,'jpeg-rotated',width=H,height=W,rotationToUprightClockwise=90))
+   exif=Image.Exif();exif[0x0112]=6
+   jpg=OUT/'single-class-exif6.jpg';stored.save(jpg,quality=90,exif=exif)
+   entry['assets'].append(info(jpg,'jpeg-exif',width=H,height=W,page=n,exifOrientation=6,
+                               uprightWidth=W,uprightHeight=H,derivedFromSha256=entry['assets'][0]['sha256']))
  if case=='conflicting-pages':
   path=OUT/'conflicting-pages.pdf';text_pdf(path,pdfpages);entry['assets'].append(info(path,'text-pdf',pages=2))
  manifest['cases'].append(entry)
