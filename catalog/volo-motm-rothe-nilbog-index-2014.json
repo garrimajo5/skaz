@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "evidence": "publisher-digital-listing",
+  "groups": [
+    {
+      "reviewId": "name-review:a1b0ce84e1a708f03609",
+      "name": "deep rothe",
+      "digitalName": "Deep Rothé",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:646",
+          "observedName": "Deep rothe",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Rothé (Cow)",
+            "url": "https://www.dndbeyond.com/sources/vgtm/appendix-a-assorted-beasts#Cattle",
+            "relation": "broader-heading"
+          },
+          "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-search=&filter-type=1&filter-type=2&page=5",
+          "digitalRow": {
+            "displayedSource": "Volo's Guide to Monsters",
+            "digitalName": "Deep Rothé",
+            "cardUrl": "https://www.dndbeyond.com/monsters/24006-deep-rothe",
+            "type": "Beast",
+            "challengeRating": "1/4",
+            "size": "Medium",
+            "alignment": "Unaligned"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6489",
+          "observedName": "Deep rothe",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Deep Rothé",
+            "url": "https://www.dndbeyond.com/sources/motm/bestiary#DeepRothe",
+            "relation": "accented-name-candidate"
+          },
+          "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-search=&filter-type=1&filter-type=2&page=5",
+          "digitalRow": {
+            "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+            "digitalName": "Deep Rothé",
+            "cardUrl": "https://www.dndbeyond.com/monsters/2560768-deep-rothe",
+            "type": "Beast (Cattle)",
+            "challengeRating": "1/4",
+            "size": "Medium",
+            "alignment": "Unaligned"
+          }
+        }
+      ],
+      "digitalDifferences": {
+        "type": {
+          "vgtm": "Beast",
+          "motm": "Beast (Cattle)"
+        }
+      },
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "fullStatBlocksCompared": false,
+      "exactErrataVersionVerified": false,
+      "translationReusePermission": "not-established"
+    },
+    {
+      "reviewId": "name-review:09a4e54444ba7198e981",
+      "name": "nilbog,goblin гоблин",
+      "digitalName": "Nilbog",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:568",
+          "observedName": "Nilbog,goblin гоблин",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Nilbog",
+            "url": "https://www.dndbeyond.com/sources/vgtm/bestiary#Nilbog",
+            "relation": "name-candidate"
+          },
+          "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-cr-min=3&filter-environment=9&filter-search=&filter-type=0&page=19",
+          "digitalRow": {
+            "displayedSource": "Volo's Guide to Monsters",
+            "digitalName": "Nilbog",
+            "cardUrl": "https://www.dndbeyond.com/monsters/17292-nilbog",
+            "type": "Humanoid (goblinoid)",
+            "challengeRating": "1",
+            "size": "Small",
+            "alignment": "Chaotic Evil"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6883",
+          "observedName": "Nilbog,goblin гоблин",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Nilbog",
+            "url": "https://www.dndbeyond.com/sources/motm/bestiary-lr#Nilbog",
+            "relation": "name-candidate"
+          },
+          "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-cr-min=3&filter-environment=9&filter-search=&filter-type=0&page=19",
+          "digitalRow": {
+            "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+            "digitalName": "Nilbog",
+            "cardUrl": "https://www.dndbeyond.com/monsters/2560889-nilbog",
+            "type": "Fey (goblinoid)",
+            "challengeRating": "1",
+            "size": "Small",
+            "alignment": "Typically Chaotic Neutral"
+          }
+        }
+      ],
+      "digitalDifferences": {
+        "type": {
+          "vgtm": "Humanoid (goblinoid)",
+          "motm": "Fey (goblinoid)"
+        },
+        "alignment": {
+          "vgtm": "Chaotic Evil",
+          "motm": "Typically Chaotic Neutral"
+        }
+      },
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "fullStatBlocksCompared": false,
+      "exactErrataVersionVerified": false,
+      "translationReusePermission": "not-established"
+    }
+  ],
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "inputSha256": {
+    "catalog/volo-motm-residual-locators-2014.json": "287d2084641c274cd1b9709db9ce01e4ec38241b110488f7aa6f9b33ebf961b8"
+  }
+}

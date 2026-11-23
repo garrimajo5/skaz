@@ -81,6 +81,17 @@ python scripts/review-volo-motm-warrior-alpha-index-2014.py --batch ox-kow --dir
 
 [Реестр цифровых ссылок](../catalog/guard-drake-publisher-locators-2014.json) сохраняет прежние ID и источники. Публичное открытие отдельных карточек перенаправляет на книгу/Legacy или возвращает cache miss. Подтверждение ограничено строками цифрового указателя. Версии печатных фрагментов, механика цвета, алиасы, права и знаменатель остаются открытыми.
 
+## Цифровые карточки Deep Rothé и Nilbog
+
+23.11.2026 в издательском указателе сверены четыре отдельные карточки. В заголовках двух цифровых карточек сохранены диакритика `Deep Rothé` и короткое имя `Nilbog`. Исходные записи `Deep rothe` и `Nilbog,goblin гоблин` сохраняют свои ID и строки. [Машиночитаемая сверка](../catalog/volo-motm-rothe-nilbog-index-2014.json).
+
+| Цифровое название | Volo | MotM | Различие в указателе |
+| --- | --- | --- | --- |
+| Deep Rothé | `646/111`, [24006](https://www.dndbeyond.com/monsters/24006-deep-rothe) | `6489/158`, [2560768](https://www.dndbeyond.com/monsters/2560768-deep-rothe) | Beast → Beast (Cattle). CR 1/4 в обеих строках. |
+| Nilbog | `568/111`, [17292](https://www.dndbeyond.com/monsters/17292-nilbog) | `6883/158`, [2560889](https://www.dndbeyond.com/monsters/2560889-nilbog) | Humanoid (goblinoid) → Fey (goblinoid), Chaotic Evil → Typically Chaotic Neutral. CR 1 в обеих строках. |
+
+Веб-указатель даёт опубликованные цифровые строки. Переход к Volo ведёт на Legacy, к MotM — в магазин. Печатные статблоки и точные версии пока требуют первичного материала. Нормализация акцента и составного имени остаётся кандидатной, лицензия и общий знаменатель открыты. [Индекс Deep Rothé](https://www.dndbeyond.com/monsters?filter-search=&filter-type=1&filter-type=2&page=5) · [Индекс Nilbog](https://www.dndbeyond.com/monsters?filter-cr-min=3&filter-environment=9&filter-search=&filter-type=0&page=19).
+
 ## Артефакты и проверки
 
 - `catalog/monster-version-publication-evidence-2014.json`:114имён,2публикации,210заголовков/ссылок и18missing-отметок по источникам.

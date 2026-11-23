@@ -76,3 +76,55 @@ test('digital Guard Drake links preserve five color pairs and distinct publisher
   assert.equal(cards.size, 12);
   assert.equal(observed.size, 10);
 });
+
+test('Deep Rothé and Nilbog preserve source identities and compare digital fields', () => {
+  const report = JSON.parse(readFileSync(new URL('../catalog/volo-motm-rothe-nilbog-index-2014.json', import.meta.url), 'utf8'));
+  const base = JSON.parse(readFileSync(new URL('../catalog/volo-motm-residual-locators-2014.json', import.meta.url), 'utf8'));
+  assert.deepEqual(report.groups.map(group => group.name), ['deep rothe','nilbog,goblin гоблин']);
+  assert.equal(report.accepted,false);
+  assert.equal(report.complete,false);
+  assert.equal(report.approvedDenominator,null);
+  for (const group of report.groups) {
+    const original = base.groups.find(({reviewId}) => reviewId === group.reviewId);
+    assert.equal(group.name,original.name);
+    assert.deepEqual(group.observations.map(({publisherIndexUrl,digitalRow,...member})=>member),original.members);
+    assert.deepEqual(group.observations.map(({digitalRow})=>digitalRow.digitalName),[group.digitalName,group.digitalName]);
+    assert.equal(group.canonicalId,null);
+    assert.equal(group.aliasAccepted,false);
+    assert.equal(group.fullStatBlocksCompared,false);
+  }
+  const [rothe, nilbog] = report.groups;
+  assert.deepEqual(rothe.digitalDifferences, {type: {vgtm:'Beast',motm:'Beast (Cattle)'}});
+  assert.deepEqual(nilbog.digitalDifferences, {
+    type: {vgtm:'Humanoid (goblinoid)',motm:'Fey (goblinoid)'},
+    alignment: {vgtm:'Chaotic Evil',motm:'Typically Chaotic Neutral'},
+  });
+});
+
+test('digital research covers all 22 residual observations without approving canonical units', () => {
+  const read = name => JSON.parse(readFileSync(new URL('../catalog/' + name, import.meta.url), 'utf8'));
+  const files = [
+    'volo-motm-warrior-alpha-index-2014.json',
+    'volo-motm-ox-kow-index-2014.json',
+    'guard-drake-publisher-locators-2014.json',
+    'volo-motm-rothe-nilbog-index-2014.json',
+  ];
+  const reports = files.map(read);
+  const observed = reports.flatMap(report => {
+    assert.equal(report.approvedDenominator,null);
+    assert.equal(report.accepted,false);
+    assert.equal(report.complete,false);
+    return report.groups.flatMap(group => {
+      assert.equal(group.canonicalId,null);
+      assert.equal(group.aliasAccepted,false);
+      return group.observations.map(({observationId, sourceIds, publisherCard, digitalRow}) => ({
+        observationId,sourceIds,card:publisherCard ?? digitalRow.cardUrl,
+      }));
+    });
+  });
+  assert.equal(observed.length,22);
+  assert.equal(new Set(observed.map(({card})=>card)).size,22);
+  const order = rows => rows.map(({observationId,sourceIds})=>observationId+'/'+sourceIds.join(',')).sort();
+  const base = read('volo-motm-residual-locators-2014.json');
+  assert.deepEqual(order(observed),order(base.groups.flatMap(group=>group.members)));
+});
