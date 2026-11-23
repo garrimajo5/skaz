@@ -623,6 +623,22 @@ test('inventory read button opens saved item without commands and rejects a stal
 });
 
 
+test('routed inventory keeps the list and avoids a new fetch when closing a saved item',async()=>{
+  const calls=[];
+  const saved={catalogId:'test:saved',quantity:2,entry:{kind:'item',name:{ru:'Saved ring',en:'Ring'},text:'Saved description',source:{title:'Source',version:'1',terms:'Personal'},item:{attunement:false}}};
+  const h=harness(memory(),memory(),async url=>{
+    calls.push(url);return response(url==='/api/workspace'?payload(0):{...payload(0),entries:[saved]});
+  });
+  await h.api.boot();h.setPage('inventory');await h.api.inventory();
+  const list=h.pageHtml();
+  h.get('inventory-read-button').dataset.inventoryRead='0';
+  h.get('inventory-read-button').onclick();
+  assert.match(h.dialog(),/Saved description/);
+  await h.get('#inventory-read-back').onclick();
+  assert.equal(h.dialog(),'');assert.equal(h.pageHtml(),list);
+  assert.equal(calls.filter(url=>url==='/api/inventory').length,1);
+});
+
 test('late inventory responses cannot reopen a closed dialog or replace another form, including errors',async()=>{
  for(const mode of ['closed','replaced','error']){let resolve,reject;
   const h=harness(memory(),memory(),async url=>url==='/api/workspace'?response(payload(0)):new Promise((yes,no)=>{resolve=yes;reject=no;}));
@@ -1073,7 +1089,7 @@ test('inventory page prioritizes consumables and charges while actions retain or
  const entries=[make('armor','Адамантовый доспех',{type:'armor'}),make('potion','Зелье лечения',{type:'potion'}),make('wand','Волшебная палочка',{type:'wand',charges:{max:7}})];
  const h=harness(memory(),memory(),async url=>response(url==='/api/inventory'?{...payload(0),entries}:payload(0)));
  await h.api.boot();h.setPage('inventory');await h.api.inventory();
- assert.equal(h.dialog(),'');assert.match(h.pageHtml(),/<h1 id="inventory-view"/);assert.match(h.pageHtml(),/class="inventory-pages" hidden/);assert.match(h.pageHtml(),/<option value="required"/);
+ assert.equal(h.dialog(),'');assert.match(h.pageHtml(),/<h2 id="inventory-view"/);assert.match(h.pageHtml(),/class="inventory-pages" hidden/);assert.match(h.pageHtml(),/<option value="required"/);
  assert.ok(h.pageHtml().indexOf('Волшебная палочка')<h.pageHtml().indexOf('Зелье лечения'));
  assert.ok(h.pageHtml().indexOf('Зелье лечения')<h.pageHtml().indexOf('Адамантовый доспех'));
  assert.match(h.pageHtml(),/data-inventory-read="2"/);

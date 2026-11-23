@@ -1,0 +1,651 @@
+{
+  "schemaVersion": 1,
+  "status": "remaining-bestiary-scope-not-canonical-units",
+  "expectedGroups": 18,
+  "expectedObservations": 36,
+  "expectedPublicationClaims": 50,
+  "selectedReviewIds": [
+    "name-review:19b610f76bb81838ed91",
+    "name-review:1b06c8eb8bd23dbc0116",
+    "name-review:56f4a50fcd55424c49d2",
+    "name-review:592fb0a6b181f465e066",
+    "name-review:692ef5fc9e5709b3db58",
+    "name-review:6ddb21589e4c92819c34",
+    "name-review:78ef04cefaf20e230195",
+    "name-review:817a75ba644dee41941a",
+    "name-review:96081cbbd4ac8e151fe6",
+    "name-review:9f11f017e2b5c1b69aed",
+    "name-review:a6ee97320e7808e2fbde",
+    "name-review:a778e33bedddbc7ab6ab",
+    "name-review:b990d8bf2a8ebcbe08b7",
+    "name-review:bec0a45d67a6b1dfbad4",
+    "name-review:c33e38cd5ba6bfdcd994",
+    "name-review:ed3135f7e036854f2a53",
+    "name-review:f2acd12f69e538f0500e",
+    "name-review:fa90cc77090c6cb43e8e"
+  ],
+  "sources": [
+    {
+      "sourceId": "106",
+      "policyTitle": "The Rise of Tiamat",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/rot",
+      "expectedPublishedTitle": "Rise of Tiamat",
+      "bookCode": "rot",
+      "contextLabels": [
+        "Appendix D: Monsters"
+      ],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "110",
+      "policyTitle": "Lost Mine of Phandelver",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lmop",
+      "expectedPublishedTitle": "Lost Mine of Phandelver",
+      "bookCode": "lmop",
+      "contextLabels": [],
+      "unapprovedAlternates": {
+        "red ruffian": [
+          "Redbrand Ruffian",
+          "Redbrand Ruffians"
+        ]
+      }
+    },
+    {
+      "sourceId": "111",
+      "policyTitle": "Volo's guide to monsters",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vgtm",
+      "expectedPublishedTitle": "Volo's Guide to Monsters",
+      "bookCode": "vgtm",
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "113",
+      "policyTitle": "Mordenkainen's Tome of Foes",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+      "expectedPublishedTitle": "Mordenkainen's Tome of Foes",
+      "bookCode": "mtof",
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "114",
+      "policyTitle": "Tomb of Annihilation",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/toa",
+      "expectedPublishedTitle": "Tomb of Annihilation",
+      "bookCode": "toa",
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "120",
+      "policyTitle": "Icewind Dale: Rime of the Frostmaiden",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/idrotf",
+      "expectedPublishedTitle": "Icewind Dale: Rime of the Frostmaiden",
+      "bookCode": "idrotf",
+      "contextLabels": [
+        "Appendix C: Creatures"
+      ],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "121",
+      "policyTitle": "Mythic Odysseys of Theros",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/moot",
+      "expectedPublishedTitle": "Mythic Odysseys of Theros",
+      "bookCode": "moot",
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "122",
+      "policyTitle": "Candlekeep Mysteries",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/cm",
+      "expectedPublishedTitle": "Candlekeep Mysteries",
+      "bookCode": "cm",
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "124",
+      "policyTitle": "Curse of Strahd",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/cos",
+      "expectedPublishedTitle": "Curse of Strahd",
+      "bookCode": "cos",
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "125",
+      "policyTitle": "Van Richten's Guide to Ravenloft",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vrgtr",
+      "expectedPublishedTitle": "Van Richten’s Guide to Ravenloft",
+      "bookCode": "vrgtr",
+      "contextLabels": [
+        "Bestiary"
+      ],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "127",
+      "policyTitle": "Essentials Kit: Divine Contention",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dc",
+      "expectedPublishedTitle": "Divine Contention",
+      "bookCode": "dc",
+      "contextLabels": [
+        "Appendix B: Sidekicks"
+      ],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "128",
+      "policyTitle": "Ghosts of Saltmarsh",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/gos",
+      "expectedPublishedTitle": "Ghosts of Saltmarsh",
+      "bookCode": "gos",
+      "contextLabels": [
+        "Appendix C: Monsters and NPCs"
+      ],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "129",
+      "policyTitle": "Out of the Abyss",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/oota",
+      "expectedPublishedTitle": "Out of the Abyss",
+      "bookCode": "oota",
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "130",
+      "policyTitle": "The Lost Dungeon of Rickedness: Big Rick Energy",
+      "kind": "publisher-product",
+      "sourceUrl": "https://wpn.wizards.com/en/products/dungeons-and-dragons-vs-rick-and-morty",
+      "expectedPublishedTitle": null,
+      "bookCode": null,
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "131",
+      "policyTitle": "Essentials Kit: Sleeping Dragon's Wake",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sdw",
+      "expectedPublishedTitle": "Sleeping Dragon’s Wake",
+      "bookCode": "sdw",
+      "contextLabels": [
+        "Appendix B: Sidekicks"
+      ],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "135",
+      "policyTitle": "Waterdeep: Dungeon of the Mad Mage",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wdotmm",
+      "expectedPublishedTitle": "Waterdeep: Dungeon of the Mad Mage",
+      "bookCode": "wdotmm",
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "157",
+      "policyTitle": "Essentials Kit: Dragon of Icespire peak",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/doip",
+      "expectedPublishedTitle": "Dragon of Icespire Peak",
+      "bookCode": "doip",
+      "contextLabels": [
+        "Sidekicks"
+      ],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "158",
+      "policyTitle": "Mordenkainen Presents: Monsters of the Multiverse",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+      "expectedPublishedTitle": "Mordenkainen Presents: Monsters of the Multiverse",
+      "bookCode": "motm",
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "160",
+      "policyTitle": "Spelljammer: Adventures in Space",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sais",
+      "expectedPublishedTitle": "Spelljammer: Adventures in Space",
+      "bookCode": "sais",
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "167",
+      "policyTitle": "Essentials Kit: Storm Lord's Wrath",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/slw",
+      "expectedPublishedTitle": "Storm Lord’s Wrath",
+      "bookCode": "slw",
+      "contextLabels": [
+        "Appendix B: Sidekicks"
+      ],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "202",
+      "policyTitle": "Phandelver and Below: The Shattered Obelisk",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/pbtso",
+      "expectedPublishedTitle": "Phandelver and Below: The Shattered Obelisk",
+      "bookCode": "pbtso",
+      "contextLabels": [],
+      "unapprovedAlternates": {
+        "red ruffian": [
+          "Redbrand Ruffian",
+          "Redbrand Ruffians"
+        ]
+      }
+    },
+    {
+      "sourceId": "208",
+      "policyTitle": "Adventure Atlas: The Mortuary",
+      "kind": "publisher-article",
+      "sourceUrl": "https://www.dndbeyond.com/posts/1598-lets-build-a-one-shot-with-adventure-atlas-the",
+      "expectedPublishedTitle": "Let's Build a One-Shot With Adventure Atlas: The Mortuary!",
+      "bookCode": null,
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "213",
+      "policyTitle": "Descent into the Lost Caverns of Tsojcanth",
+      "kind": "publisher-article",
+      "sourceUrl": "https://www.dndbeyond.com/posts/1691-descent-into-the-lost-caverns-of-tsojcanth-claim",
+      "expectedPublishedTitle": "Descent into the Lost Caverns of Tsojcanth: Claim Your Free Copy Today!",
+      "bookCode": null,
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "214",
+      "policyTitle": "Vecna: Eve of Ruin",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/veor",
+      "expectedPublishedTitle": "Vecna: Eve of Ruin",
+      "bookCode": "veor",
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    },
+    {
+      "sourceId": "218",
+      "policyTitle": "Quest from the Infinite Staircase",
+      "kind": "publisher-toc",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/qftis",
+      "expectedPublishedTitle": "Quests from the Infinite Staircase",
+      "bookCode": "qftis",
+      "contextLabels": [],
+      "unapprovedAlternates": {}
+    }
+  ],
+  "previousReports": [
+    "catalog/monster-version-unit-proposals-2014.json",
+    "catalog/mtf-monster-version-unit-proposals-2014.json",
+    "catalog/multibook-monster-unit-proposals-2014.json"
+  ],
+  "accepted": false,
+  "observationBasis": [
+    {
+      "reviewId": "name-review:19b610f76bb81838ed91",
+      "name": "space hamster",
+      "observationId": "dndsu:bestiary:6159",
+      "observedName": "Space Hamster",
+      "sourceIds": [
+        "135"
+      ]
+    },
+    {
+      "reviewId": "name-review:19b610f76bb81838ed91",
+      "name": "space hamster",
+      "observationId": "dndsu:bestiary:8691",
+      "observedName": "Space Hamster",
+      "sourceIds": [
+        "160"
+      ]
+    },
+    {
+      "reviewId": "name-review:1b06c8eb8bd23dbc0116",
+      "name": "cosmic horror",
+      "observationId": "dndsu:bestiary:15694",
+      "observedName": "Cosmic Horror",
+      "sourceIds": [
+        "214"
+      ]
+    },
+    {
+      "reviewId": "name-review:1b06c8eb8bd23dbc0116",
+      "name": "cosmic horror",
+      "observationId": "dndsu:bestiary:8821",
+      "observedName": "Cosmic Horror",
+      "sourceIds": [
+        "160"
+      ]
+    },
+    {
+      "reviewId": "name-review:56f4a50fcd55424c49d2",
+      "name": "brain in a jar",
+      "observationId": "dndsu:bestiary:5758",
+      "observedName": "Brain in a Jar",
+      "sourceIds": [
+        "120"
+      ]
+    },
+    {
+      "reviewId": "name-review:56f4a50fcd55424c49d2",
+      "name": "brain in a jar",
+      "observationId": "dndsu:bestiary:6854",
+      "observedName": "Brain in a Jar",
+      "sourceIds": [
+        "125"
+      ]
+    },
+    {
+      "reviewId": "name-review:592fb0a6b181f465e066",
+      "name": "spellcaster (mage)",
+      "observationId": "dndsu:bestiary:8022",
+      "observedName": "Spellcaster (Mage)",
+      "sourceIds": [
+        "157"
+      ]
+    },
+    {
+      "reviewId": "name-review:592fb0a6b181f465e066",
+      "name": "spellcaster (mage)",
+      "observationId": "dndsu:bestiary:8027",
+      "observedName": "Spellcaster (Mage)",
+      "sourceIds": [
+        "127",
+        "131",
+        "167"
+      ]
+    },
+    {
+      "reviewId": "name-review:692ef5fc9e5709b3db58",
+      "name": "chwinga",
+      "observationId": "dndsu:bestiary:2642",
+      "observedName": "Chwinga",
+      "sourceIds": [
+        "114",
+        "120",
+        "122"
+      ]
+    },
+    {
+      "reviewId": "name-review:692ef5fc9e5709b3db58",
+      "name": "chwinga",
+      "observationId": "dndsu:bestiary:8718",
+      "observedName": "Chwinga",
+      "sourceIds": [
+        "160"
+      ]
+    },
+    {
+      "reviewId": "name-review:6ddb21589e4c92819c34",
+      "name": "orcus",
+      "observationId": "dndsu:bestiary:4890",
+      "observedName": "Orcus",
+      "sourceIds": [
+        "113",
+        "129"
+      ]
+    },
+    {
+      "reviewId": "name-review:6ddb21589e4c92819c34",
+      "name": "orcus",
+      "observationId": "dndsu:bestiary:6917",
+      "observedName": "Orcus",
+      "sourceIds": [
+        "158"
+      ]
+    },
+    {
+      "reviewId": "name-review:78ef04cefaf20e230195",
+      "name": "warrior",
+      "observationId": "dndsu:bestiary:8017",
+      "observedName": "Warrior",
+      "sourceIds": [
+        "157"
+      ]
+    },
+    {
+      "reviewId": "name-review:78ef04cefaf20e230195",
+      "name": "warrior",
+      "observationId": "dndsu:bestiary:8023",
+      "observedName": "Warrior",
+      "sourceIds": [
+        "127",
+        "131",
+        "167"
+      ]
+    },
+    {
+      "reviewId": "name-review:817a75ba644dee41941a",
+      "name": "large mimic",
+      "observationId": "dndsu:bestiary:6235",
+      "observedName": "Large Mimic",
+      "sourceIds": [
+        "135"
+      ]
+    },
+    {
+      "reviewId": "name-review:817a75ba644dee41941a",
+      "name": "large mimic",
+      "observationId": "dndsu:bestiary:8050",
+      "observedName": "Large Mimic",
+      "sourceIds": [
+        "130"
+      ]
+    },
+    {
+      "reviewId": "name-review:96081cbbd4ac8e151fe6",
+      "name": "expert",
+      "observationId": "dndsu:bestiary:8016",
+      "observedName": "Expert",
+      "sourceIds": [
+        "157"
+      ]
+    },
+    {
+      "reviewId": "name-review:96081cbbd4ac8e151fe6",
+      "name": "expert",
+      "observationId": "dndsu:bestiary:8024",
+      "observedName": "Expert",
+      "sourceIds": [
+        "127",
+        "131",
+        "167"
+      ]
+    },
+    {
+      "reviewId": "name-review:9f11f017e2b5c1b69aed",
+      "name": "amphisbaena",
+      "observationId": "dndsu:bestiary:7169",
+      "observedName": "Amphisbaena",
+      "sourceIds": [
+        "121"
+      ]
+    },
+    {
+      "reviewId": "name-review:9f11f017e2b5c1b69aed",
+      "name": "amphisbaena",
+      "observationId": "dndsu:bestiary:7498",
+      "observedName": "Amphisbaena",
+      "sourceIds": [
+        "128"
+      ]
+    },
+    {
+      "reviewId": "name-review:a6ee97320e7808e2fbde",
+      "name": "spellcaster (healer)",
+      "observationId": "dndsu:bestiary:8014",
+      "observedName": "Spellcaster (Healer)",
+      "sourceIds": [
+        "157"
+      ]
+    },
+    {
+      "reviewId": "name-review:a6ee97320e7808e2fbde",
+      "name": "spellcaster (healer)",
+      "observationId": "dndsu:bestiary:8025",
+      "observedName": "Spellcaster (Healer)",
+      "sourceIds": [
+        "127",
+        "131",
+        "167"
+      ]
+    },
+    {
+      "reviewId": "name-review:a778e33bedddbc7ab6ab",
+      "name": "bard",
+      "observationId": "dndsu:bestiary:628",
+      "observedName": "Bard",
+      "sourceIds": [
+        "111",
+        "128"
+      ]
+    },
+    {
+      "reviewId": "name-review:a778e33bedddbc7ab6ab",
+      "name": "bard",
+      "observationId": "dndsu:bestiary:6476",
+      "observedName": "Bard",
+      "sourceIds": [
+        "158"
+      ]
+    },
+    {
+      "reviewId": "name-review:b990d8bf2a8ebcbe08b7",
+      "name": "pech",
+      "observationId": "dndsu:bestiary:15252",
+      "observedName": "Pech",
+      "sourceIds": [
+        "213"
+      ]
+    },
+    {
+      "reviewId": "name-review:b990d8bf2a8ebcbe08b7",
+      "name": "pech",
+      "observationId": "dndsu:bestiary:17230",
+      "observedName": "Pech",
+      "sourceIds": [
+        "218"
+      ]
+    },
+    {
+      "reviewId": "name-review:bec0a45d67a6b1dfbad4",
+      "name": "necrichor",
+      "observationId": "dndsu:bestiary:13216",
+      "observedName": "Necrichor",
+      "sourceIds": [
+        "208"
+      ]
+    },
+    {
+      "reviewId": "name-review:bec0a45d67a6b1dfbad4",
+      "name": "necrichor",
+      "observationId": "dndsu:bestiary:6869",
+      "observedName": "Necrichor",
+      "sourceIds": [
+        "125"
+      ]
+    },
+    {
+      "reviewId": "name-review:c33e38cd5ba6bfdcd994",
+      "name": "red ruffian",
+      "observationId": "dndsu:bestiary:10",
+      "observedName": "Red ruffian",
+      "sourceIds": [
+        "110"
+      ]
+    },
+    {
+      "reviewId": "name-review:c33e38cd5ba6bfdcd994",
+      "name": "red ruffian",
+      "observationId": "dndsu:bestiary:12554",
+      "observedName": "Red ruffian",
+      "sourceIds": [
+        "202"
+      ]
+    },
+    {
+      "reviewId": "name-review:ed3135f7e036854f2a53",
+      "name": "wereraven",
+      "observationId": "dndsu:bestiary:6905",
+      "observedName": "Wereraven",
+      "sourceIds": [
+        "122",
+        "125"
+      ]
+    },
+    {
+      "reviewId": "name-review:ed3135f7e036854f2a53",
+      "name": "wereraven",
+      "observationId": "dndsu:bestiary:949",
+      "observedName": "Wereraven",
+      "sourceIds": [
+        "124"
+      ]
+    },
+    {
+      "reviewId": "name-review:f2acd12f69e538f0500e",
+      "name": "guard drake",
+      "observationId": "dndsu:bestiary:490",
+      "observedName": "Guard drake",
+      "sourceIds": [
+        "106",
+        "111"
+      ]
+    },
+    {
+      "reviewId": "name-review:f2acd12f69e538f0500e",
+      "name": "guard drake",
+      "observationId": "dndsu:bestiary:6787",
+      "observedName": "Guard drake",
+      "sourceIds": [
+        "158"
+      ]
+    },
+    {
+      "reviewId": "name-review:fa90cc77090c6cb43e8e",
+      "name": "strahd von zarovich",
+      "observationId": "dndsu:bestiary:15727",
+      "observedName": "Strahd von Zarovich",
+      "sourceIds": [
+        "214"
+      ]
+    },
+    {
+      "reviewId": "name-review:fa90cc77090c6cb43e8e",
+      "name": "strahd von zarovich",
+      "observationId": "dndsu:bestiary:960",
+      "observedName": "Strahd von Zarovich",
+      "sourceIds": [
+        "124"
+      ]
+    }
+  ]
+}

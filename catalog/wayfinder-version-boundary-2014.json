@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "status": "primary-version-status-boundaries-not-whole-publication-inclusion-or-exclusion",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "providerSourceId": 37,
+  "providerObservationId": "ddb:library-source:37",
+  "numericDndsuSourceId": null,
+  "canonicalSourceId": null,
+  "automaticAttribution": false,
+  "sources": {
+    "source.html": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/wgte",
+      "finalUrl": "https://www.dndbeyond.com/sources/dnd/wgte",
+      "status": 200,
+      "bytes": 244923,
+      "sha256": "eddfdc5056e6de0c163279514e499b53ed88b21c211ca93dbfad4811a2fcda5f",
+      "capturedAt": "2026-11-21T00:12:39.263562+00:00"
+    },
+    "announcement.html": {
+      "requestedUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/news-announcements/53261-wayfinders-guide-to-eberron-pre-update-content",
+      "finalUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/news-announcements/53261-wayfinders-guide-to-eberron-pre-update-content",
+      "status": 200,
+      "bytes": 392650,
+      "sha256": "45bdd1849835c03a6e53593324f49fddf4d88f385685fbf09c1c90961b2803f1",
+      "capturedAt": "2026-11-21T00:12:39.539401+00:00"
+    },
+    "al-guide.pdf": {
+      "requestedUrl": "https://media.dndbeyond.com/compendium-images/ddal/reference-docs/03-2024/d%26d-adventurers-league-adaptation-guides-v2.4.pdf",
+      "finalUrl": "https://media.dndbeyond.com/compendium-images/ddal/reference-docs/03-2024/d%26d-adventurers-league-adaptation-guides-v2.4.pdf",
+      "status": 200,
+      "bytes": 1476910,
+      "sha256": "ee0ffa32ccab84212b518380ab81d720d15e8c1ccaa529750666fc235123dcbb",
+      "capturedAt": "2026-11-21T00:12:40.910257+00:00"
+    }
+  },
+  "prototypeMetadata": {
+    "title": "Wayfinder's Guide to Eberron",
+    "prototypeDescriptionStillDisplayed": true,
+    "introMetadataSha256": "11b8052314f3888259b10d951daa4a7c1dc52e2ad8c0a00045f79fb21d3bc06d",
+    "scope": "public marketing introduction, not current full mechanics or every historical version"
+  },
+  "historicalStaffRevisionBoundary": {
+    "topicUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/news-announcements/53261-wayfinders-guide-to-eberron-pre-update-content",
+    "postIndex": 1,
+    "firstStaffNavigationMarkerPresent": true,
+    "postBodyId": "forum-post-body-1",
+    "statementSha256": "cc6a9cb62fa6cc20ed37b4bf007f4f92cc78516869df2f3f109516ad89293723",
+    "specificOldMechanicsRecreatedAsPublicHomebrew": true,
+    "allVersionsOrAllBookTextDeclaredHomebrew": false,
+    "scope": "only original body1 identified by first-staff marker; no user replies/quotes or metadata description"
+  },
+  "campaignOnlyGuidance": {
+    "version": "2.4",
+    "pages": 67,
+    "inspectedPdfPages": [
+      1,
+      3,
+      18
+    ],
+    "campaign": "Eberron Campaign",
+    "conditionalPassageSha256": "203c30838fa4c2a66fe9ac1b6fd52361524743d2cd127a05164d059721df0c65",
+    "exactRisingTextExceptionPresent": true,
+    "alLegalityIsGeneralCatalogOrHomeGamePermission": false,
+    "scope": "campaign-specific adaptation guidance only, not global official-status adjudication"
+  },
+  "versionScopeProposal": {
+    "specificOldNonOfficialMechanicsEligibleForCommonCatalog": false,
+    "currentOrUpdatedVersionOfficialStatus": "requires-version-specific-evidence",
+    "prototypeMarketingLabelAutomaticallyExcludesEveryVersion": false,
+    "wotcPublisherLabelAutomaticallyIncludesAllMechanics": false,
+    "exactCurrentWgteAndRisingTextEquivalence": "unverified",
+    "ownerExperimentalExclusionChanged": false,
+    "profileManualExceptionsRetained": true,
+    "alEventRestrictionBlocksOrdinaryProfileAction": false
+  },
+  "authorObservedExternalConditions": {
+    "limitedAttempts": [
+      {
+        "requestedUrl": "https://www.dndbeyond.com/sources/wgte/introduction",
+        "tool": "urllib",
+        "errorType": "TimeoutError",
+        "stage": "response-body-read",
+        "timeoutSeconds": 20,
+        "retried": false
+      },
+      {
+        "requestedUrl": "https://www.dmsguild.com/product/247882/Wayfinders-Guide-to-Eberron-5e",
+        "tool": "web.open",
+        "status": 403,
+        "retried": false
+      }
+    ],
+    "currentFullMechanicsRead": false,
+    "interpretation": "body-read timeout and403 are concrete limited attempts, not evidence of publication status or permanent denial"
+  },
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe"
+  },
+  "generator": {
+    "path": "scripts/audit-wayfinder-version-boundary-2014.py",
+    "sha256": "9b59d5ecc33d59981eab14f02a1d67ef856d076dc43752d50852bb065cecd8a8"
+  },
+  "upstreamParser": {
+    "path": "scripts/audit-prisoner13-component-2014.py",
+    "sha256": "5f19428fb4a6d387a09ed38a21871d8f44b8b319f2192d9c731e08784865a124"
+  },
+  "limits": [
+    "A prototype cover description is not a complete current-version mechanics review.",
+    "Specific old non-official mechanics and updated content must not be conflated with all book versions or lore.",
+    "Campaign event eligibility is not a general rule prohibition, catalogue scope decision or user-action authorization.",
+    "No full mechanics/PDF/HTML/prose/private profiles/automatic source attribution or owner-stage acceptance exported.",
+    "Full versions, record units, official status of exact updated passages, translations and reuse rights remain unresolved."
+  ]
+}

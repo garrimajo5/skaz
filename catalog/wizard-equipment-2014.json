@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "status": "complete-selected-equipment-scope-not-full-class-or-runtime",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "sources": {
+    "secondary": {
+      "url": "https://dnd.su/class/105-wizard/",
+      "sha256": "5014af15fd61af05dde5bd29e19514b8fd87fe10ea60fbcd8a81f6574e2053c8",
+      "historicalSnapshotNotReplaced": true,
+      "originalHttpReceiptUnavailable": true
+    },
+    "srd": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "pdfPage": 52
+    },
+    "basic": {
+      "url": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "sha256": "7a0c5d8bf52d15092f156d78418aa3d43307e271f810d2f06bf2f0258e9288a3",
+      "pdfPage": 45
+    },
+    "renderedPagesInspected": true
+  },
+  "secondaryScope": {
+    "headingOrdinal": 18,
+    "title": "СНАРЯЖЕНИЕ",
+    "bodySha256": "f08a2dc2fccddf97da195211ba57080b1e1af1c471dca90ed3ea9d54f2272c01",
+    "parts": [
+      {
+        "kind": "p",
+        "textSha256": "f9b160be19d5829bcdd7dece2b11af3b8c000d6dd7689c9a2784f4dc8dddec48"
+      },
+      {
+        "kind": "li",
+        "textSha256": "a738260ade62863313d8ddecbfe178f562d2d7dec503f1aad069431848bd1a3c"
+      },
+      {
+        "kind": "li",
+        "textSha256": "e0cf98698790aa10602fb05e4723d53a2eb8474088d24b772c1f9eae97092ff0"
+      },
+      {
+        "kind": "li",
+        "textSha256": "f9d89b68941b50e41f8b48eea6a286e6af615df84059a601e14236c0cfe908ce"
+      },
+      {
+        "kind": "li",
+        "textSha256": "f989a3bc589b82bbdc1661bf3561e2607f07452a82ccee4adf136bb85bb7e2a5"
+      },
+      {
+        "kind": "p",
+        "textSha256": "acb2c587ea59438448e63708e1a8291d2d9d79d3aced76c5cc5790cceb32ad6d"
+      }
+    ],
+    "completeSelectedHeadingPartsCompared": true
+  },
+  "primaryScopes": [
+    {
+      "kind": "complete-selected-wizard-equipment",
+      "source": "srd51",
+      "pdfPage": 52,
+      "textSha256": "3324020313c7e8b764edc5604cba02da5642ddccceafe505022520da536e633a",
+      "wordCount": 47
+    },
+    {
+      "kind": "starting-equipment-context-and-selected-wizard-wealth-row",
+      "source": "basic2018",
+      "pdfPage": 45,
+      "textSha256": "556d4bd735973c90955044d7ee00b858cdfdd3fc11340c767e26d61110311879",
+      "wordCount": 165,
+      "otherClassWealthRowsAccepted": false
+    }
+  ],
+  "ordinarySelectedFacts": {
+    "standardStartingSetAddsToBackgroundEquipment": true,
+    "firstChoice": [
+      "quarterstaff",
+      "dagger"
+    ],
+    "secondChoice": [
+      "component pouch",
+      "arcane focus"
+    ],
+    "thirdChoice": [
+      "scholar’s pack",
+      "explorer’s pack"
+    ],
+    "unconditionalStandardSetItem": "spellbook",
+    "alternateWealth": {
+      "diceCount": 4,
+      "dieSides": 4,
+      "multiplier": 10,
+      "currency": "gp",
+      "replacesBothClassAndBackgroundStartingEquipment": true,
+      "isAdditionalFreeGoldAlongWithBothEquipmentSets": false
+    },
+    "standardAndWealthOptionsSimultaneouslyGranted": false,
+    "equipmentRegrantedOnMulticlass": false,
+    "specificSpellbookFeatureGrantSettled": false,
+    "automaticChoiceOrGoldRollMade": false
+  },
+  "manualAssessments": [
+    {
+      "secondaryPartIndexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "primary": "srd51PDF52",
+      "classification": "same-selected-standard-intro-and-four-items-or-choices"
+    },
+    {
+      "secondaryPartIndexes": [
+        5
+      ],
+      "primary": "basic2018PDF45",
+      "classification": "separate-alternate-wealth-context-and-Wizard-row-not-in-selected-SRD-class-paragraph"
+    }
+  ],
+  "limits": [
+    "Selected full Equipment18 scope is not full Wizard/PHB version or publication-rights acceptance.",
+    "Wizard wealth row only; no other class amounts, inventory contents inside packs, prices or automatic grants accepted.",
+    "Ordinary mutually exclusive choices warn on deviations but do not block manual profile exceptions.",
+    "Generic multiclass equipment boundary is reused; specific feature/Spellbook-grant questions remain separate."
+  ],
+  "implementationBoundaries": {
+    "manualDeviationsWarnAndAllow": true,
+    "requiresMandatoryGmCheckbox": false,
+    "runtimeOrInventoryMutationPerformed": false
+  },
+  "summary": {
+    "selectedSecondaryHeadings": 1,
+    "secondaryProseParagraphs": 2,
+    "secondaryListItems": 4,
+    "primaryScopes": 2,
+    "canonicalUnitsAccepted": 0
+  },
+  "inputSha256": {
+    "catalog/wizard-entry-boundaries-2014.json": "ceb3f947d0a118fb20fa72824caafade32935d1b952b1bf411776df8bf6aae0a"
+  },
+  "upstreamParserSha256": {
+    "scripts/audit-wizard-candidate-concordance-2014.py": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b",
+    "scripts/audit-wizard-entry-boundaries-2014.py": "8b9e84352710a3133e1b8951a5468779cb8e59f6d19856a8fdb5012c49207f0b"
+  },
+  "generator": {
+    "path": "scripts/audit-wizard-equipment-2014.py",
+    "sha256": "22967cc9d88c98ff894a223870cbf50f07005628eacd5c2a22103504711d225e"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "status": "source-extraction-and-identity-review-awaiting-independent-review",
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "inputSha256": {
+    "catalog/srd51-spells.index.json": "44715cba9472d30df8eafd3535422645dfea1d020e54522e299599a7995857ee",
+    "catalog/rest-spellcasting-source-comparison-2014.json": "74078b423eb8670a9c7a2a00a00109c5621e42c1c141a28f41f688a310352ada"
+  },
+  "source": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0"
+  },
+  "extraction": {
+    "headingCount": 319,
+    "sourcePdfPages": [
+      114,
+      194
+    ],
+    "sourceBodyReviewCountClaimed": false,
+    "observedSchoolRunSplits": [
+      {
+        "nameEn": "Goodberry",
+        "school": "transmutation",
+        "observedRunSplit": "transmutatio n"
+      },
+      {
+        "nameEn": "Harm",
+        "school": "necromancy",
+        "observedRunSplit": "necromanc y"
+      }
+    ],
+    "spellNamesNotRepaired": true,
+    "ambiguityStillRejected": true,
+    "existingBodyNormalizationRetained": true
+  },
+  "nameCollision": {
+    "ru": "Маскировка",
+    "candidateIds": [
+      "srd51:2014:spell:disguise-self",
+      "srd51:2014:spell:seeming"
+    ],
+    "selectedId": null,
+    "identityVerified": false,
+    "aliasesAccepted": false
+  },
+  "sourceVersionDifferences": [
+    {
+      "key": "sanctuary-ending",
+      "srdSpellId": "srd51:2014:spell:sanctuary",
+      "srdPage": 176,
+      "errataPdfPage": 5,
+      "phbPage": 273,
+      "difference": "PHB Errata v3.0 adds ending when the warded creature deals damage to another creature; this condition is absent in the exact SRD5.1 ending.",
+      "resolution": "source-version-choice-awaiting-content-game-design-review",
+      "runtimeChanged": false
+    },
+    {
+      "key": "levitate-object",
+      "srdSpellId": "srd51:2014:spell:levitate",
+      "srdPage": 158,
+      "errataPdfPage": 5,
+      "phbPage": 255,
+      "difference": "PHB Errata v3.0 specifies a loose object; the exact SRD5.1 first sentence says object.",
+      "resolution": "source-version-choice-awaiting-content-game-design-review",
+      "runtimeChanged": false
+    }
+  ],
+  "errataSource": {
+    "url": "https://media.wizards.com/2021/dnd/downloads/PH-Errata.pdf",
+    "sha256": "0c49e2c9c90c9dede38346874c8fda9ff39ce8a715d71aedc5bd1d1e4321014e",
+    "version": "3.0 (2021), 2014 PHB"
+  },
+  "boundaries": [
+    "This is a review aid, not a catalog replacement, a translated rule publication, or a runtime importer.",
+    "Name equality provides candidates only; no class, preparation, item or ritual origin is assigned.",
+    "Header equality does not prove material costs, reaction triggers, damage, target conditions or complete rule text.",
+    "No private source composition, values or full matrix is published.",
+    "Manual paths and optional agreement remain available; profile ownership/integrity/replay are not weakened."
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "status": "bounded-low-level-evocation-concordance-not-full-subclass-or-runtime",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "sources": {
+    "secondary": {
+      "url": "https://dnd.su/class/105-wizard/",
+      "sha256": "5014af15fd61af05dde5bd29e19514b8fd87fe10ea60fbcd8a81f6574e2053c8",
+      "historicalCandidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "historicalSnapshotNotReplaced": true,
+      "originalHttpReceiptUnavailable": true
+    },
+    "srd": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "selectedPdfPages": [
+        54
+      ]
+    },
+    "renderedPageInspected": true
+  },
+  "secondaryScopes": [
+    {
+      "originalCandidateReferencePreserved": {
+        "id": "scope:wizard:tradition.evocation:bf9e9bd93c493c16",
+        "kind": "subclass-feature",
+        "title": "МАСТЕР ВОПЛОЩЕНИЯ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation",
+        "headingOrdinal": 37,
+        "parent": "tradition.evocation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "headingOrdinal": 37,
+      "bodySha256": "1a2a2f69ac627b18ebea736d9bff4ef6562eb420dc7ed4bae2f37b8c202d7e34",
+      "paragraphSha256": [
+        "4acc16e97101934fd7521de9be01183614bcaf921cb2809616f759c4aec3436f",
+        "9f133ef16d87526e06c4a85a0fa2ab1c773dcdd1544083e9799858a738a6ef41"
+      ],
+      "paragraphCount": 2,
+      "firstParagraphIsLevelLabel": true,
+      "completeSelectedParagraphsCompared": true,
+      "fullSubclassOrOriginalPublicationAccepted": false
+    },
+    {
+      "originalCandidateReferencePreserved": {
+        "id": "scope:wizard:tradition.evocation:ff956c10572b13ea",
+        "kind": "subclass-feature",
+        "title": "ПОСТРОЕНИЕ ЗАКЛИНАНИЙ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation",
+        "headingOrdinal": 38,
+        "parent": "tradition.evocation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "headingOrdinal": 38,
+      "bodySha256": "df5b61201314ed310267b7ec4ee309201e4d47046bd85e47b4fe1531cf7ddd2d",
+      "paragraphSha256": [
+        "4acc16e97101934fd7521de9be01183614bcaf921cb2809616f759c4aec3436f",
+        "475013155c8560874ffbe3272342015a49cbeef8d84c68fac74bb1b2856cc23b"
+      ],
+      "paragraphCount": 2,
+      "firstParagraphIsLevelLabel": true,
+      "completeSelectedParagraphsCompared": true,
+      "fullSubclassOrOriginalPublicationAccepted": false
+    },
+    {
+      "originalCandidateReferencePreserved": {
+        "id": "scope:wizard:tradition.evocation:de01fc614320d930",
+        "kind": "subclass-feature",
+        "title": "МОЩНЫЙ ЗАГОВОР",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#tradition.evocation",
+        "headingOrdinal": 39,
+        "parent": "tradition.evocation",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-PHB",
+        "observedInitialLevels": [
+          6
+        ]
+      },
+      "headingOrdinal": 39,
+      "bodySha256": "a62246022a6916197517948a02b48862875100983301d3939fbaf33fec52d6e9",
+      "paragraphSha256": [
+        "8f982820dc9ee8e702c2ea8647534c88ef2bd52069030cccdeb41a4e783557a4",
+        "9333d1d509f9b2d4cc22b4e2af15a90fab0429dbb1a9a45f8d84e13d39b29fbe"
+      ],
+      "paragraphCount": 2,
+      "firstParagraphIsLevelLabel": true,
+      "completeSelectedParagraphsCompared": true,
+      "fullSubclassOrOriginalPublicationAccepted": false
+    }
+  ],
+  "primaryScopes": [
+    {
+      "key": "evocation-savant",
+      "source": "srd51",
+      "pdfPage": 54,
+      "start": "Evocation Savant Beginning when you select this school",
+      "stop": "Sculpt Spells Beginning at 2nd level",
+      "textSha256": "ed15937b13ca834a0ecbd13d2940dd88d5f6f7bd0a5d5cc71c7812d268df12de",
+      "wordCount": 28
+    },
+    {
+      "key": "sculpt-spells",
+      "source": "srd51",
+      "pdfPage": 54,
+      "start": "Sculpt Spells Beginning at 2nd level",
+      "stop": "Potent Cantrip Starting at 6th level",
+      "textSha256": "eba1d4d33b9f2287218ecbba24406603f3a9fd41f221792bc09b108b5245b086",
+      "wordCount": 76
+    },
+    {
+      "key": "potent-cantrip",
+      "source": "srd51",
+      "pdfPage": 54,
+      "start": "Potent Cantrip Starting at 6th level",
+      "stop": "Empowered Evocation Beginning at 10th level",
+      "textSha256": "0a01f02fb71a7fa381c21c055c2edd3550be87052415eb9a48e91d216d429a86",
+      "wordCount": 47
+    }
+  ],
+  "manualAssessments": [
+    {
+      "headingOrdinal": 37,
+      "primaryKey": "evocation-savant",
+      "classification": "same-school-book-copying-gold-and-time-halving",
+      "goldAndTimeBothHalved": true,
+      "ordinaryScope": "copy an evocation spell into your spellbook",
+      "allSpellSchoolsHalfPrice": false,
+      "castingComponentsOrItemPricesHalved": false,
+      "newVsBackupCopyAdjudicationAddedByThisScope": false
+    },
+    {
+      "headingOrdinal": 38,
+      "primaryKey": "sculpt-spells",
+      "classification": "same-operational-qualifiers-with-different-introductory-summary",
+      "secondaryIntroBroadDestructiveSpellWordingRetained": true,
+      "primaryIntroExplicitEvocationWordingRetained": true,
+      "operationalSentenceRequiresEvocationSchoolInBoth": true,
+      "literalIntroEqualityClaimed": false,
+      "otherCreaturesRequired": true,
+      "creaturesAffectedByTheCastSpellRequired": true,
+      "casterMustSeeChosenCreatures": true,
+      "sourceChosenCountExpression": "1 + spell level",
+      "chosenNumberWordingAdjudicatedAsMandatoryMinimum": false,
+      "automaticSaveSuccessAgainstThatSpell": true,
+      "zeroDamageOnlyWhenSuccessfulSaveNormallyHalvesDamage": true,
+      "universalImmunityToAnyDamageOrOtherSpells": false,
+      "selfAutomaticallyProtected": false
+    },
+    {
+      "headingOrdinal": 39,
+      "primaryKey": "potent-cantrip",
+      "classification": "same-damaging-cantrip-successful-save-half-damage-and-no-additional-effect",
+      "damagingCantripRequired": true,
+      "targetSuccessfulSavingThrowRequired": true,
+      "halfDamageIfAny": true,
+      "additionalEffectsOnSuccessfulSave": false,
+      "attackRollMissTriggersHalfDamage": false,
+      "evocationOrWizardOnlyQualifierPresentInThisClause": false,
+      "automaticRollOrDamageMutationAccepted": false
+    }
+  ],
+  "syntheticDecisionCases": [
+    {
+      "case": "copy-evocation-book-spell",
+      "goldMultiplier": 0.5,
+      "timeMultiplier": 0.5,
+      "normalMaterialCastingCostHalved": false
+    },
+    {
+      "case": "sculpt-different-school-or-unseen-or-caster",
+      "ordinarySculptProtectionAutomaticallyGranted": false,
+      "manualExceptionSaveAllowed": true
+    },
+    {
+      "case": "successful-save-usually-negates-damage",
+      "sculptGuaranteesZeroDamageIndependentlyOfHalfOnSaveCondition": false
+    },
+    {
+      "case": "potent-cantrip-save-success",
+      "damageFractionIfAny": 0.5,
+      "additionalCantripEffectsApplied": false
+    },
+    {
+      "case": "potent-cantrip-attack-miss",
+      "automaticHalfDamage": false
+    }
+  ],
+  "summary": {
+    "selectedSubclassFeatures": 3,
+    "secondaryParagraphsIncludingLevelLabels": 6,
+    "secondaryRuleProseParagraphs": 3,
+    "classLevelsCovered": [
+      2,
+      6
+    ],
+    "completeSelectedPrimaryScopes": 3,
+    "canonicalUnitsAccepted": 0
+  },
+  "limits": [
+    "No real character subclass inferred; source comparison only.",
+    "Parent narrative36 and level10/14features40/41 are not accepted by these selected clauses.",
+    "Original PHB source/version and all subclasses/rights/canonical units remain unaccepted.",
+    "No other-school/material/roll/choice/protection/damage automation; manual deviations warn and remain allowed.",
+    "The cantrip clause lacks an explicit school/class qualifier; do not inherit one from the subclass label."
+  ],
+  "implementationBoundaries": {
+    "manualDeviationWarnAndAllow": true,
+    "mandatoryGmCheckbox": false,
+    "characterOrDamageMutationPerformed": false
+  },
+  "inputSha256": {
+    "catalog/wizard-artificer-source-scopes-2014.json": "35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5"
+  },
+  "upstreamParserSha256": {
+    "scripts/audit-wizard-candidate-concordance-2014.py": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b",
+    "scripts/audit-wizard-entry-boundaries-2014.py": "8b9e84352710a3133e1b8951a5468779cb8e59f6d19856a8fdb5012c49207f0b"
+  },
+  "generator": {
+    "path": "scripts/audit-wizard-evocation-low-level-2014.py",
+    "sha256": "0e885d4d26cf67004e78bfa64576044fe1d3e2dac621304eb836659f3a6831e0"
+  }
+}

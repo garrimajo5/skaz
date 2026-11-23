@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "status": "six-source-specific-errata-clauses-not-complete-artificer-or-runtime",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "sources": {
+    "eberron-errata.pdf": {
+      "requestedUrl": "https://media.wizards.com/2020/dnd/downloads/ERftLW-Errata.pdf",
+      "finalUrl": "https://media.wizards.com/2020/dnd/downloads/ERftLW-Errata.pdf",
+      "status": 200,
+      "bytes": 321861,
+      "sha256": "94f194059290862f626f883fac83866e665655c7b4987405e17d71a9d4b4026d",
+      "capturedAt": "2026-11-21T13:12:16.321733+00:00",
+      "pdfPageCount": 2,
+      "inspectedPdfPages": [
+        1
+      ],
+      "errataVersion": "2.0",
+      "historicalBookSourceId": "119"
+    },
+    "tasha-errata.pdf": {
+      "requestedUrl": "https://media.wizards.com/2021/dnd/downloads/TCE-Errata.pdf",
+      "finalUrl": "https://media.wizards.com/2021/dnd/downloads/TCE-Errata.pdf",
+      "status": 200,
+      "bytes": 322011,
+      "sha256": "471b401d7c44c23c3f880fa2ca5d1e9b26abd87cc673a27ba614c9fea371dbd9",
+      "capturedAt": "2026-11-21T13:12:16.322733+00:00",
+      "pdfPageCount": 1,
+      "inspectedPdfPages": [
+        1
+      ],
+      "errataVersion": "1.0",
+      "historicalBookSourceId": "117"
+    }
+  },
+  "records": [
+    {
+      "key": "magical-tinkering",
+      "sourceFile": "eberron-errata.pdf",
+      "pdfPage": 1,
+      "historicalBookSourceId": "119",
+      "bookTitle": "Eberron: Rising from the Last War",
+      "startHeading": "Magical Tinkering (p. 55).",
+      "stopHeading": "Tools Required (p. 55).",
+      "scopeKind": "replacement-phrase",
+      "witness": {
+        "whitespaceUnitSha256": "7fbf8fded93c7aec47a010c25c2bc1784ccd5a21264d6d4befdf4151d1549448",
+        "normalizedUnitSha256": "7fbf8fded93c7aec47a010c25c2bc1784ccd5a21264d6d4befdf4151d1549448",
+        "layoutRepairs": {
+          "verifiedArtisanWrap": 0,
+          "verifiedAutomaticallyWrap": 0
+        },
+        "boundaryStop": "first-next-heading"
+      },
+      "ordinaryFacts": {
+        "correctedToolAlternatives": [
+          "thieves-tools",
+          "artisans-tools"
+        ],
+        "completeFeatureVerified": false
+      },
+      "correspondingCandidateId": "scope:artificer:class-features:feature.magical-tinkering",
+      "candidateOriginalSourceClaims": [
+        "117"
+      ],
+      "appliesToCandidatePublicationVerified": false,
+      "applicabilityStatus": "requires-full-candidate-text/version-comparison-even-when-book-id-matches",
+      "acceptedForRuntime": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "key": "tools-material-clarification",
+      "sourceFile": "eberron-errata.pdf",
+      "pdfPage": 1,
+      "historicalBookSourceId": "119",
+      "bookTitle": "Eberron: Rising from the Last War",
+      "startHeading": "Tools Required (p. 55).",
+      "stopHeading": "Infusing an Item (p. 57).",
+      "scopeKind": "added-clarification",
+      "witness": {
+        "whitespaceUnitSha256": "135d5da3a3164d789378289fd53e2ef84e9dfa496fc594bac79cbd7a3dd8c7c3",
+        "normalizedUnitSha256": "135d5da3a3164d789378289fd53e2ef84e9dfa496fc594bac79cbd7a3dd8c7c3",
+        "layoutRepairs": {
+          "verifiedArtisanWrap": 0,
+          "verifiedAutomaticallyWrap": 0
+        },
+        "boundaryStop": "first-next-heading"
+      },
+      "ordinaryFacts": {
+        "patchClarifiesMaterialComponentWhenCastingThroughThisFeature": true,
+        "otherClassSpellsChanged": false,
+        "costlyOrConsumedMaterialExceptionInferred": false,
+        "completeToolsRequiredVerified": false
+      },
+      "correspondingCandidateId": "scope:artificer:class-features:feature.spellcasting",
+      "candidateOriginalSourceClaims": [
+        "117"
+      ],
+      "appliesToCandidatePublicationVerified": false,
+      "applicabilityStatus": "requires-full-candidate-text/version-comparison-even-when-book-id-matches",
+      "acceptedForRuntime": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "key": "infused-container-contents",
+      "sourceFile": "eberron-errata.pdf",
+      "pdfPage": 1,
+      "historicalBookSourceId": "119",
+      "bookTitle": "Eberron: Rising from the Last War",
+      "startHeading": "Infusing an Item (p. 57).",
+      "stopHeading": "The Right Tool for the Job (p. 57).",
+      "scopeKind": "whole-added-paragraph",
+      "witness": {
+        "whitespaceUnitSha256": "05a7ee8b68aaf9ee39ca665711d01d4983ddc118566a971dc48bbf6929c3f6d5",
+        "normalizedUnitSha256": "05a7ee8b68aaf9ee39ca665711d01d4983ddc118566a971dc48bbf6929c3f6d5",
+        "layoutRepairs": {
+          "verifiedArtisanWrap": 0,
+          "verifiedAutomaticallyWrap": 0
+        },
+        "boundaryStop": "first-next-heading"
+      },
+      "ordinaryFacts": {
+        "trigger": "infusion-ends-on-item-containing-other-things",
+        "ordinaryOutcome": "contents-harmlessly-appear-in-and-around-item-space",
+        "bagOfHoldingIsExampleNotOnlyContainer": true,
+        "itemDestroyedOrOtherExtradimensionalEventsCovered": false,
+        "completeInfuseItemVerified": false
+      },
+      "correspondingCandidateId": "scope:artificer:class-features:feature.infuse-item",
+      "candidateOriginalSourceClaims": [
+        "117"
+      ],
+      "appliesToCandidatePublicationVerified": false,
+      "applicabilityStatus": "requires-full-candidate-text/version-comparison-even-when-book-id-matches",
+      "acceptedForRuntime": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "key": "right-tool",
+      "sourceFile": "eberron-errata.pdf",
+      "pdfPage": 1,
+      "historicalBookSourceId": "119",
+      "bookTitle": "Eberron: Rising from the Last War",
+      "startHeading": "The Right Tool for the Job (p. 57).",
+      "stopHeading": "Eldritch Cannon (p. 59).",
+      "scopeKind": "replacement-phrase",
+      "witness": {
+        "whitespaceUnitSha256": "fad16e25738479cd128279da153b1d832f220303d3702504324b8bd84ba7ba75",
+        "normalizedUnitSha256": "329352ff1d6d4d78564c385e027426babc57295fb5a0df6142f7532a0671ef2f",
+        "layoutRepairs": {
+          "verifiedArtisanWrap": 1,
+          "verifiedAutomaticallyWrap": 0
+        },
+        "boundaryStop": "first-next-heading"
+      },
+      "ordinaryFacts": {
+        "correctedToolAlternatives": [
+          "thieves-tools",
+          "artisans-tools"
+        ],
+        "completeFeatureVerified": false
+      },
+      "correspondingCandidateId": "scope:artificer:class-features:feature.right-tool-for-the-job",
+      "candidateOriginalSourceClaims": [
+        "117"
+      ],
+      "appliesToCandidatePublicationVerified": false,
+      "applicabilityStatus": "requires-full-candidate-text/version-comparison-even-when-book-id-matches",
+      "acceptedForRuntime": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "key": "purify-ritual-tag",
+      "sourceFile": "tasha-errata.pdf",
+      "pdfPage": 1,
+      "historicalBookSourceId": "117",
+      "bookTitle": "Tasha's Cauldron of Everything",
+      "startHeading": "Artificer Spell List (pg. 12).",
+      "stopHeading": "Perfected Armor (pg. 17).",
+      "scopeKind": "added-spell-list-marker",
+      "witness": {
+        "whitespaceUnitSha256": "8fcc0ae3b1e0133fc249ae47075bc752e0f839604e4d766f3e70a7fa53050495",
+        "normalizedUnitSha256": "8fcc0ae3b1e0133fc249ae47075bc752e0f839604e4d766f3e70a7fa53050495",
+        "layoutRepairs": {
+          "verifiedArtisanWrap": 0,
+          "verifiedAutomaticallyWrap": 0
+        },
+        "boundaryStop": "first-next-heading"
+      },
+      "ordinaryFacts": {
+        "spellTitle": "Purify Food and Drink",
+        "artificerListRitualMarkerAdded": true,
+        "spellAutomaticallyPreparedOrWizardBookGranted": false,
+        "completeArtificerRitualRuleVerified": false
+      },
+      "correspondingCandidateId": "scope:artificer:class-features:feature.spellcasting",
+      "candidateOriginalSourceClaims": [
+        "117"
+      ],
+      "appliesToCandidatePublicationVerified": false,
+      "applicabilityStatus": "requires-full-candidate-text/version-comparison-even-when-book-id-matches",
+      "acceptedForRuntime": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "key": "repeating-shot-ammunition",
+      "sourceFile": "tasha-errata.pdf",
+      "pdfPage": 1,
+      "historicalBookSourceId": "117",
+      "bookTitle": "Tasha's Cauldron of Everything",
+      "startHeading": "Repeating Shot (pg. 22).",
+      "stopHeading": "Animating Performance (pg. 29).",
+      "scopeKind": "whole-replacement-sentence",
+      "witness": {
+        "whitespaceUnitSha256": "8ac60168ac8cfab71225e05004d7f66944841d58cbdaee8b7ec909cdbb02bf85",
+        "normalizedUnitSha256": "3cee67d376b86d844f6b0f79e643b6272180aff574ac91ee4fa0633ab81d6eea",
+        "layoutRepairs": {
+          "verifiedArtisanWrap": 0,
+          "verifiedAutomaticallyWrap": 1
+        },
+        "boundaryStop": "first-next-heading"
+      },
+      "ordinaryFacts": {
+        "condition": "weapon-lacks-ammunition",
+        "productionTrigger": "wielder-makes-ranged-attack-with-weapon",
+        "producedMagicAmmunitionPerTrigger": 1,
+        "unconditionalStockpileGranted": false,
+        "wholeInfusionVerified": false
+      },
+      "correspondingCandidateId": null,
+      "candidateOriginalSourceClaims": null,
+      "appliesToCandidatePublicationVerified": false,
+      "applicabilityStatus": "requires-full-candidate-text/version-comparison-even-when-book-id-matches",
+      "acceptedForRuntime": false,
+      "manualDeviationAllowedWithWarning": true
+    }
+  ],
+  "summary": {
+    "selectedCorrections": 6,
+    "sourceBooks": 2,
+    "wholeBaseFeaturesAccepted": 0,
+    "canonicalUnitsAccepted": 0
+  },
+  "syntheticCases": [
+    {
+      "event": "infusion-ends",
+      "itemContainsOtherThings": true,
+      "correctedPublicationVerified": true,
+      "expected": "contents-appear-harmlessly-in-and-around-item-space"
+    },
+    {
+      "event": "item-destroyed",
+      "itemContainsOtherThings": true,
+      "correctedPublicationVerified": true,
+      "expected": "outside-this-added-paragraph-no-outcome-inferred"
+    },
+    {
+      "event": "infusion-still-active",
+      "itemContainsOtherThings": true,
+      "correctedPublicationVerified": true,
+      "expected": "no-trigger-from-this-patch"
+    },
+    {
+      "event": "infusion-ends",
+      "itemContainsOtherThings": true,
+      "correctedPublicationVerified": false,
+      "expected": "version/source-warning-before-any-future-automation"
+    },
+    {
+      "event": "ritual-tag-added-to-list",
+      "expected": "not-automatic-preparation-or-spellbook-entry"
+    },
+    {
+      "event": "repeating-shot-equipped-only",
+      "expected": "no-unconditional-ammunition-stockpile"
+    }
+  ],
+  "inputSha256": {
+    "catalog/dndsu-source-register.json": "109868b7dbc77b2168d4dfec77166cf9cff4c8b55b9fff9ea3ccbdbbe899a42f",
+    "catalog/wizard-artificer-source-scopes-2014.json": "35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5"
+  },
+  "generator": {
+    "path": "scripts/audit-artificer-errata-scopes-2014.py",
+    "sha256": "d0ccc9d1b5a679926c3e504938b10c48f6e03655b641cd2833ee9c0c17b89388"
+  },
+  "upstreamParser": {
+    "path": "scripts/audit-wizard-recovery-source-comparison-2014.py",
+    "sha256": "315a8a4c5f3763ccd55c70b7a0211deb2b1e8e34e13057af489a31580b2fb388"
+  },
+  "limits": [
+    "Errata119 patches are not automatically applied to candidate source117; named matching features do not establish edition/text identity.",
+    "Only six selected clauses on PDFpage1 are inspected; remaining pages, whole infusions/spellcasting/subclasses are not accepted.",
+    "A full added paragraph or replacement sentence is not a full base feature or an implemented game action.",
+    "No global inventory-delete/destruction rule, Wizard ritual borrowing, cost/consumption exemption or auto grant inferred.",
+    "Ordinary deviations warn and keep a manual route; integrity/access/transfer technical protections are unchanged.",
+    "No full prose, PDF, profile data, runtime, publication rights or owner milestone acceptance exported."
+  ]
+}

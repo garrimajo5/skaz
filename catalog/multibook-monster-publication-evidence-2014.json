@@ -1,0 +1,418 @@
+{
+  "schemaVersion": 1,
+  "status": "multibook-bestiary-publication-metadata-not-full-rules",
+  "checkedOn": "2026-11-20",
+  "selectedNames": [
+    "baphomet",
+    "choker",
+    "deathlock wight",
+    "demogorgon",
+    "derro",
+    "derro savant",
+    "duergar kavalrachni",
+    "female steeder",
+    "fraz-urb'luu",
+    "graz'zt",
+    "male steeder",
+    "meenlock",
+    "yeenoghu"
+  ],
+  "sources": [
+    {
+      "sourceId": "113",
+      "book": "mtof",
+      "title": "Mordenkainen's Tome of Foes",
+      "url": "https://www.dndbeyond.com/sources/dnd/mtof",
+      "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064",
+      "selectedNames": [
+        "baphomet",
+        "choker",
+        "deathlock wight",
+        "demogorgon",
+        "derro",
+        "derro savant",
+        "duergar kavalrachni",
+        "female steeder",
+        "fraz-urb'luu",
+        "graz'zt",
+        "male steeder",
+        "yeenoghu"
+      ],
+      "records": [
+        {
+          "name": "baphomet",
+          "heading": "Baphomet",
+          "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Baphomet"
+        },
+        {
+          "name": "choker",
+          "heading": "Choker",
+          "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Choker"
+        },
+        {
+          "name": "deathlock wight",
+          "heading": "Deathlock Wight",
+          "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#DeathlockWight"
+        },
+        {
+          "name": "demogorgon",
+          "heading": "Demogorgon",
+          "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Demogorgon"
+        },
+        {
+          "name": "derro",
+          "heading": "Derro",
+          "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Derro"
+        },
+        {
+          "name": "derro savant",
+          "heading": "Derro Savant",
+          "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#DerroSavant"
+        },
+        {
+          "name": "duergar kavalrachni",
+          "heading": "Duergar Kavalrachni",
+          "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#DuergarKavalrachni"
+        },
+        {
+          "name": "female steeder",
+          "heading": "Female Steeder",
+          "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#FemaleSteeder"
+        },
+        {
+          "name": "male steeder",
+          "heading": "Male Steeder",
+          "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#MaleSteeder"
+        },
+        {
+          "name": "yeenoghu",
+          "heading": "Yeenoghu",
+          "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Yeenoghu"
+        }
+      ],
+      "missing": [
+        {
+          "name": "fraz-urb'luu",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "graz'zt",
+          "reason": "missing-index-heading"
+        }
+      ],
+      "alternateSpellings": [
+        {
+          "observedKey": "fraz-urb'luu",
+          "publishedKey": "fraz-urb’luu",
+          "heading": "Fraz-Urb’luu",
+          "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#FrazUrbluu",
+          "acceptedAlias": false
+        },
+        {
+          "observedKey": "graz'zt",
+          "publishedKey": "graz’zt",
+          "heading": "Graz’zt",
+          "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Grazzt",
+          "acceptedAlias": false
+        }
+      ],
+      "linkAnomalies": []
+    },
+    {
+      "sourceId": "111",
+      "book": "vgtm",
+      "title": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/sources/dnd/vgtm",
+      "htmlSha256": "afaee9930e46efe51e83bf9e55c786979e3d8dc32d1ee1a34de39811bfcd6ab1",
+      "selectedNames": [
+        "meenlock"
+      ],
+      "records": [
+        {
+          "name": "meenlock",
+          "heading": "Meenlock",
+          "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#Meenlock"
+        }
+      ],
+      "missing": [],
+      "alternateSpellings": [],
+      "linkAnomalies": []
+    },
+    {
+      "sourceId": "158",
+      "book": "motm",
+      "title": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/sources/dnd/motm",
+      "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e",
+      "selectedNames": [
+        "baphomet",
+        "choker",
+        "deathlock wight",
+        "demogorgon",
+        "derro",
+        "derro savant",
+        "duergar kavalrachni",
+        "female steeder",
+        "fraz-urb'luu",
+        "graz'zt",
+        "male steeder",
+        "meenlock",
+        "yeenoghu"
+      ],
+      "records": [
+        {
+          "name": "baphomet",
+          "heading": "Baphomet",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Baphomet"
+        },
+        {
+          "name": "choker",
+          "heading": "Choker",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Choker"
+        },
+        {
+          "name": "deathlock wight",
+          "heading": "Deathlock Wight",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#DeathlockWight"
+        },
+        {
+          "name": "demogorgon",
+          "heading": "Demogorgon",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Demogorgon"
+        },
+        {
+          "name": "derro",
+          "heading": "Derro",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Derro"
+        },
+        {
+          "name": "derro savant",
+          "heading": "Derro Savant",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#DerroSavant"
+        },
+        {
+          "name": "duergar kavalrachni",
+          "heading": "Duergar Kavalrachni",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#DuergarKavalrachni"
+        },
+        {
+          "name": "meenlock",
+          "heading": "Meenlock",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#Meenlock"
+        },
+        {
+          "name": "yeenoghu",
+          "heading": "Yeenoghu",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-vz#Yeenoghu"
+        }
+      ],
+      "missing": [
+        {
+          "name": "female steeder",
+          "reason": "label-fragment-mismatch"
+        },
+        {
+          "name": "fraz-urb'luu",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "graz'zt",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "male steeder",
+          "reason": "label-fragment-mismatch"
+        }
+      ],
+      "alternateSpellings": [
+        {
+          "observedKey": "fraz-urb'luu",
+          "publishedKey": "fraz-urb’luu",
+          "heading": "Fraz-Urb’luu",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#FrazUrbluu",
+          "acceptedAlias": false
+        },
+        {
+          "observedKey": "graz'zt",
+          "publishedKey": "graz’zt",
+          "heading": "Graz’zt",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#Grazzt",
+          "acceptedAlias": false
+        }
+      ],
+      "linkAnomalies": [
+        {
+          "name": "female steeder",
+          "heading": "Female Steeder",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#MaleSteeder",
+          "observedFragment": "MaleSteeder",
+          "expectedFragment": "FemaleSteeder",
+          "reason": "publisher-label-fragment-mismatch"
+        },
+        {
+          "name": "male steeder",
+          "heading": "Male Steeder",
+          "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-su#FemaleSteeder",
+          "observedFragment": "FemaleSteeder",
+          "expectedFragment": "MaleSteeder",
+          "reason": "publisher-label-fragment-mismatch"
+        }
+      ]
+    },
+    {
+      "sourceId": "129",
+      "book": "oota",
+      "title": "Out of the Abyss",
+      "url": "https://www.dndbeyond.com/sources/dnd/oota",
+      "htmlSha256": "ec62167514e422be4d3f87fe582dbba09c90e83b09f2d4f8366f29208152a19e",
+      "selectedNames": [
+        "baphomet",
+        "demogorgon",
+        "derro",
+        "derro savant",
+        "duergar kavalrachni",
+        "female steeder",
+        "fraz-urb'luu",
+        "graz'zt",
+        "male steeder",
+        "yeenoghu"
+      ],
+      "records": [
+        {
+          "name": "baphomet",
+          "heading": "Baphomet",
+          "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-d-demon-lords#Baphomet"
+        },
+        {
+          "name": "demogorgon",
+          "heading": "Demogorgon",
+          "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-d-demon-lords#Demogorgon"
+        },
+        {
+          "name": "derro",
+          "heading": "Derro",
+          "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-c-creatures#Derro"
+        },
+        {
+          "name": "fraz-urb'luu",
+          "heading": "Fraz-Urb'luu",
+          "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-d-demon-lords#FrazUrbluu"
+        },
+        {
+          "name": "graz'zt",
+          "heading": "Graz'zt",
+          "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-d-demon-lords#Grazzt"
+        },
+        {
+          "name": "yeenoghu",
+          "heading": "Yeenoghu",
+          "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-d-demon-lords#Yeenoghu"
+        }
+      ],
+      "missing": [
+        {
+          "name": "derro savant",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "duergar kavalrachni",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "female steeder",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "male steeder",
+          "reason": "missing-index-heading"
+        }
+      ],
+      "alternateSpellings": [],
+      "linkAnomalies": []
+    },
+    {
+      "sourceId": "122",
+      "book": "cm",
+      "title": "Candlekeep Mysteries",
+      "url": "https://www.dndbeyond.com/sources/dnd/cm",
+      "htmlSha256": "7c5ad9d41c3b0f491423f30053f7e3c070d0b82936430be2f866ec7f621b6d0a",
+      "selectedNames": [
+        "meenlock"
+      ],
+      "records": [
+        {
+          "name": "meenlock",
+          "heading": "Meenlock",
+          "targetUrl": "https://www.dndbeyond.com/sources/cm/a-deep-and-creeping-darkness#Meenlock"
+        }
+      ],
+      "missing": [],
+      "alternateSpellings": [],
+      "linkAnomalies": []
+    },
+    {
+      "sourceId": "133",
+      "book": "tftyp",
+      "title": "Tales from the Yawning Portal",
+      "url": "https://www.dndbeyond.com/sources/dnd/tftyp",
+      "htmlSha256": "4708af49755d189a196ec29ecde42a00b908f418273c715019b19e36512e8311",
+      "selectedNames": [
+        "choker",
+        "deathlock wight"
+      ],
+      "records": [],
+      "missing": [
+        {
+          "name": "choker",
+          "reason": "missing-index-heading"
+        },
+        {
+          "name": "deathlock wight",
+          "reason": "missing-index-heading"
+        }
+      ],
+      "alternateSpellings": [],
+      "linkAnomalies": []
+    }
+  ],
+  "demogorgonDisambiguation": {
+    "url": "https://www.dndbeyond.com/monsters?filter-search=Demogorgon",
+    "htmlSha256": "6d99cb3e625009a34e1a42bba5125d537a14e302275b6a5e2865f32d85a1c5eb",
+    "records": [
+      {
+        "sourceId": "123",
+        "digitalName": "Demogorgon (Monstrosity)",
+        "displayedSource": "Hunt for the Thessalhydra",
+        "cardUrl": "https://www.dndbeyond.com/monsters/339638-demogorgon-monstrosity",
+        "type": "Monstrosity",
+        "size": "Medium",
+        "challenge": "4"
+      },
+      {
+        "sourceId": "129",
+        "digitalName": "Demogorgon",
+        "displayedSource": "Out of the Abyss",
+        "cardUrl": "https://www.dndbeyond.com/monsters/17409-demogorgon",
+        "type": "Fiend (demon)",
+        "size": "Huge",
+        "challenge": "26"
+      },
+      {
+        "sourceId": "158",
+        "digitalName": "Demogorgon",
+        "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+        "cardUrl": "https://www.dndbeyond.com/monsters/2560771-demogorgon",
+        "type": "Fiend (demon)",
+        "size": "Huge",
+        "challenge": "26"
+      }
+    ],
+    "method": "Only three exact name/publication pairs; quoted Giant, Spawn, Echo and other names are not aliases."
+  },
+  "limitations": [
+    "Exact TOC headings prove publication presence only; absence is unresolved evidence, not proof of absent content.",
+    "Literal punctuation alternatives remain unapproved and never fill an exact-heading gap.",
+    "The source123 Monstrosity has a separate publisher label and is not automatically another demon-prince version.",
+    "No stat blocks, translation, exact errata, accepted denominator or character migration is established."
+  ]
+}

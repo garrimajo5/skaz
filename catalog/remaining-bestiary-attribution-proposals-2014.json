@@ -1,0 +1,1355 @@
+{
+  "schemaVersion": 1,
+  "status": "remaining-bestiary-attribution-proposals-awaiting-review",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "consideredGroups": 18,
+    "compositeGroups": 9,
+    "simpleGroups": 9,
+    "preservedObservations": 36,
+    "publicationClaims": 50,
+    "exactPublicationHeadingClaims": 18,
+    "groupsWithAllPublicationHeadings": 3,
+    "parentContexts": 8,
+    "unapprovedAlternates": 3,
+    "publisherArticleMentions": 1,
+    "unavailableChapterAttempts": 8,
+    "acceptedCanonicalUnits": 0
+  },
+  "groups": [
+    {
+      "reviewId": "name-review:19b610f76bb81838ed91",
+      "name": "space hamster",
+      "kind": "two-single-source-observations",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:6159",
+          "observedName": "Space Hamster",
+          "sourceIds": [
+            "135"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:8691",
+          "observedName": "Space Hamster",
+          "sourceIds": [
+            "160"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:6159|135",
+          "observationId": "dndsu:bestiary:6159",
+          "sourceId": "135",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8691|160",
+          "observationId": "dndsu:bestiary:8691",
+          "sourceId": "160",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/sais",
+            "htmlSha256": "1191a5a0ebedb74e4cb77cebe0ba1fee20ba8d8ab49b3617eaa027d81346d378",
+            "heading": "Space Hamster",
+            "targetUrl": "https://www.dndbeyond.com/sources/sais/bam/bestiary#SpaceHamster",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:1b06c8eb8bd23dbc0116",
+      "name": "cosmic horror",
+      "kind": "two-single-source-observations",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:15694",
+          "observedName": "Cosmic Horror",
+          "sourceIds": [
+            "214"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:8821",
+          "observedName": "Cosmic Horror",
+          "sourceIds": [
+            "160"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:15694|214",
+          "observationId": "dndsu:bestiary:15694",
+          "sourceId": "214",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/veor",
+            "htmlSha256": "9a37d2894c8ffe5d4949495dced5bc3aac0a67de620fde0e565114ae6b43a3fc",
+            "heading": "Cosmic Horror",
+            "targetUrl": "https://www.dndbeyond.com/sources/veor/bestiary#CosmicHorror",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8821|160",
+          "observationId": "dndsu:bestiary:8821",
+          "sourceId": "160",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/sais",
+            "htmlSha256": "1191a5a0ebedb74e4cb77cebe0ba1fee20ba8d8ab49b3617eaa027d81346d378",
+            "heading": "Cosmic Horror",
+            "targetUrl": "https://www.dndbeyond.com/sources/sais/bam/bestiary#CosmicHorror",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": true,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:56f4a50fcd55424c49d2",
+      "name": "brain in a jar",
+      "kind": "two-single-source-observations",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:5758",
+          "observedName": "Brain in a Jar",
+          "sourceIds": [
+            "120"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:6854",
+          "observedName": "Brain in a Jar",
+          "sourceIds": [
+            "125"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:5758|120",
+          "observationId": "dndsu:bestiary:5758",
+          "sourceId": "120",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:6854|125",
+          "observationId": "dndsu:bestiary:6854",
+          "sourceId": "125",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:592fb0a6b181f465e066",
+      "name": "spellcaster (mage)",
+      "kind": "composite-source-attribution",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:8022",
+          "observedName": "Spellcaster (Mage)",
+          "sourceIds": [
+            "157"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:8027",
+          "observedName": "Spellcaster (Mage)",
+          "sourceIds": [
+            "127",
+            "131",
+            "167"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:8022|157",
+          "observationId": "dndsu:bestiary:8022",
+          "sourceId": "157",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8027|127",
+          "observationId": "dndsu:bestiary:8027",
+          "sourceId": "127",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8027|131",
+          "observationId": "dndsu:bestiary:8027",
+          "sourceId": "131",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8027|167",
+          "observationId": "dndsu:bestiary:8027",
+          "sourceId": "167",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:692ef5fc9e5709b3db58",
+      "name": "chwinga",
+      "kind": "composite-source-attribution",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:2642",
+          "observedName": "Chwinga",
+          "sourceIds": [
+            "114",
+            "120",
+            "122"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:8718",
+          "observedName": "Chwinga",
+          "sourceIds": [
+            "160"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:2642|114",
+          "observationId": "dndsu:bestiary:2642",
+          "sourceId": "114",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/toa",
+            "htmlSha256": "d19be60a3ed5002b5e413350ba733770a5b1b667f49185c74d3240141ac090a3",
+            "heading": "Chwinga",
+            "targetUrl": "https://www.dndbeyond.com/sources/toa/monsters-and-npcs#Chwinga",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:2642|120",
+          "observationId": "dndsu:bestiary:2642",
+          "sourceId": "120",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:2642|122",
+          "observationId": "dndsu:bestiary:2642",
+          "sourceId": "122",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/cm",
+            "htmlSha256": "7c5ad9d41c3b0f491423f30053f7e3c070d0b82936430be2f866ec7f621b6d0a",
+            "heading": "Chwinga",
+            "targetUrl": "https://www.dndbeyond.com/sources/cm/alkazaars-appendix#Chwinga",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8718|160",
+          "observationId": "dndsu:bestiary:8718",
+          "sourceId": "160",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/sais",
+            "htmlSha256": "1191a5a0ebedb74e4cb77cebe0ba1fee20ba8d8ab49b3617eaa027d81346d378",
+            "heading": "Chwinga",
+            "targetUrl": "https://www.dndbeyond.com/sources/sais/bam/bestiary#Chwinga",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:6ddb21589e4c92819c34",
+      "name": "orcus",
+      "kind": "composite-source-attribution",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:4890",
+          "observedName": "Orcus",
+          "sourceIds": [
+            "113",
+            "129"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:6917",
+          "observedName": "Orcus",
+          "sourceIds": [
+            "158"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:4890|113",
+          "observationId": "dndsu:bestiary:4890",
+          "sourceId": "113",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+            "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064",
+            "heading": "Orcus",
+            "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#Orcus",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:4890|129",
+          "observationId": "dndsu:bestiary:4890",
+          "sourceId": "129",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/oota",
+            "htmlSha256": "ec62167514e422be4d3f87fe582dbba09c90e83b09f2d4f8366f29208152a19e",
+            "heading": "Orcus",
+            "targetUrl": "https://www.dndbeyond.com/compendium/adventures/oota/appendix-d-demon-lords#Orcus",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:6917|158",
+          "observationId": "dndsu:bestiary:6917",
+          "sourceId": "158",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e",
+            "heading": "Orcus",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-lr#Orcus",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": true,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:78ef04cefaf20e230195",
+      "name": "warrior",
+      "kind": "composite-source-attribution",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:8017",
+          "observedName": "Warrior",
+          "sourceIds": [
+            "157"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:8023",
+          "observedName": "Warrior",
+          "sourceIds": [
+            "127",
+            "131",
+            "167"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:8017|157",
+          "observationId": "dndsu:bestiary:8017",
+          "sourceId": "157",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8023|127",
+          "observationId": "dndsu:bestiary:8023",
+          "sourceId": "127",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8023|131",
+          "observationId": "dndsu:bestiary:8023",
+          "sourceId": "131",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8023|167",
+          "observationId": "dndsu:bestiary:8023",
+          "sourceId": "167",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:817a75ba644dee41941a",
+      "name": "large mimic",
+      "kind": "two-single-source-observations",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:6235",
+          "observedName": "Large Mimic",
+          "sourceIds": [
+            "135"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:8050",
+          "observedName": "Large Mimic",
+          "sourceIds": [
+            "130"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:6235|135",
+          "observationId": "dndsu:bestiary:6235",
+          "sourceId": "135",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8050|130",
+          "observationId": "dndsu:bestiary:8050",
+          "sourceId": "130",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:96081cbbd4ac8e151fe6",
+      "name": "expert",
+      "kind": "composite-source-attribution",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:8016",
+          "observedName": "Expert",
+          "sourceIds": [
+            "157"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:8024",
+          "observedName": "Expert",
+          "sourceIds": [
+            "127",
+            "131",
+            "167"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:8016|157",
+          "observationId": "dndsu:bestiary:8016",
+          "sourceId": "157",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8024|127",
+          "observationId": "dndsu:bestiary:8024",
+          "sourceId": "127",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8024|131",
+          "observationId": "dndsu:bestiary:8024",
+          "sourceId": "131",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8024|167",
+          "observationId": "dndsu:bestiary:8024",
+          "sourceId": "167",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:9f11f017e2b5c1b69aed",
+      "name": "amphisbaena",
+      "kind": "two-single-source-observations",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:7169",
+          "observedName": "Amphisbaena",
+          "sourceIds": [
+            "121"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:7498",
+          "observedName": "Amphisbaena",
+          "sourceIds": [
+            "128"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:7169|121",
+          "observationId": "dndsu:bestiary:7169",
+          "sourceId": "121",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/moot",
+            "htmlSha256": "9a19b978f2f22747a0b395c02132a02ed170d7dc91cb4cd474f0af9d1be09f95",
+            "heading": "Amphisbaena",
+            "targetUrl": "https://www.dndbeyond.com/sources/moot/friends-and-foes#Amphisbaena",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:7498|128",
+          "observationId": "dndsu:bestiary:7498",
+          "sourceId": "128",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:a6ee97320e7808e2fbde",
+      "name": "spellcaster (healer)",
+      "kind": "composite-source-attribution",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:8014",
+          "observedName": "Spellcaster (Healer)",
+          "sourceIds": [
+            "157"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:8025",
+          "observedName": "Spellcaster (Healer)",
+          "sourceIds": [
+            "127",
+            "131",
+            "167"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:8014|157",
+          "observationId": "dndsu:bestiary:8014",
+          "sourceId": "157",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8025|127",
+          "observationId": "dndsu:bestiary:8025",
+          "sourceId": "127",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8025|131",
+          "observationId": "dndsu:bestiary:8025",
+          "sourceId": "131",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:8025|167",
+          "observationId": "dndsu:bestiary:8025",
+          "sourceId": "167",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:a778e33bedddbc7ab6ab",
+      "name": "bard",
+      "kind": "composite-source-attribution",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:628",
+          "observedName": "Bard",
+          "sourceIds": [
+            "111",
+            "128"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:6476",
+          "observedName": "Bard",
+          "sourceIds": [
+            "158"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:628|111",
+          "observationId": "dndsu:bestiary:628",
+          "sourceId": "111",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/vgtm",
+            "htmlSha256": "afaee9930e46efe51e83bf9e55c786979e3d8dc32d1ee1a34de39811bfcd6ab1",
+            "heading": "Bard",
+            "targetUrl": "https://www.dndbeyond.com/sources/vgtm/appendix-b-nonplayer-characters#Bard",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:628|128",
+          "observationId": "dndsu:bestiary:628",
+          "sourceId": "128",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:6476|158",
+          "observationId": "dndsu:bestiary:6476",
+          "sourceId": "158",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e",
+            "heading": "Bard",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary#Bard",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:b990d8bf2a8ebcbe08b7",
+      "name": "pech",
+      "kind": "two-single-source-observations",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:15252",
+          "observedName": "Pech",
+          "sourceIds": [
+            "213"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:17230",
+          "observedName": "Pech",
+          "sourceIds": [
+            "218"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:15252|213",
+          "observationId": "dndsu:bestiary:15252",
+          "sourceId": "213",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:17230|218",
+          "observationId": "dndsu:bestiary:17230",
+          "sourceId": "218",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/qftis",
+            "htmlSha256": "45ab97b08b9860b2855f3bcfc920c986bd05a32dd260fa5371c8e7f5c1a4c2f8",
+            "heading": "Pech",
+            "targetUrl": "https://www.dndbeyond.com/sources/qftis/creatures#Pech",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:bec0a45d67a6b1dfbad4",
+      "name": "necrichor",
+      "kind": "two-single-source-observations",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:13216",
+          "observedName": "Necrichor",
+          "sourceIds": [
+            "208"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:6869",
+          "observedName": "Necrichor",
+          "sourceIds": [
+            "125"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:13216|208",
+          "observationId": "dndsu:bestiary:13216",
+          "sourceId": "208",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:6869|125",
+          "observationId": "dndsu:bestiary:6869",
+          "sourceId": "125",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:c33e38cd5ba6bfdcd994",
+      "name": "red ruffian",
+      "kind": "two-single-source-observations",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:10",
+          "observedName": "Red ruffian",
+          "sourceIds": [
+            "110"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:12554",
+          "observedName": "Red ruffian",
+          "sourceIds": [
+            "202"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:10|110",
+          "observationId": "dndsu:bestiary:10",
+          "sourceId": "110",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:12554|202",
+          "observationId": "dndsu:bestiary:12554",
+          "sourceId": "202",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:ed3135f7e036854f2a53",
+      "name": "wereraven",
+      "kind": "composite-source-attribution",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:6905",
+          "observedName": "Wereraven",
+          "sourceIds": [
+            "122",
+            "125"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:949",
+          "observedName": "Wereraven",
+          "sourceIds": [
+            "124"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:6905|122",
+          "observationId": "dndsu:bestiary:6905",
+          "sourceId": "122",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/cm",
+            "htmlSha256": "7c5ad9d41c3b0f491423f30053f7e3c070d0b82936430be2f866ec7f621b6d0a",
+            "heading": "Wereraven",
+            "targetUrl": "https://www.dndbeyond.com/sources/cm/book-of-the-raven#Wereraven",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:6905|125",
+          "observationId": "dndsu:bestiary:6905",
+          "sourceId": "125",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:949|124",
+          "observationId": "dndsu:bestiary:949",
+          "sourceId": "124",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:f2acd12f69e538f0500e",
+      "name": "guard drake",
+      "kind": "composite-source-attribution",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:490",
+          "observedName": "Guard drake",
+          "sourceIds": [
+            "106",
+            "111"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:6787",
+          "observedName": "Guard drake",
+          "sourceIds": [
+            "158"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:490|106",
+          "observationId": "dndsu:bestiary:490",
+          "sourceId": "106",
+          "publicationWitness": null,
+          "missingReason": "exact-publication-heading-unresolved",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:490|111",
+          "observationId": "dndsu:bestiary:490",
+          "sourceId": "111",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/vgtm",
+            "htmlSha256": "afaee9930e46efe51e83bf9e55c786979e3d8dc32d1ee1a34de39811bfcd6ab1",
+            "heading": "Guard Drake",
+            "targetUrl": "https://www.dndbeyond.com/sources/vgtm/bestiary#GuardDrake",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:6787|158",
+          "observationId": "dndsu:bestiary:6787",
+          "sourceId": "158",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+            "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e",
+            "heading": "Guard Drake",
+            "targetUrl": "https://www.dndbeyond.com/sources/motm/bestiary-ek#GuardDrake",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": false,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:fa90cc77090c6cb43e8e",
+      "name": "strahd von zarovich",
+      "kind": "two-single-source-observations",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:15727",
+          "observedName": "Strahd von Zarovich",
+          "sourceIds": [
+            "214"
+          ],
+          "sourceArrayPreserved": true
+        },
+        {
+          "observationId": "dndsu:bestiary:960",
+          "observedName": "Strahd von Zarovich",
+          "sourceIds": [
+            "124"
+          ],
+          "sourceArrayPreserved": true
+        }
+      ],
+      "publicationClaims": [
+        {
+          "claimKey": "dndsu:bestiary:15727|214",
+          "observationId": "dndsu:bestiary:15727",
+          "sourceId": "214",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/veor",
+            "htmlSha256": "9a37d2894c8ffe5d4949495dced5bc3aac0a67de620fde0e565114ae6b43a3fc",
+            "heading": "Strahd von Zarovich",
+            "targetUrl": "https://www.dndbeyond.com/sources/veor/character-dossier#StrahdvonZarovich",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "claimKey": "dndsu:bestiary:960|124",
+          "observationId": "dndsu:bestiary:960",
+          "sourceId": "124",
+          "publicationWitness": {
+            "kind": "publisher-scoped-toc-heading",
+            "indexUrl": "https://www.dndbeyond.com/sources/dnd/cos",
+            "htmlSha256": "5923c67c236949caf8a72d6fe71e6a5f818f0d2c7f8a00afc1913c77254c3077",
+            "heading": "Strahd von Zarovich",
+            "targetUrl": "https://www.dndbeyond.com/sources/cos/into-the-mists#StrahdvonZarovich",
+            "publicationPresenceOnly": true,
+            "statBlockIdentityAccepted": false
+          },
+          "missingReason": null,
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "allPublicationHeadingsWitnessed": true,
+      "accepted": false,
+      "canonicalId": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    }
+  ],
+  "limitations": [
+    "18 remaining groups are disjoint from the previous239 bestiary groups;36 observed pages retain all50 explicit source attributions.",
+    "An attribution edge is not an accepted canonical version. Composite observations are never split or reassigned automatically.",
+    "Exact scoped headings establish publication presence, not a full stat block, type, identical rules or reuse permission.",
+    "Parent chapters, renamed labels and publisher-article mentions stay separate and never fill an exact-heading gap.",
+    "Missing/unavailable evidence stays unresolved; no accepted denominator, runtime catalog change or character migration is established."
+  ],
+  "inputSha256": {
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db",
+    "catalog/numeric-source-scope-policy-2014.json": "c46db1df76294bc971e7c1582ece3cfe09cd126fcca22edf7fd2431f8379df32",
+    "catalog/remaining-bestiary-source-selection-2014.json": "26f226348046978333323c0875b111780cd8a8525dc90ca57cbf82c6d453a6db",
+    "catalog/remaining-bestiary-publication-evidence-2014.json": "0ddc1bceb6fec0229764381cefab8ddfe7c4b0373d5799d77b9ef65a4b0b74c0",
+    "catalog/monster-version-unit-proposals-2014.json": "99b1518d55b7083121499bb60d34a0530dde42ad92c60d2b332ec2e390a153ba",
+    "catalog/mtf-monster-version-unit-proposals-2014.json": "97d710a88ebb0184297f034bf46bcbcf115c04b25f6e1c9bbf68092e6838b079",
+    "catalog/multibook-monster-unit-proposals-2014.json": "0860b31bb1c3e530ee53547703a2e42f0600dc1f8ce2c68309a3a2d7454b8e6e"
+  }
+}

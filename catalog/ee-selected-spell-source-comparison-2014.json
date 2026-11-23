@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "status": "selected-source-version-comparison-awaiting-independent-review",
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "checkedOn": "2026-11-20",
+  "sources": [
+    {
+      "id": "ee2015",
+      "title": "Elemental Evil Player’s Companion, exact original URL snapshot",
+      "url": "https://media.wizards.com/2015/downloads/dnd/EE_PlayersCompanion.pdf",
+      "sha256": "c520bf96adb66923113abe2931fb068fca06f5ac075a6298f8af45c07d4c197c",
+      "pageCount": 25,
+      "usage": "Public reading; facts/metadata only, not permission to redistribute full PDF, translation or rule text"
+    },
+    {
+      "id": "ee2016",
+      "title": "Elemental Evil Player’s Companion, exact alternate official URL snapshot",
+      "url": "https://media.wizards.com/2016/downloads/DND/EE-Players-Companion.pdf",
+      "sha256": "ff0290fc0252de6df7d4e24b31ccdf9f17baae88bd68bef397dcc923c55b70d0",
+      "pageCount": 25,
+      "usage": "Public reading; facts/metadata only, not permission to redistribute full PDF, translation or rule text"
+    },
+    {
+      "id": "potaErrata",
+      "title": "Princes of the Apocalypse Errata, exact official URL snapshot",
+      "url": "https://media.wizards.com/2016/downloads/DND/PotA-Errata.pdf",
+      "sha256": "bb61b0aa9eb57e35938dba0cb629dd2986f1c7dcef8e956d983631beecca4dd2",
+      "pageCount": 3,
+      "usage": "Public reading; facts/metadata only, not permission to redistribute full PDF, translation or rule text"
+    }
+  ],
+  "units": [
+    {
+      "key": "ee-aganazzar-selected",
+      "source": "ee2016",
+      "pdfPage": 15,
+      "start": "Aganazzar’s Scorcher",
+      "stop": "Beast Bond",
+      "anchors": [
+        "30 feet long and 5 feet wide",
+        "3d8 fire damage",
+        "slot level above 2nd"
+      ],
+      "facts": {
+        "level": 2,
+        "area": "30-foot-by-5-foot-line",
+        "save": "dexterity",
+        "baseDamage": "3d8 fire",
+        "successfulSave": "half-damage",
+        "higherSlotDamage": "add 1d8 per slot above 2"
+      }
+    },
+    {
+      "key": "ee-dust-devil-selected",
+      "source": "ee2016",
+      "pdfPage": 17,
+      "start": "Dust Devil",
+      "stop": "Earthbind",
+      "anchors": [
+        "ends its turn within 5 feet",
+        "1d8 bludgeoning damage",
+        "move the dust devil up to 30 feet"
+      ],
+      "facts": {
+        "level": 2,
+        "concentration": true,
+        "durationMaxMinutes": 1,
+        "trigger": "end-turn-within-five-feet",
+        "save": "strength",
+        "baseDamage": "1d8 bludgeoning",
+        "failurePushFeet": 10,
+        "success": "half-damage-no-push",
+        "movement": "bonus-action-up-to-thirty-feet",
+        "higherSlotDamage": "add 1d8 per slot above 2"
+      }
+    },
+    {
+      "key": "ee-earthbind-selected",
+      "source": "ee2016",
+      "pdfPage": 17,
+      "start": "Earthbind",
+      "stop": "Earth Tremor",
+      "anchors": [
+        "Strength saving throw",
+        "flying speed (if any) is reduced to 0 feet",
+        "descends at 60 feet per round"
+      ],
+      "facts": {
+        "level": 2,
+        "rangeFeet": 300,
+        "concentration": true,
+        "durationMaxMinutes": 1,
+        "save": "strength",
+        "failedSaveFlyingSpeedFeet": 0,
+        "descentFeetPerRound": 60,
+        "paralysisNotGranted": true
+      },
+      "limitations": [
+        "The pinned EE2016 text does not include the word safely; PotA errata is kept as a separate source clause."
+      ]
+    },
+    {
+      "key": "ee-erupting-earth-corrected",
+      "source": "ee2016",
+      "pdfPage": 17,
+      "start": "Erupting Earth",
+      "stop": "for each slot level above 3rd.",
+      "anchors": [
+        "3rd-level transmutation",
+        "3d12 bludgeoning damage",
+        "slot of 4th level or higher"
+      ],
+      "facts": {
+        "level": 3,
+        "rangeFeet": 120,
+        "areaCubeFeet": 20,
+        "save": "dexterity",
+        "baseDamage": "3d12 bludgeoning",
+        "successfulSave": "half-damage",
+        "higherSlotDamage": "add 1d12 per slot above 3",
+        "terrain": "difficult-until-cleared",
+        "clearEachFiveFootSquareMinimumMinutes": 1
+      }
+    },
+    {
+      "key": "ee-ice-knife-selected",
+      "source": "ee2016",
+      "pdfPage": 19,
+      "start": "Ice Knife",
+      "stop": "Immolation",
+      "anchors": [
+        "Hit or miss",
+        "within 5 feet of the point where the ice exploded",
+        "cold damage increases by 1d6"
+      ],
+      "facts": {
+        "level": 1,
+        "rangeFeet": 60,
+        "rangedSpellAttack": true,
+        "hitPiercingDamage": "1d10",
+        "explosionOnHitOrMiss": true,
+        "explosionDamage": "2d6 cold",
+        "explosionSave": "dexterity",
+        "successfulExplosionSaveDamage": 0,
+        "higherSlotScaling": "cold-only-add-1d6-per-slot-above-1"
+      },
+      "limitations": [
+        "The pinned EE2016 explosion position and PotA errata wording are distinguished; no target-location inference on a miss is automated."
+      ]
+    },
+    {
+      "key": "ee-maximilian-selected",
+      "source": "ee2016",
+      "pdfPage": 20,
+      "start": "Maximilian’s Earthen Grasp",
+      "stop": "Melf’s Minute Meteors",
+      "anchors": [
+        "5-foot-square unoccupied space",
+        "2d6 bludgeoning damage",
+        "Strength check against your spell save DC"
+      ],
+      "facts": {
+        "level": 2,
+        "rangeFeet": 30,
+        "concentration": true,
+        "durationMaxMinutes": 1,
+        "initialFailedStrengthSaveDamage": "2d6 bludgeoning",
+        "initialFailedSaveCondition": "restrained",
+        "crushUsesCasterAction": true,
+        "crushSave": "strength",
+        "crushDamage": "2d6 bludgeoning",
+        "crushSuccessDamage": "half",
+        "moveOrRetargetUsesCasterActionAndReleasesOldTarget": true
+      },
+      "limitations": [
+        "The escape action cost is not explicit in pinned EE2016; PotA errata explicitly supplies action cost for its printing. No unified version is silently chosen."
+      ]
+    },
+    {
+      "key": "ee-tidal-wave-selected",
+      "source": "ee2016",
+      "pdfPage": 22,
+      "start": "Tidal Wave",
+      "stop": "Transmute Rock",
+      "anchors": [
+        "up to 30 feet long",
+        "up to 10 feet wide",
+        "4d8 bludgeoning damage"
+      ],
+      "facts": {
+        "level": 3,
+        "rangeFeet": 120,
+        "maxAreaFeet": [
+          30,
+          10,
+          10
+        ],
+        "save": "dexterity",
+        "failedSaveDamage": "4d8 bludgeoning",
+        "failedSaveProne": true,
+        "successfulSave": "half-damage-no-prone",
+        "extinguishesUnprotectedFlamesInAreaAndWithinFeet": 30,
+        "printedHigherLevelDamageScaling": false
+      },
+      "limitations": [
+        "No printed damage scaling does not prohibit a higher-slot manual cast.",
+        "PotA errata additionally says the water vanishes; the pinned EE text and the errata clause remain distinct."
+      ]
+    },
+    {
+      "key": "ee-erupting-earth-original",
+      "source": "ee2015",
+      "pdfPage": 17,
+      "start": "Erupting Earth",
+      "stop": "for each slot level above 2nd.",
+      "anchors": [
+        "3rd-level transmutation",
+        "slot of 3rd level or higher"
+      ],
+      "facts": {
+        "historicalInternalScalingMismatch": true,
+        "ordinaryAutomationAccepted": false
+      }
+    },
+    {
+      "key": "pota-errata-selected-clause-differences",
+      "source": "potaErrata",
+      "pdfPage": 2,
+      "start": "Earthbind (p. 235).",
+      "stop": "Pyrotechnics (p. 239).",
+      "anchors": [
+        "safely descends",
+        "3rd level is now 4th",
+        "within 5 feet of it",
+        "can use its action to make a Strength check"
+      ],
+      "facts": {
+        "earthbindAddsSafeDescent": true,
+        "eruptingEarthCorrectsHigherSlotThresholdAndBaseOffset": true,
+        "iceKnifeChangesExplosionTargetWording": true,
+        "maximilianEscapeUsesTargetsAction": true
+      },
+      "limitations": [
+        "This document updates named PotA printings, several clauses labelled future printing. Its full applicability to another EE publication is not silently inferred."
+      ]
+    },
+    {
+      "key": "pota-tidal-wave-ending",
+      "source": "potaErrata",
+      "pdfPage": 2,
+      "start": "Tidal Wave (p. 240).",
+      "stop": "Transmute Rock (p. 240).",
+      "anchors": [
+        "then it vanishes"
+      ],
+      "facts": {
+        "waterVanishesInThisErrata": true
+      },
+      "limitations": [
+        "A PotA future-printing clause; not silently inserted into the alternate EE snapshot."
+      ]
+    }
+  ],
+  "syntheticCases": [
+    {
+      "id": "EE-01",
+      "given": {
+        "spell": "aganazzar",
+        "slotLevel": 4
+      },
+      "ordinaryExpected": {
+        "damageDice": "5d8 fire"
+      },
+      "basis": [
+        "ee-aganazzar-selected"
+      ]
+    },
+    {
+      "id": "EE-02",
+      "given": {
+        "spell": "dust-devil",
+        "slotLevel": 3,
+        "saveSucceeded": true
+      },
+      "ordinaryExpected": {
+        "damageBeforeSave": "2d8 bludgeoning",
+        "saveDamage": "half",
+        "pushFeet": 0
+      },
+      "basis": [
+        "ee-dust-devil-selected"
+      ]
+    },
+    {
+      "id": "EE-03",
+      "given": {
+        "spell": "erupting-earth",
+        "slotLevel": 3
+      },
+      "ordinaryExpected": {
+        "damageDice": "3d12 bludgeoning",
+        "obsoleteExtraDieNotAdded": true
+      },
+      "basis": [
+        "ee-erupting-earth-corrected"
+      ]
+    },
+    {
+      "id": "EE-04",
+      "given": {
+        "spell": "erupting-earth",
+        "slotLevel": 5
+      },
+      "ordinaryExpected": {
+        "damageDice": "5d12 bludgeoning"
+      },
+      "basis": [
+        "ee-erupting-earth-corrected"
+      ]
+    },
+    {
+      "id": "EE-05",
+      "given": {
+        "spell": "ice-knife",
+        "slotLevel": 2,
+        "attackHit": false,
+        "explosionSaveSucceeded": false
+      },
+      "ordinaryExpected": {
+        "piercingDamage": 0,
+        "explosionDamageDice": "3d6 cold",
+        "explosionLocationVersionNotInferred": true
+      },
+      "basis": [
+        "ee-ice-knife-selected"
+      ]
+    },
+    {
+      "id": "EE-06",
+      "given": {
+        "spell": "tidal-wave",
+        "slotLevel": 4,
+        "saveSucceeded": true
+      },
+      "ordinaryExpected": {
+        "damageBeforeSave": "4d8 bludgeoning",
+        "damageAfterSave": "half",
+        "prone": false,
+        "higherSlotCastNotBlocked": true
+      },
+      "basis": [
+        "ee-tidal-wave-selected"
+      ]
+    }
+  ],
+  "boundaries": [
+    "Selected facts are not full spell/subclass/canonical-version acceptance.",
+    "All publication identities and different byte snapshots are retained; source differences are not aliases.",
+    "No character origin, preparation or study choice is assigned from a spell name.",
+    "Manual deviations and optional agreement stay available; no new runtime command is implemented.",
+    "Raw primary text and private associations remain outside Git."
+  ]
+}

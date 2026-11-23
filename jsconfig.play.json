@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "noEmit": true,
+    "strict": true,
+    "target": "ES2022",
+    "types": []
+  },
+  "files": ["client/play-presentation.js"]
+}

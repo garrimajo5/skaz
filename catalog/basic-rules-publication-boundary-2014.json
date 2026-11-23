@@ -1,0 +1,445 @@
+{
+  "schemaVersion": 1,
+  "status": "primary-toc-and-publication-boundary-witness-not-full-rules-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "providerObservationId": "ddb:library-source:1",
+  "providerSourceId": 1,
+  "numericDndsuSourceId": null,
+  "canonicalSourceId": null,
+  "automaticAttribution": false,
+  "sources": {
+    "basic-rules.pdf": {
+      "requestedUrl": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "finalUrl": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "status": 200,
+      "bytes": 11537210,
+      "sha256": "7a0c5d8bf52d15092f156d78418aa3d43307e271f810d2f06bf2f0258e9288a3",
+      "capturedAt": "2026-11-20T23:23:21.716585+00:00"
+    },
+    "digital.html": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014",
+      "finalUrl": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014",
+      "status": 200,
+      "bytes": 249088,
+      "sha256": "4f7950c8cb921b7b7217831b7f3b6e191a8d98926225a9871fce530454dad407",
+      "capturedAt": "2026-11-20T23:23:20.964082+00:00"
+    },
+    "srd51.pdf": {
+      "requestedUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "finalUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "status": 200,
+      "bytes": 3158713,
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "capturedAt": "2026-11-20T23:25:29.033862+00:00"
+    }
+  },
+  "extractorVersion": "6.21.4",
+  "basicPdf": {
+    "version": "1.0",
+    "releaseMonth": "November",
+    "releaseYear": 2018,
+    "copyrightYear": 2018,
+    "pages": 180,
+    "inspectedPdfPages": [
+      1,
+      2
+    ],
+    "chapters": [
+      {
+        "number": 1,
+        "title": "Step-by-Step Characters"
+      },
+      {
+        "number": 2,
+        "title": "Races"
+      },
+      {
+        "number": 3,
+        "title": "Classes"
+      },
+      {
+        "number": 4,
+        "title": "Personality and Background"
+      },
+      {
+        "number": 5,
+        "title": "Equipment"
+      },
+      {
+        "number": 6,
+        "title": "Customization Options"
+      },
+      {
+        "number": 7,
+        "title": "Using Ability Scores"
+      },
+      {
+        "number": 8,
+        "title": "Adventuring"
+      },
+      {
+        "number": 9,
+        "title": "Combat"
+      },
+      {
+        "number": 10,
+        "title": "Spellcasting"
+      },
+      {
+        "number": 11,
+        "title": "Spells"
+      },
+      {
+        "number": 12,
+        "title": "Monsters"
+      },
+      {
+        "number": 13,
+        "title": "Building Combat Encounters"
+      },
+      {
+        "number": 14,
+        "title": "Magic Items"
+      }
+    ],
+    "classTocEntries": [
+      {
+        "name": "Cleric",
+        "page": 22
+      },
+      {
+        "name": "Fighter",
+        "page": 26
+      },
+      {
+        "name": "Rogue",
+        "page": 28
+      },
+      {
+        "name": "Wizard",
+        "page": 31
+      }
+    ],
+    "raceTocEntries": [
+      {
+        "name": "Dwarf",
+        "page": 14
+      },
+      {
+        "name": "Elf",
+        "page": 15
+      },
+      {
+        "name": "Halfling",
+        "page": 18
+      },
+      {
+        "name": "Human",
+        "page": 19
+      }
+    ],
+    "classCount": 4,
+    "raceCount": 4,
+    "appendices": [
+      {
+        "letter": "A",
+        "title": "Conditions",
+        "page": 171
+      },
+      {
+        "letter": "B",
+        "title": "Gods of the Multiverse",
+        "page": 172
+      },
+      {
+        "letter": "C",
+        "title": "The Five Factions",
+        "page": 174
+      }
+    ],
+    "personalUseNoticePresent": true
+  },
+  "digitalToc": {
+    "title": "Basic Rules (2014)",
+    "chapters": [
+      {
+        "number": 1,
+        "title": "Step-By-Step Characters",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/step-by-step-characters"
+      },
+      {
+        "number": 2,
+        "title": "Races",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/races"
+      },
+      {
+        "number": 3,
+        "title": "Classes",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/classes"
+      },
+      {
+        "number": 4,
+        "title": "Personality and Background",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/personality-and-background"
+      },
+      {
+        "number": 5,
+        "title": "Equipment",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/equipment"
+      },
+      {
+        "number": 6,
+        "title": "Customization Options",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/customization-options"
+      },
+      {
+        "number": 7,
+        "title": "Using Ability Scores",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/using-ability-scores"
+      },
+      {
+        "number": 8,
+        "title": "Adventuring",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/adventuring"
+      },
+      {
+        "number": 9,
+        "title": "Combat",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/combat"
+      },
+      {
+        "number": 10,
+        "title": "Spellcasting",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/spellcasting"
+      },
+      {
+        "number": 11,
+        "title": "Spells",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/spells"
+      },
+      {
+        "number": 12,
+        "title": "Monsters",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/monsters"
+      },
+      {
+        "number": 13,
+        "title": "Building Combat Encounters",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/building-combat-encounters"
+      },
+      {
+        "number": 14,
+        "title": "Magic Items",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/magic-items"
+      },
+      {
+        "number": 15,
+        "title": "Running The Game",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/running-the-game"
+      }
+    ],
+    "appendices": [
+      {
+        "title": "Appendix A: Conditions",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-a-conditions"
+      },
+      {
+        "title": "Appendix B: Gods of the Multiverse",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-b-gods-of-the-multiverse"
+      },
+      {
+        "title": "Appendix C: The Five Factions",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-c-the-five-factions"
+      },
+      {
+        "title": "Appendix D: The Planes of Existence",
+        "url": "https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-d-the-planes-of-existence"
+      }
+    ],
+    "classTocNames": [
+      "Barbarian",
+      "Bard",
+      "Cleric",
+      "Druid",
+      "Fighter",
+      "Monk",
+      "Paladin",
+      "Ranger",
+      "Rogue",
+      "Sorcerer",
+      "Warlock",
+      "Wizard"
+    ],
+    "raceTocNames": [
+      "Dwarf",
+      "Elf",
+      "Halfling",
+      "Human",
+      "Dragonborn",
+      "Gnome",
+      "Half-Elf",
+      "Half-Orc",
+      "Tiefling"
+    ],
+    "classCount": 12,
+    "raceCount": 9
+  },
+  "existingSrdWitness": {
+    "pages": 403,
+    "inspectedPdfPages": [
+      1,
+      8,
+      11,
+      15,
+      19,
+      24,
+      26,
+      30,
+      35,
+      38,
+      39,
+      42,
+      46,
+      52
+    ],
+    "classHeadingEntries": [
+      {
+        "name": "Barbarian",
+        "existingTableExtractionPage": 8,
+        "headingPage": 8,
+        "inspectedPdfPages": [
+          8
+        ]
+      },
+      {
+        "name": "Bard",
+        "existingTableExtractionPage": 11,
+        "headingPage": 11,
+        "inspectedPdfPages": [
+          11
+        ]
+      },
+      {
+        "name": "Cleric",
+        "existingTableExtractionPage": 15,
+        "headingPage": 15,
+        "inspectedPdfPages": [
+          15
+        ]
+      },
+      {
+        "name": "Druid",
+        "existingTableExtractionPage": 19,
+        "headingPage": 19,
+        "inspectedPdfPages": [
+          19
+        ]
+      },
+      {
+        "name": "Fighter",
+        "existingTableExtractionPage": 24,
+        "headingPage": 24,
+        "inspectedPdfPages": [
+          24
+        ]
+      },
+      {
+        "name": "Monk",
+        "existingTableExtractionPage": 26,
+        "headingPage": 26,
+        "inspectedPdfPages": [
+          26
+        ]
+      },
+      {
+        "name": "Paladin",
+        "existingTableExtractionPage": 30,
+        "headingPage": 30,
+        "inspectedPdfPages": [
+          30
+        ]
+      },
+      {
+        "name": "Ranger",
+        "existingTableExtractionPage": 35,
+        "headingPage": 35,
+        "inspectedPdfPages": [
+          35
+        ]
+      },
+      {
+        "name": "Rogue",
+        "existingTableExtractionPage": 38,
+        "headingPage": 39,
+        "inspectedPdfPages": [
+          38,
+          39
+        ]
+      },
+      {
+        "name": "Sorcerer",
+        "existingTableExtractionPage": 42,
+        "headingPage": 42,
+        "inspectedPdfPages": [
+          42
+        ]
+      },
+      {
+        "name": "Warlock",
+        "existingTableExtractionPage": 46,
+        "headingPage": 46,
+        "inspectedPdfPages": [
+          46
+        ]
+      },
+      {
+        "name": "Wizard",
+        "existingTableExtractionPage": 52,
+        "headingPage": 52,
+        "inspectedPdfPages": [
+          52
+        ]
+      }
+    ],
+    "existingLicense": "CC-BY-4.0",
+    "scope": "legal identity and12class headings only; no new class rules/table extraction"
+  },
+  "relations": {
+    "digitalVersusBasicPdf": "not-equivalent-toc-inventories",
+    "digitalOnlyClassTocNames": [
+      "Barbarian",
+      "Bard",
+      "Druid",
+      "Monk",
+      "Paladin",
+      "Ranger",
+      "Sorcerer",
+      "Warlock"
+    ],
+    "digitalOnlyChapterNumbers": [
+      15
+    ],
+    "digitalSrdSelectedClassNamesMatch": true,
+    "digitalSrdFullTextEquivalence": "unverified",
+    "srdLicenseExtendsToOtherDocuments": false,
+    "commonCatalogTextReusePermission": "not-established"
+  },
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe",
+    "catalog/source-rights-evidence-2014.json": "5aa72478cfb30636f221f4da66768de72c773dc8713801a4bf96a61e44be2ab4",
+    "catalog/srd51-class-progression.json": "c66281ce130701fd79a79c0388ba08047c124185e9f6bdb538533dde25e72fe5"
+  },
+  "generator": {
+    "path": "scripts/audit-basic-rules-boundary-2014.py",
+    "sha256": "8e560d5521112012ec21d8f2fe73c8ecd62056035c68c2f4e8fd52441989b663"
+  },
+  "limits": [
+    "Digital title2014 and provider release date are not a claim that a2018 PDF or present web text is the2014 text.",
+    "TOC/class-heading metadata does not review full spells, monsters, items, class features or identical shared prose.",
+    "The existing SRD license applies to that identified document, not this web page or Basic Rules PDF by title similarity.",
+    "No full text/PDF/image/ownership/profile data is exported; no historical source IDs, runtime or residual15 are changed."
+  ]
+}

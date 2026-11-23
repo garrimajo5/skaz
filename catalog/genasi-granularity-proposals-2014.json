@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "status": "genasi-family-and-variant-proposals-awaiting-review",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "preservedObservations": 2,
+    "familyPublicationWitnesses": 2,
+    "motmVariantHeadingProposals": 4,
+    "supportingOtherPublicationHeadings": 4,
+    "unverifiedFamilyComponentSets": 1,
+    "acceptedCanonicalUnits": 0
+  },
+  "reviewId": "name-review:bdcd50a8bc72cb9a26b1",
+  "families": [
+    {
+      "observationId": "dndsu:multiverse:race:291",
+      "observedSourceIds": [
+        "158"
+      ],
+      "sourceId": "158",
+      "proposedRole": "family-navigation-not-additional-playable-unit",
+      "primaryFamilyUrl": "https://www.dndbeyond.com/sources/motm/fantastical-races#Genasi",
+      "childProposals": [
+        {
+          "proposalId": "source-version:158:race:genasi-air",
+          "name": "Air Genasi",
+          "sourceId": "158",
+          "primaryHeading": "Air Genasi",
+          "primaryUrl": "https://www.dndbeyond.com/sources/motm/fantastical-races#AirGenasiTraits",
+          "evidenceRole": "indented-variant-heading",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "proposalId": "source-version:158:race:genasi-earth",
+          "name": "Earth Genasi",
+          "sourceId": "158",
+          "primaryHeading": "Earth Genasi",
+          "primaryUrl": "https://www.dndbeyond.com/sources/motm/fantastical-races#EarthGenasiTraits",
+          "evidenceRole": "indented-variant-heading",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "proposalId": "source-version:158:race:genasi-fire",
+          "name": "Fire Genasi",
+          "sourceId": "158",
+          "primaryHeading": "Fire Genasi",
+          "primaryUrl": "https://www.dndbeyond.com/sources/motm/fantastical-races#FireGenasiTraits",
+          "evidenceRole": "indented-variant-heading",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        },
+        {
+          "proposalId": "source-version:158:race:genasi-water",
+          "name": "Water Genasi",
+          "sourceId": "158",
+          "primaryHeading": "Water Genasi",
+          "primaryUrl": "https://www.dndbeyond.com/sources/motm/fantastical-races#WaterGenasiTraits",
+          "evidenceRole": "indented-variant-heading",
+          "accepted": false,
+          "canonicalId": null,
+          "fullRules": "unverified",
+          "exactErrataVersion": "unverified",
+          "translationReusePermission": "not-established"
+        }
+      ],
+      "unresolved": [],
+      "accepted": false,
+      "canonicalId": null,
+      "fullRules": "unverified",
+      "exactErrataVersion": "unverified",
+      "translationReusePermission": "not-established",
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "observationId": "dndsu:race:102",
+      "observedSourceIds": [
+        "107"
+      ],
+      "sourceId": "107",
+      "proposedRole": "family-navigation-not-additional-playable-unit",
+      "primaryFamilyUrl": "https://www.dndbeyond.com/sources/pota/appendix-a-genasi",
+      "childProposals": null,
+      "unresolved": [
+        "Exact subrace structure in source107 has not been read; Elemental Evil is separate evidence."
+      ],
+      "accepted": false,
+      "canonicalId": null,
+      "fullRules": "unverified",
+      "exactErrataVersion": "unverified",
+      "translationReusePermission": "not-established",
+      "automaticMerge": false,
+      "automaticCharacterMigration": false
+    }
+  ],
+  "supportingOtherPublication": {
+    "publication": "Elemental Evil Player's Companion",
+    "url": "https://www.dndbeyond.com/species/23-genasi",
+    "sourceId": null,
+    "observationSourceAssignment": false,
+    "componentNames": [
+      "Air Genasi",
+      "Earth Genasi",
+      "Fire Genasi",
+      "Water Genasi"
+    ],
+    "proposedCatalogUnits": 0
+  },
+  "relationship": {
+    "kind": "separate-publication-family-versions",
+    "rulesEquivalent": "unverified",
+    "automaticCharacterMigration": false
+  },
+  "limitations": [
+    "Family headings are navigation containers; four MotM variant headings are proposals, not an accepted denominator.",
+    "The earlier generic remaining-race report is preserved as historical input; this scoped layer supplies MotM family evidence only.",
+    "No Elemental Evil heading is relabeled source107, and an unavailable PotA chapter is not treated as absent content.",
+    "Aarakocra107 remains unresolved: its Elemental Evil listing and an absent PotA TOC match do not prove source107 race attribution.",
+    "Full rules, exact versions, translation rights, runtime records and game-design acceptance remain open."
+  ],
+  "inputSha256": {
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db",
+    "catalog/genasi-granularity-publication-evidence-2014.json": "bc3f671ad86e46f2c288024e94dbe69221d1a44480387ae8d181325edf8375b0",
+    "catalog/numeric-source-scope-policy-2014.json": "c46db1df76294bc971e7c1582ece3cfe09cd126fcca22edf7fd2431f8379df32",
+    "catalog/race-other-version-proposals-2014.json": "aec291bd0f0472dceb29e70563212b1019750cfef6e10d6b2f2aff5f3418b19a"
+  }
+}

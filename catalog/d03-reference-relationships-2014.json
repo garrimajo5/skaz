@@ -1,0 +1,458 @@
+{
+  "schemaVersion": 1,
+  "status": "reviewed-reference-relationships-not-canonical-granularity",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "referenceGroups": 4,
+    "preservedObservations": 9,
+    "preservedOriginalSourceClaims": 13,
+    "effectiveReviewOrderDifferences": 2,
+    "reviewedCompanionStateViews": 3,
+    "primaryDigitalVersionCandidates": 4,
+    "reviewedSourceCaptures": 13,
+    "acceptedCanonicalUnits": 0
+  },
+  "reviewedEvidenceFingerprint": "10b898eb6c44b496ab1bf052cf0b207945e431ec0a3ac9cc4b03d2b577e10984",
+  "groups": [
+    {
+      "reviewId": "name-review:33a60c9b712e1ff852ad",
+      "name": "vampiric ixitxachitl",
+      "referenceRelationship": "distinct-base-and-spellcasting-reference-views",
+      "acceptedForReferenceRelationship": true,
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:5830",
+          "observedName": "Vampiric Ixitxachitl",
+          "referenceUrl": "https://dnd.su/bestiary/5830-vampiric-ixitxachitl/",
+          "originalSourceIds": [
+            "129"
+          ],
+          "effectiveReviewSourceIds": [
+            "129"
+          ],
+          "sourceSetEqual": true,
+          "sourceOrderSame": true,
+          "sourceOrderDefinesPriority": false,
+          "canonicalId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:5832",
+          "observedName": "Vampiric Ixitxachitl",
+          "referenceUrl": "https://dnd.su/bestiary/5832-vampiric-ixitxachitl/",
+          "originalSourceIds": [
+            "129"
+          ],
+          "effectiveReviewSourceIds": [
+            "129"
+          ],
+          "sourceSetEqual": true,
+          "sourceOrderSame": true,
+          "sourceOrderDefinesPriority": false,
+          "canonicalId": null
+        }
+      ],
+      "sourceClaims": [
+        {
+          "observationId": "dndsu:bestiary:5830",
+          "sourceId": "129",
+          "originalSourceArrayIndex": 0,
+          "assignedCanonicalVersionId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:5832",
+          "sourceId": "129",
+          "originalSourceArrayIndex": 0,
+          "assignedCanonicalVersionId": null
+        }
+      ],
+      "referenceModel": {
+        "baseObservationId": "dndsu:bestiary:5830",
+        "spellcastingObservationId": "dndsu:bestiary:5832",
+        "selectedSecondaryNumericFieldsEqual": true,
+        "primaryIndexAssignedToBoth": false,
+        "canonicalEntityCountApproved": null,
+        "fullPrimaryRulesAccepted": false
+      },
+      "canonicalUnitCountApproved": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:5d3df0bb82c140286b68",
+      "name": "juiblex",
+      "referenceRelationship": "distinct-primary-digital-version-candidates",
+      "acceptedForReferenceRelationship": true,
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:1752",
+          "observedName": "Juiblex",
+          "referenceUrl": "https://dnd.su/bestiary/1752-juiblex/",
+          "originalSourceIds": [
+            "113",
+            "129"
+          ],
+          "effectiveReviewSourceIds": [
+            "113",
+            "129"
+          ],
+          "sourceSetEqual": true,
+          "sourceOrderSame": true,
+          "sourceOrderDefinesPriority": false,
+          "canonicalId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:6595",
+          "observedName": "Juiblex",
+          "referenceUrl": "https://dnd.su/bestiary/6595-juiblex/",
+          "originalSourceIds": [
+            "158",
+            "129"
+          ],
+          "effectiveReviewSourceIds": [
+            "129",
+            "158"
+          ],
+          "sourceSetEqual": true,
+          "sourceOrderSame": false,
+          "sourceOrderDefinesPriority": false,
+          "canonicalId": null
+        }
+      ],
+      "sourceClaims": [
+        {
+          "observationId": "dndsu:bestiary:1752",
+          "sourceId": "113",
+          "originalSourceArrayIndex": 0,
+          "assignedCanonicalVersionId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:1752",
+          "sourceId": "129",
+          "originalSourceArrayIndex": 1,
+          "assignedCanonicalVersionId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:6595",
+          "sourceId": "158",
+          "originalSourceArrayIndex": 0,
+          "assignedCanonicalVersionId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:6595",
+          "sourceId": "129",
+          "originalSourceArrayIndex": 1,
+          "assignedCanonicalVersionId": null
+        }
+      ],
+      "referenceModel": {
+        "primaryDigitalCandidates": [
+          {
+            "candidateObservationId": "dndsu:bestiary:1752",
+            "cardUrl": "https://www.dndbeyond.com/monsters/17416-juiblex",
+            "displayedSource": "Out of the Abyss",
+            "sourceIdOfPrimaryListing": "129",
+            "identityAccepted": false
+          },
+          {
+            "candidateObservationId": "dndsu:bestiary:6595",
+            "cardUrl": "https://www.dndbeyond.com/monsters/2560853-juiblex",
+            "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+            "sourceIdOfPrimaryListing": "158",
+            "identityAccepted": false
+          }
+        ],
+        "sharedSecondarySourceId": "129",
+        "sharedSourceProvesEquivalence": false,
+        "mtfAndOotaFullTextEquivalence": "unverified",
+        "canonicalEntityCountApproved": null,
+        "fullPrimaryRulesAccepted": false
+      },
+      "canonicalUnitCountApproved": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:77c200ef80920cdff245",
+      "name": "drake companion",
+      "referenceRelationship": "one-companion-with-level-state-views",
+      "acceptedForReferenceRelationship": true,
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:14130",
+          "observedName": "Drake Companion",
+          "referenceUrl": "https://dnd.su/bestiary/14130-drake-companion/",
+          "originalSourceIds": [
+            "152"
+          ],
+          "effectiveReviewSourceIds": [
+            "152"
+          ],
+          "sourceSetEqual": true,
+          "sourceOrderSame": true,
+          "sourceOrderDefinesPriority": false,
+          "canonicalId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:14131",
+          "observedName": "Drake Companion",
+          "referenceUrl": "https://dnd.su/bestiary/14131-drake-companion/",
+          "originalSourceIds": [
+            "152"
+          ],
+          "effectiveReviewSourceIds": [
+            "152"
+          ],
+          "sourceSetEqual": true,
+          "sourceOrderSame": true,
+          "sourceOrderDefinesPriority": false,
+          "canonicalId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:4842",
+          "observedName": "Drake Companion",
+          "referenceUrl": "https://dnd.su/bestiary/4842-drake-companion/",
+          "originalSourceIds": [
+            "152"
+          ],
+          "effectiveReviewSourceIds": [
+            "152"
+          ],
+          "sourceSetEqual": true,
+          "sourceOrderSame": true,
+          "sourceOrderDefinesPriority": false,
+          "canonicalId": null
+        }
+      ],
+      "sourceClaims": [
+        {
+          "observationId": "dndsu:bestiary:14130",
+          "sourceId": "152",
+          "originalSourceArrayIndex": 0,
+          "assignedCanonicalVersionId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:14131",
+          "sourceId": "152",
+          "originalSourceArrayIndex": 0,
+          "assignedCanonicalVersionId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:4842",
+          "sourceId": "152",
+          "originalSourceArrayIndex": 0,
+          "assignedCanonicalVersionId": null
+        }
+      ],
+      "referenceModel": {
+        "oneSubclassCompanion": true,
+        "levelStateViews": [
+          {
+            "observationId": "dndsu:bestiary:4842",
+            "rangerLevelThreshold": 3,
+            "size": "Small"
+          },
+          {
+            "observationId": "dndsu:bestiary:14130",
+            "rangerLevelThreshold": 7,
+            "size": "Medium"
+          },
+          {
+            "observationId": "dndsu:bestiary:14131",
+            "rangerLevelThreshold": 15,
+            "size": "Large"
+          }
+        ],
+        "originalProposedEntityCount": 1,
+        "canonicalEntityCountApproved": null,
+        "fullClassRulesAccepted": false
+      },
+      "canonicalUnitCountApproved": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "reviewId": "name-review:b09a079556cf1e4184bd",
+      "name": "zuggtmoy",
+      "referenceRelationship": "distinct-primary-digital-version-candidates",
+      "acceptedForReferenceRelationship": true,
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:4910",
+          "observedName": "Zuggtmoy",
+          "referenceUrl": "https://dnd.su/bestiary/4910-zuggtmoy/",
+          "originalSourceIds": [
+            "113",
+            "129"
+          ],
+          "effectiveReviewSourceIds": [
+            "113",
+            "129"
+          ],
+          "sourceSetEqual": true,
+          "sourceOrderSame": true,
+          "sourceOrderDefinesPriority": false,
+          "canonicalId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:6594",
+          "observedName": "Zuggtmoy",
+          "referenceUrl": "https://dnd.su/bestiary/6594-zuggtmoy/",
+          "originalSourceIds": [
+            "158",
+            "129"
+          ],
+          "effectiveReviewSourceIds": [
+            "129",
+            "158"
+          ],
+          "sourceSetEqual": true,
+          "sourceOrderSame": false,
+          "sourceOrderDefinesPriority": false,
+          "canonicalId": null
+        }
+      ],
+      "sourceClaims": [
+        {
+          "observationId": "dndsu:bestiary:4910",
+          "sourceId": "113",
+          "originalSourceArrayIndex": 0,
+          "assignedCanonicalVersionId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:4910",
+          "sourceId": "129",
+          "originalSourceArrayIndex": 1,
+          "assignedCanonicalVersionId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:6594",
+          "sourceId": "158",
+          "originalSourceArrayIndex": 0,
+          "assignedCanonicalVersionId": null
+        },
+        {
+          "observationId": "dndsu:bestiary:6594",
+          "sourceId": "129",
+          "originalSourceArrayIndex": 1,
+          "assignedCanonicalVersionId": null
+        }
+      ],
+      "referenceModel": {
+        "primaryDigitalCandidates": [
+          {
+            "candidateObservationId": "dndsu:bestiary:4910",
+            "cardUrl": "https://www.dndbeyond.com/monsters/17419-zuggtmoy",
+            "displayedSource": "Out of the Abyss",
+            "sourceIdOfPrimaryListing": "129",
+            "identityAccepted": false
+          },
+          {
+            "candidateObservationId": "dndsu:bestiary:6594",
+            "cardUrl": "https://www.dndbeyond.com/monsters/2560977-zuggtmoy",
+            "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+            "sourceIdOfPrimaryListing": "158",
+            "identityAccepted": false
+          }
+        ],
+        "sharedSecondarySourceId": "129",
+        "sharedSourceProvesEquivalence": false,
+        "mtfAndOotaFullTextEquivalence": "unverified",
+        "canonicalEntityCountApproved": null,
+        "fullPrimaryRulesAccepted": false
+      },
+      "canonicalUnitCountApproved": null,
+      "automaticMerge": false,
+      "automaticSourceVersionSplit": false,
+      "automaticCharacterMigration": false
+    }
+  ],
+  "sourceCaptures": [
+    {
+      "key": "drake:4842.html",
+      "url": "https://dnd.su/bestiary/4842-drake-companion/",
+      "sha256": "f7bb40abcf557e86766d472f037bcc2989d7a162cfc68407729bdfb459d70047"
+    },
+    {
+      "key": "drake:14130.html",
+      "url": "https://dnd.su/bestiary/14130-drake-companion/",
+      "sha256": "3b3c7fb31633b436888ad46e9b22f1af7ea6355d9b72b7459ab115858859a579"
+    },
+    {
+      "key": "drake:14131.html",
+      "url": "https://dnd.su/bestiary/14131-drake-companion/",
+      "sha256": "c659bfe13e7fa2a82d1e628b95c02d9f845083f7e4e1d109df5ef930910fe43b"
+    },
+    {
+      "key": "drake:official-2022.html",
+      "url": "https://www.dndbeyond.com/posts/1345-ranger-101-ride-your-dragon-into-battle-with-the",
+      "sha256": "b8e48d9825f502a339b1725aa3009adad7e8d412d6fcac014d30b5e9c14846d6"
+    },
+    {
+      "key": "demon:juiblex-index",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=Juiblex",
+      "sha256": "f48d122f4a0ab5b2c21915928664ca0068a8e1efc6b8f8140ca54299bceeaec6"
+    },
+    {
+      "key": "demon:zuggtmoy-index",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=Zuggtmoy",
+      "sha256": "629460bce5d1d82660cfa29215538fe6ead91c115798762070e20fd30fc97500"
+    },
+    {
+      "key": "demon:1752",
+      "url": "https://dnd.su/bestiary/1752-juiblex/",
+      "sha256": "c04ac99245965dedd5192b263ccb4cf986d0f5415f00677545c614411db63cd4"
+    },
+    {
+      "key": "demon:4910",
+      "url": "https://dnd.su/bestiary/4910-zuggtmoy/",
+      "sha256": "db1ef98b37332119f3503443d687c536a453a638aaf9ce4bcc6da3aa57c9c68f"
+    },
+    {
+      "key": "demon:6595",
+      "url": "https://dnd.su/multiverse/bestiary/6595-juiblex/",
+      "sha256": "f82db0872efbc1f86828e4c3e77c369bffa41e4a73ed17832ff22f78cf05545f"
+    },
+    {
+      "key": "demon:6594",
+      "url": "https://dnd.su/multiverse/bestiary/6594-zuggtmoy/",
+      "sha256": "ae81f6ce7d31148cda9250f278e93428666d65837ee6c4698605e5154c6324a1"
+    },
+    {
+      "key": "vamp:dndsu:bestiary:5830",
+      "url": "https://dnd.su/bestiary/5830-vampiric-ixitxachitl/",
+      "sha256": "f8311134ae4e833396de6e6aabfd6d7e40bc51cac8e6f6344e4f83844db0446c"
+    },
+    {
+      "key": "vamp:dndsu:bestiary:5832",
+      "url": "https://dnd.su/bestiary/5832-vampiric-ixitxachitl/",
+      "sha256": "dd855c1bac85cb35f761b1b19268275b09f97e4f7d1f76118f897ae6844bf459"
+    },
+    {
+      "key": "vamp:primary-index",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=Vampiric%20Ixitxachitl",
+      "sha256": "4bfe6589b45c5de70b398543f9309df7e0627a5cc99cae62f61be9211a69682b"
+    }
+  ],
+  "originalSnapshotsChanged": false,
+  "runtimeChanged": false,
+  "limitations": [
+    "Reference topology is accepted only for the independently reviewed evidence fingerprint; full class/statblock rules, exact versions, rights and canonical unit counts remain unaccepted.",
+    "Source claims retain each original observation and array position. The effective identity review sorts source arrays; two differing orders are displayed, not rewritten or interpreted as source priority.",
+    "One companion with three level states is not three unrelated creatures; no feature, breath, action economy or final parameter coverage is inferred.",
+    "The two vampiric observations retain their spellcasting distinction; one primary index row is not proof of duplicate identity.",
+    "Four legacy/MotM digital candidates stay distinct. Shared source129 and MTF/OotA plaques do not prove full text equivalence or authorize automatic merge/split.",
+    "No character/runtime migration, approved denominator, issue closure or M0 stage acceptance occurs."
+  ],
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db",
+    "catalog/drake-companion-unit-proposal-2014.json": "8a19fb87e831e63d95a23c2834d76e5844f281253f09f9359470a3bfca7e899c",
+    "catalog/demon-source-attribution-2014.json": "710e22e1084d1078374a82f9e73642d9189fc51cc014498ef9e736cae361ff90",
+    "catalog/vampiric-ixitxachitl-variant-evidence-2014.json": "eea322b94500009afda74042351838aa2fe88670c8d528bd9a35a2488628b133"
+  }
+}

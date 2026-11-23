@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "status": "verified-reference-label-cleanups-not-identity-or-runtime",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "reviewedDiagnostics": 5,
+    "verifiedReferenceEnglishLabels": 3,
+    "heldDiagnostics": 2,
+    "acceptedCanonicalUnits": 0,
+    "acceptedFigurineVariantUnits": 0
+  },
+  "reviewedCaptureFingerprint": "46b0ac937c6ffa23e9c1605b48b261442f59ec5e5291664671808ca0cacd81bc",
+  "identityGroupsRegrouped": false,
+  "originalSnapshotChanged": false,
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:13077",
+      "sourceIds": [
+        "205"
+      ],
+      "referenceUrl": "https://dnd.su/bestiary/13077-sranium-rat-squeaker-swarm/",
+      "originalObservedEnglishName": "Сranium rat squeaker swarm",
+      "effectiveReferenceEnglishName": "Cranium Rat Squeaker Swarm",
+      "originalSearchLabelPreserved": "Сranium rat squeaker swarm",
+      "acceptedForReferenceEnglishLabel": true,
+      "labelDecision": "verified-reference-label-cleanup",
+      "primaryCapture": "cranium-index",
+      "secondaryCapture": "13077",
+      "identityReviewIds": [],
+      "identityAccepted": false,
+      "canonicalId": null,
+      "fullRulesAccepted": false,
+      "automaticCharacterMigration": false,
+      "runtimeChanged": false
+    },
+    {
+      "observationId": "dndsu:bestiary:20456",
+      "sourceIds": [
+        "169"
+      ],
+      "referenceUrl": "https://dnd.su/bestiary/20456-swarm-of-sreeping-soins/",
+      "originalObservedEnglishName": "Swarm of Сreeping Сoins",
+      "effectiveReferenceEnglishName": "Swarm of Сreeping Сoins",
+      "originalSearchLabelPreserved": "Swarm of Сreeping Сoins",
+      "acceptedForReferenceEnglishLabel": false,
+      "labelDecision": "needs-primary-name-and-publication",
+      "primaryCapture": null,
+      "secondaryCapture": "20456",
+      "identityReviewIds": [],
+      "identityAccepted": false,
+      "canonicalId": null,
+      "fullRulesAccepted": false,
+      "automaticCharacterMigration": false,
+      "runtimeChanged": false
+    },
+    {
+      "observationId": "dndsu:bestiary:568",
+      "sourceIds": [
+        "111"
+      ],
+      "referenceUrl": "https://dnd.su/bestiary/568-nilbog/",
+      "originalObservedEnglishName": "Nilbog,goblin гоблин",
+      "effectiveReferenceEnglishName": "Nilbog,goblin гоблин",
+      "originalSearchLabelPreserved": "Nilbog,goblin гоблин",
+      "acceptedForReferenceEnglishLabel": false,
+      "labelDecision": "primary-name-supported-secondary-card-missing",
+      "primaryCapture": "nilbog-index",
+      "secondaryCapture": "568",
+      "identityReviewIds": [
+        "name-review:09a4e54444ba7198e981"
+      ],
+      "identityAccepted": false,
+      "canonicalId": null,
+      "fullRulesAccepted": false,
+      "automaticCharacterMigration": false,
+      "runtimeChanged": false
+    },
+    {
+      "observationId": "dndsu:bestiary:6883",
+      "sourceIds": [
+        "158"
+      ],
+      "referenceUrl": "https://dnd.su/bestiary/6883-nilbog/",
+      "originalObservedEnglishName": "Nilbog,goblin гоблин",
+      "effectiveReferenceEnglishName": "Nilbog",
+      "originalSearchLabelPreserved": "Nilbog,goblin гоблин",
+      "acceptedForReferenceEnglishLabel": true,
+      "labelDecision": "verified-reference-label-cleanup",
+      "primaryCapture": "nilbog-index",
+      "secondaryCapture": "6883",
+      "identityReviewIds": [
+        "name-review:09a4e54444ba7198e981"
+      ],
+      "identityAccepted": false,
+      "canonicalId": null,
+      "fullRulesAccepted": false,
+      "automaticCharacterMigration": false,
+      "runtimeChanged": false
+    },
+    {
+      "observationId": "dndsu:items:6459",
+      "sourceIds": [
+        "198"
+      ],
+      "referenceUrl": "https://dnd.su/items/6459-prehistoric-figurines-of-wondrous-power/",
+      "originalObservedEnglishName": "Prehistoric Figurines of Wondrous Power,Pyrite Pleisosarus Пиритовый плезиозавр Carnelian Triceratops Сердоликий трицератопс  Яшмовый Тираннозавр Рекс Jasper Tyrannosaurus Rex Kyanite Pteranodon Кианитовый птеранодон",
+      "effectiveReferenceEnglishName": "Prehistoric Figurines of Wondrous Power",
+      "originalSearchLabelPreserved": "Prehistoric Figurines of Wondrous Power,Pyrite Pleisosarus Пиритовый плезиозавр Carnelian Triceratops Сердоликий трицератопс  Яшмовый Тираннозавр Рекс Jasper Tyrannosaurus Rex Kyanite Pteranodon Кианитовый птеранодон",
+      "acceptedForReferenceEnglishLabel": true,
+      "labelDecision": "verified-reference-label-cleanup",
+      "primaryCapture": "figurines-article",
+      "secondaryCapture": "6459",
+      "identityReviewIds": [],
+      "identityAccepted": false,
+      "canonicalId": null,
+      "fullRulesAccepted": false,
+      "automaticCharacterMigration": false,
+      "runtimeChanged": false
+    }
+  ],
+  "sourceCaptures": [
+    {
+      "key": "nilbog-index",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=Nilbog",
+      "sha256": "20d8d28efb3153f05d6185d918a784442a0cafe3c0038c9bc70af58f4fda4043"
+    },
+    {
+      "key": "cranium-index",
+      "url": "https://www.dndbeyond.com/monsters?filter-search=Cranium%20Rat%20Squeaker%20Swarm",
+      "sha256": "5056bc7177285ae2c11ba317096cf3bdce58ece91f80e6dd6767bb41e0bf9228"
+    },
+    {
+      "key": "568",
+      "url": "https://dnd.su/bestiary/568-nilbog/",
+      "sha256": "52648777bb70cda6a4a68900c066dfce07311b387439cf2480416d28e5f7c15d"
+    },
+    {
+      "key": "6883",
+      "url": "https://dnd.su/multiverse/bestiary/6883-nilbog/",
+      "sha256": "14befd40593aeb6962883c4ce55f8d4a3b99035b43b88a5d733fccb1ad05a39f"
+    },
+    {
+      "key": "13077",
+      "url": "https://dnd.su/bestiary/13077-sranium-rat-squeaker-swarm/",
+      "sha256": "f96ceaaa3a813af56b9f286da3e73a0bb098138f02d6d5bc92d8b630e44d9ab6"
+    },
+    {
+      "key": "20456",
+      "url": "https://dnd.su/bestiary/20456-swarm-of-sreeping-soins/",
+      "sha256": "21d692a7a35c2780f301219a8be98109107fa530ba8b317249d3c93bc75438cf"
+    },
+    {
+      "key": "6459",
+      "url": "https://dnd.su/items/6459-prehistoric-figurines-of-wondrous-power/",
+      "sha256": "70b183b3e198bdd2150d3232af307241dd207583b874be2e2f4d93d5e42275a1"
+    },
+    {
+      "key": "figurines-article",
+      "url": "https://www.dndbeyond.com/posts/1548-preview-5-primordial-magic-items-from-bigby",
+      "sha256": "dad75cbaba88656f282a599ee942399f298bec4782de66e866ae32674490c6a4"
+    }
+  ],
+  "limitations": [
+    "Three specific reference English labels are supported by independently reviewed exact secondary headings and primary name metadata.",
+    "Original observed/search labels and source arrays are preserved; no automatic transliteration or dropping of aliases occurs.",
+    "Legacy Nilbog568 and Swarm20456 stay on hold; the other Nilbog version is not substituted for the missing legacy card.",
+    "Figurines6459 is a family heading; its four variant proposals are not accepted canonical units or a new denominator.",
+    "The view does not regroup identity observations, merge versions, accept full rules/rights or change runtime/characters."
+  ],
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db",
+    "catalog/mixed-script-name-evidence-2014.json": "033592eee55473cd468d419af022b30c9f6ff439f18d823d788553fc481d0eb7"
+  }
+}

@@ -1,0 +1,1024 @@
+{
+  "schemaVersion": 1,
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "imrSourceId": "161",
+  "folioSourceId": "206",
+  "publisherProduct": {
+    "url": "https://marketplace.dndbeyond.com/adventures/SRC-00056",
+    "advertisedEncounterBuilderCreatures": 26,
+    "scope": "Encounter Builder availability",
+    "appendix": {
+      "contentsUrl": "https://www.dndbeyond.com/sources/dnd/imr",
+      "contentsRawSha256": "7b6a2a0025d2f3eeebe3d422626d43c8cedccf4df507925086d9c253741dc920",
+      "requestedUrl": "https://www.dndbeyond.com/sources/imr/npcs-and-monsters",
+      "observedRedirect": "https://marketplace.dndbeyond.com/adventures/SRC-00056",
+      "checkedOn": "2026-11-23",
+      "fullBodyRead": false
+    }
+  },
+  "counts": {
+    "indexRows": 56,
+    "displayedOwnSourceRows": 26,
+    "ownRowsWithoutNameCandidates": 20,
+    "ownRowsWithOriginalImrObservations": 5,
+    "displayedReferenceRows": 30,
+    "referenceRowsWithoutNameCandidates": 10,
+    "folioPrintContentsRows": 18,
+    "folioHistoricalDigitalDescription": 17,
+    "folioCurrentFilterRows": 18,
+    "folioCurrentDisplayedOwnSourceRows": 17,
+    "sharedDigitalCards": 1
+  },
+  "unresolvedFolioIdentity": {
+    "printedName": "Needlefolk",
+    "digitalName": "Needle Spawn",
+    "printedChallengeRating": "1/2",
+    "digitalChallengeRating": "1/2",
+    "cardUrl": "https://www.dndbeyond.com/monsters/589001-needle-spawn",
+    "observationId": "dndsu:bestiary:17367",
+    "identityConfirmed": false
+  },
+  "ownPublisherRows": [
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/582125-the-demogorgon",
+      "digitalName": "\"The Demogorgon\"",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "8",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:8520",
+          "observedName": "«The Demogorgon»",
+          "originalSourceIds": [
+            "161"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Straight quotes in the primary public index and guillemets in the observed name; candidate only, full identity not confirmed."
+        }
+      ],
+      "hasObservationWithImrSource": true
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/584791-andras",
+      "digitalName": "Andras",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "8",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/582113-barbatos",
+      "digitalName": "Barbatos",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "6",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7679",
+          "observedName": "Barbatos",
+          "originalSourceIds": [
+            "161"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "hasObservationWithImrSource": true
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/582104-brain-in-iron",
+      "digitalName": "Brain in Iron",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "6",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/584742-dwarven-worker",
+      "digitalName": "Dwarven Worker",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "1/8",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/582096-enhanced-medusa",
+      "digitalName": "Enhanced Medusa",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "6",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/581278-eye-of-fear-and-flame",
+      "digitalName": "Eye of Fear and Flame",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "9",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13670",
+          "observedName": "Eye of Fear and Flame",
+          "originalSourceIds": [
+            "206"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/584735-grandfather-oak",
+      "digitalName": "Grandfather Oak",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "9",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/581171-lynx-creatlach",
+      "digitalName": "Lynx Creatlach",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "5",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:8521",
+          "observedName": "Lynx Creatlach",
+          "originalSourceIds": [
+            "161"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "hasObservationWithImrSource": true
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/581182-moghadam",
+      "digitalName": "Moghadam",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "12",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:8522",
+          "observedName": "Moghadam",
+          "originalSourceIds": [
+            "161"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "hasObservationWithImrSource": true
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/582697-neo-otyugh",
+      "digitalName": "Neo-Otyugh",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "7",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/582085-seodra",
+      "digitalName": "Seodra",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "1/8",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/581191-sir-ursas",
+      "digitalName": "Sir Ursas",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "5",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:8523",
+          "observedName": "Sir Ursas",
+          "originalSourceIds": [
+            "161"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "hasObservationWithImrSource": true
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/581744-skeletal-giant-owl",
+      "digitalName": "Skeletal Giant Owl",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "1/4",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/583545-skeletal-owlbear",
+      "digitalName": "Skeletal Owlbear",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "3",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/583540-skeletal-polar-bear",
+      "digitalName": "Skeletal Polar Bear",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "2",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/582060-skeletal-two-headed-owlbear",
+      "digitalName": "Skeletal Two-Headed Owlbear",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "3",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/581731-stolos",
+      "digitalName": "Stolos",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "6",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/584784-tarnhem",
+      "digitalName": "Tarnhem",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "19",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/581262-thessalar",
+      "digitalName": "Thessalar",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "12",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/583543-thessalars-homunculus",
+      "digitalName": "Thessalar's Homunculus",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "0",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/582801-thessalheart-construct",
+      "digitalName": "Thessalheart Construct",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "0",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/582852-thessalkraken",
+      "digitalName": "Thessalkraken",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "14",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/584769-tiefling-muralist",
+      "digitalName": "Tiefling Muralist",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "1/8",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/582928-two-headed-crocodile",
+      "digitalName": "Two-Headed Crocodile",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "1",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/582938-two-headed-owlbear",
+      "digitalName": "Two-Headed Owlbear",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "3",
+      "observationCandidates": [],
+      "hasObservationWithImrSource": false
+    }
+  ],
+  "displayedReferences": [
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/96508-adult-oblex",
+      "digitalName": "Adult Oblex",
+      "displayedSource": "Mordenkainen’s Tome of Foes",
+      "challengeRating": "5",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:1970",
+          "observedName": "Adult Oblex",
+          "originalSourceIds": [
+            "113"
+          ],
+          "match": "exact-name"
+        },
+        {
+          "observationId": "dndsu:bestiary:6892",
+          "observedName": "Adult Oblex",
+          "originalSourceIds": [
+            "158"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": [
+        {
+          "observationId": "dndsu:bestiary:1970",
+          "sourceIds": [
+            "113"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:6892",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ]
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17224-boggle",
+      "digitalName": "Boggle",
+      "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+      "challengeRating": "1/8",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:521",
+          "observedName": "Boggle",
+          "originalSourceIds": [
+            "111"
+          ],
+          "match": "exact-name"
+        },
+        {
+          "observationId": "dndsu:bestiary:6482",
+          "observedName": "Boggle",
+          "originalSourceIds": [
+            "158"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": [
+        {
+          "observationId": "dndsu:bestiary:521",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "different-declared-source-version"
+        },
+        {
+          "observationId": "dndsu:bestiary:6482",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "source-label-compatible-candidate"
+        }
+      ]
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/2556122-boggle",
+      "digitalName": "Boggle",
+      "displayedSource": "Volo's Guide to Monsters",
+      "challengeRating": "1/2",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:521",
+          "observedName": "Boggle",
+          "originalSourceIds": [
+            "111"
+          ],
+          "match": "exact-name"
+        },
+        {
+          "observationId": "dndsu:bestiary:6482",
+          "observedName": "Boggle",
+          "originalSourceIds": [
+            "158"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": [
+        {
+          "observationId": "dndsu:bestiary:521",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:6482",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ]
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/194139-brain-in-a-jar-noncore",
+      "digitalName": "Brain in a Jar (Noncore)",
+      "displayedSource": "Lost Laboratory of Kwalish",
+      "challengeRating": "6",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:17380",
+          "observedName": "Brain in a Jar (Noncore)",
+          "originalSourceIds": [
+            "153"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/96527-eidolon",
+      "digitalName": "Eidolon",
+      "displayedSource": "Mordenkainen’s Tome of Foes",
+      "challengeRating": "12",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:4874",
+          "observedName": "Eidolon",
+          "originalSourceIds": [
+            "113"
+          ],
+          "match": "exact-name"
+        },
+        {
+          "observationId": "dndsu:bestiary:6718",
+          "observedName": "Eidolon",
+          "originalSourceIds": [
+            "158"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": [
+        {
+          "observationId": "dndsu:bestiary:4874",
+          "sourceIds": [
+            "113"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:6718",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ]
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/22565-giant-skeleton",
+      "digitalName": "Giant Skeleton",
+      "displayedSource": "Tales from the Yawning Portal",
+      "challengeRating": "7",
+      "observationCandidates": [],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17257-girallon",
+      "digitalName": "Girallon",
+      "displayedSource": "Volo's Guide to Monsters",
+      "challengeRating": "4",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:530",
+          "observedName": "Girallon",
+          "originalSourceIds": [
+            "111"
+          ],
+          "match": "exact-name"
+        },
+        {
+          "observationId": "dndsu:bestiary:6763",
+          "observedName": "Girallon",
+          "originalSourceIds": [
+            "158"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": [
+        {
+          "observationId": "dndsu:bestiary:530",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:6763",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ]
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/22571-greater-zombie",
+      "digitalName": "Greater Zombie",
+      "displayedSource": "Tales from the Yawning Portal",
+      "challengeRating": "5",
+      "observationCandidates": [],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/301746-green-hag-coven-variant",
+      "digitalName": "Green Hag (Coven Variant)",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "5",
+      "observationCandidates": [],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17157-grell",
+      "digitalName": "Grell",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "3",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:188",
+          "observedName": "Grell",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/313028-lizardfolk-render",
+      "digitalName": "Lizardfolk Render",
+      "displayedSource": "Ghosts of Saltmarsh",
+      "challengeRating": "3",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7519",
+          "observedName": "Lizardfolk Render",
+          "originalSourceIds": [
+            "128"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17171-lizardfolk-shaman",
+      "digitalName": "Lizardfolk Shaman",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "2",
+      "observationCandidates": [],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/313041-locathah",
+      "digitalName": "Locathah",
+      "displayedSource": "Ghosts of Saltmarsh",
+      "challengeRating": "1/2",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7524",
+          "observedName": "Locathah",
+          "originalSourceIds": [
+            "128"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17338-master-thief",
+      "digitalName": "Master Thief",
+      "displayedSource": "Volo's Guide to Monsters",
+      "challengeRating": "5",
+      "observationCandidates": [],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/16959-minotaur-skeleton",
+      "digitalName": "Minotaur Skeleton",
+      "displayedSource": "Basic Rules (2014)",
+      "challengeRating": "2",
+      "observationCandidates": [],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17184-myconid-sovereign",
+      "digitalName": "Myconid Sovereign",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "2",
+      "observationCandidates": [],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17192-pixie",
+      "digitalName": "Pixie",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "1/4",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:265",
+          "observedName": "Pixie",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17300-redcap",
+      "digitalName": "Redcap",
+      "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+      "challengeRating": "3",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:561",
+          "observedName": "Redcap",
+          "originalSourceIds": [
+            "111"
+          ],
+          "match": "exact-name"
+        },
+        {
+          "observationId": "dndsu:bestiary:6927",
+          "observedName": "Redcap",
+          "originalSourceIds": [
+            "158"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": [
+        {
+          "observationId": "dndsu:bestiary:561",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "different-declared-source-version"
+        },
+        {
+          "observationId": "dndsu:bestiary:6927",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "source-label-compatible-candidate"
+        }
+      ]
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/2556141-redcap",
+      "digitalName": "Redcap",
+      "displayedSource": "Volo's Guide to Monsters",
+      "challengeRating": "3",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:561",
+          "observedName": "Redcap",
+          "originalSourceIds": [
+            "111"
+          ],
+          "match": "exact-name"
+        },
+        {
+          "observationId": "dndsu:bestiary:6927",
+          "observedName": "Redcap",
+          "originalSourceIds": [
+            "158"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": [
+        {
+          "observationId": "dndsu:bestiary:561",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:6927",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ]
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/96536-sacred-statue",
+      "digitalName": "Sacred Statue",
+      "displayedSource": "Mordenkainen’s Tome of Foes",
+      "challengeRating": "0",
+      "observationCandidates": [],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/316830-skeletal-juggernaut",
+      "digitalName": "Skeletal Juggernaut",
+      "displayedSource": "Ghosts of Saltmarsh",
+      "challengeRating": "5",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7554",
+          "observedName": "Skeletal Juggernaut",
+          "originalSourceIds": [
+            "128"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/316845-skeletal-swarm",
+      "digitalName": "Skeletal Swarm",
+      "displayedSource": "Ghosts of Saltmarsh",
+      "challengeRating": "2",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:7555",
+          "observedName": "Skeletal Swarm",
+          "originalSourceIds": [
+            "128"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17303-slithering-tracker",
+      "digitalName": "Slithering Tracker",
+      "displayedSource": "Volo's Guide to Monsters",
+      "challengeRating": "3",
+      "observationCandidates": [],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/339646-thessalhydra",
+      "digitalName": "Thessalhydra",
+      "displayedSource": "Hunt for the Thessalhydra",
+      "challengeRating": "4",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:3632",
+          "observedName": "Thessalhydra",
+          "originalSourceIds": [
+            "123"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17306-trapper",
+      "digitalName": "Trapper",
+      "displayedSource": "Volo's Guide to Monsters",
+      "challengeRating": "3",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:606",
+          "observedName": "Trapper",
+          "originalSourceIds": [
+            "111"
+          ],
+          "match": "exact-name"
+        },
+        {
+          "observationId": "dndsu:bestiary:7050",
+          "observedName": "Trapper",
+          "originalSourceIds": [
+            "158"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": [
+        {
+          "observationId": "dndsu:bestiary:606",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:7050",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ]
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17353-tressym",
+      "digitalName": "Tressym",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "0",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:6402",
+          "observedName": "Tressym",
+          "originalSourceIds": [
+            "126",
+            "132"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17205-umber-hulk",
+      "digitalName": "Umber Hulk",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "5",
+      "observationCandidates": [],
+      "sourceVersionCandidates": []
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17344-warlock-of-the-fiend",
+      "digitalName": "Warlock of the Fiend",
+      "displayedSource": "Volo's Guide to Monsters",
+      "challengeRating": "7",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:639",
+          "observedName": "Warlock of the Fiend",
+          "originalSourceIds": [
+            "111"
+          ],
+          "match": "exact-name"
+        },
+        {
+          "observationId": "dndsu:bestiary:7066",
+          "observedName": "Warlock of the Fiend",
+          "originalSourceIds": [
+            "158"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": [
+        {
+          "observationId": "dndsu:bestiary:639",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:7066",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ]
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17345-warlock-of-the-great-old-one",
+      "digitalName": "Warlock of the Great Old One",
+      "displayedSource": "Volo's Guide to Monsters",
+      "challengeRating": "6",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:638",
+          "observedName": "Warlock of the Great Old One",
+          "originalSourceIds": [
+            "111"
+          ],
+          "match": "exact-name"
+        },
+        {
+          "observationId": "dndsu:bestiary:7067",
+          "observedName": "Warlock of the Great Old One",
+          "originalSourceIds": [
+            "158"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": [
+        {
+          "observationId": "dndsu:bestiary:638",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:7067",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ]
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17346-warlord",
+      "digitalName": "Warlord",
+      "displayedSource": "Volo's Guide to Monsters",
+      "challengeRating": "12",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:631",
+          "observedName": "Warlord",
+          "originalSourceIds": [
+            "111"
+          ],
+          "match": "exact-name"
+        },
+        {
+          "observationId": "dndsu:bestiary:7064",
+          "observedName": "Warlord",
+          "originalSourceIds": [
+            "158"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "sourceVersionCandidates": [
+        {
+          "observationId": "dndsu:bestiary:631",
+          "sourceIds": [
+            "111"
+          ],
+          "relation": "source-label-compatible-candidate"
+        },
+        {
+          "observationId": "dndsu:bestiary:7064",
+          "sourceIds": [
+            "158"
+          ],
+          "relation": "different-declared-source-version"
+        }
+      ]
+    }
+  ],
+  "sharedDigitalCards": [
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/581278-eye-of-fear-and-flame",
+      "digitalName": "Eye of Fear and Flame",
+      "displayedSource": "Infernal Machine Rebuild",
+      "challengeRating": "9",
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:13670",
+          "observedName": "Eye of Fear and Flame",
+          "originalSourceIds": [
+            "206"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "seenInPublications": [
+        "161",
+        "206"
+      ],
+      "folioPrintUnit": "wotc:mffv1:contents:eye-of-fear-and-flame",
+      "folioObservationCandidates": [
+        {
+          "id": "dndsu:bestiary:13670",
+          "observedName": "Eye of Fear and Flame",
+          "originalSourceIds": [
+            "206"
+          ]
+        }
+      ],
+      "sharedDigitalCard": true,
+      "printedEquivalent": null,
+      "canonicalId": null
+    }
+  ],
+  "inputSha256": {
+    "catalog/infernal-machine-index-review-2014.json": "40b451b4b5a324976d24c6bfadbf9c72c4bca6ca8b4027a0a6213ab0324cb36a",
+    "catalog/fiendish-folio-version-evidence-2014.json": "27e7cc44585d0be8301e72f9ea509c72984a6e1c6066861cfa9090ff081b0e26",
+    "catalog/imr-version-review-2014.json": "4e1f3fb0e94051752bac0d83f3c1c8d00e1567ff13ad65b0fc96f584caa3102f"
+  }
+}

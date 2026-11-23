@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "status": "two-selected-narrative-prose-scopes-with-navigation-and-carrier-holds",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "summary": {
+    "selectedNarrativeProseScopes": 2,
+    "selectedSecondaryParagraphs": 7,
+    "embeddedNavigationBlocksRetained": 1,
+    "newBasicCarrierVersionWitnesses": 1,
+    "remainingHeadingsWithoutSelectedProseReview": 11,
+    "canonicalUnitsAccepted": 0
+  },
+  "sources": {
+    "secondary": {
+      "requestedUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+      "capturedAt": "2026-11-21T14:29:12.576358+00:00",
+      "status": 200,
+      "finalUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+      "bytes": 438149,
+      "sha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+      "outcome": "complete",
+      "retried": false,
+      "declaredBytes": null,
+      "bodyFile": "spellcasting.html"
+    },
+    "srd": {
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "pdfPage": 100
+    },
+    "basic": {
+      "sha256": "7a0c5d8bf52d15092f156d78418aa3d43307e271f810d2f06bf2f0258e9288a3",
+      "url": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "version": "1.0(2018),2014rules",
+      "pdfPage": 85,
+      "srdLicenseInherited": false
+    },
+    "extractor": "pypdfium2",
+    "extractorVersion": "5.13.0",
+    "renderedScopesInspected": true
+  },
+  "records": [
+    {
+      "headingOrdinal": 0,
+      "key": "prelude",
+      "originalCombinedBodySha256": "e2911ca3046aa98b44e795befd7a01fbeaf6309363f46674449b8c5bbe822f03",
+      "selectedProseParagraphSha256": [
+        "51850c9610522f93095f14de1fcf22bf465df6083dec2ae44a5b7452c558734d",
+        "b7e7245603a27a61ace7ade4f0207c37f893934c88b3c60ae8b3d6839a6638e5"
+      ],
+      "primary": {
+        "source": "srd51",
+        "pdfPage": 100,
+        "startHeading": "Spellcasting",
+        "stopExcluded": "What Is a Spell?",
+        "selectedTextSha256": "437803de55f7eee909248096111b7e719dbd0e63abdca90b8cb3e5a497794175",
+        "wordCount": 51,
+        "completeSelectedNarrative": true
+      },
+      "completeSelectedNarrativeProseCompared": true,
+      "wholeCombinedBodyAcceptedAsRules": false,
+      "assessment": "manual selected narrative correspondence,not literal translation or gameplay grant",
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "headingOrdinal": 48,
+      "key": "weave",
+      "originalCombinedBodySha256": "ab6cc368e4a3d72fe51084e484cefbf30fc4153091d581196b2406e98533710a",
+      "selectedProseParagraphSha256": [
+        "58620b78b806e8332ebe1278e3edc57c1fc971bb64ba734b58ed49e623ef04d3",
+        "02e0dd1e3fc9f47f1ea7ca7050715867615197d76e613f1cc35990cde2ad10d1",
+        "633d94e1958ca9316bf4a7e64b84493ea8c5760fbc4680efa817adcb9935191a",
+        "4cc97857e84e50c89595891fce14ccaca7ced9bba1131c3148d7dcf5fb9ce475",
+        "52b0a3d6b35dfb11b7af48848c04463b3861421d4d5b84589318359d0ee3524e"
+      ],
+      "primary": {
+        "source": "basic2018",
+        "pdfPage": 85,
+        "startHeading": "The Weave of Magic",
+        "stopExcluded": "artist credit RICHARD WHITTERS",
+        "selectedTextSha256": "4f01969ea5fd5e4f61029a194f1e4e3994f4f01872f60b1c9276dad62e3e0cd6",
+        "wordCount": 372,
+        "completeSelectedNarrative": true
+      },
+      "completeSelectedNarrativeProseCompared": true,
+      "wholeCombinedBodyAcceptedAsRules": false,
+      "assessment": "manual selected narrative correspondence,not literal translation or gameplay grant",
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    }
+  ],
+  "preludeNavigation": {
+    "kind": "embedded-navigation-not-rule-prose",
+    "rawHtmlSha256": "048b810395a59a3bc9bcbe81df030bc9e68ee63dbfd9612c4c3c51be69d19a42",
+    "visibleTextSha256": "eaae50090eb4acacf4d632536c521e700202660ecfb7797c5a7825f52f7c538c",
+    "hrefs": [
+      "/beta/img/sprite.svg#dropdown",
+      "/beta/img/sprite.svg#dropdown",
+      "#chto_takoe_zaklinanie?",
+      "#uroven_zaklinaniya",
+      "#izvestnye_i_podgotovlennye_zaklinaniya",
+      "#yachejki_zaklinanij",
+      "#variant-spellpoints",
+      "#zagovory",
+      "#ritualy",
+      "#nakladyvanie_zaklinaniya",
+      "#vremya_nakladyvaniya",
+      "#distantsiya",
+      "#komponenty",
+      "#dlitelnost",
+      "#tseli",
+      "#nabljudaya_za_rabotoj_zaklinatelya_xge",
+      "#opredelenie_zaklinaniya_xge",
+      "#invalid-spell-targets",
+      "#areas-of-effect",
+      "#oblasti_vozdejstviya_na_setke_xge",
+      "#spasbroski",
+      "#broski_ataki",
+      "#obedinenie_magicheskih_jeffektov",
+      "#optsionalnoe_pravilo_personalizatsiya_zaklinanij_tce"
+    ],
+    "dataAnchors": [
+      "chto_takoe_zaklinanie?",
+      "nakladyvanie_zaklinaniya"
+    ],
+    "retainedInOriginalBodyWitness": true,
+    "newRulesCreated": false
+  },
+  "basicAdjacentCarrierWitness": {
+    "source": "basic2018",
+    "pdfPage": 85,
+    "selectedTextSha256": "e5f5558af535df910d5c84ba8d66c39055b1cdd3329c442772247e1551a6a856",
+    "knownEqualPotencyMostRecentSentencePresent": true,
+    "wholeCarrierIdentityWithSrdClaimed": false,
+    "existingSrdWitnessRewritten": false,
+    "publicationYearAloneDeterminesTextVersion": false,
+    "priorSrdSelectedTextSha256": "ebd98978926dda6a455f9471eecad1c7c8a2cb4f82ba1fe7ebe0aa1a5583d081",
+    "priorErrataRawSelectedTextSha256": "5141e489a89ee2faff53cb0e970ecf5da67d153d4e3806973ecdbf9c3f4c8214"
+  },
+  "narrativeBoundaries": {
+    "settingLoreDoesNotRequireProfileWorldOrDeity": true,
+    "arcaneDivineDescriptionsGrantNoClassSpells": true,
+    "damagedWeaveLoreCreatesNoAutomaticResourceMutation": true,
+    "milesToKilometersIsNarrativeLocalizationNotMechanicalRange": true,
+    "specificRulesAndManualExceptionsRemainSeparate": true,
+    "noSourceBodyRewritten": true
+  },
+  "remainingHeadingOrdinalsWithoutSelectedProseReview": [
+    7,
+    8,
+    9,
+    31,
+    32,
+    33,
+    40,
+    41,
+    42,
+    46,
+    47
+  ],
+  "unverifiedDiagramHeadingOrdinals": [
+    34,
+    35,
+    36,
+    37,
+    39
+  ],
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "wizard-spell-list-reference",
+    "action": "Locate retained primary Wizard spell-list boundaries and compare actual secondary list/version/source scope; keep optional additions, names versus full rules, and general variant/media criteria separate."
+  },
+  "limits": [
+    "Prelude2p and Weave5p only; embedded TOC is retained navigation,not extra spell rules.",
+    "Basic85 carrier corroborates known correction without overwriting older SRD/secondary witnesses or accepting whole PHB equivalence.",
+    "Narrative distance/setting descriptions do not create mechanical range, required deity or spell grants.",
+    "Eleven other heading bodies and five diagram insertions remain; no rights/canonical denominator/runtime/owner-stage acceptance."
+  ],
+  "inputSha256": {
+    "catalog/ready-bonus-context-2014.json": "d921d0707996439739a7e678fc6da9406c108424b2669db0446d05d5d9dbae5a",
+    "catalog/general-introductions-schools-2014.json": "8618b63a316e83bdc40eebc5124f1826244bad5a32e341f74c6998ddf4a01dc1",
+    "catalog/general-areas-effects-2014.json": "64aef4dd8001785004414ed3cee11cb7d1d0a7084563294d1a7db2cee5139896",
+    "catalog/spellcasting-reference-scopes-2014.json": "0e20ecfc18534dcc94752854e8ff018d8ad109eeabe9290036d04a6c57d925d3"
+  },
+  "generator": {
+    "path": "scripts/audit-weave-narrative-2014.py",
+    "sha256": "943efa30d4589db288831524f90b4194dbb7b9e3424ccbc426cda2e262d6431a"
+  },
+  "upstreamParsers": [
+    {
+      "path": "scripts/audit-general-introductions-schools-2014.py",
+      "sha256": "fa432b081f25ffcad4ad85c0b0df791439974a36e9eaa8f71450660fcbb2d7fe"
+    },
+    {
+      "path": "scripts/audit-general-casting-clauses-2014.py",
+      "sha256": "c29e37353aedb0d78d8305a34eec865a442f316071913278a2a3aa390c820aa3"
+    },
+    {
+      "path": "scripts/audit-wizard-candidate-concordance-2014.py",
+      "sha256": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b"
+    }
+  ]
+}

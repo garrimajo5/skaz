@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "status": "selected-ready-spell-excerpt-and-bonus-condensation-with-explicit-context-not-full-action-or-runtime",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "summary": {
+    "secondaryObservationsCompared": 2,
+    "secondaryParagraphs": 3,
+    "wholeCombatReadyContextCaptured": 1,
+    "newBonusAbilitiesCreated": 0,
+    "remainingHeadingsWithoutSelectedProseReview": 12,
+    "canonicalUnitsAccepted": 0
+  },
+  "sources": {
+    "secondary": {
+      "requestedUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+      "capturedAt": "2026-11-21T14:29:12.576358+00:00",
+      "status": 200,
+      "finalUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+      "bytes": 438149,
+      "sha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+      "outcome": "complete",
+      "retried": false,
+      "declaredBytes": null,
+      "bodyFile": "spellcasting.html"
+    },
+    "srd": {
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "pdfPages": [
+        91,
+        93,
+        94
+      ]
+    },
+    "errata": {
+      "url": "https://media.wizards.com/2021/dnd/downloads/PH-Errata.pdf",
+      "sha256": "0c49e2c9c90c9dede38346874c8fda9ff39ce8a715d71aedc5bd1d1e4321014e",
+      "version": "3.0(2021),2014PHB",
+      "pdfPage": 4
+    },
+    "extractor": "pypdfium2",
+    "extractorVersion": "5.13.0",
+    "renderedPrimaryPagesInspected": true
+  },
+  "secondaryObservations": [
+    {
+      "headingOrdinal": 17,
+      "title": "Действие подготовка",
+      "bodyTextSha256": "8130f2e025c8baa74769944ee466ddbde43ca35d86b8c8384780ced3b0efc6f0",
+      "paragraphSha256": [
+        "ba28b708d96da0e99c83ab15446342afe09efc74282ebb401b3ee900cbd06d5e",
+        "42fc8abeb095d7e3599f80aaed71a50ed937df19d39bdd49339c9e37e552cc6c"
+      ]
+    },
+    {
+      "headingOrdinal": 18,
+      "title": "Заклинания, накладываемые бонусным действием",
+      "bodyTextSha256": "593d9e6472571699be37a497738d1b3fb1acffd1b2a209e5e3ebd5611e867971",
+      "paragraphSha256": [
+        "593d9e6472571699be37a497738d1b3fb1acffd1b2a209e5e3ebd5611e867971"
+      ]
+    }
+  ],
+  "primaryReady": {
+    "wholeContextSha256": "52e25d7f2dc4366d64fa8cab60c66919d534d4902f06912871bd5a6824471d03",
+    "wholeContextWordCount": 229,
+    "spellExcerptSha256": "ca063a074f102c189d1adc4280cd915cf49f91a46355302c5cba32874f66ceb8",
+    "spellExcerptWordCount": 92,
+    "pdfPages": [
+      93,
+      94
+    ],
+    "stopExcluded": "Search",
+    "wholeContextCaptured": true,
+    "secondaryIsWholeReadyAction": false
+  },
+  "primaryReactions": {
+    "source": "srd51",
+    "pdfPage": 91,
+    "startHeading": "Reactions",
+    "stopExcluded": "Movement and Position",
+    "selectedTextSha256": "f0d369db5d1f4fdbab99068e072f70db9606881f4288801395ec58661dd12c04",
+    "completeSelectedScope": true
+  },
+  "primaryReadyErrata": {
+    "source": "phb2014-errata-v3.0-2021",
+    "pdfPage": 4,
+    "rawSelectedTextSha256": "62ac5810f04e0c231c7fa750ce8ee2b4577a8411948442d0a88a3e365e39ed5b",
+    "scope": "only selected corrected Ready second sentence; other combat/errata excluded",
+    "srdAlreadyContainsCorrection": true,
+    "secondaryExcerptDoesNotContainThisFullActionSentence": true
+  },
+  "readyRelationship": {
+    "kind": "complete-secondary-spell-excerpt-with-partial-action-context",
+    "fullReadyActionAccepted": false,
+    "genericTriggerIgnoreAndDeadlineRemainRequiredContext": true,
+    "literalDifference": {
+      "secondaryFirstParagraphOmitsExplicitReleaseWithReactionClause": true,
+      "reactionStillAppearsInExample": true,
+      "sourceSilentlyRewritten": false
+    },
+    "combinedWithCheckedSlotRule": {
+      "input": "catalog/general-casting-clauses-2014.json",
+      "key": "spell-slots",
+      "primarySelectedTextSha256": "703569324ded026e0e616e5fd0114d247870fae3be0849c35536441c3b4d8e44"
+    },
+    "ordinaryReadyIsClassSpellPreparation": false
+  },
+  "bonusRelationship": {
+    "kind": "condensed-same-turn-clause-not-full-bonus-action-rule",
+    "originalHeadingOrdinal": 14,
+    "originalHeadingBodySha256": "833d757d8a52a98f003d4d5b5e70d57477572b613f30a689ea00c59ada25017f",
+    "repeatedHeadingOrdinal": 18,
+    "repeatedHeadingBodySha256": "593d9e6472571699be37a497738d1b3fb1acffd1b2a209e5e3ebd5611e867971",
+    "checkedPrimaryWitnessReused": {
+      "source": "srd51",
+      "pdfPages": [
+        101
+      ],
+      "startHeading": "Bonus Action",
+      "stopHeadingExcluded": "Reactions",
+      "selectedTextSha256": "374702ce31bc6a91da435344be7a558dbf25e4baff9f7fe532a50790c8c5a9f2",
+      "wordCount": 54,
+      "completeSelectedPrimarySubsection": true
+    },
+    "separateObservationIdsPreserved": true,
+    "secondRuleOrCapabilityCreated": false,
+    "fullSourceClauseReextracted": false
+  },
+  "ordinarySelectedFacts": {
+    "readyOnOwnTurn": true,
+    "readyTriggerMustBePerceivable": true,
+    "canIgnoreTrigger": true,
+    "releaseAfterTriggerFinishesRequiresReaction": true,
+    "readyGrantsExtraReaction": false,
+    "deadline": "before start of next own turn",
+    "reactionBudgetResetsAt": "start of next own turn",
+    "roundBoundaryAloneResetsReaction": false,
+    "readiedSpellCastingTimeMustBeOneAction": true,
+    "ordinarySlottedSpellCastAndSlotSpentWhenReadied": true,
+    "releaseConsumesSecondSlot": false,
+    "holdingSpellRequiresConcentrationEvenIfNormalDurationDoesNot": true,
+    "newReadiedSpellEndsOldConcentration": true,
+    "concentrationFailureAfterReadyingRefundsSlot": false,
+    "noTriggerAutomaticallyRefundsSlot": false,
+    "itemChargeTimingInferred": false,
+    "readyChangesKnownOrPreparedSpellLists": false,
+    "normalSpellAccessComponentsAndCastingRequirementsStillApply": true,
+    "bonusRestrictionSameTurnBeforeAndAfter": true,
+    "bonusCantripAlsoTriggersSameTurnRestriction": true,
+    "nonSpellBonusActivityTriggersSpellRestriction": false,
+    "bonusClauseCreatesWholeRoundSpellBan": false,
+    "manualDeviationAllowedWithWarning": true
+  },
+  "syntheticCases": [
+    {
+      "case": "ready-normal-magic-missile-while-concentrating-web",
+      "webConcentrationEndsWhenReadied": true,
+      "spellSlotSpentAtReady": true,
+      "concentrationRequiredWhileHeld": true,
+      "secondSlotAtReactionRelease": false
+    },
+    {
+      "case": "ready-trigger-ignored-or-not-occurring",
+      "automaticSlotRefund": false,
+      "itemRefundInferred": false
+    },
+    {
+      "case": "ready-bonus-action-or-reaction-spell-under-normal-ready-spell-procedure",
+      "ordinaryOneActionEligibility": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "case": "readied-slot-versus-long-cast-concentration-failure",
+      "slotProceduresSame": false
+    },
+    {
+      "case": "action-spell-before-bonus-spell-in-same-turn",
+      "ordinaryBonusClauseWarning": true,
+      "manualDeviationAllowedWithWarning": true
+    }
+  ],
+  "remainingHeadingOrdinalsWithoutSelectedProseReview": [
+    7,
+    8,
+    9,
+    31,
+    32,
+    33,
+    40,
+    41,
+    42,
+    46,
+    47,
+    48
+  ],
+  "unverifiedDiagramHeadingOrdinals": [
+    34,
+    35,
+    36,
+    37,
+    39
+  ],
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "weave-narrative-and-current-scope-coverage",
+    "action": "Compare complete final Weave48 narrative with retained Basic2018 primary, using parsed article end; refresh source-scope coverage separating reviewed prose, excerpt context and unverified diagrams/variants."
+  },
+  "limits": [
+    "Two secondary observations/three paragraphs are reviewed, not a second bonus rule or whole Action Ready acceptance.",
+    "Ready93 requires94 continuation; reaction deadline/reset is not derived from an unqualified round counter.",
+    "Ordinary slot timing follows cast-as-normal plus checked slot rule; no generic item charge/refund policy inferred.",
+    "No raw source prose/PDF, source array rewrite, runtime block, profile edit, canonical unit or owner-stage closure."
+  ],
+  "inputSha256": {
+    "catalog/general-introductions-schools-2014.json": "8618b63a316e83bdc40eebc5124f1826244bad5a32e341f74c6998ddf4a01dc1",
+    "catalog/general-casting-clauses-2014.json": "aa6815ec47e2cb963c1c30e5fc50082bb20a6fc47861bc6c6f502dfcd59c97cf",
+    "catalog/general-concentration-targets-2014.json": "0913dd9d2f06d30f69bd60d32451d89117170f1a6a354d82029bf64d87c5330b",
+    "catalog/spellcasting-reference-scopes-2014.json": "0e20ecfc18534dcc94752854e8ff018d8ad109eeabe9290036d04a6c57d925d3"
+  },
+  "generator": {
+    "path": "scripts/audit-ready-bonus-context-2014.py",
+    "sha256": "b735a5cde85ac849c06bffffa15128b94067f09f0ab93aa12b8334d73fdc3c99"
+  },
+  "upstreamParsers": [
+    {
+      "path": "scripts/audit-general-introductions-schools-2014.py",
+      "sha256": "fa432b081f25ffcad4ad85c0b0df791439974a36e9eaa8f71450660fcbb2d7fe"
+    },
+    {
+      "path": "scripts/audit-general-casting-clauses-2014.py",
+      "sha256": "c29e37353aedb0d78d8305a34eec865a442f316071913278a2a3aa390c820aa3"
+    },
+    {
+      "path": "scripts/audit-wizard-candidate-concordance-2014.py",
+      "sha256": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b"
+    }
+  ]
+}

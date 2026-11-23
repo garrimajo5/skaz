@@ -1,0 +1,63 @@
+{
+  "ruleset": "5e-2014",
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "ruleInterpretationVerified": false,
+  "unitCount": 5,
+  "anchorCount": 9,
+  "witnesses": [
+    {
+      "key": "grung-copyright-era",
+      "source": "grung2017",
+      "pdfPage": 2,
+      "anchorCount": 2,
+      "scopeVerified": true
+    },
+    {
+      "key": "team-historical-publications",
+      "source": "kwalish2018",
+      "pdfPage": 1,
+      "anchorCount": 3,
+      "scopeVerified": true
+    },
+    {
+      "key": "locathah-edition-context",
+      "source": "locathah2019",
+      "pdfPage": 1,
+      "anchorCount": 1,
+      "scopeVerified": true
+    },
+    {
+      "key": "locathah-legal-era-and-permission",
+      "source": "locathah2019",
+      "pdfPage": 1,
+      "anchorCount": 2,
+      "scopeVerified": true
+    },
+    {
+      "key": "locathah-character-option-reference",
+      "source": "locathah2019",
+      "pdfPage": 2,
+      "anchorCount": 1,
+      "scopeVerified": true
+    }
+  ],
+  "scope": "bibliographic-era-and-permission-witnesses-only",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "fullCharacterRulesVerified": false,
+  "sourceYears": {
+    "bibliography:one-grung-above": 2017,
+    "bibliography:locathah-rising": 2019,
+    "bibliography:the-tortle-package": 2017
+  },
+  "textReusePermission": "not-established",
+  "translationReusePermission": "not-established",
+  "interpretationAccepted": false,
+  "inputSha256": {
+    "catalog/extra-life-publication-witnesses-2014.json": "4d0f532819b9a4f99dbb62496a871267b4247b90c48750b8886222c341a6dc7e",
+    "catalog/unnumbered-publication-relations-2014.json": "eb7862d259da0e983669e0bd3c72a6136df7fa4b3e8315526339ef6e1130f59b",
+    "catalog/source-rights-evidence-2014.json": "5aa72478cfb30636f221f4da66768de72c773dc8713801a4bf96a61e44be2ab4"
+  }
+}

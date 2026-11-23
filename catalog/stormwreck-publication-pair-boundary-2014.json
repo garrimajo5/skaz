@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "status": "paired-publication-and-partial-reuse-witness-with-body-only-capture-limits",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "providerSourceIds": [
+    94,
+    128
+  ],
+  "perProviderWitnesses": {
+    "94": {
+      "providerSourceId": 94,
+      "title": "Dragons of Stormwreck Isle",
+      "kind": "starter-adventure-source-reference",
+      "accepted": false,
+      "numericDndsuSourceId": null,
+      "canonicalSourceId": null,
+      "automaticAttribution": false,
+      "fullRulesReviewed": false
+    },
+    "128": {
+      "providerSourceId": 128,
+      "title": "Intro to Stormwreck Isle",
+      "kind": "two-encounter-intro-with-explicit-partial-reuse",
+      "accepted": false,
+      "numericDndsuSourceId": null,
+      "canonicalSourceId": null,
+      "automaticAttribution": false,
+      "fullRulesReviewed": false
+    }
+  },
+  "sources": {
+    "article.html": {
+      "recordType": "saved-response-body-without-retained-transaction",
+      "requestedUrl": "https://www.dndbeyond.com/posts/1582-intro-to-stormwreck-isle-your-free-introduction-to",
+      "httpStatus": null,
+      "finalUrl": null,
+      "bytes": 236509,
+      "sha256": "a8bc6a040b443e3799569804bb08fabd7576cfdbea9fcf2b835b43ced8e9a83b"
+    },
+    "parent.html": {
+      "recordType": "saved-response-body-without-retained-transaction",
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/dosi",
+      "httpStatus": null,
+      "finalUrl": null,
+      "bytes": 241258,
+      "sha256": "cf92da46836bb4a4be32ecd125b15bfff0939f252bfa23b074ea754e1d74b016"
+    }
+  },
+  "publisherArticle": {
+    "title": "Intro to Stormwreck Isle: Your Free Introduction to D&D",
+    "canonicalUrl": "https://www.dndbeyond.com/posts/1582-intro-to-stormwreck-isle-your-free-introduction-to",
+    "pairParagraphSha256": "91438792317469a171708f6bccdeb9a98f40837ab931e75b8dbb515466d46467",
+    "encounterEvidence": [
+      {
+        "title": "Voyage to Stormwreck Isle",
+        "descriptionSha256": "cc08778e0c65c76daf384b45781c8c72db7f475d41a2efa1fcae4f54970fc51d",
+        "originRelativeToFullBook": "not-established"
+      },
+      {
+        "title": "Drowned Sailors",
+        "descriptionSha256": "972812211011f2ebfcc419ef67e27bb18e863ad32116ef4cb80ae95725df65a5",
+        "explicitFirstChapterReuseReference": true
+      }
+    ],
+    "allIntroTextOrWholeFirstChapterIdentical": false,
+    "scope": "publisher paragraph and two encounter-list items; no full encounter-text comparison"
+  },
+  "fullAdventureSource": {
+    "title": "Dragons of Stormwreck Isle",
+    "canonicalUrl": "https://www.dndbeyond.com/sources/dnd/dosi",
+    "sharedEncounterReference": {
+      "title": "Drowned Sailors",
+      "url": "https://www.dndbeyond.com/sources/dosi/dragons-rest#DrownedSailors"
+    },
+    "scope": "complete-adventure source identity and one TOC reference, not complete rules/Starter Set box contents"
+  },
+  "libraryReferences": [
+    {
+      "providerSourceId": 94,
+      "observationId": "ddb:library-source:94",
+      "title": "Dragons of Stormwreck Isle",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dosi",
+      "providerReleaseDate": "2022-10-04T00:00:00Z",
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      }
+    },
+    {
+      "providerSourceId": 128,
+      "observationId": "ddb:library-source:128",
+      "title": "Intro to Stormwreck Isle",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/itsi",
+      "providerReleaseDate": "2023-10-06T13:45:00Z",
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      }
+    }
+  ],
+  "relationship": {
+    "kind": "two-encounter-lead-in-with-one-explicit-first-chapter-reuse-reference",
+    "introProviderSourceId": 128,
+    "fullAdventureProviderSourceId": 94,
+    "exactEncounterTextEquivalence": "unverified",
+    "voyageOriginRelativeToBook": "not-established",
+    "wholeIntroIsWholeFirstChapter": false,
+    "wholeAdventureUnlockedOrReviewed": false,
+    "starterSetBrandInventsHistoricalIdOrAlias": false,
+    "reusePermission": "not-established"
+  },
+  "authorObservedAccessAndProvenanceLimits": {
+    "introRequest": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/itsi",
+      "errorType": "TimeoutError",
+      "stage": "response-body-read",
+      "timeoutSeconds": 25,
+      "retried": false
+    },
+    "introBodyOrAccessStateInspected": false,
+    "successfulBodyResponsesRetainedWithoutTransactionMetadata": true,
+    "httpStatusAndFinalUrlNotInvented": true,
+    "bodyCanonicalAndPublisherArticleCorroborateIdentity": true,
+    "scope": "less complete transfer provenance; no proof of current Intro access, promo status or permanent denial"
+  },
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-source-link-proposals-2014.json": "32baeee49a644be8822acdf46c2ebadc890efeb0ea90801f0e257b0ea509c4dc",
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe"
+  },
+  "generator": {
+    "path": "scripts/audit-stormwreck-publication-pair-2014.py",
+    "sha256": "069b4c257e009d3763b72bbcf19cd08469ac746e315da122ec63e2585fe3e668"
+  },
+  "upstreamParser": {
+    "path": "scripts/audit-prisoner13-component-2014.py",
+    "sha256": "5f19428fb4a6d387a09ed38a21871d8f44b8b319f2192d9c731e08784865a124"
+  },
+  "limits": [
+    "Bodies were saved by successful anonymous reads, but final URL/status receipts were lost when the parallel intro read timed out.",
+    "Only SHA/bytes/requested URL/body canonical are claimed; source transfer provenance is explicitly weaker than complete receipt captures.",
+    "One encounter is explicitly referenced from chapter1; neither exact prose identity nor whole-intro/chapter equality is established.",
+    "No public promotion status, full rules, pregenerated sheets, private profile, automatic attribution, denominator or owner acceptance exported."
+  ]
+}

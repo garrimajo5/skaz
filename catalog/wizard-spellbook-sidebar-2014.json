@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "status": "complete-selected-sidebar-comparison-with-retained-literal-difference-not-whole-feature-or-runtime",
+  "unitId": "source-comparison:wizard-your-spellbook",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "scope": "complete seven-paragraph Your Spellbook sidebar including copying, replacing, lost book and appearance; SRD54 continues on55",
+  "sources": {
+    "digital": {
+      "requestedUrl": "https://www.dndbeyond.com/compendium/rules/basic-rules/classes",
+      "finalUrl": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/classes",
+      "status": 200,
+      "bytes": 1123584,
+      "sha256": "a08b309c589644f9faee67201dc7e0b9752be152215bce54d33d4b1ca7688c5e",
+      "capturedAt": "2026-11-20T23:36:30.780059+00:00"
+    },
+    "basic": {
+      "requestedUrl": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "finalUrl": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "status": 200,
+      "bytes": 11537210,
+      "sha256": "7a0c5d8bf52d15092f156d78418aa3d43307e271f810d2f06bf2f0258e9288a3",
+      "capturedAt": "2026-11-20T23:23:21.716585+00:00",
+      "inspectedPdfPages": [
+        33
+      ],
+      "textExtractor": "pypdf",
+      "extractorVersion": "6.21.4"
+    },
+    "srd": {
+      "requestedUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "finalUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "status": 200,
+      "bytes": 3158713,
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "capturedAt": "2026-11-20T23:25:29.033862+00:00",
+      "inspectedPdfPages": [
+        54,
+        55
+      ],
+      "textExtractor": "pypdfium2",
+      "extractorVersion": "5.13.0"
+    }
+  },
+  "witnesses": {
+    "digital": {
+      "rawUnitSha256": "21b8d8e931de76828016833ddac1f26395a32bc598883ad246f2a972ee91b0e6",
+      "normalizedUnitSha256": "09023b5eb6144e79275407ea8a18a599444579bd17902bcb4ef33b39ec6b3c50",
+      "wordCount": 415,
+      "layoutRepairs": {
+        "ordinalHyphenRepairs": 0,
+        "verifiedBasicFinishWrapRepairs": 0,
+        "verifiedSrdGiltHyphenRunRepairs": 0
+      }
+    },
+    "basic": {
+      "rawUnitSha256": "53b9c11be1d91826c98e3c1d67e711fe3e0e99841cb48334d1b8d083d7a76299",
+      "normalizedUnitSha256": "82e39ebdb1f361ff522d2a7a5d6bb2f5847954dc2630bc4b5b0a97d979a6b969",
+      "wordCount": 415,
+      "layoutRepairs": {
+        "ordinalHyphenRepairs": 0,
+        "verifiedBasicFinishWrapRepairs": 0,
+        "verifiedSrdGiltHyphenRunRepairs": 0
+      }
+    },
+    "srd": {
+      "rawUnitSha256": "957d33112c8e4cf545646ba4890830df322fb1c2c96ebdf1787b6c44693d1ea8",
+      "normalizedUnitSha256": "09023b5eb6144e79275407ea8a18a599444579bd17902bcb4ef33b39ec6b3c50",
+      "wordCount": 415,
+      "layoutRepairs": {
+        "ordinalHyphenRepairs": 0,
+        "verifiedBasicFinishWrapRepairs": 0,
+        "verifiedSrdGiltHyphenRunRepairs": 1
+      }
+    }
+  },
+  "allThreeLiteralTextsEqual": false,
+  "digitalVersusCarrierDeltas": {
+    "basic": [
+      {
+        "operation": "replace",
+        "leftWords": [
+          "that"
+        ],
+        "rightWords": [
+          "a"
+        ],
+        "leftWordCount": 1,
+        "rightWordCount": 1
+      }
+    ],
+    "srd": []
+  },
+  "ordinaryFacts": {
+    "newSpellCopyHoursPerSpellLevel": 2,
+    "newSpellCopyGpPerSpellLevel": 50,
+    "newSpellMustBePreparableLevel": true,
+    "ownBookCopyHoursPerSpellLevel": 1,
+    "ownBookCopyGpPerSpellLevel": 10,
+    "ownNotationExplainsDifferentProcedure": true,
+    "lostBookReconstructionUsesPreparedSpells": true,
+    "allKnownUnpreparedSpellsAutomaticallyRestored": false,
+    "remainderRequiresFindingSpellsNormally": true,
+    "backupsMentioned": true,
+    "appearanceSubsectionIncluded": true,
+    "subclassDiscountsOrScrollSpecificChecksEstablished": false,
+    "genericInventoryDeleteEventImplementation": false,
+    "manualDeviationAllowedWithWarning": true
+  },
+  "continuationBoundary": {
+    "srdStartPage": 54,
+    "srdStopPage": 55,
+    "continuationHeaderRemovedExactly": true,
+    "truncatedPage54Accepted": false
+  },
+  "existingManualParent": {
+    "id": "wizard-spellcasting",
+    "status": "manual",
+    "textSha256": "0a89417e4a8f8e76b68cba91ed4d60ed28325d176a594cc5c71d27c38ec220b6",
+    "rewritten": false,
+    "newFeatureCreated": false
+  },
+  "syntheticCases": [
+    {
+      "event": "ordinary-new-spell-copy",
+      "spellLevel": 2,
+      "expectedBaseHours": 4,
+      "expectedBaseGp": 100,
+      "choicesAndSourceVerificationRequired": true
+    },
+    {
+      "event": "own-book-backup-copy",
+      "spellLevel": 2,
+      "expectedBaseHours": 2,
+      "expectedBaseGp": 20
+    },
+    {
+      "event": "lost-book",
+      "preparedSpellIds": [
+        "fictional-a"
+      ],
+      "otherKnownSpellIds": [
+        "fictional-b"
+      ],
+      "expectedReconstructibleByThisProcedure": [
+        "fictional-a"
+      ],
+      "automaticRestoreAllKnown": false
+    },
+    {
+      "event": "import-existing-book",
+      "expected": "do-not-charge-or-grant-copying-again"
+    },
+    {
+      "event": "special-discount-or-scroll",
+      "expected": "outside-selected-ordinary-cost-rules; retain manual warning path"
+    }
+  ],
+  "inputSha256": {
+    "catalog/basic-rules-publication-boundary-2014.json": "581a431600b794854b840c4d1ab7f5ed210c5ddb3286cf3058905ff506cdf5b6",
+    "catalog/wizard-spellcasting-scope-2014.json": "d55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb",
+    "catalog/srd51-class-features.json": "677b7c1ba27c2bbcd865bf220ea28c5dc55f205eeeef62c6fc913dd7eccd213a"
+  },
+  "generator": {
+    "path": "scripts/audit-wizard-spellbook-sidebar-2014.py",
+    "sha256": "97af5680e8213cb077905665f70061d1917f5380ddc7f1a27ad44b61e78177e3"
+  },
+  "upstreamParsers": [
+    {
+      "path": "scripts/audit-wizard-spellcasting-scope-2014.py",
+      "sha256": "5b15411e559c1d153f7b7021fd12d98640baf70d70c67a14e1b53512c59f0b37"
+    },
+    {
+      "path": "scripts/audit-wizard-recovery-source-comparison-2014.py",
+      "sha256": "315a8a4c5f3763ccd55c70b7a0211deb2b1e8e34e13057af489a31580b2fb388"
+    }
+  ],
+  "limits": [
+    "The whole selected sidebar is compared, but its small literal carrier difference is preserved; no global text identity claimed.",
+    "Ordinary book copying, own-book backup and prepared-only reconstruction are different procedures, not automated inventory actions.",
+    "No fresh cantrip/known-spell grant, all-known restoration, subclass discount or scroll procedure inferred.",
+    "Full Spellcasting/general references, class/subclasses, original candidate translation/source claims, rights and M0 remain open.",
+    "No source prose, PDF, private sheet, runtime, feature rewrite or owner acceptance exported."
+  ]
+}

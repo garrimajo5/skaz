@@ -1,0 +1,3525 @@
+{
+  "schemaVersion": 1,
+  "status": "mixed-public-library-observations-not-2014-scope-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "capture": {
+    "url": "https://www.dndbeyond.com/sources",
+    "finalUrl": "https://www.dndbeyond.com/en/library",
+    "status": 200,
+    "sha256": "605c4c094f33d88f70895eda871e7317552ef53664a0b9bb10603676b734679c",
+    "bytes": 1526709,
+    "retrievedAt": "2026-11-21T01:39:22+03:00"
+  },
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
+  "generator": {
+    "path": "scripts/audit-publisher-library-inventory.py",
+    "sha256": "69b19518ef80a4de17a31966c599abba11468b6ceb0396443507fd10fac3b226"
+  },
+  "summary": {
+    "publicCatalogueRows": 174,
+    "distinctProviderSourceIds": 174,
+    "metadataOccurrences": 174,
+    "structuredListCopies": 2,
+    "byMetadataBucket": {
+      "non-third-party-co-brand-provider-5e": 3,
+      "provider-other-ruleset": 37,
+      "provider-third-party-flag": 55,
+      "wotc-labelled-provider-5e": 79
+    },
+    "byProviderRuleset": {
+      "5.5e": 74,
+      "5e": 100
+    }
+  },
+  "records": [
+    {
+      "observationId": "ddb:library-source:1",
+      "providerSourceId": 1,
+      "title": "Basic Rules (2014)",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014",
+      "relativePath": "/sources/dnd/basic-rules-2014",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2014-07-03T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": true,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:2",
+      "providerSourceId": 2,
+      "title": "Player’s Handbook (2014)",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/phb-2014",
+      "relativePath": "/sources/dnd/phb-2014",
+      "sku": "SRC-00002",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2014-08-19T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:3",
+      "providerSourceId": 3,
+      "title": "Dungeon Master’s Guide (2014)",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dmg-2014",
+      "relativePath": "/sources/dnd/dmg-2014",
+      "sku": "SRC-00003",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2014-12-09T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:5",
+      "providerSourceId": 5,
+      "title": "Monster Manual (2014)",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mm-2014",
+      "relativePath": "/sources/dnd/mm-2014",
+      "sku": "SRC-00005",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2014-09-30T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:6",
+      "providerSourceId": 6,
+      "title": "Curse of Strahd",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/cos",
+      "relativePath": "/sources/dnd/cos",
+      "sku": "SRC-00006",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2016-03-15T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:8",
+      "providerSourceId": 8,
+      "title": "Lost Mine of Phandelver",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lmop",
+      "relativePath": "/sources/dnd/lmop",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2014-07-15T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:9",
+      "providerSourceId": 9,
+      "title": "Out of the Abyss",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/oota",
+      "relativePath": "/sources/dnd/oota",
+      "sku": "SRC-00009",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2015-09-15T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:10",
+      "providerSourceId": 10,
+      "title": "Princes of the Apocalypse",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/pota",
+      "relativePath": "/sources/dnd/pota",
+      "sku": "SRC-00010",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2015-04-07T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:12",
+      "providerSourceId": 12,
+      "title": "Storm King's Thunder",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/skt",
+      "relativePath": "/sources/dnd/skt",
+      "sku": "SRC-00012",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2016-09-06T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:13",
+      "providerSourceId": 13,
+      "title": "Sword Coast Adventurer's Guide",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/scag",
+      "relativePath": "/sources/dnd/scag",
+      "sku": "SRC-00013",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2015-11-03T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:14",
+      "providerSourceId": 14,
+      "title": "Tales from the Yawning Portal",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tftyp",
+      "relativePath": "/sources/dnd/tftyp",
+      "sku": "SRC-00014",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2017-03-24T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:15",
+      "providerSourceId": 15,
+      "title": "Volo's Guide to Monsters",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vgtm",
+      "relativePath": "/sources/dnd/vgtm",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2016-11-15T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:25",
+      "providerSourceId": 25,
+      "title": "Tomb of Annihilation",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/toa",
+      "relativePath": "/sources/dnd/toa",
+      "sku": "SRC-00025",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2017-09-08T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:27",
+      "providerSourceId": 27,
+      "title": "Xanathar's Guide to Everything",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/xgte",
+      "relativePath": "/sources/dnd/xgte",
+      "sku": "SRC-00027",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2017-11-15T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:28",
+      "providerSourceId": 28,
+      "title": "The Tortle Package",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ttp",
+      "relativePath": "/sources/dnd/ttp",
+      "sku": "SRC-00028",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2017-09-15T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:33",
+      "providerSourceId": 33,
+      "title": "Mordenkainen’s Tome of Foes",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+      "relativePath": "/sources/dnd/mtof",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2018-05-18T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:34",
+      "providerSourceId": 34,
+      "title": "Rrakkma",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ddia-mord",
+      "relativePath": "/sources/dnd/ddia-mord",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2018-05-18T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:35",
+      "providerSourceId": 35,
+      "title": "Waterdeep: Dragon Heist",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wdh",
+      "relativePath": "/sources/dnd/wdh",
+      "sku": "SRC-00035",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2018-09-07T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:36",
+      "providerSourceId": 36,
+      "title": "Waterdeep: Dungeon of the Mad Mage",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wdotmm",
+      "relativePath": "/sources/dnd/wdotmm",
+      "sku": "SRC-00036",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2018-11-09T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:37",
+      "providerSourceId": 37,
+      "title": "Wayfinder's Guide to Eberron",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wgte",
+      "relativePath": "/sources/dnd/wgte",
+      "sku": "SRC-00037",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2018-07-23T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:38",
+      "providerSourceId": 38,
+      "title": "Guildmasters’ Guide to Ravnica",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ggtr",
+      "relativePath": "/sources/dnd/ggtr",
+      "sku": "SRC-00038",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2018-11-09T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:40",
+      "providerSourceId": 40,
+      "title": "Lost Laboratory of Kwalish",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/llok",
+      "relativePath": "/sources/dnd/llok",
+      "sku": "SRC-00040",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2018-11-16T13:30:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:41",
+      "providerSourceId": 41,
+      "title": "Dragon of Icespire Peak",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/doip",
+      "relativePath": "/sources/dnd/doip",
+      "sku": "SRC-00041",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2019-06-21T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:43",
+      "providerSourceId": 43,
+      "title": "Ghosts of Saltmarsh",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/gos",
+      "relativePath": "/sources/dnd/gos",
+      "sku": "SRC-00043",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2019-05-21T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:44",
+      "providerSourceId": 44,
+      "title": "Acquisitions Incorporated",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ai",
+      "relativePath": "/sources/dnd/ai",
+      "sku": "SRC-00044",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2019-06-18T12:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:47",
+      "providerSourceId": 47,
+      "title": "Hunt for the Thessalhydra",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hftt",
+      "relativePath": "/sources/dnd/hftt",
+      "sku": "SRC-00047",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2019-06-04T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:48",
+      "providerSourceId": 48,
+      "title": "Baldur’s Gate: Descent into Avernus",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/bgdia",
+      "relativePath": "/sources/dnd/bgdia",
+      "sku": "SRC-00048",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2019-09-17T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:49",
+      "providerSourceId": 49,
+      "title": "Eberron: Rising from the Last War",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/erftlw",
+      "relativePath": "/sources/dnd/erftlw",
+      "sku": "SRC-00049",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2019-11-19T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:50",
+      "providerSourceId": 50,
+      "title": "Storm Lord’s Wrath",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/slw",
+      "relativePath": "/sources/dnd/slw",
+      "sku": "SRC-00050",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2019-09-03T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:51",
+      "providerSourceId": 51,
+      "title": "Sleeping Dragon’s Wake",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sdw",
+      "relativePath": "/sources/dnd/sdw",
+      "sku": "SRC-00051",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2019-09-03T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:52",
+      "providerSourceId": 52,
+      "title": "Divine Contention",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dc",
+      "relativePath": "/sources/dnd/dc",
+      "sku": "SRC-00052",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2019-09-03T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:53",
+      "providerSourceId": 53,
+      "title": "Sage Advice Compendium (2014)",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sac",
+      "relativePath": "/sources/dnd/sac",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2014-01-01T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": true,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:54",
+      "providerSourceId": 54,
+      "title": "Dungeons & Dragons vs. Rick and Morty",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ddvram",
+      "relativePath": "/sources/dnd/ddvram",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2019-11-19T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:55",
+      "providerSourceId": 55,
+      "title": "Locathah Rising",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lr",
+      "relativePath": "/sources/dnd/lr",
+      "sku": "SRC-000055",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2019-09-19T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:56",
+      "providerSourceId": 56,
+      "title": "Infernal Machine Rebuild",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/imr",
+      "relativePath": "/sources/dnd/imr",
+      "sku": "SRC-00056",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2019-12-17T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:57",
+      "providerSourceId": 57,
+      "title": "Mordenkainen's Fiendish Folio Volume 1",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mffv1",
+      "relativePath": "/sources/dnd/mffv1",
+      "sku": "SRC-00057",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2019-12-17T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:59",
+      "providerSourceId": 59,
+      "title": "Explorer's Guide to Wildemount",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/egtw",
+      "relativePath": "/sources/dnd/egtw",
+      "sku": "SRC-00059",
+      "displayedPublisher": "Critical Role",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2020-03-17T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "non-third-party-co-brand-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:60",
+      "providerSourceId": 60,
+      "title": "One Grung Above",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/oga",
+      "relativePath": "/sources/dnd/oga",
+      "sku": "SRC-00060",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2017-09-19T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:61",
+      "providerSourceId": 61,
+      "title": "Mythic Odysseys of Theros",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/moot",
+      "relativePath": "/sources/dnd/moot",
+      "sku": "SRC-00061",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2020-06-02T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:62",
+      "providerSourceId": 62,
+      "title": "Frozen Sick",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wa",
+      "relativePath": "/sources/dnd/wa",
+      "sku": "",
+      "displayedPublisher": "Critical Role",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2020-03-17T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": true,
+      "providerIsReleased": true,
+      "metadataBucket": "non-third-party-co-brand-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:66",
+      "providerSourceId": 66,
+      "title": "Icewind Dale: Rime of the Frostmaiden",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/idrotf",
+      "relativePath": "/sources/dnd/idrotf",
+      "sku": "SRC-00066",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2020-09-15T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:67",
+      "providerSourceId": 67,
+      "title": "Tasha’s Cauldron of Everything",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tcoe",
+      "relativePath": "/sources/dnd/tcoe",
+      "sku": "SRC-00067",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2020-11-17T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:68",
+      "providerSourceId": 68,
+      "title": "Candlekeep Mysteries",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/cm",
+      "relativePath": "/sources/dnd/cm",
+      "sku": "SRC-00068",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2021-03-16T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:69",
+      "providerSourceId": 69,
+      "title": "Van Richten’s Guide to Ravenloft",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vrgtr",
+      "relativePath": "/sources/dnd/vrgtr",
+      "sku": "SRC-00069",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2021-05-18T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:79",
+      "providerSourceId": 79,
+      "title": "The Wild Beyond the Witchlight",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/twbtw",
+      "relativePath": "/sources/dnd/twbtw",
+      "sku": "SRC-00079",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2021-09-21T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:80",
+      "providerSourceId": 80,
+      "title": "Strixhaven: A Curriculum of Chaos",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sacoc",
+      "relativePath": "/sources/dnd/sacoc",
+      "sku": "SRC-00080",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2021-12-07T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:81",
+      "providerSourceId": 81,
+      "title": "Fizban's Treasury of Dragons",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ftod",
+      "relativePath": "/sources/dnd/ftod",
+      "sku": "SRC-00081",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2021-10-26T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:83",
+      "providerSourceId": 83,
+      "title": "Critical Role: Call of the Netherdeep",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/cotn",
+      "relativePath": "/sources/dnd/cotn",
+      "sku": "SRC-00083",
+      "displayedPublisher": "Critical Role",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2022-03-15T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "non-third-party-co-brand-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:85",
+      "providerSourceId": 85,
+      "title": "Mordenkainen Presents: Monsters of the Multiverse",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/motm",
+      "relativePath": "/sources/dnd/motm",
+      "sku": "SRC-00085",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2022-05-16T10:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:87",
+      "providerSourceId": 87,
+      "title": "Journeys through the Radiant Citadel",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/jttrc",
+      "relativePath": "/sources/dnd/jttrc",
+      "sku": "SRC-00087",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2022-07-19T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:89",
+      "providerSourceId": 89,
+      "title": "Monstrous Compendium Vol. 1: Spelljammer Creatures",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mcv1",
+      "relativePath": "/sources/dnd/mcv1",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2022-04-21T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": true,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:90",
+      "providerSourceId": 90,
+      "title": "Spelljammer: Adventures in Space",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sais",
+      "relativePath": "/sources/dnd/sais",
+      "sku": "SRC-00090",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2022-08-16T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:91",
+      "providerSourceId": 91,
+      "title": "The Vecna Dossier",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tvd",
+      "relativePath": "/sources/dnd/tvd",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2022-06-09T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:92",
+      "providerSourceId": 92,
+      "title": "The Radiant Citadel",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/trc",
+      "relativePath": "/sources/dnd/trc",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2022-06-21T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:93",
+      "providerSourceId": 93,
+      "title": "Spelljammer Academy",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sja",
+      "relativePath": "/sources/dnd/sja",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2022-07-11T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:94",
+      "providerSourceId": 94,
+      "title": "Dragons of Stormwreck Isle",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dosi",
+      "relativePath": "/sources/dnd/dosi",
+      "sku": "SRC-00094",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2022-10-04T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:95",
+      "providerSourceId": 95,
+      "title": "Dragonlance: Shadow of the Dragon Queen",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sotdq",
+      "relativePath": "/sources/dnd/sotdq",
+      "sku": "SRC-00095",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2022-11-22T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:100",
+      "providerSourceId": 100,
+      "title": "Unearthed Arcana",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ua",
+      "relativePath": "/sources/dnd/ua",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2022-08-18T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": true,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:101",
+      "providerSourceId": 101,
+      "title": "Monstrous Compendium Vol. 2: Dragonlance Creatures",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mcv2",
+      "relativePath": "/sources/dnd/mcv2",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2022-12-05T15:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:102",
+      "providerSourceId": 102,
+      "title": "Tyranny of Dragons",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tod",
+      "relativePath": "/sources/dnd/tod",
+      "sku": "SRC-00102",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2023-01-17T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:103",
+      "providerSourceId": 103,
+      "title": "Keys from the Golden Vault",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/kftgv",
+      "relativePath": "/sources/dnd/kftgv",
+      "sku": "SRC-00103",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2023-02-07T14:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:104",
+      "providerSourceId": 104,
+      "title": "Thieves’ Gallery",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tg",
+      "relativePath": "/sources/dnd/tg",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2023-03-06T14:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:105",
+      "providerSourceId": 105,
+      "title": "Prisoner 13",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/p13",
+      "relativePath": "/sources/dnd/p13",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2023-02-02T16:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:109",
+      "providerSourceId": 109,
+      "title": "The Book of Many Things",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tbomt",
+      "relativePath": "/sources/dnd/tbomt",
+      "sku": "SRC-00109",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2023-10-31T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:110",
+      "providerSourceId": 110,
+      "title": "Bigby Presents: Glory of the Giants",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/gotg",
+      "relativePath": "/sources/dnd/gotg",
+      "sku": "SRC-00110",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2023-08-01T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:111",
+      "providerSourceId": 111,
+      "title": "Legendary Magic Items",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lmi",
+      "relativePath": "/sources/dnd/lmi",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2023-03-31T13:48:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:112",
+      "providerSourceId": 112,
+      "title": "Misplaced Monsters: Volume One",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mpmv1",
+      "relativePath": "/sources/dnd/mpmv1",
+      "sku": "SRC-00112-ELIFE",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2023-05-02T13:50:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:113",
+      "providerSourceId": 113,
+      "title": "Phandelver and Below: The Shattered Obelisk",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/pbtso",
+      "relativePath": "/sources/dnd/pbtso",
+      "sku": "SRC-00113",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2023-09-05T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:114",
+      "providerSourceId": 114,
+      "title": "Planescape: Adventures in the Multiverse",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/paitm",
+      "relativePath": "/sources/dnd/paitm",
+      "sku": "SRC-00114",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2023-10-03T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:115",
+      "providerSourceId": 115,
+      "title": "Monstrous Compendium Vol. 3: Minecraft Creatures",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mcv3",
+      "relativePath": "/sources/dnd/mcv3",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2023-03-28T15:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:116",
+      "providerSourceId": 116,
+      "title": "Domains of Delight: A Feywild Accessory",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dod",
+      "relativePath": "/sources/dnd/dod",
+      "sku": "SRC-00116-ELIFE",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2023-05-23T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:121",
+      "providerSourceId": 121,
+      "title": "Giants of the Star Forge",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/gotsf",
+      "relativePath": "/sources/dnd/gotsf",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2023-08-01T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:122",
+      "providerSourceId": 122,
+      "title": "Baldur’s Gate Gazetteer",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/bgg",
+      "relativePath": "/sources/dnd/bgg",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2023-08-22T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:123",
+      "providerSourceId": 123,
+      "title": "Tal’Dorei Campaign Setting Reborn",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tcsr",
+      "relativePath": "/sources/dnd/tcsr",
+      "sku": "SRC-00123",
+      "displayedPublisher": "Critical Role",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2023-08-17T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:124",
+      "providerSourceId": 124,
+      "title": "Monstrous Compendium Vol. 4: Eldraine Creatures",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mcv4",
+      "relativePath": "/sources/dnd/mcv4",
+      "sku": "SRC-00124",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2023-09-21T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:125",
+      "providerSourceId": 125,
+      "title": "Adventure Atlas: The Mortuary",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/aatm",
+      "relativePath": "/sources/dnd/aatm",
+      "sku": "SRC-00125",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2023-10-17T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:126",
+      "providerSourceId": 126,
+      "title": "Lightning Keep",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lke",
+      "relativePath": "/sources/dnd/lke",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2023-09-26T13:50:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:128",
+      "providerSourceId": 128,
+      "title": "Intro to Stormwreck Isle",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/itsi",
+      "relativePath": "/sources/dnd/itsi",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2023-10-06T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:129",
+      "providerSourceId": 129,
+      "title": "Heroes’ Feast: Saving the Children’s Menu ",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hfscm",
+      "relativePath": "/sources/dnd/hfscm",
+      "sku": "SRC-00129",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2023-11-21T14:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:130",
+      "providerSourceId": 130,
+      "title": "Lairs of Etharis",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/loe",
+      "relativePath": "/sources/dnd/loe",
+      "sku": "SRC-00130",
+      "displayedPublisher": "Ghostfire Gaming",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2023-11-30T14:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:131",
+      "providerSourceId": 131,
+      "title": "Dungeons of Drakkenheim",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dodr",
+      "relativePath": "/sources/dnd/dodr",
+      "sku": "SRC-00131",
+      "displayedPublisher": "Dungeon Dudes",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2023-12-21T14:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:132",
+      "providerSourceId": 132,
+      "title": "Vecna: Eve of Ruin",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/veor",
+      "relativePath": "/sources/dnd/veor",
+      "sku": "SRC-00134",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2024-05-07T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:133",
+      "providerSourceId": 133,
+      "title": "Humblewood Campaign Setting",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hcs",
+      "relativePath": "/sources/dnd/hcs",
+      "sku": "SRC-00133",
+      "displayedPublisher": "Hit Point Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2024-02-13T14:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:135",
+      "providerSourceId": 135,
+      "title": "Vecna: Nest of the Eldritch Eye",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vnee",
+      "relativePath": "/sources/dnd/vnee",
+      "sku": "SRC-00135",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2024-04-16T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:136",
+      "providerSourceId": 136,
+      "title": "Descent into the Lost Caverns of Tsojcanth",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dilct",
+      "relativePath": "/sources/dnd/dilct",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2024-03-26T13:50:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:137",
+      "providerSourceId": 137,
+      "title": "Quests from the Infinite Staircase",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/qftis",
+      "relativePath": "/sources/dnd/qftis",
+      "sku": "SRC-00138",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2024-07-09T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "wotc-labelled-provider-5e"
+    },
+    {
+      "observationId": "ddb:library-source:139",
+      "providerSourceId": 139,
+      "title": "Tome of Beasts 1",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tob1",
+      "relativePath": "/sources/dnd/tob1",
+      "sku": "SRC-00139",
+      "displayedPublisher": "Kobold Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2024-03-21T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:142",
+      "providerSourceId": 142,
+      "title": "Flee, Mortals!",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/fm",
+      "relativePath": "/sources/dnd/fm",
+      "sku": "SRC-00142",
+      "displayedPublisher": "MCDM",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2024-05-14T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:143",
+      "providerSourceId": 143,
+      "title": "Where Evil Lives",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wel",
+      "relativePath": "/sources/dnd/wel",
+      "sku": "SRC-00143",
+      "displayedPublisher": "MCDM",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2024-05-28T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:145",
+      "providerSourceId": 145,
+      "title": "Player’s Handbook",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/phb-2024",
+      "relativePath": "/sources/dnd/phb-2024",
+      "sku": "DB3709000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2024-09-17T13:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:146",
+      "providerSourceId": 146,
+      "title": "Dungeon Master’s Guide",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dmg-2024",
+      "relativePath": "/sources/dnd/dmg-2024",
+      "sku": "DB3710000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2024-10-29T14:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:147",
+      "providerSourceId": 147,
+      "title": "Monster Manual",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/mm-2024",
+      "relativePath": "/sources/dnd/mm-2024",
+      "sku": "DB3711000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-02-04T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:148",
+      "providerSourceId": 148,
+      "title": "D&D Beyond Basic Rules",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/br-2024",
+      "relativePath": "/sources/dnd/br-2024",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2024-09-03T13:12:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": true,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:149",
+      "providerSourceId": 149,
+      "title": "Uni and the Hunt for the Lost Horn",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/uhlh",
+      "relativePath": "/sources/dnd/uhlh",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2024-09-24T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:150",
+      "providerSourceId": 150,
+      "title": "Grim Hollow: Player Pack",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ghpp",
+      "relativePath": "/sources/dnd/ghpp",
+      "sku": "SRC-00150",
+      "displayedPublisher": "Ghostfire Gaming",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2024-06-25T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:151",
+      "providerSourceId": 151,
+      "title": "Book of Ebon Tides",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/boet",
+      "relativePath": "/sources/dnd/boet",
+      "sku": "SRC-00151",
+      "displayedPublisher": "Kobold Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2024-07-30T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:152",
+      "providerSourceId": 152,
+      "title": "Tales from the Shadows",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tfts",
+      "relativePath": "/sources/dnd/tfts",
+      "sku": "SRC-00152",
+      "displayedPublisher": "Kobold Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2024-08-13T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:153",
+      "providerSourceId": 153,
+      "title": "Scions of Elemental Evil",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/soee",
+      "relativePath": "/sources/dnd/soee",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2024-10-22T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:154",
+      "providerSourceId": 154,
+      "title": "The Lord of the Rings Roleplaying",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lotrr",
+      "relativePath": "/sources/dnd/lotrr",
+      "sku": "DB0000154",
+      "displayedPublisher": "Free League",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2024-11-26T14:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:155",
+      "providerSourceId": 155,
+      "title": "The Illrigger Revised",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tir",
+      "relativePath": "/sources/dnd/tir",
+      "sku": "DB0000155",
+      "displayedPublisher": "MCDM",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2024-11-19T15:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:156",
+      "providerSourceId": 156,
+      "title": "The Griffon’s Saddlebag: Book Two",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/gsb2",
+      "relativePath": "/sources/dnd/gsb2",
+      "sku": "DB0000156",
+      "displayedPublisher": "The Griffon’s Saddlebag",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2024-12-17T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:157",
+      "providerSourceId": 157,
+      "title": "Hold Back The Dead",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hbtd",
+      "relativePath": "/sources/dnd/hbtd",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-01-28T14:20:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:158",
+      "providerSourceId": 158,
+      "title": "Humblewood Tales",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hwt",
+      "relativePath": "/sources/dnd/hwt",
+      "sku": "DB0000158",
+      "displayedPublisher": "Hit Point Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-01-28T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:159",
+      "providerSourceId": 159,
+      "title": "Dungeons of Drakkenheim: In Search of the Smuggler's Secrets\t",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/isotss",
+      "relativePath": "/sources/dnd/isotss",
+      "sku": "DBVGPMH5P",
+      "displayedPublisher": "Dungeon Dudes",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-02-25T14:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:160",
+      "providerSourceId": 160,
+      "title": "Obojima: Tales from the Tall Grass",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ottg",
+      "relativePath": "/sources/dnd/ottg",
+      "sku": "DBRVOJLXV",
+      "displayedPublisher": "1985 Games",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-03-18T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:161",
+      "providerSourceId": 161,
+      "title": "The Malady of Minarrh",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tmom",
+      "relativePath": "/sources/dnd/tmom",
+      "sku": "DBWZNXVB5",
+      "displayedPublisher": "Road to Ithaka Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-03-25T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:162",
+      "providerSourceId": 162,
+      "title": "Heliana’s Guide to Monster Hunting: Part 1",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hgtmh1",
+      "relativePath": "/sources/dnd/hgtmh1",
+      "sku": "DBROZUY81",
+      "displayedPublisher": "Loot Tavern",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-03-04T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:163",
+      "providerSourceId": 163,
+      "title": "Dragon Delves",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/drde",
+      "relativePath": "/sources/dnd/drde",
+      "sku": "DB4716000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-06-24T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:164",
+      "providerSourceId": 164,
+      "title": "Valda’s Spire of Secrets: Player Pack",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vsspp",
+      "relativePath": "/sources/dnd/vsspp",
+      "sku": "DBFJVUWLA",
+      "displayedPublisher": "Mage Hand Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-04-01T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:166",
+      "providerSourceId": 166,
+      "title": "Sage Advice & Errata",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sae",
+      "relativePath": "/sources/dnd/sae",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-04-30T16:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": true,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:167",
+      "providerSourceId": 167,
+      "title": "Ruins of Symbaroum: Setting Handbook",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ssh",
+      "relativePath": "/sources/dnd/ssh",
+      "sku": "DBNPVZHIA",
+      "displayedPublisher": "Free League",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-04-29T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:188",
+      "providerSourceId": 188,
+      "title": "One-Shot Wonders: 10 Coastal One-Shot Adventures",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/oswcst",
+      "relativePath": "/sources/dnd/oswcst",
+      "sku": "DBTQJC6ZM",
+      "displayedPublisher": "Roll & Play Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-05-20T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:189",
+      "providerSourceId": 189,
+      "title": "One-Shot Wonders: 10 Desert One-Shot Adventures",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/oswdst",
+      "relativePath": "/sources/dnd/oswdst",
+      "sku": "DBBAOSJ2F",
+      "displayedPublisher": "Roll & Play Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-05-20T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:190",
+      "providerSourceId": 190,
+      "title": "One-Shot Wonders: 10 Forest One-Shot Adventures",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/oswfst",
+      "relativePath": "/sources/dnd/oswfst",
+      "sku": "DBBAOSJ2F",
+      "displayedPublisher": "Roll & Play Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-05-20T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:191",
+      "providerSourceId": 191,
+      "title": "Eberron: Forge of the Artificer",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/efota",
+      "relativePath": "/sources/dnd/efota",
+      "sku": "DB5147000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-11-25T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:193",
+      "providerSourceId": 193,
+      "title": "The Crooked Moon Part One: Player Options & Campaign Setting",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tcmp1",
+      "relativePath": "/sources/dnd/tcmp1",
+      "sku": "DBCLGUN0E",
+      "displayedPublisher": "Avantris Entertainment",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-06-17T12:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:194",
+      "providerSourceId": 194,
+      "title": "The Crooked Moon Part Two: Monsters & Adventure Campaign",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tcmp2",
+      "relativePath": "/sources/dnd/tcmp2",
+      "sku": "DBN66ZMFZ",
+      "displayedPublisher": "Avantris Entertainment",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-06-17T12:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:195",
+      "providerSourceId": 195,
+      "title": "Borderlands Quest: Goblin Trouble",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/bqgt",
+      "relativePath": "/sources/dnd/bqgt",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-06-04T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:196",
+      "providerSourceId": 196,
+      "title": "Monsters of Drakkenheim",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/modr",
+      "relativePath": "/sources/dnd/modr",
+      "sku": "DB4KDB0Q1",
+      "displayedPublisher": "Dungeon Dudes",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-06-03T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:197",
+      "providerSourceId": 197,
+      "title": "The Gunslinger Class: Valda’s Spire of Secrets",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tgc",
+      "relativePath": "/sources/dnd/tgc",
+      "sku": "DBGYLCFKE",
+      "displayedPublisher": "Mage Hand Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-06-10T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:199",
+      "providerSourceId": 199,
+      "title": "Heroes of the Borderlands",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hotb",
+      "relativePath": "/sources/dnd/hotb",
+      "sku": "DB4705000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-09-16T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:200",
+      "providerSourceId": 200,
+      "title": "Cthulhu by Torchlight",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ctbt",
+      "relativePath": "/sources/dnd/ctbt",
+      "sku": "DBIRFDZMU",
+      "displayedPublisher": "Chaosium",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-07-22T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:202",
+      "providerSourceId": 202,
+      "title": "Abomination Vaults",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/av",
+      "relativePath": "/sources/dnd/av",
+      "sku": "DBV8YAID5",
+      "displayedPublisher": "Paizo",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-08-01T12:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:203",
+      "providerSourceId": 203,
+      "title": "Stranger Things: Welcome to the Hellfire Club",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wthc",
+      "relativePath": "/sources/dnd/wthc",
+      "sku": "DB4704000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-10-07T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:205",
+      "providerSourceId": 205,
+      "title": "Forgotten Realms: Heroes of Faerûn",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/frhof",
+      "relativePath": "/sources/dnd/frhof",
+      "sku": "DB4712000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-10-28T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:206",
+      "providerSourceId": 206,
+      "title": "Forgotten Realms: Adventures in Faerûn",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/fraif",
+      "relativePath": "/sources/dnd/fraif",
+      "sku": "DB4714000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-10-28T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:207",
+      "providerSourceId": 207,
+      "title": "Grim Hollow: Player’s Guide",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ghpg",
+      "relativePath": "/sources/dnd/ghpg",
+      "sku": "DBCMZU4R2",
+      "displayedPublisher": "Ghostfire Gaming",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-08-26T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:208",
+      "providerSourceId": 208,
+      "title": "Grim Hollow: Campaign Guide",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ghcg",
+      "relativePath": "/sources/dnd/ghcg",
+      "sku": "DBZSJI3GV",
+      "displayedPublisher": "Ghostfire Gaming",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-09-30T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:216",
+      "providerSourceId": 216,
+      "title": "Netheril’s Fall",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/nf",
+      "relativePath": "/sources/dnd/nf",
+      "sku": "DB8U430LO",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-11-11T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:217",
+      "providerSourceId": 217,
+      "title": "Astarion's Book of Hungers",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/aboh",
+      "relativePath": "/sources/dnd/aboh",
+      "sku": "DBRWE7DB3",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-11-11T07:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:218",
+      "providerSourceId": 218,
+      "title": "Forgotten Realms: The Tenebrous Stone",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/frtts",
+      "relativePath": "/sources/dnd/frtts",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-10-23T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:220",
+      "providerSourceId": 220,
+      "title": "Lorwyn: First Light",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/lfl",
+      "relativePath": "/sources/dnd/lfl",
+      "sku": "DBU4HPAC7",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2025-11-18T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:222",
+      "providerSourceId": 222,
+      "title": "Fated Flight of the Recluse",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ffotr",
+      "relativePath": "/sources/dnd/ffotr",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-11-25T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:223",
+      "providerSourceId": 223,
+      "title": "One-Shot Wonders: Holiday Adventure Pack",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/oswhap",
+      "relativePath": "/sources/dnd/oswhap",
+      "sku": "DB95H2YVZ",
+      "displayedPublisher": "Roll & Play Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2025-12-03T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:224",
+      "providerSourceId": 224,
+      "title": "Heliana’s Guide to Monster Hunting: Part 2",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/hgtmh2",
+      "relativePath": "/sources/dnd/hgtmh2",
+      "sku": "DB528M8ZF",
+      "displayedPublisher": "Loot Tavern",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5e",
+        "label": "5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-03-17T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:225",
+      "providerSourceId": 225,
+      "title": "Exploring Eberron (2024)",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/exeb",
+      "relativePath": "/sources/dnd/exeb",
+      "sku": "DB8XTUXUM",
+      "displayedPublisher": "Visionary Production and Design Inc.",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-01-27T00:30:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:227",
+      "providerSourceId": 227,
+      "title": "Faster, Purple Worm! Everybody Dies, Vol. 1",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/fpw1",
+      "relativePath": "/sources/dnd/fpw1",
+      "sku": "DBEIP64LD",
+      "displayedPublisher": "Beadle & Grimm's",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-02-23T00:30:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:228",
+      "providerSourceId": 228,
+      "title": "The Pugilist Class (2024)",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tpc",
+      "relativePath": "/sources/dnd/tpc",
+      "sku": "DBQ4AXQ3W",
+      "displayedPublisher": "Sterling Vermin",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-02-03T13:45:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:229",
+      "providerSourceId": 229,
+      "title": "The Griffon’s Saddlebag: Book One",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/gsb1",
+      "relativePath": "/sources/dnd/gsb1",
+      "sku": "DB328N2NP",
+      "displayedPublisher": "The Griffon’s Saddlebag",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-03-31T13:30:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:230",
+      "providerSourceId": 230,
+      "title": "Dr Dhrolin’s Dictionary of Dinosaurs",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dddod",
+      "relativePath": "/sources/dnd/dddod",
+      "sku": "DBK00RK8T",
+      "displayedPublisher": "Palaeo Games",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-04-14T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:232",
+      "providerSourceId": 232,
+      "title": "Ravenloft: The Horrors Within",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/rthw",
+      "relativePath": "/sources/dnd/rthw",
+      "sku": "DB6015000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-06-02T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:237",
+      "providerSourceId": 237,
+      "title": "Borderlands Quest: Dagger Danger!",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/bqdd",
+      "relativePath": "/sources/dnd/bqdd",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-05-28T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:238",
+      "providerSourceId": 238,
+      "title": "Northlands Worldbook",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/nwb",
+      "relativePath": "/sources/dnd/nwb",
+      "sku": "DB86Q6I93",
+      "displayedPublisher": "Kobold Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-05-19T00:30:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:239",
+      "providerSourceId": 239,
+      "title": "Northlands Sagas",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ns",
+      "relativePath": "/sources/dnd/ns",
+      "sku": "DBYLR645O",
+      "displayedPublisher": "Kobold Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-05-19T00:30:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:240",
+      "providerSourceId": 240,
+      "title": "Dungeon Masters: Ravenloft Play-Along Pack",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dmr",
+      "relativePath": "/sources/dnd/dmr",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-04-23T10:20:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:248",
+      "providerSourceId": 248,
+      "title": "Shadows of Sithicus",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sos",
+      "relativePath": "/sources/dnd/sos",
+      "sku": "DBYIZU852",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-06-02T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:249",
+      "providerSourceId": 249,
+      "title": "Steinhardt's Guide to the Eldritch Hunt Player Pack",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/sgehpp",
+      "relativePath": "/sources/dnd/sgehpp",
+      "sku": "DBVNCOWO2",
+      "displayedPublisher": "MonkeyDM",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-06-30T04:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:269",
+      "providerSourceId": 269,
+      "title": "Legends of Greyhawk: Elemental Evil Rising",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/logeer",
+      "relativePath": "/sources/dnd/logeer",
+      "sku": "DBM9C2LVQ",
+      "displayedPublisher": "Baldman Games",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-04-16T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:270",
+      "providerSourceId": 270,
+      "title": "Project_Lamordia",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/prla",
+      "relativePath": "/sources/dnd/prla",
+      "sku": "DB66W3ADY",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-10-13T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:272",
+      "providerSourceId": 272,
+      "title": "D&D Beyond Drops",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ddbd",
+      "relativePath": "/sources/dnd/ddbd",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "Subscription",
+      "providerReleaseDate": "2026-05-07T14:35:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:281",
+      "providerSourceId": 281,
+      "title": "Valda’s Spire of Secrets: Player Pack 2",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vsspp2",
+      "relativePath": "/sources/dnd/vsspp2",
+      "sku": "DB0MHH101",
+      "displayedPublisher": "Mage Hand Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-07-14T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:284",
+      "providerSourceId": 284,
+      "title": "Vampire: The Masquerade – Bound by Blood",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/vtmbbb",
+      "relativePath": "/sources/dnd/vtmbbb",
+      "sku": "DB4IQF87I",
+      "displayedPublisher": "Ghostfire Gaming",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-07-28T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:285",
+      "providerSourceId": 285,
+      "title": "World of Warcraft: Icecrown Citadel",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/icc",
+      "relativePath": "/sources/dnd/icc",
+      "sku": "DB6347000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-11-03T02:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:287",
+      "providerSourceId": 287,
+      "title": "Legends of Greyhawk: Tales from Turtleback Cove",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/logttc",
+      "relativePath": "/sources/dnd/logttc",
+      "sku": "DBIUT0MR1",
+      "displayedPublisher": "GameConclave",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-05-19T00:30:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:292",
+      "providerSourceId": 292,
+      "title": "Dungeon Masters: Arcana Unleashed Play-Along Pack",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dmau",
+      "relativePath": "/sources/dnd/dmau",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-07-08T01:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:293",
+      "providerSourceId": 293,
+      "title": "The Field Guide to Floral Dragons",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/fgfd",
+      "relativePath": "/sources/dnd/fgfd",
+      "sku": "DB6A6AE1P",
+      "displayedPublisher": "Hit Point Press",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-08-25T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:295",
+      "providerSourceId": 295,
+      "title": "Legends of Greyhawk: Secrets of the Free City",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/logsfc",
+      "relativePath": "/sources/dnd/logsfc",
+      "sku": "DBN78SS01",
+      "displayedPublisher": "Baldman Games",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-06-09T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:300",
+      "providerSourceId": 300,
+      "title": "Frontiers of Eberron: Quickstone",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/foeq",
+      "relativePath": "/sources/dnd/foeq",
+      "sku": "DB6VH4853",
+      "displayedPublisher": "Visionary Production and Design Inc.",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-08-11T00:30:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:301",
+      "providerSourceId": 301,
+      "title": "Arcana Unleashed",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/au",
+      "relativePath": "/sources/dnd/au",
+      "sku": "DB6031000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-09-01T13:10:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:302",
+      "providerSourceId": 302,
+      "title": "Arcana Unleashed: Deadfall",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/aud",
+      "relativePath": "/sources/dnd/aud",
+      "sku": "DB6119000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-09-01T13:25:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:304",
+      "providerSourceId": 304,
+      "title": "Tarokka",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/taro",
+      "relativePath": "/sources/dnd/taro",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-06-16T00:30:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:306",
+      "providerSourceId": 306,
+      "title": "The Magus Class",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/tmc",
+      "relativePath": "/sources/dnd/tmc",
+      "sku": "DBDO17220",
+      "displayedPublisher": "Sterling Vermin",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-09-29T13:40:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:307",
+      "providerSourceId": 307,
+      "title": "Red Wizards’ Gambit",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/rwg",
+      "relativePath": "/sources/dnd/rwg",
+      "sku": "DB2BTW420",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-09-01T13:30:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:309",
+      "providerSourceId": 309,
+      "title": "Legends of Greyhawk: Saviors of Safeton",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/logsos",
+      "relativePath": "/sources/dnd/logsos",
+      "sku": "DB9D1ZSET",
+      "displayedPublisher": "West Coast Adventurers Guild",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-07-29T13:30:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:311",
+      "providerSourceId": 311,
+      "title": "Obojima: Tales from Yatamon",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/otfy",
+      "relativePath": "/sources/dnd/otfy",
+      "sku": "DBVT121LK",
+      "displayedPublisher": "1985 Games",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-10-27T04:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:313",
+      "providerSourceId": 313,
+      "title": "D&D: World of Warcraft Gameplay Expansion",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/wow",
+      "relativePath": "/sources/dnd/wow",
+      "sku": "DB6051000",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "sourcebook",
+      "providerReleaseDate": "2026-11-03T02:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:314",
+      "providerSourceId": 314,
+      "title": "Dungeon Masters: Deadfall Press Play-Along Pack",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dppap",
+      "relativePath": "/sources/dnd/dppap",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-08-01T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:315",
+      "providerSourceId": 315,
+      "title": "Legends of Greyhawk: Dreams of the Chained God",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/logdog",
+      "relativePath": "/sources/dnd/logdog",
+      "sku": "DBBGX3K8X",
+      "displayedPublisher": "Baldman Games",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-08-27T13:30:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:318",
+      "providerSourceId": 318,
+      "title": "Legends of Greyhawk: The Tear-Stained Idol",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/logtsi",
+      "relativePath": "/sources/dnd/logtsi",
+      "sku": "DBFBH1QI6",
+      "displayedPublisher": "GameConclave",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-09-10T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:327",
+      "providerSourceId": 327,
+      "title": "Dungeon Masters: World of Warcraft Play-Along Pack",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dmwow",
+      "relativePath": "/sources/dnd/dmwow",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-09-23T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:328",
+      "providerSourceId": 328,
+      "title": "World of Warcraft: Deadmines Dungeon",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/dde",
+      "relativePath": "/sources/dnd/dde",
+      "sku": "SRC-00328",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-11-03T02:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    },
+    {
+      "observationId": "ddb:library-source:329",
+      "providerSourceId": 329,
+      "title": "Legends of Greyhawk: Heralds of the Old One",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/loghoo",
+      "relativePath": "/sources/dnd/loghoo",
+      "sku": "DB65JRHOL",
+      "displayedPublisher": "Baldman Games",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-10-08T10:30:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:335",
+      "providerSourceId": 335,
+      "title": "Legends of Greyhawk: The Ruins of Castle Greyhawk",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/logrcg",
+      "relativePath": "/sources/dnd/logrcg",
+      "sku": "DBBVG9HQN",
+      "displayedPublisher": "Baldman Games",
+      "providerIsThirdParty": true,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "adventure",
+      "providerReleaseDate": "2026-11-12T13:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-third-party-flag"
+    },
+    {
+      "observationId": "ddb:library-source:336",
+      "providerSourceId": 336,
+      "title": "D&D Beyond Drops: Ysgard Sticker Pack",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/ddbd",
+      "relativePath": "/sources/dnd/ddbd",
+      "sku": "",
+      "displayedPublisher": "Wizards of the Coast",
+      "providerIsThirdParty": false,
+      "providerRuleset": {
+        "name": "5.5e",
+        "label": "5.5e"
+      },
+      "providerType": "Subscription",
+      "providerReleaseDate": "2026-11-05T00:00:00Z",
+      "providerIsLegacy": false,
+      "providerIsFree": false,
+      "providerIsReleased": true,
+      "metadataBucket": "provider-other-ruleset"
+    }
+  ],
+  "limits": [
+    "Public mixed-publisher/mixed-ruleset catalogue snapshot, not all WotC publications.",
+    "Displayed publisher, third-party flag and official-publication evidence are distinct.",
+    "Provider source IDs never replace dnd.su numeric IDs.",
+    "Provider release date is not inferred to be first printing or text version.",
+    "No account ownership/favorites, imagery, full rules, inclusion decisions or runtime data."
+  ]
+}

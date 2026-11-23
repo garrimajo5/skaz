@@ -1,0 +1,647 @@
+{
+  "schemaVersion": 1,
+  "status": "bounded-manual-secondary-clause-concordance-not-full-translation-or-source-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "candidateReference": {
+    "id": "scope:wizard:class-features:feature.spellcasting",
+    "canonicalCatalogId": null,
+    "identityStatus": "proposal-observation",
+    "kind": "base-feature",
+    "title": "Использование заклинаний",
+    "sourceUrl": "https://dnd.su/class/105-wizard/#feature.spellcasting",
+    "headingOrdinal": 19,
+    "parent": "class-features",
+    "sourceIds": [
+      "102"
+    ],
+    "sourceBasis": "base-class-page-source",
+    "sourceCompleteness": "not-verified-in-full-text",
+    "observedInitialLevels": [],
+    "levelProgression": "not-verified-by-heading",
+    "fullRules": "unverified",
+    "automation": "not-audited",
+    "inclusion": "proposed-2014-awaiting-review"
+  },
+  "secondaryWitness": {
+    "url": "https://dnd.su/class/105-wizard/",
+    "sha256": "5014af15fd61af05dde5bd29e19514b8fd87fe10ea60fbcd8a81f6574e2053c8",
+    "bytes": 1554994,
+    "receiptBasis": "retained public HTML and existing freshCapture manifest; HTTP status/time/redirect receipt unavailable",
+    "historicalCandidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+    "sameAsHistoricalCandidateSnapshot": false,
+    "sections": [
+      {
+        "ordinal": 20,
+        "title": "Заговоры (заклинания 0-го уровня)",
+        "level": 4,
+        "bodySha256": "ab296c31fa677a9389ef96218a03e66afdc23d6e0552903d0976636713477241",
+        "parentCandidateId": "scope:wizard:class-features:feature.spellcasting",
+        "paragraphSha256": [
+          "ab296c31fa677a9389ef96218a03e66afdc23d6e0552903d0976636713477241"
+        ]
+      },
+      {
+        "ordinal": 21,
+        "title": "Книга заклинаний",
+        "level": 4,
+        "bodySha256": "8155b373c09d5d2465a1955caf7518bc8bafe243908239242c5a83f9e37f43f9",
+        "parentCandidateId": "scope:wizard:class-features:feature.spellcasting",
+        "paragraphSha256": [
+          "8155b373c09d5d2465a1955caf7518bc8bafe243908239242c5a83f9e37f43f9"
+        ]
+      },
+      {
+        "ordinal": 22,
+        "title": "ВАША КНИГА ЗАКЛИНАНИЙ",
+        "level": 3,
+        "bodySha256": "8f8dd10c46910a9da1d3e983b862a614253361eb7857683d48c7881bd1b976c0",
+        "parentCandidateId": "scope:wizard:class-features:feature.spellcasting",
+        "paragraphSha256": [
+          "093b4d1bdd3961c7447b1331e4d890e7ee2b698b46a9332e3d5ca374c4a9c099",
+          "4c2ae10d815bd69b00b28eb4cff9cf772f2e981a86cf64d2a3eb680b3da3ea25",
+          "bbbc86a468b97ce90f784a2d6c73e398cc860acdf53809c4f3d899ba6cd60e39",
+          "333ac3012637015c90ed4ba8ca2d269e4edc82ab75fc754157037c1da155cf5d",
+          "fd19a24fb73a70f2585b3e5b9e893f2e1c8dcac478521548146ca61edf8bb8d6",
+          "67a5fd4c5cc2ad471e26c9b9260f74f2b923c6c56ffa64254c465f0523ba2906",
+          "c5ff9bd96eaa295a31615382f58b809f379e143d051f80560a1f4b23d09eff94",
+          "2b5f22a194363cacbe3a440e4ad4851523b89d0e38377deff9bcbbfe734b9e46"
+        ]
+      },
+      {
+        "ordinal": 23,
+        "title": "Подготовка и накладывание заклинаний",
+        "level": 4,
+        "bodySha256": "d71f582f187e61ab460740a1f78135dd1de46425414a9b53c1c5e4603a317468",
+        "parentCandidateId": "scope:wizard:class-features:feature.spellcasting",
+        "paragraphSha256": [
+          "7e57e4afa485a107d6d16becadce33d5d15aa806b92661263acb206863f64560",
+          "b4d9ae9b3357769650d89139416ca79dea050188c3708be9bf757cc25969f2a6",
+          "92272f726f8333ed2fb22d1aec2523e1556d81057ea7d4b37eda67e12365b821"
+        ]
+      },
+      {
+        "ordinal": 24,
+        "title": "Базовая характеристика заклинаний",
+        "level": 4,
+        "bodySha256": "3be3e20493becc992bb5561deb04cdd259d62f5afa1bf6dfefbccce2467e853b",
+        "parentCandidateId": "scope:wizard:class-features:feature.spellcasting",
+        "paragraphSha256": [
+          "c09b1f84604deb1b999622fd05e14a62c079db7bc732901005a8306fae9c87f5",
+          "74e04f4742a9db3ee1bb0f7f95aa009a4f6216ee8621e35d8f6cff73ddd9b748",
+          "04f41eb20fd8b7c01a5439da18da1c15f4ed57847d275f8dbb5d46aa1d0f492c"
+        ]
+      },
+      {
+        "ordinal": 25,
+        "title": "Ритуальное колдовство",
+        "level": 4,
+        "bodySha256": "d7cd8bbc33c3526bc65c6672e54aaec580e8fb25af4828db7c5103f30c9f2f91",
+        "parentCandidateId": "scope:wizard:class-features:feature.spellcasting",
+        "paragraphSha256": [
+          "d7cd8bbc33c3526bc65c6672e54aaec580e8fb25af4828db7c5103f30c9f2f91"
+        ]
+      },
+      {
+        "ordinal": 26,
+        "title": "Фокусировка заклинания",
+        "level": 4,
+        "bodySha256": "49842ef7aff4126c3ea1871488f1ba7a9df2e8c56892393a3a100bbdf37b0c9c",
+        "parentCandidateId": "scope:wizard:class-features:feature.spellcasting",
+        "paragraphSha256": [
+          "49842ef7aff4126c3ea1871488f1ba7a9df2e8c56892393a3a100bbdf37b0c9c"
+        ]
+      },
+      {
+        "ordinal": 27,
+        "title": "Известные заклинания первого и более высоких уровней",
+        "level": 4,
+        "bodySha256": "eb9ecfcc571a8dba7f687793bc4234fb8d3458571e606f2bac624416dacb4cc6",
+        "parentCandidateId": "scope:wizard:class-features:feature.spellcasting",
+        "paragraphSha256": [
+          "eb9ecfcc571a8dba7f687793bc4234fb8d3458571e606f2bac624416dacb4cc6"
+        ]
+      }
+    ]
+  },
+  "newSelectedPrimaryScroll": {
+    "sourceKey": "srd51",
+    "pdfSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "pdfPage": 242,
+    "start": "A wizard spell on a spell scroll",
+    "stop": "Spellguard Shield",
+    "selectedTextSha256": "739dca795da32a0a05c12076d2c90ceef1406dc7b3888e5eb3cf27eb6c7c9c56",
+    "wordCount": 66,
+    "textExtractor": "pypdfium2",
+    "extractorVersion": "5.13.0",
+    "renderedPageInspected": true,
+    "scope": "whole final Spell Scroll copying paragraph only; casting checks/table excluded"
+  },
+  "summary": {
+    "selectedSecondarySections": 8,
+    "selectedSecondaryParagraphs": 19,
+    "clauseAssessments": 19,
+    "sourceBoundaryFindings": 1,
+    "omittedQualifierFindings": 2,
+    "canonicalUnitsAccepted": 0
+  },
+  "clauses": [
+    {
+      "key": "initial-cantrips",
+      "secondaryHeadingOrdinal": 20,
+      "secondaryParagraphIndexes": [
+        0
+      ],
+      "primaryReference": {
+        "input": "catalog/wizard-spellcasting-scope-2014.json",
+        "container": "selectedNewComparisons",
+        "unitKey": "Cantrips6"
+      },
+      "assessment": "selected-facts-correspond",
+      "finding": "Wizard1: three choices from Wizard list; later counts refer to Wizard table.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "ab296c31fa677a9389ef96218a03e66afdc23d6e0552903d0976636713477241"
+      ]
+    },
+    {
+      "key": "initial-book",
+      "secondaryHeadingOrdinal": 21,
+      "secondaryParagraphIndexes": [
+        0
+      ],
+      "primaryReference": {
+        "input": "catalog/wizard-spellcasting-scope-2014.json",
+        "container": "selectedNewComparisons",
+        "unitKey": "Spellbook"
+      },
+      "assessment": "selected-facts-correspond",
+      "finding": "Wizard1: six level1 Wizard spells; cantrips remembered, not stored in this spellbook.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "8155b373c09d5d2465a1955caf7518bc8bafe243908239242c5a83f9e37f43f9"
+      ]
+    },
+    {
+      "key": "copy-preparable-level",
+      "secondaryHeadingOrdinal": 22,
+      "secondaryParagraphIndexes": [
+        1,
+        2
+      ],
+      "primaryReference": {
+        "input": "catalog/wizard-spellbook-sidebar-2014.json",
+        "container": "ordinaryFacts",
+        "unitKey": null
+      },
+      "assessment": "selected-facts-correspond",
+      "finding": "New level1+ Wizard spell; preparable spell level and time/notation procedure retained.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "4c2ae10d815bd69b00b28eb4cff9cf772f2e981a86cf64d2a3eb680b3da3ea25",
+        "bbbc86a468b97ce90f784a2d6c73e398cc860acdf53809c4f3d899ba6cd60e39"
+      ]
+    },
+    {
+      "key": "new-copy-cost",
+      "secondaryHeadingOrdinal": 22,
+      "secondaryParagraphIndexes": [
+        3
+      ],
+      "primaryReference": {
+        "input": "catalog/wizard-spellbook-sidebar-2014.json",
+        "container": "ordinaryFacts",
+        "unitKey": null
+      },
+      "assessment": "selected-facts-correspond",
+      "finding": "Ordinary new copy: 2hours and50gp per spell level; not own-book backup cost.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "333ac3012637015c90ed4ba8ca2d269e4edc82ab75fc754157037c1da155cf5d"
+      ]
+    },
+    {
+      "key": "scroll-insert",
+      "secondaryHeadingOrdinal": 22,
+      "secondaryParagraphIndexes": [
+        4
+      ],
+      "primaryReference": {
+        "input": "newSelectedPrimaryScroll",
+        "container": "selectedTextSha256",
+        "unitKey": null
+      },
+      "assessment": "explicit-mixed-source-insert",
+      "finding": "DMG-labelled paragraph is not in the seven-paragraph English Wizard sidebar. Compare separately with SRD242 scroll-copy paragraph.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "fd19a24fb73a70f2585b3e5b9e893f2e1c8dcac478521548146ca61edf8bb8d6"
+      ]
+    },
+    {
+      "key": "own-book-copy",
+      "secondaryHeadingOrdinal": 22,
+      "secondaryParagraphIndexes": [
+        5
+      ],
+      "primaryReference": {
+        "input": "catalog/wizard-spellbook-sidebar-2014.json",
+        "container": "ordinaryFacts",
+        "unitKey": null
+      },
+      "assessment": "selected-facts-correspond",
+      "finding": "Own notation/backup:1hour and10gp per spell level, distinct from new-source copying.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "67a5fd4c5cc2ad471e26c9b9260f74f2b923c6c56ffa64254c465f0523ba2906"
+      ]
+    },
+    {
+      "key": "lost-book",
+      "secondaryHeadingOrdinal": 22,
+      "secondaryParagraphIndexes": [
+        6
+      ],
+      "primaryReference": {
+        "input": "catalog/wizard-spellbook-sidebar-2014.json",
+        "container": "ordinaryFacts",
+        "unitKey": null
+      },
+      "assessment": "selected-facts-correspond",
+      "finding": "Reconstruct prepared spells; remaining spells must be found normally. No restoration of all known spells.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "c5ff9bd96eaa295a31615382f58b809f379e143d051f80560a1f4b23d09eff94"
+      ]
+    },
+    {
+      "key": "spellbook-narrative",
+      "secondaryHeadingOrdinal": 22,
+      "secondaryParagraphIndexes": [
+        0,
+        7
+      ],
+      "primaryReference": {
+        "input": "catalog/wizard-spellbook-sidebar-2014.json",
+        "container": "ordinaryFacts",
+        "unitKey": null
+      },
+      "assessment": "narrative-scope-corresponds",
+      "finding": "Discovery/appearance narrative retained as paragraph witnesses; no exact translation or numerical capability claim.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "093b4d1bdd3961c7447b1331e4d890e7ee2b698b46a9332e3d5ca374c4a9c099",
+        "2b5f22a194363cacbe3a440e4ad4851523b89d0e38377deff9bcbbfe734b9e46"
+      ]
+    },
+    {
+      "key": "slot-rest-context",
+      "secondaryHeadingOrdinal": 23,
+      "secondaryParagraphIndexes": [
+        0
+      ],
+      "primaryReference": {
+        "input": "catalog/rest-spellcasting-source-comparison-2014.json",
+        "container": "units",
+        "unitKey": "wizard-preparation-selected"
+      },
+      "assessment": "selected-primary-scope-retained",
+      "finding": "Russian paragraph refers to Wizard table, appropriate-or-higher slot expenditure and long rest. Source unit covers this paragraph; no new full feature acceptance.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "7e57e4afa485a107d6d16becadce33d5d15aa806b92661263acb206863f64560"
+      ]
+    },
+    {
+      "key": "preparation-count",
+      "secondaryHeadingOrdinal": 23,
+      "secondaryParagraphIndexes": [
+        1
+      ],
+      "primaryReference": {
+        "input": "catalog/rest-spellcasting-source-comparison-2014.json",
+        "container": "units",
+        "unitKey": "wizard-preparation-selected"
+      },
+      "assessment": "requires-multiclass-context",
+      "finding": "Int modifier + Wizard class level, minimum1, from Wizard book. Available slots wording must be read with per-class multiclass rules.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "b4d9ae9b3357769650d89139416ca79dea050188c3708be9bf757cc25969f2a6"
+      ]
+    },
+    {
+      "key": "change-preparation",
+      "secondaryHeadingOrdinal": 23,
+      "secondaryParagraphIndexes": [
+        2
+      ],
+      "primaryReference": {
+        "input": "catalog/rest-spellcasting-source-comparison-2014.json",
+        "container": "units",
+        "unitKey": "wizard-preparation-selected"
+      },
+      "assessment": "selected-primary-scope-retained",
+      "finding": "Change after long rest, at least1minute per spell level for each spell in list; retain bounded primary paragraph scope.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "92272f726f8333ed2fb22d1aec2523e1556d81057ea7d4b37eda67e12365b821"
+      ]
+    },
+    {
+      "key": "intelligence",
+      "secondaryHeadingOrdinal": 24,
+      "secondaryParagraphIndexes": [
+        0
+      ],
+      "primaryReference": {
+        "input": "catalog/rest-spellcasting-source-comparison-2014.json",
+        "container": "units",
+        "unitKey": "wizard-spellcasting-bonuses"
+      },
+      "assessment": "selected-facts-correspond",
+      "finding": "Wizard spellcasting uses Intelligence; no inference for item or other-class spells.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "c09b1f84604deb1b999622fd05e14a62c079db7bc732901005a8306fae9c87f5"
+      ]
+    },
+    {
+      "key": "save-dc",
+      "secondaryHeadingOrdinal": 24,
+      "secondaryParagraphIndexes": [
+        1
+      ],
+      "primaryReference": {
+        "input": "catalog/rest-spellcasting-source-comparison-2014.json",
+        "container": "units",
+        "unitKey": "wizard-spellcasting-bonuses"
+      },
+      "assessment": "selected-facts-correspond",
+      "finding": "DC8 + proficiency bonus + Intelligence modifier.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "74e04f4742a9db3ee1bb0f7f95aa009a4f6216ee8621e35d8f6cff73ddd9b748"
+      ]
+    },
+    {
+      "key": "spell-attack",
+      "secondaryHeadingOrdinal": 24,
+      "secondaryParagraphIndexes": [
+        2
+      ],
+      "primaryReference": {
+        "input": "catalog/rest-spellcasting-source-comparison-2014.json",
+        "container": "units",
+        "unitKey": "wizard-spellcasting-bonuses"
+      },
+      "assessment": "selected-facts-correspond",
+      "finding": "Attack proficiency bonus + Intelligence modifier.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "04f41eb20fd8b7c01a5439da18da1c15f4ed57847d275f8dbb5d46aa1d0f492c"
+      ]
+    },
+    {
+      "key": "wizard-ritual",
+      "secondaryHeadingOrdinal": 25,
+      "secondaryParagraphIndexes": [
+        0
+      ],
+      "primaryReference": {
+        "input": "catalog/wizard-ritual-source-comparison-2014.json",
+        "container": "ordinaryFacts",
+        "unitKey": null
+      },
+      "assessment": "selected-facts-correspond",
+      "finding": "Wizard spell + ritual tag + Wizard book; preparation not required by this feature. No Artificer rule transfer.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "d7cd8bbc33c3526bc65c6672e54aaec580e8fb25af4828db7c5103f30c9f2f91"
+      ]
+    },
+    {
+      "key": "wizard-focus",
+      "secondaryHeadingOrdinal": 26,
+      "secondaryParagraphIndexes": [
+        0
+      ],
+      "primaryReference": {
+        "input": "catalog/wizard-spellcasting-scope-2014.json",
+        "container": "selectedNewComparisons",
+        "unitKey": "SpellcastingFocus7"
+      },
+      "assessment": "localization-term-needs-canonical-mapping",
+      "finding": "Russian magic-focus wording corresponds in this Wizard context to arcane focus; not every magic item, not a general component exemption.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "49842ef7aff4126c3ea1871488f1ba7a9df2e8c56892393a3a100bbdf37b0c9c"
+      ]
+    },
+    {
+      "key": "two-new-spells",
+      "secondaryHeadingOrdinal": 27,
+      "secondaryParagraphIndexes": [
+        0
+      ],
+      "primaryReference": {
+        "input": "catalog/rest-spellcasting-source-comparison-2014.json",
+        "container": "units",
+        "unitKey": "wizard-learning-on-level"
+      },
+      "assessment": "selected-facts-correspond",
+      "finding": "Two Wizard spell choices on subsequent Wizard level; initial six and imported levels are separate.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "eb9ecfcc571a8dba7f687793bc4234fb8d3458571e606f2bac624416dacb4cc6"
+      ]
+    },
+    {
+      "key": "learning-table-qualifier",
+      "secondaryHeadingOrdinal": 27,
+      "secondaryParagraphIndexes": [
+        0
+      ],
+      "primaryReference": {
+        "input": "catalog/rest-spellcasting-source-comparison-2014.json",
+        "container": "units",
+        "unitKey": "wizard-learning-on-level"
+      },
+      "assessment": "explicit-qualifier-omission",
+      "finding": "Russian clause omits explicit Wizard-table qualification present in checked English. Combined higher-level slots must not expand ordinary Wizard learning.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "eb9ecfcc571a8dba7f687793bc4234fb8d3458571e606f2bac624416dacb4cc6"
+      ]
+    },
+    {
+      "key": "learning-free-qualifier",
+      "secondaryHeadingOrdinal": 27,
+      "secondaryParagraphIndexes": [
+        0
+      ],
+      "primaryReference": {
+        "input": "catalog/rest-spellcasting-source-comparison-2014.json",
+        "container": "units",
+        "unitKey": "wizard-learning-on-level"
+      },
+      "assessment": "explicit-qualifier-omission",
+      "finding": "English for-free qualifier is absent from this Russian paragraph; do not infer a copy fee for the two ordinary level-up choices.",
+      "assessmentMethod": "manual semantic comparison bound to exact body/paragraph witnesses; not automatic keyword equivalence",
+      "wholeTranslationAccepted": false,
+      "runtimeAccepted": false,
+      "secondaryParagraphSha256": [
+        "eb9ecfcc571a8dba7f687793bc4234fb8d3458571e606f2bac624416dacb4cc6"
+      ]
+    }
+  ],
+  "sourceSegmentationProposal": {
+    "originalCandidateSourceIdsPreserved": [
+      "102"
+    ],
+    "headingOrdinal": 22,
+    "coreSidebarParagraphIndexes": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      6,
+      7
+    ],
+    "scrollInsertParagraphIndexes": [
+      4
+    ],
+    "scrollInsertVisibleSourceLabel": "DMG",
+    "proposedHistoricalBookSourceId": "101",
+    "primaryCorroboration": "SRD5.1 selected Spell Scroll copying paragraph, PDF242",
+    "exactDmgPrintVersionVerified": false,
+    "parentSourceArrayRewritten": false,
+    "canonicalSourceAssignmentAccepted": false
+  },
+  "scrollCopyOrdinaryFacts": {
+    "wizardSpellRequired": true,
+    "spellbookCopyProcedureStillApplies": true,
+    "checkAbility": "intelligence",
+    "checkSkill": "arcana",
+    "checkDC": "10 + spellLevel",
+    "successfulCheckCopiesSpell": true,
+    "scrollDestroyedOnCopyCheckSuccess": true,
+    "scrollDestroyedOnCopyCheckFailure": true,
+    "castingCheckSubstitutedForCopyCheck": false,
+    "genericInventoryDeletionImplemented": false
+  },
+  "syntheticDecisionCases": [
+    {
+      "case": "wizard5-cleric3",
+      "basis": "synthetic fixture, both full casters; SRD52 Wizard5 and SRD58 multiclass8 rows visually checked; not full table acceptance",
+      "sourcePdfSha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "inspectedPdfPages": [
+        52,
+        58
+      ],
+      "combinedCasterLevel": 8,
+      "combinedHighestSlot": 4,
+      "ordinaryWizardHighestSpellLevel": 3,
+      "canOrdinarilyLearnWizardLevel4FromPool": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "case": "copy-level2-scroll-success",
+      "check": "intelligence-arcana",
+      "DC": 12,
+      "spellCopied": true,
+      "scrollDestroyed": true,
+      "ordinaryBookCostsStillApply": true
+    },
+    {
+      "case": "copy-level2-scroll-failure",
+      "check": "intelligence-arcana",
+      "DC": 12,
+      "spellCopied": false,
+      "scrollDestroyed": true
+    },
+    {
+      "case": "own-book-backup-level2",
+      "hours": 2,
+      "gp": 20,
+      "scrollCheckInferred": false
+    },
+    {
+      "case": "import-existing-wizard-levels",
+      "newSpellChoicesReapplied": false,
+      "copyingCostsChargedAgain": false
+    },
+    {
+      "case": "artificer-multiclass-contribution",
+      "inferredFromSrdPaladinRangerRounding": false,
+      "exactArtificerSourceRequired": true
+    }
+  ],
+  "remainingCriteria": [
+    "Wizard Spellcasting parent introductory paragraph19, Wizard table, general spellcasting and full Wizard list remain separate reference work.",
+    "Exact original PHB/DMG publication and translation versions, canonical focus term and publication rights remain unresolved.",
+    "Artificer complete TCE feature text/version applicability is not supplied by Wizard or Eberron errata."
+  ],
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "wizard-table-reference-concordance",
+    "action": "Check Wizard table rows and parent introduction against corresponding retained 2014 English scopes; preserve mixed-source insert and omitted qualifiers as findings, not silent edits."
+  },
+  "limits": [
+    "Manual selected-clause concordance is not an automatic translation-equivalence detector, full candidate acceptance, or catalog denominator.",
+    "No source prose/PDF, personal profile, runtime, grants, spending, source-array rewrite or milestone acceptance exported.",
+    "Ordinary game deviations warn and permit manual action; authentication, integrity and source provenance protections remain."
+  ],
+  "inputSha256": {
+    "catalog/wizard-source-boundary-proposals-2014.json": "425ab665c1963b42dca0fc016544dfc700d41781b0d1ccf2afac6dff38efdee4",
+    "catalog/dndsu-reviewed-class-proposals.json": "2658cb19e4ad074003ecf60f46190af992c6abb26584455d2455946e061b9c48",
+    "catalog/wizard-spellcasting-scope-2014.json": "d55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb",
+    "catalog/wizard-spellbook-sidebar-2014.json": "029e5bbb68162230d73159188cb1fda0af9f2c6966beac9b414ca61bf15b1917",
+    "catalog/wizard-ritual-source-comparison-2014.json": "b86c7cab1fff18dd8a13507d317cb3a9cb25b3066562fc3f197f766512ae553b",
+    "catalog/rest-spellcasting-source-comparison-2014.json": "74078b423eb8670a9c7a2a00a00109c5621e42c1c141a28f41f688a310352ada"
+  },
+  "generator": {
+    "path": "scripts/audit-wizard-candidate-concordance-2014.py",
+    "sha256": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b"
+  }
+}

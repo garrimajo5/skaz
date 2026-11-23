@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "status": "public-blank-layout-witness-not-ocr-or-corpus-acceptance",
+  "accepted": false,
+  "complete": false,
+  "inputHashEncoding": "UTF-8; CRLF normalized to LF; all other bytes preserved",
+  "inputSha256": {
+    "scripts/audit-official-sheet-layout-80.py": "f25df4225660e2ab145d713a454bca8e48346bed6568018d8f4506eef8978818"
+  },
+  "source": {
+    "url": "https://media.wizards.com/2016/dnd/downloads/5E_CharacterSheet_Fillable.pdf",
+    "sha256": "8e7b282db42af119c46fef696b15e7430cb1e93bd09a478780623ca1a1908a48",
+    "bytes": 355826,
+    "pages": 3,
+    "editionWitness": "2014 footer on all three pages; author rendered and inspected",
+    "redistributionPermission": "not-established; PDF retained outside Git"
+  },
+  "summary": {
+    "canonicalNamedFields": 334,
+    "pageWidgets": 336,
+    "widgetsByPage": [
+      106,
+      16,
+      214
+    ],
+    "widgetsByType": {
+      "/Btn": 126,
+      "/Tx": 210
+    },
+    "allWidgetValuesBlank": true,
+    "repeatedOwnerGroups": 1,
+    "ambiguousSeparateFieldNames": []
+  },
+  "selectedWidgets": [
+    {
+      "page": 1,
+      "annotationOrdinal": 0,
+      "widgetRef": "2538:0",
+      "ownerRef": "2538:0",
+      "fieldName": "ClassLevel",
+      "fieldType": "/Tx",
+      "rect": [
+        270.043,
+        728.184,
+        375.883,
+        743.841
+      ]
+    },
+    {
+      "page": 1,
+      "annotationOrdinal": 3,
+      "widgetRef": "2541:0",
+      "ownerRef": "2541:0",
+      "fieldName": "CharacterName",
+      "fieldType": "/Tx",
+      "rect": [
+        47.563,
+        709.801,
+        220.744,
+        730.681
+      ]
+    },
+    {
+      "page": 1,
+      "annotationOrdinal": 89,
+      "widgetRef": "2657:0",
+      "ownerRef": "2657:0",
+      "fieldName": "HPMax",
+      "fieldType": "/Tx",
+      "rect": [
+        290.923,
+        584.521,
+        380.203,
+        595.321
+      ]
+    },
+    {
+      "page": 1,
+      "annotationOrdinal": 90,
+      "widgetRef": "2658:0",
+      "ownerRef": "2658:0",
+      "fieldName": "HPCurrent",
+      "fieldType": "/Tx",
+      "rect": [
+        231.163,
+        549.241,
+        380.203,
+        579.481
+      ]
+    },
+    {
+      "page": 1,
+      "annotationOrdinal": 91,
+      "widgetRef": "2659:0",
+      "ownerRef": "2659:0",
+      "fieldName": "HPTemp",
+      "fieldType": "/Tx",
+      "rect": [
+        231.163,
+        497.401,
+        380.203,
+        527.641
+      ]
+    },
+    {
+      "page": 2,
+      "annotationOrdinal": 7,
+      "widgetRef": "380:0",
+      "ownerRef": "829:0",
+      "fieldName": "CHARACTER IMAGE",
+      "fieldType": "/Btn",
+      "rect": [
+        36.4791,
+        443.398,
+        199.172,
+        661.497
+      ]
+    },
+    {
+      "page": 2,
+      "annotationOrdinal": 14,
+      "widgetRef": "377:0",
+      "ownerRef": "829:0",
+      "fieldName": "CHARACTER IMAGE",
+      "fieldType": "/Btn",
+      "rect": [
+        36.4791,
+        443.398,
+        199.172,
+        661.497
+      ]
+    },
+    {
+      "page": 2,
+      "annotationOrdinal": 15,
+      "widgetRef": "378:0",
+      "ownerRef": "829:0",
+      "fieldName": "CHARACTER IMAGE",
+      "fieldType": "/Btn",
+      "rect": [
+        36.4791,
+        443.398,
+        199.172,
+        661.497
+      ]
+    },
+    {
+      "page": 3,
+      "annotationOrdinal": 0,
+      "widgetRef": "766:0",
+      "ownerRef": "766:0",
+      "fieldName": "Spellcasting Class 2",
+      "fieldType": "/Tx",
+      "rect": [
+        47.52,
+        705.92,
+        255.96,
+        726.8
+      ]
+    },
+    {
+      "page": 3,
+      "annotationOrdinal": 1,
+      "widgetRef": "767:0",
+      "ownerRef": "767:0",
+      "fieldName": "SpellcastingAbility 2",
+      "fieldType": "/Tx",
+      "rect": [
+        283.779,
+        711.36,
+        348.633,
+        735.75
+      ]
+    },
+    {
+      "page": 3,
+      "annotationOrdinal": 2,
+      "widgetRef": "808:0",
+      "ownerRef": "808:0",
+      "fieldName": "SpellSaveDC  2",
+      "fieldType": "/Tx",
+      "rect": [
+        384.49,
+        711.36,
+        449.344,
+        735.75
+      ]
+    },
+    {
+      "page": 3,
+      "annotationOrdinal": 3,
+      "widgetRef": "809:0",
+      "ownerRef": "809:0",
+      "fieldName": "SpellAtkBonus 2",
+      "fieldType": "/Tx",
+      "rect": [
+        488.288,
+        711.36,
+        553.143,
+        735.75
+      ]
+    },
+    {
+      "page": 3,
+      "annotationOrdinal": 4,
+      "widgetRef": "810:0",
+      "ownerRef": "810:0",
+      "fieldName": "SlotsTotal 19",
+      "fieldType": "/Tx",
+      "rect": [
+        51.855,
+        457.452,
+        91.095,
+        478.332
+      ]
+    },
+    {
+      "page": 3,
+      "annotationOrdinal": 5,
+      "widgetRef": "811:0",
+      "ownerRef": "811:0",
+      "fieldName": "SlotsRemaining 19",
+      "fieldType": "/Tx",
+      "rect": [
+        103.005,
+        457.452,
+        195.84,
+        478.332
+      ]
+    }
+  ],
+  "sharedOwnerWidgets": [
+    [
+      {
+        "page": 2,
+        "annotationOrdinal": 7,
+        "widgetRef": "380:0",
+        "ownerRef": "829:0",
+        "fieldName": "CHARACTER IMAGE",
+        "fieldType": "/Btn",
+        "rect": [
+          36.4791,
+          443.398,
+          199.172,
+          661.497
+        ],
+        "valueIsBlank": true
+      },
+      {
+        "page": 2,
+        "annotationOrdinal": 14,
+        "widgetRef": "377:0",
+        "ownerRef": "829:0",
+        "fieldName": "CHARACTER IMAGE",
+        "fieldType": "/Btn",
+        "rect": [
+          36.4791,
+          443.398,
+          199.172,
+          661.497
+        ],
+        "valueIsBlank": true
+      },
+      {
+        "page": 2,
+        "annotationOrdinal": 15,
+        "widgetRef": "378:0",
+        "ownerRef": "829:0",
+        "fieldName": "CHARACTER IMAGE",
+        "fieldType": "/Btn",
+        "rect": [
+          36.4791,
+          443.398,
+          199.172,
+          661.497
+        ],
+        "valueIsBlank": true
+      }
+    ]
+  ],
+  "slotLabelWitness": {
+    "page": 3,
+    "internalFieldName": "SlotsRemaining 19",
+    "visibleColumnLabel": "SLOTS EXPENDED",
+    "meaning": "spent-not-remaining",
+    "automaticMappingAccepted": false
+  },
+  "limitations": [
+    "One blank English form; no user values, OCR or recognition accuracy.",
+    "Metadata names and appearance are distinct signals; no form repair or fill.",
+    "Shared widgets with one canonical parent are not three independent fields.",
+    "Existing synthetic corpus is not proved representative by this layout witness."
+  ]
+}

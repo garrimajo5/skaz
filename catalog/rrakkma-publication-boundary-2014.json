@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "status": "primary-coded-introductory-adventure-witness-not-canonical-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "providerSourceId": 34,
+  "providerObservationId": "ddb:library-source:34",
+  "numericDndsuSourceId": null,
+  "canonicalSourceId": null,
+  "automaticAttribution": false,
+  "sources": {
+    "source.html": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/ddia-mord",
+      "finalUrl": "https://www.dndbeyond.com/sources/dnd/ddia-mord",
+      "status": 200,
+      "bytes": 235943,
+      "sha256": "ef09e82c26c09cfbeeb13a8492d7bed32cb62ddf0d177a452bbcaa2652cbb232",
+      "capturedAt": "2026-11-20T23:59:42.266935+00:00"
+    },
+    "article.html": {
+      "requestedUrl": "https://www.dndbeyond.com/posts/222-rrakkma-is-an-adventure-league-gith-adventure-that",
+      "finalUrl": "https://www.dndbeyond.com/posts/222-rrakkma-is-an-adventure-league-gith-adventure-that",
+      "status": 200,
+      "bytes": 353116,
+      "sha256": "d4a292069dd40bcb9e729b85053dec36eaa68be4b6489546cab389edc4c67624",
+      "capturedAt": "2026-11-20T23:59:42.525630+00:00"
+    }
+  },
+  "ownPublication": {
+    "title": "Rrakkma",
+    "adventureCode": "DDIA-MORD",
+    "introductoryForBook": "Mordenkainen's Tome of Foes",
+    "introTextSha256": "1caf99f6fd574a92f6bdfd1c5a12b8a72a5430872b0ec2a89cd9e4f2b32dfbfe",
+    "scope": "own bounded introduction only; no chapter/statblock text reviewed"
+  },
+  "editionEvidence": {
+    "title": "'Rrakkma' is an Adventure League Gith Adventure that Introduces 'Mordenkainen's Tome of Foes'",
+    "editionStatementParagraphSha256": "f212f747c32ddabf526442567352a6be818161d466cc4f3b62e7f86c6c628d8e",
+    "olderThirdEditionOriginMentioned": true,
+    "FifthEditionRewriteExplicit": true,
+    "scope": "one primary editorial edition statement; not a textual comparison with old3e"
+  },
+  "relationship": {
+    "kind": "introductory-companion-adventure-for-book",
+    "introducedBookProviderSourceId": 33,
+    "introducedBookExistingDndsuSourceId": "113",
+    "introducedBookSourceUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+    "containedInBook": "not-established",
+    "isAliasOfIntroducedBook": false,
+    "genericALSource169InferredFromAdventureCode": false,
+    "fullRecordOrTextEquivalence": "unverified",
+    "reusePermission": "not-established"
+  },
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe",
+    "catalog/library-source-link-proposals-2014.json": "32baeee49a644be8822acdf46c2ebadc890efeb0ea90801f0e257b0ea509c4dc"
+  },
+  "generator": {
+    "path": "scripts/audit-rrakkma-publication-2014.py",
+    "sha256": "9c50b549ce64682d1c9c04242a655199a66e5ffd68deaa5b8419789ac4146ad0"
+  },
+  "upstreamParser": {
+    "path": "scripts/audit-prisoner13-component-2014.py",
+    "sha256": "5f19428fb4a6d387a09ed38a21871d8f44b8b319f2192d9c731e08784865a124"
+  },
+  "limits": [
+    "Introductory for a book is not proof of being printed in the book or sharing all statblocks.",
+    "The distinct adventure code does not assign generic ALsource169 observations to this publication.",
+    "The older3e origin is not a licence to reuse an older text as the stated5e rewrite.",
+    "Library5e and primary rewrite statement are bounded edition evidence, not full rules/version/rights acceptance.",
+    "No full adventure/prose/HTML/private profile, source-policy change or catalogue denominator is exported."
+  ]
+}

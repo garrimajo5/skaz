@@ -1,0 +1,558 @@
+{
+  "schemaVersion": 1,
+  "status": "current-class-evidence-overlay-not-full-rules-or-original-source-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "preservedCandidateRecords": 130,
+    "preservedArtificerHeadingObservations": 23,
+    "supplementedCandidateReferences": 5,
+    "selectedArtificerCorrections": 6,
+    "unattachedCorrectionsRetained": 1,
+    "canonicalUnitsAccepted": 0
+  },
+  "baseCandidateMap": {
+    "path": "catalog/wizard-artificer-source-scopes-2014.json",
+    "sha256": "35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5",
+    "pr": 227,
+    "head": "01876659e4be009e645095c677cebbdcf52d278d",
+    "review": "https://github.com/garrimajo5/skaz/pull/227#issuecomment-7063197013",
+    "scope": "130candidate/23heading preservation and bounded correspondence only"
+  },
+  "preservedCandidateIdSequence": [
+    "scope:wizard:class-features:feature.spellcasting",
+    "scope:wizard:class-features:feature.extra-spells",
+    "scope:wizard:class-features:feature.arcane-recovery",
+    "scope:wizard:class-features:feature.arcane-tradition",
+    "scope:wizard:class-features:feature.cantrip-formulas",
+    "scope:wizard:class-features:feature.ASI",
+    "scope:wizard:class-features:feature.spell-mastery",
+    "scope:wizard:class-features:feature.signature-spells",
+    "scope:wizard:tradition.evocation:tradition.evocation",
+    "scope:wizard:tradition.evocation:bf9e9bd93c493c16",
+    "scope:wizard:tradition.evocation:ff956c10572b13ea",
+    "scope:wizard:tradition.evocation:de01fc614320d930",
+    "scope:wizard:tradition.evocation:b236acb2c4fcaa68",
+    "scope:wizard:tradition.evocation:e2f1d83e0f5bb67f",
+    "scope:wizard:tradition.conjuration:tradition.conjuration",
+    "scope:wizard:tradition.conjuration:e13b1fd985921283",
+    "scope:wizard:tradition.conjuration:8e6da0e54f83ddeb",
+    "scope:wizard:tradition.conjuration:ec3e5ea964a6cafc",
+    "scope:wizard:tradition.conjuration:4494b6907b34e163",
+    "scope:wizard:tradition.conjuration:d929bc3822c28e19",
+    "scope:wizard:tradition.illusion:tradition.illusion",
+    "scope:wizard:tradition.illusion:bc0a749e1cffb5c5",
+    "scope:wizard:tradition.illusion:377df2c61029d4b2",
+    "scope:wizard:tradition.illusion:18139c438e878fae",
+    "scope:wizard:tradition.illusion:b5c25ead4f845d62",
+    "scope:wizard:tradition.illusion:a0b408c0e27c16e2",
+    "scope:wizard:tradition.necromancy:tradition.necromancy",
+    "scope:wizard:tradition.necromancy:d0f9c43a7ace230c",
+    "scope:wizard:tradition.necromancy:a0fde2d7bb06d8c0",
+    "scope:wizard:tradition.necromancy:cb10ec73cff0b0d9",
+    "scope:wizard:tradition.necromancy:fe54fe8bbfb97609",
+    "scope:wizard:tradition.necromancy:9d59566819045eb1",
+    "scope:wizard:tradition.abjuration:tradition.abjuration",
+    "scope:wizard:tradition.abjuration:8f6902d4338e3d90",
+    "scope:wizard:tradition.abjuration:81aaaf529d085d8b",
+    "scope:wizard:tradition.abjuration:3d8fc79f9d00dcdb",
+    "scope:wizard:tradition.abjuration:640bf162984be4c7",
+    "scope:wizard:tradition.abjuration:1801b348d32fc0ae",
+    "scope:wizard:tradition.enchantment:tradition.enchantment",
+    "scope:wizard:tradition.enchantment:ea4560046558f7e1",
+    "scope:wizard:tradition.enchantment:173a28557b10b068",
+    "scope:wizard:tradition.enchantment:0b6b9305109b4b7d",
+    "scope:wizard:tradition.enchantment:697b31f39f6054c6",
+    "scope:wizard:tradition.enchantment:e2bace22fa25efb0",
+    "scope:wizard:tradition.transmutation:tradition.transmutation",
+    "scope:wizard:tradition.transmutation:99a45618a7a447f2",
+    "scope:wizard:tradition.transmutation:69ee7e201ded124b",
+    "scope:wizard:tradition.transmutation:43bb5408204fbe58",
+    "scope:wizard:tradition.transmutation:b89a31c5f9da1f76",
+    "scope:wizard:tradition.transmutation:743f0ddcddf2028f",
+    "scope:wizard:tradition.divination:tradition.divination",
+    "scope:wizard:tradition.divination:960a94e02f362cf2",
+    "scope:wizard:tradition.divination:0a9bdf16a44f433f",
+    "scope:wizard:tradition.divination:b7678e5be3921379",
+    "scope:wizard:tradition.divination:5d000dc9a8c5451e",
+    "scope:wizard:tradition.divination:6a3df95fe28ce648",
+    "scope:wizard:tradition.war-magic:tradition.war-magic",
+    "scope:wizard:tradition.war-magic:818ef7e5bb4271ea",
+    "scope:wizard:tradition.war-magic:a6cf191ff7bd3cb0",
+    "scope:wizard:tradition.war-magic:b9a41e75d2926ba1",
+    "scope:wizard:tradition.war-magic:cfc25488a6f88536",
+    "scope:wizard:tradition.war-magic:d2cf3312ea22a6d3",
+    "scope:wizard:tradition.chronurgy:tradition.chronurgy",
+    "scope:wizard:tradition.chronurgy:7b137646c6799206",
+    "scope:wizard:tradition.chronurgy:c446302e1c02e9e3",
+    "scope:wizard:tradition.chronurgy:3f1294c88491c9cc",
+    "scope:wizard:tradition.chronurgy:edce13b32a978cb4",
+    "scope:wizard:tradition.chronurgy:faf838ec7c02320b",
+    "scope:wizard:tradition.chronurgy:86d9b5fd7e2b0afc",
+    "scope:wizard:tradition.graviturgy:tradition.graviturgy",
+    "scope:wizard:tradition.graviturgy:3b7ae3ec98e2c350",
+    "scope:wizard:tradition.graviturgy:8027064412ae380a",
+    "scope:wizard:tradition.graviturgy:cc548a9b96b621b0",
+    "scope:wizard:tradition.graviturgy:216eefe92a97eb15",
+    "scope:wizard:tradition.graviturgy:86d9b5fd7e2b0afc",
+    "scope:wizard:tradition.scribes:tradition.scribes",
+    "scope:wizard:tradition.scribes:da09be6717585f3d",
+    "scope:wizard:tradition.scribes:fd5026c478de1842",
+    "scope:wizard:tradition.scribes:b7778f2c9af8fdb1",
+    "scope:wizard:tradition.scribes:8e54c0d9cd7c9621",
+    "scope:wizard:tradition.scribes:a8842ad98a1e2e0c",
+    "scope:wizard:tradition.bladesinging:tradition.bladesinging",
+    "scope:wizard:tradition.bladesinging:5dd84cdf4462efaf",
+    "scope:wizard:tradition.bladesinging:87d7a1f7219f8fa5",
+    "scope:wizard:tradition.bladesinging:9ede3ebb1d19609a",
+    "scope:wizard:tradition.bladesinging:fa02e8e7adab370f",
+    "scope:wizard:tradition.bladesinging:67e099600734ec30",
+    "scope:artificer:class-features:feature.magical-tinkering",
+    "scope:artificer:class-features:feature.spellcasting",
+    "scope:artificer:class-features:feature.infuse-item",
+    "scope:artificer:class-features:feature.specialist",
+    "scope:artificer:class-features:feature.right-tool-for-the-job",
+    "scope:artificer:class-features:feature.ASI",
+    "scope:artificer:class-features:feature.tool-expertise",
+    "scope:artificer:class-features:feature.flash-of-genius",
+    "scope:artificer:class-features:feature.magic-item-adept",
+    "scope:artificer:class-features:feature.spell-storing-item",
+    "scope:artificer:class-features:feature.magic-item-savant",
+    "scope:artificer:class-features:feature.magic-item-master",
+    "scope:artificer:class-features:feature.soul-of-artifice",
+    "scope:artificer:specialist.alchemist:specialist.alchemist",
+    "scope:artificer:specialist.alchemist:08d269fc98dbfdab",
+    "scope:artificer:specialist.alchemist:93b7483dbd2b5197",
+    "scope:artificer:specialist.alchemist:878ad5bd123d73f3",
+    "scope:artificer:specialist.alchemist:45bf0cb4e0b646a8",
+    "scope:artificer:specialist.alchemist:9bd72d7a38200834",
+    "scope:artificer:specialist.alchemist:5ab794c7564d4100",
+    "scope:artificer:specialist.artillerist:specialist.artillerist",
+    "scope:artificer:specialist.artillerist:08d269fc98dbfdab",
+    "scope:artificer:specialist.artillerist:2bc4a4ce0393c94a",
+    "scope:artificer:specialist.artillerist:ebdbc64cc9764ce7",
+    "scope:artificer:specialist.artillerist:d806f64985b0613a",
+    "scope:artificer:specialist.artillerist:920fbb40b0dd7b7e",
+    "scope:artificer:specialist.artillerist:42b931caa1f4f795",
+    "scope:artificer:specialist.battlesmith:specialist.battlesmith",
+    "scope:artificer:specialist.battlesmith:08d269fc98dbfdab",
+    "scope:artificer:specialist.battlesmith:2f6a8c71f7ddd8a3",
+    "scope:artificer:specialist.battlesmith:add398e56c386253",
+    "scope:artificer:specialist.battlesmith:c4961367422c09fe",
+    "scope:artificer:specialist.battlesmith:9ede3ebb1d19609a",
+    "scope:artificer:specialist.battlesmith:44d064ad8f656380",
+    "scope:artificer:specialist.battlesmith:b6ea9d0e779c1e83",
+    "scope:artificer:specialist.armorer:specialist.armorer",
+    "scope:artificer:specialist.armorer:08d269fc98dbfdab",
+    "scope:artificer:specialist.armorer:096d32adc9cc13b2",
+    "scope:artificer:specialist.armorer:749c98ae8bc17fce",
+    "scope:artificer:specialist.armorer:40b2fef4e59f8adc",
+    "scope:artificer:specialist.armorer:9ede3ebb1d19609a",
+    "scope:artificer:specialist.armorer:4c97712288d26bc4",
+    "scope:artificer:specialist.armorer:33dfc2450bac503f"
+  ],
+  "preservedClaimLedgerSha256": "fb93606d29706faac096a16ec7c378bc2dd8088a456ac1432b664b38a0de3972",
+  "supplementalCandidateLinks": [
+    {
+      "candidateId": "scope:wizard:class-features:feature.spellcasting",
+      "sourceClaims": [
+        "102"
+      ],
+      "additionalEvidenceKeys": [
+        "spellcastingInventory",
+        "spellbookSidebar",
+        "candidateConcordance",
+        "coVersionedTable"
+      ],
+      "completeCandidateTextAccepted": false,
+      "wholeFeatureAccepted": false,
+      "runtimeAccepted": false
+    },
+    {
+      "candidateId": "scope:artificer:class-features:feature.magical-tinkering",
+      "sourceClaims": [
+        "117"
+      ],
+      "additionalEvidenceKeys": [
+        "artificerErrata"
+      ],
+      "completeCandidateTextAccepted": false,
+      "wholeFeatureAccepted": false,
+      "runtimeAccepted": false,
+      "sourceSpecificCorrections": [
+        {
+          "correctionKey": "magical-tinkering",
+          "historicalBookSourceId": "119",
+          "appliesToCandidatePublicationVerified": false,
+          "scopeKind": "replacement-phrase"
+        }
+      ]
+    },
+    {
+      "candidateId": "scope:artificer:class-features:feature.spellcasting",
+      "sourceClaims": [
+        "117"
+      ],
+      "additionalEvidenceKeys": [
+        "artificerErrata"
+      ],
+      "completeCandidateTextAccepted": false,
+      "wholeFeatureAccepted": false,
+      "runtimeAccepted": false,
+      "sourceSpecificCorrections": [
+        {
+          "correctionKey": "tools-material-clarification",
+          "historicalBookSourceId": "119",
+          "appliesToCandidatePublicationVerified": false,
+          "scopeKind": "added-clarification"
+        },
+        {
+          "correctionKey": "purify-ritual-tag",
+          "historicalBookSourceId": "117",
+          "appliesToCandidatePublicationVerified": false,
+          "scopeKind": "added-spell-list-marker"
+        }
+      ]
+    },
+    {
+      "candidateId": "scope:artificer:class-features:feature.infuse-item",
+      "sourceClaims": [
+        "117"
+      ],
+      "additionalEvidenceKeys": [
+        "artificerErrata"
+      ],
+      "completeCandidateTextAccepted": false,
+      "wholeFeatureAccepted": false,
+      "runtimeAccepted": false,
+      "sourceSpecificCorrections": [
+        {
+          "correctionKey": "infused-container-contents",
+          "historicalBookSourceId": "119",
+          "appliesToCandidatePublicationVerified": false,
+          "scopeKind": "whole-added-paragraph"
+        }
+      ]
+    },
+    {
+      "candidateId": "scope:artificer:class-features:feature.right-tool-for-the-job",
+      "sourceClaims": [
+        "117"
+      ],
+      "additionalEvidenceKeys": [
+        "artificerErrata"
+      ],
+      "completeCandidateTextAccepted": false,
+      "wholeFeatureAccepted": false,
+      "runtimeAccepted": false,
+      "sourceSpecificCorrections": [
+        {
+          "correctionKey": "right-tool",
+          "historicalBookSourceId": "119",
+          "appliesToCandidatePublicationVerified": false,
+          "scopeKind": "replacement-phrase"
+        }
+      ]
+    }
+  ],
+  "unattachedCorrections": [
+    {
+      "correctionKey": "repeating-shot-ammunition",
+      "historicalBookSourceId": "117",
+      "appliesToCandidatePublicationVerified": false,
+      "scopeKind": "whole-replacement-sentence"
+    }
+  ],
+  "wizardReferenceGraph": {
+    "originalGraphPreserved": [
+      "Wizard table",
+      "general spellcasting rules",
+      "Wizard spell list",
+      "remaining complete Your Spellbook sidebar/version comparison"
+    ],
+    "completedSelectedReference": "remaining complete Your Spellbook sidebar/version comparison",
+    "completionEvidenceKey": "spellbookSidebar",
+    "remainingGraph": [
+      "Wizard table",
+      "general spellcasting rules",
+      "Wizard spell list"
+    ],
+    "literalWholeSourceEqualityClaimed": false,
+    "wholeFeatureRulesAccepted": false
+  },
+  "coVersionedConcordance": {
+    "path": "catalog/wizard-candidate-clause-concordance-2014.json",
+    "scope": "8retained secondary sections/19paragraphs/19manual assessments; independently reviewed in PR232, not inherited from prior four PRs",
+    "evidenceKey": "candidateConcordance",
+    "wholeCandidateAccepted": false,
+    "priorIndependentReviewInherited": false
+  },
+  "coVersionedTable": {
+    "path": "catalog/wizard-table-concordance-2014.json",
+    "evidenceKey": "wizardTable",
+    "scope": "20Wizard rows/220numeric cells with4literal feature-name deltas,2optionalTCE cells and localized intro navigation; independently reviewed in PR233",
+    "priorIndependentReviewInherited": false,
+    "wholeFeatureAccepted": false
+  },
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "d06-non-class-unit-boundaries",
+    "action": "Use existing #77D06 Folio/IMR/SKT review to select an unresolved unit/variant/reference boundary; do not repeat successful class inventory/TOC or arbitrary high-level feature text. Class Eloquence full-body criterion has a scoped access hold only; complete rules that do not define identity belong to M4, not a new M0 barrier.",
+    "candidateId": "scope:wizard:class-features:feature.spellcasting",
+    "requiredInputs": [
+      "docs/catalog-m0-exit-criteria-2014.md",
+      "catalog/fiendish-folio-review-2014.json",
+      "catalog/imr-version-review-2014.json",
+      "catalog/skt-index-review-2014.json",
+      "catalog/class-unit-residual-review-2014.json",
+      "catalog/class-multisource-toc-2014.json"
+    ],
+    "sourceSnapshotRequirement": "Retained source keeps its own SHA; preserve historical/fresh identities.",
+    "parallelRemainingCriterion": "Exact TCE/Artificer full-text/version applicability remains unverified.",
+    "doNotRepeat": "130/23mapping,six errata,9/21inventory,415word sidebar and8section/19paragraph/19assessment concordance; 20Wizard rows/220numeric cells,4literal-name deltas,2optionalTCE cells and intro19; preserve DMG insert and both learning qualifier findings. General Spellcasting48heading inventory and two KnownPrepared/Armor complete selected subsections/4secondary paragraphs.13general casting scopes/32secondary paragraphs,including cantrip errata and material qualifier finding.6duration/concentration/target scopes/13paragraphs/3list items; Basic rounding and target referent caveat.9ordinary area/save/attack/effect prose scopes/19paragraphs; diagrams/captions and equal-potency errata remain distinct.4common introduction/school scopes/18paragraphs/eight explicitly mapped categories.Ready17 spell excerpt/bonus18 condensed clause with full combat/errata/reaction context.Prelude/Weave7paragraphs,TOC/carrier witnesses and49source-body coverage map;pending variants/media are separate.204SRD list names/circles with198paginated+6targeted name witnesses,17bounded eponym correspondences,4Wizard TCE labels and Augury toggle; Wizard30/32 core choices with optional feat context,not TCE31.Wizard16/17HP/proficiencies8paragraphs and only13paragraph2; separate SRD52/57 and Basic12minimum1 carrier context.Equipment18two paragraphs/four list items with separate Basic45alternateWizardwealth,not other classes or pack contents.Wizard13paragraphs0/1/3,primarycaster180cells,per-class known/prepared and Pact interop; Artificer/third-caster formulas remain source gaps.Evocation37/38/39 complete selected low-level clauses; casting-cost/global-immunity/attack-miss extensions not established.130/23 unit-role proposal and ASI occurrence distinction; not an approved canonical count or runtime schema.13class/913role reconciliation,31navigation13+3+15 and3publisherTOCs/8family+3sidekicklinks; no repeated full-class audit or marketplace body retry."
+  },
+  "limits": [
+    "New links overlay the original map; no candidate ID, source array, heading parent or unknown record is removed or canonized.",
+    "Six Artificer corrections retain their own119/117 provenance and candidate applicability holds, including one unattached choice correction.",
+    "Completed English sidebar comparison closes only that named reference task; original graph remains and whole-class/source rights stay open.",
+    "No secondary translation/PHB-TCE source equivalence, feature automation, profile edit, publication rights or owner milestone accepted."
+  ],
+  "reviewedEvidence": {
+    "candidateMap": {
+      "path": "catalog/wizard-artificer-source-scopes-2014.json",
+      "sha256": "35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5",
+      "pr": 227,
+      "head": "01876659e4be009e645095c677cebbdcf52d278d",
+      "review": "https://github.com/garrimajo5/skaz/pull/227#issuecomment-7063197013",
+      "scope": "130candidate/23heading preservation and bounded correspondence only"
+    },
+    "artificerErrata": {
+      "path": "catalog/artificer-errata-scopes-2014.json",
+      "sha256": "fe1bdeaeee905651e8ddd60199d315ad090bde9aa23746d516f11da673f2c026",
+      "pr": 228,
+      "head": "005ae93bffb442208867fef8ad9926cd16c685d0",
+      "review": "https://github.com/garrimajo5/skaz/pull/228#issuecomment-7063307174",
+      "scope": "six source-specific selected clauses/PDFpage1 only"
+    },
+    "spellcastingInventory": {
+      "path": "catalog/wizard-spellcasting-scope-2014.json",
+      "sha256": "d55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb",
+      "pr": 229,
+      "head": "6687601a979918f3cb514328a682973f8b786bc8",
+      "review": "https://github.com/garrimajo5/skaz/pull/229#issuecomment-7063425731",
+      "scope": "9block21paragraph digital inventory and3selected comparisons only"
+    },
+    "spellbookSidebar": {
+      "path": "catalog/wizard-spellbook-sidebar-2014.json",
+      "sha256": "029e5bbb68162230d73159188cb1fda0af9f2c6966beac9b414ca61bf15b1917",
+      "pr": 230,
+      "head": "99f7da0987e91e6a0bceef15b8ea5cce185072fa",
+      "review": "https://github.com/garrimajo5/skaz/pull/230#issuecomment-7063541170",
+      "scope": "complete7paragraph415word sidebar with preserved literal carrier difference"
+    },
+    "candidateConcordance": {
+      "path": "catalog/wizard-candidate-clause-concordance-2014.json",
+      "sha256": "a056d5d38ed7574cd05b3aaa292c409929994804f4bc70ef07dbe1cdd6461013",
+      "pr": 232,
+      "head": "f999fed4f8ae19fb23d2899cfdb0146dd17b9dbd",
+      "review": "https://github.com/garrimajo5/skaz/pull/232#issuecomment-7063957699",
+      "scope": "8selected secondary sections/19paragraphs/19manual clause assessments; DMG insertion and two omissions retained"
+    },
+    "wizardTable": {
+      "path": "catalog/wizard-table-concordance-2014.json",
+      "sha256": "e0eb3230426253d2239dcd5cd2fa0a350d33358acacd38f6fa6c933f5b913872",
+      "pr": 233,
+      "head": "198f8d795a9da4882a3ac6541efc53e303a22da4",
+      "review": "https://github.com/garrimajo5/skaz/pull/233#issuecomment-7064114661",
+      "scope": "20Wizard rows/220numeric cells,4literal name deltas,2optional TCE cells and localized intro navigation"
+    },
+    "generalReference": {
+      "path": "catalog/spellcasting-reference-scopes-2014.json",
+      "sha256": "0e20ecfc18534dcc94752854e8ff018d8ad109eeabe9290036d04a6c57d925d3",
+      "pr": 234,
+      "head": "80e16bcac195f52761a47de2a83f868e7926b400",
+      "review": "https://github.com/garrimajo5/skaz/pull/234#issuecomment-7064250485",
+      "scope": "48heading inventory and two complete selected KnownPrepared/Armor scopes(4secondary paragraphs),not full mixed page"
+    },
+    "castingClauses": {
+      "path": "catalog/general-casting-clauses-2014.json",
+      "sha256": "aa6815ec47e2cb963c1c30e5fc50082bb20a6fc47861bc6c6f502dfcd59c97cf",
+      "pr": 236,
+      "head": "344a66a37aee1f3151384cc230922ec606c1d848",
+      "review": "https://github.com/garrimajo5/skaz/pull/236#issuecomment-7064939796",
+      "scope": "13selected general casting scopes/32secondary paragraphs,cantrip errata/material qualifier caveat retained"
+    },
+    "concentrationTargets": {
+      "path": "catalog/general-concentration-targets-2014.json",
+      "sha256": "0913dd9d2f06d30f69bd60d32451d89117170f1a6a354d82029bf64d87c5330b",
+      "pr": 237,
+      "head": "5cab5effb2f28340abd868ce483efdd62c7b1034",
+      "review": "https://github.com/garrimajo5/skaz/pull/237#issuecomment-7065116486",
+      "scope": "6selected full scopes/13paragraphs/3list items,Basic rounding and referent caveat retained"
+    },
+    "areasEffects": {
+      "path": "catalog/general-areas-effects-2014.json",
+      "sha256": "64aef4dd8001785004414ed3cee11cb7d1d0a7084563294d1a7db2cee5139896",
+      "pr": 238,
+      "head": "3968c43ed70dc850cf68f59fc3da2604aa959156",
+      "review": "https://github.com/garrimajo5/skaz/pull/238#issuecomment-7065234416",
+      "scope": "9ordinary-prose scopes/19paragraphs;7diagrams/6captions unverified;equal-potency errata separate"
+    },
+    "introductionsSchools": {
+      "path": "catalog/general-introductions-schools-2014.json",
+      "sha256": "8618b63a316e83bdc40eebc5124f1826244bad5a32e341f74c6998ddf4a01dc1",
+      "pr": 239,
+      "head": "cb3455094a9ab8b26d1a25ed5be14c18f8ccf9ff",
+      "review": "https://github.com/garrimajo5/skaz/pull/239#issuecomment-7065896663",
+      "scope": "4selected full scopes/18paragraphs/eight explicit school mappings;article boundary excludes UI"
+    },
+    "readyBonus": {
+      "path": "catalog/ready-bonus-context-2014.json",
+      "sha256": "d921d0707996439739a7e678fc6da9406c108424b2669db0446d05d5d9dbae5a",
+      "pr": 240,
+      "head": "e06c5b13cc479e1bc80f802e73df51cae6042d22",
+      "review": "https://github.com/garrimajo5/skaz/pull/240#issuecomment-7066100829",
+      "scope": "Ready17 spell excerpt/bonus18 condensation with full combat/reaction/errata context"
+    }
+  },
+  "inputSha256": {
+    "catalog/wizard-artificer-source-scopes-2014.json": "35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5",
+    "catalog/artificer-errata-scopes-2014.json": "fe1bdeaeee905651e8ddd60199d315ad090bde9aa23746d516f11da673f2c026",
+    "catalog/wizard-spellcasting-scope-2014.json": "d55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb",
+    "catalog/wizard-spellbook-sidebar-2014.json": "029e5bbb68162230d73159188cb1fda0af9f2c6966beac9b414ca61bf15b1917",
+    "catalog/wizard-candidate-clause-concordance-2014.json": "a056d5d38ed7574cd05b3aaa292c409929994804f4bc70ef07dbe1cdd6461013",
+    "catalog/wizard-table-concordance-2014.json": "e0eb3230426253d2239dcd5cd2fa0a350d33358acacd38f6fa6c933f5b913872",
+    "catalog/spellcasting-reference-scopes-2014.json": "0e20ecfc18534dcc94752854e8ff018d8ad109eeabe9290036d04a6c57d925d3",
+    "catalog/general-casting-clauses-2014.json": "aa6815ec47e2cb963c1c30e5fc50082bb20a6fc47861bc6c6f502dfcd59c97cf",
+    "catalog/general-concentration-targets-2014.json": "0913dd9d2f06d30f69bd60d32451d89117170f1a6a354d82029bf64d87c5330b",
+    "catalog/general-areas-effects-2014.json": "64aef4dd8001785004414ed3cee11cb7d1d0a7084563294d1a7db2cee5139896",
+    "catalog/general-introductions-schools-2014.json": "8618b63a316e83bdc40eebc5124f1826244bad5a32e341f74c6998ddf4a01dc1",
+    "catalog/ready-bonus-context-2014.json": "d921d0707996439739a7e678fc6da9406c108424b2669db0446d05d5d9dbae5a",
+    "catalog/weave-narrative-2014.json": "684b2216337283afcfda3baf03fe92c305d80310c11defadc29d42b18320815a",
+    "catalog/spellcasting-scope-coverage-2014.json": "bfaeec746be3a92d0e9fe7f6166296e0a129d475176f58a87adb4ecbb70abefd",
+    "catalog/wizard-spell-list-reference-2014.json": "6517741c951defe484e0dc18d8ff6fc674a5f7d2d97ca3e07b4c5873655f0a7f",
+    "catalog/wizard-core-choices-2014.json": "e8a8b2d8df160ad6c121c107e2c6d74ce388b56d3fd1e0d534f268252e1c8e48",
+    "catalog/wizard-entry-boundaries-2014.json": "ceb3f947d0a118fb20fa72824caafade32935d1b952b1bf411776df8bf6aae0a",
+    "catalog/wizard-equipment-2014.json": "e70bc191a9d9488016f0f9395e6d30d005e60f37eae44d340760025184cd84fe",
+    "catalog/wizard-multiclass-2014.json": "eb6ce1f560cebbc6705d99a530d500c7fb8eda59d332c74d6619f87e49aefea5",
+    "catalog/wizard-evocation-low-level-2014.json": "7352d7b0febbd902f0e535c3bdf5907135d65d62ca0dd2d2dfe53424deeeb7c4",
+    "catalog/class-unit-granularity-proposal-2014.json": "cdadac4c6ae8b9cf95e49822744a2971cfec238e9790be7d51cba2f85141cdbd",
+    "catalog/class-unit-residual-review-2014.json": "46b8324ab412d7e9ee922e197336220a4d9d0381306d22ecba5871f97dc9a6b4",
+    "catalog/class-multisource-toc-2014.json": "864176253e1d6bc599d2ae5ed1e12085dfade4196bb2a18c0761398a520971a2"
+  },
+  "coVersionedGeneralReference": {
+    "path": "catalog/spellcasting-reference-scopes-2014.json",
+    "scope": "48heading inventory only; two complete selected subsections/4secondary paragraphs, not full mixed page",
+    "priorIndependentReviewInherited": false,
+    "fullReferenceRulesAccepted": false
+  },
+  "coVersionedCastingClauses": {
+    "path": "catalog/general-casting-clauses-2014.json",
+    "scope": "13selected complete scopes/32secondary paragraphs with separate cantrip errata and retained material qualifier omission",
+    "priorIndependentReviewInherited": false,
+    "fullGeneralChapterAccepted": false
+  },
+  "coVersionedConcentrationTargets": {
+    "path": "catalog/general-concentration-targets-2014.json",
+    "scope": "6complete selected scopes/13paragraphs/3list items; Basic rounding and target referent caveat separate",
+    "priorIndependentReviewInherited": false,
+    "fullGeneralChapterAccepted": false
+  },
+  "coVersionedAreasEffects": {
+    "path": "catalog/general-areas-effects-2014.json",
+    "scope": "9complete ordinary-prose scopes/19paragraphs;7diagrams/6captions retained unverified;equal-potency errata separate",
+    "priorIndependentReviewInherited": false,
+    "fullGeneralChapterAccepted": false
+  },
+  "coVersionedIntroductionsSchools": {
+    "path": "catalog/general-introductions-schools-2014.json",
+    "scope": "4complete selected text scopes/18paragraphs/eight explicitly mapped categories; narrative not grants",
+    "priorIndependentReviewInherited": false,
+    "fullGeneralChapterAccepted": false
+  },
+  "coVersionedReadyBonus": {
+    "path": "catalog/ready-bonus-context-2014.json",
+    "scope": "2secondary observations/3paragraphs;full Ready93-94 context,not whole secondary action or second bonus rule",
+    "priorIndependentReviewInherited": false,
+    "fullGeneralChapterAccepted": false
+  },
+  "coVersionedNarrativeCoverage": {
+    "narrativePath": "catalog/weave-narrative-2014.json",
+    "coveragePath": "catalog/spellcasting-scope-coverage-2014.json",
+    "scope": "2narrative scopes/7paragraphs and49source-body map;38selected witnesses/11pending plus5media holds,not rule denominator",
+    "priorIndependentReviewInherited": false,
+    "fullGeneralChapterAccepted": false
+  },
+  "coVersionedWizardListChoices": {
+    "listPath": "catalog/wizard-spell-list-reference-2014.json",
+    "choicesPath": "catalog/wizard-core-choices-2014.json",
+    "scope": "204SRD names/circles,333paginated secondary observations+6targeted absences,17name correspondences and4Wizard-TCE labels;2complete selected secondary core scopes/6paragraphs with separate optional-feat context",
+    "priorIndependentReviewInherited": false,
+    "fullSecondaryClassListAccepted": false,
+    "fullWizardRulesAccepted": false,
+    "originalFiveSupplementalLinksPreserved": true
+  },
+  "remainingSpecificCriteria": {
+    "fullSecondaryWizardList": "not established by pagination; all204 selected SRD names are accounted for, not a full WotC catalog",
+    "generalPrimaryBodyComparisons": 11,
+    "generalMediaHeadings": 5,
+    "cantripFormulas31": "exact TCE primary/version remains required",
+    "wholeWizardClass": "not accepted"
+  },
+  "coVersionedWizardEntry": {
+    "path": "catalog/wizard-entry-boundaries-2014.json",
+    "scope": "2complete secondary HP/proficiency scopes/8paragraphs and only multiclass13paragraph2;SRD52/57 with separate Basic12minimum context",
+    "priorIndependentReviewInherited": false,
+    "fullWizardRulesAccepted": false,
+    "wholeMulticlassHeadingAccepted": false
+  },
+  "coVersionedWizardEquipment": {
+    "path": "catalog/wizard-equipment-2014.json",
+    "scope": "complete selected Equipment18 intro/four items or choices/alternate-wealth paragraph;SRD52 and selected Basic45Wizard4d4x10gp row",
+    "priorIndependentReviewInherited": false,
+    "fullWizardRulesAccepted": false,
+    "automaticInventoryGrantsAccepted": false
+  },
+  "coVersionedWizardMulticlass": {
+    "path": "catalog/wizard-multiclass-2014.json",
+    "scope": "Wizard13paragraphs0/1/3 with2reused;full selected SRDcasting57-58,180table cells,optional Basic58 and both-class prerequisite;not full translated rules",
+    "priorIndependentReviewInherited": false,
+    "fullWizardRulesAccepted": false,
+    "fullArtificerOrThirdCasterFormulaAccepted": false,
+    "runtimeAccepted": false
+  },
+  "coVersionedEvocation": {
+    "path": "catalog/wizard-evocation-low-level-2014.json",
+    "scope": "complete selected Evocation37/38/39 level2/6 clauses/SRD54,not narrative or level10/14",
+    "priorIndependentReviewInherited": false,
+    "fullSubclassOrRealCharacterChoiceAccepted": false,
+    "runtimeAccepted": false
+  },
+  "coVersionedClassUnitProposal": {
+    "path": "catalog/class-unit-granularity-proposal-2014.json",
+    "scope": "130preserved observations/23auxiliary headings; proposed feature/subclass/component roles,ASI occurrences and two preserved guidance witnesses",
+    "priorIndependentReviewInherited": false,
+    "authorProposalIndependentlyAccepted": false,
+    "globalDenominatorOrRuntimeKindsAccepted": false
+  },
+  "coVersionedThirteenClassUnitReview": {
+    "path": "catalog/class-unit-residual-review-2014.json",
+    "publisherWitnessPath": "catalog/class-multisource-toc-2014.json",
+    "scope": "913preserved proposed observations/13main classes,13sparse roles,28multi-source observations;31discovery rows retain3sidekicks/15excluded",
+    "priorIndependentReviewInherited": false,
+    "fullClassCatalogAccepted": false,
+    "canonicalDenominatorAccepted": false,
+    "runtimeAccepted": false
+  },
+  "specificPrimaryBodyHold": {
+    "family": "bard:college.eloquence",
+    "condition": "Exact authorized TCE/MOoT subclass bodies/versions not retained; two requests redirected to marketplace and timed out during body read.",
+    "evidence": "catalog/class-multisource-toc-2014.json",
+    "wholeIssueBlocked": false
+  },
+  "generator": {
+    "path": "scripts/review-current-class-evidence-2014.py",
+    "sha256": "d297051d13869211890a3dd25bbe166483edec1812105fb0c4c307ea5762b9df"
+  }
+}

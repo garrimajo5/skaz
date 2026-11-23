@@ -1,0 +1,374 @@
+{
+  "schemaVersion": 1,
+  "status": "whole-digital-feature-inventory-with-three-selected-component-comparisons-not-full-feature-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "sources": {
+    "digital": {
+      "requestedUrl": "https://www.dndbeyond.com/compendium/rules/basic-rules/classes",
+      "finalUrl": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/classes",
+      "status": 200,
+      "bytes": 1123584,
+      "sha256": "a08b309c589644f9faee67201dc7e0b9752be152215bce54d33d4b1ca7688c5e",
+      "capturedAt": "2026-11-20T23:36:30.780059+00:00"
+    },
+    "basic": {
+      "requestedUrl": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "finalUrl": "https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf",
+      "status": 200,
+      "bytes": 11537210,
+      "sha256": "7a0c5d8bf52d15092f156d78418aa3d43307e271f810d2f06bf2f0258e9288a3",
+      "capturedAt": "2026-11-20T23:23:21.716585+00:00",
+      "inspectedPdfPages": [
+        32
+      ]
+    },
+    "srd": {
+      "requestedUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "finalUrl": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "status": 200,
+      "bytes": 3158713,
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "capturedAt": "2026-11-20T23:25:29.033862+00:00",
+      "inspectedPdfPages": [
+        52,
+        53
+      ]
+    }
+  },
+  "inventory": [
+    {
+      "headingId": "WizardSpellcasting",
+      "headingText": "Spellcasting",
+      "paragraphCount": 1,
+      "paragraphTextSha256": [
+        "ae2bc91dc791d14dcff41cb4813dea2e924a6bf079faea9c11e76a3eecf2b3d3"
+      ],
+      "sourceTextComparisonState": "full-comparison-still-required",
+      "fullRulesAccepted": false
+    },
+    {
+      "headingId": "Cantrips6",
+      "headingText": "Cantrips",
+      "paragraphCount": 1,
+      "paragraphTextSha256": [
+        "9bced6f304436b71b7f186a181358b9b62e24b730042e1bd061d7dc2091d6587"
+      ],
+      "sourceTextComparisonState": "new-three-carrier-component-comparison",
+      "fullRulesAccepted": false
+    },
+    {
+      "headingId": "Spellbook",
+      "headingText": "Spellbook",
+      "paragraphCount": 1,
+      "paragraphTextSha256": [
+        "a0cdfa1de89e64564e4a83ca354603fcc99e469b3831c8e8b672e9ccb0a9b46e"
+      ],
+      "sourceTextComparisonState": "new-three-carrier-component-comparison",
+      "fullRulesAccepted": false
+    },
+    {
+      "headingId": "PreparingandCastingSpells4",
+      "headingText": "Preparing and Casting Spells",
+      "paragraphCount": 4,
+      "paragraphTextSha256": [
+        "c6bc097780b60d682399be76b5658dae27cf7cdd19f9be6fedd0aa82d96ece4a",
+        "0e2c2cd561608a5d75b701fd2aa0f3d60da0f97cbaf9ada7594a52625604af25",
+        "423cf0344b75b9f0c91992481c5ad4fb935b189152123e98bba15a8a22839c3f",
+        "618b5c295f0d4cbe02d54cf634bc06888840a0db16bf820ea8bcd85fa34542ef"
+      ],
+      "sourceTextComparisonState": "existing-selected-components-not-repeated",
+      "fullRulesAccepted": false
+    },
+    {
+      "headingId": "SpellcastingAbility8",
+      "headingText": "Spellcasting Ability",
+      "paragraphCount": 3,
+      "paragraphTextSha256": [
+        "b651c7f69f047a2f43d82afe6951165af60fc303cc2cd95d5550a761da252412",
+        "e8e2cb858f75a832ab72b88a3651b6a9d35b0734df5ec9064832961c8e8411a0",
+        "e9d90e078fc1ef6c2bdb7f0cd4e1ba400240d8a199fb0fbfe0a76796f4a0d7a1"
+      ],
+      "sourceTextComparisonState": "existing-selected-components-not-repeated",
+      "fullRulesAccepted": false
+    },
+    {
+      "headingId": "RitualCasting4",
+      "headingText": "Ritual Casting",
+      "paragraphCount": 1,
+      "paragraphTextSha256": [
+        "829c52f5e4f02a5d62212ce6f5852ae8d86321dee3b171213108d29c4e11d0d0"
+      ],
+      "sourceTextComparisonState": "existing-selected-components-not-repeated",
+      "fullRulesAccepted": false
+    },
+    {
+      "headingId": "SpellcastingFocus7",
+      "headingText": "Spellcasting Focus",
+      "paragraphCount": 1,
+      "paragraphTextSha256": [
+        "3232f4cb6272bf871611451255ec0d9b867ce97454b6bea27d43e3a3829d5a90"
+      ],
+      "sourceTextComparisonState": "new-three-carrier-component-comparison",
+      "fullRulesAccepted": false
+    },
+    {
+      "headingId": "LearningSpellsof1stLevelandHigher",
+      "headingText": "Learning Spells of 1st Level and Higher",
+      "paragraphCount": 1,
+      "paragraphTextSha256": [
+        "93101b58a0860981640e420ce67ce10c0142461dd413193b8764d589112452c0"
+      ],
+      "sourceTextComparisonState": "existing-selected-components-not-repeated",
+      "fullRulesAccepted": false
+    },
+    {
+      "headingId": "YourSpellbookSidebar",
+      "headingText": "Your Spellbook",
+      "paragraphCount": 7,
+      "paragraphTextSha256": [
+        "1c2de3a52fce81ce1ebd24d8e27a8cab9771bb96bfd135db89dab7416cfb52b5",
+        "44392820f8d76d1ec840a510210477c2467fd0350b7209486c05d3ea267938a5",
+        "167e0f05ef89311f8fb6c3cc73d528214c4f80074e80d1f36d519b918832b493",
+        "3d65ce11ed9dd86d3835b46987b05f4bbaa061bfc211600b6d179cfb5c6438d1",
+        "5d1358bc35eb9546b3595a62b111e88aa93fa9dbef5de2f835d6df804e835623",
+        "2c0092d2350b196d60ecdae2bab35362b44b95d815dcbfe464fc38cc4bb7a2f1",
+        "62f55f682961d0146d0d253e312c0b2e766759d959f9331bd16d8078c64a3b29"
+      ],
+      "sourceTextComparisonState": "full-comparison-still-required",
+      "fullRulesAccepted": false
+    }
+  ],
+  "selectedNewComparisons": [
+    {
+      "headingId": "Cantrips6",
+      "differenceClassification": "equal-after-bounded-layout-normalization",
+      "witnesses": {
+        "digital": {
+          "rawUnitSha256": "9bced6f304436b71b7f186a181358b9b62e24b730042e1bd061d7dc2091d6587",
+          "normalizedUnitSha256": "9bced6f304436b71b7f186a181358b9b62e24b730042e1bd061d7dc2091d6587",
+          "wordCount": 37,
+          "layoutRepairs": {
+            "ordinalHyphenRepairs": 0,
+            "verifiedBasicFinishWrapRepairs": 0,
+            "visuallyCheckedSrdChoiceSplitRepairs": 0,
+            "visuallyCheckedBasicRepositoryWrapRepairs": 0
+          }
+        },
+        "basic": {
+          "rawUnitSha256": "50a2b8bf2b0d18482ea9d30570b018dc7b968509b54a20bbc9bd302fc0004d34",
+          "normalizedUnitSha256": "9bced6f304436b71b7f186a181358b9b62e24b730042e1bd061d7dc2091d6587",
+          "wordCount": 37,
+          "layoutRepairs": {
+            "ordinalHyphenRepairs": 0,
+            "verifiedBasicFinishWrapRepairs": 0,
+            "visuallyCheckedSrdChoiceSplitRepairs": 0,
+            "visuallyCheckedBasicRepositoryWrapRepairs": 0
+          }
+        },
+        "srd": {
+          "rawUnitSha256": "648843183695adbf0f9a0744e89ba56c454f9fc9203aa2cf7fa499c0854dccce",
+          "normalizedUnitSha256": "9bced6f304436b71b7f186a181358b9b62e24b730042e1bd061d7dc2091d6587",
+          "wordCount": 37,
+          "layoutRepairs": {
+            "ordinalHyphenRepairs": 0,
+            "verifiedBasicFinishWrapRepairs": 0,
+            "visuallyCheckedSrdChoiceSplitRepairs": 1,
+            "visuallyCheckedBasicRepositoryWrapRepairs": 0
+          }
+        }
+      },
+      "ordinaryFacts": {
+        "ordinaryWizardClassEntryCantripCount": 3,
+        "choicesRequired": true,
+        "higherLevelsReferToWizardTable": true,
+        "otherClassCantripsOverwritten": false
+      },
+      "allThreeLiteralTextsEqual": true,
+      "digitalVersusBasicDeltas": [],
+      "digitalVersusSrdDeltas": [],
+      "wholeWizardSpellcastingAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "headingId": "Spellbook",
+      "differenceClassification": "equal-after-bounded-layout-normalization",
+      "witnesses": {
+        "digital": {
+          "rawUnitSha256": "a0cdfa1de89e64564e4a83ca354603fcc99e469b3831c8e8b672e9ccb0a9b46e",
+          "normalizedUnitSha256": "a0cdfa1de89e64564e4a83ca354603fcc99e469b3831c8e8b672e9ccb0a9b46e",
+          "wordCount": 35,
+          "layoutRepairs": {
+            "ordinalHyphenRepairs": 0,
+            "verifiedBasicFinishWrapRepairs": 0,
+            "visuallyCheckedSrdChoiceSplitRepairs": 0,
+            "visuallyCheckedBasicRepositoryWrapRepairs": 0
+          }
+        },
+        "basic": {
+          "rawUnitSha256": "608b592a6af1374c6515ede7343dd62947a8174ecfe12b69b28e04edd87c243c",
+          "normalizedUnitSha256": "a0cdfa1de89e64564e4a83ca354603fcc99e469b3831c8e8b672e9ccb0a9b46e",
+          "wordCount": 35,
+          "layoutRepairs": {
+            "ordinalHyphenRepairs": 0,
+            "verifiedBasicFinishWrapRepairs": 0,
+            "visuallyCheckedSrdChoiceSplitRepairs": 0,
+            "visuallyCheckedBasicRepositoryWrapRepairs": 1
+          }
+        },
+        "srd": {
+          "rawUnitSha256": "6d76ecd66cb5b09875b6295453ddf0dd5b690c2e42a78011c4f6568357bcfa35",
+          "normalizedUnitSha256": "a0cdfa1de89e64564e4a83ca354603fcc99e469b3831c8e8b672e9ccb0a9b46e",
+          "wordCount": 35,
+          "layoutRepairs": {
+            "ordinalHyphenRepairs": 1,
+            "verifiedBasicFinishWrapRepairs": 0,
+            "visuallyCheckedSrdChoiceSplitRepairs": 0,
+            "visuallyCheckedBasicRepositoryWrapRepairs": 0
+          }
+        }
+      },
+      "ordinaryFacts": {
+        "ordinaryWizardClassEntryBookSpellCount": 6,
+        "ordinaryInitialBookSpellLevel": 1,
+        "cantripsStoredInBook": false,
+        "reappliedOnImportedLevelsOrEveryLevel": false
+      },
+      "allThreeLiteralTextsEqual": true,
+      "digitalVersusBasicDeltas": [],
+      "digitalVersusSrdDeltas": [],
+      "wholeWizardSpellcastingAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "headingId": "SpellcastingFocus7",
+      "differenceClassification": "document-cross-reference-wording-differs-only",
+      "witnesses": {
+        "digital": {
+          "rawUnitSha256": "3232f4cb6272bf871611451255ec0d9b867ce97454b6bea27d43e3a3829d5a90",
+          "normalizedUnitSha256": "3232f4cb6272bf871611451255ec0d9b867ce97454b6bea27d43e3a3829d5a90",
+          "wordCount": 18,
+          "layoutRepairs": {
+            "ordinalHyphenRepairs": 0,
+            "verifiedBasicFinishWrapRepairs": 0,
+            "visuallyCheckedSrdChoiceSplitRepairs": 0,
+            "visuallyCheckedBasicRepositoryWrapRepairs": 0
+          }
+        },
+        "basic": {
+          "rawUnitSha256": "97a394f352e777b0164987ca025df193df8067c2eec9ac030a5920622e802abc",
+          "normalizedUnitSha256": "5777f1a15cd817597eca5057af81adc2c6688a26f55ff4a2c1dd24bf4b98040e",
+          "wordCount": 18,
+          "layoutRepairs": {
+            "ordinalHyphenRepairs": 0,
+            "verifiedBasicFinishWrapRepairs": 0,
+            "visuallyCheckedSrdChoiceSplitRepairs": 0,
+            "visuallyCheckedBasicRepositoryWrapRepairs": 0
+          }
+        },
+        "srd": {
+          "rawUnitSha256": "302785b16aab8457c2ce996181f5b4faff41e1138b09ce977d797ad030a1581b",
+          "normalizedUnitSha256": "519c7311830d74b6b6f81babea4c0505b87534933d8329db842d0a7bae04e1fb",
+          "wordCount": 14,
+          "layoutRepairs": {
+            "ordinalHyphenRepairs": 0,
+            "verifiedBasicFinishWrapRepairs": 0,
+            "visuallyCheckedSrdChoiceSplitRepairs": 0,
+            "visuallyCheckedBasicRepositoryWrapRepairs": 0
+          }
+        }
+      },
+      "ordinaryFacts": {
+        "wizardArcaneFocusAllowed": true,
+        "otherClassFocusRuleInferred": false,
+        "costlyOrConsumedComponentExemptionInferred": false
+      },
+      "allThreeLiteralTextsEqual": false,
+      "digitalVersusBasicDeltas": [
+        {
+          "operation": "replace",
+          "leftWords": [
+            "(see"
+          ],
+          "rightWords": [
+            "(found",
+            "in"
+          ],
+          "leftWordCount": 1,
+          "rightWordCount": 2
+        },
+        {
+          "operation": "replace",
+          "leftWords": [
+            "5,",
+            "“Equip­ment”)"
+          ],
+          "rightWords": [
+            "5)"
+          ],
+          "leftWordCount": 2,
+          "rightWordCount": 1
+        }
+      ],
+      "digitalVersusSrdDeltas": [
+        {
+          "operation": "delete",
+          "leftWords": [
+            "(see",
+            "chapter",
+            "5,",
+            "“Equip­ment”)"
+          ],
+          "rightWords": [],
+          "leftWordCount": 4,
+          "rightWordCount": 0
+        }
+      ],
+      "wholeWizardSpellcastingAccepted": false,
+      "acceptedForRuntime": false
+    }
+  ],
+  "summary": {
+    "digitalComponentBlocks": 9,
+    "digitalParagraphsIncludingSidebarTitle": 21,
+    "newlyComparedComponents": 3,
+    "wholeFeatureAccepted": false,
+    "canonicalUnitsAccepted": 0
+  },
+  "openReferenceGraph": [
+    "Wizard table",
+    "general spellcasting rules",
+    "Wizard spell list",
+    "remaining complete Your Spellbook sidebar/version comparison"
+  ],
+  "scopeBoundaries": {
+    "sidebarCapturedSeparately": true,
+    "sidebarCompleteTextComparedAcrossCarriers": false,
+    "oldPreparationUnitPromotedToWholeFeature": false,
+    "existingRitualUnitRecountedAsNew": false
+  },
+  "inputSha256": {
+    "catalog/basic-rules-publication-boundary-2014.json": "581a431600b794854b840c4d1ab7f5ed210c5ddb3286cf3058905ff506cdf5b6",
+    "catalog/wizard-artificer-source-scopes-2014.json": "35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5",
+    "catalog/rest-spellcasting-source-comparison-2014.json": "74078b423eb8670a9c7a2a00a00109c5621e42c1c141a28f41f688a310352ada",
+    "catalog/wizard-ritual-source-comparison-2014.json": "b86c7cab1fff18dd8a13507d317cb3a9cb25b3066562fc3f197f766512ae553b"
+  },
+  "generator": {
+    "path": "scripts/audit-wizard-spellcasting-scope-2014.py",
+    "sha256": "5b15411e559c1d153f7b7021fd12d98640baf70d70c67a14e1b53512c59f0b37"
+  },
+  "upstreamParser": {
+    "path": "scripts/audit-wizard-recovery-source-comparison-2014.py",
+    "sha256": "315a8a4c5f3763ccd55c70b7a0211deb2b1e8e34e13057af489a31580b2fb388"
+  },
+  "limits": [
+    "The digital inventory captures intro, seven inline subsections and one sidebar; it is not whole multi-carrier feature equality.",
+    "Literal differences are retained; matching selected ordinary facts never grants global text identity, translation rights or canonical aliases.",
+    "Initial Wizard choices are separate from later learning and importing existing levels; no extra spells or cantrips granted.",
+    "Wizard arcane focus is not an Artificer rule or an exemption from other spell components.",
+    "No full prose, private profile, runtime, other-carrier reuse permission or owner milestone acceptance exported."
+  ]
+}

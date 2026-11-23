@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "status": "explicit-unnumbered-publication-relations-not-canonical-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "unnumberedObservations": 75,
+    "preservedExcludedObservations": 72,
+    "explicitBibliographicRelations": 3,
+    "publisherIdentityRecords": 4,
+    "acceptedCanonicalUnits": 0,
+    "inventedNumericSourceIds": 0
+  },
+  "primaryIndex": {
+    "url": "https://www.dndbeyond.com/species",
+    "htmlSha256": "9814b2197017a66d0c3dbe93cbcff2c187449a74739670074466fddaf769294b",
+    "records": [
+      {
+        "name": "Grung",
+        "publication": "One Grung Above",
+        "url": "https://www.dndbeyond.com/species/302384-grung"
+      },
+      {
+        "name": "Locathah",
+        "publication": "Locathah Rising",
+        "url": "https://www.dndbeyond.com/species/229754-locathah"
+      },
+      {
+        "name": "Tortle",
+        "publication": "Mordenkainen Presents: Monsters of the Multiverse",
+        "url": "https://www.dndbeyond.com/species/1026404-tortle"
+      },
+      {
+        "name": "Tortle",
+        "publication": "The Tortle Package",
+        "url": "https://www.dndbeyond.com/species/41-tortle"
+      }
+    ],
+    "fullRulesAccepted": false
+  },
+  "relations": [
+    {
+      "observationId": "dndsu:race:169",
+      "referenceUrl": "https://dnd.su/race/169-grung/",
+      "observedSourceIds": [],
+      "observedSourceTitle": "One Grung Above",
+      "originalInclusion": "needs-source-review",
+      "bibliographyEvidenceId": "bibliography:one-grung-above",
+      "proposedSourceReference": {
+        "kind": "bibliography",
+        "id": "bibliography:one-grung-above"
+      },
+      "publisherIdentity": {
+        "name": "Grung",
+        "publication": "One Grung Above",
+        "url": "https://www.dndbeyond.com/species/302384-grung"
+      },
+      "basis": "explicit-reference-bibliography-id-and-title-plus-exact-publisher-listing",
+      "fullTextEquivalence": "unverified",
+      "exactErrataVersion": "unverified",
+      "textReusePermission": "not-established",
+      "translationReusePermission": "not-established",
+      "historicalBibliographyScopeDecision": "awaiting-game-designer-review",
+      "currentNamedPublicationDisposition": "needs-official-rules-status-review",
+      "accepted": false,
+      "canonicalId": null,
+      "numericSourceId": null,
+      "automaticAttribution": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "observationId": "dndsu:race:178",
+      "referenceUrl": "https://dnd.su/race/178-locathah/",
+      "observedSourceIds": [],
+      "observedSourceTitle": "Locathah Rising",
+      "originalInclusion": "needs-source-review",
+      "bibliographyEvidenceId": "bibliography:locathah-rising",
+      "proposedSourceReference": {
+        "kind": "bibliography",
+        "id": "bibliography:locathah-rising"
+      },
+      "publisherIdentity": {
+        "name": "Locathah",
+        "publication": "Locathah Rising",
+        "url": "https://www.dndbeyond.com/species/229754-locathah"
+      },
+      "basis": "explicit-reference-bibliography-id-and-title-plus-exact-publisher-listing",
+      "fullTextEquivalence": "unverified",
+      "exactErrataVersion": "unverified",
+      "textReusePermission": "not-established",
+      "translationReusePermission": "not-established",
+      "historicalBibliographyScopeDecision": "awaiting-game-designer-review",
+      "currentNamedPublicationDisposition": "eligible-publication-records-need-review",
+      "accepted": false,
+      "canonicalId": null,
+      "numericSourceId": null,
+      "automaticAttribution": false,
+      "automaticCharacterMigration": false
+    },
+    {
+      "observationId": "dndsu:race:184",
+      "referenceUrl": "https://dnd.su/race/184-tortle/",
+      "observedSourceIds": [],
+      "observedSourceTitle": "The Tortle Package",
+      "originalInclusion": "needs-source-review",
+      "bibliographyEvidenceId": "bibliography:the-tortle-package",
+      "proposedSourceReference": {
+        "kind": "bibliography",
+        "id": "bibliography:the-tortle-package"
+      },
+      "publisherIdentity": {
+        "name": "Tortle",
+        "publication": "The Tortle Package",
+        "url": "https://www.dndbeyond.com/species/41-tortle"
+      },
+      "basis": "explicit-reference-bibliography-id-and-title-plus-exact-publisher-listing",
+      "fullTextEquivalence": "unverified",
+      "exactErrataVersion": "unverified",
+      "textReusePermission": "not-established",
+      "translationReusePermission": "not-established",
+      "historicalBibliographyScopeDecision": "awaiting-game-designer-review",
+      "currentNamedPublicationDisposition": "eligible-publication-records-need-review",
+      "accepted": false,
+      "canonicalId": null,
+      "numericSourceId": null,
+      "automaticAttribution": false,
+      "automaticCharacterMigration": false
+    }
+  ],
+  "historicalDiagnostic": {
+    "observationId": "dndsu:race:184",
+    "priorNumericOnlyMissingReason": "missing-source-attribution",
+    "explicitBibliographyWasAlreadyPresent": true,
+    "priorReportChanged": false
+  },
+  "limitations": [
+    "Exact explicit bibliographic references are distinguished from numeric source IDs; no numeric IDs or canonical units are invented.",
+    "A publisher index corroborates name/publication identity, not the full text or exact errata of the secondary observation.",
+    "72 excluded observations stay excluded and are not mapped by fuzzy name or title.",
+    "The old numeric-only report and root source arrays are preserved; this separate layer does not approve scope, reuse, translation or migration."
+  ],
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/source-bibliography-evidence.json": "f5ca4401eb4eaf8cf572163844f36dd688d55e4125230944d794dfcdaa28d3b9",
+    "catalog/race-other-version-proposals-2014.json": "aec291bd0f0472dceb29e70563212b1019750cfef6e10d6b2f2aff5f3418b19a",
+    "catalog/tortle-source-plaque-2014.json": "204fbcef63f726c5f8ad0665e4d37f40334f1d53602bfc93e0b5a1fa1d21aaa7",
+    "catalog/named-race-source-policy-2014.json": "bb4196a0c51dbcd9c753b6dbc6ee098952269de2b60b160197f6a6a165bdea91"
+  }
+}

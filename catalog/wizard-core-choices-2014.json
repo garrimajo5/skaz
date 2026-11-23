@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "status": "bounded-core-choice-concordance-not-full-class-or-runtime",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "sources": {
+    "secondary": {
+      "url": "https://dnd.su/class/105-wizard/",
+      "sha256": "5014af15fd61af05dde5bd29e19514b8fd87fe10ea60fbcd8a81f6574e2053c8",
+      "historicalCandidateSnapshotSha256": "f226111ed72d4f8be34c2cf3ecb0bba2f6486d2b3679187eeb4ec96e1e5ca9b1",
+      "sameAsHistoricalCandidateSnapshot": false,
+      "receiptBasis": "retained public HTML; original HTTP receipt unavailable"
+    },
+    "srd": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "renderedPagesChecked": [
+        53,
+        75
+      ]
+    }
+  },
+  "primaryScopes": [
+    {
+      "kind": "tradition",
+      "pdfPages": [
+        53
+      ],
+      "start": "Arcane Tradition",
+      "stop": "Ability Score Improvement",
+      "textSha256": "eadfc076a863db143de27c4e2a971c33d4e9d53cee535b0976ab1b22a9c7ded6",
+      "wordCount": 39,
+      "wholeFollowingFeatureIncluded": false
+    },
+    {
+      "kind": "asi-reused",
+      "pdfPages": [
+        53
+      ],
+      "start": "Ability Score Improvement",
+      "stop": "Spell Mastery",
+      "textSha256": "c196e12a01ebb195110bf6e56efccedfe31c632bc996831dcaae08b4cb51d7f6",
+      "wordCount": 50,
+      "wholeFollowingFeatureIncluded": false
+    },
+    {
+      "kind": "optional-feats-context",
+      "pdfPages": [
+        75
+      ],
+      "start": "Feats",
+      "stop": "Grappler Prerequisite: Strength 13 or higher",
+      "textSha256": "17800b4e3780163a4955285274cc3ff77ea69cddcd749183a9aaa70e272b4f63",
+      "wordCount": 139,
+      "wholeFollowingFeatureIncluded": false
+    }
+  ],
+  "primaryAsiContextReused": {
+    "path": "catalog/rest-spellcasting-source-comparison-2014.json",
+    "unitKey": "wizard-asi-levels",
+    "sourceFacts": {
+      "wizardClassLevels": [
+        4,
+        8,
+        12,
+        16,
+        19
+      ],
+      "ordinaryOptions": {
+        "oneAbilityIncrease": 2,
+        "twoAbilityIncreasesEach": 1
+      },
+      "ordinaryAbilityCap": 20
+    },
+    "newPrimaryAsiDiscoveryClaimed": false
+  },
+  "secondaryScopes": [
+    {
+      "originalCandidateReferencePreserved": {
+        "id": "scope:wizard:class-features:feature.arcane-tradition",
+        "kind": "base-feature",
+        "title": "МАГИЧЕСКИЕ ТРАДИЦИИ",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#feature.arcane-tradition",
+        "headingOrdinal": 30,
+        "parent": "class-features",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          2
+        ]
+      },
+      "secondaryWitness": {
+        "headingOrdinal": 30,
+        "title": "МАГИЧЕСКИЕ ТРАДИЦИИ",
+        "bodySha256": "4b4a742336bbcaf05a341a5fa22ba5dbc3d1accf35331abc23e98c5f452718ab",
+        "paragraphSha256": [
+          "41ce6dbd53bc66647d3364a81526efac8e3e6f0302b040e537a458f977a9e4bd",
+          "81235373145a87fa7184e993aa627aec4fafad10af856390402e7cebf4b59931",
+          "7707d72405ae44280bdded03ebe498b398e3ce9a3a5f4b5eb37f44725ca8a28f"
+        ],
+        "paragraphCountIncludingLevelLabel": 3,
+        "firstParagraphKind": "level-and-feature-label",
+        "remainingParagraphCount": 2
+      },
+      "primaryEvidenceKind": "tradition",
+      "candidateFullClassOrOriginalPublicationAccepted": false,
+      "automationAccepted": false
+    },
+    {
+      "originalCandidateReferencePreserved": {
+        "id": "scope:wizard:class-features:feature.ASI",
+        "kind": "base-feature",
+        "title": "УВЕЛИЧЕНИЕ ХАРАКТЕРИСТИК",
+        "sourceUrl": "https://dnd.su/class/105-wizard/#feature.ASI",
+        "headingOrdinal": 32,
+        "parent": "class-features",
+        "sourceIds": [
+          "102"
+        ],
+        "sourceBasis": "base-class-page-source",
+        "observedInitialLevels": [
+          4
+        ]
+      },
+      "secondaryWitness": {
+        "headingOrdinal": 32,
+        "title": "УВЕЛИЧЕНИЕ ХАРАКТЕРИСТИК",
+        "bodySha256": "c45693a9aa8507f8ab8d5f2feb903b069e7d5a8d66a7c4db71077351f1bbf052",
+        "paragraphSha256": [
+          "ee31bc253956258d8822d35dd27eff54de7d575a2377bf24ae3a44e9cc51ad4e",
+          "6105361a820828b31a7e0b2677d14f76dde9f0e24e5bedf9e27be6e593d22391",
+          "2ee2243029deafdc7d5a16ce1a6a96b1e5052865211462131c62c97f9cbad7b9"
+        ],
+        "paragraphCountIncludingLevelLabel": 3,
+        "firstParagraphKind": "level-and-feature-label",
+        "remainingParagraphCount": 2
+      },
+      "primaryEvidenceKind": "asi-reused",
+      "candidateFullClassOrOriginalPublicationAccepted": false,
+      "automationAccepted": false
+    }
+  ],
+  "manualAssessments": [
+    {
+      "key": "tradition-progression",
+      "secondaryHeadingOrdinal": 30,
+      "paragraphIndexes": [
+        0,
+        1,
+        2
+      ],
+      "classification": "same-entry-and-progression-levels-with-source-specific-description",
+      "ordinaryWizardClassLevels": [
+        2,
+        6,
+        10,
+        14
+      ],
+      "primaryEightSchoolsAndEvocationExampleNotRepeatedLiterally": true,
+      "secondaryNavigationToClassEndNotVerifiedAsOfficialSubclassCatalog": true,
+      "allSchoolsAutomaticallyGranted": false
+    },
+    {
+      "key": "asi-core",
+      "secondaryHeadingOrdinal": 32,
+      "paragraphIndexes": [
+        0,
+        1
+      ],
+      "classification": "same-selected-levels-options-and-feature-local-cap",
+      "ordinaryWizardClassLevels": [
+        4,
+        8,
+        12,
+        16,
+        19
+      ],
+      "abilityOptions": {
+        "oneAbilityBy": 2,
+        "twoDistinctAbilitiesEachBy": 1
+      },
+      "ordinaryCapUsingThisFeature": 20,
+      "capIsUniversalForEveryItemBuffOrManualProfile": false,
+      "characterTotalLevelsUsedInsteadOfWizardLevels": false,
+      "importedAsiAppliedAgain": false
+    },
+    {
+      "key": "asi-optional-feat-insert",
+      "secondaryHeadingOrdinal": 32,
+      "paragraphIndexes": [
+        2
+      ],
+      "classification": "optional-rule-context-outside-primary-class-asi-paragraph",
+      "primaryContext": "optional-feats-context",
+      "inLieuOfAsiNotAnAdditionalAsi": true,
+      "ordinaryFeatRepeatAndPrerequisitesComeFromFeatContext": true,
+      "wholeFeatContextTranslatedByThisSingleParagraph": false,
+      "grapplerBenefitsOrAllFeatsAccepted": false
+    }
+  ],
+  "implementationBoundaries": {
+    "ordinaryGameDeviationsWarnAndAllowManual": true,
+    "gmAgreementCheckboxRequired": false,
+    "technicalIntegrityChecksUnchanged": true,
+    "automaticClassChoiceMade": false,
+    "automaticCapabilityAccepted": false
+  },
+  "syntheticDecisionCases": [
+    {
+      "wizardClassLevel": 3,
+      "otherClassLevel": 1,
+      "totalLevel": 4,
+      "ordinaryWizardAsiDueAtThisWizardLevel": false
+    },
+    {
+      "wizardClassLevel": 4,
+      "otherClassLevel": 3,
+      "totalLevel": 7,
+      "ordinaryWizardAsiDueAtThisWizardLevel": true,
+      "choiceRequired": true,
+      "alreadyImportedImprovementReapplied": false
+    },
+    {
+      "wizardClassLevel": 4,
+      "manualAbilityScore": 21,
+      "ordinaryCapWarning": true,
+      "manualSaveAllowed": true,
+      "automaticIncreaseWithoutChoice": false
+    }
+  ],
+  "summary": {
+    "selectedCandidateScopes": 2,
+    "secondaryParagraphsIncludingLevelLabels": 6,
+    "secondaryRuleProseParagraphs": 4,
+    "separateLevelLabels": 2,
+    "newSelectedPrimaryScopes": 2,
+    "reusedAsiPrimaryScopes": 1,
+    "manualAssessments": 3,
+    "canonicalUnitsAccepted": 0
+  },
+  "limits": [
+    "Selected translation comparison does not validate historical PHB source/version or a full Wizard class.",
+    "Cantrip Formulas/TCE31 remains separate and unverified; no inheritance from neighboring feature.",
+    "Feature-local cap/ordinary optional-feat prerequisites are warnings for deviations, not technical profile locks.",
+    "No subclass catalogs, all feat texts, runtime or canonical denominator accepted."
+  ],
+  "inputSha256": {
+    "catalog/wizard-artificer-source-scopes-2014.json": "35cd01d9e040f995d980a655ca900492ffd8d211a88ed040d2cd5323f4bc9bd5",
+    "catalog/rest-spellcasting-source-comparison-2014.json": "74078b423eb8670a9c7a2a00a00109c5621e42c1c141a28f41f688a310352ada"
+  },
+  "upstreamParserSha256": {
+    "scripts/audit-wizard-candidate-concordance-2014.py": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b",
+    "scripts/audit-general-casting-clauses-2014.py": "c29e37353aedb0d78d8305a34eec865a442f316071913278a2a3aa390c820aa3"
+  },
+  "generator": {
+    "path": "scripts/audit-wizard-core-choices-2014.py",
+    "sha256": "9212085691d32e5f96765777815939597c378d9f110af6037c93c573139d5cf9"
+  }
+}

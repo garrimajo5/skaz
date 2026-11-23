@@ -1,0 +1,846 @@
+{
+  "schemaVersion": 1,
+  "status": "mixed-reference-inventory-with-two-selected-clause-comparisons-not-full-chapter",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "summary": {
+    "headingsInventoried": 48,
+    "blocksIncludingPrelude": 49,
+    "explicitSupplementalHeadingLabels": 5,
+    "completeSelectedSubsectionComparisons": 2,
+    "selectedSecondaryParagraphs": 4,
+    "canonicalUnitsAccepted": 0
+  },
+  "source": {
+    "requestedUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+    "capturedAt": "2026-11-21T14:29:12.576358+00:00",
+    "status": 200,
+    "finalUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+    "bytes": 438149,
+    "sha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+    "outcome": "complete",
+    "retried": false,
+    "declaredBytes": null,
+    "bodyFile": "spellcasting.html"
+  },
+  "primarySource": {
+    "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+    "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+    "pdfPage": 100,
+    "renderedPageInspected": true,
+    "textExtractor": "pypdfium2",
+    "extractorVersion": "5.13.0"
+  },
+  "inventory": {
+    "blocks": [
+      {
+        "ordinal": 0,
+        "level": null,
+        "title": "prelude",
+        "bodyTextSha256": "e2911ca3046aa98b44e795befd7a01fbeaf6309363f46674449b8c5bbe822f03",
+        "bodyWordCount": 104,
+        "bodyTagCounts": {
+          "a": 22,
+          "br": 1,
+          "div": 2,
+          "li": 26,
+          "p": 2,
+          "span": 29,
+          "svg": 2,
+          "ul": 1,
+          "use": 2
+        }
+      },
+      {
+        "ordinal": 1,
+        "level": 2,
+        "title": "Что такое заклинание?",
+        "bodyTextSha256": "06b066ed4373a55c959abb7c1272e974522935118286e27ad7c03b0969c1e266",
+        "bodyWordCount": 116,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 3,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 2,
+        "level": 3,
+        "title": "Уровень заклинания",
+        "bodyTextSha256": "e500d12c30d738a58d62da3061451e8d356c45f2fc6d63b1bc1f6ec201d5ef47",
+        "bodyWordCount": 93,
+        "bodyTagCounts": {
+          "a": 2,
+          "br": 1,
+          "p": 3,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 3,
+        "level": 3,
+        "title": "Известные и подготовленные заклинания",
+        "bodyTextSha256": "aac55888764893e936cc8b29f846a54f4dafbe38bb8f2483196fee1b8cacf932",
+        "bodyWordCount": 86,
+        "bodyTagCounts": {
+          "div": 1,
+          "p": 3,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 4,
+        "level": 3,
+        "title": "Накладывание заклинаний в доспехе",
+        "bodyTextSha256": "ece82a14cf5e7e4fa48a7ca02c03f7ea55cbafa975ca987b45c77ac4c67af8a8",
+        "bodyWordCount": 30,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 1,
+          "strong": 1
+        }
+      },
+      {
+        "ordinal": 5,
+        "level": 3,
+        "title": "Ячейки заклинаний",
+        "bodyTextSha256": "0137becfeb228736cdfc759b7ec5246895268985fb870d0fba8eb5101f106338",
+        "bodyWordCount": 206,
+        "bodyTagCounts": {
+          "a": 1,
+          "br": 1,
+          "p": 6,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 6,
+        "level": 3,
+        "title": "Накладывание заклинания с увеличенным уровнем",
+        "bodyTextSha256": "d3c0a2c0bc00398e7609fbc4cbeffcfef4862b359452573f7bfb76dea96dbd80",
+        "bodyWordCount": 76,
+        "bodyTagCounts": {
+          "a": 4,
+          "div": 1,
+          "p": 2
+        }
+      },
+      {
+        "ordinal": 7,
+        "level": 3,
+        "title": "Вариант: Очки заклинаний",
+        "bodyTextSha256": "48339d037b34e3543a95e60952c1d882999a4b94c99d92647231c738ecf0845e",
+        "bodyWordCount": 271,
+        "bodyTagCounts": {
+          "div": 1,
+          "p": 7,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 8,
+        "level": 4,
+        "title": "СТОИМОСТЬ В ОЧКАХ ЗАКЛИНАНИЙ",
+        "bodyTextSha256": "569f6a53e875e7b9f00978aa5cd987f7fa6fcf93db7b51298c0bfb156b07791c",
+        "bodyWordCount": 23,
+        "bodyTagCounts": {
+          "br": 2,
+          "table": 1,
+          "tbody": 1,
+          "td": 20,
+          "tr": 10
+        }
+      },
+      {
+        "ordinal": 9,
+        "level": 4,
+        "title": "ОЧКИ ЗАКЛИНАНИЙ В ЗАВИСИМОСТИ ОТ УРОВНЯ",
+        "bodyTextSha256": "aaced09361891ec104e06edb52e04f3e7a791335fb396c691ba1c7fb4e133c36",
+        "bodyWordCount": 67,
+        "bodyTagCounts": {
+          "br": 3,
+          "table": 3,
+          "tbody": 1,
+          "td": 63,
+          "tr": 21
+        }
+      },
+      {
+        "ordinal": 10,
+        "level": 3,
+        "title": "Заговоры",
+        "bodyTextSha256": "e96c573c4934fc5da9dfcf3309327ca6efd4f7d26784af891de24a3374c191fd",
+        "bodyWordCount": 50,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 2,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 11,
+        "level": 3,
+        "title": "Ритуалы",
+        "bodyTextSha256": "773f4aad3ef19186eddd65b607430e0c5af6b0007c5b71e070147e2bffa303dc",
+        "bodyWordCount": 95,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 4,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 12,
+        "level": 2,
+        "title": "Накладывание заклинания",
+        "bodyTextSha256": "af16640806e365232d2a76a6719fd6798cdcab21429a2478c293b0cf69e4decd",
+        "bodyWordCount": 40,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 2,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 13,
+        "level": 3,
+        "title": "Время накладывания",
+        "bodyTextSha256": "4eba4752c0a3c688e6078155926ec57c0a79e77a1cbb8b5251534ed6bc2f0e65",
+        "bodyWordCount": 15,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 1,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 14,
+        "level": 3,
+        "title": "Бонусное действие",
+        "bodyTextSha256": "833d757d8a52a98f003d4d5b5e70d57477572b613f30a689ea00c59ada25017f",
+        "bodyWordCount": 46,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 1
+        }
+      },
+      {
+        "ordinal": 15,
+        "level": 3,
+        "title": "Реакция",
+        "bodyTextSha256": "94d0f19b9bd15f1a81312ca079dfb03606d7857564df6e0c0641937baa5cc369",
+        "bodyWordCount": 36,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 1
+        }
+      },
+      {
+        "ordinal": 16,
+        "level": 3,
+        "title": "Долгое накладывание",
+        "bodyTextSha256": "19e8cd3010d4083695e8a6ec023d8964f7d98e6f80334d3bd5ad88ff42d569e1",
+        "bodyWordCount": 75,
+        "bodyTagCounts": {
+          "a": 1,
+          "div": 1,
+          "p": 1
+        }
+      },
+      {
+        "ordinal": 17,
+        "level": 3,
+        "title": "Действие подготовка",
+        "bodyTextSha256": "8130f2e025c8baa74769944ee466ddbde43ca35d86b8c8384780ced3b0efc6f0",
+        "bodyWordCount": 81,
+        "bodyTagCounts": {
+          "a": 4,
+          "div": 1,
+          "p": 2
+        }
+      },
+      {
+        "ordinal": 18,
+        "level": 3,
+        "title": "Заклинания, накладываемые бонусным действием",
+        "bodyTextSha256": "593d9e6472571699be37a497738d1b3fb1acffd1b2a209e5e3ebd5611e867971",
+        "bodyWordCount": 35,
+        "bodyTagCounts": {
+          "p": 1
+        }
+      },
+      {
+        "ordinal": 19,
+        "level": 3,
+        "title": "Дистанция",
+        "bodyTextSha256": "57a660e988e8b7fcf113b2ed1113b0c7f15453713d56e542ead03df7211e5f72",
+        "bodyWordCount": 122,
+        "bodyTagCounts": {
+          "a": 5,
+          "br": 1,
+          "p": 5,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 20,
+        "level": 3,
+        "title": "Компоненты",
+        "bodyTextSha256": "d660dfae14a032bc4c24006280d970e42f2c53924b654b8dabf985dbab1e26f9",
+        "bodyWordCount": 41,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 2,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 21,
+        "level": 3,
+        "title": "Вербальный (В)",
+        "bodyTextSha256": "6ecd2b40e439d4fd0e5bb08623e1f1fcddb66550f90d7084ec67d116260792be",
+        "bodyWordCount": 49,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 2
+        }
+      },
+      {
+        "ordinal": 22,
+        "level": 3,
+        "title": "Соматический (С)",
+        "bodyTextSha256": "543789b6931b8a89588e5879f8ce2451a05db28662e307ff6535502716a29b43",
+        "bodyWordCount": 28,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 2
+        }
+      },
+      {
+        "ordinal": 23,
+        "level": 3,
+        "title": "Материальный (М)",
+        "bodyTextSha256": "7e2df43160da7c8ca03ac9ed81b50bc287a299c941bb821bc9c731ecc8da2f90",
+        "bodyWordCount": 84,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 3,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 24,
+        "level": 3,
+        "title": "Длительность",
+        "bodyTextSha256": "090e24e89a4d5ef154d379131da5128ad78d3b5b5ebadbaa4069aa9c2ac63cc0",
+        "bodyWordCount": 37,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 1,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 25,
+        "level": 3,
+        "title": "Мгновенная",
+        "bodyTextSha256": "f1beebc84ca8163e726e3b1f4040552e8a830e6d592cdde1e6d0fde247ccad98",
+        "bodyWordCount": 24,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 1
+        }
+      },
+      {
+        "ordinal": 26,
+        "level": 3,
+        "title": "Концентрация",
+        "bodyTextSha256": "b7fa8d4ae257d99d425050c593339dcd2552b233b0006a93f8558e27926658a9",
+        "bodyWordCount": 182,
+        "bodyTagCounts": {
+          "div": 1,
+          "li": 3,
+          "p": 5,
+          "span": 3,
+          "ul": 1
+        }
+      },
+      {
+        "ordinal": 27,
+        "level": 3,
+        "title": "Школы магии",
+        "bodyTextSha256": "7f2febb86cd967efc860baaa37864940e7ae031e268ecd9350f8f51d5da3dfdb",
+        "bodyWordCount": 336,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 10,
+          "strong": 10
+        }
+      },
+      {
+        "ordinal": 28,
+        "level": 3,
+        "title": "Цели",
+        "bodyTextSha256": "0bc17b727433488b4b749e61b80c144c7777923ee79bae7b7183e3b4b2bd98e8",
+        "bodyWordCount": 73,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 3,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 29,
+        "level": 3,
+        "title": "Свободный путь до цели",
+        "bodyTextSha256": "6c49f1606512538d3122e098b3bccecbbed2a65d049dbaabe774ce2bc024a025",
+        "bodyWordCount": 53,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 2,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 30,
+        "level": 3,
+        "title": "Нацеливание на себя",
+        "bodyTextSha256": "9efc116dca18d0f92d7877ba6eb3f4bda309527c303e895708c7786d12b17234",
+        "bodyWordCount": 44,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 1
+        }
+      },
+      {
+        "ordinal": 31,
+        "level": 3,
+        "title": "Наблюдая за работой заклинателя (XGE)",
+        "bodyTextSha256": "5050c6e7c1a613683c1ba076a2bdbb661e139d6704421f2d667c0e9d517ad8ec",
+        "bodyWordCount": 151,
+        "bodyTagCounts": {
+          "a": 1,
+          "br": 1,
+          "p": 3,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 32,
+        "level": 3,
+        "title": "Определение заклинания (XGE)",
+        "bodyTextSha256": "bae261570aac464234bfeb6457c3688ab586cdf7b6f794cdf7884b8c2400a1e6",
+        "bodyWordCount": 158,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 5,
+          "span": 3,
+          "strong": 1
+        }
+      },
+      {
+        "ordinal": 33,
+        "level": 3,
+        "title": "Недопустимые цели заклинания (XGE)",
+        "bodyTextSha256": "0fe073a02c3d9edcd52f0cde366fdb688658eaee86229ebad4a147d5ac53e938",
+        "bodyWordCount": 147,
+        "bodyTagCounts": {
+          "a": 1,
+          "br": 1,
+          "p": 2,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 34,
+        "level": 3,
+        "title": "Области воздействия",
+        "bodyTextSha256": "ff7051f5906efce741120365eb9b764e994d38211b924952788367978af9a020",
+        "bodyWordCount": 118,
+        "bodyTagCounts": {
+          "a": 2,
+          "br": 1,
+          "img": 1,
+          "p": 7,
+          "span": 2
+        }
+      },
+      {
+        "ordinal": 35,
+        "level": 3,
+        "title": "Конус",
+        "bodyTextSha256": "753434a0b074745452b97ac652bc3d45343362d2d50af78a40552fe43d96d9e3",
+        "bodyWordCount": 56,
+        "bodyTagCounts": {
+          "br": 1,
+          "img": 2,
+          "p": 5,
+          "span": 4
+        }
+      },
+      {
+        "ordinal": 36,
+        "level": 3,
+        "title": "Куб",
+        "bodyTextSha256": "8054c8bbd355ce9a5d1171092f2c3b758a50bec6ef2a6e4e8dec2439ff5f8bfe",
+        "bodyWordCount": 46,
+        "bodyTagCounts": {
+          "br": 1,
+          "img": 2,
+          "p": 5,
+          "span": 4
+        }
+      },
+      {
+        "ordinal": 37,
+        "level": 3,
+        "title": "Линия",
+        "bodyTextSha256": "c448708ebb19361455e60da019135e2311022be18516e5e5557c30cc0d27d1af",
+        "bodyWordCount": 39,
+        "bodyTagCounts": {
+          "br": 2,
+          "img": 1,
+          "p": 3,
+          "span": 2
+        }
+      },
+      {
+        "ordinal": 38,
+        "level": 3,
+        "title": "Сфера",
+        "bodyTextSha256": "c5584577936fdd0f22aace11e61ef3478da34d02f996ebbebd671ab396c0f9e1",
+        "bodyWordCount": 27,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 1
+        }
+      },
+      {
+        "ordinal": 39,
+        "level": 3,
+        "title": "Цилиндр",
+        "bodyTextSha256": "9e5f03c0dd6fe424f735974539577fbde612ca987beb0a7e55f8ed873005f44a",
+        "bodyWordCount": 58,
+        "bodyTagCounts": {
+          "br": 1,
+          "img": 1,
+          "p": 4,
+          "span": 2
+        }
+      },
+      {
+        "ordinal": 40,
+        "level": 3,
+        "title": "Области воздействия на сетке (XGE)",
+        "bodyTextSha256": "db3267a73fa9299aca4d9eb4b25b11d2c25ae35b032e132714cc1504d0654c27",
+        "bodyWordCount": 111,
+        "bodyTagCounts": {
+          "br": 2,
+          "p": 2,
+          "span": 1,
+          "strong": 2
+        }
+      },
+      {
+        "ordinal": 41,
+        "level": 3,
+        "title": "Метод шаблона",
+        "bodyTextSha256": "daf35a54e74307caedf14f11c71900b3593a3be62c659aee2c559fe00911aeee",
+        "bodyWordCount": 246,
+        "bodyTagCounts": {
+          "a": 3,
+          "br": 1,
+          "em": 2,
+          "p": 7,
+          "strong": 2
+        }
+      },
+      {
+        "ordinal": 42,
+        "level": 3,
+        "title": "Метод жетона",
+        "bodyTextSha256": "965f57837de9af81f8bf8fa6ad8eefc16758a96a4ce908ee92edb7e27b8379a9",
+        "bodyWordCount": 339,
+        "bodyTagCounts": {
+          "a": 8,
+          "br": 1,
+          "em": 4,
+          "p": 9,
+          "strong": 4
+        }
+      },
+      {
+        "ordinal": 43,
+        "level": 3,
+        "title": "Спасброски",
+        "bodyTextSha256": "4111a538559ae6510da3a801a7a1a08b8421b0e1b2b025fce831b438dfa3f356",
+        "bodyWordCount": 51,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 2,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 44,
+        "level": 3,
+        "title": "Броски атаки",
+        "bodyTextSha256": "9af2b9ec597d02975b02bfaea20c4d3dac08c77c79b3d526b36aa0737100cabb",
+        "bodyWordCount": 59,
+        "bodyTagCounts": {
+          "br": 1,
+          "p": 3,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 45,
+        "level": 3,
+        "title": "Объединение магических эффектов",
+        "bodyTextSha256": "c271e4bbfd8dd575217e150b431cc113b35c44e4fdea2e810895c9a285c84e8c",
+        "bodyWordCount": 69,
+        "bodyTagCounts": {
+          "a": 1,
+          "br": 1,
+          "p": 2,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 46,
+        "level": 3,
+        "title": "Опциональное правило: Персонализация Заклинаний (TCE)",
+        "bodyTextSha256": "216603dd7b771f198d2bffb1a47b9f7baa374a02a264c99e0fe4baf865692084",
+        "bodyWordCount": 305,
+        "bodyTagCounts": {
+          "a": 9,
+          "p": 6,
+          "span": 1
+        }
+      },
+      {
+        "ordinal": 47,
+        "level": 4,
+        "title": "Магические темы",
+        "bodyTextSha256": "f03eb5c9a6d02fbba127662ad5f58ebaa21ed1851e92d72c7b87b32d0fe990ff",
+        "bodyWordCount": 129,
+        "bodyTagCounts": {
+          "br": 1,
+          "div": 1,
+          "table": 1,
+          "tbody": 1,
+          "td": 22,
+          "tr": 12
+        }
+      },
+      {
+        "ordinal": 48,
+        "level": 3,
+        "title": "Плетение магии",
+        "bodyTextSha256": "ab6cc368e4a3d72fe51084e484cefbf30fc4153091d581196b2406e98533710a",
+        "bodyWordCount": 283,
+        "bodyTagCounts": {
+          "p": 5,
+          "strong": 1
+        }
+      }
+    ],
+    "tagCounts": {
+      "a": 64,
+      "br": 45,
+      "div": 9,
+      "em": 6,
+      "h2": 2,
+      "h3": 43,
+      "h4": 3,
+      "img": 7,
+      "li": 29,
+      "p": 150,
+      "span": 71,
+      "strong": 21,
+      "svg": 2,
+      "table": 5,
+      "tbody": 3,
+      "td": 105,
+      "tr": 43,
+      "ul": 2,
+      "use": 2
+    },
+    "images": [
+      {
+        "src": "/ennin/spells-aoe/templates.png",
+        "dataSrc": null,
+        "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fetchedOrAcceptedAsArt": false
+      },
+      {
+        "src": "/ennin/spells-aoe/cone.png",
+        "dataSrc": null,
+        "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fetchedOrAcceptedAsArt": false
+      },
+      {
+        "src": "/ennin/spells-aoe/cone-tokens.png",
+        "dataSrc": null,
+        "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fetchedOrAcceptedAsArt": false
+      },
+      {
+        "src": "/ennin/spells-aoe/square.png",
+        "dataSrc": null,
+        "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fetchedOrAcceptedAsArt": false
+      },
+      {
+        "src": "/ennin/spells-aoe/square-obstacle.png",
+        "dataSrc": null,
+        "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fetchedOrAcceptedAsArt": false
+      },
+      {
+        "src": "/ennin/spells-aoe/line.png",
+        "dataSrc": null,
+        "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fetchedOrAcceptedAsArt": false
+      },
+      {
+        "src": "/ennin/spells-aoe/circle.png",
+        "dataSrc": null,
+        "altSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "fetchedOrAcceptedAsArt": false
+      }
+    ]
+  },
+  "sourceBoundaryObservations": {
+    "observedPageHeaderClaim": "Player's Handbook",
+    "wholePageSourceInheritanceAllowed": false,
+    "explicitSupplementalHeadings": [
+      {
+        "ordinal": 31,
+        "title": "Наблюдая за работой заклинателя (XGE)",
+        "observedLabel": "XGE",
+        "canonicalSourceAssignmentAccepted": false
+      },
+      {
+        "ordinal": 32,
+        "title": "Определение заклинания (XGE)",
+        "observedLabel": "XGE",
+        "canonicalSourceAssignmentAccepted": false
+      },
+      {
+        "ordinal": 33,
+        "title": "Недопустимые цели заклинания (XGE)",
+        "observedLabel": "XGE",
+        "canonicalSourceAssignmentAccepted": false
+      },
+      {
+        "ordinal": 40,
+        "title": "Области воздействия на сетке (XGE)",
+        "observedLabel": "XGE",
+        "canonicalSourceAssignmentAccepted": false
+      },
+      {
+        "ordinal": 46,
+        "title": "Опциональное правило: Персонализация Заклинаний (TCE)",
+        "observedLabel": "TCE",
+        "canonicalSourceAssignmentAccepted": false
+      }
+    ],
+    "spellPointsVariantHeadingOrdinals": [
+      7,
+      8,
+      9
+    ],
+    "variantPrimaryPublicationAndVersionVerified": false,
+    "neighboringHeadingSourceInheritanceAllowed": false,
+    "readyActionAndRepeatedBonusActionHeadingsPreserved": [
+      14,
+      17,
+      18
+    ],
+    "deduplicatedOrAcceptedAsOneRule": false
+  },
+  "selectedComparisons": [
+    {
+      "key": "known-prepared",
+      "secondaryHeadingOrdinal": 3,
+      "secondaryParagraphSha256": [
+        "7dc38814e416a3070a19e91dde72dee195058623014db27028f238e81e05b492",
+        "6c613101f54c3ca5bc6603c2dc27f4db2190847f4b2494eea85a532a582fa58d",
+        "7624681a6a04dde8a689807e09b70c5a29f25c1b8de1f4034e4c01dd59031e35"
+      ],
+      "primary": {
+        "textSha256": "13fc9f3b0accb6935db50a0b161d434e7b0351ed8a063ee996a6baa6a46f924e",
+        "wordCount": 108,
+        "pdfPage": 100,
+        "completeSelectedSubsection": true
+      },
+      "assessmentMethod": "manual semantic comparison of complete selected subsections pinned by source SHA; not automatic translation equality",
+      "fullTranslationAccepted": false,
+      "runtimeAccepted": false
+    },
+    {
+      "key": "casting-in-armor",
+      "secondaryHeadingOrdinal": 4,
+      "secondaryParagraphSha256": [
+        "ece82a14cf5e7e4fa48a7ca02c03f7ea55cbafa975ca987b45c77ac4c67af8a8"
+      ],
+      "primary": {
+        "textSha256": "638e5b6ce4c7aa8d90acabf7ff6185c462d72ff869595589ef01e271c127ec8a",
+        "wordCount": 38,
+        "pdfPage": 100,
+        "completeSelectedSubsection": true
+      },
+      "assessmentMethod": "manual semantic comparison of complete selected subsections pinned by source SHA; not automatic translation equality",
+      "fullTranslationAccepted": false,
+      "runtimeAccepted": false
+    }
+  ],
+  "ordinarySelectedFacts": {
+    "knownOrPreparedAccessAndMagicItemAccessDistinct": true,
+    "knownFixedListExamples": [
+      "bard",
+      "sorcerer"
+    ],
+    "preparationExamples": [
+      "cleric",
+      "wizard"
+    ],
+    "classDescriptionsDetermineProcedure": true,
+    "sharedKnownPreparedCountInferred": false,
+    "armorProficiencyRequiredByOrdinaryRule": true,
+    "armorRuleAppliedAsRuntimeBlock": false,
+    "manualDeviationAllowedWithWarning": true,
+    "multiclassContextReference": "multiclass-spellcasting-selected SRD58; individual class known/prepared rules still required"
+  },
+  "remainingCriteria": [
+    "46other heading bodies plus prelude, referenced tables/images, exact source/version/rights and translation remain unverified as rules; inventory is not completeness acceptance.",
+    "Spell points variant and XGE/TCE labelled additions require own bounded primary evidence; page-level PHB label cannot accept them.",
+    "Wizard spell list, individual class and item overrides remain separate."
+  ],
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "general-spell-slots-and-upcasting",
+    "action": "Compare complete secondary Spell Slots and Casting at Higher Level scopes against corresponding SRD100/101 boundaries; preserve spell-points variant and multiclass separation."
+  },
+  "limits": [
+    "Fresh public reference capture has own complete HTTP receipt/SHA and no inherited Wizard-page identity.",
+    "Only two selected complete subsection scopes are semantically compared;48headings do not mean48accepted rules.",
+    "No full source prose, private sheet, runtime block, profile edit, publication rights or owner-stage acceptance exported."
+  ],
+  "inputSha256": {
+    "catalog/wizard-table-concordance-2014.json": "e0eb3230426253d2239dcd5cd2fa0a350d33358acacd38f6fa6c933f5b913872",
+    "catalog/rest-spellcasting-source-comparison-2014.json": "74078b423eb8670a9c7a2a00a00109c5621e42c1c141a28f41f688a310352ada"
+  },
+  "generator": {
+    "path": "scripts/audit-spellcasting-reference-2014.py",
+    "sha256": "bdd520c28bfacec94362b1fa45afd9d69c8ddcff3f416e701345ded52c082ab0"
+  },
+  "upstreamParser": {
+    "path": "scripts/audit-wizard-candidate-concordance-2014.py",
+    "sha256": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b"
+  }
+}

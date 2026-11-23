@@ -1,0 +1,666 @@
+{
+  "schemaVersion": 1,
+  "status": "thirteen-selected-general-casting-subsections-not-full-chapter-or-runtime",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "summary": {
+    "newSelectedSubsections": 13,
+    "newSecondaryParagraphs": 32,
+    "separatelySourcedCantripAddition": 1,
+    "materialQualifierOmissions": 1,
+    "remainingUnreviewedHeadingBodies": 33,
+    "canonicalUnitsAccepted": 0
+  },
+  "sources": {
+    "secondary": {
+      "requestedUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+      "capturedAt": "2026-11-21T14:29:12.576358+00:00",
+      "status": 200,
+      "finalUrl": "https://dnd.su/articles/mechanics/157-spellcasting/",
+      "bytes": 438149,
+      "sha256": "ef774df6faa63acb1b3e7fd72f6a77e40524f6dec1023a0cf0c08f28faffa169",
+      "outcome": "complete",
+      "retried": false,
+      "declaredBytes": null,
+      "bodyFile": "spellcasting.html"
+    },
+    "srd": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "pdfPages": [
+        100,
+        101,
+        102
+      ],
+      "pageHeadersRemoved": 3
+    },
+    "errata": {
+      "url": "https://media.wizards.com/2021/dnd/downloads/PH-Errata.pdf",
+      "sha256": "0c49e2c9c90c9dede38346874c8fda9ff39ce8a715d71aedc5bd1d1e4321014e",
+      "version": "3.0 (2021),2014PHB",
+      "pdfPage": 3
+    },
+    "textExtractor": "pypdfium2",
+    "extractorVersion": "5.13.0",
+    "renderedPagesInspected": true
+  },
+  "records": [
+    {
+      "key": "spell-slots",
+      "headingOrdinal": 5,
+      "title": "Ячейки заклинаний",
+      "bodyTextSha256": "0137becfeb228736cdfc759b7ec5246895268985fb870d0fba8eb5101f106338",
+      "paragraphSha256": [
+        "29dcd232af3af42910fc2ced894c9934310c74c03a4fdc90172236c8d390d72f",
+        "5ab4ad83acb8c443c6c00832edc0595d66d00d443fcb4f8631471e05ed801830",
+        "317a6081dfce467f2362c0cf406e43125e80446c263ef6b6afe2f47b48c402d6",
+        "79d5e19624e196c8e0d46124a292a86b27e1b5d00ee5d7b285ec7998ceb2ef04",
+        "762d1de7b929d3784216c1b9817837a77bc281e2ccc560d023df26724fff318a",
+        "0aa4c5aa3c59cb042963fbd5ebac5e7be3e32d477ec8e0ab05056823f45ad0ae"
+      ],
+      "unitId": "source-comparison:general-spell-slots",
+      "completeSelectedSecondarySubsectionReviewed": true,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          100
+        ],
+        "startHeading": "Spell Slots",
+        "stopHeadingExcluded": "Casting a Spell at a Higher Level",
+        "selectedTextSha256": "703569324ded026e0e616e5fd0114d247870fae3be0849c35536441c3b4d8e44",
+        "wordCount": 246,
+        "completeSelectedPrimarySubsection": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison, source/body/paragraph witnesses pinned; not an automatic translation-equality detector",
+      "ordinaryFacts": {
+        "ordinaryCastExpendsOneSlotOfSpellLevelOrHigher": true,
+        "longRestRestoresExpendedSpellSlots": true,
+        "warlockTableExceptionRetained": true,
+        "slotlessSpecificFeaturesRemainSeparate": true,
+        "allItemChargesOrUnknownCountersRestoredByThisRule": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "upcasting",
+      "headingOrdinal": 6,
+      "title": "Накладывание заклинания с увеличенным уровнем",
+      "bodyTextSha256": "d3c0a2c0bc00398e7609fbc4cbeffcfef4862b359452573f7bfb76dea96dbd80",
+      "paragraphSha256": [
+        "e51f27f588f4a78bf9abc9dabefea511c8bfd7ee657d4676029e7fda9b894777",
+        "ac80c230e98b4b5a62691f278815fe8e8ffb9bc2dced2b7acae2dfd416b48c73"
+      ],
+      "unitId": "source-comparison:general-upcasting",
+      "completeSelectedSecondarySubsectionReviewed": true,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          100
+        ],
+        "startHeading": "Casting a Spell at a Higher Level",
+        "stopHeadingExcluded": "Casting in Armor",
+        "selectedTextSha256": "f61df4a223023acd1e8ce8fe5f2f900dc78f5a0947c18055ba5cf7803e6c9d2f",
+        "wordCount": 83,
+        "completeSelectedPrimarySubsection": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison, source/body/paragraph witnesses pinned; not an automatic translation-equality detector",
+      "ordinaryFacts": {
+        "spellAssumesSlotLevelForThatCasting": true,
+        "enhancedEffectsRequireSpellDescription": true,
+        "everySpellAutomaticallyGainsDamageDice": false,
+        "higherMulticlassSlotsExpandClassLearning": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "cantrips",
+      "headingOrdinal": 10,
+      "title": "Заговоры",
+      "bodyTextSha256": "e96c573c4934fc5da9dfcf3309327ca6efd4f7d26784af891de24a3374c191fd",
+      "paragraphSha256": [
+        "2fb989755dff2d2d7e69675813f17659e8b0f007101882baa7094b3f243777b8",
+        "4c1aaf510300251d4937d43ded9014aa5c69925b75009d3f63370286a72c65bd"
+      ],
+      "unitId": "source-comparison:general-cantrips",
+      "completeSelectedSecondarySubsectionReviewed": true,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          101
+        ],
+        "startHeading": "Cantrips",
+        "stopHeadingExcluded": "Rituals",
+        "selectedTextSha256": "67389d01f76c191c26718ef47d83582ea341c01f4700dfc74def20ab2e80638d",
+        "wordCount": 53,
+        "completeSelectedPrimarySubsection": true
+      },
+      "assessment": "srd-core-plus-separately-sourced-errata-addition",
+      "assessmentMethod": "manual semantic comparison, source/body/paragraph witnesses pinned; not an automatic translation-equality detector",
+      "ordinaryFacts": {
+        "spellLevel": 0,
+        "ordinarySlotRequired": false,
+        "preparationRequiredByGenericRule": false,
+        "scalingWhenSpellSpecifiesHigherLevelsUsesCharacterLevel": true,
+        "scalingClauseEstablishedBySrdCantripSubsectionAlone": false,
+        "allCantripsScaleAutomatically": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false,
+      "secondaryCoreParagraphIndexes": [
+        0
+      ],
+      "secondaryAdditionalParagraphIndexes": [
+        1
+      ],
+      "additionalPrimaryEvidence": {
+        "source": "phb2014-errata-v3.0-2021",
+        "pdfPage": 3,
+        "rawSelectedTextSha256": "f65b23d204d032dac9d21615a3604232efab9f56baffbc672d7fb413d541d31e",
+        "normalizedSelectedTextSha256": "ffcb5d2cad49b45d107a6922a02274f3c883107c51949a5e0d1629ea8a61f33b",
+        "visuallyCheckedBoundedRepair": {
+          "from": "particu￾lar",
+          "to": "particular",
+          "count": 1
+        },
+        "scope": "only Spells Known and Prepared p164 new paragraph; other errata/classes/feats excluded"
+      }
+    },
+    {
+      "key": "rituals",
+      "headingOrdinal": 11,
+      "title": "Ритуалы",
+      "bodyTextSha256": "773f4aad3ef19186eddd65b607430e0c5af6b0007c5b71e070147e2bffa303dc",
+      "paragraphSha256": [
+        "05118204bfbd1697ea2cbdca6ac8563b68a9fe2443b08267a9093450c29c13af",
+        "0c177531d586a3411546d43a96c919e4e727682fb6028b7d4826be142b71ebed",
+        "77e5fc0cc7465d25e61cabb5580dfd112ce657d81cdbb4d0270e07189fb18194",
+        "5dc756cb95e32210fa4c0c488d636b4c5eec2e14a0cf97857ad2feef611158eb"
+      ],
+      "unitId": "source-comparison:general-rituals",
+      "completeSelectedSecondarySubsectionReviewed": true,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          101
+        ],
+        "startHeading": "Rituals",
+        "stopHeadingExcluded": "Casting a Spell",
+        "selectedTextSha256": "dd14b9191e86fc4b05070420bd4e3a0114488b72fac858b38aa900124ae83f84",
+        "wordCount": 123,
+        "completeSelectedPrimarySubsection": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison, source/body/paragraph witnesses pinned; not an automatic translation-equality detector",
+      "ordinaryFacts": {
+        "ritualTagRequired": true,
+        "grantingFeatureRequired": true,
+        "additionalMinutes": 10,
+        "ordinarySlotExpended": false,
+        "ordinaryUpcastAllowed": false,
+        "preparedOrKnownUnlessClassFeatureException": true,
+        "wizardBookExceptionTransferredToArtificer": false,
+        "allCastersAutomaticallyGainRitualCasting": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "casting-time",
+      "headingOrdinal": 13,
+      "title": "Время накладывания",
+      "bodyTextSha256": "4eba4752c0a3c688e6078155926ec57c0a79e77a1cbb8b5251534ed6bc2f0e65",
+      "paragraphSha256": [
+        "4eba4752c0a3c688e6078155926ec57c0a79e77a1cbb8b5251534ed6bc2f0e65"
+      ],
+      "unitId": "source-comparison:general-casting-time",
+      "completeSelectedSecondarySubsectionReviewed": true,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          101
+        ],
+        "startHeading": "Casting Time",
+        "stopHeadingExcluded": "Bonus Action",
+        "selectedTextSha256": "7bd3dc99e546c923a3a07b09916162632f5d930ae204549c860a5fc8ef3fdbf2",
+        "wordCount": 23,
+        "completeSelectedPrimarySubsection": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison, source/body/paragraph witnesses pinned; not an automatic translation-equality detector",
+      "ordinaryFacts": {
+        "usualSingleActionHasOtherTimingExceptions": true,
+        "allSpellsFixedToOneAction": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "bonus-action",
+      "headingOrdinal": 14,
+      "title": "Бонусное действие",
+      "bodyTextSha256": "833d757d8a52a98f003d4d5b5e70d57477572b613f30a689ea00c59ada25017f",
+      "paragraphSha256": [
+        "833d757d8a52a98f003d4d5b5e70d57477572b613f30a689ea00c59ada25017f"
+      ],
+      "unitId": "source-comparison:general-bonus-action",
+      "completeSelectedSecondarySubsectionReviewed": true,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          101
+        ],
+        "startHeading": "Bonus Action",
+        "stopHeadingExcluded": "Reactions",
+        "selectedTextSha256": "374702ce31bc6a91da435344be7a558dbf25e4baff9f7fe532a50790c8c5a9f2",
+        "wordCount": 54,
+        "completeSelectedPrimarySubsection": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison, source/body/paragraph witnesses pinned; not an automatic translation-equality detector",
+      "ordinaryFacts": {
+        "usesBonusActionOnOwnTurn": true,
+        "bonusActionMustBeAvailable": true,
+        "sameTurnOtherSpellsLimitedToCantripWithOneActionCastingTime": true,
+        "restrictionIsWholeRound": false,
+        "genericOneLeveledSpellPerTurnRuleEstablished": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "reactions",
+      "headingOrdinal": 15,
+      "title": "Реакция",
+      "bodyTextSha256": "94d0f19b9bd15f1a81312ca079dfb03606d7857564df6e0c0641937baa5cc369",
+      "paragraphSha256": [
+        "94d0f19b9bd15f1a81312ca079dfb03606d7857564df6e0c0641937baa5cc369"
+      ],
+      "unitId": "source-comparison:general-reactions",
+      "completeSelectedSecondarySubsectionReviewed": true,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          101
+        ],
+        "startHeading": "Reactions",
+        "stopHeadingExcluded": "Longer Casting Times",
+        "selectedTextSha256": "1abf43bbc492963569a47501bbb4e458e10600ffcccb4290c798b58b89fbecfd",
+        "wordCount": 46,
+        "completeSelectedPrimarySubsection": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison, source/body/paragraph witnesses pinned; not an automatic translation-equality detector",
+      "ordinaryFacts": {
+        "spellDescriptionDefinesTrigger": true,
+        "arbitraryReactionWithoutTriggerGranted": false,
+        "ownAndOtherTurnsNotCollapsedIntoWholeRoundBan": true,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "longer-casting",
+      "headingOrdinal": 16,
+      "title": "Долгое накладывание",
+      "bodyTextSha256": "19e8cd3010d4083695e8a6ec023d8964f7d98e6f80334d3bd5ad88ff42d569e1",
+      "paragraphSha256": [
+        "19e8cd3010d4083695e8a6ec023d8964f7d98e6f80334d3bd5ad88ff42d569e1"
+      ],
+      "unitId": "source-comparison:general-longer-casting",
+      "completeSelectedSecondarySubsectionReviewed": true,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          101
+        ],
+        "startHeading": "Longer Casting Times",
+        "stopHeadingExcluded": "Range",
+        "selectedTextSha256": "b2c74e6dd8ed69109e70a186108c9565e9459eb057514db5fea789416e83f034",
+        "wordCount": 83,
+        "completeSelectedPrimarySubsection": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison, source/body/paragraph witnesses pinned; not an automatic translation-equality detector",
+      "ordinaryFacts": {
+        "actionEachTurnRequired": true,
+        "concentrationWhileCastingRequired": true,
+        "includesRituals": true,
+        "brokenConcentrationFailsSpell": true,
+        "failedLongCastExpendsSlot": false,
+        "retryMustStartOver": true,
+        "allItemChargesOrOtherResourcesRefunded": false,
+        "readyActionAlreadyCastSpellProcedureInferred": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "range",
+      "headingOrdinal": 19,
+      "title": "Дистанция",
+      "bodyTextSha256": "57a660e988e8b7fcf113b2ed1113b0c7f15453713d56e542ead03df7211e5f72",
+      "paragraphSha256": [
+        "7e9abd1c5a409eb0058ede5e40a2a709718cdfde0d88ca360c5c301a39e6b303",
+        "ed643a74e467a3052095481001e4889e8415bc733b92efad2ab588c7653d4750",
+        "5ba479d913ad66602331afc46921b8c987d1426df11e9ee8cddcb3a83f175276",
+        "3eba529af2429831dcfde9e2d6a18b093c207458c048521e8d4f998616b699f9",
+        "19bd0ece1418d9bfb20a4f2bcbc13cd62f9925dfb2da89f939c9513c2cd90812"
+      ],
+      "unitId": "source-comparison:general-range",
+      "completeSelectedSecondarySubsectionReviewed": true,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          101
+        ],
+        "startHeading": "Range",
+        "stopHeadingExcluded": "Components",
+        "selectedTextSha256": "ef482f57c0a742c657c2be4ed780ac08bd29951c8e0f37bc03a3fbefe0c0695a",
+        "wordCount": 128,
+        "completeSelectedPrimarySubsection": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison, source/body/paragraph witnesses pinned; not an automatic translation-equality detector",
+      "ordinaryFacts": {
+        "targetMustBeWithinRangeWhenCast": true,
+        "touchAndSelfDistinguished": true,
+        "selfConeOrLineOriginIsCaster": true,
+        "rangeDoesNotGenerallyConstrainEffectsAfterCasting": true,
+        "spellDescriptionCanLimitContinuingEffectRange": true,
+        "gridCellRequiredByPrimary": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false,
+      "localizationCaveat": "secondary origin-cell wording versus primary point of origin does not impose a mandatory grid"
+    },
+    {
+      "key": "components",
+      "headingOrdinal": 20,
+      "title": "Компоненты",
+      "bodyTextSha256": "d660dfae14a032bc4c24006280d970e42f2c53924b654b8dabf985dbab1e26f9",
+      "paragraphSha256": [
+        "b45ed80fbc4f92ab334976071d46d3e6a88e2c7a0e7e18c7a47ec37a0ac4fd70",
+        "0adf797d86cc7edae3f97d771024ed350c0a12a1b0332a28960291f7e07743e8"
+      ],
+      "unitId": "source-comparison:general-components",
+      "completeSelectedSecondarySubsectionReviewed": true,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          101
+        ],
+        "startHeading": "Components",
+        "stopHeadingExcluded": "Verbal (V)",
+        "selectedTextSha256": "dd8a09f81e37cf722b3eadf8c835c98bfbdc591bbcddeb712b1b807476ed1d41",
+        "wordCount": 48,
+        "completeSelectedPrimarySubsection": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison, source/body/paragraph witnesses pinned; not an automatic translation-equality detector",
+      "ordinaryFacts": {
+        "requiredVerbalSomaticMaterialComponentsMustBeProvidedByOrdinaryRule": true,
+        "runtimeHardBlockImplemented": false,
+        "specificClassItemOverridesRemainSeparate": true,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "verbal",
+      "headingOrdinal": 21,
+      "title": "Вербальный (В)",
+      "bodyTextSha256": "6ecd2b40e439d4fd0e5bb08623e1f1fcddb66550f90d7084ec67d116260792be",
+      "paragraphSha256": [
+        "57e97b78d6ef1c44455615cbbeaf5a3bd35820478dc95ed0c2954aecae97cd4c",
+        "8a1e847a9623145855a8b3c2a16a956dd7f4185d9adb91e0528f2cd18a2b512a"
+      ],
+      "unitId": "source-comparison:general-verbal",
+      "completeSelectedSecondarySubsectionReviewed": true,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          101
+        ],
+        "startHeading": "Verbal (V)",
+        "stopHeadingExcluded": "Somatic (S)",
+        "selectedTextSha256": "98275b329a4f0de9e9021dc99762d5c902ce77881960c53437634e4d57bb31c5",
+        "wordCount": 64,
+        "completeSelectedPrimarySubsection": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison, source/body/paragraph witnesses pinned; not an automatic translation-equality detector",
+      "ordinaryFacts": {
+        "audibleMysticSoundRequired": true,
+        "gaggedOrSilencedPreventsOrdinaryVerbalSpell": true,
+        "allSpellsRequireVerbalComponent": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "somatic",
+      "headingOrdinal": 22,
+      "title": "Соматический (С)",
+      "bodyTextSha256": "543789b6931b8a89588e5879f8ce2451a05db28662e307ff6535502716a29b43",
+      "paragraphSha256": [
+        "a2a8d01f4decd2319056f6deb8ec32fe9b9b3fd3fc24aa7d3ecfc005c234f2b1",
+        "652db4f9b7e0ecc9a1f7680a243f7b50a0e5d73c552584f3319c60adf367ed98"
+      ],
+      "unitId": "source-comparison:general-somatic",
+      "completeSelectedSecondarySubsectionReviewed": true,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          101,
+          102
+        ],
+        "startHeading": "Somatic (S)",
+        "stopHeadingExcluded": "Material (M)",
+        "selectedTextSha256": "1724fc8716be5d11c3764d26228807a9d957de4c7e6d1fec67ddc25309f6d2aa",
+        "wordCount": 35,
+        "completeSelectedPrimarySubsection": true
+      },
+      "assessment": "selected-ordinary-conditions-correspond",
+      "assessmentMethod": "manual semantic comparison, source/body/paragraph witnesses pinned; not an automatic translation-equality detector",
+      "ordinaryFacts": {
+        "ordinarySomaticSpellNeedsFreeUseOfAtLeastOneHand": true,
+        "holdingFocusAutomaticallyWaivesSomaticOnlyHandRequirement": false,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false
+    },
+    {
+      "key": "material",
+      "headingOrdinal": 23,
+      "title": "Материальный (М)",
+      "bodyTextSha256": "7e2df43160da7c8ca03ac9ed81b50bc287a299c941bb821bc9c731ecc8da2f90",
+      "paragraphSha256": [
+        "8dc1f1ac76e000a163c19fb41039c3a671e6e3f6400fb9f610c4824a1befffc5",
+        "f39c25c9fa58eb5158e04505628bf2e450e734d07d2dbdd96aeb8bcc5951ab6b",
+        "54d81128a6d895a8ed9ea2b78664a952dda833894898b9320882c27547eecea7"
+      ],
+      "unitId": "source-comparison:general-material",
+      "completeSelectedSecondarySubsectionReviewed": true,
+      "primary": {
+        "source": "srd51",
+        "pdfPages": [
+          102
+        ],
+        "startHeading": "Material (M)",
+        "stopHeadingExcluded": "Duration",
+        "selectedTextSha256": "8ea3ea56dc73d21c0cd0fe4d9e7023794f6fa4c3b102f431df957bdcbbb5c5ff",
+        "wordCount": 118,
+        "completeSelectedPrimarySubsection": true
+      },
+      "assessment": "selected-conditions-with-retained-qualifier-omission",
+      "assessmentMethod": "manual semantic comparison, source/body/paragraph witnesses pinned; not an automatic translation-equality detector",
+      "ordinaryFacts": {
+        "pouchOrClassAppropriateFocusMaySubstituteOrdinaryUnpricedUnconsumedMaterial": true,
+        "specificPricedComponentStillRequired": true,
+        "consumedComponentMustBeProvidedEachCasting": true,
+        "handMustAccessMaterialOrHoldFocus": true,
+        "sameHandMayPerformSomaticAndMaterial": true,
+        "focusErasesCostOrConsumption": false,
+        "secondaryExplicitHoldFocusHandWordingOmitted": true,
+        "manualDeviationAllowedWithWarning": true
+      },
+      "fullTranslationAccepted": false,
+      "acceptedForRuntime": false,
+      "literalDifference": {
+        "kind": "explicit-qualifier-omission",
+        "secondaryParagraphIndex": 2,
+        "omittedPrimaryCondition": "hand may hold spellcasting focus as alternative to accessing material components",
+        "sourceSilentlyRewritten": false
+      }
+    }
+  ],
+  "remainingHeadingOrdinals": [
+    1,
+    2,
+    7,
+    8,
+    9,
+    12,
+    17,
+    18,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48
+  ],
+  "preservedBoundaryHolds": {
+    "spellPointsVariantOrdinals": [
+      7,
+      8,
+      9
+    ],
+    "readyAndRepeatedBonusActionOrdinals": [
+      17,
+      18
+    ],
+    "xgeTceLabeledHeadings": [
+      31,
+      32,
+      33,
+      40,
+      46
+    ],
+    "wizardRitualExceptionNotTransferredToOtherClasses": true,
+    "artificerFullRulesInferred": false,
+    "originalSourceArraysRewritten": false,
+    "fullPagePhbClaimAccepted": false
+  },
+  "syntheticCases": [
+    {
+      "case": "spell-without-upcast-effect-uses-higher-slot",
+      "slotLevel": 2,
+      "originalSpellLevel": 1,
+      "castingSpellLevel": 2,
+      "extraDamageAutomaticallyGranted": false
+    },
+    {
+      "case": "wizard5-cleric3-cantrip-that-scales",
+      "characterLevel": 8,
+      "wizardLevel": 5,
+      "scalingBasis": "character8",
+      "higherLevelSpellsLearnedFromSharedPool": false
+    },
+    {
+      "case": "bonus-spell-then-leveled-reaction-own-turn",
+      "ordinaryAllowedByBonusRule": false,
+      "manualDeviationAllowedWithWarning": true
+    },
+    {
+      "case": "reaction-on-another-turn-after-earlier-own-turn-bonus-spell",
+      "barredByPriorTurnBonusRuleAlone": false,
+      "reactionTriggerStillRequired": true
+    },
+    {
+      "case": "two-supplied-action-budgets-without-bonus-spell",
+      "oneLeveledPerTurnCapInferredFromBonusRule": false,
+      "otherActionGrantAndCastingRequirementsStillRequired": true
+    },
+    {
+      "case": "long-cast-concentration-break",
+      "spellSucceeds": false,
+      "spellSlotSpentByThisProcedure": false,
+      "itemChargeRefundOrReadyProcedureInferred": false,
+      "retryRestarts": true
+    },
+    {
+      "case": "somatic-only-spell-and-held-focus",
+      "focusAloneWaivesFreeHandRequirement": false,
+      "specificExceptionsAndManualPathRemainSeparate": true
+    },
+    {
+      "case": "priced-or-consumed-material",
+      "focusErasesPriceOrConsumption": false,
+      "manualDeviationAllowedWithWarning": true
+    }
+  ],
+  "nextWorkItem": {
+    "role": "content",
+    "phase": "general-duration-concentration-targets",
+    "action": "Compare full duration/instantaneous/concentration and target scopes against complete SRD102 boundaries, preserving lists, damage-source checks and adjacent XGE additions as separate scopes."
+  },
+  "limits": [
+    "13selected scopes and32secondary paragraphs are reviewed;33other heading bodies and prelude/table/image rules are not accepted by this comparison.",
+    "Cantrip scaling addition has own PHB errata witness; it does not inherit identity from the SRD Cantrips subsection.",
+    "Primary component focus/hand clause is retained as omitted in secondary, not silently inserted into source.",
+    "No source prose/PDF, canonical units, class/source/translation/rights acceptance, runtime block, resource grant/refund or owner-stage closure exported."
+  ],
+  "inputSha256": {
+    "catalog/spellcasting-reference-scopes-2014.json": "0e20ecfc18534dcc94752854e8ff018d8ad109eeabe9290036d04a6c57d925d3",
+    "catalog/rest-spellcasting-source-comparison-2014.json": "74078b423eb8670a9c7a2a00a00109c5621e42c1c141a28f41f688a310352ada",
+    "catalog/wizard-ritual-source-comparison-2014.json": "b86c7cab1fff18dd8a13507d317cb3a9cb25b3066562fc3f197f766512ae553b",
+    "catalog/wizard-spellcasting-scope-2014.json": "d55f3e9b999d31abfc9b98ab76a3331c9e3c5fd205390b1f18bb646ebd0baddb"
+  },
+  "generator": {
+    "path": "scripts/audit-general-casting-clauses-2014.py",
+    "sha256": "c29e37353aedb0d78d8305a34eec865a442f316071913278a2a3aa390c820aa3"
+  },
+  "upstreamParser": {
+    "path": "scripts/audit-wizard-candidate-concordance-2014.py",
+    "sha256": "656b2c40e462e8987c22724dcf306d937a82d20e5fac6693ce56e1f801e1304b"
+  }
+}

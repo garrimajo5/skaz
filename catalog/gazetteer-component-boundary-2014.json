@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "status": "setting-gazetteer-component-and-background-offer-not-full-rules-or-automatic-grant",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "sources": {
+    "gazetteer.html": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/bgg",
+      "finalUrl": "https://www.dndbeyond.com/claim/source/baldurs-gate-gazetteer",
+      "status": 200,
+      "bytes": 221618,
+      "sha256": "7e67097c17b4c6d41ece76261769122f13dadafd1d384c68baeec1adeef3649c",
+      "capturedAt": "2026-11-21T12:24:14.344508+00:00"
+    },
+    "avernus.html": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/bgdia",
+      "finalUrl": "https://www.dndbeyond.com/sources/dnd/bgdia",
+      "status": 200,
+      "bytes": 254090,
+      "sha256": "d4453ce0732c6ae1d650e0b3c59b72569ade1e23e2c65a0f6c8144e69b5e50b2",
+      "capturedAt": "2026-11-21T12:24:15.568719+00:00"
+    }
+  },
+  "providerReferences": [
+    {
+      "providerSourceId": 48,
+      "observationId": "ddb:library-source:48",
+      "title": "Baldur’s Gate: Descent into Avernus",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/bgdia",
+      "providerType": "adventure",
+      "providerIsFree": false
+    },
+    {
+      "providerSourceId": 122,
+      "observationId": "ddb:library-source:122",
+      "title": "Baldur’s Gate Gazetteer",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/bgg",
+      "providerType": "sourcebook",
+      "providerIsFree": false
+    }
+  ],
+  "parentToc": {
+    "title": "Baldur's Gate: Descent into Avernus",
+    "gazetteerChapterUrl": "https://www.dndbeyond.com/sources/bgdia/baldurs-gate-gazetteer",
+    "backgroundSectionReference": "https://www.dndbeyond.com/sources/bgdia/baldurs-gate-gazetteer#BaldursGateCharacterBackgrounds",
+    "scope": "parent chapter TOC and one background-section reference; no full chapter or background rules"
+  },
+  "claimBoundary": {
+    "descriptionSha256": "07939bf325fdd5ed4d76a91faa18ac4982b7ef1700a631bce1dfa23151347c8c",
+    "distributionParagraphSha256": "1759d7ebabe6b9c73e9a26d682b035cf84e705613fa0f8dcc6cb1ae93d9949f0",
+    "currentPromotionEndedNotice": true,
+    "backgroundOptionsMentioned": true,
+    "advertisedParentMonsterOrItemCountsAttributedToChild": false,
+    "claimSubmitted": false,
+    "fullGazetteerTextInspected": false,
+    "previousOwnerAccessTested": false,
+    "scope": "claim-main only; adjacent full-book advertisement and its numbers excluded"
+  },
+  "reusedGuide": {
+    "requestedUrl": "https://media.dndbeyond.com/compendium-images/ddal/reference-docs/03-2024/d%26d-adventurers-league-adaptation-guides-v2.4.pdf",
+    "finalUrl": "https://media.dndbeyond.com/compendium-images/ddal/reference-docs/03-2024/d%26d-adventurers-league-adaptation-guides-v2.4.pdf",
+    "status": 200,
+    "bytes": 1476910,
+    "sha256": "ee0ffa32ccab84212b518380ab81d720d15e8c1ccaa529750666fc235123dcbb",
+    "capturedAt": "2026-11-21T00:12:40.910257+00:00",
+    "inspectedPdfPages": [
+      25
+    ]
+  },
+  "historicalCampaignContext": {
+    "pdfPage": 25,
+    "guideVersion": "2.4",
+    "subsectionSha256": "9ffe85f9884400791e53d0a7eee590a3838f41b73f04a8739e3133602135c9f1",
+    "historicalSeason": 9,
+    "scope": "background features for Season9 characters only",
+    "ordinaryProfileBackgroundSelectionBlocked": false,
+    "allCharactersAutomaticallyGrantedFeatures": false,
+    "currentGlobalAlEligibilityEstablished": false
+  },
+  "relationship": {
+    "kind": "setting-gazetteer-component-with-separate-background-distribution",
+    "childProviderSourceId": 122,
+    "parentProviderSourceId": 48,
+    "existingParentDndsuSourceId": "126",
+    "childDndsuSourceId": null,
+    "canonicalSourceId": null,
+    "automaticRecordAttribution": false,
+    "automaticSourceReplacement": false,
+    "wholeParentBookOrAllParentMonstersIncluded": false,
+    "fullTextEquivalence": "unverified",
+    "reusePermission": "not-established"
+  },
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-source-link-proposals-2014.json": "32baeee49a644be8822acdf46c2ebadc890efeb0ea90801f0e257b0ea509c4dc",
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe",
+    "catalog/wayfinder-version-boundary-2014.json": "8e452fef30ac75e59707802705180f1ef654728aa2b44348b59d55ca578c75ac"
+  },
+  "generator": {
+    "path": "scripts/audit-gazetteer-component-2014.py",
+    "sha256": "601590e1e9709b0e5c025dbe35ae420fc2d20a0186b5ff7095e06ff5f9928d46"
+  },
+  "upstreamParsers": [
+    {
+      "path": "scripts/audit-prisoner13-component-2014.py",
+      "sha256": "5f19428fb4a6d387a09ed38a21871d8f44b8b319f2192d9c731e08784865a124"
+    },
+    {
+      "path": "scripts/audit-radiant-citadel-chapter-2014.py",
+      "sha256": "6bd65a91c991c9432a4aefd06286d146cb695415ae59238013501d37a243a9b0"
+    }
+  ],
+  "limits": [
+    "Provider122, parent provider48 and historical parent126 are distinct namespaces; no child numeric ID invented.",
+    "Full-book advertisement numbers outside claim-main are not gazetteer record counts.",
+    "Ended promotion does not establish prior owner access or publication/translation permission.",
+    "Historical AL Season9 feature guidance is not a general game-action prohibition or automatic feature grant.",
+    "Full backgrounds, text versions, rights and canonical units remain open; no runtime/profile/owner milestone changed."
+  ]
+}

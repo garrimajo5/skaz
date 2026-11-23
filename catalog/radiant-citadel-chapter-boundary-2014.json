@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "status": "primary-setting-chapter-promotion-witness-not-whole-anthology-or-count-acceptance",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "sources": {
+    "article.html": {
+      "requestedUrl": "https://www.dndbeyond.com/posts/1270-what-youll-discover-at-the-radiant-citadel-a-city",
+      "finalUrl": "https://www.dndbeyond.com/posts/1270-what-youll-discover-at-the-radiant-citadel-a-city",
+      "status": 200,
+      "bytes": 367323,
+      "sha256": "1c72cf90ac89d9591bb9980ca334417cf93eb9371f73cde6b6c4666bec9575a3",
+      "capturedAt": "2026-11-21T00:20:40.981872+00:00"
+    },
+    "parent.html": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/jttrc",
+      "finalUrl": "https://www.dndbeyond.com/sources/dnd/jttrc",
+      "status": 200,
+      "bytes": 249707,
+      "sha256": "b044fd063b99b2ed73942d22eb96e763bf6868fbe0e02a05cda6f593fbda649b",
+      "capturedAt": "2026-11-21T00:20:40.720703+00:00"
+    },
+    "child.html": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/trc",
+      "finalUrl": "https://www.dndbeyond.com/claim/source/the-radiant-citadel",
+      "status": 200,
+      "bytes": 221714,
+      "sha256": "91bda44c90c57071312f2a459d63f093a3afc177c738fc9c1b235b1919d36d6f",
+      "capturedAt": "2026-11-21T00:20:41.482927+00:00"
+    }
+  },
+  "publisherStatement": {
+    "title": "What You'll Discover at the Radiant Citadel, a City on the Ethereal Plane",
+    "firstChapterKindParagraphSha256": "f6c67c07bf9a2f338a7e656c188fe9c9abc93ce3809aeb1ab5bf0a4f9714fd12",
+    "distributionLabelParagraphSha256": "88c8f688cae24a0842f1583d7f02d55b92bef8de4de86e27828df87bc9774f4c",
+    "firstChapterSettingHubExplicit": true,
+    "separateChapterListingLabel": "The Radiant Citadel",
+    "scope": "two bounded publisher article paragraphs; not full chapter contents"
+  },
+  "parentToc": {
+    "title": "Journeys through the Radiant Citadel",
+    "chapterTitle": "The Radiant Citadel",
+    "chapterUrl": "https://www.dndbeyond.com/sources/jttrc/the-radiant-citadel",
+    "observedTocSectionIds": [
+      "Contents",
+      "Statblocks"
+    ],
+    "selectedTocSectionId": "Contents",
+    "scope": "named Contents TOC; separate Statblocks section is not counted as adventures"
+  },
+  "claimBoundary": {
+    "currentPromotionEndedNotice": true,
+    "firstChapterOfferMetadataSha256": "30a9ac48132ed612b40ef368b04b77838cf0966f0cfa9425b35b3a99727511c5",
+    "claimSubmitted": false,
+    "authenticatedAccessUsed": false,
+    "fullChapterRulesInspected": false,
+    "priorClaimantOrBookOwnerAccessTested": false,
+    "categoryRecordCountsEstablished": false,
+    "scope": "claim-main description/ended notice only; generic toolset listing promises do not prove specific rules records"
+  },
+  "providerReferences": [
+    {
+      "providerSourceId": 87,
+      "observationId": "ddb:library-source:87",
+      "title": "Journeys through the Radiant Citadel",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/jttrc",
+      "providerType": "adventure",
+      "providerIsFree": false
+    },
+    {
+      "providerSourceId": 92,
+      "observationId": "ddb:library-source:92",
+      "title": "The Radiant Citadel",
+      "sourceUrl": "https://www.dndbeyond.com/sources/dnd/trc",
+      "providerType": "adventure",
+      "providerIsFree": false
+    }
+  ],
+  "relationship": {
+    "kind": "setting-hub-first-chapter-with-separate-promotion",
+    "childProviderSourceId": 92,
+    "parentProviderSourceId": 87,
+    "existingParentDndsuSourceId": "171",
+    "childDndsuSourceId": null,
+    "canonicalSourceId": null,
+    "automaticSourceReplacement": false,
+    "automaticRecordAttribution": false,
+    "wholeAnthologyUnlockedOrReviewed": false,
+    "zeroOrNonzeroRulesRecordCountInferredFromMetadata": false,
+    "fullTextEquivalence": "unverified",
+    "reusePermission": "not-established"
+  },
+  "inputSha256": {
+    "catalog/publisher-library-observations-2026-11-21.json": "13225e0441fb10977ca7b6c29b5db4967609d8be437a8d2f3b542b590b542c08",
+    "catalog/library-source-link-proposals-2014.json": "32baeee49a644be8822acdf46c2ebadc890efeb0ea90801f0e257b0ea509c4dc",
+    "catalog/library-current-publication-context-2014.json": "b5fb8f11f6d5d69fa6a557389e508ec852de7202ebde5e8426e6b4f09be73afe"
+  },
+  "generator": {
+    "path": "scripts/audit-radiant-citadel-chapter-2014.py",
+    "sha256": "6bd65a91c991c9432a4aefd06286d146cb695415ae59238013501d37a243a9b0"
+  },
+  "upstreamParser": {
+    "path": "scripts/audit-prisoner13-component-2014.py",
+    "sha256": "5f19428fb4a6d387a09ed38a21871d8f44b8b319f2192d9c731e08784865a124"
+  },
+  "limits": [
+    "A separate first-chapter distribution is not the whole anthology or an independently proved new adventure.",
+    "Raw providerType adventure and generic toolset claims remain observations, not catalogue category counts or zero-content proof.",
+    "An ended promotion is not a claim about access held by prior claimants/book owners or redistribution rights.",
+    "No full text, account/profile data, source-ID replacement, runtime, canonical denominator or owner acceptance exported."
+  ]
+}
