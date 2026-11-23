@@ -446,18 +446,18 @@ const SkazStorage = (() => {
   }
   async function inventory({preserveDialog=false}={}) {
     const inPage=typeof page!=='undefined' && page==='inventory';
-    const paintInventory=html=>{if(inPage){const root=document.getElementById('inventory-page');if(root)root.innerHTML=html.replaceAll('<h2','<h1').replaceAll('</h2>','</h1>');}else modal(html);};
+    const paintInventory=html=>{if(inPage){const root=document.getElementById('inventory-page');if(root)root.innerHTML=html;}else modal(html);};
     if(inPage&&!preserveDialog)closeModal();
-    if (demo || (status !== 'ready'&&!queuedInventory()) || !activeContext) {const message='Инвентарь доступен после подключения и сохранения черновика';if(inPage)paintInventory('<h2>Инвентарь</h2><p role="status">'+message+'</p>');else toast(message);return;}
+    if (demo || (status !== 'ready'&&!queuedInventory()) || !activeContext) {const message='Инвентарь доступен после подключения и сохранения черновика';if(inPage)paintInventory('<p role="status">'+message+'</p>');else toast(message);return;}
     const key = JSON.stringify(activeContext), version = revision;
     const token=++inventorySerial;
     const visible=()=>token===inventorySerial && (inPage ? typeof page!=='undefined' && page==='inventory' && document.getElementById('inventory-page') && (preserveDialog || !document.getElementById('dialog')?.open) : document.getElementById('dialog')?.open!==false) && document.getElementById('inventory-view') && key===JSON.stringify(activeContext) && version===revision;
-    paintInventory('<h2 id="inventory-view">Инвентарь</h2><p>Загружаем предметы…</p>');
+    paintInventory(`<h2 id="inventory-view">${inPage?'Предметы':'Инвентарь'}</h2><p role="status">Загружаем предметы…</p>`);
     try {
       const data = queuedInventory() || await request('/api/inventory').catch(error=>{if(canResource()&&inventoryCache?.revision===revision&&JSON.stringify(inventoryCache.context)===JSON.stringify(activeContext))return {...inventoryCache,undo:null};throw error;});
       if (!visible()) return;
       if (JSON.stringify(data.context) !== key || data.revision !== revision) {
-        paintInventory('<h2>Игра изменилась в другой вкладке</h2><p>Обнови данные перед просмотром инвентаря.</p><button id="inventory-reload">Обновить данные</button>');
+        paintInventory('<h2>Игра изменилась в другой вкладке</h2><p role="alert">Обнови данные перед просмотром инвентаря.</p><button id="inventory-reload">Обновить данные</button>');
         $('#inventory-reload').onclick = async () => { closeModal(); await load(); };
         return;
       }
@@ -466,7 +466,7 @@ const SkazStorage = (() => {
       if(inventoryFilter.owner!==owner)inventoryFilter={owner,q:'',attunement:'',offset:0};
       const quickRank=item=>{const info=item.entry.item||item.entry.artifact;return info?.charges || ['potion','scroll'].includes(info?.type)?0:1;};
       const pageSize=10;
-      function drawInventory() {
+      function drawInventory(refocusSearch=false) {
         if(!visible())return;
         const query=inventoryFilter.q.trim().toLocaleLowerCase('ru');
         const matching=data.entries.map((item,index)=>({item,index})).filter(({item})=>{
@@ -477,8 +477,9 @@ const SkazStorage = (() => {
         const last=Math.max(0,Math.floor((matching.length-1)/pageSize)*pageSize);
         inventoryFilter.offset=Math.min(inventoryFilter.offset,last);
         const start=inventoryFilter.offset,shown=matching.slice(start,start+pageSize);
+        const showSearch=data.entries.length>pageSize||Boolean(inventoryFilter.q||inventoryFilter.attunement);
         const pages=suffix=>`<nav class="inventory-pages" ${matching.length<=pageSize?'hidden':''} aria-label="Страницы инвентаря${suffix?' внизу':''}"><button id="inventory-prev${suffix}" ${start===0?'disabled':''}>← Назад</button><span>${matching.length?start+1:0}–${Math.min(start+pageSize,matching.length)} из ${matching.length}</span><button id="inventory-next${suffix}" ${start+pageSize>=matching.length?'disabled':''}>Далее →</button></nav>`;
-        paintInventory(`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div><h2 id="inventory-view" tabindex="-1" ${inPage?'':'autofocus'}>Инвентарь</h2><p>${state.gold} зм · видов предметов: ${data.entries.length}</p><div id="inventory-catalog-setup"></div><div class="inventory-tools"><button id="inventory-catalog" class="primary">Найти предмет в справочнике</button>${data.undo?`<button id="inventory-undo">Отменить: ${esc(data.undo.label)}</button>`:''}</div><form id="inventory-search" class="inventory-search" ${data.entries.length<=pageSize&&!inventoryFilter.q&&!inventoryFilter.attunement?'hidden':''}><label for="inventory-query">Название RU / EN<input id="inventory-query" type="search" maxlength="200" value="${esc(inventoryFilter.q)}" placeholder="Например, кольцо или ring"></label><label for="inventory-attunement">Требование настройки<select id="inventory-attunement"><option value="">Все предметы</option><option value="required" ${inventoryFilter.attunement==='required'?'selected':''}>Требует настройки</option><option value="none" ${inventoryFilter.attunement==='none'?'selected':''}>Без настройки</option></select></label><div class="dialog-actions"><button type="submit">Найти в инвентаре</button><button type="button" id="inventory-reset">Сбросить</button></div></form><p class="small" ${data.entries.length<=pageSize&&!inventoryFilter.q&&!inventoryFilter.attunement?'hidden':''}>Фильтр показывает требование предмета, а не выполненную настройку персонажа.</p>${pages('')}<div class="inventory-grid">${shown.map(({item,index},position)=>`${position===0 || quickRank(shown[position-1].item)!==quickRank(item)?`<h3 class="inventory-group">${quickRank(item)===0?'Под рукой · расходники и заряды':'Остальные предметы'}</h3>`:''}${SkazUI.entryRow({entry:item.entry,name:item.entry.name,badge:`× ${item.quantity}`,metadata:inventoryRowMetadata(item),description:item.entry.text,extra:`${(item.entry.item||item.entry.artifact)?.charges?`<p class="small">Заряды: ${Array.from({length:Math.min(item.quantity,3)},(_,i)=>`№ ${i+1}: ${item.chargeCounts?.[i]==null?'укажи остаток':item.chargeCounts[i]+'/'+(item.entry.item||item.entry.artifact).charges.max}`).join(' · ')}${item.quantity>3?' · ещё '+(item.quantity-3):''}.</p>`:''}`,actions:`${(item.entry.item||item.entry.artifact)?.charges?`<button data-inventory-charges="${index}">${Array.from({length:item.quantity},(_,i)=>item.chargeCounts?.[i]).some(n=>n==null)?'Указать заряды':'Заряды'}</button>`:''}<button data-inventory-read="${index}">Читать</button><button data-inventory-remove="${index}">Списать</button>`})}`).join('') || `<p role="status">${data.entries.length?'По этим условиям ничего не найдено. Сбрось фильтры или измени название.':'Пока пусто. Найди предмет в справочнике и добавь его в инвентарь.'}</p>`}</div>${matching.length>pageSize?pages('-bottom'):''}<p>Здесь только сохранённые предметы. Списание меняет только количество. Настройка, лечение и бонусы не применяются автоматически. Отменить можно последнюю операцию, пока не было других изменений игры.</p>`);
+        paintInventory(`${inPage?'':`<div class="overline">${esc(state.profile.name)} · ${esc(state.profile.campaign)}</div>`}<h2 id="inventory-view" tabindex="-1" ${inPage?'':'autofocus'}>${inPage?'Предметы':'Инвентарь'}</h2><p>${inPage?'':state.gold+' зм · '}Видов предметов: ${data.entries.length}</p><div id="inventory-catalog-setup"></div><div class="inventory-tools"><button id="inventory-catalog" class="primary">Найти предмет в справочнике</button>${data.undo?`<button id="inventory-undo">Отменить: ${esc(data.undo.label)}</button>`:''}</div><form id="inventory-search" class="inventory-search" ${showSearch?'':'hidden'}><label for="inventory-query">Название RU / EN<input id="inventory-query" type="search" maxlength="200" value="${esc(inventoryFilter.q)}" placeholder="Например, кольцо или ring"></label><label for="inventory-attunement">Требование настройки<select id="inventory-attunement"><option value="">Все предметы</option><option value="required" ${inventoryFilter.attunement==='required'?'selected':''}>Требует настройки</option><option value="none" ${inventoryFilter.attunement==='none'?'selected':''}>Без настройки</option></select></label><div class="dialog-actions"><button type="submit">Найти в инвентаре</button><button type="button" id="inventory-reset">Сбросить</button></div></form><p class="small" ${showSearch?'':'hidden'}>Фильтр показывает требование предмета, а не выполненную настройку персонажа.</p>${pages('')}<div class="inventory-grid">${shown.map(({item,index},position)=>`${position===0 || quickRank(shown[position-1].item)!==quickRank(item)?`<h3 class="inventory-group">${quickRank(item)===0?'Под рукой · расходники и заряды':'Остальные предметы'}</h3>`:''}${SkazUI.entryRow({entry:item.entry,name:item.entry.name,badge:`× ${item.quantity}`,metadata:inventoryRowMetadata(item),description:item.entry.text,extra:`${(item.entry.item||item.entry.artifact)?.charges?`<p class="small">Заряды: ${Array.from({length:Math.min(item.quantity,3)},(_,i)=>`№ ${i+1}: ${item.chargeCounts?.[i]==null?'укажи остаток':item.chargeCounts[i]+'/'+(item.entry.item||item.entry.artifact).charges.max}`).join(' · ')}${item.quantity>3?' · ещё '+(item.quantity-3):''}.</p>`:''}`,actions:`${(item.entry.item||item.entry.artifact)?.charges?`<button data-inventory-charges="${index}">${Array.from({length:item.quantity},(_,i)=>item.chargeCounts?.[i]).some(n=>n==null)?'Указать заряды':'Заряды'}</button>`:''}<button data-inventory-read="${index}">Читать</button><button data-inventory-remove="${index}">Списать</button>`})}`).join('') || `<p role="status">${data.entries.length?'По этим условиям ничего не найдено. Сбрось фильтры или измени название.':'Пока пусто. Найди предмет в справочнике и добавь его в инвентарь.'}</p>`}</div>${matching.length>pageSize?pages('-bottom'):''}<p>Здесь только сохранённые предметы. Списание меняет только количество. Настройка, лечение и бонусы не применяются автоматически. Отменить можно последнюю операцию, пока не было других изменений игры.</p>`);
         if(typeof SkazCatalog!=='undefined')void SkazCatalog.offerSetup?.('inventory-catalog-setup');
         const current=()=>{
           if(!visible() || (inPage&&document.getElementById('dialog')?.open)){toast('Игра изменилась. Открой инвентарь заново.');return false;}
@@ -488,9 +489,12 @@ const SkazStorage = (() => {
           event.preventDefault();if(!current())return;
           const attunement=$('#inventory-attunement').value;
           if(!['','required','none'].includes(attunement))return;
-          inventoryFilter={owner,q:$('#inventory-query').value.slice(0,200),attunement,offset:0};drawInventory();
+          inventoryFilter={owner,q:$('#inventory-query').value.slice(0,200),attunement,offset:0};drawInventory(true);
         };
-        $('#inventory-reset').onclick=()=>{if(!current())return;inventoryFilter={owner,q:'',attunement:'',offset:0};drawInventory();};
+        $('#inventory-reset').onclick=()=>{
+          if(!current())return;
+          inventoryFilter={owner,q:'',attunement:'',offset:0};drawInventory(true);
+        };
         for(const suffix of ['',...(matching.length>pageSize?['-bottom']:[])]){
           $('#inventory-prev'+suffix).onclick=()=>{if(!current()||inventoryFilter.offset===0)return;inventoryFilter.offset=Math.max(0,inventoryFilter.offset-pageSize);drawInventory();};
           $('#inventory-next'+suffix).onclick=()=>{if(!current()||inventoryFilter.offset+pageSize>=matching.length)return;inventoryFilter.offset+=pageSize;drawInventory();};
@@ -504,9 +508,10 @@ const SkazStorage = (() => {
           catch(error){toast(error.message);}
         };
         $('#inventory-catalog').onclick=()=>{if(!current())return;closeModal();location.hash='library';};
+        if(inPage&&refocusSearch)$(showSearch?'#inventory-query':'#inventory-catalog')?.focus({preventScroll:true});
       }
       drawInventory();
-    } catch { if(!visible())return; paintInventory('<h2>Не удалось открыть инвентарь</h2><p>Проверь соединение.</p><button id="inventory-retry">Повторить</button>'); $('#inventory-retry').onclick = inventory; }
+    } catch { if(!visible())return; paintInventory('<h2>Не удалось открыть инвентарь</h2><p role="alert">Проверь соединение.</p><button id="inventory-retry">Повторить</button>'); $('#inventory-retry').onclick = inventory; }
   }
   function readInventoryItem(item) {
     if(!item?.entry)return;
@@ -516,7 +521,10 @@ const SkazStorage = (() => {
     try{const source=new URL(entry.source.url);if(['https:','http:'].includes(source.protocol)&&!source.username&&!source.password)sourceLink=`<p><a href="${esc(source.href)}" target="_blank" rel="noopener noreferrer">Открыть первоисточник ↗</a></p>`;}catch{}
     modal(`<button id="inventory-read-back">← К инвентарю</button><div class="overline">${esc(state.profile.name)} · В наличии: ${item.quantity}</div><h2>${esc(entry.name.ru)}</h2>${typeof SkazArt!=='undefined'?SkazArt.markup(entry,'card'):''}<p>${esc(entry.name.en)}</p>${info?`<p>Настройка: ${info.attunement?'требуется':'не требуется'}${info.attunementRequirement?' · '+esc(info.attunementRequirement):''}.</p>`:''}<p>Сохранённая карточка предмета. Чтение не меняет количество и не применяет эффекты.</p>${info?.charges?`<p>Максимум зарядов: ${esc(info.charges.max)}. Восстановление: ${esc(info.charges.recharge)} Это справочные значения, не текущий остаток.</p><button id="inventory-charges" class="primary">Учёт зарядов · ${item.chargeCounts?.filter(n=>n!==null).length||0} из ${item.quantity} указано</button>`:''}${entry.id&&typeof SkazCatalog!=='undefined'?'<button id="inventory-reference">Правила и связи в справочнике →</button>':''}<div class="catalog-text">${esc(entry.text||'Текст не импортирован; используй ссылку на источник.')}</div><p>${esc(entry.source.title)} · ${esc(entry.source.version)}</p><p>${esc(entry.source.terms)}</p>${sourceLink}${entry.source.attribution?`<p>${esc(entry.source.attribution)}</p>`:''}${entry.source.changes?`<p>${esc(entry.source.changes)}</p>`:''}`);
     if(typeof SkazPersonalArtCards!=='undefined')SkazPersonalArtCards.mount($('#dialog-content'),entry);
-    $('#inventory-read-back').onclick=inventory;
+    $('#inventory-read-back').onclick=()=>{
+      if(typeof page!=='undefined'&&page==='inventory'&&key===snapshotKey())closeModal();
+      else return inventory();
+    };
     if(info?.charges)$('#inventory-charges').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.',undefined,{error:true,persistent:true});editCharges(item);};
     if(entry.id&&typeof SkazCatalog!=='undefined')$('#inventory-reference').onclick=()=>{if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.',undefined,{error:true,persistent:true});SkazCatalog.openReference(entry.id,()=>readInventoryItem(item),()=>key===snapshotKey());};
   }

@@ -6,7 +6,7 @@
   line-height: 1.25;
 }
 
-body[data-page="play"] .shell main {
+body[data-workspace-shell="shared"] .shell main {
   margin: 0;
   min-width: 0;
   padding: 0 0 var(--bottom-reserve, 24px) !important;
@@ -68,7 +68,8 @@ body[data-page="play"] .shell main {
   padding: 16px var(--play-gutter) 0;
 }
 .play-layout h2 { font: 24px 'PT Serif', Georgia, serif; margin: 0 0 8px; }
-.play-layout .play-actions, .play-layout .play-resources { min-width: 0; }
+.play-layout .play-actions, .play-layout .play-resources, .workspace-content { min-width: 0; }
+.workspace-prepare .character-edit { flex-wrap: wrap; justify-content: flex-start; }
 .play-layout #play-content { display: block; }
 .play-layout .play-spells { padding: 0; border: 0; background: transparent; }
 .play-layout .play-spell-scopes { margin-bottom: 6px; }
