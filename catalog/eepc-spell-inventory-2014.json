@@ -1,0 +1,677 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "status": "publisher-spell-headings-reconciled",
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/ee-selected-spell-source-comparison-2014.json": "6dc39f1fb8832ee38f1b990eb1e8f46e7d9824e1af98b14f8d591c1be238957b",
+    "catalog/dndsu-spell-index-metadata.json": "592b147e2e816236c0eeb51b446db770aaccf9592a672102b251c3e8b6eeca1c"
+  },
+  "publisherSources": [
+    {
+      "id": "ee2015",
+      "url": "https://media.wizards.com/2015/downloads/dnd/EE_PlayersCompanion.pdf",
+      "sha256": "c520bf96adb66923113abe2931fb068fca06f5ac075a6298f8af45c07d4c197c",
+      "pageCount": 25
+    },
+    {
+      "id": "ee2016",
+      "url": "https://media.wizards.com/2016/downloads/DND/EE-Players-Companion.pdf",
+      "sha256": "ff0290fc0252de6df7d4e24b31ccdf9f17baae88bd68bef397dcc923c55b70d0",
+      "pageCount": 25
+    }
+  ],
+  "secondaryMetadataMatches": 43,
+  "records": [
+    {
+      "observationId": "dndsu:spells:412",
+      "observedName": "Abi-Dalzim's horrid wilting",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 15,
+        "ee2016": 15
+      },
+      "level": 8,
+      "school": "necromancy",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:401",
+      "observedName": "Absorb elements",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 15,
+        "ee2016": 15
+      },
+      "level": 1,
+      "school": "abjuration",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:397",
+      "observedName": "Aganazzar's scorcher",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 15,
+        "ee2016": 15
+      },
+      "level": 2,
+      "school": "evocation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:382",
+      "observedName": "Beast bond",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 15,
+        "ee2016": 15
+      },
+      "level": 1,
+      "school": "divination",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:387",
+      "observedName": "Bones of the earth",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 15,
+        "ee2016": 15
+      },
+      "level": 6,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:386",
+      "observedName": "Catapult",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 15,
+        "ee2016": 15
+      },
+      "level": 1,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:374",
+      "observedName": "Control flames",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 16,
+        "ee2016": 16
+      },
+      "level": 0,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:373",
+      "observedName": "Control winds",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 16,
+        "ee2016": 16
+      },
+      "level": 5,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:410",
+      "observedName": "Create bonfire",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 16,
+        "ee2016": 17
+      },
+      "level": 0,
+      "school": "conjuration",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:406",
+      "observedName": "Dust devil",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 17,
+        "ee2016": 17
+      },
+      "level": 2,
+      "school": "conjuration",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:379",
+      "observedName": "Earth tremor",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 17,
+        "ee2016": 17
+      },
+      "level": 1,
+      "school": "evocation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:413",
+      "observedName": "Earthbind",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 17,
+        "ee2016": 17
+      },
+      "level": 2,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:404",
+      "observedName": "Elemental Bane",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 17,
+        "ee2016": 17
+      },
+      "level": 4,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:384",
+      "observedName": "Erupting earth",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 17,
+        "ee2016": 17
+      },
+      "level": 3,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:405",
+      "observedName": "Flame arrows",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 18,
+        "ee2016": 18
+      },
+      "level": 3,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:396",
+      "observedName": "Frostbite",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 18,
+        "ee2016": 18
+      },
+      "level": 0,
+      "school": "evocation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:415",
+      "observedName": "Gust",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 19,
+        "ee2016": 19
+      },
+      "level": 0,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:388",
+      "observedName": "Ice knife",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 19,
+        "ee2016": 19
+      },
+      "level": 1,
+      "school": "conjuration",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:385",
+      "observedName": "Immolation",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 19,
+        "ee2016": 19
+      },
+      "level": 5,
+      "school": "evocation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:395",
+      "observedName": "Investiture of flame",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 19,
+        "ee2016": 19
+      },
+      "level": 6,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:394",
+      "observedName": "Investiture of ice",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 19,
+        "ee2016": 19
+      },
+      "level": 6,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:393",
+      "observedName": "Investiture of stone",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 19,
+        "ee2016": 19
+      },
+      "level": 6,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:392",
+      "observedName": "Investiture of wind",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 20,
+        "ee2016": 20
+      },
+      "level": 6,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:375",
+      "observedName": "Maelstrom",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 20,
+        "ee2016": 20
+      },
+      "level": 5,
+      "school": "evocation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:378",
+      "observedName": "Magic stone",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 20,
+        "ee2016": 20
+      },
+      "level": 0,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:383",
+      "observedName": "Maximilian's earthen grasp",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 20,
+        "ee2016": 20
+      },
+      "level": 2,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:390",
+      "observedName": "Melf's minute meteors",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 20,
+        "ee2016": 20
+      },
+      "level": 3,
+      "school": "evocation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:389",
+      "observedName": "Mold earth",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 21,
+        "ee2016": 21
+      },
+      "level": 0,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:398",
+      "observedName": "Primordial ward",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 21,
+        "ee2016": 21
+      },
+      "level": 6,
+      "school": "abjuration",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:400",
+      "observedName": "Pyrotechnics",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 21,
+        "ee2016": 21
+      },
+      "level": 2,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:414",
+      "observedName": "Shape water",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 21,
+        "ee2016": 21
+      },
+      "level": 0,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:391",
+      "observedName": "Skywrite",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 22,
+        "ee2016": 22
+      },
+      "level": 2,
+      "school": "transmutation",
+      "ritual": true
+    },
+    {
+      "observationId": "dndsu:spells:409",
+      "observedName": "Snilloc's snowball swarm",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 22,
+        "ee2016": 22
+      },
+      "level": 2,
+      "school": "evocation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:411",
+      "observedName": "Storm sphere",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 22,
+        "ee2016": 22
+      },
+      "level": 4,
+      "school": "evocation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:407",
+      "observedName": "Thunderclap",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 22,
+        "ee2016": 22
+      },
+      "level": 0,
+      "school": "evocation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:403",
+      "observedName": "Tidal wave",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 22,
+        "ee2016": 22
+      },
+      "level": 3,
+      "school": "conjuration",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:402",
+      "observedName": "Transmute rock",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 22,
+        "ee2016": 22
+      },
+      "level": 5,
+      "school": "transmutation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:380",
+      "observedName": "Vitriolic sphere",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 23,
+        "ee2016": 23
+      },
+      "level": 4,
+      "school": "evocation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:399",
+      "observedName": "Wall of sand",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 23,
+        "ee2016": 23
+      },
+      "level": 3,
+      "school": "evocation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:376",
+      "observedName": "Wall of water",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 23,
+        "ee2016": 23
+      },
+      "level": 3,
+      "school": "evocation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:381",
+      "observedName": "Warding wind",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 23,
+        "ee2016": 23
+      },
+      "level": 2,
+      "school": "evocation",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:377",
+      "observedName": "Watery sphere",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 23,
+        "ee2016": 23
+      },
+      "level": 4,
+      "school": "conjuration",
+      "ritual": false
+    },
+    {
+      "observationId": "dndsu:spells:408",
+      "observedName": "Whirlwind",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "pdfPages": {
+        "ee2015": 24,
+        "ee2016": 24
+      },
+      "level": 7,
+      "school": "evocation",
+      "ritual": false
+    }
+  ],
+  "directPotaAppendixRead": false,
+  "bodyEquivalence": "unverified",
+  "wholeCatalogCoverageAccepted": false,
+  "textReusePermission": "not-established",
+  "approvedDenominator": null
+}
