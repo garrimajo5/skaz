@@ -6,6 +6,8 @@ export const inputs = [
   'catalog/scope-register-2014.json',
   'catalog/source-rights-audit-2014.json',
   'catalog/skt-index-residual-2014.json',
+  'catalog/skt-appendix-d-npc-index-2014.json',
+  'catalog/skt-appendix-d-npc-composition-2014.json',
 ];
 const output = new URL('../catalog/d07-adventure-wording-rights-2014.json', import.meta.url);
 const adventureIds = ['132', '161', '206'];
@@ -17,7 +19,45 @@ const editionLocators = {
   '206': 'https://marketplace.dndbeyond.com/category/SRC-00057',
 };
 
-export function reviewAdventureWording(scope, audit, skt) {
+function reviewAppendixDNotice(index, composition, observations) {
+  const source = composition.publisherAppendix;
+  if (source.observedPermission !== 'home-game-photocopy' ||
+      source.appTextReusePermission !== 'not-established' ||
+      index.appTextReusePermission !== 'not-established' ||
+      index.approvedDenominator !== null || composition.approvedDenominator !== null) {
+    throw new Error('Changed Appendix D notice needs human review');
+  }
+
+  if (source.pdfPage !== 10 || index.namedStatBlockPages.length !== source.pdfPage - 1) {
+    throw new Error('Appendix D page coverage needs human review');
+  }
+  const pagesById = new Map();
+  for (const [offset, page] of index.namedStatBlockPages.entries()) {
+    if (page.pdfPage !== offset + 1 || page.printedPage !== page.pdfPage + 246 || page.cards.length !== 2) {
+      throw new Error('Appendix D locator outside the reviewed NPC blocks');
+    }
+    for (const card of page.cards) {
+      const observation = observations.get(card.secondaryObservationId);
+      if (observation?.section !== 'bestiary' || observation.sourceIds.join() !== '132' ||
+          observation.names.en !== card.name || pagesById.has(observation.id)) {
+        throw new Error('Appendix D notice lost its named SKT block: ' + card.secondaryObservationId);
+      }
+      pagesById.set(observation.id, {printedPage: page.printedPage, pdfPage: page.pdfPage});
+    }
+  }
+  return {
+    pagesById,
+    notice: {
+      sourceId: '132',
+      url: source.url,
+      sha256: source.sha256,
+      observedPermission: source.observedPermission,
+      appTextReusePermission: source.appTextReusePermission,
+    },
+  };
+}
+
+export function reviewAdventureWording(scope, audit, skt, appendixIndex, appendixComposition) {
   if (audit.accepted !== false || audit.complete !== false || audit.approvedDenominator !== null ||
       skt.accepted !== false || skt.complete !== false || skt.approvedDenominator !== null) {
     throw new Error('Rights review requires evidence with open acceptance');
@@ -45,6 +85,7 @@ export function reviewAdventureWording(scope, audit, skt) {
 
   const observations = new Map(scope.records.map(row => [row.id, row]));
   if (observations.size !== scope.records.length) throw new Error('Duplicate observation ID');
+  const appendixD = reviewAppendixDNotice(appendixIndex, appendixComposition, observations);
   const referenceLinks = new Map();
   for (const reference of skt.displayedReferences) {
     if (reference.displayedSource !== 'Monster Manual (2014)' || reference.observationCandidates.length === 0) {
@@ -81,6 +122,8 @@ export function reviewAdventureWording(scope, audit, skt) {
       originalSourceIds: [...observation.sourceIds],
       scopeDisposition: observation.inclusion,
       referredToBySktCards: [...(references ?? [])],
+      ...(appendixD.pagesById.has(observation.id)
+        ? {appendixDNoticeLocator: appendixD.pagesById.get(observation.id)} : {}),
       textReuse: observation.reusePermission,
       candidateIds: [...observation.candidateIds],
       requiredEvidence: belongsToAdventure
@@ -105,6 +148,7 @@ export function reviewAdventureWording(scope, audit, skt) {
       observationsWithCatalogCandidates: 0,
       independentTextClearances: 0,
     },
+    appendixDNotice: appendixD.notice,
     publications,
     records,
   };
