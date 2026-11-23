@@ -67,7 +67,7 @@ body[data-workspace-shell="shared"] .shell main {
   gap: 18px;
   padding: 16px var(--play-gutter) 0;
 }
-.play-layout h2 { font: 24px 'PT Serif', Georgia, serif; margin: 0 0 8px; }
+.play-layout h2:not(:where(.catalog *)) { font: 24px 'PT Serif', Georgia, serif; margin: 0 0 8px; }
 .play-layout .play-actions, .play-layout .play-resources, .workspace-content { min-width: 0; }
 .workspace-prepare .character-edit { flex-wrap: wrap; justify-content: flex-start; }
 .play-layout #play-content { display: block; }
@@ -116,6 +116,7 @@ body[data-workspace-shell="shared"] .shell main {
     padding-bottom: 8px;
   }
   .play-layout { grid-template-columns: minmax(0, 1fr) clamp(235px, 24vw, 320px); }
+  body[data-page="library"] .play-layout { grid-template-columns: minmax(0, 1fr) 235px; }
   .play-resources .quick-state {
     position: static;
     width: auto;
