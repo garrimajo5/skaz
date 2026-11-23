@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-24",
+  "status": "publisher-appendix-options-partially-verified",
+  "inputSha256": {
+    "catalog/skt-index-residual-2014.json": "a568b6bc2ce1f0fd5cd8313decb76b44d1260b83c74289f0f4493834debccfc5"
+  },
+  "publisherAppendix": {
+    "url": "https://media.wizards.com/2016/dnd/downloads/SKT_GiantOptions.pdf",
+    "sha256": "b943f2c28dc1393804befe48114d8a499d4c85c66dbe6e9f7581c2e96a3fafd8",
+    "bytes": 728068,
+    "pdfPage": 1,
+    "printedPage": 246,
+    "source": "Storm King's Thunder",
+    "edition": "2014",
+    "appTextReusePermission": "not-established"
+  },
+  "digitalVariants": [
+    {
+      "digitalName": "Cloud Giant (variant)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/324263-cloud-giant-variant",
+      "indexChallengeRating": "9",
+      "printedHeading": null,
+      "actionHeadings": [],
+      "placement": "parent-heading-not-attested-on-page",
+      "digitalEquivalence": "unverified",
+      "canonicalId": null
+    },
+    {
+      "digitalName": "Fire Giant (variant)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/324266-fire-giant-variant",
+      "indexChallengeRating": "9",
+      "printedHeading": null,
+      "actionHeadings": [],
+      "placement": "parent-heading-not-attested-on-page",
+      "digitalEquivalence": "unverified",
+      "canonicalId": null
+    },
+    {
+      "digitalName": "Frost Giant (variant)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/324275-frost-giant-variant",
+      "indexChallengeRating": "8",
+      "printedHeading": "Frost Giants",
+      "actionHeadings": [
+        "Weighted Net"
+      ],
+      "placement": "additional-actions-for-existing-giant",
+      "digitalEquivalence": "unverified",
+      "canonicalId": null
+    },
+    {
+      "digitalName": "Hill Giant (variant)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/324280-hill-giant-variant",
+      "indexChallengeRating": "5",
+      "printedHeading": "Hill Giants",
+      "actionHeadings": [
+        "Squash"
+      ],
+      "placement": "additional-actions-for-existing-giant",
+      "digitalEquivalence": "unverified",
+      "canonicalId": null
+    },
+    {
+      "digitalName": "Stone Giant (variant)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/324283-stone-giant-variant",
+      "indexChallengeRating": "7",
+      "printedHeading": "Stone Giants",
+      "actionHeadings": [
+        "Fling",
+        "Rolling Rock"
+      ],
+      "placement": "additional-actions-for-existing-giant",
+      "digitalEquivalence": "unverified",
+      "canonicalId": null
+    },
+    {
+      "digitalName": "Storm Giant (Variant)",
+      "cardUrl": "https://www.dndbeyond.com/monsters/324286-storm-giant-variant",
+      "indexChallengeRating": "13",
+      "printedHeading": "Storm Giants",
+      "actionHeadings": [
+        "Thunderous Stomp"
+      ],
+      "placement": "additional-actions-for-existing-giant",
+      "digitalEquivalence": "unverified",
+      "canonicalId": null
+    }
+  ],
+  "unassignedPageHeadings": [
+    "Siege Monster",
+    "Tackle"
+  ],
+  "approvedDenominator": null
+}
