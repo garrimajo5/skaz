@@ -37,6 +37,10 @@ def inherited(ref, key):
     return None
 
 
+def page_annotations(page):
+    return page['/Annots'] if '/Annots' in page else []
+
+
 def inventory(reader):
     canonical = {}
     seen = set()
@@ -56,7 +60,7 @@ def inventory(reader):
         walk(ref)
     rows = []
     for page_number, page in enumerate(reader.pages, 1):
-        for ordinal, ref in enumerate(page.get('/Annots', [])):
+        for ordinal, ref in enumerate(page_annotations(page)):
             node = ref.get_object()
             if node.get('/Subtype') != '/Widget':
                 continue

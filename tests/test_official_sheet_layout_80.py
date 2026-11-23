@@ -11,7 +11,7 @@ M = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(M)
 
 
-def fixture(shared=False, orphan=False, duplicate_name=False, cyclic=False):
+def fixture(shared=False, orphan=False, duplicate_name=False, cyclic=False, indirect_annotations=False):
     writer = PdfWriter()
     page = writer.add_blank_page(width=612, height=792)
     owner = DictionaryObject({NameObject('/T'): TextStringObject('Example '), NameObject('/FT'): NameObject('/Tx'), NameObject('/V'): TextStringObject('')})
@@ -31,7 +31,8 @@ def fixture(shared=False, orphan=False, duplicate_name=False, cyclic=False):
         annotations.append(writer._add_object(other_widget))
     if cyclic:
         widget[NameObject('/Parent')] = widget_ref
-    page[NameObject('/Annots')] = ArrayObject(annotations)
+    objects = ArrayObject(annotations)
+    page[NameObject('/Annots')] = writer._add_object(objects) if indirect_annotations else objects
     form = writer._add_object(DictionaryObject({NameObject('/Fields'): ArrayObject(roots)}))
     writer.root_object[NameObject('/AcroForm')] = form
     output = BytesIO(); writer.write(output); output.seek(0)
@@ -45,6 +46,13 @@ class OfficialSheetLayoutTest(unittest.TestCase):
         self.assertEqual(len(result['rows']), 2)
         self.assertEqual(len(result['repeatedOwnerGroups']), 1)
         self.assertEqual(result['ambiguousNames'], [])
+
+    def test_indirect_annots_are_resolved_without_repair(self):
+        reader = fixture(shared=True, indirect_annotations=True)
+        result = M.inventory(reader)
+        self.assertEqual(len(result['canonical']), 1)
+        self.assertEqual(len(result['rows']), 2)
+        self.assertEqual(len(result['repeatedOwnerGroups']), 1)
 
     def test_separate_same_name_fields_are_not_merged(self):
         result = M.inventory(fixture(duplicate_name=True))

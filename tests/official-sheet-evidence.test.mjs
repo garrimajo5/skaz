@@ -5,9 +5,10 @@ import {createHash} from 'node:crypto';
 const read=path=>JSON.parse(readFileSync(new URL('../'+path,import.meta.url),'utf8'));
 const layout=read('docs/design/fixtures/official-sheet-layout-80.json');
 const sample=read('docs/design/fixtures/official-sheet-sample-80.json');
+const alternate=read('docs/design/fixtures/official-sheet-alternative-sample-80.json');
 
 test('public form witnesses pin their actual generator sources and do not claim acceptance',()=>{
- for(const evidence of [layout,sample]){
+ for(const evidence of [layout,sample,alternate]){
   assert.equal(evidence.accepted,false);assert.equal(evidence.complete,false);
   for(const [path,hash] of Object.entries(evidence.inputSha256)){
    const source=readFileSync(new URL('../'+path,import.meta.url),'utf8').replace(/\r\n/g,'\n');
@@ -48,4 +49,30 @@ test('every selected sample value has its own bounded top-left raster region',()
  const current=sample.regions.find(r=>r.fieldName==='HPCurrent'),temp=sample.regions.find(r=>r.fieldName==='HPTemp');
  assert.equal(current.blank,true);assert.equal(temp.blank,false);
  assert.notDeepEqual(current.normalizedBox,temp.normalizedBox);
+});
+
+test('alternate official sample pins a distinct layout and leaves blank maxHP separate from zero',()=>{
+ assert.notEqual(alternate.source.sha256,sample.source.sha256);
+ assert.equal(alternate.source.archiveMember,'Character Sheet - Alternative - Form Fillable.pdf');
+ assert.match(alternate.source.archiveSha256,/^[a-f0-9]{64}$/);
+ assert.equal(alternate.synthetic,true);
+ assert.equal(alternate.artifact.redistributedInGit,false);
+ assert.deepEqual([alternate.artifact.pages,alternate.artifact.canonicalNamedFields,alternate.artifact.widgets],[1,100,105]);
+ assert.equal(alternate.expectedInterpretation.selectionStatus,'unreviewed');
+ assert.deepEqual(alternate.expectedInterpretation.hp,{max:null,current:0,temp:0});
+ assert.deepEqual(alternate.expectedInterpretation.dexterity,{score:14,printedModifier:2});
+ assert.equal(alternate.expectedInterpretation.spellcastingPageIncluded,false);
+ assert.deepEqual([alternate.expectedPdfValues.HPMax,alternate.expectedPdfValues.HPCurrent,alternate.expectedPdfValues.HPTemp],['','0','0']);
+ assert.equal(alternate.expectedPdfValues['DEXmod '],'+2');
+ const [page]=alternate.rasterPages;
+ assert.equal(alternate.rasterPages.length,1);
+ assert.equal(page.derivedFromPdfSha256,alternate.artifact.sha256);
+ assert.deepEqual(alternate.inputVariants.map(v=>[v.kind,v.pages,v.files.length]),[['fillable-pdf',1,1],['png-pages',1,1]]);
+ assert.deepEqual(alternate.regions.map(r=>r.fieldName).sort(),Object.keys(alternate.expectedPdfValues).sort());
+ for(const region of alternate.regions){
+  const [x,y,w,h]=region.normalizedBox;
+  assert(x>=0&&y>=0&&w>0&&h>0&&x+w<=page.width&&y+h<=page.height);
+  assert.equal(region.blank,alternate.expectedPdfValues[region.fieldName]==='');
+ }
+ assert.equal(new Set(alternate.regions.map(r=>r.normalizedBox.join(','))).size,alternate.regions.length);
 });

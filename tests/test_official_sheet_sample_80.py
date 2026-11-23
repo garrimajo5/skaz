@@ -20,9 +20,11 @@ class OfficialSheetSampleTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             source = Path(folder) / 'unrelated.pdf'; source.write_bytes(b'not the public template')
             target = Path(folder) / 'output'
-            with self.assertRaisesRegex(ValueError, 'SHA mismatch'):
-                M.build(source, target)
-            self.assertFalse(target.exists())
+            for layout in ('standard', 'alternative'):
+                with self.subTest(layout=layout):
+                    with self.assertRaisesRegex(ValueError, 'SHA mismatch'):
+                        M.build(source, target, layout=layout)
+                    self.assertFalse(target.exists())
 
     def test_missing_canonical_value_is_not_accepted_from_appearance_alone(self):
         class Reader:
