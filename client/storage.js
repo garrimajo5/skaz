@@ -638,7 +638,10 @@ const SkazStorage = (() => {
     const draft=entityFormDraft('stats',{id:activeContext.characterId},activeContext.characterId,()=>Object.fromEntries(fields.map(([id])=>[id,$('#stats-'+id).value])),raw=>{for(const [id]of fields)$('#stats-'+id).value=raw[id];},raw=>validEditorDraft(raw,fields.map(([id])=>[id,16])));
     async function submit(stats){
       if(key!==snapshotKey()||!can('character'))return toast('Игра или права изменились. Открой характеристики заново.');
-      if(JSON.stringify(stats)===JSON.stringify(original))return toast('Характеристики уже сохранены');
+      const sameValues=stats&&original&&fields.every(([id])=>
+        (stats.abilities[id]??stats[id])===(original.abilities[id]??original[id]));
+      const sameAgreements=JSON.stringify(stats?.ruleAcknowledgements)===JSON.stringify(original?.ruleAcknowledgements);
+      if(stats===original||(sameValues&&sameAgreements))return toast('Характеристики уже сохранены');
       pending={operation:'character-stats',mutationId:crypto.randomUUID(),expectedRevision:revision,characterId:activeContext.characterId,stats,formDraftKey:draft.key};rememberDraft();closeModal();
       try{await sendPending();toast('Характеристики сохранены');}catch(error){toast(error.message);}
     }

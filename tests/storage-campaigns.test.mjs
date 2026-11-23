@@ -1264,6 +1264,24 @@ test('manual deviations select v15 export and importing v15 retains the chosen v
 });
 
 
+test('saving identical agreed stats ignores the server property order',async()=>{
+ const rules=createRequire(import.meta.url)('../client/profile-rules.js');
+ const stats={...manualStats(),abilities:{...manualStats().abilities,dex:32}};
+ const ruleAcknowledgements=[rules.acknowledge(rules.warnings({stats})[0],'Synthetic agreement')];
+ const current={...payload(0),characterStats:{ruleAcknowledgements,...stats}};
+ const calls=[];
+ const h=harness(memory(),memory(),async(url,options)=>{
+  if(options.method)calls.push(JSON.parse(options.body));
+  return response(current);
+ });
+ await h.api.boot();
+ h.click('edit-stats');
+ statsValues(h,{dex:'32'});
+ await h.get('#stats-form').onsubmit({preventDefault(){}});
+ assert.deepEqual(calls,[]);
+ assert.equal(h.messages.at(-1),'Характеристики уже сохранены');
+});
+
 test('unchanged agreed deviation saves unrelated stats directly but explicit agreement editor can remove it',async()=>{
  const rules=createRequire(import.meta.url)('../client/profile-rules.js');
  let stats={...manualStats(),abilities:{...manualStats().abilities,dex:32}};
