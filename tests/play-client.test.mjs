@@ -133,6 +133,14 @@ test('empty known spell list offers adding known spells, prepared policies keep 
  }
 });
 
+test('play scales cantrips for the level-five template shown in the header',async()=>{
+ const h=harness(),entry=bundledCatalog().bundle.entries.find(e=>e.id==='srd51:2014:spell:acid-splash');
+ await loaded(h,[{catalogId:entry.id,status:'known',entry}]);
+ assert.equal(h.factsCalls.at(-1)[1],5);
+ assert.match(h.get('play-content').innerHTML,/спас ЛОВ · 2к6 кислота/);
+ assert.match(h.api.view(),/5 уровень/);
+});
+
 test('play passes actual total level to shared facts at every cantrip boundary, with base fallback for unknown',async()=>{
  const actual=bundledCatalog().bundle.entries.find(e=>e.id==='srd51:2014:spell:acid-splash');
  for(const[level,expected]of[[4,'1к6'],[5,'2к6'],[10,'2к6'],[11,'3к6'],[16,'3к6'],[17,'4к6'],[undefined,'1к6 кислота (база)'],[null,'1к6 кислота (база)']]){
