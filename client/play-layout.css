@@ -100,11 +100,13 @@ body[data-page="play"] .shell main {
 .play-resources #play-history .ui-icon { width: 16px; height: 16px; }
 
 @media (min-width: 1000px) and (min-height: 600px) and (orientation: landscape) {
-  body[data-page="play"] .shell { grid-template-columns: clamp(146px, 14.7vw, 225px) minmax(0, 1fr); }
-  body[data-page="play"] .sidebar { position: sticky; top: 56px; align-self: start; height: calc(100dvh - 56px); min-height: 0; overflow: auto; padding: 12px; }
-  body[data-page="play"] .sidebar nav button { justify-content: flex-start; text-align: left; flex-direction: row; min-height: var(--touch); gap: 8px; padding: 7px; font-size: 13px; overflow-wrap: anywhere; }
-  body[data-page="play"] .sidebar nav button > span:first-child { flex: none; }
-  body[data-page="play"] .sidebar nav button .nav-play-label { flex: 1; }
+  body[data-workspace-shell="shared"] { --workspace-nav-width: clamp(146px, 14.7vw, 225px); }
+  body[data-workspace-shell="shared"] .shell { grid-template-columns: var(--workspace-nav-width) minmax(0, 1fr); }
+  body[data-workspace-shell="shared"] #quick-state-home > .quick-state { left: var(--workspace-nav-width); }
+  body[data-workspace-shell="shared"] .sidebar { position: sticky; top: 56px; align-self: start; height: calc(100dvh - 56px); min-height: 0; overflow: auto; padding: 12px; }
+  body[data-workspace-shell="shared"] .sidebar nav button { justify-content: flex-start; text-align: left; flex-direction: row; min-height: var(--touch); gap: 8px; padding: 7px; font-size: 13px; overflow-wrap: anywhere; }
+  body[data-workspace-shell="shared"] .sidebar nav button > span:first-child { flex: none; }
+  body[data-workspace-shell="shared"] .sidebar nav button .nav-play-label { flex: 1; justify-items: start; text-align: left; }
   .play-resources {
     position: sticky;
     top: 68px;
@@ -136,7 +138,8 @@ body[data-page="play"] .shell main {
   .play-resources .quick-vitals { order: -2; padding: 0 0 8px; border: 0; border-bottom: 1px solid var(--line); }
 }
 @media (max-width: 999px), (max-height: 599px), (orientation: portrait) {
-  body[data-page="play"] .shell { display: block; }
+  body[data-workspace-shell="shared"] .shell { display: block; }
+  body[data-workspace-shell="shared"] .sidebar { display: none; }
   .play-layout { display: flex; flex-direction: column; }
   .play-layout > * { width: 100%; }
   .play-layout .play-resources { border: 0; padding: 0; }
@@ -149,4 +152,9 @@ body[data-page="play"] .shell main {
   .play-effects { grid-column: 1 / 3; }
   .play-gold { grid-column: 3; }
   .play-layout .play-spell-action:has(.play-cast-levels) { padding: 4px 6px; }
+}
+
+@media (max-width: 420px) {
+  body[data-page="hero"] .statrow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  body[data-page="hero"] .statrow .stat { padding-inline: 8px; overflow-wrap: anywhere; }
 }
