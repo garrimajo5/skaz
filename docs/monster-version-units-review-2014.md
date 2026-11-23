@@ -31,6 +31,42 @@ Firenewt и Shadow Mastiff в Volo ведут к более широким ра�
 
 Извлечение воспроизводится командой `python scripts/review-volo-motm-residual-locators-2014.py --directory <HTML> --output <JSON>`, где в каталоге лежат `volo.html` и `motm.html`. Три проверки отчёта находятся в `tests/volo-motm-residual-locators.test.mjs`.
 
+
+## Цифровые карточки Firenewt Warrior и Shadow Mastiff Alpha
+
+23.11.2026 проверены четыре именованных фильтра издателя. Для каждой пары отдельно сохранены оба наблюдения dnd.su и карточки D&D Beyond. В Volo прежние родительские заголовки Firenewt и Shadow Mastiff остаются ссылками на книгу. [Машиночитаемый отчёт](../catalog/volo-motm-warrior-alpha-index-2014.json).
+
+| Пара | Volo | MotM | Различие в цифровом указателе |
+| --- | --- | --- | --- |
+| Firenewt Warrior | `594/111`, [17246](https://www.dndbeyond.com/monsters/17246-firenewt-warrior) | `6749/158`, [2560812](https://www.dndbeyond.com/monsters/2560812-firenewt-warrior) | Humanoid (firenewt) → Elemental. CR 1/2 в обоих указателях. |
+| Shadow Mastiff Alpha | `5678/111`, [17347](https://www.dndbeyond.com/monsters/17347-shadow-mastiff-alpha) | `6936/158`, [2560912](https://www.dndbeyond.com/monsters/2560912-shadow-mastiff-alpha) | CR 2 → 3. Тип Monstrosity в обоих указателях. |
+
+В отчёте также сохранены подписи мировоззрения, SHA четырёх исходных HTML и фактически выбранные фильтры 15/Volo и 85/MotM. Числовые коды фильтров принадлежат издателю. Сопоставление полного текста, точная печатная версия, разрешение на перевод и каноничность ещё требуют своего основания. Решения по алиасам, знаменателю и данным приложения остаются открытыми.
+
+Воспроизведение использует сохранённые анонимные HTML вне Git. Адреса фильтров перечислены в отчёте. Имена файлов имеют вид `firenewt-warrior-vgtm.html`, `firenewt-warrior-motm.html`, `shadow-mastiff-alpha-vgtm.html`, `shadow-mastiff-alpha-motm.html`.
+
+```sh
+python scripts/review-volo-motm-warrior-alpha-index-2014.py --directory <папка-HTML> --output <отчёт-JSON>
+python -m unittest discover -s tests -p test_volo_motm_warrior_alpha_index.py
+```
+
+## Цифровые карточки Ox и Stench Kow
+
+23.11.2026 проверены четыре строки именованных фильтров Volo и MotM. Сопоставлены отдельные карточки и прежние наблюдения. Заголовок `Cattle` в книге Volo остаётся указателем на контекст вариантов. [Машиночитаемая сверка](../catalog/volo-motm-ox-kow-index-2014.json).
+
+| Запись | Volo | MotM | Различие в цифровом указателе |
+| --- | --- | --- | --- |
+| Ox | `644/111`, [24001](https://www.dndbeyond.com/monsters/24001-ox) | `6490/158`, [2560899](https://www.dndbeyond.com/monsters/2560899-ox) | Beast → Beast (Cattle). CR 1/4 в обеих строках. |
+| Stench Kow | `645/111`, [24007](https://www.dndbeyond.com/monsters/24007-stench-kow) | `6491/158`, [2560929](https://www.dndbeyond.com/monsters/2560929-stench-kow) | Beast → Fiend (Cattle), CR 1/4 → 1/2. |
+
+Названия, URL, источник и SHA исходного HTML зафиксированы отдельно у каждой записи. Цифровое поле `Cattle` оставлено как издательская метка. Точная печатная версия, полный текст, алиасы, разрешение на перевод и применение в расчётах остаются открытыми.
+
+Для повторения используй четыре исходных файла `ox-vgtm.html`, `ox-motm.html`, `stench-kow-vgtm.html`, `stench-kow-motm.html`. Пути запросов есть в отчёте.
+
+```sh
+python scripts/review-volo-motm-warrior-alpha-index-2014.py --batch ox-kow --directory <папка-HTML> --output <отчёт-JSON>
+```
+
 ## Артефакты и проверки
 
 - `catalog/monster-version-publication-evidence-2014.json`:114имён,2публикации,210заголовков/ссылок и18missing-отметок по источникам.
