@@ -51,6 +51,7 @@ test('published manual-2014 and v15 preserve zero but still reject unknown scala
    assert.equal(source.history().length,0);
   }
   const input=request(source);
+  input.manual.maxHp=33;
   input.manual.tempHp=0;
   input.manual.stats.abilities.dex=31;
   input.manual.sheet.level=21;
@@ -66,6 +67,7 @@ test('published manual-2014 and v15 preserve zero but still reject unknown scala
   }
   target.importActive(command(target,{destination:'new-campaign',file}));
   const imported=target.read();
+  assert.equal(imported.state.maxHp,33);
   for(const field of ['hp','tempHp','gold'])assert.equal(imported.state[field],0);
   assert.deepEqual(imported.characterStats,input.manual.stats);
   assert.deepEqual(imported.characterSheet,input.manual.sheet);
