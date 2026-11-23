@@ -199,15 +199,21 @@ $('page').onchange=showPage;
 /** @param {string} next */
 function restart(next){
  if(fields.some(f=>f.changed)&&!confirmation){
-  pendingScenario=next;$('scenario').value=current.id;$('discard').returnValue='stay';$('discard').showModal();
+  pendingScenario=next;$('scenario').value=current.id;$('discard').showModal();
  }else{$('scenario').value=next;load();}
 }
 $('scenario').onchange=()=>restart($('scenario').value);
 $('reset').onclick=()=>restart(current.id);
-$('discard').addEventListener('close',()=>{
- if($('discard').returnValue==='discard'&&pendingScenario!==null){$('scenario').value=pendingScenario;load();}
+$('discard').addEventListener('submit',event=>{
+ // Settle this choice before a deferred close can affect a subsequent dialog.
+ const next=pendingScenario;
  pendingScenario=null;
+ if(event.submitter instanceof HTMLButtonElement&&event.submitter.value==='discard'&&next!==null){
+  $('scenario').value=next;
+  load();
+ }
 });
+$('discard').addEventListener('cancel',()=>{pendingScenario=null;});
 $('confirmed').onchange=update;
 $('class-agreement').onchange=()=>{
  const state=classReviewState(fields);
