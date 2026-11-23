@@ -8,9 +8,15 @@
 
 Предложение: общая страница/семейство — навигационный контейнер, четыре варианта MotM — четыре предложения игровых компонентов. Контейнер не считается пятой дополнительной играбельной расой. Это ещё не утверждённые единицы каталога и не доказательство полноты текстов/параметров; геймдизайнер должен рассмотреть модель выбора и версий.
 
-[Оглавление Princes of the Apocalypse](https://www.dndbeyond.com/sources/dnd/pota) подтверждает приложение Genasi для107. [Глава](https://www.dndbeyond.com/sources/pota/appendix-a-genasi) перенаправляет в магазин; её внутренний состав не прочитан. Поэтому компоненты107 остаются null/unknown, а не нулём и не автоматически четырьмя.
+[Оглавление Princes of the Apocalypse](https://www.dndbeyond.com/sources/dnd/pota) подтверждает приложение Genasi для107. [Глава](https://www.dndbeyond.com/sources/pota/appendix-a-genasi) перенаправляет в магазин; её внутренний состав не прочитан. В исходном отчёте прямые компоненты 107 остаются неизвестными. Ниже добавлено отдельное свидетельство о составе из открытого PDF издателя.
 
 [Доступная legacy-страница издателя](https://www.dndbeyond.com/species/23-genasi) имеет четыре заголовка вариантов, каждый помечен Elemental Evil Player’s Companion в data-content-slug, species-option и legacy-badge. Сохраняются только эти метаданные/ссылки/SHA. Это отдельная публикация без назначения numeric sourceId: она не подставляется вместо107, не делает правила двух книг тождественными и не добавляет четыре принятых записи.
+
+### Указание издателя о составе приложения
+
+В выходных данных открытого PDF Elemental Evil Player’s Companion за март 2015 указано, что генази из главы 1 входят в приложения Princes of the Apocalypse. На страницах PDF 9 и 10 у этой главы четыре самостоятельных заголовка подрас. Это даёт первичное основание предложить Air, Earth, Fire и Water Genasi как компоненты семейства 107. Состав оглавления MotM 158 сохраняется в отдельной версии. [Официальный PDF, страница 2](https://media.wizards.com/2015/downloads/dnd/EE_PlayersCompanion.pdf#page=2), [анонс Wizards](https://wpn.wizards.com/en/products/princes-of-the-apocalypse).
+
+[Новое свидетельство](../catalog/genasi-companion-appendix-witness-2014.json) хранит SHA, страницы и связь. Для повторной проверки выполнить `python scripts/verify-genasi-companion-appendix.py <EE_PlayersCompanion.pdf>` и `node --test tests/genasi-companion-appendix-witness.test.mjs`. Внутренние страницы самого приложения ещё нужны для прямой сверки формулировок и изменений тиража. Права и канонические ID открыты. Связь относится к генази. Диагностика Aarakocra 107 по-прежнему требует собственного свидетельства.
 
 ## Aarakocra107
 
