@@ -1,0 +1,1890 @@
+{
+  "schemaVersion": 1,
+  "status": "wording-evidence-review",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "summary": {
+    "uniqueObservations": 136,
+    "originalAdventureObservations": 116,
+    "uniqueMonsterManualReferences": 20,
+    "originalObservationsBySource": {
+      "103": 20,
+      "132": 94,
+      "161": 5,
+      "206": 17
+    },
+    "observationsWithCatalogCandidates": 0,
+    "independentTextClearances": 0
+  },
+  "publications": [
+    {
+      "sourceId": "132",
+      "title": "Storm King's Thunder",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "editionLocator": "https://www.dndbeyond.com/sources/dnd/skt",
+      "wordingEvidence": "not-established-by-this-audit",
+      "translationEvidence": "not-established-by-this-audit",
+      "requiredEvidence": [
+        "exact-edition-and-passage",
+        "permission-for-intended-wording",
+        "russian-wording-origin-and-permission"
+      ]
+    },
+    {
+      "sourceId": "161",
+      "title": "Infernal Machine Rebuild",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "editionLocator": "https://www.dndbeyond.com/sources/dnd/imr",
+      "wordingEvidence": "not-established-by-this-audit",
+      "translationEvidence": "not-established-by-this-audit",
+      "requiredEvidence": [
+        "exact-edition-and-passage",
+        "permission-for-intended-wording",
+        "russian-wording-origin-and-permission"
+      ]
+    },
+    {
+      "sourceId": "206",
+      "title": "Mordenkainen's Fiendish Folio Vol 1",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "editionLocator": "https://marketplace.dndbeyond.com/category/SRC-00057",
+      "wordingEvidence": "not-established-by-this-audit",
+      "translationEvidence": "not-established-by-this-audit",
+      "requiredEvidence": [
+        "exact-edition-and-passage",
+        "permission-for-intended-wording",
+        "russian-wording-origin-and-permission"
+      ]
+    },
+    {
+      "sourceId": "103",
+      "title": "Monster Manual",
+      "scopeDisposition": "eligible-publication-records-need-review",
+      "editionLocator": "https://www.dndbeyond.com/sources/dnd/mm-2014",
+      "wordingEvidence": "not-established-by-this-audit",
+      "translationEvidence": "not-established-by-this-audit",
+      "requiredEvidence": [
+        "exact-edition-and-passage",
+        "permission-for-intended-wording",
+        "russian-wording-origin-and-permission"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "observationId": "dndsu:bestiary:1018",
+      "url": "https://dnd.su/bestiary/1018-purple-wormling/",
+      "name": "Purple Wormling",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:13620",
+      "url": "https://dnd.su/bestiary/13620-assasin-bug/",
+      "name": "Assasin Bug",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:13626",
+      "url": "https://dnd.su/bestiary/13626-blindheim/",
+      "name": "Blindheim",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:13630",
+      "url": "https://dnd.su/bestiary/13630-crab-folk/",
+      "name": "Crab Folk",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:13657",
+      "url": "https://dnd.su/bestiary/13657-khargra/",
+      "name": "Khargra",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:13670",
+      "url": "https://dnd.su/bestiary/13670-eye-of-fear-and-flame/",
+      "name": "Eye of Fear and Flame",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:13671",
+      "url": "https://dnd.su/bestiary/13671-forlarren/",
+      "name": "Forlarren",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:13709",
+      "url": "https://dnd.su/bestiary/13709-needle-lord/",
+      "name": "Needle Lord",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:13711",
+      "url": "https://dnd.su/bestiary/13711-norker/",
+      "name": "Norker",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:13712",
+      "url": "https://dnd.su/bestiary/13712-norker-war-leader/",
+      "name": "Norker War Leader",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:13728",
+      "url": "https://dnd.su/bestiary/13728-screaming-devilkin/",
+      "name": "Screaming Devilkin",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:13729",
+      "url": "https://dnd.su/bestiary/13729-ygorl-lord-of-entropy/",
+      "name": "Ygorl, Lord of Entropy",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:13731",
+      "url": "https://dnd.su/bestiary/13731-xill/",
+      "name": "Xill",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:146",
+      "url": "https://dnd.su/bestiary/146-drow-elite-warrior/",
+      "name": "Drow elite warrior",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17134-drow-elite-warrior"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:147",
+      "url": "https://dnd.su/bestiary/147-drow-mage/",
+      "name": "Drow mage",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17135-drow-mage"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:17363",
+      "url": "https://dnd.su/bestiary/17363-giant-fog/",
+      "name": "Giant, Fog",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:17364",
+      "url": "https://dnd.su/bestiary/17364-jermlaine/",
+      "name": "Jermlaine",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:17365",
+      "url": "https://dnd.su/bestiary/17365-killmoulis/",
+      "name": "Killmoulis",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:17366",
+      "url": "https://dnd.su/bestiary/17366-mite/",
+      "name": "Mite",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:17367",
+      "url": "https://dnd.su/bestiary/17367-needle-spawn/",
+      "name": "Needle Spawn",
+      "originalSourceIds": [
+        "206"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:182",
+      "url": "https://dnd.su/bestiary/182-goblin-boss/",
+      "name": "Goblin boss",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17155-goblin-boss"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:198",
+      "url": "https://dnd.su/bestiary/198-helmed-horror/",
+      "name": "Helmed horror",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17159-helmed-horror"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:201",
+      "url": "https://dnd.su/bestiary/201-hobgoblin-warlord/",
+      "name": "Hobgoblin warlord",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17161-hobgoblin-warlord"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:232",
+      "url": "https://dnd.su/bestiary/232-smoke-mephit/",
+      "name": "Smoke mephit",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17174-smoke-mephit"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:258",
+      "url": "https://dnd.su/bestiary/258-orc-war-chief/",
+      "name": "Orc war chief",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17187-orc-war-chief"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:259",
+      "url": "https://dnd.su/bestiary/259-orc-eye-of-gruumsh/",
+      "name": "Orc eye of Gruumsh",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17188-orc-eye-of-gruumsh"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:260",
+      "url": "https://dnd.su/bestiary/260-orog/",
+      "name": "Orog",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17189-orog"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:264",
+      "url": "https://dnd.su/bestiary/264-piercer/",
+      "name": "Piercer",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17191-piercer"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:270",
+      "url": "https://dnd.su/bestiary/270-young-remorhaz/",
+      "name": "Young remorhaz",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17195-young-remorhaz"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:30",
+      "url": "https://dnd.su/bestiary/30-aarakocra/",
+      "name": "Aarakocra",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17100-aarakocra"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:316",
+      "url": "https://dnd.su/bestiary/316-abominable-yeti/",
+      "name": "Abominable yeti",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17105-abominable-yeti"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:318",
+      "url": "https://dnd.su/bestiary/318-yuan-ti-malison/",
+      "name": "Yuan-ti malison",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17122-yuan-ti-malison"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:319",
+      "url": "https://dnd.su/bestiary/319-yuan-ti-pureblood/",
+      "name": "Yuan-ti pureblood",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17123-yuan-ti-pureblood"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:50",
+      "url": "https://dnd.su/bestiary/50-cambion/",
+      "name": "Cambion",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17137-cambion"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5477",
+      "url": "https://dnd.su/bestiary/5477-crag-cat/",
+      "name": "Crag Cat",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5599",
+      "url": "https://dnd.su/bestiary/5599-zephyros/",
+      "name": "Zephyros",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5600",
+      "url": "https://dnd.su/bestiary/5600-slarkrethel/",
+      "name": "Slarkrethel",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5601",
+      "url": "https://dnd.su/bestiary/5601-iymrith/",
+      "name": "Iymrith",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5604",
+      "url": "https://dnd.su/bestiary/5604-klauth/",
+      "name": "Klauth",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5605",
+      "url": "https://dnd.su/bestiary/5605-maegera-the-dawn-titan/",
+      "name": "Maegera the Dawn Titan",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5606",
+      "url": "https://dnd.su/bestiary/5606-uthgardt-shaman/",
+      "name": "Uthgardt shaman",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5607",
+      "url": "https://dnd.su/bestiary/5607-claugiyliamatar/",
+      "name": "Claugiyliamatar",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5613",
+      "url": "https://dnd.su/bestiary/5613-yakfolk-warrior/",
+      "name": "Yakfolk warrior",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5614",
+      "url": "https://dnd.su/bestiary/5614-yakfolk-priest/",
+      "name": "Yakfolk priest",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5615",
+      "url": "https://dnd.su/bestiary/5615-turlang/",
+      "name": "Turlang",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5618",
+      "url": "https://dnd.su/bestiary/5618-countess-sansuri/",
+      "name": "Countess Sansuri",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5619",
+      "url": "https://dnd.su/bestiary/5619-jarl-storvald/",
+      "name": "Jarl Storvald",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5651",
+      "url": "https://dnd.su/bestiary/5651-yuan-ti-malison-type-1/",
+      "name": "Yuan-ti malison (Type 1)",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/301418-yuan-ti-malison-type-1"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5652",
+      "url": "https://dnd.su/bestiary/5652-yuan-ti-malison-type-2/",
+      "name": "Yuan-ti malison (Type 2)",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/301421-yuan-ti-malison-type-2"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:5653",
+      "url": "https://dnd.su/bestiary/5653-yuan-ti-malison-type-3/",
+      "name": "Yuan-ti malison (Type 3)",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/301425-yuan-ti-malison-type-3"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:6044",
+      "url": "https://dnd.su/bestiary/6044-drufi/",
+      "name": "Drufi",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:6402",
+      "url": "https://dnd.su/bestiary/6402-tressym/",
+      "name": "Tressym",
+      "originalSourceIds": [
+        "126",
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:74",
+      "url": "https://dnd.su/bestiary/74-shadow-demon/",
+      "name": "Shadow demon",
+      "originalSourceIds": [
+        "103"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [
+        "https://www.dndbeyond.com/monsters/17131-shadow-demon"
+      ],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "own-monster-manual-version-and-wording-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7679",
+      "url": "https://dnd.su/bestiary/7679-barbatos/",
+      "name": "Barbatos",
+      "originalSourceIds": [
+        "161"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7696",
+      "url": "https://dnd.su/bestiary/7696-kella-darkhope/",
+      "name": "Kella Darkhope",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7697",
+      "url": "https://dnd.su/bestiary/7697-xolkin-alassandar/",
+      "name": "Xolkin Alassandar",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7698",
+      "url": "https://dnd.su/bestiary/7698-wood-elf-scout/",
+      "name": "Wood Elf Scout",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7699",
+      "url": "https://dnd.su/bestiary/7699-morak-urgray/",
+      "name": "Morak Ur'gray",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7700",
+      "url": "https://dnd.su/bestiary/7700-hirai-mystrum/",
+      "name": "Hirai Mystrum",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7706",
+      "url": "https://dnd.su/bestiary/7706-shield-dwarf-veteran/",
+      "name": "Shield Dwarf Veteran",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7709",
+      "url": "https://dnd.su/bestiary/7709-shield-dwarf-commoner/",
+      "name": "Shield Dwarf Commoner",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7710",
+      "url": "https://dnd.su/bestiary/7710-sir-lanniver/",
+      "name": "Sir Lanniver",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7711",
+      "url": "https://dnd.su/bestiary/7711-unarmed-hill-giant/",
+      "name": "Unarmed hill giant",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7712",
+      "url": "https://dnd.su/bestiary/7712-goblin-hucker/",
+      "name": "Goblin Hucker",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7713",
+      "url": "https://dnd.su/bestiary/7713-giant-raven/",
+      "name": "Giant raven",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7714",
+      "url": "https://dnd.su/bestiary/7714-sea-elf/",
+      "name": "Sea elf",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7715",
+      "url": "https://dnd.su/bestiary/7715-vordana-jezral/",
+      "name": "Vordana Jezral",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7716",
+      "url": "https://dnd.su/bestiary/7716-knight-of-the-mithral-shield/",
+      "name": "Knight of the Mithral Shield",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7717",
+      "url": "https://dnd.su/bestiary/7717-felbarren-dwarf/",
+      "name": "Felbarren Dwarf",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7718",
+      "url": "https://dnd.su/bestiary/7718-kerrilla-gemstar/",
+      "name": "Kerrilla Gemstar",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7719",
+      "url": "https://dnd.su/bestiary/7719-krowen-valharrow/",
+      "name": "Krowen Valharrow",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7720",
+      "url": "https://dnd.su/bestiary/7720-uthgardt-barbarian-leader/",
+      "name": "Uthgardt Barbarian Leader",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7721",
+      "url": "https://dnd.su/bestiary/7721-great-chief-halric-bonesnapper/",
+      "name": "Great Chief Halric Bonesnapper",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7722",
+      "url": "https://dnd.su/bestiary/7722-axe-of-mirabar-soldier/",
+      "name": "Axe of Mirabar Soldier",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7724",
+      "url": "https://dnd.su/bestiary/7724-thunderbeast-skeleton/",
+      "name": "Thunderbeast Skeleton",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7726",
+      "url": "https://dnd.su/bestiary/7726-tau/",
+      "name": "Tau",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7727",
+      "url": "https://dnd.su/bestiary/7727-sharda/",
+      "name": "Sharda",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7728",
+      "url": "https://dnd.su/bestiary/7728-young-cloud-giant/",
+      "name": "Young Cloud Giant",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7729",
+      "url": "https://dnd.su/bestiary/7729-weevil/",
+      "name": "Weevil",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7730",
+      "url": "https://dnd.su/bestiary/7730-orok/",
+      "name": "Orok",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7731",
+      "url": "https://dnd.su/bestiary/7731-harper-spellcaster/",
+      "name": "Harper spellcaster",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7732",
+      "url": "https://dnd.su/bestiary/7732-harshnag-the-grim/",
+      "name": "Harshnag the Grim",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7733",
+      "url": "https://dnd.su/bestiary/7733-stone-giant-statue/",
+      "name": "Stone giant statue",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7734",
+      "url": "https://dnd.su/bestiary/7734-ice-spider/",
+      "name": "Ice Spider",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7735",
+      "url": "https://dnd.su/bestiary/7735-noori/",
+      "name": "Noori",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7736",
+      "url": "https://dnd.su/bestiary/7736-ice-spider-queen/",
+      "name": "Ice Spider Queen",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7738",
+      "url": "https://dnd.su/bestiary/7738-eigerons-ghost/",
+      "name": "Eigeron's Ghost",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7739",
+      "url": "https://dnd.su/bestiary/7739-guh/",
+      "name": "Guh",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7740",
+      "url": "https://dnd.su/bestiary/7740-sheep/",
+      "name": "Sheep",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7741",
+      "url": "https://dnd.su/bestiary/7741-pig/",
+      "name": "Pig",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7742",
+      "url": "https://dnd.su/bestiary/7742-deadstone-cleft-stone-giant/",
+      "name": "Deadstone Cleft Stone Giant",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7743",
+      "url": "https://dnd.su/bestiary/7743-hydia-moonmusk/",
+      "name": "Hydia Moonmusk",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7744",
+      "url": "https://dnd.su/bestiary/7744-kayalithica/",
+      "name": "Kayalithica",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7747",
+      "url": "https://dnd.su/bestiary/7747-elister/",
+      "name": "Elister",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7748",
+      "url": "https://dnd.su/bestiary/7748-clockwork-mule/",
+      "name": "Clockwork Mule",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7749",
+      "url": "https://dnd.su/bestiary/7749-chief-kartha-kaya/",
+      "name": "Chief Kartha-Kaya",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7750",
+      "url": "https://dnd.su/bestiary/7750-wiri-fleagol/",
+      "name": "Wiri Fleagol",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7751",
+      "url": "https://dnd.su/bestiary/7751-zaltember/",
+      "name": "Zaltember",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7752",
+      "url": "https://dnd.su/bestiary/7752-cinderhild/",
+      "name": "Cinderhild",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7753",
+      "url": "https://dnd.su/bestiary/7753-duke-zalto/",
+      "name": "Duke Zalto",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7754",
+      "url": "https://dnd.su/bestiary/7754-jasper-dimmerchasm/",
+      "name": "Jasper Dimmerchasm",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7755",
+      "url": "https://dnd.su/bestiary/7755-brimskarda/",
+      "name": "Brimskarda",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7756",
+      "url": "https://dnd.su/bestiary/7756-aarakocra-simulacrum/",
+      "name": "Aarakocra Simulacrum",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7757",
+      "url": "https://dnd.su/bestiary/7757-cressaro/",
+      "name": "Cressaro",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7758",
+      "url": "https://dnd.su/bestiary/7758-alastrah/",
+      "name": "Alastrah",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7759",
+      "url": "https://dnd.su/bestiary/7759-kaaltar/",
+      "name": "Kaaltar",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7760",
+      "url": "https://dnd.su/bestiary/7760-count-thullen/",
+      "name": "Count Thullen",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7762",
+      "url": "https://dnd.su/bestiary/7762-mirran/",
+      "name": "Mirran",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7763",
+      "url": "https://dnd.su/bestiary/7763-nym/",
+      "name": "Nym",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7764",
+      "url": "https://dnd.su/bestiary/7764-serissa/",
+      "name": "Serissa",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7765",
+      "url": "https://dnd.su/bestiary/7765-uthor/",
+      "name": "Uthor",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7766",
+      "url": "https://dnd.su/bestiary/7766-lord-drylund/",
+      "name": "Lord Drylund",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7767",
+      "url": "https://dnd.su/bestiary/7767-pow-ming/",
+      "name": "Pow Ming",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7768",
+      "url": "https://dnd.su/bestiary/7768-king-hekaton/",
+      "name": "King Hekaton",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7769",
+      "url": "https://dnd.su/bestiary/7769-beldora/",
+      "name": "Beldora",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7770",
+      "url": "https://dnd.su/bestiary/7770-ghelryn-foehammer/",
+      "name": "Ghelryn Foehammer",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7771",
+      "url": "https://dnd.su/bestiary/7771-darathra-shendrel/",
+      "name": "Darathra Shendrel",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7772",
+      "url": "https://dnd.su/bestiary/7772-darz-helgar/",
+      "name": "Darz Helgar",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7773",
+      "url": "https://dnd.su/bestiary/7773-duvessa-shane/",
+      "name": "Duvessa Shane",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7774",
+      "url": "https://dnd.su/bestiary/7774-lifferlas/",
+      "name": "Lifferlas",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7775",
+      "url": "https://dnd.su/bestiary/7775-markham-southwell/",
+      "name": "Markham Southwell",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7776",
+      "url": "https://dnd.su/bestiary/7776-miros-xelbrin/",
+      "name": "Miros Xelbrin",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7777",
+      "url": "https://dnd.su/bestiary/7777-naxene-drathkala/",
+      "name": "Naxene Drathkala",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7778",
+      "url": "https://dnd.su/bestiary/7778-narth-tezrin/",
+      "name": "Narth Tezrin",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7780",
+      "url": "https://dnd.su/bestiary/7780-augrek-brighthelm/",
+      "name": "Augrek Brighthelm",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7781",
+      "url": "https://dnd.su/bestiary/7781-oren-yogilvy/",
+      "name": "Oren Yogilvy",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7782",
+      "url": "https://dnd.su/bestiary/7782-othovir/",
+      "name": "Othovir",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7783",
+      "url": "https://dnd.su/bestiary/7783-sirac-of-suzail/",
+      "name": "Sirac of Suzail",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7784",
+      "url": "https://dnd.su/bestiary/7784-sir-baric-nylef/",
+      "name": "Sir Baric Nylef",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7785",
+      "url": "https://dnd.su/bestiary/7785-urgala-meltimer/",
+      "name": "Urgala Meltimer",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7786",
+      "url": "https://dnd.su/bestiary/7786-zi-liang/",
+      "name": "Zi Liang",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:7787",
+      "url": "https://dnd.su/bestiary/7787-shalvus-martholio/",
+      "name": "Shalvus Martholio",
+      "originalSourceIds": [
+        "132"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:8520",
+      "url": "https://dnd.su/bestiary/8520-the-demogorgon/",
+      "name": "«The Demogorgon»",
+      "originalSourceIds": [
+        "161"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:8521",
+      "url": "https://dnd.su/bestiary/8521-lynx-creatlach/",
+      "name": "Lynx Creatlach",
+      "originalSourceIds": [
+        "161"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:8522",
+      "url": "https://dnd.su/bestiary/8522-moghadam/",
+      "name": "Moghadam",
+      "originalSourceIds": [
+        "161"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    },
+    {
+      "observationId": "dndsu:bestiary:8523",
+      "url": "https://dnd.su/bestiary/8523-sir-ursas/",
+      "name": "Sir Ursas",
+      "originalSourceIds": [
+        "161"
+      ],
+      "scopeDisposition": "candidate-2014",
+      "referredToBySktCards": [],
+      "textReuse": "not-established-for-reference-text",
+      "candidateIds": [],
+      "requiredEvidence": "exact-edition-wording-and-russian-text-permission"
+    }
+  ],
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/source-rights-audit-2014.json": "18c89075d37122b84450af252577ba9190e1adf748c3de34137ed4fccc385715",
+    "catalog/skt-index-residual-2014.json": "a568b6bc2ce1f0fd5cd8313decb76b44d1260b83c74289f0f4493834debccfc5"
+  }
+}
