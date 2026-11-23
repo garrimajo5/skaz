@@ -1,7 +1,7 @@
 // @ts-check
 
 /**
- * @typedef {object} QuickAccessScreen
+ * @typedef {object} WorkspaceActor
  * @property {string} heroName
  * @property {string} className
  * @property {number | null | undefined} level
@@ -13,12 +13,19 @@
  * @property {string | null | undefined} concentration
  * @property {string[]} conditions
  * @property {number | undefined} gold
- * @property {number} initiative
- * @property {number} speed
- * @property {string} checks Trusted markup from the character sheet renderer.
- * @property {string} magicStats Trusted markup from the character sheet renderer.
- * @property {string} content Trusted markup from the game screen renderer.
  * @property {boolean} historyAvailable
+ */
+
+/**
+ * @typedef {WorkspaceActor & {initiative:number, speed:number, checks:string, magicStats:string, content:string}} QuickAccessScreen
+ */
+
+/**
+ * @typedef {object} PreparationScreen
+ * @property {WorkspaceActor} actor
+ * @property {string} title
+ * @property {string} [actions] Trusted markup from the current page renderer.
+ * @property {string} content Trusted markup from the current page renderer.
  */
 
 const SkazPlayPresentation = (() => {
@@ -43,18 +50,24 @@ const SkazPlayPresentation = (() => {
     return slotLevel === undefined ? '' : `1 ячейка · ${slotLevel} круг`;
   }
 
-  /** @param {QuickAccessScreen} view */
-  function screen(view) {
+
+  /**
+   * @param {string} title
+   * @param {string} session
+   * @param {string} actions Trusted markup from the current page renderer.
+   */
+  function heading(title, session, actions = '') {
+    return `<div class="play-heading">
+      <div>${session ? `<p class="play-session">${escape(session)}</p>` : ''}<h1>${escape(title)}</h1></div>
+      ${actions}
+    </div>`;
+  }
+
+  /** @param {WorkspaceActor} view */
+  function actorBand(view) {
     const character = [view.className, Number.isInteger(view.level) ? `${view.level} уровень` : ''].filter(Boolean).join(' · ');
     const initial = Array.from(view.heroName.trim())[0] || '?';
-    const initiative = `${view.initiative >= 0 ? '+' : ''}${view.initiative}`;
-    return `<section class="play-screen" aria-label="Игровой экран">
-      <div class="play-heading">
-        <div>${view.session ? `<p class="play-session">${escape(view.session)}</p>` : ''}<h1>Быстрый доступ</h1></div>
-        <button id="play-edit"><span data-ui-icon="profile" aria-hidden="true"></span> Лист персонажа</button>
-        <button id="play-search">Поиск правил</button>
-      </div>
-      <div class="play-hero-band" role="group" aria-label="Состояние активного персонажа">
+    return `<div class="play-hero-band" role="group" aria-label="Состояние активного персонажа">
         <div class="play-hero-name">
           <span class="play-hero-initial" aria-hidden="true">${escape(initial)}</span>
           <div><strong>${escape(view.heroName)}</strong><small>${escape(character)}</small></div>
@@ -65,7 +78,36 @@ const SkazPlayPresentation = (() => {
           <div>${[view.concentration, ...view.conditions].filter(effect => !!effect).map(effect => `<span>${escape(effect || '')}</span>`).join('') || '<span>Без отмеченных эффектов</span>'}</div>
         </div>
         ${typeof view.gold === 'number' ? `<div class="play-gold"><small>Кошелёк</small><strong>${escape(view.gold)} зм</strong></div>` : ''}
+      </div>`;
+  }
+
+  /** @param {boolean} historyAvailable */
+  function resources(historyAvailable) {
+    return `<aside class="play-resources" aria-labelledby="play-resources-title">
+          <h2 id="play-resources-title">Ресурсы</h2>
+          <div id="play-quick-slot"></div>
+          ${historyAvailable ? '<button id="play-history"><span data-ui-icon="undo" aria-hidden="true"></span> История и отмена</button>' : ''}
+        </aside>`;
+  }
+
+  /** @param {PreparationScreen} view */
+  function prepare(view) {
+    return `<section class="play-screen workspace-prepare">
+      ${heading(view.title, view.actor.session, view.actions)}
+      ${actorBand(view.actor)}
+      <div class="play-layout">
+        <div class="workspace-content">${view.content}</div>
+        ${resources(view.actor.historyAvailable)}
       </div>
+    </section>`;
+  }
+
+  /** @param {QuickAccessScreen} view */
+  function screen(view) {
+    const initiative = `${view.initiative >= 0 ? '+' : ''}${view.initiative}`;
+    return `<section class="play-screen" aria-label="Игровой экран">
+      ${heading('Быстрый доступ', view.session, `<button id="play-edit"><span data-ui-icon="profile" aria-hidden="true"></span> Лист персонажа</button><button id="play-search">Поиск правил</button>`)}
+      ${actorBand(view)}
       <div class="play-layout">
         <div class="play-actions">
           <h2>Быстрые действия</h2>
@@ -75,14 +117,10 @@ const SkazPlayPresentation = (() => {
             <div class="play-stats"><span>Инициатива ${escape(initiative)}</span><span>Скорость ${escape(view.speed)} фт</span><div class="play-spell-stats">${view.magicStats}</div>${view.checks}</div>
           </details>
         </div>
-        <aside class="play-resources" aria-labelledby="play-resources-title">
-          <h2 id="play-resources-title">Ресурсы</h2>
-          <div id="play-quick-slot"></div>
-          ${view.historyAvailable ? '<button id="play-history"><span data-ui-icon="undo" aria-hidden="true"></span> История и отмена</button>' : ''}
-        </aside>
+        ${resources(view.historyAvailable)}
       </div>
     </section>`;
   }
 
-  return {castCost, screen};
+  return {castCost, prepare, screen};
 })();

@@ -38,14 +38,11 @@ const SkazPlay = (()=>{
   returnFocus=null;
  }
  function actorLevel(sheet){return sheet?sheet.level:5;}
- function view(){
-  const next=SkazStorage.snapshotKey();if(next!==key){key=next;const context=SkazStorage.contextKey();if(context!==owner){owner=context;scrollPositions={};castLevels={};}status='idle';book=[];items=[];quests=[];questError=false;++serial;}
-  if(status==='idle'){status='loading';const token=serial;queueMicrotask(()=>{if(token===serial&&active())load();});}
-  const stats=SkazStorage.stats(),sheet=SkazStorage.sheet?.(),level=actorLevel(sheet);
-  return SkazPlayPresentation.screen({
+ function actorView(sheet=SkazStorage.sheet?.(),stats=SkazStorage.stats()){
+  return {
    heroName:state.profile.name,
    className:sheet?.className||'Бард',
-   level,
+   level:actorLevel(sheet),
    session:SkazStorage.sessionTitle?.()||'',
    hp:state.hp,
    maxHp:state.maxHp,
@@ -54,12 +51,21 @@ const SkazPlay = (()=>{
    concentration:state.concentration,
    conditions:typeof SkazConditions==='undefined'?[]:SkazConditions.names(state.conditions),
    gold:state.gold,
+   historyAvailable:location.protocol!=='file:'&&SkazStorage.access?.()?.history!==false,
+  };
+ }
+ function view(){
+  const next=SkazStorage.snapshotKey();if(next!==key){key=next;const context=SkazStorage.contextKey();if(context!==owner){owner=context;scrollPositions={};castLevels={};}status='idle';book=[];items=[];quests=[];questError=false;++serial;}
+  if(status==='idle'){status='loading';const token=serial;queueMicrotask(()=>{if(token===serial&&active())load();});}
+  const stats=SkazStorage.stats(),sheet=SkazStorage.sheet?.();
+  const actor=actorView(sheet,stats);
+  return SkazPlayPresentation.screen({
+   ...actor,
    initiative:stats.initiative,
    speed:stats.speed,
    checks:SkazCharacterSheet.abilityRow(stats,sheet),
    magicStats:SkazCharacterSheet.spellTiles(stats,sheet),
-   content:content(level),
-   historyAvailable:location.protocol!=='file:'&&SkazStorage.access?.()?.history!==false,
+   content:content(actor.level),
   });
  }
  function castingGroup(spell){
@@ -146,5 +152,5 @@ const SkazPlay = (()=>{
   if(b.dataset.playCharges){const item=items.find(x=>x.catalogId===b.dataset.playCharges);if(item)SkazStorage.editCharges(item);return;}
   if(b.dataset.playSpend){const item=items.find(x=>x.catalogId===b.dataset.playSpend);if(!item)return;try{await SkazStorage.spendInventoryOne(item,key);toast('Списан один предмет. Эффект не применён автоматически.');}catch(error){toast(error.message);}}
  });
- return {view,mode,remember,castingGroup,inSpellScope,spellSummary,captureFocus,restoreFocus};
+ return {actorView,view,mode,remember,castingGroup,inSpellScope,spellSummary,captureFocus,restoreFocus};
 })();
