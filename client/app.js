@@ -68,7 +68,13 @@ function demoQuests({showHeading=true}={}){return (showHeading?heading('ЗАЦЕ
 function mapPage(){return location.protocol === 'file:' ? demoMapPage() : heading('МИР КАМПАНИИ','Места, которые вы открыли','Записывай только то, что узнал за игровым столом.')+SkazMap.view()+`<details class="demo-map-details"><summary>Посмотреть демонстрационную карту</summary>${demoMapPage()}</details>`}
 function demoMapPage(){return heading('ПОБЕРЕЖЬЕ ТУМАНОВ','Мир, который вы открыли','Карта знаний партии. Выбери место, чтобы увидеть зацепки.')+`<div class="map-layout"><div class="map"><svg viewBox="0 0 700 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="var(--line)" stroke-width=".5"/></pattern><pattern id="trees" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M15 5l-8 15h16z" fill="none" stroke="var(--wash)" opacity=".3"/></pattern></defs><rect width="700" height="600" fill="var(--panel)"/><rect width="700" height="600" fill="url(#grid)"/><path d="M-20 0H535Q480 60 520 115T470 220Q570 260 440 360T390 600H0Z" fill="var(--raised)" stroke="var(--wash)" stroke-width="2"/><path d="M540 0Q480 80 535 125T490 220Q590 260 460 375T415 600" fill="none" stroke="var(--line)" stroke-width="2"/><path d="M50 90Q180 40 300 130L320 310 100 370Z" fill="url(#trees)"/><path d="M270 400Q310 340 355 315T455 150" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 8"/><g fill="none" stroke="var(--wash)" opacity=".4"><path d="M40 490l35-60 35 60-12-10-23-37-24 39zM95 495l40-80 40 80M140 515l38-65 38 65"/><path d="M590 410h45m-30-15h45m-70 30h40M560 300h45m-10-15h35"/></g><text x="550" y="355" fill="var(--muted)" opacity=".5" font-family="Georgia" font-size="18" transform="rotate(-65 550 355)">МОРЕ ТУМАНОВ</text><g transform="translate(620 85)" fill="none" stroke="var(--accent)" opacity=".7"><path d="M0-25V25M-25 0H25M0-25l-5 10h10Z"/><circle r="18"/></g></svg><div class="map-caption">Северное побережье</div>${Object.entries(places).map(([id,p])=>`<button class="map-point ${place===id?'selected':''}" data-map-place="${id}" style="left:${p.x}%;top:${p.y}%">${id==='town'?'<span data-ui-icon="focus"></span>':'<span data-ui-icon="map"></span>'} ${p.title}</button>`).join('')}<div class="map-legend"><span data-ui-icon="focus"></span> Вы здесь &nbsp; <span data-ui-icon="map"></span> Известное место · Схематическая демо-карта</div></div><aside class="panel" id="place-details">${placeDetails()}</aside></div>`}
 function placeDetails(){let p=places[place];return `<div class="overline">${p.type}</div><h2>${p.title}</h2><span class="tag accent">${p.status}</span><p class="map-note" style="margin-top:23px">${p.text}</p>${place==='lighthouse'?'<button class="text-button" data-page="quests">Связано: Свет на мысе →</button>':''}<div class="map-notes">${state.mapNotes.filter(n=>n.place===place).map(n=>`<div class="notice">${esc(n.text)}</div>`).join('')}</div><button class="secondary" id="map-note" style="width:100%;margin-top:20px">＋ Заметка о месте</button>`}
-function library(){return SkazCatalog.view()}
+function library(){
+ return SkazPlayPresentation.prepare({
+  actor:SkazPlay.actorView(),
+  title:'Справочник',
+  content:SkazCatalog.view({showTitle:false}),
+ });
+}
 function inventoryPage(){
  return SkazPlayPresentation.prepare({actor:SkazPlay.actorView(),title:'Инвентарь',content:'<section id="inventory-page" aria-label="Сохранённые предметы"><p role="status">Загружаем предметы…</p></section>'});
 }
@@ -96,7 +102,7 @@ function render(){
  if(page==='play') SkazPlay.captureFocus();
  if(quick.parentElement!==home) home.append(quick);
  document.body.dataset.page=page;
- const workspacePage=['play','hero','inventory'].includes(page)||
+ const workspacePage=['play','hero','inventory','library'].includes(page)||
   (location.protocol!=='file:'&&['journal','quests'].includes(page));
  document.body.dataset.workspaceShell=workspacePage?'shared':'';
  document.body.dataset.hpState=state.hp===0?'zero':'normal';

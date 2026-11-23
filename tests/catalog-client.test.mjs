@@ -24,7 +24,7 @@ function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning
   });
   vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};
   vm.runInContext(uiSource,context);vm.runInContext(source, context);
-  const view = () => vm.runInContext('SkazCatalog.view()', context);
+  const view = options => vm.runInContext('SkazCatalog', context).view(options);
   return { factsCalls,readerSize:(height,position='sticky')=>{readerHeight=height;readerPosition=position;},focusId:id=>{const target={id,focus:options=>{context.document.activeElement=target;movement.push(['focus-id',id,options]);}};focusTargets.set(id,target);context.document.activeElement={id};}, activeId:()=>context.document.activeElement?.id, focusCard:index=>{context.document.activeElement={dataset:{catalogEntry:String(index)}};}, marks,spellControls,offerSetup:id=>vm.runInContext('SkazCatalog',context).offerSetup(id),memory,setOwner:(key,user='user-a')=>{snapshotKey=key;userId=user;},messages,typeRegion,openReference:(...args)=>vm.runInContext('SkazCatalog',context).openReference(...args), view, requests, tasks, region, additions, movement, dialog: () => dialog,
     click: (id,dataset={}) => handlers.click({target:{closest:()=>({id,dataset,hasAttribute:()=>false})}}), close:()=>{isOpen=false;closeHandlers.splice(0).forEach(fn=>fn());}, otherModal:()=>{isOpen=true;dialog='<h2>Other</h2>'},
     submit: (q,filters={}) => handlers.submit({ target: { id: 'catalog-search', q,...filters }, preventDefault() {} }),
@@ -34,6 +34,16 @@ function harness(protocol = 'http:', home=false, memory=new Map(), spellLearning
     detail: (index=0) => handlers.click({ target: { closest: () => ({ hasAttribute: () => true, dataset: { catalogEntry: String(index) } }) } }),
   };
 }
+test('embedded catalog delegates the title to the workspace and preserves search',()=>{
+  const h=harness();
+  assert.match(h.view(),/<h1>Справочник<\/h1>/);
+  const embedded=h.view({showTitle:false});
+  assert.doesNotMatch(embedded,/<h1>/);
+  assert.match(embedded,/id="catalog-search"/);
+  assert.match(embedded,/name="q"/);
+  assert.match(embedded,/id="catalog-results" aria-live="polite"/);
+});
+
 const settle = () => new Promise(resolve => setImmediate(resolve));
 function respond(request, payload) { request.resolve({ ok: true, json: async () => payload }); }
 const entry = { kind: 'mechanic', name: { ru: '<img src=x onerror=alert(1)>', en: 'Test' }, source: { title: 'Fixture', usage: 'personal', url: 'javascript:alert(1)', version: '1', terms: '<script>unsafe</script>' }, text: '<b>plain text</b>' };
