@@ -41,6 +41,32 @@ async function form(scenario = 'conflicting-pages') {
  return {node,read,input,unknown,submit,context,requests,document};
 }
 
+test('discard decisions are applied at submit or cancel, independent of any queued close',async()=>{
+ const h=await form();
+ const discard=h.node('discard');
+ const scenario=h.node('scenario');
+ const requestChange=()=>{scenario.value='zero-charges';scenario.onchange();};
+ const choose=value=>{
+  const button=h.document.createElement('button');
+  button.value=value;
+  discard.handlers.submit({submitter:button});
+ };
+ h.input('hpMax','36');
+ requestChange();
+ discard.handlers.cancel();
+ assert.equal(scenario.value,'conflicting-pages');
+ assert.equal(h.node('field-hpMax').value,'36');
+ requestChange();
+ choose('stay');
+ assert.equal(h.node('field-hpMax').value,'36');
+ requestChange();
+ discard.handlers.close?.();
+ choose('discard');
+ assert.equal(scenario.value,'zero-charges');
+ assert.equal(h.node('field-charges').value,'0');
+ assert.equal(h.node('field-quantity').value,'');
+});
+
 test('unknown max HP → manual value → confirmation → correction requires a new confirmation',async()=>{
  const h=await form();
  assert.equal(h.node('field-hpMax').value,'');
