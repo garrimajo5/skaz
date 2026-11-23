@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "groups": [
+    {
+      "reviewId": "name-review:438fd9d212f39f25e9f4",
+      "name": "Firenewt Warrior",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:594",
+          "observedName": "Firenewt warrior",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Firenewt",
+            "url": "https://www.dndbeyond.com/sources/vgtm/bestiary#Firenewt",
+            "relation": "broader-heading"
+          },
+          "publisherFilterValue": "15",
+          "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-search=Firenewt+Warrior&filter-source=15",
+          "htmlSha256": "0c4bc66f201d3fd74c29bee935ee78875f71826b3e87df8e5c348ec03584164a",
+          "digitalRow": {
+            "displayedSource": "Volo's Guide to Monsters",
+            "digitalName": "Firenewt Warrior",
+            "cardUrl": "https://www.dndbeyond.com/monsters/17246-firenewt-warrior",
+            "challengeRating": "1/2",
+            "type": "Humanoid (firenewt)",
+            "size": "Medium",
+            "alignment": "Neutral Evil"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6749",
+          "observedName": "Firenewt warrior",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": true,
+          "additionalLocator": null,
+          "publisherFilterValue": "85",
+          "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-search=Firenewt+Warrior&filter-source=85",
+          "htmlSha256": "f05066065d89e6f945d5f24af180e7ec11e16762416e91ed24ceb3c773f81b4f",
+          "digitalRow": {
+            "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+            "digitalName": "Firenewt Warrior",
+            "cardUrl": "https://www.dndbeyond.com/monsters/2560812-firenewt-warrior",
+            "challengeRating": "1/2",
+            "type": "Elemental",
+            "size": "Medium",
+            "alignment": "Typically Neutral"
+          }
+        }
+      ],
+      "digitalDifferences": {
+        "type": {
+          "vgtm": "Humanoid (firenewt)",
+          "motm": "Elemental"
+        },
+        "alignment": {
+          "vgtm": "Neutral Evil",
+          "motm": "Typically Neutral"
+        }
+      },
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "fullStatBlocksCompared": false,
+      "exactErrataVersionVerified": false,
+      "translationReusePermission": "not-established"
+    },
+    {
+      "reviewId": "name-review:d2ae7bfe68aeccb1fbbe",
+      "name": "Shadow Mastiff Alpha",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:5678",
+          "observedName": "Shadow mastiff alpha",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Shadow Mastiff",
+            "url": "https://www.dndbeyond.com/sources/vgtm/bestiary#ShadowMastiff",
+            "relation": "broader-heading"
+          },
+          "publisherFilterValue": "15",
+          "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-search=Shadow+Mastiff+Alpha&filter-source=15",
+          "htmlSha256": "27836c4870fa45a232ce478f3576ca9e334ca8ec7ab2ad6e669251421561b68a",
+          "digitalRow": {
+            "displayedSource": "Volo's Guide to Monsters",
+            "digitalName": "Shadow Mastiff Alpha",
+            "cardUrl": "https://www.dndbeyond.com/monsters/17347-shadow-mastiff-alpha",
+            "challengeRating": "2",
+            "type": "Monstrosity",
+            "size": "Medium",
+            "alignment": "Neutral Evil"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6936",
+          "observedName": "Shadow mastiff alpha",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": true,
+          "additionalLocator": null,
+          "publisherFilterValue": "85",
+          "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-search=Shadow+Mastiff+Alpha&filter-source=85",
+          "htmlSha256": "a0d25b7189462b69621fc9bb1025536b1979e6f80202fbc152e42d00f9a15817",
+          "digitalRow": {
+            "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+            "digitalName": "Shadow Mastiff Alpha",
+            "cardUrl": "https://www.dndbeyond.com/monsters/2560912-shadow-mastiff-alpha",
+            "challengeRating": "3",
+            "type": "Monstrosity",
+            "size": "Medium",
+            "alignment": "Typically Neutral Evil"
+          }
+        }
+      ],
+      "digitalDifferences": {
+        "challengeRating": {
+          "vgtm": "2",
+          "motm": "3"
+        },
+        "alignment": {
+          "vgtm": "Neutral Evil",
+          "motm": "Typically Neutral Evil"
+        }
+      },
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "fullStatBlocksCompared": false,
+      "exactErrataVersionVerified": false,
+      "translationReusePermission": "not-established"
+    }
+  ],
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "inputSha256": {
+    "catalog/volo-motm-residual-locators-2014.json": "287d2084641c274cd1b9709db9ce01e4ec38241b110488f7aa6f9b33ebf961b8"
+  }
+}
