@@ -1,0 +1,374 @@
+{
+  "schemaVersion": 1,
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "sources": [
+    {
+      "sourceId": "111",
+      "title": "Volo's Guide to Monsters",
+      "url": "https://www.dndbeyond.com/sources/dnd/vgtm",
+      "htmlSha256": "afaee9930e46efe51e83bf9e55c786979e3d8dc32d1ee1a34de39811bfcd6ab1"
+    },
+    {
+      "sourceId": "158",
+      "title": "Mordenkainen Presents: Monsters of the Multiverse",
+      "url": "https://www.dndbeyond.com/sources/dnd/motm",
+      "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e"
+    }
+  ],
+  "groups": [
+    {
+      "reviewId": "name-review:09a4e54444ba7198e981",
+      "name": "nilbog,goblin гоблин",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:568",
+          "observedName": "Nilbog,goblin гоблин",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Nilbog",
+            "url": "https://www.dndbeyond.com/sources/vgtm/bestiary#Nilbog",
+            "relation": "name-candidate"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6883",
+          "observedName": "Nilbog,goblin гоблин",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Nilbog",
+            "url": "https://www.dndbeyond.com/sources/motm/bestiary-lr#Nilbog",
+            "relation": "name-candidate"
+          }
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:39dddadda85fdb96af4b",
+      "name": "stench kow",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:645",
+          "observedName": "Stench kow",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Stench Kow (Cow)",
+            "url": "https://www.dndbeyond.com/sources/vgtm/appendix-a-assorted-beasts#Cattle",
+            "relation": "named-index-variant"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6491",
+          "observedName": "Stench kow",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": true,
+          "additionalLocator": null
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:438fd9d212f39f25e9f4",
+      "name": "firenewt warrior",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:594",
+          "observedName": "Firenewt warrior",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Firenewt",
+            "url": "https://www.dndbeyond.com/sources/vgtm/bestiary#Firenewt",
+            "relation": "broader-heading"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6749",
+          "observedName": "Firenewt warrior",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": true,
+          "additionalLocator": null
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:58a2a9e5a38a494e6f27",
+      "name": "green guard drake",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:5675",
+          "observedName": "Green guard drake",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Guard Drake",
+            "url": "https://www.dndbeyond.com/sources/vgtm/bestiary#GuardDrake",
+            "relation": "broader-heading"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6789",
+          "observedName": "Green guard drake",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": null
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:676b975337d9a84b2437",
+      "name": "ox",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:644",
+          "observedName": "Ox",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Ox (Cow)",
+            "url": "https://www.dndbeyond.com/sources/vgtm/appendix-a-assorted-beasts#Cattle",
+            "relation": "named-index-variant"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6490",
+          "observedName": "Ox",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": true,
+          "additionalLocator": null
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:694e343ed9f3299be35d",
+      "name": "red guard drake",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:5676",
+          "observedName": "Red guard drake",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Guard Drake",
+            "url": "https://www.dndbeyond.com/sources/vgtm/bestiary#GuardDrake",
+            "relation": "broader-heading"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6790",
+          "observedName": "Red guard drake",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": null
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:a1b0ce84e1a708f03609",
+      "name": "deep rothe",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:646",
+          "observedName": "Deep rothe",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Rothé (Cow)",
+            "url": "https://www.dndbeyond.com/sources/vgtm/appendix-a-assorted-beasts#Cattle",
+            "relation": "broader-heading"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6489",
+          "observedName": "Deep rothe",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Deep Rothé",
+            "url": "https://www.dndbeyond.com/sources/motm/bestiary#DeepRothe",
+            "relation": "accented-name-candidate"
+          }
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:d2ae7bfe68aeccb1fbbe",
+      "name": "shadow mastiff alpha",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:5678",
+          "observedName": "Shadow mastiff alpha",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Shadow Mastiff",
+            "url": "https://www.dndbeyond.com/sources/vgtm/bestiary#ShadowMastiff",
+            "relation": "broader-heading"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6936",
+          "observedName": "Shadow mastiff alpha",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": true,
+          "additionalLocator": null
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:e390784cb83b91bea684",
+      "name": "white guard drake",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:5677",
+          "observedName": "White guard drake",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Guard Drake",
+            "url": "https://www.dndbeyond.com/sources/vgtm/bestiary#GuardDrake",
+            "relation": "broader-heading"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6788",
+          "observedName": "White guard drake",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": null
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:ebea356ee6816416b971",
+      "name": "blue guard drake",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:5672",
+          "observedName": "Blue guard drake",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Guard Drake",
+            "url": "https://www.dndbeyond.com/sources/vgtm/bestiary#GuardDrake",
+            "relation": "broader-heading"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6791",
+          "observedName": "Blue guard drake",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": null
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:fddfe0cc7c6245f014a3",
+      "name": "black guard drake",
+      "members": [
+        {
+          "observationId": "dndsu:bestiary:5671",
+          "observedName": "Black guard drake",
+          "sourceIds": [
+            "111"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": {
+            "heading": "Guard Drake",
+            "url": "https://www.dndbeyond.com/sources/vgtm/bestiary#GuardDrake",
+            "relation": "broader-heading"
+          }
+        },
+        {
+          "observationId": "dndsu:bestiary:6792",
+          "observedName": "Black guard drake",
+          "sourceIds": [
+            "158"
+          ],
+          "existingExactHeading": false,
+          "additionalLocator": null
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    }
+  ],
+  "inputSha256": {
+    "catalog/monster-version-unit-proposals-2014.json": "99b1518d55b7083121499bb60d34a0530dde42ad92c60d2b332ec2e390a153ba"
+  }
+}

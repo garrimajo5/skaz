@@ -21,6 +21,14 @@ SHA HTML Volo:afaee9930e46efe51e83bf9e55c786979e3d8dc32d1ee1a34de39811bfcd6ab1. 
 
 Отсутствие точного заголовка не доказывает отсутствие существа/варианта в полном тексте. Прежние свидетельства вариативности дракончиков относятся к отдельному измерениюD03 и не дают автоматического решения по версиям/правамD02.
 
+## Дополнительные ссылки для 11 неполных пар
+
+23.11.2026 повторно сверены только целевые заголовки двух оглавлений. SHA обоих HTML совпали с указанными выше. [Отчёт](../catalog/volo-motm-residual-locators-2014.json) сохраняет 22 наблюдения. В обоих оглавлениях найден Nilbog, а исходные составные имена остаются кандидатами на сопоставление. В MotM видна точная подпись Deep Rothé с акцентом. Volo даёт более широкий указатель Rothé (Cow). Ox и Stench Kow показаны в индексе Volo отдельными подписями, ведущими в общий раздел Cow. [Volo](https://www.dndbeyond.com/sources/dnd/vgtm), [MotM](https://www.dndbeyond.com/sources/dnd/motm).
+
+Firenewt и Shadow Mastiff в Volo ведут к более широким разделам. Один заголовок Guard Drake относится к контексту всех пяти цветовых наблюдений. Для версий и алиасов всё ещё нужен подходящий первичный фрагмент. При публичной проверке ссылки на разделы Volo перенаправили на страницу Legacy. [Раздел зверей Volo](https://www.dndbeyond.com/sources/vgtm/appendix-a-assorted-beasts).
+
+Извлечение воспроизводится командой `python scripts/review-volo-motm-residual-locators-2014.py --directory <HTML> --output <JSON>`, где в каталоге лежат `volo.html` и `motm.html`. Три проверки отчёта находятся в `tests/volo-motm-residual-locators.test.mjs`.
+
 ## Артефакты и проверки
 
 - `catalog/monster-version-publication-evidence-2014.json`:114имён,2публикации,210заголовков/ссылок и18missing-отметок по источникам.
