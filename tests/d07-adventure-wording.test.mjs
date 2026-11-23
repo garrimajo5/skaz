@@ -42,3 +42,40 @@ test('changed rights evidence or an added catalog match requires a new review', 
     assert.throws(() => reviewAdventureWording(...values));
   }
 });
+
+test('home-game notice attaches only to the 18 printed blocks and never clears application reuse', () => {
+  const report = buildAdventureWordingReview();
+  const appendixIndex = read('catalog/skt-appendix-d-npc-index-2014.json');
+  const expected = new Map(appendixIndex.namedStatBlockPages.flatMap(({pdfPage, printedPage, cards}) =>
+    cards.map(card => [card.secondaryObservationId, {pdfPage, printedPage}])));
+  const actual = new Map(report.records.filter(row => row.appendixDNoticeLocator)
+    .map(row => [row.observationId, row.appendixDNoticeLocator]));
+  assert.equal(actual.size, 18);
+  assert.deepEqual(actual, expected);
+  assert.equal(report.appendixDNotice.sourceId, '132');
+  assert.equal(report.appendixDNotice.observedPermission, 'home-game-photocopy');
+  assert.equal(report.appendixDNotice.appTextReusePermission, 'not-established');
+  assert.equal(report.summary.independentTextClearances, 0);
+});
+
+test('new application permission, an unknown locator, or another source needs separate review', () => {
+  const mutations = [
+    (_scope, _audit, _skt, index) => { index.namedStatBlockPages.pop(); },
+    (_scope, _audit, _skt, _index, composition) => {
+      composition.publisherAppendix.appTextReusePermission = 'granted';
+    },
+    (_scope, _audit, _skt, index) => {
+      index.namedStatBlockPages[0].pdfPage = 10;
+      index.namedStatBlockPages[0].printedPage = 256;
+    },
+    (_scope, _audit, skt, index) => {
+      index.namedStatBlockPages[0].cards[0].secondaryObservationId =
+        skt.displayedReferences[0].observationCandidates[0].observationId;
+    },
+  ];
+  for (const mutate of mutations) {
+    const values = input();
+    mutate(...values);
+    assert.throws(() => reviewAdventureWording(...values), /Appendix D/);
+  }
+});
