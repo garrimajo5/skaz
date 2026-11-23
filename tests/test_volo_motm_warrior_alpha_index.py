@@ -46,6 +46,31 @@ class VoloMotmWarriorAlphaTests(unittest.TestCase):
             self.assertIsNone(group["canonicalId"])
         self.assertIsNone(self.build()["approvedDenominator"])
 
+    def test_ox_kow_keeps_distinct_rows_and_cattle_as_a_digital_type_only(self):
+        captures = {
+            ("Ox", "vgtm"): capture("Ox", "vgtm", 24001, "Beast", "1/4"),
+            ("Ox", "motm"): capture("Ox", "motm", 2560899, "Beast (Cattle)", "1/4"),
+            ("Stench Kow", "vgtm"): capture("Stench Kow", "vgtm", 24007, "Beast", "1/4"),
+            ("Stench Kow", "motm"): capture("Stench Kow", "motm", 2560929, "Fiend (Cattle)", "1/2"),
+        }
+        report = AUDIT["build"](self.base, captures, batch="ox-kow")
+        ox, kow = report["groups"]
+        self.assertEqual([r["observationId"] for r in ox["observations"]], ["dndsu:bestiary:644", "dndsu:bestiary:6490"])
+        self.assertEqual([r["observationId"] for r in kow["observations"]], ["dndsu:bestiary:645", "dndsu:bestiary:6491"])
+        self.assertEqual(ox["digitalDifferences"], {"type": {"vgtm": "Beast", "motm": "Beast (Cattle)"}})
+        self.assertEqual(kow["digitalDifferences"], {
+            "type": {"vgtm": "Beast", "motm": "Fiend (Cattle)"},
+            "challengeRating": {"vgtm": "1/4", "motm": "1/2"},
+        })
+        for group in (ox, kow):
+            self.assertEqual(group["observations"][0]["additionalLocator"]["relation"], "named-index-variant")
+            self.assertFalse(group["aliasAccepted"])
+            self.assertFalse(group["fullStatBlocksCompared"])
+            self.assertIsNone(group["canonicalId"])
+        self.assertIsNone(report["approvedDenominator"])
+        with self.assertRaisesRegex(ValueError, "Both books"):
+            AUDIT["build"](self.base, self.captures, batch="ox-kow")
+
     def test_wrong_filter_and_wrong_displayed_source_are_rejected(self):
         key = ("Firenewt Warrior", "vgtm")
         old = self.captures[key]
