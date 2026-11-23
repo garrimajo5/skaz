@@ -155,6 +155,10 @@ test('quick access has one resource mount and keeps actor identity in its status
  assert.match(html,/<strong>20<span> \/ 38<\/span>/);
  assert.equal((html.match(/id="play-quick-slot"/g)||[]).length,1);
  assert.match(html,/id="play-history"/);
+ h.setHp('18" onfocus="bad');
+ const safe=h.api.view();
+ assert.match(safe,/value="18&quot; onfocus=&quot;bad"/);
+ assert.doesNotMatch(safe,/" onfocus="bad"/);
 });
 
 test('cast price follows the selected command, with distinct free and manual paths',async()=>{

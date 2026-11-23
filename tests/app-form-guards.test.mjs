@@ -52,6 +52,12 @@ test('initial HTTP rendering waits for saved state instead of flashing the demon
  h.run('SkazStorage.readyToDisplay=()=>true;render()');assert.match(h.get('#main').innerHTML,/Элиан/);
 });
 
+test('a late game render leaves an account-locked document alone',()=>{
+ const h=harness();
+ h.run("page='play'; document.querySelector=()=>null; SkazStorage.paint=()=>{throw Error('locked document repainted');}");
+ assert.doesNotThrow(()=>h.run('render()'));
+});
+
 test('damage and healing undo restore the saved state once without offering undo of undo',async()=>{
  for(const heal of [false,true]){
   const h=harness(),before=h.state();h.run(`hpDialog(${heal})`);h.get('#hp-value').value='7';h.get('#apply-hp').onclick();await new Promise(resolve=>setImmediate(resolve));

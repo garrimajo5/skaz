@@ -59,12 +59,12 @@ const SkazPlayPresentation = (() => {
           <span class="play-hero-initial" aria-hidden="true">${escape(initial)}</span>
           <div><strong>${escape(view.heroName)}</strong><small>${escape(character)}</small></div>
         </div>
-        <div class="play-hp-summary"><small>Хиты</small><strong>${view.hp}<span> / ${view.maxHp}</span></strong><progress value="${view.hp}" max="${view.maxHp}" aria-hidden="true"></progress>${view.tempHp ? `<small>+${view.tempHp} временных</small>` : ''}</div>
-        <div><small>КД</small><strong>${view.armorClass}</strong></div>
+        <div class="play-hp-summary"><small>Хиты</small><strong>${escape(view.hp)}<span> / ${escape(view.maxHp)}</span></strong><progress value="${escape(view.hp)}" max="${escape(view.maxHp)}" aria-hidden="true"></progress>${view.tempHp ? `<small>+${escape(view.tempHp)} временных</small>` : ''}</div>
+        <div><small>КД</small><strong>${escape(view.armorClass)}</strong></div>
         <div class="play-effects"><small>Состояния и эффекты</small>
           <div>${[view.concentration, ...view.conditions].filter(effect => !!effect).map(effect => `<span>${escape(effect || '')}</span>`).join('') || '<span>Без отмеченных эффектов</span>'}</div>
         </div>
-        ${typeof view.gold === 'number' ? `<div class="play-gold"><small>Кошелёк</small><strong>${view.gold} зм</strong></div>` : ''}
+        ${typeof view.gold === 'number' ? `<div class="play-gold"><small>Кошелёк</small><strong>${escape(view.gold)} зм</strong></div>` : ''}
       </div>
       <div class="play-layout">
         <div class="play-actions">
@@ -72,7 +72,7 @@ const SkazPlayPresentation = (() => {
           <div id="play-content" tabindex="-1" aria-live="polite">${view.content}</div>
           <details class="play-character-checks">
             <summary>Характеристики и проверки</summary>
-            <div class="play-stats"><span>Инициатива ${initiative}</span><span>Скорость ${view.speed} фт</span><div class="play-spell-stats">${view.magicStats}</div>${view.checks}</div>
+            <div class="play-stats"><span>Инициатива ${escape(initiative)}</span><span>Скорость ${escape(view.speed)} фт</span><div class="play-spell-stats">${view.magicStats}</div>${view.checks}</div>
           </details>
         </div>
         <aside class="play-resources" aria-labelledby="play-resources-title">
