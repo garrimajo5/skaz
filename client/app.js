@@ -62,6 +62,7 @@ function render(){
  if(page==='play') SkazPlay.captureFocus();
  if(quick.parentElement!==home) home.append(quick);
  document.body.dataset.page=page;
+ document.body.dataset.workspaceShell=['play','hero','inventory'].includes(page)?'shared':'';
  document.body.dataset.hpState=state.hp===0?'zero':'normal';
  document.body.dataset.examples=SkazStorage.showExamples?.()?'show':'hide';
  document.body.dataset.theme=state.theme;
