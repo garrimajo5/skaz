@@ -1,0 +1,1097 @@
+{
+  "schemaVersion": 1,
+  "status": "digital-source-filter-membership-verified",
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/eepc-spell-inventory-2014.json": "157c22d98ca38eec8f3139f76f8bb630490163877b61e09ea416847523910a88"
+  },
+  "filters": {
+    "xge": {
+      "value": "27",
+      "optionId": "filter-source-xanathars-guide-to-everything",
+      "pages": [
+        {
+          "page": 1,
+          "url": "https://www.dndbeyond.com/spells?filter-source=27",
+          "bytes": 319068,
+          "sha256": "bdcc34a87d5d491b41594812759bfcfbb8c1fb9a826479e4598154b5034f8929",
+          "rowCount": 20
+        },
+        {
+          "page": 2,
+          "url": "https://www.dndbeyond.com/spells?filter-source=27&page=2",
+          "bytes": 319166,
+          "sha256": "7185dfe1ac97f751be2c968a65f120ef7b8f7c1717b50ddefd496f7051944a70",
+          "rowCount": 20
+        },
+        {
+          "page": 3,
+          "url": "https://www.dndbeyond.com/spells?filter-source=27&page=3",
+          "bytes": 319879,
+          "sha256": "11ca48cc3f58d51e7f7d7bc73b8cd869dd158988f264e8415dce016cccdd6765",
+          "rowCount": 20
+        },
+        {
+          "page": 4,
+          "url": "https://www.dndbeyond.com/spells?filter-source=27&page=4",
+          "bytes": 318767,
+          "sha256": "791773a18f303e9f9e0a8d1a7d314785af2205444da83be39ff1b9dbc2279763",
+          "rowCount": 20
+        },
+        {
+          "page": 5,
+          "url": "https://www.dndbeyond.com/spells?filter-source=27&page=5",
+          "bytes": 311965,
+          "sha256": "f02392d9ea8becd5039a97e1f7dbc2f17b39199333763a5230c807f965093447",
+          "rowCount": 15
+        }
+      ]
+    },
+    "eepc": {
+      "value": "4",
+      "optionId": "filter-source-elemental-evil-players-companion",
+      "pages": [
+        {
+          "page": 1,
+          "url": "https://www.dndbeyond.com/spells?filter-source=4",
+          "bytes": 318220,
+          "sha256": "5a34904e80d2f33c3445c4fc5d97c4af73591436d02c3038efb9345de70b49bb",
+          "rowCount": 20
+        },
+        {
+          "page": 2,
+          "url": "https://www.dndbeyond.com/spells?filter-source=4&page=2",
+          "bytes": 319124,
+          "sha256": "ca7f2847d137c10fd0613fa518532cfe39e6fe37eef470fcbd7fcc9ddbafc17b",
+          "rowCount": 20
+        },
+        {
+          "page": 3,
+          "url": "https://www.dndbeyond.com/spells?filter-source=4&page=3",
+          "bytes": 291356,
+          "sha256": "7091845d65dfd03ff89413e82152ce72cbc27506eed066bbf9216133df7fe14c",
+          "rowCount": 3
+        }
+      ]
+    },
+    "pota": {
+      "value": "10",
+      "optionId": "filter-source-princes-of-the-apocalypse",
+      "pages": [
+        {
+          "page": 1,
+          "url": "https://www.dndbeyond.com/spells?filter-source=10",
+          "bytes": 285133,
+          "sha256": "e3dfd083b6848904818357a6196c045785d28755c9c46827d897583e4cd2d187",
+          "rowCount": 0
+        }
+      ]
+    }
+  },
+  "counts": {
+    "xgeRows": 95,
+    "eepcRows": 43,
+    "potaRows": 0,
+    "sharedDigitalUrls": 43
+  },
+  "records": [
+    {
+      "observationId": "dndsu:spells:412",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Abi-Dalzim's Horrid Wilting",
+      "cardUrl": "https://www.dndbeyond.com/spells/2367-abi-dalzims-horrid-wilting",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:401",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Absorb Elements",
+      "cardUrl": "https://www.dndbeyond.com/spells/2368-absorb-elements",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:397",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Aganazzar's Scorcher",
+      "cardUrl": "https://www.dndbeyond.com/spells/2369-aganazzars-scorcher",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:382",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Beast Bond",
+      "cardUrl": "https://www.dndbeyond.com/spells/2370-beast-bond",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:387",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Bones of the Earth",
+      "cardUrl": "https://www.dndbeyond.com/spells/2371-bones-of-the-earth",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:386",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Catapult",
+      "cardUrl": "https://www.dndbeyond.com/spells/2372-catapult",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:472",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Catnap",
+      "cardUrl": "https://www.dndbeyond.com/spells/14754-catnap",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:462",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Cause Fear",
+      "cardUrl": "https://www.dndbeyond.com/spells/14758-cause-fear",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:465",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Ceremony",
+      "cardUrl": "https://www.dndbeyond.com/spells/14760-ceremony",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:464",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Chaos Bolt",
+      "cardUrl": "https://www.dndbeyond.com/spells/14761-chaos-bolt",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:479",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Charm Monster",
+      "cardUrl": "https://www.dndbeyond.com/spells/14763-charm-monster",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:374",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Control Flames",
+      "cardUrl": "https://www.dndbeyond.com/spells/2374-control-flames",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:373",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Control Winds",
+      "cardUrl": "https://www.dndbeyond.com/spells/2375-control-winds",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:410",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Create Bonfire",
+      "cardUrl": "https://www.dndbeyond.com/spells/2373-create-bonfire",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:499",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Create Homunculus",
+      "cardUrl": "https://www.dndbeyond.com/spells/14765-create-homunculus",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:501",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Crown of Stars",
+      "cardUrl": "https://www.dndbeyond.com/spells/14827-crown-of-stars",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:487",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Danse Macabre",
+      "cardUrl": "https://www.dndbeyond.com/spells/14830-danse-macabre",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:489",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Dawn",
+      "cardUrl": "https://www.dndbeyond.com/spells/14831-dawn",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:467",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Dragon's Breath",
+      "cardUrl": "https://www.dndbeyond.com/spells/14832-dragons-breath",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:498",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Druid Grove",
+      "cardUrl": "https://www.dndbeyond.com/spells/14834-druid-grove",
+      "xgeIndexPage": 1,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:406",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Dust Devil",
+      "cardUrl": "https://www.dndbeyond.com/spells/2376-dust-devil",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:379",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Earth Tremor",
+      "cardUrl": "https://www.dndbeyond.com/spells/2378-earth-tremor",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:413",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Earthbind",
+      "cardUrl": "https://www.dndbeyond.com/spells/2377-earthbind",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:404",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Elemental Bane",
+      "cardUrl": "https://www.dndbeyond.com/spells/2379-elemental-bane",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:473",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Enemies Abound",
+      "cardUrl": "https://www.dndbeyond.com/spells/14836-enemies-abound",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:486",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Enervation",
+      "cardUrl": "https://www.dndbeyond.com/spells/14869-enervation",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:384",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Erupting Earth",
+      "cardUrl": "https://www.dndbeyond.com/spells/2380-erupting-earth",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:484",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Far Step",
+      "cardUrl": "https://www.dndbeyond.com/spells/14870-far-step",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:480",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Find Greater Steed",
+      "cardUrl": "https://www.dndbeyond.com/spells/14871-find-greater-steed",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:405",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Flame Arrows",
+      "cardUrl": "https://www.dndbeyond.com/spells/2381-flame-arrows",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:396",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Frostbite",
+      "cardUrl": "https://www.dndbeyond.com/spells/2382-frostbite",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:482",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Guardian of Nature",
+      "cardUrl": "https://www.dndbeyond.com/spells/14872-guardian-of-nature",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:415",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Gust",
+      "cardUrl": "https://www.dndbeyond.com/spells/2383-gust",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:468",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Healing Spirit",
+      "cardUrl": "https://www.dndbeyond.com/spells/14873-healing-spirit",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:490",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Holy Weapon",
+      "cardUrl": "https://www.dndbeyond.com/spells/14874-holy-weapon",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:388",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Ice Knife",
+      "cardUrl": "https://www.dndbeyond.com/spells/2384-ice-knife",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:504",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Illusory Dragon",
+      "cardUrl": "https://www.dndbeyond.com/spells/14876-illusory-dragon",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:385",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Immolation",
+      "cardUrl": "https://www.dndbeyond.com/spells/2385-immolation",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:485",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Infernal Calling",
+      "cardUrl": "https://www.dndbeyond.com/spells/14877-infernal-calling",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:456",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Infestation",
+      "cardUrl": "https://www.dndbeyond.com/spells/14878-infestation",
+      "xgeIndexPage": 2,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:395",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Investiture of Flame",
+      "cardUrl": "https://www.dndbeyond.com/spells/2386-investiture-of-flame",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": 1
+    },
+    {
+      "observationId": "dndsu:spells:394",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Investiture of Ice",
+      "cardUrl": "https://www.dndbeyond.com/spells/2387-investiture-of-ice",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:393",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Investiture of Stone",
+      "cardUrl": "https://www.dndbeyond.com/spells/2388-investiture-of-stone",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:392",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Investiture of Wind",
+      "cardUrl": "https://www.dndbeyond.com/spells/2389-investiture-of-wind",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:508",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Invulnerability",
+      "cardUrl": "https://www.dndbeyond.com/spells/14879-invulnerability",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:475",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Life Transference",
+      "cardUrl": "https://www.dndbeyond.com/spells/14880-life-transference",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:506",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Maddening Darkness",
+      "cardUrl": "https://www.dndbeyond.com/spells/14881-maddening-darkness",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:375",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Maelstrom",
+      "cardUrl": "https://www.dndbeyond.com/spells/2390-maelstrom",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:378",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Magic Stone",
+      "cardUrl": "https://www.dndbeyond.com/spells/2391-magic-stone",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:507",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Mass Polymorph",
+      "cardUrl": "https://www.dndbeyond.com/spells/14882-mass-polymorph",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:383",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Maximilian's Earthen Grasp",
+      "cardUrl": "https://www.dndbeyond.com/spells/2392-maximilians-earthen-grasp",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:390",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Melf's Minute Meteors",
+      "cardUrl": "https://www.dndbeyond.com/spells/2393-melfs-minute-meteors",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:496",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Mental Prison",
+      "cardUrl": "https://www.dndbeyond.com/spells/14883-mental-prison",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:505",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Mighty Fortress",
+      "cardUrl": "https://www.dndbeyond.com/spells/14474-mighty-fortress",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:469",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Mind Spike",
+      "cardUrl": "https://www.dndbeyond.com/spells/14482-mind-spike",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:389",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Mold Earth",
+      "cardUrl": "https://www.dndbeyond.com/spells/2394-mold-earth",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:488",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Negative Energy Flood",
+      "cardUrl": "https://www.dndbeyond.com/spells/14519-negative-energy-flood",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:502",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Power Word Pain",
+      "cardUrl": "https://www.dndbeyond.com/spells/14520-power-word-pain",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:454",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Primal Savagery",
+      "cardUrl": "https://www.dndbeyond.com/spells/14558-primal-savagery",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:398",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Primordial Ward",
+      "cardUrl": "https://www.dndbeyond.com/spells/2395-primordial-ward",
+      "xgeIndexPage": 3,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:509",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Psychic Scream",
+      "cardUrl": "https://www.dndbeyond.com/spells/14592-psychic-scream",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:400",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Pyrotechnics",
+      "cardUrl": "https://www.dndbeyond.com/spells/2396-pyrotechnics",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:497",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Scatter",
+      "cardUrl": "https://www.dndbeyond.com/spells/14593-scatter",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:470",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Shadow Blade",
+      "cardUrl": "https://www.dndbeyond.com/spells/14595-shadow-blade",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:478",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Shadow of Moil",
+      "cardUrl": "https://www.dndbeyond.com/spells/14596-shadow-of-moil",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:414",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Shape Water",
+      "cardUrl": "https://www.dndbeyond.com/spells/2397-shape-water",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:477",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Sickening Radiance",
+      "cardUrl": "https://www.dndbeyond.com/spells/14597-sickening-radiance",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:494",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Skill Empowerment",
+      "cardUrl": "https://www.dndbeyond.com/spells/14599-skill-empowerment",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:391",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Skywrite",
+      "cardUrl": "https://www.dndbeyond.com/spells/2398-skywrite",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:463",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Snare",
+      "cardUrl": "https://www.dndbeyond.com/spells/14600-snare",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:409",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Snilloc's Snowball Swarm",
+      "cardUrl": "https://www.dndbeyond.com/spells/2399-snillocs-snowball-swarm",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:495",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Soul Cage",
+      "cardUrl": "https://www.dndbeyond.com/spells/14601-soul-cage",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:493",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Steel Wind Strike",
+      "cardUrl": "https://www.dndbeyond.com/spells/14602-steel-wind-strike",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:411",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Storm Sphere",
+      "cardUrl": "https://www.dndbeyond.com/spells/2400-storm-sphere",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:481",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Summon Greater Demon",
+      "cardUrl": "https://www.dndbeyond.com/spells/14603-summon-greater-demon",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:2202",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Summon Lesser Demons",
+      "cardUrl": "https://www.dndbeyond.com/spells/14604-summon-lesser-demons",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:491",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Synaptic Static",
+      "cardUrl": "https://www.dndbeyond.com/spells/14605-synaptic-static",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:503",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Temple of the Gods",
+      "cardUrl": "https://www.dndbeyond.com/spells/14606-temple-of-the-gods",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:500",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Tenser's Transformation",
+      "cardUrl": "https://www.dndbeyond.com/spells/14612-tensers-transformation",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:471",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Thunder Step",
+      "cardUrl": "https://www.dndbeyond.com/spells/14613-thunder-step",
+      "xgeIndexPage": 4,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:407",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Thunderclap",
+      "cardUrl": "https://www.dndbeyond.com/spells/2401-thunderclap",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:403",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Tidal Wave",
+      "cardUrl": "https://www.dndbeyond.com/spells/2402-tidal-wave",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:474",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Tiny Servant",
+      "cardUrl": "https://www.dndbeyond.com/spells/14614-tiny-servant",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:457",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Toll the Dead",
+      "cardUrl": "https://www.dndbeyond.com/spells/14615-toll-the-dead",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:402",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Transmute Rock",
+      "cardUrl": "https://www.dndbeyond.com/spells/2403-transmute-rock",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:380",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Vitriolic Sphere",
+      "cardUrl": "https://www.dndbeyond.com/spells/2404-vitriolic-sphere",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:492",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Wall of Light",
+      "cardUrl": "https://www.dndbeyond.com/spells/14616-wall-of-light",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:399",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Wall of Sand",
+      "cardUrl": "https://www.dndbeyond.com/spells/2405-wall-of-sand",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:376",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Wall of Water",
+      "cardUrl": "https://www.dndbeyond.com/spells/2406-wall-of-water",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": 2
+    },
+    {
+      "observationId": "dndsu:spells:381",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Warding Wind",
+      "cardUrl": "https://www.dndbeyond.com/spells/2407-warding-wind",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": 3
+    },
+    {
+      "observationId": "dndsu:spells:377",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Watery Sphere",
+      "cardUrl": "https://www.dndbeyond.com/spells/2408-watery-sphere",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": 3
+    },
+    {
+      "observationId": "dndsu:spells:408",
+      "originalSourceIds": [
+        "107",
+        "109"
+      ],
+      "digitalName": "Whirlwind",
+      "cardUrl": "https://www.dndbeyond.com/spells/2409-whirlwind",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": 3
+    },
+    {
+      "observationId": "dndsu:spells:455",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Word of Radiance",
+      "cardUrl": "https://www.dndbeyond.com/spells/14618-word-of-radiance",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:483",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Wrath of Nature",
+      "cardUrl": "https://www.dndbeyond.com/spells/14619-wrath-of-nature",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": null
+    },
+    {
+      "observationId": "dndsu:spells:466",
+      "originalSourceIds": [
+        "109"
+      ],
+      "digitalName": "Zephyr Strike",
+      "cardUrl": "https://www.dndbeyond.com/spells/14622-zephyr-strike",
+      "xgeIndexPage": 5,
+      "eepcIndexPage": null
+    }
+  ],
+  "printedVersionEquivalence": "unverified",
+  "directPotaAppendixRead": false,
+  "fullRulesVerified": false,
+  "textReusePermission": "not-established",
+  "approvedDenominator": null
+}
