@@ -36,7 +36,19 @@ test('Quick Access fixture gives each run a fresh campaign and real prepared spe
 
 test('Quick Access fixture loses one successful cast response and replay and undo use the same receipt', async t => {
   const read = await start(t, {loseCastResponse: true});
-  const workspace = await (await read('/api/workspace')).json();
+  const initial = await (await read('/api/workspace')).json();
+  const resource = await read('/api/resources/change', {
+    expectedRevision: initial.revision,
+    mutationId: randomUUID(),
+    context: initial.context,
+    resource: {kind: 'inspiration'},
+    delta: -1,
+    before: initial.state.inspiration,
+    maximum: 4,
+  });
+  assert.equal(resource.status, 200);
+  const workspace = await resource.json();
+  assert.equal(workspace.state.inspiration, initial.state.inspiration - 1);
   const spellbook = await (await read('/api/spellbook')).json();
   const prepared = Casting.prepare(
     {...workspace, spellbook: spellbook.entries},
@@ -68,5 +80,7 @@ test('Quick Access fixture loses one successful cast response and replay and und
     targetMutationId: request.mutationId,
   });
   assert.equal(undo.status, 200);
-  assert.equal((await undo.json()).state.slots[1], 3);
+  const restored = await undo.json();
+  assert.equal(restored.state.slots[1], 3);
+  assert.equal(restored.state.inspiration, workspace.state.inspiration);
 });
