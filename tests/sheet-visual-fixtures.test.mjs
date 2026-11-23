@@ -23,6 +23,12 @@ test('PNG regions stay within their actual page and preserve explicit blank fiel
 });
 test('rotation, poor quality, conflicts and edition rejection remain separate review cases',()=>{
  const rotated=assets.find(a=>a.kind==='jpeg-rotated');assert.equal(rotated.width,1754);assert.equal(rotated.height,1240);assert.equal(rotated.rotationToUprightClockwise,90);
+ const exif=assets.find(a=>a.kind==='jpeg-exif');
+ const upright=assets.find(a=>a.sha256===exif.derivedFromSha256);
+ assert.equal(exif.exifOrientation,6);
+ assert.deepEqual([exif.width,exif.height],[upright.height,upright.width]);
+ assert.deepEqual([exif.uprightWidth,exif.uprightHeight],[upright.width,upright.height]);
+ assert.equal(exif.page,upright.page);
  assert.equal(manifest.qualityCase.expectedValues,null);assert.equal(manifest.cases.find(c=>c.id==='conflicting-pages').assets.find(a=>a.kind==='text-pdf').pages,2);
  assert.equal(manifest.cases.find(c=>c.id==='unsupported-2024').expected.importAllowed,false);
  assert.equal(manifest.cases.find(c=>c.id==='same-name').context.expectedAction,'new-character-confirmation');
