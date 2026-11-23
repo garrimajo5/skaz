@@ -67,6 +67,20 @@ python -m unittest discover -s tests -p test_volo_motm_warrior_alpha_index.py
 python scripts/review-volo-motm-warrior-alpha-index-2014.py --batch ox-kow --directory <папка-HTML> --output <отчёт-JSON>
 ```
 
+## Цветовые карточки Guard Drake в цифровом указателе
+
+В двух страницах издательского списка от 23.11.2026 найдены десять отдельных цветовых карточек, по пять у Volo и MotM. Общие карточки `17265` и `2560843` сохранены как указатели на контекст семейства. [Первая страница D&D Beyond](https://www.dndbeyond.com/monsters?filter-armor-class-max=&filter-armor-class-min=&filter-average-hp-max=&filter-average-hp-min=&filter-cr-max=&filter-cr-min=&filter-has-lair=&filter-is-legendary=&filter-search=drake&filter-type=0) · [Вторая страница D&D Beyond](https://www.dndbeyond.com/monsters?filter-search=drake&filter-type=0&page=2).
+
+| Вариант | Карточка Volo | Карточка MotM |
+| --- | --- | --- |
+| Black Guard Drake | [dndsu:bestiary:5671](https://www.dndbeyond.com/monsters/17266-black-guard-drake) | [dndsu:bestiary:6792](https://www.dndbeyond.com/monsters/2560740-black-guard-drake) |
+| Blue Guard Drake | [dndsu:bestiary:5672](https://www.dndbeyond.com/monsters/17267-blue-guard-drake) | [dndsu:bestiary:6791](https://www.dndbeyond.com/monsters/2560743-blue-guard-drake) |
+| Green Guard Drake | [dndsu:bestiary:5675](https://www.dndbeyond.com/monsters/17268-green-guard-drake) | [dndsu:bestiary:6789](https://www.dndbeyond.com/monsters/2560839-green-guard-drake) |
+| Red Guard Drake | [dndsu:bestiary:5676](https://www.dndbeyond.com/monsters/17269-red-guard-drake) | [dndsu:bestiary:6790](https://www.dndbeyond.com/monsters/2560903-red-guard-drake) |
+| White Guard Drake | [dndsu:bestiary:5677](https://www.dndbeyond.com/monsters/17270-white-guard-drake) | [dndsu:bestiary:6788](https://www.dndbeyond.com/monsters/2560960-white-guard-drake) |
+
+[Реестр цифровых ссылок](../catalog/guard-drake-publisher-locators-2014.json) сохраняет прежние ID и источники. Публичное открытие отдельных карточек перенаправляет на книгу/Legacy или возвращает cache miss. Подтверждение ограничено строками цифрового указателя. Версии печатных фрагментов, механика цвета, алиасы, права и знаменатель остаются открытыми.
+
 ## Артефакты и проверки
 
 - `catalog/monster-version-publication-evidence-2014.json`:114имён,2публикации,210заголовков/ссылок и18missing-отметок по источникам.

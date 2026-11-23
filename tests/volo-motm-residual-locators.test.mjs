@@ -44,3 +44,35 @@ test('one parent Guard Drake heading cannot replace five color variants', () => 
   assert.ok(variants.every(group => group.members[1].additionalLocator === null));
   assert.equal(new Set(variants.flatMap(group => group.members.map(row => row.observationId))).size, 10);
 });
+
+test('digital Guard Drake links preserve five color pairs and distinct publisher rows', () => {
+  const report = JSON.parse(readFileSync(new URL('../catalog/guard-drake-publisher-locators-2014.json', import.meta.url), 'utf8'));
+  const baseline = JSON.parse(readFileSync(new URL('../catalog/volo-motm-residual-locators-2014.json', import.meta.url), 'utf8'));
+  assert.equal(report.groups.length, 5);
+  assert.equal(report.approvedDenominator, null);
+  assert.equal(report.accepted, false);
+  assert.equal(report.complete, false);
+  const observed = new Set();
+  const cards = new Set(Object.values(report.parentCards));
+  for (const variant of report.groups) {
+    const original = baseline.groups.find(group => group.reviewId === variant.reviewId);
+    assert.equal(variant.name.toLowerCase(), original.name);
+    assert.deepEqual(variant.observations.map(({observationId, sourceIds})=>({observationId, sourceIds})),
+      original.members.map(({observationId, sourceIds})=>({observationId, sourceIds})));
+    assert.equal(variant.canonicalId, null);
+    assert.equal(variant.aliasAccepted, false);
+    assert.equal(variant.standaloneRulesVerified, false);
+    for (const {observationId, publisherCard, publisherIndex} of variant.observations) {
+      const slug = variant.name.toLowerCase().replaceAll(' ', '-');
+      const card = new URL(publisherCard);
+      assert.equal(card.origin, 'https://www.dndbeyond.com');
+      assert.match(card.pathname, new RegExp('^/monsters/[0-9]+-' + slug + '$'));
+      assert.ok(report.publisherIndexPages.includes(publisherIndex));
+      assert.ok(!cards.has(publisherCard) && !observed.has(observationId));
+      cards.add(publisherCard);
+      observed.add(observationId);
+    }
+  }
+  assert.equal(cards.size, 12);
+  assert.equal(observed.size, 10);
+});

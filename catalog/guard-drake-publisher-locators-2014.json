@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "evidence": "publisher-digital-listing",
+  "publisherIndexPages": [
+    "https://www.dndbeyond.com/monsters?filter-armor-class-max=&filter-armor-class-min=&filter-average-hp-max=&filter-average-hp-min=&filter-cr-max=&filter-cr-min=&filter-has-lair=&filter-is-legendary=&filter-search=drake&filter-type=0",
+    "https://www.dndbeyond.com/monsters?filter-search=drake&filter-type=0&page=2"
+  ],
+  "parentCards": {
+    "111": "https://www.dndbeyond.com/monsters/17265-guard-drake",
+    "158": "https://www.dndbeyond.com/monsters/2560843-guard-drake"
+  },
+  "groups": [
+    {
+      "reviewId": "name-review:fddfe0cc7c6245f014a3",
+      "name": "Black Guard Drake",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:5671",
+          "sourceIds": [
+            "111"
+          ],
+          "publisherCard": "https://www.dndbeyond.com/monsters/17266-black-guard-drake",
+          "publisherIndex": "https://www.dndbeyond.com/monsters?filter-armor-class-max=&filter-armor-class-min=&filter-average-hp-max=&filter-average-hp-min=&filter-cr-max=&filter-cr-min=&filter-has-lair=&filter-is-legendary=&filter-search=drake&filter-type=0"
+        },
+        {
+          "observationId": "dndsu:bestiary:6792",
+          "sourceIds": [
+            "158"
+          ],
+          "publisherCard": "https://www.dndbeyond.com/monsters/2560740-black-guard-drake",
+          "publisherIndex": "https://www.dndbeyond.com/monsters?filter-armor-class-max=&filter-armor-class-min=&filter-average-hp-max=&filter-average-hp-min=&filter-cr-max=&filter-cr-min=&filter-has-lair=&filter-is-legendary=&filter-search=drake&filter-type=0"
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:ebea356ee6816416b971",
+      "name": "Blue Guard Drake",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:5672",
+          "sourceIds": [
+            "111"
+          ],
+          "publisherCard": "https://www.dndbeyond.com/monsters/17267-blue-guard-drake",
+          "publisherIndex": "https://www.dndbeyond.com/monsters?filter-armor-class-max=&filter-armor-class-min=&filter-average-hp-max=&filter-average-hp-min=&filter-cr-max=&filter-cr-min=&filter-has-lair=&filter-is-legendary=&filter-search=drake&filter-type=0"
+        },
+        {
+          "observationId": "dndsu:bestiary:6791",
+          "sourceIds": [
+            "158"
+          ],
+          "publisherCard": "https://www.dndbeyond.com/monsters/2560743-blue-guard-drake",
+          "publisherIndex": "https://www.dndbeyond.com/monsters?filter-armor-class-max=&filter-armor-class-min=&filter-average-hp-max=&filter-average-hp-min=&filter-cr-max=&filter-cr-min=&filter-has-lair=&filter-is-legendary=&filter-search=drake&filter-type=0"
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:58a2a9e5a38a494e6f27",
+      "name": "Green Guard Drake",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:5675",
+          "sourceIds": [
+            "111"
+          ],
+          "publisherCard": "https://www.dndbeyond.com/monsters/17268-green-guard-drake",
+          "publisherIndex": "https://www.dndbeyond.com/monsters?filter-armor-class-max=&filter-armor-class-min=&filter-average-hp-max=&filter-average-hp-min=&filter-cr-max=&filter-cr-min=&filter-has-lair=&filter-is-legendary=&filter-search=drake&filter-type=0"
+        },
+        {
+          "observationId": "dndsu:bestiary:6789",
+          "sourceIds": [
+            "158"
+          ],
+          "publisherCard": "https://www.dndbeyond.com/monsters/2560839-green-guard-drake",
+          "publisherIndex": "https://www.dndbeyond.com/monsters?filter-armor-class-max=&filter-armor-class-min=&filter-average-hp-max=&filter-average-hp-min=&filter-cr-max=&filter-cr-min=&filter-has-lair=&filter-is-legendary=&filter-search=drake&filter-type=0"
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:694e343ed9f3299be35d",
+      "name": "Red Guard Drake",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:5676",
+          "sourceIds": [
+            "111"
+          ],
+          "publisherCard": "https://www.dndbeyond.com/monsters/17269-red-guard-drake",
+          "publisherIndex": "https://www.dndbeyond.com/monsters?filter-armor-class-max=&filter-armor-class-min=&filter-average-hp-max=&filter-average-hp-min=&filter-cr-max=&filter-cr-min=&filter-has-lair=&filter-is-legendary=&filter-search=drake&filter-type=0"
+        },
+        {
+          "observationId": "dndsu:bestiary:6790",
+          "sourceIds": [
+            "158"
+          ],
+          "publisherCard": "https://www.dndbeyond.com/monsters/2560903-red-guard-drake",
+          "publisherIndex": "https://www.dndbeyond.com/monsters?filter-armor-class-max=&filter-armor-class-min=&filter-average-hp-max=&filter-average-hp-min=&filter-cr-max=&filter-cr-min=&filter-has-lair=&filter-is-legendary=&filter-search=drake&filter-type=0"
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    },
+    {
+      "reviewId": "name-review:e390784cb83b91bea684",
+      "name": "White Guard Drake",
+      "observations": [
+        {
+          "observationId": "dndsu:bestiary:5677",
+          "sourceIds": [
+            "111"
+          ],
+          "publisherCard": "https://www.dndbeyond.com/monsters/17270-white-guard-drake",
+          "publisherIndex": "https://www.dndbeyond.com/monsters?filter-search=drake&filter-type=0&page=2"
+        },
+        {
+          "observationId": "dndsu:bestiary:6788",
+          "sourceIds": [
+            "158"
+          ],
+          "publisherCard": "https://www.dndbeyond.com/monsters/2560960-white-guard-drake",
+          "publisherIndex": "https://www.dndbeyond.com/monsters?filter-armor-class-max=&filter-armor-class-min=&filter-average-hp-max=&filter-average-hp-min=&filter-cr-max=&filter-cr-min=&filter-has-lair=&filter-is-legendary=&filter-search=drake&filter-type=0"
+        }
+      ],
+      "canonicalId": null,
+      "aliasAccepted": false,
+      "standaloneRulesVerified": false
+    }
+  ],
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "inputSha256": {
+    "catalog/volo-motm-residual-locators-2014.json": "287d2084641c274cd1b9709db9ce01e4ec38241b110488f7aa6f9b33ebf961b8"
+  }
+}
