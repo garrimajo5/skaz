@@ -22,10 +22,10 @@
 
 | Направление | Состояние и адресный вход |
 | --- | --- |
-| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). Игра, профиль и инвентарь используют общую оболочку, выпуск 52186a5. Проверены состояния списка, клавиатура, активный герой и отмена с телефона. [Доказательства](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7098988368). Следом справочник с сохранением ширины карточек. |
+| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). Игра, профиль и инвентарь используют общую оболочку, выпуск 52186a5. [Справочник #264](https://github.com/garrimajo5/skaz/pull/264) и [журнал с заданиями #265](https://github.com/garrimajo5/skaz/pull/265) прошли браузер и независимое ревью. Следующий шаг — проверить оба PR на свободном Android и выпустить после приёмки по критериям. |
 | M0 / #77: источники и полнота | Открыто; [решения об источниках](catalog-source-decisions-2014.md), [D05-триаж](d05-current-publication-triage-2014.md). Наличие записи, текст, параметры, автоматизация, права и арт учитываются раздельно. |
 | M0 / #77 / классовые единицы | [13-class пакет](class-unit-residual-review-2014.md):913observations/8roles,4source-version families/28ID;31discovery сохраняет3sidekicks отдельно от13main. [Primary TOC](class-multisource-toc-2014.md):8family+3sidekick links, не full rules/rights/denominator. Eloquencebody — scoped hold; следующий content: оставшиеся D06unit/variant/reference границы, не arbitrary high-level audit. |
-| #77 / D02 | [Ссылки Volo/MotM для 11 пар](monster-version-units-review-2014.md#дополнительные-ссылки-для-11-неполных-пар). Сохранены 22 ID, остаётся доказать версии и алиасы. |
+| #77 / D02 | [Ссылки Volo/MotM для 11 пар](monster-version-units-review-2014.md#дополнительные-ссылки-для-11-неполных-пар), [две цифровые карточки Sacred Statue](mtf-monster-version-units-review-2014.md#sacred-statue-в-цифровом-указателе-издателя). Печатная версия MotM и связь с Eidolon требуют первичной страницы. |
 | #77 / D06 | [Границы SKT, IMR и Folio](d06-index-boundaries-2014.md). Открыты первичные доказательства вариантов и связи Needlefolk / Needle Spawn. |
 | #77 / D07 | [Текст SKT, IMR, Folio и ссылки MM2014](catalog-source-rights-review-2014.md#текст-записей-skt-imr-и-folio). Для 136 наблюдений указаны исходные публикации и необходимые доказательства использования текста. |
 | #77 / D03 | [Текущий контекст](d03-current-review-context-2014.md): reference-отношения и digital overlap отделены от canonical/печатной эквивалентности. Остатки и первичные условия — в этом контексте. |
@@ -38,9 +38,7 @@
 
 ## Фактический выпуск
 
-Последняя записанная версия — `8b11b04`, 20.11.2026; PR104 не включён.
-Проверки, флаги, ограничения и порядок выпуска — только в [deployment](deployment.md).
-Это состояние документов, не новая проверка VPS 21.11.
+Актуальный выпуск, флаги, подтверждённые проверки и порядок отката — в [deployment](deployment.md). PR #104 не включён.
 
 ## Как поддерживать этот файл
 
