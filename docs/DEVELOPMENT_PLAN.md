@@ -22,6 +22,7 @@
 
 | Направление | Состояние и адресный вход |
 | --- | --- |
+| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). Первая поставка — [«Быстрый доступ» и проверки](design/quick-access-252.md). Следом независимый QA на финальном коде, выпуск и перенос общей компоновки на остальные экраны. |
 | M0 / #77: источники и полнота | Открыто; [решения об источниках](catalog-source-decisions-2014.md), [D05-триаж](d05-current-publication-triage-2014.md). Наличие записи, текст, параметры, автоматизация, права и арт учитываются раздельно. |
 | M0 / #77 / классовые единицы | [13-class пакет](class-unit-residual-review-2014.md):913observations/8roles,4source-version families/28ID;31discovery сохраняет3sidekicks отдельно от13main. [Primary TOC](class-multisource-toc-2014.md):8family+3sidekick links, не full rules/rights/denominator. Eloquencebody — scoped hold; следующий content: оставшиеся D06unit/variant/reference границы, не arbitrary high-level audit. |
 | #77 / D03 | [Текущий контекст](d03-current-review-context-2014.md): reference-отношения и digital overlap отделены от canonical/печатной эквивалентности. Остатки и первичные условия — в этом контексте. |
