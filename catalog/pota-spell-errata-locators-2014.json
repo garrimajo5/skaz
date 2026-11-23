@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "status": "publisher-errata-heading-and-printing-locators",
+  "inputSha256": {
+    "catalog/eepc-spell-inventory-2014.json": "157c22d98ca38eec8f3139f76f8bb630490163877b61e09ea416847523910a88",
+    "catalog/ee-selected-spell-source-comparison-2014.json": "6dc39f1fb8832ee38f1b990eb1e8f46e7d9824e1af98b14f8d591c1be238957b"
+  },
+  "publisherSource": {
+    "url": "https://media.wizards.com/2016/downloads/DND/PotA-Errata.pdf",
+    "sha256": "bb61b0aa9eb57e35938dba0cb629dd2986f1c7dcef8e956d983631beecca4dd2",
+    "pageCount": 3,
+    "version": "1.5",
+    "appendixPdfPages": [
+      2,
+      3
+    ]
+  },
+  "descriptionErrata": [
+    {
+      "observationId": "dndsu:spells:412",
+      "observedName": "Abi-Dalzim's horrid wilting",
+      "printedPage": 233,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:387",
+      "observedName": "Bones of the earth",
+      "printedPage": 233,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:386",
+      "observedName": "Catapult",
+      "printedPage": 233,
+      "printings": [
+        "future",
+        "5th"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:374",
+      "observedName": "Control flames",
+      "printedPage": 234,
+      "printings": [
+        "5th"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:373",
+      "observedName": "Control winds",
+      "printedPage": 234,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:410",
+      "observedName": "Create bonfire",
+      "printedPage": 235,
+      "printings": [
+        "5th",
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:406",
+      "observedName": "Dust devil",
+      "printedPage": 235,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:413",
+      "observedName": "Earthbind",
+      "printedPage": 235,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:379",
+      "observedName": "Earth tremor",
+      "printedPage": 236,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:384",
+      "observedName": "Erupting earth",
+      "printedPage": 236,
+      "printings": [
+        "5th"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:388",
+      "observedName": "Ice knife",
+      "printedPage": 237,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:385",
+      "observedName": "Immolation",
+      "printedPage": 237,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:393",
+      "observedName": "Investiture of stone",
+      "printedPage": 237,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:378",
+      "observedName": "Magic stone",
+      "printedPage": 238,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:383",
+      "observedName": "Maximilian's earthen grasp",
+      "printedPage": 238,
+      "printings": [
+        "5th"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:400",
+      "observedName": "Pyrotechnics",
+      "printedPage": 239,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:407",
+      "observedName": "Thunderclap",
+      "printedPage": 240,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:403",
+      "observedName": "Tidal wave",
+      "printedPage": 240,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:402",
+      "observedName": "Transmute rock",
+      "printedPage": 240,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:380",
+      "observedName": "Vitriolic sphere",
+      "printedPage": 241,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:377",
+      "observedName": "Watery sphere",
+      "printedPage": 241,
+      "printings": [
+        "future"
+      ]
+    },
+    {
+      "observationId": "dndsu:spells:408",
+      "observedName": "Whirlwind",
+      "printedPage": 242,
+      "printings": [
+        "5th"
+      ]
+    }
+  ],
+  "spellListAdditions": [
+    {
+      "observationId": "dndsu:spells:401",
+      "observedName": "Absorb elements",
+      "class": "sorcerer",
+      "printedPage": 231,
+      "printing": "5th"
+    },
+    {
+      "observationId": "dndsu:spells:403",
+      "observedName": "Tidal wave",
+      "class": "sorcerer",
+      "printedPage": 231,
+      "printing": "5th"
+    },
+    {
+      "observationId": "dndsu:spells:408",
+      "observedName": "Whirlwind",
+      "class": "sorcerer",
+      "printedPage": 231,
+      "printing": "5th"
+    },
+    {
+      "observationId": "dndsu:spells:381",
+      "observedName": "Warding wind",
+      "class": "wizard",
+      "printedPage": 232,
+      "printing": "5th"
+    }
+  ],
+  "uniqueAffectedObservations": 24,
+  "targetPublicationSourceId": "107",
+  "automaticRulesPatch": false,
+  "exactRulesVersionAccepted": false,
+  "textReusePermission": "not-established",
+  "approvedDenominator": null
+}
