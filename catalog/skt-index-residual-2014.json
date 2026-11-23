@@ -1,0 +1,1094 @@
+{
+  "schemaVersion": 1,
+  "status": "index-residual-review",
+  "sourceId": "132",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "publisherIndexRows": 105,
+  "publisherRowsWithBlankChallengeRating": 22,
+  "publisherToc": {
+    "url": "https://www.dndbeyond.com/sources/dnd/skt",
+    "rawSha256": "690ee5bc21ed57784d0835f617e36f9387195a0c1e5ef0efd9286fe8207b669d",
+    "observedStatus": 200,
+    "entries": [
+      {
+        "heading": "Appendix C: Creatures",
+        "url": "https://www.dndbeyond.com/sources/skt/creatures"
+      },
+      {
+        "heading": "Hulking Crab",
+        "url": "https://www.dndbeyond.com/sources/skt/creatures#HulkingCrab"
+      },
+      {
+        "heading": "Sidebar: Tribal Spells",
+        "url": "https://www.dndbeyond.com/sources/skt/creatures#UthgardtShamanTribalSpells"
+      },
+      {
+        "heading": "New Giant Options",
+        "url": "https://www.dndbeyond.com/sources/skt/creatures#NewGiantOptions"
+      },
+      {
+        "heading": "Appendix D: Special NPCs",
+        "url": "https://www.dndbeyond.com/sources/skt/special-npcs"
+      }
+    ],
+    "wholeAppendicesVerified": false
+  },
+  "tribalSpellBoundary": {
+    "sourceObservation": "dndsu:bestiary:5606",
+    "relation": "spell-list-component-of-uthgardt-shaman",
+    "primaryClaimEntries": 22,
+    "candidateSpellEntries": 24,
+    "tribesWithCountConflict": [
+      "Black Lion",
+      "Gray Wolf"
+    ],
+    "newStandaloneCreatureUnits": 0,
+    "exactListVerified": false
+  },
+  "cloudGiantComparison": {
+    "child": {
+      "cardUrl": "https://www.dndbeyond.com/monsters/300476-cloud-giant-child",
+      "digitalName": "Cloud Giant Child",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "0",
+      "indexPage": 1,
+      "size": "Medium"
+    },
+    "young": {
+      "cardUrl": "https://www.dndbeyond.com/monsters/298066-young-cloud-giant",
+      "digitalName": "Young Cloud Giant",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "5",
+      "indexPage": 5,
+      "size": "Huge"
+    },
+    "youngObservation": {
+      "id": "dndsu:bestiary:7728",
+      "url": "https://dnd.su/bestiary/7728-young-cloud-giant/"
+    },
+    "mergeSupported": false
+  },
+  "secondarySourceObservations": 94,
+  "categoryCounts": {
+    "previously-documented-variant": 3,
+    "index-only": 2,
+    "explicit-variant-label": 6,
+    "appendix-heading": 1,
+    "blank-cr": 4
+  },
+  "secondaryRowsWithPreviousVariantCandidate": 5,
+  "publisherResidual": [
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/297941-axe-of-mirabar-veteran",
+      "digitalName": "Axe of Mirabar Veteran",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "3",
+      "indexPage": 1,
+      "category": "previously-documented-variant",
+      "previousCandidateObservationIds": [
+        "dndsu:bestiary:7722"
+      ],
+      "publisherWitness": null,
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/297972-black-earth-cultist",
+      "digitalName": "Black Earth Cultist",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "2",
+      "indexPage": 1,
+      "category": "index-only",
+      "previousCandidateObservationIds": [],
+      "publisherWitness": null,
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/324263-cloud-giant-variant",
+      "digitalName": "Cloud Giant (variant)",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "9",
+      "indexPage": 1,
+      "category": "explicit-variant-label",
+      "previousCandidateObservationIds": [],
+      "publisherWitness": null,
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/300476-cloud-giant-child",
+      "digitalName": "Cloud Giant Child",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "0",
+      "indexPage": 1,
+      "category": "index-only",
+      "previousCandidateObservationIds": [],
+      "publisherWitness": null,
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/324266-fire-giant-variant",
+      "digitalName": "Fire Giant (variant)",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "9",
+      "indexPage": 2,
+      "category": "explicit-variant-label",
+      "previousCandidateObservationIds": [],
+      "publisherWitness": null,
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/324275-frost-giant-variant",
+      "digitalName": "Frost Giant (variant)",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "8",
+      "indexPage": 2,
+      "category": "explicit-variant-label",
+      "previousCandidateObservationIds": [],
+      "publisherWitness": null,
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/324280-hill-giant-variant",
+      "digitalName": "Hill Giant (variant)",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "5",
+      "indexPage": 2,
+      "category": "explicit-variant-label",
+      "previousCandidateObservationIds": [],
+      "publisherWitness": null,
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17349-hulking-crab",
+      "digitalName": "Hulking Crab",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "5",
+      "indexPage": 2,
+      "category": "appendix-heading",
+      "previousCandidateObservationIds": [],
+      "publisherWitness": {
+        "kind": "appendix-heading",
+        "url": "https://www.dndbeyond.com/sources/skt/creatures#HulkingCrab",
+        "appendix": "C",
+        "heading": "Hulking Crab"
+      },
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/27632-nimir",
+      "digitalName": "Nimir",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": null,
+      "indexPage": 3,
+      "category": "blank-cr",
+      "previousCandidateObservationIds": [],
+      "publisherWitness": {
+        "kind": "public-card-access",
+        "checkedOn": "2026-11-23",
+        "requestedUrl": "https://www.dndbeyond.com/monsters/27632-nimir",
+        "result": "redirect-to-marketplace",
+        "destination": "https://marketplace.dndbeyond.com/category/storm-kings-thunder",
+        "fullBodyRead": false
+      },
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/27634-orlekto",
+      "digitalName": "Orlekto",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": null,
+      "indexPage": 3,
+      "category": "blank-cr",
+      "previousCandidateObservationIds": [],
+      "publisherWitness": {
+        "kind": "public-card-access",
+        "checkedOn": "2026-11-23",
+        "requestedUrl": "https://www.dndbeyond.com/monsters/27634-orlekto",
+        "result": "redirect-to-marketplace",
+        "destination": "https://marketplace.dndbeyond.com/category/storm-kings-thunder",
+        "fullBodyRead": false
+      },
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/27705-shaldoor",
+      "digitalName": "Shaldoor",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": null,
+      "indexPage": 4,
+      "category": "blank-cr",
+      "previousCandidateObservationIds": [],
+      "publisherWitness": {
+        "kind": "public-card-access",
+        "checkedOn": "2026-11-23",
+        "requestedUrl": "https://www.dndbeyond.com/monsters/27705-shaldoor",
+        "result": "redirect-to-marketplace",
+        "destination": "https://marketplace.dndbeyond.com/category/storm-kings-thunder",
+        "fullBodyRead": false
+      },
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/296856-shield-dwarf",
+      "digitalName": "Shield Dwarf",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "3",
+      "indexPage": 4,
+      "category": "previously-documented-variant",
+      "previousCandidateObservationIds": [
+        "dndsu:bestiary:7706",
+        "dndsu:bestiary:7709"
+      ],
+      "publisherWitness": null,
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/324283-stone-giant-variant",
+      "digitalName": "Stone Giant (variant)",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "7",
+      "indexPage": 4,
+      "category": "explicit-variant-label",
+      "previousCandidateObservationIds": [],
+      "publisherWitness": null,
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/324286-storm-giant-variant",
+      "digitalName": "Storm Giant (Variant)",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "13",
+      "indexPage": 5,
+      "category": "explicit-variant-label",
+      "previousCandidateObservationIds": [],
+      "publisherWitness": null,
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/300491-storm-giant-princess",
+      "digitalName": "Storm Giant Princess",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "13",
+      "indexPage": 5,
+      "category": "previously-documented-variant",
+      "previousCandidateObservationIds": [
+        "dndsu:bestiary:7762",
+        "dndsu:bestiary:7763"
+      ],
+      "publisherWitness": null,
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/27706-vaasha",
+      "digitalName": "Vaasha",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": null,
+      "indexPage": 5,
+      "category": "blank-cr",
+      "previousCandidateObservationIds": [],
+      "publisherWitness": {
+        "kind": "public-card-access",
+        "checkedOn": "2026-11-23",
+        "requestedUrl": "https://www.dndbeyond.com/monsters/27706-vaasha",
+        "result": "timeout",
+        "destination": null,
+        "fullBodyRead": false
+      },
+      "canonicalId": null,
+      "standaloneStatBlockVerified": false,
+      "acceptedAlias": false
+    }
+  ],
+  "secondaryResidual": [
+    {
+      "observationId": "dndsu:bestiary:6044",
+      "originalUrl": "https://dnd.su/bestiary/6044-drufi/",
+      "names": {
+        "ru": "Друфи",
+        "en": "Drufi"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7696",
+      "originalUrl": "https://dnd.su/bestiary/7696-kella-darkhope/",
+      "names": {
+        "ru": "Келла Даркхоуп",
+        "en": "Kella Darkhope"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7697",
+      "originalUrl": "https://dnd.su/bestiary/7697-xolkin-alassandar/",
+      "names": {
+        "ru": "Ксолкин Алассандар",
+        "en": "Xolkin Alassandar"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7699",
+      "originalUrl": "https://dnd.su/bestiary/7699-morak-urgray/",
+      "names": {
+        "ru": "Морак Ур’грей",
+        "en": "Morak Ur'gray"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7700",
+      "originalUrl": "https://dnd.su/bestiary/7700-hirai-mystrum/",
+      "names": {
+        "ru": "Хирал Мистур",
+        "en": "Hirai Mystrum"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7706",
+      "originalUrl": "https://dnd.su/bestiary/7706-shield-dwarf-veteran/",
+      "names": {
+        "ru": "Щитовой дварф ветеран",
+        "en": "Shield Dwarf Veteran"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": "https://www.dndbeyond.com/monsters/296856-shield-dwarf",
+      "selectedVariantFields": {
+        "challengeRating": "3",
+        "armorClass": 17,
+        "hitPoints": 58,
+        "alignment": "Lawful Good"
+      },
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7709",
+      "originalUrl": "https://dnd.su/bestiary/7709-shield-dwarf-commoner/",
+      "names": {
+        "ru": "Щитовой дварф обыватель",
+        "en": "Shield Dwarf Commoner"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": "https://www.dndbeyond.com/monsters/296856-shield-dwarf",
+      "selectedVariantFields": {
+        "challengeRating": "0",
+        "armorClass": 10,
+        "hitPoints": 4,
+        "alignment": "Any Alignment"
+      },
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7710",
+      "originalUrl": "https://dnd.su/bestiary/7710-sir-lanniver/",
+      "names": {
+        "ru": "Сэр Ланнивер",
+        "en": "Sir Lanniver"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7711",
+      "originalUrl": "https://dnd.su/bestiary/7711-unarmed-hill-giant/",
+      "names": {
+        "ru": "Безоружный холмовой великан",
+        "en": "Unarmed hill giant"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7712",
+      "originalUrl": "https://dnd.su/bestiary/7712-goblin-hucker/",
+      "names": {
+        "ru": "Метатель гоблинов",
+        "en": "Goblin Hucker"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7713",
+      "originalUrl": "https://dnd.su/bestiary/7713-giant-raven/",
+      "names": {
+        "ru": "Гигантский ворон",
+        "en": "Giant raven"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7715",
+      "originalUrl": "https://dnd.su/bestiary/7715-vordana-jezral/",
+      "names": {
+        "ru": "Вордана Жезрал",
+        "en": "Vordana Jezral"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7718",
+      "originalUrl": "https://dnd.su/bestiary/7718-kerrilla-gemstar/",
+      "names": {
+        "ru": "Керилла Гемстар",
+        "en": "Kerrilla Gemstar"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7719",
+      "originalUrl": "https://dnd.su/bestiary/7719-krowen-valharrow/",
+      "names": {
+        "ru": "Кроуен Вэлхарроу",
+        "en": "Krowen Valharrow"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7722",
+      "originalUrl": "https://dnd.su/bestiary/7722-axe-of-mirabar-soldier/",
+      "names": {
+        "ru": "Воин Секиры Мирабара",
+        "en": "Axe of Mirabar Soldier"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": "https://www.dndbeyond.com/monsters/297941-axe-of-mirabar-veteran",
+      "selectedVariantFields": {
+        "challengeRating": "3",
+        "armorClass": 18,
+        "hitPoints": 67,
+        "alignment": "Lawful Good"
+      },
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7726",
+      "originalUrl": "https://dnd.su/bestiary/7726-tau/",
+      "names": {
+        "ru": "Тау",
+        "en": "Tau"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7727",
+      "originalUrl": "https://dnd.su/bestiary/7727-sharda/",
+      "names": {
+        "ru": "Шарда",
+        "en": "Sharda"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7731",
+      "originalUrl": "https://dnd.su/bestiary/7731-harper-spellcaster/",
+      "names": {
+        "ru": "Заклинатель Арфистов",
+        "en": "Harper spellcaster"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7735",
+      "originalUrl": "https://dnd.su/bestiary/7735-noori/",
+      "names": {
+        "ru": "Ноори",
+        "en": "Noori"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7743",
+      "originalUrl": "https://dnd.su/bestiary/7743-hydia-moonmusk/",
+      "names": {
+        "ru": "Хидия Мунмаск",
+        "en": "Hydia Moonmusk"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7748",
+      "originalUrl": "https://dnd.su/bestiary/7748-clockwork-mule/",
+      "names": {
+        "ru": "Заводной мул",
+        "en": "Clockwork Mule"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7758",
+      "originalUrl": "https://dnd.su/bestiary/7758-alastrah/",
+      "names": {
+        "ru": "Аластра",
+        "en": "Alastrah"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7759",
+      "originalUrl": "https://dnd.su/bestiary/7759-kaaltar/",
+      "names": {
+        "ru": "Каалтар",
+        "en": "Kaaltar"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": null,
+      "selectedVariantFields": null,
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7762",
+      "originalUrl": "https://dnd.su/bestiary/7762-mirran/",
+      "names": {
+        "ru": "Мирран",
+        "en": "Mirran"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": "https://www.dndbeyond.com/monsters/300491-storm-giant-princess",
+      "selectedVariantFields": {
+        "challengeRating": "13",
+        "armorClass": 11,
+        "hitPoints": 230,
+        "alignment": "Neutral Evil"
+      },
+      "canonicalId": null
+    },
+    {
+      "observationId": "dndsu:bestiary:7763",
+      "originalUrl": "https://dnd.su/bestiary/7763-nym/",
+      "names": {
+        "ru": "Ним",
+        "en": "Nym"
+      },
+      "originalSourceIds": [
+        "132"
+      ],
+      "previousCandidateCardUrl": "https://www.dndbeyond.com/monsters/300491-storm-giant-princess",
+      "selectedVariantFields": {
+        "challengeRating": "13",
+        "armorClass": 12,
+        "hitPoints": 230,
+        "alignment": "Neutral Evil"
+      },
+      "canonicalId": null
+    }
+  ],
+  "displayedReferences": [
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17100-aarakocra",
+      "digitalName": "Aarakocra",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "1/4",
+      "indexPage": 1,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:30",
+          "observedName": "Aarakocra",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17105-abominable-yeti",
+      "digitalName": "Abominable Yeti",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "9",
+      "indexPage": 1,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:316",
+          "observedName": "Abominable yeti",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17137-cambion",
+      "digitalName": "Cambion",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "5",
+      "indexPage": 1,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:50",
+          "observedName": "Cambion",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17134-drow-elite-warrior",
+      "digitalName": "Drow Elite Warrior",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "5",
+      "indexPage": 2,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:146",
+          "observedName": "Drow elite warrior",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17135-drow-mage",
+      "digitalName": "Drow Mage",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "7",
+      "indexPage": 2,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:147",
+          "observedName": "Drow mage",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17155-goblin-boss",
+      "digitalName": "Goblin Boss",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "1",
+      "indexPage": 2,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:182",
+          "observedName": "Goblin boss",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17159-helmed-horror",
+      "digitalName": "Helmed Horror",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "4",
+      "indexPage": 2,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:198",
+          "observedName": "Helmed horror",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17161-hobgoblin-warlord",
+      "digitalName": "Hobgoblin Warlord",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "6",
+      "indexPage": 2,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:201",
+          "observedName": "Hobgoblin warlord",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17188-orc-eye-of-gruumsh",
+      "digitalName": "Orc Eye of Gruumsh",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "2",
+      "indexPage": 3,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:259",
+          "observedName": "Orc eye of Gruumsh",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17187-orc-war-chief",
+      "digitalName": "Orc War Chief",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "4",
+      "indexPage": 3,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:258",
+          "observedName": "Orc war chief",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17189-orog",
+      "digitalName": "Orog",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "2",
+      "indexPage": 4,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:260",
+          "observedName": "Orog",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17191-piercer",
+      "digitalName": "Piercer",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "1/2",
+      "indexPage": 4,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:264",
+          "observedName": "Piercer",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "exact-name"
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17131-shadow-demon",
+      "digitalName": "Shadow Demon",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "4",
+      "indexPage": 4,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:74",
+          "observedName": "Shadow demon",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17174-smoke-mephit",
+      "digitalName": "Smoke Mephit",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "1/4",
+      "indexPage": 4,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:232",
+          "observedName": "Smoke mephit",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17195-young-remorhaz",
+      "digitalName": "Young Remorhaz",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "5",
+      "indexPage": 5,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:270",
+          "observedName": "Young remorhaz",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17122-yuan-ti-malison",
+      "digitalName": "Yuan-ti Malison",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "3",
+      "indexPage": 5,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:318",
+          "observedName": "Yuan-ti malison",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/301418-yuan-ti-malison-type-1",
+      "digitalName": "Yuan-ti Malison (Type 1)",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "3",
+      "indexPage": 5,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5651",
+          "observedName": "Yuan-ti malison (Type 1)",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/301421-yuan-ti-malison-type-2",
+      "digitalName": "Yuan-ti Malison (Type 2)",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "3",
+      "indexPage": 5,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5652",
+          "observedName": "Yuan-ti malison (Type 2)",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/301425-yuan-ti-malison-type-3",
+      "digitalName": "Yuan-ti Malison (Type 3)",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "3",
+      "indexPage": 6,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:5653",
+          "observedName": "Yuan-ti malison (Type 3)",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    },
+    {
+      "cardUrl": "https://www.dndbeyond.com/monsters/17123-yuan-ti-pureblood",
+      "digitalName": "Yuan-ti Pureblood",
+      "displayedSource": "Monster Manual (2014)",
+      "challengeRating": "1",
+      "indexPage": 6,
+      "observationCandidates": [
+        {
+          "observationId": "dndsu:bestiary:319",
+          "observedName": "Yuan-ti pureblood",
+          "originalSourceIds": [
+            "103"
+          ],
+          "match": "explicit-name-candidate",
+          "reason": "Capitalization-only name candidate; original case/source preserved, full identity not established."
+        }
+      ],
+      "editionAttributionEstablishedByAdventureFilter": false
+    }
+  ],
+  "inputSha256": {
+    "catalog/skt-index-review-2014.json": "d94c0ddfdc85720cb21ff38eb736f7a123db2655c6a91ce027cfade5695e6c06",
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/skt-variant-boundaries-2014.json": "098d34d80986cd9240db30e099faf644303d82b97c29191cbf9eb642ba7e7ea9",
+    "catalog/skt-tribal-spell-review-2014.json": "961190faf9a2e25aa2a77ace646373e9262a779d936cdbdf569ad65b0fe50844"
+  }
+}
