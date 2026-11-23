@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-24",
+  "status": "publisher-ui-categories-observed",
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/effective-m0-review-2014.json": "07589add759ef4fa0a72c2e90bc1d51c7647b3eda5e00afdaaa11743186bc8db"
+  },
+  "witnesses": {
+    "species": {
+      "url": "https://www.dndbeyond.com/species",
+      "bytes": 772777,
+      "sha256": "9814b2197017a66d0c3dbe93cbcff2c187449a74739670074466fddaf769294b"
+    },
+    "changelog": {
+      "url": "https://www.dndbeyond.com/changelog",
+      "bytes": 854188,
+      "sha256": "826c965a1179f92831a9f99b866125eebe3bd017f0deaee0dce6e3ad087f1309",
+      "heading": "Updates to Sources and Book Categorization",
+      "legacyExample": "One Grung Above",
+      "legacyIncludesNoncore": true
+    }
+  },
+  "records": [
+    {
+      "name": "Grung",
+      "book": "One Grung Above",
+      "sourceCode": "oga",
+      "uiCategory": "legacynoncore",
+      "cardUrl": "https://www.dndbeyond.com/species/302384-grung",
+      "observationId": "dndsu:race:169",
+      "bibliographyEvidenceId": "bibliography:one-grung-above",
+      "route": "source-review"
+    },
+    {
+      "name": "Locathah",
+      "book": "Locathah Rising",
+      "sourceCode": "lr",
+      "uiCategory": "legacynoncore",
+      "cardUrl": "https://www.dndbeyond.com/species/229754-locathah",
+      "observationId": "dndsu:race:178",
+      "bibliographyEvidenceId": "bibliography:locathah-rising",
+      "route": "version-and-rights-review"
+    },
+    {
+      "name": "Tortle",
+      "book": "The Tortle Package",
+      "sourceCode": "ttp",
+      "uiCategory": "legacynoncore",
+      "cardUrl": "https://www.dndbeyond.com/species/41-tortle",
+      "observationId": "dndsu:race:184",
+      "bibliographyEvidenceId": "bibliography:the-tortle-package",
+      "route": "version-and-rights-review"
+    },
+    {
+      "name": "Tortle",
+      "book": "Mordenkainen Presents: Monsters of the Multiverse",
+      "sourceCode": "motm",
+      "uiCategory": "5e-expanded-rules",
+      "cardUrl": "https://www.dndbeyond.com/species/1026404-tortle",
+      "observationId": "dndsu:multiverse:race:309",
+      "bibliographyEvidenceId": null,
+      "route": "version-and-rights-review"
+    }
+  ],
+  "grungCardAccess": {
+    "webDestination": "https://marketplace.dndbeyond.com/category/SRC-00060",
+    "directStatus": 200,
+    "directResult": "timeout-after-redirect",
+    "fullCharacterRulesVerified": false
+  },
+  "officialRulesDisposition": "unresolved",
+  "appTextReusePermission": "not-established",
+  "approvedDenominator": null
+}
