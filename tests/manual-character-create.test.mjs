@@ -38,6 +38,42 @@ test('manual payload rejects unknown, missing, invalid and non-2014 fields witho
  }finally{s.close();}
 });
 
+test('published manual-2014 and v15 preserve zero but still reject unknown scalar state',()=>{
+ const source=openStore(':memory:'),target=openStore(':memory:');
+ try{
+  const before=source.read();
+  for(const field of ['hp','maxHp','tempHp','gold','stats']){
+   const invalid=request(source);
+   invalid.manual[field]=null;
+   assert.throws(()=>source.createCharacter(invalid),{status:422},field);
+   assert.deepEqual(source.read(),before);
+   assert.equal(source.campaigns()[0].characters.length,1);
+   assert.equal(source.history().length,0);
+  }
+  const input=request(source);
+  input.manual.maxHp=33;
+  input.manual.tempHp=0;
+  input.manual.stats.abilities.dex=31;
+  input.manual.sheet.level=21;
+  input.manual.sheet.counters[0]={id:'test-counter',name:'Боевой запас',current:8,max:7};
+  source.createCharacter(input);
+  assert.equal(source.createCharacter(input).replayed,true);
+  assert.equal(source.history().filter(row=>row.mutationId===input.mutationId).length,1);
+  const file=source.exportActive(15);
+  assert.equal(file.schemaVersion,15);
+  for(const field of ['hp','maxHp','tempHp','gold']){
+   const invalid={...file,state:{...file.state,[field]:null}};
+   assert.throws(()=>validateTransfer(invalid),{status:422},field);
+  }
+  target.importActive(command(target,{destination:'new-campaign',file}));
+  const imported=target.read();
+  assert.equal(imported.state.maxHp,33);
+  for(const field of ['hp','tempHp','gold'])assert.equal(imported.state[field],0);
+  assert.deepEqual(imported.characterStats,input.manual.stats);
+  assert.deepEqual(imported.characterSheet,input.manual.sheet);
+ }finally{source.close();target.close();}
+});
+
 test('stale revision, changed retry, wrong campaign and duplicate ID cannot partially create manual records',()=>{
  const s=openStore(':memory:');try{const r=request(s);assert.throws(()=>s.createCharacter({...r,campaignId:randomUUID()}),{status:409});s.createCharacter(r);const before=s.read();
   assert.throws(()=>s.createCharacter({...request(s),expectedRevision:0}),{status:409});
