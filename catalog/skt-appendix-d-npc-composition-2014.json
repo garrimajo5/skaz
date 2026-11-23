@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-24",
+  "status": "publisher-appendix-composition-verified",
+  "inputSha256": {
+    "catalog/skt-index-residual-2014.json": "a568b6bc2ce1f0fd5cd8313decb76b44d1260b83c74289f0f4493834debccfc5"
+  },
+  "publisherAppendix": {
+    "url": "https://media.wizards.com/2016/dnd/downloads/SKT_AppD.pdf",
+    "sha256": "f3290cda51f4aaf74af4f4aa9af5b7e03c13f5dc7e52a524e6dd094b4f6186f8",
+    "bytes": 1497598,
+    "pdfPage": 10,
+    "printedPage": 256,
+    "source": "Storm King's Thunder",
+    "edition": "2014",
+    "copyrightYear": 2016,
+    "observedPermission": "home-game-photocopy",
+    "appTextReusePermission": "not-established"
+  },
+  "sharedStatBlock": {
+    "localRef": "skt:appendix-d:256:storm-giant",
+    "heading": "Storm Giant",
+    "chapter": 12,
+    "blocksOnPage": 1,
+    "challengeRating": null,
+    "equivalenceToMonsterManual": "unverified"
+  },
+  "namedCards": [
+    {
+      "name": "Nimir",
+      "indexCardUrl": "https://www.dndbeyond.com/monsters/27632-nimir",
+      "kind": "named-npc-attachment",
+      "statBlockRef": "skt:appendix-d:256:storm-giant",
+      "distinctSkill": "insight",
+      "alignment": "lawful-good",
+      "canonicalId": null
+    },
+    {
+      "name": "Orlekto",
+      "indexCardUrl": "https://www.dndbeyond.com/monsters/27634-orlekto",
+      "kind": "named-npc-attachment",
+      "statBlockRef": "skt:appendix-d:256:storm-giant",
+      "distinctSkill": "deception",
+      "alignment": "chaotic-evil",
+      "canonicalId": null
+    },
+    {
+      "name": "Shaldoor",
+      "indexCardUrl": "https://www.dndbeyond.com/monsters/27705-shaldoor",
+      "kind": "named-npc-attachment",
+      "statBlockRef": "skt:appendix-d:256:storm-giant",
+      "distinctSkill": "animal-handling",
+      "alignment": "chaotic-good",
+      "canonicalId": null
+    },
+    {
+      "name": "Vaasha",
+      "indexCardUrl": "https://www.dndbeyond.com/monsters/27706-vaasha",
+      "kind": "named-npc-attachment",
+      "statBlockRef": "skt:appendix-d:256:storm-giant",
+      "distinctSkill": "survival",
+      "alignment": "neutral-good",
+      "canonicalId": null
+    }
+  ],
+  "approvedDenominator": null
+}
