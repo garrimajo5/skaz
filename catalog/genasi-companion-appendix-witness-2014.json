@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-24",
+  "status": "publisher-attested-component-candidates",
+  "inputSha256": {
+    "catalog/genasi-granularity-proposals-2014.json": "b981e5e0992c441fca7c71787b82ca2439b119f0e4596b81c0a25a96ae182fa6"
+  },
+  "source": {
+    "title": "Elemental Evil Player’s Companion",
+    "url": "https://media.wizards.com/2015/downloads/dnd/EE_PlayersCompanion.pdf",
+    "sha256": "c520bf96adb66923113abe2931fb068fca06f5ac075a6298f8af45c07d4c197c",
+    "bytes": 22888561,
+    "pdfPages": 25,
+    "published": "2015-03",
+    "publisherNoticePage": 2
+  },
+  "destination": {
+    "title": "Princes of the Apocalypse",
+    "observationId": "dndsu:race:102",
+    "sourceId": "107",
+    "appendixUrl": "https://www.dndbeyond.com/sources/pota/appendix-a-genasi",
+    "relation": "publisher-attests-genasi-from-companion-chapter-1-in-appendix",
+    "directAppendixTextRead": false
+  },
+  "componentCandidates": [
+    {
+      "name": "Air Genasi",
+      "pdfPage": 9,
+      "canonicalId": null
+    },
+    {
+      "name": "Earth Genasi",
+      "pdfPage": 9,
+      "canonicalId": null
+    },
+    {
+      "name": "Fire Genasi",
+      "pdfPage": 9,
+      "canonicalId": null
+    },
+    {
+      "name": "Water Genasi",
+      "pdfPage": 10,
+      "canonicalId": null
+    }
+  ],
+  "separateMotmObservationId": "dndsu:multiverse:race:291",
+  "exactWordingEquivalence": "unverified",
+  "exactErrataVersion": "unverified",
+  "textReusePermission": "not-established",
+  "approvedDenominator": null
+}
