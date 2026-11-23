@@ -18,6 +18,8 @@ Cloud Giant Child имеет CR 0 и размер Medium. Отдельная к�
 
 [Машиночитаемая сверка](../catalog/skt-appendix-d-npc-composition-2014.json) хранит страницы, SHA-256 исходника и четыре связи. Скачанный PDF весит 1 497 598 байт. Для воспроизведения скачать PDF по ссылке, сверить SHA с реестром и открыть страницу 10. Разрешение в полях страницы касается копирования для домашней игры. Основание для публикации текста в СКАЗ остаётся открытым.
 
+Полная сверка строк без CR охватывает все 22 цифровые карточки SKT. На печатных страницах 247–255 есть по два отдельных блока именованных NPC. Все 18 имён сопоставлены по точному названию с цифровой строкой SKT и исходным наблюдением 132. Страница 256 добавляет четыре именных дополнения, описанных выше. Пустой CR сохранён у всех 22 строк, печатная структура остаётся самостоятельным свидетельством. [Постраничный реестр](../catalog/skt-appendix-d-npc-index-2014.json), [официальное приложение D](https://media.wizards.com/2016/dnd/downloads/SKT_AppD.pdf).
+
 ### Дополнительные действия великанов
 
 На открытой печатной странице 246 есть отдельные заголовки Frost, Hill, Stone и Storm Giants. Под ними описаны соответственно одно, одно, два и одно дополнительных действия для взрослых великанов. Это подтверждает форму четырёх вариантов в приложении C. Их цифровые карточки сохраняются по собственным URL и CR. Совпадение полного содержимого с цифровыми карточками остаётся открытым. Для Fire и Cloud Giant нужны соседние страницы: у первых двух фрагментов на странице 246 отсутствует заголовок родителя. [Официальная страница приложения C](https://media.wizards.com/2016/dnd/downloads/SKT_GiantOptions.pdf).
@@ -37,7 +39,7 @@ Needlefolk / Needle Spawn остаётся кандидатом. CR 1/2 совп
 - [SKT](../catalog/skt-index-residual-2014.json) собирается командой `node scripts/review-skt-index-residual-2014.mjs`.
 - [IMR и Folio](../catalog/imr-folio-index-boundary-2014.json) собирается командой `node scripts/review-imr-folio-index-boundary-2014.mjs`.
 - У обоих генераторов `--verify-toc <saved HTML>` проверяет SHA-256 сохранённого оглавления и ожидаемые ссылки. Сырые страницы хранятся отдельно от репозитория.
-- `node --test tests/skt-index-residual.test.mjs tests/skt-appendix-d-npc-composition.test.mjs tests/skt-appendix-c-giant-options.test.mjs tests/imr-folio-index-boundary.test.mjs` проверяет разбиение по источникам, сохранение исходных ID и запрет продвижения кандидатов.
+- `node --test tests/skt-index-residual.test.mjs tests/skt-appendix-d-npc-composition.test.mjs tests/skt-appendix-d-npc-index.test.mjs tests/skt-appendix-c-giant-options.test.mjs tests/imr-folio-index-boundary.test.mjs` проверяет разбиение по источникам, сохранение исходных ID и запрет продвижения кандидатов.
 
 Для следующих решений D06 нужны соседние страницы приложения C для Cloud и Fire Giant, главы с остальными вариантами SKT и свидетельство связи Needlefolk / Needle Spawn. Планировщик может независимо сверять спорные единицы и права D07. #77 и этап M0 остаются открытыми.
 
