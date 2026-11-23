@@ -30,6 +30,10 @@ test('Nilbog and Deep Rothé keep the names and locators in their own publicatio
   const rothe = members('deep rothe');
   assert.deepEqual(rothe.map(row => row.additionalLocator.relation), ['broader-heading', 'accented-name-candidate']);
   assert.equal(rothe[1].additionalLocator.heading, 'Deep Rothé');
+  const comparison = report.digitalIndexComparison;
+  assert.deepEqual(comparison.cards.map(card => card.sourceId), ['111', '158']);
+  assert.equal(new Set(comparison.cards.map(card => card.url)).size, 2);
+  assert.equal(comparison.statBlocksRead, false);
 });
 
 test('one parent Guard Drake heading cannot replace five color variants', () => {

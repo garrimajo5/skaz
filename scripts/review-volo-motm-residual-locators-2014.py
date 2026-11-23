@@ -98,6 +98,26 @@ def build(base, volo_html, motm_html):
             {key: evidence[key] for key in ("sourceId", "title", "url", "htmlSha256")}
             for evidence in (volo, motm)
         ],
+        "digitalIndexComparison": {
+            "reviewName": "nilbog,goblin гоблин",
+            "indexUrl": "https://www.dndbeyond.com/monsters?filter-cr-min=3&filter-environment=9&filter-search=&filter-type=0&page=19",
+            "checkedOn": "2026-11-23",
+            "cards": [
+                {
+                    "sourceId": "111",
+                    "url": "https://www.dndbeyond.com/monsters/17292-nilbog",
+                    "displayedLegacy": True,
+                    "observedRedirect": "https://www.dndbeyond.com/legacy",
+                },
+                {
+                    "sourceId": "158",
+                    "url": "https://www.dndbeyond.com/monsters/2560889-nilbog",
+                    "displayedLegacy": False,
+                    "observedRedirect": "https://marketplace.dndbeyond.com/category/mordenkainen-presents-monsters-of-the-multiverse",
+                },
+            ],
+            "statBlocksRead": False,
+        },
         "groups": records,
     }
 

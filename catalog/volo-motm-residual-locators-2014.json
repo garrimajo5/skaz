@@ -17,6 +17,26 @@
       "htmlSha256": "14d4d5bf4bfd41a2f75a5341b4acd57a597715bc8fbc4cc4a9887698762ede7e"
     }
   ],
+  "digitalIndexComparison": {
+    "reviewName": "nilbog,goblin гоблин",
+    "indexUrl": "https://www.dndbeyond.com/monsters?filter-cr-min=3&filter-environment=9&filter-search=&filter-type=0&page=19",
+    "checkedOn": "2026-11-23",
+    "cards": [
+      {
+        "sourceId": "111",
+        "url": "https://www.dndbeyond.com/monsters/17292-nilbog",
+        "displayedLegacy": true,
+        "observedRedirect": "https://www.dndbeyond.com/legacy"
+      },
+      {
+        "sourceId": "158",
+        "url": "https://www.dndbeyond.com/monsters/2560889-nilbog",
+        "displayedLegacy": false,
+        "observedRedirect": "https://marketplace.dndbeyond.com/category/mordenkainen-presents-monsters-of-the-multiverse"
+      }
+    ],
+    "statBlocksRead": false
+  },
   "groups": [
     {
       "reviewId": "name-review:09a4e54444ba7198e981",
