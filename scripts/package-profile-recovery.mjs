@@ -24,7 +24,7 @@ export async function packageProfileRecovery({repository,commit,directory}){
  execFileSync('git',['archive','--format=tar.gz','--output='+archive,commit],{cwd:root,stdio:'pipe'});
  await chmod(archive,0o600);
  const hash=createHash('sha256');for await(const chunk of createReadStream(archive))hash.update(chunk);
- const manifest={app:'skaz-profile-recovery-candidate',schemaVersion:1,sourceCommit:commit,archive:'source.tar.gz',sha256:hash.digest('hex'),requiredEnvironment:{SKAZ_PROFILE_EDITORS:'0'},preserveExistingAuthentication:true,preserveExistingFeatureFlags:true,databasePolicy:'reuse-current-database-without-downgrade',compatibilityVerified:false,releaseApproved:false};
+ const manifest={app:'skaz-profile-recovery-candidate',schemaVersion:1,sourceCommit:commit,archive:'source.tar.gz',sha256:hash.digest('hex'),requiredEnvironment:{SKAZ_PROFILE_EDITORS:'0',SKAZ_PROFILE_WRITE_FORMAT:'15'},preserveExistingAuthentication:true,preserveExistingFeatureFlags:true,databasePolicy:'reuse-current-database-without-downgrade',compatibilityVerified:false,releaseApproved:false};
  await writeFile(join(output,'candidate.json'),JSON.stringify(manifest,null,2)+'\n',{mode:0o600});
  return {directory:output,...manifest};
 }

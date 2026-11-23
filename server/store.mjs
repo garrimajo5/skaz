@@ -34,11 +34,36 @@ import { validateChargeCommand, changeCharges, setupInventory, validateInventory
 import { setupSessions, validateSession, startSession, listSessions, readSession } from './sessions.mjs';
 import { migrateEntities, readEntities, writeEntities, joinState, contextIds, createGame, selectGame, listGames } from './entities.mjs';
 
-export function openStore(filename, {classAdvancement=false}={}) {
+const profileUpgradePending = () => new AppError(409, 'Эта операция станет доступна после завершения обновления формата профилей.');
+
+function checkProfileWriteCompatibility(db) {
+  const tables = [
+    ['character_stats', 'stats', readCharacterStats],
+    ['character_sheets', 'sheet', readCharacterSheet],
+  ];
+  const tableExists = db.prepare("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?");
+  for (const [table, field, readProfile] of tables) {
+    if (!tableExists.get(table)) continue;
+    for (const {character_id} of db.prepare(`SELECT character_id FROM ${table}`).iterate()) {
+      if (ProfileRules.requiresV15({[field]: readProfile(db, character_id)})) {
+        throw new Error('В базе есть профили формата v15. Режим записи v14 не может её открыть.');
+      }
+    }
+  }
+}
+
+export function openStore(filename, {classAdvancement=false, profileWriteFormat=15}={}) {
   if(typeof classAdvancement!=='boolean')throw new AppError(422,'Неверный режим повышения уровня');
+  if (![14, 15].includes(profileWriteFormat)) throw new AppError(422, 'Формат записи профилей: 14 или 15');
   if (filename !== ':memory:') mkdirSync(path.dirname(filename), { recursive: true });
   const db = new DatabaseSync(filename);
-  try{checkAdvancementCompatibility(db,{enabled:classAdvancement});}catch(error){db.close();throw error;}
+  try {
+    checkAdvancementCompatibility(db, {enabled:classAdvancement});
+    if (profileWriteFormat === 14) checkProfileWriteCompatibility(db);
+  } catch (error) {
+    db.close();
+    throw error;
+  }
   db.exec('PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON; PRAGMA busy_timeout=5000;');
   db.exec(`
     CREATE TABLE IF NOT EXISTS workspace (
@@ -102,6 +127,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
       if(withArt&&current.state.conditions!==undefined)version=14;
       const advisory=ProfileRules.requiresV15({stats:current.characterStats,sheet:current.characterSheet});
       if(withArt&&advisory)version=15;
+      if (version === 15 && profileWriteFormat === 14) throw profileUpgradePending();
       if(advisory&&version<15)throw new AppError(409,'Ручные отклонения и согласования требуют экспорт v15');
       if(current.state.conditions!==undefined&&version<14)throw new AppError(409,'Состояния требуют экспорт v14');
       if(current.advancement&&version<13)throw new AppError(409,'Повышение уровня требует экспорт v13 или полную SQLite-копию');
@@ -201,6 +227,11 @@ export function openStore(filename, {classAdvancement=false}={}) {
       authorizeMutation({ phase: 'after', mutationId, beforeContext: current.context, context: affectedContext });
       afterAuthorization?.(affectedContext);
       const response = { ...read(), ...(operation ? { affectedContext } : {}) };
+      // Keep writes readable by the previous release during the initial rollout.
+      if (profileWriteFormat === 14 &&
+          ProfileRules.requiresV15({stats:response.characterStats, sheet:response.characterSheet})) {
+        throw profileUpgradePending();
+      }
       db.exec('COMMIT');
       return response;
     } catch (error) { db.exec('ROLLBACK'); throw error; }
@@ -251,7 +282,11 @@ export function openStore(filename, {classAdvancement=false}={}) {
     createCharacter: request => {
       const payload = validateCharacterCreate(request);
       const hash = createHash('sha256').update(JSON.stringify({operation:'character-create',expectedRevision:request.expectedRevision,payload})).digest('hex');
-      return mutate(request,hash,'Создание персонажа',()=>{createCharacter(db,payload,read().context,viewId);return read().state;},'character-create');
+      return mutate(request, hash, 'Создание персонажа', () => {
+        if (profileWriteFormat === 14 && payload.template === 'manual-2014') throw profileUpgradePending();
+        createCharacter(db, payload, read().context, viewId);
+        return read().state;
+      }, 'character-create');
     },
     proposals: () => { const current = read(); return { revision: current.revision, context: current.context, proposals: readProposals(db,current.context) }; },
     createProposal: request => {
@@ -400,6 +435,8 @@ export function openStore(filename, {classAdvancement=false}={}) {
       if(payload.advancement&&!classAdvancement)throw new AppError(403,'Перенос повышения уровня ещё не включён');
       const hash = createHash('sha256').update(JSON.stringify({ operation: 'import-active', expectedRevision: request.expectedRevision, payload,...(withArt?{personalArt:request.file.personalArt}:{}) })).digest('hex');
       return mutate(request, hash, 'Импорт игры с инвентарём', () => {
+        const transferVersion = (withArt ? request.file.game : request.file).schemaVersion;
+        if (profileWriteFormat === 14 && transferVersion === 15) throw profileUpgradePending();
         importTransfer(db, payload, request.mutationId, viewId);
         return read().state;
       }, 'import-active',undefined,withArt?context=>personalArt.importCharacter({characterId:context.characterId,mutationId:request.mutationId,expectedRevisions:Object.fromEntries(parsed.art.map(entry=>[entry.catalogId,0])),bundle:request.file.personalArt}):undefined);
@@ -412,7 +449,7 @@ export function openStore(filename, {classAdvancement=false}={}) {
   }
   const root = createView();
   let authentication,personalArtAccess;
-  return { ...root, access, authentication: () => authentication ??= createAuthentication(db), forUser: (userId, viewId, { write = false, guard = () => {}, personalArt=false } = {}) => {
+  return { ...root, profileWriteFormat, access, authentication: () => authentication ??= createAuthentication(db), forUser: (userId, viewId, { write = false, guard = () => {}, personalArt=false } = {}) => {
     if (typeof write !== 'boolean') throw new AppError(422, 'Режим записи должен быть логическим значением');
     if (typeof guard !== 'function') throw new AppError(422,'Нужна доверенная проверка сессии');
     if(typeof personalArt!=='boolean')throw new AppError(422,'Неверный режим личных изображений');

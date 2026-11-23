@@ -19,7 +19,7 @@ function fixture(t,{support=true,privateFile=false,privateName='synthetic.sqlite
 test('recovery package pins an immutable Git tree, ignores untracked files and records only nonsecret recovery configuration',async t=>{
  const input=fixture(t),result=await packageProfileRecovery(input),bytes=readFileSync(join(input.directory,'source.tar.gz'));
  assert.equal(result.sha256,createHash('sha256').update(bytes).digest('hex'));assert.equal(result.sourceCommit,input.commit);
- assert.deepEqual(result.requiredEnvironment,{SKAZ_PROFILE_EDITORS:'0'});assert.equal(result.releaseApproved,false);assert.equal(result.compatibilityVerified,false);
+ assert.deepEqual(result.requiredEnvironment,{SKAZ_PROFILE_EDITORS:'0',SKAZ_PROFILE_WRITE_FORMAT:'15'});assert.equal(result.releaseApproved,false);assert.equal(result.compatibilityVerified,false);
  const names=execFileSync('tar',['-tzf',join(input.directory,'source.tar.gz')],{encoding:'utf8'});assert.match(names,/server\/app.mjs/);assert.doesNotMatch(names,/sqlite/);
  assert.equal(JSON.parse(readFileSync(join(input.directory,'candidate.json'),'utf8')).sha256,result.sha256);
 });

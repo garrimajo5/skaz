@@ -79,3 +79,16 @@ test('profile editor recovery is explicit and validates before opening a databas
  const result=spawnSync(process.execPath,[entry],{env:{...process.env,SKAZ_DB:database,SKAZ_AUTH_MODE:'shared',SKAZ_PROFILE_EDITORS:'invalid'},encoding:'utf8',timeout:5000});
  assert.equal(result.status,1);assert.equal(existsSync(database),false);
 });
+
+test('v14 write compatibility is explicit and requires the recovery HTML flag at startup',()=>{
+ const options={database:fixture()};
+ assert.equal(startupOptions(options).profileWriteFormat,undefined);
+ assert.equal(startupOptions({...options,profileEditors:'0',profileWriteFormat:'15'}).profileWriteFormat,undefined);
+ assert.equal(startupOptions({...options,profileEditors:'0',profileWriteFormat:'14'}).profileWriteFormat,14);
+ assert.throws(()=>startupOptions({...options,profileWriteFormat:'14'}),/требует SKAZ_PROFILE_EDITORS=0/);
+ for(const value of ['',14,'13','16'])assert.throws(()=>startupOptions({...options,profileWriteFormat:value}),/SKAZ_PROFILE_WRITE_FORMAT/);
+ const entry=fileURLToPath(new URL('../server/index.mjs',import.meta.url));
+ const result=spawnSync(process.execPath,[entry],{env:{...process.env,SKAZ_DB:options.database,SKAZ_AUTH_MODE:'shared',SKAZ_PROFILE_EDITORS:'1',SKAZ_PROFILE_WRITE_FORMAT:'14'},encoding:'utf8',timeout:5000});
+ assert.equal(result.status,1);
+ assert.equal(existsSync(options.database),false);
+});

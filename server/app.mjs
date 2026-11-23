@@ -208,6 +208,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
       }
       let content = await readFile(path.join(clientRoot, filename));
       if(!profileEditors&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-profile-editors="disabled" ');
+      if(store.profileWriteFormat===14&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-profile-write-format="14" ');
       if(classAdvancement&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-class-advancement="enabled" ');
       if(identity&&personalArt&&filename==='index.html')content=content.toString('utf8').replace('<body ','<body data-personal-art="enabled" ');
       if(identity)content=content.toString('utf8').replace('<body ',`<body data-user-id="${identity}" `);
