@@ -70,6 +70,11 @@ body[data-workspace-shell="shared"] .shell main {
 .play-layout h2:not(:where(.catalog *)) { font: 24px 'PT Serif', Georgia, serif; margin: 0 0 8px; }
 .play-layout .play-actions, .play-layout .play-resources, .workspace-content { min-width: 0; }
 .workspace-prepare .character-edit { flex-wrap: wrap; justify-content: flex-start; }
+.workspace-narrative { display: grid; gap: 16px; }
+.workspace-narrative-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.workspace-content .personal-quest-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+}
 .play-layout #play-content { display: block; }
 .play-layout .play-spells { padding: 0; border: 0; background: transparent; }
 .play-layout .play-spell-scopes { margin-bottom: 6px; }

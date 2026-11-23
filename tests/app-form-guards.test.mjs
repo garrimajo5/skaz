@@ -13,7 +13,7 @@ function harness(){
  const get=id=>{if(!elements.has(id))elements.set(id,{value:'',innerHTML:'',dataset:{},classList:{add(){},remove(){},toggle(){}},focus(){},scrollIntoView(){},append(node){elements.set('#'+node.id,node);},setAttribute(){},addEventListener(){},showModal(){this.open=true;},close(){this.open=false;}});return elements.get(id);};
  const context=vm.createContext({structuredClone,URL,Blob,location:{protocol:'http:',hash:'#hero'},history:{replaceState(){}},localStorage:{getItem:()=>null},setTimeout:()=>0,clearTimeout(){},
   document:{body:{dataset:{}},querySelector:get,querySelectorAll:()=>[],getElementById:id=>id==='blocked-form-message'?(elements.get('#'+id)||null):get('#'+id),createElement:()=>({setAttribute(){},scrollIntoView(){}}),addEventListener:(key,fn)=>handlers[key]=fn},window:{addEventListener(){},scrollTo(){}},
-  SkazStorage:{stats:()=>({abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18},armorClass:14,initiative:2,speed:30}),preference:()=> 'polar',paint(){},boot(){},setTheme(){},sessionTitle:()=>'',sessionDate:()=>'',contextKey:()=> 'same',snapshotKey:()=> 'same:'+revision,editable:()=>editable,commit:async(state,label)=>{writes.push({state:structuredClone(state),label});revision++;return {state};}},SkazEvents:{pendingCount:()=>0}
+  SkazStorage:{stats:()=>({abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18},armorClass:14,initiative:2,speed:30}),preference:()=> 'polar',paint(){},boot(){},setTheme(){},sessionTitle:()=>'',sessionDate:()=>'',contextKey:()=> 'same',snapshotKey:()=> 'same:'+revision,editable:()=>editable,commit:async(state,label)=>{writes.push({state:structuredClone(state),label});revision++;return {state};}},SkazEvents:{pendingCount:()=>0,view:()=>'<section>События на проверку</section>'},SkazQuests:{view:()=>'<section>Задания кампании</section>'}
  });vm.runInContext(conditionsSource,context);vm.runInContext(healthSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(playSource,context);vm.runInContext(source,context);
  return {get,writes,block:()=>editable=false,run:code=>vm.runInContext(code,context),state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset,classList:{contains:()=>false}})}})};
 }
@@ -29,6 +29,33 @@ test('profile and inventory render the same escaped hero and a single resource m
   assert.match(html,/<small>\+3 временных<\/small>/);
   assert.equal((html.match(/id="play-quick-slot"/g)||[]).length,1);
  }
+});
+
+test('campaign routes reuse one active actor and separate session records from personal notes',()=>{
+ const h=harness();
+ h.run("state.journal=[{title:'Находка',text:'<Карта>',time:'10:00',at:1}];state.notes=[{title:'План героя',text:'Личная запись',time:'10:05',at:2}];");
+ const journal=h.run('journal()');
+ assert.match(journal,/<h1>Журнал<\/h1>/);
+ assert.match(journal,/<h2>Записи сессии<\/h2>[\s\S]*Находка[\s\S]*&lt;Карта&gt;[\s\S]*<h2>Личные заметки<\/h2>[\s\S]*План героя/);
+ assert.doesNotMatch(journal,/<Карта>/);
+ const quests=h.run('quests()');
+ assert.match(quests,/<h1>Задания<\/h1>/);
+ for(const html of [journal,quests]){
+  assert.equal((html.match(/<h1>/g)||[]).length,1);
+  assert.equal((html.match(/id="play-quick-slot"/g)||[]).length,1);
+ }
+});
+
+test('a journal draft from another context stays open without writing to the active hero',()=>{
+ const h=harness();
+ h.run('addNote()');
+ h.get('#note-body').value='Фрагмент заметки для первого героя';
+ h.run("SkazStorage.snapshotKey=()=> 'another-hero:1'");
+ h.get('#save-note').onclick();
+ assert.equal(h.get('#dialog').open,true);
+ assert.equal(h.get('#note-body').value,'Фрагмент заметки для первого героя');
+ assert.equal(h.writes.length,0);
+ assert.match(h.get('#toast').innerHTML,/Игра изменилась/);
 });
 
 test('manual sheet never applies fixed demo healing or presents its attack as a usable roll',async()=>{
