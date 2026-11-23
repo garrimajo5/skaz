@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "reviewId": "name-review:fa9773cb8451b1b8840f",
+  "observations": [
+    {
+      "observationId": "dndsu:bestiary:4893",
+      "observedName": "Sacred statue",
+      "sourceIds": [
+        "113"
+      ],
+      "publisherFilterValue": "33",
+      "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-search=Sacred+Statue&filter-source=33",
+      "htmlSha256": "70184a0357dc4f4bd37ee4adf2eaeccd4de9accda42555a78e11499cf8e608e2",
+      "exactBookHeading": {
+        "book": "Mordenkainen's Tome of Foes",
+        "indexUrl": "https://www.dndbeyond.com/sources/dnd/mtof",
+        "targetUrl": "https://www.dndbeyond.com/sources/mtof/bestiary#SacredStatue",
+        "heading": "Sacred Statue",
+        "htmlSha256": "34eaccf9676ce15d54631f8ad72849baafa88fc186de05cf40f9db21ae01c064"
+      },
+      "digitalRow": {
+        "displayedSource": "Mordenkainen’s Tome of Foes",
+        "digitalName": "Sacred Statue",
+        "cardUrl": "https://www.dndbeyond.com/monsters/96536-sacred-statue",
+        "challengeRating": "0",
+        "type": "Construct",
+        "size": "Large",
+        "alignment": "Any Alignment"
+      }
+    },
+    {
+      "observationId": "dndsu:bestiary:6720",
+      "observedName": "Sacred statue",
+      "sourceIds": [
+        "158"
+      ],
+      "publisherFilterValue": "85",
+      "publisherIndexUrl": "https://www.dndbeyond.com/monsters?filter-search=Sacred+Statue&filter-source=85",
+      "htmlSha256": "ecd32452ba76bcca5e7f390f833bfbaeeab59e13cd3c468583b2ee051373b4ef",
+      "exactBookHeading": null,
+      "digitalRow": {
+        "displayedSource": "Mordenkainen Presents: Monsters of the Multiverse",
+        "digitalName": "Sacred Statue",
+        "cardUrl": "https://www.dndbeyond.com/monsters/2560907-sacred-statue",
+        "challengeRating": "",
+        "type": "Construct",
+        "size": "Large",
+        "alignment": ""
+      }
+    }
+  ],
+  "relatedPublicationEvidence": {
+    "referenceTitle": "Six Faces of Death",
+    "referenceUrl": "https://media.wizards.com/2018/dnd/dragon/21/DRA21_sixfacesdeath.pdf",
+    "locator": "p. 43, area 6.38, Relics and Retribution",
+    "relation": "adventure-occurrence-refers-to-mtof-eidolon-and-sacred-statue",
+    "motmEidolonLocator": "https://www.dndbeyond.com/sources/motm/bestiary-ek#Eidolon",
+    "motmParentConnectionVerified": false
+  },
+  "printedChallengeRatingVerified": false,
+  "fullStatBlocksCompared": false,
+  "exactErrataVersionVerified": false,
+  "translationReusePermission": "not-established",
+  "canonicalId": null,
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "inputSha256": {
+    "catalog/mtf-monster-version-unit-proposals-2014.json": "97d710a88ebb0184297f034bf46bcbcf115c04b25f6e1c9bbf68092e6838b079"
+  }
+}
