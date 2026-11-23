@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-24",
+  "status": "distinct-publisher-index-rows",
+  "inputSha256": {
+    "catalog/skt-index-residual-2014.json": "a568b6bc2ce1f0fd5cd8313decb76b44d1260b83c74289f0f4493834debccfc5",
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f"
+  },
+  "publisherIndex": {
+    "url": "https://www.dndbeyond.com/monsters?filter-search=&filter-senses=1&filter-type=0&page=16",
+    "bytes": 410980,
+    "sha256": "195265de7f3305619e4a74361ce26b900686dc40f109c4b049785beea2201800"
+  },
+  "records": [
+    {
+      "name": "Hulking Crab",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17349-hulking-crab",
+      "displayedSource": "Storm King's Thunder",
+      "challengeRating": "5",
+      "type": "Beast",
+      "size": "Huge",
+      "alignment": "Unaligned",
+      "sourceLocator": "https://www.dndbeyond.com/sources/skt/creatures#HulkingCrab",
+      "exactSecondaryObservationIds": []
+    },
+    {
+      "name": "Huge Giant Crab",
+      "cardUrl": "https://www.dndbeyond.com/monsters/294086-huge-giant-crab",
+      "displayedSource": "Tales from the Yawning Portal",
+      "challengeRating": "8",
+      "type": "Beast",
+      "size": "Huge",
+      "alignment": "Unaligned",
+      "sourceLocator": null,
+      "exactSecondaryObservationIds": []
+    }
+  ],
+  "printedEquivalence": "unverified",
+  "fullDigitalCardsRead": false,
+  "automaticMerge": false,
+  "appTextReusePermission": "not-established",
+  "approvedDenominator": null
+}
