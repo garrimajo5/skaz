@@ -36,3 +36,31 @@ test('43 digital links are reused without promoting printed equivalence or dispu
   assert.equal(report.textReusePermission, 'not-established');
   assert.equal(report.approvedDenominator, null);
 });
+
+test('XGE print errata binds four pages to source 109 while digital cards stay reference-only', () => {
+  const path = 'catalog/xge-eepc-spell-locators-2014.json';
+  const errata = JSON.parse(read('catalog/xge-spell-errata-2014.json'));
+  assert.equal(errata.inputSha256[path], createHash('sha256').update(read(path)).digest('hex'));
+  assert.equal(errata.publisherSource.version, '1.0');
+  assert.equal(errata.publisherSource.appliesFromPrinting, 4);
+  assert.equal(errata.publisherSource.pdfPage, 1);
+  assert.equal(errata.targetPublicationSourceId, '109');
+  const byId = new Map(report.records.map(row => [row.observationId, row]));
+  assert.deepEqual(errata.records.map(row => [row.observationId, row.xgePrintedPage, row.correctionScope]), [
+    ['dndsu:spells:468', 157, 'healing-use-limit'],
+    ['dndsu:spells:490', 157, 'dismissal-origin'],
+    ['dndsu:spells:475', 160, 'unreducible-self-damage'],
+    ['dndsu:spells:469', 162, 'upcast-die-size'],
+  ]);
+  for (const row of errata.records) {
+    const original = byId.get(row.observationId);
+    assert.deepEqual(original.originalSourceIds, ['109']);
+    assert.equal(original.eepcIndexPage, null);
+    assert.equal(row.digitalLocator, original.cardUrl);
+    assert.equal(row.name, original.digitalName);
+  }
+  assert.equal(errata.printedFullTextCompared, false);
+  assert.equal(errata.runtimeChanged, false);
+  assert.equal(errata.textReusePermission, 'not-established');
+  assert.equal(errata.approvedDenominator, null);
+});

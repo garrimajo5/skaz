@@ -12,6 +12,8 @@
 | Мультикласс и Evocation2/6 | [Wizard13](wizard-multiclass-2014.md): paragraphs0/1/3,2reused,180primaryslotcells; [37/38/39](wizard-evocation-low-level-2014.md): три полных выбранных scope. Это не все формулы/подклассы. |
 | Единицы классового каталога | [Предложение](class-unit-granularity-proposal-2014.md):130сохранённых observations/23aux, роли/occurrences/reference, без canonical/denominator/runtime. |
 
+[Границы мультикласса изобретателя](artificer-multiclass-sources-2014.md) добавляют официальный контекст AL, три сценария для #82 и конкретный недостающий абзац книги. Расчёт по гипотезе об округлении вклада ожидает первоисточник.
+
 ## Следующий исполнимый шаг
 
 Общий [пакет единиц13классов](class-unit-residual-review-2014.md) сопоставляет913proposals/8kinds,13особых случаев и28multi-source observations. Discovery31 сохраняет13main+3sidekick+15excluded; [primary TOC](class-multisource-toc-2014.md) подтверждает8family+3sidekick links, не полные версии/права. Прежний130/23source-ledger не изменён и не повышен до full-class/canonical.
