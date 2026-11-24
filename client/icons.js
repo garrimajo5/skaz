@@ -36,6 +36,16 @@ const SkazIcons=(()=>{
  shapes.pending='<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/>';
  shapes.warning='<path d="m12 2 10 19H2zM12 8v5M12 17h.01"/>';
  shapes.offline='<path d="m3 3 18 18M2 8a17 17 0 0 1 6-3M13 4a17 17 0 0 1 9 4M6 12a11 11 0 0 1 5-2M17 11l1 1M9 16l3-1 3 1M12 20h.01"/>';
+ shapes['arrow-left']='<path d="M20 12H4m6-6-6 6 6 6"/>';
+ shapes['arrow-right']='<path d="M4 12h16m-6-6 6 6-6 6"/>';
+ shapes['arrow-up']='<path d="M12 20V4m-6 6 6-6 6 6"/>';
+ shapes['arrow-down']='<path d="M12 4v16m-6-6 6 6 6-6"/>';
+ shapes['external']='<path d="M13 4h7v7m0-7-8 8m8 1v7H4V4h7"/>';
+ shapes['add']='<path d="M12 5v14M5 12h14"/>';
+ shapes['resume']='<path d="m8 4 12 8-12 8z"/>';
+ shapes['pause']='<path d="M9 5v14m6-14v14"/>';
+ shapes['chevron-down']='<path d="m6 9 6 6 6-6"/>';
+ shapes['pin']='<path d="M19 9c0 5-7 11-7 11S5 14 5 9a7 7 0 0 1 14 0Z"/><circle cx="12" cy="9" r="2"/>';
  const own=name=>Object.prototype.hasOwnProperty.call(shapes,name);
  function markup(name){return own(name)?'<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#skaz-icon-'+name+'"/></svg>':'';}
  function mount(root=document){for(const node of root.querySelectorAll('[data-ui-icon]:not([data-icon-ready])')){node.setAttribute('data-icon-ready','');node.setAttribute('aria-hidden','true');node.innerHTML=markup(node.getAttribute('data-ui-icon'));}}

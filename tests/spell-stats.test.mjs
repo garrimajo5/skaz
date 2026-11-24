@@ -36,7 +36,7 @@ test('casting survives database restart and v10 transfer; older formats refuse s
  }finally{s.close();}
 });
 test('save proficiencies are explicit, unique, preserved and shown without inventing skill training',()=>{
- const value={...sheet(null),saveProficiencies:['str','con']};assert.deepEqual(validateCharacterSheet(value),value);assert.equal(JSON.stringify(client.validate(value)),JSON.stringify(value));assert.equal((client.abilityRow(templateStats,value).match(/владение спасброском/g)||[]).length,2);assert.equal((client.abilityRow(templateStats,null).match(/владение спасброском/g)||[]).length,2);
+ const value={...sheet(null),saveProficiencies:['str','con']};assert.deepEqual(validateCharacterSheet(value),value);assert.equal(JSON.stringify(client.validate(value)),JSON.stringify(value));assert.equal((client.abilityRow(templateStats,value).match(/владение спасброском/gi)||[]).length,2);assert.equal((client.abilityRow(templateStats,null).match(/владение спасброском/gi)||[]).length,2);
  for(const bad of [['str','str'],['STR'],'dex',[null]]){assert.throws(()=>validateCharacterSheet({...value,saveProficiencies:bad}));assert.throws(()=>client.validate({...value,saveProficiencies:bad}));}
- context.SkazStorage={stats:()=>templateStats,sheet:()=>value};let html='';context.modal=text=>html=text;client.checks();assert.match(html,/СИЛ · проверка -1/);assert.match(html,/Спасбросок \+2 ●/);assert.match(html,/не включает владение навыком/);
+ context.SkazStorage={stats:()=>templateStats,sheet:()=>value};let html='';context.modal=text=>html=text;client.checks();assert.match(html,/СИЛ · проверка -1/);assert.match(html,/Спасбросок \+2 [^>]*data-ui-icon="saved"/);assert.match(html,/не включает владение навыком/);
 });
