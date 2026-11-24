@@ -1,0 +1,145 @@
+[data-campaign-entry][hidden],
+[data-campaign-map][hidden] {
+  display: none !important;
+}
+
+.campaign-screen {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.campaign-title,
+.campaign-toolbar,
+.campaign-controls,
+.campaign-sections {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.campaign-title,
+.campaign-toolbar {
+  justify-content: space-between;
+}
+
+.campaign-screen h1,
+.campaign-screen h2,
+.campaign-screen h3 {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.campaign-screen p {
+  overflow-wrap: anywhere;
+}
+
+.campaign-sections {
+  padding-block: 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.campaign-screen button,
+.campaign-screen input,
+.campaign-screen select,
+.campaign-form input,
+.campaign-form select,
+.campaign-form button {
+  min-height: var(--touch, 44px);
+}
+
+.campaign-sections [aria-current="page"] {
+  background: var(--accent);
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+.campaign-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.campaign-overview {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+}
+
+.campaign-panel {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.campaign-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.campaign-entry {
+  text-align: left;
+  width: 100%;
+}
+
+.campaign-screen .session-text {
+  white-space: pre-wrap;
+}
+
+.campaign-record {
+  border-top: 1px solid var(--line);
+  padding-block: 12px;
+  overflow-wrap: anywhere;
+}
+
+.campaign-form label,
+.campaign-search label {
+  display: block;
+}
+
+.campaign-form fieldset {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.campaign-form :is(input:not([type="checkbox"]), select, textarea) {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.campaign-search {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 8px;
+}
+
+.campaign-search input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 420px) {
+  .bottomnav [data-campaign-entry] {
+    flex: 1.22;
+  }
+
+  .bottomnav [data-campaign-entry] span:last-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .campaign-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .campaign-sections {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

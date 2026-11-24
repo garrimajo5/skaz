@@ -1,5 +1,5 @@
 const SkazArchive = (() => {
-  let serial = 0, key = '', data = null, section = 'journal', query = '', status = 'all', offset = 0, back;
+  let serial = 0, key = '', data = null, section = 'journal', query = '', status = 'all', offset = 0, back, backLabel='К списку сессий';
   const limit = 10;
   const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
   const normalize = value => String(value).toLocaleLowerCase('ru').replaceAll('ё','е');
@@ -24,19 +24,20 @@ const SkazArchive = (() => {
   }
   function draw() {
     if (!data || key !== SkazStorage.snapshotKey()) { refresh(); return; }
-    modal(`<div class="overline">${data.session.archived?'АРХИВ':'ПРОСМОТР'} · ТОЛЬКО ЧТЕНИЕ</div><h2>${escape(data.session.name||'Сессия без названия')}</h2><p>${escape(data.session.playedOn||'Дата не указана')} · ${escape(data.characterName)}</p><p>Журнал общий для сессии. Исходные события показаны только для выбранного персонажа. Просмотр не меняет игру и не применяет события повторно.</p><div class="archive-controls"><label>Раздел<select id="archive-section"><option value="journal" ${section==='journal'?'selected':''}>Журнал (${data.session.data.journal.length})</option><option value="events" ${section==='events'?'selected':''}>Исходные события (${data.proposals.length})</option></select></label><label>Поиск<input type="search" id="archive-search" maxlength="200" value="${escape(query)}" placeholder="Текст, имя или зацепка"></label>${section==='events'?`<label>Решение<select id="archive-status"><option value="all">Все</option><option value="pending">Не разобрано</option><option value="accepted">Записано</option><option value="dismissed">Пропущено</option></select></label>`:''}</div><div id="archive-results" class="settings-actions" aria-live="polite">${results()}</div><button id="back-sessions">К списку сессий</button>`);
+    modal(`<div class="overline">${data.session.archived?'АРХИВ':'ПРОСМОТР'} · ТОЛЬКО ЧТЕНИЕ</div><h2 id="archive-title" tabindex="-1">${escape(data.session.name||(Number.isSafeInteger(data.session.number)?'Сессия '+data.session.number:'Сессия без названия'))}</h2><p>${escape(data.session.playedOn||'Дата не указана')} · ${escape(data.characterName)}</p>${data.session.importedFrom?`<p>Перенесена из другой игры · исходная сессия №${escape(data.session.importedFrom.number)}</p>`:''}<p>Журнал общий для сессии. Исходные события показаны только для выбранного персонажа. Просмотр не меняет игру и не применяет события повторно.</p><div class="archive-controls"><label>Раздел<select id="archive-section"><option value="journal" ${section==='journal'?'selected':''}>Журнал (${data.session.data.journal.length})</option><option value="events" ${section==='events'?'selected':''}>Исходные события (${data.proposals.length})</option></select></label><label>Поиск<input type="search" id="archive-search" maxlength="200" value="${escape(query)}" placeholder="Текст, имя или зацепка"></label>${section==='events'?`<label>Решение<select id="archive-status"><option value="all">Все</option><option value="pending">Не разобрано</option><option value="accepted">Записано</option><option value="dismissed">Пропущено</option></select></label>`:''}</div><div id="archive-results" class="settings-actions" aria-live="polite">${results()}</div><button id="back-sessions">${escape(backLabel)}</button>`);
   }
-  async function open(id, returnToSessions) {
+  async function open(id, returnToSessions, returnLabel='К списку сессий') {
     const n = ++serial; key = SkazStorage.snapshotKey(); const requestedKey = key;
-    back = returnToSessions; data = null; section='journal';query='';status='all';offset=0;
+    back = returnToSessions; backLabel=returnLabel; data = null; section='journal';query='';status='all';offset=0;
     modal('<h2>Открываем сессию…</h2><div id="archive-loading" role="status">Загружаем журнал и источники.</div>');
     try {
       const result = await SkazStorage.sessionReviewData(id);
       if (n !== serial || requestedKey !== SkazStorage.snapshotKey() || !document.getElementById('archive-loading') || !document.getElementById('dialog')?.open) return;
       data = result; draw();
+      document.getElementById('archive-title')?.focus({preventScroll:true});
     } catch(error) {
       if (n !== serial || !document.getElementById('archive-loading') || !document.getElementById('dialog')?.open) return;
-      modal(`<h2>Не удалось открыть сессию</h2><p>${escape(error.message)}</p><button id="back-sessions">К списку сессий</button>`);
+      modal(`<h2>Не удалось открыть сессию</h2><p>${escape(error.message)}</p><button id="back-sessions">${escape(backLabel)}</button>`);
     }
   }
   document.addEventListener('change',event=>{

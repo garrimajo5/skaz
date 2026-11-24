@@ -146,7 +146,17 @@ const SkazStorage = (() => {
   function showExamples(){try{return localStorage.getItem('skaz-show-examples')==='true'||demo;}catch{return demo;}}
   function setTheme(theme) { try { localStorage.setItem('skaz-theme', theme); } catch {} }
   function rememberDraft() {
-    try { pending ? localStorage.setItem(pendingKey, JSON.stringify(pending)) : localStorage.removeItem(pendingKey); draftStored = true; }
+    try {
+      // Keep package contents in memory. The durable receipt metadata lets
+      // the original command be resumed with the same file after reload.
+      let stored=pending;
+      if(pending?.operation==='campaign-import'){
+        const {file,...receipt}=pending;
+        stored=receipt;
+      }
+      stored ? localStorage.setItem(pendingKey, JSON.stringify(stored)) : localStorage.removeItem(pendingKey);
+      draftStored = true;
+    }
     catch { draftStored = false; message = 'Черновик остался только в этой вкладке. Скачай его перед закрытием.'; }
   }
   function responseFailure(response,serverMessage){
@@ -155,9 +165,9 @@ const SkazStorage = (() => {
     if(!response.ok)error.status=response.status;
     return error;
   }
-  async function request(url, options = {}) {
+  async function request(url, options = {}, timeout = 10000) {
     let response;
-    try{response=await fetch(url, { cache: 'no-store', ...options, headers: { ...options.headers, 'X-Skaz-View': tabId }, signal: AbortSignal.timeout(10000) });}
+    try{response=await fetch(url, { cache: 'no-store', ...options, headers: { ...options.headers, 'X-Skaz-View': tabId }, signal: AbortSignal.timeout(timeout) });}
     catch{throw new Error('Не удалось связаться с сервером.');}
     if(response.headers?.get('x-skaz-mode') === 'private-server')privateServer=true;
     let payload;
@@ -256,25 +266,32 @@ const SkazStorage = (() => {
       state = { ...payload.state, theme: state.theme };
       message=confirmedTime(payload);
       try { pending = JSON.parse(localStorage.getItem(pendingKey) || 'null'); } catch { pending = null; }
-      status = pending ? pending.permissionDenied ? 'denied' : 'pending' : 'ready';
+      status = pending ? pending.permissionDenied ? 'denied' : pending.personConflict ? 'conflict' : 'pending' : 'ready';
       hydrateResources(payload);render();if(resourceQueue?.length&&!pending)void flushResources();
     } catch(error) { if(![401,403,404].includes(error.status)&&recoverResources())return;status = [401,403,404].includes(error.status)?'denied':'error'; message = location.protocol==='https:'?'Не удалось подключиться. Проверь соединение и повтори попытку.':'Запусти приложение командой node scripts/dev.mjs и повтори подключение.'; paint(); }
   }
   async function sendPending() {
+    if(pending?.operation==='campaign-import'&&!pending.file){
+      message='Открой «Кампания → Перенос кампании» и выбери тот же файл, чтобы повторить запрос.';
+      paint();throw new Error(message);
+    }
+    if(pending?.personConflict)throw new Error('Сначала сверь черновик с актуальной карточкой кампании.');
     if(pending?.permissionDenied)throw new Error('Сервер отклонил этот черновик по правам. Скачай его и загрузи актуальную игру.');
     status = 'saving'; message = ''; paint();
     try {
-      const { operation, formDraftKey, permissionDenied, ...body } = pending;
+      const { operation, formDraftKey, permissionDenied, personConflict, campaignFileHash, ...body } = pending;
+      if(operation==='campaign-person'){body.operation=body.personOperation;delete body.personOperation;}
       if(operation === 'inventory-charges'){body.operation=body.chargeAction;delete body.chargeAction;}
       if (operation === 'place-create' || operation === 'place-update') body.operation = operation === 'place-create' ? 'create' : 'update';
       if (operation === 'quest-create' || operation === 'quest-update') body.operation = operation === 'quest-create' ? 'create' : 'update';
-      const url = operation === 'resource-undo' ? '/api/resources/undo' : operation === 'character-sheet-counter' ? '/api/character-sheet/counter' : operation === 'character-sheet' ? '/api/character-sheet' : operation === 'character-stats' ? '/api/character-stats' : operation === 'character-create' ? '/api/characters' : operation === 'proposal-create' ? '/api/proposals' : operation === 'proposal-decide' ? '/api/proposals/decide' : operation?.startsWith('place-') ? '/api/places' : operation?.startsWith('quest-') ? '/api/quests' : operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-charges' ? '/api/inventory/charges' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
-      const payload = await request(url, { method: operation ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body: JSON.stringify(body) });
+      const url = operation === 'campaign-person' ? '/api/campaign-people' : operation === 'campaign-import' ? '/api/import/campaign-memory' : operation === 'resource-undo' ? '/api/resources/undo' : operation === 'character-sheet-counter' ? '/api/character-sheet/counter' : operation === 'character-sheet' ? '/api/character-sheet' : operation === 'character-stats' ? '/api/character-stats' : operation === 'character-create' ? '/api/characters' : operation === 'proposal-create' ? '/api/proposals' : operation === 'proposal-decide' ? '/api/proposals/decide' : operation?.startsWith('place-') ? '/api/places' : operation?.startsWith('quest-') ? '/api/quests' : operation === 'spell-set' ? '/api/spellbook' : operation === 'import-active' ? '/api/import/active' : operation === 'inventory-charges' ? '/api/inventory/charges' : operation === 'inventory-remove' ? '/api/inventory/remove' : operation === 'inventory-undo' ? '/api/inventory/undo' : operation === 'inventory-add' ? '/api/inventory' : operation === 'session' ? '/api/sessions' : operation === 'create' ? '/api/campaigns' : operation === 'select' ? '/api/context/select' : '/api/workspace';
+      const payload = await request(url, { method: operation ? 'POST' : 'PUT', headers: { 'Content-Type': 'application/json', 'X-Skaz-Client': 'local-v1' }, body: JSON.stringify(body) }, operation==='campaign-import'?60000:10000);
       apply(payload);
       if (typeof formDraftKey === 'string' && [draftPrefix('proposal-form'),draftPrefix('entity-form')].some(prefix=>formDraftKey.startsWith(prefix))) { try { localStorage.removeItem(formDraftKey); } catch {} }
       return payload;
     } catch (error) {
       if([403,404].includes(error.status)&&pending){pending.permissionDenied=true;rememberDraft();}
+      if(error.status===409&&pending?.operation==='campaign-person'){pending.personConflict=true;rememberDraft();}
       status = [403,404].includes(error.status) ? 'denied' : error.status === 409 ? 'conflict' : 'pending';
       message = !draftStored ? 'Черновик только в памяти вкладки. Скачай его перед закрытием.' : error.status ? error.message : 'Черновик сохранён в браузере. Повторный запрос не применит изменение дважды.';
       if (!error.status) error.message = 'Нет связи с сервером. Черновик можно отправить повторно.';
@@ -390,17 +407,106 @@ const SkazStorage = (() => {
   }
   async function campaignCommand(operation, data, formDraftKey) {
     if (demo || status !== 'ready') throw new Error('Сначала сохрани черновик или загрузи актуальные данные');
-    const action=operation==='select'?'select':operation==='create'?'newCampaign':operation==='import-active'?'import':['quest-create','quest-update','place-create','place-update','session','character-create'].includes(operation)?'shared':operation==='proposal-create'&&data.suggestion?.kind==='journal'?'shared':'character';
+    const action=operation==='select'?'select':operation==='create'?'newCampaign':['import-active','campaign-import'].includes(operation)?'import':['quest-create','quest-update','place-create','place-update','session','character-create'].includes(operation)?'shared':operation==='proposal-create'&&data.suggestion?.kind==='journal'?'shared':'character';
     requirePermission(action);
     const command = { mutationId: crypto.randomUUID(), expectedRevision: revision, ...data };
-    if (new Blob([JSON.stringify(command)]).size > 512 * 1024) throw new Error('Команда больше 512 КиБ. Для переноса используй резервную копию SQLite.');
+    const limit=operation==='campaign-import'?8*1024*1024+4096:512*1024;
+    if(new Blob([JSON.stringify(command)]).size>limit)throw new Error(operation==='campaign-import'?'Пакет больше 8 МиБ. Для переноса используй резервную копию SQLite.':'Команда больше 512 КиБ. Для переноса используй резервную копию SQLite.');
     pending = { ...command, operation, ...(formDraftKey ? { formDraftKey } : {}) };
     rememberDraft();
     closeModal();
     const payload = await sendPending();
-    toast(operation === 'resource-undo' ? 'Изменение ресурса отменено' : operation === 'character-create' ? 'Создан персонаж: ' + payload.state.profile.name : operation === 'select' ? 'Выбран персонаж: ' + payload.state.profile.name : operation === 'proposal-create' ? 'Предложение ждёт подтверждения' : operation === 'proposal-decide' ? 'Решение по событию сохранено' : operation.startsWith('place-') ? 'Место сохранено' : operation.startsWith('quest-') ? 'Задание сохранено' : operation === 'spell-set' ? 'Список заклинаний сохранён' : operation === 'import-active' ? 'Игра импортирована в новую кампанию' : operation === 'inventory-charges' ? 'Остаток зарядов сохранён' : operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
+    toast(operation === 'resource-undo' ? 'Изменение ресурса отменено' : operation === 'character-create' ? 'Создан персонаж: ' + payload.state.profile.name : operation === 'select' ? 'Выбран персонаж: ' + payload.state.profile.name : operation === 'proposal-create' ? 'Предложение ждёт подтверждения' : operation === 'proposal-decide' ? 'Решение по событию сохранено' : operation.startsWith('place-') ? 'Место сохранено' : operation.startsWith('quest-') ? 'Задание сохранено' : operation === 'spell-set' ? 'Список заклинаний сохранён' : ['import-active','campaign-import'].includes(operation) ? 'Игра импортирована в новую кампанию' : operation === 'inventory-charges' ? 'Остаток зарядов сохранён' : operation === 'inventory-remove' ? 'Количество списано' : operation === 'inventory-undo' ? 'Операция инвентаря отменена' : operation === 'inventory-add' ? 'Предмет добавлен в инвентарь' : operation === 'session' ? 'Активная сессия: ' + sessionTitle() : 'Активна кампания: ' + payload.state.profile.campaign);
     return payload;
   }
+  const campaignPeopleAvailable=()=>!demo&&document.body.dataset.campaignPeople==='enabled';
+  function campaignScope() {
+    if(!campaignPeopleAvailable()||!loaded||!activeContext||status==='denied')return null;
+    return {context:{...activeContext},revision,key:contextKey()};
+  }
+  function requireCampaignScope(scope) {
+    if(!scope||campaignScope()?.key!==scope.key)throw new Error('Выбрана другая кампания или изменился доступ.');
+  }
+  async function campaignRead(path,scope,timeout) {
+    requireCampaignScope(scope);
+    const value=await request(path,{},timeout);
+    requireCampaignScope(scope);
+    if(value.context && JSON.stringify(value.context)!==scope.key)throw new Error('Выбрана другая кампания.');
+    return value;
+  }
+  async function saveCampaignPerson(command,scope,formDraftKey) {
+    requireCampaignScope(scope);
+    if(command.campaignId!==scope.context.campaignId)throw new Error('Выбрана другая кампания.');
+    if(pending?.operation==='campaign-person'&&pending.mutationId===command.mutationId){
+      if(status==='saving')throw new Error('Запрос ещё выполняется.');
+      return sendPending();
+    }
+    requirePermission('shared');
+    const {operation,...data}=command;
+    pending={...data,operation:'campaign-person',personOperation:operation,formDraftKey};
+    rememberDraft();
+    try{return await sendPending();}
+    catch(error){
+      if(pending?.mutationId===command.mutationId&&[400,422].includes(error.status)){
+        pending=null;status='ready';message=error.message;rememberDraft();paint();
+      }
+      throw error;
+    }
+  }
+  async function reconcileCampaignPerson(mutationId,scope) {
+    const conflicted=pending?.operation==='campaign-person'&&pending.mutationId===mutationId&&pending.personConflict;
+    if(!conflicted)throw new Error('Активный черновик изменился.');
+    const current=await campaignRead('/api/workspace',scope);
+    if(pending?.mutationId!==mutationId)throw new Error('Активный черновик изменился.');
+    // A definitive 409 was received. The form keeps its own draft, while the
+    // global queue resumes from the new snapshot chosen by the user.
+    pending=null;
+    apply(current);
+  }
+  async function importCampaignPackage(scope,file) {
+    requireCampaignScope(scope);
+    const bytes=new TextEncoder().encode(JSON.stringify(file));
+    if(bytes.byteLength>8*1024*1024)throw new Error('Пакет больше 8 МиБ.');
+    const digest=await crypto.subtle.digest('SHA-256',bytes);
+    const campaignFileHash=Array.from(new Uint8Array(digest),value=>value.toString(16).padStart(2,'0')).join('');
+    requireCampaignScope(scope);
+    if(pending?.operation==='campaign-import'){
+      if(status==='saving')throw new Error('Импорт ещё выполняется.');
+      if(pending.campaignFileHash!==campaignFileHash)throw new Error('Выбери тот же файл, чтобы повторить незавершённый импорт.');
+      pending.file=file;
+      const applied=await sendPending();
+      closeModal();
+      toast('Импорт кампании подтверждён.');
+      return applied;
+    }
+    return campaignCommand('campaign-import',{destination:'new-campaign',file,campaignFileHash});
+  }
+  function pendingCampaignPerson(scope) {
+    if(!scope||campaignScope()?.key!==scope.key||permissions?.shared===false||
+       pending?.operation!=='campaign-person'||pending.permissionDenied||
+       pending.campaignId!==scope.context.campaignId)return null;
+    const {mutationId,expectedRevision,campaignId,personId,personOperation,data,personConflict}=pending;
+    return {command:{mutationId,expectedRevision,campaignId,personId,operation:personOperation,data:structuredClone(data)},
+      conflicted:personConflict===true};
+  }
+  const campaignApi={
+    scope:campaignScope,
+    list:(scope,query='')=>campaignRead('/api/campaign-people?q='+encodeURIComponent(query),scope),
+    person:(scope,id)=>campaignRead('/api/campaign-people/'+encodeURIComponent(id),scope),
+    history:(scope,id,before)=>campaignRead('/api/campaign-people/'+encodeURIComponent(id)+'/history'+
+      (before?'?beforePosition='+encodeURIComponent(before):''),scope),
+    sessions:scope=>campaignRead('/api/campaigns/'+encodeURIComponent(scope.context.campaignId)+'/sessions',scope),
+    quests:scope=>campaignRead('/api/quests',scope),
+    places:scope=>campaignRead('/api/places',scope),
+    save:saveCampaignPerson,
+    pendingPerson:pendingCampaignPerson,
+    reconcile:reconcileCampaignPerson,
+    draft:entityFormDraft,
+    savePackage:async scope=>{requirePermission('export');download(await campaignRead('/api/export/campaign-memory',scope,60000),'skaz-campaign-memory.json');},
+    importPackage:importCampaignPackage,
+    needsTransferFile:()=>pending?.operation==='campaign-import'&&!pending.file,
+    historyScreen:showResourceHistory,
+  };
   function newCharacter() {
     if (demo || status !== 'ready' || !activeContext) return toast('Сначала сохрани черновик или загрузи актуальные данные');
     const key=snapshotKey(),campaignId=activeContext.campaignId,characterId=crypto.randomUUID();
@@ -711,14 +817,16 @@ const SkazStorage = (() => {
       }else if(record)show('Черновик повреждён или относится к другой форме. Он не подставлен.');
     }catch{show('Хранилище черновика недоступно. Скопируй текст перед закрытием.');}
     const save=()=>{
-      if(!current())return;
-      try {const values=readValues();if(!valid(values)){show('Ввод пока не сохранён как черновик. Проверь длину полей и значения.');return;}
+      if(!current())return false;
+      try {const values=readValues();if(!valid(values)){show('Ввод пока не сохранён как черновик. Проверь длину полей и значения.');return false;}
         localStorage.setItem(draftKey,JSON.stringify({schemaVersion:1,kind:'entity-form',entityKind:kind,creating:!selected,entityId,context:target,revision:version,campaignName:state.profile.campaign,characterName:state.profile.name,sessionName:sessionTitle(),savedAt:new Date().toISOString(),values}));
         show('Черновик сохранён в этом браузере. На сервер он ещё не отправлен.');
-      }catch{show('Черновик не сохранён. Скопируй текст перед закрытием или перезагрузкой.');}
+        return true;
+      }catch{show('Черновик не сохранён. Скопируй текст перед закрытием или перезагрузкой.');return false;}
     };
     form.oninput=save;form.onchange=save;
-    return {key:draftKey,entityId,save};
+    const discard=()=>{try{localStorage.removeItem(draftKey);}catch{}};
+    return {key:draftKey,entityId,save,discard};
   }
   const questStatus = { active: 'В процессе', completed: 'Завершено', failed: 'Не выполнено' };
   async function questList() {
@@ -1010,5 +1118,5 @@ const SkazStorage = (() => {
   function contextKey(){return JSON.stringify(activeContext);}
   document.addEventListener('change',event=>{if(event.target.id!=='show-examples')return;try{localStorage.setItem('skaz-show-examples',String(event.target.checked));render();}catch{toast('Не удалось сохранить настройку браузера');}});
   window.addEventListener('online',()=>{if(resourceQueue?.length)void flushResources();});
-  return { classCheckBenefits:()=>classCheckBenefits?structuredClone(classCheckBenefits):null,classSaveBenefits:()=>classSaveBenefits?structuredClone(classSaveBenefits):null,classSkills:()=>classSkills?structuredClone(classSkills):null,unlimitedResources:()=>structuredClone(unlimitedResources),spellLearningMode:()=>spellLearning, editCharges, refreshAfterAdvancement:load, advancementScope, personalTransferScope, reloadAfterArtTransfer, personalArtReadScope, personalArtScope, castSpell,pendingResourceIndices,inventoryData,spendInventoryOne,pendingCount,canResource,resourceDelta,resourceGeneration:()=>resourceGeneration,flushResources, showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, profileEditorsAvailable, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
+  return { campaignPeopleAvailable, campaignApi, classCheckBenefits:()=>classCheckBenefits?structuredClone(classCheckBenefits):null,classSaveBenefits:()=>classSaveBenefits?structuredClone(classSaveBenefits):null,classSkills:()=>classSkills?structuredClone(classSkills):null,unlimitedResources:()=>structuredClone(unlimitedResources),spellLearningMode:()=>spellLearning, editCharges, refreshAfterAdvancement:load, advancementScope, personalTransferScope, reloadAfterArtTransfer, personalArtReadScope, personalArtScope, castSpell,pendingResourceIndices,inventoryData,spendInventoryOne,pendingCount,canResource,resourceDelta,resourceGeneration:()=>resourceGeneration,flushResources, showExamples, sheetDraft:(read,restore)=>entityFormDraft('sheet',{id:activeContext.characterId},activeContext.characterId,read,restore,SkazCharacterSheet.validDraft),sheet:()=>structuredClone(characterSheet),saveSheet,changeCounter,stats:()=>structuredClone(characterStats||baseStats),manualStats:()=>characterStats!==null,membersData, changeMembers, readyToDisplay:()=>demo||loaded, can, profileEditorsAvailable, decorate, access:()=>permissions?{...permissions}:null, commit, paint, settings, sessionReviewData, newCharacter, inventory, addInventory, removeInventory, spellbook, spellbookData, editSpell, setSpell, questList, editQuest, proposalsData, newProposal, reviewProposal, questsData, setQuestStep, placesData, editPlace, snapshotKey, preference, setTheme, sessionTitle, sessionDate: () => sessionInfo?.playedOn || '', contextKey: () => JSON.stringify(activeContext), editable: () => can('character'), boot: () => demo ? paint() : load() };
 })();

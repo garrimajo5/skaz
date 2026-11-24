@@ -122,5 +122,5 @@ const SkazPlayPresentation = (() => {
     </section>`;
   }
 
-  return {castCost, prepare, screen};
+  return {castCost, prepare, resources, screen};
 })();

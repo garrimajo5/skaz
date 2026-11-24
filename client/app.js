@@ -4,6 +4,7 @@ let state;try{state={...structuredClone(initial),...JSON.parse(localStorage.getI
 if(location.protocol!=='file:')state=structuredClone(initial);
 state.theme=SkazStorage.preference();
 if(!['polar','coal','atlas'].includes(state.theme))state.theme='polar';
+let campaignReturn=null;
 let page='hero',spellFilter='all',spellQuery='',spellLevel='all',place='lighthouse',paused=false;
 const save=()=>SkazStorage.setTheme(state.theme);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -104,14 +105,18 @@ function render(){
  if(page==='play') SkazPlay.captureFocus();
  if(quick.parentElement!==home) home.append(quick);
  document.body.dataset.page=page;
- const workspacePage=['play','hero','inventory','library'].includes(page)||
+ const workspacePage=['play','hero','inventory','library','campaign'].includes(page)||
   (location.protocol!=='file:'&&['journal','quests'].includes(page));
  document.body.dataset.workspaceShell=workspacePage?'shared':'';
  document.body.dataset.hpState=state.hp===0?'zero':'normal';
  document.body.dataset.examples=SkazStorage.showExamples?.()?'show':'hide';
  document.body.dataset.theme=state.theme;
  SkazStorage.paint();
- $$('[data-play-mode]').forEach(button=>button.setAttribute('aria-pressed',String((page==='play'?'play':'prepare')===button.dataset.playMode)));
+ const hasCampaign=SkazStorage.campaignPeopleAvailable?.()===true;
+ $$('[data-campaign-entry]').forEach(button=>{button.hidden=!hasCampaign;});
+ $$('[data-campaign-map]').forEach(button=>{button.hidden=hasCampaign;});
+ const playMode=page==='campaign' ? (campaignReturn?.page==='play' || SkazPlay.mode()==='play') : page==='play';
+ $$('[data-play-mode]').forEach(button=>button.setAttribute('aria-pressed',String((playMode?'play':'prepare')===button.dataset.playMode)));
  if(SkazStorage.readyToDisplay?.()===false){
   $('#campaign-name').textContent='';
   $('#session-name-label').textContent='Открываем игру…';
@@ -122,7 +127,8 @@ function render(){
  $('#session-name-label').textContent=[state.profile.name,SkazStorage.sessionTitle(),SkazStorage.sessionDate()].filter(Boolean).join(' · ');
  $('#campaign-name').textContent=state.profile.campaign;
  quick.innerHTML=quickPanel();
- main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage,play:()=>SkazPlay.view()}[page]||hero)();
+ if(page==='campaign')SkazCampaign.mount(main);
+ else main.innerHTML=({hero,spells:spellsPage,journal,quests,map:mapPage,library,inventory:inventoryPage,play:()=>SkazPlay.view()}[page]||hero)();
  $('#play-quick-slot')?.append(quick);
  $$('[data-page]').forEach(button=>{
   const selected=button.dataset.page===page;
@@ -137,7 +143,33 @@ function render(){
  if(page==='play') SkazPlay.restoreFocus();
  if(page==='inventory') void SkazStorage.inventory({preserveDialog:true});
 }
-function go(p){if(!['hero','spells','journal','quests','map','library','inventory','play'].includes(p))p='hero';page=p;if(typeof SkazPlay!=='undefined')SkazPlay.remember(p);history.replaceState(null,'','#'+p);render();window.scrollTo({top:0,behavior:'instant'})}
+function go(p){
+ if(!['hero','spells','journal','quests','map','library','inventory','play','campaign'].includes(p) ||
+    p==='campaign'&&!SkazStorage.campaignPeopleAvailable?.())p='hero';
+ if(p==='campaign' && page!=='campaign'){
+  const focus=document.activeElement;
+  const target=focus?.closest?.('[data-campaign-entry]') ? focus : null;
+  if(page==='play')SkazPlay.captureFocus();
+  campaignReturn={page,context:SkazStorage.contextKey(),scroll:window.scrollY,target,focusId:focus?.id};
+ }else if(page==='campaign' && p!=='campaign') SkazCampaign.unmount();
+ page=p;
+ if(p!=='campaign')SkazPlay.remember(p);
+ history.replaceState(null,'','#'+p);
+ render();
+ window.scrollTo({top:0,behavior:'instant'});
+ if(p==='campaign')document.getElementById('campaign-title')?.focus({preventScroll:true});
+}
+function returnFromCampaign(){
+ const back=campaignReturn;
+ campaignReturn=null;
+ const same=back && back.context===SkazStorage.contextKey();
+ go(same?back.page:SkazPlay.mode()==='play'?'play':'hero');
+ if(!same)return;
+ window.scrollTo({top:back.scroll,behavior:'instant'});
+ const focus=back.target?.isConnected?back.target:back.focusId&&document.getElementById(back.focusId);
+ if(focus)focus.focus({preventScroll:true});
+ else if(back.page!=='play')document.getElementById('main').focus({preventScroll:true});
+}
 function modal(html){
  const menu=document.getElementById('session-menu');if(menu)menu.open=false;
  const dialog=$('#dialog'),content=$('#dialog-content');
@@ -147,7 +179,7 @@ function modal(html){
  content.scrollLeft=0;
  content.focus({preventScroll:true});
 }
-function closeModal(){$('#dialog').close()}
+function closeModal(){if(typeof SkazCampaign==='undefined'||SkazCampaign.allowClose())$('#dialog').close()}
 let toastTimer,toastVersion=0;function toast(text,undo,{error=false,persistent=false}={}){clearTimeout(toastTimer);const version=++toastVersion;let used=false;$('#toast').dataset.kind=error?'error':'success';$('#toast').innerHTML=`<span>${esc(text)}</span>${undo?'<button id="undo">Отменить</button>':''}`;$('#toast').classList.add('show');if(undo)$('#undo').onclick=()=>{if(used||version!==toastVersion)return;used=true;clearTimeout(toastTimer);$('#undo').disabled=true;$('#toast').classList.remove('show');return undo()};if(!persistent)toastTimer=setTimeout(()=>{if(version===toastVersion){toastVersion++;$('#toast').classList.remove('show')}},undo?12000:5000)}
 function canChange(){
  if(SkazStorage.editable())return true;
@@ -281,7 +313,10 @@ if(b.dataset?.editConditions!==undefined){editConditions();return;}switch(b.id){
 document.addEventListener('input',e=>{if(e.target.id==='spell-search'){spellQuery=e.target.value;$('#spell-results').innerHTML=spellCards()}});
 document.addEventListener('change',e=>{if(e.target.id==='spell-scope'){spellFilter=e.target.value;$('#spell-results').innerHTML=spellCards()}if(e.target.id==='spell-level'){spellLevel=e.target.value;$('#spell-results').innerHTML=spellCards()}if(e.target.dataset.check){const id=e.target.dataset.check,checked=e.target.checked;change('Обновлён этап задания',()=>{state.checks[id]=checked})}});
 $('#dialog').addEventListener('click',e=>{if(e.target===$('#dialog')){const r=$('#dialog').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeModal()}});
-window.addEventListener('hashchange',()=>go(location.hash.slice(1)));go(typeof SkazPlay!=='undefined'&&SkazPlay.mode()==='play'?'play':location.hash.slice(1)||'hero');
+$('#dialog').addEventListener('cancel',event=>{if(typeof SkazCampaign!=='undefined'&&!SkazCampaign.allowClose())event.preventDefault();});
+window.addEventListener('hashchange',()=>go(location.hash.slice(1)));
+const initialPage=location.hash.slice(1);
+go(initialPage==='campaign'?'campaign':SkazPlay.mode()==='play'?'play':initialPage||'hero');
 
 function editProfile(){
   modal(`<div class="overline">ПЕРСОНАЖ И КАМПАНИЯ</div><h2>Твоя история</h2><label for="profile-name">Имя персонажа</label><input id="profile-name" maxlength="80" value="${esc(state.profile.name)}"><label for="profile-tagline">Короткое описание</label><input id="profile-tagline" maxlength="160" value="${esc(state.profile.tagline)}"><label for="profile-campaign">Название кампании</label><input id="profile-campaign" maxlength="120" value="${esc(state.profile.campaign)}"><label for="profile-max-hp">Максимум хитов</label><input id="profile-max-hp" type="number" min="1" max="999" value="${state.maxHp}"><p>В этой версии механики рассчитаны на барда 5 уровня. Конструктор классов и уровней появится отдельно.</p><div class="dialog-actions"><button class="primary" id="save-profile">Сохранить</button></div>`);

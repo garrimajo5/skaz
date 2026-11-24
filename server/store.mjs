@@ -332,8 +332,8 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
         const current = read(); const next = decideProposal(db,payload,request.mutationId,current.context,current.state); writeEntities(db,next,viewId); return next;
       }, 'proposal-decide');
     },
-    campaignPeople: () => projectCampaignPeople(({revision, context}) => ({
-      revision, context, people:listCampaignPeople(db, context.campaignId),
+    campaignPeople: query => projectCampaignPeople(({revision, context}) => ({
+      revision, context, people:listCampaignPeople(db, context.campaignId, query),
     })),
     campaignPerson: personId => projectCampaignPeople(({revision, context}) => ({
       revision, context, person:readCampaignPerson(db, context.campaignId, personId),
