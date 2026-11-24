@@ -39,6 +39,10 @@ def parse_page(markup,filter_value,filter_option_id,allowed_sources=None,allow_b
         if url.scheme or url.netloc or url.path!='/monsters' or query.get('filter-source')!=[filter_value] or len(query.get('page',[]))!=1 or not query['page'][0].isdigit():raise ValueError('Unexpected next page URL')
         next_pages.add(int(query['page'][0]))
     if len(next_pages)>1:raise ValueError('Conflicting next page links')
+    rows=read_index_rows(listing,allowed_sources,allow_blank_cr)
+    return {'rows':rows,'nextPage':next(iter(next_pages),None)}
+
+def read_index_rows(listing,allowed_sources=None,allow_blank_cr=False):
     rows=[]
     for n in listing.find(lambda n:n.has('info') and n.attrs.get('data-type')=='monsters'):
         named=only(n.find(lambda x:x.has('monster-name')),'name cell')
@@ -51,7 +55,8 @@ def parse_page(markup,filter_value,filter_option_id,allowed_sources=None,allow_b
         if not re.fullmatch(r'\d+(?:/\d+)?',cr) and not (allow_blank_cr and cr==''):raise ValueError('Missing/invalid CR')
         rows.append({'displayedSource':source,'digitalName':clean(link),'cardUrl':'https://www.dndbeyond.com'+path,'challengeRating':cr,'type':clean(only(n.find(lambda x:x.has('monster-type')),'type')),'size':clean(only(n.find(lambda x:x.has('monster-size')),'size')),'alignment':clean(only(n.find(lambda x:x.has('monster-alignment')),'alignment'))})
     if not rows or len(rows)>20 or len({r['cardUrl'] for r in rows})!=len(rows):raise ValueError('Unexpected digital unit set')
-    return {'rows':rows,'nextPage':next(iter(next_pages),None)}
+    return rows
+
 def parse_index(markup):
     page=parse_page(markup,'57','filter-source-mordenkainens-fiendish-folio-volume-1',{"Mordenkainen's Fiendish Folio Volume 1",'Infernal Machine Rebuild'})
     if page['nextPage'] is not None:raise ValueError('Additional page requires review')
