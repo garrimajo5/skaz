@@ -89,6 +89,40 @@ ID и SHA восьми снимков. Он не меняет рабочий к�
 статус прав. [Эррата Tyranny of Dragons](https://media.dndbeyond.com/compendium-images/errata/ToD/ToD-Errata.pdf) ·
 [Проверяемые данные](../catalog/skt-linked-adventure-boundaries-2014.json).
 
+## Оглавления Hoard и Tyranny — 25.11.2026
+
+В открытом цифровом оглавлении *Hoard of the Dragon Queen* приложение B
+подписано *Council Scorecard*, раздел *Monsters* — приложение D.
+В объединённом *Tyranny of Dragons* тоже указан раздел *Appendix D: Monsters*,
+с другим адресом. В объединённом оглавлении есть отдельная ссылка
+на Благофкуса. Открытая проверка старого адреса Hoard не вернула
+приложение, а именованная ссылка ToD направила в магазин. Буквы
+приложений относятся к цифровым оглавлениям. Нумерация печатного Hoard
+остаётся на проверке. [Hoard](https://www.dndbeyond.com/sources/dnd/hotdq) ·
+[Tyranny](https://www.dndbeyond.com/sources/dnd/tod) ·
+[Именной указатель ToD](https://www.dndbeyond.com/sources/tod/monsters#Blagothkus).
+
+В двух открытых дополнениях издателя для Hoard нашли блок *Stone Giant*:
+с. 18 PDF из 30 в v1 и с. 17 PDF из 28 в v0.3. Поиск имени Благофкуса
+по всем страницам этих файлов не дал совпадений. Дополнения дают
+указатель на базового каменного великана, именованный блок остаётся
+на сверке. [Дополнение v1](https://media.wizards.com/2014/downloads/dnd/HoardDragonQueen_Supplement1.pdf#page=18) ·
+[Дополнение v0.3](https://media.wizards.com/2014/downloads/dnd/HoardDragonQueen_Supplement_v0.3.pdf#page=17).
+
+Вторая страница PDF эрраты SKT v2.0 отмечает поправки на с. 129 и 231
+книги. Отсылка теперь ведёт на объединённое приключение, начало
+подраздела заменено. Это свидетельство связи сюжетов. Полный статблок,
+права и эквивалентность изданий ждут отдельного свидетельства.
+У `dndsu:bestiary:3330` и базового SRD Cloud Giant свои указатели.
+[Эррата SKT v2.0](https://media.wizards.com/2021/dnd/downloads/SKT-Errata.pdf#page=2).
+
+[Реестр пяти снимков](../catalog/hotdq-monster-locators-2014.json)
+сверяется командой `python scripts/audit-hotdq-monster-locators-2014.py <папка-снимков>`.
+В Git сохранены версии, размеры, SHA и адреса. Исходные PDF и HTML вне Git.
+Для Благофкуса остаётся сверить полные блоки печатного Hoard и объединённого
+ToD при доступе к ним. Следующий доступный шаг D06 — проверить
+локаторы соседних страниц приложения C для Cloud и Fire Giant.
+
 ## Infernal Machine Rebuild и Fiendish Folio
 
 Индекс IMR содержит 56 карточек. У 26 указан IMR, из них у пяти есть наблюдения исходного источника IMR. У 30 карточек указаны другие книги. Boggle и Redcap имеют отдельные цифровые версии. Число 26 на странице издателя относится к доступности в Encounter Builder. Ссылка на приложение B ведёт в магазин при публичной проверке. [Оглавление IMR](https://www.dndbeyond.com/sources/dnd/imr), [страница IMR](https://marketplace.dndbeyond.com/adventures/SRC-00056).

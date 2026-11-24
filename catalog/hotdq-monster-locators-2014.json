@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "scope": "D06 locator evidence only",
+  "ruleset": "5e-2014",
+  "asOf": "2026-11-25",
+  "sources": {
+    "hotdq-toc.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/hotdq",
+      "bytes": 240363,
+      "sha256": "1eb8ffcce1eadd4e775a53c444f059cc36073b2234d71bea631899dbaba71b2b"
+    },
+    "tod-toc.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/tod",
+      "bytes": 249755,
+      "sha256": "2cf2da55174a68e5d6effef9932c35cdf36b2f49e3fad694bd5c07e61a58b476"
+    },
+    "hotdq-supplement-v1.pdf": {
+      "url": "https://media.wizards.com/2014/downloads/dnd/HoardDragonQueen_Supplement1.pdf",
+      "bytes": 954445,
+      "sha256": "cb4261055f5bb2d225fe4ef66e156e2027886f4d081ed91043a9d291adad2b4c"
+    },
+    "hotdq-supplement-v0.3.pdf": {
+      "url": "https://media.wizards.com/2014/downloads/dnd/HoardDragonQueen_Supplement_v0.3.pdf",
+      "bytes": 745166,
+      "sha256": "db40a36767d2a26c7d735fdcce1fcd7ec63595a6d72ebc29f6ccfbd7c327cb1d"
+    },
+    "skt-errata.pdf": {
+      "url": "https://media.wizards.com/2021/dnd/downloads/SKT-Errata.pdf",
+      "bytes": 420907,
+      "sha256": "7be9a8709571785f9db1bec87a921afcac11712e9f8a85009f3c1229c983c61d"
+    }
+  },
+  "previousD06Sha256": "d0fdef022e222a3a3bf1faf2d5e0860881289db66c10fb80092420b67a9247be",
+  "separateHoardToc": {
+    "castleChapter": "https://www.dndbeyond.com/sources/hotdq/castle-in-the-clouds",
+    "appendixBLabel": "Council Scorecard",
+    "appendixBLocator": "https://www.dndbeyond.com/sources/hotdq/appendix-b-council-scorecard",
+    "appendixDLabel": "Monsters",
+    "appendixDLocator": "https://www.dndbeyond.com/sources/hotdq/appendix-d-monsters",
+    "verifiedSurface": "public-contents-only"
+  },
+  "combinedTyrannyToc": {
+    "appendixDLabel": "Monsters",
+    "appendixDLocator": "https://www.dndbeyond.com/sources/tod/monsters",
+    "blagothkusLocator": "https://www.dndbeyond.com/sources/tod/monsters#Blagothkus",
+    "verifiedSurface": "public-contents-and-named-link"
+  },
+  "hoardOnlineSupplements": [
+    {
+      "source": "hotdq-supplement-v1.pdf",
+      "version": "1",
+      "pdfPages": 30,
+      "stoneGiantPdfPage": 18,
+      "blagothkusTextMatchPages": []
+    },
+    {
+      "source": "hotdq-supplement-v0.3.pdf",
+      "version": "0.3",
+      "pdfPages": 28,
+      "stoneGiantPdfPage": 17,
+      "blagothkusTextMatchPages": []
+    }
+  ],
+  "sktErrata": {
+    "source": "skt-errata.pdf",
+    "pdfPage": 2,
+    "bookPages": [
+      129,
+      231
+    ],
+    "change": "combined-adventure-reference-and-opening-paragraphs",
+    "addsFullStatBlock": false
+  },
+  "baselineObservationId": "dndsu:bestiary:3330",
+  "identityDecision": "keep-observation-and-publication-locators-separate",
+  "fullBlockEquivalence": "unverified",
+  "rightsDecision": "unverified",
+  "runtimeCatalogChanges": [],
+  "denominatorChanges": []
+}
