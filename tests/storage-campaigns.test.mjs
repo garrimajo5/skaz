@@ -1111,7 +1111,10 @@ test('inventory page prioritizes consumables and charges while actions retain or
  assert.equal(h.dialog(),'');assert.match(h.pageHtml(),/<h2 id="inventory-view"/);assert.match(h.pageHtml(),/class="inventory-pages" hidden/);assert.match(h.pageHtml(),/<option value="required"/);
  assert.ok(h.pageHtml().indexOf('Волшебная палочка')<h.pageHtml().indexOf('Зелье лечения'));
  assert.ok(h.pageHtml().indexOf('Зелье лечения')<h.pageHtml().indexOf('Адамантовый доспех'));
- assert.match(h.pageHtml(),/data-inventory-read="2"/);
+ assert.match(h.pageHtml(),/data-inventory-read="2" aria-label="Читать: Волшебная палочка"/);
+ assert.match(h.pageHtml(),/data-inventory-read="1" aria-label="Читать: Зелье лечения"/);
+ assert.match(h.pageHtml(),/data-inventory-remove="1" aria-label="Списать: Зелье лечения"/);
+ assert.match(h.pageHtml(),/data-inventory-charges="2" aria-label="Указать заряды: Волшебная палочка"/);
  h.get('inventory-read-button').dataset.inventoryRead='2';h.get('inventory-read-button').onclick();assert.match(h.dialog(),/Волшебная палочка/);
  await h.get('#inventory-read-back').onclick();assert.equal(h.dialog(),'');assert.match(h.pageHtml(),/Под рукой/);
  h.get('inventory-remove-button').dataset.inventoryRemove='1';h.get('inventory-remove-button').onclick();assert.match(h.dialog(),/Списать: Зелье лечения/);
