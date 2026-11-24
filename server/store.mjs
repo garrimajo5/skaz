@@ -21,6 +21,10 @@ import { validateCharacterCreate, createCharacter } from './characters.mjs';
 import ProfileRules from '../client/profile-rules.js';
 import { setupProposals, readProposals, validateProposalCreate, validateProposalDecision, createProposal, decideProposal } from './proposals.mjs';
 import { setupPlaces, readPlaces, validatePlaceCommand, savePlace } from './places.mjs';
+import {
+  setupCampaignPeople, listCampaignPeople, readCampaignPerson, readCampaignPersonHistory,
+  validateCampaignPersonCommand, saveCampaignPerson, assertCampaignPeopleExportable,
+} from './campaign-people.mjs';
 import { setupQuests, readQuests, validateQuestCommand, saveQuest } from './quests.mjs';
 import { setupSpellbook, readSpellbook, validateSpellCommand, setSpell } from './spellbook.mjs';
 import { validateTransfer, importTransfer } from './transfer.mjs';
@@ -52,7 +56,8 @@ function checkProfileWriteCompatibility(db) {
   }
 }
 
-export function openStore(filename, {classAdvancement=false, profileWriteFormat=15}={}) {
+export function openStore(filename, {classAdvancement=false, profileWriteFormat=15, campaignPeople=false}={}) {
+  if(typeof campaignPeople!=='boolean')throw new AppError(422,'Неверный режим картотеки кампании');
   if(typeof classAdvancement!=='boolean')throw new AppError(422,'Неверный режим повышения уровня');
   if (![14, 15].includes(profileWriteFormat)) throw new AppError(422, 'Формат записи профилей: 14 или 15');
   if (filename !== ':memory:') mkdirSync(path.dirname(filename), { recursive: true });
@@ -94,12 +99,28 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
   setupResourceHistory(db);
   setupQuests(db);
   setupPlaces(db);
+  if(campaignPeople)try{setupCampaignPeople(db);}catch(error){db.close();throw error;}
   setupProposals(db);
   db.exec(`CREATE TABLE IF NOT EXISTS context_changes (
     mutation_id TEXT PRIMARY KEY REFERENCES changes(mutation_id),
     operation TEXT NOT NULL, before_json TEXT NOT NULL, after_json TEXT NOT NULL
   )`);
   function createView(viewId, authorize = () => {}, authorizeMutation = () => {}, personalArt, artOwner) {
+  function projectSnapshot(project) {
+    db.exec('BEGIN');
+    try {
+      const value = project(read());
+      db.exec('COMMIT');
+      return value;
+    } catch (error) {
+      db.exec('ROLLBACK');
+      throw error;
+    }
+  }
+  function projectCampaignPeople(project) {
+    if (!campaignPeople) throw new AppError(403, 'Картотека кампании ещё не включена');
+    return projectSnapshot(project);
+  }
   function read() {
     authorize();
     const context = readEntities(db, viewId);
@@ -124,6 +145,7 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
     db.exec('BEGIN');
     try {
       const current = read();
+      assertCampaignPeopleExportable(db, current.context.campaignId);
       if(withArt&&current.state.conditions!==undefined)version=14;
       const advisory=ProfileRules.requiresV15({stats:current.characterStats,sheet:current.characterSheet});
       if(withArt&&advisory)version=15;
@@ -301,6 +323,30 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
         const current = read(); const next = decideProposal(db,payload,request.mutationId,current.context,current.state); writeEntities(db,next,viewId); return next;
       }, 'proposal-decide');
     },
+    campaignPeople: () => projectCampaignPeople(({revision, context}) => ({
+      revision, context, people:listCampaignPeople(db, context.campaignId),
+    })),
+    campaignPerson: personId => projectCampaignPeople(({revision, context}) => ({
+      revision, context, person:readCampaignPerson(db, context.campaignId, personId),
+    })),
+    campaignPersonHistory: (personId, beforeRevision) => projectCampaignPeople(({revision, context}) => ({
+      revision, context, ...readCampaignPersonHistory(db, context.campaignId, personId, beforeRevision),
+    })),
+    legacyExport: () => projectSnapshot(current => {
+      assertCampaignPeopleExportable(db, current.context.campaignId);
+      if (current.characterStats || current.characterSheet) throw new AppError(409, 'Ручные характеристики требуют экспорт v9 или SQLite backup');
+      return {app:'skaz', ...current};
+    }),
+    saveCampaignPerson: request => {
+      if (!campaignPeople) throw new AppError(403, 'Картотека кампании ещё не включена');
+      const payload = validateCampaignPersonCommand(request);
+      const hash = createHash('sha256').update(JSON.stringify({operation:'campaign-person-save', expectedRevision:request.expectedRevision, payload})).digest('hex');
+      return mutate(request, hash, 'Изменение картотеки кампании', () => {
+        const current = read();
+        saveCampaignPerson(db, payload, request.mutationId, current.context);
+        return current.state;
+      }, 'campaign-person-save');
+    },
     places: () => { const current = read(); return { revision: current.revision, context: current.context, places: readPlaces(db, current.context.campaignId) }; },
     savePlace: request => {
       const payload = validatePlaceCommand(request);
@@ -449,7 +495,7 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
   }
   const root = createView();
   let authentication,personalArtAccess;
-  return { ...root, profileWriteFormat, access, authentication: () => authentication ??= createAuthentication(db), forUser: (userId, viewId, { write = false, guard = () => {}, personalArt=false } = {}) => {
+  return { ...root, profileWriteFormat, campaignPeopleEnabled:campaignPeople, access, authentication: () => authentication ??= createAuthentication(db), forUser: (userId, viewId, { write = false, guard = () => {}, personalArt=false } = {}) => {
     if (typeof write !== 'boolean') throw new AppError(422, 'Режим записи должен быть логическим значением');
     if (typeof guard !== 'function') throw new AppError(422,'Нужна доверенная проверка сессии');
     if(typeof personalArt!=='boolean')throw new AppError(422,'Неверный режим личных изображений');
