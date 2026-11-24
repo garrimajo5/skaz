@@ -7,3 +7,26 @@ test('unknown, duplicate and lost decisions fail',()=>{const a=inputs();a[1].rec
 test('classification cannot accept canonical unit, component, rule or auto bonus',()=>{for(const [key,value] of [['standaloneBackgroundUnit',true],['componentUnitsAccepted',true],['fullRulesAccepted',true],['canonicalId','made-up'],['automaticProfileChange',true],['manualPersonalChoiceRestricted',true]]){const a=inputs();a[1].records[0][key]=value;assert.throws(()=>verifyBackgroundReferenceKinds(...a),/decision changed/);}});
 test('review provenance and source arrays cannot silently change',()=>{const a=inputs();a[1].review.fullPrimarySectionsReviewed=true;assert.throws(()=>verifyBackgroundReferenceKinds(...a),/provenance/);const b=inputs();b[1].records[0].sourceIds=['102'];assert.throws(()=>verifyBackgroundReferenceKinds(...b),/unreviewed/);});
 test('stage completeness or denominator cannot be accepted by page kinds',()=>{const a=inputs();a[1].complete=true;assert.throws(()=>verifyBackgroundReferenceKinds(...a),/catalog acceptance/);const b=inputs();b[1].approvedDenominator=5;assert.throws(()=>verifyBackgroundReferenceKinds(...b),/catalog acceptance/);});
+
+test('same-name Ravenloft and SCAG backgrounds cannot replace the 2021 feature collection', () => {
+  const witness=read('background-ravenloft-source-witness-2014.json');
+  const selection=read('background-collection-structure-selection-2014.json');
+  const original=selection.records.find(row=>row.observationId===witness.observationId);
+  assert.equal(witness.observationId,'dndsu:backgrounds:845');
+  assert.equal(witness.legacyPublication.kind,'background-feature-collection');
+  assert.equal(witness.legacyPublication.year,2021);
+  assert.equal(witness.legacyPublication.reportedFeatures,5);
+  const headings=new Set(original.expectedHeadings.map(row=>row.text));
+  assert.ok(witness.sameNameCandidates.every(row=>headings.has(row.referenceHeading)));
+  assert.deepEqual(witness.sameNameCandidates.map(row=>[row.englishName,row.publisherKind,row.year]),[
+    ['Mist Wanderer','standalone-background',2026],
+    ['Spirit Medium','standalone-background',2026],
+    ['Inheritor','standalone-background',2015],
+  ]);
+  assert.equal(witness.fullPrimarySectionsVerified,false);
+  assert.equal(witness.componentUnitsAccepted,false);
+  assert.equal(witness.canonicalLinksAccepted,false);
+  assert.equal(witness.approvedDenominator,null);
+  assert.equal(witness.appTextReusePermission,'not-established');
+  assert.equal(witness.runtimeChanged,false);
+});

@@ -21,3 +21,17 @@ accepted/complete:false,denominator:null,0canonical/standalone accepted. Runtime
 ## Ограниченное решение после независимого ревью
 
 [Решения](../catalog/background-reference-kind-decisions-2014.json) принимают только пять типов reference-страниц, с reviewedHead/публичной ссылкой на независимое заключение и пятью точными HTML-SHA. Первичный структурный отчёт остаётся историческим состоянием до этого решения. `verify-background-reference-kinds-2014.mjs` не позволяет перенести решение на изменившиеся байты/тип/источник. Шесть Node-тестов отвергают изменение полноты, знаменателя, состава, full rules, авто-бонусов и ограничений ручного выбора. Этапы не закрываются; fullPrimaryRulesAccepted и acceptedComponentUnits равны0.
+
+## Особенности Ravenloft 2021 и одноимённые предыстории
+
+Для наблюдения 845 оглавление Van Richten’s Guide to Ravenloft помещает General Background Features в главу создания персонажа рядом с отдельными Haunted One и Investigator. В сообщении №94 от 20 мая 2021 сотрудник D&D Beyond Halfwing поясняет, что пять новых особенностей можно использовать как замену особенности выбранной предыстории. Он описывает ограничение тогдашнего конструктора, который не умел предлагать только особенность. [Оглавление 2021](https://www.dndbeyond.com/sources/dnd/vrgtr) · [Сообщение №94](https://www.dndbeyond.com/forums/d-d-beyond-general/release-issues-support/108683-van-richtens-guide-to-ravenloft-issues-and-support?page=5).
+
+| Заголовок в наблюдении 845 | Совпадение имени в указателе издателя | Следствие для сверки |
+| --- | --- | --- |
+| Странник тумана | Mist Wanderer в Ravenloft: The Horrors Within (2026) | Предыстория другой публикации. |
+| Духовный медиум | Spirit Medium в Ravenloft: The Horrors Within (2026) | Предыстория другой публикации. |
+| Наследник | Inheritor, цифровая карточка 26 из Sword Coast Adventurer’s Guide (2015) | Та же эпоха и имя требуют проверки связи с особенностью из сборника 2021. |
+
+Две записи 2026 издатель прямо называет предысториями. В текущем индексе рядом с ними указан именно Ravenloft: The Horrors Within. Старую карточку Inheritor индекс относит к SCAG, её прямой URL ведёт на страницу покупки. Эррата SCAG фиксирует изменение снаряжения для Inheritor на с. 150. Эта поправка привязана к карточке SCAG. [Эррата SCAG](https://www.dndbeyond.com/sources/dnd/sae/sword-coast-adventurers-guide). Обе главы Ravenloft также потребовали доступ к книгам. Полные тексты, соответствие отдельных правил и права ещё требуют проверки. [Оглавление 2026](https://www.dndbeyond.com/sources/dnd/rthw) · [Разбор издателя](https://www.dndbeyond.com/posts/2169-everything-you-need-to-know-about-ravenloft-the?page=2) · [Указатель предысторий](https://www.dndbeyond.com/backgrounds).
+
+[Три именованных кандидата](../catalog/background-ravenloft-source-witness-2014.json) привязаны к исходным заголовкам. Сопоставление по имени оставляет версии и типы отдельными. Следующий шаг — получить разрешённый первичный раздел 2021 и проверить состав пяти самостоятельных особенностей и их границы. Рабочий каталог и ранее принятый тип страницы 845 сохраняют текущий статус.
