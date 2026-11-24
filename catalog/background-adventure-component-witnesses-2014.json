@@ -1,0 +1,138 @@
+{
+  "sources": {
+    "wildemount-support": {
+      "requestedUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/release-issues-support/59558-support-thread-explorers-guide-to-wildemount",
+      "bytes": 419121,
+      "sha256": "1e5e3ed74ce526441dac29289762405e0b2c7ad054516089904cb9ed44cc39b5"
+    },
+    "wildemount-toc": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/egtw",
+      "bytes": 250692,
+      "sha256": "5f5d02293c90e263205e84ca08699cbd416e7bb1c7e98383dac296d0f01b4de7"
+    },
+    "dragonlance-support": {
+      "requestedUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/release-issues-support/157621-dragonlance-shadow-of-the-dragon-queen-issues-and",
+      "bytes": 393096,
+      "sha256": "ee32db9098b82ae2d9b07a96420e1842ddd57eca02d63e3ef26091c389693772"
+    },
+    "dragonlance-feats": {
+      "requestedUrl": "https://www.dndbeyond.com/feats",
+      "bytes": 950446,
+      "sha256": "670829f8c91320763886504ce3256bb08935a09568a6efed6a33e0ff2e233afe"
+    },
+    "dragonlance-preview": {
+      "requestedUrl": "https://www.dndbeyond.com/posts/1364-dragonlance-backgrounds-and-feats-answer-the-call",
+      "bytes": 377401,
+      "sha256": "0da5e20a6d262befb050229c134c975838b0fca41a311a1670fa71bf638a31d8"
+    },
+    "dragonlance-change": {
+      "requestedUrl": "https://www.dndbeyond.com/changelog",
+      "bytes": 854289,
+      "sha256": "538a575f0058b56ec885abb9620bfae322c31ec0bb10f9d531ee8b8aa29a7559"
+    },
+    "hoard-errata": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/sae/hoard-of-the-dragon-queen",
+      "bytes": 252413,
+      "sha256": "5b076a75c496b4ff6ef2dd7cb0bcd90f9777dcf1ccd4ff72daa4345bc150bbdf"
+    },
+    "abyss-errata": {
+      "requestedUrl": "https://www.dndbeyond.com/sources/dnd/sae/out-of-the-abyss",
+      "bytes": 234826,
+      "sha256": "b0553afe30c85e8b0b3436c2a0cf27ec2ded9673d708177cd4af45bc404fa6d5"
+    }
+  },
+  "wildemount": {
+    "observationId": "dndsu:backgrounds:848",
+    "variantBaseBackgrounds": [
+      "Acolyte",
+      "Criminal",
+      "Sailor",
+      "Sage",
+      "Spy"
+    ],
+    "standaloneBackgrounds": [
+      "Grinner",
+      "Volstrucker Agent"
+    ],
+    "locators": {
+      "Adapting Backgrounds": "https://www.dndbeyond.com/sources/egtw/character-options-subclasses#AdaptingBackgrounds",
+      "Heroic Chronicle": "https://www.dndbeyond.com/sources/egtw/character-options-subclasses#HeroicChronicle",
+      "Grinner": "https://www.dndbeyond.com/sources/egtw/character-options-subclasses#Grinner",
+      "Volstrucker Agent": "https://www.dndbeyond.com/sources/egtw/character-options-subclasses#VolstruckerAgent"
+    },
+    "printedVariantComponentsVerified": false
+  },
+  "dragonlance": {
+    "observationId": "dndsu:backgrounds:856",
+    "indexedFeats": {
+      "Adept of the Black Robes": "https://www.dndbeyond.com/feats/1158422-adept-of-the-black-robes",
+      "Adept of the Red Robes": "https://www.dndbeyond.com/feats/1158423-adept-of-the-red-robes",
+      "Adept of the White Robes": "https://www.dndbeyond.com/feats/1158424-adept-of-the-white-robes",
+      "Divinely Favored": "https://www.dndbeyond.com/feats/1158425-divinely-favored",
+      "Initiate of High Sorcery": "https://www.dndbeyond.com/feats/1158429-initiate-of-high-sorcery",
+      "Knight of the Crown": "https://www.dndbeyond.com/feats/1158430-knight-of-the-crown",
+      "Knight of the Rose": "https://www.dndbeyond.com/feats/1158431-knight-of-the-rose",
+      "Knight of the Sword": "https://www.dndbeyond.com/feats/1158432-knight-of-the-sword",
+      "Squire of Solamnia": "https://www.dndbeyond.com/feats/1158433-squire-of-solamnia"
+    },
+    "historicalBuilderInitiateChoices": [
+      "Nuitari",
+      "Lunitari",
+      "Solinari"
+    ],
+    "adeptCarriesChosenInitiateAbilityInBuilder": true,
+    "backgroundGrantsSupportedSince": "2023-01-25",
+    "digitalFixes": {
+      "date": "2026-09-28",
+      "feats": [
+        "Adept of the Black Robes",
+        "Adept of the Red Robes",
+        "Adept of the White Robes",
+        "Initiate of High Sorcery"
+      ]
+    },
+    "previewPrerequisiteContext": {
+      "Squire of Solamnia": {
+        "classes": [
+          "Fighter",
+          "Paladin"
+        ],
+        "background": "Knight of Solamnia"
+      },
+      "Initiate of High Sorcery": {
+        "classes": [
+          "Sorcerer",
+          "Wizard"
+        ],
+        "background": "Mage of High Sorcery"
+      }
+    },
+    "publishedBonusFeatTablesVerified": false
+  },
+  "digitalErrataScopes": {
+    "dndsu:backgrounds:846": [
+      "Chapter 5",
+      "Chapter 11",
+      "Chapter 13",
+      "Appendix C",
+      "Appendix D"
+    ],
+    "dndsu:backgrounds:847": [
+      "Introduction",
+      "Episode 1",
+      "Episode 2",
+      "Episode 3",
+      "Episode 4",
+      "Episode 5",
+      "Episode 6",
+      "Episode 7",
+      "Episode 8",
+      "Appendix C"
+    ]
+  },
+  "fullPrimaryRuleSectionsVerified": false,
+  "componentUnitsAccepted": 0,
+  "approvedDenominator": null,
+  "textReusePermission": "not-established",
+  "runtimeChanged": false
+}

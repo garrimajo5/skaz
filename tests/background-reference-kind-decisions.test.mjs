@@ -54,3 +54,34 @@ test('adventure and setting witnesses keep the four accepted page kinds but rese
   assert.equal(witness.textReusePermission,'not-established');
   assert.equal(witness.runtimeChanged,false);
 });
+
+test('Wildemount variants and standalone backgrounds preserve separate publisher scopes', () => {
+  const report = read('background-adventure-component-witnesses-2014.json');
+  const selection = read('background-collection-structure-selection-2014.json');
+  const tracked = selection.records.find(row => row.observationId === report.wildemount.observationId);
+  assert.deepEqual(tracked.expectedHeadings.map(row => row.text.split(' (')[0]), [
+    'Прислужник', 'Преступник', 'Моряк', 'Мудрец', 'Шпион',
+  ]);
+  assert.deepEqual(report.wildemount.variantBaseBackgrounds, ['Acolyte', 'Criminal', 'Sailor', 'Sage', 'Spy']);
+  assert.deepEqual(report.wildemount.standaloneBackgrounds, ['Grinner', 'Volstrucker Agent']);
+  assert.equal(report.wildemount.printedVariantComponentsVerified, false);
+  assert.notEqual(report.wildemount.locators['Heroic Chronicle'], report.wildemount.locators['Adapting Backgrounds']);
+});
+
+test('Dragonlance index, builder history and digital updates retain the missing campaign table', () => {
+  const report = read('background-adventure-component-witnesses-2014.json');
+  const old = read('background-adventure-source-witnesses-2014.json');
+  const row = old.records.find(item => item.observationId === report.dragonlance.observationId);
+  assert.deepEqual(Object.keys(report.dragonlance.previewPrerequisiteContext), row.backgroundFeatLinks.map(link => link.feat));
+  assert.equal(Object.keys(report.dragonlance.indexedFeats).length, 9);
+  assert.deepEqual(report.dragonlance.historicalBuilderInitiateChoices, ['Nuitari', 'Lunitari', 'Solinari']);
+  assert.ok(report.dragonlance.digitalFixes.feats.every(feat => feat in report.dragonlance.indexedFeats));
+  assert.equal(report.dragonlance.publishedBonusFeatTablesVerified, false);
+  assert.equal(Object.keys(report.sources).length, 8);
+  assert.ok(Object.values(report.sources).every(source => /^[0-9a-f]{64}$/.test(source.sha256)));
+  assert.equal(report.componentUnitsAccepted, 0);
+  assert.equal(report.fullPrimaryRuleSectionsVerified, false);
+  assert.equal(report.approvedDenominator, null);
+  assert.equal(report.textReusePermission, 'not-established');
+  assert.equal(report.runtimeChanged, false);
+});
