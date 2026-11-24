@@ -6,8 +6,8 @@
  * @typedef {FieldDefinition & {input: HTMLInputElement, status: HTMLParagraphElement, unknownBox: HTMLInputElement, agreement: HTMLLabelElement, agreementBox: HTMLInputElement, changed: boolean, edited: boolean, leaveUnknown: boolean, agreedValue: string|null, valid?: boolean}} ReviewField
  * @typedef {{kind: string, page: number, file: string}} PageAsset
  * @typedef {{field: string, page: number, box: [number, number, number, number]}} SourceRegion
- * @typedef {{id: string, assets: PageAsset[], regions: SourceRegion[]}} Scenario
- * @typedef {{cases: Scenario[]}} Manifest
+ * @typedef {{id: string, assets: PageAsset[], regions: SourceRegion[], sourceReview?: 'labels-outside-frame', unassignedTokens?: string[]}} Scenario
+ * @typedef {{cases: Scenario[], extraCases?: Scenario[]}} Manifest
  * @typedef {{fieldId: string, value: number, selection: 'confirmed', provenance: 'ocr-confirmed'} | {fieldId: string, value: number, selection: 'corrected', provenance: 'manual-correction'} | {fieldId: string, value: null, selection: 'left-unknown', provenance: 'manual-unknown'}} ConfirmedField
  * @typedef {{rowId: string, name: string, source: 'wizard'|'warlock'|null, location: 'book'|'prepared'|'known'|null}} SpellReviewRow
  * @typedef {{fieldId: 'spells', value: null, selection: 'left-unknown', provenance: 'manual-unknown'} | {fieldId: 'spells', value: {coverage: 'partial'|'complete', rows: SpellReviewRow[]}, selection: 'corrected', provenance: 'manual-correction'}} SpellListSelection
@@ -66,6 +66,11 @@ const spellListControls = /** @type {const} */ (['spell-coverage','spell-row-cho
 /** @type {Record<string, FieldDefinition[]>} */
 const definitions={
  'unknown-hp':[{key:'hp.max',label:'Максимум хитов',value:27,min:1,max:999},{key:'hp.current',label:'Текущие хиты',value:null,max:27},{key:'hp.temp',label:'Временные хиты',value:0,max:9999}],
+ 'cropped-hp':[
+  {key:'hp.max',label:'Максимум хитов',value:null,min:1,max:999,hint:'На снимке остались числа, а подписи к ним срезаны.'},
+  {key:'hp.current',label:'Текущие хиты',value:null,max:999},
+  {key:'hp.temp',label:'Временные хиты',value:null,max:9999},
+ ],
  'ambiguous-dex':[{key:'dex',label:'Ловкость',value:null,min:1,max:30,hint:'На исходнике число неоднозначно. Модификатор +1 не выбирает значение за вас.'}],
  'zero-charges':[{key:'charges',label:'Осталось зарядов из 7',value:0,max:7},{key:'quantity',label:'Количество зелий',value:null,max:999}],
  'multiclass-pact':[{key:'level.wizard',sourceField:'classes',label:'Волшебник — уровень',value:3,min:1,max:20},{key:'level.warlock',sourceField:'classes',label:'Колдун — уровень',value:2,min:1,max:20},{key:'totalLevel',label:'Общий уровень — ручной итог',value:5,min:1,max:20},{key:'spellcasting.1',sourceField:'resourceGroups.0',label:'Spellcasting — ячеек 1-го круга',value:4},{key:'spellcasting.2',sourceField:'resourceGroups.0',label:'Spellcasting — ячеек 2-го круга',value:2},{key:'pact.1',sourceField:'resourceGroups.1',label:'Pact Magic — ячеек 1-го круга',value:2}],
@@ -214,7 +219,7 @@ function reviewedSelection(){
 }
 
 function load(){
- const next=manifest.cases.find(c=>c.id===$('scenario').value);
+ const next=[...manifest.cases,...(manifest.extraCases??[])].find(c=>c.id===$('scenario').value);
  if(!next||!definitions[next.id])throw new Error('Unknown review scenario');
  current=next;fields=[];classAgreement=null;invalidateConfirmation();$('fields').replaceChildren();
  $('spell-review').hidden=current.id!=='multiclass-pact';
@@ -248,10 +253,54 @@ function load(){
  }
  update();
 }
-function showPage(){const a=current.assets.find(a=>a.kind==='png'&&a.page===Number($('page').value));if(a)$('source').src='../fixtures/sheet-visual/'+a.file;}
-async function drawCrop(){const field=selectedField;if(!field)return;const token=++cropRequest,page=Number($('fragment-page').value),r=current.regions.find(r=>r.field===(field.sourceField||field.key)&&r.page===page),a=current.assets.find(a=>a.kind==='png'&&a.page===page);$('crop').hidden=true;$('crop-status').textContent='Загружаем фрагмент…';if(!r||!a){$('crop-status').textContent='Для этого поля нет фрагмента на выбранной странице.';return;}try{const im=new Image();im.src='../fixtures/sheet-visual/'+a.file;await im.decode();if(token!==cropRequest)return;const ctx=$('crop').getContext('2d');if(!ctx)throw new Error('Canvas unavailable');ctx.fillStyle='white';ctx.fillRect(0,0,720,150);const [valueX,valueY,valueW,valueH]=r.box;const x=valueX-20,y=valueY-30,w=valueW+40,h=100,scale=Math.min(720/w,150/h);ctx.drawImage(im,x,y,w,h,0,0,w*scale,h*scale);$('crop').hidden=false;$('crop-status').textContent='Источник: страница '+page;}catch{if(token===cropRequest)$('crop-status').textContent='Не удалось загрузить фрагмент. Не считайте его пустым полем; откройте источник ещё раз.';}}
+function showPage(){
+ const asset=current.assets.find(a=>a.kind==='png'&&a.page===Number($('page').value));
+ if(!asset)return;
+ $('source').src='../fixtures/sheet-visual/'+asset.file;
+ $('source').alt=current.sourceReview==='labels-outside-frame'?
+  'Вымышленный снимок. Подписи к числам срезаны.':'Вымышленный исходный лист';
+}
+async function drawCrop(){
+ const field=selectedField;
+ if(!field)return;
+ const token=++cropRequest;
+ const page=Number($('fragment-page').value);
+ const region=current.regions.find(r=>r.field===(field.sourceField||field.key)&&r.page===page);
+ const asset=current.assets.find(a=>a.kind==='png'&&a.page===page);
+ const showWhole=!region&&current.sourceReview==='labels-outside-frame';
+ const canvas=$('crop'),status=$('crop-status');
+ canvas.hidden=true;
+ status.textContent='Загружаем фрагмент…';
+ if(!asset||(!region&&!showWhole)){
+  status.textContent='Для этого поля нет фрагмента на выбранной странице.';
+  return;
+ }
+ try{
+  const image=new Image();
+  image.src='../fixtures/sheet-visual/'+asset.file;
+  await image.decode();
+  if(token!==cropRequest)return;
+  const [x,y,w,h]=region?[region.box[0]-20,region.box[1]-30,region.box[2]+40,100]:
+   [0,0,image.naturalWidth,image.naturalHeight];
+  const scale=Math.min(720/w,(region?150:480)/h);
+  canvas.width=region?720:Math.ceil(w*scale);
+  canvas.height=region?150:Math.ceil(h*scale);
+  const ctx=canvas.getContext('2d');
+  if(!ctx)throw new Error('Canvas unavailable');
+  ctx.fillStyle='white';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.drawImage(image,x,y,w,h,0,0,w*scale,h*scale);
+  canvas.hidden=false;
+  if(showWhole){
+   const tokens=current.unassignedTokens?.join(', ');
+   status.textContent=(tokens?'Видимые числа: '+tokens+'. ':'')+'Подписи срезаны. Поле по этому снимку определить нельзя.';
+  }else status.textContent='Источник: страница '+page;
+ }catch{
+  if(token===cropRequest)status.textContent='Не удалось показать фрагмент. Закрой его и открой источник ещё раз.';
+ }
+}
 /** @param {ReviewField} f */
-function openSource(f){selectedField=f;$('fragment-title').textContent=f.label+' — исходник';$('fragment-page').value=$('page').value;drawCrop();$('fragment').showModal();}
+function openSource(f){selectedField=f;$('fragment-title').textContent=current.sourceReview==='labels-outside-frame'?'Обрезанный снимок':f.label+' — исходник';$('fragment-page').value=$('page').value;drawCrop();$('fragment').showModal();}
 $('fragment-page').onchange=drawCrop;
 $('fragment').addEventListener('close',()=>{
  cropRequest++;

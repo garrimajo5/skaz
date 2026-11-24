@@ -36,6 +36,17 @@ test('rotation, poor quality, conflicts and edition rejection remain separate re
 
 test('English two-column layout has explicit separate expected values',()=>{const c=manifest.extraCases.find(x=>x.id==='english-two-column');assert.equal(c.expected.name,'Lyra');assert.equal(c.expected.classes[0].name,'Bard');assert.equal(c.regions.length,14);assert.equal(new Set(c.regions.map(r=>r.box[0])).size,2);});
 
+test('cropped labels make visible numbers unassigned without turning a blank into zero',()=>{
+ const crop=manifest.extraCases.find(c=>c.id==='cropped-hp');
+ const original=manifest.cases.find(c=>c.id==='unknown-hp');
+ assert.equal(crop.sourceReview,'labels-outside-frame');
+ assert.deepEqual(crop.expected.hp,{max:null,current:null,temp:null});
+ assert.deepEqual(crop.unassignedTokens,['27','0']);
+ assert.deepEqual(crop.regions,[]);
+ assert.equal(crop.assets[0].derivedFromSha256,original.assets.find(a=>a.kind==='png').sha256);
+ assert.deepEqual(crop.assets[0].cropSourceBox,[450,318,550,382]);
+});
+
 test('provenance points to the exact committed generator and semantic source',()=>{
  for(const [path,expected] of [['../scripts/build-sheet-visual-fixtures.py',manifest.generatorSha256],['../docs/design/fixtures/sheet-review-cases.json',manifest.semanticSourceSha256]]){
   assert.equal(createHash('sha256').update(readFileSync(new URL(path,import.meta.url))).digest('hex'),expected);

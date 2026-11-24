@@ -4,7 +4,7 @@
   "status": "original-visual-design-samples-not-ocr-benchmark",
   "ruleset": "5e-2014",
   "generator": "scripts/build-sheet-visual-fixtures.py",
-  "generatorSha256": "8de4f5a500e4cf33e417821da0bbc0f642b1763ec75302a81060d99c64107533",
+  "generatorSha256": "d95c6f05104222f6b3ac07e1610016146703fd587474057ed9590092c65e423b",
   "semanticSourceSha256": "db57ee5001f60048a261e9ba257c949d38066a8110ae1adb74210ada48711821",
   "fontSha256": "c9b76220a5be42ead4733611e417cd65c5fd8aeaa33eb56576ac378a37d130a1",
   "regionCoordinates": "Canonical upright PNG pixels; resolve EXIF orientation before applying any manual rotation. PDF uses proportional A4 coordinates.",
@@ -1010,6 +1010,40 @@
       ],
       "review": [
         "English labels and two-column reading order; not proof of a legal complete character build"
+      ]
+    },
+    {
+      "id": "cropped-hp",
+      "sourceReview": "labels-outside-frame",
+      "expected": {
+        "hp": {
+          "max": null,
+          "current": null,
+          "temp": null
+        }
+      },
+      "unassignedTokens": [
+        "27",
+        "0"
+      ],
+      "regions": [],
+      "assets": [
+        {
+          "file": "cropped-hp-1.png",
+          "kind": "png",
+          "sha256": "8568a87d2dbb6c136037396004c0eaa3bf2b4a19dd14a6464b4ec6eaac76cc17",
+          "bytes": 3364,
+          "width": 550,
+          "height": 382,
+          "page": 1,
+          "derivedFromSha256": "4f6589dfcd8f0f6942967a1ab18ef810d1b80583d720d6674f1c21cd6b4e62a4",
+          "cropSourceBox": [
+            450,
+            318,
+            550,
+            382
+          ]
+        }
       ]
     }
   ],
