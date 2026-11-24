@@ -244,6 +244,13 @@ test('campaign links and authenticated receipts reject foreign scope, demotion a
   gm.saveCampaignPerson(create);
   assert.equal(gm.campaignPeople().people.length, 1);
   assert.equal(gm.campaignPeople().people[0].name, profile.name);
+  gm.saveCampaignPerson(command(gm,personId,'add-knowledge',{
+    id:randomUUID(),kind:'assumption',text:'Синяя Печать и ёлка',sessionId:null,
+  }));
+  const found=gm.campaignPeople('ЕЛКА').people;
+  assert.equal(found[0].id,personId);
+  assert(!Object.hasOwn(found[0],'knowledge'));
+  assert.deepEqual(gm.campaignPeople('нет совпадения').people,[]);
   assert.throws(() => gm.campaignPerson(otherId), {status:404});
   const before = gm.read();
   assert.throws(() => gm.saveCampaignPerson(command(gm, personId, 'set-links', {links:[{kind:'person',id:otherId}]})), {status:404});
@@ -253,6 +260,7 @@ test('campaign links and authenticated receipts reject foreign scope, demotion a
   assert.deepEqual(gm.read(), before);
   gm.selectContext(mutation(gm, {context:other}));
   assert.equal(gm.campaignPeople().people[0].id, otherId);
+  assert.deepEqual(gm.campaignPeople('печать').people,[]);
   assert.throws(() => gm.campaignPerson(personId), {status:404});
   const sameId = command(gm, personId, 'create', {details:{...profile,name:'QA Только в другой'}, knowledge:null});
   gm.saveCampaignPerson(sameId);
@@ -368,9 +376,11 @@ test('local HTTP exposes scoped campaign memory only when explicitly enabled', a
   }
   const disabled=await start(false);
   assert.equal((await fetch(disabled.origin+'/api/campaign-people')).status,404);
+  assert.doesNotMatch(await (await fetch(disabled.origin+'/')).text(),/data-campaign-people="enabled"/);
   const {store,origin}=await start(true), personId=randomUUID();
   const request=command(store,personId,'create',{details:profile,knowledge:null});
   const response = (route, options) => fetch(origin+route,options);
+  assert.match(await (await response('/')).text(),/data-campaign-people="enabled"/);
   const send = extra => response('/api/campaign-people',{method:'POST',headers:{
     'content-type':'application/json', 'x-skaz-client':'local-v1', origin, ...extra,
   },body:JSON.stringify(request)});
@@ -380,6 +390,8 @@ test('local HTTP exposes scoped campaign memory only when explicitly enabled', a
   assert.equal((await (await send()).json()).replayed,true);
   const list=await (await response('/api/campaign-people')).json();
   assert.equal(list.people[0].id,personId);
+  assert.equal((await response('/api/campaign-people?q=a&q=b')).status,400);
+  assert.equal((await response('/api/campaign-people?q='+('x'.repeat(201)))).status,422);
   const path='/api/campaign-people/'+personId;
   assert.equal((await (await response(path)).json()).person.relation,null);
   assert.equal((await (await response(path+'/history')).json()).changes[0].operation,'create');

@@ -325,10 +325,15 @@ export function saveCampaignPerson(db, payload, mutationId, context) {
     .run(mutationId, campaignId, personId, operation, previous?.data_json ?? null, JSON.stringify(person));
 }
 
-export function listCampaignPeople(db, campaignId) {
+export function listCampaignPeople(db, campaignId, query = '') {
+  if (typeof query !== 'string' || query.length > 200) invalid('Поиск: до 200 символов');
+  const normalize = value => value.toLocaleLowerCase('ru').replaceAll('ё','е');
+  const needle = normalize(query.trim());
   return db.prepare('SELECT id, created_session_id, data_json FROM campaign_people WHERE campaign_id=? ORDER BY rowid')
-    .all(campaignId).map(row => {
-      const { id, createdSessionId, name, description, relation, encounters, latestEncounterId } = unpack(row);
+    .all(campaignId).map(unpack).filter(person => !needle ||
+      [person.name, person.description, ...person.knowledge.map(entry => entry.text)]
+        .some(value => normalize(value).includes(needle))).map(person => {
+      const { id, createdSessionId, name, description, relation, encounters, latestEncounterId } = person;
       return { id, createdSessionId, name, description, relation,
         latestEncounter: encounters.find(item => item.id === latestEncounterId) ?? null };
 
