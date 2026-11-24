@@ -35,3 +35,28 @@ accepted/complete:false,denominator:null,0canonical/standalone accepted. Runtime
 Две записи 2026 издатель прямо называет предысториями. В текущем индексе рядом с ними указан именно Ravenloft: The Horrors Within. Старую карточку Inheritor индекс относит к SCAG, её прямой URL ведёт на страницу покупки. Эррата SCAG фиксирует изменение снаряжения для Inheritor на с. 150. Эта поправка привязана к карточке SCAG. [Эррата SCAG](https://www.dndbeyond.com/sources/dnd/sae/sword-coast-adventurers-guide). Обе главы Ravenloft также потребовали доступ к книгам. Полные тексты, соответствие отдельных правил и права ещё требуют проверки. [Оглавление 2026](https://www.dndbeyond.com/sources/dnd/rthw) · [Разбор издателя](https://www.dndbeyond.com/posts/2169-everything-you-need-to-know-about-ravenloft-the?page=2) · [Указатель предысторий](https://www.dndbeyond.com/backgrounds).
 
 [Три именованных кандидата](../catalog/background-ravenloft-source-witness-2014.json) привязаны к исходным заголовкам. Сопоставление по имени оставляет версии и типы отдельными. Следующий шаг — получить разрешённый первичный раздел 2021 и проверить состав пяти самостоятельных особенностей и их границы. Рабочий каталог и ранее принятый тип страницы 845 сохраняют текущий статус.
+
+## Варианты приключений, Wildemount и кампанийные черты
+
+[#77 D04](https://github.com/garrimajo5/skaz/issues/77). Четыре исходных наблюдения связаны с разделами издателя. [Реестр свидетельств](../catalog/background-adventure-source-witnesses-2014.json).
+
+| Наблюдение | Что подтвердил издатель | Что ещё сверять |
+| --- | --- | --- |
+| 846, Out of the Abyss | В Appendix A отдельно указаны Substitute Features и Substitute Bonds. [Оглавление](https://www.dndbeyond.com/sources/dnd/oota). | Две особенности и привязанности по полному тексту. Ссылка на приложение открывает магазин. |
+| 847, Hoard of the Dragon Queen | Оригинал и Tyranny of Dragons имеют Appendix A: Backgrounds. В январе 2023 D&D Beyond описал объединение Hoard и Rise с правками. [Оригинал](https://www.dndbeyond.com/sources/dnd/hotdq) · [объединённая книга](https://www.dndbeyond.com/sources/dnd/tod) · [запись от 17.01.2023](https://www.dndbeyond.com/changelog). | Тождество формулировок требует обоих приложений. Ссылка оригинала ответила 404, объединённая ведёт в магазин. |
+| 848, Explorer’s Guide to Wildemount | В Ch. 4 есть раздел Adapting Backgrounds рядом с Grinner и Volstrucker Agent. [Оглавление](https://www.dndbeyond.com/sources/dnd/egtw). | Состав пяти адаптаций и отличия от базовых предысторий. Полный раздел ведёт в магазин. |
+| 856, Dragonlance: Shadow of the Dragon Queen | В главе создания есть отдельные блоки Backgrounds и Feats. В открытом материале Knight of Solamnia даёт Squire of Solamnia, Mage of High Sorcery даёт Initiate of High Sorcery. [Оглавление](https://www.dndbeyond.com/sources/dnd/sotdq) · [материал издателя](https://www.dndbeyond.com/posts/1364-dragonlance-backgrounds-and-feats-answer-the-call). | Полные условия и варианты бонусных черт на 1-м и 4-м уровнях. Глава требует доступ к книге. |
+
+### Граница правил Dragonlance и Adventurers League
+
+В историческом Player’s Guide v14.0 на с. 1 общие правила создания персонажа предлагают Skilled или Tough при предыстории без черты. В отдельном разделе Dragonlance на с. 4 разрешено использовать книгу кампании. Упоминания Magic Initiate на этой странице принадлежат другим разделам. Из соседнего Planescape эта опция в Dragonlance не переносится. [AL Player’s Guide v14.0](https://media.dndbeyond.com/compendium-images/ddal/reference-docs/03-2024/d%26d-adventurers-league-player%27s-guide-v14.0.pdf).
+
+На с. 16 Adaptation Guides v2.4 раздел создания персонажа для Dragonlance отсылает к Player’s Guide. С. 40 относит Out of the Abyss к кампании Forgotten Realms, с. 56 там же рассматривает Hoard и Rise под Tyranny of Dragons. Эти сведения относятся к организованной игре. Правила домашних кампаний и бонусная черта на 4-м уровне остаются на отдельной сверке. [AL Adaptation Guides v2.4](https://media.dndbeyond.com/compendium-images/ddal/reference-docs/03-2024/d%26d-adventurers-league-adaptation-guides-v2.4.pdf).
+
+Эррата Dragonlance 2022 меняет Lunar Boons на с. 34 в той же главе. Эррата Tyranny of Dragons 2023 содержит, в частности, поправку Guard Drake в приложении D. Ни одна из просмотренных правок не устанавливает содержание нужных вариантов предысторий. [Эррата Dragonlance](https://media.dndbeyond.com/compendium-images/errata/DSotDQ/DSotDQ-errata.pdf) · [эррата Tyranny of Dragons](https://media.dndbeyond.com/compendium-images/errata/ToD/ToD-Errata.pdf).
+
+### Проверки и передача
+
+`python scripts/audit-d04-background-adventure-sources-2014.py --directory <снимки>` проверяет SHA и число страниц четырёх PDF, затем сверяет семь выбранных областей. Имя каждого файла, источник и SHA указаны в реестре. Визуально сверены с. 1 и 4 Player’s Guide и с. 16 Adaptation Guides. Случай Magic Initiate обнаружен при сравнении колонок. Подборка источников, существующие типы страниц и права сохранены. Полные компоненты и автоматическая выдача черт требуют новой проверки.
+
+Рефлексия для планировщика. Поиск по странице AL нашёл Magic Initiate рядом с Dragonlance. Для многоколоночных правил стоит фиксировать заголовок, конец области и читабельный кадр до расчёта. Стоимость — один рендер страницы. Польза — предупреждение переносов между кампаниями, включая текст с ошибочной отсылкой.

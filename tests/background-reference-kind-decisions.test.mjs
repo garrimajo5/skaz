@@ -30,3 +30,27 @@ test('same-name Ravenloft and SCAG backgrounds cannot replace the 2021 feature c
   assert.equal(witness.appTextReusePermission,'not-established');
   assert.equal(witness.runtimeChanged,false);
 });
+
+test('adventure and setting witnesses keep the four accepted page kinds but reserve full components', () => {
+  const witness=read('background-adventure-source-witnesses-2014.json');
+  const accepted=inputs()[1].records;
+  assert.deepEqual(witness.records.map(row=>row.observationId),[846,847,848,856].map(id=>'dndsu:backgrounds:'+id));
+  for (const row of witness.records) {
+    const original=accepted.find(item=>item.observationId===row.observationId);
+    assert.equal(row.type,original.verifiedReferencePageKind);
+  }
+  const [abyss,hoard,wildemount,dragonlance]=witness.records;
+  assert.deepEqual(abyss.verifiedSections,['Substitute Features','Substitute Bonds']);
+  assert.equal(hoard.editionCompanion.appendixTextEquivalent,'unresolved');
+  assert.equal(wildemount.adaptationNamesVerified,false);
+  assert.deepEqual(dragonlance.backgroundFeatLinks.map(row=>row.feat),['Squire of Solamnia','Initiate of High Sorcery']);
+  assert.equal(dragonlance.publishedBonusFeatTablesVerified,false);
+  const league=witness.units.find(unit=>unit.key==='al-dragonlance-campaign-source');
+  assert.equal(league.stop,'PLANESCAPE');
+  assert.deepEqual(league.forbidden,['Magic Initiate']);
+  assert.equal(witness.componentUnitsAccepted,0);
+  assert.equal(witness.fullPrimaryRuleSectionsVerified,false);
+  assert.equal(witness.approvedDenominator,null);
+  assert.equal(witness.textReusePermission,'not-established');
+  assert.equal(witness.runtimeChanged,false);
+});

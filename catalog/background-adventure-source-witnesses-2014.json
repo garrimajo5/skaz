@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "ruleset": "5e-2014",
+  "checkedOn": "2026-11-24",
+  "scope": "source-locators-and-organized-play-boundaries",
+  "acceptedForRuntime": false,
+  "runtimeChanged": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "componentUnitsAccepted": 0,
+  "fullPrimaryRuleSectionsVerified": false,
+  "textReusePermission": "not-established",
+  "sources": [
+    {
+      "id": "al-player-14",
+      "file": "al-v14.pdf",
+      "url": "https://media.dndbeyond.com/compendium-images/ddal/reference-docs/03-2024/d%26d-adventurers-league-player%27s-guide-v14.0.pdf",
+      "bytes": 387932,
+      "sha256": "4864559244bcde129d14787c99537d5990a84edf2153d3ce6b7bd4c62c1c64e2",
+      "pageCount": 5
+    },
+    {
+      "id": "al-adaptation-24",
+      "file": "al-adaptation-v24.pdf",
+      "url": "https://media.dndbeyond.com/compendium-images/ddal/reference-docs/03-2024/d%26d-adventurers-league-adaptation-guides-v2.4.pdf",
+      "bytes": 1476910,
+      "sha256": "ee0ffa32ccab84212b518380ab81d720d15e8c1ccaa529750666fc235123dcbb",
+      "pageCount": 67
+    },
+    {
+      "id": "dragonlance-errata",
+      "file": "dragonlance-errata.pdf",
+      "url": "https://media.dndbeyond.com/compendium-images/errata/DSotDQ/DSotDQ-errata.pdf",
+      "bytes": 181880,
+      "sha256": "07152fe153f5fc635c9d451dd3af89031baf1760fc33574d9ef762fe550018ec",
+      "pageCount": 1
+    },
+    {
+      "id": "tyranny-errata",
+      "file": "tod-errata.pdf",
+      "url": "https://media.dndbeyond.com/compendium-images/errata/ToD/ToD-Errata.pdf",
+      "bytes": 173215,
+      "sha256": "b965604fef8bc619deeb86931a9e27d1ce929b559e2818d1a08be376e1bf285a",
+      "pageCount": 1
+    }
+  ],
+  "units": [
+    {
+      "key": "al-general-background-option",
+      "source": "al-player-14",
+      "pdfPage": 1,
+      "start": "Step 4: Describe Your Character.",
+      "stop": "Step 5: Choosing Equipment.",
+      "anchors": [
+        "does not grant a feat",
+        "Skilled or Tough"
+      ]
+    },
+    {
+      "key": "al-dragonlance-campaign-source",
+      "source": "al-player-14",
+      "pdfPage": 4,
+      "start": "DRAGONLANCE",
+      "stop": "PLANESCAPE",
+      "anchors": [
+        "Dragonlance: Shadow of the Dragon Queen (DLS)"
+      ],
+      "forbidden": [
+        "Magic Initiate"
+      ]
+    },
+    {
+      "key": "al-dragonlance-creation-guide",
+      "source": "al-adaptation-24",
+      "pdfPage": 16,
+      "start": "CHARACTER CREATION",
+      "stop": "CHARACTER ADVANCEMENT",
+      "anchors": [
+        "Adventurers League Player’s Guide"
+      ]
+    },
+    {
+      "key": "al-out-of-the-abyss-campaign",
+      "source": "al-adaptation-24",
+      "pdfPage": 40,
+      "start": "OUT OF THE ABYSS",
+      "stop": "TIER APPROPRIATE",
+      "anchors": [
+        "Forgotten Realms"
+      ]
+    },
+    {
+      "key": "al-tyranny-of-dragons-campaign",
+      "source": "al-adaptation-24",
+      "pdfPage": 56,
+      "start": "TYRANNY OF DRAGONS",
+      "stop": "TIER APPROPRIATE",
+      "anchors": [
+        "Hoard of the Dragon Queen (HotDQ)",
+        "Rise of Tiamat (RoT)",
+        "Forgotten Realms"
+      ]
+    },
+    {
+      "key": "dragonlance-errata-character-options",
+      "source": "dragonlance-errata",
+      "pdfPage": 1,
+      "start": "Chapter 1",
+      "stop": "Chapter 7",
+      "anchors": [
+        "Lunar Boons (p. 34)"
+      ],
+      "forbidden": [
+        "Bonus Feats"
+      ]
+    },
+    {
+      "key": "tyranny-errata-distinct-printing",
+      "source": "tyranny-errata",
+      "pdfPage": 1,
+      "start": "Appendix D",
+      "stop": "Pharblex Spattergoo",
+      "anchors": [
+        "Guard Drake (p. 185)"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "observationId": "dndsu:backgrounds:846",
+      "type": "adventure-background-feature-and-bond-options",
+      "publication": "Out of the Abyss",
+      "primaryContents": {
+        "url": "https://www.dndbeyond.com/sources/dnd/oota",
+        "heading": "Appendix A: Modifying Backgrounds",
+        "access": "store-redirect"
+      },
+      "verifiedSections": [
+        "Substitute Features",
+        "Substitute Bonds"
+      ],
+      "fullFeatureNamesVerified": false,
+      "organizedPlayWitness": "al-out-of-the-abyss-campaign"
+    },
+    {
+      "observationId": "dndsu:backgrounds:847",
+      "type": "adventure-background-feature-and-bond-options",
+      "publication": "Hoard of the Dragon Queen",
+      "primaryContents": {
+        "url": "https://www.dndbeyond.com/sources/dnd/hotdq",
+        "heading": "Appendix A: Backgrounds",
+        "access": "404"
+      },
+      "editionCompanion": {
+        "publication": "Tyranny of Dragons",
+        "contents": {
+          "url": "https://www.dndbeyond.com/sources/dnd/tod",
+          "heading": "Appendix A: Backgrounds",
+          "access": "store-redirect"
+        },
+        "publisherChange": {
+          "url": "https://www.dndbeyond.com/changelog",
+          "date": "2023-01-17",
+          "locator": "Tyranny of Dragons consolidation"
+        },
+        "appendixTextEquivalent": "unresolved"
+      },
+      "fullFeatureNamesVerified": false,
+      "organizedPlayWitness": "al-tyranny-of-dragons-campaign"
+    },
+    {
+      "observationId": "dndsu:backgrounds:848",
+      "type": "setting-adaptations-of-existing-backgrounds",
+      "publication": "Explorer’s Guide to Wildemount",
+      "primaryContents": {
+        "url": "https://www.dndbeyond.com/sources/dnd/egtw",
+        "heading": "Ch. 4: Character Options / Backgrounds / Adapting Backgrounds",
+        "access": "store-redirect"
+      },
+      "standaloneHeadings": [
+        "Grinner",
+        "Volstrucker Agent"
+      ],
+      "adaptationNamesVerified": false
+    },
+    {
+      "observationId": "dndsu:backgrounds:856",
+      "type": "campaign-bonus-feat-rules",
+      "publication": "Dragonlance: Shadow of the Dragon Queen",
+      "primaryContents": {
+        "url": "https://www.dndbeyond.com/sources/dnd/sotdq",
+        "heading": "Ch. 1: Character Creation / Backgrounds; Feats",
+        "access": "store-redirect"
+      },
+      "preview": {
+        "url": "https://www.dndbeyond.com/posts/1364-dragonlance-backgrounds-and-feats-answer-the-call",
+        "checkedSection": "Knight of Solamnia background and feat / Mages of High Sorcery background and feat",
+        "releaseSupportUrl": "https://www.dndbeyond.com/forums/d-d-beyond-general/release-issues-support/157621-dragonlance-shadow-of-the-dragon-queen-issues-and"
+      },
+      "backgroundFeatLinks": [
+        {
+          "background": "Knight of Solamnia",
+          "feat": "Squire of Solamnia"
+        },
+        {
+          "background": "Mage of High Sorcery",
+          "feat": "Initiate of High Sorcery"
+        }
+      ],
+      "organizedPlayWitness": [
+        "al-general-background-option",
+        "al-dragonlance-campaign-source",
+        "al-dragonlance-creation-guide"
+      ],
+      "publishedBonusFeatTablesVerified": false
+    }
+  ]
+}
