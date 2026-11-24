@@ -1048,6 +1048,23 @@ test('one-click spell mark binds the visible character version and rejects stale
  await assert.rejects(()=>h.api.setSpell({id:'personal:light',kind:'item'},'known',h.api.snapshotKey()));assert.equal(calls.length,count);
 });
 
+test('permission decoration preserves a resource action unavailable in the current game state',async()=>{
+ const h=harness(memory(),memory(),async()=>response(payload(0)),undefined,undefined,true);
+ const control=dataset=>({dataset,disabled:false,setAttribute(key,value){this[key]=value;}});
+ const unavailable=control({resourceUnavailable:'true'});
+ const ordinary=control({});
+ const root={querySelectorAll:selector=>selector.includes('[data-health]')?[unavailable,ordinary]:[]};
+ h.api.decorate(root);
+ assert.equal(ordinary.disabled,true,'loading still disables both controls');
+ await h.api.boot();
+ assert.equal(h.api.canResource(),true);
+ h.api.decorate(root);
+ assert.equal(unavailable.disabled,true);
+ assert.equal(unavailable['aria-disabled'],'true');
+ assert.equal(ordinary.disabled,false,'the permission state can recover');
+ assert.equal(ordinary['aria-disabled'],'false');
+});
+
 test('durable resource controls accept ten offline operations and reload without losing optimistic values',async()=>{
  const local=memory(),session=memory();let offline=false,rev=0,serverState=structuredClone(seed);const ids=new Set();
  const fetch=async(url,options)=>{if(offline)throw new Error('offline');if(url==='/api/resources/change'){const c=JSON.parse(options.body);if(!ids.has(c.mutationId)){assert.equal(c.expectedRevision,rev);if(c.resource.kind==='hp'){assert.equal(c.before,serverState.hp);serverState.hp=Math.max(0,Math.min(serverState.maxHp,serverState.hp+c.delta));}else{assert.equal(c.before,serverState.slots[c.resource.level]);serverState.slots[c.resource.level]+=c.delta;}ids.add(c.mutationId);rev++;}}return response({...payload(rev),state:structuredClone(serverState)});};

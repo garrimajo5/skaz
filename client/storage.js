@@ -65,7 +65,11 @@ const SkazStorage = (() => {
     if(!root.querySelectorAll)return;
     if(!profileEditorsAvailable())for(const control of root.querySelectorAll('#edit-sheet,#edit-sheet-resources,#edit-stats')){control.disabled=true;control.setAttribute('aria-disabled','true');control.title='Редакторы профиля временно отключены для восстановления. Игра и экспорт доступны.';}
     const selectors={shared:'[data-check],[data-accept],[data-dismiss],[data-edit-event],#restore-events,[data-personal-step],[data-personal-edit],[data-map-edit],#new-place,#create-personal-quest,#map-note,#profile-campaign',manageCampaign:'#new-session,#new-session-form button,#new-character',catalog:'#catalog-bundled,#catalog-help',newCampaign:'#new-campaign',select:'[data-select-character]',import:'#import-state,#import-old',history:'#change-history',character:'#edit-sheet,#edit-sheet-resources,#edit-stats,#edit-resources,#spellbook-form button,#spellbook-status,#rest,#edit-profile,#inspire,#add-note,#new-proposal,#cast-spell,#catalog-add-inventory,#catalog-add-spell,[data-spell-edit],[data-inventory-remove],#inventory-undo'};
-    for(const control of root.querySelectorAll('[data-resource],[data-sheet-context],[data-inventory-charges],#inventory-charges,#damage,#heal,[data-health]')){control.disabled=(control.dataset?.counterId?control.disabled:false)||(demo?!can('character'):!canResource());control.setAttribute('aria-disabled',String(control.disabled));}
+    for(const control of root.querySelectorAll('[data-resource],[data-sheet-context],[data-inventory-charges],#inventory-charges,#damage,#heal,[data-health]')){
+      const disabledByState=control.dataset?.resourceUnavailable==='true'||Boolean(control.dataset?.counterId&&control.disabled);
+      control.disabled=disabledByState||(demo?!can('character'):!canResource());
+      control.setAttribute('aria-disabled',String(control.disabled));
+    }
     for(const [action,selector]of Object.entries(selectors))for(const control of root.querySelectorAll(selector))if(!can(action)){control.disabled=true;control.setAttribute('aria-disabled','true');control.title=action==='shared'||action==='manageCampaign'?'Доступно мастеру или владельцу':'Недоступно с текущими правами';}
   }
   let activeContext = null;
