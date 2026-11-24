@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "rulesetTarget": "5e-2014",
+  "checkedOn": "2026-11-24",
+  "status": "primary-linked-adventure-and-index-witnesses",
+  "accepted": false,
+  "historicalBookInventoryComplete": false,
+  "fullStatBlocksVerified": false,
+  "approvedDenominator": null,
+  "reusePermission": "not-established",
+  "sources": {
+    "skt-appendix-a.pdf": {
+      "url": "https://media.wizards.com/2016/dnd/downloads/EL2_SKT_AppA_0821.pdf",
+      "bytes": 199565,
+      "sha256": "f5e1710751ef434175b510f6899fe2e80e35357078443086f05fdfecbd6d2de1"
+    },
+    "skt-errata.pdf": {
+      "url": "https://media.wizards.com/2021/dnd/downloads/SKT-Errata.pdf",
+      "bytes": 420907,
+      "sha256": "7be9a8709571785f9db1bec87a921afcac11712e9f8a85009f3c1229c983c61d"
+    },
+    "skt-errata-ddb.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/sae/storm-kings-thunder",
+      "bytes": 280836,
+      "sha256": "95379db58ce49604372750dead6de00bc834ccfb289630649e9e685a56e11762"
+    },
+    "tod-toc.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/tod",
+      "bytes": 249755,
+      "sha256": "2cf2da55174a68e5d6effef9932c35cdf36b2f49e3fad694bd5c07e61a58b476"
+    },
+    "tod-errata.pdf": {
+      "url": "https://media.dndbeyond.com/compendium-images/errata/ToD/ToD-Errata.pdf",
+      "bytes": 173215,
+      "sha256": "b965604fef8bc619deeb86931a9e27d1ce929b559e2818d1a08be376e1bf285a"
+    },
+    "pota-toc.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/pota",
+      "bytes": 245585,
+      "sha256": "8eae6611c9e1f3126ee206f83287a3bd5f79897aec81e8408c8dcc7d3f09a016"
+    },
+    "monster-index.html": {
+      "url": "https://www.dndbeyond.com/Monsters?page=21",
+      "bytes": 412068,
+      "sha256": "6d815f4235b6152a50552d42bcb20c1887e8ac9639b7f4306bd1c8f1a6d58d99"
+    },
+    "skt-monster-index-2.html": {
+      "url": "https://www.dndbeyond.com/monsters?filter-source=12&page=2",
+      "bytes": 409645,
+      "sha256": "50e01c53ae05ee7e8488d55d5bcf69dab5a4896c3e6c41b38332568939457af2"
+    }
+  },
+  "inputSha256": {
+    "catalog/scope-register-2014.json": "dc024d118e88154d5cac9772497e2c83d9b8d52181fd4507cd7c1e895169f87f",
+    "catalog/skt-index-review-2014.json": "d94c0ddfdc85720cb21ff38eb736f7a123db2655c6a91ce027cfade5695e6c06",
+    "catalog/skt-index-residual-2014.json": "a568b6bc2ce1f0fd5cd8313decb76b44d1260b83c74289f0f4493834debccfc5",
+    "catalog/srd51-giants.json": "581a7cac5ba1d281cc5ddd85fb6dedbeef9fad2b7bb76e457f45f67a524c0c09",
+    "catalog/srd51-spirits.json": "9504cee67f101464ae743ac95d05aed7050f8d1efbc0dbd6ca8533f3b2e923b5"
+  },
+  "officialHeadingLinks": {
+    "Tyranny of Dragons": "https://www.dndbeyond.com/sources/tod",
+    "The Chosen Path": "https://www.dndbeyond.com/sources/skt/the-chosen-path#EigeronsGhost",
+    "Blagothkus": "https://www.dndbeyond.com/sources/tod/monsters#Blagothkus",
+    "Cult of the Black Earth": "https://www.dndbeyond.com/sources/pota/rise-of-elemental-evil#CultoftheBlackEarth",
+    "Black Earth Cultists": "https://www.dndbeyond.com/sources/pota/monsters-and-magic-items#BlackEarthCultists"
+  },
+  "sktAppendixA": {
+    "oldPrint": {
+      "printedPage": 231,
+      "pdfPage": 1,
+      "section": "Hoard of the Dragon Queen"
+    },
+    "errata": {
+      "printedPage": 231,
+      "pdfPage": 2,
+      "headingAfter": "Tyranny of Dragons",
+      "replacementParagraphsAnnounced": 3,
+      "scope": "linked-adventure-prose"
+    },
+    "location": "Skyreach Castle",
+    "namedCloudGiant": "Blagothkus",
+    "namedGhostReference": "Eigeron",
+    "sktChapterReference": "The Chosen Path"
+  },
+  "blagothkus": {
+    "relation": "named-npc-mentioned-in-linked-adventure",
+    "index": {
+      "displayedSource": "Tyranny of Dragons",
+      "digitalName": "Blagothkus",
+      "cardUrl": "https://www.dndbeyond.com/monsters/17468-blagothkus",
+      "challengeRating": "9",
+      "type": "Giant (cloud giant)",
+      "size": "Huge",
+      "alignment": "Neutral Evil"
+    },
+    "observation": {
+      "id": "dndsu:bestiary:3330",
+      "name": "Blagothkus",
+      "sourceIds": [
+        "105"
+      ],
+      "url": "https://dnd.su/bestiary/3330-blagothkus/"
+    },
+    "separateSrdReference": {
+      "id": "srd51:2014:monster:cloud-giant",
+      "size": "huge",
+      "challengeRating": "9",
+      "role": "separate-srd-reference"
+    },
+    "canonicalId": null,
+    "automaticAlias": false,
+    "fullStatBlock": "unverified"
+  },
+  "eigeron": {
+    "relation": "named-narrative-witness-with-digital-name-candidate",
+    "index": {
+      "displayedSource": "Storm King's Thunder",
+      "digitalName": "Eigeron’s Spirit",
+      "cardUrl": "https://www.dndbeyond.com/monsters/299573-eigerons-spirit",
+      "challengeRating": "4",
+      "type": "Undead",
+      "size": "Huge",
+      "alignment": "Neutral Good"
+    },
+    "observation": {
+      "id": "dndsu:bestiary:7738",
+      "name": "Eigeron's Ghost",
+      "sourceIds": [
+        "132"
+      ],
+      "url": "https://dnd.su/bestiary/7738-eigerons-ghost/"
+    },
+    "previousReviewStatus": "name-candidate-needs-identity-review",
+    "separateSrdReference": {
+      "id": "srd51:2014:monster:ghost",
+      "size": "medium",
+      "challengeRating": "4",
+      "role": "separate-srd-reference"
+    },
+    "canonicalId": null,
+    "automaticAlias": false,
+    "fullStatBlock": "unverified"
+  },
+  "blackEarth": {
+    "relation": "faction-reference-with-separate-digital-listings",
+    "witness": {
+      "printedPage": 232,
+      "pdfPage": 2,
+      "sidebar": "Using the Elemental Cults",
+      "faction": "Cult of the Black Earth",
+      "encounterLocation": "Deadstone Cleft",
+      "sktChapter": 6,
+      "sktChapterTitle": "Canyon of the Stone Giants"
+    },
+    "index": [
+      {
+        "displayedSource": "Storm King's Thunder",
+        "digitalName": "Black Earth Cultist",
+        "cardUrl": "https://www.dndbeyond.com/monsters/297972-black-earth-cultist",
+        "challengeRating": "2",
+        "type": "Humanoid (human)",
+        "size": "Medium",
+        "alignment": "Neutral Evil"
+      },
+      {
+        "displayedSource": "Princes of the Apocalypse",
+        "digitalName": "Black Earth Guard",
+        "cardUrl": "https://www.dndbeyond.com/monsters/17428-black-earth-guard",
+        "challengeRating": "2",
+        "type": "Humanoid (human)",
+        "size": "Medium",
+        "alignment": "Neutral Evil"
+      },
+      {
+        "displayedSource": "Princes of the Apocalypse",
+        "digitalName": "Black Earth Priest",
+        "cardUrl": "https://www.dndbeyond.com/monsters/17429-black-earth-priest",
+        "challengeRating": "3",
+        "type": "Humanoid (human)",
+        "size": "Medium",
+        "alignment": "Neutral Evil"
+      }
+    ],
+    "observations": [
+      {
+        "id": "dndsu:bestiary:4915",
+        "name": "Black Earth Guard",
+        "sourceIds": [
+          "107"
+        ],
+        "url": "https://dnd.su/bestiary/4915-black-earth-guard/"
+      },
+      {
+        "id": "dndsu:bestiary:4912",
+        "name": "Black Earth Priest",
+        "sourceIds": [
+          "107"
+        ],
+        "url": "https://dnd.su/bestiary/4912-black-earth-priest/"
+      }
+    ],
+    "previousCultistStatus": "index-only",
+    "canonicalId": null,
+    "automaticAlias": false,
+    "fullStatBlocks": "unverified"
+  }
+}
