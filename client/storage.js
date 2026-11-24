@@ -650,30 +650,70 @@ const SkazStorage = (() => {
   }
   function editCharges(item) {
     if(demo||(!canResource()&&status!=='ready')||!activeContext)return toast('Сначала сохрани черновик или загрузи актуальные данные');
-    const key=snapshotKey(),characterId=activeContext.characterId,info=item.entry.item||item.entry.artifact,maximum=info.charges.max;
+    const key=snapshotKey(),characterId=activeContext.characterId,info=item.entry.item||item.entry.artifact,maximum=SkazItemCharges.maximum(item.entry);
     const counts=item.chargeCounts||Array(item.quantity).fill(null);
-    modal(`<button id="charges-back">← К предмету</button><div class="overline">${esc(state.profile.name)} · ИНВЕНТАРЬ</div><h2 tabindex="-1" autofocus>Заряды: ${esc(item.entry.name.ru)}</h2><p>Максимум: ${maximum}. Восстановление: ${esc(info.charges.recharge)}</p><form id="charges-form"><div class="charges-fields"><label for="charges-unit">Экземпляр<select id="charges-unit">${counts.map((n,i)=>`<option value="${i}">№ ${i+1} · ${n===null?'остаток неизвестен':n+' / '+maximum}</option>`).join('')}</select></label><label for="charges-operation">Что произошло<select id="charges-operation"><option value="set" ${!can('character')?'disabled':''}>Указать текущий остаток</option><option value="spend" ${!can('character')?'selected':''}>Потратить заряды</option><option value="recover">Восстановить заряды</option><option value="unknown" ${!can('character')?'disabled':''}>Остаток неизвестен</option></select></label><label for="charges-amount">Количество<input id="charges-amount" type="number" min="0" max="${maximum}" step="1" inputmode="numeric" required placeholder="Введи число"></label><p id="charges-preview" role="status" aria-live="polite"></p><p class="small">Броски и восстановление подтверждаешь ты. Ноль зарядов не уничтожает предмет автоматически. Номера различают одинаковые предметы внутри этого списка.</p></div><div class="dialog-actions"><button type="submit" class="primary">Сохранить заряды</button></div></form>`);
+    modal(`<button id="charges-back">← К предмету</button><div class="overline">${esc(state.profile.name)} · ИНВЕНТАРЬ</div><h2 tabindex="-1" autofocus>Заряды: ${esc(item.entry.name.ru)}</h2><p>Максимум: ${maximum}. Восстановление: ${esc(info.charges.recharge)}</p><form id="charges-form"><div class="charges-fields"><label for="charges-unit">Экземпляр<select id="charges-unit">${counts.map((n,i)=>`<option value="${i}">№ ${i+1} · ${n===null?'остаток неизвестен':n+' / '+maximum}</option>`).join('')}</select></label><label for="charges-operation">Что произошло<select id="charges-operation"><option value="set" ${!can('character')?'disabled':''}>Указать текущий остаток</option><option value="spend" ${!can('character')?'selected':''}>Потратить заряды</option><option value="recover">Восстановить заряды</option><option value="unknown" ${!can('character')?'disabled':''}>Остаток неизвестен</option></select></label><label for="charges-amount">Количество<input id="charges-amount" type="number" aria-describedby="charges-preview charges-warning" min="0" max="${SkazItemCharges.technicalMaximum}" step="1" inputmode="numeric" required placeholder="Введи число"></label><p id="charges-preview" role="status" aria-live="polite"></p><p id="charges-warning" hidden></p><div id="charges-agreement-fields" hidden><label class="charge-agreement-check"><input type="checkbox" id="charges-agreed"> Согласовано с мастером (необязательно)</label><label id="charges-agreement-note-label" for="charges-agreement-note" hidden>Пояснение к согласованию<textarea id="charges-agreement-note" maxlength="500"></textarea></label></div><p class="small">Броски и восстановление подтверждаешь ты. Ноль зарядов не уничтожает предмет автоматически. Номера различают одинаковые предметы внутри этого списка.</p></div><div class="dialog-actions"><button type="submit" class="primary">Сохранить заряды</button></div></form>`);
     $('#charges-back').onclick=()=>{if(key===snapshotKey())readInventoryItem(item);else inventory();};
+    const amountInput=$('#charges-amount'),unitInput=$('#charges-unit'),operationInput=$('#charges-operation');
+    const warningBox=$('#charges-warning'),agreementFields=$('#charges-agreement-fields'),agreement=$('#charges-agreed'),note=$('#charges-agreement-note'),noteLabel=$('#charges-agreement-note-label');
+    let warningKey='';
     function value(){
-      const unit=Number($('#charges-unit').value),operation=$('#charges-operation').value,raw=$('#charges-amount').value;
-      if(!Number.isInteger(unit)||unit<0||unit>=counts.length)throw new Error('Выбери экземпляр');
-      if(!['set','spend','recover','unknown'].includes(operation))throw new Error('Выбери действие');
-      const amount=operation==='unknown'?null:Number(raw);
-      if(operation!=='unknown'&&(raw.trim()===''||!Number.isSafeInteger(amount)||amount<(operation==='set'?0:1)||amount>maximum))throw new Error('Укажи целое количество в пределах максимума');
-      if(['spend','recover'].includes(operation)&&counts[unit]===null)throw new Error('Сначала укажи текущий остаток этого экземпляра');
-      const next=operation==='unknown'?null:operation==='set'?amount:counts[unit]+(operation==='spend'?-amount:amount);
-      if(next!==null&&(next<0||next>maximum))throw new Error('Результат должен быть от 0 до '+maximum);
-      if(next===counts[unit])throw new Error('Остаток не изменился');
-      return {unit,operation,amount,next};
+      const unit=Number(unitInput.value),operation=operationInput.value,raw=amountInput.value;
+      const current=SkazItemCharges.balance(item,unit);
+      if(!current)throw Error('Выбери экземпляр');
+      const amount=operation==='unknown'?null:raw.trim()===''?NaN:Number(raw);
+      const projected=SkazItemCharges.project(current,operation,amount);
+      if(projected.error){
+        const reason={unknown:'Сначала укажи текущий остаток этого экземпляра',manual:'Для превышения выбери «Указать текущий остаток»',bounds:'Остаток должен быть от 0 до '+SkazItemCharges.technicalMaximum};
+        throw Error(reason[projected.error]||'Укажи целое количество в допустимых границах');
+      }
+      return {unit,operation,amount,...projected};
+    }
+    function displayWarning(v){
+      const showAgreement=Boolean(v?.operation==='set'&&v.warning);
+      const active=showAgreement?SkazItemCharges.agreementFor(item,v.unit,v.next):null;
+      const key=showAgreement?v.unit+':'+v.next:'';
+      if(key!==warningKey){agreement.checked=Boolean(active);note.value=active?.note||'';warningKey=key;}
+      agreementFields.hidden=!showAgreement;
+      noteLabel.hidden=!agreement.checked;
+      warningBox.hidden=!v?.warning;
+      warningBox.classList.toggle('cast-warning',Boolean(v?.warning&&!(active&&agreement.checked)));
+      warningBox.textContent=!v?.warning?'':active&&agreement.checked?'Согласовано с мастером для этого остатка.':
+        'Остаток '+v.warning.actual+' выше справочного максимума '+v.warning.maximum+'. '+(showAgreement?'Можно сохранить вручную.':'При изменении остатка прежнее согласование перестанет действовать.');
     }
     function preview(){
-      const unknown=$('#charges-operation').value==='unknown';$('#charges-amount').disabled=unknown;$('#charges-amount').required=!unknown;$('#charges-amount').min=$('#charges-operation').value==='set'?'0':'1';
-      try{const v=value();$('#charges-preview').textContent=`После сохранения: № ${v.unit+1} · ${v.next===null?'остаток неизвестен':v.next+' / '+maximum}`;}catch(error){$('#charges-preview').textContent=error.message;}
+      const operation=operationInput.value,unknown=operation==='unknown';
+      amountInput.disabled=unknown;
+      amountInput.required=!unknown;
+      amountInput.min=operation==='set'?'0':'1';
+      try{
+        const v=value();
+        $('#charges-preview').textContent=`После сохранения: № ${v.unit+1} · ${v.next===null?'остаток неизвестен':v.next+' / '+maximum}`;
+        displayWarning(v);
+      }catch(error){$('#charges-preview').textContent=error.message;displayWarning(null);}
     }
-    $('#charges-unit').onchange=preview;$('#charges-operation').onchange=preview;$('#charges-amount').oninput=preview;preview();
+    function loadUnit(){
+      const current=SkazItemCharges.balance(item,Number(unitInput.value));
+      amountInput.value=operationInput.value==='set'&&current?.value!==null?current?.value??'':'';
+      warningKey='';
+      preview();
+    }
+    unitInput.onchange=loadUnit;operationInput.onchange=loadUnit;amountInput.oninput=preview;agreement.onchange=preview;loadUnit();
     $('#charges-form').onsubmit=async event=>{
       event.preventDefault();if(key!==snapshotKey())return toast('Игра изменилась. Открой инвентарь заново.',undefined,{error:true,persistent:true});
-      try{const {next,operation:chargeAction,...fields}=value();if(resourceQueue&&['spend','recover'].includes(chargeAction)){resourceDelta({kind:'charges',catalogId:item.catalogId,unit:fields.unit},chargeAction==='spend'?-fields.amount:fields.amount,key);closeModal();await inventory();return;}await campaignCommand('inventory-charges',{characterId,catalogId:item.catalogId,chargeAction,...fields});await inventory();}catch(error){toast(error.message,undefined,{error:true,persistent:true});}
+      try{
+        const {unit,operation:chargeAction,amount,next,warning}=value();
+        const agreementNote=chargeAction==='set'&&warning?(agreement.checked?note.value.trim():null):undefined;
+        const oldAgreement=SkazItemCharges.agreementFor(item,unit);
+        const previous=SkazItemCharges.balance(item,unit).value;
+        if(previous===next&&(agreementNote===undefined||agreementNote===(oldAgreement?.note??null)))throw Error('Остаток и согласование не изменились');
+        if(resourceQueue&&['spend','recover'].includes(chargeAction)){
+          resourceDelta({kind:'charges',catalogId:item.catalogId,unit},chargeAction==='spend'?-amount:amount,key);
+          closeModal();await inventory();return;
+        }
+        await campaignCommand('inventory-charges',{characterId,catalogId:item.catalogId,unit,chargeAction,amount,...(agreementNote===undefined?{}:{agreement:agreementNote})});
+        await inventory();
+      }catch(error){toast(error.message,undefined,{error:true,persistent:true});}
     };
   }
   function addInventory(entry) {

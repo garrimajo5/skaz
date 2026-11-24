@@ -305,8 +305,9 @@ h1[tabindex="-1"]:focus:not(:focus-visible),h2[tabindex="-1"]:focus:not(:focus-v
 .play-cast-levels button[aria-pressed=true],#play-cast-form button[aria-pressed=true]{background:var(--accent);color:var(--ink)}
 #play-cast-form fieldset{display:flex;gap:6px;flex-wrap:wrap;margin-block:12px}
 #play-cast-form fieldset button{min-width:44px;min-height:44px}
-#play-manual-cast-form .manual-cast-agreement{display:flex;align-items:center;gap:10px;min-height:var(--touch);margin-block:8px;cursor:pointer}
-#play-manual-cast-form .manual-cast-agreement input{width:20px;height:20px;min-height:20px;margin:0;flex:none;accent-color:var(--accent)}
+#charges-form [hidden]{display:none}
+#play-manual-cast-form .manual-cast-agreement,#charges-form .charge-agreement-check{display:flex;align-items:center;gap:10px;min-height:var(--touch);margin-block:8px;cursor:pointer}
+#play-manual-cast-form .manual-cast-agreement input,#charges-form .charge-agreement-check input{width:20px;height:20px;min-height:20px;margin:0;flex:none;accent-color:var(--accent)}
 body[data-page="play"] #dialog::backdrop{backdrop-filter:none}
 @media(max-width:650px){.play-spell-action:has(.play-cast-levels){height:auto;min-height:94px;flex-wrap:wrap}.play-spell-action:has(.play-cast-levels)>.play-spell-row{flex-basis:100%}.play-spell-action:has(.play-cast-levels)>.play-casting-controls{margin-left:auto}}
 /* Spell text stays readable beside the explicit casting controls. */
