@@ -1,0 +1,1384 @@
+{
+  "renderer": "158.0.4370.33",
+  "runtime": "373d4c5",
+  "scope": "manual profile warning and editor synthetic RAM, computed",
+  "rows": [
+    {
+      "theme": "polar",
+      "viewports": [
+        {
+          "width": 1180,
+          "height": 820
+        },
+        {
+          "width": 820,
+          "height": 1180
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "measurements": {
+        "profile": [
+          {
+            "id": "",
+            "label": "Правила предупреждают об отличиях. Подтверждение мастера не требуется для сохранения.",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 1–30. Можно сохранить личное значение.",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Ловкость: 31",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 1–20. Можно сохранить личное значение.",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Уровень: 21",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 0–7. Можно сохранить личное значение.",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "QA Запас: 8",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          }
+        ],
+        "editor": [
+          {
+            "id": "sheet-level",
+            "label": "INPUT",
+            "edge": 7.11,
+            "fill": 1,
+            "pass": true,
+            "background": "rgb(23, 38, 58)",
+            "border": "rgb(159, 179, 202)",
+            "borderWidth": "1px",
+            "borderStyle": "solid",
+            "target": 3
+          },
+          {
+            "id": "sheet-casting",
+            "label": "SELECT",
+            "edge": 7.11,
+            "fill": 1,
+            "pass": true,
+            "background": "rgb(23, 38, 58)",
+            "border": "rgb(159, 179, 202)",
+            "borderWidth": "1px",
+            "borderStyle": "solid",
+            "target": 3
+          },
+          {
+            "id": "counter-current-0",
+            "label": "INPUT",
+            "edge": 7.11,
+            "fill": 1,
+            "pass": true,
+            "background": "rgb(23, 38, 58)",
+            "border": "rgb(159, 179, 202)",
+            "borderWidth": "1px",
+            "borderStyle": "solid",
+            "target": 3
+          },
+          {
+            "id": "counter-max-0",
+            "label": "INPUT",
+            "edge": 7.11,
+            "fill": 1,
+            "pass": true,
+            "background": "rgb(23, 38, 58)",
+            "border": "rgb(159, 179, 202)",
+            "borderWidth": "1px",
+            "borderStyle": "solid",
+            "target": 3
+          },
+          {
+            "id": "sheet-draft-status",
+            "label": "Ввод формы сохраняется только в этом браузере.",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Выбор меняет список и подписи, не назначает лимиты и не переписывает старые отметки.",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Мастерство считается от общего уровня. Для разных заклинательных классов выбери характеристику нужного набора заклинаний",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          }
+        ],
+        "focus": {
+          "id": "sheet-level",
+          "ratio": 10.128,
+          "visible": true,
+          "pass": true,
+          "manual": [],
+          "outline": "rgb(140, 226, 210)",
+          "width": "2px",
+          "target": 3
+        },
+        "disabled": [
+          {
+            "id": "sheet-dc",
+            "label": "INPUT",
+            "ratio": 13.782,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(237, 244, 252)",
+            "background": "rgb(23, 38, 58)",
+            "foreground": [
+              237,
+              244,
+              252,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "sheet-attack",
+            "label": "INPUT",
+            "ratio": 13.782,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(237, 244, 252)",
+            "background": "rgb(23, 38, 58)",
+            "foreground": [
+              237,
+              244,
+              252,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          }
+        ],
+        "review": [
+          {
+            "id": "",
+            "label": "Правила предупреждают об отличиях. Подтверждение мастера не требуется для сохранения.",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 1–20. Можно сохранить личное значение.",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Уровень: 21",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 0–7. Можно сохранить личное значение.",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "QA Запас: 8",
+            "ratio": 7.11,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(159, 179, 202)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              159,
+              179,
+              202,
+              1
+            ],
+            "backdrop": [
+              23,
+              38,
+              58,
+              1
+            ],
+            "target": 4.5
+          }
+        ]
+      }
+    },
+    {
+      "theme": "coal",
+      "viewports": [
+        {
+          "width": 1180,
+          "height": 820
+        },
+        {
+          "width": 820,
+          "height": 1180
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "measurements": {
+        "profile": [
+          {
+            "id": "",
+            "label": "Правила предупреждают об отличиях. Подтверждение мастера не требуется для сохранения.",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 1–30. Можно сохранить личное значение.",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Ловкость: 31",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 1–20. Можно сохранить личное значение.",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Уровень: 21",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 0–7. Можно сохранить личное значение.",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "QA Запас: 8",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          }
+        ],
+        "editor": [
+          {
+            "id": "sheet-level",
+            "label": "INPUT",
+            "edge": 7.113,
+            "fill": 1,
+            "pass": true,
+            "background": "rgb(29, 34, 32)",
+            "border": "rgb(164, 175, 166)",
+            "borderWidth": "1px",
+            "borderStyle": "solid",
+            "target": 3
+          },
+          {
+            "id": "sheet-casting",
+            "label": "SELECT",
+            "edge": 7.113,
+            "fill": 1,
+            "pass": true,
+            "background": "rgb(29, 34, 32)",
+            "border": "rgb(164, 175, 166)",
+            "borderWidth": "1px",
+            "borderStyle": "solid",
+            "target": 3
+          },
+          {
+            "id": "counter-current-0",
+            "label": "INPUT",
+            "edge": 7.113,
+            "fill": 1,
+            "pass": true,
+            "background": "rgb(29, 34, 32)",
+            "border": "rgb(164, 175, 166)",
+            "borderWidth": "1px",
+            "borderStyle": "solid",
+            "target": 3
+          },
+          {
+            "id": "counter-max-0",
+            "label": "INPUT",
+            "edge": 7.113,
+            "fill": 1,
+            "pass": true,
+            "background": "rgb(29, 34, 32)",
+            "border": "rgb(164, 175, 166)",
+            "borderWidth": "1px",
+            "borderStyle": "solid",
+            "target": 3
+          },
+          {
+            "id": "sheet-draft-status",
+            "label": "Ввод формы сохраняется только в этом браузере.",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Выбор меняет список и подписи, не назначает лимиты и не переписывает старые отметки.",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Мастерство считается от общего уровня. Для разных заклинательных классов выбери характеристику нужного набора заклинаний",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          }
+        ],
+        "focus": {
+          "id": "sheet-level",
+          "ratio": 8.783,
+          "visible": true,
+          "pass": true,
+          "manual": [],
+          "outline": "rgb(217, 188, 124)",
+          "width": "2px",
+          "target": 3
+        },
+        "disabled": [
+          {
+            "id": "sheet-dc",
+            "label": "INPUT",
+            "ratio": 13.823,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(238, 238, 229)",
+            "background": "rgb(29, 34, 32)",
+            "foreground": [
+              238,
+              238,
+              229,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "sheet-attack",
+            "label": "INPUT",
+            "ratio": 13.823,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(238, 238, 229)",
+            "background": "rgb(29, 34, 32)",
+            "foreground": [
+              238,
+              238,
+              229,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          }
+        ],
+        "review": [
+          {
+            "id": "",
+            "label": "Правила предупреждают об отличиях. Подтверждение мастера не требуется для сохранения.",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 1–20. Можно сохранить личное значение.",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Уровень: 21",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 0–7. Можно сохранить личное значение.",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "QA Запас: 8",
+            "ratio": 7.113,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(164, 175, 166)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              164,
+              175,
+              166,
+              1
+            ],
+            "backdrop": [
+              29,
+              34,
+              32,
+              1
+            ],
+            "target": 4.5
+          }
+        ]
+      }
+    },
+    {
+      "theme": "atlas",
+      "viewports": [
+        {
+          "width": 1180,
+          "height": 820
+        },
+        {
+          "width": 820,
+          "height": 1180
+        },
+        {
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "measurements": {
+        "profile": [
+          {
+            "id": "",
+            "label": "Правила предупреждают об отличиях. Подтверждение мастера не требуется для сохранения.",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 1–30. Можно сохранить личное значение.",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Ловкость: 31",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 1–20. Можно сохранить личное значение.",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Уровень: 21",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 0–7. Можно сохранить личное значение.",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "QA Запас: 8",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          }
+        ],
+        "editor": [
+          {
+            "id": "sheet-level",
+            "label": "INPUT",
+            "edge": 5.791,
+            "fill": 1,
+            "pass": true,
+            "background": "rgb(250, 248, 240)",
+            "border": "rgb(82, 102, 91)",
+            "borderWidth": "1px",
+            "borderStyle": "solid",
+            "target": 3
+          },
+          {
+            "id": "sheet-casting",
+            "label": "SELECT",
+            "edge": 5.791,
+            "fill": 1,
+            "pass": true,
+            "background": "rgb(250, 248, 240)",
+            "border": "rgb(82, 102, 91)",
+            "borderWidth": "1px",
+            "borderStyle": "solid",
+            "target": 3
+          },
+          {
+            "id": "counter-current-0",
+            "label": "INPUT",
+            "edge": 5.791,
+            "fill": 1,
+            "pass": true,
+            "background": "rgb(250, 248, 240)",
+            "border": "rgb(82, 102, 91)",
+            "borderWidth": "1px",
+            "borderStyle": "solid",
+            "target": 3
+          },
+          {
+            "id": "counter-max-0",
+            "label": "INPUT",
+            "edge": 5.791,
+            "fill": 1,
+            "pass": true,
+            "background": "rgb(250, 248, 240)",
+            "border": "rgb(82, 102, 91)",
+            "borderWidth": "1px",
+            "borderStyle": "solid",
+            "target": 3
+          },
+          {
+            "id": "sheet-draft-status",
+            "label": "Ввод формы сохраняется только в этом браузере.",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Выбор меняет список и подписи, не назначает лимиты и не переписывает старые отметки.",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Мастерство считается от общего уровня. Для разных заклинательных классов выбери характеристику нужного набора заклинаний",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          }
+        ],
+        "focus": {
+          "id": "sheet-level",
+          "ratio": 5.523,
+          "visible": true,
+          "pass": true,
+          "manual": [],
+          "outline": "rgb(70, 109, 84)",
+          "width": "2px",
+          "target": 3
+        },
+        "disabled": [
+          {
+            "id": "sheet-dc",
+            "label": "INPUT",
+            "ratio": 10.673,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(38, 63, 56)",
+            "background": "rgb(250, 248, 240)",
+            "foreground": [
+              38,
+              63,
+              56,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "sheet-attack",
+            "label": "INPUT",
+            "ratio": 10.673,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(38, 63, 56)",
+            "background": "rgb(250, 248, 240)",
+            "foreground": [
+              38,
+              63,
+              56,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          }
+        ],
+        "review": [
+          {
+            "id": "",
+            "label": "Правила предупреждают об отличиях. Подтверждение мастера не требуется для сохранения.",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 1–20. Можно сохранить личное значение.",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "Уровень: 21",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": ". Обычный диапазон: 0–7. Можно сохранить личное значение.",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          },
+          {
+            "id": "",
+            "label": "QA Запас: 8",
+            "ratio": 5.791,
+            "pass": true,
+            "manual": [],
+            "color": "rgb(82, 102, 91)",
+            "background": "rgba(0, 0, 0, 0)",
+            "foreground": [
+              82,
+              102,
+              91,
+              1
+            ],
+            "backdrop": [
+              250,
+              248,
+              240,
+              1
+            ],
+            "target": 4.5
+          }
+        ]
+      }
+    }
+  ]
+}
