@@ -20,17 +20,18 @@ function preferredEncoding(header = '') {
   return identityWeight === 0 ? null : 'identity';
 }
 
-// Only the immutable, common registry feeds these shared buffers. Requests
-// still pass the app's session, identity and view checks before selecting one.
-export function createArtIndexRepresentations(loadLibrary) {
+// Only the immutable bundled registry feeds the shared buffers. An injected
+// library can deliberately change its index between requests, as in fault QA.
+export function createArtIndexRepresentations(loadLibrary, {stable}) {
+  const read = () => loadLibrary().then(library => Buffer.from(JSON.stringify(library.index())));
+  const compress = bytes => bytes.then(body => gzipBuffer(body, {level:4}));
   let jsonBytes, gzipBytes;
   return async acceptEncoding => {
     const encoding = preferredEncoding(acceptEncoding);
     if (!encoding) return null;
-    jsonBytes ??= loadLibrary().then(library => Buffer.from(JSON.stringify(library.index())));
-    const bytes = encoding === 'gzip'
-      ? await (gzipBytes ??= jsonBytes.then(body => gzipBuffer(body, {level:4})))
-      : await jsonBytes;
-    return {encoding, bytes};
+    const identity = stable ? (jsonBytes ??= read()) : read();
+    let bytes = identity;
+    if (encoding === 'gzip') bytes = stable ? (gzipBytes ??= compress(identity)) : compress(identity);
+    return {encoding, bytes:await bytes};
   };
 }

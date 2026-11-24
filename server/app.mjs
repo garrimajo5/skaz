@@ -44,7 +44,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
   // directory, or pilot status. Production always uses the accepted registry.
   let artPromise;
   const art = () => artPromise ??= artLibrary ? Promise.resolve(artLibrary) : readFile(new URL('../catalog/art-manifest.json',import.meta.url),'utf8').then(text=>createArtLibrary(JSON.parse(text),{base:fileURLToPath(new URL('../',import.meta.url))}));
-  const artIndex = createArtIndexRepresentations(art);
+  const artIndex = createArtIndexRepresentations(art, { stable: artLibrary === undefined });
   if (sessions !== undefined) {
     if (!publicOrigin || authenticate !== undefined || !sessions || ['login','authenticate','check','logout'].some(key=>typeof sessions[key]!=='function')) throw new Error('Сессии требуют HTTPS origin и отдельный доверенный провайдер');
     authenticate=request=>sessions.authenticate(cookieToken(request.headers.cookie));

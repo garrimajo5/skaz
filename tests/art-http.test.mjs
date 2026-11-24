@@ -5,6 +5,7 @@ import {AppError} from '../server/state.mjs';
 import {readFile} from 'node:fs/promises';
 import {get} from 'node:http';
 import {gunzipSync} from 'node:zlib';
+import {createArtIndexRepresentations} from '../server/art-index-http.mjs';
 import {inspectPng} from '../scripts/art-registry.mjs';
 
 async function fixture(t,{protectedMode=true,library}={}){
@@ -52,7 +53,20 @@ test('common art negotiates two representations of the same bytes for both perso
  assert.deepEqual(gunzipSync(compressed.bytes),plain.bytes);
  assert.deepEqual(player.bytes,compressed.bytes);
  assert.equal(JSON.parse(plain.bytes).entries[0].id,'spell-fixture');
- assert.equal(f.indexReads(),1);
+ assert.equal(f.indexReads(),3);
+});
+test('only the stable registry reuses its serialized and compressed bodies',async()=>{
+ let reads=0;
+ const read=async()=>({index:()=>({version:++reads})});
+ const stable=createArtIndexRepresentations(read,{stable:true});
+ const [first,second,plain]=await Promise.all([stable('gzip'),stable('gzip'),stable('identity')]);
+ assert.equal(reads,1);
+ assert.equal(first.bytes,second.bytes);
+ assert.deepEqual(gunzipSync(first.bytes),plain.bytes);
+ const changing=createArtIndexRepresentations(read,{stable:false});
+ const old=await changing('gzip'),next=await changing('gzip');
+ assert.notDeepEqual(gunzipSync(old.bytes),gunzipSync(next.bytes));
+ assert.equal(reads,3);
 });
 test('art encoding honors exclusions, explicit identity preferences and fallback',async t=>{
  const f=await fixture(t);
