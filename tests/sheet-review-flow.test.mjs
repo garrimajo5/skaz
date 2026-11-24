@@ -38,7 +38,8 @@ async function form(scenario = 'conflicting-pages') {
  const input=(id,value)=>{const n=node('field-'+id);n.focus();n.value=value;n.oninput();};
  const unknown=id=>{const f=vm.runInContext('fields.find(f=>f.key==='+JSON.stringify(id)+')',context);f.unknownBox.checked=true;f.unknownBox.onchange();};
  const submit=()=>{node('confirmed').checked=true;node('confirmed').onchange();node('review').onsubmit({preventDefault(){}});};
- return {node,read,input,unknown,submit,context,requests,document};
+ const select=(id,value)=>{const n=node(id);n.focus();n.value=value;n.onchange();};
+ return {node,read,input,unknown,select,submit,context,requests,document};
 }
 
 test('discard decisions are applied at submit or cancel, independent of any queued close',async()=>{
@@ -121,9 +122,80 @@ test('an unavailable/unloaded field set cannot produce an empty confirmation',as
 
 test('GM agreement marks the group dirty without relabeling an unchanged OCR total as a correction',async()=>{
  const h=await form('multiclass-pact');h.input('level.wizard','4');
+ h.select('spell-coverage','unknown');
  h.node('class-agreement').checked=true;h.node('class-agreement').onchange();
  assert.match(h.node('field-totalLevel-status').textContent,/Значение из сценария/);
  h.submit();const values=h.read('confirmation').values;
  assert.equal(values.find(f=>f.fieldId==='totalLevel').provenance,'ocr-confirmed');
  assert.equal(values.find(f=>f.fieldId==='level.wizard').provenance,'manual-correction');
+});
+
+test('explicitly unknown spell lists and confirmed-empty lists produce different snapshots',async()=>{
+ const h=await form('multiclass-pact');
+ h.submit();
+ assert.equal(h.read('confirmation'),null,'blank coverage needs a decision');
+ h.select('spell-coverage','unknown');
+ h.submit();
+ assert.deepEqual(h.read('confirmation.spells'),{fieldId:'spells',selection:'left-unknown',value:null,provenance:'manual-unknown'});
+ h.select('spell-coverage','empty');
+ assert.equal(h.read('confirmation'),null);
+ assert.equal(h.node('confirmed').checked,false);
+ assert.equal(h.node('result').hidden,true);
+ assert.equal(h.document.activeElement,h.node('spell-coverage'));
+ h.submit();
+ assert.deepEqual(h.read('confirmation.spells'),{fieldId:'spells',selection:'corrected',value:{coverage:'complete',rows:[]},provenance:'manual-correction'});
+ assert.match(h.node('result').textContent,/Подтверждён пустой список/);
+});
+
+test('partial spell review preserves verified rows, and a deferred row cannot be marked complete',async()=>{
+ const h=await form('multiclass-pact');
+ h.select('spell-coverage','partial');
+ h.select('spell-row-choice','later');
+ h.submit();
+ assert.deepEqual(h.read('confirmation.spells.value'),{
+  coverage:'partial',rows:[{rowId:'example-shield',name:'Щит',source:'wizard',location:'book'}]
+ });
+ assert.deepEqual(h.read('confirmation.values').filter(field=>field.fieldId.startsWith('pact.')||field.fieldId.startsWith('spellcasting.')).map(field=>[field.fieldId,field.value]),[
+  ['spellcasting.1',4],['spellcasting.2',2],['pact.1',2]
+ ]);
+ assert.match(h.node('result').textContent,/Остальные строки неизвестны/);
+ h.select('spell-coverage','complete');
+ h.submit();
+ assert.equal(h.read('confirmation'),null);
+ assert.match(h.node('spell-review-status').textContent,/несверенная строка/);
+ h.select('spell-row-choice','exclude');
+ h.submit();
+ assert.equal(h.read('confirmation.spells.value.coverage'),'complete');
+ assert.equal(h.read('confirmation.spells.value.rows.length'),1);
+});
+
+test('a known spell title does not set its class or location and edits require a fresh confirmation',async()=>{
+ const h=await form('multiclass-pact');
+ h.select('spell-coverage','complete');
+ h.select('spell-row-choice','keep');
+ h.select('spell-row-location','prepared');
+ h.submit();
+ assert.equal(h.read('confirmation'),null,'a mark in the sheet does not choose its source');
+ h.select('spell-row-source','unknown');
+ h.submit();
+ assert.deepEqual(h.read('confirmation.spells.value.rows[1]'),{rowId:'example-misty-step',name:'Туманный шаг',source:null,location:'prepared'});
+ h.select('spell-row-source','warlock');
+ assert.equal(h.read('confirmation'),null);
+ assert.equal(h.node('apply').disabled,true);
+ h.select('spell-row-location','known');
+ h.submit();
+ assert.deepEqual(h.read('confirmation.spells.value.rows[1]'),{rowId:'example-misty-step',name:'Туманный шаг',source:'warlock',location:'known'});
+});
+
+test('an unsaved choice about list coverage survives cancelling a scenario change',async()=>{
+ const h=await form('multiclass-pact');
+ h.select('spell-coverage','partial');
+ h.select('spell-row-choice','later');
+ h.select('scenario','zero-charges');
+ const dialog=h.node('discard');
+ assert.equal(dialog.open,true);
+ dialog.handlers.cancel();
+ assert.equal(h.node('scenario').value,'multiclass-pact');
+ assert.equal(h.node('spell-coverage').value,'partial');
+ assert.equal(h.node('spell-row-choice').value,'later');
 });
