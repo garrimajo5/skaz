@@ -74,6 +74,83 @@ test('published manual-2014 and v15 preserve zero but still reject unknown scala
  }finally{source.close();target.close();}
 });
 
+test('v15 health keeps a known zero distinct from the legacy omission and rejects explicit unknown',()=>{
+ const source=openStore(':memory:'),target=openStore(':memory:');
+ try{
+  const create=request(source);
+  Object.assign(create.manual,{hp:12,tempHp:0});
+  source.createCharacter(create);
+  const known=source.exportActive(15);
+  assert.equal(known.state.tempHp,0);
+  const legacy=structuredClone(known);
+  delete legacy.state.tempHp;
+
+  const unknown=structuredClone(known);
+  unknown.state.tempHp=null;
+  const unchanged=target.read();
+  assert.throws(()=>target.importActive(command(target,{destination:'new-campaign',file:unknown})),{status:422});
+  assert.deepEqual(target.read(),unchanged);
+  assert.equal(target.campaigns().length,1);
+
+  for(const [file,expected] of [[known,0],[legacy,undefined]]){
+   target.importActive(command(target,{destination:'new-campaign',file}));
+   assert.equal(target.exportActive(15).state.tempHp,expected);
+   const before=target.read();
+   const damage=command(target,{
+    context:before.context,delta:1,before:before.state.hp,maximum:before.state.maxHp,
+    resource:{kind:'health',operation:'damage',temporaryBefore:0,concentrationBefore:null},
+   });
+   assert.throws(()=>target.changeResource({...damage,resource:{...damage.resource,temporaryBefore:null}}),{status:422});
+   assert.deepEqual(target.read(),before);
+   const result=target.changeResource(damage);
+   assert.equal(result.state.hp,11);
+   assert.equal(result.state.tempHp,0);
+   assert.equal(target.changeResource(damage).replayed,true);
+   assert.equal(target.history().filter(row=>row.mutationId===damage.mutationId).length,1);
+  }
+ }finally{source.close();target.close();}
+});
+
+test('v15 keeps a zero counter and refuses unknown level or counters atomically',()=>{
+ const source=openStore(':memory:'),target=openStore(':memory:');
+ try{
+  source.createCharacter(request(source));
+  const file=source.exportActive(15),before=target.read();
+  const invalidCases=[
+   sheet=>{sheet.level=null;},
+   sheet=>{delete sheet.level;},
+   sheet=>{sheet.counters=null;},
+   sheet=>{sheet.counters[0].current=null;},
+   sheet=>{sheet.counters[0].max=null;},
+  ];
+  for(const alter of invalidCases){
+   const invalid=structuredClone(file);
+   alter(invalid.characterSheet);
+   assert.throws(()=>target.importActive(command(target,{destination:'new-campaign',file:invalid})),{status:422});
+   assert.deepEqual(target.read(),before);
+   assert.equal(target.campaigns().length,1);
+  }
+  target.importActive(command(target,{destination:'new-campaign',file}));
+  const selected=target.read(),counter=selected.characterSheet.counters[0];
+  assert.equal(counter.current,0);
+  const spend=command(target,{characterId:selected.context.characterId,counterId:counter.id,delta:-1});
+  assert.throws(()=>target.changeCharacterCounter(spend),{status:409});
+  assert.deepEqual(target.read(),selected);
+  const recovered=target.changeCharacterCounter({...spend,mutationId:randomUUID(),delta:1});
+  assert.equal(recovered.characterSheet.counters[0].current,1);
+  const {context, state}=target.read();
+  assert.throws(()=>target.changeResource(command(target,{
+   context,resource:{kind:'slot',level:1},delta:1,before:state.slots[1],maximum:4,
+  })),{status:409});
+
+  const empty=structuredClone(file);
+  empty.characterSheet.counters=[];
+  target.importActive(command(target,{destination:'new-campaign',file:empty}));
+  assert.deepEqual(target.read().characterSheet.counters,[]);
+  assert.deepEqual(target.exportActive(15).characterSheet.counters,[]);
+ }finally{source.close();target.close();}
+});
+
 test('stale revision, changed retry, wrong campaign and duplicate ID cannot partially create manual records',()=>{
  const s=openStore(':memory:');try{const r=request(s);assert.throws(()=>s.createCharacter({...r,campaignId:randomUUID()}),{status:409});s.createCharacter(r);const before=s.read();
   assert.throws(()=>s.createCharacter({...request(s),expectedRevision:0}),{status:409});
