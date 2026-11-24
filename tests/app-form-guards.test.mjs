@@ -9,15 +9,21 @@ const sheetSource=await readFile(new URL('../client/character-sheet.js',import.m
 const playSource=await readFile(new URL('../client/play.js',import.meta.url),'utf8');
 const presentationSource=await readFile(new URL('../client/play-presentation.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/app.js',import.meta.url),'utf8');
-function harness(){
+function harness({hash='#hero',rememberedMode=null}={}){
  let editable=true,revision=0;const elements=new Map(),handlers={},writes=[];
  const get=id=>{if(!elements.has(id))elements.set(id,{value:'',innerHTML:'',dataset:{},classList:{add(){},remove(){},toggle(){}},focus(){},scrollIntoView(){},append(node){elements.set('#'+node.id,node);},setAttribute(){},addEventListener(){},showModal(){this.open=true;},close(){this.open=false;}});return elements.get(id);};
- const context=vm.createContext({structuredClone,URL,Blob,location:{protocol:'http:',hash:'#hero'},history:{replaceState(){}},localStorage:{getItem:()=>null},setTimeout:()=>0,clearTimeout(){},
+ const context=vm.createContext({structuredClone,URL,Blob,location:{protocol:'http:',hash},history:{replaceState(){}},localStorage:{getItem:()=>null},sessionStorage:{getItem:key=>key==='skaz-play-mode-v1'?rememberedMode:null,setItem(){}},setTimeout:()=>0,clearTimeout(){},queueMicrotask(){},
   document:{body:{dataset:{}},querySelector:get,querySelectorAll:()=>[],getElementById:id=>id==='blocked-form-message'?(elements.get('#'+id)||null):get('#'+id),createElement:()=>({setAttribute(){},scrollIntoView(){}}),addEventListener:(key,fn)=>handlers[key]=fn},window:{addEventListener(){},scrollTo(){}},
   SkazStorage:{stats:()=>({abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18},armorClass:14,initiative:2,speed:30}),preference:()=> 'polar',paint(){},boot(){},setTheme(){},sessionTitle:()=>'',sessionDate:()=>'',contextKey:()=> 'same',snapshotKey:()=> 'same:'+revision,editable:()=>editable,commit:async(state,label)=>{writes.push({state:structuredClone(state),label});revision++;return {state};}},SkazEvents:{pendingCount:()=>0,view:()=>'<section>События на проверку</section>'},SkazQuests:{view:()=>'<section>Задания кампании</section>'}
  });vm.runInContext(profileRulesSource,context);vm.runInContext(conditionsSource,context);vm.runInContext(healthSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(playSource,context);vm.runInContext(source,context);
  return {get,writes,block:()=>editable=false,run:code=>vm.runInContext(code,context),state:()=>JSON.parse(vm.runInContext('JSON.stringify(state)',context)),click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset,classList:{contains:()=>false}})}})};
 }
+
+test('initial links take precedence over remembered Quick Access, which remains the default without a link',()=>{
+ assert.equal(harness({hash:'#journal',rememberedMode:'play'}).run('page'),'journal');
+ assert.equal(harness({hash:'',rememberedMode:'play'}).run('page'),'play');
+ assert.equal(harness({hash:''}).run('page'),'hero');
+});
 
 test('profile and inventory render the same escaped hero and a single resource mount',()=>{
  const h=harness();
