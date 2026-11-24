@@ -95,10 +95,12 @@ const SkazPlay = (()=>{
   const enabled=SkazStorage.canResource?.()&&Number.isInteger(level)&&(manual||state.hp>0&&(level===0||levels.length||counters.length));
   const label=!Number.isInteger(level)?'круг не указан':manual?'Записать вручную':state.hp===0?'0 HP':level===0?'Применить':'Сотворить';
   const warning=!manual&&spell?.concentration&&state.concentration?'Сменит концентрацию «'+state.concentration+'»':'';
-  const choices=!sheet&&level>0&&levels.length>1?'<div class="play-cast-levels" role="group" aria-label="Круг ячейки для '+escape(item.entry.name.ru)+'">'+levels.map(n=>'<button data-play-cast-level="'+escape(item.catalogId)+'" data-level="'+n+'" aria-pressed="'+(n===selectedLevel(item))+'" aria-label="'+n+' круг · осталось '+state.slots[n]+'">'+n+'</button>').join('')+'</div>':'';
+  const circle=selectedLevel(item);
+  const choices=!sheet&&level>0&&levels.length>1?'<div class="play-cast-levels" role="group" aria-label="Круг ячейки для '+escape(item.entry.name.ru)+'">'+levels.map(n=>'<button data-play-cast-level="'+escape(item.catalogId)+'" data-level="'+n+'" aria-pressed="'+(n===circle)+'" aria-label="'+n+' круг · осталось '+state.slots[n]+'">'+n+'</button>').join('')+'</div>':'';
   const agreement=manual&&SkazCasting.manualAgreement(snapshot,item.catalogId,level);
-  const cost=manual?(agreement?'Согласовано с мастером':sheet?'нет доступного счётчика':'нет ячеек '+level+'+'):SkazPlayPresentation.castCost(enabled,level,!!sheet,selectedLevel(item));
-  return '<div class="play-casting-controls">'+choices+'<button class="play-cast" data-play-cast="'+escape(item.catalogId)+'" '+(enabled?'':'disabled')+' aria-label="'+escape(label+': '+item.entry.name.ru+(cost?' · '+cost:'')+(warning?' · '+warning:''))+'"><span>'+escape(label)+'</span>'+(cost?'<small class="play-cost">'+escape(cost)+'</small>':'')+(warning?'<small class="play-cast-warning">Сменит конц.</small>':'')+'</button></div>';
+  const cost=manual?(agreement?'Согласовано с мастером':sheet?'нет доступного счётчика':'нет ячеек '+level+'+'):SkazPlayPresentation.castCost(enabled,level,!!sheet,circle);
+  const visibleCost=choices?SkazPlayPresentation.castCost(enabled,level,!!sheet,circle,true):cost;
+  return '<div class="play-casting-controls">'+choices+'<button class="play-cast" data-play-cast="'+escape(item.catalogId)+'" '+(enabled?'':'disabled')+' aria-label="'+escape(label+': '+item.entry.name.ru+(cost?' · '+cost:'')+(warning?' · '+warning:''))+'"><span>'+escape(label)+'</span>'+(visibleCost?'<small class="play-cost">'+escape(visibleCost)+'</small>':'')+(warning?'<small class="play-cast-warning">Сменит конц.</small>':'')+'</button></div>';
  }
  function openManualCast(item,captured,snapshot){
   const {catalogId,entry}=item,level=entry.spell.level;
