@@ -1,5 +1,6 @@
 import Health from '../client/health.js';
 import Casting from '../client/casting.js';
+import Charges from '../client/item-charges.js';
 import {AppError} from './state.mjs';
 import {resourceBalance} from './resource-operations.mjs';
 import {inventoryInverse} from './inventory.mjs';
@@ -46,6 +47,14 @@ export function inverseResource(db,current,target){
   if(Object.hasOwn(value.resource,'checksBefore')&&JSON.stringify(current.state.concentrationChecks||[])!==JSON.stringify(value.checksAfter))throw new AppError(409,'Вопросы концентрации изменились');
   if(balance.maximum!==value.maximum||balance.value!==value.after||(current.state.tempHp||0)!==value.tempAfter||current.state.concentration!==value.concentrationAfter||(value.before===value.after&&value.resource.temporaryBefore===value.tempAfter&&value.resource.concentrationBefore===value.concentrationAfter&&JSON.stringify(value.resource.checksBefore||[])===JSON.stringify(value.checksAfter||[])&&JSON.stringify(value.resource.deathBefore)===JSON.stringify(value.deathAfter)))throw new AppError(409,'Здоровье изменилось или операция ничего не изменила');
   return {context:current.context,resource:{kind:'health',operation:'restore',temporaryBefore:current.state.tempHp||0,concentrationBefore:current.state.concentration,...(Object.hasOwn(value.resource,'checksBefore')?{checksBefore:current.state.concentrationChecks||[]}:{}),...(Object.hasOwn(value.resource,'deathBefore')?{deathBefore:current.state.deathSaves}:{}),hpAfter:value.before,tempAfter:value.resource.temporaryBefore,concentrationAfter:value.resource.concentrationBefore,...(Object.hasOwn(value.resource,'checksBefore')?{checksAfter:value.resource.checksBefore}:{}),...(Object.hasOwn(value.resource,'deathBefore')?{deathAfter:value.resource.deathBefore}:{})},delta:1,before:balance.value,maximum:balance.maximum};
+ }
+ if(value.resource.kind==='charges'){
+  const {catalogId,unit}=value.resource,after=Charges.project(balance,delta<0?'spend':'recover',Math.abs(delta),{restore:true});
+  if(after.error||balance.maximum!==value.maximum)throw new AppError(409,'Обратное изменение не укладывается в текущие границы зарядов');
+  const snapshot=db.prepare('SELECT before_json FROM inventory_changes WHERE mutation_id=?').get(target);
+  const prior=snapshot&&JSON.parse(snapshot.before_json).find(item=>item.catalogId===catalogId);
+  const agreement=Charges.agreementFor(prior,unit,after.next);
+  return {context:current.context,resource:{kind:'charges',catalogId,unit,...(agreement?{agreement}:{})},delta,before:balance.value,maximum:balance.maximum};
  }
  if(!delta||balance.maximum!==value.maximum||balance.value+delta<0||balance.value+delta>(value.resource.kind==='counter'?9999:balance.maximum))throw new AppError(409,'Обратное изменение не укладывается в текущие границы ресурса');
  return {context:current.context,resource:value.resource,delta,before:balance.value,maximum:balance.maximum};

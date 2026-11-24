@@ -48,7 +48,7 @@ test('charges reject invalid commands atomically and replay exactly once',()=>{
  assert.throws(()=>s.changeCharges({...request,amount:4}),{status:409});
  assert.throws(()=>s.changeCharges({...request,mutationId:randomUUID()}),{status:409});
  const before=s.inventory(),history=s.history();
- for(const [operation,amount,unit] of [['set',8,0],['set',-1,0],['set',1.5,0],['set','1',0],['spend',6,0],['recover',3,0],['spend',0,0],['unknown',0,0],['set',2,2],['set',2,-1],['set',2,0.5],['auto',1,0],['set',5,0]])assert.throws(()=>s.changeCharges(charge(s,operation,amount,unit)),{status:422});
+ for(const [operation,amount,unit] of [['set',10001,0],['set',-1,0],['set',1.5,0],['set','1',0],['spend',6,0],['recover',3,0],['spend',0,0],['unknown',0,0],['set',2,2],['set',2,-1],['set',2,0.5],['auto',1,0],['set',5,0]])assert.throws(()=>s.changeCharges(charge(s,operation,amount,unit)),{status:422});
  assert.throws(()=>s.changeCharges({...charge(s),extra:1}),{status:400});
  assert.throws(()=>s.changeCharges({...charge(s),characterId:'other'}),{status:409});
  assert.throws(()=>s.changeCharges({...charge(s),catalogId:'missing:item'}),{status:404});
@@ -76,6 +76,66 @@ test('v7 transfers known, empty and unknown balances; older versions refuse loss
  const old=structuredClone(file);old.schemaVersion=6;assert.throws(()=>target.importActive(cmd(target,{destination:'new-campaign',file:old})),{status:422});
  }finally{s.close();target.close();}
 });
+
+test('manual overage and its optional agreement preserve zero and survive replay and v15 transfer',()=>{
+ const s=setup(),target=openStore(':memory:');try{
+  s.addInventory(quantity(s,1));
+  s.changeCharges(charge(s,'set',0,1));
+  const set=charge(s,'set',8,2);
+  s.changeCharges(set);assert.equal(s.changeCharges(set).replayed,true);
+  assert.deepEqual(counts(s),[null,0,8]);assert.equal(s.inventory().entries[0].chargeAgreements,undefined);
+  const mark={...charge(s,'set',8,2),agreement:'Дополнительный заряд'};
+  s.changeCharges(mark);assert.equal(s.changeCharges(mark).replayed,true);
+  assert.throws(()=>s.changeCharges({...mark,agreement:'Изменённое объяснение'}),{status:409});
+  const expected=[{unit:2,actual:8,maximum:7,note:'Дополнительный заряд'}];
+  assert.deepEqual(s.inventory().entries[0].chargeAgreements,expected);
+  assert.throws(()=>s.exportActive(14),{status:409});
+  const file=s.exportActive(15);
+  assert.deepEqual(file.inventory[0].chargeAgreements,expected);
+  target.importActive(cmd(target,{destination:'new-campaign',file}));
+  assert.deepEqual(target.inventory().entries,s.inventory().entries);
+  const malformed=structuredClone(file);malformed.inventory[0].chargeAgreements[0].actual=9;
+  assert.throws(()=>target.importActive(cmd(target,{destination:'new-campaign',file:malformed})),{status:422});
+  const stale=structuredClone(file);stale.inventory[0].chargeAgreements[0].maximum=6;
+  assert.throws(()=>target.importActive(cmd(target,{destination:'new-campaign',file:stale})),{status:422});
+  const duplicate=structuredClone(file);duplicate.inventory[0].chargeAgreements.push(expected[0]);
+  assert.throws(()=>target.importActive(cmd(target,{destination:'new-campaign',file:duplicate})),{status:422});
+
+  const removal=quantity(s,1);s.removeInventory(removal);
+  assert.deepEqual(counts(s),[null,0]);assert.equal(s.inventory().entries[0].chargeAgreements,undefined);
+  undo(s,removal.mutationId);assert.deepEqual(s.inventory().entries[0].chargeAgreements,expected);
+  s.addInventory(quantity(s,1));assert.deepEqual(counts(s),[null,0,8,null]);
+  s.changeCharges({...charge(s,'set',9,2),agreement:null});
+  assert.equal(s.inventory().entries[0].chargeAgreements,undefined);
+  s.changeCharges(charge(s,'set',8,2));
+  assert.equal(s.inventory().entries[0].chargeAgreements,undefined);
+ }finally{s.close();target.close();}
+});
+test('v14 write migration rejects manual overage without changing saved inventory',()=>{
+ const s=openStore(':memory:',{profileWriteFormat:14});try{
+  s.catalog.importEntries({schemaVersion:1,entries:[fixture]},{apply:true});
+  s.addInventory(quantity(s,1));s.changeCharges(charge(s,'set',7));
+  const before=s.read(),inventory=s.inventory();
+  assert.throws(()=>s.changeCharges(charge(s,'set',8)),{status:409});
+  assert.deepEqual(s.read(),before);assert.deepEqual(s.inventory(),inventory);
+ }finally{s.close();}
+});
+test('manual charge agreements are protected by role, context and grant revocation',()=>{
+ const s=setup();try{
+  const context=s.read().context,owner='charge-owner',player='charge-player';
+  s.access.apply({action:'bootstrap-owner',userId:owner,displayName:'Owner',campaignId:context.campaignId,characterId:context.characterId});
+  s.access.apply({action:'create-user',userId:player,displayName:'Player'});
+  s.access.apply({action:'set-member',userId:player,campaignId:context.campaignId,role:'player'});
+  s.access.apply({action:'grant-character',userId:player,campaignId:context.campaignId,characterId:context.characterId});
+  const local=s.forUser(player,'charge-playing',{write:true}),other=s.forUser(owner,'charge-gm',{write:true});
+  const request={...charge(local,'set',8),agreement:'Решение стола'};
+  assert.throws(()=>s.forUser(player,'charge-reader').changeCharges(request),{status:403});
+  local.changeCharges(request);
+  assert.throws(()=>other.changeCharges(request),{status:404});
+  s.access.apply({action:'revoke-character',userId:player,campaignId:context.campaignId,characterId:context.characterId});
+  assert.throws(()=>local.changeCharges(request),{status:404});
+ }finally{s.close();}
+});
 test('charge transaction rollback, reopen and backup preserve receipts and balances',async()=>{
  const dir=mkdtempSync(join(tmpdir(),'skaz-charges-')),file=join(dir,'game.sqlite'),backup=join(dir,'backup.sqlite');let s=setup(file);const db=new DatabaseSync(file);
  try{
@@ -91,5 +151,6 @@ test('charge HTTP writes use existing local guards and v7 is downloadable',async
  assert.equal((await fetch(base+'/api/inventory/charges',{method:'POST',body,headers:{'Content-Type':'application/json'}})).status,403);
  assert.equal((await fetch(base+'/api/inventory/charges',{method:'POST',body,headers:{...headers,Origin:'https://other.example'}})).status,403);
  assert.equal((await fetch(base+'/api/inventory/charges',{method:'POST',body,headers})).status,200);
+ const script=await fetch(base+'/item-charges.js');assert.equal(script.status,200);assert.match(await script.text(),/SkazItemCharges/);
  const exported=await fetch(base+'/api/export/active-v7');assert.equal(exported.status,200);assert.match(exported.headers.get('content-disposition'),/v7/);assert.deepEqual((await exported.json()).inventory[0].chargeCounts,[5,null]);
 });
