@@ -125,11 +125,11 @@
     flex: 1.22;
   }
 
-  .bottomnav [data-campaign-entry] span:last-child {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
+  .bottomnav .nav-campaign-caption {
+    max-inline-size: 100%;
+    overflow-wrap: normal;
+    font-size: 10px !important;
+    line-height: 12px;
   }
 }
 

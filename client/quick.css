@@ -292,10 +292,16 @@ input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{b
  .quick-state .resource-dots{flex-wrap:wrap}
 }
 
+.bottomnav .nav-library-short{display:none}
+@media(max-width:540px){
+ .bottomnav .nav-library-full{display:none}
+ .bottomnav .nav-library-short{display:block;white-space:nowrap}
+}
 @media(max-width:420px){
  .bottomnav button{min-width:min(44px,14%)}
  .bottomnav [data-page="play"]{flex:1.22}
- .bottomnav .nav-play-caption{font-size:10px!important;line-height:12px}
+ .bottomnav .nav-play-caption,
+ .bottomnav .nav-library-short{font-size:10px!important;line-height:12px}
 }
 
 .tracker-mark{width:26px;height:26px}.tracker-mark.diamond{width:20px;height:20px}
