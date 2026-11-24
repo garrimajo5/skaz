@@ -2,7 +2,7 @@ import {createHash} from 'node:crypto';
 import {readFileSync,writeFileSync,realpathSync,statSync,lstatSync,readdirSync,existsSync} from 'node:fs';
 import {resolve,relative,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {inflateSync} from 'node:zlib';
+import {crc32,inflateSync} from 'node:zlib';
 import {bundledCatalog} from '../server/bundled-catalog.mjs';
 
 export const kinds=['spell','item','artifact','monster'];
@@ -20,7 +20,7 @@ export function inventory(entries=bundledCatalog().bundle.entries){
    contentSha256:sha256(JSON.stringify(e))};
  }).sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0);
 }
-export function crc32(bytes){let crc=0xffffffff;for(const byte of bytes){crc^=byte;for(let j=0;j<8;j++)crc=(crc>>>1)^((crc&1)?0xedb88320:0);}return (crc^0xffffffff)>>>0;}
+export {crc32};
 // Deliberately narrow ingestion format. Re-encode other formats before review.
 // CRC, exact structure and bounded decompression prevent header-only acceptance.
 export function inspectPng(bytes){
