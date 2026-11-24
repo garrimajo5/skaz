@@ -411,7 +411,7 @@ const SkazStorage = (() => {
     requirePermission(action);
     const command = { mutationId: crypto.randomUUID(), expectedRevision: revision, ...data };
     const limit=operation==='campaign-import'?8*1024*1024+4096:512*1024;
-    if(new Blob([JSON.stringify(command)]).size>limit)throw new Error('Файл больше допустимого размера. Для переноса используй резервную копию SQLite.');
+    if(new Blob([JSON.stringify(command)]).size>limit)throw new Error(operation==='campaign-import'?'Пакет больше 8 МиБ. Для переноса используй резервную копию SQLite.':'Команда больше 512 КиБ. Для переноса используй резервную копию SQLite.');
     pending = { ...command, operation, ...(formDraftKey ? { formDraftKey } : {}) };
     rememberDraft();
     closeModal();
@@ -481,6 +481,14 @@ const SkazStorage = (() => {
     }
     return campaignCommand('campaign-import',{destination:'new-campaign',file,campaignFileHash});
   }
+  function pendingCampaignPerson(scope) {
+    if(!scope||campaignScope()?.key!==scope.key||permissions?.shared===false||
+       pending?.operation!=='campaign-person'||pending.permissionDenied||
+       pending.campaignId!==scope.context.campaignId)return null;
+    const {mutationId,expectedRevision,campaignId,personId,personOperation,data,personConflict}=pending;
+    return {command:{mutationId,expectedRevision,campaignId,personId,operation:personOperation,data:structuredClone(data)},
+      conflicted:personConflict===true};
+  }
   const campaignApi={
     scope:campaignScope,
     list:(scope,query='')=>campaignRead('/api/campaign-people?q='+encodeURIComponent(query),scope),
@@ -491,6 +499,7 @@ const SkazStorage = (() => {
     quests:scope=>campaignRead('/api/quests',scope),
     places:scope=>campaignRead('/api/places',scope),
     save:saveCampaignPerson,
+    pendingPerson:pendingCampaignPerson,
     reconcile:reconcileCampaignPerson,
     draft:entityFormDraft,
     savePackage:async scope=>{requirePermission('export');download(await campaignRead('/api/export/campaign-memory',scope,60000),'skaz-campaign-memory.json');},
@@ -808,14 +817,16 @@ const SkazStorage = (() => {
       }else if(record)show('Черновик повреждён или относится к другой форме. Он не подставлен.');
     }catch{show('Хранилище черновика недоступно. Скопируй текст перед закрытием.');}
     const save=()=>{
-      if(!current())return;
-      try {const values=readValues();if(!valid(values)){show('Ввод пока не сохранён как черновик. Проверь длину полей и значения.');return;}
+      if(!current())return false;
+      try {const values=readValues();if(!valid(values)){show('Ввод пока не сохранён как черновик. Проверь длину полей и значения.');return false;}
         localStorage.setItem(draftKey,JSON.stringify({schemaVersion:1,kind:'entity-form',entityKind:kind,creating:!selected,entityId,context:target,revision:version,campaignName:state.profile.campaign,characterName:state.profile.name,sessionName:sessionTitle(),savedAt:new Date().toISOString(),values}));
         show('Черновик сохранён в этом браузере. На сервер он ещё не отправлен.');
-      }catch{show('Черновик не сохранён. Скопируй текст перед закрытием или перезагрузкой.');}
+        return true;
+      }catch{show('Черновик не сохранён. Скопируй текст перед закрытием или перезагрузкой.');return false;}
     };
     form.oninput=save;form.onchange=save;
-    return {key:draftKey,entityId,save};
+    const discard=()=>{try{localStorage.removeItem(draftKey);}catch{}};
+    return {key:draftKey,entityId,save,discard};
   }
   const questStatus = { active: 'В процессе', completed: 'Завершено', failed: 'Не выполнено' };
   async function questList() {

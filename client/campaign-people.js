@@ -76,28 +76,41 @@ const SkazCampaign = (function(){
     if(!row)return 'Карточки ещё нет';
     return [row.name,row.description,row.relation].filter(Boolean).join(' · ');
   }
-  function recordedDifference(entry,side){
+  function referenceText(kind,id,snapshot,refs){
+    if(snapshot)return 'Недоступный источник · '+snapshot.text;
+    if(!id)return kind==='place'?'Место неизвестно':kind==='session'?'Сессия неизвестна':'Источник неизвестен';
+    return linkedRows(kind,refs).find(row=>row.id===id)?.title??'Источник недоступен';
+  }
+  function describeRecord(row,kind,refs){
+    if(!row)return kind==='knowledge'?'Сведения ещё нет':'Встреча не выбрана';
+    const type=kind==='knowledge'?(row.kind==='known'?'Известно':'Предположение'):'Встреча';
+    const parts=[type,row.text,referenceText('session',row.sessionId,row.sessionSnapshot,refs)];
+    if(kind==='encounters')parts.push(referenceText('place',row.placeId,row.placeSnapshot,refs));
+    return parts.filter(Boolean).join(' · ');
+  }
+  function describeLinks(links,refs){
+    return links.map(link=>labels[link.kind]+': '+referenceText(link.kind,link.id,link.snapshot,refs)).join(' · ')||'Связей нет';
+  }
+  function recordedDifference(entry,side,refs){
     const row=entry[side], other=entry[side==='before'?'after':'before'];
     if(!row||!other)return snapshotText(row);
     for(const field of ['knowledge','encounters']){
       if(JSON.stringify(row[field])===JSON.stringify(other[field]))continue;
       const different=row[field].find(item=>!other[field].some(prev=>JSON.stringify(item)===JSON.stringify(prev)));
-      if(!different)return field==='knowledge'?'Сведения ещё нет':'Встречи ещё нет';
-      const type=field==='knowledge'?(different.kind==='known'?'Известно':'Предположение'):'Встреча';
-      return type+' · '+(different.text||'Без уточнения');
+      return describeRecord(different,field,refs);
     }
-    if(row.latestEncounterId!==other.latestEncounterId)return row.encounters.find(item=>item.id===row.latestEncounterId)?.text||'Не выбрана';
-    if(JSON.stringify(row.links)!==JSON.stringify(other.links))return `Связей ${row.links.length}`;
+    if(row.latestEncounterId!==other.latestEncounterId)return describeRecord(row.encounters.find(item=>item.id===row.latestEncounterId),'encounters',refs);
+    if(JSON.stringify(row.links)!==JSON.stringify(other.links))return describeLinks(row.links,refs);
     return snapshotText(row);
   }
-  function cardHistory(){
+  function cardHistory(refs){
     if(historyWaiting)return note('Загружаем историю…','status');
     if(!history)return '';
     if(history.failure)return `<p role="alert">${esc(history.failure)}</p>${button('Повторить','person-history')}`;
     if(!history.changes.length)return note('История карточки пуста.');
     return history.changes.map(entry=>`<details class="campaign-record"><summary>${esc(changes[entry.operation]||'Карточка изменена')}</summary>
       <p>${esc(new Date(entry.createdAt).toLocaleString('ru-RU'))}</p>
-      <p>Было: ${esc(recordedDifference(entry,'before'))}</p><p>Стало: ${esc(recordedDifference(entry,'after'))}</p></details>`).join('')+
+      <p>Было: ${esc(recordedDifference(entry,'before',refs))}</p><p>Стало: ${esc(recordedDifference(entry,'after',refs))}</p></details>`).join('')+
       (history.nextBeforePosition?button('Показать более ранние записи','person-history',String(history.nextBeforePosition)):'');
   }
   function card(person,refs){
@@ -126,7 +139,7 @@ const SkazCampaign = (function(){
         ${canWrite()?button('Изменить связи','set-links'):''}
       </section>
       <section class="panel campaign-panel"><h3>История карточки</h3>
-        ${history||historyWaiting?cardHistory():button('Показать историю','person-history')}
+        ${history||historyWaiting?cardHistory(refs):button('Показать историю','person-history')}
       </section>`;
   }
   function overview(data){
@@ -196,6 +209,7 @@ const SkazCampaign = (function(){
     if(!rootActive())return;
     const region=el('campaign-content'), alert=el('campaign-notice');
     if(!region||!alert)return;
+    paintRecovery();
     alert.innerHTML=failure?`<div role="alert">${esc(failure)}</div>${button('Повторить','reload')}`:'';
     for(const nav of root.querySelectorAll('[data-campaign-action="section"]')){
       if(nav.closest('.campaign-sections'))nav.setAttribute('aria-current',nav.dataset.target===view.section?'page':'false');
@@ -266,7 +280,7 @@ const SkazCampaign = (function(){
       <nav class="campaign-sections" aria-label="Разделы кампании">
         ${Object.entries(sections).map(([id,label])=>button(label,'section',id)).join('')}
       </nav><p id="campaign-save-status" role="status" class="small" hidden></p>
-      <div id="campaign-notice"></div><div id="campaign-content" class="campaign-stack"></div>
+      <div id="campaign-notice"></div><div id="campaign-pending" class="campaign-controls"></div><div id="campaign-content" class="campaign-stack"></div>
       <details class="campaign-transfer" ${api().needsTransferFile()?'open':''}><summary>Перенос кампании</summary>
         ${api().needsTransferFile()?'<p id="campaign-transfer-recover" role="status">Выбери тот же файл, чтобы повторить незавершённый импорт.</p>':''}
         <div class="campaign-controls">${button('Скачать пакет кампании','transfer-export')}
@@ -357,6 +371,7 @@ const SkazCampaign = (function(){
       case 'section': return navigate(id);
       case 'return-game': return returnFromCampaign();
       case 'reload': return load({holdResults:true});
+      case 'recover-person': return recoverPerson(target);
       case 'people-back': returnFocus=true;return navigate('people');
       case 'person-open':
         listScroll=window.scrollY;listTrigger=id;
@@ -399,6 +414,40 @@ const SkazCampaign = (function(){
     }catch(error){toast(error.message,undefined,{error:true});}
   }
 
+  function paintRecovery(){
+    const region=el('campaign-pending');
+    if(!region)return;
+    const recovery=api().pendingPerson(api().scope());
+    region.innerHTML=recovery?button(recovery.conflicted?'Сверить черновик карточки':'Открыть запрос карточки','recover-person'):'';
+  }
+  async function recoverPerson(origin){
+    const scope=api().scope(), recovery=api().pendingPerson(scope), request=serial;
+    if(!recovery)return;
+    origin.disabled=true;
+    const {command}=recovery;
+    try{
+      const [refs,payload]=await Promise.all([references(scope,'',{includeQuests:true,includePlaces:true}),
+        command.operation==='create'?null:api().person(scope,command.personId)]);
+      if(!current(request))return;
+      view.section='people';view.selectedId=payload?.person.id??null;
+      result={...refs,person:payload?.person};history=null;failure='';loading=false;draw({renew:true});
+      const id=command.operation==='remove-link-snapshot'?String(command.data.index):command.data.id??'';
+      openEditor(command.operation,id,origin,recovery);
+    }catch(error){
+      if(current(request))toast(error.message,undefined,{error:true});
+    }finally{if(origin.isConnected)origin.disabled=false;}
+  }
+  function recoveredFields(command) {
+    const data=command.data;
+    if(command.operation==='create')return {...data.details,knowledge:data.knowledge?.text??'',kind:data.knowledge?.kind??'known'};
+    if(command.operation==='edit')return {...data,relation:data.relation??''};
+    if(command.operation.includes('knowledge')||command.operation.includes('encounter'))return {
+      text:data.text??'',kind:data.kind??'',session:data.sessionId??'',place:data.placeId??'',
+      latest:data.makeLatest===true,clearSession:data.clearSnapshots?.includes('session')===true,
+      clearPlace:data.clearSnapshots?.includes('place')===true,
+    };
+    return data;
+  }
   function editorSpec(action,id){
     const person=result?.person, refs=result;
     const itemId=crypto.randomUUID();
@@ -535,14 +584,14 @@ const SkazCampaign = (function(){
   }
   function refreshEditorControls(meta){
     meta.form.querySelector('fieldset').disabled=meta.busy||Boolean(meta.command);
-    el('campaign-editor-submit').disabled=meta.busy||meta.conflicted;
+    el('campaign-editor-submit').disabled=meta.busy||meta.conflicted||meta.blocked;
     el('campaign-editor-submit').textContent=meta.busy?'Сохраняем…':meta.command?'Повторить тот же запрос':'Сохранить';
     el('campaign-reconcile').hidden=!meta.conflicted;
     el('campaign-reconcile').disabled=meta.busy;
     meta.form.setAttribute('aria-busy',String(meta.busy));
   }
-  function openEditor(action,id,origin){
-    if(!rootActive()||!canWrite())return;
+  function openEditor(action,id,origin,recovery=null){
+    if(!rootActive()||!canWrite()&&!recovery)return;
     const spec=editorSpec(action,id),scope=api().scope();
     if(!spec||!scope)return;
     modal(`<h2 id="campaign-editor-title" tabindex="-1">${esc(spec.title)}</h2>
@@ -559,7 +608,13 @@ const SkazCampaign = (function(){
     const adapter=spec.initialize?.(form)??defaults;
     const initial=JSON.stringify(adapter.read());
     const draft=spec.entityId?api().draft(spec.kind,spec.target,spec.entityId,adapter.read,adapter.restore,adapter.valid):null;
-    editor={form,spec,scope,origin,draft,read:adapter.read,initial,busy:false,conflicted:false,command:null};
+    if(recovery)adapter.restore(recoveredFields(recovery.command));
+    editor={form,spec,scope,origin,draft,read:adapter.read,valid:adapter.valid,initial,busy:false,blocked:false,reconciled:false,
+      conflicted:recovery?.conflicted??false,command:recovery?.command??null};
+    if(recovery){
+      refreshEditorControls(editor);
+      setEditorMessage(recovery.conflicted?'Сверь черновик с сервером.':'Запрос ждёт подтверждения. Можно точно повторить его.','status');
+    }
     form.onsubmit=event=>{event.preventDefault();void submitEditor(editor);};
     el('campaign-editor-cancel').onclick=closeModal;
     el('campaign-reconcile').onclick=()=>void reconcileEditor(editor);
@@ -586,7 +641,7 @@ const SkazCampaign = (function(){
     return editor===meta && meta.form.isConnected && rootActive() && api().scope()?.key===meta.scope.key;
   }
   async function submitEditor(meta){
-    if(!meta||!activeEditor(meta)||meta.busy||meta.conflicted)return;
+    if(!meta||!activeEditor(meta)||meta.busy||meta.conflicted||meta.blocked)return;
     try{
       if(!meta.command){
         const change=meta.spec.build(meta.read());
@@ -638,22 +693,34 @@ const SkazCampaign = (function(){
     if(!meta||!activeEditor(meta)||!meta.conflicted||meta.busy)return;
     meta.busy=true;refreshEditorControls(meta);
     try{
-      await api().reconcile(meta.command.mutationId,meta.scope);
+      if(!meta.reconciled){
+        await api().reconcile(meta.command.mutationId,meta.scope);
+        meta.reconciled=true;
+      }
       if(!activeEditor(meta))return;
-      const scope=api().scope();
-      const ref=meta.command.operation==='create'?null:(await api().person(scope,meta.command.personId)).person;
+      const scope=api().scope(), old=meta.command;
+      const [payload,refs]=await Promise.all([old.operation==='create'?null:api().person(scope,old.personId),
+        references(scope,'',{includeQuests:true,includePlaces:true})]);
       if(!activeEditor(meta))return;
-      const old=meta.command;
-      const comparison=el('campaign-compare');
-      const fields=ref ? [
-        snapshotText(ref),
-        old.operation.includes('knowledge')?ref.knowledge.find(row=>row.id===old.data.id)?.text:null,
-        old.operation.includes('encounter')?ref.encounters.find(row=>row.id===old.data.id)?.text:null,
-      ].filter(Boolean) : [];
+      const ref=payload?.person, comparison=el('campaign-compare'), fields=[];
+      if(ref){
+        fields.push(snapshotText(ref));
+        if(old.operation.includes('knowledge'))fields.push(describeRecord(ref.knowledge.find(row=>row.id===old.data.id),'knowledge',refs));
+        if(old.operation.includes('encounter'))fields.push(describeRecord(ref.encounters.find(row=>row.id===old.data.id),'encounters',refs));
+        if(old.operation==='choose-latest')fields.push(describeRecord(ref.encounters.find(row=>row.id===ref.latestEncounterId),'encounters',refs));
+        if(old.operation==='set-links'||old.operation==='remove-link-snapshot')fields.push(describeLinks(ref.links,refs));
+      }
+      meta.blocked=old.operation==='remove-link-snapshot';
       comparison.innerHTML=`<section class="panel"><h3>Актуальные данные сервера</h3>
         ${fields.length?fields.map(value=>note(value)).join(''):note('Игра обновилась. Черновик создания сохранён.')}
-        <p>Сравни с полями формы. Чтобы применить свои значения к новой версии, нажми «Сохранить».</p></section>`;
-      meta.scope=scope;meta.command=null;meta.conflicted=false;
+        <p>${meta.blocked?'Список мог изменить порядок. Закрой форму и выбери снимок заново.':'Сравни с полями формы. Чтобы применить свои значения к новой версии, нажми «Сохранить».'}</p></section>`;
+      if(meta.draft&&meta.spec.entityId){
+        const previous=meta.draft;
+        const entityId=old.operation==='create'?old.personId:meta.spec.entityId;
+        meta.draft=api().draft(meta.spec.kind,meta.spec.target,entityId,meta.read,()=>{},meta.valid);
+        if(meta.draft.save()&&previous.key!==meta.draft.key)previous.discard();
+      }
+      meta.scope=scope;meta.command=null;meta.conflicted=false;meta.reconciled=false;
       setEditorMessage('Актуальная версия показана ниже. Поля черновика сохранены.','status');
     }catch(error){
       if(activeEditor(meta))setEditorMessage(error.message,'alert');
@@ -671,7 +738,7 @@ const SkazCampaign = (function(){
     if((dirty||meta.command)&&!window.confirm(message))return false;
     if(dirty)meta.draft?.save();
     editor=null;
-    queueMicrotask(()=>{if(meta.origin.isConnected)meta.origin.focus({preventScroll:true});});
+    queueMicrotask(()=>{paintRecovery();(meta.origin.isConnected?meta.origin:el('campaign-title'))?.focus({preventScroll:true});});
     return true;
   }
 
