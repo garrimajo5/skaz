@@ -96,8 +96,8 @@ body[data-workspace-shell="shared"] .shell main {
 .play-layout .play-cast:has(.play-cast-warning) { padding-block: 1px; line-height: 14px; }
 .play-cast-picker, .play-concentration-marker { display: none; }
 @container (max-width: 410px) {
-  .play-layout .play-spell-action { padding: 0 3px 0 5px; gap: 4px; }
-  .play-layout .play-spell-action > .play-spell-row { gap: 5px; padding-block: 0; line-height: 1.15; }
+  .play-layout .play-spell-action { padding: 0 2px 0 3px; gap: 4px; }
+  .play-layout .play-spell-action > .play-spell-row { gap: 4px; padding-block: 0; line-height: 1.15; }
   .play-layout .play-spell-copy small {
     position: absolute;
     width: 1px;
@@ -112,9 +112,9 @@ body[data-workspace-shell="shared"] .shell main {
   .play-layout .play-cast-select {
     display: block;
     appearance: none;
-    width: calc(var(--touch) + 2px);
+    width: var(--touch);
     min-height: var(--touch);
-    padding: 3px 14px 3px 3px;
+    padding: 3px 13px 3px 3px;
     background: var(--raised);
     border: 1px solid var(--control-line);
     border-radius: var(--radius-s);
