@@ -88,3 +88,43 @@ test('campaign HTTP API enforces local write protection and supports create/list
   assert.deepEqual((await selection.json()).state, seed);
   assert.equal((await fetch(base + '/api/campaigns', { method: 'POST', headers, body: '[]' })).status, 400);
 });
+
+test('active v15 retains campaign place and quest origins without importing the archived session', () => {
+  const store = openStore(':memory:');
+  const request = fields => command(store.read().revision, fields);
+  try {
+    const first = store.read().context;
+    const placeId = randomUUID(), questId = randomUUID();
+    const place = request({ campaignId: first.campaignId, placeId, operation: 'create',
+      place: { title: 'Проверочная башня', description: '', x: 20, y: 40, visited: true } });
+    store.savePlace(place);
+    store.saveQuest(request({ campaignId: first.campaignId, questId, operation: 'create',
+      quest: { title: 'Сверить встречу', description: '', status: 'active', steps: [] } }));
+    store.startSession(request({ session: { name: 'Вторая игра', playedOn: '2026-11-24' } }));
+    const current = store.read().context;
+    assert.notEqual(current.sessionId, first.sessionId);
+    assert.equal(store.sessionReview(first.sessionId).session.archived, true);
+    assert.deepEqual(store.read().context, current);
+
+    const file = store.exportActive(15);
+    assert.equal(file.scope, 'active-game');
+    assert.deepEqual(Object.keys(file.session).sort(), ['name', 'playedOn']);
+    assert.equal(file.source.context.sessionId, current.sessionId);
+    assert.equal(file.places[0].origin.sessionId, first.sessionId);
+    assert.equal(file.quests[0].origin.sessionId, first.sessionId);
+    store.importActive(request({ destination: 'new-campaign', file }));
+    const imported = store.read().context;
+    assert.notEqual(imported.campaignId, first.campaignId);
+    assert.deepEqual(store.sessions(imported.campaignId).map(session => session.id), [imported.sessionId]);
+    for (const [row, original] of [[store.places().places[0], placeId], [store.quests().quests[0], questId]]) {
+      assert.notEqual(row.id, original);
+      assert.equal(row.createdSessionId, imported.sessionId);
+      assert.equal(row.importedFrom.sessionId, first.sessionId);
+    }
+    assert.throws(() => store.sessionReview(first.sessionId), { status: 404 });
+    const replay = store.savePlace(place);
+    assert.equal(replay.replayed, true);
+    assert.deepEqual(replay.affectedContext, first);
+    assert.deepEqual(store.read().context, imported);
+  } finally { store.close(); }
+});
