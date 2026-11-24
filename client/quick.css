@@ -118,7 +118,12 @@ button{min-width:var(--touch)}.dialog-close{min-width:var(--touch);min-height:va
 .skaz-art-card{float:right;width:160px;height:160px;margin:0 0 12px 16px}
 @media(max-width:700px){.entry-description>summary>.skaz-art{width:32px;height:32px}.entry-description>summary:has(.skaz-art) .entry-name{flex-basis:45%}}
 @media(max-width:600px){.skaz-art-card{width:96px;height:96px;margin-left:8px}}
-@media(max-width:400px){.entry-description>summary>.skaz-art{display:none}}
+@media(max-width:400px){
+ .entry-description>summary>.skaz-art{display:none}
+ .inventory-grid .entry-description>summary>.skaz-art{display:inline-flex}
+ .inventory-grid .entry-description>summary:has(.skaz-art) .entry-name{flex-basis:0}
+ .inventory-grid .entry-description>summary .entry-name :is(strong,small){white-space:normal;overflow-wrap:anywhere}
+}
 /* Health preview remains readable beside the combat panel on wide tablets. */
 .hp-tabs,.hp-factors,.hp-recent{display:flex;gap:8px;margin-block:8px}
 .hp-tabs button,.hp-factors button{flex:1;min-height:44px;font-size:14px}
