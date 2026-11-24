@@ -42,3 +42,25 @@ test('shared UI category cannot resolve the open Grung rule status or advance sc
   assert.equal(report.appTextReusePermission, 'not-established');
   assert.equal(report.approvedDenominator, null);
 });
+
+test('historic organized play separates source lists from publisher admission statements', () => {
+  const { scope, guide, records, guideListingIsRecordLevelRuling, catalogAdmissionDecided,
+    fullCharacterRulesVerified } = report.organizedPlay;
+  assert.equal(scope, 'adventurers-league-only');
+  assert.equal(guide.version, '14.0');
+  assert.equal(guide.effectiveOn, '2024-03-04');
+  assert.equal(guide.pdfPage, 1);
+  assert.equal(guide.pageCount, 5);
+  assert.match(guide.sha256, /^[a-f0-9]{64}$/);
+  assert.equal(guide.usesLatestPrintingForReprintedRules, true);
+  assert.deepEqual(records.map(row => row.observationId), report.records.map(row => row.observationId));
+  assert.deepEqual(records.map(row => [row.storefrontStatement, row.guide14SourceListing]), [
+    ['explicitly-ineligible-for-adventurers-league', 'not-listed'],
+    ['publisher-metadata-only', 'listed-digital-publication'],
+    ['explicitly-permitted-for-adventurers-league', 'not-listed'],
+    [undefined, 'listed-rulebook'],
+  ]);
+  assert.equal(guideListingIsRecordLevelRuling, false);
+  assert.equal(catalogAdmissionDecided, false);
+  assert.equal(fullCharacterRulesVerified, false);
+});
