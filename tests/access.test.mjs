@@ -461,3 +461,40 @@ test('temporary health grants and paired undo retain actor ownership and revoked
  assert.equal(player.read().state.tempHp,5);assert.equal(owner.read().state.tempHp,undefined);assert.throws(()=>owner.undoResource(command(owner,{characterId:first.characterId,targetMutationId:grant.mutationId})),{status:404});
  store.access.apply({action:'revoke-character',userId:userB,campaignId:first.campaignId,characterId:second.characterId});assert.throws(()=>player.changeResource(grant),{status:404});
 });
+
+test('shared place and quest receipts recheck write and campaign authority after switching', t => {
+  const {store, first, hidden, a} = setup(t);
+  store.access.apply({action:'grant-character',userId:userGM,campaignId:first.campaignId,characterId:first.characterId});
+  store.access.apply({action:'set-member',userId:userGM,campaignId:hidden.campaignId,role:'gm'});
+  store.access.apply({action:'grant-character',userId:userGM,campaignId:hidden.campaignId,characterId:hidden.characterId});
+  const gm = store.forUser(userGM, 'campaign-memory-replay', {write:true});
+  gm.selectContext(command(gm, {context:first}));
+  const place = command(gm, {campaignId:first.campaignId,placeId:randomUUID(),operation:'create',
+    place:{title:'QA Переправа',description:'',x:10,y:20,visited:false}});
+  gm.savePlace(place);
+  const quest = command(gm, {campaignId:first.campaignId,questId:randomUUID(),operation:'create',
+    quest:{title:'QA Найти свидетеля',description:'',status:'active',steps:[]}});
+  gm.saveQuest(quest);
+  gm.startSession(command(gm, {session:{name:'QA Следующий ход',playedOn:'2026-11-24'}}));
+  assert.equal(gm.sessionReview(first.sessionId).session.archived, true);
+  gm.selectContext(command(gm, {context:hidden}));
+  assert.equal(gm.session(first.sessionId).archived, true);
+  const selected = gm.read();
+  const assertReplayStatuses = status => {
+    assert.throws(() => gm.savePlace(place), {status});
+    assert.throws(() => gm.saveQuest(quest), {status});
+    assert.deepEqual(gm.read(), selected);
+  };
+  for (const result of [gm.savePlace(place),gm.saveQuest(quest)]) {
+    assert.equal(result.replayed, true);
+    assert.deepEqual(result.affectedContext, first);
+  }
+  assert.deepEqual(gm.read(), selected);
+  store.access.apply({action:'set-member',userId:userGM,campaignId:first.campaignId,role:'player'});
+  assertReplayStatuses(403);
+  store.access.apply({action:'remove-member',userId:userGM,campaignId:first.campaignId});
+  assertReplayStatuses(404);
+  assert.throws(() => gm.session(first.sessionId), {status:404});
+  assert.equal(a.places().places.filter(row => row.id === place.placeId).length, 1);
+  assert.equal(a.quests().quests.filter(row => row.id === quest.questId).length, 1);
+});
