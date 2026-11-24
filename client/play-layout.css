@@ -1,4 +1,6 @@
 /* Quick access uses the existing theme tokens and command controls. */
+.shell > header { grid-column: 1 / -1; }
+.workspace-brand { display: none; }
 .sidebar nav button .nav-play-label {
   width: auto;
   height: auto;
@@ -192,11 +194,43 @@ body[data-workspace-shell="shared"] .shell main {
 .play-resources #play-history .ui-icon { width: 16px; height: 16px; }
 
 @media (min-width: 1000px) and (min-height: 600px) and (orientation: landscape) {
-  body[data-workspace-shell="shared"] { --workspace-nav-width: clamp(146px, 14.7vw, 225px); }
+  body[data-workspace-shell="shared"] { --workspace-nav-width: clamp(146px, 14.75vw, 225px); }
   body[data-workspace-shell="shared"] .shell { grid-template-columns: var(--workspace-nav-width) minmax(0, 1fr); }
+  body[data-workspace-shell="shared"] .shell > header { grid-area: 1 / 2; }
+  body[data-workspace-shell="shared"] .shell > header .brand { display: none; }
+  body[data-workspace-shell="shared"] .shell > main { grid-area: 2 / 2; }
   body[data-workspace-shell="shared"] #quick-state-home > .quick-state { left: var(--workspace-nav-width); }
-  body[data-workspace-shell="shared"] .sidebar { position: sticky; top: 56px; align-self: start; height: calc(100dvh - 56px); min-height: 0; overflow: auto; padding: 12px; }
+  body[data-workspace-shell="shared"] .sidebar {
+    grid-area: 1 / 1 / span 2;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100dvh;
+    min-height: 0;
+    overflow: auto;
+    padding: 12px clamp(12px, 1.2vw, 18px);
+    background: var(--workspace-sidebar-bg, var(--bg));
+  }
+  body[data-workspace-shell="shared"] .workspace-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1px;
+    min-height: 79px;
+    margin-block-end: 12px;
+    padding-inline: 12px;
+  }
+  body[data-workspace-shell="shared"] .workspace-brand .brandline {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: var(--ui-small);
+    letter-spacing: normal;
+    color: var(--muted);
+  }
   body[data-workspace-shell="shared"] .sidebar nav button { justify-content: flex-start; text-align: left; flex-direction: row; min-height: var(--touch); gap: 8px; padding: 7px; font-size: 13px; overflow-wrap: anywhere; }
+  body[data-workspace-shell="shared"] .sidebar nav button.active { background: var(--workspace-nav-active-bg, var(--raised)); }
   body[data-workspace-shell="shared"] .sidebar nav button > span:first-child { flex: none; }
   body[data-workspace-shell="shared"] .sidebar nav button .nav-play-label { flex: 1; justify-items: start; text-align: left; }
   .play-resources {
@@ -227,6 +261,49 @@ body[data-workspace-shell="shared"] .shell main {
   .play-resources .quick-vitals { padding-top: 8px; border-top: 1px solid var(--line); }
   body[data-page="play"] #toast { left: 50%; max-width: 90vw; }
 }
+@media (min-width: 1320px) and (min-height: 600px) and (orientation: landscape) {
+  body[data-theme="polar"] {
+    --workspace-sidebar-bg: #081c27;
+    --workspace-heading-bg: #07151d;
+    --workspace-hero-bg: #0e2a35;
+    --workspace-nav-active-bg: #15343f;
+  }
+  body[data-page="play"] .shell:has(.play-heading) {
+    --workspace-tools-width: clamp(470px, 37vw, 570px);
+    --workspace-heading-height: 78px;
+  }
+  body[data-workspace-shell="shared"][data-page="play"] .shell:has(.play-heading) > header {
+    justify-self: end;
+    width: var(--workspace-tools-width);
+    height: var(--workspace-heading-height);
+    border-bottom: 0;
+    padding-inline-end: clamp(35px, 3.6vw, 64px);
+    background: var(--workspace-heading-bg, var(--bg));
+  }
+  body[data-workspace-shell="shared"][data-page="play"] .shell:has(.play-heading) > main {
+    grid-row: 1 / span 2;
+  }
+  body[data-page="play"] .play-screen { --play-gutter: clamp(35px, 3.6vw, 64px); }
+  body[data-page="play"] .play-hero-band { background: var(--workspace-hero-bg, var(--panel)); }
+  body[data-page="play"] .play-heading {
+    min-height: var(--workspace-heading-height);
+    background: var(--workspace-heading-bg, var(--bg));
+    padding-block: 13px 3px;
+    padding-inline-end: calc(var(--workspace-tools-width) + 12px);
+  }
+  body[data-page="play"] .play-session {
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  body[data-page="play"] .play-resources {
+    top: calc(var(--workspace-heading-height) + 12px);
+    max-height: calc(100dvh - var(--workspace-heading-height) - 24px);
+  }
+  body[data-page="play"] .shell:has(.play-heading) .session-menu-content { top: 100%; }
+  body[data-workspace-shell="shared"] .sidebar nav button { padding-inline: 12px; font-size: 15px; }
+}
+
 @media (min-width: 1000px) and (min-height: 600px) and (max-height: 720px) and (orientation: landscape) {
   .play-resources .quick-vitals { order: -2; padding: 0 0 8px; border: 0; border-bottom: 1px solid var(--line); }
 }
