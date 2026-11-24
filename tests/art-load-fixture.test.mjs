@@ -1,4 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
+import {get} from 'node:http';
+import {gunzipSync} from 'node:zlib';
 import {createArtLoadFixture} from '../scripts/art-load-fixture.mjs';
 
 test('disposable load fixture counts actual UTF-8 and PNG bytes, excludes metrics and HEAD bodies',async t=>{
@@ -7,7 +9,19 @@ test('disposable load fixture counts actual UTF-8 and PNG bytes, excludes metric
  const base='http://127.0.0.1:'+server.address().port;let total=0;
  const read=async path=>{const response=await fetch(base+path);assert.equal(response.status,200);const bytes=Buffer.from(await response.arrayBuffer());total+=bytes.length;return bytes;};
  await read('/');const workspace=JSON.parse(await read('/api/workspace'));assert.ok(workspace.state);
- const index=JSON.parse(await read('/api/art'));const url=index.entries.find(e=>e.id==='srd51:2014:spell:fireball').files.thumbnail.url;
+ const compressed=await new Promise((resolve,reject)=>{
+  get(base+'/api/art',{headers:{'accept-encoding':'gzip'}},response=>{
+   const chunks=[];
+   response.on('data',chunk=>chunks.push(chunk));
+   response.on('error',reject);
+   response.on('end',()=>resolve({status:response.statusCode,headers:response.headers,bytes:Buffer.concat(chunks)}));
+  }).on('error',reject);
+ });
+ assert.equal(compressed.status,200);
+ assert.equal(compressed.headers['content-encoding'],'gzip');
+ total+=compressed.bytes.length;
+ const index=JSON.parse(gunzipSync(compressed.bytes));
+ const url=index.entries.find(e=>e.id==='srd51:2014:spell:fireball').files.thumbnail.url;
  const png=await read(url);assert.equal(snapshot().bodyBytes,total);assert.equal(snapshot().requests,4);assert.equal(snapshot().groups.art.bodyBytes,png.length);
  const head=await fetch(base+url,{method:'HEAD'});assert.equal((await head.arrayBuffer()).byteLength,0);
  assert.equal(snapshot().bodyBytes,total);assert.equal(snapshot().requests,5);
