@@ -287,6 +287,12 @@ input[aria-invalid=true],textarea[aria-invalid=true],select[aria-invalid=true]{b
  .quick-state .resource-dots{flex-wrap:wrap}
 }
 
+@media(max-width:420px){
+ .bottomnav button{min-width:min(44px,14%)}
+ .bottomnav [data-page="play"]{flex:1.22}
+ .bottomnav .nav-play-caption{font-size:10px!important;line-height:12px}
+}
+
 .tracker-mark{width:26px;height:26px}.tracker-mark.diamond{width:20px;height:20px}
 
 /* Keep keyboard focus, suppress only pointer/programmatic heading outlines. */
