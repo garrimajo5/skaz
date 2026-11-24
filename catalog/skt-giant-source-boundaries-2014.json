@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-24",
+  "ruleset": "5e-2014",
+  "status": "publisher-version-boundaries-observed",
+  "accepted": false,
+  "complete": false,
+  "approvedDenominator": null,
+  "automaticMerge": false,
+  "reusePermissionForSktText": "not-established",
+  "monsterManualFullComparison": "not-established",
+  "inputSha256": {
+    "catalog/skt-appendix-c-giant-options-2014.json": "fa30e1160b3507549b5213606e3029e4e43e4cfd33abee7cd7db44491b196f39",
+    "catalog/skt-appendix-d-npc-composition-2014.json": "ba97de520a9c065e3cd8b71e3217dcfe070067df945ceaaa687bd03c4516ec38",
+    "catalog/srd51-giants.json": "581a7cac5ba1d281cc5ddd85fb6dedbeef9fad2b7bb76e457f45f67a524c0c09"
+  },
+  "sources": {
+    "appendix-d.pdf": {
+      "url": "https://media.wizards.com/2016/dnd/downloads/SKT_AppD.pdf",
+      "bytes": 1497598,
+      "sha256": "f3290cda51f4aaf74af4f4aa9af5b7e03c13f5dc7e52a524e6dd094b4f6186f8"
+    },
+    "appendix-c.pdf": {
+      "url": "https://media.wizards.com/2016/dnd/downloads/SKT_GiantOptions.pdf",
+      "bytes": 728068,
+      "sha256": "b943f2c28dc1393804befe48114d8a499d4c85c66dbe6e9f7581c2e96a3fafd8"
+    },
+    "srd51.pdf": {
+      "url": "https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf",
+      "bytes": 3158713,
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0"
+    },
+    "skt-errata.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/sae/storm-kings-thunder",
+      "bytes": 280836,
+      "sha256": "95379db58ce49604372750dead6de00bc834ccfb289630649e9e685a56e11762"
+    },
+    "legacy-rules.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/monster-stat-blocks-s",
+      "bytes": 536535,
+      "sha256": "83b556b54019d1c0ce86834a2ff34e87db636331d04cc5ff7cf980cab077b97b"
+    },
+    "legacy-card.html": {
+      "url": "https://www.dndbeyond.com/monsters/17026-storm-giant",
+      "bytes": 364091,
+      "sha256": "f0c39992804b5a44d0306257e9ca57f1c5cd74dd206727e3d60aac2f50c43389"
+    },
+    "mm-errata.html": {
+      "url": "https://www.dndbeyond.com/sources/dnd/sae/monster-manual-2014",
+      "bytes": 272806,
+      "sha256": "0efacc0794cee263c4e182a1c770e41c7ce2b19ab5f0699986aef41734ffdc24"
+    }
+  },
+  "stormGiantSurfaces": {
+    "srdReference": {
+      "sourceFile": "srd51.pdf",
+      "locator": "pp. 313–314",
+      "armorClass": 16,
+      "hitPoints": 230,
+      "challengeRating": 13,
+      "skillsInBlock": true,
+      "listedAlignment": "chaotic-good",
+      "lightningRecharge": {
+        "kind": "d6",
+        "successFaces": [
+          5,
+          6
+        ]
+      },
+      "spellcasting": {
+        "placement": "innate-trait",
+        "ability": "cha",
+        "saveDC": 17,
+        "atWill": [
+          "detect-magic",
+          "feather-fall",
+          "levitate",
+          "light"
+        ],
+        "dailyEach": 3,
+        "dailySpells": [
+          "control-weather",
+          "water-breathing"
+        ],
+        "controlWeatherExplicitlyOneAction": null
+      }
+    },
+    "printedNpcBlock": {
+      "sourceFile": "appendix-d.pdf",
+      "locator": "PDF p. 10 / print p. 256",
+      "armorClass": 16,
+      "hitPoints": 230,
+      "challengeRating": null,
+      "skillsInBlock": false,
+      "listedAlignment": null,
+      "lightningRecharge": {
+        "kind": "short-or-long-rest"
+      },
+      "spellcasting": {
+        "placement": "innate-trait",
+        "ability": "cha",
+        "saveDC": 17,
+        "atWill": [
+          "detect-magic",
+          "feather-fall",
+          "levitate",
+          "light"
+        ],
+        "dailyEach": 3,
+        "dailySpells": [
+          "control-weather",
+          "water-breathing"
+        ],
+        "controlWeatherExplicitlyOneAction": null
+      }
+    },
+    "npcErrataAmendment": {
+      "sourceFile": "skt-errata.html",
+      "locator": "Appendix D / Storm Giant (p. 256)",
+      "armorClass": null,
+      "hitPoints": null,
+      "challengeRating": null,
+      "skillsInBlock": null,
+      "listedAlignment": null,
+      "lightningRecharge": null,
+      "spellcasting": {
+        "placement": "action",
+        "ability": "cha",
+        "saveDC": 17,
+        "atWill": [
+          "detect-magic",
+          "levitate",
+          "light"
+        ],
+        "dailyEach": 1,
+        "dailySpells": [
+          "control-weather",
+          "water-breathing"
+        ],
+        "controlWeatherExplicitlyOneAction": true
+      }
+    },
+    "legacyCompendiumChapter": {
+      "sourceFile": "legacy-rules.html",
+      "locator": "Storm Giant / link 17026",
+      "armorClass": 16,
+      "hitPoints": 230,
+      "challengeRating": null,
+      "skillsInBlock": false,
+      "listedAlignment": "chaotic-good",
+      "lightningRecharge": {
+        "kind": "short-or-long-rest"
+      },
+      "spellcasting": {
+        "placement": "action",
+        "ability": "cha",
+        "saveDC": 17,
+        "atWill": [
+          "detect-magic",
+          "levitate",
+          "light"
+        ],
+        "dailyEach": 1,
+        "dailySpells": [
+          "control-weather",
+          "water-breathing"
+        ],
+        "controlWeatherExplicitlyOneAction": true
+      }
+    },
+    "legacyLinkedCard": {
+      "sourceFile": "legacy-card.html",
+      "locator": "card 17026",
+      "armorClass": 16,
+      "hitPoints": 230,
+      "challengeRating": 13,
+      "skillsInBlock": true,
+      "listedAlignment": "chaotic-good",
+      "lightningRecharge": {
+        "kind": "d6",
+        "successFaces": [
+          5,
+          6
+        ]
+      },
+      "spellcasting": {
+        "placement": "action",
+        "ability": "cha",
+        "saveDC": 17,
+        "atWill": [
+          "detect-magic",
+          "levitate",
+          "light"
+        ],
+        "dailyEach": 1,
+        "dailySpells": [
+          "control-weather",
+          "water-breathing"
+        ],
+        "controlWeatherExplicitlyOneAction": true
+      }
+    }
+  },
+  "printedNamedAttachments": {
+    "sharedBlockRef": "skt:appendix-d:256:storm-giant",
+    "cards": [
+      "Nimir",
+      "Orlekto",
+      "Shaldoor",
+      "Vaasha"
+    ]
+  },
+  "cloudGiantBaseCorrection": {
+    "sourceFile": "mm-errata.html",
+    "locator": "Cloud Giant (p. 154)",
+    "field": "constitution-saving-throw",
+    "previous": 9,
+    "corrected": 10,
+    "matchesSrdReferenceField": true,
+    "sktVariantValue": null
+  },
+  "appendixCVariants": [
+    {
+      "variantUrl": "https://www.dndbeyond.com/monsters/324263-cloud-giant-variant",
+      "srdReferenceId": "srd51:2014:monster:cloud-giant",
+      "srdChallengeRating": "9",
+      "digitalIndexChallengeRating": "9",
+      "printedHeading": null,
+      "knownOptionCount": null,
+      "variantFullBodyVerified": false,
+      "automaticMerge": false,
+      "canonicalId": null
+    },
+    {
+      "variantUrl": "https://www.dndbeyond.com/monsters/324266-fire-giant-variant",
+      "srdReferenceId": "srd51:2014:monster:fire-giant",
+      "srdChallengeRating": "9",
+      "digitalIndexChallengeRating": "9",
+      "printedHeading": null,
+      "knownOptionCount": null,
+      "variantFullBodyVerified": false,
+      "automaticMerge": false,
+      "canonicalId": null
+    },
+    {
+      "variantUrl": "https://www.dndbeyond.com/monsters/324275-frost-giant-variant",
+      "srdReferenceId": "srd51:2014:monster:frost-giant",
+      "srdChallengeRating": "8",
+      "digitalIndexChallengeRating": "8",
+      "printedHeading": "Frost Giants",
+      "knownOptionCount": 1,
+      "variantFullBodyVerified": false,
+      "automaticMerge": false,
+      "canonicalId": null
+    },
+    {
+      "variantUrl": "https://www.dndbeyond.com/monsters/324280-hill-giant-variant",
+      "srdReferenceId": "srd51:2014:monster:hill-giant",
+      "srdChallengeRating": "5",
+      "digitalIndexChallengeRating": "5",
+      "printedHeading": "Hill Giants",
+      "knownOptionCount": 1,
+      "variantFullBodyVerified": false,
+      "automaticMerge": false,
+      "canonicalId": null
+    },
+    {
+      "variantUrl": "https://www.dndbeyond.com/monsters/324283-stone-giant-variant",
+      "srdReferenceId": "srd51:2014:monster:stone-giant",
+      "srdChallengeRating": "7",
+      "digitalIndexChallengeRating": "7",
+      "printedHeading": "Stone Giants",
+      "knownOptionCount": 2,
+      "variantFullBodyVerified": false,
+      "automaticMerge": false,
+      "canonicalId": null
+    },
+    {
+      "variantUrl": "https://www.dndbeyond.com/monsters/324286-storm-giant-variant",
+      "srdReferenceId": "srd51:2014:monster:storm-giant",
+      "srdChallengeRating": "13",
+      "digitalIndexChallengeRating": "13",
+      "printedHeading": "Storm Giants",
+      "knownOptionCount": 1,
+      "variantFullBodyVerified": false,
+      "automaticMerge": false,
+      "canonicalId": null
+    }
+  ],
+  "unassignedPrintedOptions": [
+    "Siege Monster",
+    "Tackle"
+  ]
+}
