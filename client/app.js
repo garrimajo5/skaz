@@ -316,7 +316,7 @@ $('#dialog').addEventListener('click',e=>{if(e.target===$('#dialog')){const r=$(
 $('#dialog').addEventListener('cancel',event=>{if(typeof SkazCampaign!=='undefined'&&!SkazCampaign.allowClose())event.preventDefault();});
 window.addEventListener('hashchange',()=>go(location.hash.slice(1)));
 const initialPage=location.hash.slice(1);
-go(initialPage==='campaign'?'campaign':SkazPlay.mode()==='play'?'play':initialPage||'hero');
+go(initialPage || (SkazPlay.mode()==='play' ? 'play' : 'hero'));
 
 function editProfile(){
   modal(`<div class="overline">ПЕРСОНАЖ И КАМПАНИЯ</div><h2>Твоя история</h2><label for="profile-name">Имя персонажа</label><input id="profile-name" maxlength="80" value="${esc(state.profile.name)}"><label for="profile-tagline">Короткое описание</label><input id="profile-tagline" maxlength="160" value="${esc(state.profile.tagline)}"><label for="profile-campaign">Название кампании</label><input id="profile-campaign" maxlength="120" value="${esc(state.profile.campaign)}"><label for="profile-max-hp">Максимум хитов</label><input id="profile-max-hp" type="number" min="1" max="999" value="${state.maxHp}"><p>В этой версии механики рассчитаны на барда 5 уровня. Конструктор классов и уровней появится отдельно.</p><div class="dialog-actions"><button class="primary" id="save-profile">Сохранить</button></div>`);
