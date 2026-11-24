@@ -124,6 +124,8 @@ body[data-workspace-shell="shared"] .shell main {
   }
   .play-layout .play-cast-chevron {
     position: absolute;
+    width: 12px;
+    height: 12px;
     inset-inline-end: 3px;
     top: 50%;
     transform: translateY(-50%);
