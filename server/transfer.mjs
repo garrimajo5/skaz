@@ -3,7 +3,7 @@ import {writeAdvancementOrigin} from './class-advancement-store.mjs';
 import {validateAdvancementSnapshot} from './class-advancement.mjs';
 import {validateCharacterSheet,writeCharacterSheet} from './character-sheet.mjs';
 import {validateCharacterStats,writeCharacterStats} from './character-stats.mjs';
-import { validateChargeCounts, writeChargeCounts } from './inventory.mjs';
+import { validateChargeCounts, validateChargeAgreements, writeChargeState } from './inventory.mjs';
 import { validateTransferredProposal } from './proposals.mjs';
 import { validatePlace } from './places.mjs';
 import { randomUUID } from 'node:crypto';
@@ -43,12 +43,13 @@ export function validateTransfer(file) {
   if (!Array.isArray(file.inventory) || file.inventory.length > 1000) fail('Не более 1000 видов предметов');
   const seen = new Set();
   const inventory = file.inventory.map(item => {
-    exact(item, ['catalogId','quantity', ...(file.schemaVersion >= 7 && Object.hasOwn(item || {}, 'chargeCounts') ? ['chargeCounts'] : [])]);
+    exact(item, ['catalogId','quantity', ...(file.schemaVersion >= 7 && Object.hasOwn(item || {}, 'chargeCounts') ? ['chargeCounts'] : []), ...(file.schemaVersion===15&&Object.hasOwn(item||{},'chargeAgreements')?['chargeAgreements']:[])]);
     const entry = byId.get(item.catalogId);
     if (!entry || !['item','artifact'].includes(entry.kind) || seen.has(item.catalogId)) fail('Неверный или повторный предмет');
     if (!Number.isSafeInteger(item.quantity) || item.quantity < 1 || item.quantity > 999) fail('Количество: целое 1–999');
-    const chargeCounts = Object.hasOwn(item, 'chargeCounts') ? validateChargeCounts(item.chargeCounts, item.quantity, entry) : undefined;
-    seen.add(item.catalogId); return { catalogId: item.catalogId, quantity: item.quantity, ...(chargeCounts?.some(n => n !== null) ? { chargeCounts } : {}) };
+    const chargeCounts = Object.hasOwn(item, 'chargeCounts') ? validateChargeCounts(item.chargeCounts, item.quantity, entry,{allowOverage:file.schemaVersion===15}) : undefined;
+    const chargeAgreements=Object.hasOwn(item,'chargeAgreements')?validateChargeAgreements(item.chargeAgreements,{entry,quantity:item.quantity,chargeCounts}):[];
+    seen.add(item.catalogId); return {catalogId:item.catalogId,quantity:item.quantity,...(chargeCounts?.some(n=>n!==null)?{chargeCounts}:{}),...(chargeAgreements.length?{chargeAgreements}:{})};
   }).sort((a,b) => a.catalogId.localeCompare(b.catalogId, 'en'));
   let spellbook;
   if (file.schemaVersion >= 3) {
@@ -140,7 +141,7 @@ export function importTransfer(db, data, mutationId, viewId, previousSessions) {
   const entries = new Map(data.entries.map(entry => [entry.id, entry]));
   const snapshot = data.inventory.map(item => ({ ...item, entry: entries.get(item.catalogId) }));
   for (const item of snapshot) db.prepare('INSERT INTO inventory VALUES (?, ?, ?, ?)').run(ids.characterId, item.catalogId, item.quantity, JSON.stringify(item.entry));
-  for (const item of snapshot) writeChargeCounts(db, ids.characterId, item.catalogId, item.chargeCounts);
+  for (const item of snapshot) writeChargeState(db, ids.characterId, item.catalogId, item.chargeCounts,item.chargeAgreements);
   db.prepare('INSERT INTO inventory_changes VALUES (?, ?, ?, ?)').run(mutationId, ids.characterId, '[]', JSON.stringify(snapshot));
   if (data.spellbook) {
     const spells = data.spellbook.map(item => ({ ...item, entry: entries.get(item.catalogId) }));

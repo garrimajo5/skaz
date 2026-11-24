@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import vm from 'node:vm';import {readFileSync} from 'node:fs';import {randomUUID} from 'node:crypto';import {openStore} from '../server/store.mjs';
-const source=readFileSync(new URL('../client/resource-queue.js',import.meta.url),'utf8');const ctx=vm.createContext({});vm.runInContext(readFileSync(new URL('../client/health.js',import.meta.url),'utf8')+'\n'+source,ctx);const Queue=vm.runInContext('SkazResourceQueue',ctx);
+const source=readFileSync(new URL('../client/resource-queue.js',import.meta.url),'utf8');const ctx=vm.createContext({});vm.runInContext(readFileSync(new URL('../client/item-charges.js',import.meta.url),'utf8')+'\n'+readFileSync(new URL('../client/health.js',import.meta.url),'utf8')+'\n'+source,ctx);const Queue=vm.runInContext('SkazResourceQueue',ctx);
 const memory=()=>{const data=new Map();return {data,getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v)};};
 const plain=x=>JSON.parse(JSON.stringify(x));
 test('independent concurrent resources advance the queue using durable receipts without changing command IDs',()=>{
@@ -42,6 +42,42 @@ test('offline charges preserve individual copies, unknown values, bounds and rep
   q=new Queue(m,'charges');assert.deepEqual(plain(q.snapshot.inventory[0].chargeCounts),[4,null]);
   while(q.length){const head=plain(q.head);s.changeResource(head);q.acknowledge(head,s.changeResource(head));}
   assert.deepEqual(s.inventory().entries[0].chargeCounts,[4,null]);assert.equal(q.length,0);
+ }finally{s.close();}
+});
+
+test('spend and durable undo from an agreed overage restore only the original charge agreement',()=>{
+ const s=openStore(':memory:'),m=memory();try{
+  const entry=JSON.parse(readFileSync(new URL('../catalog/srd51-wands.json',import.meta.url),'utf8')).entries[0];
+  s.catalog.importEntries({schemaVersion:1,entries:[{...entry,links:[]}]},{apply:true});
+  const cmd=fields=>({mutationId:randomUUID(),expectedRevision:s.read().revision,characterId:s.read().context.characterId,catalogId:entry.id,...fields});
+  s.addInventory(cmd({quantity:2}));
+  s.changeCharges(cmd({unit:0,operation:'set',amount:9,agreement:'Решение мастера'}));
+  let q=new Queue(m,'charge-advisory');q.resetBaseline({...s.read(),inventory:s.inventory().entries});
+  const resource={kind:'charges',catalogId:entry.id,unit:0};
+  const spend=q.enqueue(resource,-1,randomUUID());
+  assert.deepEqual(plain(q.snapshot.inventory[0].chargeCounts),[8,null]);
+  assert.equal(q.snapshot.inventory[0].chargeAgreements,undefined);
+  const undo=q.enqueueUndo(spend.mutationId,randomUUID());
+  assert.equal(undo.resource.agreement.note,'Решение мастера');
+  q=new Queue(m,'charge-advisory');
+  while(q.length){
+   const head=plain(q.head);
+   s.changeResource(head);
+   const saved=s.changeResource(head);
+   assert.equal(saved.replayed,true);
+   if(head.targetMutationId){
+    const forged=structuredClone(saved);forged.resourceReceipt.chargeAgreementAfter=null;
+    assert.throws(()=>q.acknowledge(head,forged),/Сервер не подтвердил согласование/);
+    assert.equal(q.length,1);
+   }
+   q.acknowledge(head,saved);
+  }
+  assert.deepEqual(plain(q.snapshot.inventory),s.inventory().entries);
+  assert.deepEqual(s.inventory().entries[0].chargeCounts,[9,null]);
+  assert.equal(s.inventory().entries[0].chargeAgreements[0].note,'Решение мастера');
+  const before=s.read();
+  assert.throws(()=>s.changeResource({...plain(undo),mutationId:randomUUID(),targetMutationId:undefined,expectedRevision:before.revision}),{status:422});
+  assert.equal(s.read().revision,before.revision);
  }finally{s.close();}
 });
 test('offline queue keeps ten ordered HP and slot operations across reload, then delivers each exactly once',()=>{

@@ -11,7 +11,7 @@ const SkazResourceQueue = (() => {
    return r.kind==='slot'&&[1,2,3].includes(r.level)?{value:snapshot.state.slots[r.level],maximum:[4,3,2][r.level-1]}:r.kind==='inspiration'?{value:snapshot.state.inspiration,maximum:4}:null;
   }
   if(r.kind==='counter'){const c=snapshot.characterSheet?.counters.find(c=>c.id===r.counterId);return c?{value:c.current,maximum:c.max}:null;}
-  if(r.kind==='charges'){const item=snapshot.inventory?.find(item=>item.catalogId===r.catalogId);return item&&Number.isSafeInteger(r.unit)&&r.unit>=0&&r.unit<item.quantity?{value:item.chargeCounts?.[r.unit],maximum:(item.entry.item||item.entry.artifact)?.charges?.max}:null;}
+  if(r.kind==='charges')return SkazItemCharges.balance(snapshot.inventory?.find(item=>item.catalogId===r.catalogId),r.unit);
   return null;
  }
  function projectOne(snapshot,command){
@@ -24,6 +24,16 @@ const SkazResourceQueue = (() => {
    const next=clone(snapshot);Object.assign(next.state,SkazHealth.project(snapshot.state.hp,snapshot.state.maxHp,snapshot.state.tempHp||0,command.resource,command.delta,snapshot.state.concentration,snapshot.state.concentrationChecks||[],command.mutationId,SkazHealth.deathState(snapshot.state.hp,snapshot.state.deathSaves)));return next;
   }
   if(command.resource.kind==='hp'&&command.delta<0&&(snapshot.state.tempHp||0)>0)throw new Error('Обнови страницу: урон должен учитывать временные хиты');
+  if(command.resource.kind==='charges'){
+   const r=command.resource,projected=SkazItemCharges.project(b,command.delta<0?'spend':'recover',Math.abs(command.delta),{restore:Boolean(command.targetMutationId)});
+   if(projected.error)throw Error(projected.error==='manual'?'Укажи вручную остаток выше справочного максимума':'Заряды выйдут за допустимые границы');
+   if(Object.hasOwn(r,'agreement')&&(!command.targetMutationId||!SkazItemCharges.validAgreement(r.agreement)||r.agreement.unit!==r.unit||r.agreement.actual!==projected.next||r.agreement.maximum!==b.maximum))throw Error('Неверное согласование отмены зарядов');
+   const next=clone(snapshot),item=next.inventory.find(item=>item.catalogId===r.catalogId);
+   const {counts,agreements}=SkazItemCharges.adjust(item,r.unit,projected,r.agreement?.note);
+   item.chargeCounts=counts;
+   if(agreements.length)item.chargeAgreements=agreements;else delete item.chargeAgreements;
+   return next;
+  }
   let value=b.value+command.delta;
   if(command.targetMutationId&&(value<0||value>(command.resource.kind==='counter'?9999:b.maximum)))throw new Error('Отмена выйдет за границы ресурса');
   if(command.resource.kind==='hp')value=Math.max(0,Math.min(b.maximum,value));
@@ -31,7 +41,6 @@ const SkazResourceQueue = (() => {
   const next=clone(snapshot),r=command.resource;
   if(r.kind==='hp')next.state.hp=value;else if(r.kind==='slot')next.state.slots[r.level]=value;else if(r.kind==='inspiration')next.state.inspiration=value;
   else if(r.kind==='counter'){next.characterSheet.counters.find(c=>c.id===r.counterId).current=value;if(next.characterSheet.ruleAcknowledgements)next.characterSheet.ruleAcknowledgements=next.characterSheet.ruleAcknowledgements.filter(a=>a.key!=='counter:'+r.counterId);}
-  else next.inventory.find(item=>item.catalogId===r.catalogId).chargeCounts[r.unit]=value;
   return next;
  }
  class Queue {
@@ -75,6 +84,15 @@ const SkazResourceQueue = (() => {
     if(snapshot.state.hp!==after.hp||(snapshot.state.tempHp||0)!==after.tempHp||snapshot.state.maxHp!==target.maximum||target.before===after.hp&&target.resource.temporaryBefore===after.tempHp&&target.resource.concentrationBefore===after.concentration&&JSON.stringify(target.resource.checksBefore||[])===JSON.stringify(after.concentrationChecks||[])&&JSON.stringify(target.resource.deathBefore)===JSON.stringify(after.deathSaves))throw new Error('Здоровье изменилось или операция ничего не изменила');
     return {resource:{kind:'health',operation:'restore',temporaryBefore:after.tempHp,hpAfter:target.before,tempAfter:target.resource.temporaryBefore,concentrationBefore:snapshot.state.concentration,concentrationAfter:target.resource.concentrationBefore,checksAfter:clone(target.resource.checksBefore||[]),deathAfter:target.resource.deathBefore},delta:1};
    }
+   if(target.resource.kind==='charges'){
+    const r=target.resource,b=balance(this.snapshot,r),delta=-target.delta;
+    const result=SkazItemCharges.project(b,delta<0?'spend':'recover',Math.abs(delta),{restore:true});
+    if(result.error||b.maximum!==target.maximum)throw Error('Отмена выйдет за границы зарядов');
+    const previous=this.data.commands.slice(0,this.data.commands.indexOf(target)).reduce(projectOne,clone(this.data.baseline));
+    const item=previous.inventory.find(item=>item.catalogId===r.catalogId);
+    const agreement=SkazItemCharges.agreementFor(item,r.unit,result.next);
+    return {resource:{...r,...(agreement?{agreement}:{})},delta};
+   }
    const after=target.resource.kind==='hp'?Math.max(0,Math.min(target.maximum,target.before+target.delta)):target.before+target.delta;
    const delta=target.before-after,b=balance(this.snapshot,target.resource);
    if(!delta||!b||b.maximum!==target.maximum||b.value+delta<0||b.value+delta>(target.resource.kind==='counter'?9999:b.maximum))throw new Error('Отмена выйдет за границы ресурса');
@@ -83,7 +101,7 @@ const SkazResourceQueue = (() => {
   enqueueUndo(targetId,mutationId){const inverse=this.undoInfo(targetId);return this.enqueue(inverse.resource,inverse.delta,mutationId,targetId);}
   acknowledge(command,payload){
    if(!this.head||JSON.stringify(command)!==JSON.stringify(this.head))throw new Error('Нарушен порядок подтверждений');
-   const receipt=payload.resourceReceipt;if((command.targetMutationId||['health','cast'].includes(command.resource.kind))&&!receipt)throw new Error('Сервер не подтвердил связь отмены');
+   const receipt=payload.resourceReceipt;if((command.targetMutationId||['health','cast','charges'].includes(command.resource.kind))&&!receipt)throw new Error('Сервер не подтвердил связь отмены');
    const verified=receipt&&receipt.mutationId===command.mutationId&&sameContext(receipt.context,command.context)&&JSON.stringify(receipt.resource)===JSON.stringify(command.resource)&&receipt.before===command.before&&receipt.maximum===command.maximum&&receipt.delta===command.delta&&receipt.targetMutationId===command.targetMutationId&&Number.isSafeInteger(receipt.revision)&&receipt.revision>command.expectedRevision&&payload.revision>=receipt.revision;
    if(receipt&&!verified)throw new Error('Подтверждение относится к другой операции. Очередь сохранена');
    if(!sameContext(command.context,payload.context)||(!verified&&payload.revision!==command.expectedRevision+1))throw new Error('После отправки игра изменилась. Очередь сохранена для сверки');
@@ -97,6 +115,12 @@ const SkazResourceQueue = (() => {
      throw Error('Неверная квитанция сотворения');
     const record=r.operation==='restore'?r.receipt.record:receipt.casting?.record;
     if(record&&!SkazCasting.confirmsManualNote(actual,record,r.operation==='cast'))throw Error('Сервер не подтвердил ручную запись');
+   }
+   if(command.resource.kind==='charges'&&receipt){
+    const {catalogId,unit}=command.resource;
+    const item=expected.inventory?.find(item=>item.catalogId===catalogId);
+    const agreement=SkazItemCharges.agreementFor(item,unit);
+    if(JSON.stringify(receipt.chargeAgreementAfter??null)!==JSON.stringify(agreement))throw Error('Сервер не подтвердил согласование зарядов');
    }
    if(!after||after.value!==before.value||after.maximum!==before.maximum)throw new Error('Сервер не подтвердил ожидаемый результат');
    if(command.resource.kind==='health'&&Object.hasOwn(command.resource,'deathBefore')&&(JSON.stringify(actual.state.deathSaves)!==JSON.stringify(expected.state.deathSaves)||JSON.stringify(receipt.deathAfter)!==JSON.stringify(expected.state.deathSaves)))throw new Error('Сервер не подтвердил спасброски от смерти');

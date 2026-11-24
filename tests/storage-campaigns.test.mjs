@@ -9,18 +9,20 @@ const profileRulesSource=await readFile(new URL('../client/profile-rules.js',imp
 const conditionsSource=await readFile(new URL('../client/conditions.js',import.meta.url),'utf8');
 const uiSource=await readFile(new URL('../client/ui.js',import.meta.url),'utf8');
 const source = await readFile(new URL('../client/storage.js', import.meta.url), 'utf8');
+const itemChargesSource=await readFile(new URL('../client/item-charges.js',import.meta.url),'utf8');
 const queueSource=(await readFile(new URL('../client/health.js',import.meta.url),'utf8'))+'\n'+await readFile(new URL('../client/resource-queue.js',import.meta.url),'utf8');
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const memory = () => { const values = new Map(); return { get length() { return values.size; }, key: index => [...values.keys()][index], getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key), values }; };
 function harness(localStorage, sessionStorage, fetch, navigator, SkazAccount, withQueue=false) {
   const handlers = {}, elements = new Map(), messages = [], messageOptions = [], archiveCalls = [], references = [], downloads = []; let dialog='';
-  const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '', style: {}, focus() {} }); return elements.get(id); };
+  const get = id => { if (!elements.has(id)) elements.set(id, { value: '', dataset: {}, innerHTML: '', style: {}, classList:{toggle(){}}, focus() {} }); return elements.get(id); };
   const context = vm.createContext({ location: { protocol: 'http:' }, localStorage, sessionStorage, fetch, navigator, SkazAccount,
     crypto: { randomUUID }, AbortSignal, structuredClone, URL, Blob, setTimeout,
     state: { ...structuredClone(seed), theme: 'polar' }, initial: { ...structuredClone(seed), theme: 'polar' },
     document: { querySelector:get, createElement:()=>({click(){downloads.push(this.download);}}), getElementById: id=>id==='inventory-view'&&!dialog.includes('id="inventory-view"')&&!get('inventory-page').innerHTML.includes('id="inventory-view"')?null:get(id), addEventListener: (key, handler) => handlers[key] = handler },
     SkazArchive: { open: id => archiveCalls.push(id) }, SkazCatalog:{openReference:(...args)=>references.push(args)}, window: { addEventListener() {} }, $: get, $$: selector => selector === '[data-queued-undo]' ? [get('queued-undo-button')] : selector === '[data-resource-undo]' ? [get('resource-undo-button')] : selector === '[data-session-view]' ? [get('session-view-button')] : selector === '[data-select-character]' ? [get('character-choice')] : selector === '[data-inventory-read]' ? [get('inventory-read-button')] : selector === '[data-inventory-remove]' ? [get('inventory-remove-button')] : [], esc: String, render() {}, modal:html=>{dialog=html;get('dialog').open=true;}, closeModal() {dialog='';get('dialog').open=false;}, toast: (value,undo,options) => {messages.push(value);messageOptions.push(options);},
   });
+  vm.runInContext(itemChargesSource,context);
   if(withQueue)vm.runInContext(queueSource,context);
   vm.runInContext(profileRulesSource,context);vm.runInContext(conditionsSource,context);vm.runInContext(sheetSource,context);
   vm.runInContext(uiSource,context);vm.runInContext(source, context);

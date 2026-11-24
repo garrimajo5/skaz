@@ -1,4 +1,5 @@
 import Health from '../client/health.js';
+import Charges from '../client/item-charges.js';
 import {castingBalance,applyCasting} from './casting.mjs';
 import {AppError} from './state.mjs';
 import {readCharacterSheet,saveCharacterSheet} from './character-sheet.mjs';
@@ -13,7 +14,7 @@ export function validateResourceCommand(input){
  if(Object.hasOwn(input,'targetMutationId')&&(!id(input.targetMutationId)||input.targetMutationId===input.mutationId))fail('Неверная цель отмены');
  const r=input.resource;
  if(!r||!['cast','health','hp','slot','inspiration','counter','charges'].includes(r.kind))fail('Неизвестный ресурс');
- const keys=r.kind==='cast'?['kind','operation',r.operation==='restore'?'receipt':'command']:r.kind==='health'?['kind','operation','temporaryBefore','concentrationBefore',...(Object.hasOwn(r,'checksBefore')?['checksBefore']:[]),...(Object.hasOwn(r,'deathBefore')?['deathBefore']:[]),...(['pass','fail'].includes(r.operation)?['checkId']:[]),...(r.operation==='restore'?['hpAfter','tempAfter','concentrationAfter',...(Object.hasOwn(r,'checksBefore')?['checksAfter']:[]),...(Object.hasOwn(r,'deathBefore')?['deathAfter']:[])]:[])]:r.kind==='slot'?['kind','level']:r.kind==='counter'?['kind','counterId']:r.kind==='charges'?['kind','catalogId','unit']:['kind'];
+ const keys=r.kind==='cast'?['kind','operation',r.operation==='restore'?'receipt':'command']:r.kind==='health'?['kind','operation','temporaryBefore','concentrationBefore',...(Object.hasOwn(r,'checksBefore')?['checksBefore']:[]),...(Object.hasOwn(r,'deathBefore')?['deathBefore']:[]),...(['pass','fail'].includes(r.operation)?['checkId']:[]),...(r.operation==='restore'?['hpAfter','tempAfter','concentrationAfter',...(Object.hasOwn(r,'checksBefore')?['checksAfter']:[]),...(Object.hasOwn(r,'deathBefore')?['deathAfter']:[])]:[])]:r.kind==='slot'?['kind','level']:r.kind==='counter'?['kind','counterId']:r.kind==='charges'?['kind','catalogId','unit',...(Object.hasOwn(r,'agreement')?['agreement']:[])]:['kind'];
  if(!exact(r,keys))fail('Неверные поля ресурса');
  if(r.kind==='cast'&&(!['cast','restore'].includes(r.operation)||input.delta!==1||r.operation==='restore'&&!input.targetMutationId||r.operation==='cast'&&input.targetMutationId))fail('Неверная команда сотворения');
  if(r.kind==='health'&&([r.concentrationBefore,...(r.operation==='restore'?[r.concentrationAfter]:[])].some(c=>c!==null&&(typeof c!=='string'||!c.trim()||c.length>200))||!['damage','heal','temporary','restore','pass','fail','critical-damage','death-success','death-failure','death-1','death-20','death-stabilize'].includes(r.operation)||!Number.isSafeInteger(r.temporaryBefore)||r.temporaryBefore<0||r.temporaryBefore>9999||input.delta<0||r.operation==='restore'&&!input.targetMutationId))fail('Неверная операция здоровья');
@@ -22,8 +23,9 @@ export function validateResourceCommand(input){
  if(r.kind==='slot'&&![1,2,3].includes(r.level))fail('Неверный круг шаблона');
  if(r.kind==='counter'&&!id(r.counterId))fail('Неверный счётчик');
  if(r.kind==='charges'&&(typeof r.catalogId!=='string'||!/^[a-z0-9][a-z0-9:._-]{2,119}$/.test(r.catalogId)||!Number.isSafeInteger(r.unit)||r.unit<0||r.unit>998))fail('Неверный экземпляр предмета');
+ if(r.kind==='charges'&&Object.hasOwn(r,'agreement')&&(!input.targetMutationId||!Charges.validAgreement(r.agreement)||r.agreement.unit!==r.unit))fail('Неверное согласование отмены зарядов');
  if(!Number.isSafeInteger(input.delta)||(!input.delta&&!(r.kind==='health'&&r.operation==='temporary'))||Math.abs(input.delta)>10000)fail('Нужно ненулевое целое приращение до 10000');
- if(!Number.isSafeInteger(input.maximum)||input.maximum<0||input.maximum>10000||!Number.isSafeInteger(input.before)||input.before<0||input.before>((r.kind==='counter'||r.kind==='cast'&&(r.operation==='restore'?r.receipt?.cost:r.command?.cost)?.kind==='counter')?9999:input.maximum))fail('Неверный ожидаемый остаток');
+ if(!Number.isSafeInteger(input.maximum)||input.maximum<0||input.maximum>10000||!Number.isSafeInteger(input.before)||input.before<0||input.before>(r.kind==='charges'?Charges.technicalMaximum:(r.kind==='counter'||r.kind==='cast'&&(r.operation==='restore'?r.receipt?.cost:r.command?.cost)?.kind==='counter')?9999:input.maximum))fail('Неверный ожидаемый остаток');
  return {context:{campaignId:input.context.campaignId,characterId:input.context.characterId,sessionId:input.context.sessionId},resource:Object.fromEntries(keys.map(k=>[k,r[k]])),delta:input.delta,before:input.before,maximum:input.maximum,...(input.targetMutationId?{targetMutationId:input.targetMutationId}:{})};
 }
 export function resourceBalance(db,current,resource){
@@ -39,9 +41,10 @@ export function resourceBalance(db,current,resource){
   if(!counter)throw new AppError(409,'Счётчик больше не существует');
   return {value:counter.current,maximum:counter.max,title:counter.name};
  }
- const item=readInventory(db,current.context.characterId).find(item=>item.catalogId===resource.catalogId),value=item?.chargeCounts?.[resource.unit],maximum=(item?.entry.item||item?.entry.artifact)?.charges?.max;
- if(!item||resource.unit>=item.quantity||!Number.isSafeInteger(value)||!Number.isSafeInteger(maximum))throw new AppError(409,'Экземпляр или известный остаток зарядов недоступен');
- return {value,maximum,title:'Заряды: '+item.entry.name.ru};
+ const item=readInventory(db,current.context.characterId).find(item=>item.catalogId===resource.catalogId);
+ const balance=Charges.balance(item,resource.unit);
+ if(!balance||!Charges.validCount(balance.value))throw new AppError(409,'Экземпляр или известный остаток зарядов недоступен');
+ return {...balance,title:'Заряды: '+item.entry.name.ru};
 }
 // Caller owns the transaction and durable mutation receipt. Never reorder or sum
 // operations: clamped HP changes do not commute, and absolute edits must conflict.
@@ -50,6 +53,15 @@ export function applyResourceCommand(db,current,payload,mutationId,writeState){
  const balance=resourceBalance(db,current,payload.resource);
  if(balance.value!==payload.before||balance.maximum!==payload.maximum)throw new AppError(409,'Остаток или максимум ресурса изменился. Нужна сверка очереди');
  if(payload.resource.kind==='cast')return applyCasting(db,current,payload,mutationId,writeState);
+ if(payload.resource.kind==='charges'){
+  const {catalogId,unit,agreement}=payload.resource;
+  try{
+   const result=changeCharges(db,{characterId:current.context.characterId,catalogId,unit,
+    operation:payload.delta<0?'spend':'recover',amount:Math.abs(payload.delta)},mutationId,current.context.characterId,
+    {restore:Boolean(payload.targetMutationId),expectedAgreement:agreement});
+   return {...result,state:current.state,title:balance.title,label:balance.title+': '+balance.value+' → '+result.after};
+  }catch(error){if(error instanceof AppError&&error.status===422)throw new AppError(409,error.message);throw error;}
+ }
  if(payload.resource.kind==='hp'&&payload.delta<0&&(current.state.tempHp||0)>0)throw new AppError(409,'Обнови страницу: урон должен учитывать временные хиты');
  if(['health','hp'].includes(payload.resource.kind)&&current.state.concentrationChecks?.length&&!Object.hasOwn(payload.resource,'checksBefore'))throw new AppError(409,'Обнови страницу: есть вопросы концентрации');
  if(['health','hp'].includes(payload.resource.kind)&&current.state.deathSaves!==undefined&&!Object.hasOwn(payload.resource,'deathBefore'))throw new AppError(409,'Обнови страницу: сохранены спасброски от смерти');
@@ -61,8 +73,6 @@ export function applyResourceCommand(db,current,payload,mutationId,writeState){
  if(r.kind==='counter'){
   const sheet=readCharacterSheet(db,current.context.characterId);sheet.counters.find(c=>c.id===r.counterId).current=after;
   saveCharacterSheet(db,{characterId:current.context.characterId,sheet},mutationId,current.context.characterId);
- }else if(r.kind==='charges'){
-  changeCharges(db,{characterId:current.context.characterId,catalogId:r.catalogId,unit:r.unit,operation:payload.delta<0?'spend':'recover',amount:Math.abs(payload.delta)},mutationId,current.context.characterId);
  }else{
   if(health)Object.assign(next,health);else if(r.kind==='hp')next.hp=after;else if(r.kind==='slot')next.slots[r.level]=after;else next.inspiration=after;
   writeState(next);

@@ -37,13 +37,14 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { AppError, seed, validateState } from './state.mjs';
 import { createCatalog, isKnownBundledUpgrade } from './catalog.mjs';
-import { validateChargeCommand, changeCharges, setupInventory, validateInventoryQuantity, readInventory, addInventory, removeInventory, validateInventoryUndo, undoInventory } from './inventory.mjs';
+import { validateChargeCommand, changeCharges, setupInventory, validateInventoryQuantity, readInventory, addInventory, removeInventory, validateInventoryUndo, undoInventory, requiresChargeV15, hasChargeV15Data } from './inventory.mjs';
 import { setupSessions, validateSession, startSession, listSessions, readSession } from './sessions.mjs';
 import { migrateEntities, readEntities, writeEntities, joinState, contextIds, createGame, selectGame, listGames } from './entities.mjs';
 
 const profileUpgradePending = () => new AppError(409, 'Эта операция станет доступна после завершения обновления формата профилей.');
 
 function checkProfileWriteCompatibility(db) {
+  if(hasChargeV15Data(db))throw new Error('В базе есть заряды формата v15. Режим записи v14 не может её открыть.');
   const tables = [
     ['character_stats', 'stats', readCharacterStats],
     ['character_sheets', 'sheet', readCharacterSheet],
@@ -154,8 +155,9 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
       const current = read();
       if(!withMemory)assertCampaignPeopleExportable(db, current.context.campaignId);
       if(withArt&&current.state.conditions!==undefined)version=14;
-      const advisory=ProfileRules.requiresV15({stats:current.characterStats,sheet:current.characterSheet});
-      if(withArt&&advisory)version=15;
+      const inventory=readInventory(db,current.context.characterId);
+      const advisory=ProfileRules.requiresV15({stats:current.characterStats,sheet:current.characterSheet}),chargeAdvisory=inventory.some(requiresChargeV15);
+      if(withArt&&(advisory||chargeAdvisory))version=15;
       if (version === 15 && profileWriteFormat === 14) throw profileUpgradePending();
       if(advisory&&version<15)throw new AppError(409,'Ручные отклонения и согласования требуют экспорт v15');
       if(current.state.conditions!==undefined&&version<14)throw new AppError(409,'Состояния требуют экспорт v14');
@@ -167,7 +169,6 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
       }
       const art=personalArt?.exportCharacter(current.context.characterId);
       if(art?.entries.length&&!withArt)throw new AppError(409,'Личные изображения требуют экспорт игры с изображениями');
-      const inventory = readInventory(db, current.context.characterId);
       const spellbook = readSpellbook(db, current.context.characterId);
       const quests = readQuests(db, current.context.campaignId);
       const places = readPlaces(db, current.context.campaignId);
@@ -178,6 +179,7 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
       if(version<10&&current.characterSheet&&['spellcasting','saveProficiencies','spellLearning'].some(key=>Object.hasOwn(current.characterSheet,key)))throw new AppError(409,'Настройки заклинаний требуют экспорт v10 или SQLite backup');
       if(version<9&&current.characterSheet!==null)throw new AppError(409,'Собственный класс и счётчики требуют экспорт v9 или SQLite backup');
       if (version < 8 && current.characterStats!==null) throw new AppError(409,'Ручные характеристики требуют экспорт v8 или SQLite backup');
+      if (version < 15 && chargeAdvisory) throw new AppError(409,'Ручные остатки и согласования зарядов требуют экспорт v15');
       if (version < 7 && inventory.some(item => item.chargeCounts)) throw new AppError(409, 'Остатки зарядов требуют экспорт v7 или SQLite backup');
       if (version < 6 && proposals.length) throw new AppError(409, 'Предложения событий требуют экспорт v6 или SQLite backup');
       if (version < 5 && places.length) throw new AppError(409, 'Места кампании требуют экспорт v5 или SQLite backup');
@@ -206,7 +208,8 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
         ...(version>=8?{characterStats:current.characterStats}:{}),
         ...(version>=9?{characterSheet:current.characterSheet}:{}),
         ...(version>=13?{advancement:current.advancement??null}:{}),
-        inventory: inventory.map(({ catalogId, quantity, chargeCounts }) => ({ catalogId, quantity, ...(version >= 7 && chargeCounts ? { chargeCounts } : {}) })),
+        inventory: inventory.map(({catalogId,quantity,chargeCounts,chargeAgreements})=>({catalogId,quantity,
+          ...(version>=7&&chargeCounts?{chargeCounts}:{}),...(version===15&&chargeAgreements?.length?{chargeAgreements}:{})})),
         ...(version >= 3 ? { spellbook: spellbook.map(({ catalogId, status }) => ({ catalogId, status })) } : {}),
         ...(version >= 4 ? { quests: quests.map(({ id, campaignId, createdSessionId, importedFrom, title, description, status, steps }) => ({ origin: importedFrom || { campaignId, questId: id, sessionId: createdSessionId }, quest: { title, description, status, steps } })) } : {}),
         ...(version >= 5 ? { places: places.map(({ id, campaignId, createdSessionId, importedFrom, title, description, x, y, visited }) => ({ origin: importedFrom || { campaignId, placeId: id, sessionId: createdSessionId }, place: { title, description, x, y, visited } })) } : {}),
@@ -259,8 +262,10 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
       afterAuthorization?.(affectedContext);
       const response = { ...read(), ...(operation ? { affectedContext } : {}) };
       // Keep writes readable by the previous release during the initial rollout.
+      const chargeWrite=operation?.startsWith('inventory-')||['resource','resource-undo'].includes(operation);
       if (profileWriteFormat === 14 &&
-          ProfileRules.requiresV15({stats:response.characterStats, sheet:response.characterSheet})) {
+          (ProfileRules.requiresV15({stats:response.characterStats,sheet:response.characterSheet})||
+           chargeWrite&&readInventory(db,response.context.characterId).some(requiresChargeV15))) {
         throw profileUpgradePending();
       }
       db.exec('COMMIT');
@@ -296,7 +301,7 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
       const saved=mutate(request,hash,payload.targetMutationId?'Отмена изменения ресурса':label,()=>{
         if(payload.targetMutationId){const inverse=inverseResource(db,read(),payload.targetMutationId);if(['delta','before','maximum'].some(k=>payload[k]!==inverse[k])||JSON.stringify(payload.resource)!==JSON.stringify(inverse.resource))throw new AppError(409,'Отмена не соответствует исходной операции');}
         const result=applyResourceCommand(db,read(),payload,request.mutationId,next=>writeEntities(db,next,viewId));
-        recordResource(db,request.mutationId,{...payload,title:result.title,...(result.casting?{casting:result.casting}:{}),...(result.health?{tempAfter:result.health.tempHp,concentrationAfter:result.health.concentration,...(result.health.deathSaves?{deathAfter:result.health.deathSaves}:{}),...(result.health.concentrationChecks?{checksAfter:result.health.concentrationChecks}:{})}:{})},result.after,payload.targetMutationId||null);
+        recordResource(db,request.mutationId,{...payload,title:result.title,...(Object.hasOwn(result,'chargeAgreementAfter')?{chargeAgreementAfter:result.chargeAgreementAfter}:{}),...(result.casting?{casting:result.casting}:{}),...(result.health?{tempAfter:result.health.tempHp,concentrationAfter:result.health.concentration,...(result.health.deathSaves?{deathAfter:result.health.deathSaves}:{}),...(result.health.concentrationChecks?{checksAfter:result.health.concentrationChecks}:{})}:{})},result.after,payload.targetMutationId||null);
         return result.state;
       },'resource',()=>independentResourcesSince(db,request.expectedRevision,payload));
       return {...saved,resourceReceipt:resourceReceipt(db,request.mutationId)};
@@ -306,8 +311,8 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
       return mutate(request,hash,'Отмена изменения ресурса',()=>{
         const current=read();if(payload.characterId!==current.context.characterId)throw new AppError(409,'Выбран другой персонаж');
         const inverse=inverseResource(db,current,payload.targetMutationId);
-        const result=applyResourceCommand(db,current,inverse,request.mutationId,next=>writeEntities(db,next,viewId));
-        recordResource(db,request.mutationId,{...inverse,title:result.title,...(result.casting?{casting:result.casting}:{}),...(result.health?{tempAfter:result.health.tempHp,concentrationAfter:result.health.concentration,...(result.health.deathSaves?{deathAfter:result.health.deathSaves}:{}),...(result.health.concentrationChecks?{checksAfter:result.health.concentrationChecks}:{})}:{})},result.after,payload.targetMutationId);
+        const result=applyResourceCommand(db,current,{...inverse,targetMutationId:payload.targetMutationId},request.mutationId,next=>writeEntities(db,next,viewId));
+        recordResource(db,request.mutationId,{...inverse,title:result.title,...(Object.hasOwn(result,'chargeAgreementAfter')?{chargeAgreementAfter:result.chargeAgreementAfter}:{}),...(result.casting?{casting:result.casting}:{}),...(result.health?{tempAfter:result.health.tempHp,concentrationAfter:result.health.concentration,...(result.health.deathSaves?{deathAfter:result.health.deathSaves}:{}),...(result.health.concentrationChecks?{checksAfter:result.health.concentrationChecks}:{})}:{})},result.after,payload.targetMutationId);
         return result.state;
       },'resource-undo');
     },
