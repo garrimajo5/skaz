@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "accepted": false,
+  "ruleset": "5e-2014",
+  "locale": "ru",
+  "source": {
+    "url": "https://hobbyworld.ru//download/rules/DnD_character_list.pdf",
+    "sha256": "a823c2264a6f8ea218d908c0e60997eecc17c5e25e78935b96169a7fe10dc4c0",
+    "bytes": 1935611,
+    "pages": 3,
+    "fillable": false,
+    "extractableText": false
+  },
+  "generator": {
+    "file": "scripts/build-publisher-sheet-sample-80.py",
+    "sha256": "2648a96864e5b43087cade0467c0b683a36a2b3eb229c4b0baefcfb155e93ff6",
+    "fontSha256": "c9b76220a5be42ead4733611e417cd65c5fd8aeaa33eb56576ac378a37d130a1",
+    "renderer": "pdftoppm version 26.11.0"
+  },
+  "artifact": {
+    "file": "publisher-ru-fictional.pdf",
+    "sha256": "9c51225acfd971a41e817b7df64cf5e76942b070db932ce5b4babb36ffda6670",
+    "bytes": 2757715,
+    "pages": 3,
+    "redistributedInGit": false
+  },
+  "rasterPages": [
+    {
+      "file": "page-1.png",
+      "page": 1,
+      "width": 1191,
+      "height": 1565,
+      "dpi": 144,
+      "bytes": 245679,
+      "sha256": "8d14dce4a75a76c49fb8a71f247712d47de2bf2112ec319a0d513294f0778d11",
+      "derivedFromPdfSha256": "9c51225acfd971a41e817b7df64cf5e76942b070db932ce5b4babb36ffda6670"
+    },
+    {
+      "file": "page-2.png",
+      "page": 2,
+      "width": 1191,
+      "height": 1565,
+      "dpi": 144,
+      "bytes": 74511,
+      "sha256": "bc5ce17961bb2af770c60b42a59b59f3ddd64f75c6913af7a401ea5f2e9b4f14",
+      "derivedFromPdfSha256": "9c51225acfd971a41e817b7df64cf5e76942b070db932ce5b4babb36ffda6670"
+    },
+    {
+      "file": "page-3.png",
+      "page": 3,
+      "width": 1191,
+      "height": 1565,
+      "dpi": 144,
+      "bytes": 152793,
+      "sha256": "d1be809f127f230549a5ea257b1e745dfec79b96c74add23f6fc5091879744e5",
+      "derivedFromPdfSha256": "9c51225acfd971a41e817b7df64cf5e76942b070db932ce5b4babb36ffda6670"
+    }
+  ],
+  "inputVariants": [
+    {
+      "kind": "non-fillable-pdf",
+      "files": [
+        "publisher-ru-fictional.pdf"
+      ],
+      "pages": 3
+    },
+    {
+      "kind": "png-pages",
+      "files": [
+        "page-1.png",
+        "page-2.png",
+        "page-3.png"
+      ],
+      "pages": 3
+    }
+  ],
+  "regions": [
+    {
+      "fieldId": "name",
+      "page": 1,
+      "pointRect": [
+        55,
+        57,
+        158,
+        22
+      ],
+      "pixelRect": [
+        110,
+        114,
+        316,
+        44
+      ],
+      "printed": "Лира Искра"
+    },
+    {
+      "fieldId": "classes",
+      "page": 1,
+      "pointRect": [
+        263,
+        41,
+        99,
+        11
+      ],
+      "pixelRect": [
+        526,
+        82,
+        198,
+        22
+      ],
+      "printed": "Волшебник 3 / Колдун 2"
+    },
+    {
+      "fieldId": "abilities.dex",
+      "page": 1,
+      "pointRect": [
+        30,
+        223,
+        39,
+        18
+      ],
+      "pixelRect": [
+        60,
+        446,
+        78,
+        36
+      ],
+      "printed": "14"
+    },
+    {
+      "fieldId": "modifier.dex",
+      "page": 1,
+      "pointRect": [
+        39,
+        249,
+        20,
+        13
+      ],
+      "pixelRect": [
+        78,
+        498,
+        40,
+        26
+      ],
+      "printed": "+2"
+    },
+    {
+      "fieldId": "hp.max",
+      "page": 1,
+      "pointRect": [
+        269,
+        191,
+        103,
+        12
+      ],
+      "pixelRect": [
+        538,
+        382,
+        206,
+        24
+      ],
+      "printed": null
+    },
+    {
+      "fieldId": "hp.current",
+      "page": 1,
+      "pointRect": [
+        227,
+        209,
+        133,
+        22
+      ],
+      "pixelRect": [
+        454,
+        418,
+        266,
+        44
+      ],
+      "printed": "0"
+    },
+    {
+      "fieldId": "hp.temp",
+      "page": 1,
+      "pointRect": [
+        227,
+        266,
+        133,
+        23
+      ],
+      "pixelRect": [
+        454,
+        532,
+        266,
+        46
+      ],
+      "printed": "0"
+    },
+    {
+      "fieldId": "name.repeat",
+      "page": 2,
+      "pointRect": [
+        59,
+        61,
+        150,
+        22
+      ],
+      "pixelRect": [
+        118,
+        122,
+        300,
+        44
+      ],
+      "printed": "Лира Искра"
+    },
+    {
+      "fieldId": "spellcasting.class",
+      "page": 3,
+      "pointRect": [
+        63,
+        56,
+        161,
+        23
+      ],
+      "pixelRect": [
+        126,
+        112,
+        322,
+        46
+      ],
+      "printed": "Волшебник"
+    },
+    {
+      "fieldId": "spellcasting.ability",
+      "page": 3,
+      "pointRect": [
+        278,
+        49,
+        60,
+        22
+      ],
+      "pixelRect": [
+        556,
+        98,
+        120,
+        44
+      ],
+      "printed": "Интеллект"
+    },
+    {
+      "fieldId": "spellcasting.dc",
+      "page": 3,
+      "pointRect": [
+        381,
+        49,
+        53,
+        22
+      ],
+      "pixelRect": [
+        762,
+        98,
+        106,
+        44
+      ],
+      "printed": "13"
+    },
+    {
+      "fieldId": "spellcasting.attack",
+      "page": 3,
+      "pointRect": [
+        482,
+        49,
+        50,
+        22
+      ],
+      "pixelRect": [
+        964,
+        98,
+        100,
+        44
+      ],
+      "printed": "+5"
+    },
+    {
+      "fieldId": "spellcasting.cantrip.0",
+      "page": 3,
+      "pointRect": [
+        32,
+        165,
+        158,
+        12
+      ],
+      "pixelRect": [
+        64,
+        330,
+        316,
+        24
+      ],
+      "printed": "Волшебная рука"
+    },
+    {
+      "fieldId": "spellcasting.slots.1.total",
+      "page": 3,
+      "pointRect": [
+        44,
+        308,
+        40,
+        15
+      ],
+      "pixelRect": [
+        88,
+        616,
+        80,
+        30
+      ],
+      "printed": "4"
+    },
+    {
+      "fieldId": "spellcasting.slots.1.expended",
+      "page": 3,
+      "pointRect": [
+        104,
+        308,
+        80,
+        15
+      ],
+      "pixelRect": [
+        208,
+        616,
+        160,
+        30
+      ],
+      "printed": "1"
+    }
+  ],
+  "expectedInterpretation": {
+    "selectionStatus": "unreviewed",
+    "hp": {
+      "max": null,
+      "current": 0,
+      "temp": 0
+    },
+    "dexterity": {
+      "score": 14,
+      "printedModifier": 2
+    },
+    "classes": [
+      {
+        "name": "Волшебник",
+        "level": 3
+      },
+      {
+        "name": "Колдун",
+        "level": 2
+      }
+    ],
+    "printedTotalLevel": null,
+    "slots": {
+      "printedLabel": "Потрачено ячеек",
+      "circle": 1,
+      "printedTotal": 4,
+      "printedExpended": 1,
+      "printedRemaining": null,
+      "derivedRemainingCandidate": 3,
+      "chosenRemaining": null,
+      "pactMagic": null
+    }
+  }
+}

@@ -76,3 +76,28 @@ test('alternate official sample pins a distinct layout and leaves blank maxHP se
  }
  assert.equal(new Set(alternate.regions.map(r=>r.normalizedBox.join(','))).size,alternate.regions.length);
 });
+
+test('the Russian print sheet keeps visible values and spell slots distinct from unknown',()=>{
+ const ru=read('docs/design/fixtures/publisher-ru-sheet-sample-80.json');
+ const get=fieldId=>ru.regions.find(r=>r.fieldId===fieldId);
+ const generator=readFileSync(new URL('../'+ru.generator.file,import.meta.url),'utf8').replace(/\r\n/g,'\n');
+ assert.equal(createHash('sha256').update(generator).digest('hex'),ru.generator.sha256);
+ assert.deepEqual([ru.locale,ru.ruleset,ru.synthetic,ru.accepted],['ru','5e-2014',true,false]);
+ assert.deepEqual([ru.source.fillable,ru.source.extractableText,ru.artifact.redistributedInGit],[false,false,false]);
+ assert.notEqual(ru.source.sha256,layout.source.sha256);
+ assert.deepEqual(ru.inputVariants.map(v=>[v.kind,v.pages,v.files.length]),[['non-fillable-pdf',3,1],['png-pages',3,3]]);
+ assert.deepEqual(ru.rasterPages.map(p=>p.page),[1,2,3]);
+ assert(ru.rasterPages.every(p=>p.derivedFromPdfSha256===ru.artifact.sha256));
+ assert.equal(ru.regions.length,new Set(ru.regions.map(r=>r.fieldId)).size);
+ for(const {page,pixelRect:[x,y,w,h]} of ru.regions){
+  const image=ru.rasterPages.find(r=>r.page===page);
+  assert(x>=0&&y>=0&&w>0&&h>0&&x+w<=image.width&&y+h<=image.height);
+ }
+ assert.deepEqual(['hp.max','hp.current','hp.temp'].map(id=>get(id).printed),[null,'0','0']);
+ assert.deepEqual(ru.expectedInterpretation.hp,{max:null,current:0,temp:0});
+ const {slots}=ru.expectedInterpretation;
+ assert.deepEqual([get('spellcasting.slots.1.total').printed,get('spellcasting.slots.1.expended').printed],['4','1']);
+ assert.equal(slots.printedLabel,'Потрачено ячеек');
+ assert.equal(slots.printedTotal-slots.printedExpended,slots.derivedRemainingCandidate);
+ assert.deepEqual([slots.printedRemaining,slots.chosenRemaining,slots.pactMagic],[null,null,null]);
+});
