@@ -90,3 +90,47 @@ test('spell fallback uses its school without trusting imported markup, including
  for(const school of [null,'<script>','constructor'])assert.match(h.api.markup({id:'missing',kind:'spell',spell:{school}}),/school-unknown/);
  assert.match(h.api.markup({id:'beast',kind:'monster'}),/data-ui-icon="monster"/);
 });
+
+test('visible copies of one thumbnail share the fetch and cache write',async()=>{
+ let deliver,puts=0;
+ const cache={get:async()=>null,put:async()=>{puts++;}};
+ const h=harness(index,'http:',cache,()=>new Promise(resolve=>deliver=resolve));
+ const first=h.node(),second=h.node();
+ h.visible(first);h.visible(second);await settle();
+ assert.deepEqual(h.requests.map(([url])=>url),['/api/art',file.url]);
+ deliver(new Response('png',{headers:{'Content-Type':'image/png'}}));await settle();
+ assert.equal(puts,1);
+ for(const node of [first,second])assert.equal(node.children[0].src,'blob:test');
+});
+
+test('a failed thumbnail uses one request, retains its fallback, and can retry online',async()=>{
+ let missing=true,puts=0;
+ const cache={get:async()=>null,put:async()=>{puts++;}};
+ const h=harness(index,'http:',cache,()=>missing
+   ? new Response('missing',{status:404})
+   : new Response('png',{headers:{'Content-Type':'image/png'}}));
+ const node=h.node();h.visible(node);await settle();
+ assert.deepEqual(h.requests.map(([url])=>url),['/api/art',file.url]);
+ assert.deepEqual(node.children,[]);
+ assert.equal(puts,0);
+ missing=false;h.online();h.visible(node);await settle();
+ assert.deepEqual(h.requests.map(([url])=>url),['/api/art',file.url,'/api/art',file.url]);
+ assert.equal(node.children[0].src,'blob:test');
+ assert.equal(puts,1);
+});
+
+test('clearing storage detaches in-flight thumbnails before a new copy is requested',async()=>{
+ const deliveries=[],sizes=[];
+ const cache={get:async()=>null,put:async(url,blob)=>sizes.push(blob.size),clear:async()=>true};
+ const h=harness(index,'http:',cache,()=>new Promise(resolve=>deliveries.push(resolve)));
+ const first=h.node();h.visible(first);await settle();
+ await h.api.clearCache();
+ const second=h.node();h.visible(second);await settle();
+ assert.equal(deliveries.length,2);
+ deliveries[0](new Response('old',{headers:{'Content-Type':'image/png'}}));await settle();
+ assert.equal(sizes.length,0);
+ assert.equal(first.children[0].src,'blob:test');
+ deliveries[1](new Response('fresh',{headers:{'Content-Type':'image/png'}}));await settle();
+ assert.deepEqual(sizes,[5]);
+ assert.equal(second.children[0].src,'blob:test');
+});

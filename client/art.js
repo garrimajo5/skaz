@@ -4,7 +4,7 @@ const SkazArt=(()=>{
  let pendingIndex,indexLoading=false,retryAfter=0;
  const failed=new Set();
  let closed=false,cacheGeneration=0,renderGeneration=0;
- const objectUrls=new Map();
+ const objectUrls=new Map(),thumbnailLoads=new Map();
  const cache=(()=>{try{return typeof createSkazArtCache==='function'?createSkazArtCache({storage:globalThis.caches,locks:globalThis.navigator?.locks,identity:typeof SkazAccount!=='undefined'?SkazAccount.userId||'local':'local',origin:location.origin}):null;}catch{return null;}})();
  async function index(){
   if(!pendingIndex&&Date.now()<retryAfter)return null;
@@ -31,6 +31,38 @@ const SkazArt=(()=>{
   const icon=entry.kind==='spell'?'school-'+(schools.includes(entry.spell?.school)?entry.spell.school:'unknown'):entry.kind==='monster'?'monster':'bag';
   return `<span class="skaz-art skaz-art-${size}" data-skaz-art="${escape(entry.id)}" data-art-role="${size}" aria-hidden="true"><span class="skaz-art-fallback"><span data-ui-icon="${icon}"></span></span></span>`;
  }
+
+ async function fetchThumbnail(url,generation){
+  try{
+   const saved=await cache.get(url);
+   if(saved||closed)return saved;
+   const response=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(10000)});
+   if(response.status===401||response.status===403){
+    if(typeof SkazAccount!=='undefined'&&SkazAccount.userId)SkazAccount.lock();else lock();
+    await response.body?.cancel();return null;
+   }
+   if(!response.ok||response.headers.get('Content-Type')?.split(';')[0]!=='image/png'){
+    await response.body?.cancel();return null;
+   }
+   const blob=await response.blob();
+   if(!blob.size||blob.size>32768)return null;
+   if(!closed&&generation===cacheGeneration)await cache.put(url,blob);
+   return blob;
+  }catch{return null;}
+ }
+ function loadThumbnail(url,generation){
+  // A clear or a scope change detaches old requests. They may finish painting
+  // the same public asset, but only the current generation may write its cache.
+  if(generation!==cacheGeneration)return fetchThumbnail(url,generation);
+  const pending=thumbnailLoads.get(url);
+  if(pending)return pending;
+  const request=fetchThumbnail(url,generation).finally(()=>{
+   if(thumbnailLoads.get(url)===request)thumbnailLoads.delete(url);
+  });
+  thumbnailLoads.set(url,request);
+  return request;
+ }
+ function invalidateThumbnails(){cacheGeneration++;thumbnailLoads.clear();}
  async function hydrate(node){
   const generation=cacheGeneration;let renderVersion=renderGeneration;
   if(typeof SkazPersonalArtView!=='undefined'){
@@ -44,22 +76,13 @@ const SkazArt=(()=>{
   const entries=await index();if(closed||!node.isConnected||renderVersion!==renderGeneration)return;
   if(!entries){failed.add(node);return;}
   const item=entries.get(node.dataset.skazArt),file=item?.files[node.dataset.artRole];if(!file)return;
+  const useThumbnailCache=cache&&node.dataset.artRole==='thumbnail';
+  const blob=useThumbnailCache?await loadThumbnail(file.url,generation):null;
+  if(closed||!node.isConnected||renderVersion!==renderGeneration)return;
+  if(useThumbnailCache&&!blob){failed.add(node);return;}
   const img=document.createElement('img');img.alt='';img.width=file.width;img.height=file.height;img.loading='lazy';img.decoding='async';
   img.addEventListener('load',()=>node.classList.add('skaz-art-loaded'),{once:true});
   img.addEventListener('error',()=>{node.classList.remove('skaz-art-loaded');img.remove();const url=objectUrls.get(node);if(url){URL.revokeObjectURL(url);objectUrls.delete(node);}void cache?.remove(file.url);if(node.isConnected)failed.add(node);},{once:true});
-  let blob=null;
-  if(cache&&node.dataset.artRole==='thumbnail'){
-   blob=await cache.get(file.url);
-   if(!blob&&!closed){
-    try{const response=await fetch(file.url,{cache:'no-store',signal:AbortSignal.timeout(10000)});
-     if([401,403].includes(response.status)){await response.body?.cancel();if(typeof SkazAccount!=='undefined'&&SkazAccount.userId)SkazAccount.lock();else lock();return;}
-     if(response.ok&&response.headers.get('Content-Type')?.split(';')[0]==='image/png'){
-      const candidate=await response.blob();if(candidate.size<=32768){blob=candidate;if(generation===cacheGeneration)await cache.put(file.url,blob);}
-     }else await response.body?.cancel();
-    }catch{}
-   }
-  }
-  if(closed||!node.isConnected||renderVersion!==renderGeneration)return;
   if(blob){const url=URL.createObjectURL(blob);objectUrls.set(node,url);img.src=url;}else img.src=file.url;
   node.append(img);
  }
@@ -84,8 +107,8 @@ const SkazArt=(()=>{
   let queued=false;
   new MutationObserver(()=>{if(!queued){queued=true;queueMicrotask(()=>{queued=false;scan();});}}).observe(document.body,{childList:true,subtree:true});
  }
- function refreshPrivate(){renderGeneration++;cacheGeneration++;for(const url of objectUrls.values())URL.revokeObjectURL(url);objectUrls.clear();for(const node of document.querySelectorAll('[data-skaz-art]')){for(const img of node.querySelectorAll?.('img')||[])img.remove();node.classList.remove('skaz-art-loaded');seen.delete(node);}failed.clear();scan();}
- async function clearCache(){cacheGeneration++;return cache?cache.clear():false;}
- function lock(){closed=true;pendingIndex=null;failed.clear();for(const url of objectUrls.values())URL.revokeObjectURL(url);objectUrls.clear();void cache?.clear({lock:true});}
+ function refreshPrivate(){renderGeneration++;invalidateThumbnails();for(const url of objectUrls.values())URL.revokeObjectURL(url);objectUrls.clear();for(const node of document.querySelectorAll('[data-skaz-art]')){for(const img of node.querySelectorAll?.('img')||[])img.remove();node.classList.remove('skaz-art-loaded');seen.delete(node);}failed.clear();scan();}
+ async function clearCache(){invalidateThumbnails();return cache?cache.clear():false;}
+ function lock(){closed=true;invalidateThumbnails();pendingIndex=null;failed.clear();for(const url of objectUrls.values())URL.revokeObjectURL(url);objectUrls.clear();void cache?.clear({lock:true});}
  return {refreshPrivate,markup,clearCache,cacheStats:async()=>cache?cache.stats():null,lock};
 })();
