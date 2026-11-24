@@ -22,7 +22,7 @@
 
 | Направление | Состояние и адресный вход |
 | --- | --- |
-| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). Шесть экранов общей оболочки выпущены в `2a332ec`. [Численные критерии #47](https://github.com/garrimajo5/skaz/issues/47#issuecomment-7110880155) проверены, issue закрыт. Доступен [лист приёмки владельцем](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7110556578). [QA #41](design/qa/cantrip-badge-41.md) подтверждает различимые заговор и 3-й круг, три темы и отсутствие расхода ячейки. [Правка #42](design/qa/tablet-navigation-42.md) выпущена в `c5a5a13`, проверена в Edge и обеих ориентациях Pixel_8. [Пульт #43](https://github.com/garrimajo5/skaz/issues/43#issuecomment-7130347260) подтверждён для 3, 5 и 9 кругов. M2 и физическая проверка Xiaomi открыты. |
+| **Приоритет владельца №1 / M2 / #252** | [Редизайн по Figma](https://github.com/garrimajo5/skaz/issues/252). Шесть экранов общей оболочки выпущены в `2a332ec`. [Численные критерии #47](https://github.com/garrimajo5/skaz/issues/47#issuecomment-7110880155) проверены, issue закрыт. Доступен [лист приёмки владельцем](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7110556578). [QA #41](design/qa/cantrip-badge-41.md) подтверждает различимые заговор и 3-й круг, три темы и отсутствие расхода ячейки. [Правка #42](design/qa/tablet-navigation-42.md) выпущена в `c5a5a13`, проверена в Edge и обеих ориентациях Pixel_8. [Пульт #43](https://github.com/garrimajo5/skaz/issues/43#issuecomment-7130347260) подтверждён для 3, 5 и 9 кругов. [Прямые ссылки и книга #44](design/qa/navigation-intent-44.md) выпущены. Следующий доступный сценарий — [сотворение #45](https://github.com/garrimajo5/skaz/issues/45). M2 и физическая проверка Xiaomi открыты. |
 | M0 / #77: источники и полнота | Открыто; [решения об источниках](catalog-source-decisions-2014.md), [D05-триаж](d05-current-publication-triage-2014.md). Наличие записи, текст, параметры, автоматизация, права и арт учитываются раздельно. |
 | #77 / D01 | [Категории D&D Beyond](extra-life-publication-witnesses-2014.md#классификация-в-текущем-dd-beyond). Подтверждены четыре карточки и их категории. Официальный статус правил Grung и точные публикации AL требуют отдельных первичных свидетельств. |
 | M0 / #77 / классовые единицы | [13-class пакет](class-unit-residual-review-2014.md):913observations/8roles,4source-version families/28ID;31discovery сохраняет3sidekicks отдельно от13main. [Primary TOC](class-multisource-toc-2014.md):8family+3sidekick links, не full rules/rights/denominator. Eloquencebody — scoped hold; следующий content: оставшиеся D06unit/variant/reference границы, не arbitrary high-level audit. |
@@ -42,7 +42,7 @@
 
 ## Фактический выпуск
 
-Актуальный выпуск, флаги, подтверждённые проверки и порядок отката — в [deployment](deployment.md). Действует `4f092b8`, формат v15. Картотека и её вкладка доступны.
+Актуальный выпуск, флаги, подтверждённые проверки и порядок отката — в [deployment](deployment.md). Действует `1eb69f9`, формат v15. Картотека и её вкладка доступны.
 
 ## Как поддерживать этот файл
 
