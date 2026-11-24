@@ -9,7 +9,9 @@
  * @typedef {{id: string, assets: PageAsset[], regions: SourceRegion[]}} Scenario
  * @typedef {{cases: Scenario[]}} Manifest
  * @typedef {{fieldId: string, value: number, selection: 'confirmed', provenance: 'ocr-confirmed'} | {fieldId: string, value: number, selection: 'corrected', provenance: 'manual-correction'} | {fieldId: string, value: null, selection: 'left-unknown', provenance: 'manual-unknown'}} ConfirmedField
- * @typedef {{readonly values: ReadonlyArray<Readonly<ConfirmedField>>}} ReviewConfirmation
+ * @typedef {{rowId: string, name: string, source: 'wizard'|'warlock'|null, location: 'book'|'prepared'|'known'|null}} SpellReviewRow
+ * @typedef {{fieldId: 'spells', value: null, selection: 'left-unknown', provenance: 'manual-unknown'} | {fieldId: 'spells', value: {coverage: 'partial'|'complete', rows: SpellReviewRow[]}, selection: 'corrected', provenance: 'manual-correction'}} SpellListSelection
+ * @typedef {{readonly values: ReadonlyArray<Readonly<ConfirmedField>>, readonly spells?: SpellListSelection}} ReviewConfirmation
  * @typedef {{kind: 'unknown'|'invalid'|'overflow'|'equal'|'mismatch', fingerprint: string, text: string, sum?: number, total?: number}} ClassComparison
  */
 
@@ -36,6 +38,10 @@ const nodes = {
  'class-comparison': element('class-comparison', HTMLElement), 'class-status': element('class-status', HTMLParagraphElement),
  'class-agreement-label': element('class-agreement-label', HTMLLabelElement),
  'crop-status': element('crop-status', HTMLParagraphElement), 'fragment-title': element('fragment-title', HTMLHeadingElement),
+ 'spell-review': element('spell-review', HTMLElement), 'spell-coverage': element('spell-coverage', HTMLSelectElement),
+ 'spell-rows': element('spell-rows', HTMLDivElement), 'spell-row-choice': element('spell-row-choice', HTMLSelectElement),
+ 'spell-row-details': element('spell-row-details', HTMLDivElement), 'spell-row-source': element('spell-row-source', HTMLSelectElement),
+ 'spell-row-location': element('spell-row-location', HTMLSelectElement), 'spell-review-status': element('spell-review-status', HTMLParagraphElement),
 };
 /** @template {keyof typeof nodes} K @param {K} id @returns {(typeof nodes)[K]} */
 const $ = id => nodes[id];
@@ -55,6 +61,8 @@ let cropRequest = 0;
 let pendingScenario = null;
 /** @type {string|null} */
 let classAgreement = null;
+let spellsDirty = false;
+const spellListControls = /** @type {const} */ (['spell-coverage','spell-row-choice','spell-row-source','spell-row-location']);
 /** @type {Record<string, FieldDefinition[]>} */
 const definitions={
  'unknown-hp':[{key:'hp.max',label:'Максимум хитов',value:27,min:1,max:999},{key:'hp.current',label:'Текущие хиты',value:null,max:27},{key:'hp.temp',label:'Временные хиты',value:0,max:9999}],
@@ -94,6 +102,53 @@ function classReviewState(items){
  if(!Number.isSafeInteger(sum))return {kind:'overflow',fingerprint,text:'Сумма уровней не вычисляется безопасно. Сохраните ручные значения; автоматический расчёт не выполнен.'};
  return {kind:sum===total?'equal':'mismatch',fingerprint,sum,total,text:sum===total?`Общий уровень ${total} совпадает с суммой ${wizard} + ${warlock}.`:`Предупреждение: сумма уровней ${wizard} + ${warlock} = ${sum}, ручной общий уровень ${total}. Можно подтвердить свой выбор без отметки мастера.`};
 }
+/** Evaluate the explicit list choice independently of the class and slot totals.
+ * @returns {SpellListSelection|undefined}
+ */
+function selectedSpellList(){
+ const fieldId='spells';
+ const coverage=$('spell-coverage').value;
+ if(coverage==='unknown')return {fieldId,selection:'left-unknown',value:null,provenance:'manual-unknown'};
+ if(coverage==='empty')return {fieldId,selection:'corrected',value:{coverage:'complete',rows:[]},provenance:'manual-correction'};
+ if(coverage!=='partial'&&coverage!=='complete')return;
+ const choice=$('spell-row-choice').value;
+ if(choice==='later'&&coverage==='complete')return;
+ if(choice!=='later'&&choice!=='exclude'&&choice!=='keep')return;
+ /** @type {SpellReviewRow[]} */
+ const rows=[{rowId:'example-shield',name:'Щит',source:'wizard',location:'book'}];
+ if(choice==='keep'){
+  const source=$('spell-row-source').value,location=$('spell-row-location').value;
+  if(source!=='unknown'&&source!=='wizard'&&source!=='warlock')return;
+  if(location!=='unknown'&&location!=='book'&&location!=='prepared'&&location!=='known')return;
+  rows.push({rowId:'example-misty-step',name:'Туманный шаг',source:source==='unknown'?null:source,location:location==='unknown'?null:location});
+ }
+ return {fieldId,selection:'corrected',value:{coverage,rows},provenance:'manual-correction'};
+}
+/** @param {SpellListSelection} choice */
+function spellListSummary(choice){
+ if(choice.value===null)return 'Список заклинаний оставлен неизвестным.';
+ if(choice.value.rows.length===0)return 'Подтверждён пустой список заклинаний.';
+ const detail=choice.value.coverage==='partial'?' Остальные строки неизвестны.':' Список сверён целиком.';
+ return 'Строк заклинаний сверено: '+choice.value.rows.length+'.'+detail;
+}
+function updateSpellReview(){
+ const coverage=$('spell-coverage').value;
+ const showRows=coverage==='partial'||coverage==='complete';
+ $('spell-rows').hidden=!showRows;
+ const rowChoice=$('spell-row-choice').value;
+ $('spell-row-details').hidden=!showRows||rowChoice!=='keep';
+ const selection=selectedSpellList();
+ $('spell-review-status').textContent=selection?spellListSummary(selection):
+  coverage==='complete'&&rowChoice==='later'?
+   'Есть несверенная строка. Сверьте её или отметьте список как частичный.':
+   'Выберите состояние списка и явно отметьте неизвестные данные.';
+ return selection!==undefined;
+}
+function spellListChanged(){
+ spellsDirty=true;
+ invalidateConfirmation();
+ update();
+}
 function update(){
  const hpMax=fields.find(f=>f.key==='hp.max'),hpCurrent=fields.find(f=>f.key==='hp.current');
  if(hpMax&&hpCurrent){
@@ -125,6 +180,8 @@ function update(){
    $('class-agreement').checked=classAgreement===state.fingerprint;
   }else classAgreement=null;
  }
+ const spellReview=$('spell-review');
+ if(spellReview&&!spellReview.hidden&&!updateSpellReview())missing++;
  const unknown=fields.filter(f=>f.leaveUnknown).length;
  $('summary').textContent=missing?`Нужно уточнить полей: ${missing}`:`Все поля сверены или явно оставлены неизвестными (${unknown}); подтвердите сверку.`;
  $('apply').disabled=fields.length===0||missing>0||!$('confirmed').checked||confirmation!==null;
@@ -150,13 +207,19 @@ function reviewedSelection(){
   else if(f.edited)values.push({fieldId:f.key,value,selection:'corrected',provenance:'manual-correction'});
   else values.push({fieldId:f.key,value,selection:'confirmed',provenance:'ocr-confirmed'});
  }
- return {values};
+ const spellReview=$('spell-review');
+ if(!spellReview||spellReview.hidden)return {values};
+ const spells=selectedSpellList();
+ return spells?{values,spells}:null;
 }
 
 function load(){
  const next=manifest.cases.find(c=>c.id===$('scenario').value);
  if(!next||!definitions[next.id])throw new Error('Unknown review scenario');
  current=next;fields=[];classAgreement=null;invalidateConfirmation();$('fields').replaceChildren();
+ $('spell-review').hidden=current.id!=='multiclass-pact';
+ for(const id of spellListControls)$(id).value='';
+ spellsDirty=false;
  options($('page'));options($('fragment-page'));showPage();
  for(const def of definitions[current.id]){
   const wrap=document.createElement('div');wrap.className='field';
@@ -198,7 +261,7 @@ $('theme').onchange=()=>document.body.dataset.theme=$('theme').value;
 $('page').onchange=showPage;
 /** @param {string} next */
 function restart(next){
- if(fields.some(f=>f.changed)&&!confirmation){
+ if((spellsDirty||fields.some(f=>f.changed))&&!confirmation){
   pendingScenario=next;$('scenario').value=current.id;$('discard').showModal();
  }else{$('scenario').value=next;load();}
 }
@@ -215,6 +278,7 @@ $('discard').addEventListener('submit',event=>{
 });
 $('discard').addEventListener('cancel',()=>{pendingScenario=null;});
 $('confirmed').onchange=update;
+for(const id of spellListControls)$(id).onchange=spellListChanged;
 $('class-agreement').onchange=()=>{
  const state=classReviewState(fields);
  classAgreement=$('class-agreement').checked&&state?.kind==='mismatch'?state.fingerprint:null;
@@ -228,6 +292,7 @@ $('review').onsubmit=e=>{
   fields[i].label+': '+(choice.value===null?'неизвестно (оставлено вами)':String(choice.value))+
   (agreementApplies(fields[i])?' (согласовано с мастером)':'')
  ).join('; ')+(classAgreement?' Общий уровень согласован с мастером для выбранных классовых уровней.':'');
+ if(confirmation.spells)$('result').textContent+=' '+spellListSummary(confirmation.spells);
  $('result').hidden=false;update();$('result').focus();
 };
 fetch('../fixtures/sheet-visual/manifest.json').then(r=>{if(!r.ok)throw Error('source unavailable');return r.json();}).then(m=>{manifest=m;load();}).catch(()=>{$('summary').textContent='Не удалось загрузить вымышленные образцы. Обновите страницу; результаты не подставлены.';});
