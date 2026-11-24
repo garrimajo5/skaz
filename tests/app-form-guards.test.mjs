@@ -278,7 +278,7 @@ test('manual concentration end clears pending questions and its one undo restore
 });
 
 test('zero health replaces ordinary damage with named death state and a touch-sized saves dialog',()=>{
- const h=harness();h.run("state.hp=0;state.deathSaves={successes:1,failures:2,status:'dying'}");const html=h.run('healthVitals()');assert.match(html,/Без сознания/);assert.match(html,/Успехи ●○○ · Провалы ●●○/);assert.doesNotMatch(html,/data-health="damage"/);h.run('deathDialog()');assert.match(h.get('#dialog-content').innerHTML,/Натуральная 20/);assert.match(h.get('#dialog-content').innerHTML,/Критический урон/);
+ const h=harness();h.run("state.hp=0;state.deathSaves={successes:1,failures:2,status:'dying'}");const html=h.run('healthVitals()');assert.match(html,/Без сознания/);assert.match(html,/Успехи: 1\/3 · Провалы: 2\/3/);assert.doesNotMatch(html,/data-health="damage"/);h.run('deathDialog()');assert.match(h.get('#dialog-content').innerHTML,/Натуральная 20/);assert.match(h.get('#dialog-content').innerHTML,/Критический урон/);
  h.run("state.deathSaves={successes:0,failures:3,status:'dead'}");assert.match(h.run('healthVitals()'),/data-health="heal" disabled/);h.run('hpDialog(true)');assert.match(h.get('#toast').innerHTML,/не воскрешает/);
 });
 
