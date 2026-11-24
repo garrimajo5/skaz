@@ -120,7 +120,13 @@ const SkazCatalog = (() => {
     </section>`;
   }
 
-  const setupHint=()=> '<div class="empty"><h2>Справочник ещё не установлен</h2><p>Установи проверенную подборку D&amp;D 2014: заклинания, существа и предметы SRD 5.1 (CC BY 4.0). Точный состав и количество записей — в предпросмотре.</p><button id="catalog-install-empty" class="primary">Установить подборку</button></div>';
+  function setupHint(){
+    const access=SkazStorage.access?.();
+    const instructions=access?.catalog===false
+      ? '<p>На сервере подборку устанавливает администратор. После установки материалы появятся здесь.</p>'
+      : '<p>Установи проверенную подборку D&amp;D 2014: заклинания, существа и предметы SRD 5.1 (CC BY 4.0). Точный состав и количество записей — в предпросмотре.</p><button id="catalog-install-empty" class="primary">Установить подборку</button>';
+    return '<div class="empty"><h2>Справочник ещё не установлен</h2>'+instructions+'</div>';
+  }
   async function offerSetup(id){
     if(location.protocol==='file:')return;
     const host=document.getElementById(id),key=snapshot();if(!host)return;
