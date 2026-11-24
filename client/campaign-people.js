@@ -439,7 +439,7 @@ const SkazCampaign = (function(){
   }
   function recoveredFields(command) {
     const data=command.data;
-    if(command.operation==='create')return {...data.details,knowledge:data.knowledge?.text??'',kind:data.knowledge?.kind??'known'};
+    if(command.operation==='create')return {...data.details,relation:data.details.relation??'',knowledge:data.knowledge?.text??'',kind:data.knowledge?.kind??'known'};
     if(command.operation==='edit')return {...data,relation:data.relation??''};
     if(command.operation.includes('knowledge')||command.operation.includes('encounter'))return {
       text:data.text??'',kind:data.kind??'',session:data.sessionId??'',place:data.placeId??'',
