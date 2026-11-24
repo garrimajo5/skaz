@@ -1,15 +1,16 @@
 import {bundledCatalog} from '../server/bundled-catalog.mjs';
 const profileRulesSource=await readFile(new URL('../client/profile-rules.js',import.meta.url),'utf8');
 import test from 'node:test';import assert from 'node:assert/strict';import vm from 'node:vm';import{readFile}from'node:fs/promises';
+const castingSource=await readFile(new URL('../client/casting.js',import.meta.url),'utf8');
 const factsSource=await readFile(new URL('../client/spell-facts.js',import.meta.url),'utf8');
 const artSource=await readFile(new URL('../client/art.js',import.meta.url),'utf8');
 const sheetSource=await readFile(new URL('../client/character-sheet.js',import.meta.url),'utf8');
 const presentationSource=await readFile(new URL('../client/play-presentation.js',import.meta.url),'utf8');
 const source=await readFile(new URL('../client/play.js',import.meta.url),'utf8');
 function harness({quests=[],questFailure=false,spellLearning=null}={}){const elements=new Map(),handlers={},requests=[],reads=[],spends=[],casts=[],chargeEdits=[],memory=new Map();let snapshot='a',owner='hero-a',html='';const lists=['spells','items','quests'].map(kind=>({dataset:{playList:kind},scrollTop:0}));const get=id=>{if(!elements.has(id))elements.set(id,{innerHTML:'',value:'',textContent:'',open:true});return elements.get(id);};
- const context=vm.createContext({structuredClone,page:'play',location:{protocol:'http:'},state:{profile:{name:'Hero'},journal:[],notes:[],hp:20,maxHp:38,slots:{1:0,2:2,3:1}},sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)},queueMicrotask,URLSearchParams,AbortSignal,
- document:{getElementById:get,querySelectorAll:selector=>selector==='[data-play-list]'?lists:[],addEventListener:(event,fn)=>handlers[event]=fn},modal:value=>{html=value;get('dialog').open=true;},closeModal:()=>get('dialog').open=false,toast(){},go:value=>context.page=value,
- SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise(resolve=>requests.push({kind:'book',resolve})),questsData:async()=>{if(questFailure)throw Error('offline');return {quests};},inventoryData:()=>new Promise(resolve=>requests.push({kind:'items',resolve})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(profileRulesSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,top)=>{lists[index].scrollTop=top;handlers.scroll({target:lists[index]});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}})};
+ const context=vm.createContext({structuredClone,crypto:{randomUUID:()=> 'test-manual-cast'},page:'play',location:{protocol:'http:'},state:{profile:{name:'Hero'},journal:[],notes:[],hp:20,maxHp:38,slots:{1:0,2:2,3:1}},sessionStorage:{getItem:k=>memory.get(k),setItem:(k,v)=>memory.set(k,v)},queueMicrotask,URLSearchParams,AbortSignal,
+ document:{body:{},getElementById:get,querySelectorAll:selector=>selector==='[data-play-list]'?lists:[],addEventListener:(event,fn)=>handlers[event]=fn},modal:value=>{html=value;get('dialog').open=true;},closeModal:()=>get('dialog').open=false,toast(){},go:value=>context.page=value,
+ SkazCatalog:{readSnapshot:(...args)=>reads.push(args)},SkazStorage:{spellLearningMode:()=>spellLearning,snapshotKey:()=>snapshot,contextKey:()=>owner,stats:()=>({armorClass:14,initiative:2,speed:30,abilities:{str:8,dex:14,con:14,int:12,wis:10,cha:18}}),sheet:()=>null,editable:()=>true,canResource:()=>true,castSpell:(...args)=>casts.push(args),editCharges:item=>chargeEdits.push(item),spellbookData:()=>new Promise(resolve=>requests.push({kind:'book',resolve})),questsData:async()=>{if(questFailure)throw Error('offline');return {quests};},inventoryData:()=>new Promise(resolve=>requests.push({kind:'items',resolve})),spendInventoryOne:async(...args)=>spends.push(args)},fetch:()=>new Promise(resolve=>requests.push({kind:'search',resolve}))});vm.runInContext(castingSource,context);vm.runInContext(factsSource,context);const facts=vm.runInContext('SkazSpellFacts',context),factsCalls=[],summary=facts.summary;facts.summary=(...args)=>{factsCalls.push(args);return summary(...args);};vm.runInContext(artSource,context);vm.runInContext(profileRulesSource,context);vm.runInContext(sheetSource,context);vm.runInContext(presentationSource,context);vm.runInContext(source,context);return{factsCalls,setSlots:v=>context.state.slots=v,setHp:v=>context.state.hp=v,setSheet:v=>context.SkazStorage.sheet=()=>v,api:vm.runInContext('SkazPlay',context),get,requests,reads,spends,casts,chargeEdits,memory,lists,scroll:(index,top)=>{lists[index].scrollTop=top;handlers.scroll({target:lists[index]});},html:()=>html,concentration:value=>context.state.concentration=value,context:(s,o=s)=>{snapshot=s;owner=o;},page:()=>context.page,click:(id,dataset={})=>handlers.click({target:{closest:()=>({id,dataset})}})};
 }
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 test('play art keeps spell circle, stable action IDs and item quantity independent of image loading',async()=>{
@@ -101,6 +102,28 @@ test('one tap uses lowest available slot, a chosen higher circle costs two taps 
  h.setSlots({1:0,2:0,3:0});await h.click('',{playCast:'Shield'});assert.equal(h.casts.length,3);h.setSlots({2:2});h.setHp(0);await h.click('',{playCast:'Shield'});assert.equal(h.casts.length,3);
  h.setHp(10);h.context('other');await h.click('',{playCast:'Shield'});assert.equal(h.casts.length,3);
 });
+
+test('exhausted casting opens an explicit manual form with no required agreement or automatic focus change',async()=>{
+ const h=harness(),item=spell('Manual Focus',2);
+ item.entry.spell.concentration=true;
+ await loaded(h,[item]);h.setSlots({1:1,2:0,3:0});h.concentration('Existing focus');
+ await h.click('',{playCast:'Manual Focus'});
+ assert.match(h.html(),/Доступно 0 ячеек для 2 круга и выше/);
+ assert.match(h.html(),/Ячейки, концентрация и эффекты остаются как есть/);
+ assert.match(h.html(),/Согласовано с мастером \(необязательно\)/);
+ assert.doesNotMatch(h.html(),/<select|Сменит концентрацию/);
+ assert.equal(h.casts.length,0);
+ h.get('play-manual-cast-reason').value='  Внешний ресурс  ';
+ h.get('play-manual-cast-agreed').checked=false;
+ const form=h.get('play-manual-cast-form');
+ form.onsubmit({preventDefault(){}});
+ form.onsubmit({preventDefault(){}});
+ assert.equal(h.casts.length,1);
+ const [id,cost,key]=h.casts[0];
+ assert.equal(id,'Manual Focus');assert.equal(key,'a');
+ assert.equal(cost.kind,'manual');assert.equal(cost.level,2);assert.equal(cost.agreed,false);
+ assert.equal(cost.reason,'Внешний ресурс');assert.ok(Number.isSafeInteger(cost.at));
+});
 test('manual casting remains explicit and has no native select',async()=>{
  const h=harness();h.setSheet({level:5,counters:[{id:'manual-slot',name:'Мой ресурс',current:2,max:3}]});await loaded(h,[spell('Manual',2)]);await h.click('',{playCast:'Manual'});assert.equal(h.casts.length,0);assert.match(h.html(),/Мой ресурс/);assert.match(h.html(),/data-cast-circle="2"/);assert.doesNotMatch(h.html(),/<select/);h.get('play-cast-form').onsubmit({preventDefault(){}});assert.equal(JSON.stringify(h.casts[0][1]),JSON.stringify({kind:'counter',counterId:'manual-slot',level:2}));
 });
@@ -176,7 +199,7 @@ test('cast price follows the selected command, with distinct free and manual pat
  let html=h.get('play-content').innerHTML;
  assert.match(html,/Применить: Free · Без ячейки/);
  assert.match(html,/Сотворить: Paid · 1 ячейка · 2 круг/);
- assert.match(html,/нет ячеек 4\+: Exhausted/);
+ assert.match(html,/Записать вручную: Exhausted · нет ячеек 4\+/);
  await h.click('',{playCastLevel:'Paid',level:'3'});
  html=h.get('play-content').innerHTML;
  assert.match(html,/Сотворить: Paid · 1 ячейка · 3 круг/);

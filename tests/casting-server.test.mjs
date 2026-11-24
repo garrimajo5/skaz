@@ -8,6 +8,39 @@ const cmd=(s,fields)=>({mutationId:randomUUID(),expectedRevision:s.read().revisi
 function setup(file=':memory:'){const s=openStore(file);s.catalog.importEntries(bundle,{apply:true});for(const e of[focus,cantrip])s.setSpell(cmd(s,{characterId:s.read().context.characterId,catalogId:e.id,status:'prepared'}));s.update(cmd(s,{label:'Fixture',state:{...s.read().state,concentration:'Previous',concentrationChecks:[{id:'damage-before',spell:'Previous',damage:2,dc:10}]}}));return s;}
 function cast(s,id=focus.id,cost={kind:'slot',level:2}){const snapshot={...s.read(),spellbook:s.spellbook().entries},command=Casting.prepare(snapshot,id,cost);return cmd(s,{context:snapshot.context,resource:{kind:'cast',operation:'cast',command},delta:1,before:command.before,maximum:command.maximum});}
 const undo=(s,target)=>s.undoResource(cmd(s,{characterId:s.read().context.characterId,targetMutationId:target}));
+
+test('manual shortage recording is idempotent, transfers as a private note and can be undone',()=>{
+ const s=setup(),receiver=openStore(':memory:');
+ try{
+  s.update(cmd(s,{label:'Exhausted slots',state:{...s.read().state,slots:{1:2,2:0,3:0}}}));
+  const before=s.read();
+  const cost={kind:'manual',id:randomUUID(),at:1700000000000,level:2,agreed:false,reason:'Внешний источник'};
+  const request=cast(s,focus.id,cost),saved=s.changeResource(request);
+  assert.deepEqual(saved.state.slots,before.state.slots);
+  assert.equal(saved.state.concentration,before.state.concentration);
+  assert.deepEqual(saved.state.concentrationChecks,before.state.concentrationChecks);
+  assert.equal(saved.state.journal.length,before.state.journal.length);
+  assert.equal(saved.state.notes.length,1);
+  assert.equal(s.changeResource(request).replayed,true);
+  assert.equal(s.read().revision,before.revision+1);
+  assert.equal(s.read().state.notes.length,1);
+  const change=s.history().find(r=>r.mutationId===request.mutationId);
+  assert.equal(change.canUndo,true);
+  assert.match(change.label,/Ручное сотворение/);
+  assert.equal(change.changes[0].resource.kind,'manualCast');
+  assert.equal(Casting.readManualNote(change.changes[0].record).reason,cost.reason);
+  const altered=structuredClone(request);altered.resource.command.cost.agreed=true;
+  assert.throws(()=>s.changeResource(altered),{status:409});
+  const file=s.exportActive(15);
+  receiver.importActive(cmd(receiver,{destination:'new-campaign',file}));
+  assert.deepEqual(receiver.read().state.notes,saved.state.notes);
+  assert.equal(Casting.readManualNote(receiver.read().state.notes[0]).agreed,false);
+  undo(s,request.mutationId);
+  assert.deepEqual(s.read().state,before.state);
+  assert.throws(()=>undo(s,request.mutationId),{status:409});
+ }finally{s.close();receiver.close();}
+});
+
 test('one durable cast receipt and history restore both slot and previous questions; lost response replay spends once',()=>{const s=setup();try{
  const before=s.read(),request=cast(s),result=s.changeResource(request);assert.equal(result.state.slots[2],before.state.slots[2]-1);assert.equal(result.state.concentration,focus.name.ru);assert.deepEqual(result.state.concentrationChecks,[]);assert.equal(result.resourceReceipt.casting.focusBefore.concentration,'Previous');
  assert.equal(s.changeResource(request).replayed,true);assert.equal(s.read().revision,before.revision+1);const row=s.history().find(r=>r.mutationId===request.mutationId);assert.equal(row.canUndo,true);assert.equal(row.changes.length,3);
@@ -46,10 +79,12 @@ test('offline mixed cast/damage/heal/undo survives reload and lost responses; wr
  while(q.length){const command=plain(q.head),result=s.changeResource(command);assert.equal(s.changeResource(command).replayed,true);q.acknowledge(command,result);}assert.deepEqual(s.read().state,expected.state);assert.equal(s.read().state.slots[3],1);assert.equal(s.read().state.concentrationChecks.length,1);
 }finally{s.close();}});
 
-test('individual casting and inverse enforce actor, character grants, read-only mode and revoked replay',()=>{const s=setup();try{
+for(const manual of [false,true])test((manual?'Manual':'Ordinary')+' casting and inverse enforce actor, grants, read-only mode and revoked replay',()=>{const s=setup();try{
+ if(manual)s.update(cmd(s,{label:'Fixture exhausted',state:{...s.read().state,slots:{1:2,2:0,3:0}}}));
  const own=s.read().context;s.access.apply({action:'bootstrap-owner',userId:'caster-owner',displayName:'Owner',campaignId:own.campaignId,characterId:own.characterId});
  s.access.apply({action:'create-user',userId:'caster-player',displayName:'Player'});s.access.apply({action:'set-member',userId:'caster-player',campaignId:own.campaignId,role:'player'});s.access.apply({action:'grant-character',userId:'caster-player',campaignId:own.campaignId,characterId:own.characterId});
- const player=s.forUser('caster-player','cast-player',{write:true}),owner=s.forUser('caster-owner','cast-owner',{write:true}),r=cast(player);
+ const player=s.forUser('caster-player','cast-player',{write:true}),owner=s.forUser('caster-owner','cast-owner',{write:true});
+ const r=manual?cast(player,focus.id,{kind:'manual',id:randomUUID(),at:1700000000000,level:2,agreed:true,reason:''}):cast(player);
  assert.throws(()=>s.forUser('caster-player','cast-reader').changeResource(r),{status:403});player.changeResource(r);assert.throws(()=>owner.changeResource(r),{status:404});assert.throws(()=>undo(owner,r.mutationId),{status:404});
  s.access.apply({action:'revoke-character',userId:'caster-player',campaignId:own.campaignId,characterId:own.characterId});assert.throws(()=>player.changeResource(r),{status:404});assert.throws(()=>undo(player,r.mutationId),{status:404});
 }finally{s.close();}});

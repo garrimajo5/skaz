@@ -25,8 +25,8 @@ const SkazPlay = (()=>{
   if(selector)returnFocus={selector,context:SkazStorage.contextKey()};
  }
  function restoreFocus(){
-  if(!returnFocus)return;
-  if(returnFocus.context===SkazStorage.contextKey()&&document.activeElement===document.body){
+  if(!returnFocus||document.getElementById('dialog')?.open)return;
+  if(returnFocus.context===SkazStorage.contextKey()&&(returnFocus.afterModal||document.activeElement===document.body)){
    let target=document.querySelector?.('.play-screen '+returnFocus.selector);
    if(!target&&status==='loading')return;
    if(target?.disabled){
@@ -85,23 +85,61 @@ const SkazPlay = (()=>{
  }
  function spellSummary(spell){if(!spell)return 'Время и дистанция не указаны';const range=spell.range,parts=[];if(range)parts.push(range.type==='feet'?range.feet+' фт':({self:'На себя',touch:'Касание',sight:'Видимость',unlimited:'Без ограничения',special:'Особая дистанция'}[range.type]||''));if(spell.concentration)parts.push('Концентрация');if(spell.ritual)parts.push('Ритуал');if(!parts.length)parts.push(spell.castingTime||'Время не указано');return parts.filter(Boolean).join(' · ');}
 
- function availableLevels(spell){return [1,2,3].filter(n=>n>=spell.level&&state.slots?.[n]>0);}
+ const castingSnapshot=()=>({state,characterSheet:SkazStorage.sheet?.()});
+ function availableLevels(spell){return SkazCasting.choices(castingSnapshot(),spell.level).levels;}
  function selectedLevel(item){const levels=item.entry.spell?availableLevels(item.entry.spell):[];return levels.includes(castLevels[item.catalogId])?castLevels[item.catalogId]:levels[0];}
  function castControls(item){
-  const spell=item.entry.spell,sheet=SkazStorage.sheet?.(),level=spell?.level,levels=spell?availableLevels(spell):[];
-  const slots=sheet?sheet.counters.some(c=>c.current>0):levels.length>0;
-  const enabled=SkazStorage.canResource?.()&&state.hp>0&&Number.isInteger(level)&&(level===0||slots);
-  const label=!Number.isInteger(level)?'круг не указан':state.hp===0?'0 HP':level>0&&!slots?'нет ячеек '+level+'+':level===0?'Применить':'Сотворить';
-  const warning=spell?.concentration&&state.concentration?'Сменит концентрацию «'+state.concentration+'»':'';
+  const spell=item.entry.spell,level=spell?.level,snapshot=castingSnapshot(),sheet=snapshot.characterSheet;
+  const {levels,counters}=SkazCasting.choices(snapshot,level);
+  const manual=level>0&&!levels.length&&!counters.length;
+  const enabled=SkazStorage.canResource?.()&&Number.isInteger(level)&&(manual||state.hp>0&&(level===0||levels.length||counters.length));
+  const label=!Number.isInteger(level)?'круг не указан':manual?'Записать вручную':state.hp===0?'0 HP':level===0?'Применить':'Сотворить';
+  const warning=!manual&&spell?.concentration&&state.concentration?'Сменит концентрацию «'+state.concentration+'»':'';
   const choices=!sheet&&level>0&&levels.length>1?'<div class="play-cast-levels" role="group" aria-label="Круг ячейки для '+escape(item.entry.name.ru)+'">'+levels.map(n=>'<button data-play-cast-level="'+escape(item.catalogId)+'" data-level="'+n+'" aria-pressed="'+(n===selectedLevel(item))+'" aria-label="'+n+' круг · осталось '+state.slots[n]+'">'+n+'</button>').join('')+'</div>':'';
-  const cost=SkazPlayPresentation.castCost(enabled,level,!!sheet,selectedLevel(item));
+  const agreement=manual&&SkazCasting.manualAgreement(snapshot,item.catalogId,level);
+  const cost=manual?(agreement?'Согласовано с мастером':sheet?'нет доступного счётчика':'нет ячеек '+level+'+'):SkazPlayPresentation.castCost(enabled,level,!!sheet,selectedLevel(item));
   return '<div class="play-casting-controls">'+choices+'<button class="play-cast" data-play-cast="'+escape(item.catalogId)+'" '+(enabled?'':'disabled')+' aria-label="'+escape(label+': '+item.entry.name.ru+(cost?' · '+cost:'')+(warning?' · '+warning:''))+'"><span>'+escape(label)+'</span>'+(cost?'<small class="play-cost">'+escape(cost)+'</small>':'')+(warning?'<small class="play-cast-warning">Сменит конц.</small>':'')+'</button></div>';
  }
+ function openManualCast(item,captured,snapshot){
+  const {catalogId,entry}=item,level=entry.spell.level;
+  const agreed=SkazCasting.manualAgreement(snapshot,catalogId,level);
+  const shortage=snapshot.characterSheet?'У доступных счётчиков нет остатка. Обычно списывается 1 единица из выбранного счётчика.':'Доступно 0 ячеек для '+level+' круга и выше. Обычно нужна 1 ячейка.';
+  const explanation=agreed
+   ? '<p class="small">Согласовано с мастером для этого заклинания '+level+' круга.</p>'
+   : '<p class="cast-warning">'+shortage+'</p>';
+  modal('<h2>'+escape(entry.name.ru)+' · ручное сотворение</h2>'+explanation+
+   '<form id="play-manual-cast-form"><p>Запись появится в истории и личных заметках. Ячейки, концентрация и эффекты остаются как есть.</p>'+
+   '<label for="play-manual-cast-reason">Пояснение (необязательно)</label><textarea id="play-manual-cast-reason" maxlength="500">'+escape(agreed?.reason||'')+'</textarea>'+
+   '<label class="manual-cast-agreement"><input id="play-manual-cast-agreed" type="checkbox" '+(agreed?'checked':'')+'> Согласовано с мастером (необязательно)</label>'+
+   '<p id="play-manual-cast-error" class="red" role="alert" hidden></p>'+
+   '<div class="dialog-actions"><button class="primary" type="submit">Записать без расхода</button></div></form>');
+  const form=document.getElementById('play-manual-cast-form');
+  let submitted=false;
+  form.onsubmit=event=>{
+   event.preventDefault();
+   if(submitted)return;
+   try{
+    if(!active()||captured!==SkazStorage.snapshotKey())throw Error('Игра изменилась. Скопируй пояснение и открой сотворение заново');
+    const reason=document.getElementById('play-manual-cast-reason').value.trim();
+    const agreed=document.getElementById('play-manual-cast-agreed').checked;
+    SkazStorage.castSpell(catalogId,{kind:'manual',level,id:crypto.randomUUID(),at:Date.now(),reason,agreed},captured);
+    submitted=true;
+    closeModal();
+    returnFocus={selector:'[data-play-cast='+JSON.stringify(catalogId)+']',context:SkazStorage.contextKey(),afterModal:true};
+    restoreFocus();
+   }catch(error){
+    const message=document.getElementById('play-manual-cast-error');
+    message.textContent=error.message;
+    message.hidden=false;
+   }
+  };
+ }
  function openCast(item){
-  const captured=SkazStorage.snapshotKey(),spell=item.entry.spell,sheet=SkazStorage.sheet?.(),manual=!!sheet;
-  if(!Number.isInteger(spell?.level)||!SkazStorage.canResource?.()||state.hp<=0)return;
-  const levels=availableLevels(spell),counters=sheet?.counters.filter(c=>c.current>0)||[];
-  if(spell.level>0&&!(manual?counters.length:levels.length))return;
+  const captured=SkazStorage.snapshotKey(),spell=item.entry.spell,snapshot=castingSnapshot(),manual=!!snapshot.characterSheet;
+  if(!Number.isInteger(spell?.level)||!SkazStorage.canResource?.())return;
+  const {levels,counters}=SkazCasting.choices(snapshot,spell.level);
+  if(spell.level>0&&!levels.length&&!counters.length)return openManualCast(item,captured,snapshot);
+  if(state.hp<=0)return;
   const changingFocus=spell.concentration&&state.concentration;
   const directCost=spell.level===0?null:{kind:'slot',level:selectedLevel(item)};
   if(!(manual&&spell.level>0)&&!changingFocus){try{SkazStorage.castSpell(item.catalogId,directCost,captured);}catch(error){toast(error.message);}return;}
@@ -125,7 +163,8 @@ const SkazPlay = (()=>{
   if(status==='error')return '<div class="panel"><h2>Игровые списки недоступны</h2><p>Проверь соединение или заверши отправку очереди. Хиты и доступные ресурсы остаются в панели.</p><button id="play-retry">Повторить</button></div>';
   const spells=book.filter(x=>SkazStorage.spellLearningMode?.()==='known'||x.status==='prepared'||x.entry.spell?.level===0).sort((a,b)=>(a.entry.spell?.level??99)-(b.entry.spell?.level??99)||a.entry.name.ru.localeCompare(b.entry.name.ru,'ru'));
   const consumables=items.filter(x=>{const info=x.entry.item||x.entry.artifact;return info?.charges||['potion','scroll'].includes(info?.type);}).sort((a,b)=>a.entry.name.ru.localeCompare(b.entry.name.ru,'ru'));
-  const recent=[...state.journal,...state.notes].sort((a,b)=>(b.at||0)-(a.at||0))[0];
+  const latest=[...state.journal,...state.notes].sort((a,b)=>(b.at||0)-(a.at||0))[0];
+  const recent=latest&&SkazPlayPresentation.note(latest,SkazCasting.readManualNote(latest));
   return `${spellPanel(spells,consumables.length>0,level)}<div class="play-side">${consumables.length?'<section class="panel play-consumables"><h2 id="play-consumables-title" tabindex="-1">Расходники и заряды</h2><div class="play-list" tabindex="0" role="region" aria-label="Расходники и заряды" data-play-list="items">':''}${consumables.map(x=>{const info=x.entry.item||x.entry.artifact;return `<div class="play-item"><button class="play-row" data-play-read="item" data-id="${escape(x.catalogId)}">${typeof SkazArt!=='undefined'?SkazArt.markup(x.entry):''}<strong>${escape(x.entry.name.ru)}</strong><span>×${x.quantity}${info.charges?' · заряды '+Array.from({length:Math.min(x.quantity,3)},(_,i)=>x.chargeCounts?.[i]??'не указаны').join(' / ')+(x.quantity>3?' · ещё '+(x.quantity-3):'') :''}</span></button>${info.charges?`<button data-play-charges="${escape(x.catalogId)}">${Array.from({length:x.quantity},(_,i)=>x.chargeCounts?.[i]).some(n=>n==null)?'Указать заряды':'Заряды'}</button>`:`<button data-play-spend="${escape(x.catalogId)}" aria-label="Списать один: ${escape(x.entry.name.ru)}" ${SkazStorage.editable()?'':'disabled'}>Списать <small class="play-cost">1 предмет</small></button>`}</div>`;}).join('')||'<section class="panel play-empty"><button data-play-prepare="inventory">Добавить расходники →</button></section>'}${consumables.length?'</div><p class="small">−1 списывает предмет. Эффект подтверждается отдельно.</p></section>':''}${questPanel()}${recent?`<section class="panel play-last"><h2>Последняя запись</h2><strong>${escape(recent.title)}</strong><p>${escape(recent.text)}</p><button id="play-note">＋ Личная заметка</button></section>`:'<section class="panel play-empty"><button id="play-note">＋ Первая личная заметка</button></section>'}</div>`;
  }
  function questPanel(){

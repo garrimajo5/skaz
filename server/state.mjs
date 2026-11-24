@@ -1,5 +1,6 @@
 import Health from '../client/health.js';
 import Conditions from '../client/conditions.js';
+import Casting from '../client/casting.js';
 export const seed = {
   hp: 28, maxHp: 38, gold: 124, slots: { 1: 3, 2: 2, 3: 1 }, inspiration: 3,
   accepted: [], dismissed: [], journal: [], notes: [], mapNotes: [], checks: {},
@@ -48,6 +49,7 @@ export function validateState(input) {
   if (input.accepted.some(id => input.dismissed.includes(id))) fail('Событие не может быть одновременно принято и пропущено');
   for (const field of ['journal', 'notes']) {
     list(input[field], 2000, field);
+    const manualIds = new Set();
     for (const entry of input[field]) {
       keys(entry, ['title', 'text', 'kind', 'at', 'time'], field);
       text(entry.title, 2000, 'заголовок', false);
@@ -55,6 +57,12 @@ export function validateState(input) {
       if (entry.kind !== undefined) text(entry.kind, 80, 'тип записи');
       integer(entry.at, 0, 8640000000000000, 'время записи');
       text(entry.time, 20, 'метка времени');
+      let manual;
+      try { manual = Casting.readManualNote(entry); } catch (error) { fail(error.message); }
+      if (manual) {
+        if(field!=='notes'||manualIds.has(manual.id))fail('Неверное место или повтор ручного сотворения');
+        manualIds.add(manual.id);
+      }
     }
   }
   list(input.mapNotes, 1000, 'заметки карты');

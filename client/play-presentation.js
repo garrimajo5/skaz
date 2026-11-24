@@ -122,5 +122,17 @@ const SkazPlayPresentation = (() => {
     </section>`;
   }
 
-  return {castCost, prepare, resources, screen};
+  /**
+   * @param {{title:string, text:string, time:string, at:number, kind?:string}} entry
+   * @param {{level:number, agreed:boolean, reason:string} | null} manual
+   */
+  function note(entry,manual){
+    if(!manual)return entry;
+    const agreement=manual.agreed?' Согласовано с мастером.':'';
+    return {...entry,kind:'Ручное сотворение',
+      time:new Date(entry.at).toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'}),
+      text:manual.level+' круг · без расхода ячейки.'+agreement+(manual.reason?' '+manual.reason:'')};
+  }
+
+  return {castCost, prepare, resources, screen, note};
 })();

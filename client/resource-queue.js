@@ -89,7 +89,15 @@ const SkazResourceQueue = (() => {
    if(!sameContext(command.context,payload.context)||(!verified&&payload.revision!==command.expectedRevision+1))throw new Error('После отправки игра изменилась. Очередь сохранена для сверки');
    const expected=projectOne(this.data.baseline,command),actual={...clone(payload),inventory:payload.inventory??expected.inventory,spellbook:payload.spellbook??expected.spellbook};
    const before=balance(expected,command.resource),after=balance(actual,command.resource);
-   if(command.resource.kind==='cast'){const r=command.resource;if(actual.state.concentration!==expected.state.concentration||JSON.stringify(actual.state.concentrationChecks||[])!==JSON.stringify(expected.state.concentrationChecks||[]))throw Error('Сервер не подтвердил концентрацию');if(r.operation==='cast'&&JSON.stringify(receipt.casting)!==JSON.stringify(SkazCasting.project(this.data.baseline,r.command).receipt))throw Error('Неверная квитанция сотворения');}
+   if(command.resource.kind==='cast'){
+    const r=command.resource;
+    if(actual.state.concentration!==expected.state.concentration||JSON.stringify(actual.state.concentrationChecks||[])!==JSON.stringify(expected.state.concentrationChecks||[]))
+     throw Error('Сервер не подтвердил концентрацию');
+    if(r.operation==='cast'&&JSON.stringify(receipt.casting)!==JSON.stringify(SkazCasting.project(this.data.baseline,r.command).receipt))
+     throw Error('Неверная квитанция сотворения');
+    const record=r.operation==='restore'?r.receipt.record:receipt.casting?.record;
+    if(record&&!SkazCasting.confirmsManualNote(actual,record,r.operation==='cast'))throw Error('Сервер не подтвердил ручную запись');
+   }
    if(!after||after.value!==before.value||after.maximum!==before.maximum)throw new Error('Сервер не подтвердил ожидаемый результат');
    if(command.resource.kind==='health'&&Object.hasOwn(command.resource,'deathBefore')&&(JSON.stringify(actual.state.deathSaves)!==JSON.stringify(expected.state.deathSaves)||JSON.stringify(receipt.deathAfter)!==JSON.stringify(expected.state.deathSaves)))throw new Error('Сервер не подтвердил спасброски от смерти');
    if(command.resource.kind==='health'&&Object.hasOwn(command.resource,'checksBefore')&&(JSON.stringify(actual.state.concentrationChecks||[])!==JSON.stringify(expected.state.concentrationChecks||[])||JSON.stringify(receipt.checksAfter)!==JSON.stringify(expected.state.concentrationChecks)))throw new Error('Сервер не подтвердил вопросы концентрации');
