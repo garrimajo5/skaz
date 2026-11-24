@@ -6,6 +6,7 @@ import { bundledCatalog } from './bundled-catalog.mjs';
 import { createCatalog, validateCatalog } from './catalog.mjs';
 import { splitState } from './entities.mjs';
 import { createMemberManagement } from './members.mjs';
+import { campaignMemoryApp } from './campaign-memory-transfer.mjs';
 
 const missing = () => { throw new AppError(404, 'Данные недоступны'); };
 const disabled = () => { throw new AppError(403, 'Операция пока недоступна в режиме индивидуального доступа'); };
@@ -193,6 +194,9 @@ export function createUserReader(db, access, userId, clientViewId, createView, g
   for (const method of ['read','context','proposals','places','quests','spellbook','inventory']) result[method]=()=>read(()=>view[method]());
   result.inventory=()=>read(()=>({...view.inventory(),undo:null}));
   result.members=Object.freeze({list:()=>read(()=>access.management.list(userId,active().campaignId)),change:disabled});
+  for (const method of ['campaignPeople','campaignPerson','campaignPersonHistory','legacyExport']) {
+    result[method]=(...args)=>read(()=>view[method](...args),true);
+  }
   result.campaigns=()=>read(()=>view.campaigns().filter(c=>db.prepare('SELECT 1 FROM campaign_memberships WHERE user_id=? AND campaign_id=?').get(userId,c.id)).map(c=>({...c,characters:c.characters.filter(h=>db.prepare('SELECT 1 FROM character_access WHERE user_id=? AND character_id=?').get(userId,h.id))})));
   result.sessions=campaignId=>read(()=>{access.membership(userId,campaignId);return view.sessions(campaignId);});
   result.session=sessionId=>read(()=>{
@@ -202,14 +206,14 @@ export function createUserReader(db, access, userId, clientViewId, createView, g
   result.sessionReview=sessionId=>read(()=>view.sessionReview(sessionId),true);
   result.exportActive=(version=7)=>read(()=>{
     const exported=view.exportActive(version);
-    if ((exported.app==='skaz-game-with-art'?exported.game:exported).catalog.entries.some(entry=>!visible(entry))) disabled();
+    if ((['skaz-game-with-art',campaignMemoryApp].includes(exported.app)?exported.game:exported).catalog.entries.some(entry=>!visible(entry))) disabled();
     return exported;
   },true);
   result.catalog={};
   for (const method of ['search','coverage','spellInventory','creatureInventory','lookup']) result.catalog[method]=(...args)=>read(()=>catalog[method](...args));
   for (const method of ['importEntries','reviewedImport','previewBundled','installBundled']) result.catalog[method]=disabled;
   // Never leak a raw store method by spreading it into a scoped capability.
-  for (const method of ['bindClassResources','advanceCharacter','undoResource','changeResource','update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','saveCharacterStats','saveCharacterSheet','changeCharacterCounter','changeCharges','addInventory','removeInventory','undoInventory','history','backup','close','forView','forUser']) result[method]=disabled;
+  for (const method of ['bindClassResources','advanceCharacter','undoResource','changeResource','update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','saveCampaignPerson','setSpell','saveCharacterStats','saveCharacterSheet','changeCharacterCounter','changeCharges','addInventory','removeInventory','undoInventory','history','backup','close','forView','forUser']) result[method]=disabled;
   return Object.freeze({...result,catalog:Object.freeze(result.catalog)});
 }
 
@@ -230,7 +234,7 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
   }
   function allowed(method, request, context, beforeState) {
     access.context(userId,context);
-    if (['savePlace','saveQuest','startSession','createCharacter'].includes(method)) requireGM(context);
+    if (['savePlace','saveQuest','saveCampaignPerson','startSession','createCharacter'].includes(method)) requireGM(context);
     if (method==='selectContext') access.context(userId,request?.context);
     if ((['undoInventory','undoResource'].includes(method)||method==='changeResource'&&request?.targetMutationId) && !db.prepare('SELECT 1 FROM user_changes WHERE mutation_id=? AND user_id=?').get(request?.targetMutationId??'',userId)) missing();
     if (method==='update') {
@@ -248,7 +252,7 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
       if (!row || !isDeepStrictEqual(shared.get(request.catalogId),JSON.parse(row.entry_json))) missing();
     }
     if (method==='importActive') {
-      const file=request?.file?.app==='skaz-game-with-art'?request.file.game:request?.file;
+      const file=['skaz-game-with-art',campaignMemoryApp].includes(request?.file?.app)?request.file.game:request?.file;
       if (!Array.isArray(file?.catalog?.entries) || file.catalog.entries.some(entry=>!isDeepStrictEqual(shared.get(entry?.id),entry))) disabled();
     }
   }
@@ -268,7 +272,7 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
       db.exec('COMMIT');return inventory;
     } catch(error) {db.exec('ROLLBACK');throw error;}
   };
-  const methods=['bindClassResources','advanceCharacter','undoResource','changeResource','update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','setSpell','saveCharacterStats','saveCharacterSheet','changeCharacterCounter','changeCharges','addInventory','removeInventory','undoInventory'];
+  const methods=['bindClassResources','advanceCharacter','undoResource','changeResource','update','createCampaign','selectContext','startSession','createCharacter','importActive','createProposal','decideProposal','savePlace','saveQuest','saveCampaignPerson','setSpell','saveCharacterStats','saveCharacterSheet','changeCharacterCounter','changeCharges','addInventory','removeInventory','undoInventory'];
   for (const method of methods) result[method]=request=>{
     const mutationView=createView(viewId,()=>{},event=>{
       // Revocation is checked inside BEGIN IMMEDIATE, not merely at dispatch.

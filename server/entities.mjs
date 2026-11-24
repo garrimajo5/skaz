@@ -8,12 +8,14 @@ export function contextIds(context) {
 
 // The caller owns the transaction. Creation deliberately requires an explicit
 // validated state, rather than silently cloning the currently active adventure.
-export function createGame(db, state, viewId) {
+export function createGame(db, state, viewId, previousSessions = []) {
   const parts = splitState(state);
   const ids = { campaignId: randomUUID(), characterId: randomUUID(), sessionId: randomUUID() };
   db.prepare('INSERT INTO campaigns VALUES (?, ?, ?)').run(ids.campaignId, '5e-2014', JSON.stringify(parts.campaign));
   db.prepare('INSERT INTO characters VALUES (?, ?, ?)').run(ids.characterId, ids.campaignId, JSON.stringify(parts.character));
-  db.prepare('INSERT INTO sessions VALUES (?, ?, ?)').run(ids.sessionId, ids.campaignId, JSON.stringify(parts.session));
+  const insertSession = db.prepare('INSERT INTO sessions VALUES (?, ?, ?)');
+  for (const session of previousSessions) insertSession.run(session.id,ids.campaignId,JSON.stringify(session.data));
+  insertSession.run(ids.sessionId,ids.campaignId,JSON.stringify(parts.session));
   selectGame(db, ids, viewId);
   return ids;
 }
