@@ -16,6 +16,159 @@ const command = (view, personId, operation, data) => mutation(view, {
 });
 const memoryStore = options => openStore(':memory:', options);
 
+function memoryFixture(store) {
+  const old = store.startSession(mutation(store,{session:{name:'Переправа QA',playedOn:'2026-11-22'}})).context;
+  const note = (kind,title) => ({title,text:'QA '+title,kind,at:1,time:'00:00'});
+  store.update(mutation(store,{label:'Наполнить архив QA',state:{...store.read().state,journal:[
+    note('Событие сессии','Сюжет о переправе'), note('Зацепка','Карта торговца'),
+    note('Ресурс','Расход ячейки'), note('Из разговора','Числовая награда'),
+  ],notes:[note('Личное событие','Личный черновик')]}}));
+  const placeId = randomUUID(), questId = randomUUID();
+  store.savePlace(mutation(store,{campaignId:old.campaignId,placeId,operation:'create',
+    place:{title:'Переправа QA',description:'',x:20,y:30,visited:false}}));
+  store.saveQuest(mutation(store,{campaignId:old.campaignId,questId,operation:'create',
+    quest:{title:'Задание QA',description:'',status:'active',steps:[]}}));
+  const personId = randomUUID(), friendId = randomUUID(), clueId = randomUUID(), latest = randomUUID();
+  const save = (operation,data) => store.saveCampaignPerson(command(store,personId,operation,data));
+  save('create',{details:profile,knowledge:{id:clueId,kind:'known',text:'Встречали раньше',sessionId:old.sessionId}});
+  store.saveCampaignPerson(command(store,friendId,'create',{details:{...profile,name:'Союзник QA'},knowledge:null}));
+  store.startSession(mutation(store,{session:{name:'Игра без упоминаний QA',playedOn:'2026-11-23'}}));
+  const current = store.startSession(mutation(store,{session:{name:'Текущая игра QA',playedOn:'2026-11-24'}})).context;
+  save('add-encounter',{id:latest,text:'У переправы',sessionId:old.sessionId,placeId,makeLatest:true});
+  save('add-encounter',{id:randomUUID(),text:'Ещё одна старая встреча',sessionId:old.sessionId,placeId:null,makeLatest:false});
+  save('add-encounter',{id:randomUUID(),text:'Неуточнённая встреча',sessionId:null,placeId:null,makeLatest:false});
+  save('set-links',{links:[{kind:'person',id:friendId},{kind:'place',id:placeId},
+    {kind:'quest',id:questId},{kind:'session',id:current.sessionId}]});
+  for(let i=0;i<7;i++) save('edit',{...profile,description:'Запись QA '+i});
+  return {old,current,personId,friendId,placeId,questId,latest};
+}
+
+test('campaign memory transfers only linked archives, remaps typed links and retains repeatable history',t => {
+  const store = memoryStore({campaignPeople:true});
+  t.after(() => store.close());
+  const {old,current,personId,friendId,placeId,questId,latest} = memoryFixture(store);
+  const file = store.exportActive('campaign-memory');
+  assert.equal(file.memory.archives.length,1);
+  const archive = file.memory.archives[0];
+  assert.equal(archive.id,old.sessionId);
+  assert.deepEqual(archive.journal.map(row => row.title),['Сюжет о переправе','Карта торговца']);
+  assert.deepEqual(Object.keys(archive).sort(),['id','journal','name','origin','playedOn']);
+  assert.deepEqual(archive.origin,{campaignId:old.campaignId,sessionId:old.sessionId,number:2});
+  assert.equal(archive.name,'Переправа QA');
+  assert.equal(archive.playedOn,'2026-11-22');
+  const packCard = file.memory.people.find(row => row.id===personId);
+  assert.deepEqual(packCard.data.encounters.at(-1).sessionId,{status:'unknown'});
+  // A saved source may have the same old ID as an included archive. A snapshot
+  // is still inert on import and on future export.
+  const snapshot = {status:'snapshot',text:'Видимый текст прежней встречи',
+    origin:{campaignId:old.campaignId,id:old.sessionId}};
+  for (const data of [packCard.data,...packCard.history.flatMap(row => [row.before,row.after])].filter(Boolean)) {
+    if(data.encounters.length===3) data.encounters[2].sessionId=snapshot;
+    if(data.links.length===4) data.links.push({kind:'session',target:snapshot});
+  }
+  const sourceCount = store.campaigns().length;
+  const request = mutation(store,{destination:'new-campaign',file});
+  const imported = store.importActive(request);
+  assert.equal(store.campaigns().length,sourceCount+1);
+  const context = imported.context;
+  assert.notEqual(context.campaignId,current.campaignId);
+  const sessions = store.sessions(context.campaignId);
+  assert.equal(sessions.length,2);
+  const importedArchive = sessions.find(row => row.archived);
+  assert.notEqual(importedArchive.id,old.sessionId);
+  assert.equal(store.sessionReview(importedArchive.id).session.importedFrom.number,2);
+  assert.equal(store.sessionReview(importedArchive.id).session.number,1);
+  assert.equal(store.read().sessionNumber,2);
+  assert.equal(store.sessionReview(importedArchive.id).proposals.length,0);
+  assert.deepEqual(store.sessionReview(importedArchive.id).session.data.journal,archive.journal);
+  assert.deepEqual(store.read().context,context);
+  assert.throws(() => store.sessionReview(old.sessionId),{status:404});
+
+  const people = store.campaignPeople().people;
+  const cardId = people.find(row => row.name===profile.name).id;
+  const newFriendId = people.find(row => row.name==='Союзник QA').id;
+  assert.notEqual(cardId,personId);
+  assert.notEqual(newFriendId,friendId);
+  const card = store.campaignPerson(cardId).person;
+  const newPlace = store.places().places[0].id, newQuest = store.quests().quests[0].id;
+  assert.notEqual(newPlace,placeId);
+  assert.notEqual(newQuest,questId);
+  assert.deepEqual(card.links,[{kind:'person',id:newFriendId},{kind:'place',id:newPlace},
+    {kind:'quest',id:newQuest},{kind:'session',id:context.sessionId},{kind:'session',id:null,snapshot}]);
+  assert.equal(card.createdSessionId,importedArchive.id);
+  assert.equal(card.encounters[0].sessionId,importedArchive.id);
+  assert.equal(card.encounters[0].placeId,newPlace);
+  assert.equal(card.encounters[1].sessionId,importedArchive.id);
+  assert.equal(card.encounters[1].placeId,null);
+  assert.equal(card.encounters[2].sessionId,null);
+  assert.equal(card.encounters[2].placeId,null);
+  assert.deepEqual(card.encounters[2].sessionSnapshot,snapshot);
+  assert.equal(card.latestEncounterId,latest);
+  store.saveCampaignPerson(command(store,cardId,'edit',{...profile, description:'После импорта'}));
+  assert.equal(store.campaignPerson(cardId).person.description,'После импорта');
+  const page = store.campaignPersonHistory(cardId);
+  const tail = store.campaignPersonHistory(cardId,page.nextBeforePosition);
+  assert.equal(page.changes.length,10);
+  assert.equal(page.changes[0].origin.campaignId,context.campaignId);
+  assert.equal(page.changes[1].origin.campaignId,current.campaignId);
+  assert.equal(tail.changes.at(-1).operation,'create');
+  assert.equal(tail.changes.at(-1).position,1);
+  assert.equal(tail.changes.at(-1).after.knowledge[0].sessionId,importedArchive.id);
+  assert.equal(page.changes.length+tail.changes.length,packCard.history.length+1);
+
+  const replay = store.importActive(request);
+  assert.equal(replay.replayed,true);
+  assert.deepEqual(replay.affectedContext,context);
+  assert.equal(store.campaigns().length,sourceCount+1);
+  const second = store.exportActive('campaign-memory');
+  assert.deepEqual(second.memory.archives[0].origin,archive.origin);
+  assert.deepEqual(second.memory.people.find(row => row.id===cardId).data.encounters[2].sessionId,snapshot);
+  const edited = card.encounters[2];
+  store.saveCampaignPerson(command(store,cardId,'edit-encounter',
+    {id:edited.id,text:'Поправлен только текст',sessionId:null,placeId:null}));
+  assert.deepEqual(store.campaignPerson(cardId).person.encounters[2].sessionSnapshot,snapshot);
+  store.saveCampaignPerson(command(store,cardId,'edit-encounter',
+    {id:edited.id,text:edited.text,sessionId:null,placeId:null,clearSnapshots:['session']}));
+  const repaired = store.campaignPerson(cardId).person.encounters[2];
+  assert.equal(repaired.sessionSnapshot,undefined);
+  assert.deepEqual(store.campaignPersonHistory(cardId).changes[0].before.encounters[2].sessionSnapshot,snapshot);
+  store.saveCampaignPerson(command(store,cardId,'set-links',{links:[{kind:'person',id:newFriendId}]}));
+  assert.deepEqual(store.campaignPerson(cardId).person.links,[{kind:'person',id:newFriendId},{kind:'session',id:null,snapshot}]);
+  const stale = command(store,cardId,'remove-link-snapshot',{index:1});
+  assert.throws(() => store.saveCampaignPerson(command(store,cardId,'remove-link-snapshot',{index:0})),{status:404});
+  store.saveCampaignPerson(command(store,cardId,'set-links',{links:[]}));
+  assert.throws(() => store.saveCampaignPerson(stale),{status:409});
+  store.saveCampaignPerson(command(store,cardId,'remove-link-snapshot',{index:0}));
+  assert.deepEqual(store.campaignPerson(cardId).person.links,[]);
+  assert.equal(store.campaignPersonHistory(cardId).changes[0].before.links[0].snapshot.text,snapshot.text);
+});
+
+test('invalid links, scope, archive content and inconsistent history reject the entire memory import',t => {
+  const store = memoryStore({campaignPeople:true});
+  t.after(() => store.close());
+  const {personId} = memoryFixture(store);
+  const valid = store.exportActive('campaign-memory');
+  const original = store.read(), size = store.campaigns().length;
+  const edits = [
+    file => { file.memory.archives = []; },
+    file => { file.memory.archives.push(structuredClone(file.memory.archives[0])); },
+    file => { file.memory.archives[0].journal[0].kind = 'Ресурс'; },
+    (file,card) => { card.data.encounters[0].placeId.campaignId = randomUUID(); },
+    (file,card) => { card.data.encounters[0].placeId.id = file.memory.questIds[0]; },
+    (file,card) => { card.data.latestEncounterId = randomUUID(); },
+    (file,card) => { card.history[0].after.description = 'Изменено задним числом'; },
+    file => { file.memory.archives.push({...file.memory.archives[0],id:randomUUID()}); },
+  ];
+  for (const edit of edits) {
+    const file = structuredClone(valid);
+    edit(file,file.memory.people.find(row => row.id===personId));
+    assert.throws(() => store.importActive(mutation(store,{destination:'new-campaign',file})),{status:422});
+    assert.deepEqual(store.read(),original);
+    assert.equal(store.campaigns().length,size);
+  }
+  assert.throws(() => store.exportActive(15),{status:409});
+});
+
 test('campaign card preserves independent observations, explicit latest choice and correction history', t => {
   const store = memoryStore({campaignPeople:true});
   t.after(() => store.close());
@@ -61,9 +214,9 @@ test('campaign card preserves independent observations, explicit latest choice a
   for (let i=0; i<5; i++) store.saveCampaignPerson(change('edit', {...profile, description:'QA ' + i}));
   const page = store.campaignPersonHistory(personId);
   assert.equal(page.changes.length, 10);
-  const next = store.campaignPersonHistory(personId, page.nextBeforeRevision);
+  const next = store.campaignPersonHistory(personId, page.nextBeforePosition);
   assert(next.changes.length > 0);
-  assert.equal(next.nextBeforeRevision, null);
+  assert.equal(next.nextBeforePosition, null);
   assert(next.changes.every(row => row.revision < page.changes.at(-1).revision));
   assert.throws(() => store.exportActive(15), {status:409});
 });
@@ -159,6 +312,38 @@ test('existing disk state, atomic rollback, backup and opt-out keep campaign mem
     assert.throws(() => store.campaignPerson(personId),{status:403});
     assert.throws(() => store.exportActive(15),{status:409});
     assert.throws(() => store.legacyExport(),{status:409});
+    store.close(); store=null;
+    store=openStore(file,{campaignPeople:true});
+    store.startSession(mutation(store,{session:{name:'Текущая синтетическая',playedOn:'2026-11-24'}}));
+    const packageFile=store.exportActive('campaign-memory');
+    assert.equal(packageFile.memory.archives.length,1);
+    const input=mutation(store,{destination:'new-campaign',file:packageFile});
+    const oldContext=store.read(), gameCount=store.campaigns().length;
+    raw=new DatabaseSync(file);
+    raw.exec("CREATE TRIGGER refuse_imported_history BEFORE INSERT ON campaign_person_imports BEGIN SELECT RAISE(ABORT,'QA import failure'); END");
+    assert.throws(() => store.importActive(input),/QA import failure/);
+    assert.deepEqual(store.read(),oldContext);
+    assert.equal(store.campaigns().length,gameCount);
+    assert.equal(raw.prepare('SELECT count(*) AS n FROM campaign_archive_origins').get().n,0);
+    assert.equal(raw.prepare('SELECT count(*) AS n FROM campaign_person_imports').get().n,0);
+    assert.equal(raw.prepare('SELECT 1 FROM changes WHERE mutation_id=?').get(input.mutationId),undefined);
+    raw.exec('DROP TRIGGER refuse_imported_history');
+    const copied=store.importActive(input);
+    const copiedId=store.campaignPeople().people[0].id;
+    const copiedHistory=store.campaignPersonHistory(copiedId);
+    assert.equal(raw.prepare('PRAGMA integrity_check').get().integrity_check,'ok');
+    assert.deepEqual(raw.prepare('PRAGMA foreign_key_check').all(),[]);
+    const importedBackup=join(folder,'imported.sqlite');
+    await store.backup(importedBackup);
+    restored=openStore(importedBackup);
+    assert.deepEqual(restored.read().context,copied.context);
+    assert.throws(() => restored.exportActive('campaign-memory'),{status:403});
+    assert.throws(() => restored.exportActive(15),{status:409});
+    restored.close(); restored=null;
+    restored=openStore(importedBackup,{campaignPeople:true});
+    assert.deepEqual(restored.campaignPersonHistory(copiedId),copiedHistory);
+    assert.equal(restored.saveCampaignPerson(request).replayed,true);
+    assert.equal(restored.importActive(input).replayed,true);
   } finally {
     restored?.close();
     raw?.close();
@@ -198,10 +383,27 @@ test('local HTTP exposes scoped campaign memory only when explicitly enabled', a
   const path='/api/campaign-people/'+personId;
   assert.equal((await (await response(path)).json()).person.relation,null);
   assert.equal((await (await response(path+'/history')).json()).changes[0].operation,'create');
-  assert.equal((await response(path+'/history?beforeRevision=0')).status,400);
-  assert.equal((await response(path+'/history?beforeRevision=2&beforeRevision=3')).status,400);
+  assert.equal((await response(path+'/history?beforePosition=0')).status,400);
+  assert.equal((await response(path+'/history?beforePosition=2&beforePosition=3')).status,400);
   assert.equal((await response('/api/export')).status,409);
   assert.equal((await response('/api/export/active-v15')).status,409);
+  const exportPath='/api/export/campaign-memory', importPath='/api/import/campaign-memory';
+  assert.equal((await fetch(disabled.origin+exportPath)).status,404);
+  const exported=await response(exportPath);
+  assert.equal(exported.status,200);
+  assert.match(exported.headers.get('content-disposition'),/skaz-campaign-memory\.json/);
+  const file=await exported.json();
+  const memoryImport=mutation(store,{destination:'new-campaign',file});
+  const restore=(route, extra)=>response(route,{method:'POST',headers:{origin,'x-skaz-client':'local-v1',
+    'content-type':'application/json',...extra},body:JSON.stringify(memoryImport)});
+  assert.equal((await restore(importPath,{origin:'https://foreign.example'})).status,403);
+  assert.equal((await restore(importPath,{'x-skaz-client':'wrong'})).status,403);
+  assert.equal((await restore('/api/import/active')).status,422);
+  assert.equal((await restore(importPath)).status,200);
+  assert.equal((await (await restore(importPath)).json()).replayed,true);
+  const copiedList=await (await response('/api/campaign-people')).json();
+  assert.equal(copiedList.people.length,1);
+  assert.notEqual(copiedList.people[0].id,personId);
 });
 
 test('individual HTTP checks identity, authorizes reads and restricts campaign writes', async t => {
@@ -246,4 +448,15 @@ test('individual HTTP checks identity, authorizes reads and restricts campaign w
   store.access.apply({action:'remove-member',userId:player,campaignId});
   assert.equal((await get(path+'/'+personId)).status,404);
   assert.equal((await get(path+'/'+personId+'/history')).status,404);
+  assert.equal((await get('/api/export/campaign-memory')).status,404);
+  identity=owner;
+  const file=await (await get('/api/export/campaign-memory')).json();
+  const importPath='/api/import/campaign-memory';
+  const memoryImport=mutation(view,{destination:'new-campaign',file});
+  const restore=()=>fetch(origin+importPath,{method:'POST',headers,body:JSON.stringify(memoryImport)});
+  const imported=await restore();
+  assert.equal(imported.status,200);
+  assert.equal((await imported.json()).permissions.role,'owner');
+  assert.equal((await (await restore()).json()).replayed,true);
+  assert.equal((await get(path+'/'+personId)).status,404);
 });

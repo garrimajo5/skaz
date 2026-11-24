@@ -35,10 +35,32 @@ test('only explicitly prepared individual startup passes, and revoked grants imm
  const database=fixture(),store=openStore(database),game=store.read();
  store.access.apply({action:'bootstrap-owner',userId:'startup-owner',displayName:'Synthetic',campaignId:game.context.campaignId,characterId:game.context.characterId});
  await store.authentication().setPassword('startup-owner','owner','synthetic startup password');store.close();
- const before=readFileSync(database),config=startupOptions({database,mode:'individual',origin:'https://example.test',port:'4178'});
+ const before=readFileSync(database),config=startupOptions({database,mode:'individual',origin:'https://example.test',port:'4178',campaignPeople:'1'});
+ assert.equal(config.campaignPeople,true);
+ const inspection=new DatabaseSync(database,{readOnly:true});
+ try { assert.equal(inspection.prepare("SELECT 1 FROM sqlite_master WHERE name='campaign_people'").get(),undefined); }
+ finally { inspection.close(); }
  assert.equal(config.mode,'individual');assert.equal(config.port,4178);assert.equal(config.publicOrigin,'https://example.test');assert.deepEqual(readFileSync(database),before);
  const db=new DatabaseSync(database);db.exec('DELETE FROM character_access');db.close();const revoked=readFileSync(database);
  assert.throws(()=>startupOptions({database,mode:'individual',origin:'https://example.test'}),/не готовы/);assert.deepEqual(readFileSync(database),revoked);
+});
+
+test('campaign memory flag requires protected v15 startup before opening a database',()=>{
+ const options={database:fixture()};
+ assert.equal(startupOptions(options).campaignPeople,undefined);
+ for(const value of ['',true,'true','yes','2']) {
+  assert.throws(()=>startupOptions({...options,campaignPeople:value}),/SKAZ_CAMPAIGN_PEOPLE/);
+ }
+ assert.throws(()=>startupOptions({...options,campaignPeople:'1'}),/индивидуального HTTPS/);
+ assert.throws(()=>startupOptions({...options,campaignPeople:'1',mode:'individual',profileWriteFormat:'14',profileEditors:'0'}),/v15/);
+ assert.throws(()=>openStore(options.database,{campaignPeople:true,profileWriteFormat:14}),{status:422});
+ const entry=fileURLToPath(new URL('../server/index.mjs',import.meta.url));
+ const result=spawnSync(process.execPath,[entry],{env:{...process.env,SKAZ_DB:options.database,SKAZ_AUTH_MODE:'shared',
+   SKAZ_CAMPAIGN_PEOPLE:'1',SKAZ_PROFILE_WRITE_FORMAT:'15'},encoding:'utf8',timeout:5000});
+ assert.ifError(result.error);
+ assert.equal(result.status,1);
+ assert.match(result.stderr,/индивидуального HTTPS/);
+ assert.equal(existsSync(options.database),false);
 });
 
 test('class advancement startup flag is explicit and invalid values fail before creating a database',()=>{

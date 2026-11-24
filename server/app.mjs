@@ -12,6 +12,7 @@ import { cookieToken, sessionCookie, clearSessionCookie } from './authentication
 import { createArtLibrary } from './art-library.mjs';
 import {personalArtHttp} from './personal-art-http.mjs';
 import {gameArtPackageMaxBytes} from './game-art-package.mjs';
+import { campaignMemoryApp, campaignMemoryMaxBytes } from './campaign-memory-transfer.mjs';
 
 const clientRoot = fileURLToPath(new URL('../client/', import.meta.url));
 const files = new Set(['profile-rules.js', 'conditions.js', 'icons.js', 'class-advancement-transport.js','class-advancement.js','class-advancement-shell.js','art-cache.js', 'art.js', 'fonts.css',"fonts/inter-400-800-cyrillic.woff2","fonts/inter-400-800-latin.woff2","fonts/pt-serif-400-cyrillic.woff2","fonts/pt-serif-400-latin.woff2","fonts/pt-serif-700-cyrillic.woff2","fonts/pt-serif-700-latin.woff2",'health.js', 'casting.js', 'spell-facts.js', 'resource-queue.js', 'index.html', 'login.html', 'waiting.html', 'login.js', 'login.css', 'personal-art-session.js', 'private-exit.js', 'game-art-transfer.js', 'game-art-transfer-panel.js', 'game-art-transfer-shell.js', 'personal-art-command.js', 'personal-art-transport.js', 'personal-art-preview.js', 'personal-art-history.js', 'personal-art-editor.js', 'personal-art-cards.js', 'personal-art-view.js', 'account.js', 'members.js', 'character-sheet.js', 'style.css', 'quick.css', 'play-layout.css', 'app.js', 'play-presentation.js', 'play.js', 'ui.js', 'storage.js', 'catalog.js', 'catalog.css', 'local.css', 'map.js', 'quests.js', 'events.js', 'archive.js', 'catalog-import.js', 'spellbook.js']);
@@ -141,6 +142,21 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           }
           return json(response,405,{error:'Метод не поддерживается'});
         }
+        if (['/api/export/campaign-memory','/api/import/campaign-memory'].includes(pathname)) {
+          if (!store.campaignPeopleEnabled) return json(response,404,{error:'Перенос картотеки не включён'});
+          if (pathname === '/api/export/campaign-memory' && request.method === 'GET') {
+            return json(response,200,view.exportActive('campaign-memory'),
+              {'Content-Disposition':'attachment; filename="skaz-campaign-memory.json"'});
+          }
+          if (pathname === '/api/import/campaign-memory' && request.method === 'POST') {
+            if (request.headers['x-skaz-client'] !== 'local-v1') throw new AppError(403,'Запрос должен исходить из приложения');
+            const data = await body(request,campaignMemoryMaxBytes + 4096);
+            if (data?.file?.app !== campaignMemoryApp) throw new AppError(422,'Нужен пакет картотеки кампании');
+            const result = view.importActive(data);
+            return json(response,200,{...result,...(authenticate?{permissions:view.permissions()}:{})});
+          }
+          return json(response,405,{error:'Метод не поддерживается'});
+        }
         if(authenticate && pathname==='/api/members'){
           if(request.method==='GET')return json(response,200,view.members.list());
           if(request.method==='POST'){
@@ -160,8 +176,8 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
             const person = pathname.match(/^\/api\/campaign-people\/([a-zA-Z0-9-]{8,80})(\/history)?$/);
             if (person) {
               const query = new URL(request.url, 'http://'+host).searchParams;
-              const before = query.get('beforeRevision');
-              if ([...query.keys()].some(key => key !== 'beforeRevision') || query.getAll('beforeRevision').length > 1 ||
+              const before = query.get('beforePosition');
+              if ([...query.keys()].some(key => key !== 'beforePosition') || query.getAll('beforePosition').length > 1 ||
                   (before !== null && (!person[2] || !/^[1-9]\d*$/.test(before)))) throw new AppError(400, 'Неверные параметры картотеки');
               return json(response, 200, person[2] ? view.campaignPersonHistory(person[1], before === null ? undefined : Number(before)) : view.campaignPerson(person[1]));
             }
@@ -203,6 +219,7 @@ export function createApp(store, { publicOrigin, authenticate, individualWrites 
           if (request.headers['x-skaz-client'] !== 'local-v1') throw new AppError(403, 'Запрос должен исходить из приложения');
           const data = await body(request);
           if (!data || typeof data !== 'object' || Array.isArray(data)) throw new AppError(400, 'Неверный запрос');
+          if (pathname === '/api/import/active' && data.file?.app === campaignMemoryApp) throw new AppError(422,'Для картотеки нужен отдельный импорт');
           const result = pathname === '/api/campaign-people' ? view.saveCampaignPerson(data) : pathname === '/api/resources/undo' ? view.undoResource(data) : pathname === '/api/resources/change' ? view.changeResource(data) : pathname === '/api/catalog/import/preview' ? view.catalog.reviewedImport(data) : pathname === '/api/catalog/import' ? view.catalog.reviewedImport(data,true) : pathname === '/api/catalog/bundled' ? view.catalog.installBundled(data) : pathname === '/api/characters' ? view.createCharacter(data) : pathname === '/api/proposals' ? view.createProposal(data) : pathname === '/api/proposals/decide' ? view.decideProposal(data) : pathname === '/api/places' ? view.savePlace(data) : pathname === '/api/quests' ? view.saveQuest(data) : pathname === '/api/character-sheet/counter' ? view.changeCharacterCounter(data) : pathname === '/api/character-sheet' ? view.saveCharacterSheet(data) : pathname === '/api/character-stats' ? view.saveCharacterStats(data) : pathname === '/api/spellbook' ? view.setSpell(data) : pathname === '/api/import/active' ? view.importActive(data) : pathname === '/api/inventory/charges' ? view.changeCharges(data) : pathname === '/api/inventory/undo' ? view.undoInventory(data) : pathname === '/api/inventory/remove' ? view.removeInventory(data) : pathname === '/api/inventory' ? view.addInventory(data) : pathname === '/api/sessions' ? view.startSession(data) : pathname === '/api/campaigns' ? view.createCampaign(data) : pathname === '/api/context/select' ? view.selectContext(data) : view.update(data);
           return json(response, 200, { ...result, ...(authenticate && result?.state ? {permissions:view.permissions()} : {}) });
         }

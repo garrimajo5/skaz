@@ -28,6 +28,9 @@ import {
 import { setupQuests, readQuests, validateQuestCommand, saveQuest } from './quests.mjs';
 import { setupSpellbook, readSpellbook, validateSpellCommand, setSpell } from './spellbook.mjs';
 import { validateTransfer, importTransfer } from './transfer.mjs';
+import {
+  campaignMemoryApp, campaignMemoryPackage, validateCampaignMemoryPackage, prepareCampaignArchives, importCampaignMemory,
+} from './campaign-memory-transfer.mjs';
 import { DatabaseSync, backup } from 'node:sqlite';
 import { mkdirSync } from 'node:fs';
 import path from 'node:path';
@@ -60,6 +63,7 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
   if(typeof campaignPeople!=='boolean')throw new AppError(422,'Неверный режим картотеки кампании');
   if(typeof classAdvancement!=='boolean')throw new AppError(422,'Неверный режим повышения уровня');
   if (![14, 15].includes(profileWriteFormat)) throw new AppError(422, 'Формат записи профилей: 14 или 15');
+  if (campaignPeople && profileWriteFormat!==15) throw new AppError(422,'Перенос картотеки требует формат v15');
   if (filename !== ':memory:') mkdirSync(path.dirname(filename), { recursive: true });
   const db = new DatabaseSync(filename);
   try {
@@ -140,12 +144,15 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
   }
   function exportActive(version = 2) {
     const withArt=version==='with-art';
+    const withMemory=version==='campaign-memory';
+    if(withMemory&&!campaignPeople)throw new AppError(403,'Перенос картотеки не включён');
+    if(withMemory)version=15;
     if(withArt&&!personalArt)throw new AppError(403,'Перенос личных изображений не включён');
     if(withArt)version=classAdvancement?13:12;
     db.exec('BEGIN');
     try {
       const current = read();
-      assertCampaignPeopleExportable(db, current.context.campaignId);
+      if(!withMemory)assertCampaignPeopleExportable(db, current.context.campaignId);
       if(withArt&&current.state.conditions!==undefined)version=14;
       const advisory=ProfileRules.requiresV15({stats:current.characterStats,sheet:current.characterSheet});
       if(withArt&&advisory)version=15;
@@ -206,7 +213,9 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
         ...(version >= 6 ? { proposals: proposals.map(({ id, campaignId, sessionId, characterId, importedFrom, source, suggestion, status, appliedEntry }) => ({ origin: importedFrom || { campaignId, sessionId, characterId, proposalId: id }, source, suggestion, status, appliedEntry })) } : {}),
         catalog: { schemaVersion: 1, entries: [...entries.values()].sort((a, b) => a.id.localeCompare(b.id, 'en')) },
       };
-      const exported=withArt?gameArtPackage(result,art,{lookup:id=>{const row=lookup.get(id);return row?JSON.parse(row.entry_json):null;}}):result;
+      let exported=result;
+      if(withArt)exported=gameArtPackage(result,art,{lookup:id=>{const row=lookup.get(id);return row?JSON.parse(row.entry_json):null;}});
+      if(withMemory)exported=campaignMemoryPackage(db,result,{places,quests});
       db.exec('COMMIT');
       return exported;
     } catch (error) { db.exec('ROLLBACK'); throw error; }
@@ -329,8 +338,8 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
     campaignPerson: personId => projectCampaignPeople(({revision, context}) => ({
       revision, context, person:readCampaignPerson(db, context.campaignId, personId),
     })),
-    campaignPersonHistory: (personId, beforeRevision) => projectCampaignPeople(({revision, context}) => ({
-      revision, context, ...readCampaignPersonHistory(db, context.campaignId, personId, beforeRevision),
+    campaignPersonHistory: (personId, beforePosition) => projectCampaignPeople(({revision, context}) => ({
+      revision, context, ...readCampaignPersonHistory(db, context.campaignId, personId, beforePosition),
     })),
     legacyExport: () => projectSnapshot(current => {
       assertCampaignPeopleExportable(db, current.context.campaignId);
@@ -475,15 +484,20 @@ export function openStore(filename, {classAdvancement=false, profileWriteFormat=
     importActive: request => {
       if (!request || typeof request !== 'object' || Array.isArray(request) || Object.keys(request).some(key => !['mutationId','expectedRevision','destination','file'].includes(key)) || request.destination !== 'new-campaign') throw new AppError(400, 'Импорт требует новую кампанию');
       const withArt=request.file?.app==='skaz-game-with-art';
+      const withMemory=request.file?.app===campaignMemoryApp;
+      if(withMemory&&!campaignPeople)throw new AppError(403,'Перенос картотеки не включён');
       if(withArt&&!personalArt)throw new AppError(403,'Перенос личных изображений не включён');
-      const parsed=withArt?validateGameArtPackage(request.file):null;
+      const parsed=withArt?validateGameArtPackage(request.file):withMemory?validateCampaignMemoryPackage(request.file):null;
+      const memory=parsed?.memory;
       const payload = parsed?.game??validateTransfer(request.file);
       if(payload.advancement&&!classAdvancement)throw new AppError(403,'Перенос повышения уровня ещё не включён');
-      const hash = createHash('sha256').update(JSON.stringify({ operation: 'import-active', expectedRevision: request.expectedRevision, payload,...(withArt?{personalArt:request.file.personalArt}:{}) })).digest('hex');
-      return mutate(request, hash, 'Импорт игры с инвентарём', () => {
-        const transferVersion = (withArt ? request.file.game : request.file).schemaVersion;
+      const hash = createHash('sha256').update(JSON.stringify({ operation: 'import-active', expectedRevision: request.expectedRevision, payload,...(withArt?{personalArt:request.file.personalArt}:{}),...(withMemory?{memory}:{}) })).digest('hex');
+      return mutate(request, hash, withMemory?'Импорт игры с картотекой':'Импорт игры с инвентарём', () => {
+        const transferVersion = (withArt || withMemory ? request.file.game : request.file).schemaVersion;
         if (profileWriteFormat === 14 && transferVersion === 15) throw profileUpgradePending();
-        importTransfer(db, payload, request.mutationId, viewId);
+        const archives=memory ? prepareCampaignArchives(memory) : undefined;
+        const ids=importTransfer(db, payload, request.mutationId, viewId, archives);
+        if(memory)importCampaignMemory(db,memory,ids,archives);
         return read().state;
       }, 'import-active',undefined,withArt?context=>personalArt.importCharacter({characterId:context.characterId,mutationId:request.mutationId,expectedRevisions:Object.fromEntries(parsed.art.map(entry=>[entry.catalogId,0])),bundle:request.file.personalArt}):undefined);
     },

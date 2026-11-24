@@ -49,5 +49,9 @@ export function readSession(db, id) {
     LEFT JOIN session_details d ON d.session_id=s.id WHERE s.id=?`).get(id);
   if (!row) throw new AppError(404, 'Сессия не найдена');
   const { data_json, ...metadata } = row;
-  return { ...metadata, archived: Boolean(row.archived), data: JSON.parse(data_json) };
+  const archiveOrigin = row.archived && db.prepare(
+    "SELECT 1 FROM sqlite_master WHERE type='table' AND name='campaign_archive_origins'",
+  ).get() && db.prepare('SELECT origin_json FROM campaign_archive_origins WHERE session_id=?').get(id);
+  return { ...metadata, archived: Boolean(row.archived), data: JSON.parse(data_json),
+    ...(archiveOrigin ? {importedFrom:JSON.parse(archiveOrigin.origin_json)} : {}) };
 }

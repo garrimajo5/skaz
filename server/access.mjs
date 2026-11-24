@@ -6,6 +6,7 @@ import { bundledCatalog } from './bundled-catalog.mjs';
 import { createCatalog, validateCatalog } from './catalog.mjs';
 import { splitState } from './entities.mjs';
 import { createMemberManagement } from './members.mjs';
+import { campaignMemoryApp } from './campaign-memory-transfer.mjs';
 
 const missing = () => { throw new AppError(404, 'Данные недоступны'); };
 const disabled = () => { throw new AppError(403, 'Операция пока недоступна в режиме индивидуального доступа'); };
@@ -205,7 +206,7 @@ export function createUserReader(db, access, userId, clientViewId, createView, g
   result.sessionReview=sessionId=>read(()=>view.sessionReview(sessionId),true);
   result.exportActive=(version=7)=>read(()=>{
     const exported=view.exportActive(version);
-    if ((exported.app==='skaz-game-with-art'?exported.game:exported).catalog.entries.some(entry=>!visible(entry))) disabled();
+    if ((['skaz-game-with-art',campaignMemoryApp].includes(exported.app)?exported.game:exported).catalog.entries.some(entry=>!visible(entry))) disabled();
     return exported;
   },true);
   result.catalog={};
@@ -251,7 +252,7 @@ export function createUserWriter(db, access, userId, clientViewId, createView, g
       if (!row || !isDeepStrictEqual(shared.get(request.catalogId),JSON.parse(row.entry_json))) missing();
     }
     if (method==='importActive') {
-      const file=request?.file?.app==='skaz-game-with-art'?request.file.game:request?.file;
+      const file=['skaz-game-with-art',campaignMemoryApp].includes(request?.file?.app)?request.file.game:request?.file;
       if (!Array.isArray(file?.catalog?.entries) || file.catalog.entries.some(entry=>!isDeepStrictEqual(shared.get(entry?.id),entry))) disabled();
     }
   }

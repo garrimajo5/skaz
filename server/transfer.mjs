@@ -105,13 +105,13 @@ export function validateTransfer(file) {
   return { state, session, inventory, ...(advancement!==undefined?{advancement}:{}), ...(characterSheet!==undefined?{characterSheet}:{}), ...(characterStats!==undefined?{characterStats}:{}), ...(proposals ? { proposals } : {}), ...(places ? { places } : {}), ...(quests ? { quests } : {}), ...(spellbook ? { spellbook } : {}), entries: entries.sort((a,b) => a.id.localeCompare(b.id, 'en')) };
 }
 // Caller owns one transaction for catalog, new game, inventory and mutation receipt.
-export function importTransfer(db, data, mutationId, viewId) {
+export function importTransfer(db, data, mutationId, viewId, previousSessions) {
   for (const entry of data.entries) {
     const existing = db.prepare('SELECT entry_json FROM catalog_entries WHERE id=?').get(entry.id);
     if (existing && existing.entry_json !== JSON.stringify(entry) && !isKnownBundledUpgrade(entry,JSON.parse(existing.entry_json))) throw new AppError(409, 'Конфликт источника каталога: ' + entry.id);
   }
   for (const entry of data.entries) db.prepare('INSERT OR IGNORE INTO catalog_entries VALUES (?, ?)').run(entry.id, JSON.stringify(entry));
-  const ids = createGame(db, data.state, viewId);
+  const ids = createGame(db, data.state, viewId, previousSessions);
   if(data.characterSheet!==undefined)writeCharacterSheet(db,ids.characterId,data.characterSheet);
   if(data.characterStats!==undefined)writeCharacterStats(db,ids.characterId,data.characterStats);
   if(data.advancement){
@@ -119,13 +119,16 @@ export function importTransfer(db, data, mutationId, viewId) {
     db.prepare('INSERT INTO advancement_changes VALUES (?,?,?,?)').run(mutationId,ids.characterId,'null',JSON.stringify(data.advancement));
   }
   db.prepare('INSERT INTO session_details VALUES (?, ?, ?, 0)').run(ids.sessionId, data.session.name, data.session.playedOn);
+  const questIds = [], placeIds = [];
   for (const item of data.quests || []) {
     const questId = randomUUID();
+    questIds.push(questId);
     db.prepare('INSERT INTO quests VALUES (?, ?, ?, ?)').run(questId, ids.campaignId, ids.sessionId, JSON.stringify(item.quest));
     db.prepare('INSERT INTO quest_origins VALUES (?, ?)').run(questId, JSON.stringify(item.origin));
   }
   for (const item of data.places || []) {
     const placeId = randomUUID();
+    placeIds.push(placeId);
     db.prepare('INSERT INTO campaign_places VALUES (?, ?, ?, ?)').run(placeId, ids.campaignId, ids.sessionId, JSON.stringify(item.place));
     db.prepare('INSERT INTO place_origins VALUES (?, ?)').run(placeId, JSON.stringify(item.origin));
   }
@@ -144,4 +147,5 @@ export function importTransfer(db, data, mutationId, viewId) {
     for (const item of spells) db.prepare('INSERT INTO character_spells VALUES (?, ?, ?, ?)').run(ids.characterId, item.catalogId, item.status, JSON.stringify(item.entry));
     db.prepare('INSERT INTO spell_changes VALUES (?, ?, ?, ?)').run(mutationId, ids.characterId, '[]', JSON.stringify(spells));
   }
+  return {...ids,questIds,placeIds};
 }
