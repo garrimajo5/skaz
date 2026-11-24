@@ -1,10 +1,10 @@
-# Текущий runtime — bf92f07, 24.11.2026
+# Текущий runtime — f7bd297, 24.11.2026
 
-[#50](https://github.com/garrimajo5/skaz/issues/50) уточняет первый запуск справочника. Локальная установка доступна из трёх экранов, при индивидуальном серверном входе пустое состояние сразу объясняет роль администратора. [PR #320](https://github.com/garrimajo5/skaz/pull/320) слит в `cdbc543` с тем же деревом. SHA-256 архива `92f5d81210663da8488e6c798da1ed2a905854357a0a050daab55c8bd144b670`. Linux 2156/2156, синтаксис, сборка, проверка типов и `nginx -t` прошли. [Edge и Android](design/qa/first-catalog-install-50.md).
+[#55](https://github.com/garrimajo5/skaz/issues/55) переводит оставшиеся значки действий на общий SVG и показывает итоги спасбросков от смерти числами. [PR #323](https://github.com/garrimajo5/skaz/pull/323) слит в `788957a` с тем же деревом. SHA-256 архива `1630207f6a09ee5c140e1cddd5284db01a536b0b9cb1174b3614cd9a698292da`. Linux 2160/2160, синтаксис, сборка, проверка типов и `nginx -t` прошли. [Edge и Android](design/qa/system-icons-55.md).
 
-Свежий приватный резерв восстановлен, совпали 48 таблиц и соблюдены внешние ключи. Совместимый откат на `5bd6139` сохраняет ручные заряды и историю. Защищённый HTTPS подтвердил оба входа, прежние права каталога, поиск, экспорт v15 и картотеки, отказ чужому Origin, выход и точный клиентский файл. Временные входы, сеансы и вымышленная игра удалены. Службы и таймеры активны. Картотека, повышение и редакторы включены, формат 15, личные арты выключены. [Доказательства выпуска](https://github.com/garrimajo5/skaz/issues/50#issuecomment-7134866255).
+Свежий приватный резерв восстановлен, совпали 48 таблиц и соблюдены внешние ключи. Откат на `bf92f07` сохраняет v15, ручные заряды и историю. Защищённый HTTPS подтвердил оба входа, прежние права каталога, поиск, экспорт v15 и картотеки, отказ чужому Origin, выход и точные файлы интерфейса. Временные входы, сеансы и вымышленная игра удалены. Службы и таймеры активны. Картотека, повышение и редакторы включены, формат 15, личные арты выключены. [Доказательства выпуска](https://github.com/garrimajo5/skaz/issues/55#issuecomment-7136355370).
 
-Предыдущие выпуски: [поиск `5bd6139`](https://github.com/garrimajo5/skaz/issues/49#issuecomment-7133769223), [ручные заряды `f8d505e`](https://github.com/garrimajo5/skaz/issues/48#issuecomment-7133381809), [ручное сотворение `6a09875`](https://github.com/garrimajo5/skaz/issues/45#issuecomment-7132205232), [прямые ссылки и книга `1eb69f9`](design/qa/navigation-intent-44.md), [единая подпись навигации `c5a5a13`](design/qa/tablet-navigation-42.md), [вкладка «Персонажи» `4f092b8`](https://github.com/garrimajo5/skaz/issues/88#issuecomment-7129239809), [API картотеки `2410183`](https://github.com/garrimajo5/skaz/issues/87#issuecomment-7128279711), [ручной профиль `373d4c5`](https://github.com/garrimajo5/skaz/issues/81#issuecomment-7113442737), [оболочка `2a332ec`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7109218961). Двухчасовая физическая проверка Xiaomi Pad 6 остаётся в #15.
+Предыдущие выпуски: [первый запуск справочника `bf92f07`](https://github.com/garrimajo5/skaz/issues/50#issuecomment-7134866255), [поиск `5bd6139`](https://github.com/garrimajo5/skaz/issues/49#issuecomment-7133769223), [ручные заряды `f8d505e`](https://github.com/garrimajo5/skaz/issues/48#issuecomment-7133381809), [ручное сотворение `6a09875`](https://github.com/garrimajo5/skaz/issues/45#issuecomment-7132205232), [прямые ссылки и книга `1eb69f9`](design/qa/navigation-intent-44.md), [единая подпись навигации `c5a5a13`](design/qa/tablet-navigation-42.md), [вкладка «Персонажи» `4f092b8`](https://github.com/garrimajo5/skaz/issues/88#issuecomment-7129239809), [API картотеки `2410183`](https://github.com/garrimajo5/skaz/issues/87#issuecomment-7128279711), [ручной профиль `373d4c5`](https://github.com/garrimajo5/skaz/issues/81#issuecomment-7113442737), [оболочка `2a332ec`](https://github.com/garrimajo5/skaz/issues/252#issuecomment-7109218961). Двухчасовая физическая проверка Xiaomi Pad 6 остаётся в #15.
 
 ## Как читать этот документ
 
@@ -74,6 +74,8 @@ nginx -t
    Released не означает приёмку этапа владельцем.
 
 ## Совместимый откат
+
+При дефекте системных значков вернуть `bf92f07` с той же SQLite и флагами. На отдельной копии остались прежними 48 таблиц, остатки 8/7 и 0, согласование, расход, адресная отмена и повтор. После возврата подтвердить оба входа, HTTPS, v15, картотеку и отрисовку пульта.
 
 При дефекте пустого состояния справочника вернуть `5bd6139` с той же SQLite и флагами. Изменение затрагивает только интерфейс. На восстановленной копии совпали 48 таблиц, повтор, расход и отмена ручных зарядов сохранены. После переключения проверить оба входа, HTTPS, права и открытие справочника.
 
