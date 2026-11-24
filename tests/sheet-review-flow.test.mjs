@@ -33,7 +33,7 @@ async function form(scenario = 'conflicting-pages') {
  const context=vm.createContext({document,HTMLElement,...classes,Image:class {async decode(){}},fetch:async url=>{requests.push(url);return {ok:true,json:async()=>structuredClone(manifest)};}});
  vm.runInContext(script,context);
  await new Promise(resolve=>setImmediate(resolve));
- assert(document.getElementById('field-'+({ 'zero-charges':'charges', 'multiclass-pact':'level.wizard' }[scenario]??'hpMax')),node('summary').textContent);
+ assert(document.getElementById('field-'+({ 'zero-charges':'charges', 'multiclass-pact':'level.wizard', 'cropped-hp':'hp.max' }[scenario]??'hpMax')),node('summary').textContent);
  const read=expression=>{const value=vm.runInContext('JSON.stringify('+expression+')',context);return value===undefined?undefined:JSON.parse(value);};
  const input=(id,value)=>{const n=node('field-'+id);n.focus();n.value=value;n.oninput();};
  const unknown=id=>{const f=vm.runInContext('fields.find(f=>f.key==='+JSON.stringify(id)+')',context);f.unknownBox.checked=true;f.unknownBox.onchange();};
@@ -185,6 +185,32 @@ test('a known spell title does not set its class or location and edits require a
  h.select('spell-row-location','known');
  h.submit();
  assert.deepEqual(h.read('confirmation.spells.value.rows[1]'),{rowId:'example-misty-step',name:'Туманный шаг',source:'warlock',location:'known'});
+});
+
+test('unlabelled cropped values remain unresolved until a manual choice',async()=>{
+ const h=await form('cropped-hp');
+ for(const id of ['hp.max','hp.current','hp.temp'])assert.equal(h.node('field-'+id).value,'');
+ h.submit();
+ assert.equal(h.read('confirmation'),null);
+ assert.deepEqual(h.read('current.unassignedTokens'),['27','0']);
+ assert.deepEqual(h.read('current.regions'),[]);
+ h.unknown('hp.current');
+ h.unknown('hp.temp');
+ h.input('hp.max','33');
+ h.submit();
+ assert.deepEqual(h.read('confirmation.values'),[
+  {fieldId:'hp.max',selection:'corrected',value:33,provenance:'manual-correction'},
+  {fieldId:'hp.current',selection:'left-unknown',value:null,provenance:'manual-unknown'},
+  {fieldId:'hp.temp',selection:'left-unknown',value:null,provenance:'manual-unknown'},
+ ]);
+ const temp=vm.runInContext('fields.find(f=>f.key==="hp.temp")',h.context);
+ temp.unknownBox.checked=false;
+ temp.unknownBox.onchange();
+ h.input('hp.temp','0');
+ assert.equal(h.read('confirmation'),null);
+ h.submit();
+ assert.equal(h.read('confirmation.values.find(f=>f.fieldId==="hp.temp").value'),0);
+ assert.equal(h.read('confirmation.values.find(f=>f.fieldId==="hp.temp").provenance'),'manual-correction');
 });
 
 test('an unsaved choice about list coverage survives cancelling a scenario change',async()=>{

@@ -122,8 +122,24 @@ c.save();png=OUT/'english-two-column.png';en.save(png)
 expected=json.loads(json.dumps(semantic['cases'][0]['expected']));expected.update({'name':'Lyra','armorClass':13,'initiative':2,'spellSaveDC':14});expected['classes'][0]['name']='Bard'
 manifest['extraCases']=[{'id':'english-two-column','expected':expected,'regions':regions,'assets':[info(png,'png',width=W,height=H,page=1),info(pdf,'text-pdf',pages=1)],'review':['English labels and two-column reading order; not proof of a legal complete character build']}]
 
+# Keep the visible numbers while cropping away all three hit-point labels.
+source_case=next(case for case in manifest['cases'] if case['id']=='unknown-hp')
+source_asset=next(asset for asset in source_case['assets'] if asset['kind']=='png')
+crop_bounds=(450,318,1000,700)
+crop_path=OUT/'cropped-hp-1.png'
+with Image.open(OUT/source_asset['file']) as source:
+ source.crop(crop_bounds).save(crop_path)
+manifest['extraCases'].append({
+ 'id':'cropped-hp',
+ 'sourceReview':'labels-outside-frame',
+ 'expected':{'hp':{'max':None,'current':None,'temp':None}},
+ 'unassignedTokens':['27','0'],
+ 'regions':[],
+ 'assets':[info(crop_path,'png',width=550,height=382,page=1,derivedFromSha256=source_asset['sha256'],
+                cropSourceBox=[450,318,550,382])],
+})
 im=Image.open(OUT/'single-class-1.png');low=im.resize((62,88),Image.Resampling.BILINEAR).resize((W,H),Image.Resampling.NEAREST).filter(ImageFilter.GaussianBlur(2));path=OUT/'insufficient-quality.jpg';low.save(path,quality=20)
 manifest['qualityCase']={'id':'insufficient-quality','asset':info(path,'jpeg-degraded',width=W,height=H),'expectedAction':'request-better-source-or-manual-entry','expectedValues':None,'mustNot':'report confident values from semantic fixture without reading the actual asset'}
 manifest['coverageLimits']=['Original sparse layouts, not representative of all commercial/official sheets','No real camera photo, handwriting corpus, encryption, corruption or decompression-bomb fixture','No OCR engine has run; expected ambiguity is a UX review requirement','Formats and thresholds await backend/game-designer agreement']
-(OUT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+(OUT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('Generated',sum(len(c['assets']) for c in manifest['cases']+manifest['extraCases'])+1,'assets; semantic benchmark still unapproved')

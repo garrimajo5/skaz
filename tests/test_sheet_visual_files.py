@@ -34,6 +34,20 @@ class VisualFiles(unittest.TestCase):
      self.assertLess(expected.getextrema()[0],64,'region contains printed ink')
      residual=ImageChops.difference(expected,upright.crop(box).convert('L'))
      self.assertLess(ImageStat.Stat(residual).mean[0],3.0,'canonical raster ROI within JPEG tolerance')
+ def test_partial_crop_matches_source_pixels_without_attributing_digits(self):
+  original=next(c for c in M['cases'] if c['id']=='unknown-hp')
+  crop=next(c for c in M['extraCases'] if c['id']=='cropped-hp')
+  asset=crop['assets'][0]
+  source=next(a for a in original['assets'] if a['sha256']==asset['derivedFromSha256'])
+  x,y,w,h=asset['cropSourceBox']
+  with Image.open(ROOT/source['file']) as complete, Image.open(ROOT/asset['file']) as partial:
+   self.assertEqual(ImageChops.difference(complete.crop((x,y,x+w,y+h)),partial).getbbox(),None)
+   self.assertFalse(crop['regions'],'source crop contains no attributable field region')
+   for field,has_ink in [('hp.max',True),('hp.current',False),('hp.temp',True)]:
+    with self.subTest(field=field):
+     left,top,width,height=next(r['box'] for r in original['regions'] if r['field']==field)
+     visible=partial.crop((left-x,top-y,min(left+width,x+w)-x,top+height-y)).convert('L')
+     self.assertEqual(visible.getextrema()[0]<64,has_ink)
  def test_pdf_pages_are_a4_and_not_encrypted_or_interactive(self):
   for a in ASSETS:
    if a['file'].endswith('.pdf'):
