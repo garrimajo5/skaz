@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "status": "publisher-errata-heading-and-printing-locators",
+  "inputSha256": {
+    "catalog/xge-eepc-spell-locators-2014.json": "5e154d05ba627546739b6b2a2c2fe6e29b691bf9f5a7c6273b02b62a3b906f17"
+  },
+  "publisherSource": {
+    "url": "https://media.wizards.com/2020/dnd/downloads/XGtE-Errata.pdf",
+    "sha256": "7f7a8bcef28bed0c7ba1ccb04fb8068ff0b5a2c38f87aeb808793424af421923",
+    "version": "1.0",
+    "publicationYear": 2020,
+    "appliesFromPrinting": 4,
+    "pdfPage": 1
+  },
+  "targetPublicationSourceId": "109",
+  "records": [
+    {
+      "observationId": "dndsu:spells:468",
+      "name": "Healing Spirit",
+      "xgePrintedPage": 157,
+      "digitalLocator": "https://www.dndbeyond.com/spells/14873-healing-spirit",
+      "correctionScope": "healing-use-limit"
+    },
+    {
+      "observationId": "dndsu:spells:490",
+      "name": "Holy Weapon",
+      "xgePrintedPage": 157,
+      "digitalLocator": "https://www.dndbeyond.com/spells/14874-holy-weapon",
+      "correctionScope": "dismissal-origin"
+    },
+    {
+      "observationId": "dndsu:spells:475",
+      "name": "Life Transference",
+      "xgePrintedPage": 160,
+      "digitalLocator": "https://www.dndbeyond.com/spells/14880-life-transference",
+      "correctionScope": "unreducible-self-damage"
+    },
+    {
+      "observationId": "dndsu:spells:469",
+      "name": "Mind Spike",
+      "xgePrintedPage": 162,
+      "digitalLocator": "https://www.dndbeyond.com/spells/14482-mind-spike",
+      "correctionScope": "upcast-die-size"
+    }
+  ],
+  "printedFullTextCompared": false,
+  "runtimeChanged": false,
+  "textReusePermission": "not-established",
+  "approvedDenominator": null
+}

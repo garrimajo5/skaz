@@ -12,4 +12,4 @@ python -m unittest discover -s tests -p test_xge_eepc_spell_locators.py
 node --test tests/xge-eepc-spell-locators.test.mjs
 ```
 
-Версии печатных текстов, права и общий знаменатель остаются открытыми.
+[Отдельная сверка эрраты XGE](xge-spell-errata-2014.md) добавляет четыре печатных указателя для поправок начиная с четвёртого тиража. Версии полных печатных текстов, права и общий знаменатель остаются открытыми.
