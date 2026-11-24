@@ -165,6 +165,22 @@ body[data-workspace-shell="shared"] .shell main {
 }
 .play-layout .play-side { display: grid; gap: 8px; margin-top: 12px; overflow: visible; }
 .play-layout .play-side > .panel { max-height: none; margin: 0; min-height: 0; }
+.play-consumables { container: consumables / inline-size; }
+.play-balance-short { display: none; }
+@container consumables (max-width: 310px) {
+  .play-layout .play-consumables .play-item > .play-row { padding-block: 1px; }
+  .play-layout .play-consumables .play-item > .play-row strong { line-height: 16px; }
+  .play-layout .play-item-balance { line-height: 14px; }
+  .play-balance-short { display: inline; }
+  .play-balance-full {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
 .play-layout .play-side .play-empty { height: auto; max-height: none; }
 .play-layout .play-side .play-empty > button { white-space: normal; max-height: none; }
 .play-character-checks { margin-top: 14px; }
