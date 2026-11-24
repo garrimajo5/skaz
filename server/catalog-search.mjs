@@ -7,12 +7,26 @@ function stem(word){
  const ending=word.match(/(иями|ями|ами|ого|ему|ому|ыми|ими|ая|яя|ое|ее|ые|ие|ый|ий|ой|ую|юю|ов|ев|ам|ям|ах|ях|ом|ем|ы|и|а|я|у|ю|е|ь)$/)?.[0];
  return ending&&word.length-ending.length>=3?word.slice(0,-ending.length):word;
 }
-export function searchRank(entry,query,includeText=false){
- const q=normalizeSearch(query),names=[entry.name.ru,entry.name.en].map(normalizeSearch);if(!q)return 0;
- if(names.includes(q))return 0;if(names.some(n=>n.startsWith(q)))return 1;
- const tokens=q.match(/[\p{L}\p{N}]+/gu)||[],literal=/[^\p{L}\p{N}\s-]/u.test(q);
- const matches=text=>literal?text.includes(q):tokens.length>0&&tokens.every(t=>(text.match(/[\p{L}\p{N}]+/gu)||[]).some(w=>stem(w).startsWith(stem(t))));
- if(matches(names.join(' ')))return 2;
- if(names.some(n=>n.includes(q)))return 3;
- return includeText&&matches(normalizeSearch(entry.text||''))?4:Infinity;
+const words = text => text.match(/[\p{L}\p{N}]+/gu) || [];
+
+export function createSearchRank(query, includeText = false) {
+ const q = normalizeSearch(query);
+ if (!q) return () => 0;
+ const tokens = words(q).map(stem);
+ const literal = /[^\p{L}\p{N}\s-]/u.test(q);
+ const matches = text => {
+  if (literal) return text.includes(q);
+  if (!tokens.length) return false;
+  const stems = words(text).map(stem);
+  return tokens.every(token => stems.some(word => word.startsWith(token)));
+ };
+
+ return entry => {
+  const names = [entry.name.ru, entry.name.en].map(normalizeSearch);
+  if (names.includes(q)) return 0;
+  if (names.some(name => name.startsWith(q))) return 1;
+  if (matches(names.join(' '))) return 2;
+  if (names.some(name => name.includes(q))) return 3;
+  return includeText && matches(normalizeSearch(entry.text || '')) ? 4 : Infinity;
+ };
 }
